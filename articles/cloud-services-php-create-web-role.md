@@ -3,9 +3,9 @@
 	description="Um guia para a criação de funções da Web do PHP e de trabalho em um serviço de nuvem do Azure e para a configuração do tempo de execução do PHP."
 	services=""
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Como criar funções Web e de trabalho do PHP
 
@@ -52,7 +52,7 @@ Para uma função de trabalho, use este comando:
 
 	PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
-> [AZURE.NOTE]O parâmetro `roleName` é opcional. Se for omitido, o nome da função será gerado automaticamente. A primeira função web criada será `WebRole1`, a segunda será `WebRole2` e assim por diante. A primeira função de trabalho criada será `WorkerRole1`, a segunda será `WorkerRole2` e assim por diante.
+> [AZURE.NOTE] O parâmetro `roleName` é opcional. Se for omitido, o nome da função será gerado automaticamente. A primeira função web criada será `WebRole1`, a segunda será `WebRole2` e assim por diante. A primeira função de trabalho criada será `WorkerRole1`, a segunda será `WorkerRole2` e assim por diante.
 
 ## Especificar a versão do PHP interno
 
@@ -76,7 +76,7 @@ Você pode definir a versão de tempo de execução do PHP para qualquer uma das
 
 	PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
-> [AZURE.NOTE]As versões de PHP disponíveis podem mudar no futuro.
+> [AZURE.NOTE] As versões de PHP disponíveis podem mudar no futuro.
 
 ## Personalizar o tempo de execução do PHP interno
 
@@ -91,7 +91,7 @@ Para personalizar o tempo de execução do PHP interno, siga estas etapas:
 		display_errors=On
 		extension=php_mongo.dll
 
-> [AZURE.NOTE]Todas as configurações que você não definir explicitamente no arquivo `php.ini` que você fornecer serão definidas automaticamente para seus valores padrão. No entanto, lembre-se de que você pode adicionar um arquivo `php.ini` completo.
+> [AZURE.NOTE] Todas as configurações que você não definir explicitamente no arquivo `php.ini` que você fornecer serão definidas automaticamente para seus valores padrão. No entanto, lembre-se de que você pode adicionar um arquivo `php.ini` completo.
 
 ## Usar seu próprio tempo de execução PHP
 Em alguns casos, em vez de selecionar um tempo de execução do PHP interno e configurá-lo conforme descrito acima, você pode desejar fornecer seu próprio tempo de execução do PHP. Por exemplo, você pode usar o mesmo tempo de execução do PHP em uma função Web ou de trabalho que você usa no seu ambiente de desenvolvimento. Isso torna mais fácil garantir que o aplicativo não mudará o comportamento no ambiente de produção.
@@ -128,7 +128,7 @@ Para configurar uma função web para usar um tempo de execução do PHP forneci
 
 6. Publique o aplicativo conforme descrito na seção abaixo, [Publicar seu aplicativo](#how-to-publish-your-application).
 
-> [AZURE.NOTE]O script `download.ps1` (na pasta `bin` do diretório raiz da função web) pode ser excluído após a realização das etapas descritas acima para usar seu próprio tempo de execução do PHP.
+> [AZURE.NOTE] O script `download.ps1` (na pasta `bin` do diretório raiz da função web) pode ser excluído após a realização das etapas descritas acima para usar seu próprio tempo de execução do PHP.
 
 ### Configurar uma função de trabalho para usar o seu próprio tempo de execução do PHP
 
@@ -211,4 +211,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 [sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

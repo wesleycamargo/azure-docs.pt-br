@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Criar uma cópia de um banco de dados SQL do Azure usando o PowerShell | Microsoft Azure" 
+    pageTitle="Copiar um banco de dados SQL do Azure usando o PowerShell | Microsoft Azure" 
     description="Criar cópia de um Banco de Dados SQL do Azure usando o PowerShell" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,27 +10,27 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/20/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Criar uma cópia de um Banco de Dados SQL do Azure usando o PowerShell
+# Copiar um banco de dados SQL do Azure usando o PowerShell
 
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Portal do Azure](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 
 
 As etapas a seguir mostram como copiar um banco de dados SQL com o PowerShell. A operação de cópia do banco de dados copia um banco de dados SQL para um novo banco de dados usando o cmdlet [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx). A cópia é um backup de instantâneo do banco de dados que você cria no mesmo servidor ou em um servidor diferente.
 
-> [AZURE.NOTE]O Banco de Dados SQL do Azure cria e mantém backups automaticamente de cada banco de dados de usuário que você pode restaurar. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
+> [AZURE.NOTE] O Banco de Dados SQL do Azure cria e mantém backups automaticamente de cada banco de dados de usuário que você pode restaurar. Para obter detalhes, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
 Quando o processo de cópia for concluído, o novo banco de dados será um banco de dados totalmente funcional independente do banco de dados de origem. O novo banco de dados é transacionalmente consistente com o banco de dados de origem no momento da conclusão da cópia. O desempenho e a camada de nível de serviço (faixa de preço) da cópia do banco de dados são iguais aos do banco de dados de origem. Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Os logons, os usuários e as permissões podem ser gerenciados independentemente.
 
@@ -42,7 +42,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
 - Um banco de dados SQL Azure. Se você não tiver um banco de dados SQL, crie um seguindo as etapas neste artigo: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
-- PowerShell do Azure. Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](powershell-install-configure.md).
+- PowerShell do Azure. Você pode baixar e instalar o módulo PowerShell no Azure executando o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 
 
@@ -146,4 +146,4 @@ Depois de executar **Start-AzureSqlDatabaseCopy**, você poderá verificar o sta
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

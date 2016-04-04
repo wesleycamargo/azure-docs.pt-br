@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/21/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Azure Active Directory B2C: fornecer inscrição e entrada para consumidores com contas do Facebook
@@ -54,20 +54,18 @@ Para usar o Facebook como provedor de identidade no Azure AD (Azure Active Direc
 
     ![Facebook - URI de Redirecionamento de OAuth](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
 
-10. Para tornar seu aplicativo do Facebook utilizável pelo Azure AD B2C, você precisa torná-lo público. Você pode fazer isso clicando em **Status e Análise** no painel de navegação esquerdo e enviando o aplicativo para análise. (Clique no botão **Iniciar um Envio**.) Depois do seu aplicativo ser aprovado pelo Facebook, você pode torná-lo público mudando a opção na parte superior da página para **SIM** e clicando em **Confirmar**.
-
-    ![Facebook - Envio do aplicativo](./media/active-directory-b2c-setup-fb-app/fb-app-submission.png)
+10. Para tornar seu aplicativo do Facebook utilizável pelo Azure AD B2C, você precisa torná-lo público. É possível fazer isso clicando em **Análise de Aplicativos** na navegação à esquerda, ativando a opção na parte superior da página para **SIM** e clicando em **Confirmar**.
 
     ![Facebook - Público do aplicativo](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
 ## Configurar o Facebook como um provedor de identidade no seu locatário
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no Portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
 2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
 3. Clique em **+Adicionar**, na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira “FB”.
 5. Clique em **Tipo de provedor de identidade**, selecione **Facebook** e clique em **OK**.
-6. Clique em **Configurar este provedor de identidade** e insira a ID e o segredo do aplicativo (do aplicativo do Facebook que você criou anteriormente) nos campos **ID do Cliente** e **Segredo do cliente**, respectivamente.
+6. Clique em **Configurar este provedor de identidade** e insira a ID e o segredo do aplicativo (do aplicativo do Facebook criado anteriormente) nos campos **ID do Cliente** e **Segredo do cliente**, respectivamente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do Facebook.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

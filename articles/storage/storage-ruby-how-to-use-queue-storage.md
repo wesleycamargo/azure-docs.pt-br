@@ -3,9 +3,9 @@
 	description="Saiba como usar o serviço Fila do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. Exemplos gravados no Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="storage" 
@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="02/23/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # Como usar o Armazenamento de fila do Ruby
@@ -31,7 +31,7 @@ Este guia mostra como executar cenários comuns usando o serviço de Armazenamen
 
 ## Criar um aplicativo Ruby
 
-Crie um aplicativo Ruby. Para ver as instruções, consulte [Aplicativo Web Ruby on Rails Web em uma VM do Azure](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Crie um aplicativo Ruby. Para obter instruções, veja [Aplicativo Web Ruby on Rails em uma VM do Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configurar seu aplicativo para acessar o armazenamento
 
@@ -162,4 +162,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 Para fazer uma comparação entre o Serviço Fila do Azure discutido neste artigo e as ilas do Barramento de Serviço do Azure discutidas no artigo [Como usar o Barramento de Serviço](/develop/ruby/how-to-guides/service-bus-queues/), consulte [Filas do Azure e Filas do Barramento de Serviço do Azure - semelhanças e diferenças](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

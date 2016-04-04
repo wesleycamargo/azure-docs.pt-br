@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/21/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,18 +64,18 @@ Para configurar a integração do Degreed ao Azure AD, você precisa adicionar o
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Degreed**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_01.png)<br>
-7. No painel de resultados, escolha **Degreed** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+7. No painel de resultados, escolha **Degreed** e clique em **Concluir** para adicionar o aplicativo.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Degreed, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Degreed é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Degreed.<br> Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no Degreed.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Degreed é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Degreed.<br> Essa relação de vínculo é estabelecida pela atribuição do valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Degreed.
 
 Para configurar e testar o logon único do Azure AD com o Degreed, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criação de um usuário de teste do Degreed](#creating-a-degreed-test-user)** - para ter um equivalente de Brenda Fernandes no Degreed que esteja vinculado à representação dela no Azure AD.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criando um usuário de teste do Degreed](#creating-a-degreed-test-user)** - para ter um equivalente de Brenda Fernandes no Degreed que esteja vinculado à representação dela no Azure AD.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
@@ -87,9 +87,9 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 **Para configurar o logon único do Azure AD com o Degreed, realize as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração do aplicativo **Degreed**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No portal clássico do Azure, na página de integração de aplicativos do **Degreed**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.<br><br> ![Configurar o logon único][6] <br>
 
-2. Na página **Como você deseja que os usuários façam logon no Degreed**, escolha **Logon Único do Azure AD** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_03.png) <br>
+2. Na página **Como você deseja que os usuários façam logon no Degreed**, escolha **Logon Único do Azure AD** e clique em **Avançar**.<br><br> ![Configurar o logon único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_03.png) <br>
 
 3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png) <br>
 
@@ -99,7 +99,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     b. Clique em **Próximo**.
 
 
-4. Na página **Configurar logon único no Degreed**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_05.png)<br>
+4. Na página **Configurar logon único no Degreed**, realize as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_05.png) <br>
 
     a. Clique em **Baixar metadados** e salve o arquivo no computador.
 
@@ -133,7 +133,7 @@ O objetivo desta seção é criar um usuário de teste no Portal clássico do Az
 
     a. Em **Tipo de Usuário**, selecione **Novo usuário na organização**.
 
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+    b. Na caixa de texto **Nome do Usuário**, digite **BrendaFernandes**.
 
     c. Clique em **Próximo**.
 
@@ -170,13 +170,13 @@ Não há itens de ação para você nesta seção. Um novo usuário será criado
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Degreed. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Degreed.<br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao Degreed, execute as seguintes etapas:**
 
 1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 
-2. Na lista de aplicativos, escolha **Degreed**. <br><br>![Configurar o logon único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_50.png) <br>
+2. Na lista de aplicativos, selecione **Degreed**.<br><br>![Configurar o logon único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_50.png) <br>
 
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 
@@ -188,7 +188,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar a sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> Quando você clica no bloco Degreed no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo Degreed.
+O objetivo desta seção é testar sua configuração de logon único do AD do Azure usando o Painel de Acesso.<br> Quando você clica no bloco Degreed no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo Degreed.
 
 
 ## Recursos adicionais
@@ -216,4 +216,4 @@ O objetivo desta seção é testar a sua configuração de logon único do Azure
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

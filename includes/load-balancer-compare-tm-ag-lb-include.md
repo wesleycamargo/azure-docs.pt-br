@@ -1,33 +1,33 @@
-## Load Balancer differences
+## Diferenças do balanceador de carga
 
-There are different options to distribute network traffic using Microsoft Azure.  These options work differently from each other, having a different feature set and supports different scenarios.  They can each be used in isolation, or combining them.
+Há diferentes opções para distribuir o tráfego de rede usando o Microsoft Azure. Essas opções funcionam de forma diferente uma da outra, com conjuntos diferentes de recursos e permitindo cenários diferentes. Cada uma pode ser usada isoladamente ou em combinação.
 
-- Azure Load Balancer works at the network layer (level 4 in the OSI network reference stack).  It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- O Balanceador de Carga do Azure funciona na camada de rede (nível 4 na pilha de referência de rede OSI). Ele fornece a distribuição do tráfego no nível de rede entre instâncias de um aplicativo em execução no mesmo data center do Azure.
 
-- Application Gateway works at the application layer (level 7 in the OSI network reference stack).  It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+- O Application Gateway funciona na camada de aplicativo (nível 7 na pilha de referência de rede OSI). Ele atua como um serviço de proxy inverso, encerrando a conexão do cliente e encaminhando solicitações aos pontos de extremidade de back-end.
 
-- 	Traffic Manager works at the DNS level.  It uses DNS responses to direct end-user traffic to globally-distributed endpoints.  Clients then connect to those endpoints directly.
-The following table summarizes the features offered by each service:
+- 	O Gerenciador de Tráfego funciona no nível de DNS. Ele usa respostas de DNS para direcionar o tráfego do usuário final para pontos de extremidade globalmente distribuídos. Assim, os clientes se conectam a esses pontos de extremidade diretamente. A tabela a seguir resume os recursos oferecidos por cada serviço:
 
-|Azure Load Balancer |	Application Gateway | Traffic Manager |
+|Balanceador de carga do Azure |	Application Gateway | Gerenciador de Tráfego |
 |---|---|---|
-|Technology| Network level (level 4) | Application level (level 7) |	DNS level |
-| Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP/S endpoint is required for endpoint monitoring) |
-| Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps and external endpoints |
-| Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
-Endpoint Monitoring | supported via probes | supported via probes | supported via HTTP/HTTPS GET | 
-<BR>
-Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The table below helps understanding the difference between the two load balancers:
+|Tecnologia| Nível de rede (nível 4) | Nível de aplicativo (nível 7) |	Nível de DNS |
+| Protocolos de aplicativo com suporte |	Qualquer | HTTP e HTTPS | 	Qualquer um (um ponto de extremidade HTTP/S é exigido para monitoramento do ponto de extremidade) |
+| Pontos de extremidade | VMs do Azure e instâncias de função dos Serviços de Nuvem | Qualquer endereço IP interno do Azure ou endereço IP público de Internet | VMs do Azure, Serviços de Nuvem, Aplicativos Web do Azure e pontos de extremidade externos |
+| Suporte à rede virtual | Pode ser usado para aplicativos voltados para a Internet e internos (rede virtual) | Pode ser usado para aplicativos voltados para a Internet e internos (rede virtual) |	Suporte apenas para aplicativos voltados para a Internet |
+Monitoramento do ponto de extremidade | Tem suporte por meio de investigações | Tem suporte por meio de investigações | Tem suporte por meio de HTTP/HTTPS GET | 
+<BR> O Balanceador de Carga e o Application Gateway do Azure direcionam o tráfego de rede para pontos de extremidade, mas eles têm diferentes cenários de uso para tratamento do tráfego. A tabela abaixo ajuda a entender a diferença entre os dois balanceadores de carga:
 
 
-| Type | Azure Load Balancer | Application Gateway |
+| Tipo | Balanceador de carga do Azure | Application Gateway |
 |---|---|---|
-| Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | Supported | Not supported | 
-| Load balancing mode | 5 tuple(source IP, source port, destination IP,destination port, protocol type) | CookieBasedAffinity = false,rules = basic (Round-Robin) | 
-| Load balancing mode (source IP /sticky sessions) |  2 tuple (source IP and destination IP), 3 tuple (source IP, destination IP and port). Can scale up or down based on the number of virtual machines | CookieBasedAffinity = true,rules = basic (Roud-Robin) for new connections. |
-| health probes | Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user defined probes | 
-| SSL offloading | not supported | supported | 
+| Protocolos | UDP/TCP | HTTP/HTTPS |
+| Reserva de IP | Suportado | Sem suporte | 
+| Modo de balanceamento de carga | 5 tuplas (IP de origem, porta de origem, IP de destino, porta de destino, tipo de protocolo) | CookieBasedAffinity = false,rules = basic (Round-Robin) | 
+| Modo de balanceamento de carga (IP de origem/sessões complexas) | 2 tuplas (IP de origem e IP de destino), 3 tuplas (IP de origem, IP de destino e porta). Pode ser escalonado vertical ou horizontalmente com base no número de máquinas virtuais | CookieBasedAffinity = true,rules = basic (Roud-Robin) para novas conexões. |
+| investigações de integridade | Padrão: intervalo de investigação - 15 segundos. Retirada da rotação: 2 falhas contínuas. Oferece suporte a investigações definidas pelo usuário | Intervalo de investigação ociosa de 30 segundos. Retirado após 5 falhas consecutivas do tráfego ativo ou uma única falha de investigação no modo ocioso. Oferece suporte a investigações definidas pelo usuário | 
+| Descarregamento de SSL | sem suporte | com suporte | 
 
 
   
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Introdução à criação de um balanceador de carga para a Internet (clássico) no Portal do Azure
@@ -60,10 +60,10 @@ Para criar um modelo de implantação (clássico) de balanceador de carga para a
  
 ## Próximas etapas
 
-[Introdução à configuração de um balanceador de carga interno](load-balancer-internal-getstarted.md)
+[Introdução à configuração de um balanceador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

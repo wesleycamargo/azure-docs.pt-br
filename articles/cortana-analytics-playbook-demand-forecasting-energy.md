@@ -3,9 +3,9 @@
 	description="Um Modelo de Solução com o Microsoft Cortana Analytics que ajuda a prever a demanda para uma concessionária de energia elétrica."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="ireiter"
-	manager="ireiter"
-	editor="cgronlun"/>
+	authors="ilanr9"
+	manager="ilanr9"
+	editor="yijichen"/>
 
 <tags
 	ms.service="cortana-analytics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="ireiter;yijichen;garye"/>
+	ms.author="ilanr9;yijichen;garye"/>
 
 # Manual do modelo de solução do Cortana Analytics para a previsão de demanda de energia  
 
@@ -384,4 +384,4 @@ O diagrama a seguir ilustra uma arquitetura típica do Cortana Analytics que imp
 
 Para saber mais sobre cada um dos componentes e sobre a arquitetura inteira, veja o Modelo de Solução de Energia.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

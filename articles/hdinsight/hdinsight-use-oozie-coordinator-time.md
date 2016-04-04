@@ -645,7 +645,7 @@ Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabal
 
 **Para verificar o log de erros do trabalho**
 
-Para solucionar problemas de um fluxo de trabalho, o arquivo de log Oozie pode ser encontrado em C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log do headnode do cluster. Para obter informações sobre RDP, confira [Administrando clusters HDInsight usando o portal de visualização do Azure][hdinsight-admin-portal].
+Para solucionar problemas de um fluxo de trabalho, o arquivo de log Oozie pode ser encontrado em C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log do headnode do cluster. Para obter informações sobre o RDP, veja [Administrando clusters HDInsight usando o portal do Azure][hdinsight-admin-portal].
 
 **Para executar o tutorial novamente**
 
@@ -694,7 +694,6 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 - [Use o Sqoop com o HDInsight][hdinsight-use-sqoop]
 - [Usar o Hive com o HDInsight][hdinsight-use-hive]
 - [Usar o Pig com o HDInsight][hdinsight-use-pig]
-- [Desenvolver trabalhos de streaming do Hadoop em C# para o HDInsight][hdinsight-develop-streaming-jobs]
 - [Desenvolver programas MapReduce em Java para HDInsight][hdinsight-develop-java-mapreduce]
 
 
@@ -716,7 +715,6 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
@@ -744,4 +742,4 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

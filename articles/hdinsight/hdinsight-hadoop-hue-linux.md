@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/29/2016" 
 	ms.author="nitinme"/>
 
 # Instalar e usar o Hue em clusters de Hadoop do HDInsight
@@ -34,9 +34,11 @@ O Hue é um conjunto de aplicativos da Web usado para interagir com um cluster d
 
 ## Instalar o Hue usando Ações de Script
 
-A ação de script [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh) é usada para instalar o Hue em um cluster HDInsight. Esta seção fornece instruções sobre como usar o script ao provisionar o cluster usando o Portal Clássico do Azure.
+A ação de script a seguir pode ser usada para instalar o Hue em um cluster HDInsight baseado em Linux.https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+    
+Esta seção fornece instruções sobre como usar o script ao provisionar o cluster usando o Portal do Azure.
 
-> [AZURE.NOTE] Você também pode usar o Azure PowerShell ou o SDK do .NET do HDInsight para criar um cluster usando esse script. Para obter mais informações sobre como usar esses métodos, consulte [Personalizar clusters HDInsight com Ações de Script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Modelos do Azure PowerShell, do SDK do .NET do HDInsight ou do Azure Resource Manager também podem ser usados para aplicar ações de script. Também é possível aplicar ações de script a clusters que já estão em execução. Para obter mais informações, veja [Personalizar clusters HDInsight com a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Inicie o provisionamento de um cluster usando as etapas em [Provisionar clusters HDInsight no Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), mas não conclua o provisionamento.
 
@@ -122,8 +124,6 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
 ## Próximas etapas
 
-- [Instalar e usar Spark em clusters HDInsight](hdinsight-hadoop-spark-install-linux.md) para obter instruções sobre como usar o cluster de personalização para instalar e usar o Spark em clusters Hadoop do HDInsight. O Spark é uma estrutura de processamento paralelo de código-fonte aberto que oferece suporte ao processamento de memória para melhorar o desempenho dos aplicativos analíticos de big data.
-
 - [Instalar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser utilizado com o HDInsight do Azure.
 
 - [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações de pesquisa poderosas nos dados armazenados.
@@ -133,6 +133,5 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

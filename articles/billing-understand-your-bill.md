@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/22/2016"
    ms.author="erihur"/>
 
 
@@ -92,8 +92,7 @@ Oferta de compromisso | Gastar com dedução do seu compromisso pré-pago | [Arq
 
 ## Cabeçalho - Informações do cliente
 
-A seção de informações do cliente identifica informações pertinentes no que diz respeito ao seu uso e perfil.
-    ![cabeçalho](./media/billing-understand-your-bill/Header.png)
+A seção de informações do cliente identifica informações pertinentes no que diz respeito ao seu uso e perfil. ![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 ### Nº da Fatura
 Um identificador de fatura único para fins de acompanhamento
@@ -252,6 +251,8 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 ## Mais Recursos
 Navegue até a seção **Gerenciar contas, assinaturas e funções administrativas**, em [Gerenciar seus serviços](https://msdn.microsoft.com/library/azure/dn578292.aspx) para obter alguns links muito úteis:
 
+- [Perguntas Frequentes sobre Assinatura e Cobrança do Azure](billing-subscription-faq.md)
+
 - [Gerenciar seu método de pagamento](https://msdn.microsoft.com/library/azure/dn736054.aspx)
 
 - [Editar informações de pagamento para um cartão de crédito existente](https://msdn.microsoft.com/library/azure/dn736053.aspx)
@@ -266,4 +267,4 @@ Navegue até a seção **Gerenciar contas, assinaturas e funções administrativ
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

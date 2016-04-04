@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Como migrar de grupos de afinidades para uma rede virtual regional (VNet)
@@ -27,27 +27,27 @@ Além disso, recomendamos que você não use grupos de afinidades em geral. Tira
 
 No futuro, ao criar novas VNets, use *Região*. Você verá isso como uma opção no Portal de Gerenciamento. Observe que, no arquivo de configuração de rede, isso aparece como *Local*.
 
->[AZURE.IMPORTANT]Embora ainda seja tecnicamente possível criar uma rede virtual associada a um grupo de afinidades, não há nenhum motivo relevante para fazê-lo. Muitos novos recursos, como grupos de segurança de rede, somente estão disponíveis com o uso de uma VNet regional e não estão disponíveis para redes virtuais associadas a grupos de afinidades.
+>[AZURE.IMPORTANT] Embora ainda seja tecnicamente possível criar uma rede virtual associada a um grupo de afinidades, não há nenhum motivo relevante para fazê-lo. Muitos novos recursos, como grupos de segurança de rede, somente estão disponíveis com o uso de uma VNet regional e não estão disponíveis para redes virtuais associadas a grupos de afinidades.
 
 ### Sobre VNets atualmente associadas a grupos de afinidades
 
 As redes virtuais que estão associadas a grupos de afinidades serão habilitadas para a migração para redes virtuais regionais. Para migrar para uma rede virtual regional, execute estas etapas:
 
-1. Exportar o arquivo de configuração de rede. Você pode usar o PowerShell ou o Portal de Gerenciamento. Para obter instruções sobre como usar o Portal de gerenciamento, confira [Configurar a sua VNet usando um arquivo de configuração de rede](../virtual-networks-using-network-configuration-file/).
+1. Exportar o arquivo de configuração de rede. Você pode usar o PowerShell ou o Portal de Gerenciamento. Para obter instruções sobre como usar o Portal de gerenciamento, confira [Configurar a sua VNet usando um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md).
 
 1. Edite o arquivo de configuração de rede substituindo os valores antigos pelos novos valores.
 
-	> [AZURE.NOTE]O **Local** é a região que você especificou para o grupo de afinidades que está associado a sua VNet. Por exemplo, se a VNet estiver associada a um grupo de afinidades que está localizado no Oeste dos EUA, quando você migrar, a sua localização deve apontar para o oeste dos EUA.
+	> [AZURE.NOTE] O **Local** é a região que você especificou para o grupo de afinidades que está associado a sua VNet. Por exemplo, se a VNet estiver associada a um grupo de afinidades que está localizado no Oeste dos EUA, quando você migrar, a sua localização deve apontar para o oeste dos EUA.
 	
 	Edite as seguintes linhas no arquivo de configuração de rede substituindo os valores pelos seus:
 
-	**Valor antigo:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\>
+	**Valor antigo:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Novo valor:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+	**Novo valor:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
-1. Salve suas alterações e [importe](../virtual-networks-using-network-configuration-file/) a configuração de rede para o Azure.
+1. Salve suas alterações e [importe](virtual-networks-using-network-configuration-file.md) a configuração de rede para o Azure.
 
->[AZURE.INFO]Esta migração NÃO gera tempo de inatividade para seus serviços.
+>[AZURE.INFO] Esta migração NÃO gera tempo de inatividade para seus serviços.
 
 ## Grupos de afinidades e VMs
 
@@ -66,4 +66,4 @@ Máquinas virtuais que estão atualmente em um grupo de afinidades não precisam
 Quando uma máquina virtual é implantada, ela é implantada em uma única unidade de escala. Os grupos de afinidades pode restringir o conjunto de tamanhos de VM disponíveis para uma nova implantação de VM, mas qualquer VM existente já implantada fica restrita ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a VM estiver implantada. Por isso, a remoção de uma máquina virtual do grupo de afinidades não terá consequências.
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

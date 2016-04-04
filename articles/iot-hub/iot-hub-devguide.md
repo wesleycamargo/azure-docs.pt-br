@@ -68,7 +68,7 @@ Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, se
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
 
 Dessa forma, você poderá usar qualquer política de segurança de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 
@@ -288,7 +288,7 @@ As credenciais de segurança, como as chaves simétricas, nunca são enviadas pe
 
 > [AZURE.NOTE] O provedor de recursos do Hub IoT do Azure é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Gerenciador de Recursos do Azure][lnk-azure-resource-manager].
 
-Consulte o artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens] para obter mais informações sobre como criar e usar tokens de segurança.
+Consulte o artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens] para obter mais informações sobre como construir e usar tokens de segurança.
 
 #### Especificações de protocolo
 
@@ -305,7 +305,7 @@ Para SASL PLAIN, o **nome de usuário** pode ser:
 * `{policyName}@sas.root.{iothubName}` no caso de tokens no nível do hub.
 * `{deviceId}` no caso de tokens com escopo do dispositivo.
 
-Em ambos os casos, o campo de senha contém o token conforme descrito no artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens].
+Em ambos os casos, o campo de senha contém o token, conforme descrito no artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens].
 
 Ao usar MQTT, o pacote CONNECT tem a deviceId como a ClientId, {iothubhostname}/{deviceId} no campo Nome de Usuário e um token SAS no campo Senha. {iothubhostname} deve ser o CName completo do Hub IoT (por exemplo, contoso.azure-devices.net).
 
@@ -601,7 +601,7 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
-[lnk-sas-tokens]: iot-hub-sas-tokens
+[lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -634,4 +634,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

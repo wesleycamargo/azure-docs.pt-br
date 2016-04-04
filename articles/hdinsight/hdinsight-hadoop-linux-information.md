@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # Informações sobre o uso do HDInsight no Linux
@@ -45,25 +45,25 @@ Isso retorna um documento JSON que descreve o serviço e, em seguida, o jq extra
 
 	A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
-	> [AZURE.IMPORTANT]Enquanto o Ambari para seu cluster possa ser acessado diretamente pela Internet, algumas funcionalidades se baseiam no acesso de nós pelo nome de domínio interno usado pelo cluster. Como é um nome de domínio interno, e não público, você receberá erros de "servidor não encontrado" ao tentar acessar alguns recursos pela Internet.
+	> [AZURE.IMPORTANT] Enquanto o Ambari para seu cluster possa ser acessado diretamente pela Internet, algumas funcionalidades se baseiam no acesso de nós pelo nome de domínio interno usado pelo cluster. Como é um nome de domínio interno, e não público, você receberá erros de "servidor não encontrado" ao tentar acessar alguns recursos pela Internet.
 	>
 	> Para usar a funcionalidade completa da interface do usuário do Ambari Web, use um túnel SSH para tráfego Web de proxy para nó de cabeçalho do cluster. Consulte [Usar o Túnel SSH para acessar a interface de usuário do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie, entre outras](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
-	> [AZURE.NOTE]Autentique usando o usuário e a senha de administrador do cluster.
+	> [AZURE.NOTE] Autentique usando o usuário e a senha de administrador do cluster.
 	>
 	> A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
 * **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
 
-	> [AZURE.NOTE]Autentique usando o usuário e a senha de administrador do cluster.
+	> [AZURE.NOTE] Autentique usando o usuário e a senha de administrador do cluster.
 	>
 	> A autenticação é texto sem formatação - sempre usar HTTPS para ajudar a garantir que a conexão seja segura.
 
 * **SSH** - &lt;clustername>-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é usada para conectar ao nó do cabeçalho 0, enquanto 23 é usado para a conexão ao nó de cabeçalho 1. Para obter mais informações sobre nós de cabeçalho, consulte [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE]Você só pode acessar os nós de cabeçalho do cluster por meio de SSH de uma máquina cliente. Uma vez conectado, você pode acessar os nós de trabalho usando SSH no nó de cabeçalho.
+	> [AZURE.NOTE] Você só pode acessar os nós de cabeçalho do cluster por meio de SSH de uma máquina cliente. Uma vez conectado, você pode acessar os nós de trabalho usando SSH no nó de cabeçalho.
 
 ## Locais de arquivos
 
@@ -88,9 +88,9 @@ Como é o armazenamento padrão para o HDInsight, você normalmente não precisa
 
 	hadoop fs -ls /example/data
 
-Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com **WASB://**.
+Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com ****WASB://**.
 
-O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;nome do contêiner-name>@&lt;nome da conta>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
+O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
 
 	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
 
@@ -102,7 +102,7 @@ Durante a criação do cluster, você optou por usar uma conta e um contêiner e
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
-    > [AZURE.NOTE]Isso retornará a primeira configuração aplicada ao servidor (`service_config_version=1`) que conterá essas informações. Se você estiver recuperando um valor que foi modificado após a criação do cluster, talvez seja necessário listar as versões de configuração e recuperar a mais recente.
+    > [AZURE.NOTE] Isso retornará a primeira configuração aplicada ao servidor (`service_config_version=1`) que conterá essas informações. Se você estiver recuperando um valor que foi modificado após a criação do cluster, talvez seja necessário listar as versões de configuração e recuperar a mais recente.
 
     Isso retornará um valor semelhante ao seguinte, no qual __CONTÊINER__ é o contêiner padrão e __NOMEDACONTA__ é o nome da conta de Armazenamento do Azure:
 
@@ -114,7 +114,7 @@ Durante a criação do cluster, você optou por usar uma conta e um contêiner e
     
     Isso retornará o nome do grupo de recursos para a conta.
     
-    > [AZURE.NOTE]Se nada for retornado por este comando, talvez você precise alterar a CLI do Azure para o modo do Gerenciador de Recursos do Azure e executar o comando novamente. Para alternar para o modo do Gerenciador de Recursos do Azure, use o seguinte comando.
+    > [AZURE.NOTE] Se nada for retornado por este comando, talvez você precise alterar a CLI do Azure para o modo do Gerenciador de Recursos do Azure e executar o comando novamente. Para alternar para o modo do Gerenciador de Recursos do Azure, use o seguinte comando.
     >
     > `azure config mode arm`
     
@@ -196,7 +196,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 	* __Interface do usuário do Storm__: use as etapas a seguir para rebalancear uma topologia usando a interface do usuário do Storm.
 
-		1. Abra __https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do seu cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
+		1. Abra \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do seu cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
 
 		3. Selecione a topologia que você quer rebalancear e, em seguida, selecione o botão __Rebalancear__. Insira o atraso antes de a operação de rebalanceamento ser executada.
 
@@ -219,7 +219,6 @@ Ações de Script são scripts Bash executados durante o provisionamento do clus
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [R](hdinsight-hadoop-r-scripts-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
-* [Spark](hdinsight-hadoop-spark-install-linux.md)
 
 Para saber mais sobre como desenvolver suas próprias ações de script, consulte [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
@@ -229,7 +228,7 @@ Algumas tecnologias Hadoop são fornecidas em arquivos jar independentes que con
 
 Por exemplo, para usar a versão mais recente do [DataFu](http://datafu.incubator.apache.org/), baixe um jar que contém o projeto e carregue-o no cluster do HDInsight. Siga a documentação do DataFu sobre como usá-lo do Pig ou Hive.
 
-> [AZURE.IMPORTANT]Alguns componentes que são arquivos jar autônomos são fornecidos com o HDInsight, mas não estão no caminho. Se você estiver procurando por um componente específico, você pode usar o acompanhamento para procurá-lo em seu cluster:
+> [AZURE.IMPORTANT] Alguns componentes que são arquivos jar autônomos são fornecidos com o HDInsight, mas não estão no caminho. Se você estiver procurando por um componente específico, você pode usar o acompanhamento para procurá-lo em seu cluster:
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
 >
@@ -237,7 +236,7 @@ Por exemplo, para usar a versão mais recente do [DataFu](http://datafu.incubato
 
 Se o cluster já fornece uma versão de um componente como um arquivo jar independente mas você deseja usar uma versão diferente, você pode carregar uma nova versão do componente no cluster e tentar usá-la em seus trabalhos.
 
-> [AZURE.WARNING]Há suporte total a componentes fornecidos com o cluster HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
+> [AZURE.WARNING] Há suporte total a componentes fornecidos com o cluster HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
 >
 > Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Além disso, os projetos do Apache têm sites do projeto em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
 
@@ -247,6 +246,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

@@ -22,7 +22,7 @@
 
 Certifique-se de que seu aplicativo está sendo bem executado, e saiba rapidamente sobre quaisquer falhas. O [Application Insights][start] vai lhe dizer sobre quaisquer problemas de desempenho e exceções, e o ajudará a localizar e diagnosticar as causas raízes.
 
-O Application Insights pode monitorar serviços e aplicativos Web Java e ASP.NET e serviços WCF. Eles podem ser hospedados no local, em máquinas virtuais ou como sites do Microsoft Azure.
+O Application Insights pode monitorar serviços e aplicativos Web Java e ASP.NET e serviços WCF. Eles podem ser hospedados no local, em máquinas virtuais ou como sites do Microsoft Azure.
 
 No lado do cliente, o Application Insights pode realizar a telemetria de páginas da Web e de uma grande variedade de dispositivos, incluindo iOS, Android e aplicativos da Windows Store.
 
@@ -53,7 +53,7 @@ Clique em um gráfico para selecionar outras medidas que são exibidas, ou adici
 
 ![Clique em um gráfico para escolher métricas](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE]**Desmarque todas as métricas** para ver a seleção completa que está disponível. As métricas se enquadram em grupos; quando qualquer membro de um grupo é selecionado, somente os outros membros do grupo aparecem.
+> [AZURE.NOTE] **Desmarque todas as métricas** para ver a seleção completa que está disponível. As métricas se enquadram em grupos; quando qualquer membro de um grupo é selecionado, somente os outros membros do grupo aparecem.
 
 
 ## <a name="metrics"></a>O que significa tudo isso? Blocos e relatórios de desempenho
@@ -111,6 +111,8 @@ Ao selecionar qualquer métrica, desabilitará as outras que não podem aparecer
 ## Contadores de desempenho do sistema
 
 Algumas das métricas dentre as quais você pode escolher são [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). O Windows fornece uma ampla variedade deles, mas você também pode definir seus próprios contadores de desempenho.
+
+(Para aplicativos hospedados no Azure, [envie o Diagnóstico do Azure para o Application Insights](app-insights-azure-diagnostics.md).)
 
 Este exemplo mostra os contadores de desempenho que estão disponíveis por padrão. [Adicionamos um gráfico separado](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador e nomeamos o gráfico [salvando-o como um favorito](app-insights-metrics-explorer.md#editing-charts-and-grids):
 
@@ -199,4 +201,4 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

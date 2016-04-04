@@ -25,7 +25,7 @@
 
 Cada solicitação feita no serviço de Agendador retorna um cabeçalho de resposta chamado * * x-ms-solicitação-id * *. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação.
 
-Se uma solicitação estiver falhando consistentemente e você tiver verificado que a solicitação foi formulada corretamente, você poderá usar esse valor para relatar o erro à Microsoft. No seu relatório, inclua o valor ofx-ms-request-id, o tempo aproximado que a solicitação foi feita, o identificador da assinatura, serviço de nuvem, coleção de trabalhos e/ou trabalho e o tipo de operação que a solicitação tentou.
+Se uma solicitação estiver falhando consistentemente e você tiver verificado que a solicitação foi formulada corretamente, você poderá usar esse valor para relatar o erro à Microsoft. Em seu relatório, inclua o valor ofx-ms-request-id, o tempo aproximado no qual a solicitação foi feita, o identificador da assinatura, a coleção de trabalhos e/ou o trabalho e o tipo de operação para o qual a solicitação realizou uma tentativa.
 
 ## Códigos de erro e status do Agendador
 
@@ -70,4 +70,4 @@ As operações de API também podem retornar informações de erro adicionais qu
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

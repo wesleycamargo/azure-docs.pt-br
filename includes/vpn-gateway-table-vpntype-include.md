@@ -1,23 +1,25 @@
-### VPN type for the Resource Manager deployment model
+### Tipo de VPN para o modelo de implantação do Gerenciador de Recursos
 
-|      | **Route-based**    | **Policy-based** |
+| | **Baseado em rota** | **Baseado em política** |
 |-----------------------------------|--------------------|------------------|
-| **Site-to-Site**                  | yes                | yes              |
-| **VNet-to-VNet**                  | yes                | no               |
-| **Multi-Site**                    | yes                | no               |
-| **S2S and ExpressRoute coexist**  | not yet available  | no               |
-| **Point-to-Site**                 | yes                | no               |
-| **Classic to Resource Manager**   | yes                | no               |
+| **Site a site** | sim | sim |
+| **Rede Virtual a Rede Virtual** | sim | não |
+| **Multissite** | sim | não |
+| **Coexistência do S2S e da Rota Expressa** | ainda não disponível | não |
+| **Ponto a Site** | sim | não |
+| **Clássico para o Gerenciador de Recursos** | sim | não |
 
 
-### VPN type for the classic deployment model
+### Tipo de VPN para o modelo de implantação clássica
 
 
-|       | **Dynamic**        | **Static**   |
+| | **Dinâmico** | **Estático** |
 |---------------------------------------------|--------------------|--------------|
-| **Site-to-Site**                            | yes                | yes          |
-| **VNet-to-VNet**                            | yes                | no           |
-| **Multi-Site**                              | yes                | no           |
-| **S2S and ExpressRoute coexist**            | yes                | no           |
-| **Point-to-Site**                           | yes                | no           |
-| **Classic to Resource Manager**             | yes                | no           |
+| **Site a site** | sim | sim |
+| **Rede Virtual a Rede Virtual** | sim | não |
+| **Multissite** | sim | não |
+| **Coexistência do S2S e da Rota Expressa** | sim | não |
+| **Ponto a Site** | sim | não |
+| **Clássico para o Gerenciador de Recursos** | sim | não |
+
+<!---HONumber=AcomDC_0323_2016-->

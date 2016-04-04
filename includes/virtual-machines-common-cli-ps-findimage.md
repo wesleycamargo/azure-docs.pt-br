@@ -3,36 +3,36 @@
 
 
 
-## Table of commonly used images
+## Tabela de imagens mais usadas
 
 
-| PublisherName                        | Offer                                 | Sku                         |
+| PublisherName | Oferta | Sku |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic                        | CentOS                                     | 7                                |
-| OpenLogic                        | CentOS                                     | 7.1                              |
-| CoreOS                           | CoreOS                                     | Beta                             |
-| CoreOS                           | CoreOS                                     | Stable                           |
-| MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             |
-| MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             |
-| Microsoft                        | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         |
-| Microsoft                        | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    |
-| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      |
-| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      |
-| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  |
-| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               |
-| MicrosoftWindowsServer           | WindowsServer                              | 2008-R2-SP1 |
-| MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          |
-| MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           |
+| OpenLogic | CentOS | 7 |
+| OpenLogic | CentOS | 7\.1 |
+| CoreOS | CoreOS | Beta |
+| CoreOS | CoreOS | Estável |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
+| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Padrão |
+| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP |
+| Canonical | UbuntuServer | 12\.04.5-LTS |
+| Canônico | UbuntuServer | 14\.04.2-LTS |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
+| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
 
 
-## Azure CLI
+## CLI do Azure
 
-> [AZURE.NOTE] This article describes how to navigate and select virtual machine images, using a recent installation of either the Azure CLI or Azure PowerShell. As a prerequisite, you would need to change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. 
+> [AZURE.NOTE] Este artigo descreve como navegar e selecionar imagens da máquina virtual usando uma instalação recente da CLI do Azure ou do Azure PowerShell. Como pré-requisito, você precisaria alterar para o modo do Gerenciador de Recursos. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`.
 
-The easiest and quickest way to locate an image to use either with `azure vm quick-create` or to create a resource group template file is to call the `azure vm image list` command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer. For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.
+A maneira mais fácil e rápida de localizar uma imagem para usar com `azure vm quick-create` ou para criar um arquivo de modelo de grupo de recursos é chamar o comando `azure vm image list` e informar o local, o nome do editor (não diferencia maiúsculas de minúsculas!) e uma oferta – se você souber a oferta. Por exemplo, a lista a seguir é apenas uma pequena amostra - várias listas são bastante longas - se você souber que "Canonical" é um editor para a oferta "UbuntuServer".
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -49,9 +49,9 @@ The easiest and quickest way to locate an image to use either with `azure vm qui
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306030  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306030
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306240  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306240
 
-The **Urn** column will be the form you pass to `azure vm quick-create`.
+A coluna **Urn** será o formulário que você passa para `azure vm quick-create`.
 
-Often, however, you don't yet know what is available. In this case, you can navigate images by discovering publishers first by using `azure vm image list-publishers` and responding to the location prompt with a data center location you expect to use for your resource group. For example, the following lists all image publishers in the West US location (pass the location argument by lowercasing and removing spaces from the standard locations)
+Muitas vezes, no entanto, você ainda não saiba o que está disponível. Nesse caso, você pode navegar por imagens, descobrindo primeiro os editores usando `azure vm image list-publishers` e respondendo ao prompt de local com um local de data center que você pretende usar para o grupo de recursos. O exemplo a seguir lista todos os editores de imagem no local Oeste dos EUA (passar o argumento de local removendo os espaços dos locais padrão e escrevendo-os em minúsculas)
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -65,7 +65,7 @@ Often, however, you don't yet know what is available. In this case, you can navi
     data:    AlertLogic.Extension                            westus  
 
 
-These lists can be quite long, so the example list above is just a snippet. Let's say that I noticed that Canonical is, indeed, an image publisher in the West US location. You can now find their offers by calling `azure vm image list-offers` and pass the location and the publisher at the prompts, like the following example:
+Essas listas podem ser muito longas, portanto, a lista de exemplo acima é simplesmente um trecho de código. Vamos supor que percebi que Canonical é, na verdade, um editor de imagem no local Oeste dos EUA. Agora você pode encontrar suas ofertas chamando `azure vm image list-offers` e passar o local e o editor em solicitações, como no exemplo a seguir:
 
     azure vm image list-offers
     info:    Executing command vm image list-offers
@@ -77,7 +77,7 @@ These lists can be quite long, so the example list above is just a snippet. Let'
     data:    canonical  UbuntuServer  westus  
     info:    vm image list-offers command OK
 
-Now we know that in the West US region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those, you call `azure vm image list-skus` and respond to the prompt with the location, publisher, and offer that you have discovered.
+Agora sabemos que, na região Oeste dos EUA, Canonical publica a oferta **UbuntuServer** no Azure. Mas quais SKUs? Para saber quais, você chama `azure vm image list-skus` e responde à solicitação com o local, editor e oferta que você descobriu.
 
     azure vm image list-skus
     info:    Executing command vm image list-skus
@@ -106,7 +106,7 @@ Now we know that in the West US region, Canonical publishes the **UbuntuServer**
     data:    canonical  ubuntuserver  15.04-DAILY  westus  
     info:    vm image list-skus command OK
 
-With this information, you can now find exactly the image you want by calling the original call at the top.
+Com essas informações, agora você pode localizar exatamente a imagem que deseja, invocando a chamada original na parte superior.
 
     azure vm image list westus canonical ubuntuserver 14.04.2-LTS
     info:    Executing command vm image list
@@ -118,58 +118,58 @@ With this information, you can now find exactly the image you want by calling th
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+Agora você pode escolher exatamente a imagem que deseja usar. Para criar uma máquina virtual rapidamente usando as informações de URN que você acabou de encontrar, ou para usar um modelo com essas informações de URN, consulte [Usando a CLI do Azure para Mac, Linux e Windows no Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md).
 
-### Video walkthrough
+### Passo a passo em vídeo
 
-This video demonstrates the above steps using the CLI.
+Este vídeo demonstra as etapas acima usando a CLI.
 
 [AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
 
 
 ## PowerShell
 
-With PowerShell, type `Switch-AzureMode AzureResourceManager`. See [Using Azure CLI with Resource Manager](xplat-cli-azure-resource-manager.md) and [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) for more complete update and configuration details.
+Com o PowerShell, digite `Switch-AzureMode AzureResourceManager`. Consulte [Usando a CLI do Azure com gerenciamento de recursos](xplat-cli-azure-resource-manager.md) e [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md) para obter detalhes mais completos de atualização e configuração.
 
-> [AZURE.NOTE] With Azure PowerShell modules above 1.0, the `Switch-AzureMode` cmdlet was removed. With that version and more recent, please replace the commands below with the `Azure` portion replaced with `AzureRm`. If you are using Azure PowerShell modules below 1.0, you will use the below commands but you must first `Switch-AzureMode AzureResourceManager`. 
+> [AZURE.NOTE] Com os módulos do Azure PowerShell posteriores a 1.0, o cmdlet `Switch-AzureMode` foi removido. Com essa versão e mais recentes, substitua os comandos abaixo com a parte `Azure` substituídas pela `AzureRm`. Se você estiver usando módulos do Azure PowerShell abaixo do 1.0, você usará os comandos abaixo, mas você deve primeiro `Switch-AzureMode AzureResourceManager`.
 
 
-When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:
+Ao criar uma nova máquina virtual com o Gerenciador de Recursos do Azure, em alguns casos é necessário especificar uma imagem com a combinação das propriedades de imagem a seguir:
 
-- Publisher
-- Offer
+- Editor
+- Oferta
 - SKU
 
-For example, these values are needed for the **Set-AzureVMSourceImage** PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.
+Por exemplo, esses valores são necessários para o cmdlet **Set-AzureVMSourceImage** do PowerShell ou com um arquivo de modelo de grupo de recursos no qual você deve especificar o tipo de máquina virtual a ser criado.
 
-If you need to determine these values, you can navigate the images to determine these values:
+Se você precisar determinar esses valores, você pode navegar pelas imagens para determinar esses valores:
 
-1. List the image publishers.
-2. For a given publisher, list their offers.
-3. For a given offer, list their SKUs.
+1. Liste os editores de imagem.
+2. Para um determinado editor, liste suas ofertas.
+3. Para uma determinada oferta, liste seus SKUs.
 
-To do this in PowerShell, first switch to the Resource Manager mode of Azure PowerShell.
+Para fazer isso no PowerShell, primeiro alterne para o modo do Gerenciador de Recursos do Azure PowerShell.
 
 	Switch-AzureMode AzureResourceManager
 
-For the first step above, list the publishers with these commands.
+A primeira etapa acima, lista os editores com esses comandos.
 
 	$locName="<Azure location, such as West US>"
 	Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 
-Fill in your chosen publisher name and run these commands.
+Preencha o nome do editor escolhido e execute esses comandos.
 
 	$pubName="<publisher>"
 	Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 
-Fill in your chosen offer name and run these commands.
+Preencha o nome da oferta escolhida e execute esses comandos.
 
 	$offerName="<offer>"
 	Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 
-From the display of the **Get-AzureVMImageSku** command, you have all the information you need to specify the image for a new virtual machine.
+Na exibição do comando **Get-AzureVMImageSku**, você tem todas as informações de que precisa para especificar a imagem para uma nova máquina virtual.
 
-Here is an example.
+Aqui está um exemplo.
 
 	PS C:\> $locName="West US"
 	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
@@ -188,7 +188,7 @@ Here is an example.
 	Canonical
 	...
 
-For the "MicrosoftWindowsServer" publisher:
+Para o editor "MicrosoftWindowsServer":
 
 	PS C:\> $pubName="MicrosoftWindowsServer"
 	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
@@ -197,7 +197,7 @@ For the "MicrosoftWindowsServer" publisher:
 	-----
 	WindowsServer
 
-For the "WindowsServer" offer:
+Para a oferta de "Windows Server":
 
 	PS C:\> $offerName="WindowsServer"
 	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
@@ -209,11 +209,11 @@ For the "WindowsServer" offer:
 	2012-R2-Datacenter
 	Windows-Server-Technical-Preview
 
-From this list, copy the chosen SKU name, and you have all the information for the **Set-AzureVMSourceImage** PowerShell cmdlet or for a resource group template file that requires you to specify the publisher, offer, and SKU for an image.
+Nesta lista, copie o nome da SKU escolhida e você terá todas as informações para o cmdlet **Set-AzureVMSourceImage** do PowerShell ou para um arquivo de modelo de grupo de recursos que exige que você especifique o editor, a oferta e a SKU para uma imagem.
 
-### Video walkthrough
+### Passo a passo em vídeo
 
-This video demonstrates the above steps using PowerShell.
+Este vídeo demonstra as etapas acima usando o PowerShell.
 
 [AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-posh]
 
@@ -226,5 +226,7 @@ This video demonstrates the above steps using PowerShell.
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [gog]: http://google.com/
-[yah]: http://search.yahoo.com/  
+[yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
+
+<!---HONumber=AcomDC_0323_2016-->

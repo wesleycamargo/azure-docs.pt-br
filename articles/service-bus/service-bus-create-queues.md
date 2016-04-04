@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Criar aplicativos que usem as filas do Barramento de Serviço | Microsoft Azure"
-   description="Como gravar um aplicativo simples baseado em filas que usa o Barramento de Serviço."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Criar aplicativos que usem as filas do Barramento de Serviço | Microsoft Azure"
+    description="Como gravar um aplicativo simples baseado em filas que usa o Barramento de Serviço."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Criar aplicativos que usem as filas do Barramento de Serviço
 
 Este tópico descreve as filas do Barramento de Serviço e mostra como gravar um aplicativo simples baseado em filas que usa o Barramento de Serviço.
 
-Considere um cenário do mundo de varejo em que os dados de vendas de terminais de Ponto de Venda (PDV) individuais devem ser roteados para um sistema de gerenciamento de estoque que usa esses dados para determinar quando o estoque deverá ser reposto. Esta solução usa o sistema de mensagens do Barramento de Serviço para a comunicação entre os terminais e o sistema de gerenciamento de estoque, como ilustrado na figura a seguir:
+Considere um cenário do mundo de varejo no qual os dados de vendas de terminais de PDV (Ponto de Venda) individuais devem ser roteados para um sistema de gerenciamento de estoque que usa esses dados para determinar quando o estoque deverá ser reabastecido. Esta solução usa o sistema de mensagens do Barramento de Serviço para a comunicação entre os terminais e o sistema de gerenciamento de estoque, como ilustrado na figura a seguir:
 
 ![Service-Bus-Queues-Img1](./media/service-bus-create-queues/IC657161.gif)
 
@@ -31,7 +31,7 @@ Antes de examinarmos o código que é necessário para configurar este aplicativ
 
 ### Desacoplamento temporal
 
-Com o padrão de mensagens assíncrono, os produtores e consumidores não precisam estar online ao mesmo tempo. A infraestrutura do sistema de mensagens armazena mensagens até que a parte consumidora esteja pronta para recebê-las. Isso permite que os componentes do aplicativo distribuído sejam desconectados, ou voluntariamente, para manutenção, por exemplo, ou devido a uma falha de componente, sem afetar o sistema inteiro. Além disso, o aplicativo de consumo só precisará ficar online durante determinados momentos do dia. Por exemplo, neste cenário de varejo, é possível que o sistema de gerenciamento de estoque só precise ficar online no final do dia útil.
+Com o padrão de mensagens assíncrono, os produtores e consumidores não precisam estar online ao mesmo tempo. A infraestrutura do sistema de mensagens armazena mensagens até que a parte consumidora esteja pronta para recebê-las. Isso significa que os componentes do aplicativo distribuído podem ser desconectados, voluntariamente, para manutenção, por exemplo, ou devido a uma falha de componente, sem afetar o sistema inteiro. Além disso, o aplicativo de consumo só precisará ficar online durante determinados momentos do dia. Por exemplo, neste cenário de varejo, é possível que o sistema de gerenciamento de estoque só precise ficar online no final do dia útil.
 
 ### Nivelamento de carga
 
@@ -55,15 +55,15 @@ A seção a seguir mostra como usar o Barramento de Serviço para criar esse apl
 
 ### Inscrever-se em uma conta e em uma assinatura do Barramento de Serviço
 
-Você precisará de uma conta do Azure para começar a trabalhar com o Barramento de Serviço. Se você ainda não tiver uma assinatura, poderá se inscrever em uma avaliação gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+Você precisará de uma conta do Azure para começar a trabalhar com o Barramento de Serviço. Se você ainda não tiver uma assinatura, poderá se inscrever em uma conta gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Criar um namespace de serviço
 
-Quando você tiver uma assinatura, poderá criar um novo namespace. Será necessário dar um nome exclusivo ao seu novo namespace em todas as contas do Barramento de Serviço. Cada namespace age como um contêiner para um conjunto de entidades do Barramento de Serviço. Para saber mais, confira [Como criar ou modificar um namespace do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+Quando você tiver uma assinatura, poderá criar um novo namespace. Dê um nome exclusivo ao seu novo namespace em todas as contas do Barramento de Serviço. Cada namespace age como um contêiner de escopo para um conjunto de entidades do Barramento de Serviço.
 
 ### Instalar o pacote NuGet
 
-Para usar o namespace de serviço do Barramento de Serviço, um aplicativo deverá referenciar o assembly do Barramento de Serviço, especificamente o Microsoft.ServiceBus.dll. Esse assembly pode ser encontrado como parte do SDK do Microsoft Azure e o download está disponível na [página de download do SDK do Azure](https://azure.microsoft.com/downloads/). Entretanto, o pacote NuGet do Barramento de Serviço é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências do Barramento de Serviço. Para obter detalhes sobre como usar o NuGet e o pacote do Barramento de Serviço, confira [Usando o pacote NuGet do Barramento de Serviço](https://msdn.microsoft.com/library/dn741354.aspx).
+Para usar o namespace do Barramento de Serviço, um aplicativo deverá fazer referência ao assembly do Barramento de Serviço, especificamente, Microsoft.ServiceBus.dll. Esse assembly pode ser encontrado como parte do SDK do Microsoft Azure e o download está disponível na [página de download do SDK do Azure](https://azure.microsoft.com/downloads/). Entretanto, o [pacote NuGet do Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências do Barramento de Serviço.
 
 ### Criar a fila
 
@@ -158,6 +158,6 @@ catch (Exception e)
 
 ## Próximas etapas
 
-Agora que você aprendeu os conceitos básicos sobre filas, confira [Criar aplicativos que usam assinaturas e tópicos do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para continuar essa discussão usando os recursos de publicação/assinatura do sistema de mensagens agenciado do Barramento de Serviço.
+Agora que você aprendeu os conceitos básicos sobre filas, veja [Criar aplicativos que usam tópicos e assinaturas do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para continuar essa discussão usando as funcionalidades de publicação/assinatura dos tópicos e das assinaturas do Barramento de Serviço.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

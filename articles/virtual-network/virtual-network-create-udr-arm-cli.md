@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 #Criar UDR (Rotas Definidas pelo Usuário) na CLI do Azure
@@ -52,9 +52,12 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 		data:    Provisioning state              : Succeeded
 		info:    network route-table create command OK
 
-	Parâmetros: - **-g (ou --resource-group)**. Nome do grupo de recursos em que o NSG será criado. Para nosso cenário, *TestRG*. - **-l (ou --location)**. A região do Azure em que o novo NSG será criado. Para nosso cenário, *westus*. - **-n (ou --name)**. Nome para o novo NGS. Para nosso cenário, *NSG-FrontEnd*.
+	Parâmetros:
+	- **-g (ou --resource-group)**. Nome do grupo de recursos em que o NSG será criado. Para o nosso cenário, *TestRG*.
+	- **-l (ou --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*.
+	- **-n (or --name)**. Nome para o novo NGS. Para o nosso cenário, *NSG-FrontEnd*.
 
-4. Execute o comando **`azure network route-table route create`** para criar uma rota na tabela de rotas criada acima para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para a máquina virtual **FW1** (192.168.0.4).
+4. Execute o comando **`azure network route-table route create`** para criar uma rota na tabela de rotas criada acima para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para a VM **FW1** (192.168.0.4).
 
 		azure network route-table route create -g TestRG -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -y VirtualAppliance -p 192.168.0.4
 
@@ -73,7 +76,11 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 		data:    Address prefix                  : 192.168.2.0/24
 		info:    network route-table route create command OK
 
-	Parâmetros: - **-r (ou --route-table-name)**. Nome da tabela de rotas à qual a rota será adicionada. Para nosso cenário, *UDR-FrontEnd*. - **-a (ou --address-prefix)**. Prefixo de endereço para a sub-rede à qual os pacotes são destinados. Para nosso cenário, *192.168.2.0/24*. - **-y (ou --next-hop-type)**. Tipo de objeto ao qual o tráfego será enviado. Os valores possíveis são *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *Nenhum*. -**-p (ou --next-hop-ip-address**). Endereço IP do próximo salto. Para nosso cenário, *192.168.0.4*.
+	Parâmetros:
+	- **-r (ou --route-table-name)**. Nome da tabela de rotas à qual a rota será adicionada. Para nosso cenário, *UDR-FrontEnd*.
+	- **-a (ou --address-prefix)**. Prefixo de endereço para a sub-rede à qual os pacotes são destinados. Para nosso cenário, *192.168.2.0/24*.
+	- **-y (ou --next-hop-type)**. Tipo de objeto ao qual o tráfego será enviado. Os valores possíveis são *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
+	- **-p (ou --next-hop-ip-address**). Endereço IP do próximo salto. Para o nosso cenário, *192.168.0.4*.
 
 5. Execute o comando **`azure network vnet subnet set`** para associar a tabela de rotas criada acima à sub-rede de **FrontEnd**.
 
@@ -103,7 +110,8 @@ Para criar a tabela de rotas e a rota necessária para a sub-rede de front-end c
 		data:    
 		info:    network vnet subnet set command OK
 
-	Parâmetros: - **-e (ou --vnet-name)**. Nome da VNet em que a sub-rede está localizada. Para nosso cenário, *TestVNet*.
+	Parâmetros:
+	- **-e (ou --vnet-name)**. Nome da VNet na qual a sub-rede está localizada. Para nosso cenário, *TestVNet*.
  
 ## Criar o UDR para a sub-rede de back-end
 Para criar a tabela de rotas e a rota necessária para a sub-rede de back-end com base no cenário acima, siga as etapas abaixo.
@@ -191,4 +199,4 @@ Para habilitar o encaminhamento de IP na NIC usada por **FW1**, siga as etapas a
 
 	- **-f (ou --enable-ip-forwarding)**. *true* ou *false*.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do Conector LDAP genérico
@@ -22,9 +22,9 @@ Este artigo descreve o Conector LDAP genérico. O artigo se aplica aos seguintes
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Deve usar o hotfix 4.1.3461.0 ou posterior [KB2870703](https://support.microsoft.com/kb/2870703).
+    -   É necessário usar o hotfix 4.1.3671.0 ou posterior [KB3092178](https://support.microsoft.com/kb/3092178).
 
-Para MIM2016 e FIM2010R2, o conector está disponível para download no [Centro de Download da Microsoft ](http://go.microsoft.com/fwlink/?LinkId=717495).
+Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
 Ao fazer referência ao IETF RFCs, este documento usa o formato (RFC [Número de RFC]/[seção no documento RFC]), por exemplo, (RFC 4512/4.3). Saiba mais em http://tools.ietf.org/html/rfc4500 (substitua 4500 pelo número RFC correto).
 
@@ -279,4 +279,4 @@ Para diretórios com um log de alteração delta com base na data/hora, é altam
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

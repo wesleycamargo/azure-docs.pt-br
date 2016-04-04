@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management do Azure: Como Realizar uma Análise de Segurança"
+   pageTitle="Como executar uma análise de segurança | Microsoft Azure"
    description="Aprenda a adicionar funções a identidades com privilégios com a extensão Privileged Identity Management do Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management do Azure: como fazer uma revisão de segurança
+# Privileged Identity Management do Azure AD: Como executar uma análise de segurança
 
 
 É muito fácil analisar o acesso privilegiado uma vez que uma [análise de segurança tiver sido iniciada](active-directory-privileged-identity-management-how-to-start-security-review.md).
@@ -60,4 +60,4 @@ Você pode exportar uma revisão para usá-la com o Excel ou com outros programa
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

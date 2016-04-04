@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Perguntas frequentes sobre preços e cobrança do Barramento de Serviço | Microsoft Azure"
-   description="Visão geral da estrutura de preços de Barramento de Serviço."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Perguntas frequentes sobre preços e cobrança do Barramento de Serviço | Microsoft Azure"
+    description="Visão geral da estrutura de preços de Barramento de Serviço."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Barramento de Serviço, preços e cobrança
 
 O Barramento de Serviço é oferecido nas camadas Basic, Standard e [Premium](service-bus-premium-messaging.md). Você pode escolher um nível de serviço para cada namespace do Barramento de Serviço criado por você e essa seleção de camada aplica-se a todas as filas, tópicos/assinaturas, retransmissões e Hubs de eventos criado dentro desse namespace.
 
->[AZURE.NOTE]Para obter informações detalhadas sobre o preço do Barramento de Serviço, consulte [Perguntas Frequentes sobre Preços do Barramento de Serviço](service-bus-pricing-faq.md).
+>[AZURE.NOTE] Para obter informações detalhadas sobre os preços atuais do Barramento de Serviço, veja [Página de preços do Barramento de Serviço do Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Perguntas frequentes sobre os preços do Barramento de Serviço](service-bus-pricing-faq.md).
 
 O Barramento de Serviço usa os dois medidores a seguir para filas e tópicos/assinaturas:
 
@@ -77,7 +77,7 @@ Os seguintes preços entraram em vigor desde o dia 1° de novembro de 2014:
 |100 milhões a 2,5 bilhões de operações/mês|US $0,50 por cada milhão de operações|
 |Mais do que 2,5 bilhões de operações/mês|US $0,20 por cada milhão de operações|
 
->[AZURE.NOTE]A camada Premium está atualmente em fase prévia de apresentação e o preço a seguir reflete 50% de desconto sobre essa fase.
+>[AZURE.NOTE] A camada Premium está atualmente em fase prévia de apresentação e o preço a seguir reflete 50% de desconto sobre essa fase.
 
 |Premium|Custo|
 |---|---|
@@ -85,7 +85,7 @@ Os seguintes preços entraram em vigor desde o dia 1° de novembro de 2014:
 
 ## Conexões orientadas
 
-*Conexões orientadas* acomodam padrões de uso do cliente que envolvem um grande número de remetentes/destinatários "persistentemente conectados" em filas, tópicos/assinaturas ou Hubs de eventos. Remetentes/destinatários persistentemente conectados são aqueles que se conectam com AMQP ou HTTP diferente com tempo limite de recebimento diferente de zero (por exemplo, sondagem longa de HTTP). Remetentes e receptores HTTP com um tempo limite imediato não geram conexões orientadas.
+*Conexões agenciadas* acomodam padrões de uso do cliente que envolvem um grande número de remetentes/destinatários “persistentemente conectados” em filas, tópicos/assinaturas ou Hubs de Eventos. Remetentes/destinatários persistentemente conectados são aqueles que se conectam com AMQP ou HTTP diferente com tempo limite de recebimento diferente de zero (por exemplo, sondagem longa de HTTP). Remetentes e receptores HTTP com um tempo limite imediato não geram conexões orientadas.
 
 Anteriormente, filas e tópicos/assinaturas tinham um limite de 100 conexões simultâneas por URL. O esquema de cobrança atual remove o limite por URL para filas e tópicos/assinaturas e implementa cotas e medição em conexões orientadas no namespace do Barramento de Serviço e níveis de assinatura do Azure.
 
@@ -98,9 +98,9 @@ A camada Basic inclui e é, estritamente limitada, a 100 conexões orientadas po
 |100\.000 a 500.000/mês|US $0,025 por conexão/mês|
 |Mais de 500.000/mês|US $0,015 por conexão/mês|
 
->[AZURE.NOTE]A camada de mensagens Standard inclui 1.000 conexões orientadas (no custo base) que podem ser compartilhados entre todas as filas, tópicos/assinaturas e Hubs de eventos na assinatura do Azure associada.
+>[AZURE.NOTE] A camada de mensagens Standard inclui 1.000 conexões orientadas (no custo base) que podem ser compartilhados entre todas as filas, tópicos/assinaturas e Hubs de eventos na assinatura do Azure associada.
 
->[AZURE.NOTE]A cobrança baseia-se no número máximo de conexões simultâneas e é rateada por hora com base em 744 horas por mês.
+>[AZURE.NOTE] A cobrança baseia-se no número máximo de conexões simultâneas e é rateada por hora com base em 744 horas por mês.
 
 |Camada Premium
 |---|
@@ -145,8 +145,10 @@ Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independen
 
 ## Próximas etapas
 
-Para obter mais detalhes sobre os preços do Barramento de Serviço, veja [Perguntas Frequentes sobre o Preço do Barramento de Serviço](service-bus-pricing-faq.md).
+- Para obter mais detalhes sobre os preços do Barramento de Serviço, veja [Perguntas frequentes sobre os preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
+
+- Veja as [Perguntas frequentes sobre preços do Barramento de Serviço](service-bus-pricing-faq.md) para obter algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -19,12 +19,12 @@
 # Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell - Gerenciador de Recursos](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Clássico](vpn-gateway-point-to-site-create.md)
 
-Uma configuração Ponto a Site permite que você crie uma conexão segura com sua rede virtual em um computador cliente, individualmente. Uma conexão VPN é estabelecida por meio do início da conexão do computador cliente. A conexão Ponto a Site é uma excelente solução quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual. As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público para funcionar. Para saber mais sobre as conexões Ponto a Site, consulte as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Sobre conexões entre locais](vpn-gateway-cross-premises-options.md).
+Uma configuração Ponto a Site permite que você crie uma conexão segura com sua rede virtual em um computador cliente, individualmente. Uma conexão VPN é estabelecida por meio do início da conexão do computador cliente. A conexão Ponto a Site é uma excelente solução quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual. As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP voltado para o público para funcionar. Para obter mais informações sobre as conexões Ponto a Site, veja as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) e [Sobre conexões entre locais](vpn-gateway-cross-premises-options.md).
 
-Este artigo se aplica aos Gateways de Redes Virtuais e de VPN criados com o modelo de implantação do **Gerenciador de Recursos do Azure**. Caso você pretenda configurar a conexão Ponto a Site para uma rede virtual criada usando o Gerenciamento de Serviços (também conhecido como modelo de implantação clássico), confira [Configurar uma conexão VPN ponto a site para uma VNet](vpn-gateway-point-to-site-create.md).
+Este artigo se aplica às Redes Virtuais e aos Gateways de VPN criados com o modelo de implantação do **Azure Resource Manager**. Caso você pretenda configurar uma conexão Ponto a Site para uma Rede Virtual criada com o Gerenciamento de Serviços (também conhecido como modelo de implantação clássica), veja [Configurar uma conexão VPN Ponto a Site para uma Rede Virtual](vpn-gateway-point-to-site-create.md).
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -37,12 +37,12 @@ Para esta configuração, usaremos os seguintes valores:
 - Nome: **TestVNet**, usando os espaços de endereço **192.168.0.0/16** e **10.254.0.0/16**. Observe que você pode usar mais de um espaço de endereço para uma rede virtual.
 - Nome da sub-rede: **FrontEnd**, usando **192.168.1.0/24**
 - Nome da sub-rede: **BackEnd**, usando **10.254.1.0/24**
-- Nome da sub-rede: **GatewaySubnet**, usando **192.168.200.0/24**. O nome da sub-rede *GatewaySubnet* obrigatório para o gateway funcionar. 
-- Pool de endereços de cliente VPN: **172.16.201.0/24**. Os clientes VPN que se conectarem à rede virtual usando esta conexão Ponto a Site receberão um endereço IP desse pool.
+- Nome da sub-rede: **GatewaySubnet**, usando **192.168.200.0/24**. O nome da Sub-rede *GatewaySubnet* é obrigatório para que o gateway funcione. 
+- Pool de endereços do cliente VPN: **172.16.201.0/24**. Os clientes VPN que se conectarem à rede virtual usando esta conexão Ponto a Site receberão um endereço IP desse pool.
 - Assinatura: Verifique se é a assinatura correta, caso você tenha mais de uma.
-- Grupo de recursos: **TestRG**
+- Grupo de Recursos: **TestRG**
 - Local: **Leste dos EUA**
-- Servidor DNS: **Endereço IP** do servidor DNS que você deseja usar para resolução de nome.
+- Servidor DNS: **Endereço IP** do servidor DNS que você deseja usar para a resolução de nome.
 - Nome de GW: **GW**
 - Nome do IP público: **GWIP**
 - VpnType: **RouteBased**
@@ -52,7 +52,7 @@ Para esta configuração, usaremos os seguintes valores:
 
 - Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Você precisará instalar os cmdlets do Azure Resource Manager PowerShell (1.0.2 ou mais recente). Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações sobre como instalar os cmdlets do PowerShell.
+- Você precisará instalar os cmdlets do Azure Resource Manager PowerShell (1.0.2 ou mais recente). Veja [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações sobre como instalar os cmdlets do PowerShell.
 
 ## Configurar uma conexão Ponto a Site para o Azure
 
@@ -112,7 +112,7 @@ Para esta configuração, usaremos os seguintes valores:
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Carregue o arquivo .cer do certificado raiz no Azure. Você pode usar um certificado raiz de seu ambiente de certificação corporativa ou pode usar um certificado raiz autoassinado. É possível carregar até 20 certificados raiz. Para obter instruções para criar um certificado autoassinado usando *makecert*, consulte [Trabalhando com certificados raiz autoassinados para configurações de ponto a site](vpn-gateway-certificates-point-to-site.md). Observe que o arquivo .cer não deve conter a chave privada do certificado raiz.
+10. Carregue o arquivo .cer do certificado raiz no Azure. Você pode usar um certificado raiz de seu ambiente de certificação corporativa ou pode usar um certificado raiz autoassinado. É possível carregar até 20 certificados raiz. Para obter instruções sobre como criar um certificado raiz autoassinado usando *makecert*, veja [Trabalhando com certificados raiz autoassinados para configurações Ponto a Site](vpn-gateway-certificates-point-to-site.md). Observe que o arquivo .cer não deve conter a chave privada do certificado raiz.
 	
 	Veja abaixo um exemplo da aparência do arquivo. A parte difícil de carregar os dados do certificado público é que você deve copiar e colar toda a cadeia de caracteres sem espaços. Caso contrário, o carregamento não funcionará. Você precisará usar seu próprio arquivo .cer do certificado para esta etapa. Não tente copiar e colar o exemplo abaixo.
 
@@ -125,7 +125,7 @@ Para esta configuração, usaremos os seguintes valores:
 
 ## Configuração do cliente
 
-Cada cliente que se conecta ao Azure usando o Ponto a Site deve ter duas coisas: o cliente VPN deve estar configurado para se conectar e o cliente deve ter um certificado de cliente instalado. Pacotes de configuração de cliente VPN estão disponíveis para clientes do Windows. Confira as [Perguntas Frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) para saber mais.
+Cada cliente que se conecta ao Azure usando o Ponto a Site deve ter duas coisas: o cliente VPN deve estar configurado para se conectar e o cliente deve ter um certificado de cliente instalado. Pacotes de configuração de cliente VPN estão disponíveis para clientes do Windows. Confira as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md#point-to-site-connections) para obter mais informações.
 
 1. Baixe o pacote de configuração de cliente VPN. Nesta etapa, use o exemplo a seguir para baixar o pacote de configuração do cliente.
 
@@ -135,7 +135,7 @@ Cada cliente que se conecta ao Azure usando o Ponto a Site deve ter duas coisas:
 
     	"https://mdsbrketwprodsn1prod.blob.core.windows.net/cmakexe/4a431aa7-b5c2-45d9-97a0-859940069d3f/amd64/4a431aa7-b5c2-45d9-97a0-859940069d3f.exe?sv=2014-02-14&sr=b&sig=jSNCNQ9aUKkCiEokdo%2BqvfjAfyhSXGnRG0vYAv4efg0%3D&st=2016-01-08T07%3A10%3A08Z&se=2016-01-08T08%3A10%3A08Z&sp=r&fileExtension=.exe"
 	
-2. Gere e instale os certificados de cliente (*.pfx) criados a partir do certificado raiz nos computadores cliente. Você pode usar qualquer método de instalação com o qual esteja familiarizado. Se você estiver usando um certificado raiz autoassinado e não souber como fazer isso, pode consultar [Trabalhando com certificados raiz autoassinados para configurações de ponto a site](vpn-gateway-certificates-point-to-site.md).
+2. Gere e instale os certificados de cliente (*.pfx) criados a partir do certificado raiz nos computadores cliente. Você pode usar qualquer método de instalação com o qual esteja familiarizado. Se estiver usando um certificado raiz autoassinado e não souber como fazer isso, consulte [Trabalhando com certificados raiz autoassinados para configurações Ponto a Site](vpn-gateway-certificates-point-to-site.md).
 
 3. Para se conectar à sua rede virtual, no computador cliente, navegue até conexões VPN e localize a conexão VPN que você acabou de criar. Ele será nomeado com o mesmo nome da sua rede virtual. Clique em **Conectar**. Uma mensagem pop-up pode ser exibida sobre o uso do certificado. Se isso acontecer, clique em **Continuar** para usar os privilégios elevados.
 
@@ -227,7 +227,6 @@ Você pode restabelecer um certificado de cliente removendo a impressão digital
 
 ## Próximas etapas
 
-Você pode adicionar uma máquina virtual à rede virtual. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md) para obter as etapas.
+Você pode adicionar uma máquina virtual à rede virtual. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para obter as etapas.
 
-<!---HONumber=AcomDC_0218_2016-->
-
+<!---HONumber=AcomDC_0323_2016-->

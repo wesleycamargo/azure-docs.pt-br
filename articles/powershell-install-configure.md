@@ -36,7 +36,7 @@ Instalar o Azure PowerShell 1.0 e superior do WebPI é feito da mesma forma como
 
 > [AZURE.NOTE] Se você instalou os módulos da Galeria do Azure PowerShell, o instalador irá removê-los automaticamente. Faça isso para evitar confusões quanto a quais módulos você instalou e onde eles estão localizados. Módulos da Galeria do PowerShell normalmente são instalados em **%ProgramFiles%\\WindowsPowerShell\\Modules**. Por outro lado, o instalador do WebPI instalará os módulos do Azure em **%ProgramFiles%\\Microsoft SDKs\\Azure\\PowerShell**. **PowerShellGet** desinstalará módulos e deixará para trás .dlls bloqueados e suas pastas se uma dependência de módulo for carregada durante a desinstalação. Se ocorrer um erro durante a instalação, remova as pastas do Azure* na pasta **%ProgramFiles%\\WindowsPowerShell\\Modules**.
 
-Se você tiver instalado o Azure PowerShell usando a Galeria do PowerShell, mas quiser usar a instalação do WebPI, ela removerá automaticamente os cmdlets instalados a partir da galeria.
+Se tiver instalado o Azure PowerShell usando a Galeria do PowerShell, mas quiser usar a instalação do WebPI, esta última removerá automaticamente os cmdlets instalados por meio da Galeria.
 
 > [AZURE.NOTE] Há um problema conhecido com o PowerShell **$env: PSModulePath** que ocorre durante a instalação do WebPI. Se o computador precisar de uma reinicialização devido a outras instalações ou atualizações do sistema, o **$env: PSModulePath** poderá não incluir o caminho em que o Azure PowerShell está instalado. Isso pode ser corrigido reiniciando o computador.
 
@@ -133,17 +133,17 @@ Entre com sua conta corporativa ou de estudante:
 
 > [AZURE.NOTE] Esse método de logon não interativo funciona somente com uma conta corporativa ou de estudante. Uma conta corporativa ou de estudante é um usuário gerenciado pela sua empresa ou escola e definido na instância do Active Directory do Azure para sua empresa ou escola. Se você não tiver uma conta corporativa ou de estudante no momento, e estiver usando uma conta da Microsoft para fazer logon na assinatura do Azure, você poderá criar uma facilmente usando as etapas a seguir.
 
-> 1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com)e clique em **Active Directory**.
+> 1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com) e clique em **Active Directory**.
 
 > 2. Se não houver diretório, selecione **Criar o diretório** e forneça as informações solicitadas.
 
 > 3. Selecione o diretório e adicione um novo usuário. Esse novo usuário pode entrar usando uma conta corporativa ou de estudante. Durante a criação do usuário, você receberá um endereço de email para o usuário e uma senha temporária. Salve essas informações como elas são usadas na etapa 5 abaixo.
 
-> 4. No Portal de Gerenciamento, selecione **Configurações** e **Administradores**. Selecione **Adicionar** e adicione o novo usuário como um coadministrador. Isso permite que a conta corporativa ou de estudante gerencie sua assinatura do Azure.
+> 4. No portal clássico do Azure, selecione **Configurações** e, em seguida, **Administradores**. Selecione **Adicionar** e adicione o novo usuário como um coadministrador. Isso permite que a conta corporativa ou de estudante gerencie sua assinatura do Azure.
 
-> 5. Por fim, faça logoff do portal do Azure e faça logon outra vez usando a nova conta corporativa ou de estudante. Se este for o primeiro logon usando essa conta, você deverá alterar a senha.
+> 5. Por fim, faça logoff do portal clássico do Azure e faça logon outra vez usando a nova conta corporativa ou de estudante. Se este for o primeiro logon usando essa conta, você deverá alterar a senha.
 
-> Para obter mais informações sobre como se inscrever no Microsoft Azure com uma conta corporativa ou de estudante, consulte [Inscrever-se no Microsoft Azure como uma organização](sign-up-organization.md).
+> Para obter mais informações sobre como se inscrever no Microsoft Azure com uma conta corporativa ou de estudante, consulte [Inscrever-se no Microsoft Azure como uma organização](/active-directory/sign-up-organization.md).
 
 > Para obter mais informações sobre o gerenciamento de autenticação e assinatura no Azure, consulte [Gerenciar contas, assinaturas e funções administrativas (a página pode estar em inglês)](http://go.microsoft.com/fwlink/?LinkId=324796).
 
@@ -178,4 +178,4 @@ Para obter informações de referência sobre os cmdlets, consulte [Referência 
 
 Para scripts de exemplo e instruções para ajudá-lo a aprender como usar scripts para gerenciar o Azure, consulte o [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=321940).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

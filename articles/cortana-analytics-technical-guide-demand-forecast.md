@@ -4,7 +4,7 @@
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
-	manager="ireiter"
+	manager="ilanr9"
 	editor="yijichen"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="inqiu;yijichen"/>
+	ms.author="inqiu;yijichen;ilanr9"/>
 
 # Guia técnico para o Modelo de Solução do Cortana Analytics para previsão de demanda em energia
 
@@ -288,4 +288,4 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 
 -   [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

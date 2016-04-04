@@ -1,23 +1,25 @@
 
 
-Ever since its launch, the Custom Script extension has been used widely to configure workloads on both Windows and Linux VMs. With the introduction of Azure Resource Manager templates, users can now create a single template that not only provisions the VM but also configures the workloads on it.
+Desde seu lançamento, a extensão do Script Personalizado é amplamente usada para configurar cargas de trabalho de VMs do Windows e do Linux. Com a introdução dos modelos do Gerenciador de Recursos do Azure, os usuários agora podem criar um modelo único que não apenas provisiona a VM, mas também configura as cargas de trabalho nela.
 
-## About Azure Resource manager templates
+## Sobre os modelos do Gerenciador de Recursos do Azure
 
-Azure Resource Manager template allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager templates, see the following articles:
+O modelo do Gerenciador de Recursos do Azure permite que você especifique de forma declarativa a infraestrutura IaaS do Azure na linguagem JSON definindo as dependências entre recursos. Para obter uma visão geral detalhada dos modelos do Gerenciador de Recursos do Azure, consulte os seguintes artigos:
 
-- [Resource Group Overview](../resource-group-overview.md)
-- [Deploying Templates with Azure CLI](virtual-machines-linux-cli-manage.md)
-- [Deploying Templates with Azure Powershell](virtual-machines-windows-ps-manage.md)
+- [Visão geral do Grupo de Recursos](../resource-group-overview.md)
+- [Implantação de modelos com CLI do Azure](virtual-machines-linux-cli-manage.md)
+- [Implantação de modelos com Azure PowerShell](virtual-machines-windows-ps-manage.md)
 
-### Prerequistes
+### Pré-requisitos
 
-1. Download the Azure command line tools for your operating system from [here](https://azure.microsoft.com/downloads/).
-2. If the scripts will be run on an existing VM, make sure VM Agent is enabled on the VM, if not follow [the Linux](virtual-machines-linux-classic-manage extensions.md) or [Windows](virtual-machines-windows-classic-manage extensions.md) guidance to install one.
-3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single or multiple storage containers.
-4. Alternatively the scripts can also be uploaded to a GitHub account.
-5. The script should be authored in such a way that the entry script which is launched by the extension in turn launches other scripts.
+1. Baixe [aqui](https://azure.microsoft.com/downloads/) as ferramentas de linha de comando do Azure para seu sistema operacional.
+2. Se os scripts terão de ser executados em uma VM existente, verifique se o Agente de VM está habilitado na VM; caso contrário, siga as diretrizes em [Linux](virtual-machines-linux-classic-manage extensions.md) ou [Windows](virtual-machines-windows-classic-manage extensions.md) para instalar uma.
+3. Carregue os scripts que você deseja executar na máquina virtual para o armazenamento do Azure. Os scripts podem vir de um único ou vários contêineres de armazenamento.
+4. Como alternativa, os scripts também podem ser carregados em uma conta do GitHub.
+5. O script deve ser criado de forma que o script de entrada que por sua vez é iniciado pela extensão inicia outros scripts.
 
-## Using the custom script extension
+## Usando a extensão de script personalizado
 
-For deploying with templates we use the same version of  Custom Script extension thats availale for Azure Service Management APIs. The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location. The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in majorversion.* format.
+Para implantar com modelos, usamos a mesma versão da Extensão de Script Personalizado disponível para APIs de Gerenciamento de Serviços do Azure. A extensão dá suporte os mesmos parâmetros e cenários de como carregar arquivos para a conta de Armazenamento do Azure ou local do Github. A principal diferença ao usar modelos é que a versão exata da extensão deve ser especificada, em vez de especificar a versão do formato de majorversion.*.
+
+<!---HONumber=AcomDC_0323_2016-->

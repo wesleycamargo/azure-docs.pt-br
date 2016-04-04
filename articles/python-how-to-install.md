@@ -186,7 +186,7 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 [Projeto Django – uma estrutura da Web/CMS sólida]: http://www.djangoproject.com
 [IPython – um REPL/Notebook avançado para o Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook no Azure]: virtual-machines-python-ipython-notebook.md
+[IPython Notebook no Azure]: virtual-machines-linux-jupyter-notebook.md
 [Serviços de Nuvem]: cloud-services-python-ptvs.md
 [Sites]: web-sites-python-ptvs-django-mysql.md
 [Ferramentas do Python Visual Studio]: http://aka.ms/ptvs
@@ -198,7 +198,7 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 [Microsoft Azure SDK para Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
-[Criar uma Máquina Virtual Executando o Linux]: virtual-machines-linux-tutorial.md
+[Criar uma Máquina Virtual Executando o Linux]: virtual-machines-linux-cli-create.md
 [Criando Sites com Django]: web-sites-python-create-deploy-django-app.md
 [Criando Sites com Bottle]: web-sites-python-create-deploy-bottle-app.md
 [Criando sites com Flash]: web-sites-python-create-deploy-flask-app.md
@@ -207,4 +207,4 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 [armazenamento de fila]: storage-python-how-to-use-queue-storage.md
 [armazenamento de blobs]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

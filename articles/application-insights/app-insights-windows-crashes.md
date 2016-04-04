@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Detectar e diagnosticar falhas em aplicativos da Windows Store e Windows Phone com o Application Insights" 
-	description="Analise problemas de desempenho em seu aplicativo de dispositivo do Windows com o Application Insights." 
+	pageTitle="Detectar e diagnosticar falhas em aplicativos da Windows Store e Windows Phone" 
+	description="Analise problemas de desempenho em seu aplicativo de dispositivo do Windows." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,94 +12,28 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2015" 
+	ms.date="03/17/2016" 
 	ms.author="awills"/>
 
-# Detectar e diagnosticar falhas em aplicativos da Windows Store e Windows Phone com o Application Insights
+# Análise de aplicativos da Windows Store
 
-*O Application Insights está em modo de visualização.*
+A Microsoft fornece duas soluções para devOps de dispositivo: [HockeyApp](http://hockeyapp.net/) para dispositivos de cliente e [Application Insights](app-insights-overview.md) para as páginas da Web do servidor e do cliente.
 
-Se os usuários experienciam falhas em seu aplicativo, você gostaria de saber a respeito rapidamente e obter detalhes sobre o que aconteceu. Com o Application Insights, você pode monitorar a frequência com que os falhas ocorrem, obter alertas quando elas ocorrem e investigar os relatórios de incidentes individuais.
+O [HockeyApp](http://hockeyapp.net/) é a nossa solução de DevOps Móvel para a criação de aplicativos de dispositivos iOS, OS X, Android ou Windows, bem como aplicativos de plataforma cruzada baseados no Xamarin, no Cordova e no Unity. Com ele, você pode distribuir compilações para testadores beta, coletar dados de falha e obter comentários dos usuários. Ele é integrado ao Visual Studio Team Services, permitindo a compilação fácil de implantações e a integração de itens de trabalho.
 
-"Falha" significa que o aplicativo é encerrado devido a uma exceção não detectada. Se seu aplicativo capturar uma exceção, você pode relatá-la com a [API TrackException][apiexceptions] e continuar em execução. Nesse caso, ele não será registrado como uma falha.
+Acesse:
 
+* [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp para Windows](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)
+* [Blog do HockeyApp](http://hockeyapp.net/blog/)
+* Ingresse em [Hockeyapp Preseason](http://hockeyapp.net/preseason/) para obter versões anteriores.
 
-## Monitorar frequência de falha
+Se seu aplicativo tiver um lado servidor, use o [Application Insights](app-insights-overview.md) para monitorar o lado do servidor Web de seu aplicativo em [ASP.NET](app-insights-asp-net.md) ou em [J2EE](app-insights-java-get-started.md).
 
-Se ainda não tiver feito isso, adicione o [Application Insights ao seu projeto de aplicativo][windows] e republique-o.
+Também é possível usar [aplicativos do Application Insights para a Área de Trabalho do Windows](app-insights-windows-desktop.md).
 
-As falhas são exibidas na folha Visão Geral do seu aplicativo no [portal do Application Insights][portal].
+> [AZURE.NOTE] Em 15 de junho de 2016, vamos parar de mostrar dados no Application Insights para aplicativos do iOS, Android, Windows Store e Windows Phone.
+> 
+> [Mais informações sobre essa alteração](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
 
-![](./media/app-insights-windows-crashes/appinsights-d018-oview.png)
-
-Você pode editar o intervalo de tempo mostrado pelo gráfico.
-
-
-## Definir um alerta para detectar falhas
-
-![No gráfico de falhas, clique em Regras de Alerta e, em seguida, em Adicionar Alerta](./media/app-insights-windows-crashes/appinsights-d023-alert.png)
-
-## Diagnosticar falhas
-
-Para descobrir se algumas versões do seu aplicativo falham mais do que outras, clique no gráfico de falhas e, em seguida, segmente segundo a versão do aplicativo:
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashSegment.png)
-
-
-Para descobrir as exceções que estão causando falhas, abra Diagnóstico de Pesquisa. Você talvez queira remover outros tipos de telemetria para concentrar-se nas exceções:
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashExceptions.png)
-
-[Saiba mais sobre filtragem na Pesquisa de Diagnóstico][diagnostic].
- 
-
-Clique em qualquer exceção para ver seus detalhes, incluindo propriedades associadas e rastreamento de pilha.
-
-![](./media/app-insights-windows-crashes/appinsights-d26crash.png)
-
-Consulte as exceções e eventos que ocorreram perto dessa exceção:
-
-
-![](./media/app-insights-windows-crashes/appinsights-d26crashRelated.png)
-
-## Inserir eventos e logs de rastreamento
-
-Para ajudar a diagnosticar problemas, você pode [inserir chamadas de rastreamento e pesquisar os logs no Application Insights][diagnostic].
-
-## <a name="debug"></a>Modo Depurar versus Liberar
-
-#### Depurar
-
-Se você compilar no modo depurar, os eventos serão enviados assim que forem gerados. Se você perder a conectividade com a Internet e em seguida sair do aplicativo antes de retomar a conectividade, a telemetria offline será descartada.
-
-#### Liberar
-
-Se você compilar na configuração Liberar, os eventos serão armazenados no dispositivo e enviados quando a execução do aplicativo for retomada. Os dados também são enviados no primeiro uso do aplicativo. Se não houver conectividade com a Internet durante a inicialização, a telemetria anterior, bem como a telemetria para o ciclo de vida atual, é armazenada e enviada na próxima retomada.
-
-## <a name="next"></a>Próximas etapas
-
-[Detectar, realizar triagem e diagnosticar problemas com o Application Insights][detect]
-
-[API do Application Insights][api]
-
-[Capturar logs de diagnóstico][trace]
-
-[Solucionar problemas](app-insights-windows-troubleshoot.md)
-
-
-
-
-<!--Link references-->
-
-[api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
-[trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
-
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

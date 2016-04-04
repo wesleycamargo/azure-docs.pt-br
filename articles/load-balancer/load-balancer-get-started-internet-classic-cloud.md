@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/30/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Introdução à criação de um balanceador de carga para a Internet para serviços de nuvem
@@ -67,7 +67,7 @@ A seguir, um exemplo de como criar uma investigação:
     	<LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
  	 	</LoadBalancerProbes>
 
-O balanceador de carga combina as informações do ponto de extremidade e as informações da investigação para criar uma URL na forma de http://{DIP de VM}:80/Probe.aspx, que pode ser usada para consultar a integridade do serviço.
+O balanceador de carga combina as informações do ponto de extremidade e as informações de investigação para criar uma URL na forma de http://{DIP VM}:80/Probe.aspx, que podem ser usadas para consultar a integridade do serviço.
 
 O serviço detecta as investigações periódicas do mesmo endereço IP. Esta é a solicitação de investigação de integridade proveniente do host do nó no qual a máquina virtual está sendo executada. O serviço deve responder com um código de status HTTP 200 para que o balanceador de carga presuma que o serviço esteja íntegro. Qualquer outro código de status HTTP (por exemplo, 503) leva diretamente à máquina virtual da rotação.
 
@@ -77,10 +77,10 @@ Verifique o esquema de definição de serviço para a [investigação de integri
 
 ## Próximas etapas
 
-[Introdução à configuração de um balanceador de carga interno](load-balancer-internal-getstarted.md)
+[Introdução à configuração de um balanceador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

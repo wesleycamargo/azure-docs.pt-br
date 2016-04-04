@@ -1,50 +1,52 @@
-## Understand planned vs. unplanned maintenance
-There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
+## Compreender a manutenção planejada versus a não planejada
+Há dois tipos de eventos de plataforma Microsoft Azure que podem afetar a disponibilidade das máquinas virtuais: manutenção planejada e manutenção não planejada.
 
-- **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure.
+- **Eventos de manutenção planejada** são atualizações periódicas feitas pela Microsoft na plataforma subjacente do Azure para melhorara a confiabilidade, o desempenho e a segurança geral da infraestrutura da plataforma executada pela máquina virtual. A maioria dessas atualizações são realizadas sem nenhum impacto às suas máquinas virtuais ou aos serviços de nuvem. Entretanto, há instâncias em que essas atualizações exigem uma reinicialização para sua máquina virtual aplicar as atualizações solicitadas na infraestrutura da plataforma.
 
-- **Unplanned maintenance events** occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot.
+- **Eventos de manutenção não planejada** ocorrem quando o hardware ou a infraestrutura física subjacente à sua máquina virtual apresenta algum tipo de falha. Isso inclui falhas na rede local, falhas no disco local ou outras falhas no nível de rack. Quando tal falha é detectada, a plataforma do Azure automaticamente irá migrar sua máquina virtual de uma máquina virtual não íntegra hospedando sua máquina virtual para uma máquina física íntegra. Esses eventos são raros, mas podem também reinicializar a sua máquina virtual.
 
-## Follow best practices when you design your application for high availability
-To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
+## Siga as práticas recomendadas ao projetar seu aplicativo para alta disponibilidade
+Para reduzir o impacto do tempo de inatividade devido a um ou mais desses eventos, sugerimos que siga as práticas recomendadas de alta disponibilidade para suas máquinas virtuais:
 
-* [Configure multiple virtual machines in an Availability Set for redundancy]
-* [Configure each application tier into separate Availability Sets]
-* [Combine the Load Balancer with Availability Sets]
-* [Avoid single instance virtual machines in Availability Sets]
+* [Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância]
+* [Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados]
+* [Combine o Balanceador de Carga com os Conjuntos de Disponibilidade]
+* [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]
 
-### Configure multiple virtual machines in an Availability Set for redundancy
-To provide redundancy to your application, we recommend that you group two or more virtual machines in an Availability Set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information about service level agreements, see the “Cloud Services, virtual machines, and Virtual Network” section in [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+### Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância
+Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou mais máquinas virtuais em um Conjunto de Disponibilidade. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual estará disponível e atenderá os 99,95% SLA do Azure. Para saber mais sobre contratos de nível de serviço, consulte a seção "Serviços de nuvem, máquinas virtuais e rede virtual" em [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
 
-Each virtual machine in your Availability Set is assigned an Update Domain (UD) and a Fault Domain (FD) by the underlying Azure platform. For a given Availability Set, five non-user-configurable UDs are assigned to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same UD as the first virtual machine, the seventh in the same UD as the second virtual machine, and so on. The order of UDs being rebooted may not proceed sequentially during planned maintenance, but only one UD will be rebooted at a time.
+Para cada máquina virtual em seu Conjunto de Disponibilidade é atribuído um Domínio de Atualização (UD) e Domínio de Falha (FD) pela plataforma subjacente do Azure. Para um dado Conjunto de Disponibilidade, cinco UDs de usuário não configurável são atribuídos aos grupos indicados das máquinas virtuais e do hardware físico subjacente que podem ser reinicializados a qualquer momento. Quando mais do que cinco máquinas virtuais são configuradas com um único Conjunto de Disponibilidade, a sexta máquina virtual será alocada com o mesmo UD da primeira máquina virtual, a sétima com o mesmo UD da segunda máquina virtual e assim sucessivamente. A ordem das UDs sendo reinicializadas podem não acontecer em sequência durante a manutenção planejada, mas apenas uma UD será reinicializada por vez.
 
-FDs define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across two FDs. While placing your virtual machines into an Availability Set does not protect your application from operating system or application-specific failures, it does limit the impact of potential physical hardware failures, network outages, or power interruptions.
-
-<!--Image reference-->
-   ![UD FD configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
-
->[AZURE.NOTE] For instructions, see [How to Configure an Availability Set for virtual machines] [].
-
-### Configure each application tier into separate Availability Sets
-If the virtual machines in your Availability Set are all nearly identical and serve the same purpose for your application, we recommend that you configure an Availability Set for each tier of your application.  If you place two different tiers in the same Availability Set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an Availability Set for each tier, you guarantee that at least one virtual machine in each tier will be available.
-
-For example, you could put all the virtual machines in the front-end of your application running IIS, Apache, Nginx, etc., in a single Availability Set. Make sure that only front-end virtual machines are placed in the same Availability Set. Similarly, make sure that only data-tier virtual machines are placed in their own Availability Set, like your replicated SQL Server virtual machines or your MySQL virtual machines.
+FDs definem o grupo de máquinas virtuais que compartilham uma fonte de energia e chave de rede comum. Por padrão, as máquinas virtuais configuradas dentro do seu Conjunto de Disponibilidade são separadas entre os dois FDs. Embora colocar suas máquinas virtuais em um Conjunto de Disponibilidade não proteja seu aplicativo de falhas de sistema operacional e nem específicas de aplicativo, isso limita o impacto das potencias falhas físicas de hardware, panes de rede ou interrupções de energia.
 
 <!--Image reference-->
-   ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   ![Configuration FD do UD](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+
+>[AZURE.NOTE] Para obter instruções, consulte [Como configurar um Conjunto de Disponibilidade para máquinas virtuais][].
+
+### Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados
+Nas máquinas virtuais, no seu Conjunto de Disponibilidade são todas quase idênticas e servem para o mesmo propósito para o seu aplicativo, recomendamos que configure o seu Conjunto de Disponibilidade de cada camada do seu aplicativo. Se você colocar duas camadas diferentes no mesmo Conjunto de Disponibilidade, todas as máquinas virtuais na mesma camada de aplicativo podem ser reinicializadas ao mesmo tempo. Ao configurar ao menos duas máquinas virtuais no Conjunto de Disponibilidade de cada camada, você garante que ao menos uma máquina virtual de cada camada estará disponível.
+
+Por exemplo, você pode colocar todas as máquinas virtuais no front-end da execução IIS, Apache, Ngnix, etc. do seu aplicativo em um único Conjunto de Disponibilidade. Certifique-se de que apenas as máquinas virtuais em front-end estão colocadas no mesmo Conjunto de Disponibilidade. Da mesma forma, certifique-se de que apenas as máquinas virtuais de camadas de dados sejam colocadas no seu próprio Conjunto de Disponibilidade, como as máquinas virtuais do SQL Server ou suas máquinas virtuais do MySQL.
+
+<!--Image reference-->
+   ![Camadas de aplicativo](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 
-### Combine the Load Balancer with Availability Sets
-Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, read [Load Balancing virtual machines](virtual-machines-linux-load-balance.md).
+### Combine o Balanceador de Carga com os Conjuntos de Disponibilidade
+Combine o Balanceador de Carga do Azure com o Conjunto de Disponibilidade para obter a melhor resiliência de aplicativo. O Balanceador de Carga do Azure distribui o tráfego entre as múltiplas máquinas virtuais. Para as nossas máquinas virtuais de camadas padrões, o Balanceador de carga do Azure está incluso. Observe que nem todas as camadas de máquinas virtuais incluem o Balanceador de Carga do Azure. Para saber mais sobre o balanceamento de carga de suas máquinas virtuais, consulte [Balanceamento de Carga em máquinas virtuais](virtual-machines-linux-load-balance.md).
 
-If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance.
+Se o balanceador de carga não estiver configurado para balancear o tráfego entre múltiplas máquinas virtuais, então qualquer evento de manutenção planejada afetará a única máquina virtual atendendo ao tráfego causando uma pane na sua camada de aplicativo. Colocar diversas máquinas virtuais na mesma camada sob o mesmo balanceador de carga e Conjunto de Disponibilidade habilita o tráfego a ser atendido continuamente pelo menos por uma instância.
 
-### Avoid single instance virtual machines in Availability Sets
-Avoid leaving a single instance virtual machine in an Availability Set by itself. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events. Please note, single virtual machine instance within an Availability Set, will also receive advanced email notification in multi-instance virtual machines planned maintenance notification. 
+### Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade
+Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilidade. As máquinas virtuais com esta configuração não se qualificam para a garantia de SLA e enfrentarão tempo de inatividades durante os eventos de manutenção planejada do Azure. Observe que uma instância única de máquina virtual dentro de um conjunto de disponibilidade também receberá notificações por email avançadas em notificações de manutenção planejada de máquinas virtuais de várias instâncias.
 
 <!-- Link references -->
-[Configure multiple virtual machines in an Availability Set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure each application tier into separate Availability Sets]: #configure-each-application-tier-into-separate-availability-sets
-[Combine the Load Balancer with Availability Sets]: #combine-the-load-balancer-with-availability-sets
-[Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[How to Configure An Availability Set for virtual machines]: virtual-machines-windows-classic-configure-availability.md
+[Configure diversas máquinas virtuais em um Conjunto de Disponibilidade para redundância]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
+[Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados]: #configure-each-application-tier-into-separate-availability-sets
+[Combine o Balanceador de Carga com os Conjuntos de Disponibilidade]: #combine-the-load-balancer-with-availability-sets
+[Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]: #avoid-single-instance-virtual-machines-in-availability-sets
+[Como configurar um Conjunto de Disponibilidade para máquinas virtuais]: virtual-machines-windows-classic-configure-availability.md
+
+<!---HONumber=AcomDC_0323_2016-->

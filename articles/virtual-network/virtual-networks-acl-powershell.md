@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Como gerenciar listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell
 
-Você pode criar e gerenciar listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell do Azure ou no Portal de Gerenciamento. Neste tópico, você encontrará procedimentos para tarefas comuns de ACL que podem ser concluídas usando o PowerShell. Para obter a lista de cmdlets do Azure PowerShell, confira [Cmdlets de gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Para saber mais sobre ACLs, confira [O que é uma lista de controle de acesso (ACL) de rede?](../virtual-networks-acl). Se você quiser gerenciar suas ACLs usando o Portal de Gerenciamento, confira [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines-set-up-endpoints/).
+Você pode criar e gerenciar listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell do Azure ou no Portal de Gerenciamento. Neste tópico, você encontrará procedimentos para tarefas comuns de ACL que podem ser concluídas usando o PowerShell. Para obter a lista de cmdlets do Azure PowerShell, confira [Cmdlets de gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Para saber mais sobre ACLs, confira [O que é uma lista de controle de acesso (ACL) de rede?](virtual-networks-acl.md). Se você quiser gerenciar suas ACLs usando o Portal de Gerenciamento, confira [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
 ## Gerenciar ACLs de rede usando o PowerShell do Azure
 
@@ -91,10 +91,8 @@ Em determinados cenários, você talvez queira remover um objeto de ACL de rede 
 		| Remove-AzureAclConfig –EndpointName "web" `
 		| Update-AzureVM
 
-## Consulte também
+## Próximas etapas
 
-[O que é uma lista de controle de acesso (ACL) de rede?](../virtual-networks-acl)
+[O que é uma lista de controle de acesso (ACL) de rede?](virtual-networks-acl.md)
 
-[Como configurar a comunicação com uma máquina virtual](http://go.microsoft.com/fwlink/?LinkId=303938)
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

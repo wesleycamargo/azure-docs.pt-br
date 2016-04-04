@@ -83,8 +83,7 @@ A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e
 
 Todos os códigos que acessam e modificam dados em uma tabela de back-end chamam funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando o método [GetTable] em uma instância do `MobileServiceClient`, da seguinte forma:
 
-    IMobileServiceTable<TodoItem> todoTable =
-		client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 
 Esse é o modelo de serialização tipado. Também há suporte para um modelo de serialização não tipado. O link [ abaixo cria uma referência a uma tabela sem tipo]\:
 
@@ -407,8 +406,7 @@ Esta seção mostra como exibir os objetos de dados retornados usando elementos 
 Alguns controles no tempo de execução gerenciado dão suporte a uma interface chamada [ISupportIncrementalLoading]. Essa interface permite que os controles solicitem dados adicionais quando o usuário rola. Há suporte interno para essa interface para aplicativos universais do Windows via [MobileServiceIncrementalLoadingCollection], que processa automaticamente as chamadas dos controles. Para usar o `MobileServiceIncrementalLoadingCollection` em aplicativos do Windows, faça o seguinte:
 
     MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
-    items = todoTable.Where(todoItem => todoItem.Complete == false)
-    				.ToIncrementalLoadingCollection();
+    items = todoTable.Where(todoItem => todoItem.Complete == false).ToIncrementalLoadingCollection();
 
     ListBox lb = new ListBox();
     lb.ItemsSource = items;
@@ -472,7 +470,7 @@ Se você estiver usando um provedor de identidade além do Facebook, altere o va
 
 Em um fluxo de servidor, o Serviço de Aplicativo do Azure gerencia o fluxo de autenticação OAuth 2.0 exibindo a página de logon do provedor selecionado e gerando um token de autenticação do Serviço de Aplicativo após um logon bem-sucedido com o provedor de identidade. O [método LoginAsync] retorna um [MobileServiceUser], que fornece a [UserId] do usuário autenticado e o [MobileServiceAuthenticationToken] como um JWT (token Web JSON). Esse token pode ser armazenado em cache e reutilizado até que expire. Para obter mais informações, consulte [Armazenando o token de autenticação em cache](#caching).
 
-###Fluxo de cliente
+###<a name="client-flow"></a>Fluxo de cliente
 
 Seu aplicativo também pode entrar em contato de forma independente com o provedor de identidade e fornecer o token retornado ao Serviço de Aplicativo para autenticação. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade.
 
@@ -511,7 +509,7 @@ No formulário mais simplificado, você pode usar o fluxo de cliente conforme mo
 
 ####Entrada única usando a Conta da Microsoft com o Live SDK
 
-Para poder autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Em seguida, você deve conectar esse registro ao back-end do Aplicativo Móvel. Conclua as etapas em [Registrar seu aplicativo para usar um logon de conta da Microsoft] para criar um registro de conta da Microsoft e conectá-lo ao back-end do seu serviço móvel. Se você tiver as versões da Windows Store e do Windows Phone 8/Silverlight de seu aplicativo, registre a versão da Windows Store primeiro.
+Para poder autenticar usuários, você deverá registrar seu aplicativo na Central de desenvolvedores da conta da Microsoft. Em seguida, você deve conectar esse registro ao back-end do Aplicativo Móvel. Conclua as etapas em [Registrar seu aplicativo para usar um logon de conta da Microsoft] para criar um registro de conta da Microsoft e conectá-lo ao back-end do Aplicativo Móvel. Se você tiver as versões da Windows Store e do Windows Phone 8/Silverlight de seu aplicativo, registre a versão da Windows Store primeiro.
 
 O código a seguir é autenticado usando o Live SDK e usa o token retornado para entrar no back-end do seu Aplicativo Móvel.
 
@@ -562,7 +560,7 @@ O código a seguir é autenticado usando o Live SDK e usa o token retornado para
         }
     }
 
-Consulte a documentação para saber mais sobre o [SDK do Windows Live].
+Consulte a documentação para obter mais informações sobre o [SDK do Windows Live].
 
 ###<a name="caching"></a>Armazenando em cache o token de autenticação
 Em alguns casos, a chamada para o método login pode ser evitada após a primeira vez que o usuário é autenticado. Você pode usar o [PasswordVault] para aplicativos da Windows Store para armazenar a identidade do usuário atual em cache na primeira vez que fizer logon e em todas as vezes subsequentes em que você verificar se já tem a identidade do usuário em nosso cache. Quando o cache estiver vazio, ainda será necessário enviar o usuário pelo processo de logon.
@@ -601,15 +599,15 @@ Para aplicativos do Windows Phone, você pode criptografar e armazenar os dados 
 
 Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para conectar os usuários ao seu aplicativo usando o Active Directory do Azure. Normalmente, será melhor usá-la em vez dos métodos `loginAsync()`, pois ela fornece uma aparência mais nativa do UX e permite personalização adicional.
 
-1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de Aplicativo para o logon do Active Directory]. Complete a etapa opcional de registrar um aplicativo cliente nativo.
+1. Configure o back-end do aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de Aplicativo para o logon do Active Directory]. Complete a etapa opcional de registrar um aplicativo cliente nativo.
 
 2. No Visual Studio ou Xamarin Studio, abra o projeto e adicione uma referência ao pacote NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Ao pesquisar, inclua versões de pré-lançamento.
 
 3. Adicione o código abaixo ao seu aplicativo, de acordo com a plataforma que você está usando. Em cada um, faça as seguintes substituições:
 
-* Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário onde você provisionou o aplicativo. O formato deve ser https://login.windows.net/contoso.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Azure Active Directory no [Portal Clássico do Azure].
+* Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário no qual o aplicativo foi provisionado. O formato deve ser https://login.windows.net/contoso.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Azure Active Directory no [Portal Clássico do Azure].
 
-* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter isso na guia **Avançadas** em **Configurações do Azure Active Directory** no portal.
+* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do back-end do aplicativo móvel. É possível obter isso na guia **Avançadas** em **Configurações do Azure Active Directory** no portal.
 
 * Substitua **INSERT-CLIENT-ID-HERE** pela ID do cliente copiada do aplicativo cliente nativo.
 
@@ -748,7 +746,7 @@ Os aplicativos do Xamarin precisam de alguns códigos adicionais para registrar 
 
 ###<a name="register-xplat"></a>Como registrar modelos de envio por push para enviar notificações entre plataformas
 
-Para registrar os modelos, use o método `RegisterAsync()` com os modelos da seguinte maneira:
+Para registrar modelos, use o método `RegisterAsync()` com os modelos da seguinte maneira:
 
         JObject templates = myTemplates();
         MobileService.GetPush().RegisterAsync(channel.Uri, templates);
@@ -782,13 +780,13 @@ O método **RegisterAsync()** também aceita Blocos Secundários:
 
 Observe que todas as marcas serão removidas imediatamente por segurança. Para adicionar marcas a instalações ou modelos dentro de instalações, confira [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure].
 
-Para enviar notificações usando esses modelos registrados, consulte as [APIs de Hubs de Notificação].
+Para enviar notificações utilizando esses modelos registrados, consulte as [APIs dos Hubs de Notificação].
 
-##<a name="misc"></a>Diversos Tópicos
+##<a name="misc"></a>Tópicos diversos
 
 ###<a name="errors"></a>Como tratar erros
 
-Quando ocorre um erro no back-end, o cliente SDK dispara uma `MobileServiceInvalidOperationException`. O seguinte exemplo mostra como manipular uma exceção que é retornada pelo back-end:
+Quando ocorrer um erro no back-end, o SDK do cliente acionará uma `MobileServiceInvalidOperationException`. O seguinte exemplo mostra como manipular uma exceção que é retornada pelo back-end:
 
 	private async void InsertTodoItem(TodoItem todoItem)
 	{
@@ -805,7 +803,7 @@ Quando ocorre um erro no back-end, o cliente SDK dispara uma `MobileServiceInval
 		}
 	}
 
-Outro exemplo de como lidar com condições de erro pode ser encontrado no [Exemplo de Arquivos de Aplicativos Móveis] - o exemplo [LoggingHandler] fornece um manipulador de representante de log (veja abaixo) para registrar em log as solicitações que são feitas para o back-end. Isso fornece uma maneira mais fácil de depurar aplicativos do Xamarin em vez de depender do Fiddler.
+Outro exemplo de como lidar com condições de erro pode ser encontrado no [Exemplo de arquivos dos Aplicativos Móveis] - o exemplo [LoggingHandler] fornece um manipulador de representante de log (veja abaixo) para registrar em log as solicitações feitas ao back-end. Isso fornece uma maneira mais fácil de depurar aplicativos do Xamarin em vez de depender do Fiddler.
 
 ###<a name="headers"></a>Como personalizar cabeçalhos de solicitação
 
@@ -899,8 +897,8 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 [SDK do Windows Live]: https://msdn.microsoft.com/pt-BR/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[APIs de Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn495101.aspx
-[Exemplo de Arquivos de Aplicativos Móveis]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[APIs dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[Exemplo de arquivos dos Aplicativos Móveis]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 [Repositório GitHub Azure-Samples]: https://github.com/Azure-Samples
 
@@ -912,4 +910,4 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 [SymbolSource]: http://www.symbolsource.org/
 [instruções do SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

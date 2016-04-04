@@ -105,7 +105,7 @@ Veja a seção acima sobre Práticas recomendadas ao usar o Cache Local.
  
 ### Como saber se meu site passou a usar o cache local? 
 
-Se estiver usando o recurso de Cache Local com os Ambientes de Preparo, a operação de permuta não será concluída até que o Cache Local seja aquecido. Para verificar se o seu site está em execução no cache local, verifique a variável de ambiente do processo de trabalho `WEBSITE_LOCALCACHE_READY`. Use estas instruções para acessar a variável de ambiente do processo de trabalho em várias instâncias.
+Se estiver usando o recurso de Cache Local com os Ambientes de Preparo, a operação de permuta não será concluída até que o Cache Local seja aquecido. Para verificar se seu site está em execução no cache local, verifique a variável de ambiente do processo de trabalho WEBSITE\_LOCALCACHE\_READY. Use as instruções descritas na página [variável de ambiente do processo de trabalho](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) para acessar as variáveis de ambiente do processo de trabalho em várias instâncias.
  
 ### Acabei de publicar novas alterações, mas meu aplicativo Web parece não tê-las. Por quê? 
 Se o seu aplicativo Web usar o Cache Local, será necessário reiniciar o site para obter as últimas alterações. Não quer fazer isso em um site de produção? Veja as opções de slot acima.
@@ -118,4 +118,4 @@ Com o cache local, as pastas de logs e de dados são um pouco diferentes. No ent
 
 O Cache Local ajuda a evitar reinicializações de aplicativo Web relacionadas ao armazenamento. No entanto, seu aplicativo Web ainda pode sofrer reinicializações durante atualizações de infraestrutura planejadas da VM. A quantidade de reinicializações de aplicativo gerais enfrentadas com o Cache Local habilitado deve ser menor.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

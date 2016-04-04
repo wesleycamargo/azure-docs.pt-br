@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 # Criar uma investigação personalizada para o Application Gateway (clássico) pelo uso do PowerShell
@@ -32,7 +32,7 @@
 
 Para criar um Application Gateway:
 
-1. Crie um recurso de Application Gateway.
+1. Criar um recurso de gateway de aplicativo.
 2. Crie um arquivo XML de configuração ou um objeto de configuração.
 3. Confirme a configuração do recurso de Application Gateway recém-criado.
 
@@ -69,7 +69,7 @@ Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-Azur
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Small, Medium e Large.
+>[AZURE.NOTE]  O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Small, Medium e Large.
 
 
  *VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
@@ -153,7 +153,7 @@ Edite os valores entre parênteses para os itens de configuração. Salve o arqu
 
 O exemplo a seguir mostra como usar um arquivo de configuração configurando o Application Gateway para balancear a carga do tráfego HTTP na porta pública 80 e enviando o tráfego de rede para a porta 80 do back-end entre dois endereços IP pelo uso de uma investigação personalizada.
 
->[AZURE.IMPORTANT]O item de protocolo Http ou Https diferencia maiúsculas de minúsculas.
+>[AZURE.IMPORTANT] O item de protocolo Http ou Https diferencia maiúsculas de minúsculas.
 
 
 Um novo item de configuração <Probe> é adicionado ao configurar investigações personalizadas.
@@ -222,4 +222,4 @@ Se você quiser configurar o descarregamento de protocolo SSL, veja [Configurar 
 
 Se desejar configurar um Application Gateway para usar com um balanceador de carga interno, veja [Criar um Application Gateway com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -3,7 +3,7 @@
     description="Descreve os LEDs e os alarmes usados para monitorar o status do dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="carolz"
     editor="" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="01/05/2016"
-    ms.author="v-sharos" />
+    ms.date="03/21/2016"
+    ms.author="alkohli" />
 
 # Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo   
 
@@ -37,7 +37,7 @@ O painel frontal, também conhecido como o *painel de operações* ou *painel op
  
 O painel frontal contém os seguintes indicadores:
 
-1. Botão liga / desliga
+1. Botão silenciar
 2. LED Indicador de energia (verde/vermelho-âmbar)
 3. LED indicador de falha de módulo (aceso vermelho-âmbar/apagado)
 4. LED indicador de falha lógica (aceso vermelho-âmbar/apagado)
@@ -147,7 +147,8 @@ Use a tabela a seguir para determinar se o módulo do controlador está operando
 | LEDs de status de Ethernet | O lado direito indica atividade do link/rede: (verde estável) link ativo, (verde piscando) atividade de rede. O lado esquerdo indica a velocidade da rede: (amarelo) 1000 Mb/s, (verde) 100 Mb/s e (OFF) 10 Mb/s Dependendo do modelo do componente essa luz pode piscar mesmos se a interface de rede não estiver habilitada. |
 | LEDs de POST | Indica se o andamento da inicialização quando o controlador estiver ligado. Se o dispositivo StorSimple falhar durante a inicialização, esse LED ajudará a Microsoft a identificar o ponto no processo de incialização onde ocorreu a falha. |
 
->[AZURE.IMPORTANT]Se o LED de falha estiver aceso, há um problema com o módulo do controlador que pode ser resolvido através da reinicialização do controlador. Entre em contato com o Suporte da Microsoft se a reinicialização do controlador não resolver esse problema.
+>[AZURE.IMPORTANT] 
+Se o LED de falha estiver aceso, há um problema com o módulo do controlador que pode ser resolvido através da reinicialização do controlador. Entre em contato com o Suporte da Microsoft se a reinicialização do controlador não resolver esse problema.
 
 
 ### Monitorando LEDs para o EBOD (compartimento EBOD)  
@@ -162,12 +163,7 @@ Use a tabela a seguir para determinar se o módulo do controlador EBOD está ope
 
 |Status | Módulo de E/S OK (verde) | Falha no módulo de E/S (âmbar) | Atividade da porta do host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Módulo do controlador OK | ON | OFF | - |
-| Falha no módulo do controlador | OFF | ON | - |
-| Nenhuma conexão externa da porta do host | - | - | OFF |
-| Conexão externa da porta do host – sem atividade | - | - | ON |
-| Conexão externa da porta do host - atividade | - | - | Piscando |
-| Erro de metadados do módulo do controlador | Piscando | - | - |
+| Módulo do controlador OK | ON | OFF | - | | Falha no módulo do controlador | OFF | ON | - | | Nenhuma conexão externa da porta do host | - | - | OFF | | Conexão externa da porta do host – sem atividade | - | - | ON | | Conexão externa da porta do host - atividade | - | - | Piscando | | Erro de metadados do módulo do controlador | Piscando | - | - |
 
 ## LEDs indicadores do drive de disco para o compartimento primário e para o compartimento EBOD
 
@@ -214,7 +210,7 @@ A tabela a seguir descreve os vários estados de alarme.
 | S3 | Modo mudo: silencioso | Nenhum |
 | S4 | Modo de falha crítica: alarme contínuo | Não disponível: mudo não ativo |
 
-> [AZURE.NOTE]
+> [AZURE.NOTE] 
 
 >  - No estado de alarme S1, se você não apertar mudo em até 2 minutos, o estado faz uma transição automática para S2 ou S3.  
 >  - Os estados de alarme S1 a S4 retornam para S0 após a condição de falha ter sido resolvida.  
@@ -261,4 +257,4 @@ Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimpl
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

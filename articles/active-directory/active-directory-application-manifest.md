@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/18/2015"
+   ms.date="03/16/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure
 
 Os aplicativos que se integram com o Active Directory do Azure (AD) devem ser registrados em um locatário do Azure AD, fornecendo uma configuração persistente de identidade para o aplicativo. Essa configuração é consultada em tempo de execução, permitindo cenários que permitem que um aplicativo terceirize e agencie autenticação/autorização por meio do Azure AD. Para saber mais sobre o modelo de aplicativo Azure AD, consulte o artigo [Adicionando, atualizando e removendo um aplicativo][ADD-UPD-RMV-APP].
 
-## Atualizando a configuração de identidade do aplicativo
+## Atualizando a configuração de identidade de um aplicativo
 
 Na verdade, várias opções estão disponíveis para atualizar propriedades de configuração de identidade do aplicativo, que variam em recursos e graus de dificuldade, incluindo o seguinte:
 
@@ -104,7 +104,7 @@ Agora que o manifesto foi salvo, você pode fornecer a um aplicativo cliente reg
 
 1. Primeiro, acesse a página "Configurar" do aplicativo cliente ao qual deseja adicionar acesso à nova API e clique no botão "Adicionar aplicativo".
 2. Em seguida, você verá uma lista de aplicativos de recurso registrados (APIs) no locatário. Clique no sinal de mais (+) ao lado do nome do aplicativo de recurso para selecioná-lo.  
-3. Em seguida, clique na marca de seleção no canto inferior direito. 
+3. Em seguida, clique na marca de seleção no canto inferior direito.
 4. Ao retornar para a seção "Adicionar Aplicativo" da página de configuração do cliente, você verá o novo aplicativo de recurso na lista. Ao passar o mouse sobre a seção "Permissões Delegadas" à direita da linha, uma lista suspensa será exibida. Clique na lista e selecione a nova permissão para adicioná-la à lista de permissões solicitadas do cliente. Observação: essa nova permissão será armazenado na configuração de identidade do aplicativo cliente, na propriedade da coleção "requiredResourceAccess".
 
 ![Permissões para outros aplicativos][PERMS-TO-OTHER-APPS]
@@ -145,4 +145,4 @@ Use a seção de comentários do DISQUS abaixo para fornecer seus comentários e
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

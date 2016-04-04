@@ -37,9 +37,9 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este
 | **Obter a aprovação prévia** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/d | [Microsoft Azure Certified][link-certification] |
 | **Etapa 1: registrar sua conta de desenvolvedor** | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] | [Conta do Microsoft Developer: criação e registro][link-accts] |
 |**Etapa 2: criar sua oferta**| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)| [Pré-requisitos gerais não técnicos](marketplace-publishing-pre-requisites.md)|
-||[Pré-requisitos técnicos de VM][link-single-vm-prereq] | Pré-requisitos técnicos de serviço de desenvolvedor | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Pré-requisitos técnicos de VM][link-single-vm-prereq] | Pré-requisitos técnicos de serviço de desenvolvedor | [Pré-requisitos técnicos de serviço de dados](marketplace-publishing-data-service-creation-prerequisites.md) | [Pré-requisitos técnicos de modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md) |
 ||[Guia de publicação de imagem de VM][link-single-vm] | Guia de publicação do serviço do desenvolvedor | [Guia de publicação do serviço de dados](marketplace-publishing-data-service-creation.md) | [Guia de publicação de modelo de solução](marketplace-publishing-solution-template-creation.md) |
-||[Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
+|| [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] | [Guia de conteúdo de marketing do Azure Marketplace][link-pushstaging] |
 | **Etapa 3: enviar por push sua oferta para preparo** | [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md) | Testar sua oferta de serviço de desenvolvedor em preparo | [Testar sua oferta de serviço de dados em preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar o modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md) |
 | **Etapa 4: implantar a oferta no Marketplace** | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] | [Implantar a oferta no Marketplace][link-pushprod] |
 
@@ -57,7 +57,7 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este
 
 - [Configurando o PowerShell do Azure](marketplace-publishing-powershell-setup.md)
 - [Criando uma imagem de máquina virtual no local](marketplace-publishing-vm-image-creation-on-premise.md)
-- [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines-windows-tutorial/)
+- [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines-windows-hero-tutorial/)
 
 **Serviços de dados**
 
@@ -82,4 +82,4 @@ Algumas etapas são compartilhadas entre os diferentes tipos de soluções. Este
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

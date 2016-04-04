@@ -40,7 +40,8 @@ Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-Consulte [Tamanhos de máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md) para saber mais detalhes.
+
+Consulte [Tamanhos de máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md) para saber mais detalhes.
 
 ### Contas de armazenamento padrão
 
@@ -85,4 +86,4 @@ As partições afetam o balanceamento de carga e a escalabilidade de cada um dos
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 - [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

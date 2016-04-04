@@ -23,7 +23,7 @@ Endereços IP públicos são usados para comunicação com a Internet, incluindo
 
 Endereços IP privados são usados para comunicação em uma VNet (rede virtual) do Azure e na sua rede local quando você usa um gateway de VPN ou circuito de Rota Expressa para estender sua rede para o Azure.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [modelo de implantação clássico](virtual-network-ip-addresses-overview-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 
 Se você estiver familiarizado com o modelo de implantação clássico, verifique as [diferenças de endereçamento IP entre o clássico e o Gerenciador de Recursos](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
@@ -59,7 +59,7 @@ Você pode especificar um rótulo de nome de domínio DNS para um recurso IP pú
 >[AZURE.IMPORTANT] Cada rótulo de nome do domínio criado deve ser exclusivo dentro de seu local do Azure.
 
 ### VMs
-Você pode associar um endereço IP público a uma VM ([Máquina Virtual](virtual-machines-about.md)) atribuindo-o à sua NIC (**placa de interface de rede**). No caso de uma VM de várias NICs, você pode atribuí-la apenas para a NIC *primária*. Você pode atribuir um endereço IP público dinâmico ou estático a uma VM.
+Você pode associar um endereço IP público a uma VM ([Máquina Virtual](../virtual-machines/virtual-machines-linux-about.md)) atribuindo-o à sua NIC (**placa de interface de rede**). No caso de uma VM de várias NICs, você pode atribuí-la apenas para a NIC *primária*. Você pode atribuir um endereço IP público dinâmico ou estático a uma VM.
 
 ### Balanceadores de carga para Internet
 Você pode associar um endereço IP público com um [balanceador de carga](load-balancer-overview.md), atribuindo-o à configuração de **front-end** do balanceador de carga. Este endereço IP público serve como um balanceamento de carga de endereço VIP (IP virtual). Você pode atribuir um endereço IP público estático ou dinâmico a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um front-end de balanceador de carga, que permite cenários [multi-vip](load-balancer-multivip.md) como um ambiente de multilocatário com sites baseados em SSL.
@@ -103,7 +103,7 @@ Os endereços IP privados estáticos costumam ser usados para:
 - Recursos acessados por outros aplicativos/recursos por meio de um endereço IP.
 
 ### VMs
-Um endereço IP privado é atribuído à NIC (**placa de interface de rede**) de uma [máquina virtual](virtual-machines-about.md). No caso de uma VM de várias NICs, é atribuído um endereço IP privado a cada NIC. Você pode especificar o método de alocação como dinâmico ou estático para uma NIC.
+Um endereço IP privado é atribuído à NIC (**placa de interface de rede**) de uma [máquina virtual](../virtual-machines/virtual-machines-linux-about.md). No caso de uma VM de várias NICs, é atribuído um endereço IP privado a cada NIC. Você pode especificar o método de alocação como dinâmico ou estático para uma NIC.
 
 #### Resolução do nome do host DNS interno (para VMs)
 Todas as VMs do Azure são configuradas com [servidores DNS gerenciados Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) por padrão, a menos que você explicitamente configure servidores DNS personalizados. Esses servidores DNS fornecem resolução de nomes interna para VMs que residem na mesma VNet.
@@ -137,4 +137,4 @@ Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nomin
 - Saiba como [implantar uma VM com um IP público estático usando um modelo](virtual-network-deploy-static-pip-arm-template.md).
 - [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-arm-pportal.md) usando o Portal do Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

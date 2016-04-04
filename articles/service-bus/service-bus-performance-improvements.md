@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Práticas recomendadas para melhorar o desempenho usando o Barramento de Serviço | Microsoft Azure"
-   description="Descreve como usar o Barramento de Serviço do Azure para otimizar o desempenho na troca de mensagens agenciadas."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Práticas recomendadas para melhorar o desempenho usando o Barramento de Serviço | Microsoft Azure"
+    description="Descreve como usar o Barramento de Serviço do Azure para otimizar o desempenho na troca de mensagens agenciadas."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço
 
@@ -31,7 +31,7 @@ A menos que mencionado explicitamente, todo o conteúdo deste tópico supõe o u
 
 ## Reutilizando fábricas e clientes
 
-Os objetos de cliente do Barramento de Serviço, como [QueueClient][] ou [MessageSender][], são criados por meio de um objeto [MessagingFactory][], que também oferece gerenciamento interno de conexões. Você não deve fechar fábricas do sistema de mensagens ou os clientes de fila, de tópico e de assinatura depois de enviar uma mensagem e então recriá-los ao enviar a próxima mensagem. Fechar uma fábrica do sistema de mensagens exclui a conexão com o serviço Barramento de Serviço e uma nova conexão é estabelecida na recriação da fábrica. O estabelecimento de uma conexão é uma operação cara que você pode evitar usando a mesma fábrica e objetos de cliente para diversas operações.
+Os objetos de cliente do Barramento de Serviço, como [QueueClient][] ou [MessageSender][], são criados por meio de um objeto [MessagingFactory][], que também oferece gerenciamento interno de conexões. Você não deve fechar fábricas do sistema de mensagens ou os clientes de fila, de tópico e de assinatura depois de enviar uma mensagem e então recriá-los ao enviar a próxima mensagem. Fechar uma fábrica do sistema de mensagens exclui a conexão com o serviço Barramento de Serviço e uma nova conexão é estabelecida na recriação da fábrica. O estabelecimento de uma conexão é uma operação cara que você pode evitar usando a mesma fábrica e objetos de cliente para diversas operações. É possível usar com segurança o objeto [QueueClient][] para enviar mensagens de operações assíncronas simultâneas e de vários threads.
 
 ## Operações simultâneas
 
@@ -81,7 +81,7 @@ Ao criar um cliente de fila ou de assinatura, você poderá especificar um modo 
 
 Ao definir o modo de recebimento como [ReceiveAndDelete][], as duas etapas serão combinadas em uma única solicitação. Isso reduz o número total de operações e pode melhorar a taxa de transferência geral da mensagem. Este ganho de desempenho vem com o risco de perda de mensagens.
 
-O Barramento de Serviço não dá suporte a transações para operações de receber e excluir. Além disso, a semântica do bloqueio de pico é necessária para todos os cenários em que o cliente queira adiar uma mensagem ou enviá-la para as mensagens mortas.
+O Barramento de Serviço não dá suporte a transações para operações de receber e excluir. Além disso, a semântica do bloqueio de pico é necessária para todos os cenários em que o cliente deseje adiar uma mensagem ou enviá-la para as mensagens mortas.
 
 ## Envio em lote no lado do cliente
 
@@ -130,7 +130,7 @@ A pré-busca não afeta o número de operações faturáveis do sistema de mensa
 
 ## Filas e tópicos expressos
 
-As entidades expressas permitem a existência de cenários de alta taxa de transferência e de latência reduzida. Com as entidades expressas, se uma mensagem for enviada a uma fila ou a um tópico, ela não será armazenada imediatamente no repositório de mensagens. Em vez disso, a mensagem será armazenada em cache na memória. Se uma mensagem permanecer na fila por mais de alguns segundos, será automaticamente gravada em armazenamento estável, que o protegerá contra perda devido a uma interrupção. A gravação da mensagem em um cache de memória aumenta a taxa de transferência e reduz a latência porque não há nenhum acesso ao armazenamento estável no momento em que a mensagem é enviada. As mensagens consumidas em alguns segundos não são gravadas no repositório de mensagens. O exemplo a seguir cria um tópico expresso.
+As entidades expressas permitem a existência de cenários de alta taxa de transferência e de latência reduzida. Com as entidades expressas, caso uma mensagem seja enviada para uma fila ou um tópico, ela não será armazenada imediatamente no repositório de mensagens. Em vez disso, ela será armazenada em cache na memória. Se uma mensagem permanecer na fila por mais de alguns segundos, será automaticamente gravada em armazenamento estável, que o protegerá contra perda devido a uma interrupção. A gravação da mensagem em um cache de memória aumenta a taxa de transferência e reduz a latência porque não há nenhum acesso ao armazenamento estável no momento em que a mensagem é enviada. As mensagens consumidas em alguns segundos não são gravadas no repositório de mensagens. O exemplo a seguir cria um tópico expresso.
 
 ```
 TopicDescription td = new TopicDescription(TopicName);
@@ -142,7 +142,7 @@ Se uma mensagem com informações importantes que não devem ser perdidas for en
 
 ## Uso de filas ou tópicos particionados
 
-Internamente, o Barramento de Serviço usa o mesmo nó e o repositório de mensagens para processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). Uma fila ou tópico particionado, por outro lado, é distribuído entre vários nós e repositórios de mensagens. As filas e tópicos particionados não só geram uma taxa de transferência mais alta do que as filas e os tópicos normais, como também exibem disponibilidade superior. Para criar uma entidade particionada, defina a propriedade [EnablePartitioning][] como **true**, como mostrado no exemplo a seguir. Para obter mais informações sobre entidades particionadas, consulte [Entidades de mensagens particionadas][].
+Internamente, o Barramento de Serviço usa o mesmo nó e o repositório de mensagens para processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). Uma fila ou tópico particionado, por outro lado, é distribuído entre vários nós e repositórios de mensagens. As filas e tópicos particionados não só geram uma taxa de transferência mais alta do que as filas e os tópicos normais, como também exibem disponibilidade superior. Para criar uma entidade particionada, defina a propriedade [EnablePartitioning][] como **true**, como mostrado no exemplo a seguir. Para obter mais informações sobre entidades particionadas, veja [Entidades de mensagens particionadas][].
 
 ```
 // Create partitioned queue.
@@ -275,7 +275,7 @@ Para maximizar a taxa de transferência, faça o seguinte:
 
 ## Próximas etapas
 
-Para saber mais sobre a otimização do desempenho do Barramento de Serviço, confira [Entidades de mensagens particionadas][].
+Para saber mais sobre como otimizar o desempenho do Barramento de Serviço, veja [Entidades de mensagens particionadas][].
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -291,4 +291,4 @@ Para saber mais sobre a otimização do desempenho do Barramento de Serviço, co
   [Entidades de mensagens particionadas]: service-bus-partitioning.md
   
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

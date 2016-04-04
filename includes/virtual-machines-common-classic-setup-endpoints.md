@@ -1,74 +1,76 @@
 
 
 
-All virtual machines that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
+Todas as máquinas virtuais criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual.
 
-When you create a virtual machine in the Azure classic portal, common endpoints like those for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are typically created for you automatically, depending on the operating system you choose. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
+Quando você cria uma máquina virtual no portal clássico do Azure, pontos de extremidade comuns como aqueles para a Área de Trabalho Remota, Comunicação Remota do Windows PowerShell e SSH (Secure Shell) normalmente são criados para você automaticamente, dependendo do sistema operacional que você escolher. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
 
-Each endpoint has a *public port* and a *private port*:
+Cada ponto de extremidade tem uma *porta pública* e uma *porta privada*:
 
-- The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
-- The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
+- A porta pública é usada pelo balanceador de carga do Azure para ouvir o tráfego de entrada da Internet com destino à máquina virtual.
+- A porta privada é usada pela máquina virtual para ouvir o tráfego de entrada normalmente com destino a um aplicativo ou serviço em execução na máquina virtual.
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure classic portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
+Valores padrão para o protocolo IP e as portas TCP ou UDP para protocolos conhecidos são fornecidos quando você cria pontos de extremidade com o portal clássico do Azure. Para pontos de extremidade personalizados, você precisará especificar o protocolo IP correto (TCP ou UDP) e as portas públicas e privadas. Para distribuir o tráfego de entrada aleatoriamente entre várias máquinas virtuais, você precisará criar um conjunto com balanceamento de carga composto de vários pontos de extremidade.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](virtual-networks-nsg.md).
+Depois de criar um ponto de extremidade, você pode usar uma lista de controle de acesso (ACL) para definir regras que permitam ou neguem o tráfego de entrada na porta pública do ponto de extremidade com base em seu endereço IP de origem. No entanto, se a máquina virtual estiver em uma rede virtual do Azure, você deverá usar grupos de segurança de rede. Para obter detalhes, veja [Sobre os grupos de segurança de rede](virtual-networks-nsg.md).
 
-> [AZURE.NOTE]: Firewall configuration for Azure virtual machines is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration.
+> [AZURE.NOTE]\: a configuração do firewall para máquinas virtuais do Azure é feita automaticamente para as portas associadas com a Área de Trabalho Remota e SSH (Secure Shell), e, na maioria dos casos, para Comunicação Remota do Windows PowerShell. Para portas especificadas para todos os outros pontos de extremidade, nenhuma configuração é feita automaticamente para o firewall da máquina virtual. Ao criar um ponto de extremidade para a máquina virtual, você precisará garantir que o firewall da máquina virtual também permita tráfego para o protocolo e a porta privada correspondente à configuração do ponto de extremidade.
 
-## Create an endpoint
+## Criar um ponto de extremidade
 
-1.	If you haven't already done so, sign in to the Azure classic portal.
-2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.	Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine.
+1.	Se você ainda não fez isso, entre no portal clássico do Azure.
+2.	Clique em **Máquinas Virtuais** e, em seguida, clique no nome da máquina virtual que você deseja configurar.
+3.	Clique em **Pontos de Extremidade**. A página **Pontos de Extremidade** lista todos os pontos de extremidade atuais para a máquina virtual.
 
-	![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
+	![Pontos de extremidade](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 
-4.	In the taskbar, click **Add**.
-5.	On the **Add an endpoint to a virtual machine** page, choose the type of endpoint.
+4.	Na barra de tarefas, clique em **Adicionar**.
+5.	Na página **Adicionar um ponto de extremidade a uma máquina virtual**, escolha o tipo de ponto de extremidade.
 
-	- If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose **Add a stand-alone endpoint**, then click the left arrow.
-	- Otherwise, choose **Add an endpoint to an existing load-balanced set**, select the name of the load-balanced set, then click the left arrow. On the **Specify the details of the endpoint** page, type a name for the endpoint, then click the check mark to create the endpoint.
+	- Se você estiver criando um novo ponto de extremidade que não faça parte de um conjunto com balanceamento de carga ou que seja o primeiro ponto de extremidade de um novo conjunto com balanceamento de carga, escolha **Adicionar um ponto de extremidade autônomo** e clique na seta para a esquerda.
+	- Caso contrário, escolha **Adicionar um ponto de extremidade a um conjunto com balanceamento de carga existente**, selecione o nome do conjunto com balanceamento de carga e clique na seta para a esquerda. Na página **Especificar os detalhes do ponto de extremidade**, digite um nome para o ponto de extremidade e clique na marca de seleção para criar o ponto de extremidade.
 
-6.	On the **Specify the details of the endpoint** page, type a name for the endpoint in **Name**. You can also choose a network protocol name from the list, which will fill in initial values for the **Protocol**, **Public Port**, and **Private Port**.
-7.	For a customized endpoint, in **Protocol**, choose either **TCP** or **UDP**.
-8.	For customized ports, in **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 7) and private port.
-9.	If this endpoint will be the first one in a load-balanced set, click **Create a load-balanced set**, and then click the right arrow. On the **Configure the load-balanced set** page, specify a load-balanced set name, a probe protocol and port, and the probe interval and number of probes sent. The Azure load balancer sends probes to the virtual machines in a load-balanced set to monitor their availability. The Azure load balancer does not forward traffic to virtual machines that do not respond to the probe. Click the right arrow.
-10.	Click the check mark to create the endpoint.
+6.	Na página **Especificar os detalhes do ponto de extremidade**, digite um nome para o ponto de extremidade em **Nome**. Você também pode escolher um nome de protocolo de rede na lista, que preencherá os valores iniciais para **Protocolo**, **Porta Pública** e **Porta Privada**.
+7.	Para um ponto de extremidade personalizado, em **Protocolo**, escolha **TCP** ou **UDP**.
+8.	Para portas personalizadas, em **Porta Pública**, digite o número de porta para o tráfego de entrada da Internet. Em **Porta Privada**, digite o número da porta em que a máquina virtual está escutando. O número de porta pode ser diferente. Certifique-se de que o firewall na máquina virtual tenha sido configurado para permitir o tráfego correspondente para o protocolo (na etapa 7) e a porta privada.
+9.	Se esse ponto de extremidade for o primeiro de um conjunto com balanceamento de carga, clique em **Criar um conjunto com balanceamento de carga** e clique na seta para a direita. Na página **Configurar o conjunto com balanceamento de carga**, especifique um nome de conjunto com balanceamento de carga, um protocolo de investigação e uma porta e o número de sondas enviadas. O balanceador de carga do Azure envia sondas para as máquinas virtuais em um conjunto com balanceamento de carga para monitorar sua disponibilidade. O balanceador de carga do Azure não encaminhará tráfego para as máquinas virtuais que não responderem à investigação. Clique na seta à direita.
+10.	Clique na marca de seleção para salvar o ponto de extremidade.
 
-The new endpoint will be listed on the **Endpoints** page.
+O novo ponto de extremidade será listado na página **Pontos de extremidade**.
 
-![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
+![Criação de ponto de extremidade com êxito](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-To use an Azure PowerShell cmdlet to set this up, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). If you are using the Azure CLI in Service Management mode, use the **azure vm endpoint create** command.
+Para usar um cmdlet do PowerShell do Azure e configurar isso, confira [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). Se estiver usando a CLI do Azure no modo de Gerenciamento de Serviços, use o comando **azure vm endpoint create**.
 
-## Manage the ACL on an endpoint
+## Gerenciar a ACL em um ponto de extremidade
 
-To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
+Para definir o conjunto de computadores que pode enviar tráfego, a ACL em um ponto de extremidade pode restringir o tráfego com base no endereço IP de origem. Siga estas etapas para adicionar, modificar ou remover uma ACL em uma empresa.
 
-> [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+> [AZURE.NOTE] se o ponto de extremidade é parte de um conjunto com balanceamento de carga, quaisquer alterações feitas na ACL em um ponto de extremidade são aplicadas a todos os pontos de extremidade no conjunto.
 
-If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](virtual-networks-nsg.md).
+Se a máquina virtual estiver em uma rede virtual do Azure, recomendamos grupos de segurança de rede em vez de ACLs. Para obter detalhes, veja [Sobre os grupos de segurança de rede](virtual-networks-nsg.md).
 
-1.	If you haven't already done so, sign in to the Azure classic portal.
-2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.	Click **Endpoints**. From the list, select the appropriate endpoint.
+1.	Se você ainda não fez isso, entre no portal clássico do Azure.
+2.	Clique em **Máquinas Virtuais** e, em seguida, clique no nome da máquina virtual que você deseja configurar.
+3.	Clique em **Pontos de Extremidade**. Na lista, selecione o ponto de extremidade apropriado.
 
-    ![ACL list](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+    ![Lista ACL](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
 
-5.	In the taskbar, click **Manage ACL** to open the **Specify ACL details** dialog box.
+5.	Na barra de tarefas, clique em **Gerenciar ACL** para abrir a caixa de diálogo **Detalhes específicos de ACL**.
 
-    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
+    ![Especifique os detalhes da ACL](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
 
-6.	Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is 131.107.0.0/16.
+6.	Use linhas na lista para adicionar, excluir ou editar regras de uma ACL e alterar sua ordem. O valor de **Sub-rede Remota** é um intervalo de endereços IP para o tráfego de entrada da Internet que o balanceador de carga do Azure usa a fim de permitir ou negar o tráfego com base no endereço IP de origem. Especifique o intervalo de endereços IP no formato CIDR, também conhecido como formato de prefixo de endereço. Um exemplo é 131.107.0.0/16.
 
-You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
+Você pode usar regras para permitir somente o tráfego de computadores específicos correspondentes aos seus computadores na Internet ou negar o tráfego de intervalos de endereços específicos e conhecidos.
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List?](../virtual-network/virtual-networks-acl/).
+As regras são avaliadas em ordem, começando com a primeira regra e terminando com a última regra. Isto significa que as regras devem ser ordenadas das menos restritivas para as mais restritivas. Para obter exemplos e saber mais, consulte [O que é uma Lista de Controle de Acesso de rede?](../virtual-network/virtual-networks-acl/).
 
-To use an Azure PowerShell cmdlet to set this up, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+Para usar um cmdlet do Azure PowerShell para configurar isso, consulte [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 
-## Additional resources
+## Recursos adicionais
 
-[Get started creating an Internet facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md)
+[Introdução à criação de um balanceador de carga para a Internet no Gerenciador de Recursos usando o PowerShell](load-balancer-get-started-internet-arm-ps.md)
+
+<!---HONumber=AcomDC_0323_2016-->

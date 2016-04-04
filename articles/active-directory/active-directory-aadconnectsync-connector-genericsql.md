@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/08/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do conector SQL genérico
@@ -22,7 +22,7 @@ Este artigo descreve o conector SQL genérico. O artigo se aplica aos seguintes 
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Deve usar o hotfix 4.1.3461.0 ou posterior [KB2870703](https://support.microsoft.com/kb/2870703).
+    -   É necessário usar o hotfix 4.1.3671.0 ou posterior [KB3092178](https://support.microsoft.com/kb/3092178).
 
 Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -297,4 +297,4 @@ Se os usuários escolherem a opção de consulta SQL, a exportação exigirá 3 
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

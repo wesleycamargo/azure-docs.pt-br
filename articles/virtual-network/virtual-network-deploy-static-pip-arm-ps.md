@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Implantar uma VM com um IP público estático usando o PowerShell
@@ -216,4 +216,4 @@ Depois de fazer quaisquer alterações necessárias e de compreender o script mo
 
    
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

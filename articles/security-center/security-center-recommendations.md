@@ -38,7 +38,7 @@ Em [Configurando políticas de segurança na Central de Segurança do Azure](sec
 - Habilitar a coleta de dados.
 - Escolher quais recomendações ver como parte da política de segurança.
 
-As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, programas antimalware, [ACLs para pontos de extremidade](../virtual-machines/virtual-machines-set-up-endpoints.md), [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) em sub-redes e em interfaces de rede, auditoria de Banco de Dados SQL, transparent data encryption do banco de dados SQL e firewalls de aplicativo Web. [Configurando políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
+As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, programas antimalware, [ACLs para pontos de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md), [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) em sub-redes e em interfaces de rede, auditoria do banco de dados SQL, Transparent Data Encryption do banco de dados SQL e firewalls do aplicativo Web. [Configurando políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
 
 ### Monitorar as recomendações
 Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. O bloco **Recomendações** na folha **Central de Segurança** permite saber o número total de recomendações identificadas pela Central de Segurança.
@@ -122,4 +122,4 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

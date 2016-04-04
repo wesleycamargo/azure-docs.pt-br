@@ -401,9 +401,9 @@ Para criar finalmente a máquina virtual usando a imagem capturada, use o métod
 		role_size='Small',
 		vm_image_name = image_name)
 
-Para saber mais sobre como capturar uma máquina Virtual Linux, consulte [Como capturar uma máquina Virtual Linux.](../virtual-machines/virtual-machines-linux-capture-image.md)
+Para saber mais sobre como capturar uma máquina Virtual Linux, consulte [Como capturar uma máquina Virtual Linux.](../virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
-Para saber mais sobre como capturar uma máquina Virtual Windows, consulte [Como capturar uma máquina Virtual Windows.](../virtual-machines/virtual-machines-capture-image-windows-server.md)
+Para saber mais sobre como capturar uma máquina Virtual Windows, consulte [Como capturar uma máquina Virtual Windows.](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
 
 ## <a name="What's Next"> </a>Próximas etapas
 
@@ -435,4 +435,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 
 [serviço de nuvem]: https://azure.microsoft.com/pt-BR/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

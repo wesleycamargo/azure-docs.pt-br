@@ -55,7 +55,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 Além disso, as tarefas de várias instâncias executarão *somente* em nós nos **pools criados após 14 de dezembro de 2015**.
 
-> [AZURE.TIP] Quando você usa [nós de computação de tamanho A8 ou A9](./../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) em seu pool do Lote, o aplicativo de MPI pode tirar proveito da rede RDMA (acesso a memória direta remota) de alto desempenho e baixa latência do Azure. Você pode ver a lista completa de tamanhos de nós de computação disponíveis para pools do Lote em [Tamanhos para Serviços de Nuvem](./../cloud-services/cloud-services-sizes-specs.md).
+> [AZURE.TIP] Ao usar [nós de computação de tamanho A8 ou A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) em seu pool do Lote, o aplicativo MPI poderá tirar proveito da rede RDMA (acesso remoto direto à memória) de alto desempenho e baixa latência do Azure. Você pode ver a lista completa de tamanhos de nós de computação disponíveis para pools do Lote em [Tamanhos para Serviços de Nuvem](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Use um StartTask para instalação do aplicativo de MPI
 
@@ -247,4 +247,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "Visão geral de várias instâncias"
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

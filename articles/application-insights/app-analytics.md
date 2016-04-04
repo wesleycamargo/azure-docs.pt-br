@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Análise de Aplicativos – a poderosa ferramenta de pesquisa do Application Insights" 
-	description="Visão geral da Análise de Aplicativos, a poderosa ferramenta de pesquisa do Application Insights." 
+	pageTitle="Análise – a ferramenta de pesquisa avançada do Application Insights" 
+	description="Visão geral da Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Análise do Application Insights: visão geral da linguagem
+# Análise no Application Insights
 
 
-A [Análise do Application Insights](app-analytics.md) é um poderoso mecanismo de consulta para sua telemetria do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Application Insights, o AIQL.
+[Análise](app-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-Uma consulta AIQL típica é uma tabela de *origem* seguida por uma série de *operadores* separados por `|`.
+Uma consulta típica é formada por uma tabela de *origem* seguida de uma série de *operadores* separados por `|`.
 
 Por exemplo, vamos descobrir em qual hora do dia os cidadãos de Hyderabad experimentam usar nosso aplicativo Web. E enquanto estamos fazendo isso, vamos ver quais códigos de resultado são retornados para suas solicitações HTTP.
 
@@ -79,4 +79,4 @@ Abra a Análise na [folha de visão geral](app-insights-dashboards.md) de seu ap
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

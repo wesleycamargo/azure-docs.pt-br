@@ -365,7 +365,7 @@ Faça as alterações a seguir no projeto TodoListDataAPI.
 
 	c. Localize o objectid da entidade de serviço do aplicativo TodoListAPI e salve-o em um local do qual você possa copiá-lo mais tarde.
 
-7. No portal do Azure, navegue até a folha do aplicativo Web para o qual você implantou o projeto ToDoListAngular.
+7. No portal do Azure, navegue até a folha do aplicativo de API no qual o projeto ToDoListDataAPI foi implantado.
 
 9. Clique em **Configurações > Configurações do aplicativo**.
 
@@ -417,4 +417,4 @@ Para saber mais sobre o Active Directory do Azure, confira os recursos a seguir.
 
 Para saber mais sobre outras maneiras de implantar projetos do Visual Studio em aplicativos de API, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), confira [Como implantar um aplicativo do Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

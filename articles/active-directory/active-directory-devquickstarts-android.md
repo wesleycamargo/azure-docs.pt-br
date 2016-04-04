@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/18/2016"
 	ms.author="brandwe"/>
 
 # Integrando o AD do Azure em um aplicativo Android
@@ -44,7 +44,7 @@ Para obter informações sobre como configurar isso, visite nossos exemplos exis
 
 **O que estou fazendo?**
 
-*O Microsoft Active Directory dá suporte à adição de dois tipos de aplicativos. APIs da Web que oferecem serviços a usuários e aplicativos (ou na web ou em um aplicativo em execução em um dispositivo) que acessam essas APIs da Web. Nesta etapa, você está registrando a API da Web que está sendo executada localmente para testar este exemplo. Normalmente, essa API Web seria um serviço REST que está oferecendo a funcionalidade que você quer que um aplicativo acesse. O Active Directory do Microsoft Azure pode proteger qualquer ponto de extremidade!*
+*O Microsoft Active Directory dá suporte à adição de dois tipos de aplicativos. APIs Web que oferecem serviços a usuários e aplicativos (na Web ou em um aplicativo executado em um dispositivo) que têm acesso a elas. Nesta etapa, você está registrando a API da Web que está sendo executada localmente para testar este exemplo. Normalmente, essa API Web seria um serviço REST que oferece a funcionalidade que você deseja que um aplicativo acesse. O Active Directory do Microsoft Azure pode proteger qualquer ponto de extremidade!*
 
 *Aqui, estamos supondo que você está registrando a API REST TODO mencionada acima, mas isso funciona para qualquer API da Web que você gostaria que o Active Directory do Azure protegesse.*
 
@@ -68,7 +68,7 @@ Registrar seu aplicativo Web é a primeira etapa. Em seguida, você precisará i
 
 **O que estou fazendo?**
 
-*Como mencionado acima, o Active Directory do Microsoft Azure dá suporte à adição de dois tipos de aplicativos. APIs da Web que oferecem serviços a usuários e aplicativos (ou na web ou em um aplicativo em execução em um dispositivo) que acessam essas APIs da Web. Nesta etapa, você está registrando o aplicativo neste exemplo. Você deve fazer isso para que este aplicativo seja capaz de solicitar acesso à API da Web que você acabou de registrar. O Active Directory do Azure não vai permitir que o aplicativo solicite a entrada a menos que ele esteja registrado! Isso faz parte da segurança do modelo.*
+*Como mencionado acima, o Active Directory do Microsoft Azure dá suporte à adição de dois tipos de aplicativos. APIs Web que oferecem serviços a usuários e aplicativos (na Web ou em um aplicativo executado em um dispositivo) que têm acesso a elas. Nesta etapa, você está registrando o aplicativo neste exemplo. Você deve fazer isso para que este aplicativo seja capaz de solicitar acesso à API da Web que você acabou de registrar. O Active Directory do Azure não vai permitir que o aplicativo solicite a entrada a menos que ele esteja registrado! Isso faz parte da segurança do modelo.*
 
 *Aqui, estamos supondo que você está registrando este aplicativo de exemplo mencionado acima, mas isso funciona para qualquer aplicativo que você está desenvolvendo.*
 
@@ -270,8 +270,7 @@ Você pode chamar **acquireTokenSilent** para manipular o armazenamento em cache
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Agente**: 
-  o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente, se houver uma conta de usuário criada nesse autenticador e o desenvolvedor escolha não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
+11. **Agente**: o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente se houver uma conta de usuário criada nesse autenticador e o Desenvolvedor optar por não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -283,17 +282,17 @@ Você pode chamar **acquireTokenSilent** para manipular o armazenamento em cache
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` 
-O usuário do agente será retornado se a conta for válida.
+ ```
+ O usuário do agente será retornado se a conta for válida.
 
  O manifesto do seu aplicativo deve ter permissões para usar contas do AccountManager: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
-Usando este passo a passo, você deve ter o que precisa para se integrar com êxito com o Active Directory do Azure. Para obter mais exemplos de como isso funciona, visite o repositório AzureADSamples / no GitHub.
+Usando este passo a passo, você deve ter o que precisa para se integrar com êxito com o Active Directory do Azure. Para obter mais exemplos de como isso funciona, visite o repositório AzureADSamples/ no GitHub.
 
 ## Informações importantes
 
@@ -303,7 +302,7 @@ Recursos de projeto da biblioteca podem ser substituídos pelos recursos do seu 
 
 ### Agente
 
-O componente de agente será entregue com o aplicativo do portal corporativo do Microsoft Intune. A conta será criada no gerenciador de contas. O tipo de conta é "com.microsoft.workaccount". Permite apenas contas únicas do SSO. Ele criará o cookie do SSO para o usuário depois de concluir o desafio de dispositivo para um dos aplicativos.
+O componente de agente será entregue com o aplicativo do portal corporativo do Microsoft Intune. A conta será criada no gerenciador de contas. O tipo de conta é "com.microsoft.workaccount". Permite apenas contas únicas do SSO. Ele criará o cookie do SSO para esse usuário após a conclusão do desafio do dispositivo para um dos aplicativos.
 
 ### URL e ADFS de autoridade
 
@@ -313,11 +312,11 @@ A URL de autoridade precisa da instância STS e do nome do locatário: https://l
 
 ### Consultar itens do cache
 
-A ADAL fornece cache padrão em SharedPrefrecens com algumas funções de consulta simples de cache. Você pode obter o cache atual de AuthenticationContext com: 
+A ADAL fornece cache Padrão em SharedPreferences com algumas funções de consulta de cache simples. É possível obter o cache atual de AuthenticationContext com:
 ```Java
  ITokenCacheStore cache = mContext.getCache();
-``` 
-Você também pode fornecer sua implementação de cache, se desejar personalizá-la. 
+```
+Também será possível fornecer implementação ao cache, se desejar personalizá-lo.
 ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
@@ -364,8 +363,8 @@ Você pode configurar a biblioteca para gerar mensagens de log que você pode us
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` 
-As mensagens podem ser gravadas em um arquivo de log personalizado, conforme mostrado abaixo. Infelizmente, não há um modo padrão de obter os logs de um dispositivo. Há alguns serviços que podem ajudá-lo. Você pode também criar seus próprios métodos, como enviar o arquivo para um servidor.
+ ```
+As mensagens podem ser gravadas em um arquivo de log personalizado, conforme visto abaixo. Infelizmente, não há um modo padrão de obter os logs de um dispositivo. Há alguns serviços que podem ajudá-lo. Você pode também criar seus próprios métodos, como enviar o arquivo para um servidor.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -386,7 +385,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info(Information purposes)
 + Verbose(More details)
 
-Defina o nível de log da seguinte maneira: 
+Defina o nível de log da seguinte maneira:
 ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
@@ -395,8 +394,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` 
-Mais exemplos de adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ```
+ Mais exemplos sobre adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Rastreamentos de rede
 
@@ -415,19 +414,19 @@ O método acquireToken sem atividade dá suporte ao prompt da caixa de diálogo.
 
 A ADAL criptografa os tokens e os armazena em SharedPreferences por padrão. Você pode examinar a classe StorageHelper para ver os detalhes. O Android introduziu o armazenamento de chaves privadas AndroidKeyStore 4.3(API18). A ADAL o utiliza para API18 e superior. Se você quiser usar a ADAL para versões anteriores do SDK, você precisa fornecer a chave secreta em AuthenticationSettings.INSTANCE.setSecretKey
 
-### Desafio de portador de Oauth2
+### Desafio de Portador de Oauth2
 
-A classe AuthenticationParameters fornece funcionalidade para obter o authorization_uri do desafio de portador de Oauth2.
+A classe AuthenticationParameters fornece funcionalidade para obter o authorization\_uri do desafio de portador de Oauth2.
 
 ### Cookies de sessão no Webview
 
-O Webview para Android não limpa os cookies de sessão depois que o aplicativo é fechado. Você pode lidar com isso com o código de exemplo abaixo: 
+O Webview para Android não limpa os cookies de sessão depois que o aplicativo é fechado. É possível fazer isso com o código de exemplo abaixo:
 ```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` 
+```
 Mais sobre cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Substituições de recurso
@@ -449,8 +448,12 @@ Seu aplicativo deve substituí-las se desejar cadeias de caracteres localizadas.
 =======
 
 ### Caixa de diálogo NTLM
-A ADAL versão 1.1.0 dá suporte à caixa de diálogo NTLM que é processada por meio do evento onReceivedHttpAuthRequest do WebViewClient. O layout da caixa de diálogo e as sequências de caracteres podem ser personalizadas.### Etapa 5: Baixe o código de exemplo do cliente nativo do iOS
+A ADAL versão 1.1.0 dá suporte à caixa de diálogo NTLM que é processada por meio do evento onReceivedHttpAuthRequest do WebViewClient. O layout do diálogo e as cadeias de caracteres podem ser personalizados.
+
+### SSO entre aplicativos
+Saiba [como habilitar o SSO entre aplicativos no Android usando a ADAL](active-directory-sso-android.md)
+
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

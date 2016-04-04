@@ -3,7 +3,7 @@
    description="Descreve os detalhes de como um runbook na Automação do Azure é processado."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="03/21/2016"
    ms.author="bwren" />
 
 # Execução de runbook na Automação do Azure
@@ -97,6 +97,8 @@ Os comandos de exemplo a seguir recuperam o último trabalho para um exemplo de 
 
 Para compartilhar recursos entre todos os runbooks na nuvem, a Automação do Azure vai descarregar temporariamente qualquer trabalho depois de ser executado por 3 horas. Os runbooks [Graphical](automation-runbook-types.md#graphical-runbooks) e [Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) serão retomados do seu último [ponto de verificação](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). Durante esse tempo, o trabalho mostrará o status Executando, aguardando recursos. Se o runbook não tiver nenhum ponto de verificação ou o trabalho não atingir o primeiro ponto de verificação antes de ser descarregado, ele será reiniciado desde o início. Os runbooks de [PowerShell](automation-runbook-types.md#powershell-runbooks) são sempre reiniciados desde o início, já que não dão suporte a pontos de verificação.
 
+>[AZURE.NOTE] O limite de fração justa não é aplicável aos trabalhos de runbook em execução nos Hybrid Runbook Workers.
+
 Se o runbook reiniciar a partir do mesmo ponto de verificação ou desde o início do runbook três vezes consecutivas, ele será encerrado com um status Falha, aguardando recursos. Isso serve para proteger contra runbooks em execução indefinidamente sem conclusão, já que não são capazes alcançar o próximo ponto de verificação sem serem descarregados novamente. Nesse caso, você receberá a exceção com falha abaixo.
 
 *O trabalho não pode continuar a execução porque foi removido repetidamente do mesmo ponto de verificação. Verifique se o Runbook não executa operações demoradas sem persistir o estado.*
@@ -105,8 +107,8 @@ Quando você criar um runbook, verifique se o tempo para executar atividades ent
 
 
 
-## Artigos relacionados
+## Próximas etapas
 
 - [Como iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

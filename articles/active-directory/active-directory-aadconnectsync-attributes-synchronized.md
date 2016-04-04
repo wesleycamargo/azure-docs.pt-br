@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -22,9 +22,13 @@
 Este tópico lista os atributos que são sincronizados pela sincronização do Azure AD Connect. Os atributos são agrupados pelos aplicativos relacionados do AD do Azure.
 
 ## Atributos para sincronizar
-Uma pergunta comum é *qual é a lista de atributos mínimos para sincronizar*. A abordagem padrão e recomendada é manter os atributos padrão para que uma GAL (Lista de endereços global) completa possa ser criada na nuvem. Em alguns casos, há alguns atributos que sua organização não deseja que sejam sincronizados para a nuvem. Nesse caso, inicie com a lista de atributos abaixo e identifique aqueles que poderiam conter PII (Informações de identificação pessoal) e não podem ser sincronizados. Em seguida, desmarque-as durante a instalação usando o [Aplicativo Azure AD e filtragem de atributos](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+Uma pergunta comum é *qual é a lista de atributos mínimos para sincronizar*. A abordagem padrão e recomendada é manter os atributos padrão para que uma GAL (Lista de Endereços Global) completa possa ser construída na nuvem e obter todos os recursos nas cargas de trabalho do Office 365. Em alguns casos, há alguns atributos que sua organização não deseja sincronizar na nuvem, já que contêm dados confidenciais ou PII (Informações de identificação pessoal), como no exemplo abaixo.
 
-Ao cancelar a seleção de atributos, seja cuidadoso e desmarque somente aquelas que não podem ser sincronizadas em absoluto.
+![atributos incorretos](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
+
+Nesse caso, inicie com a lista de atributos abaixo e identifique aqueles que poderiam conter dados confidenciais ou PII e que não podem ser sincronizados. Em seguida, desmarque-os durante a instalação usando o [Aplicativo Azure AD e a filtragem de atributos](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+
+>[AZURE.WARNING] Ao cancelar a seleção de atributos, seja cuidadoso e desmarque somente aquelas que não podem ser sincronizadas em absoluto. Desmarcar outros atributos poderá causar um impacto negativo sobre os recursos.
 
 ## Office 365 ProPlus
 
@@ -374,6 +378,11 @@ Ao cancelar a seleção de atributos, seja cuidadoso e desmarque somente aquelas
 | userPrincipalName| X| | | UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail].|
 
 ## aplicativos de terceira parte
+Esse é um conjunto de atributos usados como os atributos mínimos necessários para um aplicativo ou carga de trabalho genérico. Ele pode ser usado para uma carga de trabalho não listada acima ou para um aplicativo não Microsoft. Explicitamente, ele é usado para o seguinte:
+
+- Yammer (somente o Usuário é realmente consumido)
+- [Cenários de colaboração híbrida entre organizações B2B (entre empresas) oferecidos por recursos como o SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
+
 Este é um conjunto de atributos que podem ser usados se o diretório do AD do Azure não for usado para dar suporte ao Office 365, Dynamics ou Intune. Ele tem um pequeno conjunto de atributos principais.
 
 | Nome do atributo| Usuário| Contato| Agrupar| Comentário |
@@ -451,13 +460,13 @@ Os objetos do dispositivo são criados no Active Directory. Eles podem ser dispo
 | msDS-RegisteredOwner | X| |
 
 
-## Observações sobre os atributos
+## Observações
 - Ao usar uma ID Alternativa, o atributo local userPrincipalName será sincronizado com o atributo do AD do Azure onPremisesUserPrincipalName. O atributo de ID Alternativa, por exemplo, email, será sincronizado com o atributo do AD do Azure userPrincipalName.
-
+- Nas listas acima, o tipo de objeto **User** também se aplica ao tipo de objeto **iNetOrgPerson**.
 
 ## Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

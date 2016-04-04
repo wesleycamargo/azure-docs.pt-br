@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
-# Devo usar o ponto de extremidade da v2.0? 
+# Devo usar o ponto de extremidade da v2.0?
 
 Ao criar aplicativos que se integram ao Active Directory do Azure, você precisará decidir se os protocolos de autenticação e o ponto de extremidade da v2.0 atendem às suas necessidades. O modelo de aplicativo do Azure AD original ainda tem suporte completo e, em alguns aspectos, tem mais recursos do que a v2.0. No entanto, o ponto de extremidade da v2.0 [oferece benefícios consideráveis](active-directory-v2-compare.md) para desenvolvedores que podem convencê-lo a usar o novo modelo de programação. Ao longo do tempo, a v2.0 será expandida para abranger todos os recursos do Azure AD, para que você só precise usar o ponto de extremidade da v2.0.
 
@@ -74,13 +74,15 @@ Se deseja usar o ponto de extremidade da v2.0 em um aplicativo de produção, vo
 
 - Se está criando um aplicativo Web, você pode usar com segurança nosso middleware do servidor disponível para realizar a entrada e a validação de token. Isso inclui o middleware OWIN Open ID Connect para ASP.NET e o plug-in NodeJS Passport. Exemplos de código que usam esses middlewares também estão disponíveis na seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 - Para outras plataformas e aplicativos móveis e nativos, você também pode fazer a integração com o ponto de extremidade da v2.0 enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos OAuth e OpenID Connect da v2.0 [foram documentados explicitamente](active-directory-v2-protocols.md) para ajudá-lo a executar essa integração.
-- Finalmente, você pode usar bibliotecas de software livre do Open ID Connect e do OAuth para fazer a integração com o ponto de extremidade da v2.0. O protocolo da v2.0 deve ser compatível com muitas bibliotecas de protocolo de software livre sem grandes alterações. A disponibilidade dessas bibliotecas varia por linguagem e plataforma, e os sites do [Open ID Connect](http://openid.net/connect/) e do [OAuth 2.0](http://oauth.net/2/) mantêm uma lista de implementações populares. Abaixo estão listados os exemplos e as bibliotecas de clientes de software livre que foram testados com o ponto de extremidade da v2.0. Observe que recursos como o [Registro de Cliente Dinâmico do OpenID Connect](https://openid.net/specs/openid-connect-registration-1_0.html) e pontos de extremidade de validação de token ainda não têm suporte e talvez precisem ser desabilitados na biblioteca para funcionar com o ponto de extremidade da v2: 
+- Finalmente, você pode usar bibliotecas de software livre do Open ID Connect e do OAuth para fazer a integração com o ponto de extremidade da v2.0. O protocolo da v2.0 deve ser compatível com muitas bibliotecas de protocolo de software livre sem grandes alterações. A disponibilidade dessas bibliotecas varia por linguagem e plataforma, e os sites do [Open ID Connect](http://openid.net/connect/) e do [OAuth 2.0](http://oauth.net/2/) mantêm uma lista de implementações populares. Abaixo estão listados os exemplos e as bibliotecas de clientes de software livre que foram testados com o ponto de extremidade da v2.0.
 
   - [Servidor de Identidade Java WSO2](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
   - [Cliente Básico do OpenID Connect PHP](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Exemplo de OpenID Connect Android](https://github.com/learning-layers/android-openid-connect)
+  - [Cliente OAuth2 do iOS](https://github.com/nxtbgthng/OAuth2Client)
+  - [Cliente OAuth2 do Android](https://github.com/wuman/android-oauth-client)
+  - [Cliente OpenID Connect do Android](https://github.com/kalemontes/OIDCAndroidLib)
 
 ## Restrições quanto a protocolos
 O ponto de extremidade da v2.0 dá suporte apenas a Open ID Connect e OAuth 2.0. No entanto, nem todos os recursos e capacidades de cada protocolo foram incorporados ao ponto de extremidade da v2.0. Alguns exemplos incluem:
@@ -88,7 +90,7 @@ O ponto de extremidade da v2.0 dá suporte apenas a Open ID Connect e OAuth 2.0.
 - O `end_sesssion_endpoint` do OpenID Connect
 - A concessão de credenciais de cliente do OAuth 2.0
 
-Para entender melhor o escopo da funcionalidade de protocolo compatível no ponto de extremidade da v2.0, leia nossa [Referência de Protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
+Para entender melhor o escopo da funcionalidade de protocolo com suporte no ponto de extremidade v2.0, leia nossa [Referência de protocolo do OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 
 ## Recursos de desenvolvedor avançados do Azure AD
 Há um conjunto de recursos de desenvolvedor disponíveis no serviço do Active Directory do Azure que ainda não têm suporte no ponto de extremidade da v2.0, incluindo:
@@ -96,4 +98,4 @@ Há um conjunto de recursos de desenvolvedor disponíveis no serviço do Active 
 - Declarações de grupo para usuários do Azure AD
 - Funções de aplicativo e declarações de função
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

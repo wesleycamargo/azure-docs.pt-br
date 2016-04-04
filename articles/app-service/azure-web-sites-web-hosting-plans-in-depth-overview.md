@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/15/2016" 
 	ms.author="byvinyal"/>
 
 #Visão geral detalhada de planos de serviço de aplicativo do Azure#
@@ -49,7 +49,7 @@ Finalmente, se você desejar criar um novo aplicativo em uma região diferente, 
 
 ## Criar um plano de Serviço de Aplicativo
 
-Você não pode criar um plano de Serviço de Aplicativo vazio. No entanto, você pode criar um novo plano explicitamente durante a criação do aplicativo.
+É possível criar um **plano do Serviço de Aplicativo** vazio por meio da experiência de navegação do **plano do Serviço de Aplicativo** ou como parte da criação do aplicativo.
 
 Para fazer isso no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), clique em **NOVO**, selecione **Web + móvel** e depois selecione **Aplicativos Web**, **Aplicativos Móveis**, **Aplicativos Lógicos** ou **Aplicativos de API**. ![][createWebApp]
 
@@ -61,15 +61,24 @@ Para criar um novo Plano do Serviço de Aplicativo, clique em **+ Criar Novo**, 
  
 ## Mover um aplicativo para um plano de Serviço de Aplicativo diferente
 
-Você pode mover um aplicativo para um plano de Serviço de Aplicativo diferente no [Portal do Azure](https://portal.azure.com). Os aplicativos podem ser movidos entre planos na mesma região geográfica.
+Você pode mover um aplicativo para um plano de Serviço de Aplicativo diferente no [Portal do Azure](https://portal.azure.com). Os aplicativos podem ser movidos entre planos, desde que os planos estejam no mesmo grupo de recursos e na mesma região geográfica.
 
-Para mover um aplicativo para outro plano, navegue até o aplicativo que você deseja mover e clique em **Alterar Plano de Serviço de Aplicativo**.
+Para mover um aplicativo para outro plano, navegue até o aplicativo que deseja mover. No menu Configurações, procure **Alterar Plano do Serviço de Aplicativo**.
  
-Isso abrirá a folha do Plano de Serviço de Aplicativo. Nesse ponto, você poderá selecionar um plano existente ou criar um novo. Planos em uma localização geográfica diferente permanecem esmaecidos e não podem ser selecionados.
+Isso abrirá o seletor do Plano do Serviço de Aplicativo. Nesse ponto, você poderá selecionar um plano existente ou criar um novo. Apenas planos válidos (no mesmo grupo de recursos e na mesma localização geográfica) são mostrados.
 
 ![][change]
 
-Observe que cada plano tem sua própria camada de preços. Quando você mover um site de uma camada **Grátis** para uma camada **Padrão**, seu aplicativo poderá aproveitar todos os recursos da camada **Padrão**.
+Observe que cada plano tem sua própria camada de preços. Por exemplo, ao mover um site de uma camada **Gratuita** para uma camada **Standard**, seu aplicativo poderá aproveitar todos os recursos da camada **Standard**.
+
+## Clonar um aplicativo para um plano diferente do Serviço de Aplicativo
+Se desejar mover o aplicativo para uma região diferente, uma alternativa será a clonagem do aplicativo. O clone fará uma cópia de seu aplicativo em um plano ou ambiente novo ou existente do Serviço de Aplicativo em qualquer região.
+
+ ![][appclone]
+ 
+É possível encontrar a opção **Clonar Aplicativo** no menu **ferramentas**.
+
+O clone tem algumas limitações; leia mais sobre isso [aqui](../app-service-web/app-service-web-app-cloning-portal.md)
 
 ## Dimensionar um plano de Serviço de Aplicativo
 
@@ -77,9 +86,9 @@ Há três maneiras de dimensionar um plano:
 
 - Altere a **camada de preços** do plano. Por exemplo, um plano na camada **Básica** pode ser convertido para a camada **Padrão** ou **Premium**, e todos os aplicativos associados a esse plano poderão aproveitar os recursos oferecidos na nova camada de serviço.
 - Altere o **tamanho da instância** do plano. Por exemplo, um plano na camada **Básica** usando instâncias **pequenas** pode ser alterado para usar instâncias **grandes**. Todos os aplicativos associados a esse plano poderão aproveitar a memória adicional e os recursos de CPU oferecidos pelo tamanho de instância maior.
-- Altere a **contagem de instâncias** do plano. Por exemplo, um plano **Standard** dimensionado para três instâncias pode ser dimensionado para 10 instâncias, e um plano **Premium** (visualização) pode ser dimensionado para 20 instâncias (com algumas restrições). Todos os aplicativos associados a esse plano poderão aproveitar a memória adicional e os recursos de CPU oferecidos pela contagem de instâncias maior.
+- Altere a **contagem de instâncias** do plano. Por exemplo, um plano **Standard** escalado horizontalmente para 3 instâncias pode ser escalado para 10 instâncias, e um plano **Premium** pode ser escalado horizontalmente para 20 instâncias. Todos os aplicativos associados a esse plano poderão aproveitar a memória adicional e os recursos de CPU oferecidos pela contagem de instâncias maior.
 
-Na imagem abaixo, é possível ver a folha **Plano de Serviço de Aplicativo**, bem como a folha **Camada de Preços**. Clicar na parte de **Camada de preços** na folha **Plano do Serviço de Aplicativo** expande a folha **Camada de preços**, na qual você pode alterar a camada de preços e o tamanho de instância para o plano.
+É possível alterar o tipo de preço e o tamanho de instância clicando no item **Escalar Verticalmente** nas configurações do Aplicativo ou do Plano do Serviço de Aplicativo. As alterações serão aplicadas ao **Plano do Serviço de Aplicativo** e afetarão todos os Aplicativos hospedados por ele.
  
  ![][pricingtier]
 
@@ -96,5 +105,6 @@ Os planos de Serviço de Aplicativo representam um conjunto de recursos e capaci
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

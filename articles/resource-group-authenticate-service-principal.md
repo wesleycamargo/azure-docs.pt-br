@@ -120,7 +120,7 @@ Essas etapas pressupõem que você tenha configurado um Cofre da Chave e um segr
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. Obtenha seu aplicativo do Active Directory. Você usará a id do aplicativo ao fazer logon.
+2. Obtenha seu aplicativo do Active Directory. Você precisará da ID do aplicativo no logon.
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@ Você criou um aplicativo do Active Directory e uma entidade de serviço para es
 <a id="provide-certificate-through-automated-powershell-script" />
 ### Fornecer certificado por meio do script PowerShell automatizado
 
-1. Obtenha seu aplicativo do Active Directory. Você usará a id do aplicativo no logon
+1. Obtenha seu aplicativo do Active Directory. Você precisará da ID do aplicativo no logon
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -517,4 +517,4 @@ Para obter mais informações sobre como usar os certificados e a CLI do Azure, 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

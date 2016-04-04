@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Agendas na Automação do Azure | Microsoft Azure"
    description="As agendas de automação são usadas para agendar o início automático de runbooks na Automação do Azure. Este artigo descreve como criar agendas."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
+   ms.date="03/18/2016"
    ms.author="bwren" />
 
 # Agendas na Automação do Azure
 
-As Agendas de automação são usadas para agendar runbooks para serem executados automaticamente. Isso pode ser uma única data e hora para que o runbook seja executado uma vez. Ou então, pode ser um agendamento recorrente para iniciar o runbook várias vezes. As agendas normalmente não são acessadas dos runbooks.
+As Agendas de automação são usadas para agendar runbooks para serem executados automaticamente. Isso pode ser uma única data e hora para que o runbook seja executado uma vez. Caso contrário, pode ser um agendamento recorrente diário ou por hora para iniciar o runbook várias vezes. As agendas normalmente não são acessadas dos runbooks.
 
 >[AZURE.NOTE]  Atualmente, os agendamentos não dão suporte às configurações DSC de Automação do Azure.
 
@@ -60,12 +60,11 @@ O cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn69027
 	$scheduleName = "My Daily Schedule"
 	$startTime = (Get-Date).Date.AddDays(1).AddHours(12)
 	$expiryTime = $startTime.AddYears(1)
-	
+
 	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime $startTime –ExpiryTime $expiryTime –DayInterval 1
 
 
 ## Veja também
 - [Agendar um runbook na Automação do Azure](automation-scheduling-a-runbook.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->
