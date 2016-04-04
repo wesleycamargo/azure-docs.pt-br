@@ -46,7 +46,7 @@ Você criará um aplicativo Web de lista de contatos simples desenvolvido no ASP
 1. No menu **Arquivo**, clique em **Novo Projeto**.
 3. Na caixa de diálogo **Novo Projeto**, expanda **Visual C#**, selecione **Web** e, em seguida, selecione **Aplicativo Web ASP .NET**. Nomeie o aplicativo **ContactManager** e clique em **OK**.
 
-	![Caixa de diálogo Novo Projeto](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.png)
+	![Caixa de diálogo Novo Projeto](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)
 
 1. Na caixa de diálogo **Novo Projeto ASP.NET**, selecione o modelo **MVC**, marque **API Web** e clique em **Alterar Autenticação**.
 
@@ -120,7 +120,7 @@ A marcação acima altera o nome do aplicativo de "My ASP.NET App" para "Contact
 
 ### Executar o aplicativo localmente
 
-1. Pressione CTRL+F5 para executar o aplicativo. A página inicial do aplicativo é exibida no navegador padrão. ![Home page da lista de tarefas pendentes](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
+1. Pressione CTRL+F5 para executar o aplicativo. A página inicial do aplicativo é exibida no navegador padrão. ![Home page da lista de tarefas pendentes](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 Isso é tudo o que você precisa fazer por enquanto para criar o aplicativo que você implantará no Azure. Posteriormente, você adicionará a funcionalidade do banco de dados.
 
@@ -202,7 +202,7 @@ No ASP.NET MVC, o recurso de scaffolding pode gerar automaticamente o código qu
 
 1. Na caixa de diálogo **Adicionar Scaffold**, selecione **Controlador MVC com exibições, usando Entity Framework** e, clique em **Adicionar**.
 
- ![Adicionar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
+ ![Adicionar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
 6. Defina o nome do controlador como **HomeController**. Selecione **Contato** como a classe de modelo. Clique no botão **Novo contexto de dados** e aceite o padrão "ContactManager.Models.ContactManagerContext" para o **Novo tipo de contexto de dados**. Clique em **Adicionar**.
 
@@ -504,7 +504,7 @@ Para:
 
 1. Na caixa de diálogo **Adicionar Scaffold**, insira **Controlador API 2 Web com ações, usando Entity Framework** e clique em **Adicionar**.
 
-	![Adicionar a API do controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
+	![Adicionar a API do controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
 4. Na caixa de diálogo **Adicionar Controlador**, insira "ContactsController" como o nome do controlador. Selecione "Contato (ContactManager.Models)" para a **Classe do modelo**. Mantenha o valor padrão para o **Classe de contexto de dados**.
 
@@ -810,4 +810,4 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

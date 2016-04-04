@@ -51,7 +51,8 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector do OneD
 	![][2]
 4.	Você pode soltar o aplicativo de API do Conector do OneDrive no editor clicando em "Conector do OneDrive". Clique no botão Autorizar. Forneça suas credenciais de Microsoft (se não for conectado automaticamente). Clique em "Sim" para permitir o acesso.
 
-	![][3] ![][4]
+	![][3]
+	![][4]
 
 5.	Agora você pode usar o Conector do OneDrive no fluxo. Atualmente, os gatilhos não estão disponíveis no conector do OneDrive. As ações disponíveis são: Obter Arquivo, Carregar um Arquivo, Excluir Arquivos e Listar Arquivos.
 

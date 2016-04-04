@@ -36,9 +36,11 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 	Nome | Obrigatório | Descrição
 --- | --- | ---
-URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: **https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
+URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: **https://microsoft.sharepoint.com/teams/wabstest*.
+ Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
 
-5. Após a conclusão, as Configurações de Pacote serão semelhantes às seguintes: ![][1]
+5. Após a conclusão, as Configurações de Pacote serão semelhantes às seguintes:
+![][1]
 
 Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do SharePoint Online.
 
@@ -53,13 +55,15 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 	Nome | Obrigatório | Descrição
 --- | --- | ---
-URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*. Modo de Autenticação | Sim | Especifique o modo de autenticação para se conectar ao site do SharePoint. As opções incluem:<ul><li>Padrão</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>se você optar por Padrão, as credenciais que executam o Conector do SharePoint são usadas; Nome de Usuário/Senha não são necessários. Nome de Usuário e Senha são necessários para outros tipos de autenticação.<br/><br/>**Observação** Não há suporte para a autenticação anônima.
+URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: *https://microsoft.sharepoint.com/teams/wabstest*.
+Modo de Autenticação | Sim | Especifique o modo de autenticação para se conectar ao site do SharePoint. As opções incluem:<ul><li>Padrão</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>se você optar por Padrão, as credenciais que executam o Conector do SharePoint são usadas; Nome de Usuário/Senha não são necessários. Nome de Usuário e Senha são necessários para outros tipos de autenticação.<br/><br/>**Observação** Não há suporte para a autenticação anônima.
 Nome de usuário | Não | Especifique um nome de usuário válido para se conectar ao site do SharePoint, se o modo de autenticação não for Padrão.
 Senha | Não | Especifique uma senha válida para se conectar ao site do SharePoint, se o modo de Autenticação não for Padrão.
 Biblioteca de Documentos / URLs Relativas da Lista | Sim | Especifique as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
 Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Após a conclusão, as Configurações de Pacote são semelhantes às seguintes: ![][2]
+5. Após a conclusão, as Configurações de Pacote são semelhantes às seguintes:
+![][2]
 
 Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do SharePoint Server.
 
@@ -74,15 +78,20 @@ Depois de criar seu aplicativo de API, agora você pode usar o conector do Share
 
 3. Se o conector do SharePoint é selecionado no início do aplicativo lógico, ele atua como gatilho. Caso contrário, as ações poderiam ser realizadas na conta do SharePoint usando o conector.
 
-4. Ao usar o conector do SharePoint Online, você precisa autenticar e autorizar os aplicativos lógicos a executar operações em seu nome. Para iniciar a autorização, clique em **Autorizar** no Conector do SharePoint: ![][3]
+4. Ao usar o conector do SharePoint Online, você precisa autenticar e autorizar os aplicativos lógicos a executar operações em seu nome. Para iniciar a autorização, clique em **Autorizar** no Conector do SharePoint:  
+![][3]
 
-5. Clique em Autorizar abre a caixa de diálogo de autenticação do SharePoint. Forneça os detalhes de logon da conta do SharePoint na qual você deseja executar as operações: ![][4]
+5. Clique em Autorizar abre a caixa de diálogo de autenticação do SharePoint. Forneça os detalhes de logon da conta do SharePoint na qual você deseja executar as operações:  
+![][4]
 
-6. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome: ![][5]
+6. Conceda aos aplicativos lógicos acesso à sua conta para executar operações em seu nome:  
+![][5]
 
-7. Se o Conector do SharePoint estiver configurado como Gatilho, os gatilhos são mostrados. Caso contrário, uma lista de ações é exibida e você pode escolher a operação apropriada que deseja executar: ![][6]
+7. Se o Conector do SharePoint estiver configurado como Gatilho, os gatilhos são mostrados. Caso contrário, uma lista de ações é exibida e você pode escolher a operação apropriada que deseja executar:  
+![][6]
   
-**URL relativa configurada para a biblioteca de documentos** ![][7]
+**URL relativa configurada para a biblioteca de documentos**  
+![][7]
 
 **URL relativa configurada para a lista de documentos**
 

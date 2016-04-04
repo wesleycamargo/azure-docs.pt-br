@@ -163,7 +163,12 @@ Use a tabela a seguir para determinar se o módulo do controlador EBOD está ope
 
 |Status | Módulo de E/S OK (verde) | Falha no módulo de E/S (âmbar) | Atividade da porta do host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Módulo do controlador OK | ON | OFF | - | | Falha no módulo do controlador | OFF | ON | - | | Nenhuma conexão externa da porta do host | - | - | OFF | | Conexão externa da porta do host – sem atividade | - | - | ON | | Conexão externa da porta do host - atividade | - | - | Piscando | | Erro de metadados do módulo do controlador | Piscando | - | - |
+| Módulo do controlador OK | ON | OFF | - |
+| Falha no módulo do controlador | OFF | ON | - |
+| Nenhuma conexão externa da porta do host | - | - | OFF |
+| Conexão externa da porta do host – sem atividade | - | - | ON |
+| Conexão externa da porta do host - atividade | - | - | Piscando |
+| Erro de metadados do módulo do controlador | Piscando | - | - |
 
 ## LEDs indicadores do drive de disco para o compartimento primário e para o compartimento EBOD
 

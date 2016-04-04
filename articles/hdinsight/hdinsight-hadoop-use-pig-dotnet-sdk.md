@@ -49,7 +49,7 @@ Para obter instruções sobre como fazer isso, confira [Criar um certificado aut
 
 Cada assinatura do Azure é identificada por um valor GUID, conhecido como a ID da assinatura. Use as etapas a seguir para encontrar esse valor.
 
-1. Visite o [Portal do Azure][preview-portal].
+1. Visite o [Portal do Azure](portal de visualização).
 
 2. Na barra à esquerda do portal, selecione __PROCURAR TUDO__ e selecione __Assinaturas__ na folha __Procurar__.
 
@@ -155,6 +155,6 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
-[preview-portal]: https://portal.azure.com/
+[portal de visualização]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_0323_2016-->

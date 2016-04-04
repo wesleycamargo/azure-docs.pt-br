@@ -65,10 +65,11 @@ Depois de criar seu aplicativo de API, você pode usar o conector de SFTP como g
 	- **Caminho da Pasta** - especifique o caminho da pasta da qual os arquivos precisam ser recuperados.
 	- **O tipo de arquivo: texto ou binário** - selecione o tipo do arquivo.
 	- **Máscara de arquivo** - especifique a máscara de arquivo a ser aplicada para a recuperação de arquivos. ' *' recupera todos os arquivos na pasta especificada.
-- **Excluir Máscara de Arquivo** - especifique a máscara de arquivo a ser aplicada para a exclusão de arquivos. Se a propriedade "Máscara de Arquivo" também for definida, a Máscara de Exclusão de Arquivo será aplicada primeiro.
+	- **Excluir Máscara de Arquivo** - especifique a máscara de arquivo a ser aplicada para a exclusão de arquivos. Se a propriedade "Máscara de Arquivo" também for definida, a Máscara de Exclusão de Arquivo será aplicada primeiro.
 
 
-	![][9] ![][10]
+	![][9]  
+	![][10]
 
 7.	De maneira semelhante, você pode usar as ações de SFTP no fluxo. Você pode usar a ação "Carregar Arquivo" para carregar um arquivo no servidor SFTP. Configure as propriedades de entrada para a ação "Carregar Arquivo" da seguinte maneira:
 
@@ -77,9 +78,10 @@ Depois de criar seu aplicativo de API, você pode usar o conector de SFTP como g
 	- **Caminho do Arquivo** - especifique o caminho do arquivo a ser carregado
 	- **Substituir** - especifique "true" para substituir o arquivo se ele já existir
 	- ****Anexar Se Existir** - especifique "true" ou "false". Quando definido como "true", os dados serão anexados ao arquivo, se ele existir. Quando definido como "false", o arquivo será substituído, se ele existir
-- **Pasta Temporária** - se fornecida, o adaptador carregará o arquivo para o “Caminho da Pasta Temporária” e, quando o carregamento for concluído, o arquivo será movido para o “Caminho da Pasta”. O “Caminho da Pasta Temporária” deve estar no mesmo disco físico que o “Caminho da Pasta” para garantir que a operação de movimentação seja atômica. A pasta temporária pode ser usada apenas quando a propriedade Anexar se Existir está desabilitada.
+	- **Pasta Temporária** - se fornecida, o adaptador carregará o arquivo para o “Caminho da Pasta Temporária” e, quando o carregamento for concluído, o arquivo será movido para o “Caminho da Pasta”. O “Caminho da Pasta Temporária” deve estar no mesmo disco físico que o “Caminho da Pasta” para garantir que a operação de movimentação seja atômica. A pasta temporária pode ser usada apenas quando a propriedade Anexar se Existir está desabilitada.
 
-	![][11] ![][12]
+	![][11]
+	![][12]
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).

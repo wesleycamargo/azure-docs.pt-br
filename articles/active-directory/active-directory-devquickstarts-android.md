@@ -270,7 +270,8 @@ Você pode chamar **acquireTokenSilent** para manipular o armazenamento em cache
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Agente**: o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente se houver uma conta de usuário criada nesse autenticador e o Desenvolvedor optar por não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
+11. **Agente**: 
+  o aplicativo do portal da empresa do Microsoft Intune fornecerá o componente do agente. A ADAL usará a conta de agente, se houver uma conta de usuário criada nesse autenticador e o desenvolvedor escolha não ignorá-la. O desenvolvedor pode ignorar o usuário do agente com:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -395,7 +396,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
   adb logcat > "C:\logmsg\logfile.txt"
  ```
- Mais exemplos sobre adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+Mais exemplos sobre adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Rastreamentos de rede
 

@@ -392,7 +392,7 @@ As etapas a seguir usam o comando Oozie para enviar e gerenciar fluxos de trabal
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	A parte ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** é a URL a ser usada com o comando do Oozie.
+	A parte **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** é a URL a ser usada com o comando do Oozie.
 
 2. Use o seguinte para criar uma variável de ambiente para a URL para que você não precise digitá-la para cada comando:
 

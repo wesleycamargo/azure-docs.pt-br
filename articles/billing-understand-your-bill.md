@@ -92,7 +92,8 @@ Oferta de compromisso | Gastar com dedução do seu compromisso pré-pago | [Arq
 
 ## Cabeçalho - Informações do cliente
 
-A seção de informações do cliente identifica informações pertinentes no que diz respeito ao seu uso e perfil. ![cabeçalho](./media/billing-understand-your-bill/Header.png)
+A seção de informações do cliente identifica informações pertinentes no que diz respeito ao seu uso e perfil.
+    ![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 ### Nº da Fatura
 Um identificador de fatura único para fins de acompanhamento

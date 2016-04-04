@@ -40,7 +40,7 @@ Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de c
 
 Há duas opções principais para instalação: [Galeria do PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) e [WebPI](http://aka.ms/webpi-azps). A WebPI receberá atualizações mensais. A Galeria do PowerShell receberá atualizações continuamente.
 
-Para obter mais informações, veja [Azure PowerShell 1.0](https://azure.microsoft.com/pt-BR/blog/azps-1-0/).
+Para obter mais informações, veja [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 ## Etapa 2: definir sua assinatura
 
@@ -393,4 +393,4 @@ Veja o conjunto de comandos do Azure PowerShell para criar essa máquina virtual
 
 [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0323_2016--->

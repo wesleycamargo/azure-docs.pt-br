@@ -78,7 +78,7 @@ Nesta seção, você implantará o modelo de aplicativo do ASP.NET MVC padrão n
 	Quando a publicação estiver concluída, você verá seu aplicativo Web publicado no navegador.
 
 1. Para criar um ponto de extremidade da CDN, faça logon no [portal do Azure](https://portal.azure.com).
-2. Clique em **+ Novo** > **Mídia + CDN** > **CDN**.
+2. Clique em **+Novo** > **Mídia + CDN** > **CDN**.
 
 	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
 
@@ -533,11 +533,11 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	...
 	```
 
-	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade “CdnFallbackExpression” na linha:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+	Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
 
 6. Para testar se o script de fallback está funcionando, volte à folha do ponto de extremidade da CDN e clique em **Parar**.
 

@@ -633,7 +633,7 @@ Para verificar se a funcionalidade básica do servidor de relatório está funci
 
 		http://localhost/Reports
 
-- No computador local, navegue até o Gerenciador de relatório **remoto** na VM. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Quando receber uma solicitação por uma senha, use as credenciais de administrador que você criou durante o provisionamento da VM. O nome de usuário está no formato [Domínio] [nome de usuário], em que o domínio é o nome de computador da VM, por exemplo, ssrsnativecloud\\testuser. Se você não estiver usando HTTP**S**, remova o **s** da URL. Consulte a próxima seção para saber mais sobre como criar usuários adicionais na VM.
+- No computador local, navegue até o Gerenciador de relatório **remoto** na VM. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Quando receber uma solicitação por uma senha, use as credenciais de administrador que você criou durante o provisionamento da VM. O nome de usuário está no formato [Domínio] \[nome de usuário], em que o domínio é o nome de computador da VM, por exemplo, ssrsnativecloud\\testuser. Se você não estiver usando HTTP**S**, remova o **s** da URL. Consulte a próxima seção para saber mais sobre como criar usuários adicionais na VM.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -705,4 +705,4 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-sql-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

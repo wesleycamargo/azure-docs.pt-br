@@ -57,7 +57,8 @@ Os símbolos para o namespace Microsoft.Azure.Mobile estão disponíveis em [Sym
 
 O código a seguir cria o objeto [MobileServiceClient] que é usado para acessar o back-end do seu serviço móvel.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient
+		("MOBILE_APP_URL");
 
 No código acima, substitua `MOBILE_APP_URL` pela URL do back-end do Aplicativo Móvel, que está localizada na folha de back-end de seu Aplicativo Móvel no [portal do Azure]. É normal e recomendável que a instância do cliente seja Singleton.
 
@@ -83,7 +84,8 @@ A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e
 
 Todos os códigos que acessam e modificam dados em uma tabela de back-end chamam funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando o método [GetTable] em uma instância do `MobileServiceClient`, da seguinte forma:
 
-    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable =
+    		client.GetTable<TodoItem>();
 
 Esse é o modelo de serialização tipado. Também há suporte para um modelo de serialização não tipado. O link [ abaixo cria uma referência a uma tabela sem tipo]\:
 

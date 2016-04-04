@@ -65,7 +65,8 @@ A lista a seguir mostra exemplos do tempo médio para primeiro byte de vários l
 |Seul, Coreia do Sul| 190 | 190 | 0% |
 
 
-Tem um nó CDN do Azure na mesma cidade. ** Tem um nó do CDN do Azure em uma cidade vizinha.
+\* Tem um nó CDN do Azure na mesma cidade.  
+\*\* Tem um nó do CDN do Azure em uma cidade vizinha.  
 
 ## Desafios  
 

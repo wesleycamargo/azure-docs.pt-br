@@ -297,7 +297,7 @@ Nesses casos, você deve ir para o portal e abrir um problema de suporte para au
 <!-- -->
 Para ser específico sobre os núcleos, por exemplo, é possível verificar as regiões para as quais deve ser solicitado o valor de cota apropriado usando o comando a seguir, que redireciona a saída para **jq** para a análise do JSON.
 <!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+		azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
         {
           "name": "virtualMachines",
           "apiVersions": [
