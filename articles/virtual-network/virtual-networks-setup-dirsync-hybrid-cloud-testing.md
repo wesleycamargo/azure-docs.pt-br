@@ -181,8 +181,8 @@ Este ambiente agora está pronto para você executar testes de aplicativos do Of
 
 [Configurar um ambiente de nuvem híbrida simulado para testes](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
-[Ambientes de teste de nuvem híbrida do Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
+[Ambientes de teste de nuvem híbrida do Azure](../virtual-machines/virtual-machines-windows-classic-hybrid-test-env.md)
 
-[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Diretrizes de implementação dos Serviços de Infraestrutura do Azure](../virtual-machines/virtual-machines-linux-infrastructure-service-guidelines.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

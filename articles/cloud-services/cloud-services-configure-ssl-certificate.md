@@ -22,12 +22,12 @@
 # Configurando SSL para um aplicativo no Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Portal do Azure](cloud-services-configure-ssl-certificate-portal.md)
+- [Portal clássico do Azure](cloud-services-configure-ssl-certificate.md)
 
 A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
 
-> [AZURE.NOTE] Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Serviços de Aplicativos, consulte [isto](../app-service-web/web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] Os procedimentos descritos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Serviços de Aplicativos, veja [isto](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 Esta tarefa usará uma implantação da produção; as informações sobre como usar uma implantação de preparo ao final deste tópico.
 
@@ -55,7 +55,7 @@ Em seguida, você deve incluir informações sobre o certificado nos arquivos de
 
 O aplicativo deve ser configurado para usar o certificado, e um ponto de extremidade HTTPS deve ser adicionado. Dessa forma, os arquivos de definição e configuração do serviço precisam ser atualizados.
 
-1.  No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **Certificados** dentro da seção **WebRole** e inclua as seguintes informações sobre o certificado:
+1.  No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **Certificados** dentro da seção **WebRole** e inclua as seguintes informações sobre o certificado (e os certificados intermediários):
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -63,6 +63,17 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
                     		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
+                <!-- IMPORTANT! Unless your certificate is either
+                self-signed or signed directly by the CA root, you
+                must include all the intermediate certificates
+                here. You must list them here, even if they are
+                not bound to any endpoints. Failing to list any of
+                the intermediate certificates may cause hard-to-reproduce
+                interoperability problems on some clients.-->
+                <Certificate name="CAForSampleCertificate"
+                             storeLocation="LocalMachine"
+                             storeName="CA"
                              permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
@@ -111,6 +122,9 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
             <Certificates>
                 <Certificate name="SampleCertificate" 
                     thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+                    thumbprintAlgorithm="sha1" />
+                <Certificate name="CAForSampleCertificate"
+                    thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
                     thumbprintAlgorithm="sha1" />
             </Certificates>
         ...
@@ -168,4 +182,4 @@ Se quiser usar SSL em uma implantação de preparação em lugar de uma implanta
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

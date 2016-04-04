@@ -51,7 +51,8 @@ Primeiro, crie um aplicativo no [Portal de Registro de Aplicativos](https://apps
 Copie a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela em breve.
 
 ## Instalar o adal.js
-Para começar, navegue até o projeto do qual você fez o download e instale o adal.js. Se o [bower](http://bower.io/) estiver instalado, basta executar este comando. Para qualquer incompatibilidade de dependência de versão, basta escolha a versão mais recente. ```
+Para começar, navegue até o projeto do qual você fez o download e instale o adal.js. Se o [bower](http://bower.io/) estiver instalado, basta executar este comando. Para qualquer incompatibilidade de versão da dependência, basta escolha a versão mais recente.
+```
 bower install adal-angular#experimental
 ```
 
@@ -228,4 +229,4 @@ Para continuar aprendendo sobre o ponto de extremidade v2.0, confira nosso [guia
 - [AD do Azure no Excedente de Pilha >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentação do Azure AD no [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

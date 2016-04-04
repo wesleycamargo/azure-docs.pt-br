@@ -233,7 +233,7 @@ Saída esperada:
 
 Use o cmdlet `Add-AzureRmVMNetworkInterface` para atribuir as NICs a VMs diferentes.
 
-Você pode encontrar orientações sobre como criar uma máquina virtual e atribuir uma NIC em [Criar e pré-configurar uma Máquina Virtual do Windows com o Gerenciador de Recursos e o Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), usando a opção 5 no exemplo.
+Você pode encontrar orientações sobre como criar uma máquina virtual e atribuir uma NIC em [Criar e pré-configurar uma Máquina Virtual do Windows com o Gerenciador de Recursos e o Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example), usando a opção 5 no exemplo.
 
 
 Ou se já tiver uma máquina virtual criada, você poderá adicionar a interface de rede com as etapas a seguir:
@@ -308,4 +308,4 @@ Use o comando `Remove-AzureLoadBalancer` para excluir um balanceador de carga cr
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

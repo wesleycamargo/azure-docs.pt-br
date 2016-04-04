@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/25/2016"
+   ms.date="03/18/2016"
    ms.author="mbaldwin" />
 
 # Graph API do Active Directory do Azure
@@ -50,6 +50,13 @@ A Graph API fornece os seguintes recursos:
 
 - **Extensões de diretório**: se estiver desenvolvendo um aplicativo que precisa ler ou gravar propriedades exclusivas para objetos de diretório, você pode registrar e usar valores de extensão usando a Graph API. Por exemplo, se seu aplicativo requer uma propriedade Skype ID para cada usuário, você pode registrar a nova propriedade no diretório e ela estará disponível para todos os objetos de usuário. Para obter mais informações, veja [Extensões de esquema do diretório da Graph API do AD do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
+- **Protegida por escopos de permissão**: a API do Graph do AAD expõe os escopos de permissão que permitem o acesso seguro/consentido aos dados do AAD e dá suporte a uma variedade de tipos de aplicativo cliente, incluindo:
+ - aqueles com uma interface do usuário que recebem acesso delegado aos dados por meio de autorização do usuário conectado (delegado)
+  - aqueles que usam controle de acesso baseado em função definido por aplicativo, como clientes de serviço/daemon (funções de aplicativo)
+
+    Os escopos delegado e de permissão de função de aplicativo representam um privilégio exposto pela API do Graph e podem ser solicitados por aplicativos cliente por meio dos recursos de permissões de registro do aplicativo [no portal clássico do Azure](https://manage.windowsazure.com). Os clientes podem verificar os escopos de permissão concedidos a eles inspecionando a declaração de escopo (“scp”) recebida no token de acesso quanto às permissões delegadas e a declaração de funções (“funções”) quanto às permissões de função de aplicativo. Saiba mais sobre [Escopos de permissão da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
+
+
 ## Cenários
 
 A Graph API habilita muitos cenários de aplicativos. A seguir, os cenários mais comuns:
@@ -66,4 +73,4 @@ A Graph API habilita muitos cenários de aplicativos. A seguir, os cenários mai
 
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

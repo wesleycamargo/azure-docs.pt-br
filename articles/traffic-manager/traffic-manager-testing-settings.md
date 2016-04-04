@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Teste as configurações do Gerenciador de Tráfego
@@ -72,4 +72,4 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

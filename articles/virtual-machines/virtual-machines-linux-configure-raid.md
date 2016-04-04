@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configurar o RAID de software em uma máquina virtual que executa o Linux | Microsoft Azure" 
 	description="Saiba como usar mdadm para configurar o RAID no Linux no Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	writer="szark" 
@@ -10,7 +10,7 @@
 	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -23,13 +23,11 @@
 # Configurar RAID de software no Linux
 É um cenário comum usar o software RAID em máquinas virtuais Linux no Azure para apresentar vários discos de dados anexados como um único dispositivo RAID. Normalmente, isso pode ser usado para melhorar o desempenho e permitir uma taxa de transferência aprimorada em comparação com o uso de apenas um único disco.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
- 
 
 ## Anexando discos de dados
-Dois ou mais discos de dados vazios geralmente serão necessários para configurar um dispositivo RAID. Este artigo não se aprofundará em detalhes sobre como anexar discos de dados para uma máquina virtual Linux. Confira o artigo [anexar um disco](storage-windows-attach-disk.md#attachempty) do Microsoft Azure para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual do Linux no Azure.
+Dois ou mais discos de dados vazios geralmente serão necessários para configurar um dispositivo RAID. Este artigo não se aprofundará em detalhes sobre como anexar discos de dados para uma máquina virtual Linux. Confira o artigo [anexar um disco](virtual-machines-windows-classic-attach-disk.md#attachempty) do Microsoft Azure para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual do Linux no Azure.
 
->[AZURE.NOTE]O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual. Veja [Tamanhos de Máquina Virtual e de Serviço de Nuvem para o Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obter informações detalhadas sobre tamanhos de VM e o número de discos de dados com suporte.
+>[AZURE.NOTE] O tamanho Extrapequeno de VM não dá suporte a mais de um disco de dados anexados à máquina virtual. Veja [Tamanhos de Máquina Virtual e de Serviço de Nuvem para o Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obter informações detalhadas sobre tamanhos de VM e o número de discos de dados com suporte.
 
 
 ## Instalar o utilitário mdadm
@@ -125,7 +123,7 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]Pode ser necessária uma reinicialização depois de fazer essas alterações em sistemas SUSE. Esta etapa *não* é necessária no SLES 12.
+	>[AZURE.NOTE] Pode ser necessária uma reinicialização depois de fazer essas alterações em sistemas SUSE. Esta etapa *não* é necessária no SLES 12.
 
 
 ## Adicionar o novo sistema de arquivos a /etc/fstab
@@ -182,4 +180,4 @@ Neste exemplo, depois de executar esse comando, um novo dispositivo RAID chamado
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

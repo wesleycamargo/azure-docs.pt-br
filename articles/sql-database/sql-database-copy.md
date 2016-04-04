@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/20/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,9 +23,9 @@
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Portal do Azure](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 As etapas a seguir mostram como copiar um banco de dados SQL com o [portal do Azure](https://portal.azure.com). A operação de cópia do banco de dados cria um novo banco de dados SQL. A cópia é um backup de instantâneo do banco de dados que você cria no mesmo servidor ou em um servidor diferente.
 
@@ -102,4 +102,4 @@ Abra a folha do banco de dados SQL do banco de dados que você deseja copiar:
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

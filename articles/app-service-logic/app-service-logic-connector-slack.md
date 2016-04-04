@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # Introdução ao Conector do Slack e à adição dele ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do Slack](../connectors/create-api-slack.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do Slack](../connectors/connectors-create-api-slack.md).
 
 Conecte-se a canais de margem de atraso e poste mensagens para sua equipe. OS conectores podem ser usados em aplicativos lógicos como parte de um "fluxo de trabalho" para executar diferentes tarefas. Ao usar o conector de margem de atraso no fluxo de trabalho, você pode obter uma diversos cenários usando outros conectores. Por exemplo, você pode usar o [conector do Facebook](app-service-logic-connector-facebook.md) no fluxo de trabalho para postar uma mensagem em seu canal de margem de atraso.
 
@@ -37,7 +37,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Selecione **Aplicativos de API** e pesquise “Conector de margem de atraso”.
-3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
+3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades:
 ![][1] 
 
 4. Clique em **Criar**.
@@ -50,22 +50,22 @@ Após criar o conector de margem de atraso, você poderá adicioná-lo como uma 
 
 1.	No Aplicativo Lógico, abra **Gatilhos e ações**. [Criar um novo aplicativo lógico](app-service-logic-create-a-logic-app.md)
 
-2.	O conector do Slack é listado na galeria do lado direito: 
+2.	O conector do Slack é listado na galeria do lado direito:
 ![][2]
 
 3.	Selecione o conector de margem de atraso criado para adicioná-lo automaticamente ao aplicativo lógico.
-4.	Selecione **Autorizar**. Entre em sua conta de margem de atraso. No final, será solicitado que você dê permissão a seu conector para acessar sua conta de margem de atraso. Selecione **Authorizify**: 
-![][3] 
-![][4] 
-![][5] 
+4.	Selecione **Autorizar**. Entre em sua conta de margem de atraso. No final, será solicitado que você dê permissão a seu conector para acessar sua conta de margem de atraso. Selecione **Authorizify**:
+![][3]
+![][4]
+![][5]
 ![][6]  
 	
-5.	Agora você pode usar o conector de margem de atraso no fluxo. A ação Postar Mensagem está disponível: 
+5.	Agora você pode usar o conector de margem de atraso no fluxo. A ação Postar Mensagem está disponível:
 ![][7]
 
 
 Percorramos a experiência “Postagem”. Você pode usar essa ação para postar uma mensagem em qualquer Canal do Slack: 
-![][8]
+[][8]
 
 Configure as propriedades de entrada da ação "Postar mensagem":
 
@@ -101,4 +101,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

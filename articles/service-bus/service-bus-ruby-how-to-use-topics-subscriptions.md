@@ -63,7 +63,7 @@ Você também poderá encontrar essa chave se efetuar logon no [Portal clássico
 
 ## Criar um aplicativo Ruby
 
-Para obter instruções, consulte [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md).
+Para obter instruções, consulte [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configurar seu aplicativo para usar o Barramento de Serviço
 
@@ -237,4 +237,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
  
 [Portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -28,7 +28,7 @@ Quando você expande ou diminui um aplicativo que está sendo executado em máqu
 
 Você deve considerar as seguintes informações antes de configurar a colocação em escala do seu aplicativo:
 
-- Você deve adicionar as máquinas virtuais criadas em um conjunto de disponibilidade para dimensionar um aplicativo que as use. As máquinas virtuais que você adicionar podem ser ativadas ou desativadas inicialmente, mas elas serão ativadas em ação de aumento e desligadas em ação de redução de escala. Para obter mais informações sobre das máquinas virtuais e conjuntos de disponibilidade, consulte [Gerenciamento da disponibilidade das máquinas virtuais](../virtual-machines-manage-availability.md) (a página pode estar em inglês).
+- Você deve adicionar as máquinas virtuais criadas em um conjunto de disponibilidade para dimensionar um aplicativo que as use. As máquinas virtuais que você adicionar podem ser ativadas ou desativadas inicialmente, mas elas serão ativadas em ação de aumento e desligadas em ação de redução de escala. Para obter mais informações sobre das máquinas virtuais e conjuntos de disponibilidade, consulte [Gerenciamento da disponibilidade das máquinas virtuais](../virtual/machines/virtual-machines-windows-manage-availability.md) (a página pode estar em inglês).
 
 - A colocação em escala é afetada pelo uso de núcleo. As instâncias de função ou as máquinas virtuais maiores usam mais núcleos. Você só pode dimensionar um aplicativo dentro do limite de núcleos para sua assinatura. Por exemplo, se sua assinatura tem um limite de vinte núcleos e você executa um aplicativo com as duas máquinas virtuais de tamanho médio (um total de quatro núcleos), você só pode aumentar o dimensionamento de outras implantações do serviço de nuvem em sua assinatura em dezesseis núcleos. Todas as máquinas virtuais em um conjunto de disponibilidade são na colocação em escala de um aplicativo devem ser do mesmo tamanho. Para obter mais informações sobre o uso de núcleos e tamanho de máquinas, consulte [Tamanhos de máquina virtual e serviço de nuvem para o Azure](http://msdn.microsoft.com/library/dn197896.aspx) (a página pode estar em inglês).
 
@@ -138,7 +138,11 @@ Na página Escala, você pode configurar seu Serviço de Nuvem para aumentar ou 
     
     **Observação**: na página Escala, a **Instância** representa uma instância de função ou uma instância de uma máquina virtual.
     
-    O número máximo de instâncias é limitado pelos núcleos disponíveis na assinatura. As cores do controle deslizante representam os núcleos usados e disponíveis na sua assinatura: - Azul representa o número máximo de núcleos que podem usar a função. - Cinza escuro representa os núcleos usados por todas as funções e máquinas virtuais na assinatura. Quando esse valor estiver sobreposto aos núcleos usados pela função, a cor mudará para azul escuro. - Cinza claro representa os núcleos que estão disponíveis para uso com dimensionamento. - Rosa representa uma alteração que foi feita, mas que não foi salva.
+    O número máximo de instâncias é limitado pelos núcleos disponíveis na assinatura. As cores do controle deslizante representam os núcleos usados e disponíveis em sua assinatura:
+    - O azul representa o número máximo de núcleos que a função pode usar.
+    - O cinza escuro representa os núcleos usados por todas as funções e máquinas virtuais na assinatura. Quando esse valor sobrepuser os núcleos usados pela função, a cor mudará para azul-escuro.
+    - O cinza claro representa os núcleos que estão disponíveis para uso com dimensionamento.
+    - O rosa representa uma alteração que foi feita que não foi salva.
 
 5. Selecione a conta do armazenamento associada à fila que você deseja usar.
 
@@ -227,4 +231,4 @@ Você pode agendar o dimensionamento automático de seu aplicativo configurando 
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

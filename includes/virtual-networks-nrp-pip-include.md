@@ -36,8 +36,8 @@ Endereço IP de público exemplo, no formato JSON:
 
 ### Recursos adicionais
 
-- Obtenha mais informações sobre [endereços IP públicos](virtual-networks-reserved-public-ip.md).
-- Saiba mais sobre [endereços IP públicos em nível de instância](virtual-networks-instance-level-public-ip.md).
+- Obtenha mais informações sobre [endereços IP públicos](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
+- Saiba mais sobre [endereços IP públicos em nível de instância](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 - Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) para endereços IP públicos.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

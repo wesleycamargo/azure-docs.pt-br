@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Gerenciar Serviços de Nuvem do Azure usando a Automação do Azure"
+	pageTitle="Gerenciar os Serviços de Nuvem do Azure usando a Automação do Azure | Microsoft Azure"
 	description="Saiba mais sobre como o serviço de Automação do Azure pode ser usado para gerenciar serviços de nuvem do Azure em grande escala."
 	services="cloud-services, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="eamono"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="03/22/2016"
 	ms.author="jolevy"/>
 
 
@@ -33,8 +33,12 @@ Reduza o custo operacional e libere a equipe de TI/ DevOps para se concentrar no
 
 ## Como a Automação do Azure ajuda a gerenciar os serviços de nuvem do Azure?
 
-Os serviços de nuvem do Azure podem ser gerenciados na Automação do Azure usando os cmdlets do PowerShell disponíveis em [Ferramentas PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). A Automação do Azure tem esses cmdlets do PowerShell do serviço de nuvem disponíveis imediatamente para que você possa executar todas as tarefas de gerenciamento do serviço de nuvem no serviço. Você também pode combinar esses cmdlets na automação do Azure com os cmdlets para outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
+Os serviços de nuvem do Azure podem ser gerenciados na Automação do Azure usando os cmdlets do PowerShell disponíveis em [Ferramentas PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). A Automação do Azure tem esses cmdlets do PowerShell do serviço de nuvem disponíveis imediatamente para que você possa executar todas as tarefas de gerenciamento do serviço de nuvem no serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas nos serviços do Azure e sistemas de terceiros.
 
+Entre alguns usos de exemplo da Automação do Azure para gerenciar os Serviços de Nuvem do Azure estão:
+
+- [Implantação contínua de um Serviço de Nuvem sempre que cscfg ou cspkg é atualizado no Armazenamento de Blobs do Azure](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+- [Reinicialização das instâncias do Serviço de Nuvem em paralelo, com um domínio de atualização por vez](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## Próximas etapas
 
@@ -45,4 +49,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 - [Mapa de aprendizagem da Automação do Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

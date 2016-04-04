@@ -30,7 +30,7 @@ O Agendador do Azure está disponível por meio da interface do usuário em quas
 
 O Agendador do Azure não é somente disponível na interface inicial para solicitações de gerenciamento, mas seu trabalho é também replicado geograficamente. Quando houver uma interrupção em uma região, o Agendador do Azure faz failover e garante que o trabalho é executado a partir de outro data center na região geográfica emparelhada.
 
-Por exemplo, se você tiver criado um trabalho no Centro Sul dos EUA, o Agendador do Azure replica automaticamente esse trabalho no Centro Norte dos EUA. Quando há uma falha no Centro Sul dos EUA, o Agendador do Azure garante que o trabalho é executado a partir do Centro Norte dos EUA. [A lista de regiões emparelhadas do Azure está disponível aqui](https://msdn.microsoft.com/library/azure/dn758204.aspx).
+Por exemplo, se você tiver criado um trabalho no Centro Sul dos EUA, o Agendador do Azure replica automaticamente esse trabalho no Centro Norte dos EUA. Quando há uma falha no Centro Sul dos EUA, o Agendador do Azure garante que o trabalho é executado a partir do Centro Norte dos EUA. [Para obter uma explicação detalhada sobre as funcionalidades de replicação geográfica do Azure, consulte este tópico.](../sql-database/sql-database-business-continuity-design.md)
 
 ![][1]
 
@@ -56,7 +56,7 @@ Por exemplo, no diagrama abaixo, o Agendador do Azure segue a sua política de r
 
 ![][2]
 
-Observe que a mesma política de repetição se aplica à ação original e à ação de erro alternativa. Também é possível ter um tipo de ação da ação de erro alternativa que seja diferente do tipo de ação da ação principal. Por exemplo, enquanto a ação principal pode ser invocar um ponto de extremidade HTTP, a ação de erro pode, em vez disso, ser uma ação de fila de armazenamento que realiza o log dos erros.
+Observe que a mesma política de repetição se aplica à ação original e à ação de erro alternativa. Também é possível ter um tipo de ação da ação de erro alternativa que seja diferente do tipo de ação da ação principal. Por exemplo, enquanto a ação principal pode estar invocando um ponto de extremidade HTTP, a ação de erro pode, em vez disso, ser uma ação de fila de armazenamento, de fila do barramento de serviço ou de tópico do barramento de serviço que realiza o log dos erros.
 
 Para saber como configurar um ponto de extremidade alternativo, confira [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
@@ -85,4 +85,4 @@ Para saber como configurar um ponto de extremidade alternativo, confira [errorAc
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

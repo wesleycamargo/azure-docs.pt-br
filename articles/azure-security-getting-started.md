@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="03/23/2016"
    ms.author="yuridio"/>
 
 #Introdução à segurança do Microsoft Azure
@@ -33,7 +33,7 @@ Neste artigo de visão geral sobre a segurança do Azure, examinaremos:
 
 O controle do acesso à infraestrutura de TI, aos dados e aos aplicativos é essencial. No Microsoft Azure, esses recursos são fornecidos por serviços como o Active Directory do Azure, o Armazenamento do Azure e dão suporte a vários padrões e APIs.
 
-O [Active Directory do Azure](active-directory-whatis.md) (AD do Azure) é um repositório de identidades e mecanismo que fornece autenticação, autorização e controle de acesso para usuários, grupos e objetos de uma organização. O AD do Azure oferece aos desenvolvedores uma maneira eficaz de integrar o gerenciamento de identidade aos aplicativos. Os protocolos padrão do setor, como [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx) e [OpenID Connect](http://openid.net/connect/) possibilitam a entrada em uma variedade de plataformas, como .NET, Java, Node.js e PHP.
+O [Active Directory do Azure](./active-directory/active-directory-whatis.md) (AD do Azure) é um repositório de identidades e mecanismo que fornece autenticação, autorização e controle de acesso para usuários, grupos e objetos de uma organização. O AD do Azure oferece aos desenvolvedores uma maneira eficaz de integrar o gerenciamento de identidade aos aplicativos. Os protocolos padrão do setor, como [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0), [WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx) e [OpenID Connect](http://openid.net/connect/) possibilitam a entrada em uma variedade de plataformas, como .NET, Java, Node.js e PHP.
 
 A Graph API baseada em REST permite que os desenvolvedores leiam e gravem no diretório a partir de qualquer plataforma. Por meio do suporte do [OAuth 2.0](http://oauth.net/2/), os desenvolvedores podem compilar aplicativos Web e móveis que se integram às APIs da Web de terceiros e da Microsoft e compilar suas próprias APIs da Web seguras. As bibliotecas de cliente de software livre estão disponíveis para .Net, Windows Store, iOS e Android com bibliotecas adicionais em desenvolvimento.
 
@@ -45,11 +45,11 @@ Alguns outros recursos para gerenciamento de identidade e acesso incluem:
 
 -   O AD do Azure habilita o [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) para aplicativos SaaS, independentemente de onde estejam hospedados. Alguns aplicativos são federados com o AD do Azure e outros usam SSO com senha. Os aplicativos federados também podem dar suporte ao provisionamento do usuário e o armazenamento de senha no cofre.
 
--   O acesso aos dados no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado por meio de autenticação. Cada Conta de Armazenamento tem uma chave primária ([Chave de Conta de Armazenamento](https://msdn.microsoft.com/library/azure/ee460785.aspx), ou SAK) e uma chave secreta secundária (a [Assinatura de Acesso Compartilhado](storage-dotnet-shared-access-signature-part-1.md), ou SAS).
+-   O acesso aos dados no [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) é controlado por meio de autenticação. Cada Conta de Armazenamento tem uma chave primária ([Chave de Conta de Armazenamento](https://msdn.microsoft.com/library/azure/ee460785.aspx), ou SAK) e uma chave secreta secundária (a Assinatura de Acesso Compartilhado, ou SAS).
 
--   O AD do Azure fornece identidade como um serviço de Federação (usando [Serviços de Federação do Active Directory](fundamentals-identity.md), sincronização e replicação com diretórios locais.
+-   O AD do Azure fornece identidade como um serviço de Federação (usando [Serviços de Federação do Active Directory](./active-directory/fundamentals-identity.md), sincronização e replicação com diretórios locais.
 
--   O [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication.md) é o serviço de autenticação multifator que exige que os usuários também verifiquem as entradas usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ela está disponível para uso com o AD do Azure, para proteger os recursos locais com o Servidor do Azure MFA e com aplicativos personalizados e diretórios que usam o SDK.
+-   O [Azure Multi-Factor Authentication (MFA)](./multi-factor-authentication/multi-factor-authentication.md) é o serviço de autenticação multifator que exige que os usuários também verifiquem as entradas usando um aplicativo móvel, uma chamada telefônica ou uma mensagem de texto. Ela está disponível para uso com o AD do Azure, para proteger os recursos locais com o Servidor do Azure MFA e com aplicativos personalizados e diretórios que usam o SDK.
 
 -   [Os Serviços de Domínio do AD do Azure](https://azure.microsoft.com/services/active-directory-ds/) permitem adicionar máquinas virtuais do Azure a um domínio sem a necessidade de implantar controladores de domínio. Os usuários podem entrar nessas máquinas virtuais usando suas credenciais corporativas do Active Directory e administrar as máquinas virtuais associadas ao domínio usando uma Política de Grupo para impor linhas de base de segurança em todas as máquinas virtuais do Azure.
 
@@ -65,7 +65,7 @@ Além disso, o Azure oferece vários recursos para proteger dados em trânsito e
 
 ### Tecnologias de criptografia do Azure
 
-Você pode coletar detalhes sobre o acesso administrativo ao seu ambiente de assinatura usando [Relatórios do AD do Azure](active-directory-reporting-audit-events.md). Você tem a opção de configurar a [Criptografia de Unidade do BitLocker](https://technet.microsoft.com/library/cc732774.aspx) em VHDs com informações confidenciais no Azure.
+Você pode coletar detalhes sobre o acesso administrativo ao seu ambiente de assinatura usando [Relatórios do AD do Azure](./active-directory/active-directory-reporting-audit-events.md). Você tem a opção de configurar a [Criptografia de Unidade do BitLocker](https://technet.microsoft.com/library/cc732774.aspx) em VHDs com informações confidenciais no Azure.
 
 Outros recursos do Azure que ajudarão você a manter seus dados seguros incluem:
 
@@ -151,15 +151,15 @@ Você pode colocar suas máquinas virtuais em [Redes Virtuais do Azure](https://
 
 Você pode usar as seguintes tecnologias de Rede Virtual do Azure para ajudar a proteger as comunicações na Rede Virtual do Azure:
 
--   [**Grupos de Segurança de Rede (NSG)**](virtual-networks-nsg.md). Você pode usar um NSG para controlar o tráfego em uma ou mais instâncias de máquina virtual (VM) em sua rede virtual. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego com base na direção do tráfego, no protocolo, no endereço e porta de origem e no endereço e porta de destino.
+-   [**Grupos de Segurança de Rede (NSG)**](./virtual-network/virtual-networks-nsg.md). Você pode usar um NSG para controlar o tráfego em uma ou mais instâncias de máquina virtual (VM) em sua rede virtual. Um NSG contém regras de controle de acesso que permitem ou negam o tráfego com base na direção do tráfego, no protocolo, no endereço e porta de origem e no endereço e porta de destino.
 
--   [**Roteamento definido pelo usuário (UDR)**](virtual-networks-udr-overview.md). Você pode controlar o roteamento de pacotes por meio de um dispositivo virtual criando rotas definidas pelo usuário que especificam o próximo salto para os pacotes que fluem para uma sub-rede específica indo, então, para o dispositivo de segurança de rede virtual.
+-   [**Roteamento definido pelo usuário (UDR)**](./virtual-network/virtual-networks-udr-overview.md). Você pode controlar o roteamento de pacotes por meio de um dispositivo virtual criando rotas definidas pelo usuário que especificam o próximo salto para os pacotes que fluem para uma sub-rede específica indo, então, para o dispositivo de segurança de rede virtual.
 
--   [**Encaminhamento IP**](virtual-networks-udr-overview.md). Um dispositivo de segurança de rede virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você habilita o Encaminhamento IP para a VM.
+-   [**Encaminhamento IP**](./virtual-network/virtual-networks-udr-overview.md). Um dispositivo de segurança de rede virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você habilita o Encaminhamento IP para a VM.
 
--   [**Túnel forçado**](vpn-gateway-about-forced-tunneling.md). O túnel forçado permite redirecionar ou "forçar" todo o tráfego direcionado para a Internet gerado por suas máquinas virtuais em uma Rede Virtual do Azure de volta para seu local por meio de um túnel VPN de site a site para inspeção e auditoria
+-   [**Túnel forçado**](./vpn-gateway/vpn-gateway-about-forced-tunneling.md). O túnel forçado permite redirecionar ou "forçar" todo o tráfego direcionado para a Internet gerado por suas máquinas virtuais em uma Rede Virtual do Azure de volta para seu local por meio de um túnel VPN de site a site para inspeção e auditoria
 
--   ACLs de [**ponto de extremidade**](virtual-machines-set-up-endpoints.md). Você pode controlar quais computadores têm conexões de entrada permitidas da Internet para uma máquina virtual em sua Rede Virtual do Azure definindo ACLs de ponto de extremidade.
+-   ACLs de [**ponto de extremidade**](./virtual-machines/virtual-machines-windows-classic-setup-endpoints.md). Você pode controlar quais computadores têm conexões de entrada permitidas da Internet para uma máquina virtual em sua Rede Virtual do Azure definindo ACLs de ponto de extremidade.
 
 -   [**Soluções de segurança de rede de parceiros**](https://azure.microsoft.com/marketplace/). Há uma série de soluções de segurança de rede do parceiro que você pode acessar do Azure Marketplace.
 
@@ -177,21 +177,21 @@ Se o Azure mover dados de um cliente como parte das operações normais ou duran
 
 -   **Firewall de Armazenamento (FW)**: o firewall no front-end de armazenamento filtra tráfego para que ele se restrinja às portas 80/443 e a outras portas de utilitário necessárias. O firewall no back-end de armazenamento restringe as comunicações ao que vier dos servidores de front-end de armazenamento.
 
--   **Gateway de Rede Virtual**: os [Gateways de Rede Virtual do Azure](virtual-networks-configure-vnet-to-vnet-connection.md) servem como os gateways entre locais que conectam suas cargas de trabalho na Rede Virtual do Azure para seus sites locais. É necessário conectar-se a sites locais por meio de [túneis de VPN site a site IPsec](vpn-gateway-create-site-to-site-rm-powershell.md) ou por meio de circuitos de [Rota Expressa](expressroute-introduction.md). Para túneis de VPN IPsec/IKE, os gateways executam handshakes de IKE e estabelecem túneis de VPN IPsec S2S entre as Redes Virtuais e sites locais. Os Gateways de Rede Virtual também encerram [VPNs ponto a site](vpn-gateway-point-to-site-create.md).
+-   **Gateway de Rede Virtual**: os [Gateways de Rede Virtual do Azure](./vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) servem como os gateways entre locais que conectam suas cargas de trabalho na Rede Virtual do Azure para seus sites locais. É necessário conectar-se a sites locais por meio de [túneis de VPN site a site IPsec](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) ou por meio de circuitos de [Rota Expressa](./expressroute/expressroute-introduction.md). Para túneis de VPN IPsec/IKE, os gateways executam handshakes de IKE e estabelecem túneis de VPN IPsec S2S entre as Redes Virtuais e sites locais. Os Gateways de Rede Virtual também encerram [VPNs ponto a site](./vpn-gateway/vpn-gateway-point-to-site-create.md).
 
 ##Acesso Remoto Seguro
 
 Os dados armazenados na nuvem devem ter garantias suficientes habilitadas para evitar explorações e manter a confidencialidade e a integridade em trânsito. Isso inclui controles de rede que se integram à identidade auditável baseada em política de uma organização e a mecanismos de gerenciamento de acesso.
 
-A tecnologia de criptografia interna permite que você criptografe comunicações dentro e entre implantações, entre regiões do Azure e do Azure para datacenters locais. O acesso de administrador às máquinas virtuais por meio de [sessões da área de trabalho remota](virtual-machines-log-on-windows-server.md), do [Windows PowerShell remoto](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) e do [Portal de Gerenciamento do Azure](https://azure.microsoft.com/overview/preview-portal/) é sempre criptografado.
+A tecnologia de criptografia interna permite que você criptografe comunicações dentro e entre implantações, entre regiões do Azure e do Azure para datacenters locais. O acesso de administrador às máquinas virtuais por meio das [sessões da área de trabalho remota](./virtual-machines/virtual-machines-windows-classic-connect-logon.md), do [Windows PowerShell remoto](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) e do Portal de Gerenciamento do Azure é sempre criptografado.
 
-Para estender com segurança seu datacenter local para a nuvem, o Azure fornece a [VPN site a site](vpn-gateway-create-site-to-site-rm-powershell.md) e a [VPN ponto a site](vpn-gateway-point-to-site-create.md), bem como links dedicados com [Rota Expressa](expressroute-introduction.md) (as conexões para Redes Virtuais do Azure sobre VPN são criptografadas).
+Para estender com segurança seu datacenter local para a nuvem, o Azure fornece a [VPN site a site](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) e a [VPN ponto a site](./vpn-gateway/vpn-gateway-point-to-site-create.md), bem como links dedicados com [Rota Expressa](./expressroute/expressroute-introduction.md) (as conexões para Redes Virtuais do Azure sobre VPN são criptografadas).
 
 ### Como o Azure implementa o acesso remoto seguro
 
 As conexões com o Portal do Azure sempre devem ser autenticadas e exigem SSL/TLS. Você pode configurar certificados de gerenciamento para habilitar o gerenciamento seguro. Os protocolos seguros padrão do setor, como [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) e [IPsec](https://en.wikipedia.org/wiki/IPsec) têm suporte completo.
 
-A [Rota Expressa do Azure](expressroute-introduction.md) permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no seu local ou em um ambiente de colocalização. As conexões da Rota Expressa não passam pela Internet pública. Elas oferecem mais confiabilidade, velocidades mais rápidas, latências menores e maior segurança que os links típicos baseados na Internet. Em alguns casos, o uso de conexões da Rota Expressa para transferir dados entre o local e o Azure pode proporcionar um custo/benefício significativo.
+A [Rota Expressa do Azure](./expressroute/expressroute-introduction.md) permite criar conexões privadas entre os datacenters do Azure e a infraestrutura no seu local ou em um ambiente de colocalização. As conexões da Rota Expressa não passam pela Internet pública. Elas oferecem mais confiabilidade, velocidades mais rápidas, latências menores e maior segurança que os links típicos baseados na Internet. Em alguns casos, o uso de conexões da Rota Expressa para transferir dados entre o local e o Azure pode proporcionar um custo/benefício significativo.
 
 ##Log e monitoramento
 
@@ -241,4 +241,4 @@ O Azure tem controles de segurança para implementar a atenuação de ameaças e
 
 [Blog do Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

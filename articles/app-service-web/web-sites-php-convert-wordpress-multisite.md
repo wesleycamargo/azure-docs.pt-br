@@ -3,9 +3,9 @@
 	description="Saiba como selecionar um aplicativo Web WordPress existente criado por meio da galeria no Azure e convertê-lo em Multissite WordPress" 
 	services="app-service\web" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP" 
 	ms.topic="article" 
 	ms.date="01/12/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 
@@ -153,4 +153,4 @@ Aplicativos Web do Azure permitem que você adicione um número ilimitado de dom
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

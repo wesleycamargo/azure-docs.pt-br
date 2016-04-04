@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Criar uma cópia de um Banco de Dados SQL do Azure usando o Transact-SQL" 
+    pageTitle="Copiar um banco de dados SQL do Azure usando o Transact-SQL | Microsoft Azure" 
     description="Criar cópia de um Banco de Dados SQL do Azure usando o Transact-SQL" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,21 +10,21 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Criar uma cópia de um Banco de Dados SQL do Azure usando o Transact-SQL
+# Copiar um banco de dados SQL do Azure usando o Transact-SQL
 
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Portal do Azure](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 
 
@@ -103,4 +103,4 @@ Monitore o processo de cópia consultando as exibições sys.databases e sys.dm\
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

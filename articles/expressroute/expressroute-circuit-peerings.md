@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 # Circuitos da Rota Expressa e domínios de roteamento
@@ -69,12 +69,12 @@ Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter ma
 
 A tabela abaixo compara os três domínios de roteamento.
 
-|**Emparelhamento privado**|**Emparelhamento público**|**Emparelhamento da Microsoft**|
+||**Emparelhamento privado**|**Emparelhamento público**|**Emparelhamento da Microsoft**|
 |---|---|---|---|
 |**Número máximo de prefixos com suporte por emparelhamento**|4000 por padrão, 10.000 com a Rota Expressa Premium|200|200|
 |**Intervalos de endereços IP com suporte**|Todos os endereços IPv4 válidos em sua WAN.|Os endereços IPv4 públicos pertencentes a você ou ao seu provedor de conectividade.|Os endereços IPv4 públicos pertencentes a você ou ao seu provedor de conectividade.|
-|**Requisitos do número do AS**|Números públicos e privados do AS. O cliente deve possuir um número público do AS. | Números públicos e privados do AS. O cliente deve possuir um número público do AS.| Somente números públicos do AS. O número do AS deve ser validado em relação a registros de roteamento para validar a propriedade.|
-|**Roteando endereços IP de interface**|RFC1918 e endereços IP públicos|Endereços IP públicos registrados para clientes em registros de roteamento.| Endereços IP públicos registrados para clientes em registros de roteamento.|
+|**Requisitos do número do AS**|Números públicos e privados do AS. É necessário ter um número público do AS. | Números públicos e privados do AS. No entanto, você deve fornecer um número público do AS para validar a propriedade dos endereços IP públicos.| Números públicos e privados do AS. No entanto, você deve fornecer um número público do AS para validar a propriedade dos endereços IP públicos.|
+|**Roteando endereços IP de interface**|RFC1918 e endereços IP públicos|Endereços IP públicos registrados para você em registros de roteamento.| Endereços IP públicos registrados para você em registros de roteamento.|
 |**Suporte a Hash MD5**| Sim|Sim|Sim|
 
 Você pode optar por habilitar um ou mais domínios de roteamento como parte do respectivo circuito da Rota Expressa. Também é possível optar por ter todos os domínios de roteamento na mesma VPN se você desejar combiná-los em um único domínio de roteamento. Você também pode colocá-los em diferentes domínios de roteamento, da mesma forma que no diagrama. A configuração recomendada é conectar o emparelhamento privado diretamente à rede principal, enquanto os vínculos de emparelhamento público e da Microsoft são conectados à sua DMZ.
@@ -90,4 +90,4 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 	- [Configurar roteamento (emparelhamentos de circuito)](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

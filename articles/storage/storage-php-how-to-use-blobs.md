@@ -3,9 +3,9 @@
 	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir blobs. Os exemplos de código são escritos em PHP."
 	documentationCenter="php"
 	services="storage"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # Como usar o armazenamento de blob no PHP
 
@@ -306,4 +306,4 @@ Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

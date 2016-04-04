@@ -45,12 +45,12 @@ Siga as etapas especificadas na seção relevante, dependendo do cenário.
 ### Pré-requisitos
 - Você também precisará de uma assinatura do Azure. Se não tiver, poderá criar uma assinatura de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) de um mês ou visitar [Preços do Azure](https://azure.microsoft.com/pricing/) para obter mais opções.
 - Para executar os cmdlets PowerShell, você precisará do módulo PowerShell do Microsoft Azure. Consulte [Downloads do Microsoft Azure](https://azure.microsoft.com/downloads/) para baixar o módulo.
-- Quando você planejar usar as máquinas virtuais do Azure em execução no Armazenamento Premium, precisará usar as VMs da série DS ou GS. Você pode usar os discos de Armazenamento Standard e Premium com as VMS da série DS. Os discos de armazenamento Premium estarão disponíveis com mais tipos de VM no futuro. Para obter informações sobre todos os tamanhos e tipos de discos de VM do Azure disponíveis, consulte [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md) e [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md).
+- Quando você planejar usar as máquinas virtuais do Azure em execução no Armazenamento Premium, precisará usar as VMs da série DS ou GS. Você pode usar os discos de Armazenamento Standard e Premium com as VMS da série DS. Os discos de armazenamento Premium estarão disponíveis com mais tipos de VM no futuro. Para obter informações sobre todos os tamanhos e tipos de discos de VM do Azure disponíveis, veja [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md) e [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md).
 
 ### Considerações
 
 #### Tamanhos de VM
-As especificações de tamanho de VM do Azure são listadas em [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md). Examine as características de desempenho das máquinas virtuais que funcionam com o Armazenamento Premium e escolha o tamanho de VM mais apropriado que melhor atende à sua carga de trabalho. Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco.
+As especificações de tamanho de VM do Azure são listadas em [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md). Examine as características de desempenho das máquinas virtuais que funcionam com o Armazenamento Premium e escolha o tamanho de VM mais apropriado que melhor atende à sua carga de trabalho. Certifique-se de que há largura de banda suficiente disponível na sua VM para direcionar o tráfego de disco.
 
 
 #### Tamanhos do disco
@@ -62,7 +62,7 @@ Há três tipos de discos que podem ser usados com a VM e cada um tem IOPs espec
 |IOPS por disco|500|2\.300|5\.000|
 |Taxa de transferência por disco|100 MB por segundo|150 MB por segundo|200 MB por segundo|
 
-#### Metas de Escalabilidade da Conta de Armazenamento
+#### Metas de escalabilidade da conta de armazenamento
 
 As contas de Armazenamento Premium têm as seguintes metas de escalabilidade, além das [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](storage-scalability-targets.md). Se as exigências de seu aplicativo exceder as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e particione seus dados nessas contas de armazenamento.
 
@@ -72,10 +72,11 @@ As contas de Armazenamento Premium têm as seguintes metas de escalabilidade, al
 
 Para obter mais informações sobre as especificações do Armazenamento Premium, verifique as [Metas de Escalabilidade e Desempenho ao usar o Armazenamento Premium](storage-premium-storage.md#scalability-and-performance-targets-whpt-BRing-premium-storage).
 
-#### Discos de Dados Adicionais
+#### Discos de dados adicionais
+
 Dependendo da carga de trabalho, determine se discos de dados adicionais são necessários para sua VM. Você pode anexar diversos discos de dados persistentes à sua VM. Se necessário, pode distribuir entre os discos para aumentar a capacidade e o desempenho do volume. Se você distribuir discos de dados do Armazenamento Premium usando [Espaços de Armazenamento](http://technet.microsoft.com/library/hh831739.aspx), deverá configurá-lo com uma coluna para cada disco usado. Caso contrário, o desempenho geral do volume distribuído pode ser menor que o esperado devido a uma distribuição irregular de tráfego entre os discos. Para as VMs do Linux, você pode usar o utilitário *mdadm* para obter o mesmo resultado. Consulte o artigo [Configurar o Software RAID no Linux](../virtual-machines/virtual-machines-linux-configure-raid.md) para obter detalhes.
 
-#### Política de Cache do Disco
+#### Política de cache de disco
 Por padrão, a política de cache de disco é *Somente leitura* para todos os discos de dados Premium e *Leitura e gravação* para o disco de sistema operacional Premium anexado à VM. Esta definição de configuração é recomendável para atingir o desempenho ideal de leituras de entrada e saída dos seus aplicativos. Para discos de dados de gravação intensa ou somente gravação (como arquivos de log do SQL Server), desabilite o cache de disco para que possa obter o melhor desempenho do aplicativo. As configurações de cache existentes para os discos de dados podem ser atualizadas usando o [Portal do Azure](https://portal.azure.com) ou o *parâmetro-HostCaching* do cmdlet *Set-AzureDataDisk.*
 
 #### Local padrão
@@ -296,7 +297,7 @@ Crie uma nova instância de VM do Azure da série DS usando o **Disco do sistema
 
 Especifique outras informações da VM do Azure, como um serviço de nuvem, região, conta de armazenamento, conjunto de disponibilidade e política de cache. Observe que a instância VM deve estar localizada junto com o sistema operacional ou discos de dados associados, portanto, o serviço de nuvem selecionado, a região e a conta de armazenamento devem estar no mesmo local dos VHDs subjacentes desses discos.
 
-### Anexar o Disco de Dados
+### Anexar disco de dados
 
 Por fim, se você registrou os VHDs do disco de dados, anexe-os à nova VM do Azure da série DS ou GS.
 
@@ -312,7 +313,9 @@ Use o seguinte cmdlet do PowerShell para anexar um disco de dados à nova VM e e
 
 ## Migração de VMs do Azure existente para o armazenamento do Azure Premium
 
-Se você tiver uma VM do Azure que usa discos de Armazenamento Padrão, siga o processo abaixo para migrar para o Armazenamento Premium. Em alto nível, a migração envolve dois estágios: - Migrar os discos da conta de Armazenamento Padrão para uma conta de Armazenamento Premium - Converter o tamanho da VM de A/D/G para DS ou GS, necessários para o uso de discos de Armazenamento Premium.
+Se você tiver uma VM do Azure que usa discos de Armazenamento Padrão, siga o processo abaixo para migrar para o Armazenamento Premium. Em um alto nível, a migração envolve duas etapas:
+-	Migrando os discos de uma conta do Armazenamento Standard para uma conta do Armazenamento Premium
+-	Convertendo o tamanho da VM de A/D/G DS ou GS necessários para o uso de discos do Armazenamento Premium.
 
 Além disso, consulte a seção anterior sobre Considerações para compreender as várias otimizações que você pode fazer para o Armazenamento Premium. Dependendo das otimizações aplicáveis a seus aplicativos, o processo de migração pode ser incluído em um dos cenários de migração a seguir.
 
@@ -663,8 +666,8 @@ Bancos de dados e outros aplicativos complexos podem exigir etapas especiais, co
 Consulte as seguintes fontes para cenários específicos de migração de máquinas virtuais:
 
 - [Migrar Máquinas Virtuais do Azure entre as Contas de Armazenamento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-- [Crie e carregue um VHD do Windows Server no Azure.](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
-- [Criando e Carregando um Disco Rígido Virtual que Contém o Sistema Operacional Linux](../virtual-machines/virtual-machines-linux-create-upload-vhd.md)
+- [Crie e carregue um VHD do Windows Server no Azure.](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)
+- [Criando e Carregando um Disco Rígido Virtual que Contém o Sistema Operacional Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
 - [Migrando Máquinas Virtuais do Amazon AWS para o Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consulte também as fontes a seguir para saber mais sobre o Armazenamento do Azure e as Máquinas Virtuais do Azure:
@@ -677,4 +680,4 @@ Consulte também as fontes a seguir para saber mais sobre o Armazenamento do Azu
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

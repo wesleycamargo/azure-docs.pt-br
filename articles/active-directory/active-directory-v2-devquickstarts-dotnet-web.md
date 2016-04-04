@@ -70,10 +70,12 @@ namespace TodoList_WebApp
 	}
 }```
 
--	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
+-	Abra o arquivo `App_Start\Startup.Auth.cs` e implemente o método `ConfigureAuth(...)`. Os parâmetros que você fornece em `OpenIdConnectAuthenticationOptions` servirão como coordenadas para seu aplicativo para se comunicar com o AD do Azure. Você também precisa configurar a autenticação de Cookies - o middleware OpenID Connect usa cookies nos bastidores.
 
 ```C#
-public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+public void ConfigureAuth(IAppBuilder app)
+			 {
+					 app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
 					 app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
@@ -103,12 +105,16 @@ public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticatio
 ```
 
 ## Enviar solicitações de autenticação
-Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect.  O OWIN cuidou de todos os detalhes difíceis da criação de mensagens de autenticação, validação de tokens do AD do Azure e manutenção da sessão do usuário.  Tudo o que falta é oferecer aos usuários uma maneira de entrar e sair.
+Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect. O OWIN cuidou de todos os detalhes difíceis da criação de mensagens de autenticação, validação de tokens do AD do Azure e manutenção da sessão do usuário. Tudo o que falta é oferecer aos usuários uma maneira de entrar e sair.
 
-- Você pode usar autorizar marcas em seus controladores para exigir que o usuário entre antes de acessar uma determinada página.  Abra `Controllers\HomeController.cs` e adicione a marca  `[Authorize]` ao controlador Sobre.
+- Você pode usar autorizar marcas em seus controladores para exigir que o usuário entre antes de acessar uma determinada página. Abra `Controllers\HomeController.cs` e adicione a marca `[Authorize]` ao controlador Sobre.
 
 ```C#
-[Authorize] public ActionResult About() { ... ```
+[Authorize]
+public ActionResult About()
+{
+  ...
+```
 
 -	Você também pode usar o OWIN para emitir diretamente solicitações de autenticação de dentro de seu código. Abra `Controllers\AccountController.cs`. Nas ações SignIn() e SignOut(), emita as solicitações de desafio do OpenID Connect e de saída, respectivamente.
 
@@ -197,6 +203,8 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [Proteger uma API Web com o ponto de extremidade v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Para obter recursos adicionais, confira: - [O guia do desenvolvedor da v2.0 >>](active-directory-appmodel-v2-overview.md) - [Marca "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obter recursos adicionais, consulte:
+- [Guia do desenvolvedor do v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Marca “azure-active-directory” do StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

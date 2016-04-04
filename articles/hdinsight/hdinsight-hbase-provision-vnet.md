@@ -69,7 +69,7 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 
 ##Conectar-se ao cluster HBase usando as APIs de RPC HBase Java
 
-1.	Crie uma máquina virtual IaaS (infraestrutura como serviço) na mesma rede virtual do Azure e na mesma sub-rede. De maneira que a máquina virtual e o cluster do HBase usem o mesmo servidor DNS interno para resolver nomes de host. Para fazer isso, você deve escolher a opção **Da galeria** e selecionar a rede virtual em vez de um datacenter. Para obter instruções, consulte [Criar uma máquina virtual que executa o Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md). Uma imagem padrão do Windows Server 2012 com uma VM pequena é suficiente.
+1.	Crie uma máquina virtual IaaS (infraestrutura como serviço) na mesma rede virtual do Azure e na mesma sub-rede. De maneira que a máquina virtual e o cluster do HBase usem o mesmo servidor DNS interno para resolver nomes de host. Para fazer isso, você deve escolher a opção **Da galeria** e selecionar a rede virtual em vez de um datacenter. Para obter instruções, consulte [Criar uma máquina virtual que executa o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). Uma imagem padrão do Windows Server 2012 com uma VM pequena é suficiente.
 
 2.	Ao usar um aplicativo Java para se conectar ao HBase remotamente, você deve usar o nome de domínio totalmente qualificado (FQDN). Para determiná-lo, é preciso obter o sufixo DNS específico da conexão do cluster do HBase. Para fazer isso, use o Curl para consultar o Ambari, ou use a área de trabalho remota para conectar-se ao cluster.
 
@@ -233,7 +233,7 @@ Neste tutorial, você aprendeu a criar um cluster do HBase. Para obter mais info
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
-[vm-create]: ../virtual-machines/virtual-machines-windows-tutorial.md
+[vm-create]: ../virtual-machines/virtual-machines-windows-hero-tutorial.md
 
 [azure-portal]: https://portal.azure.com
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -272,4 +272,4 @@ Neste tutorial, você aprendeu a criar um cluster do HBase. Para obter mais info
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

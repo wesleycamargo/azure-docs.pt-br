@@ -9,7 +9,7 @@ Há várias formas de criptografia das quais você pode tirar proveito:
 
 Os scripts Transact-SQL a seguir fornecem exemplos para cada uma dessas áreas.
 
->[AZURE.NOTE]Cada exemplo tem base em dois pré-requisitos: uma chave assimétrica de seu cofre de chave chamado **CONTOSO\_KEY** e uma credencial criada pelo recurso de Integração de AKV chamada **Azure\_EKM\_TDE\_cred**.
+>[AZURE.NOTE] Cada exemplo tem base em dois pré-requisitos: uma chave assimétrica de seu cofre de chave chamado **CONTOSO\_KEY** e uma credencial criada pelo recurso de Integração de AKV chamada **Azure\_EKM\_TDE\_cred**.
 
 ### Transparent Data Encryption (TDE)
 1. Crie um logon do SQL Server que será usado pelo Mecanismo de banco de dados para TDE e adicione a credencial a ele.
@@ -93,6 +93,6 @@ Esse script cria uma chave simétrica protegida pela chave assimétrica no cofre
 ## Recursos adicionais
 Para saber mais sobre como usar esses recursos de criptografia, consulte [Usando EKM com recursos de criptografia do SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Observe que as etapas neste artigo presumem que o SQL Server já está em execução em uma máquina virtual do Azure. Se não estiver, confira [Provisionar uma máquina virtual do SQL Server no Azure](../articles/virtual-machines/virtual-machines-provision-sql-server.md). Para obter orientação sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral sobre SQL Server em máquinas virtuais do Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
+Observe que as etapas neste artigo presumem que o SQL Server já está em execução em uma máquina virtual do Azure. Se não estiver, confira [Provisionar uma máquina virtual do SQL Server no Azure](../articles/virtual-machines/virtual-machines-windows-classic-portal-sql.md). Para obter orientação sobre como executar o SQL Server em VMs do Azure, consulte [Visão geral sobre SQL Server em máquinas virtuais do Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

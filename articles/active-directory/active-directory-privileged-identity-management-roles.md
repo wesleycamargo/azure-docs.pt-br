@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management do Azure: Funções"
+   pageTitle="Funções no PIM | Microsoft Azure"
    description="Aprenda quais funções são usadas para identidades com privilégios com a extensão de Privileged Identity Management do Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management do Azure: Funções
+# Privileged Identity Management do Azure AD: Funções
 
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
@@ -57,4 +57,4 @@ Para saber mais sobre funções do Office 365, do Exchange Online, do SharePoint
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

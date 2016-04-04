@@ -201,7 +201,7 @@ Você também pode exibir um fluxo ao vivo de eventos de log usando o seguinte c
 
 Isso exibirá as informações de log para o prompt de comando do PowerShell, bash ou sessão de terminal de onde o comando é executado.
 
-> [AZURE.NOTE] Se o comando **azure** não estiver instalado, consulte [Como usar as ferramentas de linha de comando do Azure](../virtual-machines-command-line-tools.md) para obter informações de instalação e configuração.
+> [AZURE.NOTE] Se o comando **azure** não estiver instalado, consulte [Como usar as ferramentas de linha de comando do Azure](../virtual-machines/virtual-machines-command-line-tools.md) para obter informações de instalação e configuração.
 
 ### Leitura de arquivos de log ###
 
@@ -283,10 +283,9 @@ Para obter mais informações sobre o monitoramento de pontos de extremidade do 
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia para a alteração do portal do Azure para o portal de visualização do Azure, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -607,8 +607,8 @@ Em muitos casos, relatórios podem ser gerados por processos em lotes de acordo 
 - A página [Habilitando o diagnóstico para os Serviços de Nuvem do Azure e máquinas virtuais](cloud-services-dotnet-diagnostics.md) no site da Microsoft.
 - As páginas do [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), do [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/) e do [HDInsight](https://azure.microsoft.com/services/hdinsight/) no site da Microsoft.
 - A página [Como usar Filas do barramento de serviço](service-bus-dotnet-how-to-use-queues.md) no site da Microsoft.
-- O artigo [Microsoft SQL Server Business Intelligence em Máquinas Virtuais do Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) no site da Microsoft.
+- O artigo [Microsoft SQL Server Business Intelligence em Máquinas Virtuais do Azure](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md) no site da Microsoft.
 - As páginas [Receber notificações de alerta](insights-receive-alert-notifications.md) e [Acompanhar a integridade do serviço](insights-service-health.md) no site da Microsoft.
 - A página do [Application Insights](app-insights-get-started.md) no site da Microsoft.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="03/22/2016"
    ms.author="devtiw"/>
 
 
@@ -196,7 +196,7 @@ A criptografia de disco do Azure protege as chaves de criptografia de disco e os
 Para criar um novo Cofre da Chave, use uma das duas opções listadas abaixo:
 
 - Use o modelo do ARM “101-Create-KeyVault” localizado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
-- Usar os cmdlets do Cofre da Chave do Azure PowerShell conforme descrito [aqui](key-vault-get-started.md)
+- Use os cmdlets do Cofre de Chaves do Azure PowerShell.
 
 **Observação:** se você já tiver uma configuração de Cofre da Chave para a sua assinatura, vá para a próxima seção.
 
@@ -462,7 +462,7 @@ Os detalhes de parâmetros do modelo do ARM para um cenário de VM existente/em 
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ​AADClientID | ​ID de cliente do aplicativo Azure AD que tem permissões para gravar segredos no cofre da chave |
 | AADClientSecret | ​Segredo do cliente do aplicativo Azure AD que tem permissões para gravar segredos no cofre da chave |
-| keyVaultName | Nome do cofre da chave no qual a chave do BitLocker deve ser carregada. Você pode obtê-lo usando o cmdlet: (Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname |
+| keyVaultName | Nome do cofre da chave no qual a chave do BitLocker deve ser carregada. É possível obtê-lo usando o cmdlet: (Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname |
 | ​ keyEncryptionKeyURL | URL da chave de criptografia de chave que é usada para criptografar a chave gerada do BitLocker. Opcional se você selecionar "nokek" na lista suspensa UseExistingKek. Se selecionar "kek" na lista suspensa UseExistingKek, você deverá digitar o valor de keyEncryptionKeyURL |
 | ​volumeType | ​Tipo de volume em que a operação de criptografia é executada. Os valores válidos são "OS", "Data", "All" |
 | sequenceVersion | Versão de sequência da operação de BitLocker. Aumente esse número de versão cada vez que uma operação de criptografia de disco for executada na mesma VM |
@@ -501,7 +501,7 @@ Os detalhes de parâmetros do modelo do ARM para um cenário de VM existente/em 
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ​AADClientID | ​ID de cliente do aplicativo Azure AD que tem permissões para gravar segredos no cofre da chave |
 | AADClientSecret | ​Segredo do cliente do aplicativo Azure AD que tem permissões para gravar segredos no cofre da chave |
-| keyVaultName | Nome do cofre da chave no qual a chave do BitLocker deve ser carregada. Você pode obtê-lo usando o cmdlet: (Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname |
+| keyVaultName | Nome do cofre da chave no qual a chave do BitLocker deve ser carregada. É possível obtê-lo usando o cmdlet: (Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname |
 | ​ keyEncryptionKeyURL | URL da chave de criptografia de chave que é usada para criptografar a chave gerada do BitLocker. Opcional se você selecionar "nokek" na lista suspensa UseExistingKek. Se selecionar "kek" na lista suspensa UseExistingKek, você deverá digitar o valor de keyEncryptionKeyURL |
 | ​volumeType | ​Tipo de volume em que a operação de criptografia é executada. O valor com suporte é "Data". A VM do Linux não dá suporte à habilitação de criptografia no volume do sistema operacional em VM do Linux em execução |
 | sequenceVersion | Versão de sequência da operação de BitLocker. Aumente esse número de versão cada vez que uma operação de criptografia de disco for executada na mesma VM |
@@ -527,11 +527,11 @@ A criptografia de disco pode ser habilitada no VHD criptografado pelo cliente us
 
 ### Obter status da criptografia de uma VM IaaS criptografada
 
-Você pode obter o status de criptografia usando o portal de Gerenciamento do Azure, os [cmdlets do PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) ou os comandos da CLI. As seções a seguir explicarão como usar os comandos CLI e o Portal de Gerenciamento do Azure (visualização) para obter o status de criptografia.
+É possível obter o status de criptografia usando o portal de Gerenciamento do Azure, os [cmdlets do PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) ou os comandos da CLI. As seções abaixo explicarão como usar o portal do Azure e os comandos da CLI e para obter o status de criptografia.
 
 #### Obter status da criptografia de uma VM IaaS criptografada usando o Portal de Gerenciamento do Azure
 
-Você pode obter o status da criptografia da VM IaaS no portal de gerenciamento do Azure. Faça logon no portal do Azure em https://portal.azure.com/ e clique no link máquinas virtuais no menu à esquerda para ver uma exibição resumida das máquinas virtuais em sua assinatura. Você pode filtrar a exibição de máquinas virtuais selecionando o nome da assinatura no menu suspenso de assinatura. Clique em colunas na parte superior do menu da página Máquinas virtuais. Selecione a coluna de Criptografia de Disco da folha Escolher coluna e clique em Atualizar. Você deve ver a coluna de criptografia de disco mostrando o estado de criptografia "Habilitado" ou "Desabilitado" para cada VM conforme mostrado na figura abaixo.
+Você pode obter o status da criptografia da VM IaaS no portal de gerenciamento do Azure. Faça logon no portal do Azure em https://portal.azure.com/ e clique no link Máquinas Virtuais no menu à esquerda para ver uma exibição resumida das máquinas virtuais em sua assinatura. Você pode filtrar a exibição de máquinas virtuais selecionando o nome da assinatura no menu suspenso de assinatura. Clique em colunas na parte superior do menu da página Máquinas virtuais. Selecione a coluna de Criptografia de Disco da folha Escolher coluna e clique em Atualizar. Você deve ver a coluna de criptografia de disco mostrando o estado de criptografia "Habilitado" ou "Desabilitado" para cada VM conforme mostrado na figura abaixo.
 
 ![Microsoft Antimalware no Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.JPG)
 
@@ -804,4 +804,4 @@ Você pode baixar este guia na [Galeria do TechNet](https://gallery.technet.micr
 
 [Explorar a Criptografia de Disco do Azure com o Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

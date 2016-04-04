@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # Introdução ao Conector de FTP e à adição dele ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do FTP](../connectors/create-api-ftp.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do FTP](../connectors/connectors-create-api-ftp.md).
 
 Conecte-se a um servidor FTP para mover dados ou arquivos. Os principais recursos do conector de FTP incluem:
 
@@ -31,7 +31,9 @@ Conecte-se a um servidor FTP para mover dados ou arquivos. Os principais recurso
 Você pode adicionar o conector de FTP a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
 ## Criar um novo conector de FTP
-Para criar um novo conector de FTP, siga as etapas abaixo. - Inicie o portal do Azure - Abra o Azure Marketplace usando +Novo (na parte inferior da página) -> Web+Móvel --> Azure Marketplace:![Iniciar o Azure Marketplace][1]
+Para criar um novo conector de FTP, siga as etapas abaixo.
+- Inicie o portal do Azure
+- Abra o Azure Marketplace usando +Novo (na parte inferior da página) -> Web+Móvel --> Azure Marketplace: ![Iniciar o Azure Marketplace][1]
 
 - Clique em Aplicativos de API
 - Pesquise FTP e selecione o Conector de FTP:![Selecionar o Conector de FTP][2]
@@ -75,11 +77,17 @@ O conector de FTP tem um gatilho - 'Arquivo Disponível (Leia e Exclua)'. Esse g
 
 Clique no gatilho 'Arquivo Disponível (Leia e Exclua)': ![Gatilho de FTP de entradas básicas][7]
 
-As entradas ajudam a configurar um caminho de pasta específico a ser sondado com a frequência agendada. As informações básicas são - Frequência - Especifica a frequência de sondagem de FTP - Intervalo - Especifica o intervalo para a frequência programada - Caminho da Pasta - Especifica o caminho da pasta no servidor FTP - Tipo de arquivo - Especifica se o tipo de arquivo é texto ou binário
+As entradas ajudam a configurar um caminho de pasta específico a ser sondado com a frequência agendada. As entradas básicas são
+- Frequência - especifica a frequência da sondagem de FTP
+- Intervalo - especifica o intervalo da frequência agendada
+- Caminho da pasta - especifica o caminho da pasta no servidor FTP
+- Tipo de arquivo - especifica se o tipo de arquivo é texto ou binário
 
 Clicar nas reticências (...) mostra as entradas avançadas: ![Gatilho de FTP de entradas básicas][8]
 
-As entradas avançadas incluem: - Máscara de arquivo - Especifica a máscara de arquivo durante a sondagem - Excluir máscara de arquivo - Especifica as máscaras de arquivo a serem excluídas durante a sondagem
+As entradas avançadas incluem:
+- Máscara de arquivo - especifica a máscara de arquivo durante a sondagem
+- Excluir máscara de arquivo - especifica as máscaras de arquivo a serem excluídas durante a sondagem
 
 Forneça as entradas e clique na marca de verificação para concluir a configuração das entradas: ![Gatilho de FTP de entradas básicas][9]
 
@@ -162,4 +170,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

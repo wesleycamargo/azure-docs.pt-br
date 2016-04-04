@@ -17,9 +17,9 @@
 
 # Exemplos de configuração do roteador para configurar e gerenciar o NAT
 
-Esta página fornece exemplos de configuração do NAT para roteadores da série Cisco ASA e Juniper MX. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede.
+Esta página fornece exemplos de configuração do NAT para roteadores da série Cisco ASA e Juniper SRX. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede.
 
->[AZURE.IMPORTANT]Exemplos nesta página devem ser exclusivamente para obter orientação. Trabalhe com a equipe de vendas / equipe técnica e sua equipe de rede para exibir as configurações adequadas para atendar às suas necessidades. A Microsoft não oferecerá suporte a problemas relacionados a configurações listadas nesta página. Você deve entrar em contato com o fornecedor do dispositivo para problemas de suporte.
+>[AZURE.IMPORTANT] Exemplos nesta página devem ser exclusivamente para obter orientação. Trabalhe com a equipe de vendas / equipe técnica e sua equipe de rede para exibir as configurações adequadas para atendar às suas necessidades. A Microsoft não oferecerá suporte a problemas relacionados a configurações listadas nesta página. Você deve entrar em contato com o fornecedor do dispositivo para problemas de suporte.
 
 Os exemplos de configuração de roteador abaixo se aplicam a emparelhamentos do Azure Public e Microsoft. Você não deve configurar o NAT para emparelhamento privado do Azure. Examine[emparelhamentos Rota Expressa](expressroute-circuit-peerings.md) e [requisitos de NAT Rota Expressa](expressroute-nat.md) para obter mais detalhes.
 
@@ -78,7 +78,7 @@ Comandos de NAT
 	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## Roteadores da série Juniper MX 
+## Roteadores da série Juniper SRX 
 
 ### 1\. Criar interfaces de Ethernet redundantes para o cluster
 
@@ -319,4 +319,4 @@ Veja os exemplos na página [Exemplos de configuração de roteamento](expressro
 
 Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

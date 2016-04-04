@@ -31,7 +31,7 @@ Você tem várias opções:
 
 * [Cluster MySQL em execução em uma VM do Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 
-* [Instância única do MySQL em execução em uma VM do Azure](virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)
+* [Instância única do MySQL em execução em uma VM do Azure](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)
 
 O ClearDB é um serviço de hospedagem de MySQL e gerencia a infraestrutura do MySQL para você. Quando você executa seu próprio cluster ou banco de dados do MySQL em uma máquina virtual do Azure, precisa configurar o servidor MySQL e mantê-lo atualizado com patches.
 
@@ -55,7 +55,7 @@ A opção de banco de dados padrão é Titan, que custa US$ 3,50. Não mostramos
 
 ## Estou executando o MySQL em minha própria máquina virtual do Azure. Posso conectar meu aplicativo Web do Azure ao meu banco de dados?
 
-Sim. Você pode conectar seu aplicativo Web ao seu banco de dados desde que sua VM do Azure tenha acesso remoto ao seu aplicativo Web. Para saber mais, confira [Instalar o MySQL em uma máquina virtual](../virtual-machines/virtual-machines-mysql-windows-server-2008r2.md).
+Sim. Você pode conectar seu aplicativo Web ao seu banco de dados desde que sua VM do Azure tenha acesso remoto ao seu aplicativo Web. Para obter mais informações, confira [Instalar o MySQL em uma máquina virtual](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md).
 
 ## Em quais países os clusters MySQL do ClearDB Premium têm suporte?
 
@@ -124,4 +124,4 @@ Contate o [Atendimento ao Cliente Corporativo](http://aka.ms/AzureEntSupport) so
 
 [Perguntas frequentes sobre o Azure Marketplace](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

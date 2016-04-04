@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="03/18/2016"
 	ms.author="jahogg"/>
 
 # Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
@@ -666,7 +666,10 @@ O aplicativo do cliente deve usar nomes de contêiner exclusivos sempre que cria
 
 As métricas de **PercentSuccess** capturam a porcentagem das operações que tiveram êxito com base nos códigos de status HTTP. As operações com códigos de status 2XX contam como bem sucedidas, enquanto as operações com código de status de intervalos 3XX, 4XX e 5XX são contadas como sem sucesso e inferiores aos valores de métricas **PercentSucess**. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**.
 
-É importante observar que essas operações foram concluídas com sucesso e por isso não afetam as outras métricas como a de disponibilidade. Alguns exemplos de operações que são executadas com sucesso, mas que podem resultar em códigos de status HTTP sem êxito incluem: - **ResourceNotFound** (Não encontrado 404), por exemplo, de uma solicitação GET para o blob que não existe. - **ResouceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe. - **ConditionNotMet** (Não Modificado 304), por exemplo, de uma operação condicional tal como quando o cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se ela tiver sido atualizada desde a última operação.
+É importante observar que essas operações foram concluídas com sucesso e por isso não afetam as outras métricas como a de disponibilidade. Alguns exemplos de operações que executam com sucesso, mas que podem resultar em códigos de status HTTP sem sucesso incluem:
+- **ResourceNotFound** (Não encontrado 404), por exemplo, de uma solicitação GET para o blob que não existe.
+- **ResouceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe.
+- **ConditionNotMet** (Não Modificado 304), por exemplo, de uma operação condicional tal como quando o cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se ela tiver sido carregada a partir da última operação.
 
 Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Códigos de erro comuns da API REST</a>.
 
@@ -835,7 +838,7 @@ Na etapa 1 do **Assistente de Importação de Texto**, selecione **Ponto e vírg
 
 Você pode também usar o recurso Application Insights no Visual Studio Team Services como parte do seu monitoramento de desempenho e disponibilidade. Essa ferramenta pode:
 
-- Garantir que seu aplicativo da Web esteja disponível e respondendo. Se o seu aplicativo é um site ou um aplicativo de dispositivo que usa um serviço da Web, você pode testar a sua URL a cada minuto de locais ao redor do mundo e ser avisado se houver um problema.
+- Garantir que seu aplicativo da Web esteja disponível e respondendo. Se o seu aplicativo é um site ou um aplicativo de dispositivo que usa um serviço da Web, você pode testar a sua URL a cada minuto de locais ao redor do mundo e ser avisado se houver um problema.
 - Diagnostique rapidamente qualquer problema de desempenho ou exceções no seu serviço da Web. Descubra se a CPU ou outros recursos estão sendo alongados, receba rastreamento de linhas de exceções e pesquise facilmente pelos rastreamentos de log. Se o desempenho do aplicativo cair abaixo dos limites aceitáveis, nós podemos enviá-lo um email. Você pode monitorar os serviços da Web .NET e Java.
 
 Na hora da gravação o Application Insights está em visualização. Você pode encontrar mais informações no <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights para Visual Studio Team Services</a> no MSDN.
@@ -918,4 +921,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

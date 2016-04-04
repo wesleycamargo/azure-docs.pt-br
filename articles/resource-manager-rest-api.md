@@ -64,9 +64,9 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0
 ```
 
-**Gerando um token de acesso usando o Powershell:**
+**Gerando um token de acesso usando o PowerShell:**
 
-```powersell
+```powershell
 Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 -Method Post
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
@@ -240,4 +240,4 @@ Content-Type: application/json
 
 A resposta JSON bastante longa para essa solicitação foi omitida para melhorar a legibilidade deste documento. A resposta conterá informações sobre a implantação do modelo que você acabou de criar.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

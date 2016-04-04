@@ -49,13 +49,14 @@ Você pode usar o Armazenamento Premium para discos de uma das seguintes maneira
 - Primeiro, crie uma nova conta de armazenamento premium. Em seguida, ao criar uma nova VM GS ou DS, selecione a conta de armazenamento premium nas definições de configuração de Armazenamento. OU
 - Ao criar uma nova VM DS ou GS, crie uma nova conta de armazenamento premium nas definições de configuração de Armazenamento ou permita que o Portal do Azure crie uma conta de armazenamento premium padrão.
 
+
 Para obter instruções passo a passo, confira a seção [Início rápido](#quick-start), mais adiante neste artigo.
 
 >[AZURE.NOTE] Uma conta de Armazenamento Premium não pode ser mapeada para um nome de domínio personalizado.
 
 ## VMs das séries DS e GS
 
-O Armazenamento Premium dá suporte a VMs (Máquinas Virtuais) do Azure das séries DS e GS. Você pode usar discos de armazenamento Standard e Premium com a série DS ou série GS das VMs. Mas você não pode usar discos de Armazenamento Premium com VMs que não pertençam à série DS ou à série GS. Para obter informações sobre tipos e tamanhos disponíveis de VM do Azure, confira [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md). A seguir estão alguns dos recursos de VMs das séries GS e DS
+O Armazenamento Premium dá suporte a VMs (Máquinas Virtuais) do Azure das séries DS e GS. Você pode usar discos de armazenamento Standard e Premium com a série DS ou série GS das VMs. Mas você não pode usar discos de Armazenamento Premium com VMs que não pertençam à série DS ou à série GS. Para obter informações sobre tipos e tamanhos disponíveis de VM do Azure, veja [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-linux-sizes.md). A seguir estão alguns dos recursos de VMs das séries GS e DS
 
 **Serviço de nuvem**: VMs da série DS podem ser adicionadas a um serviço de nuvem que inclui apenas VMs da série DS. Não adicione VMs da série DS a um serviço de nuvem existente que inclua VMs que não são da série DS. Você pode migrar seus VHDs existentes para um novo serviço de nuvem que executa apenas VMs da série DS. Se quiser manter o mesmo VIP (endereço IP virtual) para o novo serviço de nuvem que hospeda as VMs da série DS, use [Endereços IP Reservados](../virtual-network/virtual-networks-instance-level-public-ip.md). As VMs da série GS podem ser adicionadas a um serviço de nuvem existente executando apenas VMs da série G.
 
@@ -73,7 +74,7 @@ O Armazenamento Premium dá suporte a VMs (Máquinas Virtuais) do Azure das sér
 
 Atualmente, a maior VM na série DS é a STANDARD\_DS14, que pode fornecer até 512 MB por segundo em todos os discos. A maior VM na série GS é STANDARD\_GS5 e pode fornecer até 2.000 MB por segundo em todos os discos. Observe que esses limites são apenas para o tráfego de disco, não incluindo acertos de cache e tráfego de rede. Há uma largura de banda separada disponível para tráfego de rede de VM, que é diferente da largura de banda dedicada aos discos do Armazenamento Premium.
 
-Para obter informações mais atualizadas sobre IOPS e produtividade (largura de banda) máximas para as VMs das séries DS e GS, confira [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md). Para saber mais sobre os discos de armazenamento Premium e seus limites de IOPs e taxa de transferência, confira a tabela na seção [Metas de desempenho e escalabilidade do Armazenamento Premium](#premium-storage-scalability-and-performance-targets) deste artigo.
+Para obter informações mais atualizadas sobre IOPS e taxa de transferência (largura de banda) máximas para as VMs das séries DS e GS, confira [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-linux-sizes.md). Para saber mais sobre os discos de armazenamento Premium e seus limites de IOPs e taxa de transferência, consulte a tabela na seção [Metas de desempenho e escalabilidade ao usar o Armazenamento Premium](#scalability-and-performance-targets-whpt-BRing-premium-storage) deste artigo.
 
 ## Metas de desempenho e escalabilidade do Armazenamento Premium
 
@@ -145,7 +146,7 @@ Quando você provisiona um disco em relação a uma conta de armazenamento Premi
 
 Aqui estão alguns pontos importantes que você deve conhecer sobre metas de desempenho e escalabilidade do Armazenamento Premium:
 
-- **Desempenho e capacidade provisionada**: ao provisionar um disco de armazenamento premium, diferentemente do armazenamento padrão, você tem a garantia de capacidade, IOPS e taxa de transferência para o disco. Por exemplo, se você criar um disco P30, o Azure provisionará a capacidade de armazenamento de 1024 TB, 5000 IOPS e 200 MB por segundo de taxa de transferência para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte.
+- **Desempenho e capacidade provisionada**: ao provisionar um disco de armazenamento premium, diferentemente do armazenamento padrão, você tem a garantia de capacidade, IOPS e taxa de transferência para o disco. Por exemplo, se você criar um disco P30, o Azure provisionará uma capacidade de armazenamento de 1.024 GB, 5.000 IOPS e uma Taxa de transferência de 200 MB por segundo para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte.
 
 - **Tamanho de disco**: o Azure mapeia o tamanho do disco (arredondado) para a opção mais próxima do disco de Armazenamento Premium, conforme especificado na tabela. Por exemplo, um disco com 100 GiB é classificado como uma opção P10 e pode executar até 500 unidades de E/S por segundo, com uma taxa de transferência de até 100 MB por segundo. Da mesma forma, um disco com 400 GiB é classificado como uma opção P20 e pode executar até 2300 unidades de E/S por segundo, com uma taxa de transferência de até 150 MB por segundo.
 
@@ -241,7 +242,7 @@ Consulte instruções importantes abaixo para configurar suas VMs do Linux no Ar
 	- Se você usar **XFS**, desabilite as barreiras usando a opção de montagem “nobarrier” (para habilitar as barreiras, use a opção “barrier”)
 
 - Para discos de Armazenamento Premium com a configuração de cache "ReadWrite", as barreiras devem ser habilitadas para durabilidade de gravações.
-- Para que os rótulos de volume persistam após a reinicialização da VM, atualize o /etc/fstab com as referências de UUID para os discos. Além disso, confira também [Como anexar um disco de dados a uma máquina virtual Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk.md)
+- Para que os rótulos de volume persistam após a reinicialização da VM, atualize o /etc/fstab com as referências de UUID para os discos. Além disso, confira também [Como anexar um disco de dados a uma máquina virtual Linux](../virtual-machines/virtual-machines-linux-classic-attach-disk.md)
 
 A seguir estão as distribuições do Linux que são validadas com o Armazenamento Premium. Recomendamos a atualização de suas VMs para pelo menos uma dessas versões (ou posterior) para obter melhor desempenho e estabilidade com o Armazenamento Premium. Além disso, algumas das versões exigem um LIS (Serviços de Integração do Linux v4.0 para Microsoft Azure) mais recente. Siga o link fornecido abaixo para download e instalação. Continuaremos a adicionar mais imagens à lista à medida que concluirmos validações adicionais. Perceba que nossas validações mostraram que o desempenho varia para essas imagens, e também depende de características da carga de trabalho e das configurações nas imagens. Imagens diferentes são ajustadas para tipos diferentes de carga de trabalho.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -385,7 +386,7 @@ Você deve criar uma VM das séries DS ou GS para poder usar o Armazenamento Pre
 
 	![Disco Premium][Image2]
 
-Veja etapas mais detalhadas em [Como anexar um disco de dados no Portal do Azure](../virtual-machines/virtual-machines-attach-disk-preview/).
+Veja etapas mais detalhadas em [Como anexar um disco de dados no Portal do Azure](../virtual-machines/virtual-machines-windows-attach-disk-portal.md).
 
 #### IV. Alterar a política de cache de disco por meio do Portal do Azure
 
@@ -526,12 +527,14 @@ Para obter mais informações sobre o Armazenamento Premium do Azure, confira os
 
 - [Migrando para o Armazenamento do Azure Premium](storage-migration-to-premium-storage.md)
 
+
 ### Postagens de blog
 
 - [Armazenamento Premium do Azure com disponibilidade geral](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 - [Anúncio da série GS: como adicionar suporte ao Armazenamento Premium para as maiores VMs na nuvem pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
+
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 [Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

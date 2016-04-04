@@ -392,7 +392,7 @@ As etapas a seguir usam o comando Oozie para enviar e gerenciar fluxos de trabal
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	A parte ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** é a URL a ser usada com o comando do Oozie.
+	A parte **http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** é a URL a ser usada com o comando do Oozie.
 
 2. Use o seguinte para criar uma variável de ambiente para a URL para que você não precise digitá-la para cada comando:
 
@@ -695,7 +695,6 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: sql-database-create-configure.md
@@ -721,4 +720,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

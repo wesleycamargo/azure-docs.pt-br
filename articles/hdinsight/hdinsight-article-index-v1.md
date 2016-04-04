@@ -21,7 +21,7 @@
 Use esta página de índice para encontrar artigos que abordam o HDInsight no [Portal Clássico do Azure](https://manage.windowsazure.com/). O HDInsight do Azure é uma distribuição de nuvem de Hadoop de código-fonte aberto e Hortonworks Data Platform.
 
 
-> [AZURE.IMPORTANT]Esta página de índice da documentação destina-se a clientes que já têm soluções implantadas no atual Portal Clássico do Azure.
+> [AZURE.IMPORTANT]  Esta página de índice da documentação destina-se a clientes que já têm soluções implantadas no atual Portal Clássico do Azure.
 >
 > A Microsoft recomenda usar o **Portal do Azure** para novos clusters HDInsight:
 >
@@ -58,10 +58,9 @@ Para um conjunto completo de artigos sobre o uso do Linux e dos clusters do Linu
 * [Serializar dados no Hadoop com a Biblioteca do Microsoft Avro](hdinsight-dotnet-avro-serialization.md)
 * [Processar e analisar documentos JSON usando Hive](hdinsight-using-json-in-hive.md)
 * [Usar o Python com o Hive e Pig](hdinsight-python.md)
-* [Otimizar consultas do Hive para Hadoop](hdinsight-hadoop-optimize-hive-query–v1.md)
+* [Otimizar consultas do Hive para Hadoop](hdinsight-hadoop-optimize-hive-query.md)
 * [Executar trabalhos do Pig usando o SDK do .NET para Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 * [Usar funções definidas pelo usuário do C# com streaming de Hive e Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Desenvolver programas de streaming do Hadoop em C#](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 ## HBase: banco de dados NoSQL
 
@@ -71,7 +70,7 @@ Para um conjunto completo de artigos sobre o uso do Linux e dos clusters do Linu
 
 ## Apache Storm: consulta de fluxo
 
-* [Introdução aos exemplos do Storm Starter](hdinsight-apache-storm-tutorial-get-started-v1.md)
+* [Introdução aos exemplos do Storm Starter](hdinsight-apache-storm-tutorial-get-started.md)
 * [Implantar e gerenciar topologias Apache Storm](hdinsight-storm-deploy-monitor-topology.md)
 * [Desenvolver topologias C# para Apache Storm usando ferramentas do Hadoop para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Desenvolver topologias baseadas em Java para um aplicativo básico de contagem de palavras com Apache Storm e Maven](hdinsight-storm-develop-java-topology.md)
@@ -100,9 +99,8 @@ Para ver artigos sobre como usar clusters nativos do Apache Spark no Portal do A
 ## Aprendizado de máquina no HDInsight
 
 * [Gerar recomendações de vídeo usando o Apache Mahout com Hadoop](hdinsight-mahout.md)
-* [Roteiro de aprendizagem: soluções de análises avançadas de compilação](machine-learning-data-science-how-to-create-machine-learning-service.md)
-* [Roteiro de aprendizagem: processamento avançado de dados](machine-learning-data-science-advanced-data-processing.md)
-* [Prever dicas de táxi com o HDInsight e Aprendizado de Máquina](machine-learning-data-science-process-hive-walkthrough.md)
+* [Roteiro de aprendizagem: soluções de análises avançadas de compilação](../machine-learning/machine-learning-walkthrough-develop-predictive-solution.md)
+* [Prever dicas de táxi com o HDInsight e Aprendizado de Máquina](../machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Extensibilidade
 
@@ -133,4 +131,4 @@ Para ver artigos sobre como usar clusters nativos do Apache Spark no Portal do A
 * [Mensagens de erro detalhadas](hdinsight-debug-jobs.md)
 * [Obtenha ajuda no fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

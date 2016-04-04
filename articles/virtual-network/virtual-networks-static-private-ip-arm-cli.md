@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Como definir um endereço IP privado estático no CLI do Azure
@@ -32,7 +32,7 @@ Os exemplos de comando abaixo do CLI do Azure esperam um ambiente simples já cr
 ## Como especificar um endereço IP privado estático ao criar uma VM
 Para criar uma VM denominada *DNS01* na sub-rede *Front-end* de uma VNet chamada *TestVNet* com o endereço IP privado estático *192.168.1.101*, execute as etapas abaixo:
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
@@ -260,8 +260,8 @@ Saída esperada:
 
 ## Próximas etapas
 
-- Saiba mais sobre endereços [IP públicos reservados](../virtual-networks-reserved-public-ip).
-- Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](../virtual-networks-instance-level-public-ip).
+- Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md).
+- Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md).
 - Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # O que é o Gerenciador de Tráfego?
@@ -172,4 +172,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

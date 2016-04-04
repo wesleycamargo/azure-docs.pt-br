@@ -1,15 +1,16 @@
 
 
-A *custom* virtual machine simply means a virtual machine that you create using the **From Gallery** option because it gives you more configuration choices than the **Quick Create** option. These choices include:
+Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que você cria usando a opção **Da Galeria** porque isso lhe dá mais opções de configuração do que a opção **Criação Rápida**. Essas opções incluem:
 
-- Connecting the virtual machine to a virtual network.
-- Installing the Azure Virtual Machine Agent and Azure Virtual Machine Extensions, such as for antimalware.
-- Adding the virtual machine to existing cloud services.
-- Adding the virtual machine to an existing Storage account.
-- Adding the virtual machine to an availability set.
+- Conectar a máquina virtual a uma rede virtual.
+- Instalar o agente de máquina Virtual do Azure e extensões de máquina Virtual do Azure, como para antimalware.
+- Adicionar a máquina virtual a serviços de nuvem existentes.
+- Adicionar a máquina virtual a uma conta de armazenamento existente.
+- Adicionar a máquina virtual a um conjunto de disponibilidade.
 
-> [AZURE.IMPORTANT] If you want your virtual machine to use a virtual network so you can connect to it directly by host name or set up cross-premises connections, make sure that you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For details on virtual networks, see [Azure Virtual Network overview](virtual-networks-overview.md).
+> [AZURE.IMPORTANT] Se você quiser que sua máquina virtual use uma rede virtual para que você possa se conectar a ela diretamente pelo nome do host ou estabelecer conexões entre locais, especifique a rede virtual ao criar a máquina virtual. Uma máquina virtual pode ser configurada para ingressar em uma rede virtual somente quando você criar a máquina virtual. Para mais detalhes sobre redes virtuais, consulte a seção [Visão geral da rede virtual do Azure](virtual-networks-overview.md).
 
 
-## To create the virtual machine
+## Para criar a máquina virtual
 
+<!---HONumber=AcomDC_0323_2016-->

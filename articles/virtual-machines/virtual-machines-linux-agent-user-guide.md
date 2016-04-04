@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Guia do usuário do agente do Linux | Microsoft Azure" 
 	description="Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -317,8 +317,8 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
 - Consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e o espaço de troca nas Imagens de Nuvem do Ubuntu durante o provisionamento:
 
  - [Wiki do Ubuntu: configurar partições de troca](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
- - [Injetando dados personalizados em uma Máquina Virtual do Azure](virtual-machines-how-to-inject-custom-data.md)
+ - [Injetando dados personalizados em uma Máquina Virtual do Azure](virtual-machines-windows-classic-inject-custom-data.md)
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

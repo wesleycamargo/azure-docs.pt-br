@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
    
 # Introdução ao Conector de Blob de Armazenamento do Azure e à adição dele a seu Aplicativo Lógico 
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API de Blob de Armazenamento do Azure](../connectors/create-api-azureblobstorage.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do Blob de Armazenamento do Azure](../connectors/connectors-create-api-azureblobstorage.md).
 
 Conecte-se ao blob de armazenamento do Azure para carregar, baixar e excluir blobs de um contêiner de blob. Os conectores são usados em Aplicativos Lógicos como parte de um "fluxo de trabalho".
 
@@ -107,4 +107,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

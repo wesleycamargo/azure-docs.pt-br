@@ -192,7 +192,7 @@ Considere os seguintes pontos ao decidir se deseja implantar tarefas em segundo 
 ### Mais informações
 
 - [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/) no Azure
-- [Perguntas frequentes sobre Máquinas Virtuais do Azure](virtual-machines-questions.md)
+- [Perguntas frequentes sobre Máquinas Virtuais do Azure](virtual-machines/virtual-machines-linux-classic-faq.md)
 
 ## Considerações sobre o design
 
@@ -317,4 +317,4 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Como habilitar o diagnóstico em um serviço de nuvem](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

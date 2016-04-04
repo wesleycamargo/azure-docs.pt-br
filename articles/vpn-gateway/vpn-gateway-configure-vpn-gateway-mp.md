@@ -164,10 +164,10 @@ Antes de alterar seu tipo de gateway de VPN, verifique se o seu dispositivo VPN 
 
 Você pode saber mais sobre a conectividade entre locais para redes virtuais neste artigo: [Sobre conectividade segura entre locais para redes virtuais](vpn-gateway-cross-premises-options.md).
 
-Você pode adicionar máquinas virtuais à sua rede virtual. Confira [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
+Você pode adicionar máquinas virtuais à sua rede virtual. Confira [Como criar uma máquina virtual personalizada](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
 Se você quiser configurar uma conexão VPN ponto a site, consulte [Configurar uma conexão VPN ponto a site](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -194,7 +194,7 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 
 ##Conectar-se ao cluster do HBase provisionado em uma rede virtual usando as APIs RPC Java do HBase
 
-1.	Provisione uma máquina virtual IaaS (infraestrutura como serviço) na mesma rede virtual do Azure e na mesma sub-rede. De maneira que a máquina virtual e o cluster do HBase usem o mesmo servidor DNS interno para resolver nomes de host. Para fazer isso, você deve escolher a opção **Da galeria** e selecionar a rede virtual em vez de um datacenter. Para obter instruções, consulte [Criar uma máquina virtual que executa o Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md). Uma imagem padrão do Windows Server 2012 com uma VM pequena é suficiente.
+1.	Provisione uma máquina virtual IaaS (infraestrutura como serviço) na mesma rede virtual do Azure e na mesma sub-rede. De maneira que a máquina virtual e o cluster do HBase usem o mesmo servidor DNS interno para resolver nomes de host. Para fazer isso, você deve escolher a opção **Da galeria** e selecionar a rede virtual em vez de um datacenter. Para obter instruções, consulte [Criar uma máquina virtual que executa o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). Uma imagem padrão do Windows Server 2012 com uma VM pequena é suficiente.
 
 2.	Ao usar um aplicativo Java para se conectar ao HBase remotamente, você deve usar o nome de domínio totalmente qualificado (FQDN). Para determiná-lo, é preciso obter o sufixo DNS específico da conexão do cluster do HBase. Para fazer isso, use o Curl para consultar o Ambari, ou use a área de trabalho remota para conectar-se ao cluster.
 
@@ -397,7 +397,7 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
-[vm-create]: ../virtual-machines/virtual-machines-windows-tutorial.md
+[vm-create]: ../virtual-machines/virtual-machines-windows-hero-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -434,4 +434,4 @@ Neste tutorial, você aprendeu como provisionar um cluster do HBase. Para obter 
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalhes de provisionamento do novo cluster HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usar a Ação de Script para personalizar um cluster HBase"
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

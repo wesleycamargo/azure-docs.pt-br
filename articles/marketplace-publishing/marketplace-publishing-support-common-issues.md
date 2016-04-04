@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/06/2015"
+      ms.date="03/21/2015"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Como solucionar problemas comuns de editora do Azure Marketplace
@@ -25,7 +25,7 @@ Em algumas circunstâncias, talvez seja necessário solicitar um crédito ou ree
 
 O exemplo a seguir mostra como solicitar um crédito ou reembolso em nome de um cliente.
 
-> [AZURE.NOTE]Se um cliente ou revendedor do Azure entrar em contato com a Microsoft para solicitar um reembolso ou crédito, aplicaremos as mesmas políticas que usamos para provisionar os serviços do Azure. Se nossas políticas indicarem que um reembolso ou crédito está prestes a vencer, emitiremos proativamente (e você nos autoriza a emitir em seu nome) um crédito ou reembolso para o cliente ou para o revendedor do Azure, conforme aplicável. Se nossas políticas não indicarem que um crédito ou reembolso está prestes a vencer, poderemos convidar o cliente ou o revendedor do Azure a contatar você diretamente.
+> [AZURE.NOTE] Se um cliente ou revendedor do Azure entrar em contato com a Microsoft para solicitar um reembolso ou crédito, aplicaremos as mesmas políticas que usamos para provisionar os serviços do Azure. Se nossas políticas indicarem que um reembolso ou crédito está prestes a vencer, emitiremos proativamente (e você nos autoriza a emitir em seu nome) um crédito ou reembolso para o cliente ou para o revendedor do Azure, conforme aplicável. Se nossas políticas não indicarem que um crédito ou reembolso está prestes a vencer, poderemos convidar o cliente ou o revendedor do Azure a contatar você diretamente.
 
   ![1\_RequestRefund][1]
 
@@ -78,7 +78,7 @@ Se você quiser atualizar seu perfil de editor, faça isso usando o Centro de De
 
 **3. Conclua a verificação "Ajude-nos a proteger sua conta"**.
 
-> [AZURE.NOTE]Você pode usar seu número de telefone ou endereço de email para verificar.
+> [AZURE.NOTE] Você pode usar seu número de telefone ou endereço de email para verificar.
 
 ![protectacct][6]
 
@@ -120,4 +120,4 @@ Para os problemas a seguir, crie uma solicitação de suporte em [http://go.micr
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -72,7 +72,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Restaurar | O cofre de backup e a conta de armazenamento de destino estão em duas regiões diferentes — Verifique se a conta de armazenamento especificada na operação de restauração está na mesma região do Azure que o cofre de backup. | Nenhum |
 | Restaurar | Não há suporte para a conta de armazenamento especificada para a operação de restauração - As contas de armazenamento Básica/Padrão com configurações de replicação de redundância geográfica ou redundância local. Selecione uma conta de armazenamento com suporte | Nenhum |
 | Restaurar | O tipo de conta de armazenamento especificado para a operação de restauração não está online - Certifique-se de que a conta de armazenamento especificada na operação de restauração está online | Isso pode acontecer devido a um erro transitório no armazenamento do Azure ou devido a uma interrupção. Escolha outra conta de armazenamento. |
-| Restaurar | A cota de grupo de recursos foi atingida - Exclua alguns grupos de recursos de portal de visualização ou Entre em contato com o suporte do Azure para aumentar os limites. | Nenhum |
+| Restaurar | A Cota do Grupo de Recursos foi alcançada - Exclua alguns grupos de recursos do portal do Azure ou entre em contato com o suporte do Azure para aumentar os limites. | Nenhum |
 | Restaurar | A subrede selecionada não existe - selecione uma subrede que exista | Nenhum |
 
 
@@ -149,6 +149,6 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
     - Se você tiver alguma restrição de rede no local (um Grupo de Segurança de Rede, por exemplo), implante um servidor proxy HTTP para encaminhar o tráfego. As etapas para implantar um servidor proxy HTTP podem ser encontradas [aqui](backup-azure-vms-prepare.md#2-network-connectivity).
     - Adicione regras ao NSG (se você tiver uma em vigor) para permitir o acesso à INTERNET do Proxy HTTP.
 
->[AZURE.NOTE] O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Você pode saber mais sobre como configurar um IP interno estático privado [aqui](virtual-networks-reserved-private-ip.md).
+>[AZURE.NOTE] O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Exiba mais informações sobre como [Definir um IP privado interno estático](../virtual-network/virtual-networks-reserved-private-ip.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="As amostras de consultas na Análise do Application Insights" 
-	description="As amostras de consultas na Análise do Application Insights, a ferramenta de pesquisa avançada do Application Insights." 
+	pageTitle="Exemplos de consultas no Application Insights – Análise" 
+	description="Exemplos de consultas no Application Insights – Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Amostras para a Análise do Application Insights
+# Amostras da Análise para o Application Insights
 
-A [Análise do Application Insights](app-analytics.md) é um poderoso mecanismo de pesquisa para sua telemetria do [Application Insights](app-insights-overview.md). Estas páginas descrevem a linguagem de consulta da Análise do Application Insights, o AIQL. Também há um [tour pela linguagem](app-analytics-tour.md), que recomendamos para o guia de Introdução.
+A [Análise](app-analytics.md) é um mecanismo de pesquisa avançado para sua telemetria do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise. Também há um [tour pela linguagem](app-analytics-tour.md), que recomendamos para o guia de Introdução.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,7 +29,7 @@ Há várias regras que você pode seguir para fazer com que sua consulta seja ex
 
 FAÇA:
 
--	Use filtros de tempo primeiro. A Análise do Application Insights é altamente otimizada para usar filtros de tempo.
+-	Use filtros de tempo primeiro. Application Insights – a Análise é altamente otimizada para utilizar filtros de tempo.
 -	Coloque filtros que são esperados a fim de se livrar da maioria dos dados no início da consulta (logo após os filtros de tempo)
 -	Verifique se a maioria dos filtros aparece no início da consulta (antes de começar a usar 'extend') 
 -	Prefira a palavra-chave 'has' em vez de 'contains' ao procurar tokens completos. 'has' é mais eficaz, pois não precisa procurar subcadeias de caracteres.
@@ -104,7 +104,7 @@ Events
 
 A associação corresponderá cada hora de início com todos as horas de término do endereço IP do mesmo cliente. Portanto, primeiro removemos as correspondências com as horas de término mais antigas.
 
-Em seguida, agrupamos de acordo com a hora de início e o IP a fim de obter um grupo para cada sessão. Devemos fornecer uma função `bin` para o parâmetro StartTime: se não o fizermos, a Análise do AI usará automaticamente as compartimentalizações de 1 hora, que corresponderão algumas horas de início com a hora de término errada.
+Em seguida, agrupamos de acordo com a hora de início e o IP a fim de obter um grupo para cada sessão. Devemos fornecer uma função `bin` para o parâmetro StartTime: se não o fizermos, a Análise usará automaticamente as compartimentalizações de 1 hora, que corresponderão algumas horas de início com as horas de término erradas.
 
 `argmin` seleciona a linha com a menor duração em cada grupo, e o parâmetro `*` passa por todas as outras colunas, embora use "min\_" como prefixo para cada nome de coluna.
 
@@ -264,7 +264,7 @@ Isso pode ser processado como um gráfico de barras ou de tempo.
 
 ## Tipos de junção
 
-O tipo exato de operador de junção é especificado com a palavra-chave kind. Até hoje, a Análise do AI dá suporte a seis tipos de operadores de junção: junção interna com eliminação de duplicação do lado esquerdo (padrão), junção interna padrão, externa esquerda, externa direita, externa completa e antijunção esquerda.
+O tipo exato de operador de junção é especificado com a palavra-chave kind. Até hoje, a Análise dá suporte a seis tipos de operadores de junção: junção interna com eliminação de duplicação do lado esquerdo (padrão), junção interna padrão, externa esquerda, externa direita, externa completa e antijunção esquerda.
  
 Tipo de junção padrão (sem tipo especificado). Vamos usar duas tabelas de exemplo para explicar a operação da junção:
  
@@ -310,7 +310,7 @@ e o resultado da junção seria:
 
 (Observe que as chaves "a" e "d" não aparecem na saída, pois não havia qualquer chave correspondente em ambos os lados, esquerdo e direito).
  
-(Historicamente, essa foi a primeira implementação da junção compatível com a versão inicial da Análise do AI; ela é útil em cenários típicos de análise de log/rastreamento em que queremos correlacionar dois eventos (cada um correspondendo a algum critério de filtragem) sob a mesma ID de correlação, e obter todas as aparições do fenômeno que estamos procurando, ignorando várias aparições dos registros de rastreamento colaboradores).
+(Historicamente, essa foi a primeira implementação da junção com suporte da versão inicial da Análise; ela é útil em cenários típicos de análise de log/rastreamento em que queremos correlacionar dois eventos (cada um correspondendo a algum critério de filtragem) sob a mesma ID de correlação, e obter todas as ocorrências do fenômeno que estamos procurando, ignorando várias ocorrências dos registros de rastreamento colaboradores.)
  
 ### Junção interna (tipo=inner) 
 
@@ -437,4 +437,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Introdução ao Conector do Twitter e à adição dele ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do Twitter](../connectors/create-api-twitter.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do Twitter](../connectors/connectors-create-api-twitter.md).
 
 Conecte-se ao seu feed do Twitter para publicar e receber tweets de sua linha do tempo, da linha do tempo de seus amigos e dos seguidores de sua conta do Twitter. Conectores podem ser usados em Aplicativos de Lógicos para obter, processar ou enviar dados como parte de um “fluxo de trabalho”. Utilizando o Conector do Twitter em seu fluxo de trabalho, você pode chegar a diversos resultados. Por exemplo, você pode:
 
@@ -51,7 +51,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
     * Ao registrar o aplicativo, você pode colocar qualquer URL do site. Especifique qualquer URL de retorno de chamada (não deixe em branco), você pode atualizá-la mais tarde.
 2. No quadro inicial do Azure, selecione **Marketplace**.
 3. Procure "Conector do Twitter", selecione-o e selecione **Criar**.
-4. [Opcional] Clique em ‘Configurações do pacote’ e cole a 'Chave do consumidor' do seu aplicativo do Twitter no campo 'clientId'. Cole o ‘Segredo do Consumidor' do seu aplicativo do Twitter no campo 'clientSecret':
+4. [Opcional] Clique em ‘Configurações do pacote’ e cole a 'Chave do consumidor' do seu aplicativo do Twitter no campo 'clientId'. Cole o ‘Segredo do Consumidor' do seu aplicativo do Twitter no campo 'clientSecret':  
 ![][10]
 5. Inserir outras configurações necessárias no Nome do conector, Serviço de aplicativo, e Grupo de recursos.
 6.	Clique em **Criar**.
@@ -100,4 +100,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

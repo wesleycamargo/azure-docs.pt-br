@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # O Assistente de Segurança do Privileged Identity Management do Azure AD
@@ -67,4 +67,4 @@ Depois de ter feito alterações, o assistente não aparecerá mais. No entanto,
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

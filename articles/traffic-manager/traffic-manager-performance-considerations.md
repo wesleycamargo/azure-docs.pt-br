@@ -75,7 +75,7 @@ http://www.digwebinterface.com – semelhante ao site watchmouse, mas este mostr
 ## Próximas etapas
 
 
-[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 
 [Teste as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md)
 
@@ -84,4 +84,4 @@ http://www.digwebinterface.com – semelhante ao site watchmouse, mas este mostr
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/17/2016"
 	ms.author="glenga"/>
 
 # Adicionar notificações por push a seu aplicativo de Serviços Móveis
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para obter a versão equivalente dos Aplicativos Móveis deste tópico, veja [Adicionar notificações por push ao aplicativo Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started-push.md).
 
 ##Visão geral
 Este tópico mostra como usar os Serviços Móveis do Azure para enviar notificações de push para um aplicativo do Xamarin.Android. Neste tutorial, você adiciona notificações por push usando o serviço GCM (Google Cloud Messaging) para o projeto de [Introdução aos Serviços Móveis]. Ao concluir, seu serviço móvel enviará uma notificação por push sempre que um registro for inserido.
@@ -45,7 +45,7 @@ Você já deve ter os componentes [Xamarin.Android] e [Serviços móveis do Azur
 
 ##<a id="update-scripts"></a>Atualizar o script de inserção registrado para enviar notificações
 
->[AZURE.TIP]As etapas a seguir mostram como atualizar o script registrado para a operação de inserção na tabela TodoItem no Portal clássico do Azure. Você também pode acessar e editar este script de serviço móvel diretamente no Visual Studio, no nó do Azure do Gerenciador de Servidores.
+>[AZURE.TIP] As etapas a seguir mostram como atualizar o script registrado para a operação de inserção na tabela TodoItem no Portal clássico do Azure. Você também pode acessar e editar este script de serviço móvel diretamente no Visual Studio, no nó do Azure do Gerenciador de Servidores.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -72,11 +72,11 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 
 * [Introdução à autenticação](mobile-services-android-get-started-users.md) <br/>Saiba como autenticar usuários de seu aplicativo com diferentes tipos de contas usando Serviços Móveis.
 
-* [O que são Hubs de Notificação?](../notification-hubs-overview.md) <br/>Saiba mais sobre como os Hubs de Notificação funcionam para entregar notificações aos seus aplicativos entre todas as diversas principais plataformas de cliente.
+* [O que são Hubs de Notificação?](../notification-hubs/notification-hubs-overview.md) <br/>Saiba mais sobre como os Hubs de Notificação funcionam para entregar notificações aos seus aplicativos entre todas as diversas principais plataformas de cliente.
 
 * [Depuração de aplicativos de Hubs de Notificação](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenha diretrizes de solução de problemas e depuração de soluções de Hubs de Notificação.
 
-* [Como usar a biblioteca de cliente .NET de Serviços Móveis](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Saiba mais sobre como usar os Serviços Móveis com código Xamarin C#.
+* [Como usar a biblioteca de cliente .NET de Serviços Móveis](mobile-services-dotnet-how-to-use-client-library.md) <br/>Saiba mais sobre como usar os Serviços Móveis com código Xamarin C#.
 
 * [Referência de script de servidor dos Serviços Móveis](mobile-services-how-to-use-server-scripts.md) <br/>Saiba mais sobre como implementar a lógica de negócios ao seu serviço móvel.
 
@@ -87,4 +87,4 @@ Saiba mais sobre os Serviços Móveis e Hubs de Notificação nos tópicos a seg
 [Xamarin.Android]: http://xamarin.com/download/
 [Serviços móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

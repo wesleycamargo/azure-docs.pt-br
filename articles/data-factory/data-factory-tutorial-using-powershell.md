@@ -16,7 +16,7 @@
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Mover e processar arquivos de log usando o [PowerShell] do Data Factory
+# Tutorial: Mover e processar arquivos de log usando o Data Factory (PowerShell)
 Este artigo fornece uma passo a passo completo de um cenário canônico de processamento de log usando o Data Factory do Azure para transformar dados de arquivos de log em informações.
 
 ## Cenário
@@ -24,7 +24,7 @@ A Contoso é uma empresa de jogos que cria os jogos para várias plataformas: PC
  
 Neste passo a passo, podemos coletar logs de exemplo, processar e enriquecê-los com dados de referência, além de transformar os dados para avaliar a eficiência de uma campanha de marketing que a Contoso lançou recentemente.
 
-## Preparando-se para o tutorial
+## Pré-requisitos
 1.	Leia a [Introdução ao Azure Data Factory][adfintroduction] para obter uma visão geral do Azure Data Factory e entender os conceitos de nível superior.
 2.	Você deve ter uma assinatura do Azure para ver este tutorial. Para obter informações sobre como adquirir uma assinatura, consulte [Opções de compra][azure-purchase-options], [Ofertas para membros][azure-member-offers] ou [Avaliação gratuita][azure-free-trial].
 3.	Você deve baixar e instalar o [PowerShell do Azure][download-azure-powershell] no seu computador.
@@ -67,19 +67,20 @@ O fluxo de trabalho de ponta a ponta é descrito abaixo: ![Tutorial de fluxo de 
 
 1. O **PartitionGameLogsPipeline** lê os eventos brutos de jogos de um armazenamento de blob (RawGameEventsTable) e cria partições com base no ano, mês e dia (PartitionedGameEventsTable).
 2. O **EnrichGameLogsPipeline** junta eventos de jogos particionados (tabela PartitionedGameEvents, que é uma saída do PartitionGameLogsPipeline) com o código geográfico (RefGetoCodeDictionaryTable) e enriquece dados mapeando um endereço IP para a localização geográfica correspondente (EnrichedGameEventsTable).
-3. O pipeline **AnalyzeMarketingCampaignPipeline** aproveita os dados enriquecidos (EnrichedGameEventTable gerado pelo EnrichGameLogsPipeline) e os processa com os dados de anúncio (RefMarketingCampaignnTable) para criar a saída final da eficiência de campanha de marketing, que é copiada para o banco de dados SQL do Azure (MarketingCampainEffectivensessSQLTable) e um armazenamento de blob do Azure (MarketingCampaignEffectivenessBlobTable) para análise.
+3. O pipeline **AnalyzeMarketingCampaignPipeline** aproveita os dados enriquecidos (EnrichedGameEventTable gerado pelo EnrichGameLogsPipeline) e os processa com os dados de anúncio (RefMarketingCampaignnTable) para criar a saída final da eficiência da campanha de marketing, que é copiada no banco de dados SQL do Azure (MarketingCampainEffectivensessSQLTable) e em um armazenamento de blobs do Azure (MarketingCampaignEffectivenessBlobTable) para análise.
     
-## Passo a passo: Criando, implantando e monitorando fluxos de trabalho
-1. [Etapa 1: Carregar dados e scripts de exemplo](#MainStep1). Nesta etapa, você carregará todos os dados de exemplo (incluindo todos os logs e dados de referência) e scripts do Hive/Pig que serão executadas pelos fluxos de trabalho. Os scripts que você executa também criam um banco de dados SQL do Azure (chamado MarketingCampaigns), tabelas, tipos definidos pelo usuário e procedimentos armazenados.
-2. [Etapa 2: criar uma data factory do Azure](#MainStep2). Nesta etapa, você criará uma data factory do Azure chamado LogProcessingFactory.
-3. [Etapa 3: Criar serviços vinculados](#MainStep3). Nesta etapa, você criará os seguintes serviços vinculados: 
+Neste tutorial, você realizará as seguintes etapas:
+
+1. [Carregar dados de exemplo e scripts](#upload-sample-data-and-scripts). Nesta etapa, você carregará todos os dados de exemplo (incluindo todos os logs e dados de referência) e scripts do Hive/Pig que serão executadas pelos fluxos de trabalho. Os scripts que você executa também criam um banco de dados SQL do Azure (chamado MarketingCampaigns), tabelas, tipos definidos pelo usuário e procedimentos armazenados.
+2. [Criar um Azure Data Factory](#create-data-factory). Nesta etapa, você criará uma data factory do Azure chamado LogProcessingFactory.
+3. [Criar serviços vinculados](#create-linked-services). Nesta etapa, você criará os seguintes serviços vinculados: 
 	
 	- 	**StorageLinkedService**. Vincula o local de armazenamento do Azure que contém eventos brutos de jogos, eventos de jogos particionados, eventos de jogos enriquecidos, informações de eficácia de campanha de marketing, dados de referência do código geográfico e dados de referência da campanha de marketing para o LogProcessingFactory   
 	- 	**AzureSqlLinkedService**. Vincula um banco de dados SQL do Azure que contém informações de eficácia de campanha de marketing. 
 	- 	**HDInsightStorageLinkedService**. Vincula um armazenamento de blob do Azure que está associado ao cluster HDInsight ao qual HDInsightLinkedService se refere. 
 	- 	**HDInsightLinkedService**. Vincula um cluster HDInsight do Azure ao LogProcessingFactory. Este cluster é usado para executar o processamento do pig/hive nos dados. 
  		
-4. [Etapa 4: Criar tabelas](#MainStep4). Nesta etapa, você criará as seguintes tabelas:
+4. [Criar conjuntos de dados](#create-datasets). Nesta etapa, você criará as seguintes tabelas:
 	
 	- **RawGameEventsTable**. Esta tabela especifica o local dos dados de eventos de jogos brutos dentro do armazenamento de blob do Azure definido pelo StorageLinkedService (adfwalkthrough/logs/rawgameevents/). 
 	- **PartitionedGameEventsTable**. Esta tabela especifica o local dos dados de eventos de jogos particionados dentro do armazenamento de blob do Azure definido pelo StorageLinkedService (adfwalkthrough/logs/partitionedgameevents/). 
@@ -90,7 +91,7 @@ O fluxo de trabalho de ponta a ponta é descrito abaixo: ![Tutorial de fluxo de 
 	- **MarketingCampaignEffectivenessBlobTable**. Esta tabela especifica o local dos dados de eficácia da campanha de marketing dentro do armazenamento de blob do Azure definido pelo StorageLinkedService (adfwalkthrough/marketingcampaigneffectiveness/). 
 
 	
-5. [Etapa 5: Criar e agendar pipelines](#MainStep5). Nesta etapa, você criará os seguintes pipelines:
+5. [Criar e agendar pipelines](#create-pipelines). Nesta etapa, você criará os seguintes pipelines:
 	- **PartitionGameLogsPipeline**. Este pipeline lê os eventos brutos de jogos de um armazenamento de blob (RawGameEventsTable) e cria partições com base no ano, mês e dia (PartitionedGameEventsTable). 
 
 
@@ -107,9 +108,9 @@ O fluxo de trabalho de ponta a ponta é descrito abaixo: ![Tutorial de fluxo de 
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Etapa 6: Monitorar pipelines e fatias de dados](#MainStep6). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal Clássico do Azure.
+6. [Monitorar pipelines e fatias de dados](#monitor-pipelines). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal Clássico do Azure.
 
-## <a name="MainStep1"></a> Etapa 1: Carregar dados e scripts de exemplo
+## Carregar dados de exemplo e scripts
 Nesta etapa, você carregará todos os dados de exemplo (incluindo todos os logs e dados de referência) e scripts do Hive/Pig que são executadas pelos fluxos de trabalho. Os scripts que você executa também criam um banco de dados SQL do Azure chamado **MarketingCampaigns**, tabelas, tipos definidos pelo usuário e procedimentos armazenados.
 
 As tabelas, os tipos definidos pelo usuário e procedimentos armazenados são usados ao mover os resultados da Eficácia de Campanha de Marketing do armazenamento de blobs do Azure para o banco de dados SQL do Azure.
@@ -163,7 +164,7 @@ As tabelas, os tipos definidos pelo usuário e procedimentos armazenados são us
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
 
-## <a name="MainStep2"></a> Etapa 2: criar uma data factory do Azure
+## Criar um data factory
 Nesta etapa, você criará uma data factory do Azure chamada **LogProcessingFactory**.
 
 1. Alterne para o **PowerShell do Azure** se você já o tiver aberto (ou) inicie o **PowerShell do Azure**. Se você tiver fechado e reaberto o PowerShell do Azure, você precisa executar os seguintes comandos: 
@@ -185,7 +186,7 @@ Nesta etapa, você criará uma data factory do Azure chamada **LogProcessingFact
 	> O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 
  
-## <a name="MainStep3"></a> Etapa 3: Criar serviços vinculados
+## Criar serviços vinculados
 
 > [AZURE.NOTE] Este artigo usa o PowerShell do Azure para criar pipelines, tabelas e serviços vinculados. Consulte [Tutorial usando Editor Data Factory][adftutorial-using-editor] se você deseja executar este tutorial usando o Portal do Azure, especificamente o Editor Data Factory.
 
@@ -234,7 +235,7 @@ Nesta etapa, você criará os seguintes serviços vinculados: StorageLinkedServi
 
  
 
-## <a name="MainStep4"></a> Etapa 4: Criar tabelas 
+## Criar conjuntos de dados
 Nesta etapa, você criará as seguintes tabelas:
 
 - RawGameEventsTable
@@ -288,7 +289,7 @@ O Portal Clássico do Azure ainda não dá suporte à criação de conjuntos de 
 	
 
 
-## <a name="MainStep5"></a> Etapa 5: Criar e agendar pipelines
+## Criar pipelines
 Nesta etapa, você criará os seguintes pipelines: PartitionGameLogsPipeline, EnrichGameLogsPipeline e AnalyzeMarketingCampaignPipeline.
 
 1. No **Windows Explorer**, navegue até a subpasta **Pipelines** na pasta **C:\\ADFWalkthrough** (ou do local onde você extraiu os exemplos).
@@ -358,7 +359,7 @@ Para especificar o período ativo para o pipeline, você pode usar o cmdlet Set-
 	**Parabéns!** Você criou com êxito o Data Factory do Azure, os Serviços Vinculados, Pipelines, Tabelas e iniciou o fluxo de trabalho.
 
 
-## <a name="MainStep6"></a> Etapa 6: Monitorar pipelines e fatias de dados 
+## Monitorar pipelines 
 
 1.	Se você não tiver a folha DATA FACTORY para abrir o LogProcessingFactory, poderá fazer o seguinte:
 	1.	Clique em **LogProcessingFactory** no **Quadro Inicial**. Ao criar a data factory, a opção **Adicionar ao Quadro Inicial** foi marcada automaticamente.
@@ -391,7 +392,7 @@ Para especificar o período ativo para o pipeline, você pode usar o cmdlet Set-
 
 	![Folha FATIA DE DADOS RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Se houver um erro, você verá um status **Falha** aqui. Você também pode ver as duas fatias com o status **Pronto** ou com status **Aguardando**, dependendo da rapidez com que as fatias são processadas.
+	Se houver um erro, você verá um status **Falha** aqui. Você também pode ver as duas fatias com o status **Pronto** ou com o status **Aguardando**, dependendo da rapidez com que as fatias são processadas.
  
 	Consulte a [Referência do Desenvolvedor do Azure Data Factory][developer-reference] para obter uma compreensão de todos os status possíveis da fatia.
 
@@ -503,4 +504,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

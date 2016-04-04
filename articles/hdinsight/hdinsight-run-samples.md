@@ -33,7 +33,6 @@ Um conjunto de amostras é fornecido para ajudar você a começar a executar tra
 Existe muita documentação adicional na Web para tecnologias relacionadas ao Hadoop, como a programação e o streaming de MapReduce baseado em Java, bem como documentação sobre o uso de cmdlets usados em scripts do Windows PowerShell. Para obter mais informações sobre esses recursos, consulte
 
 - [Desenvolver programas Java MapReduce para Hadoop no HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Desenvolver programas de streaming do Hadoop em C# para o HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Enviar trabalhos Hadoop no HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Introdução ao Azure HDInsight][hdinsight-introduction]
 
@@ -114,7 +113,7 @@ Para obter o procedimento de desenvolver um programa MapReduce em Java, consulte
 
 3. Defina as três primeiras variáveis e execute o script.
 
-## <a name="hdinsight-sample-csharp-streaming"></a>Contagem de palavras - streaming em C#
+## <a name="hdinsight-sample-csharp-streaming"></a>Contagem de palavras - Transmissão em C#
 
 O Hadoop fornece uma API de streaming para o MapReduce que permite que você escreva funções de mapa e de redução em outras linguagens além do Java.
 
@@ -998,4 +997,4 @@ O código do programa MapReduce TeraSort é apresentado para inspeção nesta se
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

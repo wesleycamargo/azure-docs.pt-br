@@ -109,7 +109,8 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 ## Validar o id\_token
 Apenas receber o id\_token não é suficiente para autenticar o usuário; você deve validar a assinatura do id\_token e verificar as declarações no token de acordo com os requisitos do aplicativo. O ponto de extremidade v2.0 usa [JWTs (Tokens Web JSON)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
 
-Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. Após a validação da assinatura do id\_token, será necessário verificar algumas declarações: Consulte a [referência do token da v2.0](active-directory-v2-tokens.md) para saber mais, incluindo [Validação de Tokens](active-directory-v2-tokens.md#validating-tokens) e [Informações Importantes sobre a Substituição de Chave de Assinatura](active-directory-v2-tokens.md#validating-tokens). Recomendamos o uso de uma biblioteca para analisar e validar os tokens. Há pelo menos uma disponível para a maioria das linguagens e plataformas. <!--TODO: Improve the information on this-->
+Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. Após a validação da assinatura do id\_token, será necessário verificar algumas declarações: Consulte a [referência do token da v2.0](active-directory-v2-tokens.md) para saber mais, incluindo [Validação de Tokens](active-directory-v2-tokens.md#validating-tokens) e [Informações Importantes sobre a Substituição de Chave de Assinatura](active-directory-v2-tokens.md#validating-tokens). Recomendamos o uso de uma biblioteca para analisar e validar os tokens. Há, pelo menos, uma disponível para a maioria das linguagens e plataformas.
+<!--TODO: Improve the information on this-->
 
 Talvez você também queira validar declarações adicionais, dependendo do cenário. Algumas validações comuns incluem:
 
@@ -211,4 +212,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Após você conseguir uma autorização `code` e um `id_token`, poderá conectar o usuário e obter tokens de acesso em seu nome. Para conectar o usuário, você deve validar o `id_token` exatamente como descrito [acima](#validating-the-id-token). Para obter tokens de acesso, você pode seguir as etapas descritas em nossa [documentação do protocolo OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

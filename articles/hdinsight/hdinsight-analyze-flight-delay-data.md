@@ -710,7 +710,6 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 * [Usar o Sqoop com o HDInsight][hdinsight-use-sqoop]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
 * [Desenvolver programas MapReduce em Java para HDInsight][hdinsight-develop-mapreduce]
-* [Desenvolver programas de streaming do Hadoop em C# para o HDInsight][hdinsight-develop-streaming]
 
 
 
@@ -730,7 +729,6 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
@@ -742,4 +740,4 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

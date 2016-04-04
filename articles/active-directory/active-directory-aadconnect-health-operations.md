@@ -3,7 +3,7 @@
 	description="Este artigo descreve as outras operações que podem ser executadas após a implantação do Azure AD Connect Health."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="02/21/2016"
+	ms.author="vakarand"/>
 
 # Operações de Azure AD Connect Health
 
@@ -22,6 +22,9 @@ O tópico a seguir descreve as várias operações que podem ser executadas usan
 
 ## Habilitar notificações por email
 Você pode configurar o serviço do Azure AD Connect Health para enviar notificações por email quando os alertas forem gerados, indicando que sua infraestrutura não está íntegra. Isso ocorrerá quando um alerta for gerado, bem como quando ele é marcado como resolvido. Siga as instruções abaixo para configurar notificações por email.
+
+![Descoberta de notificações por email do Azure AD Connect Health](./media/active-directory-aadconnect-health/email_noti_discover.png)
+
 >[AZURE.NOTE] As notificações por email são desabilitadas por padrão.
 
 
@@ -121,8 +124,8 @@ Para permitir a um usuário o acesso no nível *todas as instâncias de serviço
 
 Essas etapas permitirão acesso aos usuários e grupos listados de acordo com suas funções.
 >[AZURE.NOTE]
-- Administradores globais sempre têm acesso total a todas as operações, mas as contas de administrador global não estarão presentes na lista acima. 
-- Não há suporte para o recurso "Convidar usuários" no Azure AD Connect Health.
+- Os Administradores Globais sempre têm acesso completo a todas as operações, mas as contas de administrador global não estarão presentes na lista acima.
+- NÃO há suporte para o recurso “Convidar Usuários” no Azure AD Connect Health.
 
 #### Etapa 3: Compartilhe o local da folha com usuários ou grupos
 1. Depois de atribuir permissões, um usuário poderá acessar o Azure AD Connect Health em [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
@@ -147,4 +150,4 @@ Você pode remover um usuário ou grupo adicionado à parte de controle de acess
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

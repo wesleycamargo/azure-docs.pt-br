@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Criar aplicativos que usem os tópicos e as assinaturas do Barramento de Serviço | Microsoft Azure"
-   description="Introdução aos recursos de publicação-assinatura oferecidos pelos tópicos e pelas assinaturas do Barramento de Serviço."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Criar aplicativos que usem os tópicos e as assinaturas do Barramento de Serviço | Microsoft Azure"
+    description="Introdução aos recursos de publicação-assinatura oferecidos pelos tópicos e pelas assinaturas do Barramento de Serviço."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Criar aplicativos que usem os tópicos e as assinaturas do Barramento de Serviço
 
@@ -33,7 +33,7 @@ Em qualquer situação como essa, na qual você exige que cada mensagem seja con
 
 As mensagens são enviadas para um tópico da mesma maneira como são enviadas para uma fila. No entanto, as mensagens não são recebidas do tópico diretamente; elas são recebidas de assinaturas. Você pode pensar em uma assinatura como um tópico como uma fila virtual que recebe cópias das mensagens enviadas para esse tópico. As mensagens são recebidas de uma assinatura da mesma maneira como são recebidas de uma fila.
 
-Voltando ao cenário de varejo, a fila é substituída por um tópico e uma assinatura é adicionada e será usada pelo componente do sistema de gerenciamento de estoque. O sistema agora aparece da seguinte maneira:
+Voltando ao cenário de varejo, a fila é substituída por um tópico, e uma assinatura é adicionada, que pode ser usada pelo componente do sistema de gerenciamento de estoque. O sistema agora aparece da seguinte maneira:
 
 ![Service-Bus2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
 
@@ -119,7 +119,7 @@ catch (Exception e)
 
 ## Filtros de assinatura
 
-Até agora neste artigo, todas as mensagens enviadas ao tópico são disponibilizadas para todas as assinaturas registradas. A frase-chave aqui é "disponibilizadas". Embora as assinaturas do Barramento de Serviço vejam todas as mensagens enviadas para o tópico, você só poderá copiar um subconjunto dessas mensagens para a fila de assinatura virtual. Isso é feito usando *filtros* de assinatura. Quando você cria uma assinatura, pode fornecer uma expressão de filtro na forma de um predicado de estilo SQL92 que funciona sobre as propriedades da mensagem, as propriedades do sistema (por exemplo, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) e as propriedades do aplicativo, como **StoreName** no exemplo anterior.
+Até agora neste cenário, todas as mensagens enviadas ao tópico são disponibilizadas para todas as assinaturas registradas. A frase-chave aqui é "disponibilizadas". Embora as assinaturas do Barramento de Serviço vejam todas as mensagens enviadas para o tópico, você só poderá copiar um subconjunto dessas mensagens para a fila de assinatura virtual. Isso é feito usando *filtros* de assinatura. Quando você cria uma assinatura, pode fornecer uma expressão de filtro na forma de um predicado de estilo SQL92 que funciona sobre as propriedades da mensagem, as propriedades do sistema (por exemplo, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) e as propriedades do aplicativo, como **StoreName** no exemplo anterior.
 
 Fazendo o cenário evoluir para ilustrar isso, uma segunda loja deverá ser adicionada ao nosso cenário de varejo. Os dados de vendas de todos os terminais de PDV de ambas as lojas ainda precisam ser roteados para o sistema de gerenciamento de estoque centralizado, mas um gerente de loja usando a ferramenta de painel só está interessado no desempenho da loja dele. Você pode usar a filtragem de assinatura para conseguir isso. Observe que, quando os terminais de PDV publicarem mensagens, eles definem a propriedade do aplicativo **StoreName** na mensagem. Dadas duas lojas, por exemplo, **Redmond** e **Seattle**, os terminais de PDV na loja de Redmond carimbam as mensagens de dados sobre as vendas com um **StoreName** igual a **Redmond**, enquanto os terminais de PDV da loja de Seattle usam um **StoreName** igual a **Seattle**. O gerente da loja da loja de Redmond só deseja ver os dados de seus terminais de PDV. O sistema aparece da seguinte maneira:
 
@@ -150,4 +150,4 @@ Todos os motivos para usar o enfileiramento de mensagens descrito em [Criar apli
 
 Consulte [Criar aplicativos que usem as filas do Barramento de Serviço](service-bus-create-queues.md) para informações sobre como usar as filas no cenário de varejo de PDV.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

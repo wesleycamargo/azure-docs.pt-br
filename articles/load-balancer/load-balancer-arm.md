@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
 # Suporte do Gerenciador de Recursos do Azure para balanceador de carga 
 
-O ARM (Gerenciador de Recursos do Azure) é a nova estrutura de gerenciamento de serviços do Azure. O balanceador de carga do Azure agora pode ser gerenciado usando ferramentas e APIs baseadas no Gerenciador de Recursos do Azure. Para saber mais sobre o Gerenciador de Recursos do Azure, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-preview-portal-using-resource-groups.md).
+O ARM (Gerenciador de Recursos do Azure) é a nova estrutura de gerenciamento de serviços do Azure. O balanceador de carga do Azure agora pode ser gerenciado usando ferramentas e APIs baseadas no Gerenciador de Recursos do Azure.
 
 ## Conceitos
 
@@ -46,7 +46,7 @@ Modelos incluem máquinas virtuais, redes virtuais, conjuntos de disponibilidade
 
 [Saiba mais sobre modelos](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[Saiba mais sobre recursos de rede](../resource-groups-networking)
+[Saiba mais sobre recursos de rede](../virtual-network/resource-groups-networking)
 
 Modelos que usam o balanceador de carga do Azure podem ser encontrados em um [repositório GitHub](https://github.com/Azure/azure-quickstart-templates) que hospeda um conjunto de modelos gerados pela comunidade
 
@@ -65,15 +65,15 @@ Exemplos de modelos:
 
 - [Como criar um balanceador de carga usando o gerenciador de recursos do Azure](load-balancer-get-started-internet-arm-ps.md)
 
-- [Usando a CLI do Azure com o gerenciamento de recursos do Azure](../xplat-cli-azure-resource-manager)
+- [Usando a CLI do Azure com o gerenciamento de recursos do Azure](../xplat-cli-azure-resource-manager.md)
 
 - [APIs REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
 ## Próximas etapas
 
-Você também pode [começar a criar um balanceador de carga voltado para a Internet](load-balancer-get-started-internet-arm-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento específico de tráfego de rede do balanceador de carga.
+Também é possível [começar a criar um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento específico de tráfego de rede do balanceador de carga.
 
-Se seu aplicativo precisar manter conexões ativas para servidores por trás de um balanceador de carga, você poderá entender mais sobre [configurações de tempo limite de ociosidade do TCP para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Assim, você saberá mais sobre o comportamento da conexão ociosa quando estiver usando um Balanceador de Carga do Azure.
+Se seu aplicativo precisar manter conexões ativas para servidores por trás de um balanceador de carga, você poderá entender mais sobre as [configurações de tempo limite de TCP ocioso para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Assim, você saberá mais sobre o comportamento da conexão ociosa quando estiver usando um Balanceador de Carga do Azure.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

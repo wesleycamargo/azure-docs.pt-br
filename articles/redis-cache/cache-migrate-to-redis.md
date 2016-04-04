@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="03/04/2016"
+    ms.date="03/17/2016"
     ms.author="sdanie" />
 
 # Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure
@@ -49,6 +49,7 @@ Serviço de Cache Gerenciado do e Cache Redis do Azure são semelhantes, mas imp
 |Política de expiração|A política de expiração padrão é Absolute e o intervalo de expiração padrão é de dez minutos. As políticas Sliding e Never também estão disponíveis.|Por padrão, itens no cache não expiram, mas uma expiração pode ser configurada por gravação usando sobrecargas de conjunto de cache. Para obter mais informações, consulte [Adicionar e recuperar objetos do cache](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache).|
 |Regiões e marcação|As regiões são subgrupos para itens em cache. Regiões também oferecem suporte à anotação dos itens em cache com mais sequências de caracteres descritivas denominadas marcas. As regiões oferecem suporte à capacidade de realizar operações de pesquisa em qualquer item marcado nessa região. Todos os itens dentro de uma região estão localizados dentro de um único nó do cluster de cache.|Um cache Redis consiste em um único nó (a menos que o cluster Redis esteja habilitado) então o conceito de regiões do Serviço de Cache Gerenciado não se aplica. O Redis oferece suporte à pesquisa e operações com caractere curinga ao recuperar chaves para que marcas descritivas possam ser incorporadas nos nomes de chave e usadas para recuperar os itens posteriormente. Para obter um exemplo de implementação de uma solução de marcação usando Redis, consulte [Implementar marcação de cache com Redis](http://stackify.com/implementing-cache-tagging-redis/).|
 |Serialização|O Cache gerenciado suporta o NetDataContractSerializer, BinaryFormatter e o uso de serializadores personalizados. O padrão é o NetDataContractSerializer.|É responsabilidade do aplicativo cliente para serializar objetos .NET antes de colocá-los no cache, com a opção do serializador para o desenvolvedor do aplicativo cliente. Para obter mais informações e um código de exemplo, consulte [Trabalhar com objetos .NET no cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).|
+| Emulador de cache | O Cache Gerenciado fornece um emulador de cache local. | O Cache Redis do Azure não tem um emulador, mas é possível [executar o build MSOpenTech do redis-server.exe localmente](cache-faq.md#cache-emulator) para fornecer uma experiência de emulador. |
 
 ## Escolher uma oferta de Cache
 
@@ -195,4 +196,4 @@ O Cache Redis do Azure possui provedores de Estado da Sessão ASP.NET e o cachin
 
 Explore a [documentação do Cache Redis do Azure](https://azure.microsoft.com/documentation/services/cache/) e veja os tutoriais, exemplos, vídeos e muito mais.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

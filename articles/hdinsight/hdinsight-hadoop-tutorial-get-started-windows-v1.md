@@ -225,7 +225,6 @@ Neste tutorial do Hadoop, você aprendeu a provisionar um cluster Hadoop no Wind
 - [Usar o Hive com o HDInsight][hdinsight-use-hive]
 - [Usar o Pig com o HDInsight][hdinsight-use-pig]
 - [Usar o Oozie com o HDInsight][hdinsight-use-oozie]
-- [Desenvolver programas de streaming do Hadoop em C# para o HDInsight][hdinsight-develop-streaming]
 - [Desenvolver programas MapReduce em Java para HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -243,7 +242,6 @@ Neste tutorial do Hadoop, você aprendeu a provisionar um cluster Hadoop no Wind
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
@@ -285,4 +283,4 @@ Neste tutorial do Hadoop, você aprendeu a provisionar um cluster Hadoop no Wind
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

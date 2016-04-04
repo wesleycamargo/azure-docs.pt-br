@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Material de referência para a Análise de Aplicativos" 
-	description="As expressões regulares na Análise de Aplicativos, a ferramenta de pesquisa avançada do Application Insights." 
+	pageTitle="Material de referência da Análise no Application Insights" 
+	description="Expressões regulares na Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-# Material de referência
+# Application Insights: Material de referência da Análise
 
-A [Análise de Aplicativos](app-analytics.md) é um poderoso mecanismo de pesquisa para sua telemetria do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise de Aplicativos, o CSL.
-
+[Análise](app-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -415,4 +414,4 @@ Ela também lista a sintaxe aceita pelo PCRE, PERL e VIM.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

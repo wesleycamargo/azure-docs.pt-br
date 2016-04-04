@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management do Azure AD: como Começar a Adicionar uma Função a um Usuário"
+   pageTitle="Como adicionar ou remover uma função de usuário | Microsoft Azure"
    description="Saiba como adicionar funções a identidades privilegiadas com a extensão Privileged Identity Management do Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário
@@ -49,4 +49,4 @@ Depois de navegar até a folha **Adicionar usuários gerenciados**:
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

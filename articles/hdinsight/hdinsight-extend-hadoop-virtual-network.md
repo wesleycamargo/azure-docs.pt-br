@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/29/2016"
+   ms.date="03/22/2016"
    ms.author="larryfr"/>
 
 
@@ -80,31 +80,94 @@ Se você tiver recursos em uma Rede Virtual que não pode ser usada pelo cluster
 
 ###Redes virtuais protegidas
 
-Não há suporte para o HDInsight em Redes Virtuais do Azure que restringem explicitamente o acesso de/para a Internet. Por exemplo, usando Grupos de Segurança de Rede ou rota expressa para bloquear o tráfego de Internet a recursos na Rede Virtual. O serviço HDInsight é um serviço gerenciado e requer acesso à Internet durante o provisionamento e durante a execução para que o Azure possa monitorar a integridade do cluster, iniciar failover dos recursos de cluster e outras tarefas de gerenciamento automatizadas.
+Não há suporte para o HDInsight em Redes Virtuais do Azure que restringem explicitamente o acesso de/para a Internet. Por exemplo, usando Grupos de Segurança de Rede ou rota expressa para bloquear o tráfego de Internet a recursos na Rede Virtual.
 
-Se você quiser usar o HDInsight em uma Rede Virtual que bloqueia o tráfego de Internet, poderá usar as seguintes etapas:
+O serviço HDInsight é um serviço gerenciado e requer acesso à Internet durante o provisionamento e durante a execução para que o Azure possa monitorar a integridade do cluster, iniciar failover dos recursos de cluster e outras tarefas de gerenciamento automatizadas. Os seguintes endereços IP devem ter permissão de acesso de entrada para a sub-rede na qual você deseja instalar o HDInsight:
 
-1. Crie uma nova sub-rede dentro da rede Virtual. Por padrão, a nova sub-rede será capaz de se comunicar com a Internet. Isso permite que o HDInsight seja instalado nessa sub-rede. Já que a nova sub-rede está na mesma rede virtual que as sub-redes protegidas, ela também poderá se comunicar com os recursos instalados lá.
+* 168\.61.49.99
+* 23\.99.5.239
+* 168\.61.48.131
+* 138\.91.141.162
 
-2. Crie o cluster HDInsight. Ao definir as configurações da Rede Virtual para o cluster, selecione a sub-rede criada na etapa 1.
+Permitir o acesso de entrada desses endereços permitirá a instalação bem-sucedida do HDInsight em uma rede virtual protegida.
 
-> [AZURE.NOTE] As etapas acima supõem que você não restringiu as comunicações com os endereços IP _no intervalo de endereços IP da Rede Virtual_. Caso tenha feito isso, talvez seja necessário modificar essas restrições para permitir a comunicação com a nova sub-rede.
+Veja a seguir um script de exemplo que criará um novo Grupo de Segurança de Rede permitindo os endereços necessários e que aplica o grupo de segurança a uma sub-rede dentro de sua Rede Virtual. Essas etapas pressupõem que você já tenha criado uma Rede Virtual e a sub-rede na qual deseja instalar o HDInsight.
 
-Se não tiver certeza de que aplicou restrições à sub-rede que quer instalar no HDInsight ou quer remover as restrições da sub-rede, use as etapas a seguir:
+> [AZURE.NOTE] Você deve ter instalado e configurado o Azure PowerShell antes de executar esse script. Para obter mais informações, veja [Instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+    $vnetName = "Replace with your virtual network name"
+    $resourceGroupName = "Replace with the resource group the virtual network is in"
+    $subnetName = "Replace with the name of the subnet that HDInsight will be installed into"
+    # Get the Virtual Network object
+    $vnet = Get-AzureRmVirtualNetwork `
+        -Name $vnetName `
+        -ResourceGroupName $resourceGroupName
+    # Get the region the Virtual network is in.
+    $location = $vnet.Location
+    # Get the subnet object
+    $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
+    # Create a new Network Security Group.
+    # And add exemptions for the HDInsight health and management services.
+    $nsg = New-AzureRmNetworkSecurityGroup `
+        -Name "hdisecure" `
+        -ResourceGroupName $resourceGroupName `
+        -Location $location `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -name "hdirule1" `
+            -Description "HDI health and management address 16.61.49.99" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "168.61.49.99" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 300 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule2" `
+            -Description "HDI health and management 23.99.5.239" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "23.99.5.239" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 301 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule3" `
+            -Description "HDI health and management 168.61.48.131" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "168.61.48.131" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 302 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule4" `
+            -Description "HDI health and management 138.91.141.162" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "138.91.141.162" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 303 `
+            -Direction Inbound
+    # Set the changes to the security group
+    Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    # Apply the NSG to the subnet
+    Set-AzureRmVirtualNetworkSubnetConfig `
+        -VirtualNetwork $vnet `
+        -Name $subnetName `
+        -AddressPrefix $subnet.AddressPrefix `
+        -NetworkSecurityGroupId $nsg
 
-2. Selecione a Rede Virtual.
+> [AZURE.IMPORTANT] O uso do script acima abre somente o acesso ao serviço de integridade e gerenciamento do HDInsight na nuvem do Azure. Isso permite uma instalação bem-sucedida de um cluster HDInsight na sub-rede; no entanto, o acesso ao cluster HDInsight de fora da Rede Virtual é bloqueado por padrão. Você terá de adicionar mais regras do Grupo de Segurança de Rede se desejar habilitar o acesso de fora da Rede Virtual.
 
-3. Selecione __Propriedades__.
-
-4. Selecione __Sub-redes__ e a sub-rede específica. Na folha dessa sub-rede, as entradas __Grupo de segurança de rede__ e __Tabela de rotas__ serão definidas para um valor de __Nenhum__ se nenhuma restrição tiver sido aplicada.
-
-    Se restrições tiverem sido aplicadas, você poderá remover a restrição selecionando a entrada __Grupo de segurança de rede__ ou __Tabela de rotas__ e selecionando __Nenhum__. Por fim, selecione __Salvar__ na folha Sub-rede para salvar as alterações.
-    
-    ![Imagem da folha da sub-rede e seleção do Grupo de Segurança de Rede](./media/hdinsight-extend-hadoop-virtual-network/subnetnsg.png)
-
-Para saber mais sobre Grupos de Segurança de Rede, confira [Visão geral de Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md). Para saber mais sobre como controlar o roteamento em uma Rede Virtual do Azure, veja [Encaminhamento IP e rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md).
+Para saber mais sobre os Grupos de Segurança de Rede, veja [Visão geral de Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md). Para saber mais sobre como controlar o roteamento em uma Rede Virtual do Azure, veja [Rotas e encaminhamento de IP definidos pelo usuário](../virtual-network/virtual-networks-udr-overview.md).
 
 ##<a id="tasks"></a>Tarefas e informações
 
@@ -212,4 +275,4 @@ Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azur
 
 Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

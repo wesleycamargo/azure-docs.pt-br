@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Conectando redes virtuais clássicas a novas redes virtuais
@@ -23,7 +23,7 @@ Em tais situações, convém garantir que a nova infraestrutura seja capaz de se
 
 ![](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure01.png)
 
->[AZURE.NOTE]Este documento orienta você por uma solução completa, para fins de teste. Se você já tiver sua configuração de redes virtuais e estiver familiarizado com os gateways de VPN e com a conexão site a site no Azure, visite[Configurar uma VPN S2S entre uma rede virtual ARM e uma rede virtual clássica](../virtual-networks-arm-asm-s2s-howto.md).
+>[AZURE.NOTE] Este documento orienta você por uma solução completa, para fins de teste. Se você já tiver sua configuração de redes virtuais e estiver familiarizado com os gateways de VPN e com a conexão site a site no Azure, visite[Configurar uma VPN S2S entre uma rede virtual ARM e uma rede virtual clássica](virtual-networks-arm-asm-s2s-howto.md).
 
 Para testar este cenário, você irá:
 
@@ -33,7 +33,7 @@ Para testar este cenário, você irá:
 
 Você executará as etapas acima usando primeiro as ferramentas de gerenciamento clássicas do Azure, incluindo o Portal clássico, os arquivos de configuração de rede e os cmdlets do PowerShell do Gerenciador de Serviços do Azure; e posteriormente usará as novas ferramentas de gerenciamento, incluindo o novo Portal do Azure, modelos de ARM e cmdlets do PowerShell do ARM.
 
->[AZURE.IMPORTANT]Para que as redes virtuais conectem-se entre si, elas não podem ter um conflito de bloco CIDR. Cada rede virtual deve ter um bloco CIDR exclusivo!
+>[AZURE.IMPORTANT] Para que as redes virtuais conectem-se entre si, elas não podem ter um conflito de bloco CIDR. Cada rede virtual deve ter um bloco CIDR exclusivo!
 
 ## Criar um ambiente de rede virtual clássica
 
@@ -43,15 +43,9 @@ Você pode usar uma rede virtual clássica existente para se conectar a uma nova
 
 Para criar uma nova rede virtual mapeada de acordo com a Figura 1 acima, siga as instruções abaixo.
 
-1. Em um console do PowerShell, adicione a conta do Azure executando o comando a seguir.
+1. Em um console do PowerShell, faça logon em sua conta do Azure executando o comando abaixo.
 
-		Add-AzureAccount
-
-2. Siga as instruções da caixa de diálogo de entrada para fazer logon com sua conta do Azure.
-
-3. Verifique se você está usando os cmdlets do PowerShell do Gerenciamento de Serviço do Azure executando o comando a seguir.
-
-		Switch-AzureMode AzureServiceManagement
+		Login-AzureRmAccount
 
 4. Baixe o arquivo de configuração de rede do Azure executando o comando a seguir.
 
@@ -153,7 +147,7 @@ Para criar o gateway de VPN para a vnet01 usando o Portal clássico do Azure, si
 
 	![Painel Rede Virtual](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure04.png)
 
-	>[AZURE.NOTE]Essa operação pode demorar alguns minutos.
+	>[AZURE.NOTE] Essa operação pode demorar alguns minutos.
 
 9. Anote o endereço IP público do gateway, conforme exibido a seguir, após sua criação. Você precisará desse endereço para criar posteriormente uma rede local para a rede virtual ARM.
 
@@ -193,14 +187,15 @@ Para criar a rede virtual ARM, com duas sub-redes, e uma rede local para a rede 
 	- **connectionName**: esse é o nome do objeto de conexão a ser criado.
 	- **sharedKey**: essa é a chave compartilhada IPSec para a conexão. Neste cenário, **abc123**.
 
-5. Para criar a rede virtual ARM, e seus objetos relacionados, em um novo grupo de recursos chamado **RG1**, execute o seguinte comando do PowerShell. Altere o caminho para o arquivo de modelo e para o arquivo de parâmetros.
+5. Para criar a Rede Virtual do ARM, bem como seus objetos relacionados, em um novo grupo de recursos chamado **RG1**, execute os seguintes comandos do PowerShell. Altere o caminho para o arquivo de modelo e para o arquivo de parâmetros.
 
-		Switch-AzureMode AzureResourceManager
-		New-AzureResourceGroup -Name RG1 -Location "Central US" `
+		New-AzureRmResourceGroup -Name RG1 -Location centralus
+
+		New-AzureRmResourceGroupDeployment -Name deployment01 `
 		    -TemplateFile C:\Azure\azuredeploy.json `
 		    -TemplateParameterFile C:\Azure\azuredeploy-parameters.json		
 
-	>[AZURE.NOTE]Essa operação pode demorar alguns minutos.
+	>[AZURE.NOTE] Essa operação pode demorar alguns minutos.
 
 7. A partir do seu navegador, navegue até https://portal.azure.com/ e insira as suas credenciais, se necessário.
 8. Clique no bloco do grupo de recursos **RG1** no Portal do Azure, conforme mostrado abaixo.
@@ -232,7 +227,7 @@ No Portal do Azure, siga as instruções abaixo para criar uma VM na nova rede v
 
 	![Painel Rede Virtual](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure10.png)
 
-	>[AZURE.NOTE]Essa operação pode demorar alguns minutos. Você pode passar para a próxima parte deste documento.
+	>[AZURE.NOTE] Essa operação pode demorar alguns minutos. Você pode passar para a próxima parte deste documento.
 
 ## Conectar-se a duas redes virtuais
 
@@ -261,10 +256,6 @@ Você precisa configurar a rede virtual clássica para usar o endereço IP do ga
 		                           etGatewayConfig"
 		                           }
 		DnsSettings              : null
-
-2. Use a API de Gerenciamento de Serviços do Azure para seus comandos do PowerShell executando o comando a seguir.
-
-		Switch-AzureMode AzureServiceManagement
 
 3. Baixe o arquivo de configuração de rede do Azure executando o comando a seguir.
 
@@ -298,16 +289,12 @@ Você precisa configurar a rede virtual clássica para usar o endereço IP do ga
 
 Agora que o gateway da rede virtual clássica está configurado, é hora de estabelecer a conexão. Para fazer isso, siga as instruções abaixo.
 
-1. Em um console do PowerShell, execute o comando a seguir para alternar para o modo ARM. 
-
-		Switch-AzureMode AzureResourceManager
-
 2. Crie a conexão entre os gateways, executando os comandos a seguir.
 
-		$vnet01gateway = Get-AzureLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
-		$vnet02gateway = Get-AzureVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
+		$vnet01gateway = Get-AzureRmLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
+		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
 		
-		New-AzureVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
+		New-AzureRmVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
 			-ResourceGroupName RG1 -Location "Central US" -VirtualNetworkGateway1 $vnet02gateway `
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
@@ -360,7 +347,7 @@ Agora que as duas redes virtuais estão conectadas, é hora de testar a conectiv
 
 ## Próximas etapas
 
-- Saiba mais sobre [o Provedor de recursos de rede (NRP) para ARM](../resource-groups-networking.md).
-- Exiba as diretrizes gerais sobre como [criar uma conexão VPN S2S entre uma rede virtual clássica e uma rede virtual do ARM](../virtual-networks-arm-asm-s2s-howto.md).
+- Saiba mais sobre [o Provedor de recursos de rede (NRP) para ARM](resource-groups-networking.md).
+- Exiba as diretrizes gerais sobre como [criar uma conexão VPN S2S entre uma rede virtual clássica e uma rede virtual do ARM](virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

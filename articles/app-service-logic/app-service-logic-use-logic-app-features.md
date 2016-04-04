@@ -2,7 +2,7 @@
 	pageTitle="Usar recursos de aplicativo lógico | Microsoft Azure" 
 	description="Saiba como usar os recursos avançados de aplicativos lógicos." 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/11/2016"
 	ms.author="stepsic"/>
 	
 # Usar recursos de aplicativos lógicos
@@ -30,9 +30,9 @@ Antes de concluir este tópico, você deve concluir as etapas em [Criar um novo 
 
 Os documentos a seguir podem ser úteis:
 
-- [Gerenciamento e APIs REST de tempo de execução](https://msdn.microsoft.com/library/azure/dn948513.aspx) - incluindo como chamar aplicativos de lógica diretamente
-- [Referência de linguagem](https://msdn.microsoft.com/library/azure/dn948512.aspx) - uma lista abrangente de todas as expressões/funções com suporte
-- [Tipos ação e gatilho](https://msdn.microsoft.com/library/azure/dn948511.aspx) - os diferentes tipos de ações e as entradas que aceitam
+- [Gerenciamento e APIs REST de tempo de execução](https://msdn.microsoft.com/library/azure/mt643787.aspx) - incluindo como chamar aplicativos de lógica diretamente
+- [Referência de linguagem](https://msdn.microsoft.com/library/azure/mt643789.aspx) - uma lista abrangente de todas as expressões/funções com suporte
+- [Tipos ação e gatilho](https://msdn.microsoft.com/library/azure/mt643939.aspx) - os diferentes tipos de ações e as entradas que aceitam
 - [Visão geral do serviço de aplicativo](../app-service/app-service-value-prop-what-is.md) - descrição de quais componentes podem ser escolhidos ao criar uma solução
 
 ## Como adicionar lógica condicional
@@ -41,11 +41,11 @@ Embora o fluxo original funcione, há algumas áreas que poderiam ser melhoradas
 
 
 ### Condicional
-Esse aplicativo lógico pode resultar no recebimento de muitos emails. As etapas a seguir adicionam uma lógica extra para certificar-se de que você receba apenas um email quando o tweet vier de alguém com um determinado número de seguidores.
+Esse aplicativo lógico pode resultar no recebimento de muitos emails. As etapas a seguir adicionam uma lógica para certificar-se de que você receba apenas um email quando o tweet vier de alguém com determinado número de seguidores.
 
 1. Clique no sinal de adição e encontre a ação *Obter Usuário* do Twitter.
 
-2. Transmita o campo **Publicado por** do gatilho para obter informações sobre o usuário do Twitter.
+2. Transmita o campo **Tweet publicado por** do gatilho para obter informações sobre o usuário do Twitter.
 
 	![Obter usuário](./media/app-service-logic-use-logic-app-features/getuser.png)
 
@@ -89,9 +89,9 @@ O seguinte atualiza seu aplicativo lógico existente para usar parâmetros para 
     
 2. Role até a ação `twitterconnector`, localize o valor da consulta e substitua por `#@{parameters('topic')}`. Você também pode usar a função **concat** para unir duas ou mais cadeias, por exemplo: `@concat('#',parameters('topic'))` é idêntico ao acima.
  
-Os parâmetros são uma boa maneira de recuperar valores que você provavelmente vai alterar várias vezes. Eles são especialmente úteis quando você precisa substituir parâmetros em ambientes diferentes. Para obter mais informações sobre como substituir parâmetros com base no ambiente, consulte nossa [Documentação da API REST](http://msdn.microsoft.com/library/mt643788(Azure.100).aspx).
+Os parâmetros são uma boa maneira de recuperar valores que você provavelmente vai alterar várias vezes. Eles são especialmente úteis quando você precisa substituir parâmetros em ambientes diferentes. Para obter mais informações sobre como substituir parâmetros com base no ambiente, consulte nossa [Documentação da API REST](https://msdn.microsoft.com/library/mt643787.aspx).
 
-Agora, quando você clicar em **Salvar**, a cada hora você receberá os novos tweets com mais de 5 retweets entregues para uma pasta chamada **tweets** no seu Dropbox.
+Agora, quando clicar em **Salvar**, a cada hora, você receberá todos os novos tweets com mais de cinco retweets entregues em uma pasta chamada **tweets** em seu Dropbox.
 
 Para saber mais sobre as definições de aplicativos lógicos, consulte [Criar definições de aplicativos lógicos](app-service-logic-author-definitions.md).
 
@@ -102,9 +102,9 @@ Há várias opções diferentes para iniciar o fluxo de trabalho definido no apl
 Um gatilho de recorrência é executado em um intervalo especificado por você. Quando o gatilho tem lógica condicional, ele determina se o fluxo de trabalho precisa ser executado. Um gatilho indica que ele deve ser executado retornando um código de status `200`. Quando não precisar ser executado, ele retornará um código de status `202`.
 
 ### Retorno de chamada usando APIs REST
-Os serviços podem chamar um ponto de extremidade do aplicativo lógico para iniciar um fluxo de trabalho. Consulte [Aplicativos Lógicos como pontos de extremidade podem ser chamados](app-service-logic-connector-http.md) para obter mais informações. Para iniciar esta variante de aplicativo lógico sob demanda, clique no botão **Executar agora** na barra de comandos.
+Os serviços podem chamar um ponto de extremidade do aplicativo lógico para iniciar um fluxo de trabalho. Veja [Aplicativos Lógicos como pontos de extremidade que podem ser chamados](app-service-logic-connector-http.md) para obter mais informações. Para iniciar esta variante de aplicativo lógico sob demanda, clique no botão **Executar agora** na barra de comandos.
 
 <!-- Shared links -->
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

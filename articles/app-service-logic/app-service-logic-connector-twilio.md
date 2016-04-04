@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Introdução ao Conector do Twilio e à adição dele ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do Twilio](../connectors/create-api-twilio.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do Twilio](../connectors/connectors-create-api-twilio.md).
 
 Conecte-se à sua conta do Twilio para enviar e receber mensagens SMS. Você também pode recuperar os números de telefone e os dados de uso. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados como parte do fluxo. Você pode adicionar o conector do Twilio a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
@@ -79,4 +79,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

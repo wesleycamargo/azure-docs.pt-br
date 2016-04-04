@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gerenciando o Controle de Acesso Baseado em Função com a Interface de Linha de Comando do Azure"
+	pageTitle="Guia do Controle de Acesso Baseado em Função para a Interface de Linha de Comando do Azure"
 	description="Gerenciando o controle de acesso baseado em função com a Interface de Linha de Comando do Azure"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,49 +13,39 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Gerenciando o controle de acesso baseado em função com a interface de linha de comando do Azure (CLI do Azure) #
+# Guia do Controle de Acesso Baseado em Função para a Interface de Linha de Comando do Azure
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [CLI do Azure](role-based-access-control-xplat-cli.md)
 
 O RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Gerenciador de Recursos do Azure permite que você gerencie o acesso a sua assinatura e aos recursos de uma maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
-Neste tutorial, você aprenderá a usar a CLI do Azure para gerenciar o RBAC. Este tutorial traz orientações passo a passo do processo de criação e verificação das atribuições de função.
+Neste tutorial, você aprenderá a usar a CLI (Interface de Linha de Comando) do Azure para gerenciar o RBAC. Este tutorial traz orientações passo a passo do processo de criação e verificação das atribuições de função.
 
 **Tempo estimado para conclusão:** 15 minutos
 
-## Pré-requisitos ##
+## Pré-requisitos
 
 Antes de poder usar a CLI do Azure para gerenciar o RBAC, é necessário ter o seguinte:
 
 - CLI do Azure versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
 - Leia também os seguintes tutoriais para se familiarizar com a configuração e o uso do Azure Resource Manager na CLI do Azure: [Usando a CLI do Azure com o Resource Manager](../xplat-cli-azure-resource-manager.md)
 
-## Neste tutorial ##
+## <a id="connect"></a>Conectar-se a suas assinaturas
 
-* [Conectar-se às suas assinaturas](#connect)
-* [Verifique as atribuições de função existente](#check)
-* [Criar uma atribuição de função](#create)
-* [Verificar permissões](#verify)
-* [Próximas etapas](#next)
-
-## <a id="connect"></a>Conectar-se a suas assinaturas ##
-
-Como o RBAC somente funciona com o Gerenciador de Recursos do Azure, a primeira medida é alternar para o modo do Gerenciador de Recursos do Azure. Digite:
+Como o RBAC somente funciona com o Gerenciador de Recursos do Azure, a primeira medida é alternar para o modo do Gerenciador de Recursos do Azure. Tipo:
 
     azure config mode arm
-
-Para obter mais informações, consulte [Usando a CLI do Azure com o Gerenciamento de Recursos](../xplat-cli-azure-resource-manager.md)
 
 Para se conectar às assinaturas do Azure, digite:
 
     azure login -u <username>
 
-No prompt da linha de comando, insira sua senha da conta do Azure (somente use uma conta organizacional). A CLI do Azure obterá todas as assinaturas que você tem com esta conta e configurará sozinho para usar a primeira como padrão. Observe que com o Controle de Acesso baseado em função, você somente poderá obter estas assinaturas onde tem algumas permissões, como coadministrador ou tendo alguma atribuição de função.
+No prompt da linha de comando, insira sua senha da conta do Azure (use somente uma conta organizacional). A CLI do Azure obterá todas as assinaturas que você tem com esta conta e configurará sozinho para usar a primeira como padrão. Observe que com o Controle de Acesso baseado em função, você somente poderá obter estas assinaturas onde tem algumas permissões, como coadministrador ou tendo alguma atribuição de função.
 
 Se você tem várias assinaturas e deseja alternar para outra, digite:
 
@@ -64,9 +54,7 @@ Se você tem várias assinaturas e deseja alternar para outra, digite:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-Para obter mais informações, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
-
-## <a id="check"></a>Verifique as atribuições de função existente ##
+## <a id="check"></a>Verifique as atribuições de função existente
 
 Agora vamos verificar quais atribuições de função já existem na assinatura. Tipo:
 
@@ -84,11 +72,11 @@ Você também pode verificar as atribuições de função existentes para uma de
 Isso retornará todas as atribuições de função para um determinado usuário no deu diretório Azure AD, que tem uma atribuição de função de “Proprietário" para o grupo de recursos "group1". A atribuição de função pode vir de dois lugares:
 
 1. Uma atribuição de função de “Proprietário" ao usuário para o grupo de recursos.
-2. Uma atribuição de função de "Proprietário" ao usuário para o pai do grupo de recursos (neste caso, a assinatura), pois se você tiver qualquer permissão em um determinado recurso pai, você terá as mesmas permissões para todos os seus recursos filhos.
+2. Uma atribuição de função de “Proprietário” ao usuário para o pai do grupo de recursos (neste caso, a assinatura). Se você atribuir qualquer permissão em um nível pai, todos os filhos terão as mesmas permissões.
 
 Todos os parâmetros deste cmdlet são opcionais. Você pode combiná-los para verificar as atribuições de função com diferentes filtros.
 
-## <a id="create"></a>Criar uma atribuição de função ##
+## <a id="create"></a>Criar uma atribuição de função
 
 Para criar uma atribuição de função, você precisa pensar sobre:
 
@@ -116,16 +104,16 @@ Para criar uma atribuição de função, você precisa pensar sobre:
 
 Em seguida, use `azure role assignment create` para criar uma atribuição de função. Por exemplo:
 
- 	#This will create a role assignment at the current subscription level for a user as a reader:
-    `azure role assignment create --upn <user's email> -o Reader`
+ 	#Create a role assignment at the current subscription level for a user as a reader:
+    azure role assignment create --upn <user email> -o Reader
 
-	#This will create a role assignment at a resource group level:
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+	#Create a role assignment at a resource group level:
+    PS C:\> azure role assignment create --upn <user email> -o Contributor -g group1
 
-	#This will create a role assignment at a resource level:
-    `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
+	#Create a role assignment at a resource level:
+    azure role assignment create --upn <user email> -o Owner -g group1 -r Microsoft.Web/sites -u site1
 
-## <a id="verify"></a>Verificar permissões ##
+## <a id="verify"></a>Verificar permissões
 
 Depois de você verificar que sua conta tem algumas atribuições de função, você pode realmente ver as permissões destas atribuições de função concedidas a você executando:
 
@@ -136,7 +124,7 @@ Esses dois cmdlets retornarão apenas os grupos de recursos ou recursos onde voc
 
 Quando você tenta executar outros cmdlets como `azure group create`, receberá um erro de acesso negado se não tiver a permissão.
 
-## <a id="next"></a>Próximas etapas ##
+## <a id="next"></a>Próximas etapas
 
 Para saber mais sobre como gerenciar o controle de acesso com base em função com o CLI do Azure e tópicos relacionados:
 
@@ -148,4 +136,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Configurar o controle de acesso com base em função usando o Windows PowerShell](role-based-access-control-powershell.md)
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

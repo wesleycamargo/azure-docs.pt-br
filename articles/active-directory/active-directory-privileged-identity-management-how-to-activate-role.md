@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management do Azure: Como Ativar uma Função"
+   pageTitle="Como ativar ou desativar uma função | Microsoft Azure"
    description="Aprenda a gerenciar identidades com privilégios com a extensão Privileged Identity Management do Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/11/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management do Azure: como ativar ou desativar uma função
+# Privileged Identity Management do Azure AD: Como ativar ou desativar uma função
 
 ## Ativando ou desativando uma função
 
@@ -37,4 +37,4 @@ Para obter mais informações sobre alertas de segurança específicos para as c
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

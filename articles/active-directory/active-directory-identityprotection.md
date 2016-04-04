@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -35,7 +35,7 @@ A visualização do Azure Active Directory Identity Protection tem as seguintes 
 
 - As políticas de segurança não funcionam para domínios federados
 
-- Os eventos de risco não são detectados para domínios federados
+- Eventos de risco só são detectados em relação a aplicativos em federação com o Azure Active Directory
 
 ##Introdução
 
@@ -92,7 +92,7 @@ Alguns desses eventos de risco estão disponíveis por meio dos relatórios de A
 
 | Tipo de Evento de Risco do Identity Protection | Relatório de Atividade Anômala do Azure AD Correspondente |
 | :-- | :-- |
-| Credenciais vazadas | Usuários com credenciais insuficientes |
+| Credenciais vazadas | Usuários com credenciais vazadas |
 | Viagem impossível a locais atípicos |	Atividades de entrada irregulares |
 | Entradas de dispositivos infectados | Entradas de dispositivos possivelmente infectados |
 | Entradas de endereços IP anônimos | Entradas de fontes desconhecidas |
@@ -449,4 +449,4 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
  - [Guia estratégico do Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
  - [Glossário do Azure Active Directory Identity Protection](active-directory-identityprotection-glossary.md).
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

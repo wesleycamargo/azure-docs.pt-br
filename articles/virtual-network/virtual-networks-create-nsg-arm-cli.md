@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Como criar NSGs na CLI do Azure
@@ -32,7 +32,7 @@ Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já cr
 ## Como criar o NSG para a sub-rede front-end
 Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
@@ -69,8 +69,8 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 		info:    network nsg create command OK
 
 	Parâmetros:
-	- **-g (or --resource-group)**. Nome do grupo de recursos em que o NSG será criado. Para o nosso cenário, *TestRG*.
-	- **-l (or --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*.
+	- **-g (ou --resource-group)**. Nome do grupo de recursos em que o NSG será criado. Para o nosso cenário, *TestRG*.
+	- **-l (ou --location)**. A região do Azure em que o novo NSG será criado. Para o nosso cenário, *westus*.
 	- **-n (or --name)**. Nome para o novo NGS. Para o nosso cenário, *NSG-FrontEnd*.
 
 4. Execute o comando **azure network nsg rule create** para criar uma regra que permite o acesso à porta 3389 (RDP) por meio da Internet.
@@ -269,4 +269,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

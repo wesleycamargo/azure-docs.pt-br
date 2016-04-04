@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Introdução ao Conector do Salesforce e à adição dele a seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do Salesforce](../connectors/create-api-salesforce.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do Salesforce](../connectors/connectors-create-api-salesforce.md).
 
 Conecte-se ao Salesforce e crie e modifique entidades como Contas, Clientes Potenciais e assim por diante. A seguir, os cenários de integração comuns que envolvem o Salesforce:
 
@@ -108,4 +108,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->
