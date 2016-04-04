@@ -1,2 +1,2 @@
 > [AZURE.IMPORTANT] O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos:  [Gerenciador de Recursos e clássico](../articles/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

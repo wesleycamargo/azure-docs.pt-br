@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016" 
+	ms.date="03/18/2016"
 	ms.author="robinsh"/>
 
 # Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
@@ -48,6 +48,7 @@ Este artigo organiza as práticas comprovadas nos grupos a seguir. As práticas 
 ||Todos os serviços|	Ferramentas|	[Você está usando a última versão das bibliotecas e ferramentas fornecidas pela Microsoft?](#subheading13)
 ||Todos os serviços|	Novas tentativas|	[Você usa uma política de nova tentativa de retirada exponencial para diminuir os erros e a ocorrência de tempos limite?](#subheading14)
 ||Todos os serviços|	Novas tentativas|	[Seu aplicativo evita novas tentativas para erros que não admitem novas tentativas?](#subheading15)
+||Blobs|	Metas de escalabilidade|	[Você tem um grande número de clientes que acessam um único objeto simultaneamente?](#subheading46)
 ||Blobs|	Metas de escalabilidade|	[Seu aplicativo segue a meta de largura de banda ou escalabilidade operacional para um único blob?](#subheading16)
 ||Blobs|	Cópia de blobs|	[Seu método de cópia de blobs é eficiente?](#subheading17)
 ||Blobs|	Cópia de blobs|	[Você usa o AzCopy para copiar blobs em massa?](#subheading18)
@@ -74,10 +75,10 @@ Este artigo organiza as práticas comprovadas nos grupos a seguir. As práticas 
 ||Filas|	Metas de escalabilidade|	[Você leva as metas de escalabilidade em consideração para mensagens por segundo?](#subheading39)
 ||Filas|	Configuração|	[Você desativou o Nagle para melhorar o desempenho de pequenas solicitações?](#subheading40)
 ||Filas|	Tamanho da mensagem|	[Suas mensagens são compactas para melhorar o desempenho da fila?](#subheading41)
-||Filas|	Recuperação em massa|	[Você recupera diversas mensagens com uma única operação "Obter"?](#subheading41)
-||Filas|	Frequência de votação|	[As votações ocorrem com frequência suficiente para reduzir a latência notável do aplicativo?](#subheading42)
-||Filas|	Atualização de mensagem|	[Você usa a função de atualização de mensagem para armazenar o progresso do processamento de mensagens, evitando a necessidade de reprocessar toda a mensagem em caso de erro?](#subheading43)
-||Filas|	Arquitetura|	[Você usa filas para melhorar a escalabilidade de todo o aplicativo ao manter cargas de trabalho demoradas fora do caminho crítico e escalá-las independentemente?](#subheading44)
+||Filas|	Recuperação em massa|	[Você recupera diversas mensagens com uma única operação "Obter"?](#subheading42)
+||Filas|	Frequência de votação|	[As votações ocorrem com frequência suficiente para reduzir a latência notável do aplicativo?](#subheading43)
+||Filas|	Atualização de mensagem|	[Você usa a função de atualização de mensagem para armazenar o progresso do processamento de mensagens, evitando a necessidade de reprocessar toda a mensagem em caso de erro?](#subheading44)
+||Filas|	Arquitetura|	[Você usa filas para melhorar a escalabilidade de todo o aplicativo ao manter cargas de trabalho demoradas fora do caminho crítico e escalá-las independentemente?](#subheading45)
 
 
 ##<a name="allservices"></a>Todos os serviços
@@ -102,10 +103,10 @@ Se seu aplicativo estiver lidando com metas de escalabilidade de uma única cont
 -	Se seu aplicativo alcançar as metas de escalabilidade, você deve usar a retirada exponencial para novas tentativas (confira [Novas tentativas](#subheading14)). O mais recomendado é nunca alcançar as metas de escalabilidade, o que é possível garantir por meio de um dos métodos acima. Porém, isso garante que o aplicativo não faça novas tentativas rapidamente, piorando o problema de restrição.  
 
 ####Recursos úteis
-Os links a seguir fornecem detalhes adicionais sobre metas de escalabilidade:
-- consulte [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para obter informações sobre metas de escalabilidade.
-- Consulte [Replicação de Armazenamento do Azure](storage-redundancy.md) e a postagem no blog [Opções de redundância de Armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) para obter informações sobre opções de redundância de armazenamento.
-- Para obter informações atuais sobre o preço de serviços do Azure, consulte [Preços do Azure](https://azure.microsoft.com/pricing/overview/).
+Os links a seguir apresentam mais detalhes sobre as metas de escalabilidade:
+-	Confira [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para saber mais sobre metas de escalabilidade.
+-	Confira [Replicação de Armazenamento do Azure](storage-redundancy.md) e a postagem de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage (Opções de redundância do Armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) para saber mais sobre as opções de redundância de armazenamento.
+-	Para obter informações atualizadas sobre os preços dos serviços Azure, confira [Preços do Azure](https://azure.microsoft.com/pricing/overview/).  
 
 ###Rede
 Embora as chamadas de API sejam importantes, muitas vezes as limitações físicas da rede do aplicativo têm impacto considerável no desempenho. A seção a seguir descreve algumas das limitações que os usuários podem enfrentar.
@@ -118,7 +119,7 @@ No caso da largura de banda, muitas vezes o problema está relacionado às funci
 Como é necessário com qualquer uso de rede, as condições de rede que resultam em erros e na perda de pacote desaceleram a taxa de transferência. Usar WireShark ou NetMon pode ajudar a identificar esse problema.
 
 #####Recursos úteis
-Para saber mais sobre os tamanhos de máquina virtual e a largura de banda alocada, consulte [Tamanhos de máquinas virtuais](../virtual-machines/virtual-machines-size-specs.md).
+Para saber mais sobre os tamanhos de máquina virtual e a largura de banda alocada, consulte [Tamanhos de máquinas virtuais](../virtual-machines/virtual-machines-linux-sizes.md).
 
 ####<a name="subheading4"></a>Local
 Em todos os ambientes, colocar o cliente próximo ao servidor proporciona o melhor desempenho. Para acessar o armazenamento do Azure com o mínimo de latência, o melhor local para o cliente é a região na qual o Azure se encontra. Por exemplo, se você tem um site do Azure que usa o armazenamento do Azure, ambos devem estar na mesma região (por exemplo, no oeste dos EUA ou no sudeste asiático). Isso diminui a latência e o custo. No momento da edição, o uso da largura de banda em uma única região é gratuito.
@@ -203,6 +204,15 @@ Para obter mais informações sobre os códigos de erro de armazenamento, confir
 Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço blob.
 
 ###Metas de escalabilidade específicas do blob
+
+####<a name="subheading46"></a>Vários clientes que acessam um único objeto simultaneamente
+Se você tiver um grande número de clientes que acessem um único objeto simultaneamente, será preciso considerar as metas de escalabilidade de acordo com o objeto e a conta de armazenamento. O número exato de clientes que podem acessar um único objeto vai variar de acordo com fatores como o número de clientes que solicitam o objeto simultaneamente, o tamanho do objeto, as condições da rede etc.
+
+Se o objeto puder ser distribuído por meio de uma CDN, como imagens ou vídeos disponibilizados em um site, você poderá usar uma CDN. Consulte [aqui](#subheading5).
+
+Em outros cenários, como simulações científicas, em que os dados são confidenciais, você tem duas opções. A primeira é escalonar o acesso à carga de trabalho, de modo que o objeto seja acessado por um período em vez de ser acessado simultaneamente. Como alternativa, você pode copiar temporariamente o objeto para várias contas de armazenamento, aumentando assim o IOPS total por objeto e entre as contas de armazenamento. Em testes limitados, descobrimos que cerca de 25 VMs podem baixar simultaneamente um blob de 100 GB em paralelo (cada VM estava executando o download em paralelo usando 32 threads). No caso de 100 clientes precisando acessar o objeto, primeiro você o copiaria para uma segunda conta de armazenamento e, assim, teria as 50 primeiras VMs acessando o primeiro blob e as próximas 50 VMs acessando o segundo blob. Os resultados variam de acordo com o comportamento dos seus aplicativos e, portanto, você deve fazer testes durante o design.
+
+
 ####<a name="subheading16"></a>Largura de banda e operações por blob
 Você pode ler ou editar um único blob a no máximo 60 MB/segundo, o que equivale a 480 Mbps e ultrapassa a capacidade de muitas redes dos clientes, inclusive do NIC físico no dispositivo do cliente. Além disso, um único blob comporta 500 solicitações por segundo. Se vários dos seus clientes precisarem ler os mesmo blob e você talvez ultrapasse esses limites, é possível usar uma CDN para distribuir o blob.
 
@@ -219,7 +229,7 @@ As cópias da mesma conta de armazenamento geralmente são rápidas.
 Para saber mais, consulte [Copiar Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).
 
 ####<a name="subheading18"></a>Usar AzCopy
-A equipe de armazenamento do Azure lançou a ferramenta de linha de comando "AzCopy", que deve ajudar na transferência em massa de muitos blobs para, de e entre as contas de armazenamento. Essa ferramenta foi otimizada para esse cenário e pode alcançar altas taxas de transferência. Ela deve ser usada para baixar e carregar itens, bem como para copiar cenários, em massa. Para saber mais sobre ele e baixá-lo, consulte [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md).
+A equipe de armazenamento do Azure lançou a ferramenta de linha de comando "AzCopy", que deve ajudar na transferência em massa de muitos blobs para, de e entre as contas de armazenamento. Essa ferramenta foi otimizada para esse cenário e pode alcançar altas taxas de transferência. Ela deve ser usada para baixar e carregar itens, bem como para copiar cenários, em massa. Para saber mais sobre ela e sobre como baixá-la, confira [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md).
 
 ####<a name="subheading19"></a>Serviço de importação/exportação do Azure
 Para grandes volumes de dados (superiores a 1 TB), o armazenamento do Azure oferece o serviço de Importação/Exportação, que permite o carregamento e o download do armazenamento do blob por meio de discos rígidos. Você pode colocar os dados em um disco rígido e enviá-lo à Microsoft para que possamos carregar esses dados ou enviar um disco rígido vazio para que baixemos os dados. Para saber mais, consulte [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados ao armazenamento Blob.](storage-import-export-service.md) Essa ação pode ser muito mais eficiente do que o envio/carregamento desse volume de dados pela rede.
@@ -246,7 +256,7 @@ Para carregar diversos blobs com rapidez, carregue-os paralelamente. Esse tipo d
 ###<a name="subheading23"></a>Escolhendo o tipo de blob certo
 O armazenamento do Azure oferece suporte a dois tipos de blob: blobs de *página* e blobs de *bloco*. Em um determinado cenário de uso, o tipo de blob escolhido afeta o desempenho e a escalabilidade da solução. Os Blobs de bloco são apropriados quando você deseja carregar grandes quantidades de dados com eficiência: por exemplo, um aplicativo cliente pode precisar carregar fotos ou vídeo no armazenamento de blob. Os Blobs de página são apropriados, se o aplicativo precisa executar gravações aleatórias em dados: por exemplo, os VHDs do Azure são armazenados como blobs de página.
 
-Para obter mais informações, consulte [Compreendendo Blobs de blocos, Blobs de apêndice e Blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Para saber mais, confira [Noções básicas sobre blobs de bloco, blobs de acréscimo e blobs de página](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tabelas
 Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço de tabela.
@@ -368,7 +378,7 @@ Você pode recuperar até 32 mensagens de uma fila em uma única operação. Iss
 ###<a name=subheading43"></a>Intervalo de sondagem de fila
 A maioria dos aplicativos de sondagem para mensagens de uma fila, pode ser uma das principais fontes de transações para o aplicativo. Selecione o intervalo de sondagem com sabedoria: a sondagem muito frequente pode fazer com que seu aplicativo se aproxime das metas de escalabilidade para a fila. No entanto, em 200.000 transações para US $0,01 (no momento da gravação), um único processador sondando uma vez por segundo em um mês custaria menos de 15 centavos, assim o custo de sondagem não é normalmente um fator que afeta sua opção de intervalo de sondagem.
 
-Para obter informações de custo atualizadas, consulte [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+Para obter informações atualizadas sobre custos, confira [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ###<a name=subheading44"></a>UpdateMessage
 Você pode usar **UpdateMessage** para aumentar o tempo limite da invisibilidade ou atualizar as informações de estado de uma mensagem. Embora isso seja útil, lembre-se de que a operação **UpdateMessage** é computada na meta de escalabilidade. No entanto, essa abordagem pode ser muito mais eficiente do que ter um fluxo de trabalho que transmite uma tarefa de uma fila para a outra, pois cada etapa da tarefa é concluída. O uso da operação **UpdateMessage** permite que o aplicativo salve o estado da tarefa na mensagem e continue trabalhando, em vez de colocar a mensagem na fila novamente para a próxima etapa a cada etapa concluída.
@@ -383,6 +393,5 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 
 ##Conclusão
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
- 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

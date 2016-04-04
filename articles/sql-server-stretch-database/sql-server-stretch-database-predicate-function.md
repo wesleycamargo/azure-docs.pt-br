@@ -20,11 +20,11 @@
 
 Se você armazenar dados do histórico em uma tabela separada, poderá configurar o Banco de Dados de Stretch para migrar toda a tabela. Por outro lado, se sua tabela contiver dados do histórico e atuais, você poderá especificar um predicado de filtro para selecionar as linhas para migração. O predicado de filtro deve chamar uma função com valor de tabela embutida. Este tópico descreve como escrever uma Função com valor de tabela embutida a fim de selecionar linhas para migração.
 
-No CTP 3.1, por meio do RC0, a opção para especificar um predicado não está disponível no assistente Habilitar Banco de Dados para Stretch. Você precisa usar a instrução ALTERAR TABELA para configurar o Banco de Dados de Stretch com essa opção. Para saber mais, confira [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+No CTP 3.1, por meio do RC1, a opção para especificar um predicado não está disponível no assistente Habilitar Banco de Dados para Stretch. Você precisa usar a instrução ALTERAR TABELA para configurar o Banco de Dados de Stretch com essa opção. Para saber mais, confira [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
 
 Se você não especificar um predicado de filtro, toda a tabela será migrada.
 
-> [IMPORTANTE] Se você fornecer um predicado de filtro que apresente um desempenho ruim, a migração de dados também terá um desempenho ruim. O Banco de Dados de Stretch aplica o predicado de filtro à tabela usando o operador CROSS APPLY.
+    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
 ## Requisitos básicos para a função embutida com valor de tabela
 Veja no exemplo a seguir a aparência da função embutida com valor de tabela, necessária para a função de filtro do Banco de Dados de Stretch.
@@ -70,7 +70,7 @@ Uma condição primitiva pode fazer uma das comparações a seguir.
 
 -   Comparar um parâmetro de função a uma expressão constante. Por exemplo: `@column1 < 1000`.
 
-    Veja um exemplo que verifica se o valor de uma coluna *data* é &lt; 1\\/1\\/2016.
+    Veja um exemplo que verifica se o valor de uma coluna *data* é &lt; 1/1/2016.
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -404,10 +404,10 @@ GO
 Você não poderá descartar a função embutida com valor de tabela se uma tabela estiver usando a função como seu predicado de filtro.
 
 ## Verificar o predicado de filtro aplicado a uma tabela
-Para verificar o predicado de filtro aplicado a uma tabela, abra o modo de exibição de catálogo **sys.remote\_data\_archive\_tables** e verifique o valor da coluna **filter\_predicate**. Se o valor for nulo, a tabela inteira poderá ser arquivada. Para saber mais, consulte [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+Para verificar o predicado de filtro aplicado a uma tabela, abra a exibição de catálogo **sys.remote\_data\_archive\_tables** e verifique o valor da coluna **filter\_predicate**. Se o valor for nulo, a tabela inteira poderá ser arquivada. Para obter mais informações, veja [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## Consulte também
 
 [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

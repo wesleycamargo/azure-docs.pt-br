@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2016" 
+	ms.date="03/18/2016" 
 	ms.author="sdanie"/>
 
 
@@ -132,6 +132,9 @@ Para filtrar a lista de propriedades por valores de marca, insira uma ou mais ma
 	-	[Referência de política](https://msdn.microsoft.com/library/azure/dn894081.aspx)
 	-	[Expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
+## Assista a uma visão geral em vídeo
+
+> [AZURE.VIDEO use-properties-in-policies]
 
 [api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
 [api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png
@@ -146,4 +149,4 @@ Para filtrar a lista de propriedades por valores de marca, insira uma ou mais ma
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

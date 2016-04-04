@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="03/18/2016"
 	ms.author="yuridio"/>
 
 
@@ -112,7 +112,7 @@ Cada interação no diagrama mostrado na Figura X representa um cenário de cont
  - Acesso granular aos recursos: você pode atribuir funções a usuários e grupos de uma assinatura específica, grupo de recursos ou um recurso individual do Azure como um site ou banco de dados. Dessa forma, é possível garantir que os usuários tenham acesso a todos os recursos necessários e nenhum acesso a recursos que não precisem gerenciar.
 
  >[AZURE.NOTE]
-  Leia [Controle de acesso baseado em função no Portal de Visualização do Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) para saber mais detalhes sobre esse recurso. Para desenvolvedores que estão criando aplicativos e querem personalizar o controle de acesso para eles, também é possível usar as Funções de Aplicativo do AD do Azure para autorização. Examine este [exemplo de WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) em como criar aplicativo para usar esse recurso.
+  Leia [Controle de acesso baseado em função no Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) para saber mais detalhes sobre essa funcionalidade. Para desenvolvedores que estão criando aplicativos e querem personalizar o controle de acesso para eles, também é possível usar as Funções de Aplicativo do AD do Azure para autorização. Examine este [exemplo de WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) em como criar aplicativo para usar esse recurso.
 
 3. Acesso condicional para aplicativos do Office 365 com Microsoft Intune: os administradores de TI podem provisionar políticas de dispositivo de acesso condicional para proteger recursos corporativos, ao mesmo tempo que permitem aos operadores de informações em dispositivos em conformidade acessem os serviços. Para mais informações, consulte [Políticas de dispositivo de acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md).
 
@@ -121,7 +121,7 @@ Cada interação no diagrama mostrado na Figura X representa um cenário de cont
 Como as opções de controle de acesso usam uma abordagem multicamada, a comparação entre essas opções não são aplicáveis para esta tarefa. Verifique se você está aproveitando todas as opções disponíveis para cada cenário que exige o controle de acesso aos recursos.
 
 ## Definir opções de resposta a incidentes
-O AD do Azure pode ajudar a TI a identificar possíveis riscos à segurança no ambiente monitorando a atividade do usuário; a TI pode aproveitar o recurso de relatório de Acesso e Uso do AD do Azure para ganhar visibilidade da integridade e da segurança do diretório da organização. Com essas informações, um administrador de TI pode determinar melhor onde podem estar os possíveis riscos à segurança, de modo que pode fazer planos adequados para reduzi-los. A [assinatura do Azure AD Premium](articles/active-directory-get-started-premium.md) tem um conjunto de relatórios de segurança que podem permitir à TI obter essas informações. Os [relatórios do AD do Azure](active-directory-view-access-usage-reports.md) são categorizados como mostrado abaixo:
+O AD do Azure pode ajudar a TI a identificar possíveis riscos à segurança no ambiente monitorando a atividade do usuário; a TI pode aproveitar o recurso de relatório de Acesso e Uso do AD do Azure para ganhar visibilidade da integridade e da segurança do diretório da organização. Com essas informações, um administrador de TI pode determinar melhor onde podem estar os possíveis riscos à segurança, de modo que pode fazer planos adequados para reduzi-los. A [assinatura do Azure AD Premium](active-directory-get-started-premium.md) tem um conjunto de relatórios de segurança que podem permitir à TI obter essas informações. Os [relatórios do AD do Azure](active-directory-view-access-usage-reports.md) são categorizados como mostrado abaixo:
 
 - **Relatórios de anomalias**: contêm eventos de entrada que nós identificamos como anômalos. Nosso objetivo é que você fique ciente dessas atividades e permitir que você possa tomar uma decisão quanto a um evento ser suspeito ou não. 
 - **Relatórios de aplicativos integrados**: fornecem um panorama de como os aplicativos em nuvem estão sendo usados na sua organização. O Active Directory do Azure oferece integração com milhares de aplicativos em nuvem. 
@@ -156,4 +156,4 @@ Como as opções de reposta a incidentes usam uma abordagem multicamada, a compa
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

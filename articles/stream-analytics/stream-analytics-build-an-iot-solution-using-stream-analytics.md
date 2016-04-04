@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/18/2016" 
+	ms.date="03/21/2016" 
 	ms.author="jeffstok"
 />
 
@@ -319,7 +319,7 @@ Clique em OK na parte inferior da caixa de diálogo para concluir o assistente.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image30.jpg)
 
-Você precisará seguir a mesma sequência de etapas para criar a segunda entrada do Hub de Eventos para a transmissão com eventos de Saída. Certifique-se de inserir valores na 3ª página conforme a captura de tela abaixo.
+Você precisará seguir a mesma sequência de etapas para criar a segunda entrada do Hub de Eventos para a transmissão com eventos de Saída. Certifique-se de inserir valores na terceira página conforme são mostrados a captura de tela abaixo.
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image31.png)
 
@@ -535,4 +535,4 @@ Observe que os recursos são identificados pelo nome. Certifique-se de examinar 
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -37,7 +37,7 @@ Estão disponíveis ferramentas e recursos adicionais para trabalhar com o Power
 
 ## Gerando scripts de publicação
 
-Você pode gerar scripts de publicação para uma máquina virtual que hospeda seu site ao criar um novo projeto seguindo [estas instruções](/virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md). Você também pode [gerar scripts de publicação para aplicativos Web no Serviço de Aplicativo do Azure](/app-service-web/web-sites-dotnet-get-started.md).
+Você pode gerar scripts de publicação para uma máquina virtual que hospeda seu site ao criar um novo projeto seguindo [estas instruções](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md). Você também pode [gerar scripts de publicação para aplicativos Web no Serviço de Aplicativo do Azure](/app-service-web/web-sites-dotnet-get-started.md).
 
 ## Scripts gerados pelo Visual Studio
 
@@ -351,4 +351,4 @@ Para obter ajuda para as funções que você pode usar no prompt de comando do W
 
 Saiba mais sobre os scripts do PowerShell ao ler [Criando scripts com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e confira outros scripts do Azure PowerShell no [Script Center](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

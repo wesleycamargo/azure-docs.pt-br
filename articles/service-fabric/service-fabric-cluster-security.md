@@ -81,7 +81,10 @@ Entre na sua conta do Azure. Se o comando do PowerShell falhar por algum motivo,
 Login-AzureRmAccount
 ```
 
-O script a seguir criará um novo grupo de recursos e/ou um cofre de chave, caso eles ainda não esteja presentes.
+O script a seguir criará um novo grupo de recursos e/ou um cofre de chave, caso eles ainda não esteja presentes. **Observação: se estiver usando um cofre de chaves existente, ele deverá ser configurado para dar suporte à implantação, por meio desse script.**
+```
+Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+```
 
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
@@ -96,13 +99,13 @@ Após a conclusão bem-sucedida do script, você receberá uma saída semelhante
 
 - **Impressão Digital do Certificado**: 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
 
-- **SourceVault** /ID de recurso do cofre de chave: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+- **SourceVault**/ID de recurso do cofre de chaves: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
 
-- **URL do Certificado**/URL para o local do Certificado no cofre de chave: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
+- **URL do Certificado**/URL para o local do certificado no cofre de chaves: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
 
 Agora você tem as informações necessárias para configurar um cluster seguro. Vá para a Etapa 3.
 
-**Etapa 2.5**: se você *não* tem um certificado e quer criar um novo certificado autoassinado e carregá-lo no cofre de chave, execute estas etapas.
+**Etapa 2.5**: se *não* tiver um certificado e desejar criar um novo certificado autoassinado e carregá-lo no cofre de chaves, execute estas etapas.
 
 Faça logon na sua conta do Azure. Se o comando do PowerShell falhar por algum motivo, verifique se o Azure PowerShell foi instalado corretamente.
 
@@ -142,9 +145,9 @@ Após a conclusão bem-sucedida do script, você receberá uma saída, como a mo
 
 - **Impressão Digital do Certificado**: 64881409F4D86498C88EEC3697310C15F8F1540F
 
-- **SourceVault** /ID de recurso do cofre de chave: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+- **SourceVault**/ID de recurso do cofre de chaves: /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
 
-- **URL do Certificado**/URL para o local do certificado no cofre de chave: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
+- **URL do Certificado**/URL para o local do certificado no cofre de chaves: https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
 
 ### Etapa 3: Configurar um cluster seguro
 
@@ -158,7 +161,7 @@ Os certificados necessários são especificados no nível do tipo de nó nas Con
 Parâmetros obrigatórios:
 
 - **Modo de Segurança.** Selecione **Certificado X509**. Que indica ao Service Fabric que você pretende configurar um cluster seguro.
-- **Nível de proteção do cluster.** Consulte este [documento sobre o nível de proteção](https://msdn.microsoft.com/library/aa347692.aspx) para compreender o que cada um desses valores significa. Apesar de permitirmos três valores aqui (EncryptAndSign, Sign e None), é melhor manter o padrão de EncryptAndSign, a menos que você saiba o que está fazendo.
+- **Nível de proteção do cluster.** Consulte este [documento sobre o Nível de Proteção](https://msdn.microsoft.com/library/aa347692.aspx) para entender o que cada um desses valores significa. Apesar de permitirmos três valores aqui (EncryptAndSign, Sign e None), é melhor manter o padrão de EncryptAndSign, a menos que você saiba o que está fazendo.
 - **Cofre de Origem.** Isso se refere à ID de Recurso do cofre de chave. Ele deve estar no seguinte formato:
 
     ```
@@ -184,7 +187,7 @@ Cliente de Administração: essas informações são usadas para validar se o cl
 
 - **Autorizar por.** Indica ao Service Fabric se ele precisa buscar esse certificado usando o nome do assunto ou a impressão digital. O uso do nome do assunto para autorizar não é uma boa prática de segurança, mais acrescenta flexibilidade.
 - **Nome da Entidade.** Isso será necessário apenas se você tiver especificado que a autorização ocorre pelo nome do assunto.
-- **Impressão Digital do Emissor** possibilita um nível adicional de verificação que o servidor pode executar quando um cliente apresenta suas credenciais ao servidor.
+- **Impressão Digital do Emissor** Possibilita um nível adicional de verificação que pode ser executado pelo servidor quando um cliente apresenta suas credenciais a ele.
 
 Cliente Somente Leitura: essas informações são usadas para validar se o cliente que está se conectando ao ponto de extremidade de gerenciamento do cluster está apresentando a credencial correta para execução de ações somente leitura no cluster. Você pode especificar mais de um certificado para autorização para operações somente leitura.
 
@@ -194,7 +197,7 @@ Cliente Somente Leitura: essas informações são usadas para validar se o clien
 
 ## Atualizar os certificados no cluster
 
-O Service Fabric permite que você especifique dois certificados, um principal e um secundário. Por padrão, aquele que você especifica no momento da criação é o certificado principal. Para adicionar outro certificado, você precisa implantá-lo nas VMs no cluster. A Etapa 2 (acima) descreve como você pode carregar um novo certificado no cofre de chave. Você pode usar o mesmo cofre de chave para isso, como você fez com o primeiro certificado. Para saber mais, confira [Implantar certificados para VMs de um cofre de chave gerenciado pelo cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+O Service Fabric permite que você especifique dois certificados, um principal e um secundário. Por padrão, aquele que você especifica no momento da criação é o certificado principal. Para adicionar outro certificado, você precisa implantá-lo nas VMs no cluster. A Etapa 2 (acima) descreve como você pode carregar um novo certificado no cofre de chave. Você pode usar o mesmo cofre de chave para isso, como você fez com o primeiro certificado. Para obter mais informações, veja [Implantar certificados em VMs por meio de um cofre de chaves gerenciado pelo cliente](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 Após a conclusão da operação, use o portal ou o Gerenciador de Recursos para indicar ao Service Fabric que você possui um certificado secundário que também pode ser usado. Tudo o que você precisa é uma impressão digital.
 
@@ -219,10 +222,12 @@ Este é o processo para remover um certificado antigo para que o cluster não o 
 
 ### Certificados X.509
 
-Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores, criptografar e assinar mensagens digitalmente. Para obter mais detalhes sobre esses certificados, acesse [Trabalhando com certificados](http://msdn.microsoft.com/library/ms731899.aspx) na biblioteca MSDN.
+Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores, criptografar e assinar mensagens digitalmente. Para obter mais detalhes sobre esses certificados, vá para [Trabalhando com certificados](http://msdn.microsoft.com/library/ms731899.aspx) na biblioteca MSDN.
 
 >[AZURE.NOTE]
--Certificados usados em clusters que executam cargas de trabalho de produção devem ser criados usando um serviço de certificado do Windows Server configurado corretamente ou obtidos de uma [AC (autoridade de certificação)](https://en.wikipedia.org/wiki/Certificate_authority) aprovada. - Nunca use na produção certificados de teste ou temporários criados com ferramentas como MakeCert.exe. - Para clusters que usa apenas para fins de teste, você pode optar por usar um certificado autoassinado.
+- Os certificados usados em clusters que executam cargas de trabalho de produção devem ser criados por meio de um serviço de certificado do Windows Server configurado corretamente ou obtidos por meio de uma [AC (Autoridade de Certificação)](https://en.wikipedia.org/wiki/Certificate_authority) aprovada.
+- Nunca use em produção certificados temporários ou de teste criados com ferramentas como MakeCert.exe.
+- Para clusters que usados apenas para fins de teste, você pode optar por usar um certificado assinado automaticamente.
 
 ### Certificados do servidor e certificados do cliente
 
@@ -257,4 +262,4 @@ Normalmente, os certificados de cliente não são emitidos por uma autoridade de
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

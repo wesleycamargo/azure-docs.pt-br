@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/22/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Introdução às ferramentas do Banco de Dados Elástico
@@ -75,7 +75,7 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 ## Próximas etapas
 Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados elásticos.
 
-* [Mapa de documentação de ferramentas elásticas de banco de dados](../learning-paths/sql-database-elastic-scale.md) 
+* [Mapa de documentação de ferramentas elásticas de banco de dados](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
 -    Amostras de código: 
     -    [Banco de dados elásticos com o SQL Azure - Introdução](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Banco de dados elásticos com o SQL Azure - integração com o Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
@@ -98,4 +98,4 @@ Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados 
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

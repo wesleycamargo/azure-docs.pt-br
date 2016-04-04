@@ -1,19 +1,21 @@
-## Sample Scenario
+## Cenário de exemplo
 
-To better illustrate how to manage NSGs, this article uses the scenario below.
+Para melhor ilustrar como gerenciar NSGs, este artigo usará o cenário abaixo.
 
-![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
+![Cenário de Rede Virtual](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below: 
+Nesse cenário, você criará um NSG para cada sub-rede na rede virtual **TestVNet**, conforme descrito abaixo:
 
-- **NSG-FrontEnd**. The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:	
-	- **rdp-rule**. This rule will allow RDP traffic to the *FrontEnd* subnet.
-	- **web-rule**. This rule will allow HTTP traffic to the *FrontEnd* subnet.
-- **NSG-BackEnd**. The back end NSG will be applied to the *BackEnd* subnet, and contain two rules:	
-	- **sql-rule**. This rule allows SQL traffic only from the *FrontEnd* subnet.
-	- **web-rule**. This rule denies all internet bound traffic from the *BackEnd* subnet.
+- **NSG-FrontEnd**. O front-end de NSG será aplicado à sub-rede *FrontEnd* contém duas regras:	
+	- **rdp-rule**. Essa regra permitirá tráfego RDP para a sub-rede *FrontEnd*.
+	- **web-rule**. Essa regra permitirá tráfego HTTP para a sub-rede *FrontEnd*.
+- **NSG-BackEnd**. O frontend de NSG será aplicado à sub-rede *BackEnd* e contém duas regras:	
+	- **sql-rule**. Essa regra permite o tráfego SQL somente da sub-rede *FrontEnd*.
+	- **web-rule**. Esta regra nega todo o tráfego limitado da Internet da sub-rede *BackEnd*.
 
-The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL traffic from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.
+A combinação dessas regras cria um cenário de DMZ, em que a sub-rede de back-end só pode receber tráfego de entrada para tráfego SQL da sub-rede front-end e não tem acesso à Internet, enquanto a sub-rede de front-end pode se comunicar com a Internet e receber somente solicitações HTTP de entrada.
 
-To deploy the scenario described above, follow [this link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. In the sample instructions below, the template was used to deploy a resource group names **RG-NSG**. 
+Para implantar o cenário descrito acima, acesse [este link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal. Nas instruções de exemplo abaixo, o modelo foi usado para implantar nomes do grupo de recursos **RG-NSG**.
  
+
+<!---HONumber=AcomDC_0323_2016-->

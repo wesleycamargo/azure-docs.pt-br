@@ -31,17 +31,17 @@ Você **deve** executar o passo a passo no [Tutorial: Mover e processar arquivos
 
 Neste tutorial, você realizará as seguintes etapas:
 
-1. [Etapa 1: criar um gateway de gerenciamento de dados](#OnPremStep1). O Gateway de Gerenciamento de Dados é um agente cliente que fornece acesso a fontes de dados locais de sua organização na nuvem. O gateway permite que a transferência de dados entre um SQL Server local e armazenamentos de dados do Azure.	
+1. [Criar um gateway de gerenciamento de dados](#create-data-management-gateway). O Gateway de Gerenciamento de Dados é um agente cliente que fornece acesso a fontes de dados locais de sua organização na nuvem. O gateway permite que a transferência de dados entre um SQL Server local e armazenamentos de dados do Azure.	
 
 	Você deve ter pelo menos um gateway instalado no seu ambiente corporativo, bem como registrá-lo com o Data Factory do Azure antes de adicionar o banco de dados SQL Server local como um serviço vinculado a um data factory do Azure.
 
-2. [Etapa 2: criar um serviço vinculado para o SQL Server local](#OnPremStep2). Nesta etapa, você primeiro cria um banco de dados e uma tabela no computador local do SQL Server e, em seguida, cria o serviço vinculado: **OnPremSqlLinkedService**.
-3. [Etapa 3: criar tabela e pipeline](#OnPremStep3). Nesta etapa, você criará uma tabela **MarketingCampaignEffectivenessOnPremSQLTable** e um pipeline **EgressDataToOnPremPipeline**. 
+2. [Criar um serviço vinculado do SQL Server](#create-sql-server-linked-service). Nesta etapa, você primeiro cria um banco de dados e uma tabela no computador local do SQL Server e, em seguida, cria o serviço vinculado: **OnPremSqlLinkedService**.
+3. [Criar um conjunto de dados e um pipeline](#create-dataset-and-pipeline). Nesta etapa, você criará uma tabela **MarketingCampaignEffectivenessOnPremSQLTable** e um pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Etapa 4: monitorar o pipeline e exibir o resultado](#OnPremStep4). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal Clássico do Azure.
+4. [Monitorar o pipeline](#monitor-pipeline). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal Clássico do Azure.
 
 
-## <a name="OnPremStep1"></a> Etapa 1: criar um gateway de gerenciamento de dados
+## Criar um Gateway de Gerenciamento de Dados
 
 O Gateway de Gerenciamento de Dados é um agente cliente que fornece acesso a fontes de dados locais de sua organização na nuvem. O gateway permite que a transferência de dados entre um SQL Server local e armazenamentos de dados do Azure.
   
@@ -62,7 +62,7 @@ Se você tiver um gateway de dados existente que você possa usar, ignore esta e
 
 9. Clique em **OK** para fechar a folha **Configurar** e em **OK** para fechar a folha **Criar**. Aguarde até que o status de **MeuGateway** na folha **Serviços Vinculados** mude para **BOM**. Você também pode iniciar a ferramenta **Gerenciador de Configuração de Gateway de gerenciamento de dados (visualização)** para confirmar se o nome do gateway corresponde ao nome no portal e o **status** é **Registrado**. Você terá que fechar e reabrir a folha Serviços Vinculados para ver o status mais recente. Pode levar alguns minutos antes que a tela seja atualizada com o status mais recente.
 
-## <a name="OnPremStep2"></a> Etapa 2: criar um serviço vinculado para o SQL Server local
+## Criar um serviço vinculado do SQL Server
 
 Nesta etapa, você primeiro cria o banco de dados e a tabela necessários no computador local do SQL Server e, em seguida, cria o serviço vinculado.
 
@@ -109,7 +109,7 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 12.	Clique em **OK** na folha **Novo armazenamento de dados**. 
 13.	Na folha **Serviços Vinculados**, confirme se **OnPremSqlLinkedService** aparece na lista e o **status** do serviço vinculado é **Bom**.
 
-## <a name="OnPremStep3"></a> Etapa 3: criar tabela e pipeline
+## Criar um conjunto de dados e um pipeline
 
 ### Criar a tabela lógica local
 
@@ -133,9 +133,9 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 
 	Pressione **‘Y’** para continuar.
 	
-## <a name="OnPremStep4"></a> Etapa 4: monitorar o pipeline e exibir o resultado
+## Monitorar o pipeline
 
-Agora você pode usar as mesmas etapas introduzidas na [Etapa 6: Monitoramento de tabelas e pipelines](#MainStep6) para monitorar o novo pipeline e as fatias de dados para a nova tabela ADF local.
+Agora é possível usar as mesmas etapas introduzidas em [Monitorar pipelines](data-factory-tutorial-using-powershell.md#monitor-pipelines) para monitorar o novo pipeline e as fatias de dados da nova tabela ADF local.
  
 Quando você ver o status de uma fatia da tabela **MarketingCampaignEffectivenessOnPremSQLTable** mudar para Pronto, isso significa que o pipeline concluiu a execução da fatia. Para exibir os resultados, consulte a tabela **MarketingCampaignEffectiveness** no banco de dados **MarketingCampaigns** no seu SQL Server.
  
@@ -170,4 +170,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

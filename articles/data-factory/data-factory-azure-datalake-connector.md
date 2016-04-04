@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/21/2016"
 	ms.author="spelluru"/>
 
 # Mover dados para e do Repositório Data Lake do Azure usando o Azure Data Factory
@@ -58,7 +58,7 @@ O exemplo copia os dados pertencentes a uma série temporal de um Armazenamento 
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -69,7 +69,7 @@ O exemplo copia os dados pertencentes a uma série temporal de um Armazenamento 
 O procedimento a seguir lista as etapas para criar um serviço vinculado do Repositório Data Lake do Azure usando o Editor do Data Factory.
 
 1. Clique em **Novo repositório de dados** na barra de comandos e escolha **Repositório Data Lake do Azure**.
-2. No editor de JSON, para a propriedade **datalakeUri**, insira o URI do Data Lake.
+2. No editor de JSON, para a propriedade **dataLakeStoreUri**, insira o URI do Data Lake.
 3. Clique no botão **Autorizar** na barra de comandos. Você deverá ver uma janela pop-up.
 
 	![Botão Autorizar](./media/data-factory-azure-data-lake-connector/authorize-button.png)
@@ -235,7 +235,7 @@ O exemplo copia os dados pertencentes a uma série temporal de um repositório d
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -405,7 +405,7 @@ Você pode vincular uma conta de armazenamento do Azure a uma Azure Data Factory
 | Propriedade | Descrição | Obrigatório |
 | :-------- | :----------- | :-------- |
 | type | A propriedade type deve ser definida como: **AzureDataLakeStore** | Sim |
-| dataLakeUri | Especifica informações sobre a conta do Repositório Data Lake do Azure. Ela está no seguinte formato: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sim |
+| dataLakeStoreUri | Especifica informações sobre a conta do Repositório Data Lake do Azure. Ela está no seguinte formato: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Sim |
 | authorization | Clique no botão **Autorizar** no **Editor do Data Factory** e insira as suas credenciais. Isso atribui a URL de autorização gerada automaticamente a essa propriedade. | Sim |
 | sessionId | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID de sessão é exclusiva e pode ser usada somente uma vez. Ela é gerada automaticamente quando você usa o Editor do Data Factory. | Sim |  
 | accountName | Nome de conta do Data Lake | Não |
@@ -608,4 +608,4 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -41,7 +41,7 @@ A Automação do Azure é um serviço gerenciado no Microsoft Azure que permite 
 
 Um Recurso DSC é um módulo de código que tem recursos específicos, como gerenciar redes, o Active Directory ou o SQL Server. O Recurso DSC do Chocolatey sabe como acessar um Servidor do NuGet (entre outros), baixar e instalar pacotes e assim por diante. Há muitos outros Recursos de DSC na [Galeria do PowerShell](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title). Esses módulos são instalados no Servidor de Recepção da DSC de Automação do Azure (por você) para que possam ser usados por suas configurações.
 
-Os modelos ARM fornecem uma maneira declarativa de gerar sua infraestrutura (itens como redes, sub-redes, roteamento e segurança de rede, balanceadores de carga, NICs, VMs e assim por diante). Confira um [artigo](../resource-manager-deployment-model.md) que compara o modelo de implantação ARM (declarativo) ao modelo de implantação do ASM (Gerenciamento de Serviços do Azure) ou clássico (imperativo). Esse é outro [artigo](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md) sobre os principais provedores de recursos, computação, armazenamento e rede.
+Os modelos ARM fornecem uma maneira declarativa de gerar sua infraestrutura (itens como redes, sub-redes, roteamento e segurança de rede, balanceadores de carga, NICs, VMs e assim por diante). Confira um [artigo](../resource-manager-deployment-model.md) que compara o modelo de implantação ARM (declarativo) ao modelo de implantação do ASM (Gerenciamento de Serviços do Azure) ou clássico (imperativo). Esse é outro [artigo](../virtual-machines/virtual-machines-windows-compare-deployment-models.md) sobre os principais provedores de recursos, computação, armazenamento e rede.
 
 Um recurso principal de um modelo ARM é sua capacidade de instalar uma extensão de VM na VM quando ela é provisionada. Uma extensão de VM tem recursos específicos, como executar um script personalizado, instalar software antivírus ou executar um script de configuração de DSC. Há muitos outros tipos de extensões de VM.
 
@@ -185,4 +185,4 @@ O código-fonte completo deste exemplo de uso está [neste projeto do Visual Stu
 - [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

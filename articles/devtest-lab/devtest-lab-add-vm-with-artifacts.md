@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2016"
+	ms.date="03/21/2016"
 	ms.author="tarcher"/>
 
 # Adicionar uma VM com artefatos a um Laboratório de Desenvolvimento/Teste
@@ -26,11 +26,11 @@ Você pode criar uma VM em um Laboratório de Desenvolvimento/Teste a partir de 
 
 Os *artefatos* do Laboratório de Desenvolvimento/Teste permitem que você especifique as *ações* que serão executadas quando a VM for criada.
 
-As ações de artefato podem executar procedimentos, como executar scripts do PowerShell do Windows, execução de comandos Bash e instalação de software.
+As ações de artefato podem executar procedimentos, como execução de scripts do Windows PowerShell, execução de comandos Bash e instalação de software.
 
 Os *parâmetros* de artefato permitem que você personalize o artefato para seu cenário específico.
 
-Este artigo mostra como criar uma VM em seu laboratório usando artefatos.
+Este artigo mostra como criar uma VM em seu laboratório com artefatos.
 
 ## Adicionar uma VM com artefatos
 
@@ -38,7 +38,7 @@ Este artigo mostra como criar uma VM em seu laboratório usando artefatos.
 
 1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
-1. Na lista de laboratórios, toque no laboratório no qual você deseja criar a nova VM.
+1. Na lista de laboratórios, toque no laboratório no qual deseja criar a nova VM.
 
 1. Na folha do laboratório, toque em **+ VM do Laboratório**, como mostra a figura a seguir. ![Folha inicial do laboratório de Desenvolvimento/Teste](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
@@ -60,7 +60,7 @@ Este artigo mostra como criar uma VM em seu laboratório usando artefatos.
 
 1. Toque **Tamanho da VM** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
 
-1. Toque em **Rede Virtual** e selecione a rede virtual desejada.
+1. Toque em **Rede virtual** e selecione a rede virtual desejada.
 
 1. Toque em **Sub-rede** e selecione a sub-rede.
 
@@ -123,4 +123,4 @@ As etapas a seguir ilustram como exibir ou modificar os parâmetros de um artefa
 - Após a criação da VM, você poderá se conectar à VM tocando em **Conectar** na folha da VM.
 - Descubra como criar artefatos com o artigo [Aprenda a criar seus próprios artefatos para uso com Laboratórios de Desenvolvimento/Teste](devtest-lab-artifact-author.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

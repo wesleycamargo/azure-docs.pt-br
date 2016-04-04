@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Um tour pela Análise do Application Insights" 
-	description="Exemplos curtos de todas as consultas principais da Análise do Application Insights, a ferramenta de pesquisa avançada do Application Insights." 
+	pageTitle="Um tour pela Análise no Application Insights" 
+	description="Exemplos curtos de todas as principais consultas na Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Um tour pela Análise do Application Insights
+# Um tour pela Análise no Application Insights
 
 
-A Análise do Application Insights é um poderoso mecanismo de pesquisa para sua telemetria do [Application Insights](app-insights-overview.md).
+[Análise](app-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -31,7 +31,7 @@ Vamos analisar algumas consultas básicas para começar.
 
 Abra a Análise na [folha de visão geral](app-insights-dashboards.md) de seu aplicativo no Application Insights:
 
-![Abra o portal.azure.com, abra o recurso Application Insights e clique em Análise.](./media/app-analytics/001.png)
+![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-analytics/001.png)
 
 ## [Contar](app-analytics-aggregations.md#count) linhas
 
@@ -50,7 +50,7 @@ Eis o resultado:
 ![](./media/app-analytics-tour/010.png)
 
 	
-[`Count`](app-analytics-aggregations.md#count) é um dos muitos [operadores de Consulta](app-analytics-queries.md) que podemos organizar em um pipe, filtrando, remodelando e unindo os dados em vários estágios.
+[`Count`](app-analytics-aggregations.md#count) é um dos vários [Operadores de consulta](app-analytics-queries.md) que podemos organizar em um pipe, filtrando, remodelando e unindo os dados em vários estágios.
 	
 ## [Take](app-analytics-aggregations.md#take): mostre-me n linhas
 
@@ -98,12 +98,12 @@ Mostre-me as primeiras n linhas, ordenadas por uma coluna específica:
 	requests | sort by timestamp desc | take 10
 ```
 
-O resultado seria o mesmo, mas ele seria executado um pouco mais lentamente. (Você também pode escrever `order`, que é um alias de `sort`).
+O resultado seria o mesmo, mas ele seria executado um pouco mais lentamente. (Também é possível escrever `order`, que é um alias de `sort`).
 
-Os cabeçalhos de coluna no modo de exibição de tabela também podem ser usados para classificar os resultados na tela. Mas, obviamente, se você usou `take` ou `top` para recuperar apenas parte de uma tabela, irá apenas reordenar os registros recuperados.
+Os cabeçalhos de coluna no modo de exibição de tabela também podem ser usados para classificar os resultados na tela. Mas, obviamente, se você usou `take` ou `top` para recuperar apenas parte de uma tabela, apenas reordenará os registros recuperados.
 
 
-## [Project](app-analytics-aggregations.md#project): selecionar, renomear e computar colunas
+## [Projeto](app-analytics-aggregations.md#project): selecionar, renomear e computar colunas
 
 Use [`project`](app-analytics-aggregations.md#project) para selecionar apenas as colunas desejadas:
 
@@ -133,14 +133,14 @@ Você também pode renomear e definir novas colunas:
 Na expressão escalar:
 
 * `%` é o operador de módulo normal. 
-* `1d` (que é um dígito um e um 'd') é um literal de timespan que significa um dia. Eis mais alguns literais de timespan: `12h`, `30m`, `10s`, `0.01s`.
-* O `floor` (alias `bin`) arredonda um valor até o múltiplo mais próximo do valor de base fornecido por você. Daí, `floor(aTime, 1s)` arredonda um tempo até o segundo mais próximo.
+* `1d` (que é um dígito um e um “d”) é um literal de timespan que significa um dia. Aqui estão mais alguns literais de timespan: `12h`, `30m`, `10s` e `0.01s`.
+* O `floor` (alias `bin`) arredonda um valor até o múltiplo mais próximo do valor de base fornecido. Daí, `floor(aTime, 1s)` arredonda um tempo até o segundo mais próximo.
 
-[Expressions](app-analytics-scalars.md) pode incluir todos os operadores comuns (`+`, `-`, ...) e há uma variedade de funções úteis.
+[Expressions](app-analytics-scalars.md) pode incluir todos os operadores comuns (`+`, `-`, ...), e há uma variedade de funções úteis.
 
 ## [Extend](app-analytics-aggregations.md#extend): computar colunas
 
-Se você quiser adicionar colunas às existentes, use [`extend`](app-analytics-aggregations.md#extend):
+Se quiser apenas adicionar colunas às existentes, use [`extend`](app-analytics-aggregations.md#extend):
 
 ```AIQL
 
@@ -149,7 +149,7 @@ Se você quiser adicionar colunas às existentes, use [`extend`](app-analytics-a
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-O uso de [`extend`](app-analytics-aggregations.md#extend) será menos detalhado do que [`project`](app-analytics-aggregations.md#project) se você quiser manter todas as colunas existentes.
+O uso de [`extend`](app-analytics-aggregations.md#extend) será menos detalhado do que [`project`](app-analytics-aggregations.md#project) se quiser manter todas as colunas existentes.
 
 ## [Summarize](app-analytics-aggregations.md#summarize): agregar grupos de linhas
 
@@ -205,7 +205,7 @@ Você pode usar valores escalares (numéricos, horas ou intervalos) na cláusula
 
 ![](./media/app-analytics-tour/225.png)
 
-`bin` reduz os carimbos de data/hora para intervalos de um dia. É um alias de `floor`, uma função familiar na maioria das linguagens. Ele apenas reduz todos os valores para o múltiplo mais próximo do módulo especificado por você, para que `summarize` possa atribuir as linhas em grupos de um tamanho lógico. (Sem ele, teríamos uma linha de resultado para cada fração separada de um segundo, o que não resumiria os dados).
+`bin` reduz os carimbos de data/hora para intervalos de um dia. É um alias de `floor`, uma função conhecida pela maioria das linguagens. Ele apenas reduz todos os valores para o múltiplo mais próximo do módulo especificado, para que `summarize` possa atribuir as linhas a grupos de um tamanho lógico. (Sem ele, teríamos uma linha de resultado para cada fração separada de um segundo, o que não resumiria os dados).
 
 Podemos fazer melhor do que o modo de exibição de tabela mostrado aqui. Vamos examinar os resultados no modo de exibição de gráfico com a opção de barra vertical:
 
@@ -230,11 +230,11 @@ Vamos ver apenas exceções relatadas pelos navegadores:
 
 ![](./media/app-analytics-tour/250.png)
 
-O operador `where` obtém uma expressão Booliana. Eis alguns pontos importantes sobre eles:
+O operador `where` usa uma expressão booliana. Eis alguns pontos importantes sobre eles:
 
  * `and`, `or`: operadores boolianos
- * `==`, `<>` : igual a e diferente de
- * `=~`, `!=` : cadeia de caracteres que não diferencia maiúsculas de minúsculas igual a e diferente de. Há muitos outros operadores de comparação de cadeia de caracteres.
+ * `==`, `<>`: igual a e diferente de
+ * `=~`, `!=`: cadeia de caracteres que não diferencia maiúsculas de minúsculas igual a e diferente de. Há muitos outros operadores de comparação de cadeia de caracteres.
 
 Leia mais sobre [expressões escalares](app-analytics-scalars.md).
 
@@ -407,7 +407,7 @@ Para obter uma análise separada para cada país, temos apenas que trazer a colu
 
 Temos acesso a várias tabelas, incluindo solicitações e exceções.
 
-Para localizar as exceções relacionadas a uma solicitação que retornou uma resposta de falha, podemos associar as tabelas em `session_Id`:
+Para encontrar as exceções relacionadas a uma solicitação que retornou uma resposta com falha, podemos unir as tabelas em `session_Id`:
 
 ```AIQL
 
@@ -418,7 +418,7 @@ Para localizar as exceções relacionadas a uma solicitação que retornou uma r
 ```
 
 
-É recomendável usar `project` para selecionar apenas as colunas necessárias antes de executar a junção. Renomeamos a coluna de carimbo de data/hora nas mesmas cláusulas.
+É uma prática recomendável usar `project` para selecionar apenas as colunas necessárias antes de executar a junção. Renomeamos a coluna de carimbo de data/hora nas mesmas cláusulas.
 
 
 
@@ -436,9 +436,9 @@ Use [let](./app-analytics-syntax.md#let-statements) para separar as partes da ex
     | take 30
 ```
 
-> Dica: no cliente da Análise do AI, não coloque linhas em branco entre as partes dele. Execute tudo.
+> Dica: no cliente da Análise, não coloque linhas em branco entre as partes dele. Execute tudo.
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

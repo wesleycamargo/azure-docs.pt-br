@@ -78,7 +78,7 @@ Nesta seção, você implantará o modelo de aplicativo do ASP.NET MVC padrão n
 	Quando a publicação estiver concluída, você verá seu aplicativo Web publicado no navegador.
 
 1. Para criar um ponto de extremidade da CDN, faça logon no [portal do Azure](https://portal.azure.com).
-2. Clique em **+ Novo** > **Mídia + CDN** > **CDN**.
+2. Clique em **+Novo** > **Mídia + CDN** > **CDN**.
 
 	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
 
@@ -554,7 +554,6 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, confira: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -54,8 +54,8 @@ Exemplo de tabela de rotas no formato JSON:
 
 ### Recursos adicionais
 
-- Obtenha mais informações sobre [UDRs](virtual-networks-udr-overview.md).
+- Obtenha mais informações sobre [UDRs](../articles/virtual-network/virtual-networks-udr-overview.md).
 - Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt502549.aspx) para obter tabelas de rotas.
 - Leitura de [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt502539.aspx) para obter UDRs (rotas definidas pelo usuário).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,27 +1,29 @@
 
 
 
-When you create a virtual machine in the [Azure portal](https://portal.azure.com) using the **Resource Manager** deployment model, the portal creates a public IP resource for the virtual machine. You can use this IP address to remotely access the virtual machine. Although the portal does not create a [fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) or FQDN, by default, it is extremely easy to create one once the virtual machine is created. This article demonstrates the steps to create a DNS name or FQDN.
+Quando você cria uma máquina virtual no [portal do Azure](https://portal.azure.com) usando o modelo de implantação do **Gerenciador de Recursos**, o portal cria um recurso de IP público para a máquina virtual. Você pode usar esse endereço IP para acessar remotamente a máquina virtual. Embora o portal não crie um [nome de domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) ou FQDN, por padrão, é extremamente fácil criar um depois que a máquina virtual é criada. Este artigo apresenta as etapas para criar um nome DNS ou FQDN.
 
-The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images, using the **Resource Manager**. Follow these steps once your virtual machine starts running.
+No artigo, presumimos que você se conectou à sua assinatura no portal e criou uma máquina virtual com as imagens disponíveis, usando o **Gerenciador de Recursos**. Siga estas etapas assim que a máquina virtual começar a ser executada.
 
-1.  View the virtual machine settings on the portal and click on the Public IP address.
+1.  Exiba as configurações da máquina virtual no portal e clique no endereço IP Público.
 
-    ![locate ip resource](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+    ![localizar recurso ip](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2.  Note that the DNS name for the Public IP is blank. Click **All settings** for the Public IP blade.
+2.  Observe que o nome DNS para o IP público está em branco. Clique em **Todas as Configurações** da folha IP Público.
 
-    ![settings ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
+    ![ip de configurações](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
 
-3.  Open the **Configuration** tab in the Public IP Settings. Enter the desired DNS name label and **Save** this configuration.
+3.  Abra a guia **Configuração** nas Configurações de IP Público. Insira o rótulo do nome DNS desejado e **Salve** essa configuração.
 
-    ![enter dns name label](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+    ![inserir rótulo do nome dns](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
 
-    The Public IP resource will now show this new DNS label on its blade.
+    O recurso IP Público agora mostrará essa nova etiqueta DNS em sua folha.
 
-4.  Close the Public IP blades and go back to the virtual machine blade in the portal. Verify that the DNS name/FQDN appears next to the IP address for the Public IP resource.
+4.  Feche as folhas de IP Público e volte até a folha da máquina virtual no portal. Verifique se o nome DNS/FQDN aparece ao lado do endereço IP para o recurso IP Público.
 
-    ![FQDN is created](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+    ![O FQDN é criado](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
 
-    You can now connect remotely to the virtual machine using this DNS name. For example, use `SSH adminuser@testdnslabel.centralus.cloudapp.azure.com`, when connecting to a Linux virtual machine which has the fully qualified domain name of `testdnslabel.centralus.cloudapp.azure.com` and user name of `adminuser`.
+    Agora, você pode se conectar remotamente à máquina virtual usando esse nome DNS. Por exemplo, use o `SSH adminuser@testdnslabel.centralus.cloudapp.azure.com` ao se conectar a uma máquina virtual do Linux que tem o nome de domínio totalmente qualificado de `testdnslabel.centralus.cloudapp.azure.com` e o nome de usuário de `adminuser`.
+
+<!---HONumber=AcomDC_0323_2016-->

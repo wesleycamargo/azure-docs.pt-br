@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/08/2016"
 	ms.author="genli"/>
 
 # O que devo fazer se minha assinatura do Azure for desabilitada?
@@ -43,4 +43,4 @@ Se você não conseguir acessar o portal, envie a solicitação de suporte a par
 
 Para saber mais, confira [Como criar um tíquete de suporte para problemas de cobrança e assinatura do Azure](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

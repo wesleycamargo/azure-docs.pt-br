@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a receber mensagens em um Hub de Eventos usando
 
 Para concluir este tutorial, você precisará do seguinte:
 
-+ Um ambiente de desenvolvimento C. Para este tutorial, vamos pressupor a pilha gcc em uma [Máquina Virtual Linux do Azure](../virtual-machines/virtual-machines-linux-tutorial.md) com Ubuntu 14.04. Serão fornecidas instruções para outros ambientes em links externos.
++ Um ambiente de desenvolvimento C. Para este tutorial, vamos pressupor a pilha gcc em uma [Máquina Virtual Linux do Azure](../virtual-machines/virtual-machines-linux-cli-create.md) com Ubuntu 14.04. Serão fornecidas instruções para outros ambientes em links externos.
 
 + Microsoft Visual Studio Express 2013 para Windows
 
@@ -117,4 +117,4 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

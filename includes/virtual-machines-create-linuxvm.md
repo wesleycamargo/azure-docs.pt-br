@@ -25,7 +25,7 @@
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE] Para uma máquina virtual Linux, você deve fornecer a opção `-e` em `vm create`; não é possível habilitar o SSH depois que a máquina virtual tiver sido criada. Para obter mais detalhes sobre SSH, leia [Como usar SSH com Linux no Azure](virtual-machines-linux-use-ssh-key.md).
+    >[AZURE.NOTE] Para uma máquina virtual Linux, você deve fornecer a opção `-e` em `vm create`; não é possível habilitar o SSH depois que a máquina virtual tiver sido criada. Para obter mais detalhes sobre SSH, leia [Como usar SSH com Linux no Azure](virtual-machines-linux-ssh-from-linux.md).
 
     Observe que a imagem *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* é a que escolhemos na lista de imagens na etapa acima. *MyTestVM* é o nome da nossa nova máquina virtual e *adminUser* é o nome de usuário que usaremos para SSH na máquina virtual. Você pode substituir essas variáveis de acordo com suas necessidades. Para obter mais detalhes sobre esse comando, visite [Usando a CLI do Azure com o Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md).
 
@@ -41,4 +41,4 @@
 
 Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure, leia [Usando a CLI do Azure com a API de Gerenciamento de Serviços](virtual-machines-command-line-tools.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

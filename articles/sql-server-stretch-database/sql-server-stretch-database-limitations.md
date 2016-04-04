@@ -65,6 +65,8 @@ Na versão de teste atual do SQL Server 2016, os itens a seguir tornam uma tabel
 
 -   Restrições de chave estrangeira que fazem referência à tabela
 
+    A tabela na qual não é possível habilitar o Stretch Database é a tabela referenciada por uma restrição de chave estrangeira. Em uma relação pai-filho (por exemplo, Pedidos e Detalhes do pedido), isso é a tabela pai (Pedidos).
+
 **Índices**
 -   Índices de texto completo
 
@@ -74,7 +76,7 @@ Na versão de teste atual do SQL Server 2016, os itens a seguir tornam uma tabel
 
 -   Exibições indexadas que fazem referência à tabela
 
-## <a name="Caveats"></a>Limitações e advertências de tabelas habilitadas para Stretch
+## <a name="Caveats"></a>Limitações e advertências para tabelas habilitadas para Stretch
 Na versão de teste atual do SQL Server 2016, as tabelas habilitadas para Stretch contêm as limitações ou advertências a seguir.
 
 -   A exclusividade não é imposta para restrições UNIQUE e restrições PRIMARY KEY em uma tabela habilitada para Stretch.
@@ -99,4 +101,4 @@ Na versão de teste atual do SQL Server 2016, as tabelas habilitadas para Stretc
 
 [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

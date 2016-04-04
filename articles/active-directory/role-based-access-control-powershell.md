@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gerenciar o controle de acesso com base em função com o Windows PowerShell"
+	pageTitle="Guia do Controle de Acesso Baseado em Função para o PowerShell"
 	description="Gerenciar o controle de acesso com base em função com o Windows PowerShell"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# Gerenciar o controle de acesso com base em função com o Windows PowerShell
+# Guia do Controle de Acesso Baseado em Função para o PowerShell
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [CLI do Azure](role-based-access-control-xplat-cli.md)
 
 
@@ -61,8 +61,6 @@ Como o RBAC funciona apenas com o Gerenciador de Recursos do Azure, a primeira m
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-Para obter mais informações, consulte [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
-
 Para se conectar às assinaturas do Azure, digite:
 
     PS C:\> Add-AzureAccount
@@ -75,8 +73,6 @@ Se você tiver várias assinaturas e quiser alternar para outra, use estes coman
     PS C:\> Get-AzureSubscription
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
-
-Para obter mais informações, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 ## Verifique as atribuições de função existente
 
@@ -96,7 +92,7 @@ Também é possível verificar as atribuições de função existentes para uma 
 Isso retornará todas as atribuições de função para um usuário em particular no seu locatário do AD, que tem uma atribuição de função de “Proprietário" para o grupo de recursos "group1". A atribuição de função pode vir de dois lugares:
 
 1. Uma atribuição de função de “Proprietário" ao usuário para o grupo de recursos.
-2. Uma atribuição de função de "Proprietário" ao usuário para o pai do grupo de recursos (neste caso, a assinatura), pois se você tiver qualquer permissão em um nível pai, você terá as mesmas permissões para todos os filhos.
+2. Uma atribuição de função de “Proprietário” ao usuário para o pai do grupo de recursos (neste caso, a assinatura). Se você atribuir qualquer permissão em um nível pai, todos os filhos terão as mesmas permissões.
 
 Todos os parâmetros deste cmdlet são opcionais. Você pode combiná-los para verificar as atribuições de função com diferentes filtros.
 
@@ -104,34 +100,36 @@ Todos os parâmetros deste cmdlet são opcionais. Você pode combiná-los para v
 
 Para criar uma atribuição de função, você precisa pensar sobre:
 
-Para quem você deseja atribuir a função: você pode usar os seguintes cmdlets do active directory do Azure para ver quais usuários, grupos e entidades de serviço tem no seu locatário do AD.
+- Para quem você deseja atribuir a função: você pode usar os seguintes cmdlets do active directory do Azure para ver quais usuários, grupos e entidades de serviço tem no seu locatário do AD.  
 
+	```
     PS C:\> Get-AzureADUser
 	PS C:\> Get-AzureADGroup
 	PS C:\> Get-AzureADGroupMember
 	PS C:\> Get-AzureADServicePrincipal
+	```
 
-Qual função você deseja atribuir: você pode usar o seguinte cmdlet para ver as definições de função com suporte.
+- Qual função você deseja atribuir: você pode usar o seguinte cmdlet para ver as definições de função com suporte.
 
-    PS C:\> Get-AzureRoleDefinition
+    `PS C:\> Get-AzureRoleDefinition`
 
-Qual o escopo que você deseja atribuir: você tem três níveis de escopo
-  - A assinatura atual
-  - Um grupo de recursos, para obter uma lista dos grupos de recursos, digite `PS C:\> Get-AzureResourceGroup`
-  - Um recurso, para obter uma lista de recursos, digite `PS C:\> Get-AzureResource`
+- Qual o escopo que você deseja atribuir: você tem três níveis de escopo
+	- A assinatura atual
+	- Um grupo de recursos. Para obter uma lista dos grupos de recursos, digite `PS C:\> Get-AzureResourceGroup`
+	- Um recurso. Para obter um lista de recursos, digite `PS C:\> Get-AzureResource`
 
 Em seguida, use `New-AzureRoleAssignment` para criar uma atribuição de função. Por exemplo:
 
-	#This will create a role assignment at the current subscription level for a user as a reader.
+	#Create a role assignment at the current subscription level for a user as a reader.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-	#This will create a role assignment at a resource group level.
+	#Create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-	#This will create a role assignment for a group at a resource group level.
+	#Create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-	#This will create a role assignment at a resource level.
+	#Create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
@@ -145,7 +143,7 @@ Depois de você verificar que sua conta tem algumas atribuições de função, v
 
 Esses dois cmdlets retornarão apenas os grupos de recursos ou recursos onde você tem permissão de leitura. E também mostrará as permissões que você tem.
 
-Quando tentar executar outros cmdlets como `New-AzureResourceGroup`, você receberá um erro de acesso negado se não tiver a permissão.
+Em seguida, quando tentar executar outros cmdlets como `New-AzureResourceGroup`, você receberá um erro de acesso negado se não tiver a permissão.
 
 ## Próximas etapas
 
@@ -160,4 +158,4 @@ Para saber mais sobre como gerenciar o controle de acesso com base em função c
 - [Configure o acesso baseado em função usando o CLI do Azure](role-based-access-control-xplat-cli.md)
 - [Solucionar problemas do controle de acesso com base em função](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

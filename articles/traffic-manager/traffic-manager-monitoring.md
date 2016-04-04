@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Sobre o monitoramento do Gerenciador de Tráfego
@@ -75,7 +75,7 @@ Um cronograma de exemplo que ilustra o processo de monitoramento com um único s
 1. **GET** – o sistema de monitoramento do Gerenciador de Tráfego executa um GET no caminho e arquivo especificado nas configurações de monitoramento.
 2. **200 OK** – o sistema de monitoramento espera uma mensagem HTTP 200 OK de volta dentro de 10 segundos. Quando ele recebe essa resposta, pressupõe que o serviço de nuvem está disponível. 
 
->[AZURE.NOTE]O Gerenciador de Tráfego só considera um ponto de extremidade como estando Online se a mensagem de retorno for uma 200 OK. Se uma resposta diferente de 200 for recebida, ele presumirá que o ponto de extremidade não está disponível e considerará essa verificação como tendo resultado em falha. Para obter mais detalhes sobre como solucionar problemas de verificações com falha, consulte [Solução de problemas de status degradado no Gerenciador de Tráfego do Azure](traffic-manager-troubleshooting-degraded.md).
+>[AZURE.NOTE] O Gerenciador de Tráfego só considera um ponto de extremidade como estando Online se a mensagem de retorno for uma 200 OK. Se uma resposta diferente de 200 for recebida, ele presumirá que o ponto de extremidade não está disponível e considerará essa verificação como tendo resultado em falha. Para obter mais detalhes sobre como solucionar problemas de verificações com falha, consulte [Solução de problemas de status degradado no Gerenciador de Tráfego do Azure](traffic-manager-troubleshooting-degraded.md).
 
 3. **30 segundos entre verificações** – essa verificação será realizada a cada 30 segundos.
 4. **Serviço de nuvem indisponível** – o serviço de nuvem torna-se indisponível. O Gerenciador de Tráfego não saberá disso até a próxima verificação de monitor.
@@ -115,4 +115,4 @@ A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tr
 [Solucionando problemas de status degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

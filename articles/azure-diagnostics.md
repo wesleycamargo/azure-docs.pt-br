@@ -58,7 +58,7 @@ Observe que os aplicativos Web não usam o Diagnóstico do Azure. Encontre as in
 Para tópicos mais avançados, veja
 - [Uso dos Diagnósticos do Azure com o Application Insights para Serviços de Nuvem](./application-insights/app-insights-cloudservices.md)
 - [Rastrear o fluxo de um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-- [Usar o PowerShell para configurar o diagnóstico nos Serviços de Nuvem](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
+- [Usar o PowerShell para configurar o diagnóstico nos Serviços de Nuvem](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 
 
 ## Máquinas Virtuais que usam o Diagnóstico do Azure
@@ -66,8 +66,8 @@ Para tópicos mais avançados, veja
 - [Configurar o Diagnóstico do Azure em uma Máquina Virtual do Azure](./virtual-machines-dotnet-diagnostics.md)
 
 Para tópicos mais avançados, veja
-- [Usar o PowerShell para configurar o diagnóstico nas Máquinas Virtuais do Azure](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
-- [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
+- [Usar o PowerShell para configurar o diagnóstico nas Máquinas Virtuais do Azure](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
+- [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
 ## Service Fabric que usa o Diagnóstico do Azure
 Comece em [Monitorar um aplicativo do Service Fabric](./service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Muitos outros artigos de diagnóstico do Service Fabric estarão disponíveis na árvore de navegação à esquerda depois que você acessar este artigo.
@@ -79,4 +79,4 @@ Comece em [Monitorar um aplicativo do Service Fabric](./service-fabric/service-f
 - Saiba como [Rotear informações de diagnóstico do Azure para o Application Insights](./azure-diagnostics-configure-applicationinsights.md)
 - Se você tiver problemas com o início do diagnóstico ou com a localização de seus dados nas tabelas do Armazenamento do Azure, veja [Solução de Problemas do Diagnóstico do Azure](./azure-diagnostics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

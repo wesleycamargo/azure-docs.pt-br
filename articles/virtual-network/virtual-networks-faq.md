@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Perguntas frequentes sobre rede virtual
@@ -21,6 +21,6 @@
 
 ## Conectividade entre locais de rede virtual (VPNs)
 
-Para ver as perguntas frequentes mais recentes sobre VPNs de rede virtual, consulte as [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md).
+Para ver as perguntas frequentes mais recentes sobre VPNs de rede virtual, consulte as [Perguntas frequentes sobre o Gateway de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

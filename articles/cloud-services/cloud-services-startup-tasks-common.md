@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/21/2016" 
 ms.author="adegeo"/>
 
 # Tarefas de inicialização comuns do Serviço de Nuvem
@@ -23,7 +23,7 @@ Confira [este artigo](cloud-services-startup-tasks.md) para entender o funcionam
 
 Muitas das tarefas aqui usam
 
->[AZURE.NOTE]As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
+>[AZURE.NOTE] As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
 
 
 ## Definir variáveis de ambiente antes de iniciar uma função
@@ -60,7 +60,7 @@ Se você precisar de variáveis de ambiente definidas para uma tarefa específic
 </ServiceDefinition>
 ```
 
-As variáveis também podem usar um [valor válido do Azure XPath](https://msdn.microsoft.com/library/azure/hh404006.aspx) para fazer referência a algo sobre a implantação. Em vez de usar o atributo `value`, defina um elemento filho [RoleInstanceValue].
+As variáveis também podem usar um [valor válido do Azure XPath](cloud-services-role-config-xpath.md) para fazer referência a algo sobre a implantação. Em vez de usar o atributo `value`, defina um elemento filho [RoleInstanceValue].
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -503,4 +503,4 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md).
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

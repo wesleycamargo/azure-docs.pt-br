@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/21/2016" 
 ms.author="adegeo"/>
 
 
@@ -21,7 +21,7 @@ ms.author="adegeo"/>
 
 Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração.
 
->[AZURE.NOTE]As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
+>[AZURE.NOTE] As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
 
 ## Como funcionam as tarefas de inicialização
 
@@ -46,7 +46,7 @@ A seguir, o procedimento de inicialização da função no Azure:
     - As tarefas **simples** são executadas de forma síncrona, uma de cada vez.
     - As tarefas em **segundo plano** e em **primeiro plano** são iniciadas de forma assíncrona, em paralelo à tarefa de inicialização.  
        
-    > [AZURE.WARNING]O IIS pode não estar totalmente configurado durante a fase de tarefas de inicialização no processo de inicialização e, portanto, os dados específicos da função podem não estar disponíveis. As tarefas de inicialização que exigem dados específicos da função devem usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+    > [AZURE.WARNING] O IIS pode não estar totalmente configurado durante a fase de tarefas de inicialização no processo de inicialização e, portanto, os dados específicos da função podem não estar disponíveis. As tarefas de inicialização que exigem dados específicos da função devem usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
 
 3. O processo de host da função é iniciado e o site é criado no IIS.
 
@@ -82,7 +82,7 @@ ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
 EXIT /B 0
 ```
 
-> [AZURE.NOTE]No Visual Studio, a propriedade **Copiar para Diretório de Saída** do seu arquivo em lotes de inicialização deve ser definida como **Sempre Copiar** para garantir que seu arquivo em lotes de inicialização seja adequadamente implantada em seu projeto no Azure (**approot\\bin** para funções Web e **approot** para funções de trabalho).
+> [AZURE.NOTE] No Visual Studio, a propriedade **Copiar para Diretório de Saída** do seu arquivo em lotes de inicialização deve ser definida como **Sempre Copiar** para garantir que seu arquivo em lotes de inicialização seja adequadamente implantada em seu projeto no Azure (**approot\\bin** para funções Web e **approot** para funções de trabalho).
 
 ## Descrição dos atributos da tarefa
 
@@ -101,13 +101,13 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
 
 - **elevado** A tarefa de inicialização é executada com privilégios de administrador. Isso permite que as tarefas de inicialização instalem programas, façam alterações de configuração no IIS, executem alterações no Registro e outras tarefas no nível de administrador sem aumentar o nível de privilégio da própria função.
 
-> [AZURE.NOTE]O nível de privilégio de uma tarefa de inicialização não precisa ser igual ao da própria função.
+> [AZURE.NOTE] O nível de privilégio de uma tarefa de inicialização não precisa ser igual ao da própria função.
 
 **taskType** - especifica a maneira como uma tarefa de inicialização é executada.
 
 - **simples** As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef]. Quando uma tarefa de inicialização **simples** terminar com um **errorlevel** zero, a próxima tarefa de inicialização **simples** será executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.   
 
-    > [AZURE.NOTE]Se a tarefa **simples** terminar com um **errorlevel** diferente de zero, a instância será bloqueada. As tarefas de inicialização **simples** subsequentes , e a própria função, não serão iniciadas.
+    > [AZURE.NOTE] Se a tarefa **simples** terminar com um **errorlevel** diferente de zero, a instância será bloqueada. As tarefas de inicialização **simples** subsequentes , e a própria função, não serão iniciadas.
 
     Para garantir que o arquivo em lotes termine com um **errorlevel** zero, execute o comando `EXIT /B 0` no final do processo do seu arquivo em lotes.
 
@@ -123,7 +123,7 @@ Há dois tipos de variáveis de ambiente para tarefas de inicialização; variá
 
 As variáveis de ambiente estáticas usam o atributo **value** do elemento [Variable]. O exemplo acima cria a variável de ambiente **MyVersionNumber** que tem um valor estático "**1.0.0.0**". Outro exemplo seria criar uma variável de ambiente **StagingOrProduction**, que você pode definir manualmente com os valores "**staging**" ou "**production**" para executar ações de inicialização diferentes com base no valor da variável de ambiente **StagingOrProduction**.
 
-As variáveis de ambiente baseadas nos membros da classe RoleEnvironment não usam o atributo **value** do elemento [Variable]. Em vez disso, o elemento filho [RoleInstanceValue], com o valor do atributo **xPath** adequado, é usado para criar uma variável de ambiente baseada em um membro específico da classe [RoleEnvironment]. Os valores do atributo **xPath** para acessar diversos valores de [RoleEnvironment] podem ser encontrados em[Valores xPath no Azure](https://msdn.microsoft.com/library/azure/hh404006.aspx).
+As variáveis de ambiente baseadas nos membros da classe RoleEnvironment não usam o atributo **value** do elemento [Variable]. Em vez disso, o elemento filho [RoleInstanceValue], com o valor do atributo **XPath** adequado, é usado para criar uma variável de ambiente baseada em um membro específico da classe [RoleEnvironment]. Os valores do atributo **XPath** para acessar diversos valores de [RoleEnvironment] podem ser encontrados [aqui](cloud-services-role-config-xpath.md).
 
 
 
@@ -163,4 +163,4 @@ Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-s
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

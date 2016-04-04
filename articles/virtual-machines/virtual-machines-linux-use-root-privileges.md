@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Usar privilégios de raiz nas máquinas virtuais do Linux | Microsoft Azure" 
 	description="Saiba como usar privilégios de raiz em uma máquina virtual Linux do Azure." 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -55,4 +55,4 @@ Nesse caso, o usuário **não** será solicitado para uma senha. Depois de press
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

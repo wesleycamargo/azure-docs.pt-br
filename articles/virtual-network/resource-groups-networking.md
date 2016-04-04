@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Provedor de recursos de rede
@@ -254,26 +254,14 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 ![Implantação do modelo de exemplo](./media/resource-groups-networking/Figure6.png)
 
 
-## Consulte também
-
-[Referência de API de rede do Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-[Referência do Azure PowerShell para rede](https://msdn.microsoft.com/library/azure/mt163510.aspx)
+## Próximas etapas
 
 [Idioma de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 
 [Rede do Azure - modelos usados frequentemente](https://github.com/Azure/azure-quickstart-templates)
 
-[Provedor de recursos de computação](../virtual-machines-azurerm-versus-azuresm)
+[Provedor de recursos de computação](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-[Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview)
+[Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
 
-[Controle de acesso com base em função no Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn906885.aspx)
-
-[Usando marcas no Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn848368.aspx)
-
-[Implantações de modelo](https://msdn.microsoft.com/library/azure/dn790549.aspx)
-
-hoje
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/17/2016"   
-	ms.author="juliako;adsolank;johndeu"/>
+	ms.date="03/18/2016"   
+	ms.author="adsolank;juliako;johndeu"/>
 
 
 # Indexando arquivos de mídia com o Indexador de Mídia do Azure
@@ -301,4 +301,4 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para saber mais, con
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -182,6 +182,6 @@ Este ambiente agora está pronto para que você implante seu aplicativo baseado 
 
 ## Próximas etapas
 
-- Configure o [ambiente de produção](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
+- Configure o [ambiente de produção](../virtual-machines/virtual-machines-windows-lob-overview.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -31,7 +31,7 @@ Com essa flexibilidade, o Agendador do Azure permite que você dê suporte a uma
 -	Processamento: por exemplo, a cada dia da semana, fora do horário de pico, usar computação em nuvem para compactar as imagens carregadas no dia
 
 
-Neste artigo, percorreremos trabalhos de exemplo que você pode criar com o Agendador do Azure. Nós fornecemos os dados JSON que descrevem cada agendamento. Se você usar a [API REST do Agendador](https://msdn.microsoft.com/library/azure/dn528946.aspx), pode usar esse mesmo JSON para [Criar um trabalho do Agendador do Azure](https://msdn.microsoft.com/library/azure/dn528937.aspx).
+Neste artigo, percorreremos trabalhos de exemplo que você pode criar com o Agendador do Azure. Nós fornecemos os dados JSON que descrevem cada agendamento. Se você usar a [API REST do Agendador](https://msdn.microsoft.com/library/mt629143.aspx), pode usar esse mesmo JSON para [Criar um trabalho do Agendador do Azure](https://msdn.microsoft.com/library/mt629145.aspx).
 
 ## Cenários com suporte
 
@@ -52,7 +52,7 @@ As referências de data e hora em trabalhos do Agendador do Azure seguem a [espe
 
 ## Como usar JSON e API REST para criar agendamentos
 
-Para criar um agendamento simples usando os exemplos JSON neste artigo e a API REST do Agendador do Azure, [primeiro crie um serviço de nuvem](https://msdn.microsoft.com/library/azure/dn528943.aspx), [crie uma coleção de trabalhos](https://msdn.microsoft.com/library/azure/dn528940.aspx) e, [finalmente, crie um trabalho](https://msdn.microsoft.com/library/azure/dn528937.aspx). Quando você cria um trabalho, pode especificar o agendamento e recorrência usando JSON, como representado abaixo:
+Para criar um agendamento simples usando a [API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143), primeiro [registre sua assinatura com um provedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx) (o nome do provedor do Agendador é _Microsoft.Scheduler_), [crie uma coleção de trabalhos](https://msdn.microsoft.com/library/mt629159.aspx) e, por fim, [crie um trabalho](https://msdn.microsoft.com/library/mt629145.aspx). Quando você cria um trabalho, pode especificar o agendamento e recorrência usando JSON, como representado abaixo:
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -197,4 +197,4 @@ Todos os agendamentos abaixo pressupõem que o _intervalo_ é definido como 1. A
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -121,7 +121,7 @@ Se a sua imagem de VM não incluir discos de dados, ou seja, discos que não sej
 
  > [AZURE.NOTE] Não utilize a unidade D para armazenar dados. Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
 
-Para anexar discos de dados adicionais, execute as etapas descritas em [Como anexar um disco de dados a uma Máquina Virtual do Windows](storage-windows-attach-disk.md), que vai orientá-lo para:
+Para anexar discos de dados adicionais, execute as etapas descritas em [Como anexar um disco de dados a uma Máquina Virtual do Windows](virtual-machines-windows-classic-attach-disk.md), que vai orientá-lo para:
 
 1. Anexar discos vazios à máquina virtual fornecida em etapas anteriores
 2. Inicialização dos novos discos na máquina virtual
@@ -298,4 +298,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -24,19 +24,19 @@ O ACS (Serviço de Contêiner do Azure) fornece uma maneira de simplificar a cri
 
 <br /> ![O ACS fornece um meio para gerenciar os aplicativos contidos em vários hosts no Azure.](./media/acs-intro/acs-cluster.png) <br /><br />
 
-O ACS utiliza o Docker para garantir que os contêineres do seu aplicativo sejam totalmente portáteis. Ele também dá suporte à opção de selecionar o Marathon, Chronos e Apache Mesos ou Docker Swarm para garantir que esses aplicativos possam ser escalados para milhares, e até dezenas de milhares de contêineres.
+O ACS utiliza o formato de contêiner do Docker para garantir que os contêineres de seu aplicativo são totalmente portáteis. Ele também dá suporte à opção de selecionar o Marathon, Apache Mesos ou Docker Swarm para assegurar que esses aplicativos podem ser escalados para milhares, e até dezenas de milhares de contêineres.
 
 O Serviço de Contêiner do Azure permite que você aproveite os recursos de nível empresarial do Azure e ainda manter a portabilidade do aplicativo, inclusive nas camadas de orquestração.
 
 Usando o Serviço de Contêiner do Azure
 -----------------------------
 
-Nosso objetivo com o Serviço de Contêiner do Azure é fornecer um ambiente de hospedagem de contêineres usando ferramentas e tecnologias de código-fonte aberto, que são comuns entre os nossos clientes hoje. Para essa finalidade, vamos expor os pontos de extremidade padrão de API para o Docker e para o seu orquestrador escolhido. Usando esses pontos de extremidade, é possível utilizar qualquer software que possa se comunicar com os pontos de extremidade. Por exemplo, no caso do ponto de extremidade do Docker Swarm, você pode optar por usar o Docker Compose, enquanto para o Apache Mesos, você pode optar por usar a CLI do DCOS.
+Nosso objetivo com o Serviço de Contêiner do Azure é fornecer um ambiente de hospedagem de contêineres usando ferramentas e tecnologias de código-fonte aberto, que são comuns entre os nossos clientes hoje. Para essa finalidade, expomos os pontos de extremidade de API padrão para seu orquestrador escolhido. Usando esses pontos de extremidade, é possível utilizar qualquer software que possa se comunicar com os pontos de extremidade. Por exemplo, no caso do ponto de extremidade do Docker Swarm, talvez você opte por usar a CLI do Docker, enquanto para o Apache Mesos, você opte por usar a CLI do DCOS.
 
 Criando um Cluster do Docker usando o Serviço de Contêiner do Azure
 -------------------------------------------------------
 
-Para começar a usar o Serviço de Contêiner do Azure, um cluster ACS será implantado usando um modelo do Gerenciador de Recursos do Azure. Essa implantação pode ser configurada com opções de tamanho e de disponibilidade diferentes e será configurada com o Apache Mesos ou o Docker Swarm. Os modelos do Gerenciador de Recursos do Azure podem ser implantados por meio do Portal do Azure, usando a CLI do Azure ou o PowerShell. Os modelos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para saber mais sobre implantação e o cluster ACS, confira [Implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md).
+Para começar a usar o Serviço de Contêiner do Azure, um cluster ACS será implantado usando um modelo do Gerenciador de Recursos do Azure. Essa implantação pode ser configurada com opções de tamanho e de disponibilidade diferentes e será configurada com o Apache Mesos ou o Docker Swarm. Os Modelos do Azure Resource Manager podem ser implantados por meio do portal do Azure, usando a CLI do Azure ou com o PowerShell. Os modelos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para saber mais sobre implantação e o cluster ACS, confira [Implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md).
 
 Implantando um aplicativo
 ------------------------
@@ -55,7 +55,7 @@ O Mesos traz um conjunto de recursos impressionantes.
 
 -   Mestre e subordinados replicados com tolerância a falhas usando o ZooKeeper
 
--   Suporte para os contêineres do Docker
+-   Suporte para contêineres formatados do Docker
 
 -   Isolamento nativo entre tarefas com contêineres do Linux
 
@@ -69,7 +69,7 @@ No Mesos, há suporte para um grande número de [estruturas](http://mesos.apache
 
 #### Usando o Marathon e o Chronos
 
-O Marathon é um sistema de inicialização e controle de todo o cluster para serviços em cgroups ou, no caso do ACS, contêineres do Docker. É um parceiro ideal para o Chronos, um agendador de trabalhos tolerante a falhas para o Mesos que manipula as dependências e agendamentos com hora.
+O Marathon é um sistema de inicialização e controle de todo o cluster para serviços em cgroups ou, no caso do ACS, contêineres de formato do Docker. É um parceiro ideal para o Chronos, um agendador de trabalhos tolerante a falhas para o Mesos que manipula as dependências e agendamentos com hora.
 
 O Marathon e o Chronos fornecem uma interface do usuário da Web da qual você pode implantar seus aplicativos. Você acessará isso em uma URL semelhante a `http://DNS\_PREFIX.REGION.cloudapp.azure.com`, em que DNS\_PREFIX e REGION são definidos no momento da implantação. É claro, você também pode fornecer seu próprio nome DNS. Para saber mais sobre como executar um contêiner usando a interface de usuário da Web do Marathon, confira [Gerenciamento de contêiner pela interface de usuário da Web](./container-service-mesos-marathon-ui.md).
 
@@ -101,4 +101,4 @@ Introdução ao ACS:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

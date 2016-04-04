@@ -1,11 +1,11 @@
 
-Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](virtual-machines-disks-vhds.md).
+Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Como: anexar um disco vazio
 Anexar um disco vazio é o modo mais simples de se adicionar um disco de dados, porque o Azure cria o arquivo .vhd para você e o coloca na conta de armazenamento.
 
-1.  Abra a CLI do Azure para Mac, Linux, e Windows e conecte-se à sua assinatura do Azure. Consulte [Conectar ao Azure da CLI do Azure](../articles/xplat-cli-connect.md) para obter mais informações.
+1.  Abra a CLI do Azure para Mac, Linux, e Windows e conecte-se à sua assinatura do Azure. Consulte [Conectar ao Azure da CLI do Azure](../xplat-cli-connect.md) para obter mais informações.
 
 2.  Verifique se você está no modo de gerenciamento de serviços do Azure, que é o padrão digitando `azure config
  	mode asm`.
@@ -33,7 +33,7 @@ Anexar um disco vazio é o modo mais simples de se adicionar um disco de dados, 
 
 Anexar um disco existente exige que você tenha um .vhd disponível em uma conta de armazenamento.
 
-1. 	Abra a CLI do Azure para Mac, Linux, e Windows e conecte-se à sua assinatura do Azure. Consulte [Conectar ao Azure da CLI do Azure](../articles/xplat-cli-connect.md) para obter mais informações.
+1. 	Abra a CLI do Azure para Mac, Linux, e Windows e conecte-se à sua assinatura do Azure. Consulte [Conectar ao Azure da CLI do Azure](../xplat-cli-connect.md) para obter mais informações.
 
 2.  Verifique se você está no modo de gerenciamento de serviços do Azure, que é o padrão. Se você tiver alterado o modo para gerenciamento de recursos, simplesmente reverta digitando `azure config mode asm`.
 
@@ -93,4 +93,4 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 > [AZURE.NOTE]
 Depois de adicionar um disco de dados, você precisará fazer logon na máquina virtual e inicializar o disco para que a máquina virtual possa usar o disco para armazenamento.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

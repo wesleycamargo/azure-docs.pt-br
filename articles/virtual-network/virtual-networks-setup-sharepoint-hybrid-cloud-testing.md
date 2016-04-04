@@ -197,6 +197,6 @@ Seu farm de intranet do SharePoint em um ambiente de nuvem híbrida agora está 
 
 ## Próximas etapas
 
-- Configure a [carga de trabalho de produção](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md).
+- Configure a [carga de trabalho de produção](../virtual-machines/virtual-machines-windows-sp-intranet-overview.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

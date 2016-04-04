@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Configurar o método de roteamento de Failover
@@ -38,7 +38,7 @@ Observe que os Sites do Azure já fornecem funcionalidade de roteamento de tráf
 
 [Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego](traffic-manager-point-internet-domain.md)
 
-[Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+[Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 
 [Configurar o método de roteamento de round robin](traffic-manager-configure-round-robin-routing-method.md)
 
@@ -52,4 +52,4 @@ Observe que os Sites do Azure já fornecem funcionalidade de roteamento de tráf
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

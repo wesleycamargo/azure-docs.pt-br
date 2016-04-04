@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/08/2016"
+ms.date="03/18/2016"
 ms.author="larryfr"/>
 
 #Usar DataFu com pig no HDInsight
@@ -30,7 +30,7 @@ DataFu é uma coleção de bibliotecas de software livre para uso com o Hadoop. 
 
 ##Instalar DataFu no HDInsight baseados em Linux
 
-> [AZURE.NOTE]DataFu é pré-instalado em clusters HDInsight baseados no Windows. Se você estiver usando um cluster baseado em Windows, ignore esta seção.
+> [AZURE.NOTE] DataFu é pré-instalado em clusters HDInsight baseados no Windows. Se você estiver usando um cluster baseado em Windows, ignore esta seção.
 
 DataFu pode ser baixado e instalado no repositório Maven. Use as etapas a seguir para adicionar DataFu ao cluster HDInsight:
 
@@ -47,13 +47,13 @@ DataFu pode ser baixado e instalado no repositório Maven. Use as etapas a segui
 
         hdfs dfs -put datafu-1.2.0.jar /example/jars
     
-    > [AZURE.NOTE]O exemplo anterior armazena o jar em `wasb:///example/jars` como este diretório já existe no armazenamento de cluster. Você pode usar qualquer local que desejar no armazenamento de cluster HDInsight.
+    > [AZURE.NOTE] O exemplo anterior armazena o jar em `wasb:///example/jars` como este diretório já existe no armazenamento de cluster. Você pode usar qualquer local que desejar no armazenamento de cluster HDInsight.
 
 ##Usar DataFu com Pig
 
 As etapas nesta seção pressupõem que você esteja familiarizado com o uso de Pig no HDInsight e fornecem apenas as instruções de Pig Latin, não são etapas sobre como usá-los com o cluster. Para obter mais informações sobre como usar o Pig com o HDInsight, consulte [Usar o Pig com o HDInsight](hdinsight-use-pig.md).
 
-> [AZURE.IMPORTANT]Ao usar DataFu de Pig em um cluster HDInsight baseados em Linux, você deve primeiro registrar o arquivo jar usando a seguinte instrução de Pig Latin:
+> [AZURE.IMPORTANT] Ao usar DataFu de Pig em um cluster HDInsight baseados em Linux, você deve primeiro registrar o arquivo jar usando a seguinte instrução de Pig Latin:
 >
 > ```register wasb:///example/jars/datafu-1.2.0.jar```
 >
@@ -107,4 +107,4 @@ Para obter mais informações sobre DataFu ou Pig, consulte os seguintes documen
 
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

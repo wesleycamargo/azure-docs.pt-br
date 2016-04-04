@@ -16,7 +16,12 @@
 	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
-# Azure Site Recovery usando o PowerShell e o Gerenciador de Recursos do Azure.
+# Replique entre máquinas virtuais locais do Hyper-V e o Azure usando o PowerShell e o Azure Resource Manager.
+
+> [AZURE.SELECTOR]
+- [Portal Clássico do Azure](site-recovery-hyper-v-site-to-azure.md)
+- [PowerShell – Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+
 
 
 ## Visão geral
@@ -262,4 +267,4 @@ Este artigo ilustra como usar o Azure PowerShell com ARM para configurar e geren
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

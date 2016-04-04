@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/08/2016"
+ms.date="03/18/2016"
 ms.author="larryfr"/>
 
 #Processar dados de sensor de veículo nos Hubs de Eventos do Azure usando o Apache Storm no HDInsight
@@ -48,14 +48,14 @@ Segue um diagrama dessa solução:
 
 ![topologia Storm](./media/hdinsight-storm-iot-eventhub-documentdb/iottopology.png)
 
-> [AZURE.NOTE]Esse é um diagrama simplificado e cada componente da solução pode ter várias instâncias. Por exemplo, as várias instâncias de cada componente na topologia são distribuídas entre os nós no Storm no cluster HDInsight.
+> [AZURE.NOTE] Esse é um diagrama simplificado e cada componente da solução pode ter várias instâncias. Por exemplo, as várias instâncias de cada componente na topologia são distribuídas entre os nós no Storm no cluster HDInsight.
 
 ##Implementação
 
-Há uma solução completa e automatizada para esse cenário disponível como parte do repositório <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">Exemplos de HDInsight-Storm</a> no GitHub. Para usar esse exemplo, siga as etapas no [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md).
+Há uma solução completa e automatizada para esse cenário disponível como parte do repositório [HDInsight-Storm-Examples](https://github.com/hdinsight/hdinsight-storm-examples) no GitHub. Para usar esse exemplo, siga as etapas no [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md).
 
 ## Próximas etapas
 
 Para obter mais topologias do Storm, consulte [Exemplo de topologias para Storm em HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -33,7 +33,9 @@ Você pode desenvolver VMs do Azure baseadas em Windows ou Linux. Alguns element
 - Se você estiver usando o Linux, consulte a seção "Criar um VHD compatível com o Azure (baseado em Linux)" do [guia de publicação de imagem de Máquina Virtual](marketplace-publishing-vm-image-creation.md).
 - Se você estiver usando o Windows, consulte a seção "Criar um VHD compatível com o Azure (baseado em Windows)" do [guia de publicação de imagem de Máquina Virtual](marketplace-publishing-vm-image-creation.md).
 
-> [AZURE.NOTE] Você precisa ter acesso a um computador baseado no Windows para: - Executar a ferramenta de validação de certificação. - Criar a URL de assinatura de acesso compartilhado de VHD para o envio de certificação do VHD.
+> [AZURE.NOTE] Você precisa ter acesso a um computador baseado em Windows para:
+- Executar a ferramenta de validação de certificação.
+- Criar a URL da assinatura de acesso compartilhado do VHD para o envio da certificação do VHD.
 
 ## Desenvolver seu VHD
 Você pode desenvolver VHDs do Azure na nuvem ou no local:
@@ -46,9 +48,9 @@ Agora você revisou os pré-requisitos e concluiu a tarefa necessária, pode pro
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines/virtual-machines-windows-tutorial/)
+- [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial/)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

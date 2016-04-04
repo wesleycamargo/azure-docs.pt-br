@@ -66,7 +66,7 @@ Se a máquina virtual já existir e você precisar adicionar um ponto de extremi
 
 ## <a name="run-commands"></a>Etapa 3: instalar o IPython Notebook e outras ferramentas de suporte
 
-Depois que a máquina virtual é criada, use o protocolo RDP para fazer logon na máquina virtual do Windows. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](../virtual-machines-log-on-windows-server.md). Abra o **Prompt de Comando** (**Não a janela de comando do Powershell**) como **Administrador** e execute o comando a seguir.
+Depois que a máquina virtual é criada, use o protocolo RDP para fazer logon na máquina virtual do Windows. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](../virtual-machines/virtual-machines-windows-classic-connect-logon.md). Abra o **Prompt de Comando** (**Não a janela de comando do Powershell**) como **Administrador** e execute o comando a seguir.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -143,4 +143,4 @@ As próximas etapas no processo e tecnologia de análise avançada estão mapead
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

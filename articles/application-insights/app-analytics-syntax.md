@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Instruções na Análise de Aplicativos" 
-	description="Consultas, expressões e instruções LET na Análise de Aplicativos, a poderosa ferramenta de pesquisa do Application Insights." 
+	pageTitle="Instruções na Análise do Application Insights" 
+	description="Consultas, expressões e instruções LET na Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Instruções na Análise de Aplicativos
+# Instruções da Análise no Application Insights
 
-A [Análise de Aplicativos](app-analytics.md) é um poderoso mecanismo de pesquisa para sua telemetria do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise de Aplicativos, o CSL.
-
+[Análise](app-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## Modelo de dados
 
-Em CSL:
+No AIQL:
 
 * Um *banco de dados* contém zero ou mais *tabelas* nomeadas.
 * Um *tabela* contém:
@@ -67,7 +66,7 @@ Há quatro tipos de instruções em CSL:
 
 ### Consultas de dados
   
-Solicitações somente leitura sobre os dados armazenados na Análise de Aplicativos. Por exemplo:
+Solicitações somente leitura sobre os dados armazenados na Análise. Por exemplo:
 
 * `event` – Retorne todos os registros na tabela chamada “event”.
 * `event | count` – Retorne um número de registros em “event”.
@@ -269,4 +268,4 @@ Os parâmetros para funções nomeadas devem ser escalares.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

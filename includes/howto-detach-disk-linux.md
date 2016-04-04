@@ -1,15 +1,12 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
-
-
 Quando não precisar mais de um disco de dados conectado a uma máquina virtual, você poderá desanexá-lo facilmente. Essa ação remove o disco da máquina virtual, mas não o remove do armazenamento. Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
-> [AZURE.NOTE] Uma máquina virtual no Azure usa diferentes tipos de discos -- um disco de sistema operacional, um disco temporário local e discos de dados opcionais. Discos de dados são a forma recomendada de armazenar dados para uma máquina virtual. Para obter detalhes, consulte [Sobre discos e VHDs para Máquinas Virtuais](virtual-machines-disks-vhds.md). Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a máquina virtual.
+> [AZURE.NOTE] Uma máquina virtual no Azure usa diferentes tipos de discos -- um disco de sistema operacional, um disco temporário local e discos de dados opcionais. Discos de dados são a forma recomendada de armazenar dados para uma máquina virtual. Para obter detalhes, consulte [Sobre discos e VHDs para Máquinas Virtuais](virtual-machines-linux-about-disks-vhds.md). Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a máquina virtual.
 
 ## Localize o disco
 
 Antes de poder desanexar um disco de uma máquina virtual, você precisa conhecer o número LUN, que é um identificador para o disco a ser desanexado. Para fazer isso, siga estas etapas:
 
-1. 	Abra a CLI do Azure para Mac, Linux, e Windows e conecte-se à sua assinatura do Azure. Consulte [Conectar ao Azure da CLI do Azure](../articles/xplat-cli-connect.md) para obter mais informações.
+1. 	Abra a CLI do Azure para Mac, Linux, e Windows e conecte-se à sua assinatura do Azure. Consulte [Conectar ao Azure da CLI do Azure](../xplat-cli-connect.md) para obter mais informações.
 
 2.  Verifique se você está no modo de gerenciamento de serviços do Azure, que é o padrão digitando `azure config
  	mode asm`.
@@ -60,4 +57,4 @@ Depois de localizar o número LUN do disco, você estará pronto para desanexá-
 
 O disco permanece desanexado no armazenamento mas já não está conectado a uma máquina virtual.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

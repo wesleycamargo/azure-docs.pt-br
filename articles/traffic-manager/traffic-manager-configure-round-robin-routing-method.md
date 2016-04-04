@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Configurar o método de roteamento de Round Robin
 
-Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de extremidade idênticos, que incluem serviços de nuvem e sites, e enviar tráfego a cada um deles em um estilo round robin. As etapas a seguir descrevem como configurar o Gerenciador de Tráfego para executar esse tipo de método de roteamento de tráfego. Para obter mais informações sobre os diferentes métodos de roteamento de tráfego, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md).
+Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de extremidade idênticos, que incluem serviços de nuvem e sites, e enviar tráfego a cada um deles em um estilo round robin. As etapas a seguir descrevem como configurar o Gerenciador de Tráfego para executar esse tipo de método de roteamento de tráfego. Para obter mais informações sobre os diferentes métodos de roteamento de tráfego, consulte [Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
 
->[AZURE.NOTE]Os sites do Azure já fornecem funcionalidade de balanceamento de carga round robin para sites em um data center (também conhecido como região). O Gerenciador de Tráfego permite que você especifique o método de roteamento de tráfego de round robin para sites em datacenters diferentes.
+>[AZURE.NOTE] Os sites do Azure já fornecem funcionalidade de balanceamento de carga round robin para sites em um data center (também conhecido como região). O Gerenciador de Tráfego permite que você especifique o método de roteamento de tráfego de round robin para sites em datacenters diferentes.
 
 ## Rotear tráfego igualmente (round robin) em um conjunto de pontos de extremidade:
 
@@ -28,7 +28,7 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 3. Na página de seu perfil, clique em **Pontos de Extremidade** na parte superior da página e verifique se os pontos de extremidade de serviço que você deseja incluir em sua configuração estão presentes. Para obter as etapas para adicionar ou remover pontos de extremidade, consulte [Gerenciar pontos de extremidade no Gerenciador de Tráfego](traffic-manager-endpoints.md).
 4. Na página de seu perfil, clique em **Configurar** na parte superior para abrir a página de configuração.
 5. Para **Configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Round Robin**. Se não for, clique em **Round Robin** na lista suspensa.
-6. Verifique se as **Configurações de Monitoramento** estão definidas corretamente. O monitoramento garante que não seja enviado tráfego aos pontos de extremidade que estão offline. Para monitorar os pontos de extremidade, você deve especificar um caminho e um nome de arquivo. Observe que uma barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão). Para obter mais informações sobre o monitoramento, consulte [Sobre o Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
+6. Verifique se as **Configurações de Monitoramento** estão definidas corretamente. O monitoramento garante que não seja enviado tráfego aos pontos de extremidade que estão offline. Para monitorar os pontos de extremidade, você deve especificar um caminho e um nome de arquivo. Observe que uma barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão). Para obter mais informações sobre o monitoramento, consulte [Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
 7. Depois de concluir as alterações de configuração, clique em **Salvar** na parte inferior da página.
 8. Teste as alterações em sua configuração. Para obter mais informações, consulte [Testando as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md).
 9. Depois que seu perfil do Gerenciador de Tráfego estiver configurado e funcionando, edite o registro de DNS em seu servidor DNS autoritativo para apontar o nome de domínio de sua empresa para o nome de domínio do Gerenciador de Tráfego. Para obter mais informações sobre como fazer isso, consulte [Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego](traffic-manager-point-internet-domain.md).
@@ -52,4 +52,4 @@ Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de 
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

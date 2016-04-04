@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # Gerenciar servidores DNS usados por uma rede virtual (VNet)
 
 Você pode gerenciar a lista de servidores DNS usados em uma VNet no Portal de Gerenciamento ou no arquivo de configuração de rede. Você pode adicionar até 12 servidores DNS para cada VNet. Ao especificar servidores DNS, é importante verificar se os servidores DNS estão listados na ordem correta para seu ambiente. As listas de servidores DNS não funcionam em round robin. Elas são usadas na ordem em que foram especificadas. Se o primeiro servidor DNS na lista puder ser alcançado, o cliente usará esse servidor DNS independentemente de ele estar funcionando corretamente. Para alterar a ordem de servidor DNS para sua rede virtual, remova os servidores DNS da lista e adicione-as na ordem em que desejar.
 
->[AZURE.WARNING]Depois que a lista de DNS tiver sido atualizada, você deve reiniciar as máquinas virtuais localizadas na rede virtual para que obtenham as novas configurações de servidor DNS. As máquinas virtuais continuarão a usar a configuração atual até que sejam reiniciadas.
+>[AZURE.WARNING] Depois que a lista de DNS tiver sido atualizada, você deve reiniciar as máquinas virtuais localizadas na rede virtual para que obtenham as novas configurações de servidor DNS. As máquinas virtuais continuarão a usar a configuração atual até que sejam reiniciadas.
 
 ## Editar uma lista de servidores DNS para uma rede virtual usando o Portal de Gerenciamento
 
@@ -65,4 +65,4 @@ Para editar uma lista de servidores DNS usando um arquivo de configuração de r
 
 [Como excluir uma rede virtual (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

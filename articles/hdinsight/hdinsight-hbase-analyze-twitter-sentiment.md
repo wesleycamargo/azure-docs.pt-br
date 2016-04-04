@@ -75,11 +75,11 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 
 	<table border="1">
-<tr><th>Propriedade do cluster</th><th>Descrição</th></tr>
-<tr><td>Nome do cluster do HBase</td><td>O nome do cluster HBase HDInsight. Por exemplo: https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>Nome de usuário do cluster</td><td>O nome da conta do usuário Hadoop. O nome de usuário Hadoop padrão é <strong>admin</strong>.</td></tr>
-<tr><td>Senha de usuário do cluster</td><td>A senha de usuário do cluster Hadoop.</td></tr>
-</table>
+	<tr><th>Propriedade do cluster</th><th>Descrição</th></tr>
+	<tr><td>Nome do cluster do HBase</td><td>O nome do cluster HBase HDInsight. Por exemplo: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Nome de usuário do cluster</td><td>O nome da conta do usuário Hadoop. O nome de usuário Hadoop padrão é <strong>admin</strong>.</td></tr>
+	<tr><td>Senha de usuário do cluster</td><td>A senha de usuário do cluster Hadoop.</td></tr>
+	</table>
 
 - **Uma estação de trabalho** com Visual Studio 2013 instalado. Para obter instruções, consulte [Instalação do Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -1233,7 +1233,6 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 - [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analisar dados do Twitter com Hadoop no HDInsight][hdinsight-analyze-twitter-data]
 - [Analisar dados de atraso de voo usando o HDInsight][hdinsight-analyze-flight-delay-data]
-- [Desenvolver programas de streaming do Hadoop em C# para o HDInsight][hdinsight-develop-streaming]
 - [Desenvolver programas MapReduce em Java para HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -1249,7 +1248,6 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 
 
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
@@ -1279,4 +1277,4 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -61,7 +61,7 @@ Endereços IP públicos (reservados) estáticos são usados nos cenários em que
 >[AZURE.NOTE] Quando você cria uma VM clássica, um contêiner *serviço de nuvem* é criado pelo Azure, que tem um endereço IP virtual (VIP). Quando a criação é feita por meio do portal, um padrão de *ponto de extremidade* RDP ou SSH é configurado pelo portal para conectar-se à VM por meio do VIP de serviço de nuvem. Este VIP de serviço de nuvem pode ser reservado, o que efetivamente fornece um endereço IP reservado para se conectar à VM. Você pode abrir portas adicionais configurando mais pontos de extremidade.
 
 ### VMs de IaaS e instâncias de função PaaS
-Você pode atribuir um endereço IP público diretamente em a uma [VM](../virtual-machines/virtual-machines-about.md) de IaaS ou em uma instância de função de PaaS dentro de um serviço de nuvem. Isso é conhecido como [ILPIP](virtual-networks-instance-level-public-ip.md) (endereço IP público em nível de instância). Esse endereço IP público pode ser apenas dinâmico.
+É possível atribuir um endereço IP público diretamente a uma [VM](../virtual-machines/virtual-machines-linux-about.md) IaaS ou a uma instância de função PaaS em um serviço de nuvem. Isso é conhecido como [ILPIP](virtual-networks-instance-level-public-ip.md) (endereço IP público em nível de instância). Esse endereço IP público pode ser apenas dinâmico.
 
 >[AZURE.NOTE] Isso é diferente do VIP do serviço em nuvem, que é um contêiner para VMs de instâncias de função IaaS ou PaaS, como um serviço de nuvem pode conter várias VMs de IaaS ou instâncias de função de PaaS, expostos por meio do mesmo VIP de serviço de nuvem.
 
@@ -166,4 +166,4 @@ A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador
 ## Próximas etapas
 - [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

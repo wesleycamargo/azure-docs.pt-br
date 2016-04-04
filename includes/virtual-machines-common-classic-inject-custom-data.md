@@ -1,19 +1,19 @@
 
 
 
-This topic describes how to:
+Este tópico descreve como:
 
-- Inject data into an Azure virtual machine when it is being provisioned.
+- Injetar dados em uma máquina virtual do Azure quando provisionada.
 
-- Retrieve it for both Windows and Linux.
+- Recuperá-los para Windows e Linux.
 
-- Use special tools available on some systems to detect and handle custom data automatically.
+- Usar ferramentas especiais em alguns sistemas para detectar e identificar dados personalizados automaticamente.
 
-> [AZURE.NOTE] This article describes how custom data can be injected by using a VM created with the Azure Service Management API. To see how to use the Azure Resource Management API, see [the example template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> [AZURE.NOTE] Este artigo descreve como injetar dados personalizados usando uma VM criada com a API do Gerenciamento de Serviços do Azure. Para aprender a usar a API do Gerenciamento de Recursos do Azure, consulte [o modelo de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
-## Injecting custom data into your Azure virtual machine
+## Injetando dados personalizados na máquina virtual do Azure
 
-This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-xplat-cli). Although you may use any of the options for the `azure vm create` command, the following demonstrates one very basic approach.
+No momento, esse recurso tem suporte apenas na [Interface de Linha de Comando do Azure](https://github.com/Azure/azure-xplat-cli). Embora você possa usar qualquer uma das opções para o comando `azure vm create`, a abordagem demonstrada é muito básica.
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -24,37 +24,39 @@ This feature is currently supported only in the [Azure Command-Line Interface](h
 ```
 
 
-## Using custom data in the virtual machine
+## Usando dados personalizados na máquina virtual
 
-+ If your Azure virtual machine is a Windows-based virtual machine, then the custom data file is saved to `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Although it was base64-encoded to transfer from the local computer to the new virtual machine, it is automatically decoded and can be opened or used immediately.
++ Se sua máquina virtual do Azure é uma máquina virtual baseada no Windows, o arquivo de dados personalizado é salvo em `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Embora tenha sido codificado com base-64 para transferência do computador local para a nova máquina virtual, ele é decodificado automaticamente e pode ser aberto imediatamente.
 
-   > [AZURE.NOTE] If the file exists, it is overwritten. The security on the directory is set to **System:Full Control** and **Administrators:Full Control**.
+   > [AZURE.NOTE] Se já existir, o arquivo será substituído. A segurança no diretório é definida como **System:Full Control** e **Administrators:Full Control**.
 
-+ If your Azure virtual machine is a Linux-based virtual machine, then the custom data file will be located in the following two places. The data will be base64-encoded, so you will need to decode the data first.
++ Se sua máquina virtual do Azure é uma máquina virtual baseada em Linux, o arquivo de dados personalizado estará localizado nos dois locais a seguir. Os dados serão codificados com base-64; portanto, você precisará decodificar os dados primeiro.
 
-    + At `/var/lib/waagent/ovf-env.xml`
-    + At `/var/lib/waagent/CustomData`
+    + Em `/var/lib/waagent/ovf-env.xml`
+    + Em `/var/lib/waagent/CustomData`
 
 
 
-## Cloud-init on Azure
+## Cloud-init no Azure
 
-If your Azure virtual machine is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. Or if your custom data file is a script, then cloud-init can simply execute it.
+Se a sua máquina virtual do Azure for de uma imagem do Ubuntu ou CoreOS, você poderá usar CustomData para enviar um cloud-config para cloud-init. Ou, se o arquivo de dados personalizado for um script, cloud-init poderá simplesmente executá-lo.
 
-### Ubuntu Cloud Images
+### Imagens de nuvem do Ubuntu
 
-In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md) for more information.
+Na maioria das imagens do Linux do Azure você editaria "/etc/waagent.conf" para configurar o disco de recurso temporário e o arquivo de troca. Consulte o [Guia de usuário agente do Linux do Azure](virtual-machines-linux-agent-user-guide.md) para saber mais.
 
-However, on the Ubuntu Cloud Images, you must use cloud-init to configure the resource disk (that is, the "ephemeral" disk) and swap partition. See the following page on the Ubuntu wiki for more details: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+No entanto, nas Imagens de Nuvem do Ubuntu, devemos usar cloud-init para configurar o disco de recurso (ou seja, o disco "efêmero") e a partição de troca. Consulte a seguinte página no wiki do Ubuntu para obter mais detalhes: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps: Using cloud-init
+## Próximas etapas: usando cloud-init
 
-For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
+Para obter mais informações, consulte [Documentação de cloud-init para Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
-[Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
+[Referência da API REST de gerenciamento para adicionar serviço de função](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Azure Command-line Interface](https://github.com/Azure/azure-xplat-cli)
+[Interface de linha de comando do Azure](https://github.com/Azure/azure-xplat-cli)
+
+<!---HONumber=AcomDC_0323_2016-->

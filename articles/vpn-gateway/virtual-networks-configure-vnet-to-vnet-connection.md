@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc"/>
 
 
@@ -24,13 +24,15 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-Este artigo o guiará pelas etapas para criar e conectar redes virtuais usando o modelo de implantação clássico (também conhecido como gerenciamento de serviço). As etapas a seguir usarão uma combinação do PowerShell e do Portal Clássico do Azure. Se você quer conectar redes virtuais criadas usando o modelo de implantação do Gerenciador de Recursos, consulte [Configurar uma conexão de VNet para VNet para redes virtuais usando o Azure Resource Manager e PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+Este artigo o guiará pelas etapas para criar e conectar redes virtuais usando o modelo de implantação clássico (também conhecido como gerenciamento de serviço). As etapas abaixo usam uma combinação do PowerShell e do portal clássico do Azure.
 
 **Sobre modelos de implantação do Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]Você também pode conectar uma VNet criada no modelo clássico de implantação a uma VNet criada usando o modelo do Gerenciador de Recursos. Confira [Conectando redes virtuais clássicas a novas redes virtuais](../virtual-network/virtual-networks-arm-asm-s2s.md).
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 **Ferramentas e modelos de implantação para conexões de rede virtual a rede virtual**
+
+Uma conexão de rede virtual para rede virtual pode ser configurada em ambos os modelos de implantação e usando várias ferramentas diferentes. Consulte a tabela abaixo para obter mais informações. Podemos atualizar esta tabela conforme os novos artigos, novos modelos de implantação e ferramentas adicionais ficam disponíveis para esta configuração. Quando um artigo estiver disponível, o vincularemos diretamente da tabela.
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -140,7 +142,7 @@ Na página **Espaços de Endereço de Rede Virtual**, especifique o intervalo de
   - **Espaço de endereço** – incluindo o IP Inicial e a Contagem de Endereços. Verifique se que os espaços de endereço que você especificar não se sobrepõem a nenhum espaço de endereço que você tem em sua rede local. Para este exemplo, vamos usar 10.1.0.0/16 para VNet1.
   - **Adicionar sub-rede** – incluindo o IP Inicial e a Contagem de Endereços. Sub-redes adicionais não são necessárias, mas convém criar uma sub-rede separada para VMs que terão DIPS estáticos. Ou então, você pode colocar suas VMs em uma sub-rede separada das outras instâncias de função.
 
-**Clique na marca de seleção** no canto inferior direito da página, e a criação da sua rede virtual será iniciada. Quando ela for concluída, você verá *Criada* listada em *Status* na página *Redes* no Portal Clássico do Azure.
+**Clique na marca de seleção** no canto inferior direito da página, e a criação da sua rede virtual será iniciada. Após a conclusão, você verá *Criada* listada em *Status* na página *Redes* do portal clássico do Azure.
 
 ## Etapa 3: Criar outra rede virtual
 
@@ -164,7 +166,7 @@ Ao criar uma configuração de rede virtual com rede virtual, você precisa conf
 
 4. Depois de configurar VNet1 como uma rede local, volte e configure VNet2 usando os valores que correspondem a essa VNet.
 
-5. Agora, você apontará cada VNet para a outra como uma rede local. No Portal Clássico do Azure, vá para a página **Configurar** da VNet1. Em **Conectividade site a site**, selecione **Conectar à rede local** e, em seguida, selecione **VNET2** como a rede local.
+5. Agora, você apontará cada VNet para a outra como uma rede local. No portal clássico do Azure, vá para a página **Configurar** de VNet1. Em **Conectividade site a site**, selecione **Conectar à rede local** e, em seguida, selecione **VNET2** como a rede local.
 
   ![Conectar à rede local](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736058.jpg)
 
@@ -220,11 +222,12 @@ Aguarde até que as conexões sejam inicializadas. Depois que o gateway for inic
 
 ## Próximas etapas
 
-Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Confira a [Documentação de máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para obter mais informações.
+Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Confira a [Documentação das Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para obter mais informações.
+
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

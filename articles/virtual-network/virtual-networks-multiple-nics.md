@@ -1,14 +1,14 @@
-<properties 
+<properties
    pageTitle="Criar uma VM com diversos NICs"
    description="Saiba como criar e configurar máquinas virtuais com várias placas de rede"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carmonm"
-   editor="tysonn" 
+   editor="tysonn"
    tags="azure-service-management,azure-resource-manager"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -25,23 +25,13 @@ Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces d
 
 A figura acima mostra uma VM com três NICs, cada uma conectada a uma sub-rede diferente.
 
-## Limites e restrições
-
-Neste momento, o recurso de várias NICs tem os seguintes requisitos e restrições:
-
-- VMs de várias NICs devem ser criadas nas redes virtuais do Azure (VNets). Não há suporte para as VMs não VNet. 
-- Em um único serviço de nuvem (implantações clássicas) ou um grupo de recursos (implantação do Gerenciador de Recursos), são permitidas apenas as seguintes configurações: 
-	- Todas as VMs daquele serviço de nuvem devem ser habilitadas para várias NICs ou 
-	- Todas as VMs daquele serviço de nuvem devem ter uma única NIC cada uma 
-	- Além disso, uma máquina virtual que não tem interfaces de rede secundárias não pode ser atualizada para ter interfaces de rede secundárias e vice-versa.
-
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
- 
-- VIP da Internet (implantações clássicas) têm suporte apenas na NIC "padrão". Há apenas um VIP para o IP da NIC padrão. 
-- Neste momento, não há suporte para endereços LPIP (PI público no nível da instância) (implantações clássicas) para VMs com várias NICs. 
-- A ordem das NICs de dentro da VM será aleatória e também pode ser alterada nas atualizações da infraestrutura do Azure. No entanto, os endereços IP e os endereços ethernet MAC correspondentes permanecerão os mesmos. Por exemplo, suponha que **Eth1** tenha o endereço IP 10.1.0.100 e um endereço MAC 00-0D-3A-B0-39-0D; após uma atualização de infraestrutura e reinicialização do Azure, ela pode ser alterada para **Eth2**, mas o emparelhamento entre IP e MAC permanecerá o mesmo. Quando a reinicialização for iniciada pelo cliente, a ordem das NICs permanecerá a mesma. 
-- O endereço de cada NIC em cada máquina virtual deve estar localizado em uma sub-rede, várias NICs em uma única VM podem, cada uma, receber a atribuição de endereços que estejam na mesma sub-rede. 
-- O tamanho da VM determina o número de NICS que você pode criar para uma máquina virtual. A tabela a seguir lista os números de NICs correspondentes ao tamanho das máquinas virtuais: 
+
+- VIP da Internet (implantações clássicas) têm suporte apenas na NIC "padrão". Há apenas um VIP para o IP da NIC padrão.
+- Neste momento, não há suporte para endereços LPIP (PI público no nível da instância) (implantações clássicas) para VMs com várias NICs.
+- A ordem das NICs de dentro da VM será aleatória e também pode ser alterada nas atualizações da infraestrutura do Azure. No entanto, os endereços IP e os endereços ethernet MAC correspondentes permanecerão os mesmos. Por exemplo, suponha que **Eth1** tenha o endereço IP 10.1.0.100 e um endereço MAC 00-0D-3A-B0-39-0D; após uma atualização de infraestrutura e reinicialização do Azure, ela pode ser alterada para **Eth2**, mas o emparelhamento entre IP e MAC permanecerá o mesmo. Quando a reinicialização for iniciada pelo cliente, a ordem das NICs permanecerá a mesma.
+- O endereço de cada NIC em cada máquina virtual deve estar localizado em uma sub-rede, várias NICs em uma única VM podem, cada uma, receber a atribuição de endereços que estejam na mesma sub-rede.
+- O tamanho da VM determina o número de NICS que você pode criar para uma máquina virtual. A tabela a seguir lista os números de NICs correspondentes ao tamanho das máquinas virtuais:
 
 |Tamanho da VM (SKUs padrão)|NICs (máx. permitido por VM)|
 |---|---|
@@ -95,8 +85,8 @@ Em uma implantação do Gerenciador de recursos, qualquer NIC em uma máquina vi
 
 Se uma sub-rede for associada a um NSG e uma NIC dessa sub-rede for associada individualmente a um NSG, as regras do NSG associado serão aplicadas na **ordem de fluxo** de acordo com a direção do tráfego que estiver sendo passado para dentro ou para fora da NIC:
 
-- **O **tráfego de entrada **cujo destino é a NIC em questão flui primeiro pela sub-rede, acionando as regras do NSG da sub-rede, antes de passar para a NIC, quando serão acionadas as regras do NSG da NIC.
-- O **tráfego de saída** cujo destino é a NIC em questão flui primeiro para fora da sub-rede, acionando as regras do NSG da NIC, antes de passar pela sub-rede, quando serão acionadas as regras do NSG da sub-rede. 
+- O **tráfego de entrada** cujo destino é a NIC em questão flui primeiro pela sub-rede, disparando as regras do NSG da sub-rede, antes de passar pela NIC, quando serão acionadas as regras do NSG da NIC.
+- O **tráfego de saída** cujo destino é a NIC em questão flui primeiro para fora da sub-rede, acionando as regras do NSG da NIC, antes de passar pela sub-rede, quando serão acionadas as regras do NSG da sub-rede.
 
 Saiba mais sobre [grupos de segurança de rede](virtual-networks-nsg.md) e como elas são aplicados com base nas associações a sub-redes, VMs e NICs.
 
@@ -134,8 +124,8 @@ As instruções a seguir o ajudarão a criar uma VM de várias NICs contendo 3 N
 
 Para criar uma máquina virtual com várias placas de rede (NICs), siga as etapas abaixo:
 
-1. Selecione uma imagem de VM na galeria de imagens de VMs do Azure. Observe que as imagens são alteradas frequentemente e estão disponíveis por região. A imagem especificada no exemplo a seguir pode ser alterada ou pode não ser da sua região, portanto certifique-se de especificar a imagem correta. 
-	    
+1. Selecione uma imagem de VM na galeria de imagens de VMs do Azure. Observe que as imagens são alteradas frequentemente e estão disponíveis por região. A imagem especificada no exemplo a seguir pode ser alterada ou pode não ser da sua região, portanto certifique-se de especificar a imagem correta.
+
 		$image = Get-AzureVMImage `
 	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
@@ -152,13 +142,13 @@ Para criar uma máquina virtual com várias placas de rede (NICs), siga as etapa
 1. Adicione outras NICs à configuração da VM.
 
 		Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
-			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm 
+			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm
 		Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
 			-SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
 
 1. Especifique a sub-rede e o endereço IP da NIC padrão.
 
-		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm 
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm
 		Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
 
 1. Crie a VM na sua rede virtual.
@@ -167,11 +157,20 @@ Para criar uma máquina virtual com várias placas de rede (NICs), siga as etapa
 
 >[AZURE.NOTE] A VNet que você especificar aqui já deve existir (conforme mencionado nos pré-requisitos). O exemplo a seguir especifica uma rede virtual chamada **MultiNIC-VNet**.
 
-## Acesso secundário à NIC para outras sub-redes
+## Limitações
 
-O modelo atual no Azure é que, todas as NICs em uma máquina virtual são configuradas com um gateway padrão. Isso permite que as NICs se comuniquem com endereços IP fora de sua sub-rede. Em sistemas operacionais que usam o modelo de roteamento de host fraco, como o Linux, a conectividade da Internet será interrompida se o tráfego de entrada e saída usar NICs diferentes.
+As seguintes limitações são aplicáveis ao usar o recurso de NICs múltiplas:
 
-Para corrigir esse problema, o Azure disponibilizará uma atualização nas primeiras semanas de julho de 2015 para a plataforma que removerá o gateway padrão das placas de rede secundárias. Isso não afetará as máquinas virtuais existentes até que elas sejam reinicializadas. Após a reinicialização, as novas configurações entrarão em vigor; neste momento, o fluxo de tráfego nas NICs secundárias será limitado para dentro da mesma sub-rede. Se os usuários desejarem habilitar NICs secundárias para falar fora da sua própria sub-rede, precisarão adicionar uma entrada à tabela de roteamento para configurar o gateway, conforme descrito abaixo.
+- VMs de várias NICs devem ser criadas nas redes virtuais do Azure (VNets). As VMs que não sejam Redes Virtuais não pode ser configuradas com NICs múltiplas.
+- Todas as VMs em um conjunto de disponibilidade precisam usar NICs múltiplas ou uma única NIC. Não é possível haver uma combinação de VMs com NICs múltiplas e VMs com uma única NIC em um conjunto de disponibilidade. As mesmas regras se aplicam a VMs em um serviço de nuvem.
+- Uma VM com uma única NIC não pode ser configurada com várias NICs (e vice-versa) depois de implantada, sem sua exclusão e recriação.
+
+
+## Acesso a NICs secundárias a outras sub-redes
+
+Por padrão, as NICs secundárias não serão configuradas com um gateway padrão e, devido a isso, o fluxo de tráfego nas NICs secundárias será limitado à mesma sub-rede. Se os usuários desejarem habilitar NICs secundárias para falar fora de suas próprias sub-redes, precisarão adicionar uma entrada à tabela de roteamento para configurar o gateway, conforme descrito abaixo.
+
+>[AZURE.NOTE] VMs criadas antes de julho de 2015 poderão ter um gateway padrão configurado para todas as NICs. O gateway padrão para NICs secundárias não será removido até que essas VMs sejam reinicializadas. Em sistemas operacionais que usam o modelo de roteamento de host fraco, como o Linux, a conectividade da Internet poderá ser interrompida se o tráfego de entrada e de saída usarem NICs diferentes.
 
 ### Configurar máquinas virtuais do Windows
 
@@ -208,7 +207,7 @@ A tabela de rotas do IPv4 para essa VM ficaria assim:
 Observe que a rota padrão (0.0.0.0) só está disponível para a NIC primária. Você não conseguirá acessar recursos fora da sub-rede para a NIC secundária, conforme mostrado abaixo:
 
 	C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
-	 
+
 	Pinging 192.168.1.7 from 192.165.2.5 with 32 bytes of data:
 	PING: transmit failed. General failure.
 	PING: transmit failed. General failure.
@@ -237,7 +236,7 @@ Para adicionar uma rota padrão à NIC secundária, siga as etapas abaixo:
 4. Para testar a conectividade, volte ao prompt de comando e tente executar o ping em uma sub-rede diferente da NIC secundária, como int eh, mostrado no exemplo a seguir:
 
 		C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
-		 
+
 		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
 		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
 		Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
@@ -266,4 +265,4 @@ Para VMs do Linux, como o comportamento padrão usa roteamento de host fraco, re
 - Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação do Gerenciador de Recursos](virtual-network-deploy-multinic-arm-template.md).
 - Implante [VMs com MultiNIC em um cenário de aplicativo de 2 camadas, em uma implantação clássica](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

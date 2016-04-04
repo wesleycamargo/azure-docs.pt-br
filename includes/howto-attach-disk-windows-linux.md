@@ -1,5 +1,5 @@
 
-Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](virtual-machines-disks-vhds.md).
+Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](virtual-machines-linux-about-disks-vhds.md).
 
 ##<a id="attachempty"></a>Tutorial: anexar um disco vazio
 
@@ -10,12 +10,12 @@ Anexar um disco vazio é um modo simples de se adicionar um disco de dados, porq
 2. Na barra de comandos, clique em **Anexar** e, em seguida, clique em **Anexar Disco Vazio**.
 
 
-	![Anexar um disco vazio](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
+	![Anexar um disco vazio](./media/howto-attach-disk-windows-linux/AttachEmptyDisk.png)
 
 3.	A caixa de diálogo **Anexar disco vazio** é exibida.
 
 
-	![Anexar um novo disco vazio](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
+	![Anexar um novo disco vazio](./media/howto-attach-disk-windows-linux/AttachEmptyDetail.png)
 
 
 	Faça o seguinte:
@@ -28,7 +28,7 @@ Anexar um disco vazio é um modo simples de se adicionar um disco de dados, porq
 
 4.	Após o disco de dados ser criado e anexado, ele é listado no painel da VM.
 
-	![Disco de dados vazio anexado com êxito](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
+	![Disco de dados vazio anexado com êxito](./media/howto-attach-disk-windows-linux/AttachEmptySuccess.png)
 
 > [AZURE.NOTE] Depois de adicionar um novo disco de dados, você precisará fazer logon na VM e inicializar o disco para que ele possa ser usado.
 
@@ -42,16 +42,16 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 2. Na barra de comandos, clique em **Anexar** e, em seguida, selecione **Anexar Disco**.
 
 
-	![Anexar disco de dados](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
+	![Anexar disco de dados](./media/howto-attach-disk-windows-linux/AttachExistingDisk.png)
 
 
 3. Selecione o disco de dados e, em seguida, clique na marca de seleção para anexar o disco de dados.
 
-	![Insira os detalhes do disco de dados](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
+	![Insira os detalhes do disco de dados](./media/howto-attach-disk-windows-linux/AttachExistingDetail.png)
 
 4.	Após o disco de dados ser anexado, ele é listado no painel da VM.
 
 
-	![Disco de dados anexado com êxito](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
+	![Disco de dados anexado com êxito](./media/howto-attach-disk-windows-linux/AttachExistingSuccess.png)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

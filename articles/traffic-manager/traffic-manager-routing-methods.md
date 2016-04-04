@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Métodos de roteamento do Gerenciador de Tráfego
@@ -45,7 +45,7 @@ A Figura 1 mostra um exemplo do método de roteamento de tráfego de failover pa
 
 **Figura 1**
 
-As etapas numeradas a seguir correspondem aos números na Figura 1.
+As etapas numeradas a seguir correspondem aos números na Figura 1.
 
 1. O Gerenciador de Tráfego recebe uma solicitação de entrada de um cliente por meio do DNS e localiza o perfil.
 2. O perfil contém uma lista ordenada de pontos de extremidade. O Gerenciador de Tráfego verifica qual ponto de extremidade é o primeiro na lista. Se o ponto de extremidade estiver online (com base no monitoramento de ponto de extremidade contínuo), ele especificará o nome DNS do ponto de extremidade na resposta DNS para o cliente. Se o ponto de extremidade estiver offline, o Gerenciador de Tráfego determinará o próximo ponto de extremidade online na lista. Neste exemplo, CS-A está offline (não disponível), mas CS-B está online (disponível).
@@ -54,7 +54,7 @@ As etapas numeradas a seguir correspondem aos números na Figura 1.
 
 ## Método de roteamento de tráfego de round robin
 
-Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de extremidade idênticos e enviar tráfego para cada um deles em um estilo round robin. O método Round Robin divide o tráfego entre vários pontos de extremidade. Ele seleciona um ponto de extremidade íntegro aleatoriamente e não enviará tráfego a serviços que são detectados como estando desativados. Para obter mais informações, consulte [Monitoramento do Gerenciador de Tráfego](../traffic-manager-monitoring.md).
+Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de extremidade idênticos e enviar tráfego para cada um deles em um estilo round robin. O método Round Robin divide o tráfego entre vários pontos de extremidade. Ele seleciona um ponto de extremidade íntegro aleatoriamente e não enviará tráfego a serviços que são detectados como estando desativados. Para obter mais informações, consulte [Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
 
 A Figura 2 mostra um exemplo do método de roteamento de tráfego de round robin para um conjunto de pontos de extremidade.
 
@@ -62,7 +62,7 @@ A Figura 2 mostra um exemplo do método de roteamento de tráfego de round robin
 
 **Figura 2**
 
-As etapas numeradas a seguir correspondem aos números na Figura 2.
+As etapas numeradas a seguir correspondem aos números na Figura 2.
 
 1. O Gerenciador de Tráfego recebe uma solicitação de entrada de um cliente e localiza o perfil.
 2. O perfil contém uma lista de pontos de extremidade. O Gerenciador de Tráfego seleciona um ponto de extremidade nessa lista aleatoriamente, excluindo qualquer ponto de extremidade offline (não disponível) determinado pelo monitoramento de ponto de extremidade do Gerenciador de Tráfego. Neste exemplo, esse é o ponto de extremidade CS-B.
@@ -101,7 +101,7 @@ A Figura 4 mostra um exemplo do método de roteamento de tráfego de desempenho 
 
 **Figura 4**
 
-As etapas numeradas a seguir correspondem aos números na Figura 4.
+As etapas numeradas a seguir correspondem aos números na Figura 4.
 
 1. O Gerenciador de Tráfego cria a Tabela de Latência da Internet periodicamente. A infraestrutura do Gerenciador de Tráfego executa testes para determinar os tempos de viagem de ida e volta entre diferentes pontos no mundo e os data centers do Azure que hospedam pontos de extremidade.
 2. O Gerenciador de Tráfego recebe uma solicitação de entrada de um cliente por meio de seu servidor DNS local e localiza o perfil.
@@ -130,4 +130,4 @@ Se você quiser obter as figuras deste tópico como slides do PowerPoint para su
 [Adicionar um ponto de extremidade](traffic-manager-endpoints.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

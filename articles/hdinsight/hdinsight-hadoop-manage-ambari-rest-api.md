@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 #Gerenciar clusters HDInsight usando a API REST do Ambari
@@ -23,7 +23,7 @@
 
 O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST. O Ambari está incluído em clusters HDInsight baseados em Linux e é usado para monitorar o cluster e fazer alterações de configuração. Neste documento, você aprenderá os fundamentos de como trabalhar com a API REST do Ambari realizando tarefas comuns, como encontrar o nome de domínio totalmente qualificado dos nós do cluster ou localizar a conta de armazenamento padrão usada pelo cluster.
 
-> [AZURE.NOTE]As informações deste artigo só se aplicam a clusters HDInsight baseados em Linux. Para os clusters HDInsight baseados no Windows, apenas um subconjunto da funcionalidade de monitoramento está disponível pela API REST do Ambari. Consulte [Monitorar Hadoop baseado em Windows no HDInsight usando a API do Ambari](hdinsight-monitor-use-ambari-api.md).
+> [AZURE.NOTE] As informações deste artigo só se aplicam a clusters HDInsight baseados em Linux. Para os clusters HDInsight baseados no Windows, apenas um subconjunto da funcionalidade de monitoramento está disponível pela API REST do Ambari. Consulte [Monitorar Hadoop baseado em Windows no HDInsight usando a API do Ambari](hdinsight-monitor-use-ambari-api.md).
 
 ##Pré-requisitos
 
@@ -32,7 +32,7 @@ O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop,
 
 ##<a id="whatis"></a>O que é o Ambari?
 
-O <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplifica o gerenciamento do Hadoop, fornecendo uma IU da Web fácil de usar que pode ser utilizada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar esses recursos em seus aplicativos usando as <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">APIs REST do Ambari</a>.
+O [Apache Ambari](http://ambari.apache.org) simplifica o gerenciamento do Hadoop, fornecendo uma interface do usuário da Web fácil de usar que pode ser utilizada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux.
 
@@ -40,7 +40,7 @@ Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux.
 
 O URI de base para a API REST do Ambari no HDInsight é https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, no qual __NOMEDOCLUSTER__ é o nome do cluster.
 
-> [AZURE.IMPORTANT]A conexão com o Ambari no HDInsight exige HTTPS. Você também deve autenticar no Ambari usando o nome da conta de administrador (o padrão é __admin__) e a senha fornecidos durante a criação do cluster.
+> [AZURE.IMPORTANT] A conexão com o Ambari no HDInsight exige HTTPS. Você também deve autenticar no Ambari usando o nome da conta de administrador (o padrão é __admin__) e a senha fornecidos durante a criação do cluster.
 
 Veja a seguir um exemplo do uso de cURL para executar uma solicitação GET na API REST:
 
@@ -71,7 +71,7 @@ Como se trata de JSON, normalmente é mais fácil usar um analisador JSON para r
     
 Isso recupera o documento JSON e redireciona a saída para jq. `'.Clusters.health_report."Host/host_status/ALERT"'` indica o elemento dentro do documento JSON que você deseja recuperar.
 
-> [AZURE.NOTE]O elemento __Host/host\_status/ALERT__ está entre aspas para indicar que '/' faz parte do nome do elemento. Para saber mais sobre como usar jq, consulte o [site do jq](https://stedolan.github.io/jq/).
+> [AZURE.NOTE] O elemento __Host/host\_status/ALERT__ está entre aspas para indicar que '/' faz parte do nome do elemento. Para saber mais sobre como usar jq, consulte o [site do jq](https://stedolan.github.io/jq/).
 
 ##Exemplo: obter o FQDN de nós do cluster
 
@@ -97,7 +97,7 @@ O exemplo a seguir recuperará o URI WASB do armazenamento padrão de clusters:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
-> [AZURE.NOTE]Isso retornará a primeira configuração aplicada ao servidor (`service_config_version=1`) que conterá essas informações. Se você estiver recuperando um valor que foi modificado após a criação do cluster, talvez seja necessário listar as versões de configuração e recuperar a mais recente.
+> [AZURE.NOTE] Isso retornará a primeira configuração aplicada ao servidor (`service_config_version=1`) que conterá essas informações. Se você estiver recuperando um valor que foi modificado após a criação do cluster, talvez seja necessário listar as versões de configuração e recuperar a mais recente.
 
 Isso retornará um valor semelhante ao seguinte, no qual __CONTÊINER__ é o contêiner padrão e __NOMEDACONTA__ é o nome da conta de Armazenamento do Azure:
 
@@ -111,7 +111,7 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
     
     Isso retornará o nome do grupo de recursos para a conta.
     
-    > [AZURE.NOTE]Se nada for retornado por este comando, talvez você precise alterar a CLI do Azure para o modo do Gerenciador de Recursos do Azure e executar o comando novamente. Para alternar para o modo do Gerenciador de Recursos do Azure, use o seguinte comando.
+    > [AZURE.NOTE] Se nada for retornado por este comando, talvez você precise alterar a CLI do Azure para o modo do Gerenciador de Recursos do Azure e executar o comando novamente. Para alternar para o modo do Gerenciador de Recursos do Azure, use o seguinte comando.
     >
     > `azure config mode arm`
     
@@ -133,6 +133,6 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
 
 Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-> [AZURE.NOTE]Algumas funcionalidades do Ambari estão desabilitadas, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços.
+> [AZURE.NOTE] Algumas funcionalidades do Ambari estão desabilitadas, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

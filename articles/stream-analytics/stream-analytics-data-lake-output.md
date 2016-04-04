@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="03/10/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"
 />
 
@@ -27,7 +27,7 @@ Trabalhos do Stream Analytics dão suporte a vários métodos de saída, sendo u
 
 ## Autorizar uma conta do Repositório Data Lake
 
-1.  Quando o Repositório Data Lake é selecionado como uma saída no portal de Gerenciamento do Azure, você é solicitado a autorizar o uso de seu Repositório Data Lake existente ou a solicitar acesso à visualização do Repositório Data Lake por meio da Versão Prévia do Portal do Azure.
+1.  Quando o Repositório Data Lake é selecionado como uma saída no portal de Gerenciamento do Azure, é solicitado que você autorize o uso de seu Repositório Data Lake existente ou solicite acesso à Preview do Repositório Data Lake por meio do Portal Clássico do Azure.
 
     ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
 
@@ -92,4 +92,4 @@ Para resolver esse problema, pare seu trabalho em execução e vá para a saída
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

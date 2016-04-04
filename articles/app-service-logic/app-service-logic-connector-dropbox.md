@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="sameerch"/>
 
 # Comece a usar o Conector do Dropbox e adicione-o a seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do Dropbox](../connectors/create-api-dropbox.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do Dropbox](../connectors/connectors-create-api-dropbox.md).
 
 Conecte-se à conta do Dropbox para carregar ou baixar arquivos. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados. Você pode adicionar o Conector do Dropbox a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
 
@@ -37,7 +37,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Pesquise "Conector do Dropbox", selecione-o e selecione **Criar**.
-3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
+3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades:
 	![][1]
 	- **Local** - escolha a região geográfica onde você quer que o conector seja implantado
 	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
@@ -53,11 +53,11 @@ Depois que o aplicativo de API for criado, você poderá usar o Conector do Drop
 
 1.	No aplicativo lógico, abra **Gatilhos e Ações** para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo: 
 	![][3]
-2.	O conector do Dropbox está listado na galeria:  
+2.	O conector do Dropbox está listado na galeria: 
 	![][4]
 3.	Selecione o conector do Dropbox para adicionar automaticamente no designer. Selecione **Autorizar**, insira as suas credenciais e selecione **Permitir**:  
-	![][5] 
-	![][6] 
+	![][5]
+	![][6]
 	![][7]
 
 Agora você pode usar o conector do Dropbox no fluxo. Você pode usar a ação do Dropbox "Carregar Arquivo" para carregar um arquivo para sua conta do Dropbox: 
@@ -91,4 +91,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

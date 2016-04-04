@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # Usar o MapReduce no Hadoop do HDInsight
@@ -53,8 +53,6 @@ O streaming do Hadoop se comunica com o mapeador e redutor por STDIN e STDOUT: o
 Para saber mais, confira [Streaming do Hadoop](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 Para obter exemplos do uso de streaming com o HDInsight do Hadoop, confira o seguinte:
-
-* [Desenvolver programas de streaming do Hadoop em C#](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 * [Desenvolver trabalhos do MapReduce Python](hdinsight-hadoop-streaming-python.md)
 
@@ -169,8 +167,6 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 
 * [Desenvolver programas MapReduce de streaming do Hadoop para o HDInsight](hdinsight-hadoop-streaming-python.md)
 
-* [Desenvolver programas MapReduce de streaming do Hadoop em C# para o HDInsight][hdinsight-develop-streaming]
-
 * [Desenvolver trabalhos de MapReduce do Scalding com o Apache Hadoop no HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
 
 * [Usar o Hive com o HDInsight][hdinsight-use-hive]
@@ -193,4 +189,4 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

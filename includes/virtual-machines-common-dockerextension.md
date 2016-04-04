@@ -1,65 +1,67 @@
 
 
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating application data and computing on shared resources. You can use the [Azure Docker VM extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md) to the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) to create a Docker VM that hosts any number of containers for your applications on Azure.
+O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a [extensão de VM do Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) no [Agente Azure Linux](virtual-machines-linux-agent-user-guide.md) para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure.
 
-This topic describes:
+Este tópico descreve:
 
-+ [Docker and Linux Containers]
-+ [How to use the Docker VM Extension with Azure]
-+ [Virtual Machine Extensions for Linux and Windows]
++ [Contêineres Docker e Linux]
++ [Como usar a Extensão de VM do Docker com o Azure]
++ [Extensões de máquina virtual para Linux e Windows]
 
-To create Docker-enabled VMs right now, see:
+Para criar máquinas virtuais habilitadas para Docker agora mesmo, confira:
 
-+ [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]
-+ [How to use the Docker VM Extension with the Azure classic portal]
-+ [How to Get Started Quickly with Docker in the Azure Marketplace]
++ [Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]
++ [Como usar a extensão de VM do Docker com o portal clássico do Azure]
++ [Como começar rapidamente com o Docker no Marketplace do Azure]
 
-To learn more about the extension and how it works, see the [Docker Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md).
+Para saber mais sobre a extensão e como ela funciona, consulte o [Guia do usuário de extensão do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md).
 
-## Docker and Linux Containers
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources and provides other services that enable you to build or assemble applications quickly and distribute them between other Docker containers.
+## Contêineres Docker e Linux
+O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que usa [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como uma forma de isolar dados e computar recursos compartilhados, e oferece outros serviços que lhe permitem criar ou compilar aplicativos rapidamente e distribuí-los entre outros contêineres Docker.
 
-Docker and Linux containers are not [Hypervisors](http://en.wikipedia.org/wiki/Hypervisor) such as Windows Hyper-V and [KVM](http://www.linux-kvm.org/page/Main_Page) on Linux (there are many other examples). Hypervisors virtualize the underlying operating system to enable complete operating systems (called *virtual machines*) to run inside the hypervisor as if they were an application.
+Contêineres Docker e Linux não são [Hipervisores](http://en.wikipedia.org/wiki/Hypervisor) como o Windows Hyper-V e o [KVM](http://www.linux-kvm.org/page/Main_Page) no Linux (há muitos outros exemplos). Hipervisores virtualizam o sistema operacional subjacente para habilitar sistemas operacionais completos (chamados de *máquinas virtuais*) a serem executados dentro do hipervisor como se fossem um aplicativo.
 
-Docker and other *container* approaches have radically decreased both the start-up time consumed and processing and storage overhead required by using the process and file system isolation features of the Linux kernel to expose only kernel features to an otherwise isolated container.
+O Docker e outras abordagens de *contêiner* diminuíram radicalmente o tempo de inicialização e a sobrecarga de processamento e armazenamento necessária para usar os recursos de isolamento de sistema e processo do kernel Linux para expor somente recursos do kernel a um contêiner que, de outra forma, permanece isolado.
 
-The following table describes at a very high level the kind of feature differences that exist between hypervisors and Linux containers. Note that some features maybe more or less desirable depending upon your own application needs.
+A tabela a seguir descreve detalhadamente as diferenças dos recursos dos hipervisores e dos contêineres Linux. Alguns recursos podem ser mais ou menos úteis, dependendo das necessidades dos aplicativos.
 
-|   Feature      | Hypervisors | Containers  |
+| Recurso | Hipervisores | Contêineres |
 | :------------- |-------------| ----------- |
-| Process Isolation | More or less complete | If root is obtained, container host could be compromised |
-| Memory on disk required | Complete OS plus apps | App requirements only |
-| Time taken to start up | Substantially Longer: Boot of OS plus app loading | Substantially shorter: Only apps need to start because kernel is already running  |
-| Container Automation | Varies widely depending on OS and apps | [Docker image gallery](https://registry.hub.docker.com/); others
+| Isolamento do processo | Parcial | Se a raiz for obtida, o contêiner será comprometido |
+| Requisição de memória em disco | SO completo, mais aplicativos | Somente os requisitos dos aplicativos |
+| Tempo necessário para iniciar | Muito mais longo: inicialização do sistema operacional e carregamento do aplicativo | Muito mais curto: somente os aplicativos precisam ser iniciados porque o kernel já está em execução |
+| Automação do contêiner | Varia muito de acordo com o SO e os aplicativos | [Galeria de imagens do Docker](https://registry.hub.docker.com/); outros
 
-To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
-For more information about what Docker is and how it really works, see [What is Docker?](https://www.docker.com/whatisdocker/)
+Para obter mais informações sobre o Docker e seu funcionamento, confira [O que é o Docker?](https://www.docker.com/whatisdocker/)
 
-#### Docker and Linux Container Security Best Practices
+#### Práticas recomendadas para a segurança do contêiner do Linux e do Docker
 
-Because containers do share access to the host computer's kernel, if malicious code is able to gain root it may also be able to gain access not only to the host computer but also the other containers. To secure your container system more strongly than the default configuration, [Docker recommends](https://docs.docker.com/articles/security/) using addition group-policy or [role-based security](http://en.wikipedia.org/wiki/Role-based_access_control) as well, such as [SELinux](http://selinuxproject.org/page/Main_Page) or [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), for example, as well as reducing as much as possible the kernel capabilities that the containers are granted. In addition, there are many other documents on the Internet that describe approaches to security using containers like Docker.
+Como os contêineres compartilham o acesso ao kernel do computador hóspede, se códigos mal-intencionados conseguirem acessar a raiz, eles poderão também acessar não só o computador hóspede, mas todos os outros contêineres. Para ir além da segurança proporcionada ao sistema de contêineres pela configuração padrão, a [Docker recomenda](https://docs.docker.com/articles/security/) o uso de uma política de grupo para adição ou [segurança baseada em funções](http://en.wikipedia.org/wiki/Role-based_access_control), como [SELinux](http://selinuxproject.org/page/Main_Page) ou [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), por exemplo, além de recomendar a redução ao máximo das funcionalidades do kernel concedidas aos contêineres. Além disso, há muitos outros documentos na Internet que descrevem abordagens de segurança ao usar contêineres como o Docker.
 
-## How to use the Docker VM Extension with Azure
+## Como usar a Extensão de VM Docker com o Azure
 
-The Docker VM Extension is a component that is installed in the VM instance that you create which itself installs the Docker engine and manages remote communication with the VM. There are two ways to install the VM Extension: You can create your VM using the management portal or you can create it from the Azure Command-line Interface (Azure CLI).
+A extensão de máquina virtual Docker é um componente que, quando instalado na instância VM que você criou, instala o mecanismo Docker e gerencia a comunicação remota com a máquina virtual. Há duas maneiras de instalar a extensão de VM: você pode criar sua VM usando o portal de gerenciamento ou você pode criá-la a partir da interface de linha de comando do Azure (CLI do Azure).
 
-You can use the portal to add the Docker VM Extension to any compatible Linux VM (currently, the only image that supports it is the Ubuntu 14.04 LTS image more recent than July). Using the Azure CLI command line, however, you can install the Docker VM Extension and create and upload your Docker communication certificates all at the same time when you create the VM instance.
+Você pode usar o portal para adicionar a extensão de máquina virtual Docker a qualquer máquina virtual Linux compatível (no momento, somente as imagens Ubuntu 14.04 LTS posteriores a julho têm suporte). No entanto, ao usar a linha de comando CLI do Azure, você pode instalar a extensão de VM do Docker e criar e fazer upload de seus certificados de comunicação Docker enquanto cria a instância VM.
 
-To create Docker-enabled VMs right now, see:
+Para criar máquinas virtuais habilitadas para Docker agora mesmo, confira:
 
-+ [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]
-+ [How to use the Docker VM Extension with the Azure classic portal]
++ [Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]
++ [Como usar a extensão de VM do Docker com o portal clássico do Azure]
 
-## Virtual Machine Extensions for Linux and Windows
-The [Docker VM extension for Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) is just one of several VM extensions that provide special behaviour, and more are in development. For example, several of the [Linux VM Agent extension](virtual-machines-linux-agent-user-guide.md) features allow you to modify and manage the Virtual Machine, including security features, kernel and networking features, and so on. The VMAccess extension for example lets you reset the administrator password or SSH key.
+## Extensões de máquina virtual para Linux e Windows
+A [extensão de VM do Docker para Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) é apenas uma das diversas extensões que oferecem comportamentos especiais, e outras estão sendo desenvolvidas. Por exemplo, diversos recursos da [extensão do Agente de VM Linux](virtual-machines-linux-agent-user-guide.md) permitem que você modifique e gerencie a máquina virtual, incluindo recursos de segurança, recursos de kernel e rede e assim por diante. A extensão VMAccess, por exemplo, permite redefinir a senha de administrador ou a chave SSH.
 
-For a complete list, see [Azure VM Extensions](virtual-machines-windows-extensions-features.md).
+Para obter uma lista completa, consulte [Extensões de VM do Azure](virtual-machines-windows-extensions-features.md).
 
 <!--Anchors-->
-[How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[How to use the Docker VM Extension with the Azure classic portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
-[How to Get Started Quickly with Docker in the Azure Marketplace]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
-[Docker and Linux Containers]: #Docker-and-Linux-Containers
-[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Como usar a extensão de VM do Docker com o portal clássico do Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Como começar rapidamente com o Docker no Marketplace do Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
+[Contêineres Docker e Linux]: #Docker-and-Linux-Containers
+[Como usar a Extensão de VM do Docker com o Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Extensões de máquina virtual para Linux e Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+
+<!---HONumber=AcomDC_0323_2016-->

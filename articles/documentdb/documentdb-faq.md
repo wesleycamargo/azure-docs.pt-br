@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="03/23/2016" 
 	ms.author="mimig"/>
 
 
@@ -43,7 +43,7 @@ Sim, o Banco de Dados de Documentos suporta transações entre documentos expres
 O Banco de Dados de Documentos é uma boa opção para novos aplicativos Web e dispositivos móveis nos quais escala, desempenho e a capacidade de consultar dados sem esquema são importantes. O Banco de Dados de Documentos funciona bem em contextos de desenvolvimento rápido e dá suporte à iteração contínua de modelos de dados de aplicativos. Os aplicativos que gerenciam conteúdo e dados gerados pelo usuário são [casos de uso comuns do Banco de Dados de Documentos](documentdb-use-cases.md).
 
 ### O Banco de Dados de Documentos é compatível com HIPAA?
-No momento, o Banco de Dados de Documentos não é compatível com HIPAA; no entanto, há planos de torná-lo um serviço do Azure compatível com HIPAA. Para saber mais sobre a Microsoft e a HIPAA, veja [HIPAA e o HITECH Act](https://www.microsoft.com/pt-BR/TrustCenter/Compliance/HIPAA).
+Sim, o Banco de Dados de Documentos é compatível com HIPAA. A HIPAA estabelece os requisitos para o uso, a divulgação e a proteção de informações de integridade individualmente identificáveis. Para obter mais informações, veja a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/pt-BR/TrustCenter/Compliance/HIPAA).
 
 ### Quais são os limites de dimensionamento do Banco de Dados de Documentos?
 Contas do Banco de Dados de Documentos podem ser dimensionadas em termos de armazenamento e taxa de transferência com a adição de coleções. Veja [Limites do Banco de Dados de Documentos](documentdb-limits.md) para ver as cotas de serviço para o número de coleções. Se precisar de coleções adicionais, [entre em contato com o suporte](documentdb-increase-limits.md) para que a cota de sua conta seja aumentada.
@@ -115,4 +115,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

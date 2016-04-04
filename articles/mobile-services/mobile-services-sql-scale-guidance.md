@@ -74,8 +74,8 @@ Quando estiver familiarizado com as diferentes camadas do banco de dados, podemo
 6. Verifique se as métricas relevantes são exibidas usando o botão **Adicionar Métricas**. Inclua o seguinte
     - *Porcentagem de CPU* (disponível apenas nas camadas Basic/Standard/Premium)
 
-    - *Porcentagem de E/S de Dados* (disponível apenas nos tipos Básico/Standard/Premium)
-    - *Porcentagem de E/S de Log* (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Porcentagem de E/S de Dados * (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Porcentagem de E/S de Log * (disponível apenas nos tipos Básico/Standard/Premium)
     - *Armazenamento* 
 7. Inspecione as métricas pela janela de tempo quando seu serviço estiver passando por problemas. 
 
@@ -213,7 +213,9 @@ Essa seção abrange algumas das tarefas de diagnóstico mais avançadas, as qua
 ### Pré-requisitos
 Para executar algumas das tarefas de diagnóstico nesta seção, você precisa acessar uma ferramenta de gerenciamento de bancos de dados SQL, como o **SQL Server Management Studio**, ou a funcionalidade interna de gerenciamento do **portal clássico do Azure**.
 
-O SQL Server Management Studio é um aplicativo gratuito do Windows que oferece os recursos mais avançados. Se você não tiver acesso a um computador Windows (por exemplo, se você estiver usando um Mac), considere provisionar uma Máquina Virtual no Azure, conforme mostrado em [Criar uma máquina virtual executando o Windows Server](../virtual-machines/virtual-machines-windows-tutorial.md) e, em seguida, conecte-se remotamente a ela. Se você pretender usar a MV com a finalidade principal de executar o SQL Server Management Studio, uma instância **A0 Básica** (anteriormente chamada de "Extra Pequena") deve ser suficiente.
+
+O SQL Server Management Studio é um aplicativo gratuito do Windows que oferece os recursos mais avançados. Se você não tiver acesso a um computador Windows (por exemplo, se você estiver usando um Mac), considere provisionar uma Máquina Virtual no Azure, conforme mostrado em [Criar uma máquina virtual executando o Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md) e, em seguida, conecte-se remotamente a ela. Se você pretender usar a MV com a finalidade principal de executar o SQL Server Management Studio, uma instância **A0 Básica** (anteriormente chamada de "Extra Pequena") deve ser suficiente.
+
 
 O portal clássico do Azure oferece uma experiência de gerenciamento interna que é mais limitada, mas está disponível sem a necessidade de uma instalação local.
 
@@ -492,4 +494,4 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 <!-- BLOG LINKS -->
 [Quanto custa essa chave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

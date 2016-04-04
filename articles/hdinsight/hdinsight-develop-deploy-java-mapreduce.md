@@ -571,7 +571,6 @@ Depois que o trabalho for concluído, você terá as opções de exportar os dad
 ##<a id="nextsteps"></a>Próximas etapas
 Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce em Java, a testar o aplicativo no emulador do HDInsight e a gravar um script do Azure PowerShell para provisionar um cluster HDInsight e executar um trabalho do MapReduce no cluster. Para saber mais, consulte os seguintes artigos:
 
-- [Desenvolver programas MapReduce de streaming do Hadoop em C# para o HDInsight][hdinsight-develop-streaming]
 - [Introdução ao Azure HDInsight][hdinsight-get-started]
 - [Introdução ao Emulador do HDInsight][hdinsight-emulator]
 - [Usar o armazenamento de Blob do Azure com o HDInsight][hdinsight-storage]
@@ -590,7 +589,6 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce em Java, a te
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-emulator]: ../hdinsight-get-started-emulator.md
@@ -610,4 +608,4 @@ Neste tutorial, você aprendeu a desenvolver um trabalho MapReduce em Java, a te
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

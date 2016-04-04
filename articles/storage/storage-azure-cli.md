@@ -25,7 +25,7 @@ Neste guia, exploraremos como usar a [Interface de Linha de Comando do Azure (CL
 
 Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Este guia fornece vários scripts que demonstram o uso da CLI do Azure com o Armazenamento do Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
 
-> [AZURE.NOTE] O guia fornece os exemplos de comando e script da CLI do Azure em execução no modo ASM (Gerenciamento de Serviços do Azure). Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para ver comandos de CLI do Azure para armazenamento no modo ARM (Modo de Gerenciamento de Recursos) do Azure.
+> [AZURE.NOTE] O guia fornece os exemplos de comando e script da CLI do Azure em execução no modo ASM (Gerenciamento de Serviços do Azure). Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para ver comandos de CLI do Azure para armazenamento no modo ARM (Modo de Gerenciamento de Recursos) do Azure.
 
 ## Introdução ao Armazenamento do Azure e à CLI do Azure em 5 minutos
 
@@ -221,4 +221,4 @@ Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Arm
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

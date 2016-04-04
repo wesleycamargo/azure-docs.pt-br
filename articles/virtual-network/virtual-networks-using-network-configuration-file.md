@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
-	ms.date="12/07/2015"
+	ms.date="03/15/2016"
 	ms.author="telmos"/>
 
 # Configurar uma rede virtual usando um arquivo de configuração de rede
@@ -48,4 +48,4 @@ Quando você exporta, todas as configurações para as redes virtuais na sua ass
 3. Na página **Importar o arquivo de configuração de rede**, navegue até o arquivo de configuração de rede e, em seguida, clique na seta **Avançar**.
 4. Na página **Criar sua rede**, você verá as informações na tela mostrando quais seções da sua configuração de rede serão alteradas ou criadas. Se as alterações estiverem corretas para você, clique na marca de seleção para continuar para atualizar ou criar sua rede virtual. 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

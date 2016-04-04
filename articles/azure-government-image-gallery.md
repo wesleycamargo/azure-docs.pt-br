@@ -93,15 +93,15 @@ O recursos abaixo devem fornecer mais informações sobre como implantar da gale
 
 ###Outros recursos: 
 
-- [Implantação de uma Máquina Virtual do Windows](../virtual-machines/virtual-machines-windows-tutorial.md)
+- [Implantação de uma Máquina Virtual do Windows](virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Implantar uma Máquina Virtual Linux](../virtual-machines/virtual-machines-linux-tutorial.md)
+- [Implantar uma Máquina Virtual Linux](virtual-machines/virtual-machines-linux-cli-create.md)
 
 - [Perguntas Frequentes sobre Máquina Virtual](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
-- [Criar e carregar seu próprio VHD](../virtual-machines-create-upload-vhd-windows-server/)
+- [Criar e carregar seu próprio VHD](virtual-machines-create-upload-vhd-windows-server/)
 
-- [Capturar imagem de VM do Linux](../virtual-machines/virtual-machines-linux-capture-image.md)
+- [Capturar imagem de VM do Linux](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
@@ -114,8 +114,8 @@ O recursos abaixo devem fornecer mais informações sobre como implantar da gale
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

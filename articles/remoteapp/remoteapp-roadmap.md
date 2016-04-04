@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="03/08/2016"
+    ms.date="03/23/2016"
     ms.author="elizapo" />
 
 # O que vem pela frente no RemoteApp do Azure
 
 Estamos sempre trabalhando para melhorar o RemoteApp do Azure com base em seus comentários. Aqui estão as linhas de tempo aproximadas para disponibilidade futura de recursos.
 
-|Recurso|Jan-mar 2016|Abril-junho de 2016|
+|Recurso|Abril-junho de 2016|Julho/set de 2016|
 |-----------|-------|-------|
 |Aplicativo do RemoteApp do Azure disponível em ambos o [Portal clássico do Azure](http://manage.windowsazure.com) e o [Portal do Azure](https://portal.azure.com) |X | |
 |Aplicativo Universal do Windows 10 com Continuum para RemoteApp do Azure - Visualização|X| |
@@ -47,4 +47,4 @@ Outros aperfeiçoamentos adicionados no início deste ano:
 - Disponibilidade em datacenters australianos
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

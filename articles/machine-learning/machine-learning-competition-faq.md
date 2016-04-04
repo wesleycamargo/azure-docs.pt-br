@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Perguntas frequentes sobre a competição do Aprendizado de Máquina | Microsoft Azure"
-	description="Perguntas frequentes sobre as competições do Aprendizado de Máquina do Microsoft Azure."
+	description="Perguntas frequentes sobre as competições do Microsoft Cortana Analytics Suite."
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,7 +16,7 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# Perguntas frequentes sobre a competição do Aprendizado de Máquina do Microsoft Azure
+# Perguntas frequentes sobre as competições do Microsoft Cortana Analytics Suite
 
 **Onde posso fazer perguntas gerais sobre a ciência de dados?**
 
@@ -70,4 +70,4 @@ A Microsoft verificará os resultados do placar de líderes privado e, logo em s
 
 Se você for um vencedor do concurso, precisará assinar uma declaração de qualificação, licença e isenção. Este formulário reitera as Regras da Competição. Os vencedores precisarão preencher um formulário Fiscal dos EUA W-9 ou um formulário W-8BEN se não forem contribuintes dos EUA.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

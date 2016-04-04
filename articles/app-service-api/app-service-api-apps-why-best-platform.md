@@ -34,7 +34,7 @@ Os aplicativos de API oferecem os seguintes recursos:
 
 - **Integração do Visual Studio** -Ferramentas dedicadas no Visual Studio simplificam o trabalho de criação, implantação, consumo, depuração e gerenciamento de aplicativos de API. Para obter mais informações, consulte [Anunciando o SDK 2.8.1 do Azure para .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
 
-- **Integração com Aplicativos lógicos** - Aplicativos de API criados por você podem ser consumidos por [Aplicativos lógicos do Serviço de Aplicativo](../app-service-logic/app-service-logic-what-are-logic-apps.md). Aprenda como em [Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos](../app-service-logic/app-service-logic-custom-hosted-api.md). Para obter informações sobre mudanças contínuas sobre como os aplicativos de API se integram com aplicativos lógicos, consulte [Aplicativos de API do Serviço de Aplicativo - O que mudou](app-service-api-whats-changed.md).
+- **Integração com Aplicativos lógicos** - Aplicativos de API criados por você podem ser consumidos por [Aplicativos lógicos do Serviço de Aplicativo](../app-service-logic/app-service-logic-what-are-logic-apps.md). Para obter mais informações, veja [Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos lógicos](../app-service-logic/app-service-logic-custom-hosted-api.md) e [Nova versão de esquema 2015-08-01-preview](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 - **Coloque sua API existente como ela está** - Você não precisa alterar nenhum código em suas APIs existentes para tirar proveito dos recursos de Aplicativos de API. Basta implantar seu código em um aplicativo de API. Sua API pode usar qualquer linguagem ou estrutura com suporte do Serviço de Aplicativo, incluindo ASP.NET e C#, Java, PHP, Node.js e Python.
 
@@ -64,4 +64,4 @@ Para começar a usar os Aplicativos de API, siga um dos tutoriais de [Introduç�
 
 Para fazer perguntas sobre os aplicativos de API, inicie um thread no [Fórum dos Aplicativos de API](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->
