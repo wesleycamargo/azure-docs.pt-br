@@ -60,11 +60,11 @@ Com o [PowerShell](powershell-install-configure.md), você pode usar uma linha d
 - **Cmdlets do PowerShell com um modelo do Gerenciador de Recursos do Azure:** você pode usar o PowerShell para criar recursos do Azure usando um modelo do Gerenciador de Recursos do Azure. Os modelos podem ser salvos e versões podem ser criadas. Saiba mais ao ler o artigo [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md). Vários [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) existem para soluções comuns, e eles podem ser baixados e também modificados.
 
 ## CLI
-Você pode criar e configurar recursos do Azure de computadores com Windows, OS X ou Linux usando a CLI. Leia o artigo [Instalar a CLI do Azure](xplat-cli-install.md) para instalar a CLI no sistema operacional de sua escolha. Como o PowerShell, há diferentes comandos que devem ser usados se você estiver criando recursos usando os modelos de implantação do [Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) ou do [Clássico (Gerenciamento de serviço)](virtual-machines/virtual-machines-command-line-tools.md).
+Você pode criar e configurar recursos do Azure de computadores com Windows, OS X ou Linux usando a CLI. Leia o artigo [Instalar a CLI do Azure](xplat-cli-install.md) para instalar a CLI no sistema operacional de sua escolha. Como o PowerShell, há diferentes comandos que devem ser usados se você estiver criando recursos usando os modelos de implantação do [Gerenciador de Recursos](xplat-cli-azure-resource-manager.md) ou do [Clássico (Gerenciamento de serviço)](./virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md).
 
 ## Próximas etapas
 
 - Saiba mais sobre o [Gerenciador de Recursos](resource-group-overview.md).
 - Entenda como [criar modelos](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

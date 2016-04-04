@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/04/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -113,7 +113,7 @@ Uma conta de serviço local é criada pelo assistente de instalação (a menos q
 
 A conta é criada com uma senha longa complexa que não expira.
 
-Essa conta será usada pelo Windows para armazenar as chaves de criptografia, então a senha dessa conta não deve ser redefinida ou alterada.
+Essa conta é usada para armazenar as senhas das outras contas de maneira segura. As senhas dessas outras contas são armazenadas criptografadas no banco de dados. As chaves privadas das chaves de criptografia são protegidas com a criptografia de chave secreta dos serviços de criptografia usando o DPAPI (Proteção aos Dados do Windows). A senha da conta de serviço não deverá ser redefinida, pois o Windows destruirá, em seguida, as chaves de criptografia por motivos de segurança.
 
 Se você usar um SQL Server completo, a conta de serviço será o DBO do banco de dados criado para o mecanismo de sincronização. O serviço não funcionará conforme esperado com qualquer outra permissão. Um logon SQL também será criado.
 
@@ -134,4 +134,4 @@ A conta de serviço é criada com uma senha longa e complexa que não expira. El
 
 Saiba mais sobre [Como integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

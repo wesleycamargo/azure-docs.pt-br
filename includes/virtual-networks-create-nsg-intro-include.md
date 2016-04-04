@@ -2,4 +2,4 @@ Você pode usar um NSG para controlar o tráfego em uma ou mais instâncias de m
 
 Para saber mais sobre NSGs, visite [O que é NSG](../articles/virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

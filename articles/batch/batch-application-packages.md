@@ -66,11 +66,11 @@ Para usar pacotes de aplicativos, em primeiro lugar, você deve vincular uma con
 
 ![Aviso de nenhuma conta de armazenamento configurada no portal do Azure][9]
 
-O serviço do Lote usa a conta de armazenamento associada para o armazenamento e a recuperação dos pacotes de aplicativos. Depois que você tiver vinculado as duas contas, o Lote poderá implantar automaticamente os pacotes armazenados na conta de armazenamento vinculada nos nós de computação. Clique em **Configurações da conta de armazenamento**, na folha *Aviso*, e em **Conta de Armazenamento**, na folha *Conta de Armazenamento*, para vincular uma conta de armazenamento existente à sua conta do Lote.
+O serviço do Lote usa a conta de armazenamento associada para o armazenamento e a recuperação dos pacotes de aplicativos. Depois que você tiver vinculado as duas contas, o Lote poderá implantar automaticamente os pacotes armazenados na conta de armazenamento vinculada nos nós de computação. Clique em **Configurações da conta de armazenamento**, na folha *Aviso*, e em **Conta de Armazenamento**, na folha *Conta de Armazenamento*, para vincular uma conta de armazenamento à sua conta do Lote.
 
 ![Folha Escolher conta de armazenamento no portal do Azure][10]
 
-Você pode usar uma conta de armazenamento existente da sua assinatura ou criar uma para armazenamento do pacote de aplicativos. Para obter detalhes sobre como criar uma conta de armazenamento, confira "Criar uma conta de armazenamento" em [Sobre contas de armazenamento do Azure](../storage/storage-create-storage-account.md). Depois de criar uma conta de armazenamento, você poderá vinculá-la à sua conta do Lote usando a folha *Conta de Armazenamento*.
+Recomendamos que você crie uma conta de armazenamento para uso *específico* com sua conta do Lote e que a selecione aqui. Para obter detalhes sobre como criar uma conta de armazenamento, confira "Criar uma conta de armazenamento" em [Sobre contas de armazenamento do Azure](../storage/storage-create-storage-account.md). Depois de criar uma conta de armazenamento, você poderá vinculá-la à sua conta do Lote usando a folha *Conta de Armazenamento*.
 
 > [AZURE.WARNING] Como o Lote armazena os pacotes de aplicativos usando o Armazenamento do Azure, você será [cobrado normalmente][storage_pricing] pelos dados do blob de blocos. Não se esqueça de considerar o tamanho e o número de pacotes de aplicativos e, periodicamente, remova pacotes preteridos para minimizar o custo.
 
@@ -98,7 +98,7 @@ Clicar em um aplicativo na folha *Aplicativos* exibe a folha de detalhes do apli
 
 Na folha de detalhes do aplicativo, você pode configurar as definições a seguir para o aplicativo.
 
-* **Permitir atualizações** -especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos (confira abaixo "Atualizar ou excluir um pacote de aplicativos").
+* **Permitir atualizações** - especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos (confira abaixo "Atualizar ou excluir um pacote de aplicativos").
 * **Versão padrão** - especifique um pacote de aplicativos padrão para implantar nos nós de computação.
 * **Nome de exibição** - esse é um nome "amigável" que sua solução de Lote pode usar ao exibir informações sobre o aplicativo, como a interface de usuário de um serviço que você fornece aos seus clientes por meio do Lote.
 
@@ -120,7 +120,7 @@ Para especificar um arquivo de metadados formatado por JSON contendo a ID e a ve
 
 ![Seletor suspenso Carregar arquivo de metadados][6]
 
-Em seguida, clique no ícone de pasta ao lado da caixa de texto **Arquivo de metadados** que aparece e navegue até o arquivo local que contém os dados JSON. Neste exemplo, o arquivo `litware_1.1001.2b.json` foi selecionado para carregamento e as caixas de texto **ID do aplicativo** e **Versão** foram populadas automaticamente com as informações do arquivo:
+Em seguida, clique no ícone de pasta ao lado da caixa de texto **Arquivo de metadados** que aparecer e navegue até o arquivo local que contém os dados JSON. Neste exemplo, o arquivo `litware_1.1001.2b.json` foi selecionado para carregamento e as caixas de texto **ID do aplicativo** e **Versão** foram populadas automaticamente com as informações do arquivo:
 
 ![Detalhes de seleção do arquivo de metadados][13]
 
@@ -133,7 +133,7 @@ Use o formato JSON a seguir para especificar os metadados do pacote de aplicativ
 }
 ```
 
-> [AZURE.NOTE] Se você carregar um arquivo de metadados JSON para a ID e a versão, *não* será necessário editar as caixas de texto "ID do aplicativo" ou "Versão"; elas são populadas automaticamente com os dados do arquivo JSON.
+> [AZURE.NOTE] Se você carregar um arquivo de metadados JSON para a ID e a versão, *não* será necessário editar as caixas de texto "ID do aplicativo" ou "Versão"; elas são preenchidas automaticamente com os dados do arquivo JSON.
 
 **ID do aplicativo**
 
@@ -226,7 +226,7 @@ Por exemplo, se você especificar que a versão 2.7 do aplicativo *mesclador* se
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-Se o aplicativo especificar uma versão padrão, você poderá fazer referência à variável de ambiente sem o sufixo da cadeia de caracteres da versão. Por exemplo, se você especificou a versão 2.7 padrão para o aplicativo *mesclador* no portal do Azure, suas tarefas poderão fazer referência à seguinte variável de ambiente:
+Se o aplicativo especificar uma versão padrão, você poderá fazer referência à variável de ambiente sem o sufixo da cadeia de caracteres da versão. Por exemplo, se você tiver especificado a versão 2.7 padrão para o aplicativo *mesclador* no portal do Azure, suas tarefas poderão fazer referência à seguinte variável de ambiente:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
@@ -316,4 +316,4 @@ Com os pacotes de aplicativos, você pode fornecer mais facilmente aos clientes 
 [12]: ./media/batch-application-packages/app_pkg_12.png "Caixa de diálogo de confirmação Excluir pacote no portal do Azure"
 [13]: ./media/batch-application-packages/app_pkg_13.png "Detalhes de seleção do arquivo de metadados"
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

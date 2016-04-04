@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Criar uma pilha LAMP com o Azure | Microsoft Azure"
 	description="Saiba como criar uma pilha de LÂMPADA com o Microsoft Azure usando máquinas virtuais do Azure (VMs) que executam o Linux."
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -456,4 +456,4 @@ Uma vez que você tenha configurado a pilha LAMP com êxito, você pode implanta
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

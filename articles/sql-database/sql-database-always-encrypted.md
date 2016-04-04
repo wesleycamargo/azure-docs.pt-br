@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Proteger dados confidenciais no Banco de Dados SQL com a criptografia do banco de dados | Microsoft Azure"
+	pageTitle="Sempre Criptografado – Proteger dados confidenciais no Banco de Dados SQL do Azure com criptografia de banco de dados"
 	description="Proteja dados confidenciais no banco de dados SQL em minutos."
 	keywords="criptografar dados, criptografia do sql, criptografia de banco de dados, dados confidenciais, sempre criptografados"	
 	services="sql-database"
@@ -18,7 +18,7 @@
 	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# Proteger dados confidenciais no Banco de Dados SQL com a criptografia de banco de dados e armazenar suas chaves de criptografia no repositório de certificados do Windows
+# Sempre Criptografado – Proteger dados confidenciais no Banco de Dados SQL com a criptografia de banco de dados e armazenar as chaves de criptografia no repositório de certificados do Windows
 
 > [AZURE.SELECTOR]
 - [Cofre da Chave do Azure](sql-database-always-encrypted-azure-key-vault.md)
@@ -550,4 +550,4 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 - [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

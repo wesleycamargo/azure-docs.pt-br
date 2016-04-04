@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # Como exibir relatórios de integridade do Service Fabric
@@ -32,10 +32,10 @@ O Service Fabric fornece várias maneiras de obter a integridade agregada de ent
 Para demonstrar essas opções, vamos usar um cluster local com cinco nós. Ao lado do aplicativo **fabric:/System** (que existe originalmente), alguns outros aplicativos são implantados. Um deles é **fabric:/WordCount**. Esse aplicativo contém um serviço com estado configurado com sete réplicas. Como há apenas cinco nós, os componentes do sistema mostrarão um aviso de que a partição está abaixo da contagem de destino.
 
 ```xml
-<Service Name="WordCount.Service">
-  <StatefulService ServiceTypeName="WordCount.Service" MinReplicaSetSize="2" TargetReplicaSetSize="7">
-    <UniformInt64Partition PartitionCount="1" LowKey="1" HighKey="26" />
-  </StatefulService>
+<Service Name="WordCountService">
+    <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="2">
+      <UniformInt64Partition PartitionCount="1" LowKey="1" HighKey="26" />
+    </StatefulService>
 </Service>
 ```
 
@@ -44,7 +44,7 @@ O Gerenciador da Malha do Serviço fornece uma exibição visual do cluster. Na 
 
 - O aplicativo **fabric:/WordCount** está vermelho (em erro) porque ele tem um evento de erro relatado por **MyWatchdog** para a propriedade **Disponibilidade**.
 
-- Um dos seus serviços, **fabric:/WordCount/WordCount.Service** está amarelo (em aviso). Conforme descrito acima, o serviço está configurado com sete réplicas, que não podem ser todas colocadas (uma vez que há apenas 5 nós). Embora não seja mostrado aqui, a partição de serviço está amarela devido ao relatório do sistema. A partição amarela dispara o serviço amarelo.
+- Um de seus serviços, **fabric:/WordCount/WordCountService** está amarelo (em aviso). Conforme descrito acima, o serviço está configurado com sete réplicas, que não podem ser todas colocadas (uma vez que há apenas 5 nós). Embora não seja mostrado aqui, a partição de serviço está amarela devido ao relatório do sistema. A partição amarela dispara o serviço amarelo.
 
 - O cluster está vermelho devido ao aplicativo vermelho.
 
@@ -81,20 +81,22 @@ A integridade de uma entidade contém as seguintes informações:
 ## Obter integridade do cluster
 Isso retorna a integridade da entidade do cluster e contém os estados da integridade de aplicativos e nós (filhos do cluster). Entrada:
 
+- [Opcional] A política de integridade do cluster usada para avaliar os nós e os eventos de cluster.
+
 - [Opcional] Mapa da política de integridade do aplicativo, com políticas de integridade usadas para substituir as políticas do manifesto do aplicativo.
 
 - [Opcional] Filtros de eventos, nós e aplicativos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Observe que todos os eventos, nós e aplicativos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### API
-Para obter a integridade do cluster, crie um **FabricClient** e chame o método [**GetClusterHealthAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthasync.aspx) em seu **HealthManager**.
+Para obter a integridade do cluster, crie um `FabricClient` e chame o método [GetClusterHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthasync.aspx) em seu **HealthManager**.
 
 A seguir, você obtém a integridade do cluster:
 
 ```csharp
-ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync().Result;
+ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-O código a seguir obtém a integridade do cluster usando política de integridade de cluster personalizada para nós e aplicativos. Observe que ele cria **System.Fabric.Description.[ClusterHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.clusterhealthquerydescription.aspx)**, que contém todos os dados de entrada.
+O código a seguir obtém a integridade do cluster usando política de integridade de cluster personalizada para nós e aplicativos. Observe que ele cria [ClusterHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.clusterhealthquerydescription.aspx), que contém todos os dados de entrada.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -103,11 +105,11 @@ var policy = new ClusterHealthPolicy()
 };
 var nodesFilter = new NodeHealthStatesFilter()
 {
-    HealthStateFilter = (long)(HealthStateFilter.Error | HealthStateFilter.Warning)
+    HealthStateFilterValue = HealthStateFilter.Error | HealthStateFilter.Warning
 };
 var applicationsFilter = new ApplicationHealthStatesFilter()
 {
-    HealthStateFilter = (long)HealthStateFilter.Error
+    HealthStateFilterValue = HealthStateFilter.Error
 };
 var queryDescription = new ClusterHealthQueryDescription()
 {
@@ -115,11 +117,12 @@ var queryDescription = new ClusterHealthQueryDescription()
     ApplicationsFilter = applicationsFilter,
     NodesFilter = nodesFilter,
 };
-ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync(queryDescription).Result;
+
+ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync(queryDescription);
 ```
 
 ### PowerShell
-O cmdlet para obter a integridade do cluster é **[Get-ServiceFabricClusterHealth](https://msdn.microsoft.com/library/mt125850.aspx)**. Primeiro, conecte-se ao cluster usando o cmdlet **Connect-ServiceFabricCluster**.
+O cmdlet para obter a integridade do cluster é [Get-ServiceFabricClusterHealth](https://msdn.microsoft.com/library/mt125850.aspx). Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
 Estado do cluster é de cinco nós, o aplicativo do sistema e fabric:/WordCount configurados conforme mostra acima.
 
@@ -130,40 +133,36 @@ PS C:\> Get-ServiceFabricClusterHealth
 
 AggregatedHealthState   : Warning
 UnhealthyEvaluations    :
-                          Unhealthy applications: 50% (1/2), MaxPercentUnhealthyApplications=0%.
+                          Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
 
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Warning'.
 
-                          Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                              Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                          Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Warning'.
+                              Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
 
-                          Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                  Unhealthy event: SourceId='System.PLB',
+                          Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
+                          ConsiderWarningAsError=false.
 
-                          Unhealthy partition: PartitionId='889909a3-04d6-4a01-97c1-3e9851d77d6c', AggregatedHealthState='Warning'.
-
-                          Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
 
 NodeHealthStates        :
-                          NodeName              : Node.4
+                          NodeName              : _Node_2
                           AggregatedHealthState : Ok
 
-                          NodeName              : Node.2
+                          NodeName              : _Node_0
                           AggregatedHealthState : Ok
 
-                          NodeName              : Node.1
+                          NodeName              : _Node_1
                           AggregatedHealthState : Ok
 
-                          NodeName              : Node.5
+                          NodeName              : _Node_3
                           AggregatedHealthState : Ok
 
-                          NodeName              : Node.3
+                          NodeName              : _Node_4
                           AggregatedHealthState : Ok
 
 ApplicationHealthStates :
-                          ApplicationName       : fabric:/CalculatorActor
-                          AggregatedHealthState : Ok
-
                           ApplicationName       : fabric:/System
                           AggregatedHealthState : Ok
 
@@ -181,24 +180,22 @@ $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
 $appHealthPolicyMap.Add($appUri1, $appHealthPolicy)
-$warningAndErrorFilter = [System.Fabric.Health.HealthStateFilter]::Warning.value__  + [System.Fabric.Health.HealthStateFilter]::Error.value__
-Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -ApplicationsHealthStateFilter $warningAndErrorFilter -NodesHealthStateFilter $warningAndErrorFilter
+Get-ServiceFabricClusterHealth -ApplicationHealthPolicyMap $appHealthPolicyMap -ApplicationsFilter "Warning,Error" -NodesFilter "Warning,Error"
+
 
 AggregatedHealthState   : Error
 UnhealthyEvaluations    :
-                          Unhealthy applications: 50% (1/2), MaxPercentUnhealthyApplications=0%.
+                          Unhealthy applications: 100% (1/1), MaxPercentUnhealthyApplications=0%.
 
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Error'.
 
-                          Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                              Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                          Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
+                              Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
 
-                          Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-
-                          Unhealthy partition: PartitionId='889909a3-04d6-4a01-97c1-3e9851d77d6c', AggregatedHealthState='Error'.
-
-                          Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+                                  Unhealthy event: SourceId='System.PLB',
+                          Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
+                          ConsiderWarningAsError=true.
 
 
 NodeHealthStates        : None
@@ -220,46 +217,47 @@ Isso retorna a integridade de uma entidade de nó e contém os eventos de integr
 - [Opcional] Filtros de eventos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Observe que todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### API
-Para obter a integridade do nó por meio da API, crie um FabricClient e chame o método **GetNodeHealthAsync** em seu HealthManager.
+Para obter a integridade do nó por meio da API, crie um `FabricClient` e chame o método [GetNodeHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getnodehealthasync.aspx) em seu HealthManager.
 
 O exemplo a seguir obtém a integridade de nó para o nome de nó especificado:
 
 ```csharp
-NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(nodeName).Result;
+NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-O exemplo a seguir obtém a integridade de nó para o nome do nó especificado e passa um filtro de eventos e política personalizada por meio de **System.Fabric.Description.[NodeHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.nodehealthquerydescription.aspx)**:
+O exemplo a seguir obtém a integridade de nó para o nome do nó especificado e passa um filtro de eventos e política personalizada por meio de [NodeHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.nodehealthquerydescription.aspx):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
 {
     HealthPolicy = new ClusterHealthPolicy() {  ConsiderWarningAsError = true },
-    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)HealthStateFilter.Warning },
+    EventsFilter = new HealthEventsFilter() { HealthStateFilterValue = HealthStateFilter.Warning },
 };
 
-NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(queryDescription).Result;
+NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(queryDescription);
 ```
 
 ### PowerShell
-O cmdlet para obter a integridade do nó é **Get-ServiceFabricNodeHealth**. Primeiro, conecte-se ao cluster usando o cmdlet **Connect-ServiceFabricCluster**. O cmdlet a seguir obtém a integridade do nó usando políticas de integridade padrão:
+O cmdlet para obter a integridade do nó é [Get-ServiceFabricNodeHealth](https://msdn.microsoft.com/library/mt125937.aspx). Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). O cmdlet a seguir obtém a integridade do nó usando políticas de integridade padrão:
 
 ```powershell
-PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth _Node_1
 
-NodeName              : Node.1
+
+NodeName              : _Node_1
 AggregatedHealthState : Ok
 HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 5
-                        SentAt                : 4/21/2015 8:01:17 AM
-                        ReceivedAt            : 4/21/2015 8:02:12 AM
+                        SequenceNumber        : 6
+                        SentAt                : 3/22/2016 7:47:56 PM
+                        ReceivedAt            : 3/22/2016 7:48:19 PM
                         TTL                   : Infinite
                         Description           : Fabric node is up.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/21/2015 8:02:12 AM
+                        Transitions           : Error->Ok = 3/22/2016 7:48:19 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 O cmdlet a seguir obtém a integridade de todos os nós no cluster.
@@ -269,11 +267,11 @@ PS C:\> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, A
 
 NodeName AggregatedHealthState
 -------- ---------------------
-Node.4                      Ok
-Node.2                      Ok
-Node.1                      Ok
-Node.5                      Ok
-Node.3                      Ok
+_Node_2                     Ok
+_Node_0                     Ok
+_Node_1                     Ok
+_Node_3                     Ok
+_Node_4                     Ok
 ```
 
 ## Obter integridade do aplicativo
@@ -286,15 +284,15 @@ Isso retorna a integridade de uma entidade de aplicativo. Contém os estados de 
 - [Opcional] Filtros de eventos, serviços e aplicativos implantados que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Observe que todos os eventos, serviços e aplicativos implantados são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### API
-Para obter a integridade do aplicativo, crie um FabricClient e chame o método **GetApplicationHealthAsync** em seu HealthManager.
+Para obter a integridade do aplicativo, crie um `FabricClient` e chame o método [GetApplicationHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getapplicationhealthasync.aspx) em seu HealthManager.
 
 O código a seguir obtém a integridade do aplicativo para o nome do aplicativo especificado (URI):
 
 ```csharp
-ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationHealthAsync(applicationName).Result;
+ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-O exemplo a seguir obtém a integridade do aplicativo para o nome do aplicativo especificado (URI), com filtros e políticas personalizadas especificadas por meio de **System.Fabric.Description.ApplicationHealthQueryDescription**.
+O exemplo a seguir obtém a integridade do aplicativo para o nome do aplicativo especificado (URI), com filtros e políticas personalizadas especificadas por meio de [ApplicationHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.applicationhealthquerydescription.aspx).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -314,102 +312,107 @@ var policy = new ApplicationHealthPolicy()
 var queryDescription = new ApplicationHealthQueryDescription(applicationName)
 {
     HealthPolicy = policy,
-    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)warningAndErrors },
-    ServicesFilter = new ServiceHealthStatesFilter() { HealthStateFilter = (long)warningAndErrors },
-    DeployedApplicationsFilter = new DeployedApplicationHealthStatesFilter() { HealthStateFilter = (long)warningAndErrors },
+    EventsFilter = new HealthEventsFilter() { HealthStateFilterValue = warningAndErrors },
+    ServicesFilter = new ServiceHealthStatesFilter() { HealthStateFilterValue = warningAndErrors },
+    DeployedApplicationsFilter = new DeployedApplicationHealthStatesFilter() { HealthStateFilterValue = warningAndErrors },
 };
 
-ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationHealthAsync(queryDescription).Result;
+ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(queryDescription);
 ```
 
 ### PowerShell
-O cmdlet para obter a integridade do aplicativos é **Get-ServiceFabricApplicationHealth**. Primeiro, conecte-se ao cluster usando o cmdlet **Connect-ServiceFabricCluster**.
+O cmdlet para obter a integridade do aplicativos é [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx). Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
-O cmdlet a seguir retorna a integridade do aplicativo fabric:/WordCount.
+O cmdlet a seguir retorna a integridade do aplicativo **fabric:/WordCount**.
 
 ```powershell
-PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS c:>
+PS C:\WINDOWS\system32>  Get-ServiceFabricApplicationHealth fabric:/WordCount
+
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
 UnhealthyEvaluations            :
-                                  Unhealthy services: 100% (1/1), ServiceType='WordCount.Service',
-                                  MaxPercentUnhealthyServices=0%.
+                                  Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service',
-                                  AggregatedHealthState='Warning'.
+                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Warning'.
 
-                                  Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-
-                                  Unhealthy partition: PartitionId='325da69f-16d4-4418-9c30-1feaa40a072c',
-                                  AggregatedHealthState='Warning'.
-
-                                  Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning',
+                                      Unhealthy event: SourceId='System.PLB',
+                                  Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
                                   ConsiderWarningAsError=false.
 
 ServiceHealthStates             :
-                                  ServiceName           : fabric:/WordCount/WordCount.WebService
-                                  AggregatedHealthState : Ok
-
-                                  ServiceName           : fabric:/WordCount/WordCount.Service
+                                  ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Warning
+
+                                  ServiceName           : fabric:/WordCount/WordCountWebService
+                                  AggregatedHealthState : Ok
 
 DeployedApplicationHealthStates :
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.2
+                                  NodeName              : _Node_0
                                   AggregatedHealthState : Ok
 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.5
+                                  NodeName              : _Node_2
                                   AggregatedHealthState : Ok
 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.4
+                                  NodeName              : _Node_3
                                   AggregatedHealthState : Ok
 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.1
+                                  NodeName              : _Node_4
                                   AggregatedHealthState : Ok
 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.3
+                                  NodeName              : _Node_1
                                   AggregatedHealthState : Ok
 
 HealthEvents                    :
                                   SourceId              : System.CM
                                   Property              : State
                                   HealthState           : Ok
-                                  SequenceNumber        : 2456
-                                  SentAt                : 4/20/2015 9:57:06 PM
-                                  ReceivedAt            : 4/20/2015 9:57:06 PM
+                                  SequenceNumber        : 360
+                                  SentAt                : 3/22/2016 7:56:53 PM
+                                  ReceivedAt            : 3/22/2016 7:56:53 PM
                                   TTL                   : Infinite
                                   Description           : Application has been created.
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
-                                  Transitions           : ->Ok = 4/20/2015 9:57:06 PM
+                                  Transitions           : Error->Ok = 3/22/2016 7:56:53 PM, LastWarning = 1/1/0001 12:00:00 AM
+
+                                  SourceId              : MyWatchdog
+                                  Property              : Availability
+                                  HealthState           : Ok
+                                  SequenceNumber        : 131031545225930951
+                                  SentAt                : 3/22/2016 9:08:42 PM
+                                  ReceivedAt            : 3/22/2016 9:08:42 PM
+                                  TTL                   : Infinite
+                                  Description           : Availability checked successfully, latency ok
+                                  RemoveWhenExpired     : False
+                                  IsExpired             : False
+                                  Transitions           : Error->Ok = 3/22/2016 8:55:39 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 O cmdlet do PowerShell a seguir passa políticas personalizadas. Ele também filtra filhos e eventos.
 
 ```powershell
-PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
-Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesHealthStateFilter $errorFilter -EventsHealthStateFilter $errorFilter -DeployedApplicationsHealthStateFilter $errorFilter
+PS C:\> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
 UnhealthyEvaluations            :
-                                  Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                                  Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
+                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
 
-                                  Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-
-                                  Unhealthy partition: PartitionId='8f82daff-eb68-4fd9-b631-7a37629e08c0', AggregatedHealthState='Error'.
-
-                                  Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+                                      Unhealthy event: SourceId='System.PLB',
+                                  Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
+                                  ConsiderWarningAsError=true.
 
 ServiceHealthStates             :
-                                  ServiceName           : fabric:/WordCount/WordCount.Service
+                                  ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Error
 
 DeployedApplicationHealthStates : None
@@ -420,64 +423,101 @@ HealthEvents                    : None
 Isso retorna a integridade de uma entidade de serviço. Além disso, contém os estados de integridade da partição. Entrada:
 
 - [Obrigatório] O nome de serviço (URI) que identifica o serviço.
+
 - [Opcional] A política de integridade do aplicativo usada para substituir a política do manifesto do aplicativo.
+
 - [Opcional] Filtros de eventos e partições que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Observe que todos os eventos e partições são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### API
-Para obter a integridade do serviço por meio de API, crie um FabricClient e chame o método **GetServiceHealthAsync** em seu HealthManager.
+Para obter a integridade do serviço por meio de API, crie um `FabricClient` e chame o método [GetServiceHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getservicehealthasync.aspx) em seu HealthManager.
 
 O exemplo a seguir obtém a integridade de um serviço com o nome do serviço especificado (URI):
 
 ```charp
-ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(serviceName).Result;
+ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-O exemplo a seguir obtém a integridade do serviço para o nome do serviço especificado (URI), especificando filtros e política personalizada por meio de System.Fabric.Description.ServiceHealthQueryDescription.
+O exemplo a seguir obtém a integridade do serviço para o nome do serviço especificado (URI), especificando filtros e política personalizada por meio de [ServiceHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.servicehealthquerydescription.aspx):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
 {
-    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)HealthStateFilter.All },
-    PartitionsFilter = new PartitionHealthStatesFilter() { HealthStateFilter = (long)HealthStateFilter.Error },
+    EventsFilter = new HealthEventsFilter() { HealthStateFilterValue = HealthStateFilter.All },
+    PartitionsFilter = new PartitionHealthStatesFilter() { HealthStateFilterValue = HealthStateFilter.Error },
 };
 
-ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(queryDescription).Result;
+ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(queryDescription);
 ```
 
 ### PowerShell
-O cmdlet para obter a integridade do serviço é **Get-ServiceFabricServiceHealth**. Primeiro, conecte-se ao cluster usando o cmdlet **Connect-ServiceFabricCluster**.
+O cmdlet para obter a integridade do serviço é [Get-ServiceFabricServiceHealth](https://msdn.microsoft.com/library/mt125984.aspx). Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
 O cmdlet a seguir obtém a integridade do serviço usando políticas de integridade padrão:
 
 ```powershell
-PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
+PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCountService
 
 
-ServiceName           : fabric:/WordCount/WordCount.Service
+ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Warning
 UnhealthyEvaluations  :
-                        Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
-
-                        Unhealthy partition: PartitionId='8f82daff-eb68-4fd9-b631-7a37629e08c0', AggregatedHealthState='Warning'.
-
-                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+                        Unhealthy event: SourceId='System.PLB',
+                        Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
+                        ConsiderWarningAsError=false.
 
 PartitionHealthStates :
-                        PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
+                        PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
                         AggregatedHealthState : Warning
 
 HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 3
-                        SentAt                : 4/20/2015 10:12:29 PM
-                        ReceivedAt            : 4/20/2015 10:12:33 PM
+                        SequenceNumber        : 10
+                        SentAt                : 3/22/2016 7:56:53 PM
+                        ReceivedAt            : 3/22/2016 7:57:18 PM
                         TTL                   : Infinite
                         Description           : Service has been created.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:33 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
+
+                        SourceId              : System.PLB
+                        Property              : ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                        HealthState           : Warning
+                        SequenceNumber        : 131031547693687021
+                        SentAt                : 3/22/2016 9:12:49 PM
+                        ReceivedAt            : 3/22/2016 9:12:49 PM
+                        TTL                   : 00:01:05
+                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
+                        fabric:/WordCount/WordCountService Secondary Partition a1f83a35-d6bf-4d39-b90d-28d15f39599b could not be placed, possibly,
+                        due to the following constraints and properties:  
+                        Placement Constraint: N/A
+                        Depended Service: N/A
+
+                        Constraint Elimination Sequence:
+                        ReplicaExclusionStatic eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
+                        ReplicaExclusionDynamic eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
+
+                        Nodes Eliminated By Constraints:
+
+                        ReplicaExclusionStatic:
+                        FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status:
+                        None/None
+                        FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status:
+                        None/None
+                        FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status:
+                        None/None
+                        FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status:
+                        None/None
+
+                        ReplicaExclusionDynamic:
+                        FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status:
+                        None/None
+
+
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
 ```
 
 ## Obter integridade da partição
@@ -490,57 +530,58 @@ Isso retorna a integridade de uma entidade de partição. Além disso, contém o
 - [Opcional] Filtros para eventos e réplicas que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Observe que todos os eventos e réplicas são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### API
-Para obter a integridade da partição por meio de API, crie um FabricClient e chame o método **GetPartitionHealthAsync** em seu HealthManager. Para especificar parâmetros opcionais, crie **System.Fabric.Description.PartitionHealthQueryDescription**.
+Para obter a integridade da partição por meio de API, crie um `FabricClient` e chame o método [GetPartitionHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getpartitionhealthasync.aspx) em seu HealthManager. Para especificar parâmetros opcionais, crie [PartitionHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.partitionhealthquerydescription.aspx).
 
 ```csharp
-PartitionHealth partitionHealth = fabricClient.HealthManager.GetPartitionHealthAsync(partitionId).Result;
+PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### PowerShell
-O cmdlet para obter a integridade da partição é **Get-ServiceFabricPartitionHealth**. Primeiro, conecte-se ao cluster usando o cmdlet **Connect-ServiceFabricCluster**.
+O cmdlet para obter a integridade da partição é [Get-ServiceFabricPartitionHealth](https://msdn.microsoft.com/library/mt125869.aspx). Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
-O cmdlet a seguir obtém a integridade de todas as partições do serviço de contagem de palavras.
+O cmdlet a seguir obtém a integridade de todas as partições do serviço **fabric:/WordCount/WordCountService**:
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth
 
-PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
+
+PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
 AggregatedHealthState : Warning
 UnhealthyEvaluations  :
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
 
 ReplicaHealthStates   :
-                        ReplicaId             : 130740415594605870
+                        ReplicaId             : 131031502143040223
                         AggregatedHealthState : Ok
 
-                        ReplicaId             : 130740415502123433
+                        ReplicaId             : 131031502346844060
                         AggregatedHealthState : Ok
 
-                        ReplicaId             : 130740415594605867
+                        ReplicaId             : 131031502346844059
                         AggregatedHealthState : Ok
 
-                        ReplicaId             : 130740415594605869
+                        ReplicaId             : 131031502346844061
                         AggregatedHealthState : Ok
 
-                        ReplicaId             : 130740415594605868
+                        ReplicaId             : 131031502346844058
                         AggregatedHealthState : Ok
 
 HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Warning
-                        SequenceNumber        : 39
-                        SentAt                : 4/20/2015 10:12:59 PM
-                        ReceivedAt            : 4/20/2015 10:13:03 PM
+                        SequenceNumber        : 76
+                        SentAt                : 3/22/2016 7:57:26 PM
+                        ReceivedAt            : 3/22/2016 7:57:48 PM
                         TTL                   : Infinite
                         Description           : Partition is below target replica or instance count.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : Ok->Warning = 4/20/2015 10:13:03 PM
+                        Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
 ## Obter integridade da réplica
-Isso retorna a integridade de uma réplica. Entrada:
+Isso retorna a integridade de uma réplica de serviço com estado ou uma instância de serviço sem estado. Entrada:
 
 - [Obrigatório] A ID da partição (GUID) e a ID da réplica que identificam a réplica
 
@@ -549,35 +590,36 @@ Isso retorna a integridade de uma réplica. Entrada:
 - [Opcional] Filtros de eventos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Observe que todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### API
-Para obter a integridade da réplica por meio de API, crie um FabricClient e chame o método **GetReplicaHealthAsync** em seu HealthManager. Para especificar parâmetros avançados, use **System.Fabric.Description.ReplicaHealthQueryDescription**.
+Para obter a integridade da réplica por meio de API, crie um `FabricClient` e chame o método [GetReplicaHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getreplicahealthasync.aspx) em seu HealthManager. Para especificar parâmetros avançados, use [ReplicaHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.replicahealthquerydescription.aspx).
 
 ```csharp
-ReplicaHealth replicaHealth = fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId).Result;
+ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### PowerShell
-O cmdlet para obter a integridade da réplica é **Get-ServiceFabricReplicaHealth**. Primeiro, conecte-se ao cluster usando o cmdlet **Connect-ServiceFabricCluster**.
+O cmdlet para obter a integridade da réplica é [Get-ServiceFabricReplicaHealth](https://msdn.microsoft.com/library/mt125808.aspx). Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
 O cmdlet a seguir obtém a integridade da réplica primária para todas as partições do serviço.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
-PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
-ReplicaId             : 130740415502123433
+
+PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
+ReplicaId             : 131031502143040223
 AggregatedHealthState : Ok
 HealthEvents          :
                         SourceId              : System.RA
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 130740415502802942
-                        SentAt                : 4/20/2015 10:12:30 PM
-                        ReceivedAt            : 4/20/2015 10:12:34 PM
+                        SequenceNumber        : 131031502145556748
+                        SentAt                : 3/22/2016 7:56:54 PM
+                        ReceivedAt            : 3/22/2016 7:57:12 PM
                         TTL                   : Infinite
                         Description           : Replica has been created.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ## Obter integridade do aplicativo implantado
@@ -590,44 +632,46 @@ Isso retorna a integridade de um aplicativo implantado em uma entidade de nó. A
 - [Opcional] Filtros de eventos e pacotes de serviço implantados que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Observe que todos os eventos e pacotes de serviço implantados são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### API
-Para obter a integridade de um aplicativo implantado em um nó por meio de API, crie um FabricClient e chame o método **GetDeployedApplicationHealthAsync** em seu HealthManager. Para especificar parâmetros opcionais, use **System.Fabric.Description.DeployedApplicationHealthQueryDescription**.
+Para obter a integridade de um aplicativo implantado em um nó por meio de API, crie um `FabricClient` e chame o método [GetDeployedApplicationHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync.aspx) em seu HealthManager. Para especificar parâmetros opcionais, use [DeployedApplicationHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedapplicationhealthquerydescription.aspx).
 
 ```csharp
-DeployedApplicationHealth health = fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
-    new DeployedApplicationHealthQueryDescription(applicationName, nodeName)).Result;
+DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
+    new DeployedApplicationHealthQueryDescription(applicationName, nodeName));
 ```
 
 ### PowerShell
-O cmdlet para obter a integridade do aplicativo implantado é **Get-ServiceFabricDeployedApplicationHealth**. Primeiro, conecte-se ao cluster usando o cmdlet **Connect-ServiceFabricCluster**. Para descobrir onde um aplicativo está implantado, execute **Get-ServiceFabricApplicationHealth** e observe os filhos do aplicativo implantado.
+O cmdlet para obter a integridade do aplicativo implantado é [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx). Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). Para descobrir onde um aplicativo está implantado, execute [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) e observe os filhos do aplicativo implantado.
 
-O cmdlet a seguir obtém a integridade do aplicativo fabric:/WordCount implantado no nó Node.1.
+O cmdlet a seguir obtém a integridade do aplicativo **fabric:/WordCount** implantado no nó **\_Node\_2**.
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_2
+
+
 ApplicationName                    : fabric:/WordCount
-NodeName                           : Node.1
+NodeName                           : _Node_2
 AggregatedHealthState              : Ok
 DeployedServicePackageHealthStates :
-                                     ServiceManifestName   : WordCount.WebService
-                                     NodeName              : Node.1
+                                     ServiceManifestName   : WordCountServicePkg
+                                     NodeName              : _Node_2
                                      AggregatedHealthState : Ok
 
-                                     ServiceManifestName   : WordCount.Service
-                                     NodeName              : Node.1
+                                     ServiceManifestName   : WordCountWebServicePkg
+                                     NodeName              : _Node_2
                                      AggregatedHealthState : Ok
 
 HealthEvents                       :
                                      SourceId              : System.Hosting
                                      Property              : Activation
                                      HealthState           : Ok
-                                     SequenceNumber        : 130740415502842941
-                                     SentAt                : 4/20/2015 10:12:30 PM
-                                     ReceivedAt            : 4/20/2015 10:12:34 PM
+                                     SequenceNumber        : 131031502143710698
+                                     SentAt                : 3/22/2016 7:56:54 PM
+                                     ReceivedAt            : 3/22/2016 7:57:12 PM
                                      TTL                   : Infinite
                                      Description           : The application was activated successfully.
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
-                                     Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                                     Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ## Obter integridade do pacote de serviço implantado
@@ -640,61 +684,297 @@ Isso retorna a integridade de uma entidade de pacote do serviço implantado. Ent
 - [Opcional] Filtros de eventos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Observe que todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### API
-Para obter a integridade de um pacote de serviço implantado por meio de API, crie um FabricClient e chame o método **GetDeployedServicePackageHealthAsync** em seu HealthManager.
+Para obter a integridade de um pacote de serviço implantado por meio de API, crie um `FabricClient` e chame o método [GetDeployedServicePackageHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync.aspx) em seu HealthManager. Para especificar parâmetros opcionais, use [DeployedServicePackageHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedservicepackagehealthquerydescription.aspx).
 
 ```csharp
-DeployedServicePackageHealth health = fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
-    new DeployedServicePackageHealthQueryDescription(applicationName, nodeName, serviceManifestName)).Result;
+DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
+    new DeployedServicePackageHealthQueryDescription(applicationName, nodeName, serviceManifestName));
 ```
 
 ### PowerShell
-O cmdlet para obter a integridade do pacote de serviço implantado é **Get-ServiceFabricDeployedServicePackageHealth**. Primeiro, conecte-se ao cluster usando o cmdlet **Connect-ServiceFabricCluster**. Para descobrir onde um aplicativo está implantado, execute **Get-ServiceFabricApplicationHealth** e observe os aplicativos implantados. Para ver quais pacotes de serviço estão em um aplicativo, observe os filhos do pacote de serviço implantado na saída de **Get-ServiceFabricDeployedApplicationHealth**.
+O cmdlet para obter a integridade do pacote de serviço implantado é [Get-ServiceFabricDeployedServicePackageHealth](https://msdn.microsoft.com/library/mt163525.aspx). Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx). Para descobrir onde um aplicativo está implantado, execute [Get-ServiceFabricApplicationHealth](https://msdn.microsoft.com/library/mt125976.aspx) e observe os aplicativos implantados. Para ver quais pacotes de serviço estão em um aplicativo, observe os filhos do pacote de serviço implantado na saída de [Get-ServiceFabricDeployedApplicationHealth](https://msdn.microsoft.com/library/mt163523.aspx).
 
-O cmdlet a seguir obtém a integridade do pacote de serviço **WordCount.Service** do aplicativo fabric:/WordCount implantado no nó Node.1. A entidade tem relatórios **System.Hosting** para ativação bem-sucedida do pacote de serviço e do ponto de entrada, além do registro bem-sucedido do tipo de serviço.
+O cmdlet a seguir obtém a integridade do pacote de serviço **WordCountServicePkg** do aplicativo **fabric:/WordCount** implantado no nó **\_Node\_2**. A entidade tem relatórios **System.Hosting** para ativação bem-sucedida do pacote de serviço e do ponto de entrada, além do registro bem-sucedido do tipo de serviço.
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
+PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
+
 
 ApplicationName       : fabric:/WordCount
-ServiceManifestName   : WordCount.Service
-NodeName              : Node.1
+ServiceManifestName   : WordCountServicePkg
+NodeName              : _Node_2
 AggregatedHealthState : Ok
 HealthEvents          :
                         SourceId              : System.Hosting
                         Property              : Activation
                         HealthState           : Ok
-                        SequenceNumber        : 130740415506383060
-                        SentAt                : 4/20/2015 10:12:30 PM
-                        ReceivedAt            : 4/20/2015 10:12:34 PM
+                        SequenceNumber        : 131031502301306211
+                        SentAt                : 3/22/2016 7:57:10 PM
+                        ReceivedAt            : 3/22/2016 7:57:12 PM
                         TTL                   : Infinite
                         Description           : The ServicePackage was activated successfully.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 
                         SourceId              : System.Hosting
                         Property              : CodePackageActivation:Code:EntryPoint
                         HealthState           : Ok
-                        SequenceNumber        : 130740415506543054
-                        SentAt                : 4/20/2015 10:12:30 PM
-                        ReceivedAt            : 4/20/2015 10:12:34 PM
+                        SequenceNumber        : 131031502301568982
+                        SentAt                : 3/22/2016 7:57:10 PM
+                        ReceivedAt            : 3/22/2016 7:57:12 PM
                         TTL                   : Infinite
                         Description           : The CodePackage was activated successfully.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 
                         SourceId              : System.Hosting
-                        Property              : ServiceTypeRegistration:WordCount.Service
+                        Property              : ServiceTypeRegistration:WordCountServiceType
                         HealthState           : Ok
-                        SequenceNumber        : 130740415520193499
-                        SentAt                : 4/20/2015 10:12:32 PM
-                        ReceivedAt            : 4/20/2015 10:12:34 PM
+                        SequenceNumber        : 131031502314788519
+                        SentAt                : 3/22/2016 7:57:11 PM
+                        ReceivedAt            : 3/22/2016 7:57:12 PM
                         TTL                   : Infinite
                         Description           : The ServiceType was registered successfully.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/20/2015 10:12:34 PM
+                        Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
+```
+
+## Consultas de integridade em blocos
+As consultas de integridade em bloco podem retornar os filhos de cluster em vários níveis (recursivamente), de acordo com os filtros de entrada. Elas oferecem suporte a filtros avançados que permitem uma grande flexibilidade para expressar quais filhos específicos devem retornar, identificados por seu identificador exclusivo ou outro identificador de grupo e/ou estado de integridade. Por padrão, nenhum filho é incluído, ao contrário dos comandos de integridade que incluem sempre o filho de primeiro nível.
+
+As [consultas de integridade](service-fabric-view-entities-aggregated-health.md#health-queries) retornam apenas os filhos de primeiro nível da entidade especificada, de acordo com os filtros necessários. Para obter os filhos dos filhos, os usuários devem chamar outras APIs de integridade para cada entidade de interesse. Da mesma forma, para obter a integridade de entidades específicas, os usuários devem chamar uma API e integridade para cada entidade desejada. A filtragem avançada da consulta em bloco permite aos usuários solicitar vários itens de interesse em uma consulta, reduzindo o tamanho da mensagem e o número de mensagens.
+
+O valor da consulta em blocos é que os usuários podem obter o estado da integridade para mais entidades de cluster (potencialmente todas as entidades de cluster começando na raiz exigida) em uma chamada. Você pode expressar uma consulta de integridade complexa da seguinte maneira:
+
+- Retorne apenas os aplicativos com erro e, para esses aplicativos, inclua todos os serviços em warning|error. Para os serviços retornados, inclua todas as partições.
+
+- Retorne apenas a integridade dos quatro aplicativos, especificados por seus nomes.
+
+- Retorne apenas a integridade dos aplicativos de um tipo de aplicativo desejado.
+
+- Retorne todas as entidades implantadas em um nó. Isso retorna todos os aplicativos, todos os aplicativos implantados no nó especificado e todos os pacotes de serviço implantados nesse nó.
+
+- Retorna todas as réplicas com erro. Retorna todos os aplicativos, serviços, partições e somente réplicas com erro.
+
+- Retorna todos os aplicativos. Para um serviço específico, inclua todas as partições.
+
+Atualmente, a consulta de integridade em blocos é exposta somente para a entidade do cluster. Ela retorna uma parte da integridade do cluster, que contém:
+
+- O estado de integridade agregado do cluster.
+
+- A lista de nós da parte de estado de integridade que respeita os filtros de entrada.
+
+- A lista de aplicativos da parte de estado de integridade que respeita os filtros de entrada. Cada parte do estado de integridade do aplicativo contém uma lista com todos os serviços que respeitam os filtros de entrada e uma lista com todos os aplicativos implantados que respeitam os filtros. O mesmo vale para os filhos dos serviços e aplicativos implantados. Dessa forma, todas as entidades no cluster podem retornar se for solicitado, de uma maneira hierárquica.
+
+### Consulta em bloco sobre a integridade do cluster
+Isso retorna a integridade da entidade do cluster e contém as partes hierárquicas do estado de integridade dos filhos necessários. Entrada:
+
+- [Opcional] A política de integridade do cluster usada para avaliar os nós e os eventos de cluster.
+
+- [Opcional] Mapa da política de integridade do aplicativo, com políticas de integridade usadas para substituir as políticas do manifesto do aplicativo.
+
+- [Opcional] Filtros de eventos, nós e aplicativos que especificam quais entradas são interessantes e devem retornar no resultado. Os filtros são específicos a uma entidade/grupo de entidades ou são aplicáveis a todas as entidades nesse nível. A lista de filtros pode conter um filtro geral e/ou um filtro para identificadores específicos a fim de refinar as entidades retornadas pela consulta. Se estiver vazia, os filhos não retornarão por padrão. Leia mais sobre os filtros em [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) e [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx). O filtros de aplicativo pode especificar de forma recursiva os filtros avançados para os filhos.
+
+O resultado da parte inclui os filhos que respeitam os filtros.
+
+Atualmente, a consulta em bloco não retorna avaliações não íntegras ou eventos de entidade. Isso pode ser obtido com a consulta de integridade de cluster existente.
+
+### API
+Para obter a parte da integridade do cluster, crie um `FabricClient` e chame o método [GetClusterHealthChunkAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync.aspx) em seu **HealthManager**. Você pode passar [ClusterHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.clusterhealthchunkquerydescription.aspx) para descrever as políticas de integridade e os filtros avançados.
+
+O código a seguir obtém parte da integridade do cluster com filtros avançados.
+
+```csharp
+var queryDescription = new ClusterHealthChunkQueryDescription();
+queryDescription.ApplicationFilters.Add(new ApplicationHealthStateFilter()
+    {
+        // Return applications only if they are in error
+        HealthStateFilter = HealthStateFilter.Error
+    });
+
+// Return all replicas
+var wordCountServiceReplicaFilter = new ReplicaHealthStateFilter()
+    {
+        HealthStateFilter = HealthStateFilter.All
+    };
+
+// Return all replicas and all partitions
+var wordCountServicePartitionFilter = new PartitionHealthStateFilter()
+    {
+        HealthStateFilter = HealthStateFilter.All
+    };
+wordCountServicePartitionFilter.ReplicaFilters.Add(wordCountServiceReplicaFilter);
+
+// For specific service, return all partitions and all replicas
+var wordCountServiceFilter = new ServiceHealthStateFilter()
+{
+    ServiceNameFilter = new Uri("fabric:/WordCount/WordCountService"),
+};
+wordCountServiceFilter.PartitionFilters.Add(wordCountServicePartitionFilter);
+
+// Application filter: for specific application, return no services except the ones of interest
+var wordCountApplicationFilter = new ApplicationHealthStateFilter()
+    {
+        // Always return fabric:/WordCount application
+        ApplicationNameFilter = new Uri("fabric:/WordCount"),
+    };
+wordCountApplicationFilter.ServiceFilters.Add(wordCountServiceFilter);
+
+queryDescription.ApplicationFilters.Add(wordCountApplicationFilter);
+
+var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDescription);
+```
+
+### PowerShell
+O cmdlet para obter a integridade do cluster é [Get-ServiceFabricClusterChunkHealth](https://msdn.microsoft.com/library/mt644772.aspx). Primeiro, conecte-se ao cluster usando o cmdlet [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+
+O código a seguir obtém nós apenas se eles apresentarem Erro, exceto para um nó específico, que sempre deve ser retornado.
+
+```xml
+PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
+$allFilter = [System.Fabric.Health.HealthStateFilter]::All;
+
+$nodeFilter1 = New-Object System.Fabric.Health.NodeHealthStateFilter -Property @{HealthStateFilter=$errorFilter}
+$nodeFilter2 = New-Object System.Fabric.Health.NodeHealthStateFilter -Property @{NodeNameFilter="_Node_1";HealthStateFilter=$allFilter}
+# Create node filter list that will be passed in the cmdlet
+$nodeFilters = New-Object System.Collections.Generic.List[System.Fabric.Health.NodeHealthStateFilter]
+$nodeFilters.Add($nodeFilter1)
+$nodeFilters.Add($nodeFilter2)
+
+Get-ServiceFabricClusterHealthChunk -NodeFilters $nodeFilters
+
+HealthState                  : Error
+NodeHealthStateChunks        :
+                               TotalCount            : 1
+
+                               NodeName              : _Node_1
+                               HealthState           : Ok
+
+ApplicationHealthStateChunks : None
+```
+
+O cmdlet a seguir obtém parte do cluster com os filtros de aplicativo.
+
+```xml
+$errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
+$allFilter = [System.Fabric.Health.HealthStateFilter]::All;
+
+# All replicas
+$replicaFilter = New-Object System.Fabric.Health.ReplicaHealthStateFilter -Property @{HealthStateFilter=$allFilter}
+
+# All partitions
+$partitionFilter = New-Object System.Fabric.Health.PartitionHealthStateFilter -Property @{HealthStateFilter=$allFilter}
+$partitionFilter.ReplicaFilters.Add($replicaFilter)
+
+# For WordCountService, return all partitions and all replicas
+$svcFilter1 = New-Object System.Fabric.Health.ServiceHealthStateFilter -Property @{ServiceNameFilter="fabric:/WordCount/WordCountService"}
+$svcFilter1.PartitionFilters.Add($partitionFilter)
+
+$svcFilter2 = New-Object System.Fabric.Health.ServiceHealthStateFilter -Property @{HealthStateFilter=$errorFilter}
+
+$appFilter = New-Object System.Fabric.Health.ApplicationHealthStateFilter -Property @{ApplicationNameFilter="fabric:/WordCount"}
+$appFilter.ServiceFilters.Add($svcFilter1)
+$appFilter.ServiceFilters.Add($svcFilter2)
+
+$appFilters = New-Object System.Collections.Generic.List[System.Fabric.Health.ApplicationHealthStateFilter]
+$appFilters.Add($appFilter)
+
+Get-ServiceFabricClusterHealthChunk -ApplicationFilters $appFilters
+
+HealthState                  : Error
+NodeHealthStateChunks        : None
+ApplicationHealthStateChunks :
+                               TotalCount            : 1
+
+                               ApplicationName       : fabric:/WordCount
+                               ApplicationTypeName   : WordCount
+                               HealthState           : Error
+                               ServiceHealthStateChunks :
+                                   TotalCount            : 1
+
+                                   ServiceName           : fabric:/WordCount/WordCountService
+                                   HealthState           : Error
+                                   PartitionHealthStateChunks :
+                                       TotalCount            : 1
+
+                                       PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                                       HealthState           : Error
+                                       ReplicaHealthStateChunks :
+                                           TotalCount            : 5
+
+                                           ReplicaOrInstanceId   : 131031502143040223
+                                           HealthState           : Ok
+
+                                           ReplicaOrInstanceId   : 131031502346844060
+                                           HealthState           : Ok
+
+                                           ReplicaOrInstanceId   : 131031502346844059
+                                           HealthState           : Ok
+
+                                           ReplicaOrInstanceId   : 131031502346844061
+                                           HealthState           : Ok
+
+                                           ReplicaOrInstanceId   : 131031502346844058
+                                           HealthState           : Error
+```
+
+O cmdlet a seguir retorna todas as entidades implantadas em um nó.
+
+```xml
+$errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
+$allFilter = [System.Fabric.Health.HealthStateFilter]::All;
+
+$dspFilter = New-Object System.Fabric.Health.DeployedServicePackageHealthStateFilter -Property @{HealthStateFilter=$allFilter}
+$daFilter =  New-Object System.Fabric.Health.DeployedApplicationHealthStateFilter -Property @{HealthStateFilter=$allFilter;NodeNameFilter="_Node_2"}
+$daFilter.DeployedServicePackageFilters.Add($dspFilter)
+
+$appFilter = New-Object System.Fabric.Health.ApplicationHealthStateFilter -Property @{HealthStateFilter=$allFilter}
+$appFilter.DeployedApplicationFilters.Add($daFilter)
+
+$appFilters = New-Object System.Collections.Generic.List[System.Fabric.Health.ApplicationHealthStateFilter]
+$appFilters.Add($appFilter)
+Get-ServiceFabricClusterHealthChunk -ApplicationFilters $appFilters
+
+
+HealthState                  : Error
+NodeHealthStateChunks        : None
+ApplicationHealthStateChunks :
+                               TotalCount            : 2
+
+                               ApplicationName       : fabric:/System
+                               HealthState           : Ok
+                               DeployedApplicationHealthStateChunks :
+                                   TotalCount            : 1
+
+                                   NodeName              : _Node_2
+                                   HealthState           : Ok
+                                   DeployedServicePackageHealthStateChunks :
+                                       TotalCount            : 1
+
+                                       ServiceManifestName   : FAS
+                                       HealthState           : Ok
+
+
+
+                               ApplicationName       : fabric:/WordCount
+                               ApplicationTypeName   : WordCount
+                               HealthState           : Error
+                               DeployedApplicationHealthStateChunks :
+                                   TotalCount            : 1
+
+                                   NodeName              : _Node_2
+                                   HealthState           : Ok
+                                   DeployedServicePackageHealthStateChunks :
+                                       TotalCount            : 2
+
+                                       ServiceManifestName   : WordCountServicePkg
+                                       HealthState           : Ok
+
+                                       ServiceManifestName   : WordCountWebServicePkg
+                                       HealthState           : Ok
 ```
 
 ## Consultas gerais
@@ -706,27 +986,29 @@ Se as consultas gerais retornarem um estado de integridade desconhecido para uma
 
 As consultas que contêm **HealthState** para entidades são:
 
-- Lista de nós: retorna os nós da lista no cluster.
-  - API: FabricClient.QueryManager.GetNodeListAsync
+- Lista de nós: retorna os nós da lista no cluster (paginados).
+  - API: [FabricClient.QueryClient.GetNodeListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getnodelistasync.aspx)
   - PowerShell: Get-ServiceFabricNode
-- Lista de aplicativos: retorna a lista de aplicativos no cluster.
-  - API: FabricClient.QueryManager.GetApplicationListAsync
+- Lista de aplicativos: retorna a lista de aplicativos no cluster (paginados).
+  - API: [FabricClient.QueryClient.GetApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getapplicationlistasync.aspx)
   - PowerShell: Get-ServiceFabricApplication
-- Lista de serviços: retorna a lista de serviços em um aplicativo.
-  - API: FabricClient.QueryManager.GetServiceListAsync
+- Lista de serviços: retorna a lista de serviços em um aplicativo (paginados).
+  - API: [FabricClient.QueryClient.GetServiceListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getservicelistasync.aspx)
   - PowerShell: Get-ServiceFabricService
-- Lista de partições: retorna a lista de partições em um serviço.
-  - API: FabricClient.QueryManager.GetPartitionListAsync
+- Lista de partições: retorna a lista de partições em um serviço (paginadas).
+  - API: [FabricClient.QueryClient.GetPartitionListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getpartitionlistasync.aspx)
   - PowerShell: Get-ServiceFabricPartition
-- Lista de réplicas: retorna a lista de réplicas em uma partição.
-  - API: FabricClient.QueryManager.GetReplicaListAsync
+- Lista de réplicas: retorna a lista de réplicas em uma partição (paginadas).
+  - API: [FabricClient.QueryClient.GetReplicaListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getreplicalistasync.aspx)
   - PowerShell: Get-ServiceFabricReplica
 - Lista de aplicativos implantados: retorna a lista de aplicativos implantados em um nó.
-  - API: FabricClient.QueryManager.GetDeployedApplicationListAsync
+  - API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync.aspx)
   - PowerShell: Get-ServiceFabricDeployedApplication
 - Lista de pacotes de serviço implantados: retorna a lista de pacotes de serviço em um aplicativo implantado.
-  - API: FabricClient.QueryManager.GetDeployedServicePackageListAsync
+  - API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync.aspx)
   - PowerShell: Get-ServiceFabricDeployedApplication
+
+> [AZURE.NOTE] Algumas das consultas retornam resultados paginados. O retorno dessas consultas é uma lista derivada de [PagedList<T>](https://msdn.microsoft.com/library/azure/mt280056.aspx). Se os resultados não couberem em uma mensagem, apenas uma página retornará e ContinuationToken será definida para monitorar onde parou a enumeração. O usuário deve continuar a chamar a mesma consulta e passar o token de continuação da consulta anterior a fim de obter os próximos resultados.
 
 ### Exemplos
 
@@ -744,10 +1026,17 @@ PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
 
 ApplicationName        : fabric:/WordCount
 ApplicationTypeName    : WordCount
-ApplicationTypeVersion : 1.0.0.0
+ApplicationTypeVersion : 1.0.0
 ApplicationStatus      : Ready
 HealthState            : Warning
-ApplicationParameters  : { "_WFDebugParams_" = "[{"ServiceManifestName":"WordCount.WebService","CodePackageName":"Code","EntryPointType":"Main"}]" }
+ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
+                         "_WFDebugParams_" = "[{"ServiceManifestName":"WordCountWebServicePkg","CodePackageName":"Code","EntryPointType":"Main","Debug
+                         ExePath":"C:\\Program Files (x86)\\Microsoft Visual Studio
+                         14.0\\Common7\\Packages\\Debugger\\VsDebugLaunchNotify.exe","DebugArguments":" {74f7e5d5-71a9-47e2-a8cd-1878ec4734f1} -p
+                         [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"},{"ServiceManifestName":"WordCountServicePkg","CodeP
+                         ackageName":"Code","EntryPointType":"Main","DebugExePath":"C:\\Program Files (x86)\\Microsoft Visual Studio
+                         14.0\\Common7\\Packages\\Debugger\\VsDebugLaunchNotify.exe","DebugArguments":" {2ab462e6-e0d1-4fda-a844-972f561fe751} -p
+                         [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
 O cmdlet a seguir obtém os serviços com o estado de integridade de aviso.
@@ -755,11 +1044,12 @@ O cmdlet a seguir obtém os serviços com o estado de integridade de aviso.
 ```powershell
 PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
 
-ServiceName            : fabric:/WordCount/WordCount.Service
+
+ServiceName            : fabric:/WordCount/WordCountService
 ServiceKind            : Stateful
-ServiceTypeName        : WordCount.Service
+ServiceTypeName        : WordCountServiceType
 IsServiceGroup         : False
-ServiceManifestVersion : 1.0
+ServiceManifestVersion : 1.0.0
 HasPersistedState      : True
 ServiceStatus          : Active
 HealthState            : Warning
@@ -789,13 +1079,13 @@ UpgradeDuration               : 00:00:23
 CurrentUpgradeDomainDuration  : 00:00:00
 CurrentUpgradeDomainProgress  : UD1
 
-                                NodeName            : Node1
+                                NodeName            : _Node_1
                                 UpgradePhase        : Upgrading
 
-                                NodeName            : Node2
+                                NodeName            : _Node_2
                                 UpgradePhase        : Upgrading
 
-                                NodeName            : Node3
+                                NodeName            : _Node_3
                                 UpgradePhase        : PreUpgradeSafetyCheck
                                 PendingSafetyChecks :
                                 EnsurePartitionQuorum - PartitionId: 30db5be6-4e20-4698-8185-4bd7ca744020
@@ -805,19 +1095,20 @@ UpgradeDomainsStatus          : { "UD1" = "Completed";
                                 "UD3" = "Pending";
                                 "UD4" = "Pending" }
 UnhealthyEvaluations          :
-                                Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                                Unhealthy services: 100% (1/1), ServiceType='WordCountServiceType', MaxPercentUnhealthyServices=0%.
 
-                                Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
+                                  Unhealthy service: ServiceName='fabric:/WordCount/WordCountService', AggregatedHealthState='Error'.
 
-                                Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                      Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
 
-                                Unhealthy partition: PartitionId='30db5be6-4e20-4698-8185-4bd7ca744020', AggregatedHealthState='Error'.
+                                      Unhealthy partition: PartitionId='a1f83a35-d6bf-4d39-b90d-28d15f39599b', AggregatedHealthState='Error'.
 
-                                Unhealthy replicas: 16% (1/6), MaxPercentUnhealthyReplicasPerPartition=0%.
+                                          Unhealthy replicas: 20% (1/5), MaxPercentUnhealthyReplicasPerPartition=0%.
 
-                                Unhealthy replica: PartitionId='30db5be6-4e20-4698-8185-4bd7ca744020', ReplicaOrInstanceId='130741105362491906', AggregatedHealthState='Error'.
+                                          Unhealthy replica: PartitionId='a1f83a35-d6bf-4d39-b90d-28d15f39599b',
+                                  ReplicaOrInstanceId='131031502346844058', AggregatedHealthState='Error'.
 
-                                Error event: SourceId='DiskWatcher', Property='Disk'.
+                                              Error event: SourceId='DiskWatcher', Property='Disk'.
 
 UpgradeKind                   : Rolling
 RollingUpgradeMode            : UnmonitoredAuto
@@ -830,6 +1121,8 @@ Leia mais sobre a [Atualização de aplicativo do Service Fabric](service-fabric
 ## Usar avaliações de integridade para solucionar problemas
 Sempre que houver um problema no cluster ou aplicativo, observe a integridade do cluster ou do aplicativo para identificar o que está errado. As avaliações não íntegras mostrarão detalhes sobre o que disparou o estado não íntegro atual. Se for necessário, você poderá analisar entidades filho não íntegras para identificar a causa raiz.
 
+> [AZURE.NOTE] As avaliações não íntegras mostram o primeiro motivo pelo qual a entidade é avaliada com o estado de integridade atual. Pode haver vários outros eventos que disparam esse estado, mas eles não refletirão nas avaliações. Você precisa detalhar as entidades de integridade para descobrir todos os relatórios não íntegros no cluster.
+
 ## Próximas etapas
 [Usar relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
@@ -839,4 +1132,4 @@ Sempre que houver um problema no cluster ou aplicativo, observe a integridade do
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -33,7 +33,7 @@ A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada
 [Criar um aplicativo de serviço de nuvem no .NET](cloud-services-dotnet-get-started.md)<br/> [Criar um aplicativo de serviço de nuvem no Node.js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Criar um aplicativo de serviço de nuvem no PHP](../cloud-services-php-create-web-role.md)<br/> [Criar um aplicativo de serviço de nuvem em Python](../cloud-services-python-ptvs.md)<br/>
 
 [Serviço de Aplicativo]: ../app-service-web/app-service-web-overview.md
-[Máquinas virtuais]: ../virtual-machines/virtual-machines-about.md
+[Máquinas virtuais]: ../virtual-machines/virtual-machines-linux-about.md
 [Serviços de Nuvem]: #tellmecs
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

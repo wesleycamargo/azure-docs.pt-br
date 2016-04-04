@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/17/2016"
 	ms.author="jodebrui"/>
 
 
@@ -28,6 +28,8 @@ Este tópico enfatiza duas demonstrações, uma para o OLTP Na Memória e outro 
 - Ler o código para entender o cenário e para saber como criar e utilizar os objetos Na Memória.
 
 > [AZURE.VIDEO azure-sql-database-in-memory-technologies]
+
+- [Início Rápido 1: tecnologias OLTP in-memory para um desempenho mais rápido do T-SQL](http://msdn.microsoft.com/library/mt694156.aspx) – é outro artigo para ajudá-lo a se familiarizar.
 
 #### OLTP Na Memória
 
@@ -277,7 +279,8 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Para executar a linha de comando do ostress.exe anterior:
 
 
-1. Redefina o conteúdo de dados do banco de dados ao executar o seguinte comando no SSMS para excluir todos os dados inseridos por todas as execuções anteriores: ```
+1. Redefina o conteúdo de dados do banco de dados executando o seguinte comando no SSMS para excluir todos os dados inseridos por todas as execuções anteriores:
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -302,7 +305,8 @@ Quando o ostress.exe é concluído, ele grava a duração da execução como sua
 Depois de ter o resultado da execução do \_inmem, realize as seguintes etapas para a execução de \_ondisk:
 
 
-1. Redefina o banco de dados ao executar o seguinte comando no SSMS para excluir todos os dados inseridos por pela execução anterior: ```
+1. Redefina o banco de dados executando o seguinte comando no SSMS para excluir todos os dados inseridos pela execução anterior:
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -315,7 +319,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Resultados esperados para a comparação
 
-Os testes de Na Memória mostraram uma melhoria de desempenho de **nove vezes** para essa carga de trabalho simplista, com o ostress sendo executado em uma VM do Azure na mesma região do Azure que o banco de dados.
+Os testes In-Memory mostraram uma melhoria de desempenho de **nove vezes** para essa carga de trabalho simplista, com o ostress sendo executado em uma VM do Azure na mesma região do Azure que o banco de dados.
 
 
 
@@ -529,4 +533,4 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Monitorar o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

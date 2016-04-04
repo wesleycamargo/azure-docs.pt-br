@@ -13,16 +13,19 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/16/2016" 
 	ms.author="guayan"/>
 
 # Gatilhos de aplicativo de API do serviço de aplicativo do Azure
+
+>[AZURE.NOTE] Esta versão do artigo se aplica à versão do esquema 2014-12-01-preview de aplicativos de API.
+
 
 ## Visão geral
 
 Este artigo explica como implementar gatilhos de aplicativo de API e consumi-los por meio de um aplicativo lógico.
 
-Todos os trechos de código neste tópico são copiados do [exemplo de código do aplicativo de API de FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
+Todos os trechos de código mostrados neste tópico foram copiados do [exemplo de código do aplicativo de API do FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
 Observe que você precisará baixar o seguinte pacote do nuget para que o código neste artigo seja compilado e executado: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
@@ -339,4 +342,4 @@ Este é um exemplo de como essa classe pode ser implementada para facilitar o ce
     }
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

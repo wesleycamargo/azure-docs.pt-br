@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # O que é uma ACL (Lista de Controle de Acesso) do ponto de extremidade?
 
 Uma ACL (Lista de Controle de Acesso) de ponto de extremidade é uma melhoria de segurança disponível para a sua implantação do Azure. Uma ACL fornece a capacidade para permitir ou negar seletivamente o tráfego para um ponto de extremidade de máquina virtual. Essa capacidade de filtragem de pacotes proporciona uma camada adicional de segurança. Você pode especificar ACLs de rede apenas para pontos de extremidade. Não é possível especificar uma ACL para uma rede virtual ou uma sub-rede específica contida em uma rede virtual.
 
-> [AZURE.IMPORTANT] Recomendamos que você use NSGs (Grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [O que é um Grupo de segurança de rede?](../virtual-networks-nsg).
+> [AZURE.IMPORTANT] Recomendamos que você use NSGs (Grupos de segurança de rede) em vez de ACLs sempre que possível. Para saber mais sobre NSGs, confira [O que é um Grupo de segurança de rede?](virtual-networks-nsg.md).
 
-As ACLs podem ser configuradas usando o PowerShell ou o Portal de Gerenciamento. Para configurar ACLs usando o PowerShell, confira [Gerenciando ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede usando o Portal de Gerenciamento, consulte [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines-set-up-endpoints/).
+As ACLs podem ser configuradas usando o PowerShell ou o Portal de Gerenciamento. Para configurar ACLs usando o PowerShell, confira [Gerenciando ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md). Para configurar uma ACL de rede usando o Portal de Gerenciamento, consulte [Como configurar pontos de extremidade para uma máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
 Com as ACLs de rede, você pode fazer o seguinte:
 
@@ -97,6 +97,6 @@ As ACLs de rede podem ser especificadas em um ponto de extremidade com conjunto 
 
 ## Próximas etapas
 
-[Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](../virtual-networks-acl-powershell)
+[Como gerenciar ACLs (Listas de controle de acesso) para pontos de extremidade usando o PowerShell](virtual-networks-acl-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

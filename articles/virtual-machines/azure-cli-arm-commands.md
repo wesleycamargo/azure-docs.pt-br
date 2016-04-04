@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Use a CLI do Azure com o Gerenciador de Recursos | Microsoft Azure"
-	description="Saiba como usar o CLI do Azure para Mac, Linux e Windows para gerenciar os recursos do Azure usando a CLI no modo Gerenciador de Recursos do Azure."
-	services="virtual-machines,virtual-network,mobile-services,cloud-services"
+	pageTitle="Comandos da CLI do Azure no modo do Gerenciador de Recursos | Microsoft Azure"
+	description="Comandos da CLI (interface de linha de comando) do Azure para gerenciar recursos no modelo de implantação do Gerenciador de Recursos"
+	services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,43 +14,36 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="03/07/2016"
 	ms.author="danlep"/>
 
-# Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure
+# Comandos da CLI do Azure no modo ARM (Azure Resource Manager)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](../virtual-machines-command-line-tools.md).
 
-Este artigo descreve como usar a interface de linha de comando do Azure (CLI do Azure) no modo do Gerenciador de Recursos do Azure para criar, gerenciar e excluir serviços na linha de comando de computadores Mac, Linux e Windows. É possível realizar muitas das mesmas tarefas usando as várias bibliotecas de SDKs do Azure, com o Azure PowerShell, e usando o portal do Azure.
+Este artigo fornece a sintaxe e as opções de comandos da CLI (interface de linha de comando) do Azure que normalmente seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação do Azure Resource Manager. É possível acessar esses comandos executando a CLI no modo ARM (Resource Manager). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes.
 
-O Gerenciador de Recursos do Azure permite que você crie um grupo de recursos – máquinas virtuais, sites, bancos de dados e assim por diante – como uma única unidade implantável. Em seguida, você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada. Você descrever os recursos de grupo em um modelo JSON para implantação e, em seguida, pode usar esse modelo para ambientes diferentes, como teste, preparação e produção.
+Para começar, primeiro [instale a CLI do Azure](xplat-cli-install.md) e [conecte-se à sua assinatura do Azure](xplat-cli-connect.md) usando uma conta corporativa ou de estudante, ou uma identidade de conta da Microsoft.
 
-## Escopo do artigo
+Para ver as atuais opções e a sintaxe de comandos na linha de comando no modo do Gerenciador de Recursos, digite `azure help` ou, para exibir a ajuda para um comando específico, `azure help [command]`. Você também encontrará exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
 
-Este artigo fornece a sintaxe e as opções para os comandos mais usados da CLI do Azure para o modelo de implantação do Gerenciador de Recursos. Não é uma referência completa, e a sua versão da CLI poderá mostrar alguns comandos ou parâmetros diferentes. Para ver as atuais opções e a sintaxe de comandos na linha de comando no modo do Gerenciador de Recursos, digite `azure help` ou, para exibir a ajuda para um comando específico, `azure help [command]`. Você também encontrará exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
+Parâmetros opcionais são mostrados entre colchetes (por exemplo, `[parameter]`). Todos os outros parâmetros são obrigatórios.
 
-Parâmetros opcionais são mostrados entre colchetes (por exemplo, [parâmetro]). Todos os outros parâmetros são obrigatórios.
+Além dos parâmetros opcionais específicos aos comandos documentados aqui, há três parâmetros opcionais que podem ser usados para exibir saída detalhada, como opções de solicitação e códigos de status. O parâmetro `-v` fornece uma saída detalhada, e o parâmetro `-vv` fornece uma saída mais detalhada ainda. A opção `--json` produzirá o resultado no formato JSON bruto.
 
-Além dos parâmetros opcionais específicos aos comandos documentados aqui, há três parâmetros opcionais que podem ser usados para exibir saída detalhada, como opções de solicitação e códigos de status. O parâmetro -v fornece saída detalhada e o parâmetro -vv fornece saída mais detalhada ainda. A opção --json produzirá o resultado no formato json bruto. O uso com a opção-- json é muito comum e é uma parte importante da obtenção e do entendimento dos resultados das operações de CLI do Azure que retornam logs, status e informações sobre o recurso e também usando modelos. Talvez você queira instalar as ferramentas do analisador JSON, como **jq** ou **jsawk** ou usar a biblioteca de linguagem favorita.
+## Definindo o modo do Gerenciador de Recursos
+
+Use o comando a seguir para habilitar os comandos do Gerenciador de Recursos da CLI do Azure.
+
+	azure config mode arm
+
+>[AZURE.NOTE] O modo do Gerenciador de Recursos do Azure e o modo do Gerenciamento de Serviços do Azure são mutuamente exclusivos. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
 
 ## Abordagens imperativas e declarativas
 
 Assim como acontece com o [modo de Gerenciamento de Serviço do Azure](../virtual-machines-command-line-tools.md), o modo Gerenciador de Recursos da CLI do Azure fornece comandos que criam recursos de forma imperativa na linha de comando. Por exemplo, se você digitar `azure group create <groupname> <location>` você está solicitando o Azure para criar um grupo de recursos e com `azure group deployment create <resourcegroup> <deploymentname>` você está instruindo o Azure a criar uma implantação de qualquer número de itens e colocá-los em um grupo. Como cada tipo de recurso tem comandos imperativos, é possível encadeá-los para criar implantações bastante complexas.
 
 No entanto, usar os _modelos_ do grupo de recursos que descrevem um recurso de grupo é uma abordagem declarativa que é muito mais poderosa, que permitem automatizar implantações complexas de (quase) qualquer número de recursos para (quase) qualquer finalidade. Ao usar os modelos, o único comando obrigatório é a implantação de um. Para obter uma visão geral dos modelos, recursos e grupos de recursos, consulte [Visão geral do grupo de recursos do Azure](../resource-group-overview.md).
-
-##Requisitos de uso
-
-Os requisitos de configuração para usar o modo Gerenciador de Recursos com a CLI do Azure são:
-
-- uma conta do Azure ([obtenha uma avaliação gratuita aqui](https://azure.microsoft.com/pricing/free-trial/))
-- [instalando a CLI do Azure](../xplat-cli-install.md)
-
-
-Depois que você tiver uma conta e tiver instalado a CLI do Azure, você deve:
-
-- [configurar a CLI do Azure](../xplat-cli-connect.md) para usar uma conta corporativa ou de estudante, ou uma identidade de conta da Microsoft
-- alternar para o modo do Gerenciador de Recursos digitando `azure config mode arm`
 
 
 ## conta do Azure: gerenciar as informações da sua conta
@@ -1879,4 +1872,4 @@ Opções de parâmetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

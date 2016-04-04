@@ -29,12 +29,12 @@ Use este tópico para conhecer as etapas rápidas de concessão e remoção do a
 - Confira [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md).
 
 ##Para criar usuários de banco de dados contidos no banco de dados do usuário
-- Use a instrução [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) e confira [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+- Use a instrução [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) e veja [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Para autenticar os usuários de banco de dados independente usando o Active Directory do Azure
-- Confira [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
+- Veja [Conectar-se ao Banco de Dados SQL usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md).
 
 ## Para criar logons adicionais para usuários com privilégios elevados no banco de dados mestre virtual
 -Use a instrução [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) e confira a seção Gerenciamento de Logons de [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md) para obter mais detalhes.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

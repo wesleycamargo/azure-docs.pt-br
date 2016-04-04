@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management do Azure AD: como Alterar ou Exibir as Configurações Padrão para uma Função"
+   pageTitle="Como alterar ou exibir as configurações padrão de uma função | Microsoft Azure"
    description="Aprenda a alterar as configurações padrão para identidades com privilégios com a extensão Privileged Identity Management do Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/10/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Privileged Identity Management do Azure AD: como alterar ou exibir as configurações padrão de ativação para uma função
@@ -52,4 +52,4 @@ Para obter mais informações sobre como usar MFA com PIM, consulte [Como Exigir
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

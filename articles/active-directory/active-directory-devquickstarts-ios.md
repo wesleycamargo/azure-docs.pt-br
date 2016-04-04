@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/18/2016"
 	ms.author="brandwe"/>
 
 # Integrar o Azure AD em um aplicativo iOS
@@ -65,7 +65,8 @@ Para habilitar seu aplicativo para obter tokens, primeiro será necessário regi
 - Também na guia **Configurar**, clique na seção “Permissões para outros aplicativos”. Para o aplicativo "Active Directory do Azure", adicione a permissão **Acessar o diretório de sua organização** em **Permissões delegadas**. Isso permitirá que seu aplicativo consulte a Graph API para usuários.
 
 ## *3. Instalar e configurar a ADAL*
-Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade. Para que a ADAL seja capaz de se comunicar com o Azure AD, é necessário fornecer algumas informações sobre o registro de seu aplicativo. Comece adicionando a ADAL ao projeto DirectorySearcher usando o Cocapods.
+Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade. Para que a ADAL possa se comunicar com o Azure AD, é necessário fornecer a ela algumas informações sobre o registro do aplicativo.
+-	Inicie adicionando a ADAL ao projeto DirectorySearcher usando o Cocapods.
 
 ```
 $ vi Podfile
@@ -220,10 +221,14 @@ Parabéns! Agora você tem um aplicativo iOS que tem a capacidade de autenticar 
 
 A ADAL facilita a incorporar todos esses recursos comuns de identidade em seu aplicativo. Ele se encarrega de todo o trabalho difícil para você - gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma IU de logon ao usuário, atualização de tokens expirados e mais. Tudo o que você realmente precisa saber é uma única chamada à API, `getToken`.
 
-Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido [aqui](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Agora você pode passar para cenários de adicionais. Você pode desejar experimentar:
+Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido [aqui](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).
 
-[Proteger uma API da Web Node.JS com o Azure AD >>](../active-directory-devquickstarts-webapi-nodejst.md)
+## Cenários adicionais
+Agora você pode passar para cenários de adicionais. Você pode desejar experimentar:
+
+- [Proteger uma API Web Node.js com o Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
+- Saiba [como habilitar o SSO entre aplicativos no iOS usando a ADAL](active-directory-sso-ios.md)  
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Namespaces emparelhados do Barramento de Serviço| Microsoft Azure"
-   description="Detalhes e custo de implementação do namespace emparelhado"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Namespaces emparelhados do Barramento de Serviço| Microsoft Azure"
+    description="Detalhes e custo de implementação do namespace emparelhado"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # Detalhes e implicações de custo da implementação do namespace emparelhado
 
@@ -107,7 +107,7 @@ Em um aplicativo que hospeda o sifão, quando a [MessagingFactory][] primária o
 
 ## Próximas etapas
 
-Consulte [Padrões de sistema de mensagens assíncronas e alta disponibilidade] para obter uma discussão detalhada da mensagem assíncrona do Barramento de Serviço.
+Consulte [Padrões de sistema de mensagens assíncronas e alta disponibilidade][] para obter uma discussão detalhada da mensagem assíncrona do Barramento de Serviço.
 
   [PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
   [SendAvailabilityPairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx
@@ -129,4 +129,4 @@ Consulte [Padrões de sistema de mensagens assíncronas e alta disponibilidade] 
   [1]: ./media/service-bus-paired-namespaces/IC673406.png
   [2]: ./media/service-bus-paired-namespaces/IC673407.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

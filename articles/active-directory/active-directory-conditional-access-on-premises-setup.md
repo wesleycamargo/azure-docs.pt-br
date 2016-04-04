@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/26/2016"
+	ms.topic="article"
+	ms.date="03/18/2016"
 	ms.author="femila"/>
 
 
@@ -120,7 +120,6 @@ Isso o ajudará a integrar o locatário do Azure AD ao Active Directory local, u
   1.	Adicionar domínios.
   2.	Instalar e executar o Azure AD Connect: instale o Azure AD Connect usando as instruções a seguir, [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verificar e gerenciar a sincronização de diretórios. Instruções de logon único estão disponíveis nessa etapa.
-
   >[AZURE.NOTE] Configure a Federação com o AD FS conforme descrito no documento vinculado acima.
   >[AZURE.NOTE] Você não precisa configurar nenhum dos recursos de visualização.
 
@@ -251,4 +250,4 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

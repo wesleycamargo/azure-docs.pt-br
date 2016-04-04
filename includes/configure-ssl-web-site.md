@@ -44,7 +44,11 @@ Para obter um certificado SSL para uso com o Serviço de Aplicativo do Azure, en
 >
 > Há suporte aos Certificados ECC (Criptografia de Curva Elíptica) com o Serviço de Aplicativo do Azure; no entanto, eles são relativamente novos, e é necessário planejar as etapas exatas para a criação da CSR junto à sua AC.
 
-Talvez você também precise obter **[certificados intermediários](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (também conhecidos como certificados de cadeia), caso eles sejam usados por sua AC. O uso de certificados intermediários é considerado mais seguro do que “certificados sem cadeia”, por isso é comum que uma AC os use. Certificados intermediários geralmente são fornecidos como um download separado do site das ACs. As etapas neste artigo mostram como garantir que todos os certificados intermediários sejam mesclados com o certificado carregado em seus aplicativos.
+Talvez você também precise obter **[certificados intermediários](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (também conhecidos como certificados de cadeia), caso eles sejam usados por sua AC. O uso de certificados intermediários é considerado mais seguro do que “certificados sem cadeia”, por isso é comum que uma AC os use. Certificados intermediários geralmente são fornecidos como um download separado do site das ACs. Este artigo fornece etapas para garantir que todos os certificados intermediários sejam mesclados com o certificado carregado em seus aplicativos.
+
+> [AZURE.NOTE]
+>
+> Caso a AC utilize certificados intermediários, cada um deles deverá ser instalado junto com o certificado emitido para seu domínio. A falha em instalar qualquer um dos certificados intermediários poderá causar problemas de interoperabilidade de difícil reprodução para alguns clientes.
 
 <a name="bkmk_certreq"></a>
 ### Obter um certificado usando Certreq.exe (somente Windows)
@@ -400,11 +404,11 @@ A habilitação do HTTPS para um domínio personalizado só está disponível pa
 
 5.	Na página **Informações Gerais**, clique em **Configurações**.
 
-6.	Clique em **Escalar verticalmente**
+6.	Clique em **Escalar Verticalmente**
 	
 	![Na guia Escala][scale]
 
-7.	Na seção **Escalar verticalmente**, defina o modo do plano de Serviço de Aplicativo clicando em **Selecionar**.
+7.	Na seção **Escalar Verticalmente**, defina o modo do plano do Serviço de Aplicativo clicando em **Selecionar**.
 
 	> [AZURE.NOTE] Se você receber um erro "Configurando a escala para o aplicativo Web '&lt;nome do aplicativo&gt;' com falha", você pode usar o botão Detalhes para saber mais. Você pode receber um erro "Não servidores de instância padrão disponíveis para atender a esta solicitação". Se você receber esse erro, contate o [suporte do Azure](/support/options/).
 
@@ -535,7 +539,6 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal de visualização](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
@@ -561,4 +564,4 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

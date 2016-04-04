@@ -18,7 +18,8 @@
 
 # Protocolos v2.0 - OAuth 2.0 e OpenID Connect
 
-o ponto de extremidade v2.0 pode usar o Azure AD como identidade como um serviço com protocolos padrão da indústria, como o OAuth 2.0 e o OpenID Connect. Embora o serviço esteja em conformidade padrão, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações descritas aqui serão úteis se você optar por criar seu código enviando e tratando solicitações HTTP diretamente ou use uma biblioteca de software livre de terceiros, em vez de usar uma das nossas bibliotecas de software livre. <!-- TODO: Need link to libraries above -->
+o ponto de extremidade v2.0 pode usar o Azure AD como identidade como um serviço com protocolos padrão da indústria, como o OAuth 2.0 e o OpenID Connect. Embora o serviço esteja em conformidade padrão, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações descritas aqui serão úteis se você optar por criar seu código enviando e tratando solicitações HTTP diretamente ou usar uma biblioteca de software livre de terceiros, em vez de usar uma de nossas bibliotecas de software livre.
+<!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
 	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
@@ -77,7 +78,7 @@ Se você estiver pronto para ver alguns exemplos de solicitação, inicie com um
 - Criar Daemons ou Processos Paralelos do Servidor com o Fluxo de Credenciais do Cliente OAuth 2.0 (em breve)
 - Obter tokens em uma API Web com o OAuth 2.0 em nome do fluxo (em breve)
 
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) -->
+<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -32,7 +32,7 @@ No entanto, alguns provedores de recursos oferecem duas versões do recurso (uma
 - **Armazenamento** - Dá suporte às contas de armazenamento necessárias que armazenam os VHDs para máquinas virtuais, incluindo o sistema operacional e discos de dados adicionais.
 - **Rede** - Dá suporte às NICs necessárias, endereços IP de máquinas virtuais e sub-redes em redes virtuais e balanceadores de carga opcionais, endereços IP de balanceador de carga e grupos de segurança de rede.
 
-Para esses tipos de recurso, você deve saber qual versão está usando, pois as operações com suporte variam. Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Para esses tipos de recurso, você deve saber qual versão está usando, pois as operações com suporte variam. Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 ## Características do Gerenciador de Recursos
 
@@ -177,9 +177,9 @@ Há algumas considerações importantes ao trabalhar com máquinas virtuais.
 
 Se você puder se dar ao luxo de ter um tempo de inatividade para as suas Máquinas Virtuais, é possível fazer sua transição da implantação clássica para o Gerenciador de Recursos com os [scripts ASM2ARM do PowerShell](https://github.com/fullscale180/asm2arm).
 
-Para obter uma lista de comandos equivalentes da CLI do Azure durante a transição da implantação clássica para o Gerenciador de Recursos, veja a seção [Comandos equivalentes do Gerenciador de Recursos e do Gerenciamento de Serviços para operações de VM](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
+Para obter uma lista de comandos equivalentes da CLI do Azure durante a transição da implantação clássica para o Gerenciador de Recursos, veja a seção [Comandos equivalentes do Gerenciador de Recursos e do Gerenciamento de Serviços para operações de VM](./virtual-machines/virtual-machines-linux-cli-manage.md).
 
-Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 Para saber como conectar redes virtuais de diferentes modelos de implantação, veja [Conectando Redes Virtuais clássicas a Redes Virtuais novas](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
@@ -188,4 +188,4 @@ Para saber como conectar redes virtuais de diferentes modelos de implantação, 
 - Para saber como criar modelos de implantação declarativa, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

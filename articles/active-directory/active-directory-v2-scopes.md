@@ -120,4 +120,4 @@ Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá ref
 
 Para obter mais informações sobre como obter e usar tokens de atualização, consulte a [referência do protocolo v2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

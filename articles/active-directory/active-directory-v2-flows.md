@@ -118,4 +118,4 @@ Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstr
 
 Este cenário de API da Web encadeado pode ter suporte com o uso da concessão OAuth 2.0 Jwt Bearer Credential, também conhecida como [Fluxo Em Nome De](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). No entanto, o fluxo Em Nome De não está implementado atualmente no ponto de extremidade v2.0. Para ver como esse fluxo funciona no serviço do AD do Azure disponível ao público geral, confira o [exemplo de código Em Nome De no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

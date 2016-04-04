@@ -88,9 +88,9 @@ Os aplicativos Apache Cordova não manipulam recursos de rede ou do dispositivo 
 
 1.  Abra o arquivo `config.xml` no Gerenciador de Soluções.
 2.  Clique em **Plug-ins** > **Personalizado**, selecione **Git** como a origem da instalação e insira `https://github.com/phonegap/phonegap-plugin-push` como a origem.
-	
+
 	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
-	
+
 4.  Clique na seta ao lado da origem da instalação e clique em **Adicionar**
 
 O plug-in de push agora está instalado.
@@ -115,23 +115,23 @@ As bibliotecas exigidas atualmente estão listadas na [documentação de instala
 
 1. Adicione uma chamada para **registerForPushNotifications** durante o retorno de chamada para o processo de logon, ou na parte inferior do método **onDeviceReady**:
 
- 
+
 		// Login to the service.
 		client.login('google')
 		    .then(function () {
 		        // Create a table reference
 		        todoItemTable = client.getTable('todoitem');
-		
+
 		        // Refresh the todoItems
 		        refreshDisplay();
-		
+
 		        // Wire up the UI Event Handler for the Add Item
 		        $('#add-item').submit(addItemHandler);
 		        $('#refresh').on('click', refreshDisplay);
-		
+
 				// Added to register for push notifications.
 		        registerForPushNotifications();
-		
+
 		    }, handleError);
 
 	Este exemplo mostra uma chamada para **registerForPushNotifications** após a autenticação bem-sucedida, o que é recomendado ao usar notificações por push e autenticação em seu aplicativo.
@@ -152,18 +152,18 @@ As bibliotecas exigidas atualmente estão listadas na [documentação de instala
 	                sound: 'true'
 	            },
 	            wns: {
-	
+
 	            }
 	        });
-	
+
 	        pushRegistration.on('registration', function (data) {
 	            client.push.register('gcm', data.registrationId);
 	        });
-	
+
 	        pushRegistration.on('notification', function (data, d2) {
 	            alert('Push Received: ' + data.message);
 	        });
-	
+
 	        pushRegistration.on('error', handleError);
 	    }
 
@@ -182,6 +182,12 @@ Também é possível testar o aplicativo do Android no emulador do Android. Lemb
 * Leia sobre [Hubs de Notificação] para saber mais sobre as notificações por push.
 * Se você ainda não fez isso, continue o tutorial [Adicionando autenticação] ao seu aplicativo do Apache Cordova.
 
+Saiba como usar os SDKs.
+
+* [SDK do Apache Cordova]
+* [SDK do Servidor ASP.NET]
+* [SDK do Servidor Node.js]
+
 <!-- URLs -->
 [Adicionando autenticação]: app-service-mobile-cordova-get-started-users.md
 [início rápido do Apache Cordova]: app-service-mobile-cordova-get-started.md
@@ -194,5 +200,8 @@ Também é possível testar o aplicativo do Android no emulador do Android. Lemb
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Ferramentas do Visual Studio para Apache Cordova]: https://www.visualstudio.com/pt-BR/features/cordova-vs.aspx
 [Hubs de Notificação]: ../notification-hubs/notification-hubs-overview.md
+[SDK do Apache Cordova]: app-service-mobile-codova-how-to-use-client-library.md
+[SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

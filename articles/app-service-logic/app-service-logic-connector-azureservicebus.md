@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # Introdução ao Conector do Barramento de Serviço do Azure e à adição dele a seu Aplicativo Lógico 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API de Barramento de Serviço](../connectors/create-api-servicebus.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do Barramento de Serviço](../connectors/connectors-create-api-servicebus.md).
 
 Conecte-se ao Barramento de Serviço do Azure para enviar mensagens a Filas e Tópicos e receber mensagens de Filas e Assinaturas. Os conectores são usados em Aplicativos Lógicos como parte de um "fluxo de trabalho".
 
@@ -95,4 +95,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

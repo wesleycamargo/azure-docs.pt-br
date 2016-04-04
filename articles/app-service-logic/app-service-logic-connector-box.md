@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 # Comece a usar o Conector do Box e adicione-o a seu Aplicativo Lógico 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para a versão do esquema 2015-08-01-preview, clique em [API do Box](../connectors/create-api-box.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do Box](../connectors/connectors-create-api-box.md).
 
 Conecte-se ao Box para obter, carregar, excluir. e realizar outras operações em seus arquivos. Os conectores são usados em Aplicativos Lógicos como parte de um "fluxo de trabalho".
 
@@ -68,7 +68,7 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Pesquise "Conector do Box", selecione-o e selecione **Criar**.
-3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades: 
+3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades:
 	![][1]
 4. Selecione **Criar**.
 
@@ -109,4 +109,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/18/2016"
 	ms.author="meetb"/>
 
 
@@ -42,7 +42,10 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 
 O programa de demonstração é projetado para que um erro transitório durante a tentativa de conexão leve a uma nova tentativa. Mas um erro transitório durante o comando de consulta faz com que o programa descarte a conexão e crie uma nova conexão, antes de tentar novamente o comando de consulta. Não recomendamos nem desaconselhamos essa opção de design. O programa de demonstração ilustra um pouco da flexibilidade de design que está disponível para você.
 
-<br>O comprimento deste exemplo de código deve-se principalmente à lógica de exceção catch. Uma versão mais curta desse arquivo Program.cs está disponível [aqui](sql-database-develop-php-simple-windows.md). <br>O método Main está no Program.cs. A pilha de chamadas é executada da seguinte maneira: * Main chama ConnectAndQuery. * ConnectAndQuery chama EstablishConnection. * EstablishConnection chama IssueQueryCommand.
+<br>O comprimento deste exemplo de código deve-se principalmente à lógica de exceção catch. Uma versão mais curta desse arquivo Program.cs está disponível [aqui](sql-database-develop-php-simple-windows.md). <br>O método Main está no Program.cs. A pilha de chamadas é executada da seguinte maneira:
+* Main chama ConnectAndQuery.
+* ConnectAndQuery chama EstablishConnection.
+* EstablishConnection chama IssueQueryCommand.
 
 A função [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essencialmente, essa função aceita qualquer consulta e o objeto de conexão e retorna um conjunto de resultados que pode ser iterado com o uso de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -136,4 +139,4 @@ A função [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php)
 
 Para saber mais sobre o uso e a instalação de PHP, confira [Acessando os Bancos de Dados SQL com PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

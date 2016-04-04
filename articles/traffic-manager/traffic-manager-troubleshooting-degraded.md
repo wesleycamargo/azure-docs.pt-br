@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
@@ -67,9 +67,9 @@ Se a investigação estiver usando o protocolo HTTPs, convém adicionar o parâm
 ## Próximas etapas
 
 
-[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-load-balancing-methods.md)
+[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
 
-[O que é o Gerenciador de Tráfego](../traffic-manmager-overview.md)
+[O que é o Gerenciador de Tráfego](traffic-manager-overview.md)
 
 [Serviços de Nuvem](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -80,4 +80,4 @@ Se a investigação estiver usando o protocolo HTTPs, convém adicionar o parâm
 [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

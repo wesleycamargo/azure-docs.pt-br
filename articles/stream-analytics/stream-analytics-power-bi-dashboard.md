@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 	
 #  Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
@@ -25,7 +25,7 @@ Use o [Microsoft Power BI](https://powerbi.com/) para criar um painel dinâmico 
 
 Neste artigo, saiba como criar suas próprias ferramentas de inteligência de negócios personalizadas usando o Power BI como uma saída de seus trabalhos da Stream Analytics do Azure e utilize um painel em tempo real.
 
-> [AZURE.NOTE] A Saída de da Power BI é um recurso de visualização da Stream Analytics do Azure. No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal de Visualização do Azure.
+> [AZURE.NOTE] A Saída de da Power BI é um recurso de visualização da Stream Analytics do Azure. No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal do Azure, apenas no Portal Clássico do Azure.
 
 ## Pré-requisitos
 
@@ -35,7 +35,7 @@ Neste artigo, saiba como criar suas próprias ferramentas de inteligência de ne
 
 ## Criar trabalho do Azure Stream Analytics
 
-No [Portal do Azure](https://manage.windowsazure.com), clique em **Novo, Serviços de Dados, Stream Analytics, Criação Rápida**.
+No [Portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo, Serviços de Dados, Stream Analytics, Criação Rápida**.
 
 Especifique os valores a seguir, então clique em **Criar trabalho do Stream Analytics**:
 
@@ -232,4 +232,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -68,12 +68,12 @@ Exemplo de NSG no formato JSON:
 	}
 
 ### Regras de segurança padrão
-As regras de segurança padrão têm as mesmas propriedades disponíveis nas regras de segurança. Elas existem para fornecer a conectividade básica entre os recursos com NSGs aplicados. Certifique-se de que você sabe quais [regras de segurança padrão](./virtual-networks-nsg.md#Default-Rules) existem.
+As regras de segurança padrão têm as mesmas propriedades disponíveis nas regras de segurança. Elas existem para fornecer a conectividade básica entre os recursos com NSGs aplicados. Certifique-se de que você sabe quais [regras de segurança padrão](../articles/virtual-network/virtual-networks-nsg.md#Default-Rules) existem.
 
 ### Recursos adicionais
 
-- Obtenha mais informações sobre [NSGs](virtual-networks-nsg.md).
+- Obtenha mais informações sobre [NSGs](../articles/virtual-network/virtual-networks-nsg.md).
 - Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) para obter NSGs.
 - Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) para obter regras de segurança.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

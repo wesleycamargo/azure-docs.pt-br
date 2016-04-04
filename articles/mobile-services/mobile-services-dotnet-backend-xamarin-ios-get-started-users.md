@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2015" 
+	ms.date="03/18/2016" 
 	ms.author="donnam"/>
 
 # Adicionar autenticação ao aplicativo de Serviços Móveis
@@ -22,7 +22,8 @@
 
 &nbsp;
 
->[AZURE.NOTE]Este é um tópico dos Serviços Móveis do Azure. O Microsoft Azure recomenda Aplicativos Móveis do Serviço de Aplicativo do Azure para todas as novas implantações de back-end móvel. Para saber mais, confira o [tutorial equivalente na documentação dos Aplicativos Móveis](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para obter a versão equivalente dos Aplicativos Móveis deste tópico, veja [Adicionar autenticação ao aplicativo Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
 
 Este tópico mostra como autenticar usuários nos Serviços Móveis em seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
 
@@ -46,7 +47,7 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 &nbsp;&nbsp;&nbsp;6. No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou simulador. Verifique se uma exceção não tratada com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado; no entanto, a tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
@@ -74,9 +75,9 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
             }
         }
 
-	> [AZURE.NOTE] Quando você usar um provedor de identidade que não for o Facebook, altere o valor passado para **LoginAsync** acima para um dos seguintes: _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] Quando usar um provedor de identidade que não seja o Facebook, altere o valor passado para **LoginAsync** acima para um dos seguintes: _MicrosoftAccount_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Abra **QSTodoListViewController.cs** e modifique a definição do método de **ViewDidLoad** para remover ou comentar a chamada a **RefreshAsync()** perto do final.
+3. Abra **QSTodoListViewController.cs** e modifique a definição do método de **ViewDidLoad** para remover ou comentar a chamada para **RefreshAsync()** perto do final.
 
 4. Adicione o seguinte código à parte superior da definição do método **RefreshAsync**:
 
@@ -89,7 +90,7 @@ Nesta seção, você modificará o aplicativo para exibir uma tela de logon ante
 			}
 		}
 		
-	Isso exibe uma tela de entrada para tentar a autenticação quando a propriedade **User** for nula. Quando o logon for bem-sucedido, **User** será definida.
+	Isso exibe uma tela de entrada para tentar a autenticação quando a propriedade **User** for nula. Quando o logon for bem-sucedido, **User** será definido.
 
 5. Pressione o botão **Executar** para criar o projeto e iniciar o aplicativo no simulador do iPhone. Verifique se o aplicativo não exibe dados. **RefreshAsync()** ainda não foi chamado.
 
@@ -117,4 +118,4 @@ No próximo tutorial, [Autorização do lado do serviço dos usuários dos Servi
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -35,7 +35,7 @@ Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que
 Para concluir este tutorial, você precisará do seguinte:
 
 - Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](../../../pricing/free-trial).
-- Interface de Linha de Comando versão 0.9.1 ou posterior. Para instalar a versão mais recente e conectá-la à sua assinatura do Azure, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](xplat-cli-install.md).
+- Interface de Linha de Comando versão 0.9.1 ou posterior. Para instalar a versão mais recente e conectá-la à sua assinatura do Azure, consulte [Instalar e configurar a interface de linha de comando entre plataformas do Azure](../xplat-cli-install.md).
 - Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível na [Centro de Download da Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
 
 ## Obtendo ajuda com a interface de linha de comando de plataforma cruzada do Azure
@@ -54,8 +54,8 @@ Em caso de dúvida sobre os parâmetros necessários para um comando, consulte a
 
 Você pode ler também os tutoriais a seguir para se familiarizar com o Gerenciador de Recursos do Azure na interface de linha de comando da plataforma cruzada do Azure:
 
-- [Como Instalar e configurar a interface de linha de comando de plataforma cruzada do Azure](xplat-cli-install.md)
-- [Usando a interface de linha de comando de plataforma cruzada do Azure com o Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md)
+- [Como Instalar e configurar a interface de linha de comando de plataforma cruzada do Azure](../xplat-cli-install.md)
+- [Usando a interface de linha de comando de plataforma cruzada do Azure com o Gerenciador de Recursos do Azure](../xplat-cli-azure-resource-manager.md)
 
 
 ## Conectar-se às suas assinaturas
@@ -89,7 +89,7 @@ Depois, para especificar a assinatura a ser usada, digite:
 
     azure account set <subscription name>
 
-Para obter mais informações sobre como configurar a interface de linha de comando de plataforma cruzada do Azure, consulte [Como instalar e configurar a interface de linha de comando entre plataformas do Azure](xplat-cli-install.md).
+Para obter mais informações sobre como configurar a interface de linha de comando de plataforma cruzada do Azure, consulte [Como instalar e configurar a interface de linha de comando entre plataformas do Azure](../xplat-cli-install.md).
 
 
 ## Alternar para o Gerenciador de Recursos do Azure
@@ -256,4 +256,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

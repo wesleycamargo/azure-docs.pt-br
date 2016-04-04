@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="02/24/2016"
+  ms.date="03/18/2016"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -89,13 +89,19 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 **Postagens da comunidade:**
 
-* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) – *por Yoichi Kawasaki*
+* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - *por Matias Quarantaas*
 
-* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) – *por Peter Mannerhult*
+* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - *por Eric Langland*
 
-* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) – *por George Saadeh*
+* [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md) - *por Howard Edidin*
 
-* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) – *por Robert Sheldon*
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *por Yoichi Kawasaki*
+
+* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *por Peter Mannerhult*
+
+* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *por George Saadeh*
+
+* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *por Robert Sheldon*
 
 * [**DocumentDB as a data sink for Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - *por Jan Hentschel*
 
@@ -140,9 +146,10 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 ### Eventos recentes e futuros
 
 | Nome do evento | Palestrante | Local | Data | Hashtag |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
-| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, WA | 3 de março de 2016 | n/d
-| SQLBits XV | TBD | Liverpool, Reino Unido | 4 a 7 de maio de 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [Build 2016](https://build.microsoft.com/) | John Macintyre, Dharma Shukla | San Francisco, CA | 30 de março - 1º de abril de 2016 | [#MicrosoftBuild](https://twitter.com/hashtag/MicrosoftBuild)
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Reino Unido | 4 a 7 de maio de 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| [Meetup: Grupo de usuários do Azure Reino Unido](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | Londres, Reino Unido | 12 de maio de 2016 | n/d |
 
 *Você está participando como palestrante ou organizando um evento? [Fale conosco](mailto:askdocdb@microsoft.com) para sabermos como podemos ajudar!*
 
@@ -150,6 +157,7 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Nome do evento | Palestrante | Local | Data | Gravação |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Kirat Pandya | Bellevue, WA | 3 de março de 2016 | n/d |
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 28 de janeiro de 2016 | n/d |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montreal, QC, Canadá | 01 de dezembro de 2015 | n/d |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 de novembro de 2015 | n/d |
@@ -181,8 +189,10 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 ### Vídeos e Podcasts
 
 | Mostrar | Palestrante | Data | Episódio |
-| ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Wired2WinWebinar | Sai Sankar Kunnathukuzhiyil | 9 de março de 2016 | [Developing Solutions with Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs)
 | Grupo de usuários de integração | Han Wong | 17 de fevereiro de 2016 | [Analisar e visualizar dados não relacionais com o Banco de Dados de Documentos e o Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| O Podcast do Azure | Cale Teeter | 14 de janeiro de 2016 | [Episode 110: Using DocumentDB & Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) |
 | Channel 9: aplicativos modernos | Tara Shankar Jana | 13 de dezembro de 2016 | [Adotar uma abordagem moderna para dados em seus aplicativos](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 10 de dezembro de 2015 | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Grupo de usuários de integração | Howard Edidin | 9 de novembro de 2015 | [Banco de Dados de Documentos do Azure para a integração da área de saúde – Parte 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
@@ -284,4 +294,4 @@ Os Magos do Banco de Dados de Documentos são líderes de comunidade que demonst
 
 Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

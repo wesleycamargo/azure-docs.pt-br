@@ -2,7 +2,7 @@
 	pageTitle="Criar definições de Aplicativo Lógico | Microsoft Azure" 
 	description="Aprenda a escrever a definição JSON para Aplicativos lógicos" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,18 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 	
 # Criar definições de Aplicativo Lógico
-Este tópico demonstra como usar as definições de [Aplicativos Lógicos de Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md), que se tratam de uma linguagem JSON simples e declarativa. Se você ainda não tiver feito isso ainda, confira primeiro [como Criar um novo Aplicativo Lógico](app-service-logic-create-a-logic-app.md). Você também pode ler o [material de referência completo da linguagem de definição no MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+Este tópico demonstra como usar as definições de [Aplicativos Lógicos de Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md), que se tratam de uma linguagem JSON simples e declarativa. Se você ainda não tiver feito isso ainda, confira primeiro [como Criar um novo Aplicativo Lógico](app-service-logic-create-a-logic-app.md). Você também pode ler o [material de referência completo da linguagem de definição no MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx).
 
 ## Várias etapas que se repetem em uma lista
 
 Um padrão comum é ter uma etapa que obtém uma lista de itens e, em seguida, ter uma série de duas ou mais ações que deseja executar para cada item da lista:
 
-![Repetir em listas](./media/app-service-logic-author-definitions/repeatoverlists.png)
+![Repetir em listas](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
 
+![Repetir em listas](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
+
+![Repetir em listas](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
+
+![Repetir em listas](./media/app-service-logic-author-definitions/newrepeatoverlists4.png)
+
+ 
 Neste exemplo, há três ações:
 
 1. Obtenha uma lista de artigos. Isso retorna um objeto que contém uma matriz.
@@ -77,7 +84,7 @@ Neste exemplo, há três ações:
 
 Conforme abordado em [usar recursos de aplicativo lógico](app-service-logic-use-logic-app-features.md), você itera sobre a primeira lista usando a propriedade `forEach:` na segunda ação. Porém, para a terceira ação, você deve selecionar a propriedade `@actions('readLinks').outputs`, porque a segunda foi executada para cada artigo.
 
-Dentro da ação você pode usar a função [`item()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#item). Neste exemplo, procurei obter o cabeçalho `location`, por isso tive que continuar com `@item().outputs.headers` para obter as saídas da execução da ação da segunda ação que sobre a qual estamos iterando.
+Dentro da ação, é possível usar a função [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item). Neste exemplo, queria obter o cabeçalho `location`, por isso tive de continuar com `@item().outputs.headers` para obter as saídas da execução da ação da segunda ação sobre a qual estamos iterando.
 
 ## Mapear itens em uma lista para algumas configurações diferentes
 
@@ -134,7 +141,7 @@ Em seguida, digamos que desejamos obter conteúdo completamente diferente depend
 
 Nesse caso, primeiro obtemos uma lista de artigos e, em seguida, a segunda etapa procura em um mapa, com base na categoria que foi definida como parâmetro, a URL da qual obter o conteúdo.
 
-Dois itens aos quais prestar atenção aqui: a função [`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) é usada para verificar se a categoria corresponde a uma das categorias conhecidas definidas. Em segundo lugar, uma vez que obtemos a categoria, podemos extrair o item do mapa usando colchetes: `parameters[...]`.
+Dois itens aos quais prestar atenção aqui: a função [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) é usada para verificar se a categoria corresponde a uma das categorias conhecidas definidas. Em segundo lugar, uma vez que obtemos a categoria, podemos extrair o item do mapa usando colchetes: `parameters[...]`.
 
 ## Encadear/aninhar Aplicativos Lógicos enquanto eles são repetidos em uma lista
 
@@ -199,7 +206,7 @@ No aplicativo lógico pai:
 }
 ```
 
-Em seguida, no aplicativo lógico filho, você usará a função [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerBody) para obter os valores passados para o fluxo de trabalho filho. Você vai então popular as saídas com os dados que deseja retornar ao fluxo pai.
+Em seguida, no aplicativo lógico filho, você usará a função [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) para obter os valores passados para o fluxo de trabalho filho. Você vai então popular as saídas com os dados que deseja retornar ao fluxo pai.
 
 ```
 {
@@ -236,7 +243,7 @@ Em seguida, no aplicativo lógico filho, você usará a função [`triggerBody()
 }
 ```
 
-Você pode ler sobre a [ação de tipo Aplicativo lógico no MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx).
+Você pode ler sobre a [ação de tipo Aplicativo lógico no MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx).
 
 >[AZURE.NOTE]O designer de Aplicativo lógico não oferece suporte a ações de tipo Aplicativo lógico, portanto, você precisará editar a definição manualmente.
 
@@ -354,7 +361,7 @@ Você pode ver que o carimbo de data/hora para ambas as ramificações é idênt
 
 Você pode combinar dois fluxos condicionais de lógica (que podem ter ou não sido executados) tendo uma única ação que extrai dados de ambas as ramificações.
 
-Sua estratégia para isso varia dependendo de você estar lidando com um item ou com uma coleção de itens. No caso de um único item, você desejará usar a função [`coalesce()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#coalesce):
+Sua estratégia para isso varia dependendo de você estar lidando com um item ou com uma coleção de itens. No caso de um único item, você desejará usar a função [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce):
 
 ```
 {
@@ -410,7 +417,7 @@ Sua estratégia para isso varia dependendo de você estar lidando com um item ou
 }
 ```
  
-Como alternativa, quando ambas as suas duas primeiras ramificações operam em uma lista de pedidos, por exemplo, você desejará usar a função [`union()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#union) para combinar os dados de ambas as ramificações.
+Como alternativa, quando ambas as suas duas primeiras ramificações operam em uma lista de pedidos, por exemplo, você desejará usar a função [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) para combinar os dados de ambas as ramificações.
 
 ```
 {
@@ -514,17 +521,17 @@ Também queremos uma subcadeia de caracteres do nome do autor da ordem, porque o
 
 Trabalho de dentro para fora:
 
-1. Obter o [`length()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#length) do nome do autor da ordem, que retorna o número total de caracteres
+1. Obter o [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) do nome do autor da ordem, que retorna o número total de caracteres
 
 2. Subtrair 5 (porque desejamos uma cadeia de caracteres mais curta)
 
-3. Coletar efetivamente o [`substring()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#substring). Vamos começar no `5` do índice e seguir pelo restante da cadeia de caracteres.
+3. Coletar efetivamente o [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Vamos começar no `5` do índice e seguir pelo restante da cadeia de caracteres.
 
-4. Converter esta subcadeia de caracteres em uma cadeia de caracteres [`base64()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#base64)
+4. Converter esta subcadeia de caracteres em uma cadeia de caracteres [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64)
 
-5. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) todos os caracteres `+` com `-`
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) todos os caracteres `+` com `-`
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) todos os caracteres `/` com `_`
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) todos os caracteres `/` com `_`
 
 ## Trabalho com valores de Data/Hora
 
@@ -571,13 +578,13 @@ Valores de Data/Hora podem ser úteis, especialmente quando você estiver tentan
 }
 ```
 
-Neste exemplo, estamos extraindo o `startTime` da etapa anterior. Em seguida obtemos a hora atual e subtraímos um segundo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds) (você pode usar outras unidades de tempo, como `minutes` ou `hours`). Por fim, podemos comparar esses dois valores. Se o primeiro for menor do que o segundo, isso significa que mais de um segundo decorreu desde o primeiro momento em que a ordem foi emitida.
+Neste exemplo, estamos extraindo o `startTime` da etapa anterior. Em seguida obtemos a hora atual e subtraímos um segundo:[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (você pode usar outras unidades de tempo, como `minutes` ou `hours`). Por fim, podemos comparar esses dois valores. Se o primeiro for menor do que o segundo, isso significa que mais de um segundo decorreu desde o primeiro momento em que a ordem foi emitida.
 
-Observe também que podemos usar formatadores de cadeia de caracteres para formatar datas: na cadeia de caracteres de consulta, utilizo [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) para obter o RFC1123. Toda a formatação das datas [está documentada no MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow).
+Observe também que podemos usar formatadores de cadeia de caracteres para formatar datas: na cadeia de caracteres de consulta, utilizo [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) para obter o RFC1123. Toda a formatação das datas [está documentada no MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
 ## Passando valores em tempo de execução para variar o comportamento
 
-Digamos que você tenha diferentes comportamentos que deseja executar com base em um valor que você usa para iniciar o Aplicativo lógico. Você pode usar a função [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerOutputs) para obter esses valores por meio do qual você passou:
+Digamos que você tenha diferentes comportamentos que deseja executar com base em um valor que você usa para iniciar o Aplicativo lógico. Você pode usar a função [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs) para obter esses valores por meio do qual você passou:
 
 ```
 {
@@ -611,13 +618,7 @@ Digamos que você tenha diferentes comportamentos que deseja executar com base e
 }
 ```
 
-Para fazer isso realmente funcionar, quando você inicia a execução, você precisa passar as propriedades que deseja (no exemplo acima, `uriToGet` e `doMoreLogic`). Eis aqui a chamada [para a qual você pode usar autenticação Básica](https://msdn.microsoft.com/library/azure/dn948513.aspx#basicAuth):
-
-```
-POST https://<<Logic app endpoint from the Essentials>>/run?api-version=2015-02-01-preview
-Authorization: Basic <<Based 64 encoded username (default) : password (from the Settings blade)>>
-Content-type: application/json
-```
+Para fazer isso realmente funcionar, quando você inicia a execução, você precisa passar as propriedades que deseja (no exemplo acima, `uriToGet` e `doMoreLogic`).
 
 Com a carga a seguir. Observe que você forneceu o Aplicativo lógico com os valores a serem usados agora:
 
@@ -728,6 +729,6 @@ Talvez você tenha uma API que esteja chamando e deseje aguardar uma determinada
 }
 ```
 
-Consulte a [documentação da API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para todas as opções que você tem para criar e gerenciar Aplicativos lógicos.
+Consulte a [documentação da API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) para todas as opções que você tem para criar e gerenciar Aplicativos lógicos.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Testando as configurações do Gerenciador de Tráfego
@@ -33,7 +33,9 @@ A melhor maneira de testar suas configurações do Gerenciador de Tráfego é co
 
 2 - Digite `ipconfig /flushdns` para liberar o cache do solucionador do DNS.
 
-3 - Digite `nslookup <your Traffic Manager domain name>`. Por exemplo, o comando a seguir verifica o nome de domínio com o prefixo *myapp.contoso* nslookup myapp.contoso.trafficmanager.net. Um resultado típico mostrará o seguinte: - o nome DNS e endereço IP do servidor DNS que está sendo acessado para resolver esse nome de domínio do Gerenciador de Tráfego. - O nome de domínio do Gerenciador de Tráfego que você digitou na linha de comando após "nslookup" e o endereço IP para o qual o domínio do Gerenciador de Tráfego resolve. O segundo endereço IP é o importante para a verificação. Ele deve corresponder a um endereço VIP (IP virtual) público de um dos serviços de nuvem ou sites no perfil do Gerenciador de Tráfego que você está testando.
+3 - Digite `nslookup <your Traffic Manager domain name>`. Por exemplo, o comando a seguir verifica o nome de domínio com o prefixo *myapp.contoso*: nslookup myapp.contoso.trafficmanager.net. Um resultado típico mostrará o seguinte:
+- O nome DNS e o endereço IP do servidor DNS que está sendo acessado para resolver o nome de domínio do Gerenciador de Tráfego.
+- O nome de domínio do Gerenciador de Tráfego digitado na linha de comando após "nslookup" e o endereço IP para o qual o domínio do Gerenciador de Tráfego é resolvido. O segundo endereço IP é o importante para a verificação. Ele deve corresponder a um endereço VIP (IP virtual) público de um dos serviços de nuvem ou sites no perfil do Gerenciador de Tráfego que você está testando.
 
 ## Testando métodos de balanceamento de carga
 
@@ -54,7 +56,7 @@ Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. A
 
 ## Próximas etapas
 
-[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](../about-traffic-manager-balancing-methods.md) [Gerenciador de Tráfego](../traffic-manager.md)
+[Sobre os métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md) [Gerenciador de Tráfego](traffic-manager-overview.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

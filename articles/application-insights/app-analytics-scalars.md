@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Expressões escalares na Análise do Application Insights" 
-	description="Números, cadeias de caracteres, expressões dinâmicas e tipos na Análise do Application Insights, a ferramenta de pesquisa avançada do Application Insights." 
+	description="Números, cadeias de caracteres, expressões dinâmicas e tipos na Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Expressões escalares na Análise do Application Insights
+# Expressões escalares na Análise
 
 
-A [Análise do Application Insights](app-analytics.md) é um poderoso mecanismo de pesquisa para sua telemetria do [Application Insights](app-insights-overview.md). Estas páginas descrevem a linguagem de consulta da Análise do Application Insights, o AIQL.
+[Análise](app-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -35,7 +35,7 @@ A [Análise do Application Insights](app-analytics.md) é um poderoso mecanismo 
 
 
 
-"Escalar" significa valores, como números ou cadeias de caracteres, que podem ocupar uma única célula em uma tabela AIQL. As expressões escalares são criadas de funções e operadores escalares e são avaliadas para valores escalares. `sqrt(score)/100 > target+2` é uma expressão escalar.
+“Escalar” significa valores, como números ou cadeias de caracteres, que podem ocupar uma única célula em uma tabela. As expressões escalares são criadas de funções e operadores escalares e são avaliadas para valores escalares. `sqrt(score)/100 > target+2` é uma expressão escalar.
 
 "Escalar" também inclui matrizes e objetos compostos, que também podem ser armazenados em uma única célula de banco de dados.
 
@@ -192,7 +192,7 @@ True ou false dependendo se o valor for nulo ou não nulo.
 | "" | false
 |"x" | false
 |parsejson("")|verdadeiro
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 **Exemplo**
@@ -556,7 +556,7 @@ Barra invertida (`\`) é usada para escapar caracteres como `\t` (guia), `\n` (n
 
 ### Literais de cadeia de caracteres ofuscados
 
-Os literais de cadeia de caracteres ofuscados são cadeias de caracteres que a Análise do AI irá obscurecer ao exibir a saída de cadeia de caracteres (por exemplo, durante o rastreamento). O processo de ofuscação substitui todos os caracteres ofuscados por um caractere de início (`*`).
+Literais de cadeia de caracteres ofuscados são cadeias de caracteres que serão obscurecidas pela Análise quando ela produzir a saída da cadeia de caracteres (por exemplo, durante o rastreamento). O processo de ofuscação substitui todos os caracteres ofuscados por um caractere de início (`*`).
 
 Para formar um literal de cadeia de caracteres ofuscado, preceda `h` ou 'H'. Por exemplo:
 
@@ -860,7 +860,7 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Mas use `arraylength` e outras funções AIQL (não ".length"!)
+* Contudo, use `arraylength` e outras funções da Análise (não “.length”).
 
 **Conversão** Em alguns casos, é necessário converter um elemento que você extraiu de um objeto, pois seu tipo pode variar. Por exemplo, `summarize...to` precisa de um tipo específico:
 
@@ -1080,7 +1080,7 @@ No exemplo a seguir, quando `context_custom_metrics` é um `string` que se parec
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-então o fragmento AIQL a seguir recupera o valor do slot `duration` no objeto e, a partir disso, recupera dois slots, `duration.value` e `duration.min` (`118.0` e `110.0`, respectivamente).
+daí, o fragmento a seguir recupera o valor do slot `duration` no objeto e, a partir disso, recupera dois slots, `duration.value` e `duration.min` (`118.0` e `110.0`, respectivamente).
 
 ```AIQL
 T
@@ -1151,4 +1151,4 @@ Observe que "[0]" indica a presença de uma matriz, mas não especifica o índic
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

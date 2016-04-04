@@ -3,9 +3,9 @@
 	description="Um tutorial que demonstra como criar um aplicativo Web do PHP que armazena dados no Banco de Dados SQL do Azure e usa a implantação do Git para o Serviço de Aplicativo do Azure." 
 	services="app-service\web, sql-database" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP" 
 	ms.topic="article" 
 	ms.date="02/09/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git
 
@@ -298,4 +298,4 @@ Para publicar alterações no aplicativo, siga estas etapas:
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

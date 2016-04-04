@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Operadores e consultas na Análise do Application Insights" 
-	description="Referência dos operadores usados para fazer consultas na Análise do Application Insights, a poderosa ferramenta de pesquisa para o Application Insights." 
+	pageTitle="Operadores e consultas da Análise no Application Insights" 
+	description="Referência dos operadores usados para fazer consultas na Análise, a ferramenta de pesquisa avançada do Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
-# Sintaxe de consulta na Análise do Application Insights
+# Consultas na Análise
 
 
-A [Análise do Application Insights](app-analytics.md) é um poderoso mecanismo de pesquisa para sua telemetria do [Application Insights](app-insights-overview.md). Estas páginas descrevem a linguagem de consulta da Análise do Application Insights, o AIQL.
+[Análise](app-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -611,7 +611,7 @@ Uma tabela que mostra quantos itens têm preços em cada intervalo [0,10,0], [10
 * *Aggregation:* uma chamada para uma [função de agregação](app-analytics-aggregations.md), como `count()` ou `avg()`, com nomes de coluna como argumentos. Confira a [lista de funções de agregação](app-analytics-aggregations.md).
 * *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento. 
 
-Se você fornecer uma expressão numérica ou de hora sem usar `bin()`, a Análise do AI a aplicará automaticamente com um intervalo de `1h` para horas ou de `1.0` para números.
+Se você fornecer uma expressão numérica ou de hora sem usar `bin()`, a Análise a aplicará automaticamente com um intervalo de `1h` para horas ou de `1.0` para números.
 
 Se você não fornecer um *GroupExpression*, toda a tabela será resumida em uma única linha de saída.
 
@@ -766,4 +766,4 @@ Observe que colocamos a comparação entre duas colunas por último, pois ela n�
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 # Criar uma investigação personalizada para o Azure Application Gateway usando o PowerShell do Gerenciador de Recursos do Azure
@@ -99,7 +99,7 @@ Você precisa configurar todos os itens de configuração antes de criar o gatew
 
 ### Etapa 1
 
-Crie uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Quando o gateway de aplicativo for iniciado, ele escolherá um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Lembre-se de que cada instância usará um endereço IP.
+Crie uma configuração de IP do gateway de aplicativo chamada "gatewayIP01". Quando o Application Gateway for iniciado, ele escolherá um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Lembre-se de que cada instância usará um endereço IP.
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
@@ -238,4 +238,4 @@ Salve a configuração no gateway de aplicativo usando **Set-AzureRmApplicationG
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

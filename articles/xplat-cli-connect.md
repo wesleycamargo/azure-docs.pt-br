@@ -11,7 +11,7 @@
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/29/2015"
@@ -65,7 +65,7 @@ Copie o código oferecido, acima, e abra um navegador em http://aka.ms/devicelog
 ## Usar o logon não interativo com uma conta corporativa ou de estudante
 
 
-O método de logon não interativo funciona apenas com um conta corporativa ou de estudante, também chamada de *conta organizacional*. Essa conta é gerenciada pela sua organização e definida no Active Directory do Azure da organização. Você pode [criar uma conta organizacional](#create-an-organizational-account) se não tiver uma ou [criar uma ID corporativa ou de estudante por meio de sua ID de conta da Microsoft](./virtual-machines/resource-group-create-work-id-from-personal.md). Isso exige que você especifique um nome de usuário ou um nome de usuário e uma senha para o comando `azure login`, desta forma:
+O método de logon não interativo funciona apenas com um conta corporativa ou de estudante, também chamada de *conta organizacional*. Essa conta é gerenciada pela sua organização e definida no Active Directory do Azure da organização. Você pode [criar uma conta organizacional](#create-an-organizational-account) se não tiver uma ou [criar uma ID corporativa ou de estudante por meio de sua ID de conta da Microsoft](./virtual-machines/virtual-machines-windows-create-aad-work-id.md). Isso exige que você especifique um nome de usuário ou um nome de usuário e uma senha para o comando `azure login`, desta forma:
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
@@ -156,4 +156,4 @@ Se você fizer logon com uma conta corporativa ou de estudante ou importar as co
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Suporte do Gerenciador de Recursos do Azure para a Visualização do Gerenciador de Tráfego do Azure
-O Gerenciador de Recursos do Azure (ARM) é a nova estrutura de gerenciamento de serviços do Azure. Os perfis do Gerenciador de Tráfego do Azure agora podem ser gerenciados usando ferramentas e APIs baseadas no Gerenciador de Recursos do Azure. Para saber mais sobre o Gerenciador de Recursos do Azure, confira [Usando grupos de recursos para gerenciar recursos do Azure](../azure-preview-portal-using-resource-groups.md).
+O Gerenciador de Recursos do Azure (ARM) é a nova estrutura de gerenciamento de serviços do Azure. Os perfis do Gerenciador de Tráfego do Azure agora podem ser gerenciados usando ferramentas e APIs baseadas no Gerenciador de Recursos do Azure.
 
 ## Modelo de recursos
 
@@ -45,7 +45,7 @@ Atualmente, há algumas limitações no suporte do ARM para o Gerenciador de Tr�
 
 - Os pontos de extremidade ‘aninhados’ do Gerenciador de Tráfego têm suporte por meio da API do ARM, do PowerShell do ARM e da CLI do Azure em modo ARM. Atualmente, eles não têm suporte no Portal do Azure (que também usa a API do ARM).
 
-- Os pontos de extremidade do Gerenciador de Tráfego do tipo 'AzureEndpoints', ao fazer referência a um Aplicativo Web, pode apenas fazer referência ao [slot do Aplicativo Web](../app-service-web/web-sites-staged-publishing.md) padrão (produção). Os slots personalizados ainda não são permitidos. Como alternativa, os slots personalizados podem ser configurados usando o tipo 'ExternalEndpoints'.
+- Os pontos de extremidade do Gerenciador de Tráfego do tipo “AzureEndpoints”, ao fazer referência a um Aplicativo Web, podem fazer referência apenas ao [slot do Aplicativo Web](../app-service-web/web-sites-staged-publishing.md) padrão (produção). Os slots personalizados ainda não são permitidos. Como alternativa, os slots personalizados podem ser configurados usando o tipo 'ExternalEndpoints'.
 
 ## Configurando o PowerShell do Azure
 
@@ -140,19 +140,26 @@ Há três tipos de pontos de extremidade do Gerenciador de Tráfego:
 
 1. Pontos de extremidade do Azure: representam os serviços hospedados no Azure.<BR>
 2. Pontos de extremidade externos: representam os serviços hospedados fora do Azure.<BR>
-3. Pontos de extremidade aninhados: são usados para construir hierarquias aninhadas de perfis do Gerenciador de Tráfego, para habilitar as configurações avançadas de roteamento de tráfego para aplicativos mais complexos. Eles ainda não têm suporte da API do ARM.<BR>
+3. Pontos de extremidade aninhados: são usados para construir hierarquias aninhadas de perfis do Gerenciador de Tráfego, para habilitar as configurações avançadas de roteamento de tráfego para aplicativos mais complexos. Ainda não há suporte para eles por meio da API do ARM.<BR>
 
 Em todos os três casos, os pontos de extremidade podem ser adicionados de duas maneiras:<BR>
 
-1. Usando um processo de três etapas semelhante ao descrito em [Atualizar um perfil do Gerenciador de Tráfego](#update-traffic-manager-profile): obtenha o objeto de perfil usando Get-AzureRmTrafficManagerProfile; atualize-o offline para adicionar um ponto de extremidade usando Add-AzureRmTrafficManagerEndpointConfig; carregue as alterações no Gerenciador de Tráfego do Azure usando Set-AzureRmTrafficManagerProfile. A vantagem desse método é que várias alterações de ponto de extremidade podem ser feitas em uma única atualização.<BR>
+1. Usando um processo de três etapas semelhante ao descrito em [Atualizar um perfil do Gerenciador de Tráfego](#update-traffic-manager-profile): obtenha o objeto de perfil usando Get-AzureRmTrafficManagerProfile; atualize-o offline para adicionar um ponto de extremidade usando Add-AzureRmTrafficManagerEndpointConfig; carregue as alterações no Gerenciador de Tráfego do Azure usando Set-AzureRmTrafficManagerProfile. A vantagem desse método é que uma série de alterações do ponto de extremidade pode ser feitas em uma única atualização.<BR>
 
 2. Usando o cmdlet New-AzureRmTrafficManagerEndpoint. Isso adiciona um ponto de extremidade a um perfil existente do Gerenciador de Tráfego em uma única operação.
 
 ### Adicionando pontos de extremidade do Azure
 
-Os pontos de extremidade do Azure fazem referência a outros serviços hospedados no Azure. Atualmente, há suporte para três tipos de pontos de extremidade do Azure:<BR> 1. Aplicativos Web do Azure <BR> 2. Serviços de nuvem ‘clássicos’ (que podem conter um serviço PaaS ou máquinas virtuais IaaS)<BR> 3. Recursos Microsoft.Network/publicIpAddress ARM (que podem ser anexados ao balanceador de carga ou a uma NIC de máquina virtual). Observe que o publicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
+Os pontos de extremidade do Azure fazem referência a outros serviços hospedados no Azure. Atualmente, há suporte para três tipos de pontos de extremidade do Azure:<BR>
+1. Aplicativos Web do Azure <BR>
+2. Serviços de nuvem “clássicos” (que podem conter um serviço PaaS ou máquinas virtuais IaaS)<BR>
+3. Recursos Microsoft.Network/publicIpAddress ARM (que podem ser anexados ao balanceador de carga ou a uma NIC de máquina virtual). Observe que o publicIpAddress deve ter um nome DNS atribuído para poder ser usado no Gerenciador de Tráfego.
 
-Em cada caso: - O serviço é especificado usando o parâmetro 'targetResourceId' de Add-AzureRmTrafficManagerEndpointConfig ou New-AzureRmTrafficManagerEndpoint.<BR> - O 'Target' e o 'EndpointLocation' não devem ser especificados, mas são implícitos por meio do TargetResourceId especificado acima<BR> - A especificação de 'Weight' é opcional. Os pesos só serão usados se o perfil for configurado para usar o método de roteamento de tráfego ‘Weighted’; caso contrário, eles serão ignorados. Se especificado, ele deverá estar no intervalo de 1...1000. O valor padrão é '1'.<BR> - A especificação de 'Priority' é opcional. As prioridades só serão usadas se o perfil for configurado para usar o método de roteamento de tráfego ‘Priority’; caso contrário, elas serão ignoradas. Os valores válidos vão de 1 a 1000 (valores mais baixos têm prioridade mais alta). Se especificados para um ponto de extremidade, deverão ser especificados para todos os pontos de extremidade. Se omitidos, os valores padrão começando por 1, 2, 3 etc. serão aplicados na ordem em que os pontos de extremidade forem fornecidos.
+Em cada caso:
+ - O serviço é especificado com o parâmetro “targetResourceId” de Add-AzureRmTrafficManagerEndpointConfig ou New-AzureRmTrafficManagerEndpoint.<BR>
+ - “Target” e “EndpointLocation” não devem ser especificados; eles são deduzidos por TargetResourceId especificado acima<BR>
+ - A especificação de “Weight” é opcional. Os pesos só serão usados se o perfil for configurado para usar o método de roteamento de tráfego ‘Weighted’; caso contrário, eles serão ignorados. Se especificado, ele deverá estar no intervalo de 1...1000. O valor padrão é “1”.<BR>
+ - A especificação de “Priority” é opcional. As prioridades só serão usadas se o perfil for configurado para usar o método de roteamento de tráfego ‘Priority’; caso contrário, elas serão ignoradas. Os valores válidos vão de 1 a 1000 (valores mais baixos têm prioridade mais alta). Se especificados para um ponto de extremidade, deverão ser especificados para todos os pontos de extremidade. Se omitidos, os valores padrão começando por 1, 2, 3 etc. serão aplicados na ordem em que os pontos de extremidade forem fornecidos.
 
 #### Exemplo 1: Adicionando pontos de extremidade do Aplicativo Web usando Add-AzureRmTrafficManagerEndpointConfig
 Neste exemplo, criaremos um novo perfil do Gerenciador de Tráfego e adicionaremos dois pontos de extremidade de Aplicativo Web usando o cmdlet Add-AzureRmTrafficManagerEndpointConfig, depois confirmaremos o perfil atualizado no Gerenciador de Tráfego usando Set-AzureRmTrafficManagerProfile.
@@ -179,7 +186,10 @@ Neste exemplo, um recurso de endereço IP público ARM é adicionado ao perfil d
 ### Adicionando pontos de extremidade externos
 O Gerenciador de Tráfego usa pontos de extremidade externos para direcionar o tráfego para serviços hospedados fora do Azure. Assim como acontece com os pontos de extremidade do Azure, os pontos de extremidade externos podem ser adicionados usando Add-AzureRmTrafficManagerEndpointConfig seguido por AzureRmTrafficManagerProfile Set ou por New-AzureRMTrafficManagerEndpoint.
 
-Ao especificar pontos de extremidade externos: - o nome de domínio do ponto de extremidade deve ser especificado usando o parâmetro 'Target'<BR> - O 'EndpointLocation' será necessário se o método de roteamento de tráfego ‘Performance’ for usado; caso contrário, será opcional. O valor deve ser um [nome de região do Azure válido](https://azure.microsoft.com/regions/).<BR> - ‘Weight’ e ‘Priority’ são opcionais, assim como para os pontos de extremidade do Azure.<BR>
+Ao especificar pontos de extremidade externos:
+ - O nome de domínio do ponto de extremidade deve ser especificado usando o parâmetro “Target”<BR>
+ - “EndpointLocation” será necessário se o método de roteamento de tráfego “Desempenho” for usado; caso contrário, ele será opcional. O valor deve ser um [nome da região do Azure válido](https://azure.microsoft.com/regions/).<BR>
+ - “Weight” e “Priority” são opcionais, como pontos de extremidade do Azure.<BR>
  
 
 #### Exemplo 1: Adicionando pontos de extremidade externos usando Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
@@ -201,12 +211,16 @@ O Gerenciador de Tráfego permite que você configure um perfil do Gerenciador d
 
 O aninhamento do Gerenciador de Tráfego permite que você crie roteamento de tráfego e esquemas de failover mais flexíveis e poderosos para dar suporte às necessidades de implantações maiores e mais complexas. [Esta postagem de blog](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) fornece vários exemplos.
 
-Os pontos de extremidade aninhados são configurados no perfil pai, usando um tipo de ponto de extremidade específico, o ‘NestedEndpoints’. Ao especificar pontos de extremidade aninhados: - o ponto de extremidade (ou seja, o perfil filho) deve ser especificado usando o parâmetro 'targetResourceId' <BR> - O 'EndpointLocation' será necessário se o método de roteamento de tráfego 'Performance' for usado. Caso contrário, será opcional. O valor deve ser um [nome de uma região do Azure válida](http://azure.microsoft.com/regions/).<BR> - 'Weight' e 'Priority' são opcionais, assim como para os pontos de extremidade do Azure.<BR> - O parâmetro ‘MinChildEndpoints’ é opcional, o padrão é '1'. Se o número de pontos de extremidade disponíveis no perfil filho cair abaixo desse limite, o perfil pai considerará o perfil filho como ‘degradado’ e desviará o tráfego para os outros pontos de extremidade do perfil pai.<BR>
+Os pontos de extremidade aninhados são configurados no perfil pai, usando um tipo de ponto de extremidade específico, o ‘NestedEndpoints’. Ao especificar pontos de extremidade aninhados:
+ - O ponto de extremidade (ou seja, o perfil filho) deve ser especificado usando o parâmetro “targetResourceId”<BR>
+ - “EndpointLocation” será necessário se o método de roteamento de tráfego “Desempenho” for usado; caso contrário, ele será opcional. O valor deve ser um [nome da região do Azure válido](http://azure.microsoft.com/regions/).<BR>
+ - “Weight” e “Priority” são opcionais, como pontos de extremidade do Azure.<BR>
+ - O parâmetro “MinChildEndpoints” é opcional, e o padrão é “1”. Caso o número de pontos de extremidade disponíveis no perfil filho fique abaixo desse limite, o perfil pai considerará o perfil filho como “prejudicado” e desviará o tráfego para os outros pontos de extremidade do perfil pai.<BR>
 
 
 #### Exemplo 1: Adicionando pontos de extremidade aninhados usando Add-AzureRmTrafficManagerEndpointConfig e Set-AzureRmTrafficManagerProfile
 
-Neste exemplo, podemos criar novos perfis pai e filho do Gerenciador de Tráfego, adicionar o filho como um ponto de extremidade aninhado no pai e confirmar as alterações. (Para resumir, não adicionaremos outros pontos de extremidade no perfil filho ou no perfil pai, embora normalmente eles também seriam necessários.)<BR>
+Neste exemplo, podemos criar novos perfis pai e filho do Gerenciador de Tráfego, adicionar o filho como um ponto de extremidade aninhado no pai e confirmar as alterações. (Para resumir, não adicionaremos outros pontos de extremidade ao perfil filho ou ao perfil pai, embora normalmente eles também seriam necessários.)<BR>
 
 	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -224,8 +238,8 @@ Neste exemplo, adicionamos um perfil filho existente como um ponto de extremidad
 ## Atualizar um Ponto de Extremidade do Gerenciador de Tráfego
 Há duas maneiras de atualizar um ponto de extremidade existente do Gerenciador de Tráfego:<BR>
 
-1. Obtenha o perfil do Gerenciador de Tráfego usando Get-AzureRmTrafficManagerProfile, atualize as propriedades do ponto de extremidade no perfil e confirme as alterações usando Set-AzureRmTrafficManagerProfile. Esse método tem a vantagem de poder atualizar mais de um ponto de extremidade em uma única operação.<BR>
-2. Obtenha o ponto de extremidade do Gerenciador de Tráfego usando Get-AzureRmTrafficManagerEndpoint, atualize as propriedades do ponto de extremidade e confirme as alterações usando Set-AzureRmTrafficManagerEndpoint. Esse método é mais simples, pois não requer a indexação na matriz de Pontos de extremidade no perfil.<BR>
+1. Obtenha o perfil do Gerenciador de Tráfego usando Get-AzureRmTrafficManagerProfile, atualize as propriedades do ponto de extremidade no perfil e confirme as alterações usando Set-AzureRmTrafficManagerProfile. Esse método apresenta a vantagem de poder atualizar mais de um ponto de extremidade em uma única operação.<BR>
+2. Obtenha o ponto de extremidade do Gerenciador de Tráfego usando Get-AzureRmTrafficManagerEndpoint, atualize as propriedades do ponto de extremidade e confirme as alterações usando Set-AzureRmTrafficManagerEndpoint. Esse método é mais simples, pois não exige a indexação na matriz dos Pontos de Extremidade no perfil.<BR>
 
 #### Exemplo 1: Atualizando pontos de extremidade usando Get-AzureRmTrafficManagerProfile e Set-AzureRmTrafficManagerProfile
 Neste exemplo, modificaremos a prioridade em dois pontos de extremidade em um perfil existente.
@@ -297,4 +311,4 @@ Essa sequência também pode ser transferida:
 [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

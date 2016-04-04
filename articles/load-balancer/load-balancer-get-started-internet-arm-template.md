@@ -36,7 +36,7 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 
 Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../../articles/powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
 2. Execute o cmdlet **New-AzureRmResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
 
@@ -48,7 +48,7 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 
 Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](../../articles/xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
@@ -64,10 +64,10 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 ## Próximas etapas
 
-[Introdução à configuração de um balanceador de carga interno](load-balancer-internal-getstarted.md)
+[Introdução à configuração de um balanceador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

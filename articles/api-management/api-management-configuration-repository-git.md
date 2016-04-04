@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="03/21/2016" 
 	ms.author="sdanie"/>
 
 
@@ -117,7 +117,7 @@ Use a senha codificada juntamente com seu nome de usuário e o local do reposit�
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-Assim que o repositório for clonado, você poderá exibi-lo e trabalhar com ele no sistema de arquivos local. Para saber mais, confira [Visão geral da estrutura de pastas e arquivos do repositório local do Git](#file-and-folder-structure-overview-of-local-git-repository).
+Assim que o repositório for clonado, você poderá exibi-lo e trabalhar com ele no sistema de arquivos local. Para obter mais informações, veja [Referência da estrutura de pastas e arquivos do repositório Git local](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## Para atualizar seu repositório local com a configuração mais recente da instância do serviço
 
@@ -279,6 +279,9 @@ Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, c
 -	Gerenciar a instância de seu serviço usando a API REST
 	-	[Referência de API REST do Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## Assista a uma visão geral em vídeo
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
@@ -294,4 +297,4 @@ Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, c
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

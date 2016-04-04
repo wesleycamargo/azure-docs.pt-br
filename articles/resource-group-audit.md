@@ -1,165 +1,126 @@
-<properties 
-	pageTitle="Operações de auditoria com o Gerenciador de Recursos | Microsoft Azure" 
-	description="Use o log de auditoria no Gerenciador de Recursos para analisar erros e ações do usuário. Mostra o PowerShell, CLI do Azure e REST." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Operações de auditoria com o Gerenciador de Recursos | Microsoft Azure"
+	description="Use o log de auditoria no Gerenciador de Recursos para analisar erros e ações do usuário. Mostra o Portal do Azure, PowerShell, CLI do Azure e REST."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/21/2016"
 	ms.author="tomfitz"/>
 
 # Operações de auditoria com o Gerenciador de Recursos
 
-Quando você encontra um problema durante a implantação ou durante o tempo de vida de sua solução, você precisa descobrir o que deu errado. O Gerenciador de Recursos fornece duas maneiras de descobrir o que aconteceu e por que isso aconteceu. Você pode usar comandos de implantação para recuperar informações sobre implantações e operações específicas. Ou então você pode usar os logs de auditoria para recuperar informações sobre implantações e outras ações realizadas durante o tempo de vida da solução. Este tópico concentra-se nos logs de auditoria.
+Com os logs de auditoria, você pode determinar:
 
-O log de auditoria contém todas as ações executadas em seus recursos. Portanto, se um usuário em sua organização modificar um recurso, você poderá identificar a ação, o horário e o usuário.
+- quais operações foram executadas nos recursos em sua assinatura
+- quem iniciou a operação (embora as operações iniciadas por um serviço de back-end não retornem um usuário como o chamador)
+- quando a operação ocorreu
+- o status da operação
+- os valores de outras propriedades que podem ajudar você a pesquisar a operação
 
-Há duas limitações importantes para se ter em mente ao trabalhar com logs de auditoria:
+[AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-1. Os logs de auditoria são retidos por apenas 90 dias.
-2. Você só pode consultar um intervalo de 15 dias ou menos.
+Este tópico concentra-se na auditoria de operações. Para saber mais sobre como usar os logs de auditoria para solucionar problemas, confira [Solução de problemas de implantações de grupos de recursos no Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-Você pode recuperar informações de logs de auditoria por meio do Azure PowerShell, CLI do Azure, API REST ou do portal do Azure.
+Você pode recuperar informações dos logs de auditoria por meio do Portal do Azure, do Azure PowerShell, da CLI do Azure, API REST do Insights ou da [Biblioteca .NET do Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## PowerShell
+## Portal para exibir os logs de auditoria
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+1. Para exibir os logs de auditoria no portal, escolha **Procurar** e **Logs de Auditoria**.
 
-Para recuperar as entradas de log, execute o comando **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** para versões do PowerShell anteriores ao 1.0). Fornecer parâmetros adicionais para filtrar a lista de entradas.
+    ![selecionar logs de auditoria](./media/resource-group-audit/select-audit-logs.png)
 
-O exemplo a seguir mostra como usar o log de auditoria para ações de pesquisa executadas durante o ciclo de vida da solução. Você pode ver quando a ação ocorreu e quem a solicitou. As datas de início e de término são especificadas em um formato de data.
+2. Na folha **Logs de Auditoria**, você verá um resumo das operações recentes para todos os grupos de recursos em sua assinatura. Ele incluirá uma representação gráfica do tempo e do status das operações, bem como uma lista das operações.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+    ![mostrar ações](./media/resource-group-audit/audit-summary.png)
 
-Outra opção é usar funções de data para especificar o intervalo de datas, como os últimos 15 dias.
+3. Para procurar um tipos específico de ação, você pode filtrar quais operações são exibidas na folha de logs de auditoria. Escolha **Filtrar**, na parte superior da folha.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15)
+    ![filtrar logs](./media/resource-group-audit/filter-logs.png)
 
-Dependendo da hora de início que você especificar, os comandos anteriores podem retornar uma longa lista de ações para esse grupo de recursos. Você pode, pelo fornecimento de critérios de pesquisa, filtrar os resultados para o que você está procurando. Por exemplo, se estiver tentando pesquisar como um aplicativo Web foi interrompido, você poderá executar o comando a seguir e ver que uma ação de parada foi executada por someone@example.com.
+4. Na folha **Filtro**, você pode selecionar várias condições diferentes para restringir o número de operações exibidas. Por exemplo, você pode ver todas as ações executadas por um usuário específico na semana passada.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    ![definir opções de filtragem](./media/resource-group-audit/set-filter.png)
 
-    Authorization     :
-                        Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-                        Action    : Microsoft.Web/sites/stop/action
-                        Role      : Subscription Admin
-                        Condition :
-    Caller            : someone@example.com
-    CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
-    EventSource       : Administrative
-    EventTimestamp    : 8/28/2015 4:08:18 PM
-    OperationName     : Microsoft.Web/sites/stop/action
-    ResourceGroupName : ExampleGroup
-    ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-    Status            : Succeeded
-    SubscriptionId    : xxxxx
-    SubStatus         : OK
+Depois de atualizar a exibição dos logs de auditoria, você verá somente as operações que atendem à condição especificada. Essas configurações serão mantidas na próxima vez que você exibir os logs de auditoria. Portanto, talvez seja necessário alterar esses valores para ampliar a exibição das operações.
 
-No próximo exemplo, vamos procurar ações com falha somente após a hora de início especificada. Também incluiremos o parâmetro **DetailedOutput** para ver as mensagens de erro.
+Também é possível filtrar automaticamente um determinado recurso, selecionando os logs de auditoria na folha desse recurso. No portal, escolha o recurso de auditoria e selecione **Logs de auditoria**.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) -Status Failed –DetailedOutput
-    
-Se esse comando retorna um número excessivo de entradas e propriedades, você pode concentrar seus esforços de auditoria recuperando a propriedade **properties**.
+![recursos de auditoria](./media/resource-group-audit/audit-by-resource.png)
 
-    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+Observe que o log de auditoria é automaticamente filtrado pelo recurso selecionado da semana passada.
 
-    Content
-    -------
-    {}
-    {[statusCode, Conflict], [statusMessage, {"Code":"Conflict","Message":"Website with given name mysite already exists...
-    {[statusCode, Conflict], [serviceRequestId, ], [statusMessage, {"Code":"Conflict","Message":"Website with given name...
+![filtrar por recurso](./media/resource-group-audit/filtered-by-resource.png)
 
-Além disso, você pode refinar ainda mais os resultados examinando a mensagem de status.
+## PowerShell para exibir os logs de auditoria
 
-    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+1. Para recuperar as entradas de log, execute o comando **Get-AzureRmLog**. Forneça parâmetros adicionais para filtrar a lista de entradas. Se você não especificar uma hora de início e de término, as entradas da última hora retornarão. Por exemplo, para recuperar as operações de um grupo de recursos durante a execução na última hora:
 
-    Code       : Conflict
-    Message    : Website with given name mysite already exists.
-    Target     :
-    Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
-    Innererror :
+        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup
 
+    O exemplo a seguir mostra como usar o log de auditoria para operações de pesquisa executadas durante um período especificado. As datas de início e de término são especificadas em um formato de data.
 
-## CLI do Azure
+        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
 
-Para recuperar as entradas de log, execute o comando **azure group log show**.
+    Outra opção é usar funções de data para especificar o intervalo de datas, como os últimos 14 dias.
 
-    azure group log show ExampleGroup
+        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
 
-É possível filtrar os resultados com um utilitário do JSON como o [jq](http://stedolan.github.io/jq/download/). O exemplo a seguir mostra como procurar operações que envolveram a atualização de um arquivo de configuração da Web.
+2. Dependendo da hora de início que você especificar, os comandos anteriores poderão retornar uma longa lista de operações para o grupo de recursos. Você pode, pelo fornecimento de critérios de pesquisa, filtrar os resultados para o que você está procurando. Por exemplo, se estiver tentando pesquisar como um aplicativo Web foi interrompido, você poderá executar o comando a seguir e ver que uma ação de parada foi executada por someone@contoso.com.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == "Update web sites config")"
+        PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+        
+        Authorization     :
+        Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+        Action    : Microsoft.Web/sites/stop/action
+        Role      : Subscription Admin
+        Condition :
+        Caller            : someone@contoso.com
+        CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
+        EventSource       : Administrative
+        EventTimestamp    : 8/28/2015 4:08:18 PM
+        OperationName     : Microsoft.Web/sites/stop/action
+        ResourceGroupName : ExampleGroup
+        ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+        Status            : Succeeded
+        SubscriptionId    : xxxxx
+        SubStatus         : OK
 
-É possível adicionar o parâmetro **–-last-deployment** para limitar as entradas retornadas somente às operações da última implantação.
+3. Você pode procurar as ações realizadas por um determinado usuário, mesmo para um grupo de recursos que não existe mais.
 
-    azure group log show ExampleGroup --last-deployment
+        PS C:\> Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
-Se a lista de operações da última implantação é muito longa, você pode filtrar os resultados para apenas operações que falharam.
+## CLI do Azure para exibir os logs de auditoria
 
-    azure group log show tfCopyGroup --last-deployment --json | jq ".[] | select(.status.value == "Failed")"
+1. Para recuperar as entradas de log, execute o comando **azure group log show**.
 
-                                   /Microsoft.Web/Sites/ExampleSite
-    data:    SubscriptionId:       <guid>
-    data:    EventTimestamp (UTC): Thu Aug 27 2015 13:03:27 GMT-0700 (Pacific Daylight Time)
-    data:    OperationName:        Update website
-    data:    OperationId:          cb772193-b52c-4134-9013-673afe6a5604
-    data:    Status:               Failed
-    data:    SubStatus:            Conflict (HTTP Status Code: 409)
-    data:    Caller:               someone@example.com
-    data:    CorrelationId:        a8c7a2b4-5678-4b1b-a50a-c17230427b1e
-    data:    Description:
-    data:    HttpRequest:          clientRequestId: <guid>
-                                   clientIpAddress: 000.000.000.000
-                                   method:          PUT
+        azure group log show ExampleGroup
 
-    data:    Level:                Error
-    data:    ResourceGroup:        ExampleGroup
-    data:    ResourceProvider:     Azure Web Sites
-    data:    EventSource:          Administrative
-    data:    Properties:           statusCode:       Conflict
-                                   serviceRequestId:
-                                   statusMessage:    {"Code":"Conflict","Message":"Website with given name
-                                   ExampleSite already exists.","Target":null,"
-                                   Details
-                                   ":[{"Message":"Website with given name ExampleSite already exists."},
-                                   {"Code":"Conflict"},
-                                   {"ErrorEntity":{"Code":"Conflict","Message":"Website with given
-                                   name ExampleSite already exists.","ExtendedCode
-                                   ":"
-                                   54001","MessageTemplate":"Website with given name {0} already exists.",
-                                   "Parameters":["ExampleSite"],"
-                                   InnerErrors":null}}],"Innererror":null}
+2. É possível filtrar os resultados com um utilitário do JSON como o [jq](http://stedolan.github.io/jq/download/). O exemplo a seguir mostra como procurar operações que atualizaram um arquivo de configuração da Web.
 
+        azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == "Update web sites config")"
 
+3. Você pode procurar as ações de um usuário específico.
 
-## API REST
+        azure group log show ExampleGroup --json | jq ".[] | select(.caller=="someone@contoso.com")"
+
+## API REST para exibir os logs de auditoria
 
 As operações REST para trabalhar com o log de auditoria fazem parte da [API REST do Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar os eventos de log de auditoria, veja [Listar os eventos de gerenciamento em uma assinatura](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## Portal
-
-Você também pode exibir as operações registradas em log por meio do portal. É só selecionar a folha de logs de auditoria.
-
-![selecionar logs de auditoria](./media/resource-group-audit/select-audit.png)
-
-Em seguida, exiba a lista das operações mais recentes.
-
-![mostrar ações](./media/resource-group-audit/show-actions.png)
-
-Você pode selecionar qualquer operação para obter mais detalhes sobre ela.
-
 ## Próximas etapas
 
+- Os logs de auditoria do Azure podem ser usados com o Power BI para obter mais informações sobre as ações em sua assinatura. Confira [Exibir e analisar logs de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 - Para aprender sobre como definir políticas de segurança, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
-- Para saber mais sobre como conceder acesso a uma entidade de serviço, veja [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
-- Para saber como realizar ações em um recurso para todos os usuários, veja [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
+- Para saber mais sobre os comandos para solucionar problemas de implantações, confira [Solucionando problemas de implantações de grupos de recursos no Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Para saber como impedir exclusões em um recurso para todos os usuários, veja [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

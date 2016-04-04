@@ -31,7 +31,7 @@ Você também pode estar interessado nestes tópicos relacionados:
 
 Nesse cenário, os usuários externos precisam acessar os aplicativos que são executados ingressados no domínio. As VMs que executam os servidores de aplicativos e os controladores de domínio de réplica são instaladas em uma rede virtual do Azure. A rede virtual pode ser conectada à rede local por uma conexão [VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md), conforme mostrado no diagrama a seguir, ou você pode usar a [Rota Expressa](../../services/expressroute/) para uma conexão mais rápida.
 
-Os servidores de aplicativos e os controladores de domínio são implantados em serviços de nuvem separados para distribuir o processamento de computação e em [conjuntos de disponibilidade](../virtual-machines/virtual-machines-manage-availability.md) para melhorar a tolerância a falhas. Os DCs se replicam entre si e com os DCs locais por meio da replicação do Active Directory. Nenhuma ferramenta de sincronização é necessária.
+Os servidores de aplicativos e os controladores de domínio são implantados em serviços de nuvem separados para distribuir o processamento de computação e em [conjuntos de disponibilidade](../virtual-machines/virtual-machines-windows-manage-availability.md) para melhorar a tolerância a falhas. Os DCs se replicam entre si e com os DCs locais por meio da replicação do Active Directory. Nenhuma ferramenta de sincronização é necessária.
 
 ![][1]
 
@@ -61,7 +61,7 @@ Os servidores de aplicativos e os controladores de domínio são implantados em 
 
 ## Crie máquinas virtuais do Azure para as funções de controlador de domínio
 
-Repita as etapas a seguir para criar VMs para hospedar a função de controlador de domínio, conforme necessário. Você deve implantar pelo menos dois controladores de domínio virtuais para fornecer redundância e tolerância à falhas. Se a rede virtual do Azure inclui pelo menos dois controladores de domínio configurados da mesma forma (ou seja, ambos são GCs, executam o servidor DNS e não contêm nenhuma função FSMO, etc.), coloque as VMs que executam tais controladores de domínio em um conjunto de disponibilidade para melhorar a tolerância. Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md).
+Repita as etapas a seguir para criar VMs para hospedar a função de controlador de domínio, conforme necessário. Você deve implantar pelo menos dois controladores de domínio virtuais para fornecer redundância e tolerância à falhas. Se a rede virtual do Azure inclui pelo menos dois controladores de domínio configurados da mesma forma (ou seja, ambos são GCs, executam o servidor DNS e não contêm nenhuma função FSMO, etc.), coloque as VMs que executam tais controladores de domínio em um conjunto de disponibilidade para melhorar a tolerância. Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
 
 1. No portal clássico do Azure, clique em **Novo** > **Computação** > **Máquina Virtual** > **Da galeria**. Use os valores a seguir para concluir o assistente. Aceite o valor padrão para uma configuração, a menos que outro valor seja sugerido ou necessário.
 
@@ -71,7 +71,7 @@ Repita as etapas a seguir para criar VMs para hospedar a função de controlador
 	**Configuração de máquina virtual** | <p>Nome da máquina virtual: digite um nome de rótulo único (como AzureDC1).</p><p>Novo nome de usuário: digite o nome de um usuário. Esse usuário será um membro do grupo local de Administradores na VM. Você precisará desse nome para entrar na Máquina Virtual pela primeira vez. A conta interna chamada Administrador não funcionará.</p><p>Nova senha/Confirmar: digite uma senha</p>
 	**Configuração de máquina virtual** | <p>Serviço de nuvem: escolha <b>Criar um novo serviço de nuvem</b> para a primeira máquina virtual e selecione esse nome de serviço de nuvem mesmo quando você cria mais VMs que hospedarão a função de controlador de domínio.</p><p>Nome DNS do serviço de nuvem: especifique um nome globalmente exclusivo</p><p>Região/Grupo de afinidade/Rede Virtual: especifique o nome de rede virtual (como WestUSVNet).</p><p>Conta de armazenamento: escolha <b>Usar uma conta de armazenamento gerada automaticamente</b> para a primeira máquina virtual e selecione esse nome de conta de armazenamento mesmo quando você criar mais VMs que hospedarão a função de controlador de domínio.</p><p>Conjunto de disponibilidade: escolha <b>Criar um conjunto de disponibilidade</b>.</p><p>Nome do conjunto de disponibilidade: digite um nome para o conjunto de disponibilidade quando você criar a primeira máquina virtual e, em seguida, selecione mesmo nome quando você criar mais VMs.</p>
 	**Configuração de máquina virtual** | <p>Selecione <b>Instalar o Agente de VM</b> e quaisquer outras extensões que você precisa.</p>
-2. Anexe um disco a cada máquina virtual que executará a função de servidor de controlador de domínio. O disco adicional é necessário para armazenar o banco de dados, logs e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixe a **Preferência de Cache do Host** definida como **Nenhum**. Consulte [Como anexar um disco de dados a uma máquina virtual Windows](../virtual-machines/storage-windows-attach-disk.md).
+2. Anexe um disco a cada máquina virtual que executará a função de servidor de controlador de domínio. O disco adicional é necessário para armazenar o banco de dados, logs e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixe a **Preferência de Cache do Host** definida como **Nenhum**. Consulte [Como anexar um disco de dados a uma máquina virtual Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md).
 3. Depois de entrar na VM pela primeira vez, abra o **Gerenciador do Servidor** > **Serviços de Arquivo e Armazenamento** para criar um volume nesse disco usando o NTFS.
 4. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](../powershell-install-configure.md) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
 
@@ -103,7 +103,7 @@ Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN si
 
 2. Após cada VM ter sido provisionada, conecte-se e a associe ao domínio. Em **Gerenciador do Servidor**, clique em **Servidor Local** > **GRUPO DE TRABALHO** > **Alterar...** e, em seguida, selecione **Domínio** e digite o nome do domínio local. Forneça as credenciais de um usuário de domínio e, em seguida, reinicie a VM para concluir o ingresso no domínio.
 
-Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-ps-create-preconfigure-windows-vms.md).
+Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o PowerShell do Azure para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
 
 Para obter mais informações sobre como usar o Windows PowerShell, consulte [Introdução aos Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) e [Referência de Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
 
@@ -121,4 +121,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

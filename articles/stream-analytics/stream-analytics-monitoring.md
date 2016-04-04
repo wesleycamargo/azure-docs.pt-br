@@ -14,26 +14,26 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # Noções básicas sobre o monitoramento de trabalhos do Stream Analytics e como monitorar consultas
 
 ## Introdução: Página do monitor
 
-As duas principais métricas de desempenho de superfície do portal de Gerenciamento do Azure e do Portal de Visualização do Azure que podem ser usadas para monitorar e solucionar problemas de desempenho de trabalho e consulta.
+As duas principais métricas de desempenho de superfície do portal de Gerenciamento do Azure e do Portal do Azure que podem ser usadas para monitorar e solucionar problemas de desempenho de trabalho e de consulta.
 
 No Portal de Gerenciamento do Azure, clique na guia **Monitorar** de um trabalho do Stream Analytics em execução para ver essas métricas. Há um atraso de no máximo 1 minuto nas métricas de desempenho exibidas na página do Monitor.
 
   ![Painel de Trabalho de monitoramento](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)
 
-No portal de visualização do Azure, navegue até o trabalho do Stream Analytics do Azure do qual você deseja ver as métricas e exiba a seção **Monitoramento**.
+No portal do Azure, navegue até o trabalho do Stream Analytics do qual você deseja ver as métricas e exiba a seção **Monitoramento**.
 
-  ![Painel de Trabalho de monitoramento no Portal de Visualização do Azure](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
+  ![Painel de monitoramento de trabalhos no Portal do Azure](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
 
 Na primeira vez que um trabalho do Stream Analytics é criado em uma região, você precisará configurar o Diagnóstico para essa região. Para fazer isso, clique em qualquer lugar na seção **Monitoramento** para exibir a folha **Diagnóstico**. Aqui você pode habilitar o diagnóstico e especificar uma conta de armazenamento para os dados de monitoramento.
 
-  ![Configurar diagnóstico de consulta no Portal de Visualização do Azure](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
+  ![Configurar diagnóstico de consulta no Portal do Azure](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
 ## Métricas disponíveis para o Stream Analytics
 
@@ -65,15 +65,15 @@ Para alterar o intervalo de tempo de exibição do gráfico de métricas, seleci
 
 Você pode definir regras que podem notificá-lo por e-mail caso o trabalho passe de um limite definido.
 
-## Personalizando o monitoramento no portal de Visualização do Azure ##
+## Personalizando o monitoramento no portal do Azure ##
 
-Você pode ajustar o tipo de gráfico, as métricas mostradas e o intervalo de hora nas configurações de Editar Gráfico. Para obter detalhes, veja [Como personalizar o monitoramento](./azure-portal/insights-how-to-customize-monitoring.md).
+Você pode ajustar o tipo de gráfico, as métricas mostradas e o intervalo de hora nas configurações de Editar Gráfico. Para obter detalhes, veja [Como personalizar o monitoramento](../azure-portal/insights-how-to-customize-monitoring.md).
 
-  ![Escala de tempo do monitor de consulta do Portal de Visualização do Azure](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
+  ![Escala de tempo do monitor de consulta no Portal do Azure](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
 
 ## Status do trabalho
 
-O status dos trabalhos de Stream Analytics pode ser visualizado no portal do Azure onde é exibida uma lista dos trabalhos. Você pode ver a lista de trabalhos, clicando no ícone do Stream Analytics no Portal do Azure.
+O status dos trabalhos de Stream Analytics pode ser visualizado no portal clássico do Azure em que é exibida uma lista dos trabalhos. Você pode ver a lista de trabalhos, clicando no ícone do Stream Analytics no Portal clássico do Azure.
 
 | Status | Definição |
 |--------|------------|
@@ -107,4 +107,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

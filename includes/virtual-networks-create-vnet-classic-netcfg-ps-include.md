@@ -4,7 +4,7 @@ O Azure usa um arquivo xml para definir todas as redes virtuais disponíveis par
 
 Para criar uma rede virtual usando o arquivo netcfg com o PowerShell, siga as etapas abaixo.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](../articles/powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 2. No console do Azure PowerShell, use o cmdlet **Get-AzureVnetConfig** para baixar o arquivo de configuração de rede executando o comando abaixo. 
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
@@ -65,4 +65,4 @@ Para criar uma rede virtual usando o arquivo netcfg com o PowerShell, siga as et
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

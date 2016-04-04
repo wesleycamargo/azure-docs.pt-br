@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 
-# O que é Balanceador de Carga do Azure?
+# Visão geral do Balanceador de Carga do Azure
 
 O Balanceador de Carga do Azure oferece alta disponibilidade e desempenho de rede para seus aplicativos. É um balanceador de carga do tipo Camada 4 (TCP, UDP) que distribui o tráfego de entrada entre as instâncias de serviço íntegras nos serviços de nuvem ou nas máquinas virtuais definidos em um conjunto de balanceadores de carga.
 
@@ -121,6 +121,7 @@ Você pode ter mais de um endereço IP público com balanceamento de carga atrib
 
 O Gerenciador de Recursos do Azure é a nova estrutura de gerenciamento dos serviços no Azure. Agora, o Balanceador de Carga do Azure pode ser gerenciado usando ferramentas e APIs baseadas no Gerenciador de Recursos. Para saber mais sobre o Gerenciador de Recursos, confira [O IaaS ficou mais fácil com o Gerenciador de Recursos do Azure](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## Próximas etapas
 
@@ -128,6 +129,6 @@ O Gerenciador de Recursos do Azure é a nova estrutura de gerenciamento dos serv
 
 [Visão geral do balanceador de carga interno](load-balancer-internal-overview.md)
 
-[Introdução à criação de um balanceador de carga para a Internet](load-balancer-internet-getstarted.md)
+[Introdução à criação de um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

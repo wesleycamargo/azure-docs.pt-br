@@ -17,7 +17,7 @@
 
 # Monitorar o desempenho do aplicativo Web do Azure
 
-No [Portal do Azure](https://portal.azure.com) você pode configurar o monitoramento a fim de coletar estatísticas e detalhes sobre as dependências do aplicativo em seus [aplicativos Web do Azure](../app-service-web/app-service-web-overview.md) ou [máquinas virtuais](../virtual-machines/virtual-machines-about.md).
+No [Portal do Azure](https://portal.azure.com) você pode configurar o monitoramento a fim de coletar estatísticas e detalhes sobre as dependências do aplicativo em seus [aplicativos Web do Azure](../app-service-web/app-service-web-overview.md) ou [máquinas virtuais](../virtual-machines/virtual-machines-linux-about.md).
 
 O Azure oferece suporte ao Monitoramento de desempenho do aplicativo (ou, *APM*) aproveitando as *extensões*. Essas extensões são instaladas em seu aplicativo, coletam os dados e informam os serviços de monitoramento.
 
@@ -60,7 +60,8 @@ Use o aplicativo durante um tempo para gerar telemetria.
 
 Você também pode usar **Procurar** para ir diretamente ao componente Application Insights ou conta New Relic usada.
 
-Ao chegar na folha, para Application Insights, por exemplo, você pode:- Abrir o Desempenho:
+Quando acessar a folha, para Application Insights, por exemplo, é possível:
+- Abrir Desempenho:
 
 ![Na folha de visão geral do Application Insights, clique no bloco Desempenho](./media/insights-perf-analytics/07-dependency.png)
 
@@ -83,4 +84,4 @@ Ao chegar na folha, para Application Insights, por exemplo, você pode:- Abrir o
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="03/22/2016"
    ms.author="yurid"/>
 
 #Práticas recomendadas para atualizações de software no Microsoft Azure IaaS
@@ -75,7 +75,7 @@ Por exemplo, o MSRC (Microsoft Security Response Center) responde a todas as que
 
 ## Considerações sobre a atualização de software
 
-Depois de realizar uma auditoria inicial do software em uso na sua empresa, você deve determinar os requisitos para configurar o sistema de gerenciamento de atualização de software, que depende do sistema de gerenciamento de atualização de software que está usando. Para o WSUS, leia [Práticas recomendadas para o Windows Server Update Services](https://technet.microsoft.com/library/Cc708536); para o System Center, leia [Planejando atualizações de software no Configuration Manager](https://technet.microsoft.com/library/gg712696).
+Depois de realizar uma auditoria inicial do software em uso na sua empresa, você deve determinar os requisitos para configurar o sistema de gerenciamento de atualização de software, que depende do sistema de gerenciamento de atualização de software que está usando. Para o WSUS, leia [Práticas recomendadas para o Windows Server Update Services](https://technet.microsoft.com/library/Cc708536); para o System Center, leia [Planejando atualizações de Software no Configuration Manager](https://technet.microsoft.com/library/gg712696).
 
 No entanto, há algumas considerações gerais e práticas recomendadas que você pode aplicar independentemente da solução que estiver usando, conforme mostrado nas seções a seguir.
 
@@ -93,13 +93,13 @@ As opções de design que determinam onde o servidor de atualização estará lo
 
 ### Backup
 
-Backups regulares são importantes não apenas para a plataforma de gerenciamento de atualização de software em si, mas também para os servidores que serão atualizados. As organizações que têm um [processo de gerenciamento de alterações](https://technet.microsoft.com/library/cc543216.aspx) em vigor precisarão que o departamento de TI justifique a necessidade de atualização do servidor, o tempo de inatividade estimado e o possível impacto. Para garantir que você tenha uma configuração de reversão para uso no caso de falha de uma atualização, faça o backup do sistema regularmente.
+Backups regulares são importantes não apenas para a plataforma de gerenciamento de atualização de software em si, mas também para os servidores que serão atualizados. As organizações que possuem um [processo de gerenciamento de alteração](https://technet.microsoft.com/library/cc543216.aspx) local precisarão que o departamento de TI justifique a necessidade de atualização do servidor, o tempo de inatividade estimado e o possível impacto. Para garantir que você tenha uma configuração de reversão para uso no caso de falha de uma atualização, faça o backup do sistema regularmente.
 
 Algumas opções de backup do Azure IaaS incluem:
 
 -   [Proteção de carga de trabalho do Azure IaaS usando o Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Fazer backup de máquinas virtuais do Azure](../backup/backup-azure-vms.md)
+-   [Fazer backup de máquinas virtuais do Azure](./backup/backup-azure-vms.md)
 
 ### Monitoramento
 
@@ -119,4 +119,4 @@ Além das considerações gerais que foram explicadas neste artigo, você també
 
 Use as diretrizes descritas neste artigo para ajudar a determinar as melhores opções para as atualizações de software de máquinas virtuais no Azure IaaS. Existem muitas semelhanças entre as práticas recomendadas de atualização de software em um datacenter tradicional versus o IaaS do Azure; portanto, é recomendável que você avalie suas diretivas de atualização de software atual para incluir as VMs do Azure e as práticas recomendadas relevantes deste artigo em seu processo geral de atualização de software.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # Introdução ao Conector do Office 365 e à adição dele a seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview, clique em [API do Outlook do Office 365](../connectors/connectors-create-api-office365-outlook.md) ou [API dos Usuários do Office 365](../connectors/connectors-create-api-office365-users.md).
 
 Conecte-se à sua conta do Office 365 para enviar e receber emails e gerenciar seu calendário e seus contatos. Você pode executar várias ações, como enviar, receber e obter emails, criar e excluir eventos de seu calendário e criar, atualizar, obter e excluir seus contatos.
 
@@ -131,4 +131,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

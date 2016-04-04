@@ -13,16 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="01/22/2016"
+	ms.date="03/18/2016"
 	ms.author="wesmc"/>
 
 # Adicionar notificações por push ao aplicativo Xamarin.Forms
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> Para obter a versão equivalente dos Aplicativos Móveis deste tópico, veja [Adicionar notificações por push ao aplicativo Xamarin.Forms](../app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md).
 
 ##Visão geral
 
@@ -708,7 +709,7 @@ Para que seu aplicativo possa receber notificações por push, você deve regist
 
 5. Pressione a tecla **F5** para executar o aplicativo. Uma caixa de diálogo pop-up com a chave do registro é exibida.
 
-6.	No Gerenciador de Soluções, expanda **Propriedades**, abra o arquivo WMAppManifest.xml, clique na guia **Recursos** e verifique se a capacidade **ID\_CAP\_PUSH\_NOTIFICATION** está marcado.
+6.	No Gerenciador de Soluções, expanda **Propriedades**, abra o arquivo WMAppManifest.xml, clique na guia **Funcionalidades** e verifique se a funcionalidade **ID\_CAP\_PUSH\_NOTIFICATION** está marcada.
 
    	![Habilitar notificações no VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -857,4 +858,4 @@ Finalmente, você deve atualizar o script registrado para a operação de inser�
 [Exemplo inicial de notificação por push do Azure para Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [Exemplo completo da notificação por push do Azure para Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

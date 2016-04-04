@@ -1,7 +1,7 @@
 <properties
    pageTitle="Solucionando problemas com implantações de grupo de recursos | Microsoft Azure"
    description="Descreve problemas comuns com a implantação de recursos criados usando o modelo de implantação do Gerenciador de Recursos, além de mostrar como detectar e corrigir esses problemas."
-   services="azure-resource-manager,virtual-machines"
+   services="azure-resource-manager,virtual-machines-linux"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
@@ -294,10 +294,10 @@ Se você tentar implantar um modelo que crie mais de 4 núcleos para a região O
 Nesses casos, você deve ir para o portal e abrir um problema de suporte para aumentar a cota para a região na qual você deseja implantar.
 
 > [AZURE.NOTE] Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Gerenciador de recursos em todas as regiões.
- <!-- --> 
- Para ser específico sobre núcleos, por exemplo, você pode verificar as regiões para as quais deve solicitar o valor da cota apropriado usando o comando a seguir, que resulta em **jq** para análise json. 
-<!-- --> 
-		azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+<!-- -->
+Para ser específico sobre os núcleos, por exemplo, é possível verificar as regiões para as quais deve ser solicitado o valor de cota apropriado usando o comando a seguir, que redireciona a saída para **jq** para a análise do JSON.
+<!-- -->
+		azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
         {
           "name": "virtualMachines",
           "apiVersions": [
@@ -320,7 +320,7 @@ Os recursos são gerenciados por provedores de recursos, e uma conta ou assinatu
 
 ### PowerShell
 
-Para obter uma lista de provedores de recursos e o status do registro, use **Get-AzureProvider** para versões do PowerShell antes da 1.0.
+Para obter uma lista de provedores de recursos e o status do registro, use **Get-AzureProvider** para versões do PowerShell anteriores à 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -435,4 +435,4 @@ Para dominar a criação de modelos, leia [Criando modelos do Gerenciador de Rec
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

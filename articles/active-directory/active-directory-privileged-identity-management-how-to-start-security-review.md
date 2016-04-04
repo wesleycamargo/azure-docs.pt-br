@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Privileged Identity Management do Azure: como iniciar uma análise de segurança"
+   pageTitle="Como iniciar uma análise de segurança | Microsoft Azure"
    description="Saiba como criar uma análise de segurança para identidades com privilégios com a extensão do Privileged Identity Management do Azure."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management: como iniciar uma revisão de segurança
+# Privileged Identity Management do Azure AD: Como iniciar uma análise de segurança
 
 ## Iniciando uma revisão de segurança
 No fim, você poderá realizar as revisões de segurança em outros locais no portal do Azure. Este documento aborda as etapas para iniciar uma análise de segurança na interface do **Privileged Identity Management (PIM)**.
@@ -62,4 +62,4 @@ Se você selecionou a opção "Eu" como o revisor, prossiga para a análise de s
 ## Sumário do PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

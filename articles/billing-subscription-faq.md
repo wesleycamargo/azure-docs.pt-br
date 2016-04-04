@@ -127,7 +127,7 @@ Nosso Contrato de Nível de Serviço para disponibilidade se aplica a aplicativo
 
 **Manutenção planejada (Portal Clássico)**: para configurações de uma ou várias instâncias, o Azure envia um comunicado por email prévio para alertar você sobre a próxima manutenção planejada (uma semana de antecedência para instância única e 48 horas de antecedência para várias instâncias). Este email será enviado para as contas de email do administrador da conta, do administrador do serviço e do coadministrador fornecidas na assinatura.
 
-**Observação:** para obter mais informações específicas das máquinas virtuais, confira o artigo [Manutenção planejada para máquinas virtuais do Azure](./virtual-machines/virtual-machines-planned-maintenance.md).
+**OBSERVAÇÃO:** para obter mais informações específicas das Máquinas Virtuais, confira o artigo [Manutenção planejada para máquinas virtuais do Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
 **Manutenção não planejada:** no caso de uma interrupção no serviço não planejado na Plataforma do Azure, as atualizações do status serão feitas na página de [painel do serviço](http://status.azure.com/) e os clientes também receberão o aviso no [portal clássico do Azure](https://manage.windowsazure.com/).
 
@@ -217,11 +217,14 @@ Para exibir e editar as informações de conta do Azure, você deve entrar no Ce
 2.	Na página Assinaturas, clique na assinatura para a qual você deseja atualizar o método de pagamento.
 3.	Na página de resumo da **assinatura**, clique em Alterar método de pagamento. A ferramenta **Alterar Método de Pagamento** aparece em uma janela separada.
 
-**OBSERVAÇÃO:** você também pode acessar o Centro de Contas no portal clássico do Microsoft Azure. Para fazer isso, clique no nome da conta e clique em Exibir minha cobrança. 4. Na página **Escolher método de pagamento**, clique na lista suspensa, selecione o método de pagamento que você deseja atualizar e clique em **Editar**. 5. Na página de detalhes, verifique se você selecionou o tipo correto de cartão de crédito e número de cartão. 6. Faça as alterações necessárias nos dados do cartão e clique em **Avançar**.
+**OBSERVAÇÃO:** você também pode acessar o Centro de Contas no portal clássico do Microsoft Azure. Para fazer isso, clique no nome da conta e clique em Exibir minha cobrança.
+4.	Na página **Escolher método de pagamento**, clique na lista suspensa, selecione o método de pagamento que deseja atualizar e clique em **Editar**.
+5.	Na página de detalhes, verifique se você selecionou o tipo correto de cartão de crédito e número de cartão.
+6.	Faça as alterações necessárias nos dados do cartão e clique em **Avançar**.
 
-Para saber mais, confira o artigo [Como alterar o cartão de crédito utilizado para pagar uma assinatura do Azure](billing-how-to-change-credit-card.md).
+Para obter mais informações, confira o artigo [Como alterar o cartão de crédito utilizado para pagar uma assinatura do Azure](billing-how-to-change-credit-card.md).
 
-**OBSERVAÇÃO**: no momento, a ferramenta Alterar Método de Pagamento não permite que você remova um cartão de crédito existente como método de pagamento. Para obter informações sobre como remover um cartão de crédito, confira as perguntas frequentes sobre "Como remover um cartão de crédito que já não utilizo como método de pagamento do Azure?" neste artigo.
+**OBSERVAÇÃO**: no momento, a ferramenta Alterar Método de Pagamento não permite remover um cartão de crédito existente como método de pagamento. Para obter informações sobre como remover um cartão de crédito, confira as perguntas frequentes sobre "Como remover um cartão de crédito que já não utilizo como método de pagamento do Azure?" neste artigo.
 
 ### Por que não consigo editar ou adicionar detalhes à minha assinatura?
 
@@ -233,19 +236,19 @@ O Azure destina-se a ser usado por empresas para compilar aplicativos e serviço
 
 ### Posso experimentar o Azure gratuitamente sem nenhum risco de ser cobrado?
 
-Sim. Com o nosso [recurso Limite de Gastos](https://azure.microsoft.com/pricing/spending-limits/), os clientes que assinarem a oferta Avaliação Gratuita, MSDN, MPN ou BizSpark poderão utilizar o Azure sem receio de serem cobrados, desde que mantenham ativado o recurso Limite de Gastos. Para saber mais sobre como se inscrever no Azure, confira o artigo [Como se inscrever, comprar, atualizar ou ativar uma assinatura do Azure](billing-buy-sign-up-azure-subscription.md).
+Sim. Com o nosso [recurso Limite de Gastos](https://azure.microsoft.com/pricing/spending-limits/), os clientes que assinarem a oferta Avaliação Gratuita, MSDN, MPN ou BizSpark poderão utilizar o Azure sem receio de serem cobrados, desde que mantenham ativado o recurso Limite de Gastos. Para obter mais informações sobre como se inscrever no Azure, confira o artigo [Como se inscrever, comprar, atualizar ou ativar uma assinatura do Azure](billing-buy-sign-up-azure-subscription.md).
 
 ### Se eu habilitar o Limite de Gastos, posso habilitá-lo novamente?
 
-Para aqueles em nossas ofertas de benefícios para membros ( por exemplo, MSDN), você terá o recurso Limite de Gastos habilitado novamente no início de seu próximo ciclo de cobrança. O Limite de Gastos não pode ser habilitado novamente para o período de cobrança atual quando for desligado. Para saber mais, confira [Alterar o Limite de Gastos do Azure](https://msdn.microsoft.com/library/azure/dn465781.aspx).
+Para aqueles em nossas ofertas de benefícios para membros ( por exemplo, MSDN), você terá o recurso Limite de Gastos habilitado novamente no início de seu próximo ciclo de cobrança. O Limite de Gastos não pode ser habilitado novamente para o período de cobrança atual quando for desligado. Para obter mais informações, veja [Alterar o Limite de Gastos do Azure](https://msdn.microsoft.com/library/azure/dn465781.aspx).
 
 ### Posso ajustar o valor do Limite de Gastos?
 
-Na versão inicial desse recurso, o Limite de Gastos foi definido como R$ 0 e não pode ser ajustado. Ele foi desenvolvido para permitir que os clientes em nossas ofertas de Avaliação Gratuita, MSDN, MPN ou BizSpark possam utilizar o Azure com garantia total de não serem cobrados. Para saber mais, confira o Limite de Gastos do Azure https://azure.microsoft.com/pricing/spending-limits/).
+Na versão inicial desse recurso, o Limite de Gastos foi definido como R$ 0 e não pode ser ajustado. Ele foi desenvolvido para permitir que os clientes em nossas ofertas de Avaliação Gratuita, MSDN, MPN ou BizSpark possam utilizar o Azure com garantia total de não serem cobrados. Para obter mais informações, veja Limite de Gastos do Azure (https://azure.microsoft.com/pricing/spending-limits/)).
 
 ### Em quais países e regiões o Microsoft Azure está disponível comercialmente e quais moedas podem ser usadas para comprar o Azure?
 
-O Azure está disponível para compra em mais de 140 países em todo o mundo e damos suporte à cobrança em várias moedas . Clique [aqui](billing-countries-and-currencies.md) para ver uma lista de países e de moedas.
+O Azure está disponível para compra em mais de 140 países em todo o mundo e damos suporte à cobrança em várias moedas . Clique [aqui](billing-countries-and-currencies.md) para ver uma lista de países e moedas.
 
 ### Restringimos a revenda do serviço baseado no Azure nos países onde há proibição?
 
@@ -255,4 +258,4 @@ Sim.
 
 Atualmente, não há planos para oferecer o Azure ou o Banco de Dados SQL pelo SPLA.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

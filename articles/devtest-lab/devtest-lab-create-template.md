@@ -1,6 +1,6 @@
-<properties
-	pageTitle="Criar uma imagem personalizada do Laboratório de Desenvolvimento/Teste de um arquivo VHD | Microsoft Azure"
-	description="Saiba como criar uma imagem personalizada de um arquivo VHD, que possa ser usada para criar VMs em um Laboratório de Desenvolvimento/Teste"
+    <properties
+	pageTitle="Create a DevTest Lab custom image from a VHD file | Microsoft Azure"
+	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-Depois de [criar um Laboratório de Desenvolvimento/Teste](devtest-lab-create-lab.md), você poderá [adicionar VMs (máquinas virtuais) a esse laboratório](devtest-lab-add-vm-with-artifacts.md). Durante a criação de uma VM, você especifica uma *base*, que pode ser uma *imagem personalizada* ou uma *imagem do Marketplace*. Neste artigo, você verá como criar uma imagem personalizada de um arquivo VHD. Observe que você precisará acessar um arquivo VHD válido para executar todas as etapas deste artigo.
+Após ter [criado um Laboratório de Desenvolvimento/Teste](devtest-lab-create-lab.md), você poderá [adicionar VMs (máquinas virtuais) a esse laboratório](devtest-lab-add-vm-with-artifacts.md). Durante a criação de uma VM, você especifica uma *base*, que pode ser uma *imagem personalizada* ou uma *imagem do Marketplace*. Neste artigo, você verá como criar uma imagem personalizada de um arquivo VHD. Observe que você precisará acessar um arquivo VHD válido para executar todas as etapas deste artigo.
 
 ## Criar uma imagem personalizada
 
@@ -46,7 +46,7 @@ Depois de [criar um Laboratório de Desenvolvimento/Teste](devtest-lab-create-la
 
 1. Toque em **Arquivo VHD**.
 
-1. Se você tiver acesso a um arquivo VHD que não esteja listado, adicione-o seguindo as instruções da seção [Carregar um arquivo VHD](#upload-a-vhd-file) e volte para cá quando terminar.
+1. Se tiver acesso a um arquivo VHD que não esteja listado, adicione-o seguindo as instruções da seção [Carregar um arquivo VHD](#upload-a-vhd-file) e volte para cá quando terminar.
 
 1. Selecione o arquivo VHD desejado.
 
@@ -62,7 +62,7 @@ Depois de [criar um Laboratório de Desenvolvimento/Teste](devtest-lab-create-la
 
 1. Toque em **OK** para criar a imagem personalizada.
 
-1. Acesse a seção [Próximas etapas](#next-steps).
+1. Vá para a seção [Próximas etapas](#next-steps).
 
 ##Carregar um arquivo VHD
 
@@ -78,4 +78,4 @@ Para adicionar uma nova imagem personalizada, você precisará ter acesso a um a
 
 Depois de adicionar uma imagem personalizada para uso durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu Laboratório de Desenvolvimento/Teste](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

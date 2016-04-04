@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 # Introdução ao Conector do SharePoint e à adição dele ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos. Para obter a versão do esquema 2015-08-01-preview na API do SharePoint Online, clique em [API do SharePoint](../connectors/connectors-create-api-sharepointonline.md).
 
 Conecte-se ao SharePoint Server ou ao SharePoint Online para gerenciar documentos e itens de lista. Você pode executar várias ações, como criar, atualizar, obter e excluir documentos e itens de lista. Ao usar o servidor SharePoint local, é possível inserir a cadeia de conexão do Barramento de Serviço como parte da configuração do conector e instalar o agente de ouvinte local para se conectar ao servidor.
 
@@ -37,9 +37,9 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 	Nome | Obrigatório | Descrição
 --- | --- | ---
 URL do site | Sim | Insira a URL completa do site do SharePoint. Por exemplo, insira: **https://microsoft.sharepoint.com/teams/wabstest*.
-Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
+ Biblioteca de Documentos / URLs Relativas de Lista | Sim | Insira as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
 
-5. Após a conclusão, as Configurações de Pacote serão semelhantes às seguintes:  
+5. Após a conclusão, as Configurações de Pacote serão semelhantes às seguintes:
 ![][1]
 
 Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do SharePoint Online.
@@ -62,7 +62,7 @@ Senha | Não | Especifique uma senha válida para se conectar ao site do SharePo
 Biblioteca de Documentos / URLs Relativas da Lista | Sim | Especifique as bibliotecas de documentos/URLs de listas, com relação à URL do site do SharePoint, que podem ser modificadas pelo conector. Por exemplo, insira: *Listas/Tarefa, Documentos Compartilhados*.
 Cadeia de conexão do Barramento de Serviço | Não | Se você estiver estabelecendo conexão local, insira a cadeia de conexão de retransmissão do Barramento de Serviço.<br/><br/>[Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md)<br/>[Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Após a conclusão, as Configurações de Pacote são semelhantes às seguintes:  
+5. Após a conclusão, as Configurações de Pacote são semelhantes às seguintes:
 ![][2]
 
 Depois disso, você pode criar um aplicativo lógico no mesmo grupo de recursos para usar o Conector do SharePoint Server.
@@ -467,7 +467,7 @@ Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-co
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -483,4 +483,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -108,7 +108,7 @@ O diagrama a seguir mostra um fluxo de dados de alto nível para a coleta de dad
 
 ![][1]
 
-O Diagnóstico do Azure move os logs de aplicativos de Serviços de Nuvem clientes e de [Máquinas Virtuais do Azure](virtual-machines-about.md) no Armazenamento do Azure. Com base em um formato de log, alguns dados são armazenados em tabelas do Azure e em alguns blobs. Os dados coletados no [Armazenamento do Azure](storage-introduction.md) podem ser baixados em sistemas SIEM locais usando a biblioteca de clientes do Armazenamento do Azure para monitoramento e análise.
+O Diagnóstico do Azure move os logs de aplicativos de Serviços de Nuvem clientes e de [Máquinas Virtuais do Azure](virtual-machines/virtual-machines-linux-about.md) no Armazenamento do Azure. Com base em um formato de log, alguns dados são armazenados em tabelas do Azure e em alguns blobs. Os dados coletados no [Armazenamento do Azure](storage-introduction.md) podem ser baixados em sistemas SIEM locais usando a biblioteca de clientes do Armazenamento do Azure para monitoramento e análise.
 
 Além disso, o HDInsight pode ser usado para realizar outras análises dos dados na nuvem. Veja a seguir alguns exemplos de coleta de dados de segurança que usam o Diagnóstico do Azure.
 
@@ -614,4 +614,4 @@ Os recursos a seguir fornecem informações gerais sobre o Microsoft Azure e ser
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->
