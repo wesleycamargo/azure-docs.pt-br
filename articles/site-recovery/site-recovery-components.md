@@ -53,14 +53,14 @@ Na implantação aprimorada, você precisará configurar um servidor de gerencia
 ### Configuração local
 Eis o que você precisa ter no local:
 
-- **Servidor de gerenciamento**: você precisará de um computador Windows Server 2012 R2 para atuar como o servidor de gerenciamento. No servidor, você instalará todos esses componentes de Recuperação de Site com um único arquivo de instalação:
+	- **Servidor de gerenciamento**: você precisará de um computador Windows Server 2012 R2 para atuar como o servidor de gerenciamento. No servidor, você instalará todos esses componentes de Recuperação de Site com um único arquivo de instalação:
 
 	- **Componente de servidor de configuração**: coordena a comunicação entre o ambiente local e o Azure e gerencia a recuperação e a replicação de dados.
 	- **Componente de servidor de processo**: atua como um gateway de replicação. Ele recebe dados de replicação de computadores de origem protegida, otimiza-os com caching, compactação e criptografia e envia os dados para o armazenamento do Azure. Ele também manipula a instalação por push do Serviço de mobilidade em computadores protegidos e executa a descoberta automática de máquinas virtuais VMware. À medida que a implantação cresce, você pode adicionar outros servidores de processo dedicados separados para lidar com o aumento do volume de tráfego de replicação.
 	- **Componente de servidor de destino mestre**: lida com dados de replicação durante o failback do Azure. 
-- **Hosts VMware ESX/ESXi e servidor vCenter**: você precisará de um ou mais servidores host ESX/ESXi executando VMs VMware. Recomendamos que você tenha um servidor vCenter para gerenciar os hosts. **Observação:** **mesmo se você estiver replicando servidores físicos, terá que fazer failback para o VMware**. Quando você replica um servidor físico, ele é executado como uma VM do Azure quando há o failover para o Azure. Ele falhará para o local como uma VM do VMware. 
+	- **Hosts VMware ESX/ESXi e servidor vCenter**: você precisará de um ou mais servidores host ESX/ESXi executando VMs VMware. Recomendamos que você tenha um servidor vCenter para gerenciar os hosts. **Observação:** **mesmo se você estiver replicando servidores físicos, terá que fazer failback para o VMware**. Quando você replica um servidor físico, ele é executado como uma VM do Azure quando há o failover para o Azure. Ele falhará para o local como uma VM do VMware. 
 	
-- **VMs/servidores físicos**: cada computador que você desejar replicar para o Azure precisará ter o componente de Serviço de mobilidade instalado. Esse serviço captura gravações de dados no computador e as encaminha ao servidor de processo. Esse componente pode ser instalado manualmente ou pode ser enviado por push e instalado automaticamente pelo servidor de processo quando você habilita a replicação em um computador.
+	- **VMs/servidores físicos**: cada computador que você desejar replicar para o Azure precisará ter o componente de Serviço de mobilidade instalado. Esse serviço captura gravações de dados no computador e as encaminha ao servidor de processo. Esse componente pode ser instalado manualmente ou pode ser enviado por push e instalado automaticamente pelo servidor de processo quando você habilita a replicação em um computador.
 
 ### As tabelas
 

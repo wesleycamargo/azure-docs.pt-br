@@ -333,7 +333,7 @@ A primeira coisa a fazer aqui é adicionar uma classe que contenha toda a lógic
 			}
 		}
 
-		> [AZURE.TIP] When creating a new DocumentCollection you can supply an optional RequestOptions parameter of OfferType, which allows you to specify the performance level of the new collection. If this parameter is not passed the default offer type will be used. For more on DocumentDB offer types please refer to [DocumentDB Performance Levels](documentdb-performance-levels.md)
+		> [AZURE.TIP] Ao criar um novo DocumentCollection, você pode fornecer um parâmetro RequestOptions opcional de OfferType, o qual permite especificar o nível de desempenho da nova coleção. Se esse parâmetro não for passado, o tipo de oferta padrão será usado. Para obter mais informações sobre os tipos de oferta do Banco de Dados de Documentos, consulte [Níveis de desempenho do Banco de Dados de Documentos](documentdb-performance-levels.md)
 
 3. Estamos lendo alguns valores da configuração, por isso, abra o arquivo **Web.config** de seu aplicativo e adicione as linhas a seguir sob a seção `<AppSettings>`.
 	
@@ -401,7 +401,7 @@ Abra ***App\_Start\\RouteConfig.cs***, encontre a linha que começa com "default
 
 Agora isso informa ao ASP.NET MVC que se você não especificou um valor na URL para controlar o comportamento de roteamento que, em vez de **Home**, usa **Item** como controlador e o usuário **Índice** como exibição.
 
-Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições**\**Item**\**Índice**.
+Agora, se você executar o aplicativo, ele chamará o **ItemController** que chamará a classe de repositório e usará o método GetItems para retornar todos os itens incompletos para a exibição **Exibições**\\**Item**\\**Índice**.
 
 Se você compilar e executar esse projeto agora, deverá ver algo parecido com isto.
 

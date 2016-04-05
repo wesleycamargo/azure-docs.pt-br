@@ -71,7 +71,7 @@ Quando você habilita a sincronização de senha, as políticas de complexidade 
 
 **Política de expiração de senha**
 
-Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem é definida como “*Never Expire*”. Isso significa que é possível que a senha do usuário expire no ambiente local, mas que ele pode continuar a fazer logon nos serviços de nuvem usando a nova senha após o próximo ciclo de sincronização da senha.
+Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem é definida como "*Never Expire*". Isso significa que é possível que a senha do usuário expire no ambiente local, mas que ele pode continuar a fazer logon nos serviços de nuvem usando a nova senha após o próximo ciclo de sincronização da senha.
 
 A senha de nuvem será atualizada na próxima vez que o usuário alterar a senha no ambiente local.
 
