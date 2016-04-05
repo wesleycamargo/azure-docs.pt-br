@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/23/2016"
+	 ms.date="03/24/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Serviço de Backup do Azure - Perguntas frequentes
@@ -54,7 +54,7 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P9. Como registro meu servidor em outro datacenter?**<br/> R9. Os dados de backup são enviados para o datacenter do Serviço de Backup no qual estão registrados. A maneira mais fácil de alterar o datacenter é desinstalar e reinstalar o agente e registrar-se em um novo datacenter.
 
-**P10. O que acontece se eu renomear um servidor Windows que está fazendo backup de dados no Azure?** R10. Ao renomear um servidor, todos os backups configurados atualmente serão interrompidos. Será necessário registrar o novo nome do servidor no Cofre de Backup. Como esse é um novo registro, a primeira operação de backup será um backup completo e não um backup incremental. Se você precisar recuperar os dados incluídos em backups anteriores no cofre com o nome antigo do servidor, poderá recuperá-los usando a opção [**Outro servidor**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) no assistente **Recuperar Dados**.
+**P10. O que acontece se eu renomear um servidor Windows que está fazendo backup de dados no Azure?** R10. Ao renomear um servidor, todos os backups configurados atualmente serão interrompidos. Será necessário registrar o novo nome do servidor no Cofre de Backup. Quando você cria um novo registro, a primeira operação de backup é um backup completo, não um backup incremental. Se você precisar recuperar os dados incluídos em backups anteriores no cofre com o nome antigo do servidor, poderá recuperá-los usando a opção [**Outro servidor**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) no assistente **Recuperar Dados**.
 
 
 **P11. Em que tipos de unidades posso fazer backup de arquivos e pastas?** <br/> R11. Não é possível fazer backup do seguinte conjunto de unidades/volumes:
@@ -91,7 +91,7 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P18. Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos?** <br/> R18: Não. O cofre de backup armazena o backup dos dados transferidos até o ponto do cancelamento. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo backup acionado seria incremental em relação os dados cujo backup foi realizado anteriormente. Um backup incremental fornece uma melhor utilização da largura de banda, para que você não precise transferir os mesmos dados repetidamente.
 
-**P19. Por que vejo o aviso "Não foram configurados Backups do Azure para esse servidor" embora tenha agendado backups regulares anteriormente?** <br/> R19: Esse aviso ocorrerá quando as configurações de agendamento de backup armazenadas no servidor local não forem iguais às configurações armazenadas no cofre de backup. Quando o servidor ou as configurações tiverem sido recuperadas para um bom estado conhecido, os agendamentos de backup podem perder a sincronização. Se você receber esse aviso, [reconfigure a política de backup](backup-azure-backup-windows-server.md) e escolha **Executar o Backup Agora** para sincronizar novamente o servidor local com o Azure.
+**P19. Por que vejo o aviso "Não foram configurados Backups do Azure para esse servidor" embora tenha agendado backups regulares anteriormente?** <br/> R19: esse aviso ocorre quando as configurações de agendamento de backup armazenadas no servidor local não são iguais às configurações armazenadas no cofre de backup. Quando o servidor ou as configurações tiverem sido recuperadas para um bom estado conhecido, os agendamentos de backup podem perder a sincronização. Se você receber esse aviso, [reconfigure a política de backup](backup-azure-backup-windows-server.md) e escolha **Executar o Backup Agora** para sincronizar novamente o servidor local com o Azure.
 
 **P20. Quais regras de firewall devem ser configuradas para o Backup do Azure?** <br/> R20. Para obter proteção contínua de dados no local para o Azure e da carga de trabalho para o Azure, é recomendável permitir que seu firewall se comunique com as seguintes URLs:
 
@@ -105,7 +105,7 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P22. Posso instalar o agente de Backup do Azure em uma VM do Azure para fazer backup de arquivos e pastas presentes no armazenamento temporário fornecido pela VM do Azure?** <br/> R22. Você pode instalar o agente de Backup do Azure no SO convidado do Windows e fazer backup de arquivos e de pastas em um armazenamento temporário. No entanto, observe que os backups falharão assim que os dados do armazenamento temporário forem apagados. Além disso, se os dados de armazenamento temporário tiverem sido excluídos, você só poderá restaurar em um armazenamento não volátil.
 
-**P23. Qual é o comprimento do caminho do arquivo que pode ser especificado como parte da política de Backup do Azure usando o agente de Backup do Azure?** <br/> R23. O agente de Backup do Azure baseia-se em NTFS. A [especificação de comprimento de caminho de arquivo é limitada pela API do Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). No caso de backup de arquivos com comprimento de caminho de arquivo maior do que aqueles especificados pela API do Windows, os clientes poderão optar por fazer backup da pasta pai ou da unidade de disco dos arquivos de backup.
+**P23. Qual é o comprimento do caminho do arquivo que pode ser especificado como parte da política de Backup do Azure usando o agente de Backup do Azure?** <br/> R23. O agente de Backup do Azure baseia-se em NTFS. A [especificação de comprimento de caminho de arquivo é limitada pela API do Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se tiver um caminho de arquivo maior do que o que é permitido pela API do Windows, você poderá fazer backup da pasta pai ou da unidade de disco dos arquivos desejados.
 
 **P24: quais caracteres são permitidos no caminho de arquivo da política de Backup do Azure usando o agente de Backup do Azure?** <br/> R24. O agente de Backup do Azure baseia-se em NTFS. Ela permite os [caracteres com suporte do NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) como parte da especificação de arquivo.
 
@@ -145,9 +145,9 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 **P7. Uma cópia incremental é transferida de acordo com as políticas de retenção agendadas?** <br/> R7. Não. A cópia incremental é enviada com base na hora mencionada na página de agendamento de backup. Os pontos que podem ser retidos são determinados com base na política de retenção.
 
-**P8. Se o backup for retido por um período longo, a recuperação dos dados demora muito (por exemplo, o ponto mais antigo)?** <br/> R8. Não. O tempo necessário para recuperar tanto o ponto mais recente quanto o mais antigo é o mesmo. Cada ponto de recuperação se comporta como um ponto completo.
+**P8. Se um backup for mantido por um longo tempo, levará mais tempo para recuperar um ponto de dados mais antigo?** <br/> R8. Não. O tempo de recuperação do ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação se comporta como um ponto completo.
 
-**P9. Se cada ponto de recuperação é como um ponto completo, isso afeta o armazenamento de backup total cobrável?**<br/> R9. Os produtos típicos de ponto de retenção de longo prazo armazenam dados de backup como pontos completos. Os pontos completos *não oferecem economia* de armazenamento, mas são mais fáceis e rápidos de restaurar. As cópias incrementais *oferecem economia* de armazenamento, mas exigem que você restaure uma cadeia de dados, o que afeta o tempo de recuperação. A arquitetura de armazenamento exclusiva do Backup do Azure oferece o melhor dos dois recursos, armazenando dados de forma otimizada para restaurações rápidas e incorrendo em baixos custos de armazenamento. Essa abordagem de armazenamento de dados garante que a largura de banda de entrada e saída seja usada com eficiência. A quantidade de armazenamento de dados e o tempo necessário para recuperar os dados são mantidos em um mínimo.
+**P9. Se cada ponto de recuperação é como um ponto completo, isso afeta o armazenamento de backup total cobrável?**<br/> R9. Os produtos típicos de ponto de retenção de longo prazo armazenam dados de backup como pontos completos. Os pontos completos *não oferecem economia* de armazenamento, mas são mais fáceis e rápidos de restaurar. As cópias incrementais *oferecem economia* de armazenamento, mas exigem que você restaure uma cadeia de dados, o que afeta o tempo de recuperação. A arquitetura de armazenamento do Backup do Azure oferece o melhor dos dois recursos, armazenando dados de forma otimizada para restaurações rápidas e incorrendo em baixos custos de armazenamento. Essa abordagem de armazenamento de dados garante que a largura de banda de entrada e saída seja usada com eficiência. A quantidade de armazenamento de dados e o tempo necessário para recuperar os dados são mantidos em um mínimo.
 
 **P10. Há um limite para o número de pontos de recuperação que podem ser criados?**<br/> R10. Não. Eliminamos os limites nos pontos de recuperação. Você pode criar quantos pontos de recuperação desejar.
 
@@ -172,25 +172,24 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 ## Cache de backup
 
-**P1. Como posso alterar o local de cache especificado para o agente de Backup do Azure?**<br/>
-
-1. Pare o mecanismo do Backup ao executar o seguinte comando em um prompt de comando com privilégios elevados:
+**P1. Como posso alterar o local de cache especificado para o agente de Backup do Azure?**<br/> R1. Percorra sequencialmente a lista com marcadores abaixo para alterar o local do cache.
+- Pare o mecanismo do Backup ao executar o seguinte comando em um prompt de comando com privilégios elevados:
 
   ```PS C:\> Net stop obengine```
 
-2. Copie a pasta de espaço de cache para outra unidade com espaço suficiente. Você deve copiar os arquivos da pasta de espaço em cache em vez de movê-los. O espaço em cache original pode ser removido após a confirmação de que os backups estão funcionando com o novo espaço em cache.
+- Não mova os arquivos. Em vez disso, copie a pasta de espaço de cache para outra unidade com espaço suficiente. O espaço em cache original pode ser removido após a confirmação de que os backups estão funcionando com o novo espaço em cache.
 
-3. Atualize as entradas do registro a seguir com o caminho para a nova pasta de espaço em cache.<br/>
+- Atualize as entradas do registro a seguir com o caminho para a nova pasta de espaço em cache.<br/>
 
 |Caminho do registro | Chave do Registro | Valor |
 | ------ | ------- | ------|
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Novo local da pasta de cache* |
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Novo local da pasta de cache* |
 
-4. Reinicie o mecanismo do Backup ao executar o seguinte comando em um prompt de comando com privilégios elevados:
+- Reinicie o mecanismo do Backup ao executar o seguinte comando em um prompt de comando com privilégios elevados:
 
   ```PS C:\> Net start obengine```
 
   Assim que a criação do backup for concluída com êxito no novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

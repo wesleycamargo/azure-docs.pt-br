@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -53,20 +53,20 @@ Para preparar um arquivo de texto de exemplo:
 
 1. Abra o Bloco de Notas e copie as linhas de dados a seguir em um novo arquivo. Salve-o no diretório temporário local como %temp%\\DimDate2.txt.
 
-    ```
-    20150301,1,3
-    20150501,2,4
-    20151001,4,2
-    20150201,1,3
-    20151201,4,2
-    20150801,3,1
-    20150601,2,4
-    20151101,4,2
-    20150401,2,4
-    20150701,3,1
-    20150901,3,1
-    20150101,1,3
-    ```
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
 
 ### B. Localizar o ponto de extremidade do serviço blob
 
@@ -141,7 +141,7 @@ O exemplo nesta etapa usa essas instruções Transact-SQL para criar uma tabela 
 Execute esta consulta no banco de dados do SQL Data Warehouse. Ela criará uma tabela externa chamada DimDate2External no esquema dbo que aponta para os dados de exemplo de DimDate2.txt no armazenamento de blobs do Azure.
 
 
-```
+```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
 -- Required to encrypt the credential secret in the next step.
@@ -208,14 +208,19 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ```
 
-## Etapa 4: Carregar dados no SQL Data Warehouse
+
+No Pesquisador de Objetos do SQL Server no Visual Studio, você pode ver o formato de arquivo externo, a fonte de dados externa e a tabela DimDate2External.
+
+![Exibir tabela externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
+
+## Etapa 3: carregar dados no SQL Data Warehouse
 
 Depois de criar a tabela externa, você poderá carregar os dados em uma nova tabela ou inseri-los em uma tabela existente.
 
 - Para carregar os dados em uma nova tabela, execute a instrução [CREATE TABLE AS SELECT (Transact-SQL)][]. A nova tabela terá as colunas nomeadas na consulta. Os tipos de dados das colunas corresponderão aos tipos de dados na definição da tabela externa.
 - Para carregar os dados em uma tabela existente, use a instrução [INSERT...SELECT (Transact-SQL)][].
 
-```
+```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE dbo.DimDate2
@@ -228,21 +233,16 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-
-No Pesquisador de Objetos do SQL Server no Visual Studio, você pode ver o formato de arquivo externo, a fonte de dados externa e a tabela DimDate2External.
-
-![Exibir tabela externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
-
-## Etapa 5: Criar estatísticas sobre os dados recém-carregados
+## Etapa 4: criar estatísticas sobre os dados recém-carregados
 
 O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou de atualização automática. Portanto, para obter um alto desempenho de consulta, é importante criar estatísticas em cada coluna de cada tabela após a primeira carga. Também é importante atualizar as estatísticas após alterações significativas nos dados.
 
-Este exemplo cria estatísticas de coluna única na nova tabela DimDate2External.
+Este exemplo cria estatísticas de coluna única na nova tabela DimDate2.
 
-```
+```sql
 CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
 CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
-create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
 Para saber mais, confira [Estatísticas][].
@@ -286,4 +286,4 @@ Confira o [Guia do PolyBase][] para saber mais sobre como desenvolver uma soluç
 [Criar Credencial com Escopo do Banco de Dados (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

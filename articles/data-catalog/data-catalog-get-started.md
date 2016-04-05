@@ -18,7 +18,7 @@
 
 # Introdução ao Catálogo de Dados do Azure
 
-Este artigo é um tutorial ponta a ponta dos cenários e recursos da visualização pública do **Catálogo de Dados do Azure**. Depois que você se inscrever para a visualização, siga estas etapas para criar um Catálogo de Dados, registrar, anotar e descobrir fontes de dados.
+Este artigo é uma visão geral de ponta a ponta dos cenários e recursos do **Catálogo de Dados do Azure**. Depois que você se inscrever para o serviço, siga estas etapas para criar um Catálogo de Dados, registrar, anotar e descobrir fontes de dados.
 
 ## Pré-requisitos do tutorial
 
@@ -256,6 +256,6 @@ Neste exercício, você explorou os recursos de gerenciamento do **Catálogo de 
 
 ## Resumo
 
-Neste tutorial, você explorou recursos essenciais da visualização do **Catálogo de Dados do Azure**, incluindo o registro, a anotação, a descoberta e o gerenciamento de fontes de dados corporativas. Agora que você concluiu o tutorial, é hora de começar. Você pode começar hoje mesmo registrando as fontes de dados que você e sua equipe precisam e convidando colegas para usar o catálogo.
+Neste tutorial, você explorou recursos essenciais do **Catálogo de Dados do Azure**, incluindo o registro, a anotação, a descoberta e o gerenciamento de fontes de dados corporativas. Agora que você concluiu o tutorial, é hora de começar. Você pode começar hoje mesmo registrando as fontes de dados que você e sua equipe precisam e convidando colegas para usar o catálogo.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

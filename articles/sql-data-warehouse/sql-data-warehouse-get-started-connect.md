@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conectar-se ao SQL Data Warehouse com o Visual Studio
@@ -42,8 +42,9 @@ Para localizar o nome de servidor totalmente qualificado.
     ![Nome completo do servidor][1]
 
 ## Etapa 2: Conectar-se ao seu banco de dados SQL
+Para obter a melhor experiência, use o Visual Studio 2015 com a [Atualização mais recente do SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
-1. Abra o Visual Studio.
+1. Abra o Visual Studio 2013 ou 2015.
 2. Abra o Pesquisador de Objetos do SQL Server. Para fazer isso, selecione **Exibir** > **Pesquisador de Objetos do SQL Server**.
 
     ![Pesquisador de Objetos do SQL Server][2]
@@ -58,7 +59,8 @@ Para localizar o nome de servidor totalmente qualificado.
 
     - **Nome do servidor**. Insira o *nome do servidor* localizado anteriormente.
     - **Autenticação**. Selecione Autenticação do SQL Server.
-    - **Logon** e **senha**. Insira o logon e a senha para o servidor do SQL Azure.
+    - **Nome de usuário** e **Senha**. Insira o nome de usuário e a senha para o servidor SQL do Azure.
+    - **Nome do Banco de Dados** Insira o nome do banco de dados para o banco de dados SQL DW.
     - Clique em **Conectar**.
 
 1. Para explorar, expanda seu servidor do SQL Azure. Você pode exibir os bancos de dados associados ao servidor. Expanda o AdventureWorksDW para ver as tabelas no banco de dados de exemplo.
@@ -78,9 +80,9 @@ Agora que nos conectamos ao servidor, prosseguiremos e escreveremos uma consulta
 
 3. Copie esta consulta TSQL na janela de consulta:
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. Execute a consulta. Para fazer isso, clique na seta verde ou use este atalho: `CTRL`+`SHIFT`+`E`.
 
@@ -108,4 +110,4 @@ Agora que você pode se conectar e consultar, tente [visualizar os dados com o P
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

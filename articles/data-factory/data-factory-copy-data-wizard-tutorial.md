@@ -63,9 +63,11 @@ Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure de
 ## Criar um pipeline
 
 1. Na home page do Data Factory, clique no bloco **Copiar dados** para iniciar o **Assistente de Cópia**. 
+
+	> [AZURE.NOTE] Se você vir que o navegador da Web está bloqueado em "Autorizando...", desabilite/desmarque a configuração **Bloquear cookies de terceiros e dados de site** (ou) mantenha-a habilitada, crie uma exceção para **login.microsoftonline.com** e tente iniciar o assistente novamente.
 2. Na página **Propriedades**:
 	1. Insira **CopyFromBlobToAzureSql** para o **Nome da tarefa**
-	2. Insira uma **Descrição** (opcional).
+	2. Insira uma **descrição** (opcional).
 	3. Anote a **Data/hora de início** e a **Data/hora de término**. Altere a **Data/hora de término** para ser no dia posterior à **Data/hora de início**. 
 	3. Clique em **Próximo**.  
 
@@ -81,7 +83,7 @@ Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure de
 	![Ferramenta de Cópia - especifique a conta de armazenamento de Blobs do Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 6. Na página **Escolher o arquivo de entrada ou a pasta**:
 	1. Navegue até a pasta **adftutorial**.
-	2. Selecione **emp.txt**, e clique em **Escolher**
+	2. Selecione **emp.txt** e clique em **Escolher**
 	3. Clique em **Próximo**. 
 
 	![Ferramenta de Cópia - escolha a pasta ou o arquivo de entrada](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
@@ -108,4 +110,4 @@ Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure de
 	![Aplicativo de Monitoramento](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

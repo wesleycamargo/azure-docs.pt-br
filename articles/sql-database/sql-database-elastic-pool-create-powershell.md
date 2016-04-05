@@ -1,10 +1,10 @@
-<properties 
-    pageTitle="Criar um pool de banco de dados elástico (PowerShell) | Microsoft Azure" 
-    description="Saiba como usar o PowerShell para expandir recursos do Banco de Dados SQL do Azure criando um pool de banco de dados elástico para gerenciar vários bancos de dados." 
-	services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Criar um pool de banco de dados elástico (PowerShell) | Microsoft Azure"
+    description="Saiba como usar o PowerShell para expandir recursos do Banco de Dados SQL do Azure criando um pool de banco de dados elástico escalonável para gerenciar vários bancos de dados."
+	services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
     ms.devlang="NA"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
-    ms.date="03/15/2016"
+    ms.workload="data-management"
+    ms.date="03/27/2016"
     ms.author="sstein"/>
 
-# Criar um pool de banco de dados elástico (PowerShell) 
+# Criar um pool de banco de dados elástico com o PowerShell
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-elastic-pool-create-portal.md)
@@ -33,16 +33,14 @@ Para obter os códigos de erro comuns, veja [Códigos de erro de SQL para aplica
 
 Você precisa executar o Azure PowerShell 1.0 ou superior. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
+## Criar um pool
 
-
-## Criar um pool de banco de dados elástico
-
-O cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cria um pool de banco de dados elásticos.
+O cmdlet [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cria um pool.
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## Criar um novo banco de dados elástico em um pool de banco de dados elástico
+## Criar um novo banco de dados elástico em um pool
 
 Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet [New-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) e defina o parâmetro **ElasticPoolName**.
 
@@ -51,7 +49,7 @@ Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet [N
 
 
 
-## Mover um banco de dados autônomo em um pool de banco de dados elástico
+## Mover um banco de dados independente para um pool
 
 Para mover um banco de dados existente para um pool, use o cmdlet [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) e defina o parâmetro **ElasticPoolName**.
 
@@ -59,9 +57,9 @@ Para mover um banco de dados existente para um pool, use o cmdlet [Set-AzureRMSq
 
 
 
-## Exemplo de criação de um pool de banco de dados elástico do PowerShell
+## Criar um exemplo de PowerShell de pool
 
-Essa script criará um novo servidor, para que quando ele solicitar um nome de usuário e senha, insira um logon de administrador e uma senha de administrador para o novo servidor (não suas credenciais do Azure).
+Essa script cria um novo servidor. Quando você receber uma solicitação por um nome de usuário e senha, insira um logon de administrador e uma senha de administrador para o novo servidor (não suas credenciais do Azure).
 
     $subscriptionId = '<your Azure subscription id>'
     $resourceGroupName = '<resource group name>'
@@ -72,7 +70,7 @@ Essa script criará um novo servidor, para que quando ele solicitar um nome de u
 
     Login-AzureRmAccount
     Set-AzureRmContext -SubscriptionId $subscriptionId
-    
+
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $location -ServerVersion "12.0"
     New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
@@ -86,11 +84,11 @@ Essa script criará um novo servidor, para que quando ele solicitar um nome de u
 ## Próximas etapas
 
 - [Gerenciar o pool](sql-database-elastic-pool-manage-powershell.md)
-- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos facilitam a execução dos scripts T-SQL em vários bancos de dados no pool.
+- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados no pool.
 
 
 ## Referência de banco de dados elástico
 
 Para saber mais sobre bancos de dados elásticos e sobre pools de banco de dados elásticos, confira a [Referência de banco de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

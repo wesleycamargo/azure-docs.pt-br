@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #Use SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X
@@ -116,11 +116,15 @@ Para obter mais informações sobre como usar esse comando, consulte [Provisiona
 
 Em uma sessão de terminal, use o comando SSH para se conectar ao nó de cabeçalho do cluster, fornecendo o endereço e o nome de usuário:
 
-* **Endereço SSH**: o nome do cluster, seguido por **-ssh.azurehdinsight.net**. Por exemplo, **mycluster-ssh.azurehdinsight.net**.
+* **Endereço SSH** - há dois endereços que podem ser usados para se conectar a um cluster usando SSH:
+
+    * **Conectar-se ao nó principal**: o nome do cluster, seguido de **-ssh.azurehdinsight.net**. Por exemplo, **mycluster-ssh.azurehdinsight.net**.
+    
+    * **Conectar-se ao nó de borda**: se o cluster for o Servidor R no HDInsight, o cluster conterá também um nó de borda que pode ser acessado usando **RServer.CLUSTERNAME.ssh.azurehdinsight.net**, em que __CLUSTERNAME__ é o nome do cluster.
 
 * **Nome de usuário**: o nome de usuário SSH que você forneceu ao criar o cluster.
 
-O exemplo a seguir se conectará ao cluster **mycluster** como o usuário **me**:
+O exemplo a seguir se conectará ao nó principal 0 de **mycluster** como o usuário **me**:
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -132,7 +136,7 @@ Se você usou uma chave SSH protegida por uma senha, você deverá inserir a sen
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Se nenhuma porta for especificada, o SSH assumirá o padrão da porta 22, que se conectará ao nó de cabeçalho 0 no cluster HDInsight. Ao usar a porta 23, você se conectará ao nó de cabeçalho 1. Para obter mais informações sobre nós de cabeçalho, veja [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
+Se você se conectar usando o endereço para o nó principal e nenhuma porta for especificada, o SSH usará como padrão a porta 22, que se conectará ao nó principal 0 no cluster HDInsight. Ao usar a porta 23, você se conectará ao nó de cabeçalho 1. Para obter mais informações sobre nós de cabeçalho, veja [Disponibilidade e confiabilidade de clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conectar a nós de trabalho
 
@@ -239,4 +243,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

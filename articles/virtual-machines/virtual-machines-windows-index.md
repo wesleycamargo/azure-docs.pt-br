@@ -195,7 +195,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Como solucionar problemas de falhas da Extensão da VM](virtual-machines-windows-extensions-troubleshoot.md)
 
-[Solucionar problemas em implantações de grupos de recursos](resource-group-deploy-debug.md)
+[Solucionar problemas em implantações de grupos de recursos](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -375,4 +375,4 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0323_2016---->
+<!---HONumber=AcomDC_0330_2016-->

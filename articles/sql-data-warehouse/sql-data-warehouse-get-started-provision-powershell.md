@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Criar um SQL Data Warehouse usando o Powershell
@@ -25,21 +25,21 @@
 
 ## Obter e executar os cmdlets do PowerShell do Azure
 
-> [AZURE.NOTE]  Para usar o Microsoft Azure Powershell com o SQL Data Warehouse, você deve baixar e instalar a versão mais recente do Azure PowerShell com cmdlets ARM. Você pode verificar a sua versão executando `Get-Module -ListAvailable -Name Azure`. Este artigo baseia-se no Microsoft Azure PowerShell versão 1.0.3.
+> [AZURE.NOTE]  Para usar o Microsoft Azure Powershell com o SQL Data Warehouse, você deve baixar e instalar a versão mais recente do Azure PowerShell com cmdlets ARM. Você pode verificar a sua versão executando `Get-Module -ListAvailable -Name Azure`. Este artigo baseia-se na versão 1.0.3, ou mais recente, do Microsoft Azure PowerShell.
 
 Se você ainda não tiver configurado o PowerShell, precisará baixá-lo e configurá-lo.
 
-1. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+1. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://aka.ms/webpi-azps). Para saber mais sobre esse instalador, confira [Como instalar e configurar o Azure PowerShell][].
 2. Para executar o módulo, na janela de início, digite **Windows PowerShell**.
-3. Execute este cmdlet para fazer logon no Gerenciador de Recursos do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell][]\:
+3. Execute este cmdlet para fazer logon no Gerenciador de Recursos do Azure.
 
-	```
+	```Powershell
 	Login-AzureRmAccount
 	```
 
 4. Selecione a assinatura que você deseja usar para a sessão atual.
 
-	```
+	```Powershell
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
@@ -55,13 +55,13 @@ Para implantar um SQL Data Warehouse, use o cmdlet New-AzureRmSQLDatabase. Antes
 
 Esse comando implantará um novo banco de dados no SQL Data Warehouse.
 
-```
+```Powershell
 New-AzureRmSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
 ```
 
 O exemplo implanta um novo banco de dados chamado "mynewsqldw1", com o nível de objetivo de serviço "DW400" no servidor denominado "sqldwserver1", que está no grupo de recursos denominado "mywesteuroperesgp1".
 
-```
+```Powershell
 New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw1" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
 ```
 
@@ -96,4 +96,4 @@ Se estiver interessado em obter mais informações sobre como gerenciar o SQL Da
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [Como instalar e configurar o Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

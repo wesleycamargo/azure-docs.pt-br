@@ -461,6 +461,6 @@ Você pode mover os recursos existentes para um novo grupo de recursos. Para obt
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando Modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar modelos, confira [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](./resource-group-template-deploy.md).
 - Para ver um exemplo detalhado da implantação de um projeto, confira [Implantar microsserviços de maneira previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações de grupos de recursos no Azure](./virtual-machines/resource-group-deploy-debug.md).
+- Para saber mais sobre como solucionar problemas de uma implantação com falha, confira [Solucionando problemas de implantações de grupos de recursos no Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->
