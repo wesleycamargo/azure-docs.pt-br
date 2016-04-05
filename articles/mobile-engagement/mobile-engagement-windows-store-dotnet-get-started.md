@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introdução ao Mobile Engagement do Azure para aplicativos universais do Windows"
-	description="Saiba como usar o Mobile Engagement do Azure com análises e notificações por push para aplicativos universais do Windows."
+	pageTitle="Introdução ao Azure Mobile Engagement para aplicativos universais do Windows"
+	description="Saiba como usar o Azure Mobile Engagement com análises e notificações por push para aplicativos universais do Windows."
 	services="mobile-engagement"
 	documentationCenter="windows"
 	authors="piyushjo"
@@ -16,11 +16,11 @@
 	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
-# Introdução ao Mobile Engagement do Azure para aplicativos universais do Windows
+# Introdução ao Azure Mobile Engagement para aplicativos universais do Windows
 
 [AZURE.INCLUDE [Alternador de tutorial do Hero](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Este tópico mostra como usar o Mobile Engagement do Azure para entender o uso do aplicativo e enviar notificações por push para usuários segmentados de um aplicativo do Windows Universal. Esse tutorial demonstra um cenário de transmissão simples usando o Mobile Engagement. Nele, você deve criar um aplicativo do Windows Universal em branco que coleta dados básicos e recebe notificações por push usando o Serviço de Notificação do Windows (WNS).
+Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do aplicativo e enviar notificações por push para usuários segmentados de um aplicativo do Windows Universal. Esse tutorial demonstra um cenário de transmissão simples usando o Mobile Engagement. Nele, você deve criar um aplicativo do Windows Universal em branco que coleta dados básicos e recebe notificações por push usando o Serviço de Notificação do Windows (WNS).
 
 Este tutorial exige o seguinte:
 
@@ -49,7 +49,7 @@ As etapas a seguir pressupõem o uso do Visual Studio 2015, embora as etapas sej
 
     ![][1]
 
-Você criou um novo projeto Aplicativo Universal do Windows no qual integraremos o SDK do Mobile Engagement do Azure.
+Você criou um novo projeto Aplicativo Universal do Windows no qual integraremos o SDK do Azure Mobile Engagement.
 
 ###Conecte seu aplicativo ao back-end do Mobile Engagement
 
