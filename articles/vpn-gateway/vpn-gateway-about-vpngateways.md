@@ -42,7 +42,10 @@ O exemplo a seguir mostra uma sub-rede de gateway chamada GatewaySubnet. Você p
 
 ## <a name="gwtype"></a>Tipos de gateway
 
-O tipo de gateway especifica como o próprio gateway se conecta e é uma definição de configuração necessária para o modelo de implantação do Gerenciador de Recursos. Não confunda o tipo de gateway com o tipo VPN, que especifica o tipo de roteamento para a VPN. Os valores disponíveis para GatewayType são: *Vpn* e *Rota Expressa*.
+O tipo de gateway especifica como o próprio gateway se conecta e é uma definição de configuração necessária para o modelo de implantação do Gerenciador de Recursos. Não confunda o tipo de gateway com o tipo VPN, que especifica o tipo de roteamento para a VPN. Os valores disponíveis para `-GatewayType` são:
+
+- Vpn
+- Rota Expressa
 
 
 Este exemplo para o modelo de implantação do Gerenciador de Recursos especifica -GatewayType como *Vpn*. Ao criar um gateway, você deve garantir que o tipo de gateway seja correto para sua configuração.
@@ -57,7 +60,7 @@ Ao criar um gateway de VPN, você precisará especificar a SKU de gateway que de
 - Padrão
 - HighPerformance
 
-O exemplo a seguir especifica GatewaySku como *Standard*.
+O exemplo a seguir especifica o `-GatewaySku` como *Standard*.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
@@ -78,9 +81,22 @@ Há dois tipos de VPN:
 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-Este exemplo para o modelo de implantação do Gerenciador de Recursos especifica -VpnType como *RouteBased*. Ao criar um gateway, você deve garantir que o -VpnType seja correto para sua configuração.
+Este exemplo para o modelo de implantação do Gerenciador de Recursos especifica `-VpnType` como *RouteBased* Ao criar um gateway, você deve garantir que o -VpnType seja correto para sua configuração.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="connectiontype"></a>Tipos de conexão
+
+Cada configuração exige um tipo específico de conexão. Os valores disponíveis de PowerShell do Resource Manager para `-ConnectionType` são:
+
+- IPsec
+- Vnet2Vnet
+- Rota Expressa
+- VPNClient
+
+No exemplo abaixo, estamos criando uma conexão site a site, que exige o tipo de conexão "IPsec".
+
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## <a name="lng"></a>Gateways de rede local
@@ -122,4 +138,4 @@ Confira o artigo [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-f
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

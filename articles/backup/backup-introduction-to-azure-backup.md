@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.date="03/28/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # O que é o Backup do Azure?
@@ -32,7 +32,7 @@ As soluções tradicionais de backup evoluíram para tratar a nuvem como um pont
 | Várias opções de armazenamento | Escolha seu armazenamento de backup de acordo com a necessidade:<li>um blob de blocos de armazenamento com redundância local é ideal para os clientes preocupados com o preço e ainda protege os dados contra falhas de hardware local. <li>Um blob de blocos de armazenamento com replicação geográfica fornece mais três cópias em um datacenter emparelhado. As cópias adicionais ajudam a garantir que os dados de backup sejam altamente disponíveis, mesmo se ocorrer um desastre de nível de site do Azure. |
 | Transferência de dados ilimitada | Não há cobrança para transferências de dados de saída durante uma operação de restauração do cofre do Backup. Os dados de entrada para o Azure também são gratuitos. Funciona com o serviço de importação onde está disponível. |
 | Criptografia de dados | A criptografia de dados permite a transmissão segura e o armazenamento de dados do cliente na nuvem pública. A senha de criptografia é armazenada na origem e nunca é transmitida nem armazenada no Azure. A chave de criptografia é necessária para restaurar quaisquer dados e somente o cliente tem acesso completo aos dados no serviço. |  
-| Backup consistente com o aplicativo | Backups consistentes com o aplicativo no Windows ajudam a garantir que não sejam necessárias correções no momento da restauração, o que reduz o objetivo de tempo de recuperação e permite que os clientes retornem a um estado de execução mais rapidamente. |
+| Backup consistente com o aplicativo | Os backups consistentes com aplicativos no Windows ajudam a garantir que não haja necessidade de correções no momento da restauração, o que reduz o objetivo de tempo de recuperação. Isso permite que os clientes retornem ao estado de execução mais rapidamente. |
 | Retenção de longo prazo | Em vez de pagar por soluções de backup em fita externa, os clientes podem fazer backup no Azure, o que fornece uma solução atraente e semelhante à fita a um baixo custo. |
 
 ## Componentes do Backup do Azure
@@ -84,7 +84,7 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Funcionalidade
-Estas cinco tabelas resumem como a funcionalidade do Backup é tratada em cada componente:
+Estas cinco tabelas resumem como a funcionalidade de backup é tratada em cada componente:
 
 ### Armazenamento
 
@@ -102,13 +102,13 @@ Estas cinco tabelas resumem como a funcionalidade do Backup é tratada em cada c
 O cofre de Backup é o destino de armazenamento preferencial em todos os componentes. O System Center DPM e o Servidor de Backup também oferecem a opção de ter uma cópia do disco local. No entanto, somente o System Center DPM fornece a opção de gravar dados em um dispositivo de armazenamento em fita.
 
 #### Backup incremental
-Cada componente dá suporte a backup incremental, independentemente do armazenamento de destino (disco, fita, cofre de Backup). O backup incremental ajuda a garantir que os backups sejam eficientes em termos de tempo e armazenamento. Ele faz isso transferindo para o armazenamento de destino apenas as alterações feitas desde o último backup.
+Cada componente dá suporte a backup incremental, independentemente do armazenamento de destino (disco, fita, cofre de backup). O backup incremental garante que os backups sejam eficientes em termos de tempo e armazenamento, transferindo somente as alterações feitas desde o último backup.
 
 #### Compactação
 Os backups são compactados para reduzir o espaço de armazenamento necessário. O único componente que não usa a compactação é a extensão de VM. Com a extensão de VM, todos os dados de backup são copiados da conta de armazenamento do cliente para o cofre de backup na mesma região, sem compactação. Embora a ausência de compactação aumente um pouco o armazenamento usado, armazenar os dados sem compactação possibilita tempos de restauração mais rápidos.
 
 #### Eliminação de duplicação
-Há suporte à eliminação de duplicação para o System Center DPM e o Servidor de Backup quando são [implantados em uma máquina virtual Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). A eliminação de duplicação é executada no nível do host, usando a eliminação de duplicação do Windows Server nos VHDs (discos rígidos virtuais) conectados como armazenamento de backup às máquinas virtuais.
+Há suporte à eliminação de duplicação para o System Center DPM e o Servidor de Backup quando são [implantados em uma máquina virtual Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). A eliminação de duplicação é executada no nível do host, usando a eliminação de duplicação do Windows Server em VHDs (discos rígidos virtuais) conectados como armazenamento de backup às máquinas virtuais.
 
 >[AZURE.WARNING] A eliminação de duplicação não está disponível no Azure para nenhum dos componentes do Backup. Quando o System Center DPM e o Servidor de Backup são implantados no Azure, os discos de armazenamento conectados à VM não podem ser submetidos à eliminação de duplicação.
 
@@ -156,10 +156,10 @@ Fazer backup de VMs do Azure requer a configuração da criptografia *na* máqui
 
 Como a extensão da VM lê os dados diretamente da conta de armazenamento do Azure por meio da rede de armazenamento, não é necessário otimizar esse tráfego. O tráfego passa pela rede de armazenamento local no datacenter do Azure, portanto, há pouca necessidade de compactação devido a considerações de largura de banda.
 
-Para clientes que protegem seus dados em um servidor de backup (DPM ou Servidor de Backup), o tráfego do servidor primário para o servidor de backup pode ser compactado para economizar largura de banda.
+Se você estiver fazendo backup de seus dados em um servidor de backup (DPM ou Servidor de Backup), o tráfego do servidor primário para o servidor de backup poderá ser compactado para economizar largura de banda.
 
 #### Limitação de rede
-O agente de Backup do Azure fornece o recurso de limitação, que permite controlar como a largura de banda é usada durante a transferência de dados. Isso pode ser útil se você precisa fazer backup de dados durante o horário de expediente, mas não quer que o processo de backup interfira no outro tráfego de Internet. A limitação da transferência de dados aplica-se a atividades de backup e restauração.
+O agente de Backup do Azure fornece o recurso de limitação, que permite controlar como a largura de banda é usada durante a transferência de dados. A limitação pode ser útil se você precisa fazer backup de dados durante o horário de expediente, mas não quer que o processo de backup interfira no outro tráfego de Internet. A limitação da transferência de dados aplica-se a atividades de backup e restauração.
 
 ### Backup e retenção
 
@@ -182,9 +182,9 @@ As credenciais do cofre são usadas somente durante o fluxo de trabalho de regis
 ## Qual a diferença entre o Backup do Azure e o Azure Site Recovery?
 Muitos clientes confundem recuperação de backup e recuperação de desastre. Ambos capturam dados e fornecem semântica de restauração, mas a proposta principal é diferente para cada um deles.
 
-O Backup do Azure faz backup de dados no local e na nuvem. O Azure Site Recovery coordena a replicação, o failover e o failback de servidores físicos e máquinas virtuais. Ambos os serviços são importantes, pois a solução de recuperação de desastre precisa manter os dados seguros e recuperáveis (Backup) *e* manter as cargas de trabalho disponíveis e acessíveis (Recuperação de Site) quando ocorrem falhas.
+O Backup do Azure faz backup de dados no local e na nuvem. O Azure Site Recovery coordena a replicação, o failover e o failback de servidores físicos e máquinas virtuais. Ambos os serviços são importantes, pois a solução de recuperação de desastre precisa manter os dados seguros e recuperáveis (Backup) *e* manter as cargas de trabalho disponíveis (Recuperação de Site) quando ocorrem falhas.
 
-Os conceitos a seguir o ajudarão a tomar decisões importantes sobre backup e recuperação de desastre.
+Os conceitos a seguir o ajudam a tomar decisões importantes sobre backup e recuperação de desastre.
 
 | Conceito | Detalhes | Backup | DR (Recuperação de desastre) |
 | ------- | ------- | ------ | ----------------- |
@@ -199,7 +199,7 @@ Experimente uma simples operação de Backup do Azure. Para obter instruções, 
 - [Teste o Backup do Azure](backup-try-azure-backup-in-10-mins.md)
 - [Teste o Backup de VM do Azure](backup-azure-vms-first-look.md)
 
-Como esses tutoriais ajudam a fazer backup rapidamente, eles mostram somente o caminho mais direto para fazer backup de seus dados. Para obter informações adicionais sobre o tipo de backup que você deseja fazer, consulte:
+Como esses tutoriais ajudam a fazer backup rapidamente, eles mostram somente o caminho mais direto para fazer backup de seus dados. Para obter informações adicionais sobre o tipo de backup que você deseja fazer, confira:
 
 - [Fazer backup de computadores Windows](backup-configure-vault.md)
 - [Fazer backup de cargas de trabalho do aplicativo](backup-azure-microsoft-azure-backup.md)
@@ -211,4 +211,4 @@ Como esses tutoriais ajudam a fazer backup rapidamente, eles mostram somente o c
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="03/29/2016"
    ms.author="navale;tomfitz"/>
    
 # Passo a passo do Modelo do Gerenciador de Recursos
 
-Este tópico explica as etapas de criação de um modelo do Gerenciador de Recursos. Ele pressupõe que você está familiarizado com os serviços do Azure que deseja implantar, mas não com a forma como representaria essa infraestrutura em um modelo. Você criará um modelo com base nas [Duas VMs com o balanceador de carga e o modelo de regras do balanceador de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) na [galeria de início rápido](https://github.com/Azure/azure-quickstart-templates), mas as técnicas podem ser aplicadas a qualquer modelo que você precisa criar.
+Este tópico explica as etapas de criação de um modelo do Gerenciador de Recursos. Você criará um modelo que se baseia nas [duas VMs com balanceador de carga e modelo de regras do balanceador de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) na [Galeria de início rápido](https://github.com/Azure/azure-quickstart-templates). As técnicas que você está aprendendo podem ser aplicadas a qualquer modelo que precisa criar.
 
 Vejamos uma arquitetura comum:
 
@@ -310,7 +310,7 @@ Você criará duas interfaces de rede, uma para cada VM. Em vez de precisar incl
 ## Máquina Virtual
 Você criará duas máquinas virtuais usando a função copyindex(), como fez na criação das [interfaces de rede](#network-interface). A criação da VM depende da conta de armazenamento, da interface de rede e do conjunto de disponibilidade. Essa VM será criada a partir de uma imagem do marketplace, conforme definido na propriedade `storageProfile` - `imageReference` é usada para definir o editor de imagem, oferta, sku e versão. Por fim, um perfil de diagnóstico é configurado para habilitar o diagnóstico para a VM.
 
-Para localizar as propriedades relevantes para uma imagem do marketplace, siga o artigo [Pesquisa da VM](./virtual-machines/resource-groups-vm-searching.md). Para as imagens publicadas por terceiros, você precisará especificar outra propriedade denominada `plan`. Um exemplo pode ser encontrado em [este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) na galeria de início rápido.
+Para localizar as propriedades relevantes para uma imagem do Marketplace, siga os artigos [Selecionar imagens de máquina virtual Linux](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) ou [Selecionar imagens de máquina virtual do Windows](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md). Para as imagens publicadas por terceiros, você precisará especificar outra propriedade denominada `plan`. Um exemplo pode ser encontrado [neste modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) na galeria de início rápido.
 
 
 ```json
@@ -376,7 +376,7 @@ Você terminou de definir os recursos para o modelo.
 
 ## Parâmetros
 
-Na seção de parâmetros, defina os valores que podem ser especificados ao implantar o modelo. Apenas defina os parâmetros para os valores que você acha que devem ser variados durante a implantação. Você pode fornecer um valor padrão para um parâmetro que será usado se um não for fornecido durante a implantação. Você também pode definir os valores permitidos, conforme mostrado para o parâmetro **imageSKU**.
+Na seção de parâmetros, defina os valores que podem ser especificados ao implantar o modelo. Apenas defina os parâmetros para os valores que você acha que devem ser variados durante a implantação. Você pode fornecer um valor padrão para um parâmetro que será usado se um não for fornecido durante a implantação. Você também pode definir os valores permitidos conforme mostrado para o parâmetro **imageSKU**.
 
 ```
 "parameters": {
@@ -500,7 +500,7 @@ Na seção de variáveis, você pode definir os valores que são usados em mais 
 
 Você concluiu a criação do seu modelo e está pronto para a implantação.
 
-- Para saber mais sobre a estrutura de um modelo, consulte [Criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-- Para saber mais sobre como implantar um modelo, consulte [Implantar um Grupo de Recursos com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+- Para saber mais sobre a estrutura de um modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
+- Para saber mais sobre como implantar um modelo, confira [Implantar um Grupo de Recursos com modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

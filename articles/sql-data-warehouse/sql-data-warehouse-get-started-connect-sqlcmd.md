@@ -3,7 +3,7 @@
    description="Introdução ao SQL Data Warehouse e execução de algumas consultas."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conectar e consultar com SQLCMD
@@ -45,17 +45,17 @@ Para conectar-se ao banco de dados, você precisará do nome completo do servido
 
 ## Conecte-se ao SQL Data Warehouse com sqlcmd
 
-Para se conectar a uma instância específica do SQL Data Warehouse usando o sqlcmd, você precisará abrir o prompt de comando e inserir **sqlcmd** seguido pela cadeia de conexão do banco de dados do SQL Data Warehouse. A cadeia de conexão deverá conter os seguintes parâmetros:
+Para se conectar a uma instância específica do SQL Data Warehouse usando o sqlcmd, você precisará abrir o prompt de comando e inserir **sqlcmd** seguido pela cadeia de conexão do banco de dados do SQL Data Warehouse. A cadeia de conexão precisará dos seguintes parâmetros:
 
++ **Servidor (-S):** Servidor no formato `<`Nome do servidor`>`.database.windows.net
++ **Banco de dados (-d):** nome do banco de dados.
 + **Usuário (-U):** usuário do servidor no formato `<`Usuário`>`
 + **Senha (-P):** senha associada ao usuário.
-+ **Servidor (-S):** Servidor no formato `<`Nome do servidor`>`.database.windows.net
-+ **Banco de dados (-D):** nome do banco de dados.
 + **Habilitar Identificadores entre Aspas (-I):** os identificadores entre aspas devem ser habilitados para se conectarem a uma instância do SQL Data Warehouse.
 
 Portanto, para se conectar a uma instância do SQL Data Warehouse, insira o seguinte:
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 ```
 
@@ -63,9 +63,9 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 Após a conexão, você pode executar quaisquer instruções Transact-SQL compatíveis com a instância.
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
-1> SELECT COUNT(*) FROM dbo.FactInternetSales;
+1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
@@ -83,4 +83,4 @@ Agora que você pode se conectar e consultar, tente [conectar-se ao PowerBI][].
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

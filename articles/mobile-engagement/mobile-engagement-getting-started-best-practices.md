@@ -4,16 +4,16 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="12/11/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Guia de introdução com práticas recomendadas
@@ -228,7 +228,7 @@ Tipos e formatos diferentes de notificação por push:
 4. **Blocos (somente Windows Phone)**: permite o uso do Serviço de Notificação por Push da Microsoft (MPNS) para enviar notificações por push nativas contendo dados XML (com suporte desde a versão 0.9.0 do SDK. A carga final dos blocos não pode exceder 32 quilobytes). A mensagem aparece diretamente no bloco de seu painel.
 5. **Modo de exibição da Web**: um modo de exibição da Web é um pop-up com conteúdo da Web. Essa janela pop-up aparece quando o usuário final tiver clicado em uma notificação por push. Uma exibição da web permite que você tenha mais interação com o usuário final.
  
->[AZURE.NOTE]Certifique-se de que o conteúdo que você está enviando como notificações por push esteja em conformidade com as respectivas diretrizes das plataformas (iOS, Android, Windows) para o desenvolvimento de aplicativos e o envio de notificações por push.
+>[AZURE.NOTE] Certifique-se de que o conteúdo que você está enviando como notificações por push esteja em conformidade com as respectivas diretrizes das plataformas (iOS, Android, Windows) para o desenvolvimento de aplicativos e o envio de notificações por push.
 
  
 
@@ -356,7 +356,7 @@ Teste completamente todos os tipos de comportamento de notificação incorporado
 
 #### Configuração
 
-A configuração do Azure Mobile Engagement é muito simples. Toda a documentação relacionada à interface do usuário está disponível no site do Azure Mobile Engagement, [Como navegar pela interface do usuário](mobile-engagement-user-interface-navigation.md).
+A configuração do Azure Mobile Engagement é muito simples. Toda a documentação relacionada à interface do usuário está disponível no site do Azure Mobile Engagement, [Como navegar pela interface do usuário](mobile-engagement-user-interface.md).
 
 Recomendamos que você comece definindo as funções certas e associações de função para os usuários de seu projeto. Isso ajuda com o gerenciamento do acesso apropriado à plataforma para todos os usuários. As funções podem incluir:
 
@@ -364,7 +364,10 @@ Recomendamos que você comece definindo as funções certas e associações de f
 - Desenvolvedores
 - Visualizadores 
 
-Em seguida: - registre seu deviceID para testar em seu próprio dispositivo. -Acesse as configurações de sua conta e configure o fuso horário para definir os gráficos e o tempo de entrega das notificação para seu fuso horário. -Acesse as configurações de seu aplicativo e registre as "App-info" necessárias para segmentar os usuários finais dentro do alcance.
+Em seguida:
+- Registre o deviceID para testar seu próprio dispositivo.
+- Vá para as configurações de sua conta e configure o fuso horário para ter os gráficos e o horário de entrega da notificação definidos para seu fuso horário.
+- Vá para as configurações do aplicativo e registre o "App-info" de que você precisa para direcionar usuários finais no Reach.
 
 Para saber mais sobre como executar sua campanha de notificação por push, consulte [Como começar a usar e a gerenciar envios por push para alcançar seus usuários finais](mobile-engagement-how-tos.md).
 
@@ -391,7 +394,7 @@ Depois de reunir alguma experiência, adicione o seguinte aos seus programas de 
 
 ## Próximas etapas
 
-- [Criar uma conta no Azure Mobile Engagement](mobile-engagement-create-account.md).
+- [Criar uma conta no Azure Mobile Engagement](mobile-engagement-create.md).
 - Visite [Definir sua estratégia do Mobile Engagement](mobile-engagement-define-your-mobile-engagement-strategy.md) para saber mais sobre como definir sua estratégia do Mobile Engagement.
 
 
@@ -404,4 +407,4 @@ Depois de reunir alguma experiência, adicione o seguinte aos seus programas de 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

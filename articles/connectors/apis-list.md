@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="03/28/2016"
 	ms.author="deonhe"/>
 
 # Lista de APIs gerenciadas
@@ -52,7 +52,7 @@ Há dois tipos de gatilhos:
 APIs também podem ser usadas como ações dentro dos seus aplicativos. Ações são úteis para pesquisar dados no que podem então ser usados na execução do seu aplicativo. Por exemplo, talvez seja necessário pesquisar dados de um cliente de um banco de dados SQL durante o processamento de um pedido. Ou então, talvez seja necessário escrever, atualizar ou excluir dados em uma tabela de destino. Você pode fazer isso usando as ações fornecidas pelas APIs. As ações são mapeadas para as operações que são definidas nos metadados do Swagger.
 
 
-[Novidades](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Compilar um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md) [Comece a usar os PowerApps agora mesmo](../power-apps/powerapps-get-started-azure-portal.md)
+[Novidades](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Compilar um aplicativo lógico agora](../app-service-logic/app-service-logic-create-a-logic-app.md) [Introdução aos PowerApps](../power-apps/powerapps-get-started-azure-portal.md) [Migrar aplicativos lógicos para a versão mais recente do esquema](connectors-schema-migration.md)
 
 <!--API Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Conecte-se ao Blob do Azure para gerenciar arquivos no seu contêiner de blob."
@@ -105,4 +105,4 @@ APIs também podem ser usadas como ações dentro dos seus aplicativos. Ações 
 [twittericon]: ./media/apis-list/twittericon.png
 [yammericon]: ./media/apis-list/yammericon.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

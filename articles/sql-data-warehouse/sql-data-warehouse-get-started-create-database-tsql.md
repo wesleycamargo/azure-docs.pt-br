@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Criar um banco de dados do SQL Data Warehouse usando TSQL (Transact-SQL)
@@ -38,17 +38,45 @@ Para concluir as etapas neste artigo, você precisa do seguinte:
 
 Este artigo não abordará como configurar e conectar-se corretamente usando o Visual Studio. Para obter uma descrição completa de como fazer isso, consulte a documentação sobre [conexão e consulta][]. Para começar, abra o Pesquisador de Objetos do SQL Server no Visual Studio e conecte-se ao servidor que você usará para criar seu banco de dados do SQL Data Warehouse. Após fazer isso, você poderá criar um SQL Data Warehouse executando o seguinte comando em relação ao banco de dados Mestre:
 
-        CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```sql
+CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```
 
 ## Criar um banco de dados com sqlcmd
 
 Você também pode criar um SQL Data Warehouse abrindo a linha de comando e executando o seguinte:
 
-        sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```sql
+sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```
 
-Ao executar as Instruções TSQL acima, observe os parâmetros MAXSIZE e SERVICE\_OBJECTIVE. Eles determinarão o tamanho inicial do armazenamento e a computação alocada para a instância do Data Warehouse. MAXSIZE aceitará os seguintes tamanhos, e sugerimos que você escolha um tamanho grande para deixar espaço para crescimento: 250 GB, 500 GB, 750 GB, 1024 GB, 5120 GB, 10240 GB, 20480 GB, 30720 GB, 40960 GB, 51200 GB.
+Ao executar as Instruções TSQL acima, observe os parâmetros `MAXSIZE` e `SERVICE_OBJECTIVE`. Eles determinarão o tamanho inicial do armazenamento e a computação alocada para a instância do Data Warehouse. `MAXSIZE` aceitará os seguintes tamanhos, e sugerimos que você escolha um tamanho grande para ter espaço para crescimento: 2
 
-SERVICE\_OBJECTIVE indicará o número de DWUs com os quais sua instância será iniciada e aceita os seguintes valores: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000. Para saber mais sobre o impacto de cobrança desses parâmetros, consulte nossa [página de preços][].
++ 50 GB
++ 500 GB
++ 750 GB
++ 1024 GB
++ 5120 GB
++ 10240 GB
++ 20480 GB
++ 30720 GB
++ 40960 GB
++ 51200 GB
+
+`SERVICE_OBJECTIVE` indicará o número de DWUs com os quais sua instância será iniciada e aceita os seguintes valores:
+
++ DW100
++ DW200
++ DW300
++ DW400
++ DW500
++ DW600
++ DW1000
++ DW1200
++ DW1500
++ DW2000
+
+Para saber mais sobre o impacto de cobrança desses parâmetros, consulte nossa [página de preços][].
 
 ## Próximas etapas
 Após o provisionamento do SQL Data Warehouse, você poderá [carregar dados de exemplo][] ou conferir como [desenvolver][], [carregar][] ou [migrar][].
@@ -61,4 +89,4 @@ Após o provisionamento do SQL Data Warehouse, você poderá [carregar dados de 
 [carregar dados de exemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [página de preços]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

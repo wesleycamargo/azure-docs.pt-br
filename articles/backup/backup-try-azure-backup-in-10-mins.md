@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Fazer backup de arquivos e pastas do Windows para o Azure | Microsoft Azure"
-   description="Proteja seus dados do Windows Server criando um cofre, instalando o agente de backup e fazendo backup de seus arquivos e pastas no Azure."
+   pageTitle="Saiba como fazer backup de arquivos e pastas do Windows para o Azure | Microsoft Azure"
+   description="Saiba como fazer backup de dados do Windows Server criando um cofre, instalando o agente de backup e fazendo backup de seus arquivos e pastas no Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
@@ -14,35 +14,35 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="hero-article"
-	 ms.date="03/09/2016"
+	 ms.date="03/28/2016"
 	 ms.author="jimpark;"/>
 
 # Introdução: fazer backup de arquivos e pastas do Windows Server ou do cliente para o Azure
 
-Em apenas algumas etapas, você pode fazer backup do seu computador com o Windows (cliente Windows ou Windows Server) no Azure.
+Este artigo explica como fazer backup de arquivos e pastas do Windows Server (ou cliente Windows) para o Azure usando o Backup do Azure. Se deseja ver como é simples usar o Backup do Azure, você está no lugar certo.
 
-Ele só requer as seguintes etapas:
+O backup de seus arquivos e pastas requer somente estas etapas:
 
-![Etapa 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obtenha uma assinatura do Azure (se necessário).<br> ![Etapa 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Crie um cofre de backup e baixe os componentes necessários.<br> ![Etapa 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Prepare seu Windows Server ou cliente instalando e registrando esses componentes.<br> ![Etapa 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Proteja seus dados.
+![Etapa 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obtenha uma assinatura do Azure (se necessário).<br> ![Etapa 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Crie um cofre de backup e baixe os componentes necessários.<br> ![Etapa 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Prepare seu Windows Server ou cliente instalando e registrando esses componentes.<br> ![Etapa 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Fazer backup dos dados.
 
 
-![Processo de backup do Windows Server e do cliente](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
+![Como fazer backup de um computador Windows com o Backup do Azure](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
 
 ## Etapa 1: Obtenha uma assinatura do Azure
 
 Se não tiver uma assinatura do Azure, você poderá criar uma [conta gratuita](https://azure.microsoft.com/free/), que permitirá o acesso a qualquer serviço do Azure.
 
->[AZURE.NOTE] Se você já tiver uma assinatura do Azure, ignore esta etapa.
+>[AZURE.NOTE] Se já tem uma assinatura do Azure, você pode ignorar essa etapa.
 
 ## Etapa 2: Crie um cofre de backup e baixe os componentes necessários.
 
-Para fazer o backup de arquivos e de dados do seu computador com o Windows no Azure, você deverá criar um cofre de backup na região geográfica em que deseja armazenar os dados.
+Para fazer backup de seus arquivos e pastas, você precisa criar um cofre de backup na região geográfica onde deseja armazenar os dados.
 
 1. Se ainda não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com/) usando sua assinatura do Azure.
 
 2. Clique em **Novo > Integração Híbrida > Backup**.
 
-    ![Criar cofre](./media/backup-try-azure-backup-in-10-mins/second-blade-backup.png)
+    ![Comece a se preparar para fazer backup de seus arquivos e pastas](./media/backup-try-azure-backup-in-10-mins/second-blade-backup.png)
 
     a. Na tela resultante, em **Nome**, insira um nome amigável para identificar o cofre de backup. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
 
@@ -50,75 +50,73 @@ Para fazer o backup de arquivos e de dados do seu computador com o Windows no Az
 
     c. Clique em **Criar cofre**.
 
-    ![Criar cofre](./media/backup-try-azure-backup-in-10-mins/demo-vault-name.png)
+    ![Criar um cofre](./media/backup-try-azure-backup-in-10-mins/demo-vault-name.png)
 
     Para o status, você pode monitorar as notificações na parte inferior do portal.
 
-    ![Criando cofre](./media/backup-try-azure-backup-in-10-mins/creatingvault1.png)
+    ![Processo de cofre](./media/backup-try-azure-backup-in-10-mins/creatingvault1.png)
 
-    Depois que o cofre de backup for criado, você o verá na lista de recursos dos Serviços de Recuperação como **Ativo**.
+    Depois que o cofre de backup for criado, ele será listado nos recursos dos Serviços de Recuperação como **Ativo**.
 
-    ![Status de criação de cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
+    ![O status do cofre é ativo](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
 3. Selecione as opções de **redundância de armazenamento**.
 
     O melhor momento para selecionar a opção de redundância de armazenamento é logo após a criação de um cofre e antes de qualquer computador ser registrado nele. Depois que um item tiver sido registrado no cofre, a opção de redundância de armazenamento será bloqueada e não poderá ser modificada.
 
-    Se você estiver usando o Azure como ponto de extremidade de armazenamento de backup principal (por exemplo, se estiver fazendo backup de um Windows Server no Azure), considere a possibilidade de escolher a opção de [armazenamento com Redundância Geográfica](../storage/storage-redundancy.md#geo-redundant-storage) (padrão).
+    Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup principal, considere a opção (padrão) de [Armazenamento com redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage).
 
-    Se estiver usando o Azure como um ponto de extremidade de armazenamento de backup terciário (por exemplo, se estiver usando SCDPM para ter uma cópia de backup local e usando o Azure para suas necessidades de retenção de longo prazo), considere a possibilidade de escolher o [Armazenamento com Redundância Local](../storage/storage-redundancy.md#locally-redundant-storage). Isso reduz o custo de armazenamento de dados no Azure, além de oferecer um nível mais baixo de durabilidade para seus dados que pode ser aceitável para cópias terciárias.
+    Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup terciário, considere a escolha do [Armazenamento com redundância local](../storage/storage-redundancy.md#locally-redundant-storage). Essa opção reduz o custo de armazenamento de dados no Azure, além de oferecer um nível mais baixo de durabilidade que pode ser aceitável para cópias terciárias.
 
     a. Clique no cofre que você acabou de criar.
 
     b. Na página Início Rápido, selecione **Configurar**.
 
-    ![Configurar o status do cofre](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
+    ![Configure o cofre](./media/backup-try-azure-backup-in-10-mins/configure-vault.png)
 
     c. Escolha a opção de redundância de armazenamento apropriada.
 
-    Você precisará clicar em **Salvar** se tiver selecionado **Localmente Redundante**, pois **Geograficamente Redundante** é a opção padrão.
+    ![Escolha a opção de redundância de armazenamento](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
-    ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
+    Se você selecionou **Localmente Redundante**, clique em **Salvar**, pois **Redundância Geográfica** é a opção padrão.
 
-    d. Clique em **Serviços de Recuperação** no painel de navegação à esquerda para retornar à lista de recursos para **Serviços de Recuperação**.
+    d. Para retornar à lista de recursos para **Serviços de Recuperação**, clique em **Serviços de Recuperação** no painel de navegação à esquerda.
 
-    ![Selecionar cofre de backup](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
+    ![Serviços de recuperação](./media/backup-try-azure-backup-in-10-mins/rs-left-nav.png)
 
-    Seu computador com o Windows agora precisa ser autenticado no cofre de backup que você acabou de criar. A autenticação é feita com as credenciais do cofre.
+    Agora você precisa autenticar o computador Windows com o cofre de backup que acabou de criar. A autenticação é feita com as credenciais do cofre.
 
 4.  Clique no cofre que você acabou de criar.
 
-    ![Status de criação de cofre](./media/backup-try-azure-backup-in-10-mins/demo-vault-active-full-screen.png)
+    ![Selecione o novo cofre](./media/backup-try-azure-backup-in-10-mins/demo-vault-active-full-screen.png)
 
 5. Na página **Início Rápido**, clique em **Baixar credenciais do cofre**.
 
-    ![Baixar](./media/backup-try-azure-backup-in-10-mins/downloadvc.png)
+    ![Baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/downloadvc.png)
 
-    O portal gerará uma credencial de cofre usando uma combinação do nome do cofre e a data atual.
+    O portal gera uma credencial de cofre usando uma combinação do nome do cofre e da data atual.
 
     >[AZURE.NOTE] O arquivo de credenciais do cofre é usado somente durante o fluxo de trabalho de registro e expira após 48 horas.
 
-6. Clique em **Salvar** para baixar as credenciais do cofre para a pasta **Downloads** da conta local ou selecione **Salvar Como** no menu **Salvar** e especifique um local para as credenciais do cofre.
-
-    ![Selecionar cofre de backup](./media/backup-try-azure-backup-in-10-mins/save.png)
+6. Clique em **Salvar** para baixar as credenciais do cofre para a pasta local **Downloads**. Você também pode selecionar **Salvar como** no menu **Salvar** para especificar um local para as credenciais do cofre.
 
     Salve as credenciais do cofre em um local que possa ser acessado em seu computador. Se o arquivo for armazenado em um compartilhamento de arquivos/SMB, verifique as permissões de acesso.
 
-    >[AZURE.NOTE] Você não precisa abrir as credenciais do cofre no momento.
+    >[AZURE.NOTE] Você não precisa abrir as credenciais do cofre neste momento no procedimento.
 
     Em seguida, você precisará baixar o agente de backup
 
 7. Clique em **Serviços de Recuperação** no painel de navegação à esquerda e clique no cofre de backup que você deseja registrar em um servidor.
 
-    ![Selecionar cofre de backup](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
+    ![Selecione o cofre de backup](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
-8. Na página Início Rápido, clique em **Agente para Windows Server ou System Center Data Protection Manager ou Windows Client > Salvar** (ou selecione **Salvar como** no menu **Salvar** para especificar um local para o agente).
+8. Na página Início Rápido, clique em **Agente para Windows Server ou System Center Data Protection Manager ou Windows Client > Salvar**.
 
-    ![Salvar agente](./media/backup-try-azure-backup-in-10-mins/agent.png)
+    ![Salve o agente de backup](./media/backup-try-azure-backup-in-10-mins/agent.png)
 
 Neste ponto, você terá terminado de criar um cofre de backup e de baixar os componentes necessários. Agora, você instalará o agente de backup.
 
-## Etapa 3: prepare seu Windows Server ou cliente instalando e registrando esses componentes.
+## Etapa 3: prepare seu Windows Server ou cliente instalando e registrando os componentes de backup.
 
 1. Após a conclusão do download, clique duas vezes no arquivo **MARSagentinstaller.exe** no local de salvamento (ou você pode clicar em **Executar** em vez de salvar o arquivo na etapa anterior).
 
@@ -128,9 +126,9 @@ Neste ponto, você terá terminado de criar um cofre de backup e de baixar os co
 
     Clique em **Próximo**.
 
-    ![Usar o cache](./media/backup-try-azure-backup-in-10-mins/recovery-services-agent-setup-wizard-1.png)
+    ![Pasta de instalação e cache](./media/backup-try-azure-backup-in-10-mins/recovery-services-agent-setup-wizard-1.png)
 
-3. Você pode continuar e se conectar à Internet por meio das configurações de proxy padrão ou, se usar um servidor proxy para se conectar à Internet, na tela **Configuração de proxy**, marque a caixa **Usar configurações personalizadas de proxy** e insira os detalhes do servidor proxy.
+3. (Opcional) Se você usar um servidor proxy para se conectar à Internet, na tela **Configuração de proxy**, marque a caixa **Usar configurações de proxy personalizadas** e insira os detalhes do servidor proxy.
 
     Se você usar um proxy autenticado, insira os detalhes de nome de usuário e de senha.
 
@@ -139,8 +137,6 @@ Neste ponto, você terá terminado de criar um cofre de backup e de baixar os co
     ![Configuração de proxy](./media/backup-try-azure-backup-in-10-mins/proxy-configuration.png)
 
 4. Clique em **Instalar**.
-
-    ![Configuração de proxy](./media/backup-try-azure-backup-in-10-mins/agent-installation.png)
 
     O agente do Backup do Azure instala o .NET Framework 4.5 e o Windows PowerShell (se eles ainda não estiverem instalados) para concluir a instalação.
 
@@ -152,27 +148,23 @@ Neste ponto, você terá terminado de criar um cofre de backup e de baixar os co
 
     Clique em **Próximo**.
 
-    ![Credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/vault-identification-with-creds.png)
+    ![Identifique o cofre](./media/backup-try-azure-backup-in-10-mins/vault-identification-with-creds.png)
 
 7. Na tela **Configuração de criptografia**, você pode gerar uma senha ou fornecer uma (mínio de 16 caracteres). Lembre-se de salvar a senha em um local seguro.
 
-    > [AZURE.WARNING] Se a senha for perdida ou esquecida, a Microsoft não poderá ajudar na recuperação dos dados de backup. O usuário final é proprietário da senha de criptografia, isto é, a Microsoft não tem visibilidade da senha que é usada pelo usuário final. Salve o arquivo em um local seguro, pois ela é obrigatória durante uma operação de recuperação.
+    > [AZURE.WARNING] Se você perder ou esquecer a senha, a Microsoft não poderá ajudar na recuperação dos dados de backup. Você é proprietário da senha de criptografia, e a Microsoft não tem visibilidade da senha que é usada pelo usuário final. Salve o arquivo em um local seguro, pois ela é obrigatória durante uma operação de recuperação.
 
     Clique em **Concluir**.
 
-    ![Criptografia](./media/backup-try-azure-backup-in-10-mins/encryption.png)
+    ![Configuração de criptografia](./media/backup-try-azure-backup-in-10-mins/encryption.png)
 
     O **Assistente para Registrar Servidor** registrará o servidor no Backup do Microsoft Azure.
 
-    ![Criptografia](./media/backup-try-azure-backup-in-10-mins/registering-server.png)
-
 8. Quando a **chave de criptografia** for definida, deixe a caixa de seleção **Iniciar o Agente de Serviços de Recuperação do Microsoft Azure** marcada e clique em **Fechar**.
-
-    ![Criptografia](./media/backup-try-azure-backup-in-10-mins/close-server-registration.png)
 
     O computador agora foi registrado com êxito no cofre e você está pronto para configurar e agendar suas opções de backup.
 
-## Etapa 4: proteja seus dados
+## Etapa 4: fazer backup de dados
 
 1. No **Agente de backup** (que foi aberto automaticamente se você deixou a caixa de seleção **Iniciar o Agente de Serviços de Recuperação do Microsoft Azure** marcada), clique em **Agendar Backup**.
 
@@ -180,25 +172,19 @@ Neste ponto, você terá terminado de criar um cofre de backup e de baixar os co
 
 2. Na tela **Introdução**, clique em **Avançar**.
 
-    ![Agendar um Backup do Windows Server](./media/backup-try-azure-backup-in-10-mins/getting-started.png)
-
-3. Na tela **Selecionar Itens para Backup**, clique em **Adicionar Itens**.
+3. Na tela **Selecionar Itens para Backup**, clique em **Adicionar Itens**. O Backup do Azure em um cliente Windows ou em um Windows Server permite que você proteja arquivos e pastas.
 
     ![Agendar um Backup do Windows Server](./media/backup-try-azure-backup-in-10-mins/add-items.png)
 
-    Selecione os itens dos quais você deseja fazer backup e clique em **OK**. O Backup do Azure em um cliente Windows ou em um Windows Server permite que você proteja arquivos e pastas.
-
-    ![Itens para o backup do Windows Server](./media/backup-try-azure-backup-in-10-mins/added-items.png)
+    Selecione os itens dos quais você deseja fazer backup e clique em **OK**.
 
     Clique em **Próximo**.
-
-    ![Itens para o backup do Windows Server](./media/backup-try-azure-backup-in-10-mins/selected-items.png)
 
 4. Especifique o **agendamento de backup** e clique em **Avançar**.
 
     Você pode agendar backups diários (no máximo três vezes por dia) ou backups semanais.
 
-    ![Itens para o backup do Windows Server](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule.png)
+    ![Especifique o agendamento de backup](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule.png)
 
 5. Selecione a **Política de Retenção** para a cópia de backup. Você pode modificar a política de retenção diária, semanal, mensal e anual para atender às suas necessidades.
 
@@ -206,7 +192,7 @@ Neste ponto, você terá terminado de criar um cofre de backup e de baixar os co
 
      Clique em **Próximo**.
 
-    ![Itens para o backup do Windows Server](./media/backup-try-azure-backup-in-10-mins/select-retention-policy.png)
+    ![Selecione a política de retenção](./media/backup-try-azure-backup-in-10-mins/select-retention-policy.png)
 
 6. Escolha o tipo de backup inicial.
 
@@ -214,38 +200,30 @@ Neste ponto, você terá terminado de criar um cofre de backup e de baixar os co
 
     Clique em **Próximo**.
 
-    ![Backup inicial do Windows Server](./media/backup-try-azure-backup-in-10-mins/choose-initial-backup-type.png)
+    ![Tipo de backup inicial](./media/backup-try-azure-backup-in-10-mins/choose-initial-backup-type.png)
 
 7. Na tela **Confirmação**, examine as informações e clique em **Concluir**.
 
-    ![Backup inicial do Windows Server](./media/backup-try-azure-backup-in-10-mins/confirmation.png)
-
 8. Depois que o assistente terminar de criar o **agendamento de backup**, clique em **Fechar**.
-
-    ![Backup inicial do Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-schedule-created.png)
 
 9. No **Agente de backup** clique em **Fazer Backup Agora** para concluir a propagação inicial pela rede.
 
     ![Fazer backup do Windows Server agora](./media/backup-try-azure-backup-in-10-mins/snap-in-backup-now.png)
 
-10. Na tela **Confirmação**, examine as configurações que o assistente usará para fazer backup do computador e clique em**Fazer Backup**.
+10. Na tela **Confirmação**, examine as configurações que o assistente usa para fazer backup do computador e clique em**Fazer Backup**.
 
-    ![Fazer backup do Windows Server agora](./media/backup-try-azure-backup-in-10-mins/backup-now-confirmation.png)
-
-11. Clique em **Fechar** para fechar o assistente. Você pode fazer isso antes da conclusão do **processo de backup**, e ele continuará a ser executado em segundo plano.
-
-    ![Fazer backup do Windows Server agora](./media/backup-try-azure-backup-in-10-mins/backup-progress.png)
+11. Clique em **Fechar** para fechar o assistente. Você pode fechar o assistente antes da conclusão do processo de backup, e ele continua a ser executado em segundo plano.
 
 12. Depois que o backup inicial for concluído, a exibição **Trabalhos** no console do Backup do Azure indicará o status "Trabalho concluído".
 
-    ![IR completo](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
+    ![Backup inicial concluído](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 Parabéns, você concluiu com êxito o backup de seus arquivos e de suas pastas no Backup do Azure.
 
 ## Próximas etapas
-- Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
-- Obtenha mais detalhes sobre a [preparação de seu ambiente para fazer backup de computadores com o Windows](backup-configure-vault.md)
-- Obtenha mais detalhes sobre o [backup de um Windows Server](backup-azure-backup-windows-server.md)
-- Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Para saber mais sobre o Backup do Azure, consulte [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md).
+- Obtenha mais detalhes sobre a [preparação de seu ambiente e o backup de computadores com o Windows](backup-configure-vault.md)
+- Saiba como fazer backup de máquinas virtuais do Azure com este [Artigo de introdução](backup-azure-vms-first-look.md).
+- Leia as últimas discussões sobre o Backup do Azure no [Fórum do Backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->
