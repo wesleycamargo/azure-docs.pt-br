@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/27/2016"
+   ms.date="03/29/2016"
    ms.author="cgronlun"/>
 
 
@@ -80,6 +80,10 @@ Estes são exemplos de script fornecidos pela equipe do HDInsight:
 * [Solr](hdinsight-hadoop-solr-install-linux.md): uma plataforma de pesquisa de escala empresarial que permite a pesquisa de texto completo em dados.
 
 Para obter informações sobre como desenvolver suas próprias Ações de Script, veja [Desenvolvimento de Ação de Script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+## HDInsight Standard e HDInsight Premium
+
+O HDInsight fornece ofertas de nuvem de big data em duas categorias, Standard e Premium. O HDInsight Standard fornece um cluster de porte empresarial que as organizações podem usar para executar suas cargas de trabalho de big data. O HDInsight Premium baseia-se nisso e fornece recursos avançados de análise e segurança para um cluster HDInsight. Para obter mais informações, confira [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
 ## Quais são os componentes e utilitários do Hadoop?
 
@@ -211,11 +215,19 @@ Como parte do ecossistema de nuvem do Azure, o Hadoop no HDInsight oferece uma s
 
 * Componentes do Hadoop de última geração. Para obter detalhes, consulte [O que há de novo nas versões de cluster Hadoop fornecidas pelo HDInsight?][component-versioning].
 
-* Alta disponibilidade e confiabilidade dos clusters. Consulte [Disponibilidade e confiabilidade dos clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md) para obter detalhes.
+* Alta disponibilidade e confiabilidade dos clusters. Um segundo nó principal foi adicionado aos clusters Hadoop implantados pelo HDInsight para aumentar a disponibilidade do serviço. Implementações padrão de clusters Hadoop normalmente têm um único nó principal. O HDInsight remove esse ponto único de falha com a adição de um nó de cabeçalho secundário. A mudança para uma nova configuração de cluster de alta disponibilidade não altera o preço do cluster, a menos que os clientes criarem clusters com um nó de cabeçalho extragrande, em vez do nó de tamanho grande padrão.
+
+	Consulte [Disponibilidade e confiabilidade dos clusters Hadoop no HDInsight](hdinsight-high-availability-linux.md) para obter detalhes.
 
 * Armazenamento de dados eficiente e econômico com o armazenamento de Blob do Azure, uma opção compatível com o Hadoop. Consulte [Usar o armazenamento de Blob do Azure com o Hadoop no HDInsight](hdinsight-hadoop-use-blob-storage.md) para obter detalhes.
 
 * Integração com outros serviços do Azure, incluindo [aplicativos Web](../documentation/services/app-service/web/) e [Banco de Dados SQL](../documentation/services/sql-database/).
+
+* Tamanhos de VM adicionais. Os clusters HDInsight estão disponíveis em diferentes tipos e tamanhos de VM. Os clusters do HDInsight agora podem utilizar tamanhos de A2 a A7 criados para fins gerais; os nós da Série D têm SSDs (unidades de estado sólido) e processadores 60% mais rápidos; e tamanhos A8 e A9 com suporte para InfiniBand para rede rápida. Clientes Apache HBase no Azure HDInsight podem se beneficiar das configurações de memória maiores da série de D para aumentar o desempenho. Clientes do Storm Apache no Azure HDInsight também podem se beneficiar de memória adicional para carregar conjuntos de dados de referência maiores, bem como CPUs mais rápidas para taxa de transferência mais alta.
+
+* Dimensionamento de cluster. O dimensionamento de cluster permite alterar o número de nós de um cluster HDInsight em execução sem precisar excluí-lo nem recriá-lo.
+
+* Suporte a Rede Virtual. Os clusters do HDInsight podem ser usados com a Rede Virtual do Azure para oferecer suporte ao isolamento de recursos de nuvem ou a cenários híbridos que vinculam os recursos de nuvem àqueles em seu datacenter.
 
 * Baixo custo de entrada. Inicie uma [avaliação gratuita](/pricing/free-trial/) ou consulte os [Detalhes de preço do HDInsight](/pricing/details/hdinsight/).
 
@@ -256,7 +268,7 @@ Amplie esta introdução ao Hadoop na nuvem e à análise de Big Data com os rec
 
 * [Banco de dados SQL do Azure](/documentation/services/sql-database/): documentação, tutoriais e vídeos para o Banco de Dados SQL.
 
-* [Banco de Dados SQL no Portal do Azure](sql-database-manage-portal.md): uma ferramenta de gerenciamento de banco de dados leve e fácil de usar para o gerenciamento do Banco de Dados SQL na nuvem.
+* [Banco de Dados SQL no Portal do Azure](../sql-database/sql-database-manage-portal.md): uma ferramenta de gerenciamento de banco de dados leve e fácil de usar para o gerenciamento do Banco de Dados SQL na nuvem.
 
 * [Adventure Works para Banco de Dados SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304): página para baixar um exemplo de Banco de Dados SQL.
 
@@ -292,4 +304,4 @@ Use a análise de Big Data nos dados da sua organização para obter insights de
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

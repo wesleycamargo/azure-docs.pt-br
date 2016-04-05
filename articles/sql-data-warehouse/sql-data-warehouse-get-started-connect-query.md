@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conectar e consultar com o Visual Studio
@@ -69,7 +69,7 @@ Agora que registramos o nosso servidor, vamos prosseguir e criar uma consulta.
 
 3. Digite o seguinte código na janela de consulta:
 
-	```
+	```sql
 	SELECT COUNT(*) FROM dbo.FactInternetSales;
 	```
 
@@ -91,4 +91,4 @@ Agora que você pode se conectar e consultar, tente [conectar-se ao PowerBI][].
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

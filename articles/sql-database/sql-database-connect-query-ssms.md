@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="03/25/2016"
 	ms.author="sstein" />
 
 # Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL
@@ -42,9 +42,11 @@ Ao trabalhar com o Banco de Dados SQL, você deverá usar a versão mais recente
 
 	![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-connect-query-ssms/1-connect.png)
 
+5. Se você ainda não estabeleceu uma conexão com o Azure, o SSMS solicitará as informações de logon do Azure.
+
 ### Se a conexão falhar
 
-O motivo mais comum das falhas de conexão são os erros no nome do servidor (lembre-se, *&lt;;servername>* é o nome do servidor lógico, não do banco de dados), nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança. Se você estiver se conectando pela primeira vez ou se a conexão falhar devido a uma configuração de IP alterada, a [versão mais recente do SSMS](https://msdn.microsoft.com/library/mt238290.aspx) solicitará seu logon do Azure e criará a regra de firewall no Azure para você. Se você estiver usando uma versão anterior, o endereço IP será informado em uma mensagem de erro e você precisará adicionar esse endereço IP à regra de firewall do servidor no Azure. Verifique se as configurações de firewall do servidor permitem conexões do endereço IP do seu computador local e o endereço IP usado pelo cliente do SSMS. Às vezes, eles são diferentes. Para saber mais, consulte [Como definir configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
+O motivo mais comum das falhas de conexão são os erros no nome do servidor (lembre-se, <*nomeservidor*> é o nome do servidor lógico, não do banco de dados), nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança. Se você estiver conectando pela primeira vez ou se a conexão falhar devido a uma configuração de IP alterada, a [versão mais recente do SSMS](https://msdn.microsoft.com/library/mt238290.aspx) solicitará seu logon do Azure e criará a regra de firewall no Azure para você. Se você estiver usando uma versão anterior, o endereço IP será informado em uma mensagem de erro e você precisará adicionar esse endereço IP à regra de firewall do servidor no Azure. Verifique se as configurações de firewall do servidor permitem conexões do endereço IP do seu computador local e o endereço IP usado pelo cliente do SSMS. Às vezes, eles são diferentes. Para saber mais, consulte [Como definir configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
 
 ## Executar consultas de exemplo
 
@@ -75,4 +77,4 @@ Você pode usar instruções T-SQL para criar e gerenciar bancos de dados no Azu
 
 Se não tiver experiência com o T-SQL, consulte [Tutorial: Escrevendo instruções Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) e a [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

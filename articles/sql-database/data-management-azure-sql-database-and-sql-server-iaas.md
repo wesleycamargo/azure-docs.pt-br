@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/02/2016"
+	ms.date="03/25/2016"
 	ms.author="jeffreyg"/>
 
 # Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)
@@ -82,7 +82,7 @@ A seguinte tabela resume as principais características do Banco de Dados SQL e 
       <li type=round>Aplicativos do SQL Server que exigem acesso a recursos locais (como o Active Directory) do Azure por meio de um túnel seguro.
       <li type=round>Se você precisar de um ambiente de TI personalizado com direitos administrativos completos.
       <li type=round>Cenários de rápido desenvolvimento e teste quando você não deseja comprar hardware do SQL Server local de não produção.
-      <li type=round>Recuperação de desastre para aplicativos do SQL Server local usando o [backup no Armazenamento do Azure] (http://msdn.microsoft.com/library/jj919148.aspx) ou [Réplicas AlwaysOn com VMs do Azure](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).
+      <li type=round>Recuperação de desastre para aplicativos do SQL Server local usando o [backup no Armazenamento do Azure] (http://msdn.microsoft.com/library/jj919148.aspx) ou Réplicas AlwaysOn com VMs do Azure.
       <li type=round>Grandes bancos de dados maiores que 1 TB em tamanho.
       </ul></td>
 </tr>
@@ -105,7 +105,7 @@ A seguinte tabela resume as principais características do Banco de Dados SQL e 
 <tr>
    <td valign="middle"><p><b>Continuidade dos negócios</b></p></td>
    <td valign="middle"><ul><li type=round>Além dos recursos internos de infraestrutura de tolerância a falhas, o Banco de Dados SQL do Azure fornece recursos como a Restauração Pontual, Restauração Geográfica e Replicação Geográfica para aumentar a continuidade dos negócios. Para obter mais informações, consulte [visão geral da continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md).</ul></td>
-   <td valign="middle"><ul><li type=round>O SQL Server em VMs do Azure permite que você configure uma solução de alta disponibilidade e recuperação de desastre para as necessidades específicas de seu banco de dados. Portanto, você pode ter um sistema altamente otimizado para seu aplicativo. Você pode testar e executar failovers por conta própria, quando necessário. Para saber mais, consulte [Alta Disponibilidade e Recuperação de Desastre para SQL Server em Máquinas Virtuais do Azure]((../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
+   <td valign="middle"><ul><li type=round>O SQL Server em VMs do Azure permite que você configure uma solução de alta disponibilidade e recuperação de desastre para as necessidades específicas de seu banco de dados. Portanto, você pode ter um sistema altamente otimizado para seu aplicativo. Você pode testar e executar failovers por conta própria, quando necessário. Para saber mais, confira [Alta Disponibilidade e Recuperação de Desastre para SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
 
 </tr>
 <tr>
@@ -187,7 +187,7 @@ Escolha o **Banco de Dados SQL do Azure** se:
 
 - Você deseja que a Microsoft execute operações de gerenciamento comuns em seus bancos de dados e exija SLAs de maior disponibilidade para bancos de dados.
 
-Consulte [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md) para começar.
+
 
 Escolha **SQL Server em VMs do Azure** se:
 
@@ -195,8 +195,13 @@ Escolha **SQL Server em VMs do Azure** se:
 
 - Você tem recursos de TI existentes, precisa de direitos administrativos completos para o SQL Server e requer compatibilidade total com o SQL Server local. Essa abordagem permite minimizar os custos de desenvolvimento ou modificações de aplicativos existentes com a flexibilidade para executar a maioria dos aplicativos. Além disso, ela fornece controle total sobre a VM, o sistema operacional e a configuração de banco de dados.
 
-Consulte [Provisionar uma máquina virtual do SQL Server no Azure](virtual-machines-windows-classic-portal-sql.md) para começar.
+
 
 > [AZURE.NOTE] Deseja experimentar o SQL Server 2016 CTP2? Inscreva-se no Microsoft Azure e entre [aqui](http://aka.ms/sql2016vm "aqui") para criar uma Máquina Virtual com o SQL Server 2016 CTP2 já instalado.
 
-<!---HONumber=AcomDC_0323_2016-->
+## Próximas etapas
+- Confira [Tutorial do Banco de Dados SQL: Criar um Banco de Dados SQL em alguns minutos usando o Portal do Azure](sql-database-get-started.md) para obter uma introdução ao Banco de Dados SQL.
+- Confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
+- Confira [Provisionar uma máquina virtual do SQL Server no Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) para obter uma introdução ao SQL Server em VMs do Azure.
+
+<!---HONumber=AcomDC_0330_2016-->
