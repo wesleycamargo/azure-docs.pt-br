@@ -117,6 +117,10 @@ Sim, é possível levar seus códigos existentes do R para o Estúdio AM e execu
 
 Não, não há suporte para isso. No entanto, códigos personalizados em R e Python podem ser usados para definir um módulo.
 
+**Quantos módulos posso executar em paralelo em meu experimento?**
+
+Você pode executar até quatro módulos em paralelo em um experimento.
+
 
 ### Processamento de dados
 
@@ -164,7 +168,7 @@ Atualmente, novos módulos personalizados podem ser criados apenas em R.
 
 **Quais pacotes de R estão disponíveis no Estúdio de Aprendizado de Máquina?**
 
-Atualmente, o Estúdio de Aprendizado de Máquina oferece suporte a mais de 400 pacotes de CRAN R, e essa lista continua crescendo. Consulte [Ampliar seu experimento com R](machine-learning-extend-your-experiment-with-r.md) para saber como obter uma lista dos pacotes de R com suporte. Se o pacote que desejar não estiver nesta lista, forneça o nome do pacote no [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
+O Estúdio de Aprendizado de Máquina dá suporte a mais de 400 pacotes CRAN R atualmente. Aqui está a [lista atual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos os pacotes incluídos. Confira também [Estender seu experimento com R](machine-learning-extend-your-experiment-with-r.md) para saber como recuperar essa lista por conta própria. Se o pacote que desejar não estiver nesta lista, forneça o nome do pacote no [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231).
 
 **É possível criar um módulo personalizado em R?**
 
@@ -219,10 +223,9 @@ Depois que um modelo de previsão for colocado em produção, você pode monitor
 
 Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
 
- ** Posso criar serviços Web apenas de modelos criados no Estúdio? 
-Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+ **** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
 
- **Onde posso encontrar informações sobre códigos de erro? Os códigos de erro estão descritos [aqui.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
+ ****Onde posso encontrar informações sobre códigos de erro? Os códigos de erro estão descritos [aqui.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Escalabilidade
 
@@ -314,4 +317,4 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

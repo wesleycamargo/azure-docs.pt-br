@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/03/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 
@@ -34,7 +34,7 @@ Todo mundo tem uma opinião. E isso é bom. O **Catálogo de Dados do Azure** re
 Cada uma dessas perspectivas é valiosa, e o **Catálogo de Dados do Azure** usa uma abordagem de crowdsourcing para metadados que permitem que cada um seja capturado e usado para fornecer uma visão completa das fontes de dados registradas. Usando o portal do **Catálogo de Dados do Azure**, cada usuário pode adicionar e editar suas próprias anotações, sendo capaz de exibir anotações fornecidas por outros usuários.
 
 ## Diferentes tipos de anotações
-Durante a visualização do **Catálogo de Dados do Azure**, os seguintes tipos de anotações têm suporte:
+O **Catálogo de Dados do Azure** dá suporte aos seguintes tipos de anotações:
 
 | Anotação | Observações |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -61,4 +61,4 @@ O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dad
 ## Consulte também
 - o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como anotar fontes de dados.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

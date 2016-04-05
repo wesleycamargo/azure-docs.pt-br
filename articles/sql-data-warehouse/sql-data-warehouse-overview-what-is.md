@@ -13,45 +13,66 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # O que é o SQL Data Warehouse do Azure?
 
-O SQL Data Warehouse do Azure é um banco de dados distribuído de nível corporativo com capacidade de processar volumes imensos de dados relacionais e não relacionais. É o primeiro data warehouse de nuvem do setor que combina recursos SQL comprovados com a capacidade de expansão, redução e pausa em questão de segundos. O SQL Data Warehouse é também profundamente arraigado no Azure, e pode ser facilmente implantado em questão de segundos. Além disso, o serviço é totalmente gerenciado e remove o incômodo de gastar tempo com correção, manutenção e backups de software. Os backups internos e automáticos do SQL Data Warehouse oferecem suporte a tolerância a falhas e restauração de autoatendimento.
+O SQL Data Warehouse do Azure é um banco de dados baseado em nuvem e expansível com capacidade de processar volumes imensos de dados, relacionais e não relacionais. Criado em nossa arquitetura MPP (processamento paralelo maciço), o SQL Data Warehouse pode lidar com sua carga de trabalho corporativa.
 
-Na criação do SQL Data Warehouse, nos concentramos em alguns atributos principais para garantir o aproveitamento total do Azure e criar um data warehouse que pudesse atender à carga de trabalho da qualquer empresa.
+SQL Data Warehouse:
+
+- Combina nosso banco de dados relacional comprovado do SQL Server com nossos recursos de expansão na nuvem do Azure. Você pode aumentar, diminuir, pausar ou retomar a computação em segundos. Isso permite que você economize custos expandindo a CPU quando for necessário e cortando o uso durante os horários de pico.
+- Aproveita a nossa plataforma do Azure. É fácil de implantar, apresenta uma manutenção tranquila e é totalmente tolerante a falhas graças ao backups automáticos. 
+- Complementa o ecossistema do SQL Server. Você pode desenvolver com o T-SQL do SQL Server e ferramentas conhecidas.
+
+Continue lendo para saber mais sobre os principais recursos do SQL Data Warehouse.
 
 ## Otimizado
 
-### Arquitetura do Data Warehouse
+### Arquitetura MPP (processamento paralelo maciço)
 
-Em seu núcleo, o SQL Data Warehouse usa uma arquitetura MPP (processamento paralelo maciço) da Microsoft, projetada originalmente para executar alguns dos maiores data warehouse corporativos locais. Essa arquitetura se beneficia dos aprimoramentos de desempenho de data warehouse internos e também permite que o SQL Data Warehouse expanda facilmente e paralelize a computação de consultas SQL complexas. Além disso, a arquitetura do SQL Data Warehouse é projetada para aproveitar sua presença no Azure. Combinando esses dois aspectos, a arquitetura se divide em quatro componentes principais:
+O SQL Data Warehouse usa uma arquitetura MPP (processamento paralelo maciço) da Microsoft, projetada para executar alguns dos maiores data warehouse corporativos locais do mundo.
+
+Atualmente, nossa arquitetura MPP distribui os dados entre 60 unidades de armazenamento e processamento do tipo shared-nothing. Os dados são armazenados em Blobs de Armazenamento do Azure redundantes e com replicação geográfica e são vinculados a nós de computação para a execução de consulta. Com essa arquitetura, podemos usar uma abordagem de dividir para conquistar a fim de executar consultas complexas de T-SQL. Durante o processamento, o nó de controle analisa a consulta e, então, cada nó de computação "conquista" sua parte dos dados em paralelo.
+
+Ao combinar nossa arquitetura MPP e recursos de armazenamento do Azure, o SQL Data Warehouse pode:
+
+- Aumentar ou reduzir o armazenamento de forma independente à computação.
+- Aumentar ou reduzir a computação sem mover dados. 
+- Pausar a capacidade de computação enquanto mantém os dados intactos.
+- Retomar a capacidade de computação quase imediatamente.
+
+Veja abaixo uma descrição detalhada da arquitetura.
 
 ![Arquitetura do SQL Data Warehouse][1]
 
-- **Nó de controle:** você se conecta ao nó de controle usando o SQL Data Warehouse com quaisquer ferramentas de desenvolvimento, carregamento ou business intelligence. No SQL Data Warehouse, o nó de controle é um Banco de Dados SQL e ao se conectar ele se parece com um Banco de Dados SQL padrão. No entanto, em segundo plano, ele coordena toda a movimentação e computação de dados que ocorrem no sistema. Quando um comando é emitido para o nó de controle, ele o divide em um conjunto de consultas que serão passados para os nós de computação do serviço.
 
-- **Nós de computação:** como o nó de controle, os nós de computação do SQL Data Warehouse são ativados usando Bancos de Dados SQL. O trabalho deles é servir como a potência de computação do serviço. Nos bastidores, sempre que os dados são carregados no SQL Data Warehouse, eles são distribuídos entre os nós do serviço. Em seguida, sempre que o nó de controle recebe um comando ,ele o divide em partes para cada nó de computação, e os nós de computação operam em seus dados correspondentes. Depois de concluir a computação, os nós de computação passam os resultados parciais para o nó de controle que agrega os resultados antes de retornar uma resposta.
+- **Nó de controle:** o nó de controle "controla" o sistema. É o front-end que interage com todos os aplicativos e conexões. No SQL Data Warehouse, o nó Controle é alimentado pelo Banco de Dados SQL, e a conexão com os dois é praticamente igual. Nos bastidores, o nó de controle coordena toda a movimentação e computação de dados necessárias para executar consultas em paralelo em seus dados distribuídos. Quando você envia uma consulta TSQL ao SQL Data Warehouse, o nó de controle a transforma em consultas separadas que serão executadas paralelamente em cada nó de computação.
 
-- **Armazenamento:** todo o armazenamento para o SQL Data Warehouse é um Blobs de armazenamento do Azure padrão. Isso significa que, ao interagir com dados, os nós de computação são gravados e lidos diretamente nos/dos Blobs. A capacidade do Armazenamento do Azure de expandir de forma transparente e permitir quase sem limite o dimensionamento automático do armazenamento, e fazer isso separadamente da computação. O Armazenamento do Azure também permite a manutenção do armazenamento durante a expansão ou pausa, simplificar nosso processo de backup e restauração, e ter um armazenamento mais seguro e mais tolerante a falhas.
+- **Nós de computação:** os nós de computação servem como a força por trás do SQL Data Warehouse. Eles são Bancos de dados SQL que processam as etapas de consulta e gerenciam seus dados. Quando você adiciona dados, o SQL Data Warehouse distribui as linhas usando seus nós de computação. Os nós de computação também são os trabalhadores que executam as consultas paralelas em seus dados. Após o processamento, eles passam os resultados novamente para o nó de controle. Para concluir a consulta, o nó de controle agrega os resultados e retorna o resultado final.
 
-- **Serviços de movimentação de dados:** a parte final que mantém tudo junto no SQL Data Warehouse são os nossos Serviços de movimentação de dados. Os serviços de movimentação de dados permitem que o nó de controle se comunique e passe os dados a todos os nós de computação. Eles também permitem que os nós de computação passem dados entre si, o que oferece a eles acesso a dados em outros nós de computação e permite que eles obtenham os dados necessários para completarem junções e agregações.
 
-### Otimizações de mecanismo
+- **Armazenamento:** os dados são armazenados em Blobs de Armazenamento do Azure. Quando os nós de computação interagem com seus dados, eles gravam e leem diretamente no e do armazenamento de blobs. Como o armazenamento do Azure expande de modo transparente e ilimitado, o SQL Data Warehouse pode fazer o mesmo. Como a computação e o armazenamento são independentes, o SQL Data Warehouse pode expandir automaticamente o armazenamento, separadamente da expansão da computação, e vice-versa. O Armazenamento do Azure também é totalmente tolerante a falhas, além de simplificar o processo de backup e restauração.
+   
 
-Essa abordagem MPP permite que o SQL Data Warehouse use uma abordagem do tipo dividir e conquistar, conforme descrito acima, ao solucionar problemas de dados grandes. Como os dados no SQL Data Warehouse são divididos e distribuídos entre os nós de computação do serviço, cada nó de computação é capaz de operar em sua parte dos dados em paralelo. Por fim, os resultados são passados ao nó de controle e agregados antes de serem passado aos usuários. Essa abordagem também é auxiliada por diversas otimizações de desempenho específicas de data warehouse:
+- **Serviço de Movimentação de Dados:** o DMS (Serviço de Movimentação de Dados) é nossa tecnologia de movimentação de dados entre os nós. O DMS oferece aos nós de computação acesso aos dados que eles precisam para junções e agregações. DMS não é um serviço do Azure. É um serviço do Windows executado junto com o Banco de Dados SQL em todos os nós. Como o DMS é executado em segundo plano, você não irá interagir com ele diretamente. No entanto, ao examinar os planos de consulta, você perceberá que eles incluem algumas operações DMS, uma vez que a movimentação dos dados é necessária de alguma forma para executar cada consulta em paralelo.
 
-- O SQL Data Warehouse usa um otimizador de consulta avançado e um conjunto de estatísticas complexas em todos os dados no serviço para criar seus planos de consulta. Usando informações sobre distribuição e tamanho dos dados, o serviço é capaz de otimizar consultas distribuídas com base na avaliação do custo de operações de consulta específicas.
 
-- Além de criar planos de consulta ideais, o SQL Data Warehouse incorpora técnicas e algoritmos avançados que movem dados eficientemente entre os recursos de computação, conforme a necessidade, para executar a consulta. Essas operações estão integradas aos Serviços de Movimentação de Dados do data warehouse, e as otimizações ocorrem automaticamente.
+### Desempenho de consulta otimizado
 
-- A inclusão de índices columnstore clusterizados para SQL Data Warehouse também é fundamental para alcançar o desempenho de consulta rápida. Ao usar o armazenamento baseado em coluna, o SQL Data Warehouse pode obter até 5 vezes mais ganhos de compactação em relação ao armazenamento tradicional orientado por linha e até 10 vezes mais ganhos de desempenho em consulta. As consultas de data warehouse funcionam bem em índices columnstore porque frequentemente examinam a tabela inteira ou toda a partição de uma tabela e minimizam o impacto da movimentação de dados para etapas de consulta.
+Além da estratégia de dividir e conquistar, a abordagem do MPP é auxiliada por diversas otimizações de desempenho específicas de data warehouse, incluindo:
+
+- Um otimizador de consulta distribuída e um conjunto de estatísticas complexas em todos os dados. Usando informações sobre distribuição e tamanho dos dados, o serviço é capaz de otimizar consultas avaliando o custo de operações de consulta distribuída específicas.
+
+- Técnicas e algoritmos avançados e integrados ao processo de movimentação de dados a fim de movimentar os dados de forma eficiente que movem dados eficientemente entre os recursos de computação, conforme a necessidade de execução da consulta. Essas operações de movimentação de dados são integradas e todas as otimizações no Serviço de Movimentação de Dados ocorrem automaticamente.
+
+- Índice columnstore clusterizado por padrão. Ao usar o armazenamento baseado em coluna, o SQL Data Warehouse obtém até cinco vezes mais ganhos de compactação em relação ao armazenamento tradicional orientado por linha e até 10 vezes mais ganhos de desempenho em consulta. Consultas de análise que precisam examinar uma grande quantidade de linhas funcionam muito bem em índices columnstore.
 
 ## Escalonável
 
-A arquitetura do SQL Data Warehouse apresenta armazenamento e computação separados, permitindo que cada um seja dimensionado independentemente. A estrutura de implantação simples e rápida do Banco de Dados SQL permite que computadores adicionais estejam disponíveis imediatamente. Complementar isso é o uso dos Blobs de Armazenamento do Azure. Os blobs não apenas oferecem armazenamento estável e replicado, mas também fornecem a infraestrutura para expansão sem esforço e de baixo custo. Usando essa combinação de armazenamento de escala em nuvem e de computação do Azure, o SQL Data Warehouse permite pagar pelo armazenamento de desempenho da consulta à medida que você precisar dela e quando precisar dela. Alterar a quantidade de computação é tão simples quanto mover um controle deslizante no Portal Clássico do Azure para a esquerda ou direita, mas pode também ser agendado ou adicionado a uma carga de trabalho com o T-SQL e PowerShell.
+A arquitetura do SQL Data Warehouse apresenta armazenamento e computação separados, permitindo que cada um seja dimensionado independentemente. A estrutura de implantação simples e rápida do Banco de Dados SQL permite que computadores adicionais estejam disponíveis imediatamente. Complementar isso é o uso dos Blobs de Armazenamento do Azure. O uso dos blobs não apenas oferece armazenamento estável e replicado, mas também fornece a infraestrutura para expansão sem esforço e de baixo custo. Usando essa combinação de armazenamento de escala em nuvem e de computação do Azure, o SQL Data Warehouse permite pagar pelo armazenamento de desempenho da consulta à medida que você precisar dela e quando precisar dela. Alterar a quantidade de computação é tão simples quanto mover um controle deslizante no Portal do Azure para a esquerda ou direita, mas também pode ser agendado com o T-SQL e o PowerShell.
 
 Junto com a capacidade de controlar totalmente o volume de computação, independentemente do armazenamento, o SQL Data Warehouse permite pausar totalmente seu data warehouse. Enquanto mantém o armazenamento em vigor, todas computação é liberada no pool principal do Azure, economizando dinheiro imediatamente. Quando necessário, basta retomar a computação e ter seu dados e computação disponíveis para sua carga de trabalho.
 
@@ -140,4 +161,4 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba mais sobre a [ca
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

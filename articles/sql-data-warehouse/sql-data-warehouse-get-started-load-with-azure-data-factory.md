@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carregar dados com o Azure Data Factory
@@ -75,18 +75,18 @@ Vincule sua conta de armazenamento do Azure e oi SQL Data Warehouse ao data fact
 
 2. Para registrar o SQL Data Warehouse, navegue até a seção 'Criar e Implantar', selecionar 'Novo Armazenamento de Dados' e 'Azure SQL Data Warehouse'. Copie e cole nesse modelo e, em seguida, preencha as informações específicas.
 
-    ````
-    {
-        "name": "<Linked Service Name>",
-	    "properties": {
-	        "description": "",
-		    "type": "AzureSqlDW",
-		    "typeProperties": {
-		         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
-	         }
-        }
+```JSON
+{
+    "name": "<Linked Service Name>",
+    "properties": {
+        "description": "",
+	    "type": "AzureSqlDW",
+	    "typeProperties": {
+	         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+         }
     }
-    ````
+}
+```
 
 ### Etapa 2.2: definir o conjunto de dados
 
@@ -96,56 +96,56 @@ Depois de criar os serviços vinculados, teremos de definir os conjuntos de dado
 
 2. Clique em 'Novo conjunto de dados' e em 'Armazenamento de Blob do Azure' para vincular o armazenamento à fábrica de dados. Você pode usar o script abaixo para definir os dados no armazenamento de Blob do Azure:
 
-    ````
-	{
-	    "name": "<Dataset Name>",
-		"properties": {
-		    "type": "AzureBlob",
-			"linkedServiceName": "<linked storage name>",
-			"typeProperties": {
-			    "folderPath": "<containter name>",
-				"fileName": "FactInternetSales.csv",
-				"format": {
-				"type": "TextFormat",
-				"columnDelimiter": ",",
-				"rowDelimiter": "\n"
-                }
-            },
-		    "external": true,
-		    "availability": {
-			    "frequency": "Hour",
-			    "interval": 1
-		    },
-		    "policy": {
-		        "externalData": {
-			        "retryInterval": "00:01:00",
-			        "retryTimeout": "00:10:00",
-			        "maximumRetry": 3
-		        }
+```JSON
+{
+    "name": "<Dataset Name>",
+	"properties": {
+	    "type": "AzureBlob",
+		"linkedServiceName": "<linked storage name>",
+		"typeProperties": {
+		    "folderPath": "<containter name>",
+			"fileName": "FactInternetSales.csv",
+			"format": {
+			"type": "TextFormat",
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n"
             }
-		}
+        },
+	    "external": true,
+	    "availability": {
+		    "frequency": "Hour",
+		    "interval": 1
+	    },
+	    "policy": {
+	        "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+	        }
+        }
 	}
-    ````
+}
+```
 
 
 3. Agora, definiremos também nosso conjunto de dados para o SQL Data Warehouse. Começamos da mesma forma, clicando em 'Novo conjunto de dados' e em 'Azure SQL Data Warehouse'.
 
-    ````
-    {
-	    "name": "DWDataset",
-		"properties": {
-		    "type": "AzureSqlDWTable",
-		    "linkedServiceName": "AzureSqlDWLinkedService",
-		    "typeProperties": {
-			    "tableName": "FactInternetSales"
-			},
-		    "availability": {
-		        "frequency": "Hour",
-			    "interval": 1
-	        }
+```JSON
+{
+    "name": "DWDataset",
+	"properties": {
+	    "type": "AzureSqlDWTable",
+	    "linkedServiceName": "AzureSqlDWLinkedService",
+	    "typeProperties": {
+		    "tableName": "FactInternetSales"
+		},
+	    "availability": {
+	        "frequency": "Hour",
+		    "interval": 1
         }
     }
-    ````
+}
+```
 
 ## Etapa 3: criar e executar o pipeline
 
@@ -153,7 +153,7 @@ Por fim, vamos configurar e executar o pipeline no Azure Data Factory. Esta é a
 
 Na seção 'Criar e Implantar', agora clique em 'Mais Comandos' e em 'Novo Pipeline'. Depois de criar o pipeline, você poderá usar o código abaixo para transferir os dados para o data warehouse:
 
-````
+```JSON
 {
     "name": "<Pipeline Name>",
     "properties": {
@@ -199,7 +199,7 @@ Na seção 'Criar e Implantar', agora clique em 'Mais Comandos' e em 'Novo Pipel
 	    "isPaused": false
     }
 }
-````
+```
 
 ## Próximas etapas
 
@@ -215,4 +215,4 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 - [Tutorial: copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure](../data-factory/data-factory-get-started.md). Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
 - [Tutorial de cenário do mundo real](../data-factory/data-factory-tutorial.md). Este é um tutorial detalhado para uso do Azure Data Factory.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

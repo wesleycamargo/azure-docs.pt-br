@@ -34,8 +34,8 @@ A tabela a seguir mostra como essas soluções são mapeadas para recursos espec
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoramento remoto][lnk-remote-monitoring] | Sim | Sim | Sim | Sim | - | 
-| [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
+| [Monitoramento remoto][lnk-remote-monitoring] | Sim | Sim | Sim | Sim | - | | [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
+
 - *Ingestão de dados*: entrada de dados em escala para a nuvem.
 - *Identidade do dispositivo*: gerenciar identidades exclusivas de cada dispositivo conectado.
 - *Comando e controle*: enviar mensagens para um dispositivo a partir da nuvem para fazer com que o dispositivo execute uma ação.
@@ -61,7 +61,7 @@ Quando um dispositivo primeiro se conecta ao Hub IoT na solução pré-configura
 - *Parar Telemetria*: instrui o dispositivo a parar o envio de telemetria.
 - *Alterar Ponto de Definição da Temperatura*: controla os valores de telemetria de temperatura simulados enviados pelo dispositivo. Isso é útil para testar a lógica de back-end:
 - *Diagnosticar Telemetria*: controla se o dispositivo deve enviar a temperatura externa como telemetria.
-- *Alterar Estado do Dispositivo*: define a propriedade de metadados do estado do dispositivo relatado pelo dispositivo. Isso é útil para testar a lógica de back-end:
+- * Alterar Estado do Dispositivo*: define a propriedade de metadados do estado do dispositivo relatado pelo dispositivo. Isso é útil para testar a lógica de back-end:
 
 Você pode adicionar mais dispositivos simulados à solução que emite a mesma telemetria e responde aos mesmos comandos.
 
@@ -114,6 +114,8 @@ Nesta solução pré-configurada, o portal de solução faz parte do **back-end 
 
 ## Próximas etapas
 
+Para obter mais informações sobre as arquiteturas de solução de IoT, confira [Serviços de IoT do Microsoft Azure: arquitetura de referência][lnk-refarch].
+
 Explore estes recursos para saber mais sobre as soluções pré-configuradas de IoT:
 
 - [Introdução às soluções da IoT pré-configuradas][lnk-preconf-get-started]
@@ -132,5 +134,6 @@ Explore estes recursos para saber mais sobre as soluções pré-configuradas de 
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

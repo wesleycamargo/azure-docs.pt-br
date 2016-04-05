@@ -64,8 +64,9 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 |**Cologix** | Com suporte | Em breve | Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Suportado | Amsterdã, Dublin, Londres |
 | **Comcast** | Suportado | Sem suporte | Vale do Silício, Washington, D.C. |
-| **CoreSite** | Suportado | Suportado | Los Angeles | 
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Suportado | Suportado | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Com suporte | Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova York, Osaka, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.C. |
+| **euNetworks** | Suportado | Suportado | Amsterdã |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | Suportado | Suportado | Osaka, Tóquio |
 | **[InterCloud](https://www.intercloud.com/)** | Suportado | Suportado | Amsterdã, Londres, Cingapura, Washington, D.C. |
 | **Internet Solutions - Cloud Connect** | Suportado | Suportado | Amsterdã, Londres |
@@ -134,6 +135,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 
 |**Provedor de conectividade**|**Exchange**|**Locais de emparelhamento**|
 |---|---|---|
+|**Alaska Communications**|Equinix|Seattle|
 |**[Comunicações XO](http://www.xo.com/)**|Equinix|Vale do Silício|
 
 ## Integradores de sistema de Rota Expressa
@@ -152,4 +154,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 - Certifique-se que todos os pré-requisitos foram atendidos. Confira [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

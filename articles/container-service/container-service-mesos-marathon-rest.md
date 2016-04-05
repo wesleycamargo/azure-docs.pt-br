@@ -32,10 +32,10 @@ Uma vez conectado ao cluster ACS, o Mesos e as APIs REST relacionadas podem ser 
 
 ## Coletar informações do Mesos e do Marathon
 
-Antes de implantar contêineres no cluster Mesos, colete algumas informações sobre esse cluster, como os nomes e o status atual dos agentes do Mesos. Para fazer isso, consulte o ponto de extremidade `master/slaves` em um mestre do Mesos. Se tudo correr bem, você verá uma lista de agentes Mesos e várias propriedades para cada um deles.
+Antes de implantar contêineres no cluster Mesos, colete algumas informações sobre esse cluster, como os nomes e o status atual dos agentes do Mesos. Para fazer isso, confira o ponto de extremidade `master/slaves` da API REST Mesos. Se tudo correr bem, você verá uma lista de agentes Mesos e várias propriedades para cada um deles.
 
 ```bash
-curl http://localhost/master/slaves
+curl http://localhost/mesos/master/slaves
 ```
 
 Agora, use o ponto de extremidade `/apps` do Marathon para verificar as implantações atuais do Marathon para o cluster Mesos. Se esse for um cluster novo, você verá uma matriz vazia para os aplicativos.
@@ -160,4 +160,4 @@ Execute o comando a seguir para expandir o aplicativo.
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

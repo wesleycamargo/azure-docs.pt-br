@@ -39,4 +39,4 @@ Em conjunto, as funcionalidades do Serviço de Aplicativo permitem que os desenv
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

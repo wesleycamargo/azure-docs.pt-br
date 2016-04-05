@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # O que é o Catálogo de Dados do Azure?
@@ -62,9 +62,8 @@ O processo de registro envolve três etapas básicas:
 2.	Selecionar os objetos a registrar - o usuário seleciona os objetos no local especificado, que deve estar registrado no **Catálogo de Dados do Azure**. Esses podem ser o conjunto completo de tabelas em todos os bancos de dados no servidor ou um subconjunto especificamente selecionado de tabelas e exibições.
 3.	Concluir o registro - o usuário conclui o processo e a ferramenta de registro da fonte de dados, extrai os metadados estruturais da fonte de dados e envia esses metadados para o serviço de nuvem do **Catálogo de Dados do Azure**.
 
-> [AZURE.NOTE] A visualização do **Catálogo de Dados do Azure** atualmente dá suporte aos seguintes tipos de ativos e de fonte de dados: [Fontes de dados com suporte do Catálogo de Dados do Azure](data-catalog-dsr.md)
+> [AZURE.NOTE] Para exibir uma lista dos tipos de fonte de dados e ativos com suporte no **Catálogo de Dados do Azure**, confira: [Fontes de dados com suporte do Catálogo de Dados do Azure](data-catalog-dsr.md)
 
-As fontes de dados adicionais e os tipos de ativos serão adicionados durante a visualização do **Catálogo de Dados do Azure**.
 
 > [AZURE.IMPORTANT]O registro de uma fonte de dados no **Catálogo de Dados do Azure** não copiará os dados da fonte de dados, a menos que você selecione "Incluir Visualização" na ferramenta de registro de fonte de dados. O registro copia os metadados da fonte de dados, não os dados. Exemplos de metadados incluem nomes das tabelas e outros objetos de fonte de dados, juntamente com tipos de dados e nomes de colunas e outros atributos da fonte de dados. Os metadados também incluem o local da fonte de dados, para que os usuários que descobrirem as fontes de dados usando o **Catálogo de Dados do Azure** possam se conectar à fonte de dados. Se você selecionar "Incluir Visualização", a ferramenta de registro da fonte de dados também copiará para o **Catálogo de Dados do Azure** um pequeno conjunto de registros que serão exibidos aos usuários que descobrirem a fonte de dados no portal do **Catálogo de Dados do Azure**.
 
@@ -110,4 +109,4 @@ O objetivo final da descoberta de dados é localizar os dados necessários e us�
 1.	Para aplicativos clientes com suporte direto do **Catálogo de Dados do Azure**, os usuários poderão clicar no menu **Abrir no** no bloco da fonte de dados encontrado no portal. O aplicativo cliente, em seguida, iniciará uma conexão com a fonte de dados selecionada.
 2.	Para todos os aplicativos clientes, os usuários podem usar as informações de conexão exibidas no painel Propriedades para uma fonte de dados selecionada. Essas informações incluem todos os detalhes (como nome do servidor, nome do banco de dados e nome do objeto) necessárias para se conectar aos dados e podem ser copiadas na experiência de conexão da ferramenta cliente. Se os detalhes do acesso da solicitação tiverem sido fornecidos por uma fonte de dados, essas informações serão exibidas ao lado dos detalhes da conexão.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->
