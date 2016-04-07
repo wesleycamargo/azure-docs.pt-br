@@ -81,7 +81,8 @@ Ela também lista a sintaxe aceita pelo PCRE, PERL e VIM.
 |(?P<name>re) |grupo de captura nomeado e numerado (subcorrespondência) 
 | (?<name>re) |grupo de captura nomeado e numerado (subcorrespondência) (SEM SUPORTE) 
 | (?'name're) | grupo de captura nomeado e numerado (subcorrespondência) (SEM SUPORTE) 
-| (?:re) grupo de não captura |(? sinalizadores) definir sinalizadores dentro do grupo atual; não captura 
+|(?:re)| grupo de não captura 
+|(? sinalizadores) |definir sinalizadores dentro do grupo atual; não captura 
 |(?flags:re) |definir sinalizadores durante re; não captura 
 |(?#text) |comentário (SEM SUPORTE) 
 |(?&#124;x&#124;y&#124;z) |redefinição de numeração de ramificação (SEM SUPORTE) 
@@ -414,4 +415,4 @@ Ela também lista a sintaxe aceita pelo PCRE, PERL e VIM.
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

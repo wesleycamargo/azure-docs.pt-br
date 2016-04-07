@@ -63,7 +63,7 @@ Como parte do novo modelo de preço, a cobrança para filas e tópicos/assinatur
 |Mensagens|Enviando e recebendo mensagens com filas ou tópicos/assinaturas.|
 |Estado de sessão|Obter ou definir o estado de sessão em uma fila ou tópico/assinatura.|
 
-Os seguintes preços entraram em vigor desde o dia 1° de novembro de 2014:
+Os seguintes preços entraram em vigor desde o dia 1 de novembro de 2014:
 
 |Basic|Custo|
 |---|---|
@@ -151,4 +151,4 @@ Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independen
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

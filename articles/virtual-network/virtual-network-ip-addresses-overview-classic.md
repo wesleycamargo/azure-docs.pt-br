@@ -136,7 +136,7 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 
 A tabela abaixo mostra os limites impostos ao endereçamento IP no Azure por assinatura. Você pode [entrar em contato com o suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
 
-|Limite padrão|Limite máximo|
+||Limite padrão|Limite máximo|
 |---|---|---|
 |Endereços IP públicos (dinâmicos)|5|entre em contato com o suporte|
 |Endereços IP públicos reservados|20|entre em contato com o suporte|
@@ -166,4 +166,4 @@ A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador
 ## Próximas etapas
 - [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) usando o portal clássico.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->
