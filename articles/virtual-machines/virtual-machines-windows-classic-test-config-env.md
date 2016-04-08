@@ -239,7 +239,7 @@ Verifique se que você pode acessar recursos Web e de compartilhamento de arquiv
 2.	Em **Propriedades para CLIENT1**, clique em **Ativado** ao lado de **Configuração de Segurança Aprimorada do IE**.
 3.	Em **Configuração de Segurança Aprimorada do Internet Explorer**, clique em **Desativado** para **Administradores** e **Usuários** e, em seguida, clique em **OK**.
 4.	Na tela Inicial, clique em **Internet Explorer** e em **OK**.
-5.	Na barra de endereços, digite ****http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1.
+5.	Na barra de endereços, digite **http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1.
 6.	Na barra de tarefas da área de trabalho, clique no ícone do Gerenciador de Arquivos.
 7.	Na barra de endereços, digite **\\\app1\\Files** e pressione ENTER.
 8.	Você deverá ver uma janela de pasta com o conteúdo da pasta compartilhada Arquivos.
@@ -284,4 +284,4 @@ Para iniciar as máquinas virtuais em ordem com o PowerShell do Azure, preencha 
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->
