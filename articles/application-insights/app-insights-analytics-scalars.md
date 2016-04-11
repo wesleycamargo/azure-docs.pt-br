@@ -19,20 +19,13 @@
 # Expressões escalares na Análise
 
 
-[Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do 
-[Application Insights](app-insights-overview.md). 
- Essas páginas descrevem a linguagem de consulta da Análise.
+[Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
-<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
-<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) 
-| [itemCount](#itemCount) | [split](#split) | [sqrt](#sqrt) 
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) 
-| [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) <br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [itemCount](#itemCount) | [split](#split) | [sqrt](#sqrt) <br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
@@ -46,23 +39,21 @@ As expressões escalares são diferentes de [consultas](app-insights-analytics-q
 
 ## Escalares
 
-[casts](#casts) | [comparisons](#scalar-comparisons)
-<br/>
-[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Os tipos que recebem suporte são:
 
 | Tipo | Nomes adicionais | Tipo equivalente do .NET |
 | --------- | -------------------- | -------------------- |
-| `bool`    | `boolean`            | `System.Boolean`     |
-| `datetime`| `date`               | `System.DateTime`    |
-| `dynamic` |                      | `System.Object`      |
-| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
-| `int`     |                      | `System.Int32`       |
-| `long`    |                      | `System.Int64`       |
-| `double`  | `real`               | `System.Double`      |
-| `string`  |                      | `System.String`      |
-| `timespan`| `time`               | `System.TimeSpan`    |
+| `bool` | `boolean` | `System.Boolean` |
+| `datetime`| `date` | `System.DateTime` |
+| `dynamic` | | `System.Object` |
+| `guid` | `uuid`, `uniqueid` | `System.Guid` |
+| `int` | | `System.Int32` |
+| `long` | | `System.Int64` |
+| `double` | `real` | `System.Double` |
+| `string` | | `System.String` |
+| `timespan`| `time` | `System.TimeSpan` |
 
 ### Conversões
 
@@ -143,9 +134,7 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 ```
 ### iff
 
-A função `iff()` avalia o primeiro argumento (o predicado) e retorna
-o valor do segundo ou do terceiro argumento, dependendo se o predicado 
-for `true` ou `false`. O segundo e o terceiro argumentos devem ser do mesmo tipo.
+A função `iff()` avalia o primeiro argumento (o predicado) e retorna o valor do segundo ou do terceiro argumento, dependendo se o predicado for `true` ou `false`. O segundo e o terceiro argumentos devem ser do mesmo tipo.
 
 **Sintaxe**
 
@@ -160,8 +149,7 @@ for `true` ou `false`. O segundo e o terceiro argumentos devem ser do mesmo tipo
 
 **Retorna**
 
-Essa função retorna o valor de *ifTrue* se *predicate* for avaliado como `true`
-ou o valor de *ifFalse* caso ocorra o contrário.
+Essa função retorna o valor de *ifTrue* se *predicate* for avaliado como `true` ou o valor de *ifFalse* caso ocorra o contrário.
 
 **Exemplo**
 
@@ -169,9 +157,7 @@ ou o valor de *ifFalse* caso ocorra o contrário.
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a>
-<a name="isnotnull"/></a>
-<a name="notnull"/></a>
+<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -199,7 +185,7 @@ True ou false dependendo se o valor for nulo ou não nulo.
 | "" | false
 |"x" | false
 |parsejson("")|verdadeiro
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 **Exemplo**
@@ -231,8 +217,7 @@ Observe que há outras maneiras de conseguir esse efeito:
 
 ## Números
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
-| [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Literais numéricos
 
@@ -246,17 +231,7 @@ Observe que há outras maneiras de conseguir esse efeito:
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair |
-| * | Multiplicar |
-| / | Dividir |
-| % | Módulo |
-||
-|`<` |Menor
-|`<=`|Menor ou Igual a
-|`>` |Maior
-|`>=`|Maior ou Igual a
-|`<>`|Diferente de
-|`!=`|Diferente de
+| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
 
 
 
@@ -288,7 +263,7 @@ Expressão | Resultado
 ---|---
 `bin(4.5, 1)` | `4.0`
 `bin(time(16d), 7d)` | `14d`
-`bin(datetime(1953-04-15 22:25:07), 1d)`|  `datetime(1953-04-15)`
+`bin(datetime(1953-04-15 22:25:07), 1d)`| `datetime(1953-04-15)`
 
 
 A expressão a seguir calcula um histograma de durações, com um tamanho de partição de um segundo:
@@ -363,7 +338,7 @@ A função da raiz quadrada.
 ## Data e hora
 
 
-[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
 
 ### Literais de data e hora
 
@@ -382,7 +357,7 @@ A função da raiz quadrada.
 `0.1s`|0,1 segundo
 `100ms`| 100 milissegundos
 `10microsecond`|
-`1tick`|100ns
+`1tick`|100 ns
 `time("15 seconds")`|
 `time("2")`| 2 dias
 `time("0.12:34:56.7")`|`0d+12h+34m+56.7s`
@@ -411,10 +386,7 @@ Expressão |Resultado
 
 ### ago
 
-Subtrai o período fornecido da hora atual
-UTC. Assim como `now()`, essa função pode ser usada várias vezes 
-em uma instrução e a hora UTC referenciada será a mesma para 
-todas as instanciações.
+Subtrai o período fornecido da hora atual UTC. Assim como `now()`, essa função pode ser usada várias vezes em uma instrução e a hora UTC referenciada será a mesma para todas as instanciações.
 
 **Sintaxe**
 
@@ -422,8 +394,7 @@ todas as instanciações.
 
 **Argumentos**
 
-* *a_timespan*: intervalo a ser subtraído da hora UTC atual
-(`now()`).
+* *a\_timespan*: intervalo a ser subtraído da hora UTC atual (`now()`).
 
 **Retorna**
 
@@ -550,7 +521,7 @@ Alias `timespan()`.
 
 ## Cadeia de caracteres
 
-[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 
 ### Literais de cadeia de caracteres
@@ -559,10 +530,10 @@ As regras são as mesmas do JavaScript.
 
 As cadeias de caracteres podem ser colocadas entre aspas únicas ou duplas.
 
-Barra invertida (`\`) é usada para caracteres de escape como `\t` (tabulação), `\n` (nova linha) e instâncias de aspas.
+Barra invertida (``) é usada para caracteres de escape como `\t` (tabulação), `\n` (nova linha) e instâncias de aspas.
 
 * `'this is a "string" literal in single \' quotes'`
-* `"this is a 'string' literal in double \" quotes"`
+* `"this is a 'string' literal in double " quotes"`
 * `@"C:\backslash\not\escaped\with @ prefix"`
 
 ### Literais de cadeia de caracteres ofuscados
@@ -664,8 +635,7 @@ Se não houver correspondência, ou se a conversão do tipo falhar: `null`.
 
 **Exemplos**
 
-A cadeia de caracteres de exemplo `Trace` é pesquisada em busca de uma definição para `Duration`.
-A correspondência é convertida em `real`, multiplicada por uma constante de tempo (`1s`) para que `Duration` seja do tipo `timespan`. Neste exemplo, é igual a 123,45 segundos:
+A cadeia de caracteres de exemplo `Trace` é pesquisada em busca de uma definição para `Duration`. A correspondência é convertida em `real`, multiplicada por uma constante de tempo (`1s`) para que `Duration` seja do tipo `timespan`. Neste exemplo, é igual a 123,45 segundos:
 
 ```AIQL
 ...
@@ -679,15 +649,12 @@ Este exemplo é equivalente a `substring(Text, 2, 4)`:
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a>
-<a name="isnotempty"></a>
-<a name="isempty"></a>
+<a name="notempty"></a> <a name="isnotempty"></a> <a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
     isempty("") == true
 
-True se o argumento for uma cadeia de caracteres vazia ou nula.
-Confira também [isnull](#isnull).
+True se o argumento for uma cadeia de caracteres vazia ou nula. Confira também [isnull](#isnull).
 
 
 **Sintaxe**
@@ -709,7 +676,7 @@ Indica se o argumento é uma cadeia de caracteres vazia ou isnull.
 | "" | verdadeiro
 |"x" | false
 |parsejson("")|verdadeiro
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 
@@ -751,7 +718,7 @@ range x from 1 to 5 step 1
 
 Tem os seguintes resultados:
 
-| x    | str | replaced|
+| x | str | replaced|
 |---|---|---|
 | 1 | O número é 1,000000 | O número era: 1,000000|
 | 2 | O número é 2,000000 | O número era: 2,000000|
@@ -856,9 +823,7 @@ Converte uma cadeia de caracteres em letras maiúsculas.
 
 ## Matrizes e objetos - tipos dinâmicos
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
-<br/>
-[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Este é o resultado de uma consulta em uma exceção do Application Insights. O valor em `details` é uma matriz.
@@ -1070,7 +1035,7 @@ A notação de ponto e a notação [colchetes] são equivalentes:
 
 ### parsejson
 
-Interpreta um `string` como um [valor de JSON](http://json.org/) e retorna o valor como `dynamic`. É superior ao uso de `extractjson()` quando você precisa extrair mais de um elemento de um objeto JSON composto.
+Interpreta um `string` como um [valor de JSON](http://json.org/)) e retorna o valor como `dynamic`. É superior ao uso de `extractjson()` quando você precisa extrair mais de um elemento de um objeto JSON composto.
 
 **Sintaxe**
 
@@ -1114,8 +1079,7 @@ A função `range()` (não deve ser confundida com o operador `range`) gera uma 
 **Argumentos**
 
 * *start:* o valor do primeiro elemento na matriz resultante. 
-* *stop:* o valor do último elemento na matriz resultante,
-ou o valor mínimo que seja maior do que o último elemento na matriz resultante e dentro de um número inteiro múltiplo de *step* a partir de *start*.
+* *stop:* o valor do último elemento na matriz resultante, ou o valor mínimo que seja maior do que o último elemento na matriz resultante e dentro de um número inteiro múltiplo de *step* a partir de *start*.
 * *step:* a diferença entre dois elementos consecutivos da matriz.
 
 **Exemplos**
@@ -1180,4 +1144,4 @@ Quando você quiser contar eventos, use `sum(itemCount)` em vez de `count()` par
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!-------HONumber=AcomDC_0330_2016--->
+<!---HONumber=AcomDC_0330_2016-->
