@@ -33,7 +33,8 @@ Este artigo fornece detalhes sobre cenários de consumo, arquitetura e padrões 
 
 Este artigo compartilha essas práticas comprovadas para ajudá-lo a projetar modelos do Gerenciador de Recursos do Azure de classe mundial.
 
-Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Gerenciador de Recursos entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem). As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
+Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Gerenciador de Recursos entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem).
+As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
 
 ## Empresas e integradores de sistemas
 
@@ -321,7 +322,7 @@ Com o Redis, você desejará instalar cada nó individualmente e, em seguida, de
 
 Usando vinculação de modelos, o modelo principal vincula-se ao modelo de recursos compartilhados, o que estabelece a rede virtual.
 
-A lógica é adicionada dentro do modelo principal para permitir que os consumidores do modelo especifiquem se um jumpbox deve ou não ser implantado. Um valor *enabled* para o parâmetro *EnableJumpbox* indica que o cliente deseja implantar um jumpbox. Quando esse valor é fornecido, o modelo concatena * \_enabled* como um sufixo para um nome de modelo base para a funcionalidade de jumpbox.
+A lógica é adicionada dentro do modelo principal para permitir que os consumidores do modelo especifiquem se um jumpbox deve ou não ser implantado. Um valor *enabled* para o parâmetro *EnableJumpbox* indica que o cliente deseja implantar um jumpbox. Quando esse valor é fornecido, o modelo concatena *\_enabled* como um sufixo para um nome de modelo base para a funcionalidade de jumpbox.
 
 O modelo principal aplica o valor de parâmetro *large* como um sufixo para um nome de modelo base para tamanhos de camiseta, então usa esse valor em uma vinculação de modelo para *technology\_on\_os\_large.json*.
 

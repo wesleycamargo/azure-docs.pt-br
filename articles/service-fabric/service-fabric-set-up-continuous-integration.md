@@ -208,7 +208,7 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
 1.	Baixe o agent.zip. Para fazer isso:
 
-    a. Entre em seu projeto de equipe, como ****https://[your-VSTS-account-name].visualstudio.com**.
+    a. Entre em seu projeto de equipe, como **https://[your-VSTS-account-name].visualstudio.com**.
 
     b. Selecione o ícone de “engrenagem” no canto superior direito da tela.
 

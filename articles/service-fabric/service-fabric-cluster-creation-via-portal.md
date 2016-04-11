@@ -30,7 +30,8 @@ Esta página ajuda você a configurar um cluster do Service Fabric. Sua assinatu
 
     a. No nível superior, clique em **Marketplace**.
 
-    b. Em **Tudo**, insira "Fabric" e pressione Enter. Às vezes, o filtro automático não funciona, portanto, é necessário pressionar Enter. ![Captura de tela da pesquisa pelo modelo de cluster do Service Fabric no Portal do Azure.][SearchforServiceFabricClusterTemplate]
+    b. Em **Tudo**, insira "Fabric" e pressione Enter. Às vezes, o filtro automático não funciona, portanto, é necessário pressionar Enter. 
+    ![Captura de tela da pesquisa pelo modelo de cluster do Service Fabric no Portal do Azure.][SearchforServiceFabricClusterTemplate]
 
 3. Selecione **Cluster do Service Fabric** na lista.
 
@@ -127,10 +128,12 @@ Depois que o cluster for criado, você poderá inspecioná-lo no portal:
 
 1. Vá para **Procurar** e clique em **Clusters do Service Fabric**.
 
-2. Localize o cluster e clique nele. ![Captura de tela da localização do cluster no portal.][BrowseCluster]
+2. Localize o cluster e clique nele.
 
-3. Agora você pode ver os detalhes do cluster no painel, inclusive o endereço IP público do cluster. Passar o mouse sobre o **Endereço IP Público do Cluster** abrirá uma área de transferência, na qual você pode clicar para copiar o endereço. ![Captura de tela dos detalhes do cluster no painel de controle.][ClusterDashboard]
+![Captura de tela da localização do cluster no portal.][BrowseCluster]
+3. Agora você pode ver os detalhes do cluster no painel, inclusive o endereço IP público do cluster. Passar o mouse sobre o **Endereço IP Público do Cluster** abrirá uma área de transferência, na qual você pode clicar para copiar o endereço. 
 
+![Captura de tela dos detalhes do cluster no painel de controle.][ClusterDashboard]
   A seção **Monitor do Nó** na folha do painel do cluster indica o número de VMs íntegras e não íntegras. Você pode encontrar mais detalhes sobre a integridade do cluster em [Introdução ao modelo de integridade do Service Fabric](service-fabric-health-introduction.md).
 
 >[AZURE.NOTE] Os clusters de Service Fabric exigem um determinado número de nós que devem estar ativos em todos os momentos para manter a disponibilidade e preservar o estado - conhecido como "manter o quórum". Consequentemente, em geral não é seguro desligar todos os computadores no cluster, a menos que você tenha executado primeiro um [backup completo do estado](service-fabric-reliable-services-backup-restore.md).
@@ -147,7 +150,7 @@ Agora que a configuração do cluster foi concluída, você pode se conectar e c
 
 ### Conectar a um cluster seguro
 
-    1. Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PowerShell command.
+    1. Execute o seguinte para configurar o certificado no computador em que você pretende usar para executar o cmd de PS "Connect-serviceFabricCluster".
 
         ```powershell
         Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -155,7 +158,7 @@ Agora que a configuração do cluster foi concluída, você pode se conectar e c
                 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
         ```
 
-    2. Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave on the portal.
+    2. Execute o seguinte PS para conectar-se agora a um cluster seguro. Os detalhes do certificado são os mesmos que você atribuiu no portal.
 
         ```powershell
         Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -165,7 +168,7 @@ Agora que a configuração do cluster foi concluída, você pode se conectar e c
                   -StoreLocation CurrentUser -StoreName My
         ```
 
-        For example, the PowerShell command above should look similar to the following:
+Por exemplo, o comando PS acima deve ser semelhante ao seguinte.
 
         ```powershell
         Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `

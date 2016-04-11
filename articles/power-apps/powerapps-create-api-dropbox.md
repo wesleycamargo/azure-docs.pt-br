@@ -27,21 +27,27 @@ Adicione a API do Dropbox ao ambiente de serviço de aplicativo (locatário) da 
 
 ## Crie a API no portal do Azure
 
-1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
+1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@*SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
  
-2. Selecione **Procurar** na barra de tarefas: ![][12]
+2. Selecione **Procurar** na barra de tarefas:  
+![][12]
 
-3. Na lista, você pode rolar a tela para localizar PowerApps ou digite *powerapps*: ![][13]
+3. Na lista, você pode rolar a tela para localizar PowerApps ou digite *powerapps*:  
+![][13]
 
-4. Em **PowerApps**, selecione **Gerenciar APIs**: ![Navegue até as APIs registradas][4]
+4. Em **PowerApps**, selecione **Gerenciar APIs**:  
+![Navegue até as APIs registradas][4]
 
-5. Em **Gerenciar APIs**, selecione **Adicionar** para adicionar a nova API: ![Adicionar API][5]
+5. Em **Gerenciar APIs**, selecione **Adicionar** para adicionar a nova API:  
+![Adicionar API][5]
 
 6. Insira um **nome** descritivo para sua API.
 	
-7. Em **Fonte**, selecione **as APIs disponíveis** para selecionar as APIs criadas previamente e, em seguida, selecione **Dropbox**: ![selecione api do dropbox][6]
+7. Em **Fonte**, selecione **as APIs disponíveis** para selecionar as APIs criadas previamente e, em seguida, selecione **Dropbox**:  
+![selecione api do dropbox][6]
 
-8. Selecione **Configurações - Definir as configurações necessárias**: ![defina as configurações do API do dropbox][7]
+8. Selecione **Configurações - Definir as configurações necessárias**:  
+![defina as configurações do API do dropbox][7]
 
 9. Insira os valores da **Chave do Aplicativo** e do **Segredo do Aplicativo** do seu aplicativo Dropbox. Se você não tiver um, consulte a seção "Registrar um aplicativo do Dropbox para uso com o PowerApps" neste tópico para criar a chave e os valores secretos necessários.
 
@@ -59,9 +65,11 @@ Se não tiver um aplicativo do Dropbox existente com a chave e valores do segred
 
 1. Vá para [Dropbox][1] e entre com sua conta.
 
-2. Vá para o site do desenvolvedor do Dropbox e selecione **Meus aplicativos**: ![Site de desenvolvedor do Dropbox][8]
+2. Vá para o site do desenvolvedor do Dropbox e selecione **Meus aplicativos**:  
+![Site de desenvolvedor do Dropbox][8]
 
-3. Selecione **Criar**: ![aplicativo de criação de Dropbox][9]
+3. Selecione **Criar**:  
+![aplicativo de criação de Dropbox][9]
 
 4. Em **Criar um novo aplicativo na plataforma Dropbox**:
 

@@ -83,11 +83,11 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 Este exemplo de código demonstra o uso de transações nas quais você:
 
 
-- Inicia uma transação
+-Inicia uma transação
 
-- Insere uma linha de dados
+-Insere uma linha de dados
 
-- Reverte a transação para desfazer a inserção
+-Reverte a transação para desfazer a inserção
 
 
 	import pymssql

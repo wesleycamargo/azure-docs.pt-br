@@ -27,21 +27,27 @@ Adicione a API do Office 365 Outlook ao ambiente de serviço de aplicativo (loca
 
 ## Crie a API no portal do Azure
 
-1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
+1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@*SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
  
-2. Selecione **Procurar** na barra de tarefas: ![][14]
+2. Selecione **Procurar** na barra de tarefas:  
+![][14]
 
-3. Na lista, você pode usar a barra de rolagem para localizar o PowerApps ou digitar *powerapps*: ![][15]
+3. Na lista, você pode usar a barra de rolagem para localizar o PowerApps ou digitar *powerapps*:  
+![][15]
 
-4. **PowerApps Services**, selecione **Gerenciar APIs**: ![Navegue até as APIs registradas][1]
+4. **PowerApps Services**, selecione **Gerenciar APIs**:    
+![Navegue até as APIs registradas][1]
 
-5. Em **Gerenciar APIs**, selecione **Adicionar** para adicionar a nova API: ![Adicionar API][2]
+5. Em **Gerenciar APIs**, selecione **Adicionar** para adicionar a nova API:  
+![Adicionar API][2]
 
-6. Insira um **nome** descritivo para sua API.
+6. Insira um **nome** descritivo para sua API.  
 	
-7. Em **Fonte**, selecione as **APIs disponíveis** para selecionar as APIs criadas previamente e selecione ** Outlook do Office 365**: ![selecione a api do Outlook do Office 365][3]
+7. Em **Fonte**, selecione as **APIs disponíveis** para selecionar as APIs criadas previamente e selecione ** Outlook do Office 365**:  
+![selecione a api do Outlook do Office 365][3]
 
-8. Selecione **Configurações - Definir as configurações necessárias**: ![definir configurações de API do Outlook do Office 365][4]
+8. Selecione **Configurações - Definir as configurações necessárias**:  
+![definir configurações de API do Outlook do Office 365][4]
 
 9. Insira o valor da *Chave do aplicativo* e do *Segredo do aplicativo* do seu aplicativo do Active Diretory do Azure (AAD) do Office 365. Se não tiver uma, consulte a seção "Registrar um aplicativo do AAD para uso com o PowerApps" neste tópico para criar a chave e os valores secretos necessários.
  
@@ -62,11 +68,13 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 
 	>[AZURE.NOTE] Isso abre o Active Directory no portal clássico do Azure.
 
-3. Selecione o nome do locatário da sua instituição: ![Inicie o Active Directory do Azure][6]
+3. Selecione o nome do locatário da sua instituição:  
+![Inicie o Active Directory do Azure][6]
 
-4. Selecione a guia **Aplicativos** e selecione **Adicionar**: ![Aplicativos de locatário do AAD][7]
+4. Selecione a guia **Aplicativos** e selecione **Adicionar**:  
+![Aplicativos de locatário do AAD][7]
 
-5. Em **Adicionar aplicativo**:
+5. Em **Adicionar aplicativo**:  
 
 	1. Insira um **Nome** para seu aplicativo.  
 	3. Deixe o tipo de aplicativo como **Web**.  
@@ -74,19 +82,22 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 
 	![Adicionar aplicativo do AAD - informações do aplicativo][8]
 
-6. Em **Propriedades do aplicativo**:
+6. Em **Propriedades do aplicativo**:  
 
-	1. Insira a **URL DE ENTRADA** do seu aplicativo. Uma vez que você se autenticará com o AAD para PowerApps, defina a URL de entrada para \__https://login.windows.net_.
-2. Insira um **URI DA ID DO APLICATIVO** válido para seu aplicativo.  
+	1. Insira a **URL DE ENTRADA** do seu aplicativo. Uma vez que você se autenticará com o AAD para PowerApps, defina a URL de entrada para _https://login.windows.net_.  
+	2. Insira um **URI DA ID DO APLICATIVO** válido para seu aplicativo.  
 	3. Selecione **OK**.  
 
 	![Adicionar aplicativo do AAD - propriedades do aplicativo][9]
 
-7. Após a conclusão bem-sucedida, você será redirecionado para o novo aplicativo do AAD. Selecione **Configurar**: ![Aplicativo Contoso do AAD][10]
+7. Após a conclusão bem-sucedida, você será redirecionado para o novo aplicativo do AAD. Selecione **Configurar**:  
+![Aplicativo Contoso do AAD][10]
 
-8. Defina a **URL de resposta** na seção _OAuth 2_ para a URL de redirecionamento que você recebeu quando adicionou a nova API do Outlook do Office 365 no Portal do Azure (neste tópico): Em seguida, selecione **Adicionar aplicativo**: ![Configure o aplicativo Contoso do AAD][11]
+8. Defina a **URL de resposta** na seção _OAuth 2_ para a URL de redirecionamento que você recebeu quando adicionou a nova API do Outlook do Office 365 no Portal do Azure (neste tópico): Em seguida, selecione **Adicionar aplicativo**:  
+![Configure o aplicativo Contoso do AAD][11]
 
-9. Na janela **Permissões para outros aplicativos**, selecione **Office 365 Exchange Online** e selecione **OK**: ![Representante do aplicativo Contoso][12]
+9. Na janela **Permissões para outros aplicativos**, selecione **Office 365 Exchange Online** e selecione **OK**:  
+![Representante do aplicativo Contoso][12]
 
 10. De volta na página de configuração, observe que o _Office 365 Exchange Online_ é adicionado na lista _Permissão para outros aplicativos_.
 

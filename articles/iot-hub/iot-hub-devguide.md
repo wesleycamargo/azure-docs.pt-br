@@ -68,7 +68,7 @@ Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, se
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
 
 Dessa forma, você poderá usar qualquer política de segurança de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 

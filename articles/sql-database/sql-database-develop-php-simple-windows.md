@@ -129,7 +129,7 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 
 Este exemplo de código demonstra o uso de transações nas quais você:
 
-- Inicia uma transação
+-Inicia uma transação
 
 -Inserir uma linha de dados, outra linha de dados de atualização
 
