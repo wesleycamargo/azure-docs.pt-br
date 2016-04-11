@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/28/2016"
 	ms.author="v-shysun"/>
 
 # Solucionar problemas de desempenho de banco de dados usando o Banco de Dados SQL do Azure
@@ -30,4 +30,4 @@ Você pode alterar quando quiser a [camada de serviço](sql-database-service-tie
 
 Se o problema de desempenho continuar, contate o suporte e abra um caso de suporte.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

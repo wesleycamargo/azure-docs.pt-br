@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal - Gerenciador de Recursos](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Clássico](virtual-machines-windows-classic-portal-sql-availability.md)
+- [Portal – Clássico](virtual-machines-windows-classic-portal-sql-availability.md)
 - [PowerShell - clássico](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
@@ -47,8 +47,6 @@ O objetivo deste tutorial é mostrar as etapas necessárias para configurar a so
 - Você já tem uma conta do Azure com a assinatura de máquina virtual.
 
 - Você instalou os [cmdlets do Azure PowerShell](../powershell-install-configure.md).
-
-- Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, veja [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-windows-classic-portal-sql.md)
 
 - Você já tem uma compreensão sólida dos Grupos de Disponibilidade AlwaysOn para soluções locais. Para obter mais informações, veja [Grupos de Disponibilidade AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -632,4 +630,4 @@ Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de dis
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

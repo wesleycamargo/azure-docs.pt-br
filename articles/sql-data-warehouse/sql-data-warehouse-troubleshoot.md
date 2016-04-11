@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # Solucionar problemas
@@ -38,7 +38,7 @@ Consulte nossas páginas [Conectar](sql-data-warehouse-get-started-connect.md) p
 ## Desempenho de consulta
 O SQL Data Warehouse usa construções comuns do SQL Server para executar consultas, incluindo estatísticas. [Estatísticas](sql-data-warehouse-develop-statistics.md) são objetos que contêm informações sobre o intervalo e a frequência de valores em uma coluna de banco de dados. O mecanismo de consulta usa essas estatísticas para otimizar a execução de consulta e melhorar o desempenho de consulta. Você pode usar a seguinte consulta para determinar a última vez que suas estatísticas foram atualizadas.
 
-```
+```sql
 SELECT
 	sm.[name]								    AS [schema_name],
 	tb.[name]								    AS [table_name],
@@ -90,4 +90,4 @@ Consulte o artigo [visão geral de desenvolvimento][] para obter algumas diretri
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

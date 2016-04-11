@@ -10,6 +10,8 @@ O diagrama abaixo mostra uma arquitetura comum da solução IoT. Observe que ela
 
 ![Arquitetura da solução de IoT][img-solution-architecture]
 
+> [AZURE.NOTE] Para uma discussão detalhada da arquitetura de IoT, consulte o [Microsoft Azure IoT services: Reference Architecture][lnk-refarch].
+
 ### Conectividade do dispositivo
 
 Nesta arquitetura da solução IoT, os dispositivos enviam telemetria, como leituras de temperatura, para um ponto de extremidade da nuvem para armazenamento e processamento. Os dispositivos também podem receber e responder aos comandos de nuvem para o dispositivo lendo mensagens de um ponto de extremidade de nuvem. Por exemplo, um dispositivo pode recuperar um comando que o instrui a alterar a frequência na qual ele realiza a amostra dos dados.
@@ -26,7 +28,7 @@ Um dos maiores desafios enfrentados por projetos IoT é sobre conectar dispositi
 
 Além dos requisitos acima, todas as soluções IoT também deverão oferecer escala, segurança e confiabilidade. O conjunto de requisitos de conectividade resultante tem implementação difícil e demorada por meio das tecnologias tradicionais, como contêineres da Web e agentes de mensagens. O Hub IoT do Azure e os SDKs do dispositivo IoT facilitam a implementação de soluções que atendam a esses requisitos.
 
-Um dispositivo pode comunicar diretamente com um ponto de extremidade de gateway de nuvem, ou, se o dispositivo não puder usar nenhum dos protocolos de comunicação aos quais o gateway de nuvem dá suporte, ele pode se conectar por meio de um gateway intermediário, como o [gateway de protocolo Hub IoT ][lnk-protocol-gateway], que executa a conversão de protocolo. O
+Um dispositivo poderá se comunicar diretamente com um ponto de extremidade de gateway de nuvem ou, se o dispositivo não puder usar nenhum dos protocolos de comunicação aos quais o gateway de nuvem dá suporte, ele poderá se conectar por meio de um gateway intermediário, como o [gateway de protocolo Hub IoT][lnk-protocol-gateway], que executa a conversão de protocolo. O
 
 ### Processamento de dados e análise
 
@@ -48,5 +50,6 @@ A camada de conectividade de negócios e apresentação permite que os usuários
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]: iot-hub-protocol-gateway.md
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

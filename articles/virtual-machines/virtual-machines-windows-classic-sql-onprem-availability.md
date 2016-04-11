@@ -99,8 +99,8 @@ Após o grupo de disponibilidade ter sido criado, você deve criar um ouvinte pa
 
 ## Próximas etapas
 
-Além de usar o **Assistente de Adição de Réplica do Azure** para estender seu Grupo de Disponibilidade AlwaysOn ao Azure, você também pode mover algumas cargas de trabalho do SQL Server completamente para o Azure. Para começar, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-classic-portal-sql.md).
+Além de usar o **Assistente de Adição de Réplica do Azure** para estender seu Grupo de Disponibilidade AlwaysOn ao Azure, você também pode mover algumas cargas de trabalho do SQL Server completamente para o Azure. Para começar, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

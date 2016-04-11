@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,18 +65,18 @@ Para configurar a integração do ADP GlobalView com o AD do Azure, você precis
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **ADP GlobalView**.<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_01.png)<br>
-7. No painel de resultados, escolha **ADP GlobalView** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+7. No painel de resultados, escolha **ADP GlobalView** e clique em **Concluir** para adicionar o aplicativo. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_06.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o ADP GlobalView, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do ADP GlobalView é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do AD do Azure e o usuário relacionado no ADP GlobalView.<br> Essa relação de vinculação é estabelecida por meio da atribuição do valor de **nome de usuário** no AD do Azure como o valor de **Nome de usuário** no ADP GlobalView.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do ADP GlobalView é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no ADP GlobalView.<br> Essa relação de vinculação é estabelecida por meio da atribuição do valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no ADP GlobalView.
 
 Para configurar e testar o logon único do AD do Azure com o ADP GlobalView, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criação de um usuário de teste do ADP GlobalView](#creating-a-adp-globalview-test-user)**: para ter um equivalente de Brenda Fernandes no ADP GlobalView que esteja vinculado à representação dela no AD do Azure.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criar um usuário de teste do ADP GlobalView](#creating-a-adp-globalview-test-user)**: para ter um equivalente de Brenda Fernandes no ADP GlobalView que esteja vinculado à representação dela no Azure AD.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
@@ -93,22 +93,22 @@ Antes de configurar a declaração SAML, você precisará entrar em contato com 
 
 **Para configurar o logon único do AD do Azure com o ADP GlobalView, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração do aplicativo **ADP GlobalView**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No portal clássico do Azure, na página de integração do aplicativo **ADP GlobalView**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
-2. Na página **Como você deseja que os usuários façam logon no ADP GlobalView**, escolha **Logon Único do AD do Azure** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_03.png) <br>
+2. Na página **Como você deseja que os usuários façam logon no ADP GlobalView**, escolha **Logon Único do Azure AD** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_03.png) <br>
 
 3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_04.png) <br>
 
 
-    a. Na caixa de texto **Identificador**, digite a URL usada para identificar o aplicativo da ADP GlobalView usando um dos padrões a seguir: **“https://<nome do servidor>.globalview.adp.com/federate2”**, **“https://<nome do servidor>.globalview.adp.com/federate”**
+    a. Na caixa de texto **Identificador**, digite a URL usada para identificar o aplicativo do ADP GlobalView usando um dos padrões a seguir: **“https://<nome do servidor>.globalview.adp.com/federate2”**, **“https://<nome do servidor>.globalview.adp.com/federate”**
 
 
-    b. Na caixa de texto **URL de Resposta**, digita a URL usada pelo AD do Azure para postar a resposta no aplicativo ADP GlobalView, usando um dos seguintes padrões: **“https://<nome do servidor>.globalview.adp.com/federate2/sp/ACS.saml2”**, **“https://<nome do servidor>.globalview.adp.com/federate/sp/ACS.saml2”**
+    b. Na caixa de texto **URL de Resposta**, digite a URL usada pelo Azure AD para postar a resposta no aplicativo do ADP GlobalView, usando um dos seguintes padrões: **“https://<nome do servidor>.globalview.adp.com/federate2/sp/ACS.saml2”**, **“https://<nome do servidor>.globalview.adp.com/federate/sp/ACS.saml2”**
 
     c. Clique em **Próximo**.
 
 
-4. Na página **Configurar logon único no ADP GlobalView**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_05.png)<br>
+4. Na página **Configurar logon único no ADP GlobalView**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_05.png) <br>
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
@@ -123,7 +123,7 @@ Antes de configurar a declaração SAML, você precisará entrar em contato com 
     - URL do Serviço de Logoff Único
 
 
-    > [AZURE.NOTE] Depois que a equipe do **ADP GlobalView** configurar a instância, obtenha o valor de **RelayState** e solicite ao AD do Azure para configurá-lo para a instância do aplicativo. Você pode enviar esse valor, sua ID de locatário do AD do Azure e a ID do aplicativo para a equipe do AD do Azure no endereço [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). Somente após essa configuração você poderá testar a integração, e ela funcionará. Portanto, observe que essa etapa de configuração é importante para que a integração com o aplicativo funcione.
+    > [AZURE.NOTE] Depois que a equipe do **ADP GlobalView** configurar a instância, obtenha o valor de **RelayState** e solicite ao Azure AD para configurá-lo para a instância do seu aplicativo. Você pode enviar esse valor, sua ID de locatário do Azure AD e a ID do aplicativo para a equipe do Azure AD no endereço [waadpartners@microsoft.com](mailTo:waadpartners@microsoft.com). Somente após essa configuração você poderá testar a integração, e ela funcionará. Portanto, observe que essa etapa de configuração é importante para que a integração com o aplicativo funcione.
 
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
 
@@ -184,7 +184,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no ADP Gl
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao ADP GlobalView. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao ADP GlobalView. <br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao ADP GlobalView, execute as seguintes etapas:**
 
@@ -229,4 +229,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

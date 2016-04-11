@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Visão geral de Aplicativos de API" 
+	pageTitle="Introdução aos Aplicativos de API | Microsoft Azure" 
 	description="Saiba por que o Serviço de Aplicativo do Azure é a melhor plataforma para desenvolver, publicar e hospedar APIs RESTful." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="03/23/2016" 
 	ms.author="tdykstra"/>
 
 # Visão geral de Aplicativos de API
 
 Os Aplicativos de API são um dos quatro tipos de aplicativos oferecidos pelo [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 
-![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
+![Tipos de aplicativos no Serviço de Aplicativo do Azure](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-O [Serviço de Aplicativo](../app-service/app-service-value-prop-what-is.md) é uma plataforma totalmente gerenciada que proporciona um avançado conjunto de recursos para cenários da Web, móveis e de integração. Os aplicativos de API no Serviço de Aplicativo oferecem recursos que tornam mais fácil criar, hospedar e consumir APIs na nuvem e no local. Implante sua API como um aplicativo de API no Serviço de Aplicativo e beneficie-se da segurança de nível corporativo, controle de acesso simples, conectividade híbrida, geração automática do SDK e integração perfeita com [Aplicativos Lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+O [Serviço de Aplicativo](../app-service/app-service-value-prop-what-is.md) é uma plataforma completamente gerenciada para Web, móvel e situações de integração. Os aplicativos de API no Serviço de Aplicativo oferecem recursos que tornam mais fácil criar, hospedar e consumir APIs na nuvem e no local. Implante sua API como um aplicativo de API no Serviço de Aplicativo e beneficie-se da segurança de nível corporativo, controle de acesso simples, conectividade híbrida, geração automática do SDK e integração perfeita com [Aplicativos Lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## Por que aplicativos de API?
 
@@ -64,4 +64,4 @@ Para começar a usar os Aplicativos de API, siga um dos tutoriais de [Introduç�
 
 Para fazer perguntas sobre os aplicativos de API, inicie um thread no [Fórum dos Aplicativos de API](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrar seu esquema para o SQL Data Warehouse#
@@ -65,7 +65,7 @@ O SQL Data Warehouse oferece suporte a tipos comuns de dados corporativos:
 
 Você pode usar essa consulta para identificar colunas em seu data warehouse que contenham tipos incompatíveis:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -145,4 +145,4 @@ Para obter mais dicas de desenvolvimento, consulte a [visão geral de desenvolvi
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

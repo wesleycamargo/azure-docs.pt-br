@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/03/2016"
+   ms.date="03/30/2016"
    ms.author="derrickv"/>
 
 
@@ -34,4 +34,4 @@ Eis os exemplos que temos no GitHub:
 
   Um exemplo que mostra como usar a API REST do Catálogo de Dados para buscar ativos no Catálogo de Dados do Azure e serializá-los em um arquivo. Ele também demonstra como obter um conjunto de ativos serializado como json e enviá-los para o catálogo. Ele oferece suporte para a exportação de um subconjunto do catálogo usando uma consulta de pesquisa.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

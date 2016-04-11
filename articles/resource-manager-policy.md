@@ -62,7 +62,12 @@ Basicamente, uma política contém o seguinte:
         "effect" : "deny | audit"
       }
     }
+    
+## Avaliação da política
 
+A política será avaliada quando ocorrer a criação de recurso ou implantação de modelo usando HTTP PUT. No caso da implantação de modelo, a política será avaliada durante a criação de cada recurso no modelo.
+
+Observação: os tipos de recursos que não dão suporte a marcas, variante e local não são avaliadas pela política, como Microsoft.Resources/deployments. O suporte será adicionado no futuro. Para evitar problemas de compatibilidade com versões anteriores, é uma melhor prática especificar explicitamente o tipo ao criar políticas. Por exemplo, uma política de marca sem especificar os tipos será aplicada para todos os tipos, portanto, a implantação de modelo poderá falhar se houver um recurso aninhado que não dá suporte à marca quando o tipo de recurso for adicionado à avaliação no futuro.
 
 ## Operadores lógicos
 
@@ -176,19 +181,19 @@ O exemplo abaixo mostra o uso do código-fonte. Ele mostra que ações somente n
         "not" : {
           "anyOf" : [
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Resources/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Compute/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Storage/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Network/*"
             }
           ]
@@ -207,14 +212,14 @@ O exemplo abaixo mostra o uso de alias de propriedade para restringir SKUs. No e
       "if": {
         "allOf": [
           {
-            "source": "action",
-            "like": "Microsoft.Storage/storageAccounts/*"
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "not": {
               "allof": [
                 {
-                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "field": "Microsoft.Storage/storageAccounts/sku.name",
                   "in": ["Standard_LRS", "Standard_GRS"]
                 }
               ]
@@ -302,8 +307,6 @@ Com um corpo de solicitação semelhante ao seguinte:
           }
         }
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-      "type":"Microsoft.Authorization/policyDefinitions",
       "name":"testdefinition"
     }
 
@@ -350,8 +353,6 @@ Com um corpo de solicitação semelhante ao seguinte:
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
-      "type":"Microsoft.Authorization/policyAssignments",
       "name":"VMPolicyAssignment"
     }
 
@@ -386,4 +387,4 @@ Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usa
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

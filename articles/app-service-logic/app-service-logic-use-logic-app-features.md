@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="03/28/2016"
 	ms.author="stepsic"/>
 	
 # Usar recursos de aplicativos lógicos
@@ -61,6 +61,11 @@ Esse aplicativo lógico pode resultar no recebimento de muitos emails. As etapas
 
 7.  Por fim, arraste e solte a caixa de email na caixa **Se Sim**. Isso significa que você só receberá emails quando a contagem de seguidores for atingida.
 
+## Repetição em uma lista com forEach
+
+O loop forEach especifica uma matriz para repetir uma ação. Se não for uma matriz, o fluxo falhará. Por exemplo, se tiver action1 que gera uma matriz de mensagens e desejar enviar cada mensagem, você poderá incluir essa instrução forEach nas propriedades da ação: forEach: "@action('action1').outputs.messages"
+ 
+
 ## Usando o modo de exibição de código para editar um aplicativo lógico
 
 Além do designer, você pode editar diretamente o código que define um aplicativo lógico da seguinte maneira.
@@ -107,4 +112,4 @@ Os serviços podem chamar um ponto de extremidade do aplicativo lógico para ini
 <!-- Shared links -->
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

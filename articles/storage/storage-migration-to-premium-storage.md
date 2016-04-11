@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/19/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 
@@ -45,7 +45,7 @@ Siga as etapas especificadas na seção relevante, dependendo do cenário.
 ### Pré-requisitos
 - Você também precisará de uma assinatura do Azure. Se não tiver, poderá criar uma assinatura de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) de um mês ou visitar [Preços do Azure](https://azure.microsoft.com/pricing/) para obter mais opções.
 - Para executar os cmdlets PowerShell, você precisará do módulo PowerShell do Microsoft Azure. Consulte [Downloads do Microsoft Azure](https://azure.microsoft.com/downloads/) para baixar o módulo.
-- Quando você planejar usar as máquinas virtuais do Azure em execução no Armazenamento Premium, precisará usar as VMs da série DS ou GS. Você pode usar os discos de Armazenamento Standard e Premium com as VMS da série DS. Os discos de armazenamento Premium estarão disponíveis com mais tipos de VM no futuro. Para obter informações sobre todos os tamanhos e tipos de discos de VM do Azure disponíveis, veja [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md) e [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md).
+- Quando você planejar usar as VMs do Azure em execução no Armazenamento Premium, precisará usar as VMs da série DS, DSv2 ou GS. Você pode usar discos de Armazenamento Standard e Premium com as séries DS, DSv2 e GS das VMs. Os discos de armazenamento Premium estarão disponíveis com mais tipos de VM no futuro. Para obter informações sobre todos os tamanhos e tipos de discos de VM do Azure disponíveis, veja [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md) e [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md).
 
 ### Considerações
 
@@ -146,7 +146,7 @@ Agora que o VHD está pronto, siga as etapas descritas abaixo para carregar o VH
 Crie uma conta de armazenamento para manter seus VHDs. Leve em consideração os seguintes pontos ao planejar onde armazenar seus VHDs:
 
 - A conta de armazenamento de destino pode ser o armazenamento standard ou premium, dependendo do requisito do aplicativo.
-- O local da conta de armazenamento deve ser igual às VMs do Azure da série DS ou GS que você criará na fase final. Você pode copiar para uma nova conta de armazenamento ou planejar usar a mesma conta de armazenamento com base em suas necessidades.
+- O local da conta de armazenamento deve ser igual às VMs do Azure da série DS, DSv2 ou GS que você criará na fase final. Você pode copiar para uma nova conta de armazenamento ou planejar usar a mesma conta de armazenamento com base em suas necessidades.
 - Copie e salve a chave da conta de armazenamento da conta de armazenamento de destino para a próxima fase.
 - Para os discos de dados, você pode optar por manter alguns discos de dados em uma conta de armazenamento padrão (por exemplo, os discos que têm um armazenamento mais legal) e movers os discos com IOPs pesados para uma conta de armazenamento premium.
 
@@ -243,7 +243,7 @@ Copie e salve o nome desse novo Disco do sistema operacional do Azure. No exempl
 
 #### VHD do Disco de Dados a ser anexado à(s) instância(s) de VM(s) do Azure
 
-Depois do VHD do disco de dados ser carregado para a conta de armazenamento, registre-o como um Disco de Dados do Azure para que ele possa ser anexado à sua nova instância de VM do Azure da Série DS ou GS.
+Depois do VHD do disco de dados ser carregado para a conta de armazenamento, registre-o como um Disco de Dados do Azure para que ele possa ser anexado à sua nova instância VM do Azure da série DS, DSv2 ou GS.
 
 Use estes cmdlets do PowerShell para registrar seu VHD como um Disco de Dados do Azure. Forneça a URL completa do contêiner para onde o VHD foi copiado.
 
@@ -251,9 +251,9 @@ Use estes cmdlets do PowerShell para registrar seu VHD como um Disco de Dados do
 
 Copie e salve o nome desse novo Disco de Dados do Azure. No exemplo acima, é *DataDisk*.
 
-### Criar uma nova VM série DS ou série GS do Azure
+### Criar uma nova VM da série DS, DSv2 ou GS do Azure
 
-Assim que a imagem do sistema operacional ou o disco do sistema operacional for registrado, crie uma nova VM do Azure da série DS ou GS. Você usará a imagem do sistema operacional ou o nome de disco do sistema operacional registrado. Selecione o tipo de VM na camada de Armazenamento Premium. No exemplo abaixo, estamos usando o tamanho de VM *Standard\_DS2*.
+Assim que a imagem do sistema operacional ou o disco do sistema operacional for registrado, crie uma nova VM da série DS, DSv2 ou GS. Você usará a imagem do sistema operacional ou o nome de disco do sistema operacional registrado. Selecione o tipo de VM na camada de Armazenamento Premium. No exemplo abaixo, estamos usando o tamanho de VM *Standard\_DS2*.
 
 >[AZURE.NOTE] Atualize o tamanho do disco para assegurar que ele corresponda à sua capacidade, requisitos de desempenho e aos tamanhos de disco do Azure disponíveis.
 
@@ -299,7 +299,7 @@ Especifique outras informações da VM do Azure, como um serviço de nuvem, regi
 
 ### Anexar disco de dados
 
-Por fim, se você registrou os VHDs do disco de dados, anexe-os à nova VM do Azure da série DS ou GS.
+Por fim, se você registrou os VHDs do disco de dados, anexe-os à nova VM do Azure da série DS, DSv2 ou GS.
 
 Use o seguinte cmdlet do PowerShell para anexar um disco de dados à nova VM e especifique a política de cache. No exemplo abaixo, a política de cache é definida como *Somente Leitura*.
 
@@ -315,7 +315,7 @@ Use o seguinte cmdlet do PowerShell para anexar um disco de dados à nova VM e e
 
 Se você tiver uma VM do Azure que usa discos de Armazenamento Padrão, siga o processo abaixo para migrar para o Armazenamento Premium. Em um alto nível, a migração envolve duas etapas:
 -	Migrando os discos de uma conta do Armazenamento Standard para uma conta do Armazenamento Premium
--	Convertendo o tamanho da VM de A/D/G DS ou GS necessários para o uso de discos do Armazenamento Premium.
+-	Convertendo o tamanho da VM de A/D/G para DS, DSv2 ou GS necessário para o uso de discos do Armazenamento Premium.
 
 Além disso, consulte a seção anterior sobre Considerações para compreender as várias otimizações que você pode fazer para o Armazenamento Premium. Dependendo das otimizações aplicáveis a seus aplicativos, o processo de migração pode ser incluído em um dos cenários de migração a seguir.
 
@@ -324,7 +324,7 @@ Nesse cenário simples, você quer preservar sua configuração como está duran
 
 #### Preparação
 1. Verifique se o Armazenamento Premium está disponível na região para a qual você está migrando.
-2. Decida qual nova série de VM você usará. Ela deve ser a série DS ou GS, dependendo da disponibilidade na região e com base em suas necessidades.
+2. Decida qual nova série de VM você usará. Ela deve ser a série DS, DSv2 ou GS, dependendo da disponibilidade na região e com base em suas necessidades.
 3. Decida o tamanho exato da VM que você usará. O tamanho da VM precisa ser grande o suficiente para dar suporte ao número de discos de dados que você tem. Por exemplo, se você tiver quatro discos de dados, a VM deverá ter dois ou mais núcleos. Considere também as necessidades de capacidade de processamento, memória e largura de banda de rede.
 4. Crie uma conta de Armazenamento Premium na região de destino. Essa é a conta que você usará para a nova VM.
 5. Tenha os detalhes da VM atual à mão, incluindo a lista de discos e blobs VHD correspondentes.
@@ -341,7 +341,7 @@ Nesse cenário simples, você quer preservar sua configuração como está duran
 4.	Crie um novo disco de sistema operacional usando o blob VHD de disco de sistema operacional que você copiou na conta de Armazenamento Premium. Você pode fazer isso usando o cmdlet do PowerShell "Add-AzureDisk".
 
     Script de exemplo: Add-AzureDisk -DiskName "NewOSDisk1" -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/MyOSDisk.vhd" -OS "Windows"
-5. Em seguida, crie a VM da séries DS (ou GS) usando o disco de sistema operacional anterior e os discos de dados.
+5. Em seguida, crie a VM da série DS (ou da DSv2 ou GS) usando o disco de sistema operacional anterior e os discos de dados.
 
     Exemplo de script para criar um novo serviço de nuvem e uma nova VM nesse serviço: New-AzureService -ServiceName "NewServiceName" -Location "East US 2"
 
@@ -680,4 +680,4 @@ Consulte também as fontes a seguir para saber mais sobre o Armazenamento do Azu
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

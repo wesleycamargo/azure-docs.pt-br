@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="03/30/2016"
 	ms.author="genli"/>
 
 # Não consigo fazer logon para gerenciar minha assinatura do Azure
@@ -24,13 +24,9 @@ Este artigo ajudará a solucionar algumas causas comuns de problemas de logon.
 
 ## Qual portal você está tentando acessar?
 
-Um Proprietário da Conta pode acessar o [Centro de Contas](https://account.windowsazure.com/) somente se os Administradores de Serviço (SA) e Coadministradores (CA) tiverem acesso ao [Portal do Azure](https://manage.windowsazure.com/).
+Um Administrador da Conta pode acessar apenas o [Centro de Contas](https://account.windowsazure.com/), enquanto os SA (Administradores de Serviço) e CA (Coadministradores) têm acesso apenas ao [portal do Azure](https://portal.azure.com) ou ao [portal clássico do Azure](https://manage.windowsazure.com/).
 
-Clique nos links abaixo para obter instruções sobre como atualizar as funções de administrador:
-
-- [Para atualizar o SA na sua conta](./billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)
-
-- [Para adicionar um novo CA no portal de gerenciamento](./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription)
+Para obter mais informações sobre as funções de administrador do Azure, veja [Como adicionar ou alterar funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md).
 
 ## Sua assinatura está associada a uma conta da Microsoft ou Institucional?
 
@@ -56,4 +52,4 @@ Agora que é possível fazer logon no Azure com uma conta institucional, aqui es
 
 Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em Obter Suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

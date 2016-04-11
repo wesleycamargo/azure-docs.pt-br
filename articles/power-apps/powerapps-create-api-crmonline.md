@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="03/29/2016"
    ms.author="sameerch"/>
 
 # Criar uma nova API do Dynamics CRM Online no PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/create-api-crmonline.md)
+- [Aplicativos lógicos](../articles/connectors/connectors-create-api-crmonline.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
 
 Adicione a API do Dynamics CRM Online ao ambiente de serviço de aplicativo (locatário) da sua organização.
@@ -99,7 +99,7 @@ Um novo aplicativo do Active Directory do Azure é criado. Você pode usar esse 
 
 ## Consulte as APIs REST
 
-Referência da [API REST do Dynamics CRM Online](../connectors/create-api-crmonline.md).
+Referência da [API REST do Dynamics CRM Online](../connectors/connectors-create-api-crmonline.md).
 
 
 ## Resumo e próximas etapas
@@ -122,4 +122,4 @@ Neste tópico, você adicionou a API do Dynamics CRM Online para a sua empresa P
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

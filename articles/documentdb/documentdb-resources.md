@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="03/30/2016" 
 	ms.author="anhoh"/>
 
 # Conceitos e modelo de recursos hierárquico do Banco de Dados de Documentos
@@ -41,11 +41,11 @@ Para começar a trabalhar com os recursos, você deve [criar uma conta de banco 
 
 |Recurso |Descrição
 |-----------|-----------
-|Conta de banco de dados |Uma conta de banco de dados está associada um conjunto de bancos de dados e uma quantidade fixa de armazenamento de blob para anexos (recurso de visualização). Você pode criar uma ou mais contas do banco de dados usando sua assinatura do Azure. Para cada conta de banco de dados padrão, é alocada a capacidade mínima de uma coleção S1. Para obter mais informações, visite nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
+|Conta de banco de dados |Uma conta de banco de dados está associada um conjunto de bancos de dados e uma quantidade fixa de armazenamento de blob para anexos (recurso de visualização). Você pode criar uma ou mais contas do banco de dados usando sua assinatura do Azure. Para obter mais informações, visite nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
 |Banco de dados |Um banco de dados é um contêiner lógico de armazenamento de documentos particionado em coleções. Ele também é um contêiner para usuários.
 |Usuário |O namespace lógico para obter o escopo das permissões. 
 |Permissão |Um token de autorização associado a um usuário para acesso a um recurso específico.
-|Coleção |Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. Uma coleção é uma entidade faturável, em que o custo é determinado pelo nível de desempenho associado à coleção. Os níveis de desempenho (S1, S2 e S3) fornecem 10 GB de armazenamento e uma quantidade fixa de taxa de transferência. Para obter mais informações sobre níveis de desempenho, visite nossa [página de desempenho](documentdb-performance-levels.md).
+|Coleção |Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. Uma coleção é uma entidade faturável, em que o [custo](documentdb-performance-levels.md) é determinado pelo nível de desempenho associado à coleção. As coleções podem abranger uma ou mais partições/servidores e podem ser dimensionadas para lidar com volumes de armazenamento ou taxa de transferência praticamente ilimitados.
 |Procedimento armazenado |Lógica de aplicativo gravada no JavaScript que é registrada com uma coleção e executada de forma transacional dentro do mecanismo do banco de dados.
 |Gatilho |Lógica de aplicativo escrita em JavaScript executada antes ou depois de uma operação de inserção, substituição ou exclusão.
 |UDF |Uma lógica de aplicativo escrita em JavaScript. As UDFs permitem modelar um operador de consulta personalizada e, portanto, estender a linguagem de consulta principal do Banco de Dados de Documentos.
@@ -56,41 +56,67 @@ Para começar a trabalhar com os recursos, você deve [criar uma conta de banco 
 ## Recursos definidos pelo sistema versus usuário
 Recursos como contas do banco de dados, bancos de dados, coleções, usuários, permissões, procedimentos armazenados, gatilhos e UDFs, todos têm um esquema fixo e são chamados de recursos do sistema. Em contraste, recursos como documentos e anexos não possuem restrições sobre o esquema e são exemplos de recursos definidos pelo usuário. No Banco de Dados de Documentos, ambos os recursos definidos pelo sistema e pelo usuário são representados e gerenciados como JSON em conformidade com o padrão. Todos os recursos, definidos pelo usuário ou pelo sistema, possuem as seguintes propriedades em comum.
 
->[AZURE.NOTE] Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
+> [AZURE.NOTE] Observe que todas as propriedades geradas pelo sistema em um recurso têm como prefixo um sublinhado (\_) na sua representação JSON.
 
-
-Propriedade |Configurável pelo usuário ou gerada pelo sistema?|Finalidade
----|---|---
-_rid|Gerado pelo sistema|Gerado pelo sistema, identificador exclusivo e hierárquico do recurso.
-_etag|Gerado pelo sistema|etag do recurso necessário para o controle de simultaneidade otimista.
-_ts|Gerado pelo sistema|Carimbo de data/hora da última atualização do recurso.
-_self|Gerado pelo sistema|URI endereçável exclusivo do recurso.
-id|Configurável pelo usuário|Nome exclusivo do recurso definido pelo usuário. Se o usuário não especificar uma id, uma id será gerada pelo sistema
+<table>
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Propriedade</strong></p></td>
+            <td valign="top"><p><strong>Configurável pelo usuário ou gerada pelo sistema?</strong></p></td>
+            <td valign="top"><p><strong>Finalidade</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_rid</p></td>
+            <td valign="top"><p>Gerada pelo sistema</p></td>
+            <td valign="top"><p>Identificador hierárquico e exclusivo do recurso, gerado pelo sistema</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_etag</p></td>
+            <td valign="top"><p>Gerada pelo sistema</p></td>
+            <td valign="top"><p>etag do recurso necessário para controle de concorrência otimista</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_ts</p></td>
+            <td valign="top"><p>Gerada pelo sistema</p></td>
+            <td valign="top"><p>Último carimbo de data/hora atualizado do recurso</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>_self</p></td>
+            <td valign="top"><p>Gerada pelo sistema</p></td>
+            <td valign="top"><p>URI endereçável exclusivo do recurso</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>ID</p></td>
+            <td valign="top"><p>Gerada pelo sistema</p></td>
+            <td valign="top"><p>Nome exclusivo definido pelo usuário para o recurso (com o mesmo valor de chave de partição). Se o usuário não especificar uma id, uma id será gerada pelo sistema</p></td>
+        </tr>
+    </tbody>
+</table>
 
 ### Representação da conexão dos recursos
 O Banco de Dados de Documentos não obriga nenhuma extensão proprietária para o padrão JSON nem codificações especiais; ele trabalha com documentos JSON compatíveis padrão.
  
 ### Endereçamento de um recurso
-Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{\_rid}:
+Todos os recursos são endereçáveis pelo URI. O valor da propriedade **\_self** de um recurso representa o URI relativo do recurso. O formato do URI consiste nos segmentos do caminho /<feed>/{_rid}:
 
 |Valor de \_self |Descrição
 |-------------------|-----------
 |/dbs |Feed de bancos de dados em uma conta de banco de dados
-|/dbs/{\_rid-db} |Banco de dados com uma id correspondente ao valor {\_rid-db}
-|/dbs/{\_rid-db}/colls/ |Feed de coleções em um banco de dados
-|/dbs/{\_rid-db}/colls/{\_rid-coll} |Coleção com uma id correspondente ao valor {\_rid-coll}
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs |Feed de documentos em uma coleção
-|/dbs/{\_rid-db}/colls/{\_rid-coll}/docs/{\_rid-doc} |Documento com uma id correspondente ao valor {\_rid-doc}
-|/dbs/{\_rid-db}/users/ |Feed de usuários em um banco de dados
-|/dbs/{\_rid-db}/users/{\_rid-user} |Usuário com uma id correspondente ao valor {\_rid-user}
-|/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Feed de permissões em um usuário
-|/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Permissão com uma id correspondente ao valor {\_rid-permission}
+|/dbs/{dbName} |Banco de dados com uma ID correspondente ao valor {dbName}
+|/dbs/{dbName}/colls/ |Feed de coleções em um banco de dados
+|/dbs/{dbName}/colls/{collName} |Coleção com uma ID correspondente ao valor de {collName}
+|/dbs/{dbName}/colls/{collName}/docs |Feed de documentos em uma coleção
+|/dbs/{dbName}/colls/{collName}/docs/{docId} |Documento com uma ID correspondente ao valor {doc}
+|/dbs/{dbName}/users/ |Feed de usuários em um banco de dados
+|/dbs/{dbName}/users/{userId} |Usuário com uma ID correspondente ao valor {user}
+|/dbs/{dbName}/users/{userId}/permissions |Feed de permissões em um usuário
+|/dbs/{dbName}/users/{userId}/permissions/{permissionId} |Permissão com uma ID correspondente ao valor {permission}
   
-Cada recurso tem um nome de usuário exclusivo definido exposto por meio da propriedade id. Observação: para documentos, se o usuário não especificar uma id, o sistema gerará automaticamente uma id exclusiva para o documento. A ID é uma cadeia de caracteres definida pelo usuário, com até 256 caracteres e exclusiva no contexto de um recurso pai específico. Por exemplo, o valor da propriedade de ID de todos os documentos dentro de uma determinada coleção é exclusivo, mas não é garantido que seja exclusivo nas coleções. Do mesmo modo, o valor da propriedade de ID de todas as permissões para um determinado usuário é exclusivo, mas não é garantido que seja exclusivo em todos os usuários. A propriedade \_rid é usada para construir o link endereçável \_self de um recurso.
+Cada recurso tem um nome de usuário exclusivo definido exposto por meio da propriedade id. Observação: para documentos, se o usuário não especificar uma id, o sistema gerará automaticamente uma id exclusiva para o documento. A ID é uma cadeia de caracteres definida pelo usuário, com até 256 caracteres e exclusiva no contexto de um recurso pai específico.
 
-Cada recurso também tem um identificador de recurso hierárquico gerado pelo sistema (também chamado de RID), que é disponibilizado pela propriedade \_rid. O RID codifica a hierarquia inteira de um determinado recurso, sendo uma representação interna muito conveniente usada para impor integridade referencial de maneira distribuída. O RID é exclusivo dentro de uma conta de banco de dados, sendo usado internamente pelo Banco de Dados de Documentos para roteamento eficiente sem exigir pesquisas entre partições.
+Cada recurso também tem um identificador de recurso hierárquico gerado pelo sistema (também chamado de RID), que é disponibilizado pela propriedade \_rid. O RID codifica a hierarquia inteira de um determinado recurso, sendo uma representação interna conveniente usada para impor integridade referencial de maneira distribuída. O RID é exclusivo dentro de uma conta de banco de dados, sendo usado internamente pelo Banco de Dados de Documentos para roteamento eficiente sem exigir pesquisas entre partições. Os valores das propriedades \_self e \_rid são representações alternativas e canônicas de um recurso.
 
-Os valores das propriedades \_self e \_rid são representações alternativas e canônicas de um recurso.
+As APIs REST de Banco de Dados de Documentos têm suporte para manipular recursos e roteamento de solicitações pelas propriedades de id e \_rid.
 
 ## Contas de banco de dados
 Você pode provisionar uma ou mais contas do Banco de Dados de Documentos usando sua assinatura do Azure. Cada conta de banco de dados da camada Padrão terá a capacidade mínima de uma coleção S1.
@@ -100,14 +126,24 @@ Você pode [criar e gerenciar contas de banco de dados do Banco de Dados de Docu
 ### Propriedades de contas de banco de dados
 Como parte do provisionamento e gerenciamento de uma conta do banco de dados, você pode configurar e ler as seguintes propriedades:
 
-Nome da Propriedade|Descrição
----|---
-Política de Consistência|Defina essa propriedade para configurar o nível de consistência padrão para todas as coleções em sua conta do banco de dados. Você pode substituir o nível de consistência com base na solicitação usando o cabeçalho de solicitação [x-ms-consistency-level]. <p><p>Observe que esta propriedade só se aplica aos <i>recursos definidos pelo usuário</i>. Todos os recursos definidos pelo sistema são configurados para oferecer suporte a leituras/consultas com uma coerência forte.
-Chave primária e Chave secundária|Essas são as chaves primária e secundária, que oferecem acesso administrativo a todos os recursos na conta de banco de dados.
-MaxMediaStorageUsageInMB (LEITURA)|Quantidade máxima de armazenamento de mídia disponível para a conta de banco de dados.
-MediaStorageUsageInMB (READ)|Uso atual do armazenamento de mídia para a conta de banco de dados.
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Nome da propriedade</strong></p></td>
+            <td valign="top"><p><strong>Descrição</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>Política de Consistência</p></td>
+            <td valign="top"><p>Defina essa propriedade para configurar o nível de consistência padrão para todas as coleções em sua conta do banco de dados. Você pode substituir o nível de consistência com base na solicitação usando o cabeçalho de solicitação [x-ms-consistency-level]. <p><p>Observe que essa propriedade somente se aplica aos <i>recursos definidos pelo usuário</i>. Todos os recursos definidos pelo sistema são configurados para oferecer suporte a leituras/consultas com uma coerência forte.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>Chaves de autorização</p></td>
+            <td valign="top"><p>Essas são as chaves primária e secundária principal e somente leitura que dão acesso administrativo a todos os recursos na conta de banco de dados.</p></td>
+        </tr>
+    </tbody>
+</table>
 
-Observe que, além de provisionar, de configurar e de gerenciar sua conta de banco de dados no Portal do Azure, também é possível criar e gerenciar programaticamente contas do Banco de Dados de Documentos usando as [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) e os [SDKs de clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+Observe que, além de provisionar, configurar e gerenciar sua conta de banco de dados no Portal do Azure, também é possível criar e gerenciar programaticamente contas do Banco de Dados de Documentos usando as [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) e os [SDKs de clientes](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ## Bancos de dados
 Um banco de dados do Banco de Dados de Documentos é um contêiner lógico de uma ou mais coleções e usuários, conforme mostrado no diagrama a seguir. Você pode criar qualquer número de bancos de dados em uma conta de banco de dados do Banco de Dados de Documentos, sujeito aos limites de oferta.
@@ -129,10 +165,10 @@ Um banco de dados do Banco de Dados de Documentos também é um contêiner de us
 Assim como com outros recursos do modelo de recursos do Banco de Dados de Documentos, os bancos de dados podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou qualquer [SDK do cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). O Banco de Dados de Documentos garante uma forte consistência para a leitura ou consulta de metadados de um recurso do banco de dados. Excluir um banco de dados automaticamente garante que você não possa acessar qualquer uma das coleções ou usuários contidos nele.
 
 ## Coleções
-Uma coleção do Banco de Dados de Documentos é um contêiner para seus documentos JSON. Uma coleção também é uma unidade de dimensionamento para transações e consulta. Também é possível expandir um banco de dados do Banco de Dados de Documentos adicionando mais coleções. Se seu aplicativo precisar ser mais dimensionado, você poderá adicionar uma coleção, cada uma alocada com armazenamento com SSD e uma quantidade fixa de taxa de transferência, dependendo de sua camada de desempenho.
- 
+Uma coleção do Banco de Dados de Documentos é um contêiner para seus documentos JSON. Uma coleção também é uma unidade de dimensionamento para transações e consulta.
+
 ### Armazenamento de documentos com suporte de SSD elástico
-Uma coleção é intrinsicamente elástica; ela cresce e é reduzida automaticamente conforme você adiciona ou remove documentos. Embora o uso primário do Banco de Dados de Documentos o tenha testado com milhares de coleções dentro de um banco de dados, cada um deles indo de alguns gigabytes a terabytes de tamanho, o Banco de Dados de Documentos atualmente limita a elasticidade de uma determinada coleção a 10 GB.
+Uma coleção é intrinsicamente elástica; ela cresce e é reduzida automaticamente conforme você adiciona ou remove documentos. Coleções são recursos lógicos e podem abranger um ou mais servidores ou partições físicas. O número de partições dentro de uma coleção é determinado pelo Banco de Dados de Documentos com base no tamanho do armazenamento e na produtividade provisionada da coleção. Cada partição no Banco de Dados de Documentos tem uma quantidade fixa de armazenamento com suporte de SSD associado a ela e é replicada para alta disponibilidade. O gerenciamento de partição é totalmente gerenciado pelo Banco de Dados de Documentos do Azure e você não precisa escrever um código complexo ou gerenciar suas partições. As coleções do Banco de Dados de Documentos são **praticamente ilimitadas** em termos de armazenamento e produtividade.
 
 ### Indexação automática de coleções
 O Banco de Dados de Documentos é um verdadeiro sistema de banco de dados livre de esquema. Ele não assume nem requer qualquer esquema para os documentos JSON. Ao incluir documentos em uma coleção, o Banco de Dados de Documentos os indexa automaticamente e eles ficam disponíveis para consulta. A indexação automática de documentos sem exigir esquemas ou índices secundários é uma capacidade chave do Banco de Dados de Documentos e é ativada por técnicas de manutenção de índice com gravação otimizada, livres de bloqueios e estrutura de log. O Banco de Dados de Documentos oferece suporte a um volume permanente de gravações extremamente rápidas ao mesmo tempo em que oferece consultas consistentes. Ambos os armazenamentos de documentos e de índices são usados para calcular o armazenamento consumido por cada coleção. Você pode controlar os compromissos de armazenamento e desempenho associados à indexação configurando a política de indexação para uma coleção.
@@ -147,7 +183,7 @@ A política de indexação de cada coleção permite realizar compromissos de de
 A política de indexação pode ser alterada executando-se um PUT na coleção. Isso pode ser obtido por meio do [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx), do [Portal do Azure](https://portal.azure.com) ou de [APIs REST do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Consultando uma coleção
-Os documentos dentro de uma coleção podem ter esquemas arbitrários e os documentos podem ser consultados dentro de uma coleção sem oferecer qualquer esquema ou índices secundários de início. É possível consultar a coleção usando a [sintaxe SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx), que oferece operadores hierárquicos e relacionais ricos e extensibilidade por meio de UDFs baseados em JavaScript. A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore. Isso é explorado por técnicas de indexação automáticas do Banco de Dados de Documentos, bem como pelo dialeto SQL do Banco de Dados de Documentos. A linguagem de consulta do Banco de Dados de Documentos é formada por três aspectos principais:
+Os documentos dentro de uma coleção podem ter esquemas arbitrários e os documentos podem ser consultados dentro de uma coleção sem oferecer qualquer esquema ou índices secundários de início. É possível consultar a coleção usando a [sintaxe SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx), que apresenta avançados operadores hierárquicos, relacionais e espaciais e extensibilidade por meio de UDFs baseados em JavaScript. A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore. Isso é explorado por técnicas de indexação automáticas do Banco de Dados de Documentos, bem como pelo dialeto SQL do Banco de Dados de Documentos. A linguagem de consulta do Banco de Dados de Documentos é formada por três aspectos principais:
 
 1.	Um pequeno conjunto de operações de consulta que é mapeado naturalmente para a estrutura de árvore, incluindo projeções e consultas hierárquicas. 
 2.	Um subconjunto de operações relacionais, incluindo composição, filtragem, projeções, agregados e junções automáticas. 
@@ -401,7 +437,7 @@ Independentemente da estratégia de fragmentação específica escolhida, você 
 Assim como todos os outros recursos, os usuários no Banco de Dados de Documentos podem ser criados, substituídos, excluídos, lidos ou enumerados facilmente usando as APIs REST ou qualquer SDK do cliente. O Banco de Dados de Documentos sempre oferece uma forte consistência para leitura ou consulta dos metadados de um recurso do usuário. Vale destacar que excluir um usuário automaticamente assegura que você não poderá acessar nenhuma das permissões contidas nele. Embora o Banco de Dados de Documentos recupere a cota das permissões como parte do usuário excluído em segundo plano, as permissões excluídas estão disponíveis imediatamente mais uma vez para uso.
 
 ## Permissões
-Da perspectiva de controle de acesso, recursos como contas do banco de dados, bancos de dados, usuários e permissões são considerados recursos *administrativos*, uma vez que requerem permissões administrativas. Por outro lado, recursos que incluem as coleções, documentos, anexos, procedimentos armazenados, gatilhos e UDFs têm seu escopo definido em um determinado banco de dados e são considerados como *recursos do aplicativo*. Correspondente aos dois tipos de recursos e à funções que os acessam (ou seja, o administrador e o usuário), o modelo de autorização define dois tipos de *chaves de acesso*: *chave mestra* e *chave de recurso*. A chave mestre é uma parte da conta do banco de dados e é fornecida ao desenvolvedor (ou administrador) que está provisionando a conta do banco de dados. Essa chave mestre possui uma semântica do administrador, e ela pode ser usada para autorizar o acesso aos recursos administrativos e do aplicativo. Em contraste, uma chave de recurso é uma chave de acesso granular que permite o acesso a um recurso de aplicativo *específico*. Portanto, ela captura a relação entre o usuário de um banco de dados e as permissões que o usuário possui para um recurso específico (p. ex., coleção, documento, anexo, procedimento armazenado, gatilho ou UDF).
+De uma perspectiva de controle de acesso, recursos como contas do banco de dados, bancos de dados, usuários e permissões são considerados recursos *administrativos*, uma vez que requerem permissões administrativas. Por outro lado, recursos que incluem as coleções, documentos, anexos, procedimentos armazenados, gatilhos e UDFs têm seu escopo definido em um determinado banco de dados e são considerados como *recursos do aplicativo*. Correspondente aos dois tipos de recursos e à funções que os acessam (ou seja, o administrador e o usuário), o modelo de autorização define dois tipos de *chaves de acesso*: *chave mestra* e *chave de recurso*. A chave mestre é uma parte da conta do banco de dados e é fornecida ao desenvolvedor (ou administrador) que está provisionando a conta do banco de dados. Essa chave mestre possui uma semântica do administrador, e ela pode ser usada para autorizar o acesso aos recursos administrativos e do aplicativo. Em contraste, uma chave de recurso é uma chave de acesso granular que permite o acesso a um recurso de aplicativo *específico*. Portanto, ela captura a relação entre o usuário de um banco de dados e as permissões que o usuário possui para um recurso específico (p. ex., coleção, documento, anexo, procedimento armazenado, gatilho ou UDF).
 
 A única maneira de obter uma chave de recurso é criar um recurso de permissão em um determinado usuário. Observe que, a fim de criar ou recuperar uma permissão, uma chave mestre deve ser apresentada no cabeçalho de autorização. Um recurso de permissão vincula o recurso, seu acesso e o usuário. Após criar um recurso de permissão, o usuário só precisa apresentar a chave de recurso associada para obter acesso ao recurso relevante. Portanto, uma chave de recurso pode ser visualizada como uma representação lógica e compacta do recurso de permissão.
 
@@ -415,4 +451,4 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

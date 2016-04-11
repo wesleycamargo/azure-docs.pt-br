@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="12/05/2015"
+   ms.date="03/28/2016"
    ms.author="elizapo"/>
 
 # Criar uma coleção de RemoteApp do Azure
@@ -34,4 +34,4 @@ Então, como você para atualizar sua coleção? É bem simples:
 
 1. Clique na marca de seleção para iniciar a atualização.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

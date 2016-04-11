@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Carregar dados de amostra no SQL Data Warehouse
@@ -51,26 +51,32 @@ Você também pode analisar os dados de exemplo usando os meios tradicionais. Co
 
 Podemos executar uma instrução select simples para obter todas as informações sobre os funcionários:
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 Podemos executar também uma consulta mais complexa usando construções como GROUP BY para examinar o valor total de todas as vendas de cada dia:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 Podemos até mesmo usar a cláusula WHERE para filtrar os pedidos realizados antes de uma determinada data:
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 Na verdade, o SQL Data Warehouse oferece suporte a quase todas as construções T-SQL com suporte do SQL Server, e você encontrará algumas das diferenças em nossa documentação sobre [migrar código][].
-
-
 
 ## Próximas etapas
 Agora que proporcionamos a você uma introdução à verificação de dados de exemplo, consulte como [desenvolver][], [carregar][] ou [migrar][].
@@ -95,4 +101,4 @@ Agora que proporcionamos a você uma introdução à verificação de dados de e
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

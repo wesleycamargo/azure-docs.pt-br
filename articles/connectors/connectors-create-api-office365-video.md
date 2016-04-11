@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/23/2016"
 ms.author="deonhe"/>
 
 # Introdução à API de Vídeo do Office365
@@ -33,7 +33,7 @@ Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicati
 
 ## Gatilhos e ações
 
-A API dos Usuários do Office 365 tem as seguintes ações disponíveis. Não há gatilhos.
+A API do Vídeo do Office 365 tem as seguintes ações disponíveis. Não há gatilhos.
 
 | Gatilhos | Ações|
 | --- | --- |
@@ -221,4 +221,4 @@ Obter o token de portador para obter acesso e descriptografar o vídeo.```GET: /
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -35,7 +35,7 @@ Por exemplo, você pode colocar todas as máquinas virtuais no front-end da exec
 
 
 ### Combine o Balanceador de Carga com os Conjuntos de Disponibilidade
-Combine o Balanceador de Carga do Azure com o Conjunto de Disponibilidade para obter a melhor resiliência de aplicativo. O Balanceador de Carga do Azure distribui o tráfego entre as múltiplas máquinas virtuais. Para as nossas máquinas virtuais de camadas padrões, o Balanceador de carga do Azure está incluso. Observe que nem todas as camadas de máquinas virtuais incluem o Balanceador de Carga do Azure. Para saber mais sobre o balanceamento de carga de suas máquinas virtuais, consulte [Balanceamento de Carga em máquinas virtuais](virtual-machines-linux-load-balance.md).
+Combine o Balanceador de Carga do Azure com o Conjunto de Disponibilidade para obter a melhor resiliência de aplicativo. O Balanceador de Carga do Azure distribui o tráfego entre as múltiplas máquinas virtuais. Para as nossas máquinas virtuais de camadas padrões, o Balanceador de carga do Azure está incluso. Observe que nem todas as camadas de máquinas virtuais incluem o Balanceador de Carga do Azure. Para saber mais sobre o balanceamento de carga de suas máquinas virtuais, consulte [Balanceamento de Carga em máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
 
 Se o balanceador de carga não estiver configurado para balancear o tráfego entre múltiplas máquinas virtuais, então qualquer evento de manutenção planejada afetará a única máquina virtual atendendo ao tráfego causando uma pane na sua camada de aplicativo. Colocar diversas máquinas virtuais na mesma camada sob o mesmo balanceador de carga e Conjunto de Disponibilidade habilita o tráfego a ser atendido continuamente pelo menos por uma instância.
 
@@ -47,6 +47,6 @@ Evite deixar uma única máquina virtual sozinha em um Conjunto de disponibilida
 [Configure cada camada de aplicativo em Conjuntos de Disponibilidade separados]: #configure-each-application-tier-into-separate-availability-sets
 [Combine o Balanceador de Carga com os Conjuntos de Disponibilidade]: #combine-the-load-balancer-with-availability-sets
 [Evite máquinas virtuais de instância única em Conjuntos de Disponibilidade]: #avoid-single-instance-virtual-machines-in-availability-sets
-[Como configurar um Conjunto de Disponibilidade para máquinas virtuais]: virtual-machines-windows-classic-configure-availability.md
+[Como configurar um Conjunto de Disponibilidade para máquinas virtuais]: ../articles/virtual-machines/virtual-machines-windows-classic-configure-availability.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

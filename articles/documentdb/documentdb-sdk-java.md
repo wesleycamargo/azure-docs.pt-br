@@ -13,28 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # SDK do Banco de Dados de Documentos
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
+- [SDK .NET](documentdb-sdk-dotnet.md)
+- [SDK do Node.js](documentdb-sdk-node.md)
 - [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [SDK do Python](documentdb-sdk-python.md)
 
 ##SDK do Java do Banco de Dados de Documentos
 
 <table>
-<tr><td>**Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
-<tr><td>**Colabore**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**Documentação**</td><td>[Documentação de referência do SDK Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**Introdução**</td><td>[Introdução ao SDK do Java](documentdb-java-application.md)</td></tr>
-<tr><td>**Temp de execução com suporte no momento**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Baixar**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**Colaborar**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Documentação**</td><td>[Documentação de Referência do SDK do Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Guia de introdução**</td><td>[Introdução ao SDK do Java](documentos-java-application.md)</td></tr>
+<tr><td>**Tempo de Execução Atual com Suporte**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## Notas de versão
+
+### <a name="1.6.0"/>[1\.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
+- [Coleções particionadas](documentdb-partition-data.md) implementadas e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md). 
 
 ### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
 - Foi corrigido um bug no HashPartitionResolver para gerar valores de hash em little-endian para ser consistente com outros SDKs.
@@ -67,23 +70,25 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 
 As solicitações feitas ao Banco de Dados de Documentos usando um SDK obsoleto serão rejeitadas pelo serviço.
 
-> [AZURE.WARNING]Todas as versões do SDK do Banco de Dados de Documentos do Azure para Java anteriores à versão **1.0.0** serão desativadas em **29 de fevereiro de 2016**.
+> [AZURE.WARNING]
+Todas as versões do SDK do Banco de Dados de Documentos do Azure para Java anteriores à versão **1.0.0** serão desativadas em **29 de fevereiro de 2016**.
 
 <br/>
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
+| [1\.6.0](#1.6.0) | 29 de março de 2016 |--- 
 | [1\.5.1](#1.5.1) | 31 de dezembro de 2015 |--- 
-| [1\.5.0](#1.5.0) | 4 de dezembro de 2015 |--- 
+| [1\.5.0](#1.5.0) | 4 de dezembro de 2015 |---
 | [1\.4.0](#1.4.0) | 5 de outubro de 2015 |--- 
 | [1\.3.0](#1.3.0) | 5 de outubro de 2015 |--- 
-| [1\.2.0](#1.2.0) | 5 de agosto de 2015 |---
-| [1\.1.0](#1.1.0) | 9 de julho de 2015 |--- 
+| [1\.2.0](#1.2.0) | 5 de agosto de 2015 |--- 
+| [1\.1.0](#1.1.0) | 9 de julho de 2015 |---
 | [1\.0.1](#1.0.1) | 12 de maio de 2015 |--- 
 | [1\.0.0](#1.0.0) | 7 de abril de 2015 |--- 
 | 0.9.5-prelease | 9 de março de 2015 | 29 de fevereiro de 2016 
-| 0.9.4-prelease | 17 de fevereiro 2015 | 29 de fevereiro de 2016 
-| 0.9.3-prelease | 13 de janeiro 2015 | 29 de fevereiro de 2016 
+| 0.9.4-prelease | 17 de fevereiro de 2015 | 29 de fevereiro de 2016 
+| 0.9.3-prelease | 13 de janeiro de 2015 | 29 de fevereiro de 2016 
 | 0.9.2-prelease | 19 de dezembro de 2014 | 29 de fevereiro de 2016 
 | 0.9.1-prelease | 19 de dezembro de 2014 | 29 de fevereiro de 2016 
 | 0.9.0-prelease | 10 de dezembro 2014 | 29 de fevereiro de 2016
@@ -95,4 +100,4 @@ As solicitações feitas ao Banco de Dados de Documentos usando um SDK obsoleto 
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

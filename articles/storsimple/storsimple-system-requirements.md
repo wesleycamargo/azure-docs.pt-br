@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/15/2016"
+   ms.date="03/23/2016"
    ms.author="alkohli"/>
 
 # Software StorSimple, alta disponibilidade e requisitos de rede
@@ -39,7 +39,7 @@ Os requisitos de software a seguir são para os clientes de armazenamento que ac
 | VMWare ESX | 5\.1, 5.5 e 6.0 | Compatível com o VMware vSphere como cliente iSCSI. O recurso de bloco VAAI é compatível com o VMware vSphere nos dispositivos StorSimple. 
 | Linux RHEL/CentOS | 5 e 6 | Suporte para os clientes Linux iSCSI com o iniciador open-iSCSI versões 5 e 6. |
 | Linux | SUSE Linux 11 | |
- > [AZURE.NOTE] O IBM AIX não é suportado atualmente com o StorSimple.
+ >[AZURE.NOTE] O IBM AIX não é suportado atualmente com o StorSimple.
 
 ## Requisitos de software para os componentes opcionais
 
@@ -52,7 +52,7 @@ Os seguintes requisitos de software são para os componentes opcionais do StorSi
  
 ## Requisitos de rede para seu dispositivo StorSimple
 
-Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso abrir portas no firewall para permitir o tráfego de gerenciamento, de nuvem ou iSCSI. A tabela a seguir lista as portas que precisam estar abertas no firewall. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
+Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso abrir portas no firewall para permitir o tráfego de gerenciamento, de nuvem e iSCSI. A tabela a seguir lista as portas que precisam estar abertas no firewall. Nesta tabela, *entrada* ou *de entrada* refere-se à direção a partir da qual as solicitações de cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção na qual seu dispositivo StorSimple envia dados externamente, além da implantação: por exemplo, saída para a Internet.
 
 | Nº da porta<sup>1,2</sup> | Entrada ou saída | Escopo da porta | Obrigatório | Observações |
 |------------------------|-----------|------------|----------|-------| 
@@ -77,7 +77,7 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 
 Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Seu dispositivo StorSimple e o serviço StorSimple Manager dependem de outros aplicativos da Microsoft, como o Barramento de Serviço do Azure, o Controle de Acesso do Azure Active Directory, contas de armazenamento e servidores do Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Isso, por sua vez, exigirá que o administrador de rede monitore e atualize as regras de firewall para o StorSimple como e quando necessário.
 
-Recomendamos que você defina suas regras de firewall livremente na maioria dos casos. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
+É recomendável que você defina suas regras de firewall para tráfego de saída, com base nos endereços IP fixos do StorSimple e, na maioria dos casos, de modo flexível. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
 
 > [AZURE.NOTE] Os IPs do dispositivo (de origem) sempre devem ser configurados para todas as interfaces de rede habilitadas. Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/pt-BR/download/confirmation.aspx?id=41653).
 
@@ -85,6 +85,7 @@ Recomendamos que você defina suas regras de firewall livremente na maioria dos 
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Serviço StorSimple Manager<br>Serviço do Access Control<br>Barramento de Serviço do Azure| Interfaces de rede habilitadas para nuvem |
+|`http://*.backup.windowsazure.com`|Registro de dispositivos| Somente DATA 0|
 |`http://crl.microsoft.com/pki/*` |Revogação de certificado |Interfaces de rede habilitadas para nuvem |
 | `https://*.core.windows.net/*` | Contas de armazenamento e monitoramento do Azure | Interfaces de rede habilitadas para nuvem |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores do Microsoft Update<br> | IPs fixados pelo controlador somente |
@@ -167,7 +168,7 @@ A Atualização 2 contém vários aprimoramentos relacionados à rede; além dis
 
 Além dos requisitos de rede acima, para obter o desempenho ideal de sua solução StorSimple, atenda às seguintes práticas recomendadas:
 
-- Verifique se o dispositivo StorSimple tem uma largura de banda dedicada de 40 Mbps (ou mais) disponível sempre. Essa largura de banda não deve ser compartilhada com outros aplicativos.
+- Verifique se o dispositivo StorSimple tem uma largura de banda dedicada de 40 Mbps (ou mais) disponível sempre. Essa largura de banda não deve ser compartilhada (ou a alocação deve ser garantida pelo uso de políticas de QoS) com outros aplicativos.
 
 - Verifique a conectividade de rede com a Internet está disponível sempre. Conexões de Internet esporádicas ou não confiáveis com os dispositivos, sem incluir qualquer conectividade com a Internet, resultarão em uma configuração sem suporte.
 
@@ -257,7 +258,7 @@ O modelo do dispositivo StorSimple 8600 inclui um compartimento EBOD (Extended B
 
 - Se um módulo do controlador de compartimento EBOD falhar, certifique-se de que o outro módulo do controlador esteja ativo antes de substituir o módulo com falha. Para verificar se um controlador está ativo, vá para [Identificar o controlador ativo em seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
 
-- Durante uma substituição do módulo do controlador EBOD, monitore continuamente o status do componente no serviço do StorSimple Manager acessando o status **Manutenção** - **Hardware**.
+- Durante uma substituição do módulo do controlador EBOD, monitore continuamente o status do componente no serviço do StorSimple Manager acessando **Manutenção** > **Status do hardware**.
 
 - Se um cabo SAS falha ou exigir substituição (o Suporte da Microsoft deve participar dessa decisão), remova apenas o cabo SAS que exige a substituição.
 
@@ -279,4 +280,4 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

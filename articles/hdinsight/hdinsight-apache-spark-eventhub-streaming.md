@@ -24,7 +24,7 @@ Streaming Spark estende a API de núcleo do Spark para criar aplicativos de proc
 
 Neste tutorial, você aprenderá a criar um Hub de eventos do Azure, a receber mensagens em um Hub de eventos usando um aplicativo de console em Java e a recuperá-las em paralelo usando um aplicativo Spark escrito em Scala. Esse aplicativo consome os dados transmitidos por meio de Hubs de Eventos e os encaminha para saídas diferentes (Blob de Armazenamento do Azure, tabela Hive e tabela SQL).
 
-> [AZURE.NOTE] Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [Portal do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal de Visualização do Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [portal Clássico do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal do Azure](https://ms.portal.azure.com/).
 
 **Pré-requisitos:**
 
@@ -49,7 +49,7 @@ Você deve ter o seguinte:
 
 ## Criar Hub de Eventos do Azure
 
-1. No [portal do Azure](https://manage.windowsazure.com), selecione **NOVO** > **Barramento de Serviço** > **Hub de Eventos** | **Criação Personalizada**.
+1. No [Portal do Azure](https://manage.windowsazure.com), selecione **NOVO** > **Barramento de Serviço** > **Hub de Eventos** | **Criação Personalizada**.
 
 2. Na tela **Adicionar um novo Hub de Eventos**, insira um **Nome do Hub de Eventos**, selecione a **Região** na qual criar o hub e crie um novo namespace ou selecione um existente. Clique na **Seta** para continuar.
 
@@ -64,10 +64,12 @@ Você deve ter o seguinte:
 4. Clique no Hub de Eventos que você criou, clique em **Configurar** e crie duas políticas de acesso para o hub de eventos.
 
 	<table>
-<tr><th>Nome</th><th>Permissões</th></tr>
-<tr><td>mysendpolicy</td><td>Enviar</td></tr>
-<tr><td>myreceivepolicy</td><td>Escutar</td></tr>
-</table>Depois de criar permissões, selecione o ícone **Salvar** na parte inferior da página. Isso cria políticas de acesso compartilhado que serão usadas para enviar (**mysendpolicy**) e escutar (**myreceivepolicy**) para esse Hub de Eventos.
+	<tr><th>Nome</th><th>Permissões</th></tr>
+	<tr><td>mysendpolicy</td><td>Enviar</td></tr>
+	<tr><td>myreceivepolicy</td><td>Escutar</td></tr>
+	</table>
+
+	Depois de criar permissões, selecione o ícone **Salvar** na parte inferior da página. Isso cria políticas de acesso compartilhado que serão usadas para enviar (**mysendpolicy**) e escutar (**myreceivepolicy**) para esse Hub de Eventos.
 
 	![políticas](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Criar políticas de Hub de Eventos")
 
@@ -372,4 +374,4 @@ Você deverá ver uma saída semelhante ao seguinte:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

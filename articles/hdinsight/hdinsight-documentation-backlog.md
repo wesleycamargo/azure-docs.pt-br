@@ -32,6 +32,7 @@ Automação | Atualize o artigo sobre [como analisar os dados do sensor usando c
 Armazenamento | Artigo explicando as opções de armazenamento WASB e Data Lake Storeas | 2 | Pendente | [@mumian](https://github.com/mumian) | - 
 Desempenho | Diretrizes de ajuste de desempenho para aplicativos MapReduce | 1 | Pendente | [@blackmist](https://github.com/blackmist) | - 
 Desempenho | Diretrizes de ajuste de desempenho para clusters Spark |1 | Pendente | [@nitinme](https://github.com/nitinme) | -
+Desenvolvimento | autenticação não interativa com o aplicativo .NET do HDInsight |2| Escrita | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## Como fornecer comentários sobre a lista de pendências
@@ -40,4 +41,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Adicione um comentário abaixo.
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

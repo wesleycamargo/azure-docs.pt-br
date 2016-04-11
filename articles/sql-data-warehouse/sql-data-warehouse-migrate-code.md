@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrar seu código SQL para o SQL Data Warehouse
@@ -93,7 +93,7 @@ Novamente, muitos desses problemas podem ser solucionados.
 
 Por exemplo, o código abaixo é uma solução alternativa para a recuperação de informações de @@ROWCOUNT:
 
-```
+```sql
 SELECT  SUM(row_count) AS row_count
 FROM    sys.dm_pdw_sql_requests
 WHERE   row_count <> -1
@@ -131,4 +131,4 @@ Para obter orientação sobre como desenvolver seu código, confira a [visão ge
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

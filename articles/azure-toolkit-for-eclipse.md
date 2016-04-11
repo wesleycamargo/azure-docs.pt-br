@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/07/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -22,15 +22,15 @@
 
 O Kit de Ferramentas do Azure para Eclipse fornece modelos e funcionalidade que permitem criar, desenvolver, testar e implantar com facilidade aplicativos Azure usando o ambiente de desenvolvimento do Eclipse. Ele é um projeto de código-fonte aberto, cujo código-fonte está disponível de acordo com a licença do Apache 2.0 no site do projeto em:
 
-* <https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>
+* <https://github.com/microsoft/azure-tools-for-java.>
 
 ## Introdução ao Kit de ferramentas do Azure para Eclipse ##
 
 Os artigos a seguir o ajudarão a começar a usar o Kit de ferramentas do Azure para Eclipse:
 
 * [Novidades no Kit de Ferramentas do Azure para Eclipse]
-* [Instalando o Kit de Ferramentas do Azure para Eclipse]
-* [Criação de um aplicativo Hello World do Azure no Eclipse]
+* [Instalação do Kit de Ferramentas do Azure para o Eclipse]
+* [Criar um Serviço de Nuvem Hello World para o Azure no Eclipse]
 * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
 * [Exibindo o Conteúdo do Javadoc no Eclipse para o Pacote de Bibliotecas do Azure para Java]
 
@@ -62,11 +62,11 @@ Os artigos a seguir demonstram o uso do Kit de ferramentas do Azure para Eclipse
 
 ## Consulte também ##
 
-[Instalando o Kit de Ferramentas do Azure para Eclipse]
+[Instalação do Kit de Ferramentas do Azure para o Eclipse]
 
-[Criando um aplicativo Hello World para Azure no Eclipse]
+[Criando um aplicativo Hello World para o Azure no Eclipse]
 
-[Novidades no Kit de Ferramentas do Azure para Eclipse]
+[Novidades no Kit de Ferramentas do Azure para o Eclipse]
 
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
@@ -77,8 +77,7 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [Propriedades da função do Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Pontos de extremidade do Azure]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Lista de contas do Armazenamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Criando um aplicativo Hello World para Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Criar um Serviço de Nuvem Hello World para o Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [Depuração de aplicativos do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Implantando Grandes Implantações]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -90,10 +89,11 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [Como usar cache dedicado]: http://go.microsoft.com/fwlink/?LinkID=699543
 [Como usar JMS com AMQP 1.0 no Azure com Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699544
 [Como usar o descarregamento de SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Instalando o Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699546
+[Instalação do Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699546
 [Habilitar a afinidade de sessão]: http://go.microsoft.com/fwlink/?LinkID=699548
 [Descarregamento SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 [Usando a biblioteca de tempo de execução de serviços do Azure no JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 [Novidades no Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Novidades no Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

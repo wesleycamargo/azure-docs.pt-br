@@ -12,15 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 
  
 # Um tour pela Análise no Application Insights
 
-
-[Análise](app-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
+A [Análise](app-analytics.md) permite executar consultas avançadas na telemetria de seu aplicativo coletada pelo [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -70,10 +69,12 @@ Escolha as colunas e ajuste as posições:
 
 ![Clique na seleção de coluna no canto superior direito dos resultados](./media/app-analytics-tour/030.png)
 
+
 Expanda algum item para ver os detalhes:
  
 ![Escolha Tabela e use Configurar Colunas](./media/app-analytics-tour/040.png)
 
+> [AZURE.NOTE] Clique no cabeçalho de uma coluna para reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Esteja ciente de que classificar dessa maneira nem sempre mostra os reais itens mais altos ou mais baixos. Para isso, use o operador `top` ou `sort`.
 
 ## [Top](app-analytics-aggregations.md#top) e [sort](app-analytics-aggregations.md#sort)
 
@@ -133,7 +134,7 @@ Você também pode renomear e definir novas colunas:
 Na expressão escalar:
 
 * `%` é o operador de módulo normal. 
-* `1d` (que é um dígito um e um “d”) é um literal de timespan que significa um dia. Aqui estão mais alguns literais de timespan: `12h`, `30m`, `10s` e `0.01s`.
+* `1d` (que é um dígito um e então um “d”) é um literal de timespan que significa um dia. Aqui estão mais alguns literais de timespan: `12h`, `30m`, `10s` e `0.01s`.
 * O `floor` (alias `bin`) arredonda um valor até o múltiplo mais próximo do valor de base fornecido. Daí, `floor(aTime, 1s)` arredonda um tempo até o segundo mais próximo.
 
 [Expressions](app-analytics-scalars.md) pode incluir todos os operadores comuns (`+`, `-`, ...), e há uma variedade de funções úteis.
@@ -153,7 +154,7 @@ O uso de [`extend`](app-analytics-aggregations.md#extend) será menos detalhado 
 
 ## [Summarize](app-analytics-aggregations.md#summarize): agregar grupos de linhas
 
-Ao examinar um exemplo de uma tabela, podemos ver os campos onde dados de telemetria diferentes são relatados. Por exemplo, `exception | take 20` nos mostra rapidamente que as mensagens de exceção são relatadas em um campo chamado `outerExceptionType`.
+Ao examinar um exemplo de uma tabela, podemos ver os campos onde dados de telemetria diferentes são relatados. Por exemplo, `exception | take 20` mostra rapidamente que as mensagens de exceção são relatadas em um campo chamado `outerExceptionType`.
 
 Mas em vez de percorrer instâncias individuais, vamos perguntar quantas exceções foram relatadas de cada tipo:
 
@@ -205,7 +206,7 @@ Você pode usar valores escalares (numéricos, horas ou intervalos) na cláusula
 
 ![](./media/app-analytics-tour/225.png)
 
-`bin` reduz os carimbos de data/hora para intervalos de um dia. É um alias de `floor`, uma função conhecida pela maioria das linguagens. Ele apenas reduz todos os valores para o múltiplo mais próximo do módulo especificado, para que `summarize` possa atribuir as linhas a grupos de um tamanho lógico. (Sem ele, teríamos uma linha de resultado para cada fração separada de um segundo, o que não resumiria os dados).
+`bin` reduz os carimbos de data/hora para intervalos de um dia. É um alias de `floor`, uma função conhecida pela maioria das linguagens. Ele simplesmente reduz cada valor para o múltiplo mais próximo do módulo especificado, de modo que `summarize` possa atribuir as linhas a grupos de um tamanho lógico. (Sem ele, teríamos uma linha de resultado para cada fração separada de um segundo, o que não resumiria os dados).
 
 Podemos fazer melhor do que o modo de exibição de tabela mostrado aqui. Vamos examinar os resultados no modo de exibição de gráfico com a opção de barra vertical:
 
@@ -214,7 +215,7 @@ Podemos fazer melhor do que o modo de exibição de tabela mostrado aqui. Vamos 
 Observe que, embora não tenhamos classificado os resultados por tempo (como você pode ver na exibição de tabela), a exibição de gráfico sempre mostra datetimes na ordem correta.
 
 
-## [Where](app-analytics-aggregations.md#where): filtrando uma condição
+## [Where](app-analytics-aggregations.md#where): filtragem de uma condição
 
 Se você tiver configurado o monitoramento do Application Insights para os lados do [cliente](app-insights-javascript.md) e do servidor de seu aplicativo, alguma telemetria do banco de dados virá de navegadores.
 
@@ -233,10 +234,10 @@ Vamos ver apenas exceções relatadas pelos navegadores:
 O operador `where` usa uma expressão booliana. Eis alguns pontos importantes sobre eles:
 
  * `and`, `or`: operadores boolianos
- * `==`, `<>`: igual a e diferente de
- * `=~`, `!=`: cadeia de caracteres que não diferencia maiúsculas de minúsculas igual a e diferente de. Há muitos outros operadores de comparação de cadeia de caracteres.
+ * `==`, `<>`: igual e diferente
+ * `=~`, `!=`: cadeia de caracteres que não diferencia maiúsculas de minúsculas igual e diferente. Há muitos outros operadores de comparação de cadeia de caracteres.
 
-Leia mais sobre [expressões escalares](app-analytics-scalars.md).
+Leia tudo sobre [expressões escalares](app-analytics-scalars.md).
 
 ### Filtragem de eventos
 
@@ -248,7 +249,7 @@ Solicitações malsucedidas de localização:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` tem o tipo string e, portanto, devemos [convertê-lo](app-analytics-scalars.md#casts) em uma comparação numérica.
+`responseCode` tem o tipo string e, portanto, devemos [convertê-lo](app-analytics-scalars.md#casts) para uma comparação numérica.
 
 Resuma as diferentes respostas:
 
@@ -407,7 +408,7 @@ Para obter uma análise separada para cada país, temos apenas que trazer a colu
 
 Temos acesso a várias tabelas, incluindo solicitações e exceções.
 
-Para encontrar as exceções relacionadas a uma solicitação que retornou uma resposta com falha, podemos unir as tabelas em `session_Id`:
+Para localizar as exceções relacionadas a uma solicitação que retornou uma resposta com falha, podemos unir as tabelas em `session_Id`:
 
 ```AIQL
 
@@ -418,7 +419,7 @@ Para encontrar as exceções relacionadas a uma solicitação que retornou uma r
 ```
 
 
-É uma prática recomendável usar `project` para selecionar apenas as colunas necessárias antes de executar a junção. Renomeamos a coluna de carimbo de data/hora nas mesmas cláusulas.
+É uma prática recomendada usar `project` para selecionar apenas as colunas necessárias antes de executar a junção. Renomeamos a coluna de carimbo de data/hora nas mesmas cláusulas.
 
 
 
@@ -441,4 +442,4 @@ Use [let](./app-analytics-syntax.md#let-statements) para separar as partes da ex
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

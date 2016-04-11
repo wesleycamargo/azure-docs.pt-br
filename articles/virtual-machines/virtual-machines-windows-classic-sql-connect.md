@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Conectar-se a uma Máquina Virtual do SQL Server no Azure (clássico) | Microsoft Azure"
 	description="Este tópico usa recursos criados com o modelo de implantação clássica e descreve como se conectar ao SQL Server em execução em uma Máquina Virtual no Azure. Os cenários diferem dependendo da configuração da rede e do local do cliente."
 	services="virtual-machines-windows"
@@ -7,13 +7,13 @@
 	manager="jeffreyg"
 	editor="monicar"    
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/18/2015"
+	ms.date="03/24/2016"
 	ms.author="jroth" />
 
 # Conectar-se a uma máquina virtual do SQL Server no Azure (implantação clássica)
@@ -28,9 +28,9 @@ Configurar a conectividade com o SQL Server em execução em uma máquina virtua
 
 Mas há alguns aspectos da conectividade com o SQL Server que são específicos para máquinas virtuais do Azure. Este artigo aborda alguns [cenários gerais de conectividade](#connection-scenarios) e descreve [etapas detalhadas para configurar a conectividade com o SQL Server em uma VM do Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-Este artigo se concentra na conectividade. Para ver uma apresentação completa sobre provisionamento e conectividade, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-classic-portal-sql.md).
+Este artigo se concentra em como se conectar a uma máquina virtual do SQL Server existente que usa o modelo clássico.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos. Se você estiver usando VMs do Resource Manager, veja [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](virtual-machines-windows-sql-connect.md).
 
 ## Cenários de conexão
 
@@ -72,7 +72,7 @@ Primeiro, execute as [etapas neste artigo para configurar a conectividade](#step
 
 Supondo que tenha configurado o DNS, você pode se conectar à instância do SQL Server especificando o nome de host da VM do SQL Server na cadeia de conexão. O exemplo a seguir pressupõe que a autenticação do Windows também foi configurada e que o usuário recebeu acesso à instância do SQL Server.
 
-	"Server=mysqlvm;Integrated Security=true" 
+	"Server=mysqlvm;Integrated Security=true"
 
 Observe que, neste cenário, você pode também especificar o endereço IP da VM.
 
@@ -102,12 +102,10 @@ O caminho de conexão é resumido pelo diagrama a seguir:
 
 ## Próximas etapas
 
-Para ver instruções de provisionamento com estas etapas de conectividade, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-classic-portal-sql.md).
-
 Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade e recuperação de desastres, você deve considerar implementar um ouvinte. Clientes do banco de dados se conectam ao ouvinte e não diretamente a uma das instâncias do SQL Server. O ouvinte direciona os clientes para a réplica primária do grupo de disponibilidade. Para obter mais informações, consulte [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 É importante reler todas as práticas recomendadas de segurança para o SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-security.md).
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

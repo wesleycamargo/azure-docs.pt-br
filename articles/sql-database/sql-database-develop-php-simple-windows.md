@@ -26,20 +26,21 @@
 
 Este tópico ilustra como você pode se conectar ao Banco de Dados SQL do Azure de um aplicativo cliente escrito em PHP executado no Windows.
 
+## Etapa 1: configurar o ambiente de desenvolvimento
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### Um Banco de Dados SQL
+## Etapa 2: Criar um banco de dados SQL
 
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
 
-## Etapa 1: Obter detalhes da conexão
+## Etapa 3: obter detalhes da conexão
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Etapa 2: Conectar
+## Etapa 4: conectar
 
 
 Essa função **OpenConnection** é chamada próxima à parte superior em todas as funções a seguir.
@@ -63,7 +64,7 @@ Essa função **OpenConnection** é chamada próxima à parte superior em todas 
 	}
 
 
-## Etapa 3: Executar consulta
+## Etapa 5: executar consulta
 
 A função [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essencialmente, essa função aceita qualquer consulta e o objeto de conexão e retorna um conjunto de resultados que pode ser iterado com o uso de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
@@ -93,7 +94,7 @@ A função [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php)
 	}
 
 
-## Etapa 4: Inserir uma linha
+## Etapa 6: inserir uma linha
 
 Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) com segurança, passar parâmetros que protegem seu aplicativo contra vulnerabilidade [a injeção de SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e recuperar o valor da [Chave Primária](https://msdn.microsoft.com/library/ms179610.aspx) gerado automaticamente.
 
@@ -123,7 +124,7 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 		}
 	}
 
-## Etapa 5: Reverter uma transação
+## Etapa 7: reverter uma transação
 
 
 Este exemplo de código demonstra o uso de transações nas quais você:
@@ -180,4 +181,4 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 
 Para saber mais sobre o uso e a instalação de PHP, confira [Acessando os Bancos de Dados SQL com PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

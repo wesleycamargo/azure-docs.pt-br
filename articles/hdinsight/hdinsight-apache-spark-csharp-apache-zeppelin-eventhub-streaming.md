@@ -26,7 +26,7 @@ Streaming Spark estende a API de núcleo do Spark para criar aplicativos de proc
 
 Neste tutorial, você aprenderá como criar um Hub de Eventos do Azure, como ingerir mensagens em um Hub de Eventos usando um aplicativo de console em C# e recuperá-los em paralelo usando um bloco de notas Zeppelin configurado para Apache Spark no HDInsight.
 
-> [AZURE.NOTE] Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [Portal do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [Portal de Visualização do Azure](https://ms.portal.azure.com/).
+> [AZURE.NOTE] Para seguir as instruções neste artigo, você terá que usar as duas versões do portal do Azure. Para criar um Hub de Eventos, você usará o [portal Clássico do Azure](https://manage.windowsazure.com). Para trabalhar com o cluster HDInsight Spark, você usará o [portal do Azure](https://ms.portal.azure.com/).
 
 **Pré-requisitos:**
 
@@ -54,10 +54,12 @@ Você deve ter o seguinte:
 4. Clique no Hub de Eventos que você criou, clique em **Configurar** e crie duas políticas de acesso para o hub de eventos.
 
 	<table>
-<tr><th>Nome</th><th>Permissões</th></tr>
-<tr><td>mysendpolicy</td><td>Enviar</td></tr>
-<tr><td>myreceivepolicy</td><td>Escutar</td></tr>
-</table>Depois de criar permissões, selecione o ícone **Salvar** na parte inferior da página. Isso cria políticas de acesso compartilhado que serão usadas para enviar (**mysendpolicy**) e escutar (**myreceivepolicy**) para esse Hub de Eventos.
+	<tr><th>Nome</th><th>Permissões</th></tr>
+	<tr><td>mysendpolicy</td><td>Enviar</td></tr>
+	<tr><td>myreceivepolicy</td><td>Escutar</td></tr>
+	</table>
+
+	Depois de criar permissões, selecione o ícone **Salvar** na parte inferior da página. Isso cria políticas de acesso compartilhado que serão usadas para enviar (**mysendpolicy**) e escutar (**myreceivepolicy**) para esse Hub de Eventos.
 
 	![políticas](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Criar políticas de Hub de Eventos")
 
@@ -92,7 +94,7 @@ Para obter instruções sobre como alocar recursos em um cluster do Spark, confi
 
 ### Criar um aplicativo de streaming usando o Zeppelin
 
-1. No [Portal de Visualização do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
+1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
 
 2. Na folha do cluster Spark, clique em **Links Rápidos** e, na folha do **Painel de Cluster**, clique em **Bloco de Anotações Zeppelin**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
@@ -194,4 +196,4 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

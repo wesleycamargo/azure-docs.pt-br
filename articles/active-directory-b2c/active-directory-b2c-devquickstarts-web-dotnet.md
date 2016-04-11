@@ -33,7 +33,7 @@ Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um 
 Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornece ao AD do Azure as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
 
 - Incluir um **aplicativo Web/api Web** no aplicativo
-- Digite `https://localhost:44316/` como um **URL de Resposta**. É a URL padrão deste exemplo de código.
+- Insira `https://localhost:44316/` como um **URI de Redirecionamento**. É a URL padrão deste exemplo de código.
 - Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você precisará dela mais tarde.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -341,4 +341,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/18/2015"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # Por que usar uma abordagem de microsserviço para construir aplicativos?
 Para nós, desenvolvedores de software, não há qualquer novidade no modo como pensamos sobre a decomposição de um aplicativo em partes componentes. É o paradigma central da orientação de objetos, das abstrações de software e da “componentização”. Hoje, essa fatoração tende a assumir a forma de classes e interfaces entre bibliotecas compartilhadas e camadas de tecnologia, normalmente por meio de uma abordagem em camadas, com um repositório back-end, lógica de negócios de camada intermediária e uma interface de usuário front-end. O que *mudou* nos últimos anos é que nós, desenvolvedores, estamos construindo aplicativos distribuídos para a nuvem orientados pelos negócios.
@@ -26,6 +26,8 @@ Entre as necessidades variáveis dos negócios estão:
 - Melhor utilização de recursos para reduzir os custos.
 
 Essas necessidades comerciais estão afetando o *modo* como criamos os aplicativos.
+
+Para obter mais informações sobre a abordagem do Azure aos microsserviços, leia: [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 ## Abordagem de design monolítico versus microsserviços
 Todos os aplicativos evoluem ao longo do tempo. Os aplicativos bem-sucedidos evoluem sendo úteis às pessoas. Aplicativos sem sucesso não evoluem e eventualmente tornam-se obsoletos. A pergunta principal é: o que você realmente sabe sobre suas necessidades atuais e quais serão essas necessidades no futuro? Por exemplo, se você estiver construindo um aplicativo de relatórios para um departamento e tiver certeza de que isso permanecerá dentro do escopo de sua empresa, e de que os relatórios terão vida curta, sua opção de abordagem será diferente de, vamos supor, construir um serviço para entrega de conteúdo em vídeo para dezenas de milhões de clientes. Às vezes, lançar algo como prova de conceito é o fator determinante, com a noção de que o aplicativo pode ser reprojetado posteriormente. Não há muito sentido em trabalhar muito em algo que nunca será usado. É a compensação comum da engenharia. Por outro lado, quando as empresas falam sobre criação para a nuvem, a expectativa é de crescimento e uso. O problema é que o crescimento e o dimensionamento são imprevisíveis. Gostaríamos de ser capazes de criar um protótipo rapidamente e saber, ao mesmo tempo, que estamos no caminho certo para lidar com o sucesso no futuro. Essa é a abordagem de inicialização simples: compilar, medir, aprender, iterar.
@@ -87,7 +89,7 @@ Não importa o modo como você escolhe escrever seus microsserviços, o código 
 #### Armazenamento de estado entre os estilos de aplicativo
 ![Armazenamento de estado da plataforma Service Fabric][Image2]
 
-***À esquerda está a abordagem monolítica com um único banco de dados e camadas de tecnologias específicas.***
+***À esquerda está a abordagem monolítica com um banco de dados individual e camadas de tecnologias específicas.***
 
 ***À direita está a abordagem de microsserviços, um gráfico de microsserviços interconectados, no qual o estado normalmente tem como escopo o microsserviço e várias tecnologias são usadas.***
 
@@ -135,16 +137,15 @@ O Service Fabric fornece duas áreas amplas para ajudar você com a criação de
 
 Talvez. Em nosso caso, com o aumento do número de equipes da Microsoft recebendo instruções para criar para a nuvem por motivos comerciais, muitos delas perceberam os benefícios de usar um método de microsserviços. O Bing, por exemplo, utiliza os microsserviços em pesquisa há anos. Para outras equipes, isso era muito novo. Eles descobriram que havia problemas difíceis que precisavam ser solucionados e que estavam além das suas competências. É por isso que o Service Fabric ganhou adeptos como a tecnologia preferida para a criação de serviços.
 
-O objetivo do Service Fabric é reduzir a complexidade da criação de aplicativos com uma abordagem de microsserviço para que você não precise passar por diversas reformulações dispendiosas. Comece pequeno, expanda quando necessário, substitua serviços, adicione serviços novos e evolua de acordo com o uso do cliente. Essa é a abordagem. Também sabemos que, na realidade, há muitos outros problemas que ainda precisam ser resolvidos para tornar os microsserviços mais acessíveis para a maioria dos desenvolvedores. Os contêineres e o modelo de programação de ator são exemplos de pequenas etapas nessa direção, e temos certeza de que outras inovações surgirão para tornar isso mais fácil. <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+O objetivo do Service Fabric é reduzir a complexidade da criação de aplicativos com uma abordagem de microsserviço para que você não precise passar por diversas reformulações dispendiosas. Comece pequeno, expanda quando necessário, substitua serviços, adicione serviços novos e evolua de acordo com o uso do cliente. Essa é a abordagem. Também sabemos que, na realidade, há muitos outros problemas que ainda precisam ser resolvidos para tornar os microsserviços mais acessíveis para a maioria dos desenvolvedores. Os contêineres e o modelo de programação de ator são exemplos de pequenas etapas nessa direção, e temos certeza de que outras inovações surgirão para tornar isso mais fácil.
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
 * Para mais informações:
 	* [Visão geral da Malha do Serviço](service-fabric-overview.md)
-	* [Visão geral técnica](service-fabric-technical-overview.md)
-* Configurando o [ambiente de desenvolvimento](service-fabric-get-started.md) do Service Fabric
-* Escolhendo uma [estrutura do modelo de programação](service-fabric-choose-framework.md) para o serviço
+    * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/pt-BR/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

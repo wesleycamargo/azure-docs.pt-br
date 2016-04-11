@@ -10,5 +10,7 @@
  - Usada para calcular estatísticas sobre grupos de registros
 - [Escalares](../articles/application-insights/app-analytics-scalars.md)
  - Números, cadeias de caracteres e outras expressões usadas para formar parâmetros de consulta.
+- [Usar](../articles/application-insights/app-analytics-using.md)
+ - Usando a Análise.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

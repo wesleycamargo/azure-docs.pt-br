@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # RunAs: Executar um aplicativo de Service Fabric com permissões de segurança diferentes
 O Service Fabric do Azure fornece o recurso de proteção de aplicativos em execução no cluster em contas de usuário diferentes, conhecido como **RunAs**. O Service Fabric também protege os recursos usados pelos aplicativos com a conta de usuário, como arquivos, diretórios e certificados.
@@ -94,13 +94,13 @@ Em seguida, certifique-se de que o arquivo MySetup.bat é incluído no service p
 Agora, abra o arquivo MySetup.bat e adicione os comandos a seguir.
 
 ~~~
-REM Defina uma variável de ambiente do sistema. Isso requer privilégios de administrador
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
 echo System TestVariable set to > out.txt
 echo %TestVariable% >> out.txt
 
-REM Para excluir essa variável do sistema use
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM To delete this system variable us
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
 Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme mostrado no Gerenciador do Service Fabric, é possível ver que MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite:
@@ -110,7 +110,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Em seguida, anote o nome do nó em que o serviço foi implantado e iniciado no Gerenciador do Service Fabric, por exemplo, Nó 1. Em seguida, navegue até a pasta de trabalho de instância do aplicativo para localizar o arquivo out.txt que mostra o valor de **TestVariable**. Por exemplo, se ele foi implantado no Nó 2, você pode acessar este caminho até o **MyApplicationType**:
+Em seguida, anote o nome do nó no qual o serviço foi implantado e iniciado no Gerenciador do Service Fabric, por exemplo, Nó 2. Em seguida, navegue até a pasta de trabalho de instância do aplicativo para localizar o arquivo out.txt que mostra o valor de **TestVariable**. Por exemplo, se ele foi implantado no Nó 2, você pode acessar este caminho até o **MyApplicationType**:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
@@ -351,4 +351,4 @@ O manifesto do aplicativo abaixo mostra várias configurações diferentes descr
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

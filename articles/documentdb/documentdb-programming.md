@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/30/2016" 
 	ms.author="andrl"/>
 
 # Programação no servidor do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados
@@ -74,7 +74,7 @@ Os procedimentos armazenados são registrados por coleção e podem operar em qu
 
 	// register the stored procedure
 	var createdStoredProcedure;
-	client.createStoredProcedureAsync(collection._self, helloWorldStoredProc)
+	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
 		.then(function (response) {
 		    createdStoredProcedure = response.resource;
 		    console.log("Successfully created stored procedure");
@@ -86,7 +86,7 @@ Os procedimentos armazenados são registrados por coleção e podem operar em qu
 Uma vez que o procedimento armazenado é registrado, podemos executá-lo em relação à coleção e ler os resultados no cliente.
 
 	// execute the stored procedure
-	client.executeStoredProcedureAsync(createdStoredProcedure._self)
+	client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
 		.then(function (response) {
 		    console.log(response.result); // "Hello, World"
 		}, function (err) {
@@ -101,21 +101,21 @@ Vamos ampliar esse exemplo e adicionar mais funcionalidades relativas ao banco d
 ### Exemplo: escrever um procedimento armazenado para criar um documento 
 O próximo trecho mostra como usar o objeto de contexto para interagir com recursos do Banco de Dados de Documentos.
 
-	var createDocumentStoredProc = {
-	    id: "createMyDocument",
-	    body: function createMyDocument(documentToCreate) {
-	        var context = getContext();
-	        var collection = context.getCollection();
-	
-	        var accepted = collection.createDocument(collection.getSelfLink(),
-	              documentToCreate,
-				function (err, documentCreated) {
-				    if (err) throw new Error('Error' + err.message);
-				    context.getResponse().setBody(documentCreated.id)
-				});
-	        if (!accepted) return;
-	    }
-	}
+    var createDocumentStoredProc = {
+        id: "createMyDocument",
+        body: function createMyDocument(documentToCreate) {
+            var context = getContext();
+            var collection = context.getCollection();
+
+            var accepted = collection.createDocument(collection.getSelfLink(),
+                  documentToCreate,
+                  function (err, documentCreated) {
+                      if (err) throw new Error('Error' + err.message);
+                      context.getResponse().setBody(documentCreated.id)
+                  });
+            if (!accepted) return;
+        }
+    }
 
 
 Esse procedimento armazenado assume como entrada documentToCreate, o corpo de um documento a ser criado na coleção atual. Todas essas operações são assíncronas e dependem de retornos de chamada de função do JavaScript. A função de retorno de chamada possui dois parâmetros, um para o objeto de erro no caso de falhas na operação e um para o objeto criado. Dentro da chamada de retorno, os usuários podem lidar com a exceção ou lançar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o tempo de execução do Banco de Dados de Documentos lança um erro.
@@ -123,7 +123,7 @@ Esse procedimento armazenado assume como entrada documentToCreate, o corpo de um
 No exemplo acima, a chamada de torno lançará um erro se a operação falhar. Caso contrário, ela definirá a ID do documento criada como o corpo da resposta ao cliente. A seguir, mostramos como esse procedimento armazenado é executado com parâmetros de entrada.
 
 	// register the stored procedure
-	client.createStoredProcedureAsync(collection._self, createDocumentStoredProc)
+	client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
 		.then(function (response) {
 		    var createdStoredProcedure = response.resource;
 	
@@ -134,7 +134,7 @@ No exemplo acima, a chamada de torno lançará um erro se a operação falhar. C
 		        author: "Douglas Adams"
 		    };
 	
-		    return client.executeStoredProcedureAsync(createdStoredProcedure._self,
+		    return client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/createMyDocument',
 	              docToCreate);
 		}, function (error) {
 		    console.log("Error", error);
@@ -221,6 +221,8 @@ No Banco de Dados de Documentos, o JavaScript é hospedado no mesmo espaço de m
 	);
 
 Esse procedimento armazenado utiliza transações dentro de um aplicativo de jogos para negociar itens entre dois jogadores em uma única operação. O procedimento armazenado tenta ler dois ou mais documentos, cada um correspondente às IDs dos jogadores transmitidos como um argumento. Se os documentos de ambos os jogadores forem encontrados, então, o procedimento armazenado atualizará os documentos trocando seus itens. Se forem encontrados erros pelo caminho, uma exceção JavaScript será lançada, o que aborta implicitamente a transação.
+
+Se a coleção na qual o procedimento armazenado está registrado for uma coleção de única partição, o escopo da transação será todos os documentos dentro da coleção. Se a coleção for particionada, os procedimentos armazenados serão executados no escopo da transação de uma única chave de partição. A execução de cada procedimento armazenado deve incluir um valor de chave de partição correspondente ao escopo sob o qual a transação deve ser executada. Para obter mais detalhes, consulte [Particionamento do Banco de Dados de Documentos](documentdb-partition-data.md).
 
 ### Confirmação e reversão
 As transações são profunda e nativamente integradas ao modelo de programação de JavaScript do Banco de Dados de Documentos. Dentro de uma função de JavaScript, todas as operações são automaticamente encapsuladas em uma única transação. Se o JavaScript for concluído sem nenhuma exceção, as operações de banco de dados serão confirmadas. Com isso, as declarações “BEGIN TRANSACTION” e “COMMIT TRANSACTION” em bancos de dados relacionais são implícitas no Banco de Dados de Documentos.
@@ -405,7 +407,7 @@ O exemplo a seguir mostra pós-gatilhos em ação:
 O gatilho pode ser registrado como mostrado na amostra a seguir.
 
 	// register post-trigger
-	client.createTriggerAsync(collection.self, updateMetadataTrigger)
+	client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
 		.then(function(createdTrigger) { 
 		    var docToCreate = { 
 		        name: "artist_profile_1023",
@@ -457,12 +459,12 @@ A amostra a seguir cria uma UDF para calcular o imposto de renda com base nas ta
 A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
 
 	// register UDF
-	client.createUserDefinedFunctionAsync(collection.self, taxUdf)
+	client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
 		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
-		    return client.queryDocuments(collection.self,
+		    return client.queryDocuments('dbs/testdb/colls/testColl',
 	               query).toArrayAsync();
 		}, function(error) {
 		    console.log("Error" , error);
@@ -481,7 +483,7 @@ Além de emitir consultas usando a gramática SQL do Banco de Dados de Documento
 > <br/>
 > Em outras palavras, você pode usar `__` ou `getContext().getCollection()` para acessar a API de consulta JavaScript.
 
-As funções com suporte incluem:
+As funções permitidas incluem:
 <ul>
 <li>
 <b>chain() ... .value([callback] [, options])</b>
@@ -495,7 +497,7 @@ Inicia uma chamada encadeada que deve ser terminada com value().
 <b>filter(predicateFunction [, options] [, callback])</b>
 <ul>
 <li>
-Filtra a entrada usando uma função de predicado que retorna verdadeiro/falso para filtrar a entrada/saída de documentos de entrada no conjunto resultante. Esta tem um comportamento semelhante a uma cláusula WHERE no SQL.
+Filtra a entrada usando uma função de predicado que retorna true/false para filtrar documentos de entrada no conjunto resultante. Esse comportamento é semelhante ao de uma cláusula WHERE no SQL.
 </li>
 </ul>
 </li>
@@ -503,7 +505,7 @@ Filtra a entrada usando uma função de predicado que retorna verdadeiro/falso p
 <b>map(transformationFunction [, options] [, callback])</b>
 <ul>
 <li>
-Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um valor ou objeto JavaScript. Esta tem um comportamento semelhante a uma cláusula SELECT no SQL.
+Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um objeto ou valor JavaScript. Esse comportamento é semelhante ao de uma cláusula SELECT no SQL.
 </li>
 </ul>
 </li>
@@ -511,7 +513,7 @@ Aplica uma projeção dada uma função de transformação que mapeia cada item 
 <b>pluck([propertyName] [, options] [, callback])</b>
 <ul>
 <li>
-Este é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada.
+Esse é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada.
 </li>
 </ul>
 </li>
@@ -519,7 +521,7 @@ Este é um atalho para um mapa que extrai o valor de uma única propriedade de c
 <b>flatten([isShallow] [, options] [, callback])</b>
 <ul>
 <li>
-Combina e nivela as matrizes de cada item de entrada a uma única matriz. Esta tem um comportamento semelhante a SelectMany no LINQ.
+Combina e nivela as matrizes de cada item de entrada em uma única matriz. Esse comportamento é semelhante ao de SelectMany no LINQ.
 </li>
 </ul>
 </li>
@@ -527,7 +529,7 @@ Combina e nivela as matrizes de cada item de entrada a uma única matriz. Esta t
 <b>sortBy([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem crescente utilizando o predicado em questão. Esta tem um comportamento semelhante a uma cláusula ORDER BY no SQL.
+Produz um novo conjunto de documentos classificando os documentos no fluxo de documentos de entrada em ordem crescente usando o predicado em questão. Esse comportamento é semelhante ao da cláusula ORDER BY no SQL.
 </li>
 </ul>
 </li>
@@ -535,7 +537,7 @@ Produz um novo conjunto de documentos, classificando os documentos no fluxo de d
 <b>sortByDescending([predicate] [, options] [, callback])</b>
 <ul>
 <li>
-Produz um novo conjunto de documentos, classificando os documentos no fluxo de documentos de entrada em ordem decrescente utilizando o predicado em questão. Esta se comporta de forma semelhante a uma cláusula ORDER BY x DESC no SQL.
+Produz um novo conjunto de documentos classificando os documentos no fluxo de documentos de entrada em ordem decrescente usando o predicado em questão. Esse comportamento é semelhante ao da cláusula ORDER BY x DESC no SQL.
 </li>
 </ul>
 </li>
@@ -626,13 +628,13 @@ Assim como acontece com consultas SQL, as chaves de propriedade do documento (po
 <tbody>
 <tr>
 <th>SQL</th>
-<th>API de Consulta JavaScript</th>
+<th>API de consulta do JavaScript</th>
 <th>Detalhes</th>
 </tr>
 <tr>
 <td>
 <pre>
-SELECT *
+SELECIONAR *
 FROM docs
 </pre>
 </td>
@@ -643,7 +645,7 @@ __.map(function(doc) {
 });
 </pre>
 </td>
-<td>Resulta em todos os documentos (paginados com o token de continuação) como estão.</td>
+<td>Resulta em todos os documentos (paginados com token de continuação) no estado em que se encontram.</td>
 </tr>
 <tr>
 <td>
@@ -663,12 +665,12 @@ __.map(function(doc) {
 });
 </pre>
 </td>
-<td>Projeta a id, a mensagem (com o alias msg) e ação de todos os documentos.</td>
+<td>Projeta a ID, a mensagem (com o alias msg) e a ação de todos os documentos.</td>
 </tr>
 <tr>
 <td>
 <pre>
-SELECT * 
+SELECIONAR * 
 FROM docs 
 WHERE docs.id="X998_Y998"
 </pre>
@@ -680,11 +682,12 @@ __.filter(function(doc) {
 });
 </pre>
 </td>
-<td>Consulta documentos com o predicado: id = "X998_Y998".</td></tr>
+<td>Consulta documentos com o predicado : id = "X998_Y998".</td>
+</tr>
 <tr>
 <td>
 <pre>
-SELECT *
+SELECIONAR *
 FROM docs
 WHERE ARRAY_CONTAINS(docs.Tags, 123)
 </pre>
@@ -692,11 +695,11 @@ WHERE ARRAY_CONTAINS(docs.Tags, 123)
 <td>
 <pre>
 __.filter(function(x) {
-    return x.Tags && x.Tags.indexOf(123) > -1;
+    return x.Tags &amp;&amp; x.Tags.indexOf(123) > -1;
 });
 </pre>
 </td>
-<td>Consultas para documentos que tenham a propriedade Tags e Tags é uma matriz com o valor 123.</td>
+<td>Consulta documentos com uma propriedade Tags e Tags é uma matriz que contém o valor 123.</td>
 </tr>
 <tr>
 <td>
@@ -721,7 +724,7 @@ __.chain()
     .value();
 </pre>
 </td>
-<td>Consulta documentos com um predicado, id = "X998_Y998" e projeta a id e a mensagem (com o alias msg).</td>
+<td>Consulta documentos com um predicado, id = "X998_Y998" e projeta a ID e a mensagem (com alias para msg).</td>
 </tr>
 <tr>
 <td>
@@ -736,7 +739,7 @@ ORDER BY docs._ts
 <pre>
 __.chain()
     .filter(function(doc) {
-        return doc.Tags && Array.isArray(doc.Tags);
+        return doc.Tags &amp;&amp; Array.isArray(doc.Tags);
     })
     .sortBy(function(doc) {
     	return doc._ts;
@@ -746,7 +749,7 @@ __.chain()
     .value()
 </pre>
 </td>
-<td>Filtra documentos com uma propriedade de matriz, Tags e classifica os documentos resultantes pela propriedade do sistema _ts timestamp, depois projeta e nivela a matriz Tags.</td>
+<td>Filtra documentos que têm uma propriedade de matriz, Tags, e classifica os documentos resultantes pela propriedade do sistema do carimbo de data/hora _ts e projeta + mescla a matriz Tags.</td>
 </tr>
 </tbody>
 </table>
@@ -785,13 +788,13 @@ Além do cliente [Node.js](documentdb-sdk-node.md), o Banco de Dados de Document
 	};
 	
 	// register stored procedure
-	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(collection.SelfLink, markAntiquesSproc);
+	StoredProcedure createdStoredProcedure = await client.CreateStoredProcedureAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), markAntiquesSproc);
 	dynamic document = new Document() { Id = "Borges_112" };
 	document.Title = "Aleph";
 	document.Year = 1949;
 	
 	// execute stored procedure
-	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
+	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
 
 
 Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) para criar um pré-gatilho e um documento com o gatilho habilitado.
@@ -808,7 +811,7 @@ Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/az
 	    TriggerType = TriggerType.Pre
 	};
 	
-	Document createdItem = await client.CreateDocumentAsync(collection.SelfLink, new Document { Id = "documentdb" },
+	Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), new Document { Id = "documentdb" },
 	    new RequestOptions
 	    {
 	        PreTriggerInclude = new List<string> { "CapitalizeName" },
@@ -826,7 +829,7 @@ E o exemplo a seguir mostra como criar uma função definida pelo usuário (UDF)
 	    }"
 	};
 	
-	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
+	foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"),
 	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
@@ -856,8 +859,7 @@ Todas as operações do Banco de Dados de Documentos podem ser realizadas de man
 	}
 
 
-O procedimento armazenado é registrado executando uma solicitação POST em relação à URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs com o corpo contendo o procedimento armazenado a ser criado. Disparadores e UDFs podem ser registrados da mesma forma, emitindo um POST para /triggers e /udfs respectivamente.
-Este procedimento armazenado pode, então, ser executado emitindo uma solicitação POST ao link de recursos:
+O procedimento armazenado é registrado pela execução de uma solicitação POST em relação ao URI dbs/testdb/colls/testColl/sprocs com o corpo contendo o procedimento armazenado a ser criado. Disparadores e UDFs podem ser registrados da mesma forma, emitindo um POST para /triggers e /udfs respectivamente. Este procedimento armazenado pode, então, ser executado emitindo uma solicitação POST ao link de recursos:
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>
@@ -923,4 +925,4 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 - [Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 - [Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->
