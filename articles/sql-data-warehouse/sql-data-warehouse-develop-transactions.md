@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transações no SQL Data Warehouse
@@ -57,7 +57,7 @@ O SQL Data Warehouse usa a função XACT\_STATE() para relatar uma transação c
 
 No SQL Server, talvez você veja um fragmento de código com esta aparência:
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -83,7 +83,7 @@ Observe que a instrução `SELECT` ocorre antes da instrução `ROLLBACK`. Obser
 
 No SQL Data Warehouse, o código precisa ter esta aparência:
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -140,4 +140,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

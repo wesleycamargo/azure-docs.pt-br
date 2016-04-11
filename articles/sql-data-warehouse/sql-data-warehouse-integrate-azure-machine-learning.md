@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Use o Aprendizado de Máquina do Azure com o SQL Data Warehouse
@@ -54,7 +54,7 @@ Selecione o módulo Leitor e preencha o painel de propriedades.
 7. Consulta de banco de dados: insira uma instrução SQL que descreve os dados que você deseja ler. Nesse caso, vamos ler dados da tabela de produto usando a consulta a seguir.
 
 
-```
+```SQL
 SELECT ProductKey, EnglishProductName, StandardCost,
         ListPrice, Size, Weight, DaysToManufacture,
         Class, Style, Color
@@ -150,4 +150,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

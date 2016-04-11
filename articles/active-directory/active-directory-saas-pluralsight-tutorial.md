@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,18 +65,18 @@ Para configurar a integração do Pluralsight ao AD do Azure, você precisará a
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Pluralsight**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_01.png)<br>
-7. No painel de resultados, selecione **Pluralsight** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+7. No painel de resultados, selecione **Pluralsight** e clique em **Concluir** para adicionar o aplicativo. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_06.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o Pluralsight, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Pluralsight é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do AD do Azure e o usuário relacionado do Pluralsight.<br> Essa relação de vinculação é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure como sendo o valor de **nome de usuário** no Pluralsight.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Pluralsight é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado do Pluralsight.<br> Essa relação de vinculação é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como sendo o valor de **nome de usuário** no Pluralsight.
 
 Para configurar e testar o logon único do AD do Azure com o Pluralsight, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criação de um usuário de teste do Pluralsight](#creating-a-pluralsight-test-user)**: para ter um equivalente de Brenda Fernandes no Pluralsight que esteja vinculado à representação dela no AD do Azure.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criação de um usuário de teste do Pluralsight](#creating-a-pluralsight-test-user)**: para ter um equivalente de Brenda Fernandes no Pluralsight que esteja vinculado à representação dela no Azure AD.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
@@ -86,7 +86,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal cl
 
 Seu aplicativo Pluralsight espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. Remova as declarações padrão de nome, sobrenome e endereço de email. Em seguida, adicione as seguintes declarações e selecione os valores na lista suspensa, conforme exibido. <br><br> ![Configurar o logon único](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_02.png) <br>
 
-Você também pode adicionar o atributo **"ID Exclusivo"** com o valor apropriado, como EmployeeID, ou algo que se adapte à sua organização. Observe também que esse não é o atributo obrigatório, mas pode ser adicionado para identificar o usuário exclusivo.
+Você também pode adicionar o atributo **"ID Exclusiva"** com o valor apropriado, como EmployeeID, ou algo que se adapte à sua organização. Observe também que esse não é o atributo obrigatório, mas pode ser adicionado para identificar o usuário exclusivo.
 
 **Para configurar o logon único do AD do Azure com o Pluralsight, execute as seguintes etapas:**
 
@@ -189,7 +189,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do AD do Azure usando o Painel de Acesso.<br> Ao clicar no bloco Pluralsight no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo Pluralsight.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> Ao clicar no bloco Pluralsight no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo Pluralsight.
 
 
 ## Recursos adicionais
@@ -216,4 +216,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-pluralsight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

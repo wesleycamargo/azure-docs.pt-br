@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Sobre as máquinas virtuais do Azure | Microsoft Azure"
-	description="Saiba mais sobre os conceitos básicos das máquinas virtuais no Azure que usam os dois modelos de implantação."
+	pageTitle="Sobre as máquinas virtuais do Linux | Microsoft Azure"
+	description="Saiba mais sobre os conceitos básicos das máquinas virtuais do Linux no Azure usando os dois modelos de implantação."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,14 +17,14 @@
 	ms.date="03/10/2016"
 	ms.author="cynthn"/>
 
-#Sobre as máquinas virtuais do Azure 
+#Sobre máquinas virtuais do Linux no Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 Máquinas Virtuais do Azure é um dos vários tipos de recursos de computação sob demanda escalonáveis oferecidos pelo Azure. Normalmente, você escolhe uma máquina virtual quando precisa de mais controle sobre o ambiente de computação do que as outras opções oferecem.
 
-Uma máquina virtual do Azure oferece a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a máquina virtual. No entanto, você ainda precisa manter a máquina virtual – configurar, corrigir e manter o software executado nela.
+Uma máquina virtual do Azure oferece a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a máquina virtual. No entanto, você ainda precisa manter a máquina virtual – configurar, corrigir e manter o software executado nela. Você também pode aprender [sobre máquinas virtuais do Windows no Azure](virtual-machines-windows-about.md).
 
 Esta tabela ajuda a comparar as opções oferecidas pelo Azure.
 
@@ -38,8 +38,8 @@ Como o tutorial ajuda a criar uma máquina virtual rapidamente, ele mostra apena
 
 
 <!--links-->
-[Serviço de Aplicativo]: app-service-choose-me.md
-[Máquinas virtuais]: #tellmevm
-[Serviços de Nuvem]: cloud-services-choose-me.md
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

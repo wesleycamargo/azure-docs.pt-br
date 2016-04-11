@@ -15,10 +15,9 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
 # Amostras da Análise para o Application Insights
 
-A [Análise](app-analytics.md) é um mecanismo de pesquisa avançado para sua telemetria do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise. Também há um [tour pela linguagem](app-analytics-tour.md), que recomendamos para o guia de Introdução.
+A [Análise](app-analytics.md) permite executar consultas avançadas na telemetria de seu aplicativo coletada pelo [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta. Também há um [tour pela linguagem](app-analytics-tour.md), que recomendamos para o guia de Introdução.
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -437,4 +436,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

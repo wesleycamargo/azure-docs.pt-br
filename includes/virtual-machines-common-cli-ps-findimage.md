@@ -1,33 +1,5 @@
 
 
-
-
-
-## Tabela de imagens mais usadas
-
-
-| PublisherName | Oferta | Sku |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7\.1 |
-| CoreOS | CoreOS | Beta |
-| CoreOS | CoreOS | Estável |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Padrão |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12\.04.5-LTS |
-| Canônico | UbuntuServer | 14\.04.2-LTS |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
-
-
 ## CLI do Azure
 
 > [AZURE.NOTE] Este artigo descreve como navegar e selecionar imagens da máquina virtual usando uma instalação recente da CLI do Azure ou do Azure PowerShell. Como pré-requisito, você precisaria alterar para o modo do Gerenciador de Recursos. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`.
@@ -118,18 +90,11 @@ Com essas informações, agora você pode localizar exatamente a imagem que dese
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Agora você pode escolher exatamente a imagem que deseja usar. Para criar uma máquina virtual rapidamente usando as informações de URN que você acabou de encontrar, ou para usar um modelo com essas informações de URN, consulte [Usando a CLI do Azure para Mac, Linux e Windows no Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md).
-
-### Passo a passo em vídeo
-
-Este vídeo demonstra as etapas acima usando a CLI.
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
-
+Agora você pode escolher exatamente a imagem que deseja usar. Para criar uma máquina virtual rapidamente usando as informações de URN que você acabou de encontrar, ou para usar um modelo com essas informações de URN, consulte [Usando a CLI do Azure para Mac, Linux e Windows no Gerenciador de Recursos do Azure](../articles/xplat-cli-azure-resource-manager.md).
 
 ## PowerShell
 
-Com o PowerShell, digite `Switch-AzureMode AzureResourceManager`. Consulte [Usando a CLI do Azure com gerenciamento de recursos](xplat-cli-azure-resource-manager.md) e [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md) para obter detalhes mais completos de atualização e configuração.
+Com o PowerShell, digite `Switch-AzureMode AzureResourceManager`. Consulte [Usando a CLI do Azure com gerenciamento de recursos](../articles/xplat-cli-azure-resource-manager.md) e [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../articles/powershell-azure-resource-manager.md) para obter detalhes mais completos de atualização e configuração.
 
 > [AZURE.NOTE] Com os módulos do Azure PowerShell posteriores a 1.0, o cmdlet `Switch-AzureMode` foi removido. Com essa versão e mais recentes, substitua os comandos abaixo com a parte `Azure` substituídas pela `AzureRm`. Se você estiver usando módulos do Azure PowerShell abaixo do 1.0, você usará os comandos abaixo, mas você deve primeiro `Switch-AzureMode AzureResourceManager`.
 
@@ -229,4 +194,4 @@ Este vídeo demonstra as etapas acima usando o PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

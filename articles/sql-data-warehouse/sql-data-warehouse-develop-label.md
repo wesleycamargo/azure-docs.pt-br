@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Usar rótulos para consultas de instrumento no SQL Data Warehouse
 O SQL Data Warehouse oferece suporte a um conceito chamado rótulos de consulta. Antes de entrar em qualquer profundidade, vamos examinar um exemplo:
 
-```
+```sql
 SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query Label')
@@ -32,7 +32,7 @@ Uma boa convenção de nomenclatura ajuda muito aqui. Por exemplo, algo como ‘
 
 Para pesquisar por rótulo, você pode usar a consulta a seguir que usa os modos de exibição de gerenciamento dinâmico:
 
-```
+```sql
 SELECT  *
 FROM    sys.dm_pdw_exec_requests r
 WHERE   r.[label] = 'My Query Label'
@@ -54,4 +54,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

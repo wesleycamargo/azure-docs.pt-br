@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/09/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess"/>
 
 # Recuperar um banco de dados de uma interrupção no SQL Data Warehouse
@@ -33,7 +33,7 @@ Recuperar um banco de dados cria um novo banco de dados do último backup com re
 
 
 ### Portal do Azure
-1. Faça logon no [Portal do Azure][]
+1. Faça logon no [Portal do Azure][].
 2. No lado esquerdo da tela, selecione **+NOVO**, selecione **Dados e Armazenamento** e selecione **SQL Data Warehouse**
 3. Selecione **BACKUP** como a origem e selecione o backup redundante geograficamente do qual você deseja recuperar
 4. Especifique o restante das propriedades do banco de dados e clique em **Criar**
@@ -52,7 +52,7 @@ Para recuperar um banco de dados, use o cmdlet [Start-AzureSqlDatabaseRecovery][
 5. Crie a solicitação de recuperação para o banco de dados.
 6. Monitore o progresso da recuperação.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -113,4 +113,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 [Portal do Azure]: https://portal.azure.com/
 [contatando o suporte]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

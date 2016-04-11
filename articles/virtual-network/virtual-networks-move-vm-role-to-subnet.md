@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # Como mover uma VM ou instância de função para uma sub-rede diferente.
 
 Você pode usar o PowerShell para mover suas VMs de uma sub-rede para outra na mesma rede virtual (VNet). As instâncias de função podem ser movidas editando o CSCFG em vez de usar o PowerShell.
+
+>[AZURE.NOTE] Este artigo contém informações referentes apenas a implantações clássicas do Azure.
 
 Por que transferir VMs para outra sub-rede? A migração de sub-rede é útil quando a sub-rede antiga é muito pequena e não pode ser expandida devido às VMs existentes em execução nessa sub-rede. Nesse caso, você pode criar uma nova sub-rede maior e migrar as máquinas virtuais para a nova sub-rede. Após a conclusão da migração, você pode excluir a sub-rede antiga vazia.
 
@@ -51,4 +53,4 @@ Para mover uma instância de função, edite o arquivo CSCFG. No exemplo a segui
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

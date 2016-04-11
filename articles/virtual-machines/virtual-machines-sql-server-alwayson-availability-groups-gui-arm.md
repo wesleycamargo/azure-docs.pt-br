@@ -54,7 +54,7 @@ Este tutorial pressupõe o seguinte:
 
 - Você já tem uma conta do Azure. Se não tiver uma, [inscreva-se em uma conta de avaliação](http://azure.microsoft.com/pricing/free-trial/).
 
-- Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para saber mais, confira [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-classic-portal-sql.md)
+- Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, veja [Provisioning a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
 
 - Você já tem uma compreensão sólida dos grupos de disponibilidade AlwaysOn. Para saber mais, confira [Grupos de disponibilidade AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -260,4 +260,4 @@ Agora você está conectado ao controlador de domínio primário. Para usar o pr
 
 Agora você está conectado ao SQL Server com protocolo RDP. Você pode abrir o SQL Server Management Studio, conectar-se à instância padrão do SQL Server e verificar se o grupo de disponibilidade AlwaysOn está configurado.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

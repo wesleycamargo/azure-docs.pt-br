@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="03/28/2016"
    ms.author="abhisram"/>
 
 # Diagnóstico e monitoramento de desempenho para Reliable Actors
@@ -114,6 +114,8 @@ O tempo de execução dos Reliable Actors publica os contadores de desempenho a 
 |Nome da categoria|Nome do contador|Descrição|
 |---|---|---|
 |Ator da Malha do Serviço|Número de chamadas do ator aguardando o bloqueio do ator|Número de chamadas pendentes do ator aguardando para adquirir o bloqueio por ator que aplica a simultaneidade baseada em turno|
+|Ator da Malha do Serviço|Média de milissegundos por espera de bloqueio|Tempo (em milissegundos) para adquirir o bloqueio por ator que impõe a simultaneidade baseada em turno|
+|Ator da Malha do Serviço|Média de milissegundos de manutenção de bloqueio do ator|Tempo (em milissegundos) pelo qual o bloqueio por ator é mantido|
 
 ### Contadores de desempenho e eventos do gerenciamento de estado do ator
 O tempo de execução de Reliable Actors emite os eventos a seguir relacionados ao [gerenciamento de estado do ator](service-fabric-reliable-actors-introduction.md#actor-state-management).
@@ -128,24 +130,17 @@ O tempo de execução dos Reliable Actors publica os contadores de desempenho a 
 |Nome da categoria|Nome do contador|Descrição|
 |---|---|---|
 |Ator da Malha do Serviço|Milissegundos em média por operação de salvamento do estado|Tempo necessário para salvar o estado do ator em milissegundos|
+|Ator da Malha do Serviço|Média de milissegundos por operação de carregar estado|Tempo necessário para carregar o estado do ator em milissegundos|
 
-### Eventos relacionados às instâncias de ator sem estado
-O tempo de execução de Reliable Actors emite os eventos a seguir relacionados às [instâncias de ator sem estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
-
-|Nome do evento|ID do evento|Nível|Palavra-chave|Descrição|
-|---|---|---|---|---|
-|ServiceInstanceOpen|3|Informativo|0x1|Instância do ator sem estado aberta. Isso significa que os atores para essa partição podem ser criados dentro dessa instância (e possivelmente outras instâncias também).|
-|ServiceInstanceClose|4|Informativo|0x1|Instância do ator sem estado fechada. Isso significa que os atores dessa partição não serão mais criados dentro dessa instância. Nenhuma nova solicitação será entregue aos atores já criados dentro dessa instância. Os atores serão destruídos depois que todas as solicitações em andamento forem concluídas.|
-
-### Eventos relacionados às réplicas de ator com estado
-O tempo de execução de Reliable Actors emite os eventos a seguir relacionados às [réplicas de ator com estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+### Eventos relacionados às réplicas do ator
+O tempo de execução dos Reliable Actors emite os seguintes eventos relacionados às [réplicas do ator](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
 
 |Nome do evento|ID do evento|Nível|Palavra-chave|Descrição|
 |---|---|---|---|---|
-|ReplicaChangeRoleToPrimary|1|Informativo|0x1|Função alterada pela réplica de ator com estado para Primária. Isso significa que os atores dessa partição serão criados dentro dessa réplica.|
-|ReplicaChangeRoleFromPrimary|2|Informativo|0x1|Função alterada pela réplica de ator com estado para não Primária. Isso significa que os atores dessa partição não serão mais criados dentro dessa réplica. Nenhuma nova solicitação será entregue aos atores já criados dentro dessa réplica. Os atores serão destruídos depois que todas as solicitações em andamento forem concluídas.|
+|ReplicaChangeRoleToPrimary|1|Informativo|0x1|A réplica do ator alterou a função para Primária. Isso significa que os atores dessa partição serão criados dentro dessa réplica.|
+|ReplicaChangeRoleFromPrimary|2|Informativo|0x1|A réplica do ator alterou a função para não Primária. Isso significa que os atores dessa partição não serão mais criados dentro dessa réplica. Nenhuma nova solicitação será entregue aos atores já criados dentro dessa réplica. Os atores serão destruídos depois que todas as solicitações em andamento forem concluídas.|
 
-### Eventos de ativação e desativação do ator
+### Eventos de ativação e desativação do ator e contadores de desempenho
 O tempo de execução de Reliable Actors emite os eventos a seguir relacionados à [ativação e desativação do ator](service-fabric-reliable-actors-lifecycle.md).
 
 |Nome do evento|ID do evento|Nível|Palavra-chave|Descrição|
@@ -153,4 +148,20 @@ O tempo de execução de Reliable Actors emite os eventos a seguir relacionados 
 |ActorActivated|5|Informativo|0x1|Um ator foi ativado.|
 |ActorDeactivated|6|Informativo|0x1|Um ator foi desativado.|
 
-<!---HONumber=AcomDC_0211_2016-->
+O tempo de execução dos Reliable Actors publica os contadores de desempenho a seguir relacionados à ativação e à desativação do ator.
+
+|Nome da categoria|Nome do contador|Descrição|
+|---|---|---|
+|Ator da Malha do Serviço|Média de milissegundos para OnActivateAsync|Tempo necessário para executar o método OnActivateAsync em milissegundos|
+
+### Solicitação do ator processando contadores de desempenho
+Quando um cliente chama um método por meio de um objeto de proxy do ator, isso resulta no envio de uma mensagem de solicitação pela rede para o serviço de ator. O serviço processa a mensagem de solicitação e envia uma resposta de volta ao cliente. O tempo de execução dos Reliable Actors publica os seguintes contadores de desempenho relacionados ao processamento de solicitação de ator.
+
+|Nome da categoria|Nome do contador|Descrição|
+|---|---|---|
+|Ator da Malha do Serviço|N º de solicitações pendentes|Número de solicitações sendo processadas no serviço|
+|Ator da Malha do Serviço|Média de milissegundos por solicitação|Tempo (em milissegundos) que o serviço leva para processar uma solicitação|
+|Ator da Malha do Serviço|Média de milissegundos para desserialização de solicitação|Tempo (em milissegundos) para desserializar a mensagem de solicitação do ator quando ela é recebida no serviço|
+|Ator da Malha do Serviço|Média de milissegundos para serialização de resposta|Tempo (em milissegundos) para serializar a mensagem de resposta do ator no serviço antes de a resposta ser enviada ao cliente|
+
+<!---HONumber=AcomDC_0330_2016-->

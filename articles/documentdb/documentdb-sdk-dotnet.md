@@ -13,25 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # SDK do Banco de Dados de Documentos
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
+- [SDK .NET](documentdb-sdk-dotnet.md)
+- [SDK do Node.js](documentdb-sdk-node.md)
 - [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [SDK do Python](documentdb-sdk-python.md)
 
 ##SDK do .NET para o Banco de Dados de Documentos
 
-<table> <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr> <tr><td>**Documentação**</td><td>[Documentação de referência do SDK do .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr> <tr><td>**Exemplos**</td><td>[Exemplos de código do .NET](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr> <tr><td>**Introdução**</td><td>[Introdução ao SDK do .NET para o Banco de Dados de Documentos](documentdb-get-started.md)</td></tr> <tr><td>**Framework com suporte atualmente**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr> </table></br>
+<table>
+<tr><td>**Baixar**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td>**Documentação**</td><td>[Documentação de referência do SDK do .NET] (https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Exemplos**</td><td>[Amostras de código do .NET] (https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
+<tr><td>**Guia de introdução**</td><td>[Introdução ao SDK do .NET do Banco de Dados de Documentos](documentdb-get-started.md)</td></tr>
+<tr><td>**Framework atual com suporte**</td><td>[Microsoft .NET Framework 4.5] (https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
+</table></br>
 
 ## Notas de versão
 
+### <a name="1.6.1"/>[1\.6.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.1)
+  - [Coleções particionadas](documentdb-partition-data.md) implementadas e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md). 
+
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
-  - **[Fixo]** Consultas no ponto de extremidade do Banco de Dados de Documentos geram: “System.Net.Http.HttpRequestException: erro ao copiar o conteúdo para um fluxo.
+  - **[Fixo]** Consultas no ponto de extremidade do Banco de Dados de Documentos geram: 'System.Net.Http.HttpRequestException: erro ao copiar o conteúdo para um fluxo.
 
 ### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
   - Expansão do suporte do LINQ, incluindo novos operadores para paginação, expressões condicionais e comparação de intervalo.
@@ -81,9 +90,9 @@
   - Suporte ao provedor de LINQ para OrderBy() ou OrderByDescending()
   - IndexingPolicy para dar suporte a Order By 
   
-		**NB: possível alteração interruptiva** 
+		**NB: Possible breaking change** 
   
-    	Se você tem o código existente que provisiona as coleções com uma política personalizada de indexação, o seu código existente precisa ser atualizado para dar suporte à nova classe IndexingPolicy.Se você não tem uma política personalizada de indexação, essa alteração não afeta você.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Suporte para dados de particionamento usando as novas classes HashPartitionResolver e RangePartitionResolver e o IPartitionResolver
@@ -115,20 +124,7 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
  
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.5.3](#1.5.3) | 19 de fevereiro de 2016 |---
-| [1\.5.2](#1.5.2) | 14 de dezembro de 2015 |---
-| [1\.5.1](#1.5.1) | 23 de novembro de 2015 |---
-| [1\.5.0](#1.5.0) | 05 de outubro de 2015 |---
-| [1\.4.1](#1.4.1) | 25 de agosto de 2015 |---
-| [1\.4.0](#1.4.0) | 13 de agosto de 2015 |---
-| [1\.3.0](#1.3.0) | 05 de agosto de 2015 |---
-| [1\.2.0](#1.2.0) | 06 de julho de 2015 |---
-| [1\.1.0](#1.1.0) | 30 de abril de 2015 |---
-| [1\.0.0](#1.0.0) | 08 de abril de 2015 |---
-| [0\.9.3-prelease](#0.9.x-preview) | 12 de março de 2015 | 29 de fevereiro de 2016
-| [0\.9.2-prelease](#0.9.x-preview) | janeiro de 2015 | 29 de fevereiro de 2016
-| [.9.1-prelease](#0.9.x-preview) | 13 de outubro de 2014 | 29 de fevereiro de 2016
-| [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de fevereiro de 2016
+| [1\.6.1](#1.6.1) | 29 de março de 2016 |--- | [1\.5.3](#1.5.3) | 19 de fevereiro de 2016 |--- | [1\.5.2](#1.5.2) | 14 de dezembro de 2015 |--- | [1\.5.1](#1.5.1) | 23 de novembro de 2015 |--- | [1\.5.0](#1.5.0) | 5 de outubro de 2015 |--- | [1\.4.1](#1.4.1) | 25 de agosto de 2015 |--- | [1\.4.0](#1.4.0) | 13 de agosto de 2015 |--- | [1\.3.0](#1.3.0) | 5 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 6 de julho de 2015 |--- | [1\.1.0](#1.1.0) | 30 de abril de 2015 |--- | [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- | [0\.9.3-prelease](#0.9.x-preview) | 12 de março de 2015 | 29 de fevereiro de 2016 | [0\.9.2-prelease](#0.9.x-preview) | Janeiro de, 2015 | 29 de fevereiro de 2016 | [.9.1-prelease](#0.9.x-preview) | 13 de outubro de 2014 | 29 de fevereiro de 2016 | [0\.9.0-prelease](#0.9.x-preview) | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
 ## Perguntas frequentes
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -137,4 +133,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para .NET ante
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -15,21 +15,17 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
  
 # Expressões escalares na Análise
 
 
-[Análise](app-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
+A [Análise](app-analytics.md) permite executar consultas avançadas na telemetria de seu aplicativo coletada pelo [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
-<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) 
-<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) <br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) <br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
@@ -43,8 +39,7 @@ As expressões escalares são diferentes de [consultas](app-analytics-queries.md
 
 ## Escalares
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> 
-[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Os tipos que recebem suporte são:
 
@@ -162,9 +157,7 @@ Essa função retorna o valor de *ifTrue* se *predicate* for avaliado como `true
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a> 
-<a name="isnotnull"/></a> 
-<a name="notnull"/></a>
+<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
 ### isnull, isnotnull, notnull
 
     isnull(parsejson("")) == true
@@ -224,8 +217,7 @@ Observe que há outras maneiras de conseguir esse efeito:
 
 ## Números
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
-| [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Literais numéricos
 
@@ -239,17 +231,7 @@ Observe que há outras maneiras de conseguir esse efeito:
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair | 
-| * | Multiplicar | 
-| / | Dividir | 
-| % | Módulo | 
-|| 
-|`<` |Menor 
-|`<=`|Menor ou Igual a 
-|`>` |Maior 
-|`>=`|Maior ou Igual a 
-|`<>`|Diferente de 
-|`!=`|Diferente de
+| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
 
 
 
@@ -548,7 +530,7 @@ As regras são as mesmas do JavaScript.
 
 As cadeias de caracteres podem ser colocadas entre aspas únicas ou duplas.
 
-Barra invertida (`\`) é usada para escapar caracteres como `\t` (guia), `\n` (nova linha) e instâncias do caractere de aspas.
+Barra invertida (``) é usada para escapar caracteres como `\t` (guia), `\n` (nova linha) e instâncias do caractere de aspas.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -667,15 +649,12 @@ Este exemplo é equivalente a `substring(Text, 2, 4)`:
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a> 
-<a name="isnotempty"></a> 
-<a name="isempty"></a>
+<a name="notempty"></a> <a name="isnotempty"></a> <a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
     isempty("") == true
 
-True se o argumento for uma cadeia de caracteres vazia ou nula. 
-Confira também [isnull](#isnull).
+True se o argumento for uma cadeia de caracteres vazia ou nula. Confira também [isnull](#isnull).
 
 
 **Sintaxe**
@@ -697,7 +676,7 @@ Indica se o argumento é uma cadeia de caracteres vazia ou isnull.
 | "" | verdadeiro
 |"x" | false
 |parsejson("")|verdadeiro
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 
@@ -844,9 +823,7 @@ Converte uma cadeia de caracteres em letras maiúsculas.
 
 ## Matrizes e objetos - tipos dinâmicos
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) 
-<br/> 
-[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Este é o resultado de uma consulta em uma exceção do Application Insights. O valor em `details` é uma matriz.
@@ -1151,4 +1128,4 @@ Observe que "[0]" indica a presença de uma matriz, mas não especifica o índic
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

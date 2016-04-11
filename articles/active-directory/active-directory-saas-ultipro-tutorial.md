@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,18 +65,18 @@ Para configurar a integração do Ultipro ao AD do Azure, você precisará adici
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Ultipro**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_01.png)<br>
-7. No painel de resultados, selecione **Ultipro** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+7. No painel de resultados, selecione **Ultipro** e clique em **Concluir** para adicionar o aplicativo. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o Ultipro, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Ultipro é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do AD do Azure e o usuário relacionado no Ultipro.<br> Essa relação de vinculação é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure como o valor de **Nome de usuário** no Ultipro.
+Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Ultipro é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no Ultipro.<br> Essa relação de vinculação é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no Ultipro.
 
 Para configurar e testar o logon único do AD do Azure com o Ultipro, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para permitir que seus usuários usem esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criação de um usuário de teste do Ultipro](#creating-a-ultipro-test-user)**: para ter um equivalente de Brenda Fernandes no Ultipro que esteja vinculado à representação dela no AD do Azure.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+4. **[Criação de um usuário de teste do Ultipro](#creating-a-ultipro-test-user)**: para ter um equivalente de Brenda Fernandes no Ultipro que esteja vinculado à representação dela no Azure AD.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
@@ -114,7 +114,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal cl
 
     - A **URL do SSO do SAML**
 
-    - A **URL do Serviço de Logoff Único**
+    - A **URL do Serviço de Logon Único**
 
 
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
@@ -221,4 +221,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

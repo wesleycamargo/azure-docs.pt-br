@@ -21,24 +21,22 @@
 # Usando o Banco de Dados SQL do .NET (C#)
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+[AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-## Pré-requisitos
-
-### .NET Framework
+## Etapa 1: configurar o Ambiente de Desenvolvimento
 
 O .NET Framework é pré-instalado no Windows. Para Linux e Mac OS X, você pode baixar o .NET Framework a partir de [Projeto Mono](http://www.mono-project.com/).
 
-### Um Banco de Dados SQL
+## Etapa 2: Criar um banco de dados SQL
 
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
-## Etapa 1: Obter a cadeia de conexão
+## Etapa 3: Obter a cadeia de conexão
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## Etapa 2: Conectar
+## Etapa 4: conectar
 
 A [classe System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) é usada para se conectar ao Banco de Dados SQL.
 
@@ -58,7 +56,7 @@ class Sample
 }
 ```
 
-## Etapa 3: Executar uma consulta
+## Etapa 5: executar uma consulta
 
 É possível usar as classes [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) e [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Observe que System.Data.SqlClient também oferece suporte à recuperação de dados em um [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx) offline.
 
@@ -98,7 +96,7 @@ class Sample
 
 ```  
 
-## Etapa 4: Inserir uma linha
+## Etapa 6: inserir uma linha
 
 Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) com segurança, passar parâmetros que protegem seu aplicativo contra vulnerabilidade [a injeção de SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e recuperar o valor da [Chave Primária](https://msdn.microsoft.com/library/ms179610.aspx) gerado automaticamente.
 
@@ -133,4 +131,11 @@ class Sample
 }
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+
+## Próximas etapas
+
+Saiba como usar a lógica de repetição manipulando códigos de erro transitórios para tornar seu código mais resiliente aqui: [Exemplo de código: lógica de repetição em C# para se conectar ao Banco de Dados SQL](sql-database-develop-csharp-retry-windows.md)
+
+Saiba mais sobre possíveis códigos de erro aqui: [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md)
+
+<!---HONumber=AcomDC_0330_2016-->

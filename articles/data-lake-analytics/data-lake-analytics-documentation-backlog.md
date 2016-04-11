@@ -32,7 +32,8 @@ U-SQL | Processando o JSON | 2 | Pendente | [@mumian](https://github.com/mumian)
 O Barramento de | Interagindo com o Curl | 3 |Pendente |[@mumian](https://github.com/mumian)
 U-SQL | Tabelas particionadas |1 | Pendente | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Ajuste de desempenho | 2 | Pendente | [@MikeRys](https://github.com/mikerys) | 
-U-SQL | Guia do programador | 2 | Pendente | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Guia do programador do U-SQL UDO | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Guia do programador do U-SQL | 2 | Pendente | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Introdução ao U-SQL de uma tela de fundo do T-SQL | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
 U-SQL | Introdução ao U-SQL de uma tela de fundo do Hive | 1 | Pendente | [@mumian](https://github.com/mumian)| [@MikeRys](https://github.com/mikerys)
 U-SQL | Diagramas em trilhos de gramática | 1 | em andamento, usando [este](http://bottlecaps.de/rr/ui) | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
@@ -42,7 +43,7 @@ Ferramentas | Usando as ferramentas de diagnóstico | 1 | Pendente | [@mumian](h
 U-SQL | Explicar as técnicas para executar JOINs baseados em intervalo | 1 | Pendente | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Opções de autenticação do ADLS | 1 | Pendente | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | Entre de trabalho de CLI de plataforma cruzada | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
-U-SQL | Atualizações de documento de referência para REDUCE e COMBINE | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
+U-SQL | Atualizações de documento de referência para REDUCE e COMBINE | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) |[@MikeRys](https://github.com/mikerys)
 Ferramentas | Teste de unidade dos UDFs no U-SQL Ferramentas do Azure Data Lake para Visual Studio | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 Ferramentas | Gráficos de trabalho e exibição de execução de vértice nas Ferramentas do Azure Data Lake para Visual Studio | 1 | Pendente | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
@@ -61,4 +62,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

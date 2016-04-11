@@ -2,7 +2,7 @@
 	pageTitle="Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Active Directory do Azure | Microsoft Azure"  
     description="Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas escolhidas para autenticação do usuário, antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo."  
     services="active-directory" 
-	keywords="acesso a aplicativos, acesso seguro aos recursos da empresa, políticas de acesso condicional" 
+	keywords="acesso condicional para aplicativos, acesso condicional com o Azure AD, acesso seguro aos recursos da empresa, políticas de acesso condicional" 
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/10/2016"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -53,4 +53,4 @@ O mapa de conteúdo a seguir lista os documentos que você precisa consultar par
 | Proteger dados corporativos em dispositivos perdidos ou roubados |[Serviço de registro do dispositivo](active-directory-conditional-access-device-registration-overview.md)<br><br> [Registrar dispositivos ingressados no domínio](active-directory-azureadjoin-setup.md)<br><br> [Usar dispositivos registrados no AD do Azure para acesso condicional local](active-directory-conditional-access-on-premises-setup.md) <br><br>[Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) <br><br>[Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md) <br><br>[Políticas do Dispositivo de Acesso Condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md)|
 | Informações Adicionais |[Perguntas frequentes sobre acesso condicional](active-directory-conditional-faqs.md)|
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

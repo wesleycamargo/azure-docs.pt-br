@@ -13,21 +13,58 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="03/30/2016"
    ms.author="sumukhs"/>
 
-# Configurando Reliable Services com estado
+# Configurar Reliable Services com estado
+
+Há dois conjuntos de definições de configuração para Reliable Services. Um conjunto é global para todos os Reliable Services no cluster, enquanto o outro conjunto é específico para um determinado Reliable Service.
+
+## Configuração Global
+
+A configuração do Reliable Service global é especificada no manifesto do cluster para o cluster na seção KtlLogger. Ela permite a configuração do local e do tamanho do log compartilhado, além dos limites de memória global usados pelo agente. O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
+
+### Nomes da configuração
+
+|Nome|Unidade|Valor padrão|Comentários|
+|----|----|-------------|-------|
+|WriteBufferMemoryPoolMinimumInKB|Quilobytes|8388608|Número mínimo de KB a alocar no modo kernel para o pool de memória do buffer de gravação do agente. Esse pool de memória é usado para armazenar em cache informações de estado antes da gravação no disco.|
+|WriteBufferMemoryPoolMaximumInKB|Quilobytes|Sem limite|Tamanho máximo que o pool de memória do buffer de gravação do agente pode atingir.|
+|SharedLogId|GUID|""|Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado padrão empregado por todos os Reliable Services em todos os nós no cluster que não especificam SharedLogId na sua configuração específica de serviço. Se SharedLogId for especificada, SharedLogPath também deverá ser especificada.|
+|SharedLogPath|Nome de caminho totalmente qualificado|""|Especifica o caminho totalmente qualificado do arquivo de log compartilhado usado por todos os Reliable Services em todos os nós no cluster que não especificam o SharedLogPath na configuração específica de seu serviço. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado.|
+|SharedLogSizeInMB|Megabytes|8192|Especifica o número de MB do espaço em disco a ser alocado estatisticamente para o log compartilhado. O valor deve ser de 2048 ou superior.|
+
+### Seção do exemplo do manifesto do cluster
+```xml
+   <Section Name="KtlLogger">
+     <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
+     <Parameter Name="WriteBufferMemoryPoolMaximumInKB" Value="8192" />
+     <Parameter Name="SharedLogId" Value="{7668BB54-FE9C-48ed-81AC-FF89E60ED2EF}"/>
+     <Parameter Name="SharedLogPath" Value="f:\SharedLog.Log"/>
+     <Parameter Name="SharedLogSizeInMB" Value="16383"/>
+   </Section>
+```
+
+### Comentários
+O agente tem um pool de memória global alocado da memória kernel não paginada que está disponível para todos os Reliable Services em um nó para armazenar em cache os dados de estado antes de eles serem gravados no log dedicado associado à réplica do Reliable Service. O tamanho do pool é controlado pelas configurações WriteBufferMemoryPoolMinimumInKB e WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB especifica o tamanho inicial desse pool de memória e o menor tamanho para o qual o pool de memória pode ser reduzido. WriteBufferMemoryPoolMaximumInKB é o maior tamanho que o pool de memória pode atingir. Cada réplica do serviço confiável que é aberta pode aumentar o tamanho do pool de memória em uma quantidade determinada pelo sistema até WriteBufferMemoryPoolMaximumInKB. Se houver mais demanda de memória do pool do que está disponível, as solicitações de memória serão atrasadas até haver memória disponível. Portanto, se o pool de memória do buffer de gravação for muito pequeno para uma determinada configuração, o desempenho poderá ser prejudicado.
+
+As configurações SharedLogId e SharedLogPath sempre são usadas juntas para definir o GUID e o local para o log compartilhado padrão de todos os nós no cluster. O log compartilhado padrão é usado para todos os Reliable Services que não especificam as configurações em settings.xml para o serviço específico. Para melhor desempenho, os arquivos de log compartilhados devem ser colocados em discos usados exclusivamente para o arquivo de log compartilhado para reduzir a contenção.
+
+SharedLogSizeInMB especifica a quantidade de espaço em disco a ser pré-alocada para o log compartilhado padrão em todos os nós. SharedLogId e SharedLogPath não precisam ser especificadas para que SharedLogSizeInMB seja especificada.
+
+
+## Configuração específica de serviço
 A Configuração padrão dos Reliable Services com estado pode ser modificada por meio do pacote de configuração (Config) ou da implementação do serviço (código).
 
-+ **Config** - a configuração por meio do pacote de configuração é feita alterando o arquivo "Settings.xml" gerado na raiz do pacote do Microsoft Visual Studio sob a pasta "Config" para cada serviço no aplicativo.
-+ **Código** - a configuração via código é feita substituindo StatefulService.CreateReliableStateManager e criando um ReliableStateManager pelo uso de um objeto ReliableStateManagerConfiguration com o conjunto de opções apropriadas.
++ **Config** – a configuração por meio do pacote de configuração é feita alterando o arquivo "Settings.xml" gerado na raiz do pacote do Microsoft Visual Studio sob a pasta "Config" para cada serviço no aplicativo.
++ **Código** – a configuração via código é feita substituindo StatefulService.CreateReliableStateManager e criando um ReliableStateManager usando um objeto ReliableStateManagerConfiguration com o conjunto de opções apropriado.
 
 Por padrão, o tempo de execução do Service Fabric do Azure procura nomes de seção predefinidos no arquivo "Settings.xml" e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
 
->[AZURE.NOTE] **Não** exclua os nomes de seção das configurações a seguir no arquivo Settings.xml que é gerado na solução do Visual Studio, a menos que você pretenda configurar o serviço via código. Renomear os nomes de pacote ou a seção de configuração exigirá uma alteração de código ao configurar o ReliableStateManager.
+>[AZURE.NOTE] **Não** exclua os nomes de seção das configurações a seguir no arquivo Settings.xml gerado na solução do Visual Studio, a menos que pretenda configurar o serviço via código. Renomear os nomes de pacote ou a seção de configuração exigirá uma alteração de código ao configurar o ReliableStateManager.
 
 
-## Configuração de segurança do replicador
+### Configuração de segurança do replicador
 As configurações de segurança do replicador servem para proteger o canal de comunicação que é usado durante a replicação. Isso significa que os serviços não poderão ver o tráfego de replicação uns dos outros, garantindo que os dados com alta disponibilidade também estejam seguros. Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
 
 ### Nome padrão da seção
@@ -36,7 +73,7 @@ ReplicatorSecurityConfig
 >[AZURE.NOTE] Para alterar o nome da seção, substitua o parâmetro replicatorSecuritySectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
 
 
-## Configuração do replicador
+### Configuração do replicador
 As configurações do replicador configuram o replicador que é responsável por tornar o estado do Reliable Service com estado altamente confiável por meio da replicação e da persistência do estado localmente. A configuração padrão é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre configurações adicionais que estão disponíveis para ajustar o replicador.
 
 ### Nome padrão da seção
@@ -54,13 +91,11 @@ ReplicatorConfig
 |MaxSecondaryReplicationQueueSize|Número de operações|16384|Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2.|
 |CheckpointThresholdInMB|MB|50|Quantidade de espaço de arquivo de log depois que o estado é o ponto de verificação.|
 |MaxRecordSizeInKB|KB|1024|O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16.|
-|OptimizeLogForLowerDiskUsage|Booliano|verdadeiro|Quando verdadeiro, o log é configurado de forma que o arquivo de log dedicado da replicação seja criado usando um arquivo esparso do NTFS. Isso reduz o uso do espaço real em disco para o arquivo. Quando falso, o arquivo é criado com alocações fixas que oferecem o melhor desempenho de gravação.|
-|MaxRecordSizeInKB|KB|1024|O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16.|
-|SharedLogId|guid|""|Especifica um guid exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado.|
+|SharedLogId|GUID|""|Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado.|
 |SharedLogPath|Nome de caminho totalmente qualificado|""|Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado.|
 
 
-## Amostra de configuração via código
+### Amostra de configuração via código
 ```csharp
 protected override IReliableStateManager CreateReliableStateManager()
 {
@@ -74,7 +109,7 @@ protected override IReliableStateManager CreateReliableStateManager()
 ```
 
 
-## Arquivo de exemplo de configuração
+### Arquivo de exemplo de configuração
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -96,15 +131,13 @@ protected override IReliableStateManager CreateReliableStateManager()
 ```
 
 
-## Comentários
+### Comentários
 BatchAcknowledgementInterval controla a latência de replicação. Um valor '0' resulta na menor latência possível, ao custo de taxa de transferência (como mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo menos confirmações). Quanto maior o valor para BatchAcknowledgementInterval, maior será a produtividade geral da replicação, ao custo da maior latência de operação. Isso se converte diretamente para a latência de confirmações de transações.
 
 O valor para CheckpointThresholdInMB controla a quantidade de espaço em disco que o replicador pode usar para armazenar as informações de estado no arquivo de log dedicado da replicação. Aumentar isso para um valor maior que o padrão pode resultar em tempos de reconfiguração mais rápidos quando uma nova réplica é adicionada ao conjunto. Isso ocorre porque a transferência de estado parcial que ocorre devido à disponibilidade de mais histórico de operações no log. Potencialmente, isso pode aumentar o tempo de recuperação de uma réplica após uma falha.
-
-Se você definir OptimizeForLowerDiskUsage como verdadeiro, o espaço do arquivo de log será excessivamente provisionado, de modo que réplicas ativas poderão armazenar mais informações de estado em seus arquivos de log enquanto réplicas inativas usarão menos espaço em disco. Isso torna possível hospedar mais réplicas em um nó. Se você definir OptimizeForLowerDiskUsage como falso, as informações de estado serão gravadas nos arquivos de log mais rapidamente.
 
 A configuração MaxRecordSizeInKB define o tamanho máximo de um registro que pode ser gravado pelo replicador no arquivo de log. Na maioria dos casos, o tamanho padrão do registro de 1.024 KB é ideal. Porém, se o serviço estiver fazendo com que itens de dados maiores sejam parte das informações de estado, esse valor talvez precise ser aumentado. Há poucas vantagens em tornar o MaxRecordSizeInKB menor que 1.024, já que registros menores usam apenas o espaço necessário para o registro menor. A expectativa é de que esse valor precise ser alterado somente em casos raros.
 
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para fazer um serviço usar um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para que o arquivo de log compartilhado, para reduzir a contenção de movimentação do cabeçote. A expectativa é de que esse valor precise ser alterado somente em casos raros.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

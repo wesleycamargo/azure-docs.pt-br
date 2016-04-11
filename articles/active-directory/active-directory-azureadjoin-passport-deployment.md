@@ -3,6 +3,7 @@
 	description="Instruções de implantação para habilitar o Microsoft Passport na sua organização."
 	services="active-directory"
 	documentationCenter=""
+	keywords="configurar a implantação do Microsoft Passport e Microsoft Passport for Work"
 	authors="femila"
 	manager="stevenpo"
 	editor=""
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -25,9 +26,9 @@ Depois de conectar os dispositivos integrados ao domínio do Windows 10 ao Azure
 ## Implantar o System Center Configuration Manager Versão 1509 para visualização técnica
 Para implantar certificados de usuário baseados em chaves do Microsoft Passport, você precisa do seguinte:
 
-- **System Center Configuration Manager Versão 1509 para visualização técnica**. Para saber mais, confira [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) e [Blog da equipe do System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
+- **System Center Configuration Manager Versão 1509 para Technical Preview**. Para obter mais informações, confira [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) e [Blog da Equipe do System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
 - **PKI (infraestrutura de chave pública)**: para habilitar o Microsoft Passport for Work usando certificados de usuário, você deve ter uma PKI em vigor. Se você não tiver um, ou não quiser usá-lo para certificados de usuário, poderá fazer isso:
- - **Implantar um controlador de domínio**: implante um novo controlador de domínio que tenha o Windows Server 2016 versão 10551 (ou posterior) instalada e siga as etapas para [instalar um controlador de domínio de réplica em um domínio existente](https://technet.microsoft.com/library/jj574134.aspx) ou [instalar uma nova floresta do Active Directory, se você estiver criando um novo ambiente](https://technet.microsoft.com/library/jj574166). (Os ISOs estão disponíveis para download em [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
+ - **Implantar um controlador de domínio**: implante um novo controlador de domínio que tenha o Windows Server 2016 build 10551 (ou posterior) instalada e siga as etapas para [instalar um controlador de domínio de réplica em um domínio existente](https://technet.microsoft.com/library/jj574134.aspx) ou [instalar uma nova floresta do Active Directory, se você estiver criando um novo ambiente](https://technet.microsoft.com/library/jj574166). (Os ISOs estão disponíveis para download em [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
 
 ## Configurar o Microsoft Passport for Work usando a Política de Grupo no Active Directory
 
@@ -51,7 +52,7 @@ Execute o seguinte comando do PowerShell:
     powershell.exe -ExecutionPolicy Bypass -NoLogo -NoProfile -Command "& {New-ItemProperty "HKLM:\Software\Policies\Microsoft\PassportForWork" -Name "Enabled" -Value 1 -PropertyType "DWord" -Force}"
 
 ## Configurar o perfil de certificado para usar o certificado de registro do "Passport for Work" no Gerenciador de Configurações
-Para usar o Certificado Passport for Work com base no logon/Microsoft Hello, configure o perfil do certificado (**Ativos e Conformidade** -> **Configurações de Conformidade** -> **Acesso aos Recursos da Empresa** -> **Perfis de Certificado**). Selecione um modelo que tenha EKU (uso estendido da chave) para entrada com cartão inteligente.
+Para usar a entrada baseada em certificado do Passport for Work/Microsoft Hello, configure o perfil do certificado (**Ativos e Conformidade** -> **Configurações de Conformidade** -> **Acesso aos Recursos da Empresa** -> **Perfis de Certificado**). Selecione um modelo que tenha EKU (uso estendido da chave) para entrada com cartão inteligente.
 
 ## Configurar uma tarefa agendada para solicitar avaliação do certificado
 Essa tarefa agendada é uma correção de curto prazo. Os administradores precisam criar uma tarefa agendada que escuta a criação de um contêiner Passport for Work e solicita a avaliação do certificado. A tarefa agendada é disparada quando o contêiner do Passport for Work é habilitado. A tarefa reduz o atraso na configuração do contêiner e do PIN e sua disponibilidade para uso no logon seguinte.
@@ -118,4 +119,4 @@ Veja o xml de exemplo:
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

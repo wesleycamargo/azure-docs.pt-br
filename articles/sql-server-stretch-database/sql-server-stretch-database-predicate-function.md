@@ -24,7 +24,7 @@ No CTP 3.1, por meio do RC1, a opção para especificar um predicado não está 
 
 Se você não especificar um predicado de filtro, toda a tabela será migrada.
 
-    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+>   [AZURE.NOTE] Se você fornecer um predicado de filtro que apresente um desempenho ruim, a migração de dados também terá um desempenho ruim. O Banco de Dados de Stretch aplica o predicado de filtro à tabela usando o operador CROSS APPLY.
 
 ## Requisitos básicos para a função embutida com valor de tabela
 Veja no exemplo a seguir a aparência da função embutida com valor de tabela, necessária para a função de filtro do Banco de Dados de Stretch.
@@ -333,7 +333,7 @@ A nova função embutida com valor de tabela tem os seguintes requisitos.
 
 -   Não é possível alterar a ordem dos argumentos do operador.
 
--   Somente valores constantes que fazem parte de uma comparação `<, <=, >, >=` podem ser alterados de uma maneira a tornar o predicado menos restritivo.
+-   Somente os valores constantes que fazem parte de uma comparação `<, <=, >, >=` podem ser alterados de uma maneira a tornar o predicado menos restritivo.
 
 ### Exemplo de uma substituição válida
 Vamos supor que a função a seguir seja o predicado de filtro atual.
@@ -404,10 +404,10 @@ GO
 Você não poderá descartar a função embutida com valor de tabela se uma tabela estiver usando a função como seu predicado de filtro.
 
 ## Verificar o predicado de filtro aplicado a uma tabela
-Para verificar o predicado de filtro aplicado a uma tabela, abra a exibição de catálogo **sys.remote\_data\_archive\_tables** e verifique o valor da coluna **filter\_predicate**. Se o valor for nulo, a tabela inteira poderá ser arquivada. Para obter mais informações, veja [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+Para verificar o predicado de filtro aplicado a uma tabela, abra a exibição de catálogo **sys.remote\_data\_archive\_tables** e verifique o valor da coluna **filter\_predicate**. Se o valor for nulo, a tabela inteira poderá ser arquivada. Para obter mais informações, confira [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
 ## Consulte também
 
 [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

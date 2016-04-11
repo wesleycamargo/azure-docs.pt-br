@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Recuperar um banco de dados de um erro do usuário no SQL Data Warehouse
@@ -44,7 +44,7 @@ Para restaurar um banco de dados, use o cmdlet [Start-AzureSqlDatabaseRestore][]
 6. Restaure o banco de dados para o ponto de restauração desejado.
 7. Monitore o progresso da restauração.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -95,7 +95,7 @@ Para restaurar um banco de dados excluído, use o cmdlet [Start-AzureSqlDatabase
 3. Selecione a assinatura que contém o banco de dados excluído a ser restaurado.
 4. Localize o banco de dados e sua data de exclusão da lista de bancos de dados excluídos
 
-```
+```Powershell
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
@@ -141,4 +141,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

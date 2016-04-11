@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Agrupar por opções de SQL Data Warehouse
 
-A cláusula [GROUP BY] é usada para agregar dados a um conjunto de linhas de resumo. Ela também tem algumas opções que ampliam sua funcionalidade que precisam ser solucionadas pois não tem suporte diretamente pelo SQL Data Warehouse do Azure.
+A cláusula [GROUP BY][] é usada para agregar dados a um conjunto de linhas de resumo. Ela também tem algumas opções que ampliam sua funcionalidade que precisam ser solucionadas pois não tem suporte diretamente pelo SQL Data Warehouse do Azure.
 
 Essas opções são
 - GROUP BY com ROLLUP
@@ -30,7 +30,7 @@ A opção mais simples é usar `UNION ALL` ao invés de executar o rollup do que
 
 Abaixo está um exemplo de um agrupamento pela instrução usando a opção `ROLLUP`:
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount)             AS TotalSalesAmount
@@ -50,7 +50,7 @@ Ao usar ROLLUP, solicitamos as seguintes agregações:
 
 Para substituir isso, você precisará usar `UNION ALL`; especificar as agregações explicitamente necessárias para retornar os mesmos resultados:
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount) AS TotalSalesAmount
@@ -84,7 +84,7 @@ Vamos usar o exemplo anterior.
 
 A primeira etapa é definir o ‘cube’ que define todos os níveis de agregação que desejamos criar. É importante que você observe o CROSS JOIN das duas tabelas derivadas. Isso gera todos os níveis. O restante do código está lá para formatação.
 
-```
+```sql
 CREATE TABLE #Cube
 WITH
 (   DISTRIBUTION = ROUND_ROBIN
@@ -119,7 +119,7 @@ Os resultados de CTAS podem ser vistos abaixo:
 
 A segunda etapa é especificar uma tabela de destino para armazenar os resultados intermediários:
 
-```
+```sql
 DECLARE
  @SQL NVARCHAR(4000)
 ,@Columns NVARCHAR(4000)
@@ -142,7 +142,7 @@ WITH
 
 A terceira etapa é executar um loop sobre o cubo de colunas realizando a agregação. A consulta será executada uma vez para cada linha na tabela temporária #Cube e armazenará os resultados na tabela temporária #Results
 
-```
+```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
 
 WHILE @i<=@nbr
@@ -166,7 +166,7 @@ END
 
 Por fim, retornamos os resultados apenas lendo da tabela temporária #Results
 
-```
+```sql
 SELECT *
 FROM #Results
 ORDER BY 1,2,3
@@ -191,4 +191,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciando distorções de distribuição da tabela
@@ -27,7 +27,7 @@ Este artigo foi projetado para ajudá-lo a identificar a distorção de dados na
 
 Uma consulta como a exibição abaixo pode ajudar a identificar tabelas distorcidas.
 
-```
+```sql
 CREATE VIEW dbo.vDistributionSkew
 AS
 WITH base
@@ -113,7 +113,7 @@ FROM	size
 
 Depois de criar a exibição, podemos simplesmente consultá-la para validar a distorção em nossas tabelas usando uma consulta como a mostrada abaixo.
 
-```
+```sql
 SELECT	[two_part_name]
 ,		[distribution_id]
 ,		[row_count]
@@ -152,4 +152,4 @@ Para obter mais detalhes sobre a distribuição da tabela, consulte os seguintes
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

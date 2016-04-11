@@ -14,18 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="03/28/2016"
    ms.author="larryfr"/>
 
 # Informações sobre o uso do HDInsight no Linux
 
 Os clusters Azure HDInsight baseados em Linux fornecem Hadoop em um ambiente Linux conhecido, executados na nuvem do Azure. Para a maioria da coisas, ele deve funcionar exatamente como qualquer outra instalação do Hadoop no Linux. Este documento indica diferenças específicas que você deve estar atento.
 
+##Pré-requisitos
+
+Muitas das etapas neste documento usam os seguintes utilitários, que talvez precisem ser instalados em seu sistema.
+
+* [cURL](https://curl.haxx.se/) - usado para se comunicar com serviços baseados na Web
+* [jq](https://stedolan.github.io/jq/) - usado para analisar documentos JSON
+
 ## Nomes de domínio
 
 O FQDN (Nome de Domínio Totalmente Qualificado) a ser usado ao se conectar com um cluster na Internet é **&lt;clustername>.azurehdinsight.net** ou (só para SSH) **&lt;clustername-ssh>.azurehdinsight.net**.
 
-Internamente, cada nó no cluster tem um nome que é atribuído durante a configuração do cluster. Para localizar nomes de cluster, você pode visitar a página __Hosts__ na interface de usuário do Ambari Web ou usar o seguinte para retornar uma lista de hosts de API REST do Ambari usando [cURL](http://curl.haxx.se/) e [jq](https://stedolan.github.io/jq/):
+Internamente, cada nó no cluster tem um nome que é atribuído durante a configuração do cluster. Para localizar nomes de cluster, você pode visitar a página __Hosts__ na interface de usuário do Ambari Web ou usar o seguinte para retornar uma lista de hosts de API REST do Ambari:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -88,9 +95,9 @@ Como é o armazenamento padrão para o HDInsight, você normalmente não precisa
 
 	hadoop fs -ls /example/data
 
-Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com **WASB://**.
+Alguns comandos podem exigir que você especifique o uso do armazenamento de Blob. Nesses casos, você poderá prefixar o comando com ****WASB://**.
 
-O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;nome do contêiner-name>@&lt;nome da conta>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
+O HDInsight também permite que você associe várias contas de armazenamento de Blob a um cluster. Para acessar dados em uma conta de armazenamento de Blob não padrão, você pode usar o formato **WASB://&lt;container-name>@&lt;account-name>.blob.core.windows.net/**. Por exemplo, o comando a seguir listará o conteúdo do diretório **/example/data** para o contêiner e a conta de armazenamento de Blob especificados:
 
 	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
 
@@ -196,7 +203,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 	* __Interface do usuário do Storm__: use as etapas a seguir para rebalancear uma topologia usando a interface do usuário do Storm.
 
-		1. Abra __https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do seu cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
+		1. Abra \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do seu cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
 
 		3. Selecione a topologia que você quer rebalancear e, em seguida, selecione o botão __Rebalancear__. Insira o atraso antes de a operação de rebalanceamento ser executada.
 
@@ -242,8 +249,9 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 
 ## Próximas etapas
 
+* [Migrar do HDInsight baseado em Windows para baseado em Linux](hdinsight-migrate-from-windows-to-linux.md)
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

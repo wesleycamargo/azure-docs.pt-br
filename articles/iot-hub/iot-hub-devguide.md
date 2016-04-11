@@ -68,7 +68,7 @@ Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, se
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Às vezes, o SDK requer um valor de **Nome do Host** ou de **Namespace**. Nesse caso, remova o esquema do **ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
 
 Dessa forma, você poderá usar qualquer política de segurança de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 
@@ -412,7 +412,7 @@ Observe que isso não significa que você pode substituir o Hub IoT para os Hubs
 
 Para obter detalhes sobre como usar as mensagens do dispositivo para a nuvem, consulte [SDKs e APIs do Hub IoT][lnk-apis-sdks].
 
-> [AZURE.NOTE] Ao usar HTTP para enviar mensagens do dispositivo para a nuvem, as cadeias de caracteres a seguir podem conter apenas caracteres ASCII: valores da propriedade do sistema, e nomes e valores da propriedade do aplicativo.
+> [AZURE.NOTE] Ao usar HTTP para enviar mensagens de dispositivo para a nuvem, valores e nomes de propriedade só podem conter caracteres alfanuméricos ASCII mais ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Tráfego sem telemetria
 
@@ -459,7 +459,7 @@ Cada mensagem da nuvem para o dispositivo é direcionada a um único dispositivo
 
 **Importante**: cada fila de dispositivo pode conter no máximo 50 mensagens da nuvem para o dispositivo. Tentar enviar mais mensagens ao mesmo dispositivo resultará em um erro.
 
-> [AZURE.NOTE] Ao enviar mensagens da nuvem para o dispositivo, as cadeias de caracteres a seguir podem conter apenas caracteres ASCII: valores da propriedade do sistema, e nomes e valores da propriedade do aplicativo.
+> [AZURE.NOTE] Ao enviar mensagens de nuvem para dispositivos, valores e nomes de propriedade só podem conter caracteres alfanuméricos ASCII mais ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Ciclo de vida da mensagem <a id="message lifecycle"></a>
 
@@ -469,13 +469,13 @@ O diagrama a seguir mostra o gráfico de estado do ciclo de vida de uma mensagem
 
 ![Ciclo de vida de mensagens da nuvem para o dispositivo][img-lifecycle]
 
-Quando o serviço envia uma mensagem, ela é considerada como *Enfileirada*. Quando um dispositivo deseja *receber* uma mensagem, o Hub IoT *bloqueia* a mensagem (define o estado como **Invisível**), a fim de permitir que outros threads no mesmo dispositivo comecem a receber outras mensagens. Quando um thread de dispositivo conclui o processamento de uma mensagem, ele notifica o Hub IoT ao *concluir* a mensagem.
+Quando o serviço envia uma mensagem, ela é considerada *Enfileirada*. Quando um dispositivo deseja *receber* uma mensagem, o Hub IoT *bloqueia* a mensagem (define o estado como **Invisível**) para permitir que outros threads no mesmo dispositivo comecem a receber outras mensagens. Quando um thread de dispositivo conclui o processamento de uma mensagem, ele notifica o Hub IoT ao *concluir* a mensagem.
 
 Um dispositivo também pode:
 - *Rejeitar* a mensagem, o que faz com que o Hub IoT o defina no estado **Morto**.
 - *Abandonar* a mensagem, o que faz com que o Hub IoT coloque a mensagem de volta na fila com o estado definido como **Em fila**.
 
-Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens passam automaticamente do estado **Invisível** de volta para o estado **Enfileirada** após um *tempo limite de visibilidade (ou de bloqueio)* com um valor padrão de um minuto. Uma mensagem pode transitar entre os estados **Enfileirada** e **Invisível** pelo número máximo de vezes especificado na propriedade *contagem máxima de entrega* no Hub IoT. Após esse número de transições, o Hub IoT definirá o estado da mensagem como **Morta**. Da mesma forma, o Hub IoT define o estado de uma mensagem como **Morta** após seu tempo de expiração (confira [Vida útil](#ttl)).
+Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens passam automaticamente do estado **Invisível** de volta para o estado **Enfileirada** após um *tempo limite de visibilidade (ou de bloqueio)* com um valor padrão de um minuto. Uma mensagem pode transitar entre os estados **Enfileirada** e **Invisível** pelo número máximo de vezes especificado na propriedade *contagem máxima de entrega* no Hub IoT. Após esse número de transições, o Hub IoT definirá o estado da mensagem como **Morto**. Da mesma forma, o Hub IoT define o estado de uma mensagem como **Morto** após o tempo de expiração (confira [Vida útil](#ttl)).
 
 Para obter um tutorial sobre mensagens da nuvem para o dispositivo, consulte [Introdução às mensagens da nuvem para o dispositivo do Hub IoT do Azure][lnk-getstarted-c2d-tutorial]. Para obter tópicos de referência sobre como as APIs e os SDKs diferentes expõem a funcionalidade de nuvem para o dispositivo, consulte [APIs e SDKs do Hub IoT][lnk-apis-sdks].
 
@@ -491,11 +491,11 @@ Todas as mensagens da nuvem para o dispositivo têm um tempo de expiração. Iss
 
 Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode solicitar a entrega de um comentário por mensagem sobre o estado final dessa mensagem.
 
-- Se você definir a propriedade **Ack** como **positivo**, o Hub IoT vai gerar uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Concluído**.
-- Se você definir a propriedade **Ack** como **negativa**, o Hub IoT vai gerar uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Morta**.
-- Se você definir a propriedade **Ack** como **total**, o Hub IoT vai gerar uma mensagem de comentários em ambos os casos.
+- Se você definir a propriedade **Ack** para **positivo**, o Hub IoT gerará uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Concluído**.
+- Se você definir a propriedade **Ack** para **negativo**, o Hub IoT gerará uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Morto**.
+- Se você definir a propriedade **Ack** para **total**, o Hub IoT gerará uma mensagem de comentários em ambos os casos.
 
-> [AZURE.NOTE] Se **Ack** for **total** e não for recebida nenhuma mensagem de comentários, a mensagem de comentários expirou e o serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo máximo de validade é de dois dias, portanto, deverá haver tempo suficiente para executar o serviço de backup se ocorrer uma falha.
+> [AZURE.NOTE] Se **Ack** for **total** e não for recebida nenhuma mensagem de comentários, a mensagem de comentários expirou e o serviço não poderá saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo máximo de validade é de dois dias, portanto, deverá haver tempo suficiente para executar o serviço de backup se ocorrer uma falha.
 
 Como explicado em [Pontos de extremidade](#endpoints), o Hub IoT oferece comentários por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [ciclo de vida da mensagem](nº do ciclo de vida da mensagem). Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato.
 
@@ -575,9 +575,14 @@ A seguir, a lista de limitações impostas. Os valores referem-se a um hub indiv
 | Envios da nuvem para o dispositivo | 100/min/unidade |
 | Recebimentos da nuvem para o dispositivo | 1000/min/unidade |
 
+É importante esclarecer que a restrição de *conexões de dispositivo* controla a taxa à qual novas conexões de dispositivo podem ser estabelecidas com um hub IoT, e não o número máximo de dispositivos conectados ao mesmo tempo. A restrição depende do número de unidades provisionadas para o hub.
+
+Por exemplo, se você comprar uma única unidade de S1, obterá uma restrição de 100 conexões por segundo. Isso significa que serão necessários pelo menos 1000 segundos (aproximadamente 16 minutos) para conectar 100.000 dispositivos. No entanto, você pode conectar ao mesmo tempo todos os seus dispositivos registrados no registro de identidade do dispositivo.
+
+
 **Observação**. A qualquer momento, é possível aumentar as cotas ou restrições aumentando o número de unidades provisionadas em um Hub IoT.
 
-**Importante**: as operações de Registro de identidade são destinadas para uso no tempo de execução em cenários de provisionamento e gerenciamento de dispositivos. Ler ou atualizar grandes números de identidades de dispositivo tem suporte por meio de [trabalhos de importação/exportação](#importexport).
+**Importante**: as operações de Registro de identidade são destinadas a uso no tempo de execução em cenários de provisionamento e gerenciamento de dispositivos. Há suporte para ler ou atualizar grandes números de identidades de dispositivo por meio de [trabalhos de importação/exportação](#importexport).
 
 ## Próximas etapas
 
@@ -634,4 +639,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

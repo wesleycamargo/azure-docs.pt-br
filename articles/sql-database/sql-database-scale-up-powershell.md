@@ -4,13 +4,13 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="03/29/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -21,21 +21,21 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-scale-up.md)
+- [Portal do Azure](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
 
-Este artigo mostra como alterar a camada de serviço e o nível de desempenho do banco de dados SQL com o PowerShell.
+As camadas de serviço e níveis de desempenho descrevem as características e recursos disponíveis para o banco de dados SQL e podem ser atualizados conforme as necessidades do seu aplicativo mudam. Para obter detalhes, consulte [Camadas de serviço](sql-database-service-tiers.md).
 
-Use as informações em [Atualizar banco de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-server-portal.md) e [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md) para determinar o nível de desempenho e a camada de serviço apropriados para o Banco de Dados SQL do Azure.
+Observe que a alteração da camada de serviço e/ou nível de desempenho de um banco de dados cria uma réplica do banco de dados original com o novo nível de desempenho e então faz a transição das conexões para réplica. Nenhum dado é perdido durante esse processo, mas durante o breve momento em que realizamos a transição para a réplica, conexões com o banco de dados são desabilitadas, então algumas transações em andamento podem ser revertidas. Essa janela varia, mas é em média inferior a quatro segundos e, em mais de 99% dos casos, de menos de 30 segundos. Muito raramente, especialmente se houver grandes números de transações em andamento no momento em que as conexões estiverem desabilitadas, esta janela pode ser maior.
 
-> [AZURE.IMPORTANT] A alteração do nível de desempenho e da camada de serviço de um banco de dados SQL é uma operação online. Isso significa que seu banco de dados permanecerá online e disponível durante toda a operação, sem qualquer tempo de inatividade.
+A duração de todo o processo de expansão depende a camada tamanho e de serviço do banco de dados antes e após a alteração. Por exemplo, um banco de dados de 250 GB que está mudando para, de ou dentro de uma camada de serviço Standard deverá ser concluída dentro de 6 horas. Um banco de dados do mesmo tamanho cujos níveis de desempenho estão mudando dentro da camada de serviço Premium deverá ser concluído dentro de 3 horas.
+
 
 - Para fazer downgrade de um banco de dados, este deve ter um tamanho menor do que o máximo permitido para a camada de serviço de destino. 
-- Ao atualizar um banco de dados com [Replicação geográfica](sql-database-geo-replication-portal) habilitada, é necessário atualizar primeiro seus bancos de dados secundários para o nível de desempenho desejado antes de atualizar o banco de dados primário.
+- Ao atualizar um banco de dados com [Replicação geográfica](sql-database-geo-replication-portal) habilitada, é necessário primeiro atualizar seus bancos de dados secundários para o nível de desempenho desejado antes de atualizar o banco de dados primário.
 - Ao fazer downgrade de uma camada de serviço Premium, primeiro, você deve encerrar todos os relacionamentos de Replicação Geográfica. Você pode seguir as etapas descritas no tópico [Recuperação de uma interrupção](sql-database-disaster-recovery.md) para interromper o processo de replicação entre os bancos de dados primários e secundários ativos.
 - As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se estiver fazendo downgrade, talvez você perca a capacidade de fazer uma restauração pontual ou tenha um período menor de retenção do backup. Para saber mais, confira [Backup e restauração do Banco de dados SQL do Azure](sql-database-business-continuity.md).
-- Você pode fazer até quatro alterações individuais de banco de dados (camada de serviço ou níveis de desempenho) em um período de 24 horas.
 - As novas propriedades do banco de dados não serão aplicadas até que as alterações sejam concluídas.
 
 
@@ -128,4 +128,4 @@ Execute o cmdlet **Set-AzureRmSqlDatabase** e defina o **-RequestedServiceObject
 - [Documentação do Banco de Dados SQL](http://azure.microsoft.com/documentation/services/sql-database/)
 - [Cmdlets do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/mt574084.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

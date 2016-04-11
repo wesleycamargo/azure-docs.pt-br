@@ -1,8 +1,5 @@
 
-
-Se você criou uma conta pessoal do Azure ou tiver uma assinatura pessoal do MSDN e criou a conta do Azure para aproveitar os créditos Azure no MSDN, você usou uma identidade da *conta da Microsoft* para criá-la. Para que muitos recursos excelentes do Azure (como os [modelos de grupo de recursos](../resource-group-overview.md)) funcionem, é necessário ter uma conta corporativa ou de estudante (uma identidade gerenciada pelo Active Directory do Azure). Você pode seguir as instruções abaixo para criar uma nova conta corporativa ou de estudante, porque, felizmente, uma das melhores coisas sobre sua conta pessoal do Azure pessoal é que ela vem com um domínio do Active Directory do Azure padrão, que você pode usar para criar uma nova corporativa ou de estudante, que pode usar com os recursos do Azure que necessitam dela.
-
-No entanto, alterações recentes possibilitam gerenciar sua assinatura com qualquer tipo de conta do Azure usando o `azure login` método de logon interativo descrito [aqui](../xplat-cli-connect.md). Você pode usar esse mecanismo, ou seguir as instruções abaixo.
+<br>
 
 > [AZURE.NOTE] Se você recebeu um nome de usuário e uma senha de um administrador, há boas chances de que você já tenha uma ID corporativa ou de estudante (às vezes também chamada de *ID organizacional*). Nesse caso, você pode começar a usar sua conta do Azure imediatamente para acessar recursos do Azure que a exigem. Se não for possível usar esses recursos, talvez você precise retornar a este artigo para obter ajuda. Para obter mais informações, veja [Contas que você pode usar para entrar](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) e [Como uma assinatura do Azure está relacionada ao Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
@@ -91,7 +88,7 @@ Uma mensagem de que você foi bem-sucedido deverá ser exibida, como mostrado ab
 
 ## Próximas etapas
 
-Agora você pode usar sua nova identidade do Active Directory do Azure para usar os [Modelos de grupo de recursos do Azure](../xplat-cli-azure-resource-manager.md).
+Agora você pode usar sua nova identidade do Active Directory do Azure para usar os [Modelos de grupo de recursos do Azure](../articles/xplat-cli-azure-resource-manager.md).
 
     azure login
     info:    Executing command login
@@ -122,4 +119,4 @@ Agora você pode usar sua nova identidade do Active Directory do Azure para usar
     data:
     info:    group create command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

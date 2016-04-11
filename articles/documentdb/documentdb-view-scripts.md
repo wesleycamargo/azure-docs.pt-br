@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # Criar e executar procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos
@@ -89,9 +89,11 @@ O Gerenciador de Script permite que você execute facilmente operações de CRUD
 
 ## Executar um procedimento armazenado
 
+> [AZURE.WARNING] A execução de procedimentos armazenados no Gerenciador de Script ainda não tem suporte para coleções particionadas do lado do servidor. Para obter mais informações, visite [Particionar e dimensionar dados no Banco de Dados de Documentos](documentdb-partition-data.md).
+
 O Gerenciador de Script permite que você execute os procedimentos armazenados no servidor usando o portal do Azure.
 
-- Quando abrir uma nova folha Criar procedimento armazenado, um script padrão (*prefixo*) será fornecido. Para executar o script *prefixo* ou seu próprio script, adicione uma *id* e *entradas*. Para procedimentos armazenados que aceitam vários parâmetros, todas as entradas devem estar em uma matriz (por exemplo, *["foo", "bar"]*).
+- Quando abrir uma nova folha Criar procedimento armazenado, um script padrão (*prefixo*) já será fornecido. Para executar o script *prefixo* ou seu próprio script, adicione uma *id* e *entradas*. Para procedimentos armazenados que aceitam vários parâmetros, todas as entradas devem estar em uma matriz (por exemplo, *["foo", "bar"]*).
 
 	![Captura de tela da folha Gerenciador de Script para adicionar entrada e executar procedimento armazenado](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
 
@@ -99,7 +101,7 @@ O Gerenciador de Script permite que você execute os procedimentos armazenados n
 
 	> [AZURE.NOTE] O comando **Salvar e Executar** salvará o procedimento armazenado antes da execução, o que significa que ele substituirá a versão do procedimento armazenado salva anteriormente.
 
-- As execuções de procedimento armazenado terão status *Procedimento armazenado salvo e executado com êxito* e os resultados retornados serão preenchidos no painel *Resultados*.
+- As execuções de procedimento armazenado bem-sucedidas terão status *Procedimento armazenado salvo e executado com êxito* e os resultados retornados serão preenchidos no painel *Resultados*.
 
 	![Captura de tela da folha Procedimentos Armazenados do Gerenciador de Script para executar procedimento armazenado](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure.png)
 
@@ -113,8 +115,8 @@ O Gerenciador de Script no portal do Azure é apenas uma maneira de trabalhar co
 
 ## Próximas etapas
 
-Saiba mais sobre programação no lado do servidor do Banco de Dados de Documentos no artigo [Procedimentos armazenados, gatilhos de banco de dados e UDFs](documentdb-programming.md).
+Saiba mais sobre programação no lado do servidor do Banco de Dados de Documentos no artigo [UDFs, gatilhos de banco de dados e procedimentos armazenados](documentdb-programming.md).
 
-O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo a usar o Banco de Dados de Documentos.
+O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o Banco de Dados de Documentos.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/21/2015" 
+	ms.date="03/28/2016" 
 	ms.author="tarcher"/>
 
 # Testando o desempenho de um serviço de nuvem localmente no emulador de computação do Azure usando o criador de perfis do Visual Studio
@@ -26,7 +26,7 @@ Este artigo aborda o método de Amostragem de CPU de criação de perfil, que po
 
 
 
-## Etapa 1: Configurar o Visual Studio para criação de perfis
+## 1: Configurar o Visual Studio para criação de perfil
 
 Em primeiro lugar, há algumas opções de configuração do Visual Studio que podem ser úteis ao criar perfis. Para compreender os relatórios de criação de perfis, você precisará de símbolos (arquivos .pdb) para seu aplicativo e também de símbolos para as bibliotecas do sistema. Você deve certificar-se de fazer referência aos servidores de símbolo disponíveis. Para fazer isso, no menu **Ferramentas** do Visual Studio, escolha **Opções**, escolha **Depuração** e, em seguida, **Símbolos**. Verifique se os Servidores de Símbolo da Microsoft estão listados em **Locais do arquivo de símbolos (.pdb)**. Você também pode consultar http://referencesource.microsoft.com/symbols, que pode ter arquivos de símbolos adicionais.
 
@@ -70,7 +70,7 @@ Chame esse código do método RunAsync na classe derivada de RoleEntryPoint da f
 
 Compile e execute seu serviço de nuvem localmente sem depuração (Ctrl+F5), com a configuração da solução definida como **Versão**. Isso garante que todos os arquivos e pastas sejam criados para executar o aplicativo localmente e garante que todos os emuladores estejam iniciados. Inicie a UI do Emulador de Computação na barra de tarefas para confirmar que sua função de trabalho esteja em execução.
 
-## Etapa 2: Conectar a um processo
+## 2: Anexar a um processo
 
 Em vez de criar o perfil do aplicativo iniciando-o no IDE do Visual Studio 2010, você deve anexar o criador de perfis a um processo em execução.
 
@@ -104,7 +104,7 @@ Quando desejar parar a criação de perfis, escolha o link **Parar Criação de 
 
 ![][10]
 
-## Etapa 3: Exibir relatórios de desempenho
+## 3: Exibir relatórios de desempenho
 
 O relatório de desempenho de seu aplicativo é exibido.
 
@@ -123,7 +123,7 @@ Se você adicionou o código de concatenação de cadeia de caracteres deste art
 
 ![][14]
 
-## Etapa 4: Fazer alterações e comparar o desempenho
+## 5: Fazer alterações e comparar o desempenho
 
 Você também pode comparar o desempenho antes e depois de uma alteração no código. Interrompa o processo em execução e edite o código para substituir a operação de concatenação de cadeia de caracteres pelo uso de StringBuilder:
 
@@ -148,7 +148,7 @@ Os relatórios destacam as diferenças entre as duas execuções.
 
 Parabéns! Você começou a usar o criador de perfis.
 
-##  Solucionar problemas
+## Solucionar problemas
 
 - Verifique se você está criando o perfil de uma compilação de versão e inicie sem depurar.
 
@@ -186,4 +186,4 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

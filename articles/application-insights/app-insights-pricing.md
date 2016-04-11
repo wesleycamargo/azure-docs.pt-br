@@ -53,7 +53,7 @@ A qualquer momento, você pode alternar para a avaliação Premium gratuita de 3
 * A cota depende da camada de preços que você escolheu.
 * A cota é contada a partir de meia-noite UTC até o primeiro dia de cada mês.
 * O gráfico de pontos de dados mostra o quanto da sua cota foi usada neste mês.
-* A cota é medida em *pontos de dados.* Um único ponto de dados é uma chamada para um dos métodos de Rastreamento, seja chamado explicitamente no seu código ou por um dos módulos padrão de telemetria. 
+* A cota é medida em *pontos de dados.* Um único ponto de dados é uma chamada para um dos métodos de Rastreamento, seja chamado explicitamente no seu código ou por um dos módulos padrão de telemetria. Ele pode ter várias propriedades e métricas anexadas.
 * Pontos de dados são gerados por:
  * [Módulos SDK](app-insights-configuration-with-applicationinsights-config.md) que coletam dados automaticamente, por exemplo, para relatar uma solicitação ou falha ou para medir o desempenho.
  * Chamadas à [API](app-insights-api-custom-events-metrics.md) `Track...` que você escreveu, como `TrackEvent` ou `trackPageView`.
@@ -67,7 +67,7 @@ A qualquer momento, você pode alternar para a avaliação Premium gratuita de 3
 * Também é possível inspecionar os pontos de dados individuais na origem durante a depuração:
  * Caso execute seu aplicativo no modo de depuração no Visual Studio, os pontos de dados são registrados na janela de saída. 
  * Para exibir os pontos de dados do cliente, abra o painel de depuração do navegador (geralmente F12) e abra a guia de rede.
-* A taxa de dados é (por padrão) reduzida por [amostragem adaptável](app-insights-sampling). Isso significa que, conforme o uso de seu aplicativo aumenta, a taxa de telemetria não aumentará tanto quanto você poderia esperar.
+* A taxa de dados pode ser (por padrão) reduzida por [amostragem adaptável](app-insights-sampling). Isso significa que, conforme o uso de seu aplicativo aumenta, a taxa de telemetria não aumentará tanto quanto você poderia esperar.
 
 ### Excedente
 
@@ -173,4 +173,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

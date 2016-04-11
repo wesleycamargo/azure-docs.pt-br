@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 
 
-Este artigo descreve como usar o Portal do Azure para monitorar, gerenciar e planejar o tamanho de um pool de banco de dados elástico e de bancos de dados no pool. O Banco de Dados SQL tem inteligência interna que analisa a telemetria de histórico de uso e recomenda proativamente um pool de bancos de dados quando ele for mais econômico. Você também pode adicionar e remover bancos de dados antes de confirmar as alterações e ver o impacto sobre o armazenamento e o desempenho do pool.
+Este artigo descreve como usar o Portal do Azure para monitorar, gerenciar e planejar o tamanho de um pool de banco de dados elástico e de bancos de dados no pool. O Banco de Dados SQL conta com inteligência interna que analisa a telemetria do histórico de uso e recomenda de forma proativa um pool para bancos de dados quando essa opção é mais econômica. Você também pode adicionar e remover bancos de dados antes de confirmar as alterações e ver o impacto sobre o armazenamento e o desempenho do pool.
 
 Para trabalhar com as etapas neste artigo, você precisará de bancos de dados e um pool. Consulte [criar um pool](sql-database-elastic-pool-create-portal.md) se você já tiver bancos de dados e o [Tutorial do Banco de Dados SQL](sql-database-get-started) se não tiver.
 
@@ -131,4 +131,4 @@ Trabalhos elásticos facilitam a execução de scripts Transact-SQL em qualquer 
 - [Criar um pool de banco de dados elástico com o C#](sql-database-elastic-pool-create-csharp.md)
 - [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

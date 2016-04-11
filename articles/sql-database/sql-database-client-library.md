@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="03/23/2016"
    ms.author="sstein"/>
 
 # Criar e gerenciar Banco de Dados SQL com C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-elastic-pool-portal.md)
+- [Portal do Azure](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -30,15 +30,15 @@ Este artigo fornece comandos para a execução de várias tarefas de gerenciamen
 
 Trechos de código individuais foram divididos por motivos de clareza, e um exemplo de aplicativo de console reúne todos os comandos na seção no fim deste artigo.
 
-A Biblioteca do Banco de Dados SQL do Azure para .NET fornece uma API baseada no [Gerenciador de Recursos do Azure](resource-group-overview.md) que encapsula a [API REST do Banco de Dados SQL baseada no Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Essa biblioteca cliente segue o padrão comum das bibliotecas cliente baseadas no Gerenciador de Recursos. O Gerenciador de Recursos exige grupos de recursos e autenticação no AAD ([Active Directory do Azure](https://msdn.microsoft.com/library/azure/mt168838.aspx)).
+A Biblioteca do Banco de Dados SQL do Azure para .NET fornece uma API baseada no [Gerenciador de Recursos do Azure](../resource-group-overview.md) que encapsula a [API REST do Banco de Dados SQL baseada no Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Essa biblioteca cliente segue o padrão comum das bibliotecas cliente baseadas no Gerenciador de Recursos. O Gerenciador de Recursos exige grupos de recursos e autenticação no AAD ([Active Directory do Azure](https://msdn.microsoft.com/library/azure/mt168838.aspx)).
 
 <br>
 
-> [AZURE.NOTE]Atualmente, a Biblioteca do Banco de Dados SQL para .NET está na versão de visualização.
+> [AZURE.NOTE] Atualmente, a Biblioteca do Banco de Dados SQL para .NET está na versão de visualização.
 
 <br>
 
-Se você não tiver uma assinatura do Azure, bastará clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para este artigo. E para obter uma cópia gratuita do Visual Studio, consulte a página [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Caso não tenha uma assinatura do Azure, clique em **AVALIAÇÃO GRATUITA**, na parte superior desta página, e volte para este artigo. Para obter uma cópia gratuita do Microsoft Visual Studio, confira a página [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Instalando as bibliotecas necessárias
 
@@ -59,11 +59,11 @@ Para autenticar seu aplicativo cliente com base no usuário atual, primeiro voc�
 
 Para criar um novo aplicativo e registrá-lo no active directory correto, faça o seguinte:
 
-1. Role o menu à esquerda para localizar o serviço do **Active Directory** e abri-lo.
+1. Role o menu à esquerda para localizar e abrir o serviço do **Active Directory**.
 
     ![AAD][1]
 
-2. Selecione o diretório para autenticar seu aplicativo e clique em seu **Nome**.
+2. Selecione o diretório para autenticar o aplicativo e clique no respectivo **Nome**.
 
     ![Diretórios][4]
 
@@ -71,11 +71,11 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
     ![Aplicativos][5]
 
-4. Clique em **ADICIONAR** para criar um novo aplicativo.
+4. Clique em **ADICIONAR** para criar um aplicativo novo.
 
     ![Adicionar aplicativo][6]
 
-5. Selecione **Adicionar um aplicativo que minha organização está desenvolvendo**.
+5. Escolha **Adicionar um aplicativo que minha organização está desenvolvendo**.
 
 5. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO CLIENTE NATIVO**.
 
@@ -85,7 +85,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
     ![Adicionar aplicativo][8]
 
-7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (você precisará da ID do cliente em seu código).
+7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (você vai precisar da ID do cliente no código).
 
     ![obter id do cliente][9]
 
@@ -93,7 +93,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 1. Na parte inferior da página, clique em **Adicionar aplicativo**.
 1. Selecione **Aplicativos da Microsoft**.
 1. Selecione **API de Gerenciamento de Serviços do Azure** e conclua o assistente.
-2. Com a API selecionada, você precisa conceder as permissões específicas necessárias para acessar essa API selecionando **Acessar o Gerenciamento de Serviço do Azure (visualização)**.
+2. Com a API selecionada, você deve conceder as permissões específicas necessárias para acessar essa API; para isso, selecione **Acessar o Gerenciamento de Serviços do Azure (visualização)**.
 
     ![permissões][2]
 
@@ -116,7 +116,7 @@ O nome de domínio é necessário para seu código. Uma maneira fácil de identi
 
 **Recursos adicionais de AAD**
 
-Encontre informações adicionais sobre como usar o Active Directory do Azure para autenticação [nesta postagem útil do blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
+Saiba mais sobre como usar o Active Directory do Azure para autenticação [nesta postagem de blog](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
 ### Recuperar o token de acesso para o usuário atual 
@@ -148,7 +148,7 @@ Para criar scripts automatizados, nos quais não haja a necessidade de interaç�
 
 
 
-> [AZURE.NOTE]Os exemplos neste artigo usam uma forma síncrona de cada solicitação de API e ficam bloqueados até a conclusão da chamada REST do serviço subjacente. Há métodos assíncronos disponíveis.
+> [AZURE.NOTE] Os exemplos neste artigo usam uma forma síncrona de cada solicitação de API e ficam bloqueados até a conclusão da chamada REST do serviço subjacente. Há métodos assíncronos disponíveis.
 
 
 
@@ -335,7 +335,7 @@ Para criar um novo pool em um servidor:
 
 ## Mover um banco de dados existente para um pool de banco de dados elástico
 
-*Depois de criar um pool você também pode usar o Transact-SQL para mover bancos de dados existentes dentro e fora de um pool. Para saber mais detalhes, consulte [Referência de pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Depois de criar um pool, você pode também usar o Transact-SQL para mover bancos de dados existentes dentro e fora de um pool. Para saber mais detalhes, consulte [Referência de pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Para mover um banco de dados existente para um pool:
 
@@ -367,7 +367,7 @@ Para mover um banco de dados existente para um pool:
 
 ## Criar um novo banco de dados em um pool de banco de dados elástico
 
-*Depois de criar um pool você também pode usar o Transact-SQL para criar novos bancos de dados elásticos no pool. Para saber mais detalhes, consulte [Referência de pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Depois de criar um pool, você pode também usar o Transact-SQL para criar novos bancos de dados elásticos no pool. Para saber mais detalhes, consulte [Referência de pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Para criar um novo banco de dados diretamente em um pool:
 
@@ -784,7 +784,7 @@ Para excluir um grupo de recursos:
 
 [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Referência do pool de banco de dados elástico](sql-database-elastic-pool-reference.md).
+[Referência do Pool de Banco de Dados Elástico](sql-database-elastic-pool-reference.md).
 
 
 <!--Image references-->
@@ -798,4 +798,4 @@ Para excluir um grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

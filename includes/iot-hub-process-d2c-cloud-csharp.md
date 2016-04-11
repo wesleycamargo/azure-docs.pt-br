@@ -19,13 +19,15 @@ Para garantir que nenhuma mensagem seja reenviada fora da janela de eliminação
 ### Provisionar uma conta de Armazenamento do Azure e uma fila do Barramento de Serviço
 Para usar a classe [EventProcessorHost], você deve ter uma conta de Armazenamento do Azure para habilitar o **EventProcessorHost** para registro do ponto de verificação. Você pode usar uma conta de armazenamento já existente ou seguir as instruções em [Sobre o Armazenamento do Azure] para criar uma nova. Anote a cadeia de conexão da conta de armazenamento.
 
-Você também precisará de uma fila do Barramento de Serviço para habilitar o processamento confiável de mensagens interativas. Você pode criar uma fila programaticamente com uma janela de eliminação de duplicação de 1 hora, como explicado em [Como usar filas do Barramento de Serviço][Service Bus Queue], ou use o [portal do Azure clássico] seguindo estas etapas:
+> [AZURE.NOTE] Ao copiar e colar a cadeia de conexão da conta de armazenamento, verifique se não há nenhum espaço incluído na cadeia de conexão.
 
-1. Clique em **NOVO** no canto inferior esquerdo, em seguida, **Serviços de Aplicativos**, em seguida, **Barramento de Serviço**, em seguida, **Fila**, em seguida, **Criação personalizada**, insira o nome **d2ctutorial**, selecione uma região, use um namespace existente ou crie um novo, e na página seguinte, selecione **Habilitar detecção de duplicidades** e defina a **Janela de tempo do histórico de detecção de duplicidades** para uma hora. Em seguida, clique na marca de seleção para salvar a sua configuração de fila.
+Você também precisará de uma fila do Barramento de Serviço para habilitar o processamento confiável de mensagens interativas. Você pode criar uma fila programaticamente com uma janela de eliminação de duplicação de 1 hora, como explicado na seção [Como usar filas do Barramento de Serviço][Service Bus Queue], ou usar o [portal clássico do Azure] seguindo estas etapas:
+
+1. Clique em **NOVO** no canto inferior esquerdo, depois, clique em **Serviços de Aplicativos**, em seguida, em **Barramento de Serviço**, em **Fila** e, em seguida, em **Criação personalizada**, insira o nome **d2ctutorial**, selecione uma região, use um namespace existente ou crie um novo e, na página seguinte, selecione **Habilitar detecção de duplicidades** e defina a **Janela de tempo do histórico de detecção de duplicidades** para uma hora. Em seguida, clique na marca de seleção para salvar a sua configuração de fila.
 
     ![][30]
 
-2. Na lista de filas do Barramento de Serviço, clique em **d2ctutorial**, e, em seguida, clique em **Configurar**. Crie duas políticas de acesso compartilhado, uma chamada **enviar** com permissões **Enviar** e outra chamada **escutar** com permissões **Escutar**. Clique em **Salvar** na parte inferior quando concluir.
+2. Na lista de filas do Barramento de Serviço, clique em **d2ctutorial** e, em seguida, clique em **Configurar**. Crie duas políticas de acesso compartilhado, uma chamada **enviar** com permissões de **Envio** e outra chamada **escutar** com permissões de **Escuta**. Clique em **Salvar** na parte inferior quando concluir.
 
     ![][31]
 
@@ -41,9 +43,9 @@ Você também precisará de uma fila do Barramento de Serviço para habilitar o 
 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProcessDeviceToCloudMessages** e clique em **Gerenciar Pacotes NuGet**. A caixa de diálogo **Gerenciador de Pacotes NuGet** será exibida.
 
-3. Procure **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [pacote NuGet do Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus), com todas as suas dependências.
+3. Pesquise por **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [pacote NuGet do Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus), com todas as suas dependências.
 
-4. **Pesquise 'Hub de Evento do Barramento de Serviço do Microsoft Azure - EventProcessorHost'**, clique em **Instalar** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [Hub de Eventos do Barramento de Serviço do Azure - pacote NuGet do EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), com todas as suas dependências.
+4. Pesquise por **'Hub de Evento do Barramento de Serviço do Microsoft Azure - EventProcessorHost'**, clique em **Instalar** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [Hub de Eventos do Barramento de Serviço do Azure - pacote NuGet do EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), com todas as suas dependências.
 
 5. Clique com o botão direito do mouse no projeto **ProcessDeviceToCloudMessages**, clique em **Adicionar** e clique em **Classe**. Chame a nova classe de **StoreEventProcessor** e clique em **OK** para criar a classe.
 
@@ -198,17 +200,17 @@ Você também precisará de uma fila do Barramento de Serviço para habilitar o 
     
     O método **ProcessEventsAsync** recebe um lote de mensagens do Hub IoT e processa-os da seguinte maneira: ele envia mensagens interativas para a fila do Barramento de Serviço e anexa mensagens de ponto de dados no buffer de memória denominado **toAppend**. Caso o buffer de memória atinja o limite de bloqueio de 4 Mb ou se as janelas de tempo de eliminação de duplicação do Barramento de Serviço tenham passado desde o último ponto de verificação (neste tutorial, 1 hora), um ponto de verificação será disparado.
 
-    O método **AppendAndCheckPoint** primeiro gera uma blockId para o bloco a ser anexado. O Armazenamento do Azure requer que todas as ids de bloco tenham o mesmo comprimento, então o método preenche o deslocamento com zeros à esquerda - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Em seguida, se um bloco com essa id já estiver no blob, o método o substituirá pelo atual conteúdo do buffer..
+    O método **AppendAndCheckpoint** primeiro gera uma blockId para o bloco a ser anexado. O Armazenamento do Azure requer que todas as ids de bloco tenham o mesmo comprimento, então o método preenche o deslocamento com zeros à esquerda - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Em seguida, se um bloco com essa id já estiver no blob, o método o substituirá pelo atual conteúdo do buffer..
 
     > [AZURE.NOTE] Para simplificar o código, este tutorial usa um arquivo único de blob por partição para armazenar as mensagens. Uma solução real implementaria o arquivo sem interrupção, criando arquivos adicionais quando um determinado tamanho for atingido (observe que o blob de blocos do Azure pode ter, no máximo, 195 Gb), ou após um determinado período.
 
-8. Na classe **Programa**, adicione as seguintes instruções **using** na parte superior:
+8. Na classe **Programa**, adicione as seguintes instruções **de uso** na parte superior:
 
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
 
-9. Modifique o método **Main** para a classe **Program** como mostrado abaixo, substituindo a cadeia de conexão **iothubowner** do Hub IoT (do tutorial [Introdução ao Hub IoT]), a cadeia de conexão de armazenamento e a cadeia de conexão do Barramento de Serviço com permissões **Enviar** para a fila chamada **d2ctutorial**:
+9. Modifique o método **Principal** para a classe **Programa** como mostrado abaixo, substituindo a cadeia de conexão **iothubowner** do Hub IoT (do tutorial [Introdução ao Hub IoT]), a cadeia de conexão de armazenamento e a cadeia de conexão do Barramento de Serviço com permissões **Enviar** para a fila chamada **d2ctutorial**:
 
     ```
     static void Main(string[] args)
@@ -234,13 +236,13 @@ Você também precisará de uma fila do Barramento de Serviço para habilitar o 
 ## Receber mensagens interativas
 Nesta seção, você escreverá um aplicativo de console do Windows que recebe mensagens interativas da fila do Barramento de Serviço. Consulte [Criar aplicativos multicamadas com o Barramento de Serviço][] para saber mais sobre como projetar uma solução usando o Barramento de Serviço.
 
-1. Na atual solução do Visual Studio, crie um novo projeto de Visual C# do Windows usando o modelo de projeto do **Aplicativo do Console**. Chame o projeto de **ProcessD2cInteractiveMessages**.
+1. Na atual solução do Visual Studio, crie um novo projeto de Visual C# do Windows usando o modelo de projeto do **Aplicativo do Console**. Chame o projeto de **ProcessD2CInteractiveMessages**.
 
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProcessD2CInteractiveMessages** e clique em **Gerenciar Pacotes NuGet**. Isso faz com que a janela **Gerenciador de Pacotes NuGet** seja exibida.
 
-3. Procure **WindowsAzure.Service Bus**, clique em **Instalar** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) com todas as dependências.
+3. Pesquise por **WindowsAzure.Service Bus**, clique em **Instalar** e aceite os termos de uso. Isso baixa, instala e adiciona uma referência ao [Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) com todas as dependências.
 
-4. Adicione a seguinte instrução **using** no topo do arquivo **Program.cs**:
+4. Adicione a seguinte instrução **de uso** no topo do arquivo **Program.cs**:
 
     ```
     using System.IO;
@@ -312,4 +314,4 @@ Nesta seção, você escreverá um aplicativo de console do Windows que recebe m
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

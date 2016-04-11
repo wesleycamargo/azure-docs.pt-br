@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2016" 
+	ms.date="03/30/2016" 
 	ms.author="mimig"/>
 
 
@@ -23,7 +23,7 @@
 ## Perguntas de banco de dados sobre as noções básicas do Banco de Dados de Documentos do Microsoft Azure
 
 ### O que é o Banco de Dados de Documentos do Microsoft Azure? 
-O Banco de Dados de Documentos do Microsoft Azure é um serviço de banco de dados de documentos NoSQL altamente escalonável que oferece consulta sofisticada de dados sem esquemas, ajuda a oferecer um desempenho confiável e configurável e habilita um desenvolvimento rápido – tudo isso por meio de uma plataforma gerenciada com o suporte e o alcance do Microsoft Azure. O Banco de Dados de Documentos é a solução certa para aplicativos Web e dispositivos móveis, nos quais taxa de transferência previsível, baixa latência e modelo de dados sem esquema são requisitos essenciais. O Banco de Dados de Documentos fornece flexibilidade de esquemas e indexação sofisticada por meio de um modelo de dados JSON nativo e inclui suporte de transações com diversos documentos com JavaScript integrado.
+O Banco de Dados de Documentos do Microsoft Azure é um serviço de banco de dados de documentos NoSQL altamente escalonável que oferece consulta sofisticada de dados sem esquemas, ajuda a oferecer um desempenho confiável e configurável e habilita um desenvolvimento rápido – tudo isso por meio de uma plataforma gerenciada com o suporte e o alcance do Microsoft Azure. O Banco de Dados de Documentos é a solução certa para aplicativos Web, móveis, de jogos e IoT quando a produtividade previsível, a baixa latência e o modelo de dados sem esquema são requisitos essenciais. O Banco de Dados de Documentos fornece flexibilidade de esquemas e indexação sofisticada por meio de um modelo de dados JSON nativo e inclui suporte de transações com diversos documentos com JavaScript integrado.
   
 Para obter mais perguntas, respostas e instruções de banco de dados sobre como implantar e usar esse serviço, consulte a [página de documentação do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/services/documentdb/).
 
@@ -37,22 +37,30 @@ Não, o Banco de Dados de Documentos armazena dados em coleções de documentos 
 Sim, o Banco de Dados de Documentos permite que os aplicativos armazenem documentos JSON arbitrários sem definições ou dicas de esquema. Os dados ficam disponíveis imediatamente para consulta com a interface de consulta SQL do Banco de Dados de Documentos.
 
 ### O Banco de Dados de Documentos tem suporte para transações ACID?
-Sim, o Banco de Dados de Documentos suporta transações entre documentos expressas como procedimentos e gatilhos armazenados de JavaScript. As transações têm como escopo uma coleção única e são executados com semântica ACID como tudo ou nada, isolados de outras solicitações de códigos e de usuários executadas simultaneamente. Se exceções forem emitidas por parte da execução do código de aplicativo JavaScript pelo servidor, toda a transação será revertida.
+Sim, o Banco de Dados de Documentos suporta transações entre documentos expressas como procedimentos e gatilhos armazenados de JavaScript. As transações têm como escopo uma única partição em cada coleção e são executadas com semântica ACID como tudo ou nada, isoladas de outras solicitações de códigos e de usuários executadas simultaneamente. Se exceções forem emitidas por parte da execução do código de aplicativo JavaScript pelo servidor, toda a transação será revertida.
 
 ### Quais são os casos de uso típicos do Banco de Dados de Documentos?  
-O Banco de Dados de Documentos é uma boa opção para novos aplicativos Web e dispositivos móveis nos quais escala, desempenho e a capacidade de consultar dados sem esquema são importantes. O Banco de Dados de Documentos funciona bem em contextos de desenvolvimento rápido e dá suporte à iteração contínua de modelos de dados de aplicativos. Os aplicativos que gerenciam conteúdo e dados gerados pelo usuário são [casos de uso comuns do Banco de Dados de Documentos](documentdb-use-cases.md).
+O Banco de Dados de Documentos é uma boa escolha para novos aplicativos Web, móveis, de jogos e IoT, em que a escala automática, o desempenho previsível, a ordem rápida dos tempos de resposta de milissegundos e a capacidade de consultar dados sem esquema são importantes. O Banco de Dados de Documentos funciona bem em contextos de desenvolvimento rápido e dá suporte à iteração contínua de modelos de dados de aplicativos. Os aplicativos que gerenciam conteúdo e dados gerados pelo usuário são [casos de uso comuns do Banco de Dados de Documentos](documentdb-use-cases.md).
+
+### Como o Banco de Dados de Documentos oferece desempenho previsível?
+Uma RU (Unidade de Solicitação) é a medida de produtividade no Banco de Dados de Documentos. 1 RU corresponde à produtividade do GET de um documento de 1 KB. Toda operação no Banco de Dados de Documentos, incluindo leituras, gravações, consultas SQL e execuções de procedimentos armazenados, tem um valor determinístico de Unidade de Solicitação baseado na produtividade necessária para concluir a operação. Em vez de pensar em CPU, E/S, memória e como cada uma dessas medidas afeta a produtividade do seu aplicativo, você pode pensar em uma medida de Unidade de Solicitação única.
+
+Cada coleção do Banco de Dados de Documentos pode ser reservada com produtividade provisionada em termos de Unidades de Solicitação da produtividade por segundo. Em aplicativos de qualquer escala, você pode avaliar o desempenho das solicitações individuais para medir seus valores de unidade de solicitação e provisionar coleções para lidar com a soma total de unidades de solicitação entre todas as solicitações. Também é possível escalar ou reduzir verticalmente a produtividade de sua coleção conforme as necessidades do aplicativo aumentam. Para saber mais sobre unidades de solicitação e ajuda para determinar as necessidades de sua coleção, leia sobre o [gerenciamento de desempenho e capacidade](documentdb-manage.md).
 
 ### O Banco de Dados de Documentos é compatível com HIPAA?
-Sim, o Banco de Dados de Documentos é compatível com HIPAA. A HIPAA estabelece os requisitos para o uso, a divulgação e a proteção de informações de integridade individualmente identificáveis. Para obter mais informações, veja a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/pt-BR/TrustCenter/Compliance/HIPAA).
+Sim, o Banco de Dados de Documentos é compatível com HIPAA. A HIPAA estabelece os requisitos para o uso, a divulgação e a proteção de informações de integridade individualmente identificáveis. Para saber mais, confira o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/pt-BR/TrustCenter/Compliance/HIPAA).
 
-### Quais são os limites de dimensionamento do Banco de Dados de Documentos?
-Contas do Banco de Dados de Documentos podem ser dimensionadas em termos de armazenamento e taxa de transferência com a adição de coleções. Veja [Limites do Banco de Dados de Documentos](documentdb-limits.md) para ver as cotas de serviço para o número de coleções. Se precisar de coleções adicionais, [entre em contato com o suporte](documentdb-increase-limits.md) para que a cota de sua conta seja aumentada.
+### Quais são os limites de armazenamento do Banco de Dados de Documentos? 
+Não há limite teórico para a quantidade total de dados que uma coleção pode armazenar no Banco de Dados de Documentos. Se você deseja armazenar mais de 250 GB de dados em uma única coleção, [entre em contato com o suporte](documentdb-increase-limits.md) para que a cota da sua conta seja aumentada.
+
+### Quais são os limites de produtividade do Banco de Dados de Documentos? 
+Não há limite teórico para a quantidade total de produtividade à qual uma coleção pode dar suporte no Banco de Dados de Documentos, se sua carga de trabalho puder ser distribuída quase que de maneira uniforme entre um número suficientemente grande de chaves de partição. Se você quiser exceder 250.000 unidades de solicitação/segundo por coleção ou conta, [entre em contato com o suporte](documentdb-increase-limits.md) para que a cota da sua conta seja aumentada.
 
 ### Quanto custa o Banco de Dados de Documentos do Microsoft Azure?
-Consulte a página [Detalhes de preços do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=402317) para obter mais informações. Os encargos pelo uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, o número de horas em que as coleções estiveram online e o [nível de desempenho](documentdb-performance-levels.md) de cada coleção.
+Consulte a página [Detalhes de preços do Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/) para obter mais informações. Os encargos pelo do uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, pelo número de horas que as coleções estiveram online e pelo armazenamento consumido e produtividade provisionada para cada coleção.
 
 ### Existe uma conta gratuita disponível?
-Se for novo no Azure, você poderá se inscrever para uma [Conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$ 150 em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
+Se for novo no Azure, você poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/), que dá 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$ 150 em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.
 
 ### Como obter ajuda adicional com o Banco de Dados de Documentos?
 Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Banco de Dados de Documentos do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou agende um [chat individual com a equipe de engenharia do Banco de Dados de Documentos](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
@@ -69,12 +77,9 @@ Uma chave mestra é um token de segurança para acessar todos os recursos de uma
 Você pode criar bancos de dados usando o [Portal do Azure](), como descrito em [Criar um banco de dados do Banco de Dados de Documentos](documentdb-create-database.md), um dos [SDKs do Banco de Dados de Documentos](documentdb-sdk-dotnet.md) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### O que é uma coleção?
-Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. As consultas e transações estão dentro do escopo das coleções. Você pode armazenar um conjunto de documentos JSON heterogêneos em uma única coleção, sendo todos eles indexados automaticamente.
+Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. Uma coleção é uma entidade faturável, em que o [custo](documentdb-performance-levels.md) é determinado pelo nível de desempenho associado à coleção. As coleções podem abranger uma ou mais partições/servidores e podem ser dimensionadas para lidar com volumes de armazenamento ou produtividade praticamente ilimitados.
 
-As coleções também são as entidades de cobrança para o Banco de Dados de Documentos. Os encargos mensais pelo uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, o número de horas em que as coleções estiveram online e o [nível de desempenho](documentdb-performance-levels.md) de cada coleção. Para obter mais informações, consulte [Preços do Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/).
-
-### Há limites para os bancos de dados e coleções?
-Cada coleção vem com uma alocação de armazenamento do banco de dados e uma taxa de transferência em um dos [níveis de desempenho](documentdb-performance-levels.md) com suporte. Também há cotas para cada recurso gerenciado pelo serviço. Para obter uma lista de todos os limites, consulte [Limites do Banco de Dados de Documentos](documentdb-limits.md). Para solicitar uma alteração em seus limites de conta, consulte [Solicitar maiores limites de conta do Banco de Dados de Documentos](documentdb-increase-limits.md).
+As coleções também são as entidades de cobrança para o Banco de Dados de Documentos. Cada coleção é cobrada por hora com base na produtividade provisionada e no espaço de armazenamento usado. Para obter mais informações, consulte [Preços do Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/).
 
 ### Como configuro usuários e permissões?
 Você pode criar usuários e permissões usando um dos [SDKs do Banco de Dados de Documentos](documentdb-sdk-dotnet.md) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
@@ -84,7 +89,7 @@ Você pode criar usuários e permissões usando um dos [SDKs do Banco de Dados d
 ### Como começo a desenvolver no Banco de Dados de Documentos?
 Os [SDKs](documentdb-sdk-dotnet.md) estão disponíveis para .NET, Python, Node.js, JavaScript e Java. Os desenvolvedores também podem aproveitar as [APIs HTTP RESTful](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interagir com os recursos do Banco de Dados de Documentos em uma série de plataformas e linguagens.
 
-Exemplos dos SDKs [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples) e [Python](https://github.com/Azure/azure-documentdb-python) do Banco de Dados de Documentos estão disponíveis no GitHub.
+Exemplos dos SDKs [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md) e [Python](documentdb-python-samples.md) do Banco de Dados de Documentos estão disponíveis no GitHub.
 
 ### O Banco de Dados de Documentos dá suporte ao SQL?
 A linguagem de consulta SQL do Banco de Dados de Documentos é um subconjunto aprimorado da funcionalidade de consulta com suporte do SQL. A linguagem de consulta SQL do Banco de Dados de Documentos fornece extensibilidade e operadores hierárquicos e relacionais por meio de JavaScript com base em UDFs (funções definidas por usuário). A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore, o que é usado pelas técnicas de indexação automática do Banco de Dados de Documentos, bem como pelo dialeto de consulta SQL do Banco de Dados de Documentos. Para obter detalhes sobre como usar a gramática SQL, veja o artigo [Consultar o Banco de Dados de Documentos][query].
@@ -96,7 +101,7 @@ Os tipos de dados primitivos suportados no Banco de Dados de Documentos são os 
 O Banco de Dados de Documentos suporta o controle de simultaneidade otimista (OCC) por meio de marcas de entidade HTTP ou ETags. Cada recurso do Banco de Dados de Documentos tem uma ETag, e os clientes do Banco de Dados de Documentos incluem sua versão de leitura mais recente em solicitações de gravação. Se a ETag for atual, a alteração é aplicada. Se o valor tiver sido alterado externamente, o servidor rejeita a gravação com um código de resposta "Falha de pré-condição HTTP 412". Os clientes devem ler a versão mais recente do recurso e repetir a solicitação.
 
 ### Como executo transações no Banco de Dados de Documentos?
-O Banco de Dados de Documentos suporta transações integradas de linguagens com procedimentos e gatilhos armazenados de JavaScript. Todas as operações de bancos de dados dentro de scripts são executadas em isolamento instantâneo cujo escopo é a coleção. E obtido um instantâneo das versões do documento (ETags) no início da transação e confirmado somente se o script for bem-sucedido. Se o JavaScript emitir um erro, a transação será revertida. Consulte [Programação do Banco de Dados de Documentos no servidor](documentdb-programming.md).
+O Banco de Dados de Documentos suporta transações integradas de linguagens com procedimentos e gatilhos armazenados de JavaScript. Todas as operações de banco de dados dentro de scripts são executadas com escopo no isolamento de instantâneo para a coleção, se for uma coleção de única partição, ou documentos com o mesmo valor de chave de partição em uma coleção, se a coleção for particionada. E obtido um instantâneo das versões do documento (ETags) no início da transação e confirmado somente se o script for bem-sucedido. Se o JavaScript emitir um erro, a transação será revertida. Consulte [Programação do Banco de Dados de Documentos no servidor](documentdb-programming.md).
 
 ### Como posso inserir documentos em massa no Banco de Dados de Documentos? 
 Há três maneiras de inserir documentos em massa no Banco de Dados de Documentos:
@@ -115,4 +120,4 @@ Sim, como o Banco de Dados de Documentos é um serviço RESTful, os links de rec
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

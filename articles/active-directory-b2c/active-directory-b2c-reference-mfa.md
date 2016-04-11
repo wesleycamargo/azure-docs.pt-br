@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Azure Active Directory B2C: habilitar a Multi-Factor Authentication nos seus aplicativos voltados para o consumidor
@@ -54,4 +54,8 @@ Você pode usar o recurso "Executar agora" da política para verificar a experi�
 
 Quando o consumidor entra (usando uma conta local ou social), se um número de telefone verificado está anexado à conta de consumidor, ele deve verificá-lo. Se nenhum número de telefone estiver anexado, o consumidor é solicitado a fornecer seu número de telefone e a confirmá-lo. Se a verificação for bem-sucedida, o número de telefone será anexado à conta do consumidor para uso posterior.
 
-<!---HONumber=AcomDC_0224_2016-->
+## Multi-Factor Authentication em outras políticas
+
+Conforme descrito para as políticas de inscrição e entrada acima, também é possível habilitar a autenticação multifator nas políticas de inscrição ou entrada e nas políticas de redefinição de senha. Ela estará disponível em breve nas políticas de edição de perfil.
+
+<!---HONumber=AcomDC_0330_2016-->

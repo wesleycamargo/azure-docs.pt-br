@@ -71,16 +71,16 @@ A [Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/vir
 
 Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, consulte [Estender recursos do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-##<a id="portal"></a>Usando o Portal de Visualização do Azure
+##<a id="portal"></a> Usando o Portal do Azure
 
 Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blobs do Azure como o sistema de arquivos padrão. Uma conta de Armazenamento do Azure localizada no mesmo data center é necessária para poder criar um cluster HDInsight. Para obter mais informações, consulte [Usar o Armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter detalhes sobre como criar uma conta do Armazenamento do Azure, consulte [Como criar uma conta de armazenamento][azure-create-storageaccount].
 
 **Para criar um cluster HDInsight usando a opção Criação Personalizada**
 
-1. Entre no [Portal de Visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **NOVO**, em **Análises de Dados** e em **HDInsight**.
 
-    ![Criar um novo cluster no Portal de Visualização do Azure](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.1.png "Criar um novo cluster no Portal de Visualização do Azure")
+    ![Criando um novo cluster no Portal do Azure](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.1.png "Criando um novo cluster no Portal do Azure")
 
 3. Insira um **Nome de Cluster**, escolha **Spark** para o **Tipo de Cluster** e, no menu suspenso **Sistema Operacional do Cluster**, escolha **Windows Server 2012 R2 Datacenter**. Uma marca de seleção verde aparecerá ao lado do nome do cluster, se disponível.
 
@@ -174,11 +174,11 @@ Os clusters do Spark no HDInsight usam um contêiner de armazenamento de blobs d
 
 	* **Início Rápido** (![ícone de nuvem e raio = início rápido](./media/hdinsight-apache-spark-provision-clusters/quickstart.png)): exibe informações que ajudarão você a começar a usar o HDInsight.
 
-	* **Usuários** (![ícone de usuários](./media/hdinsight-apache-spark-provision-clusters/users.png)): permite definir permissões para o _gerenciamento do portal_ deste cluster para outros usuários em sua assinatura do Azure.
+	* **Usuários** (![ícone de usuários](./media/hdinsight-apache-spark-provision-clusters/users.png)): permite definir permissões para o _gerenciamento de portal_ deste cluster para outros usuários em sua assinatura do Azure.
 
-		> [AZURE.IMPORTANT] Isso afeta _apenas_ o acesso e as permissões para o cluster no Portal de Visualização do Azure e não quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
+		> [AZURE.IMPORTANT] Isso afeta _apenas_ o acesso e as permissões para esse cluster no Portal do Azure e não afeta quem pode se conectar ao cluster HDInsight ou enviar trabalhos a ele.
 
-	* **Marcas** (![ícone de marca](./media/hdinsight-apache-spark-provision-clusters/tags.png)): as marcas permitem estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada __projeto__ e usar um valor comum para todos os serviços associados a um projeto específico.
+	* **Marcas** (![ícone de marca](./media/hdinsight-apache-spark-provision-clusters/tags.png)): as marcas permitem definir pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada __projeto__ e usar um valor comum para todos os serviços associados a um projeto específico.
 
 	* **Painel do Cluster**: inicia a folha Painel do Cluster, no qual você pode iniciar o próprio painel do cluster ou iniciar blocos de anotações do Zeppelin e Jupyter.
 
@@ -242,4 +242,4 @@ Especifique o tipo de cluster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

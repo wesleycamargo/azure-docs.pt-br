@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="03/04/2015"
+   ms.date="03/04/2016"
    ms.author="genli"/>
 
 # Transferindo uma assinatura do Azure
@@ -110,4 +110,4 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 4. Atualizar alertas de cobrança para essa assinatura no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nesta assinatura. Você pode fazê-lo no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

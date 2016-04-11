@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Modelos
@@ -99,9 +99,9 @@ A mensagem enviada ao Hub de Notificação contém as seguintes propriedades:
 
 
 <table border="1">
-<tr><td>day1\_image</td><td>day2\_image</td><td>day3\_image</td><td>day4\_image</td><td>day5\_image</td></tr>
-<tr><td>day1\_tempC</td><td>day2\_tempC</td><td>day3\_tempC</td><td>day4\_tempC</td><td>day5\_tempC</td></tr>
-<tr><td>day1\_tempF</td><td>day2\_tempF</td><td>day3\_tempF</td><td>day4\_tempF</td><td>day5\_tempF</td></tr>
+<tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
+<tr><td>day1_tempC</td><td>day2_tempC</td><td>day3_tempC</td><td>day4_tempC</td><td>day5_tempC</td></tr>
+<tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
 </table><br/>
 
 
@@ -127,9 +127,7 @@ A tabela a seguir mostra a linguagem permitida nos modelos:
 | $(prop, n) | Como consta acima, mas o texto é explicitamente cortado em n caracteres, por exemplo, $(title, 20) corta o conteúdo da propriedade de título em 20 caracteres. |
 | .(prop, n) | Como consta acima, mas o texto é sufixado com três pontos quando é cortado. O tamanho total de caracteres cortados e o sufixo não excedem n caracteres .(title, 20) com uma propriedade de entrada de “Esta é a linha de título” resulta em **Este é o título...** |
 | %(prop) | Semelhante ao $(name), exceto que a saída é codificada para URI. |
-| #(prop) | Usada em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Essa função funciona exatamente como $(prop) anteriormente especificada, exceto quando usada em modelos JSON (por exemplo, modelos Apple). Nesse caso, se essa função não for delimitada por “{‘,’}” (por exemplo, ‘myJsonProperty’: ‘#(name)’) e for avaliada como um número em formato Javascript, por exemplo, regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?, então, a saída JSON será um número.<br><br>Por exemplo, ‘badge : ‘#(name)’se torna 'badge': 40 (e não ‘40‘). |
-| ‘text’ ou “text” | Um literal. Os literais contêm texto arbitrário entre aspas simples ou duplas. |
-| expr1 + expr2 | O operador de concatenação junta duas expressões em uma única cadeia de caracteres.
+| #(prop) | Usada em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Essa função funciona exatamente como $(prop) anteriormente especificada, exceto quando usada em modelos JSON (por exemplo, modelos Apple). Nesse caso, se essa função não for delimitada por “{‘,’}” (por exemplo, ‘myJsonProperty’: ‘#(name)’) e for avaliada como um número em formato Javascript, por exemplo, regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?, então, a saída JSON será um número.<br><br>Por exemplo, ‘badge : ‘#(name)’se torna 'badge': 40 (e não ‘40‘). | | ‘text’ ou “text” | Um literal. Os literais contêm texto arbitrário entre aspas simples ou duplas. | | expr1 + expr2 | O operador de concatenação junta duas expressões em uma única cadeia de caracteres.
 
 As expressões podem ter qualquer uma das formas anteriores.
 
@@ -157,4 +155,4 @@ Como explicado acima, ao usar concatenação, as expressões devem ser colocadas
 	  </visual>
 	</tile>
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0330_2016-->

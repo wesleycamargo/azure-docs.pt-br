@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Atualização para o Banco de Dados SQL V12 do Azure usando o portal do Azure | Microsoft Azure" 
-	description="Explica como atualizar para o Banco de Dados SQL V12 do Azure incluindo como atualizar bancos de dados da Web e Empresarial e como atualizar um servidor V11 migrando seus bancos de dados diretamente para um pool de banco de dados elástico usando o portal do Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
+<properties
+	pageTitle="Atualização para o Banco de Dados SQL V12 do Azure usando o portal do Azure | Microsoft Azure"
+	description="Explica como atualizar para o Banco de Dados SQL V12 do Azure incluindo como atualizar bancos de dados da Web e Empresarial e como atualizar um servidor V11 migrando seus bancos de dados diretamente para um pool de banco de dados elástico usando o portal do Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
 	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-management" 
-	ms.date="02/23/2016" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="02/23/2016"
 	ms.author="sstein"/>
 
 
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-upgrade-server-portal.md)
+- [Portal do Azure](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -41,12 +41,11 @@ Observe que os bancos de dados permanecerão online e continuarão a trabalhar e
 
 A atualização para o V12 do banco de dados SQL não poderá ser desfeita. Após uma atualização, o servidor não pode ser revertido para V11.
 
-Após a atualização para V12, as [recomendações de nível de serviço](sql-database-service-tier-advisor.md) e [as recomendações de pool elástico](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier) não estarão imediatamente disponíveis até que o serviço tenha tempo para avaliar suas cargas de trabalho no novo servidor. O histórico de recomendação do servidor V11 não se aplica ao servidores V12, portanto não é mantido.
-
+Após a atualização para V12, as [recomendações de camada de serviço](sql-database-service-tier-advisor.md) e as [considerações de desempenho do pool elástico](sql-database-elastic-pool-guidance.md) não estarão imediatamente disponíveis até que o serviço tenha tempo para avaliar suas cargas de trabalho no novo servidor. O histórico de recomendação do servidor V11 não se aplica ao servidores V12, portanto não é mantido.
 
 ## Prepare-se para atualizar
 
-- **Atualizar todos os bancos de dados da Web e Business**: confira a seção [Atualizar todos os bancos de dados da Web e Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) abaixo ou use o [PowerShell para atualizar bancos de dados e o servidor](sql-database-upgrade-server-powershell.md).
+- **Atualizar todos os bancos de dados da Web e Business**: veja a seção [Atualize todos os bancos de dados da Web e Empresarial](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) abaixo ou veja [Monitorar e gerenciar um pool de banco de dados elástico (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 - **Examinar e suspender a replicação geográfica:** se o seu Banco de Dados SQL do Azure estiver configurado para replicação geográfica, você deverá documentar sua configuração atual e [parar a replicação geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Após a conclusão da atualização, você deve reconfigurar seu banco de dados para replicação geográfica.
 - **Abra estas portas se você tiver clientes em uma VM do Azure**: se o seu programa cliente se conectar ao Banco de Dados SQL V12 enquanto seu cliente for executado em uma máquina virtual do Azure (VM), abra os seguintes intervalos de porta 11000-11999 e 14000-14999 na VM. Para obter detalhes, confira [Portas para Banco de dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
@@ -64,7 +63,7 @@ Após a atualização para V12, as [recomendações de nível de serviço](sql-d
 Se o seu servidor tiver qualquer banco de dados da Web ou Empresarial, é necessário atualizá-los. Durante o processo de atualização para o Banco de Dados SQL V12, você também deverá atualizar todos os bancos de dados da Web e Empresarial para uma nova camada de serviço.
 
 Para ajudá-lo com a atualização, o serviço do Banco de Dados SQL recomenda uma camada de serviço e nível de desempenho (tipo de preço) adequados para cada banco de dados. O serviço recomenda uma camada que é mais adequada para a execução da carga de trabalho existente do banco de dados analisando o uso do histórico do banco de dados.
-    
+
 3. Na folha **Atualizar este servidor**, selecione cada banco de dados para examinar e selecionar para qual camada de preços recomendada ele será atualizado. Também é possível procurar vários tipos de preço e selecionar aquele que se adapte melhor ao seu ambiente.
 
 
@@ -82,7 +81,7 @@ Depois que todos os bancos de dados no servidor forem qualificados, você estar�
 
 ## Confirmar a atualização
 
-3. Quando todos os bancos de dados no servidor forem qualificados para a atualização, você precisará **DIGITAR O NOME DO SERVIDOR** para verificar que deseja executar a atualização e, em seguida, clicar em **OK**. 
+3. Quando todos os bancos de dados no servidor forem qualificados para a atualização, você precisará **DIGITAR O NOME DO SERVIDOR** para verificar que deseja executar a atualização e, em seguida, clicar em **OK**.
 
     ![verificar atualização][3]
 
@@ -103,19 +102,19 @@ No [Portal do Azure](https://portal.azure.com/), procure o servidor V12 e clique
 
 -ou-
 
-Se você receber uma mensagem dizendo **Clique aqui para ver os pools de banco de dados elásticos recomendados para este servidor**, clique nela para criar facilmente um pool que é otimizado para os bancos de dados do seu servidor. Para obter detalhes, confira [Pools de banco de dados elástico recomendados](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
+Se você receber uma mensagem dizendo **Clique aqui para ver os pools de banco de dados elásticos recomendados para este servidor**, clique nela para criar facilmente um pool que é otimizado para os bancos de dados do seu servidor. Para obter detalhes, veja [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
 
 ![Adicionar pool a um servidor][7]
-   
+
 Siga as instruções no artigo [Criar um pool de banco de dados elástico](sql-database-elastic-pool.md) para terminar de criar o pool.
 
 ## Monitorar bancos de dados após a atualização para V12 do banco de dados SQL
 
 >[AZURE.IMPORTANT] Atualize para a versão mais recente do SSMS (SQL Server Management Studio) para tirar proveito dos novos recursos v12. [Baixe o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-	
-Após a atualização, é recomendável monitorar o banco de dados ativamente para garantir que aplicativos estão sendo executados no desempenho esperado e uso ideal conforme necessário.
 
-Além de monitorar os bancos de dados individuais, você pode monitorar os pools de banco de dados elástico [usando o portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) ou com o [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools)
+Após a atualização, monitore o banco de dados ativamente para garantir que os aplicativos estão sendo executados no desempenho esperado e otimize as configurações conforme necessário.
+
+Além de monitorar os bancos de dados individuais, você pode monitorar os pools de banco de dados elástico [Monitorar, gerenciar e dimensionar um pool de banco de dados elástico com o Portal do Azure](sql-database-elastic-pool-manage-portal.md) ou com o [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
 
 
 **Dados de consumo de recursos:** para recursos de banco de dados Básico, Standard e Premium, os dados de consumo estão disponíveis através do DMV [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) no banco de dados do usuário. Essa DMV oferece, quase em tempo real, informações sobre consumo de recurso na granularidade a 15 segundos para a hora da operação anterior. O consumo de percentual de DTU para um intervalo é calculado como o consumo de percentual máxima das dimensões de CPU, E/S e log. Aqui está uma consulta para calcular o consumo médio de porcentagem de DTU na última hora:
@@ -148,8 +147,7 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 
 ## Próximas etapas
 
-- [Verificar as recomendações de pool de banco de dados elástico](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
-- [Criar um pool de banco de dados elástico](sql-database-elastic-pool-portal.md) e adicionar alguns ou todos os bancos de dados em um pool.
+- [Verificar as recomendações de pool e criar um pool](sql-database-elastic-pool-create-portal.md).
 - [Alterar a camada de serviço e o nível de desempenho do banco de dados](sql-database-scale-up.md).
 
 
@@ -169,4 +167,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

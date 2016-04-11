@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/23/2016"
 	ms.author="tomfitz"/>
 
 # Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure
@@ -33,8 +33,7 @@ Este artigo fornece detalhes sobre cenários de consumo, arquitetura e padrões 
 
 Este artigo compartilha essas práticas comprovadas para ajudá-lo a projetar modelos do Gerenciador de Recursos do Azure de classe mundial.
 
-Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Gerenciador de Recursos entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem).
-As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
+Em nosso trabalho com clientes, identificamos várias experiências de consumo de modelos do Gerenciador de Recursos entre empresas, SIs (integradores de sistemas) e CSVs (fornecedores de serviço de nuvem). As seções a seguir fornecem uma visão geral de alto nível dos cenários e padrões comuns para diferentes tipos de clientes.
 
 ## Empresas e integradores de sistemas
 
@@ -146,7 +145,7 @@ Você pode pensar inicialmente que um modelo deve fornecer a máxima flexibilida
 
 À primeira vista, configurações de forma livre parecem ideais. Elas permitem que você selecione um tipo de VM e forneça um número arbitrário de nós e discos para os nós conectados — e faça isso como parâmetros para um modelo. No entanto, quando você examinar de perto e considerar modelos que implantarão várias máquinas virtuais de tamanhos diferentes, surgem considerações adicionais que tornam essa escolha menos apropriada em vários cenários.
 
-No artigo [Tamanhos de máquinas virtuais e de serviços de nuvem do Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx), no site do Azure, são identificados os diferentes tipos de VM e os tamanhos disponíveis, além de cada um dos números de discos duráveis (2, 4, 8, 16 ou 32) que podem ser anexados. Cada disco conectado fornece 500 IOPS e múltiplos desses discos podem ser agrupados (pooling) para se obter um multiplicador desse número de IOPS. Por exemplo, 16 discos podem ser agrupados (pooling) para fornecer 8.000 IOPS. O pooling é realizado com a configuração no sistema operacional, usando espaços de armazenamento do Microsoft Windows ou RAID (redundant array of inexpensive disks) no Linux.
+Em [Sizes for virtual machines](./virtual-machines/virtual-machines-windows-sizes.md), são identificados os diferentes tipos de VM e tamanhos disponíveis, além de cada um dos números de discos duráveis (2, 4, 8, 16 ou 32) que podem ser anexados. Cada disco conectado fornece 500 IOPS e múltiplos desses discos podem ser agrupados (pooling) para se obter um multiplicador desse número de IOPS. Por exemplo, 16 discos podem ser agrupados (pooling) para fornecer 8.000 IOPS. O pooling é realizado com a configuração no sistema operacional, usando espaços de armazenamento do Microsoft Windows ou RAID (redundant array of inexpensive disks) no Linux.
 
 Uma configuração de forma livre permite a seleção de um número de instâncias de VM, um número de diferentes tipos e tamanhos de VM para essas instâncias, um número de discos que pode variar com base no tipo de máquina virtual e um ou mais scripts para configurar o conteúdo da VM.
 
@@ -322,7 +321,7 @@ Com o Redis, você desejará instalar cada nó individualmente e, em seguida, de
 
 Usando vinculação de modelos, o modelo principal vincula-se ao modelo de recursos compartilhados, o que estabelece a rede virtual.
 
-A lógica é adicionada dentro do modelo principal para permitir que os consumidores do modelo especifiquem se um jumpbox deve ou não ser implantado. Um valor *enabled* para o parâmetro *EnableJumpbox* indica que o cliente deseja implantar um jumpbox. Quando esse valor é fornecido, o modelo concatena *\_enabled* como um sufixo para um nome de modelo base para a funcionalidade de jumpbox.
+A lógica é adicionada dentro do modelo principal para permitir que os consumidores do modelo especifiquem se um jumpbox deve ou não ser implantado. Um valor *enabled* para o parâmetro *EnableJumpbox* indica que o cliente deseja implantar um jumpbox. Quando esse valor é fornecido, o modelo concatena * \_enabled* como um sufixo para um nome de modelo base para a funcionalidade de jumpbox.
 
 O modelo principal aplica o valor de parâmetro *large* como um sufixo para um nome de modelo base para tamanhos de camiseta, então usa esse valor em uma vinculação de modelo para *technology\_on\_os\_large.json*.
 
@@ -380,8 +379,7 @@ Se desejar publicar seu modelo para o marketplace, você simplesmente estabelece
 
 ## Próximas etapas
 
-- Para ver exemplos contextuais de como implementar os princípios de design apresentados neste tópico, consulte [Exemplos contextuais de práticas recomendadas para a implementação de modelos](best-practices-resource-manager-examples.md).
 - Para obter recomendações sobre como lidar com segurança no Gerenciador de Recursos do Azure, consulte [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 - Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

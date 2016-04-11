@@ -3,8 +3,8 @@
     description="Descreve os novos recursos e correções, problemas em aberto e as soluções alternativas disponíveis para a versão de outubro de 2014 do Microsoft Azure StorSimple (Atualização 0.1)."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
-    manager="carolz"
+    authors="alkohli"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="12/01/2015"
-    ms.author="v-sharos" />
+    ms.date="03/23/2016"
+    ms.author="alkohli" />
 
 # Notas de versão da Atualização 0.1 do StorSimple série 8000 - outubro de 2014  
 
@@ -35,8 +35,8 @@ Verifique se os seguintes pré-requisitos foram atendidos antes de atualizar seu
 
 - Verifique se ambos os controladores de dispositivo estão em execução antes de verificar se há atualizações. Se o controlador não estiver em execução, a verificação falhará. Para verificar se os controladores estão em um estado íntegro, navegue até **Status de Hardware** na página **Manutenção**. Se houver componentes que **Precisam de atenção**, contate o Suporte da Microsoft antes de avançar.  
 - Verifique se os IPs fixos para o Controlador 0 e Controlador 1 são roteáveis e podem se conectar à Internet, pois são usados para atender às atualizações para o dispositivo. Você pode usar o [cmdlet Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) para executar o ping de um endereço conhecido fora da rede, como outlook.com, para verificar se o controlador tem conectividade com a rede externa.  
-- Certifique-se de que as portas 80 e 443 estão disponíveis no seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).  
-- Se a versão de software do dispositivo for anterior a 6.3.9600.17312 (atualização de outubro de 2014), desabilite as portas de Dados 2 e 3, se habilitadas, antes de iniciar a atualização. Se você deixar as portas de Dados 2 ou 3 habilitadas ao aplicar a atualização, isso pode fazer com que o controlador de dispositivo entre no modo de recuperação. Observe que ao desabilitar as interfaces de rede, todos os volumes associados serão colocados offline e as E/Ss serão interrompidas durante a atualização.  
+- Certifique-se de que as portas de saída necessárias estejam disponíveis em seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).  
+- Se a versão de software do dispositivo for anterior a 6.3.9600.17312 (atualização de outubro de 2014), desabilite as portas de Dados 2 e 3, se habilitadas, antes de iniciar a atualização. Se você deixar as portas de Dados 2 ou 3 habilitadas ao aplicar a atualização, isso pode fazer com que o controlador de dispositivo entre no modo de recuperação. Observe que ao desabilitar as interfaces de rede, todos os volumes associados serão colocados offline e a E/S será interrompida durante a atualização.  
 
 ## O que há de novo na versão de Outubro
 
@@ -99,4 +99,4 @@ Esta versão também se aplica a uma atualização de firmware cumulativa que re
 Esta versão não contém todas as atualizações para o dispositivo virtual. Aplicar esta atualização não alterará a versão do software de um dispositivo virtual.
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/14/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 
@@ -115,7 +115,7 @@ As imagens da galeria são atualizadas regularmente, por isso você pode ficar t
 
 Com essa opção, você pode usar as ferramentas padrão do Windows para aplicar atualizações à imagem. Para o Office 365 ProPlus, use a Ferramenta de implantação do Office para baixar e instalar as atualizações ou as versões mais recentes do Office 365 ProPlus.
 
-> [AZURE.IMPORTANT]Lembre-se: desabilite as atualizações automáticas do Office 365 ProPlus.
+> [AZURE.IMPORTANT] Lembre-se: desabilite as atualizações automáticas do Office 365 ProPlus.
 
 Precisa de mais informações sobre como usar a Ferramenta de implantação do Office para atualizações?
 
@@ -123,4 +123,4 @@ Precisa de mais informações sobre como usar a Ferramenta de implantação do O
 - [Implantando e atualizando o Office 365 ProPlus usando a Ferramenta de Implantação do Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Definir configurações de atualização para o Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

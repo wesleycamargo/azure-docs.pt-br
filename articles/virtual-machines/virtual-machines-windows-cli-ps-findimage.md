@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Navegar e selecionar as imagens da VM | Microsoft Azure"
-   description="Saiba como determinar o editor, a oferta e SKU para imagens ao criar uma máquina virtual do Azure com o modelo de implantação do Gerenciador de Recursos."
+   pageTitle="Navegar e selecionar as imagens da VM do Windows | Microsoft Azure"
+   description="Saiba como determinar o editor, a oferta e o SKU para imagens ao criar uma máquina virtual do Windows com o modelo de implantação do Gerenciador de Recursos."
    services="virtual-machines-windows"
    documentationCenter=""
    authors="squillace"
@@ -18,10 +18,33 @@
    ms.date="12/08/2015"
    ms.author="rasquill"/>
 
-# Navegue e selecione imagens de Máquina Virtual do Azure com o Windows PowerShell e a CLI do Azure
+# Navegue e selecione imagens da máquina virtual do Windows com o PowerShell ou a CLI
+
+Este tópico descreve como localizar editores, ofertas, SKUs e versões de cada local no qual você pode implantar. Para dar um exemplo, algumas das imagens mais usadas da VM do Windows são:
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
+## Tabela das imagens do Windows mais usadas
+
+
+| PublisherName | Oferta | Sku |
+|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
+| CoreOS | CoreOS | Beta |
+| CoreOS | CoreOS | Estável |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
+| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Padrão |
+| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
+| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
+
+
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

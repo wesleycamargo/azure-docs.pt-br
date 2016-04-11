@@ -31,7 +31,7 @@ Aplicativos Web podem fazer backup das seguintes informações:
 
 * Configuração de aplicativo Web
 * Conteúdo do arquivo de aplicativo Web
-* Quaisquer bancos de dados SQL do Azure ou MySQL conectados ao seu aplicativo (é possível escolher quais serão incluídos no backup)
+* Quaisquer bancos de dados SQL do Azure ou bancos de dados MySQL conectados ao aplicativo (é possível escolher quais serão incluídos no backup)
 
 O backup dessas informações é feito no contêiner e na conta de armazenamento do Azure especificados por você.
 
@@ -126,8 +126,7 @@ Para excluir arquivos e pastas dos backups, crie um arquivo `_backup.filter` na 
 
 Suponha que você tenha um aplicativo Web que contenha arquivos de log e imagens estáticas de anos anteriores que nunca vão mudar. Você já tem um backup completo do aplicativo Web que inclui as imagens antigas. Agora, você quer fazer backup do aplicativo Web todos os dias, mas não quer pagar para armazenar arquivos de log ou de imagens estáticas que nunca mudam.
 
-![Pasta Logs][LogsFolder]
-![Pasta Imagens][ImagesFolder]
+![Pasta Logs][LogsFolder] ![Pasta Imagens][ImagesFolder]
 	
 As etapas abaixo mostram como você pode excluir esses arquivos do backup.
 
@@ -190,4 +189,4 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->
