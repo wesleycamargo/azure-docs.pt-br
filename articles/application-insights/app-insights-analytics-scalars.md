@@ -48,7 +48,7 @@ As expressões escalares são diferentes de [consultas](app-insights-analytics-q
 
 [casts](#casts) | [comparisons](#scalar-comparisons)
 <br/>
-[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Os tipos que recebem suporte são:
 
@@ -278,7 +278,7 @@ Alias `floor`.
 
 **Retorna**
 
-O múltiplo mais próximo de *roundTo* abaixo de *value*.
+O múltiplo mais próximo de *roundTo* abaixo de *value*.  
  
     (toint((value/roundTo)-0.5)) * roundTo
 
@@ -316,7 +316,7 @@ Um gerador de número aleatório.
 
 ### sqrt
 
-A função da raiz quadrada.
+A função da raiz quadrada.  
 
 **Sintaxe**
 
@@ -413,7 +413,9 @@ Expressão |Resultado
 ### ago
 
 Subtrai o período fornecido da hora atual
-UTC. Assim como `now()`, essa função pode ser usada várias vezes em uma instrução e a hora UTC referenciada será a mesma para todas as instanciações.
+UTC. Assim como `now()`, essa função pode ser usada várias vezes 
+em uma instrução e a hora UTC referenciada será a mesma para 
+todas as instanciações.
 
 **Sintaxe**
 
@@ -421,8 +423,7 @@ UTC. Assim como `now()`, essa função pode ser usada várias vezes em uma instr
 
 **Argumentos**
 
-* *a
-_timespan*: intervalo a ser subtraído da hora UTC atual
+* *a_timespan*: intervalo a ser subtraído da hora UTC atual
 (`now()`).
 
 **Retorna**
@@ -652,7 +653,8 @@ Obtém uma correspondência para um [expressão regular](app-insights-analytics-
 **Argumentos**
 
 * *regex:* uma [expressão regular](app-insights-analytics-reference.md#regular-expressions).
-* *captureGroup:* uma constante `int` positiva que indica o grupo de captura para extração. 0 significa toda a correspondência, um para o valor correspondido pelo primeiro '('parêntese')' na expressão regular, dois ou mais para os parênteses subsequentes.
+* *captureGroup:* uma constante `int` positiva que indica o grupo de
+captura para extração. 0 significa toda a correspondência, um para o valor correspondido pelo primeiro '('parêntese')' na expressão regular, dois ou mais para os parênteses subsequentes.
 * *text:* um `string` para pesquisa.
 * *typeLiteral:* um literal de tipo opcional (por exemplo, `typeof(long)`). Se for fornecido, a subcadeia de caracteres extraída será convertida para esse tipo. 
 
@@ -664,7 +666,8 @@ Se não houver correspondência, ou se a conversão do tipo falhar: `null`.
 
 **Exemplos**
 
-A cadeia de caracteres de exemplo `Trace` é pesquisada em busca de uma definição para `Duration`. A correspondência é convertida em `real`, multiplicada por uma constante de tempo (`1s`) para que `Duration` seja do tipo `timespan`. Neste exemplo, é igual a 123,45 segundos:
+A cadeia de caracteres de exemplo `Trace` é pesquisada em busca de uma definição para `Duration`.
+A correspondência é convertida em `real`, multiplicada por uma constante de tempo (`1s`) para que `Duration` seja do tipo `timespan`. Neste exemplo, é igual a 123,45 segundos:
 
 ```AIQL
 ...
@@ -685,7 +688,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
     isempty("") == true
 
-True se o argumento for uma cadeia de caracteres vazia ou nula. Confira também [isnull](#isnull).
+True se o argumento for uma cadeia de caracteres vazia ou nula.
+Confira também [isnull](#isnull).
 
 
 **Sintaxe**
@@ -749,7 +753,7 @@ range x from 1 to 5 step 1
 
 Tem os seguintes resultados:
 
-| x | str | replaced|
+| x    | str | replaced|
 |---|---|---|
 | 1 | O número é 1,000000 | O número era: 1,000000|
 | 2 | O número é 2,000000 | O número era: 2,000000|
@@ -1112,7 +1116,9 @@ A função `range()` (não deve ser confundida com o operador `range`) gera uma 
 **Argumentos**
 
 * *start:* o valor do primeiro elemento na matriz resultante. 
-* *stop:* o valor do último elemento na matriz resultante, ou o valor mínimo que seja maior do que o último elemento na matriz resultante e dentro de um número inteiro múltiplo de *step* a partir de *start*.
+* *stop:* o valor do último elemento na matriz resultante,
+ou o valor mínimo que seja maior do que o último elemento na
+matriz resultante e dentro de um número inteiro múltiplo de *step* a partir de *start*.
 * *step:* a diferença entre dois elementos consecutivos da matriz.
 
 **Exemplos**
@@ -1123,7 +1129,8 @@ O exemplo a seguir retorna `[1, 4, 7]`:
 range(1, 8, 3)
 ```
 
-O exemplo a seguir retorna uma matriz que contém todos os dias do ano de 2015:
+O exemplo a seguir retorna uma matriz que contém todos os dias 
+do ano de 2015:
 
 ```AIQL
 
@@ -1177,4 +1184,4 @@ Quando você quiser contar eventos, use `sum(itemCount)` em vez de `count()` par
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0330_2016--->
