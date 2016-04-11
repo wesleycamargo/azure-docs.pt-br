@@ -9,4 +9,4 @@ Veja [Authoring extension templates](../articles/virtual-machines/virtual-machin
 
 Neste artigo, aprenderemos a solucionar algumas das falhas comuns da extensão de VM.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

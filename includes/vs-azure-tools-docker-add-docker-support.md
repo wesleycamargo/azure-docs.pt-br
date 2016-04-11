@@ -6,4 +6,4 @@ Adicionar suporte ao Docker a um projeto Web ASP.NET 5 resulta na adição de v�
 
 ![Arquivos do Docker adicionados ao projeto](./media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

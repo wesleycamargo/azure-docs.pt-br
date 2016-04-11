@@ -307,4 +307,4 @@ Vamos usar um [exemplo](service-fabric-reliable-services-communication-wcf.md) a
 
 * [API Web com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

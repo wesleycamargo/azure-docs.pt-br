@@ -43,4 +43,4 @@ Continue seguindo as instruções para anexar um novo disco ou um disco existent
 
 6.	Depois que o Azure anexa o disco à máquina virtual, ele é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

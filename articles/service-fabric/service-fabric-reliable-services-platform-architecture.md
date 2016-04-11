@@ -97,4 +97,4 @@ Para obter mais informações sobre a Malha de Serviços, consulte:
 
 [Configuração de Reliable Services](service-fabric-reliable-services-configuration.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -112,4 +112,4 @@ Os serviços podem chamar um ponto de extremidade do aplicativo lógico para ini
 <!-- Shared links -->
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -74,4 +74,4 @@ A estrutura remota propaga exceções lançadas no serviço para o cliente. A l�
 
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

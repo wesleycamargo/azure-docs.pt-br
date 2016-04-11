@@ -37,4 +37,4 @@ Use a ferramenta CodePlex do [Assistente de Migração do SQL Azure](http://sqla
 
 [Selecionar método de migração](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

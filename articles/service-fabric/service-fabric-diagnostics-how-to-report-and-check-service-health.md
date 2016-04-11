@@ -156,4 +156,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 ## Próximas etapas
 [Aprofunde-se na integridade do Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -66,4 +66,4 @@ Neste tópico, você adicionou a API de pesquisa do Bing para o seu PowersApps E
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

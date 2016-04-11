@@ -119,4 +119,4 @@ Saiba mais sobre programação no lado do servidor do Banco de Dados de Document
 
 O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o Banco de Dados de Documentos.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

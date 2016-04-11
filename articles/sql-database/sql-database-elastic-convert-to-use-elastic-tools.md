@@ -179,4 +179,4 @@ Use a ferramenta de divisão e mesclagem para mover dados de/para um modelo mult
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -35,4 +35,4 @@ Pague o saldo pendente na íntegra.
 
 **Cenário 3**: se o aviso de fatura não foi recebido porque o Administrador da Conta deixou a empresa ou mudou de função, entre em contato com o [Suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

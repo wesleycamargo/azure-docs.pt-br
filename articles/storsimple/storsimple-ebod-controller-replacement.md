@@ -107,4 +107,4 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -164,4 +164,4 @@ Quando um cliente chama um método por meio de um objeto de proxy do ator, isso 
 |Ator da Malha do Serviço|Média de milissegundos para desserialização de solicitação|Tempo (em milissegundos) para desserializar a mensagem de solicitação do ator quando ela é recebida no serviço|
 |Ator da Malha do Serviço|Média de milissegundos para serialização de resposta|Tempo (em milissegundos) para serializar a mensagem de resposta do ator no serviço antes de a resposta ser enviada ao cliente|
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

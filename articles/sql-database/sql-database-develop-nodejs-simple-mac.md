@@ -155,4 +155,4 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 
 Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

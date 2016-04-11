@@ -149,4 +149,4 @@ Em *Connect();* 2015, [anunciamos](https://azure.microsoft.com/blog/deep-diagnos
 
 Em versões futuras da extensão Application Insights, vamos introduzir novas funcionalidades para permitir uma experiência mais integrada entre o HockeyApp e o Visual Studio. A partir de agora, é possível começar a usar o HockeyApp apenas adicionando a referência do NuGet: veja a [documentação](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) para obter mais informações.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -164,4 +164,4 @@ Para obter mais informações sobre o Transact-SQL e DMVs (Exibições de Gerenc
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

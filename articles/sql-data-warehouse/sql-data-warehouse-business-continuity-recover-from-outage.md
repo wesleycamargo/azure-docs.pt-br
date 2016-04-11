@@ -113,4 +113,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 [Portal do Azure]: https://portal.azure.com/
 [contatando o suporte]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

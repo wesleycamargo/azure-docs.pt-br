@@ -114,4 +114,4 @@ Para transferir a propriedade da conta do Azure para outra conta, confira [Trans
 
 * Para saber mais sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, confira [Atribuindo funções de administrador no Azure Active Directory (Azure AD)](./active-directory/active-directory-assign-admin-roles.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

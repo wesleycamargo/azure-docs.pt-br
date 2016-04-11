@@ -221,4 +221,4 @@ Obter o token de portador para obter acesso e descriptografar o vídeo.```GET: /
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

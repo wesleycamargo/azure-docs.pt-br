@@ -187,4 +187,4 @@ Saiba mais sobre como desenvolver soluções usando [Certificado para os disposi
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

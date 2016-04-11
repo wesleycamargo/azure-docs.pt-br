@@ -15,4 +15,4 @@
 - [Referência](../articles/application-insights/app-insights-analytics-reference.md)
  - Referência de uma página combinando as páginas de Consultas, Agregações e Escalares.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

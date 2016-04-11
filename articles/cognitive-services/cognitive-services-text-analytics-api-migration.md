@@ -308,4 +308,4 @@ Quando a API de tópicos for concluída, um status apresentando `succeeded` ser�
 
 Agora você está pronto para seguir adiante! Teste seu código com um pequeno exemplo para garantir que você possa processar seus dados com êxito.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

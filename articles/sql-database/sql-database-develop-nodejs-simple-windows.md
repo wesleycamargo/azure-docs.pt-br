@@ -151,4 +151,4 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 		connection.execSql(request);
 	}
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

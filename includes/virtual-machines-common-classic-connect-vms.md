@@ -28,4 +28,4 @@ Para conectar máquinas virtuais em um serviço de nuvem autônomo:
 
 	![Adicionar uma máquina virtual a um serviço de nuvem existente](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

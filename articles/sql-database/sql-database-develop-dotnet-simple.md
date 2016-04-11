@@ -138,4 +138,4 @@ Saiba como usar a lógica de repetição manipulando códigos de erro transitór
 
 Saiba mais sobre possíveis códigos de erro aqui: [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

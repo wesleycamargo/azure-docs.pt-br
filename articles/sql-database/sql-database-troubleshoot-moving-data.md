@@ -29,4 +29,4 @@
 ## Para criar uma cópia de um banco de dados para uso fora do Azure
 - [Exporte um arquivo BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

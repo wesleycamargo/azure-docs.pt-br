@@ -194,4 +194,4 @@ Esta seção começa com uma entrada de blog que contém uma série de vídeos e
 1. Documentação de suporte da Microsoft
 	- [Suporte: suporte para imagens Linux no Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

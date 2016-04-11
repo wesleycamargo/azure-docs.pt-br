@@ -44,4 +44,4 @@ Conferir todos os tamanhos de VM disponíveis | Não disponível | `azure vm siz
 
 * Para obter outros exemplos dos comandos de CLI, consulte [Usando a Interface de Linha de Comando do Azure com o Gerenciamento de Serviços do Azure](../articles/virtual-machines-command-line-tools.md) e [Usando a CLI do Azure com o Gerenciador de Recursos do Azure](../articles/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -667,4 +667,4 @@ E agora você pode usar o comando `azure vm show testrg testvm` para examinar o 
 
 Agora você está pronto para começar a usar vários componentes de rede e VMs.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

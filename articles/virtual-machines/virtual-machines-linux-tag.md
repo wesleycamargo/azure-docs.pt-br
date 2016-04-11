@@ -58,4 +58,4 @@ Agora que aplicamos marcas aos nossos recursos por meio do PowerShell, da CLI do
 [Entenda sua fatura do Microsoft Azure]: ../billing-understand-your-bill.md
 [Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

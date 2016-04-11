@@ -89,4 +89,4 @@ Neste tópico, foi adicionada a API do OneDrive ao seu PowersApps Enterprise. Em
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -149,4 +149,4 @@ Se criar uma máquina virtual usando uma imagem do SQL Server fornecida pela pla
 - [Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 - [Máquinas Virtuais do Azure](virtual-machines-linux-about.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

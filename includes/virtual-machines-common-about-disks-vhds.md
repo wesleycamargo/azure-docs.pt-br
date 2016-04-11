@@ -38,4 +38,4 @@ Antes de excluir um arquivo .vhd de origem, você precisará remover a concessã
 
 >[AZURE.WARNING] Se você excluir um arquivo .vhd de origem do armazenamento ou excluir sua conta de armazenamento, a Microsoft não poderá recuperar esses dados para você.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

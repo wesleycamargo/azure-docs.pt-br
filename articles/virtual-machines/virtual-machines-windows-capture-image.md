@@ -209,4 +209,4 @@ Você deverá ver a VM recentemente criada no [Portal do Azure](https://portal.a
 
 Para gerenciar sua nova máquina virtual com o Azure PowerShell, leia [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

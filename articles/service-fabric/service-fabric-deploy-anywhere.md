@@ -56,4 +56,4 @@ A execução de clusters do Service Fabric no Azure apresenta vantagens em rela�
 * **Diagnóstico**: no Azure, fornecemos integração ao diagnóstico do Azure e aos Insights Operacionais.
 * **Dimensionamento automático**: para os clusters no Azure, fornecemos uma funcionalidade interna de dimensionamento automático devido aos conjuntos de escala da Máquina Virtual. Em ambientes locais e em outros de nuvem, você terá que criar seu próprio recurso de dimensionamento automático ou escalar manualmente usando as APIs que o Service Fabric expõe para colocação de clusters em escala.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

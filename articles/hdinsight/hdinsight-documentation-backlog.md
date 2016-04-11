@@ -41,4 +41,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Adicione um comentário abaixo.
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

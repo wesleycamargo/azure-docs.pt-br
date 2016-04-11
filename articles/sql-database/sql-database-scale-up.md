@@ -106,4 +106,4 @@ Abra a folha Banco de Dados SQL do banco de dados que você deseja escalar verti
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -30,4 +30,4 @@ Não pode esperar? Assista a um vídeo rápido sobre como [criar uma implantaç�
 
 Recebeu comentários? Poste perguntas nos [fóruns de discussão](https://feedback.azure.com/forums/247748-azure-remoteapp/). Se você tiver um [plano de suporte do Azure](https://azure.microsoft.com/support/plans/), pode enviar um caso de suporte. Qualquer pessoa pode enviar comentários no nosso [Fórum de comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->
