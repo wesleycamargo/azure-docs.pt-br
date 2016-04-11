@@ -20,7 +20,7 @@
 
 
 [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do 
-[Application Insights](app-insights-overview.md).
+[Application Insights](app-insights-overview.md). 
  Essas páginas descrevem a linguagem de consulta da Análise.
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
@@ -48,7 +48,7 @@ As expressões escalares são diferentes de [consultas](app-insights-analytics-q
 
 [casts](#casts) | [comparisons](#scalar-comparisons)
 <br/>
-[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Os tipos que recebem suporte são:
 
@@ -278,7 +278,7 @@ Alias `floor`.
 
 **Retorna**
 
-O múltiplo mais próximo de *roundTo* abaixo de *value*.  
+O múltiplo mais próximo de *roundTo* abaixo de *value*.
  
     (toint((value/roundTo)-0.5)) * roundTo
 
@@ -291,8 +291,7 @@ Expressão | Resultado
 `bin(datetime(1953-04-15 22:25:07), 1d)`|  `datetime(1953-04-15)`
 
 
-A expressão a seguir calcula um histograma de durações,
-com um tamanho de partição de um segundo:
+A expressão a seguir calcula um histograma de durações, com um tamanho de partição de um segundo:
 
 ```AIQL
 
@@ -316,7 +315,7 @@ Um gerador de número aleatório.
 
 ### sqrt
 
-A função da raiz quadrada.  
+A função da raiz quadrada.
 
 **Sintaxe**
 
@@ -653,8 +652,7 @@ Obtém uma correspondência para um [expressão regular](app-insights-analytics-
 **Argumentos**
 
 * *regex:* uma [expressão regular](app-insights-analytics-reference.md#regular-expressions).
-* *captureGroup:* uma constante `int` positiva que indica o grupo de
-captura para extração. 0 significa toda a correspondência, um para o valor correspondido pelo primeiro '('parêntese')' na expressão regular, dois ou mais para os parênteses subsequentes.
+* *captureGroup:* uma constante `int` positiva que indica o grupo de captura para extração. 0 significa toda a correspondência, um para o valor correspondido pelo primeiro '('parêntese')' na expressão regular, dois ou mais para os parênteses subsequentes.
 * *text:* um `string` para pesquisa.
 * *typeLiteral:* um literal de tipo opcional (por exemplo, `typeof(long)`). Se for fornecido, a subcadeia de caracteres extraída será convertida para esse tipo. 
 
@@ -1072,7 +1070,7 @@ A notação de ponto e a notação [colchetes] são equivalentes:
 
 ### parsejson
 
-Interpreta um `string` como um [valor de JSON](http://json.org/)) e retorna o valor como `dynamic`. É superior ao uso de `extractjson()` quando você precisa extrair mais de um elemento de um objeto JSON composto.
+Interpreta um `string` como um [valor de JSON](http://json.org/) e retorna o valor como `dynamic`. É superior ao uso de `extractjson()` quando você precisa extrair mais de um elemento de um objeto JSON composto.
 
 **Sintaxe**
 
@@ -1117,8 +1115,7 @@ A função `range()` (não deve ser confundida com o operador `range`) gera uma 
 
 * *start:* o valor do primeiro elemento na matriz resultante. 
 * *stop:* o valor do último elemento na matriz resultante,
-ou o valor mínimo que seja maior do que o último elemento na
-matriz resultante e dentro de um número inteiro múltiplo de *step* a partir de *start*.
+ou o valor mínimo que seja maior do que o último elemento na matriz resultante e dentro de um número inteiro múltiplo de *step* a partir de *start*.
 * *step:* a diferença entre dois elementos consecutivos da matriz.
 
 **Exemplos**
@@ -1129,8 +1126,7 @@ O exemplo a seguir retorna `[1, 4, 7]`:
 range(1, 8, 3)
 ```
 
-O exemplo a seguir retorna uma matriz que contém todos os dias 
-do ano de 2015:
+O exemplo a seguir retorna uma matriz que contém todos os dias do ano de 2015:
 
 ```AIQL
 
@@ -1184,4 +1180,4 @@ Quando você quiser contar eventos, use `sum(itemCount)` em vez de `count()` par
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016--->
+<!-------HONumber=AcomDC_0330_2016--->
