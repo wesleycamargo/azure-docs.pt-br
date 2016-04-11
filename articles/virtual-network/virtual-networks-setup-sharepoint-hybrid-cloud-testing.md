@@ -83,7 +83,7 @@ Em seguida, crie uma máquina virtual do Azure para o SQL1 com estes comandos no
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles -LUN 0 -HostCaching None
 	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-Em seguida, conecte-se à nova máquina virtual SQL1* usando a conta de administrador local*.
+Em seguida, conecte-se à nova máquina virtual SQL1 *usando a conta de administrador local*.
 
 1.	No painel esquerdo do Portal de Gerenciamento do Azure, clique em **Máquinas Virtuais** e, em seguida, em **Executando** na coluna Status do SQL1.
 2.	Na barra de tarefas, clique em **Conectar**. 
