@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/14/2016"
+	ms.date="03/30/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # Introdução: Fazendo backup de máquinas virtuais do Azure
+
+> [AZURE.SELECTOR]
+- [Fazer backup das VMs ARM](backup-azure-vms-first-look-arm.md)
+- [Fazer backup das VMs do modo Clássico](backup-azure-vms-first-look.md)
 
 Este artigo é um tutorial que mostrará a você o conjunto de etapas para a preparação do seu ambiente do Azure para fazer backup de uma máquina virtual (VM) do Azure. Este tutorial presume que você já tenha uma VM em sua assinatura do Azure e que já tenha tomado as medidas para permitir que o serviço de backup acesse a VM. Em um alto nível, veja as etapas que você concluirá.
 
@@ -31,7 +35,7 @@ Este artigo é um tutorial que mostrará a você o conjunto de etapas para a pre
 5. Crie a política para proteger as máquinas virtuais.
 6. Execute o backup.
 
->[AZURE.NOTE] O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md). Atualmente, o serviço Backup do Azure não oferece suporte a máquinas virtuais baseadas no Azure Resource Manager (ARM), também conhecidas como máquinas virtuais IaaS V2. Como as VMs IaaS V2 surgiram com o lançamento do novo portal do Azure, este tutorial foi projetado para ser usado com o tipo de máquinas virtuais que podem ser criadas no portal clássico do Azure.
+>[AZURE.NOTE] O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Atualmente, o serviço Backup do Azure não oferece suporte a máquinas virtuais baseadas no Azure Resource Manager (ARM), também conhecidas como máquinas virtuais IaaS V2. Como as VMs IaaS V2 surgiram com o lançamento do novo portal do Azure, este tutorial foi projetado para ser usado com o tipo de máquinas virtuais que podem ser criadas no portal clássico do Azure.
 
 
 ## Etapa 1 - Criar um cofre de backup para uma VM
@@ -136,7 +140,7 @@ A tabela a seguir oferece informações adicionais sobre o Agente de VM para VMs
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalação do agente de VM | <li>Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação. <li>[Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. | <li> Instale o [agente Linux](https://github.com/Azure/WALinuxAgent) mais recente do GitHub. Você precisará de privilégios de Administrador para concluir a instalação. <li> [Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |
-| Atualizar o Agente de VM | Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução durante a atualização do Agente de VM. | Siga as instruções em [como atualizar o Agente de VM do Linux](../virtual-machines-linux-update-agent.md). <br>Verifique se nenhuma operação de backup está em execução durante a atualização do Agente de VM. |
+| Atualizar o Agente de VM | Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução durante a atualização do agente de VM. | Siga as instruções em [como atualizar o Agente de VM do Linux](../virtual-machines-linux-update-agent.md). <br>Verifique se nenhuma operação de backup está em execução durante a atualização do Agente de VM. |
 | Validação da instalação do Agente de VM | <li>Navegue até a pasta *C:\\WindowsAzure\\Packages* na VM do Azure. <li>Você deve encontrar o arquivo WaAppAgent.exe presente.<li> Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou mais recente. | N/D |
 
 
@@ -144,7 +148,7 @@ A tabela a seguir oferece informações adicionais sobre o Agente de VM para VMs
 
 Assim que o Agente de VM for instalado na máquina virtual, o serviço Backup do Azure instalará a extensão de backup no Agente de VM. O serviço do Backup do Azure atualiza e corrige perfeitamente a extensão de backup sem intervenção adicional do usuário.
 
-A extensão de backup será instalada pelo serviço Backup, esteja a VM em execução ou não. Uma VM em execução oferece uma maior chance de obter um ponto de recuperação consistente com o aplicativo. No entanto, o serviço do Backup do Azure continuará a realizar o backup da VM mesmo quando ela estiver desativada e a extensão não puder ser instalada. Isso é conhecido como VM Offline. Nesse caso, o ponto de recuperação terá *controle de falhas*.
+A extensão de backup será instalada pelo serviço Backup, esteja a VM em execução ou não. Uma VM em execução oferece uma maior chance de obter um ponto de recuperação consistente com o aplicativo. No entanto, o serviço do Backup do Azure continuará a realizar o backup da VM mesmo quando ela estiver desativada e a extensão não puder ser instalada. Isso é conhecido como VM Offline. Nesse caso, o ponto de recuperação será *consistente com a falha*.
 
 
 ## Etapa 4 - Proteger máquinas virtuais do Azure
@@ -155,7 +159,7 @@ Agora você pode configurar uma política de backup e de retenção para a máqu
 
     ![Selecionar a carga de trabalho no portal](./media/backup-azure-vms/select-workload.png)
 
-3. Na parte inferior da página, clique em **PROTEGER**. ![Clique em Proteger](./media/backup-azure-vms-first-look/protect-icon.png)
+3. Na parte inferior da página, clique em **PROTEGER**.![Clique em Proteger](./media/backup-azure-vms-first-look/protect-icon.png)
 
     O **assistente Proteger Itens** é mostrado e lista *apenas* as máquinas virtuais registradas e não protegidas.
 
@@ -197,7 +201,7 @@ Agora você pode configurar uma política de backup e de retenção para a máqu
 
 ## Etapa 5 - Backup inicial
 
-Após uma máquina virtual ser protegida com uma política, você poderá exibir essa relação na guia **Itens Protegidos**. Até que o backup inicial para uma VM tenha ocorrido, o **Status de Proteção** será mostrado como **Protegido - (backup inicial pendente)**. Por padrão, o primeiro backup agendado é o *backup inicial*.
+Após uma máquina virtual ser protegida com uma política, você poderá exibir essa relação na guia **Itens Protegidos**. Até que o backup inicial de uma VM tenha ocorrido, o **Status de Proteção** será mostrado como **Protegido - (backup inicial pendente)**. Por padrão, o primeiro backup agendado é o *backup inicial*.
 
 ![Backup pendente](./media/backup-azure-vms-first-look/protection-pending-border.png)
 
@@ -230,4 +234,4 @@ Agora que você já fez um backup de uma VM, há várias etapas subsequentes pod
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

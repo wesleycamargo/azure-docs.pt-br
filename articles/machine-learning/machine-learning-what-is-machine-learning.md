@@ -40,7 +40,7 @@ O Aprendizado de Máquina do Azure não apenas fornece ferramentas para criar mo
 
 A análise preditiva usa várias técnicas estatísticas - neste caso, aprendizado de máquina - para analisar os dados atuais ou coletados em busca de padrões ou tendências, para prever eventos futuros.
 
-O Aprendizado de Máquina do Azure é uma maneira especialmente poderosa de fazer análise preditiva: você pode trabalhar em uma biblioteca de algoritmos pronta para uso, criar modelos em um PC conectado à Internet sem a compra de equipamentos ou infraestrutura adicionais e implantar sua solução preditiva rapidamente. Você também pode encontrar exemplos e soluções prontas para uso no [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) ou na [Cortana Analytics Gallery](http://gallery.azureml.net/) (antiga Galeria de Aprendizado de Máquina do Azure).
+O Aprendizado de Máquina do Azure é uma maneira especialmente poderosa de fazer análise preditiva: você pode trabalhar em uma biblioteca de algoritmos pronta para uso, criar modelos em um PC conectado à Internet sem a compra de equipamentos ou infraestrutura adicionais e implantar sua solução preditiva rapidamente. Você também pode encontrar exemplos e soluções prontas para uso no [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) ou na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
 ## Crie soluções completas de aprendizado de máquina em nuvem
 
@@ -53,9 +53,9 @@ Crie modelos preditivos no [Estúdio de Aprendizado de Máquina](machine-learnin
 ![O que é análise preditiva: exemplo de um experimento de análise preditiva no Estúdio de Aprendizado de Máquina do Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Use uma ampla biblioteca de [algoritmos e módulos de aprendizado de máquina](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) no Estúdio de Aprendizado de Máquina para começar imediatamente seus modelos preditivos. Escolha em uma biblioteca de experimentos de exemplo, pacotes R e Python e algoritmos de ponta provenientes de empresas da Microsoft, como Xbox e Bing. Estenda os módulos do Estúdio com seus próprios scripts [R](machine-learning-r-quickstart.md) e [Python](machine-learning-execute-python-scripts.md) personalizados.
-* No [Cortana Analytics Gallery](machine-learning-gallery-how-to-use-contribute-publish.md), experimente soluções de análise criadas por outras pessoas ou inclua a sua usando os serviços do Azure, incluindo o Aprendizado de Máquina, o HDInsight (Hadoop), o Stream Analytics e a Análise Data Lake, bem como os serviços de gerenciamento de dados e repositórios de big data do Azure. Poste perguntas ou comentários sobre experimentos na comunidade ou compartilhe links para experimentos por meio de redes sociais, como o LinkedIn e o Twitter.  
+* Na [Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md), experimente soluções de análise criadas por outras pessoas ou inclua a sua usando os serviços do Azure, incluindo o Aprendizado de Máquina, o HDInsight (Hadoop), o Stream Analytics e a Análise Data Lake, bem como os serviços de gerenciamento de dados e repositórios de big data do Azure. Poste perguntas ou comentários sobre experimentos na comunidade ou compartilhe links para experimentos por meio de redes sociais, como o LinkedIn e o Twitter.  
 
-	![Teste experimentos de previsão ou contribua com o seu próprio no Cortana Analytics Gallery do Azure](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
+	![Teste experimentos de previsão ou contribua com o seu próprio na Galeria do Cortana Intelligence do Azure](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
 
 ### Operacionalizar soluções de análise preditiva: comprar serviços Web ou publicar os seus próprios
 
@@ -118,4 +118,4 @@ Você pode aprender os fundamentos da análise de previsão e do aprendizado da 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

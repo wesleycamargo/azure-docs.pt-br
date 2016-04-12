@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Catálogo de Dados do Azure: Introdução ao catálogo de dados"
-   description="Tutorial ponta a ponta dos cenários e recursos do Catálogo de Dados do Azure"
+   pageTitle="Catálogo de Dados do Azure introduzido com o catálogo de dados | Microsoft Azure"
+   description="Tutorial completo apresentando os cenários e os recursos do Catálogo de Dados do Azure."
    documentationCenter=""
    services="data-catalog"
    authors="dvana"
@@ -258,4 +258,4 @@ Neste exercício, você explorou os recursos de gerenciamento do **Catálogo de 
 
 Neste tutorial, você explorou recursos essenciais do **Catálogo de Dados do Azure**, incluindo o registro, a anotação, a descoberta e o gerenciamento de fontes de dados corporativas. Agora que você concluiu o tutorial, é hora de começar. Você pode começar hoje mesmo registrando as fontes de dados que você e sua equipe precisam e convidando colegas para usar o catálogo.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

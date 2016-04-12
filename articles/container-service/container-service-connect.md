@@ -104,10 +104,39 @@ Quando você tiver configurado o túnel para o Mesos, poderá acessar o ponto de
 
 Quando você tiver configurado o túnel para o Docker Swarm, poderá acessar o cluster do Swarm por meio da CLI do Docker. Primeiro, você precisará configurar uma variável de ambiente do Windows chamada `DOCKER_HOST` com o valor ` :2375`.
 
+## Solucionar problemas
+
+### Depois de criar o encapsulamento e de navegar até a url do mesos ou do marathon, obtenho 502 Gateway incorreto...
+A maneira mais fácil de resolver isso é simplesmente excluir o cluster e implantá-lo novamente. Como alternativa, você pode fazer o seguinte para forçar o Zookeeper a reparar ele mesmo:
+
+Faça logon em cada mestre e faça o seguinte:
+
+```
+sudo service nginx stop
+sudo service marathon stop
+sudo service chronos stop
+sudo service mesos-dns stop
+sudo service mesos-master stop 
+sudo service zookeeper stop
+```
+
+Em seguida, depois que todos os serviços tiverem sido interrompidos em todos os mestres:
+```
+sudo mkdir /var/lib/zookeeperbackup
+sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
+sudo service zookeeper start
+sudo service mesos-master start
+sudo service mesos-dns start
+sudo service chronos start
+sudo service marathon start
+sudo service nginx start
+```
+Logo após reiniciar todos os serviços, você poderá trabalhar com o cluster conforme descrito na documentação.
+
 ## Próximas etapas
 
 Implantar e gerenciar contêineres com Mesos ou Swarm.
 
 - [Trabalhar com o Mesos e o Serviço de Contêiner do Azure](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

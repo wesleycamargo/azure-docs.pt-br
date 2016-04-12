@@ -56,9 +56,9 @@ Clique na guia **Estúdio** e será solicitado que você entre usando a conta da
 
 ### Galeria
 
-Clique na guia **Galeria** guia e você será levado para a Galeria de Análise da Cortana. A Galeria é um lugar no qual uma comunidade de desenvolvedores e cientistas de dados pode compartilhar soluções criadas usando os componentes do Pacote de Análise do Cortana.
+Clique na guia **Galeria** guia e você será levado para a Galeria do Cortana Intelligence. A Galeria é um lugar no qual uma comunidade de desenvolvedores e cientistas de dados pode compartilhar soluções criadas usando os componentes do Cortana Intelligence Suite.
 
-Para saber mais sobre a Galeria, consulte as [Soluções de compartilhamento e descoberta na Galeria de Analise da Cortana](machine-learning-gallery-how-to-use-contribute-publish.md).
+Para saber mais sobre a Galeria, confira as [Soluções de compartilhamento e descoberta na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 ## Componentes de um teste
 
@@ -115,4 +115,4 @@ Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo 
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

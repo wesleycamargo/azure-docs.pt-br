@@ -28,19 +28,13 @@ Há suporte de desenvolvimento para as seguintes versões de sistema operacional
 - Windows Server 2012 R2
 - Windows 10
 
-### Visual Studio 2015
-
-As ferramentas do Service Fabric exigem no mínimo o Visual Studio 2015, que pode ser encontrado no [site do Visual Studio][2].
-
-> [AZURE.NOTE] Se não estiver executando uma das versões de sistema operacional com suporte ou preferir não instalar o Visual Studio no seu computador, você poderá configurar uma máquina virtual do Azure com o Windows Server 2012 R2 e o Visual Studio pré-instalados. Você pode fazer isso usando uma imagem da galeria de máquinas virtuais do Azure.
-
 ## Instalar o tempo de execução, o SDK e as ferramentas
 
-O Web Platform Installer executa a instalação dos componentes do Service Fabric. Há três opções de instalação:
+O Web Platform Installer oferece três configurações para o desenvolvimento do Service Fabric:
 
-- [Instalar o Service Fabric Runtime, o SDK e as ferramentas para Visual Studio 2015](full-bundle-vs2015)
-- [Instalar o Service Fabric Runtime, o SDK e as ferramentas para a Visualização do Visual Studio “15”](full-bundle-dev15)
-- [Instalar somente o Service Fabric Runtime e o SDK (sem ferramentas para Visual Studio)](core-sdk)
+- [Instalar o Service Fabric Runtime, o SDK e as ferramentas para Visual Studio 2015][full-bundle-vs2015]
+- [Instalar o Service Fabric Runtime, o SDK e as ferramentas para a Visualização do Visual Studio “15”][full-bundle-dev15]
+- [Instalar somente o Service Fabric Runtime e o SDK (sem ferramentas para Visual Studio)][core-sdk]
 
 
 ## Habilitar a execução de script do PowerShell
@@ -67,4 +61,4 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 [full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Link do WebPI do Dev15"
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Link do WebPI do SDK principal"
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

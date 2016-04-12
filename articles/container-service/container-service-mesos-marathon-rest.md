@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gerenciamento de contêiner do ACS com a API REST| Microsoft Azure"
+   pageTitle="Gerenciamento de contêiner do Serviço de Contêiner do Azure por meio da API REST | Microsoft Azure"
    description="Implante contêineres em cluster Mesos do Serviço de Contêiner do Azure usando a API REST do Marathon."
    services="container-service"
    documentationCenter=""
@@ -8,7 +8,7 @@
    editor=""
    tags="acs, azure-container-service"
    keywords="Docker, Contêineres, Microsserviços, Mesos, Azure"/>
-   
+
 <tags
    ms.service="container-service"
    ms.devlang="na"
@@ -17,18 +17,17 @@
    ms.workload="na"
    ms.date="02/16/2016"
    ms.author="nepeters"/>
-   
-# Gerenciamento de contêiner com a API REST
 
-O Mesos fornece um ambiente de implantação e dimensionamento de carga de trabalho clusterizada e, ao mesmo tempo, abstrai o hardware subjacente. Sobre o Mesos, estruturas gerenciam o agendamento e a execução da carga de trabalho de computação. Embora haja estruturas disponíveis para várias cargas de trabalho populares, este documento fornecerá detalhes sobre a criação e o dimensionamento de implantações de contêiner com o Marathon.
+# Gerenciamento de contêiner por meio da API REST
 
-Antes de trabalhar com os exemplos, você precisará de um cluster Mesos configurado no ACS e de conectividade remota para esse cluster. Para saber mais sobre esses itens, confira os artigos a seguir.
+O Mesos fornece um ambiente de implantação e dimensionamento de cargas de trabalho clusterizadas e, ao mesmo tempo, abstrai o hardware subjacente. Sobre o Mesos, há uma estrutura que gerencia o agendamento e a execução das cargas de trabalho de computação.
 
-- [Como implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md) 
-- [Como se conectar a um Cluster ACS](./container-service-connect.md)
+Embora haja estruturas disponíveis para várias cargas de trabalho populares, este documento descreve como você pode criar e dimensionar implantações de contêiner usando o Marathon. Antes de trabalhar nos exemplos, você precisará de um cluster Mesos configurado no Serviço de Contêiner do Azure. Você também precisa ter conectividade remota com esse cluster. Para saber mais sobre esses itens, confira os artigos a seguir:
 
+- [Como implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md)
+- [Conexão a um cluster do Serviço de Contêiner do Azure](./container-service-connect.md)
 
-Uma vez conectado ao cluster ACS, o Mesos e as APIs REST relacionadas podem ser acessados por meio do http://localhost:local-port. Os exemplos neste documento pressupõem que você crie um túnel na porta 80. Por exemplo, o ponto de extremidade Marathon pode ser acessado na `http://localhost/marathon/v2/`. Para saber mais sobre as várias APIs, confira a documentação da Mesosphere para a [API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e a [API Chronos](https://mesos.github.io/chronos/docs/api.html) e a documentação do Apache para a [API do Agendador do Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
+Depois que você estiver conectado ao cluster do Serviço de Contêiner do Azure, poderá acessar o Mesos e as APIs REST relacionadas por meio de http://localhost:local-port. Os exemplos neste documento pressupõem que você crie um túnel na porta 80. Por exemplo, o ponto de extremidade Marathon pode ser acessado na `http://localhost/marathon/v2/`. Para saber mais sobre as várias APIs, confira a documentação da Mesosphere para a [API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e a [API Chronos](https://mesos.github.io/chronos/docs/api.html) e a documentação do Apache para a [API do Agendador do Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
 ## Coletar informações do Mesos e do Marathon
 
@@ -46,9 +45,9 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Implantação de um contêiner formatado do Docker
+## Implantar um contêiner formatado pelo Docker
 
-Os contêineres formatados do Docker são implantados por meio do Marathon usando um arquivo json que descreve a implementação planejada. O exemplo a seguir implantará o contêiner nginx, associando a porta 80 do agente Mesos à porta 80 do contêiner.
+Você implanta os contêineres formatados pelo Docker por meio do Marathon usando um arquivo JSON que descreve a implementação planejada. O exemplo a seguir implantará o contêiner Nginx, associando a porta 80 do agente Mesos à porta 80 do contêiner.
 
 ```json
 {
@@ -69,7 +68,7 @@ Os contêineres formatados do Docker são implantados por meio do Marathon usand
 }
 ```
 
-Para implantar um contêiner formatado do Docker, crie seu próprio arquivo json ou use o exemplo fornecido aqui - [Demonstração do ACS do Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) e armazene-o em um local acessível. Depois, execute o comando a seguir, especificando o nome do arquivo json, para implantar o contêiner.
+Para implantar um contêiner formatado pelo Docker, crie seu próprio arquivo JSON ou use o exemplo fornecido na [demonstração do Serviço de Contêiner do Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Armazene-o em um local acessível. Em seguida, para implantar o contêiner, execute o comando a seguir. Especifique o nome do arquivo JSON.
 
 ```
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
@@ -89,29 +88,29 @@ curl localhost/marathon/v2/apps
 
 ## Dimensionar seus contêineres
 
-A API do Marathon também pode ser usada para expandir ou reduzir as implantações de aplicativos. No exemplo anterior, uma instância de um aplicativo foi implantada. Vamos expandir isso para três instâncias. Para fazer isso, crie um arquivo json com o texto json a seguir e armazene-o em um local acessível.
+Você também pode usar a API do Marathon para expandir ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
 
 ```json
 { "instances": 3 }
 ```
 
-Execute o comando a seguir para expandir o aplicativo.
+Execute o comando a seguir para escalar horizontalmente o aplicativo.
 
-> Observação: o URI será http://localhost/marathon/v2/apps/ e a ID do aplicativo para o dimensionamento. Se você usar o exemplo de nginx fornecido aqui, o URI será http://localhost/v2/nginx.
+>[AZURE.NOTE] O URI será http://localhost/marathon/v2/apps/ e então a ID do aplicativo para o dimensionamento. Se você usar o exemplo do Nginx fornecido aqui, o URI será http://localhost/marathon/v2/apps/nginx.
 
 ```json
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Por fim, consulte o ponto de extremidade Marathon para aplicativos, você observará que agora há três contêineres nginx.
+Por fim, consulte o ponto de extremidade do Marathon para aplicativos. Você verá que agora há três contêineres do Nginx.
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## Interação da API REST do Marathon com o PowerShell
+## Usar o PowerShell neste exercício: interação da API REST com o PowerShell
 
-Essa mesma ação pode ser executada usando o PowerShell em um sistema Windows. Este exercício rápido concluirá tarefas semelhantes às do exercício anterior, desta vez usando comandos do PowerShell.
+Você pode executar essas mesmas ações usando comandos do PowerShell em um sistema Windows.
 
 Para obter informações sobre o cluster Mesos, como nomes e status de agentes, execute o comando a seguir.
 
@@ -119,7 +118,7 @@ Para obter informações sobre o cluster Mesos, como nomes e status de agentes, 
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Os contêineres no formato do Docker são implantados por meio do Marathon usando um arquivo json que descreve a implementação planejada. O exemplo a seguir implantará o contêiner nginx, associando a porta 80 do agente Mesos à porta 80 do contêiner.
+Você implanta os contêineres formatados pelo Docker por meio do Marathon usando um arquivo JSON que descreve a implementação planejada. O exemplo a seguir implantará o contêiner Nginx, associando a porta 80 do agente Mesos à porta 80 do contêiner.
 
 ```json
 {
@@ -140,24 +139,24 @@ Os contêineres no formato do Docker são implantados por meio do Marathon usand
 }
 ```
 
-Crie seu próprio arquivo json ou use o exemplo fornecido aqui - [Demonstração do ACS do Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) e armazene-o em um local acessível. Depois, execute o comando a seguir, especificando o nome do arquivo json, para implantar o contêiner.
+Crie seu próprio arquivo JSON ou use o exemplo fornecido na [demonstração do Serviço de Contêiner do Azure](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json). Armazene-o em um local acessível. Em seguida, para implantar o contêiner, execute o comando a seguir. Especifique o nome do arquivo JSON.
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-A API do Marathon também pode ser usada para expandir ou reduzir as implantações de aplicativos. No exemplo anterior, uma instância de um aplicativo foi implantada. Vamos expandir isso para três instâncias. Para fazer isso, crie um arquivo json com o texto json a seguir e armazene-o em um local acessível.
+Você também pode usar a API do Marathon para expandir ou reduzir horizontalmente as implantações de aplicativos. No exemplo anterior, você implantou uma instância de um aplicativo. Vamos expandir essa saída para três instâncias de um aplicativo. Para fazer isso, crie um arquivo JSON usando o texto JSON a seguir e armazene-o em um local acessível.
 
 ```json
 { "instances": 3 }
 ```
 
-Execute o comando a seguir para expandir o aplicativo.
+Execute o comando a seguir para escalar horizontalmente o aplicativo.
 
-> Observação: o URI será http://loclahost/marathon/v2/apps/ e a ID do aplicativo para o dimensionamento. Se você usar o exemplo de nginx fornecido aqui, o URI será http://localhost/v2/nginx.
+> [AZURE.NOTE] O URI será http://localhost/marathon/v2/apps/ e então a ID do aplicativo para o dimensionamento. Se você estiver usando o exemplo do Nginx fornecido aqui, o URI será http://localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

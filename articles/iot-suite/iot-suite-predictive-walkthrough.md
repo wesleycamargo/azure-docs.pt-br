@@ -43,7 +43,7 @@ Na solução pré-configurada, um dispositivo simulado representa um motor de ae
 
 *Contagem de ciclos*. Um ciclo representa um voo completo com duração variada de 2 a 10 horas, durante as quais os dados de telemetria são capturados a cada meia hora.
 
-*Telemetria* Há quatro sensores que representam atributos do motor. Os sensores são rotulados genericamente de Sensor 9, Sensor 11, Sensor 14 e Sensor 15. Esses quatro sensores representam telemetria suficiente para obter resultados úteis do modelo de Aprendizado de Máquina para o RUL. Esse modelo é criado de um conjunto de dados públicos que inclui dados de sensores de um motor real. Para saber mais sobre como o modelo foi criado no conjunto de dados original, confira o [Modelo de manutenção preditiva da Galeria da Análise da Cortana][lnk-cortana-analytics].
+*Telemetria* Há quatro sensores que representam atributos do motor. Os sensores são rotulados genericamente de Sensor 9, Sensor 11, Sensor 14 e Sensor 15. Esses quatro sensores representam telemetria suficiente para obter resultados úteis do modelo de Aprendizado de Máquina para o RUL. Esse modelo é criado de um conjunto de dados públicos que inclui dados de sensores de um motor real. Para saber mais sobre como o modelo foi criado no conjunto de dados original, confira o [Modelo de manutenção preditiva da galeria do Cortana Intelligence][lnk-cortana-analytics].
 
 Os dispositivos simulados podem lidar com os seguintes comandos enviados de um hub IoT:
 
@@ -64,7 +64,7 @@ O **processador de eventos** usa os valores médios do sensor para um ciclo comp
 
 ## Aprendizado de Máquina do Azure
 
-Para saber mais sobre como o modelo foi criado no conjunto de dados original, confira o [Modelo de manutenção preditiva da Galeria da Análise da Cortana][lnk-cortana-analytics].
+Para saber mais sobre como o modelo foi criado no conjunto de dados original, confira o [Modelo de manutenção preditiva da Galeria do Cortana Intelligence][lnk-cortana-analytics].
 
 ## Vamos começar a praticar
 
@@ -120,8 +120,8 @@ Agora que você executou a solução pré-configurada de manutenção preditiva,
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
-[lnk-cortana-analytics]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
+[lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="O que é o Catálogo de Dados do Azure"
-   description="Visão geral do catálogo de dados do Microsoft Azure, incluindo seus recursos e os problemas que ele deve resolver conforme foi projetado. O Catálogo de Dados do Azure fornece recursos que permitem que qualquer usuário – desde analistas a cientistas de dados e desenvolvedores – registre, descubra, entenda e consuma fontes de dados."
+   pageTitle="O que é o Catálogo de Dados do Azure? | Microsoft Azure"
+   description="Este artigo fornece uma visão geral do Catálogo de Dados do Microsoft Azure, incluindo seus recursos e problemas que ele deve endereçar. O Catálogo de Dados do Azure fornece recursos que permitem que qualquer usuário – desde analistas a cientistas de dados e desenvolvedores – registre, descubra, entenda e consuma fontes de dados."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # O que é o Catálogo de Dados do Azure?
@@ -109,4 +109,4 @@ O objetivo final da descoberta de dados é localizar os dados necessários e us�
 1.	Para aplicativos clientes com suporte direto do **Catálogo de Dados do Azure**, os usuários poderão clicar no menu **Abrir no** no bloco da fonte de dados encontrado no portal. O aplicativo cliente, em seguida, iniciará uma conexão com a fonte de dados selecionada.
 2.	Para todos os aplicativos clientes, os usuários podem usar as informações de conexão exibidas no painel Propriedades para uma fonte de dados selecionada. Essas informações incluem todos os detalhes (como nome do servidor, nome do banco de dados e nome do objeto) necessárias para se conectar aos dados e podem ser copiadas na experiência de conexão da ferramenta cliente. Se os detalhes do acesso da solicitação tiverem sido fornecidos por uma fonte de dados, essas informações serão exibidas ao lado dos detalhes da conexão.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

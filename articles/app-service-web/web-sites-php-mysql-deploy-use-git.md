@@ -13,7 +13,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/09/2016"
 	ms.author="robmcm"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.js](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -214,7 +214,7 @@ Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe qu
 
 		php -S localhost:8000
 
-Agora você pode navegar até **http://localhost:8000/** para testar o aplicativo.
+Agora você pode navegar até ****http://localhost:8000/** para testar o aplicativo.
 
 
 ##Publicar seu aplicativo
@@ -280,8 +280,7 @@ Por padrão, o processo de implantação do git no Serviço de Aplicativo não f
     
 3. Clique em **OK** para aceitar os termos legais. Clique em **OK** novamente para adicionar a extensão.
 
-    Agora, a folha **Extensões instaladas** mostrará a extensão do compositor.
-    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    Agora, a folha **Extensões instaladas** mostrará a extensão do compositor. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
     
 4. Agora, execute `git add`, `git commit` e `git push` como na seção anterior. Agora, você verá que o Compositor está instalando dependências definidas no composer.json.
 
@@ -326,4 +325,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

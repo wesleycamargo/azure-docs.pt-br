@@ -12,7 +12,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="03/24/2016"
@@ -168,12 +168,12 @@ A tabela a seguir lista os parâmetros necessários para configurar a integraç�
 
 |PARÂMETRO|DESCRIÇÃO|EXEMPLO|
 |----------|----------|-------|
-|**URL do cofre da chave** | O local do cofre da chave.|https://contosokeyvault.vault.azure.net/ |
-|**Nome de entidade AKV** |Nome de entidade de serviço do Active Directory do Azure Também é chamado de ID do Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2|
-| **Segredo da entidade AKV**|A Integração AKV cria uma credencial no SQL Server, permitindo que a VM tenha acesso ao cofre da chave. Escolha um nome para essa credencial. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**Nome da credencial**|Escolha um nome para identificar essa credencial.| mycred1|
+|**URL do cofre da chave** |O local do cofre da chave.|https://contosokeyvault.vault.azure.net/ |
+|**Nome de entidade** |Nome de entidade de serviço do Active Directory do Azure Também é chamado de ID do Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2|
+| **Segredo da entidade**|Segredo da entidade de serviço do Azure Active Directory. Isso também é chamado de Segredo do Cliente. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
+|**Nome da credencial**|**Nome da credencial**: a integração AKV cria uma credencial no SQL Server, permitindo que a VM tenha acesso ao cofre da chave. Escolha um nome para essa credencial.| mycred1|
 
-Para saber mais, confira [Configure Azure Key Vault Integration for SQL Server on Azure VMs (Configurar a integração do Cofre de Chaves do Azure para o SQL em VMs do Azure)](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Para saber mais, confira [Configurar a integração do Cofre de Chaves do Azure para o SQL em VMs do Azure](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
 ## 5\. Examinar o resumo
 Examine o resumo e clique em **OK** para criar o SQL Server, o grupo de recursos e os recursos especificados para esta VM. Você pode monitorar a implantação do Portal do Azure. O botão **Notificações** na parte superior da tela mostra o status básico da implantação.
@@ -194,7 +194,7 @@ Se você quiser se conectar ao seu mecanismo de banco de dados do SQL Server a p
 
 Se você utiliza o portal para provisionar uma imagem de máquina virtual do SQL Server com o gerenciador de recursos, estas etapas foram realizadas quando você escolheu **Pública** como a opção de conectividade do SQL e habilitou a autenticação do SQL Server. No entanto, é necessário concluir algumas etapas restantes para acessar a instância do SQL Server pela Internet.
 
->[AZURE.NOTE] Se você não selecionou Pública durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, confira [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure (Conectar-se a uma máquina virtual do SQL Server [Resource Manager] | Microsoft Azure)](virtual-machines-windows-sql-connect.md).
+>[AZURE.NOTE] Se você não selecionou Pública durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, confira [Conectar-se a uma máquina virtual do SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
 As etapas a seguir não serão necessárias se você só precisar acessar a Máquina Virtual localmente ou de dentro da mesma Rede Virtual.
 
@@ -203,4 +203,4 @@ As etapas a seguir não serão necessárias se você só precisar acessar a Máq
 ##<a id="Next">Próximas etapas
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
