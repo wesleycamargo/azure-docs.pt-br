@@ -62,12 +62,11 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 Após a criação do conector, você poderá usar o conector de SMTP como uma ação para seu aplicativo lógico. Para fazer isso:
 
 1.	Crie um novo aplicativo lógico:  
-
-![][2]
+![][2]  
 2.	Abra **Gatilhos e Ações** para abrir o designer de Aplicativos Lógicos e configurar seu fluxo de trabalho:  
-![][3]
+![][3]  
 3.	O conector de SMTP é listado na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito. Selecione-o:  
-![][4]
+![][4]  
 4.	Selecione o conector de SMTP para adicioná-lo automaticamente ao designer de fluxo de trabalho.
 
 Agora você pode configurar o conector de SMTP para usar em seu fluxo de trabalho. Selecione a ação **Enviar Email** e configure as propriedades de entrada:
