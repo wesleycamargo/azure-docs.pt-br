@@ -20,7 +20,8 @@
 # Criar uma rede virtual com uma conexão VPN Site a Site usando o PowerShell e o Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Portal Clássico do Azure](vpn-gateway-site-to-site-create.md)
+- [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Portal do Azure - Clássico](vpn-gateway-site-to-site-create.md)
 - [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Este artigo mostrará como criar uma rede virtual e uma conexão VPN Site a Site para sua rede local usando o modelo de implantação do **Azure Resource Manager**. As conexões Site a Site podem ser usadas para configurações híbridas e entre instalações.
@@ -43,9 +44,9 @@ Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
 - Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
 	
-- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou se inscrever para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Gerenciador de Recursos do Azure. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações sobre como instalar os cmdlets do PowerShell.
+- Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Gerenciador de Recursos do Azure. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
 
 
 ## 1\. Conecte-se as suas assinaturas 
@@ -188,4 +189,4 @@ Se precisar alterar os prefixos do gateway de rede local, use as instruções a 
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para obter as etapas.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

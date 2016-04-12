@@ -39,6 +39,6 @@ Para criar uma solução de avaliação de risco de crédito, vamos acompanhar e
 5.	[Implantar o serviço Web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Acessar o serviço Web](machine-learning-walkthrough-6-access-web-service.md)
 
-Este passo a passo se baseia em uma versão simplificada do experimento de exemplo [Classificação binária: previsão de risco de crédito](http://go.microsoft.com/fwlink/?LinkID=525270) na [Galeria do Cortana Analytics](http://gallery.cortanaanalytics.com/).
+Este passo a passo se baseia em uma versão simplificada do teste de exemplo [Classificação binária: previsão de risco de crédito](http://go.microsoft.com/fwlink/?LinkID=525270) na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="03/31/2016"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do AD do Azure *(Visualização)* - Introdução
@@ -46,24 +46,32 @@ Nesta etapa, você pode habilitar os Serviços de Domínio do AD do Azure para s
    - A lista contém todos os domínios configurados para o diretório do AD do Azure, incluindo domínios verificados e não verificados que você configura na guia "Domínios".
    - Além disso, você também pode adicionar um nome de domínio personalizado a essa lista, basta digitá-lo.
 
-     > [AZURE.WARNING] Certifique-se de que o prefixo de domínio do nome do domínio especificado por você (por exemplo, "contoso" no nome de domínio “contoso.local”) seja inferior a 15 caracteres. Você não pode criar um domínio dos Serviços de Domínio do AD do Azure com um prefixo de domínio maior do que 15 caracteres.
+     > [AZURE.WARNING] Certifique-se de que o prefixo de domínio do nome do domínio especificado por você (por exemplo, ‘contoso’ no nome de domínio ‘contoso.com’) seja inferior a 15 caracteres. Você não pode criar um domínio dos Serviços de Domínio do AD do Azure com um prefixo de domínio maior do que 15 caracteres.
 
 8. A próxima etapa é selecionar uma rede virtual na qual você gostaria que os Serviços de Domínio do AD do Azure estivesse disponível. Selecione a rede virtual que você acabou de criar na lista suspensa chamada **Conectar serviços de domínio a essa rede virtual**.
    - Certifique-se de que a rede virtual especificada pertença a uma região do Azure com suporte dos Serviços de Domínio do AD do Azure.
    - Consulte a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para conhecer as regiões do Azure nas quais os Serviços de Domínio do AD do Azure estão disponíveis.
+   - Observe que as redes virtuais pertencentes a uma região onde não há suporte para serviços de domínio do AD do Azure não aparecerão na lista suspensa.
+   - Da mesma forma, as redes virtuais criadas usando o Azure Resource Manager (redes virtuais baseadas em ARM) não aparecerão na lista suspensa. Isso ocorre porque as redes virtuais baseadas em ARM no momento não têm suporte dos Serviços de Domínio do AD do Azure.
 
-9. Quando você tiver terminado de selecionar as opções acima, clique em **Salvar** no painel de tarefas na parte inferior da página para habilitar os Serviços de Domínio do AD do Azure.
-10. A página exibirá um estado "Pendente...", enquanto os Serviços de Domínio do AD do Azure estiver sendo habilitado para seu diretório.
+9. Garanta que o nome de domínio DNS escolhido para o domínio gerenciado ainda não exista na rede virtual. Isso poderia acontecer em qualquer um destes cenários:
+   - Se você já tiver um domínio com o mesmo nome de domínio DNS na rede virtual.
+   - Se a rede virtual que você selecionou tiver uma conexão VPN com a rede local e se tiver um domínio com o mesmo nome de domínio DNS na sua rede local.
+   - Se você tiver um serviço de nuvem existente com esse nome na rede virtual.
+
+10. Quando você tiver terminado de selecionar as opções acima, clique em **Salvar** no painel de tarefas na parte inferior da página para habilitar os Serviços de Domínio do AD do Azure.
+
+11. A página exibirá um estado "Pendente...", enquanto os Serviços de Domínio do AD do Azure estiver sendo habilitado para seu diretório.
 
     ![Habilitar Serviços de Domínio - estado pendente](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
     > [AZURE.NOTE] Os Serviços de Domínio do AD do Azure fornecem alta disponibilidade para seu domínio gerenciado. Quando você habilitar os serviços de domínio do AD do Azure para seu domínio, verá os endereços IP em que os Serviços de Domínio estão disponíveis na rede virtual aparecerem um por um. O segundo endereço IP será exibido em breve, assim que o serviço permitir a alta disponibilidade para seu domínio. Quando a alta disponibilidade estiver configurada e ativa para seu domínio, você deverá ver dois endereços IP na seção **serviços de domínio** da guia **Configurar**.
 
-11. Após cerca de 20 a 30 minutos, você verá o primeiro endereço IP em que os Serviços de Domínio estão disponíveis em sua rede virtual no campo **endereço IP** na página **Configurar**.
+12. Após cerca de 20 a 30 minutos, você verá o primeiro endereço IP em que os Serviços de Domínio estão disponíveis em sua rede virtual no campo **endereço IP** na página **Configurar**.
 
     ![Serviços de Domínio habilitados - primeiro IP provisionado](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
 
-12. Quando a alta disponibilidade estiver operacional para seu domínio, você verá dois endereços IP sendo exibidos na página. Esses são os endereços IP em que os Serviços de Domínio do AD do Azure estarão disponíveis em sua rede virtual selecionada. Anote esses endereços IP para que você possa atualizar as configurações de DNS para sua rede virtual. Essa etapa permite às máquinas virtuais na rede virtual se conectarem ao domínio para operações como o ingresso no domínio.
+13. Quando a alta disponibilidade estiver operacional para seu domínio, você verá dois endereços IP sendo exibidos na página. Esses são os endereços IP em que os Serviços de Domínio do AD do Azure estarão disponíveis em sua rede virtual selecionada. Anote esses endereços IP para que você possa atualizar as configurações de DNS para sua rede virtual. Essa etapa permite às máquinas virtuais na rede virtual se conectarem ao domínio para operações como o ingresso no domínio.
 
     ![Serviços de Domínio habilitados - os dois IPs provisionados](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
@@ -73,4 +81,4 @@ Nesta etapa, você pode habilitar os Serviços de Domínio do AD do Azure para s
 ---
 [**Próxima etapa - Atualizar as configurações de DNS para a rede virtual do Azure.**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

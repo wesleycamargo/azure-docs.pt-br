@@ -76,8 +76,7 @@ Neste tutorial, você aprenderá:
 
 	* **ToDoListAPI** ‒ a camada intermediária: um projeto de API Web ASP.NET que chama a camada de dados para executar operações CRUD em itens pendentes.
 
-	* **ToDoListDataAPI** ‒ a camada de dados: um projeto de API Web ASP.NET que executa operações CRUD nos itens pendentes. Os itens pendentes são armazenados na memória, o que significa que, sempre que o aplicativo é reiniciado, todas as alterações são
-	* . 
+	* **ToDoListDataAPI** ‒ a camada de dados: um projeto de API Web ASP.NET que executa operações CRUD nos itens pendentes. Os itens pendentes são armazenados na memória, o que significa que, sempre que o aplicativo é reiniciado, todas as alterações são perdidas.
 
 	A camada intermediária fornece a ID de usuário no campo `Owner` quando chama a camada de dados. No código que você baixa, a ID de usuário é sempre "*". Quando você adicionar a autenticação nos tutoriais posteriores, a camada intermediária fornecerá a ID de usuário real para a camada de dados.
 
@@ -188,11 +187,11 @@ Nesta seção do tutorial, você verá os metadados do Swagger 2.0 gerados e exp
 
 3. Na barra de endereços do navegador, adicione `swagger` no fim da linha e pressione Return. (A URL é `http://localhost:45914/swagger`).
 
-4. Quando a página da interface do usuário do Swagger for exibida, clique em **ToDoList** para ver os métodos disponíveis.
+4. Quando for exibida a página da interface do usuário do Swagger, clique em **ToDoList** para ver os métodos disponíveis.
 
 	![Métodos disponíveis na interface do usuário do Swagger](./media/app-service-api-dotnet-get-started/methods.png)
 
-5. Clique em **Get**.
+5. Clique em **Obter**.
 
 6. Insira um asterisco como o valor do parâmetro `owner` e clique em **Experimentar**.
 
@@ -282,7 +281,7 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	Nas etapas a seguir, você criará um plano de Serviço de Aplicativo para o novo grupo de recursos. Um plano de Serviço de Aplicativo especifica os recursos de computação em que seu aplicativo de API é executado. Por exemplo, se você escolher a camada gratuita, seu aplicativo de API será executado em VMs compartilhadas, enquanto que para algumas camadas pagas, ele é executado em VMs dedicadas. Para saber mais sobre os planos do Serviço de Aplicativo, consulte a [Visão geral dos planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-5. Na caixa de diálogo **Configurar o Plano de Serviço de Aplicativo**, insira "ToDoListPlan" ou outro nome, se preferir.
+5. Na caixa de diálogo **Configurar Plano de Serviço de Aplicativo**, insira "ToDoListPlan" ou outro nome, se preferir.
 
 5. Na lista suspensa **Local**, escolha o local mais próximo de você.
 
@@ -312,13 +311,13 @@ Nesta seção, use as ferramentas do Azure integradas ao assistente **Publicar W
 
 	![Clique em Avançar na guia Conexão de Publicar Web](./media/app-service-api-dotnet-get-started/connnext.png)
 
-	A próxima é a guia **Configurações**. Aqui, você pode alterar a guia de configuração de compilação para implantar uma compilação de depuração para [depuração remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). A guia também oferece várias **Opções de Publicação do Arquivo**:
+	A próxima é a guia **Configurações**. Aqui, você pode alterar a guia de configuração de build para implantar uma compilação de depuração para [depuração remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). A guia também oferece várias **Opções de Publicação do Arquivo**:
 
 	* Remover os arquivos adicionais no destino
 	* Pré-compilar durante a publicação
 	* Excluir arquivos da pasta App\_Data
 
-	Para este tutorial, você não precisará de qualquer uma delas. Para obter explicações detalhadas sobre o que elas fazem, confira [Como implantar um projeto Web usando a publicação com um clique no Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+	Para este tutorial, você não precisará de qualquer uma delas. Para obter explicações detalhadas sobre o que elas fazem, veja [Como implantar um projeto Web usando a publicação de um clique no Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
 14. Clique em **Próximo**.
 
@@ -487,7 +486,7 @@ Se você chamasse o aplicativo de API da camada intermediária agora, ele tentar
 
 	![Método Get da interface do usuário do Swagger](./media/app-service-api-dotnet-get-started/midtierget.png)
 
-Para saber mais sobre o cliente gerado, confira o [repositório AutoRest do GitHub](https://github.com/azure/autorest). Para obter ajuda com problemas para usar o cliente gerado, abra um [problema no repositório AutoRest](https://github.com/azure/autorest/issues).
+Para obter mais informações sobre o cliente gerado, confira o [repositório AutoRest do GitHub](https://github.com/azure/autorest). Para obter ajuda com problemas para usar o cliente gerado, abra um [problema no repositório AutoRest](https://github.com/azure/autorest/issues).
 
 ## <a id="creating"></a> Opcional: Criar um projeto de aplicativo de API do zero
 
@@ -499,11 +498,11 @@ O modelo de projeto **Aplicativo de API do Azure** é equivalente a escolher o m
 
 ## Opcional: Alterar um tipo de aplicativo
 
-Como explicado [anteriormente](#apptype), a única diferença entre os aplicativos de API, os aplicativos Web e os aplicativos móveis é a forma como eles são representados no portal. Como todos eles têm os mesmos recursos, nunca será necessário alterar um tipo de aplicativo.
+Conforme explicado [anteriormente](#apptype), a única diferença entre os aplicativos de API, os aplicativos Web e os aplicativos móveis é a forma como eles são representados no portal. Como todos eles têm os mesmos recursos, nunca será necessário alterar um tipo de aplicativo.
 
 No entanto, é fácil alterar a representação do portal. Por exemplo, você poderia mudar um dos aplicativos de API que acabou de criar para um aplicativo Web ao executar as etapas a seguir.
 
-1. Abra o Gerenciador de Recursos.
+1. Abra o [Gerenciador de Recursos](https://resources.azure.com/).
 
 2. No painel de navegação esquerdo, expanda **assinaturas** e expanda a assinatura com o qual você tem trabalhado.
 
@@ -543,4 +542,4 @@ Quando seu aplicativo de API ASP.NET estiver em execução no Serviço de Aplica
 
 Neste tutorial, você viu como criar aplicativos de API, implantar código neles, gerar código cliente para eles e consumi-los usando clientes .NET. O próximo tutorial na série de introdução aos Aplicativos de API mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md). Tutoriais subsequentes na série mostram como implementar a autenticação e a autorização.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->
