@@ -105,7 +105,8 @@ Você pode criar um banco de dados com um plano grátis seguindo estas etapas.
 
   
 
-1.  Digite "**mysql**" na caixa de pesquisa, então clique em **Banco de Dados MySQL** e clique em **Criar**. -->
+1.  Digite "**mysql**" na caixa de pesquisa, então clique em **Banco de Dados MySQL** e clique em **Criar**.
+
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
 1.  Configure o novo banco de dados MySQL, criando um novo grupo de recursos e selecione o local apropriado para o mesmo.
