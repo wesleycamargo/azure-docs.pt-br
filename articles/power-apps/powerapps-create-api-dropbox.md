@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Criar uma nova API do Dropbox no PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/create-api-dropbox.md)
+- [Aplicativos lógicos](../articles/connectors/connectors-create-api-dropbox.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
 Adicione a API do Dropbox ao ambiente de serviço de aplicativo (locatário) da sua organização.
@@ -90,7 +90,7 @@ Se não tiver um aplicativo do Dropbox existente com a chave e valores do segred
 
 ## Consulte as APIs REST
 
-Referência da [API REST do Dropbox](../connectors/create-api-dropbox.md).
+Referência da [API REST do Dropbox](../connectors/connectors-create-api-dropbox.md).
 
 
 ## Resumo e próximas etapas
@@ -115,4 +115,4 @@ Neste tópico, você adicionou a API do Dropbox ao seu PowersApps Enterprise. Em
 [12]: ./media/powerapps-create-api-dropbox/browseall.png
 [13]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!----HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

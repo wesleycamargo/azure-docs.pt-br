@@ -42,7 +42,7 @@
 
 Este artigo cria uma implantação que é semelhante a uma implantação de serviço de nuvem com uma VM do Linux dentro de uma sub-rede VNetwork. Ele abrange toda a implantação básica imperativamente, comando por comando, até que você tenha uma VM do Linux funcional e segura à qual você pode se conectar de qualquer lugar na Internet.
 
-Aos poucos você entenderá a hierarquia de dependência que o modelo de implantação do Gerenciador de Recursos oferece e todo o seu poder. Após ver como o sistema é criado, você pode recriar o sistema muito mais rápido usando comandos de CLI do Azure mais diretos (confira [isso](insertlinktonewdoc) para aproximadamente a mesma implantação usando o comando `azure vm quick-create`), ou pode continuar e dominar como projetar e automatizar implantações inteiras de aplicativo e rede e atualizá-las usando os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Após ver como as partes de sua implantação se encaixam, fica mais fácil criar modelos para automatizá-las.
+Aos poucos você entenderá a hierarquia de dependência que o modelo de implantação do Gerenciador de Recursos oferece e todo o seu poder. Depois de ver como o sistema é criado, é possível recriá-lo de forma muito mais rápida usando comandos da CLI do Azure mais diretos (veja [isso](virtual-machines-linux-quick-create-cli.md) para, aproximadamente, a mesma implantação usando o comando `azure vm quick-create`) ou continuar para ter domínio perfeito de como projetar e automatizar implantações inteiras de rede e aplicativo e atualizá-las usando os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Após ver como as partes de sua implantação se encaixam, fica mais fácil criar modelos para automatizá-las.
 
 Vamos criar uma rede simples com uma VM útil para o desenvolvimento e computação simples e explicaremos conforme avançamos. Em seguida, você poderá passar para implantações e redes mais complexas.
 
@@ -95,7 +95,7 @@ azure network public-ip create -d testsubdomain testrg testpip westeurope
 azure network public-ip show testrg testpip --json | jq '.'
 
 # Associate the Public IP to the NIC
-azure network nic set --public-ip-name test pip
+azure network nic set --public-ip-name testpip testrg testnic
 
 # Bind the NSG to the NIC
 azure network nic set --network-security-group-name testnsg testrg testnic
@@ -528,7 +528,7 @@ E, como sempre, você pode investigar mais detalhes do recurso, incluindo o nome
 
 ### Associar o IP público e o grupo de segurança de rede à NIC
 
-        azure network nic set --public-ip-name test pip
+        azure network nic set --public-ip-name testpip testrg testnic
 
 Associe o NSG à NIC:
 
@@ -667,4 +667,4 @@ E agora você pode usar o comando `azure vm show testrg testvm` para examinar o 
 
 Agora você está pronto para começar a usar vários componentes de rede e VMs.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

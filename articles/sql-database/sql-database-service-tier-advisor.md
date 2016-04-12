@@ -27,7 +27,7 @@ Obtenha as recomendações de tipo de preço durante as seguintes tarefas:
 
 - [Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL](sql-database-scale-up.md)
 - [Atualizar servidor do SQL Azure para V12](sql-database-upgrade-server-portal.md)
-- Navegue até seu servidor V12 - se os bancos de dados puderem se [beneficiar de um pool de banco de dados elástico](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), a folha do servidor exibirá uma mensagem indicando um pool recomendado. Clique na mensagem para criar o pool recomendado.
+- Navegue até o servidor V12. Veja [Recomendações sobre tipo de preço do Banco de Dados SQL](sql-database-service-tier-advisor.md).
 - [Criar um pool de banco de dados elástico](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
@@ -96,4 +96,4 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

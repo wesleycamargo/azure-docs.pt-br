@@ -3,9 +3,9 @@
 	description="Este tópico refere-se a recursos criados com o modelo de implantação clássica e fornece orientação geral para proteger o SQL Server em execução em uma Máquina Virtual do Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-   editor="monicar"    
+	authors="carlrabeler"
+	manager="jhubbard"
+   editor=""    
    tags="azure-service-management"/>
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/04/2015"
-	ms.author="jroth" />
+	ms.date="03/23/2016"
+	ms.author="carlrab" />
 
 # Considerações sobre Segurança para SQL Server em Máquinas Virtuais do Azure
 
@@ -33,10 +33,10 @@ Esta é uma lista de recomendações de segurança que deve ser considerada ao c
 
 - Crie uma conta de administrador local exclusiva que não esteja nomeada como **Administrador**.
 
-- Use senhas fortes e complexas para todas as suas contas. Para obter mais informações sobre como criar uma senha forte, consulte o artigo [Criar Senhas Fortes](http://go.microsoft.com/fwlink/?LinkId=293596) no Centro de Segurança e Proteção.
+- Use senhas fortes e complexas para todas as suas contas. Para obter mais informações sobre como criar uma senha forte, consulte o artigo [Dicas para criar senhas fortes](http://windows.microsoft.com/pt-BR/windows-vista/Tips-for-creating-a-strong-password).
 
 - Por padrão, o Azure seleciona a autenticação do Windows durante a instalação da máquina Virtual do SQL Server. Portanto, o logon **SA** é desabilitado e uma senha é atribuída pela instalação. É recomendável que o logon **SA** não seja usado nem habilitado. A seguir, algumas estratégias alternativas caso você queira um logon do SQL:
-	- Crie uma conta do SQL com permissões **CONTROL SERVER**.
+	- Crie uma conta do SQL que tenha associação a sysadmin.
 	- Se você precisar usar um logon **SA**, habilite o logon, renomeie-o e atribua uma nova senha.
 	- As opções mencionadas anteriormente exigem uma alteração do modo de autenticação para **Modo de Autenticação do SQL Server e do Windows**. Para obter mais informações, consulte [Alterar Modo de Autenticação do Servidor](https://msdn.microsoft.com/library/ms188670.aspx).
 
@@ -44,11 +44,13 @@ Esta é uma lista de recomendações de segurança que deve ser considerada ao c
 
 - Considere o uso da [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) para administrar máquinas virtuais, em vez de portas RDP públicas.
 
-- Remova os pontos de extremidade da máquina virtual, se não for usá-los.
+- Use um [NSG](../virtual-network/virtual-networks-nsg.md) (grupo de segurança de rede) para permitir ou negar tráfego de rede à sua máquina virtual. Se você quiser usar um NSG e já tiver uma ACL de ponto de extremidade à disposição, primeiro remova a ACL de ponto de extremidade. Para saber mais sobre como fazer isso, confira [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+
+- Se você está usando pontos de extremidade, remova quaisquer pontos de extremidade da máquina virtual, se não for usá-los. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](../virtual-network/virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
 
 - Habilite uma opção de conexão criptografada para uma instância do mecanismo de banco de dados do SQL Server em máquinas virtuais do Azure. Configure a instância do SQL Server com um certificado assinado. Para obter mais informações, consulte [Habilitar Conexões Criptografadas ao Mecanismo de Banco de Dados](https://msdn.microsoft.com/library/ms191192.aspx) e [Sintaxe de Cadeia de Conexão](https://msdn.microsoft.com/library/ms254500.aspx).
 
-- Se as máquinas virtuais forem acessadas somente de uma rede específica, use o Firewall do Windows para restringir o acesso a determinados endereços IP ou sub-redes da rede. Você também pode adicionar uma ACL ao ponto de extremidade para restringir o tráfego apenas aos clientes permitidos. Para obter instruções sobre como usar ACLs com pontos de extremidade, consulte [Gerenciar a ACL em um ponto de extremidade](virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint)
+- Se as máquinas virtuais forem acessadas somente de uma rede específica, use o Firewall do Windows para restringir o acesso a determinados endereços IP ou sub-redes da rede.
 
 ## Próximas etapas
 
@@ -56,4 +58,4 @@ Se você também estiver interessado em práticas recomendadas sobre desempenho,
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [Visão geral do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

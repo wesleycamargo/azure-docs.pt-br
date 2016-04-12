@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 # Monitorar um site do SharePoint com o Application Insights
@@ -97,6 +97,70 @@ Ou Usuários:
 ![](./media/app-insights-sharepoint/08-users.png)
 
 
+## Capturando a ID de usuário
+
+
+O trecho de código de página da Web padrão não captura a ID de usuário do SharePoint, mas você pode fazer isso com uma pequena modificação.
+
+
+1. Copie a chave de instrumentação do seu aplicativo da lista suspensa Essentials no Application Insights. 
+
+
+    ![](./media/app-insights-sharepoint/02-props.png)
+
+2. Substitua a chave de instrumentação para 'XXXX' no trecho a seguir.
+3. Insira o script em seu aplicativo do SharePoint, em vez de inserir o trecho de código que você obtém do portal.
+
+
+
+```
+
+
+<SharePoint:ScriptLink ID="ScriptLink1" name="SP.js" runat="server" localizable="false" loadafterui="true" /> 
+<SharePoint:ScriptLink ID="ScriptLink2" name="SP.UserProfiles.js" runat="server" localizable="false" loadafterui="true" /> 
+  
+<script type="text/javascript"> 
+var personProperties; 
+  
+// Ensure that the SP.UserProfiles.js file is loaded before the custom code runs. 
+SP.SOD.executeOrDelayUntilScriptLoaded(getUserProperties, 'SP.UserProfiles.js'); 
+  
+function getUserProperties() { 
+    // Get the current client context and PeopleManager instance. 
+    var clientContext = new SP.ClientContext.get_current(); 
+    var peopleManager = new SP.UserProfiles.PeopleManager(clientContext); 
+     
+    // Get user properties for the target user. 
+    // To get the PersonProperties object for the current user, use the 
+    // getMyProperties method. 
+    
+    personProperties = peopleManager.getMyProperties(); 
+  
+    // Load the PersonProperties object and send the request. 
+    clientContext.load(personProperties); 
+    clientContext.executeQueryAsync(onRequestSuccess, onRequestFail); 
+} 
+     
+// This function runs if the executeQueryAsync call succeeds. 
+function onRequestSuccess() { 
+var appInsights=window.appInsights||function(config){
+function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
+    }({
+        instrumentationKey:"XXXX"
+    });
+    window.appInsights=appInsights;
+    appInsights.trackPageView(document.title,window.location.href, {User: personProperties.get_displayName()});
+} 
+  
+// This function runs if the executeQueryAsync call fails. 
+function onRequestFail(sender, args) { 
+} 
+</script> 
+
+
+```
+
+
 
 ## Próximas etapas
 
@@ -108,4 +172,7 @@ Ou Usuários:
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+
+ 
+
+<!-----------HONumber=AcomDC_0330_2016-->

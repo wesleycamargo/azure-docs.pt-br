@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/09/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess"/>
 
 # Recuperar um banco de dados de uma interrupção no SQL Data Warehouse
@@ -52,7 +52,7 @@ Para recuperar um banco de dados, use o cmdlet [Start-AzureSqlDatabaseRecovery][
 5. Crie a solicitação de recuperação para o banco de dados.
 6. Monitore o progresso da recuperação.
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -113,4 +113,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 [Portal do Azure]: https://portal.azure.com/
 [contatando o suporte]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

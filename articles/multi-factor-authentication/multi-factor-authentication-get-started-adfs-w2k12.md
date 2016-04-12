@@ -7,7 +7,14 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/04/2016"" ms.author="billmath"/>
+<tags 
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="03/04/2016" 
+	ms.author="billmath"/>
 
 
 # Proteger recursos de nuvem e locais usando o Servidor Azure Multi-Factor Authentication com o AD FS do Windows Server 2012 R2
@@ -224,4 +231,4 @@ Execute o script \\Program Files\\Multi-Factor Authentication Server\\Register-M
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

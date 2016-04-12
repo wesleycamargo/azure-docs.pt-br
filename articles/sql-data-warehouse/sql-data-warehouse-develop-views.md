@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -28,7 +28,7 @@ Um padrão de aplicativo muito comum é recriar tabelas usando CREATE TABLE AS S
 
 O exemplo a seguir adiciona novos registros de data para uma dimensão de data. Observe como um novo objeto, DimDate\_New, é criado pela primeira vez e, em seguida, renomeado para substituir a versão original do objeto.
 
-```
+```sql
 CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
@@ -74,4 +74,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

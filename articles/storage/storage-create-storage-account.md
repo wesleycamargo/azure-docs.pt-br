@@ -69,25 +69,21 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 2. No menu Hub, selecione **Novo** -> **Dados + Armazenamento** -> **Conta de armazenamento**.
 
-3. Selecione um modelo de implantação: **Gerenciador de Recursos** ou **Clássico**. O **Gerenciador de Recursos** é o modelo de implantação recomendado. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md).
-
-4. Insira um nome para a conta de armazenamento.
+3. Insira um nome para a conta de armazenamento.
 
 	> [AZURE.NOTE] Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
 	>  
-	> O nome da sua conta de armazenamento deve ser exclusivo no Azure. O Portal do Azure indicará se o nome de conta de armazenamento que você selecionar já é usado.
+	> O nome da sua conta de armazenamento deve ser exclusivo no Azure. O Portal do Azure indicará se o nome da conta de armazenamento que você selecionou já está em uso.
 
 	Confira [Pontos de extremidade da conta de armazenamento](#storage-account-endpoints) abaixo para obter detalhes sobre como o nome da conta de armazenamento será usado em seus objetos no Armazenamento do Azure.
 
-5. Especifique o tipo de conta de armazenamento a ser criada. O tipo de conta de armazenamento determina como a conta de armazenamento é replicada e se ela é uma conta de armazenamento standard ou uma conta de armazenamento premium.
+4. Selecione um modelo de implantação a ser usado: **Resource Manager** ou **Clássico**. O **Gerenciador de Recursos** é o modelo de implantação recomendado. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md).
 
-	O tipo de conta de armazenamento standard é **Standard-RAGRS**, que é uma conta de armazenamento standard com replicação de redundância geográfica com acesso de leitura. Esse tipo de conta de armazenamento é replicado para uma região secundária a centenas de milhas de distância da região primária e fornece acesso de leitura para o local secundário.
+5. Especifique o nível de desempenho para a conta de armazenamento como **Standard** ou **Premium**. O padrão é **Standard**. Para obter mais detalhes sobre as contas de armazenamento standard e premium, confira [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) e [Armazenamento Premium: Armazenamento de Alto Desempenho para Cargas de Trabalho da Máquina Virtual do Azure](storage-premium-storage.md).
 
-	Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](storage-redundancy.md). Para obter mais detalhes sobre contas de armazenamento standard e premium, confira [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) e [Armazenamento Premium: Armazenamento de Alto Desempenho para Cargas de Trabalho da Máquina Virtual do Azure](storage-premium-storage.md)
+6. Selecione a opção de replicação para a conta de armazenamento: **LRS**, **GRS**, **RA-GRS** ou **ZRS**. O padrão é **RA-GRS**. Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](storage-redundancy.md).
 
-6. Indique se deseja habilitar o Diagnóstico para sua conta de armazenamento. Os diagnósticos incluem logs e métricas do Storage Analytics.
-
-7. Se você tiver mais de uma assinatura do Azure, o campo **Assinatura** será exibido. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
+7. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
 
 8. Especifique um novo grupo de recursos ou selecione um grupo de recursos existente. Para saber mais sobre os grupos de recursos, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
 
@@ -95,17 +91,25 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 10. Clique em **Criar** para criar a conta de armazenamento.
 
-## Gerenciar as chaves de acesso de armazenamento
+## Gerenciar sua conta de armazenamento
+
+### Alterar a configuração da conta
+
+Depois de criar sua conta de armazenamento, você pode modificar sua configuração, por exemplo, alterando a opção de replicação usada para a conta. No Portal do Azure, navegue até a conta de armazenamento, clique em **Todas as configurações** e clique em **Configuração** para exibir e/ou alterar a configuração da conta. A alteração da opção de replicação mudará seu preço.
+
+> [AZURE.NOTE] Dependendo do nível de desempenho que você escolheu durante a criação da conta de armazenamento, talvez algumas opções de replicação não estejam disponíveis.
+
+### Gerenciar as chaves de acesso de armazenamento
 
 Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticação quando a conta de armazenamento é acessada. Ao fornecer as duas chaves de acesso de armazenamento, o Azure permite que você regenere as chaves sem interrupção para o serviço de armazenamento ou o acesso a esse serviço.
 
 > [AZURE.NOTE] Recomendamos que você evite compartilhar suas chaves de acesso de armazenamento com outras pessoas. Para permitir o acesso a recursos de armazenamento sem dar as suas chaves de acesso, você pode usar uma *assinatura de acesso compartilhado*. Uma assinatura de acesso compartilhado fornece acesso a um recurso na sua conta para um intervalo que você definir e com as permissões que você especificar. Confira [Assinaturas de Acesso Compartilhado: Compreender o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) para obter mais informações.
 
-### Exibir e copiar as chaves de acesso de armazenamento
+#### Exibir e copiar as chaves de acesso de armazenamento
 
-No [Portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento e clique no ícone **Chaves** para exibir, copiar e regenerar as chaves de acesso da conta. A folha **Chaves de Acesso** também inclui cadeias de conexão pré-configuradas usando suas chaves primária e secundária, que você pode copiar para usar em seus aplicativos.
+No [Portal do Azure](https://portal.azure.com), navegue até a conta de armazenamento, clique em **Todas as configurações** e clique em **Chaves de acesso** para exibir, copiar e gerar novamente as chaves de acesso de sua conta. A folha **Chaves de Acesso** também inclui cadeias de conexão pré-configuradas usando suas chaves primária e secundária, que você pode copiar para usar em seus aplicativos.
 
-### Regenerar chaves de acesso de armazenamento
+#### Regenerar chaves de acesso de armazenamento
 
 Você deve alterar as chaves de acesso de sua conta de armazenamento periodicamente para ajudar a manter as conexões de armazenamento seguras. Duas chaves de acesso são atribuídas para que você possa manter conexões com a conta de armazenamento usando uma chave de acesso enquanto regenera a outra.
 
@@ -137,15 +141,15 @@ Para excluir uma conta de armazenamento que está associada a uma máquina virtu
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Se a conta de armazenamento usar o modelo de implantação Clássico, você poderá remover o disco da máquina virtual seguindo estas etapas no [Portal Clássico do Azure](https://manage.windowsazure.com):
+Se a conta de armazenamento usar o modelo de implantação Clássico, você poderá remover o disco da máquina virtual seguindo estas etapas no [Portal do Azure](https://manage.windowsazure.com):
 
-1. Navegue até o [Portal Clássico do Azure](https://manage.windowsazure.com).
+1. Navegue até o [Portal Clássico](https://manage.windowsazure.com).
 2. Navegue até a guia Máquinas Virtuais.
 3. Clique na guia Discos.
 4. Selecione o disco de dados e clique em Excluir o Disco.
 5. Para excluir imagens de disco, navegue até a guia Imagens e exclua todas as imagens armazenadas na conta.
 
-Para obter mais informações, confira a [Documentação da Máquina Virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
+Para saber mais, confira a [Documentação da máquina virtual do Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Próximas etapas
 
@@ -154,4 +158,4 @@ Para obter mais informações, confira a [Documentação da Máquina Virtual do 
 - [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md)
 - Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

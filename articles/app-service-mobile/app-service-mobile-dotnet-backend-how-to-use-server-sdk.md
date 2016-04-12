@@ -283,7 +283,7 @@ Você também pode simplificar o código do cliente para usar o método `loginAs
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
 
-Substitua a cadeia de caracteres "CustomAuth" acima pelo nome do controlador que hospeda sua ação de logon.
+Substitua a cadeia de caracteres “CustomAuth” acima pelo nome do controlador que hospeda a ação de logon.
 
 >[AZURE.TIP] Usar a abordagem loginAsync() garante que o token de autenticação está conectado a todas as chamadas subsequentes ao serviço.
 
@@ -461,4 +461,4 @@ Agora, seu servidor em execução local está equipado para validar tokens que o
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!----HONumber=AcomDC_0316_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

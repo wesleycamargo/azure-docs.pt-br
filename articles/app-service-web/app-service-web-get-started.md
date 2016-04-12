@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="04/04/2016" 
 	ms.author="cephalin"
 />
 	
@@ -67,7 +67,7 @@ Vamos implantar um aplicativo Web no Serviço de Aplicativo do Azure.
 
 4. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando. A URL do aplicativo Web será http://&lt;app_name>.azurewebsites.net.
 
-        azure site create --git <app_name> 
+        azure site create --git <app_name>
       
     >[AZURE.NOTE] Se nunca tiver configurado credenciais de implantação para sua assinatura do Azure, você será solicitado a criá-las. Essas credenciais, não as credenciais de sua conta do Azure, são usadas pelo Serviço de Aplicativo somente para implantações do Git e logons de FTP.
     
@@ -85,11 +85,9 @@ Parabéns, você implantou seu aplicativo no Serviço de Aplicativo do Azure.
 
 ## Ver o aplicativo em execução
 
-Para ver o aplicativo em execução no Azure, execute este comando:
+Para ver seu aplicativo em execução no Azure, execute este comando em qualquer pasta no repositório:
 
-    azure site browse <app_name>
-
-Se for mostrada a mensagem de erro: `Site <app_name> does not exist or has no hostnames`, repita o comando em alguns segundos. Alguns aplicativos, como aplicativos Java, levam mais tempo para encapsular a implantação.
+    azure site browse
 
 ## Fazer atualizações no aplicativo
 
@@ -101,13 +99,13 @@ Agora você pode usar o Git para enviar da raiz do projeto (repositório) a qual
 
 ## Outras maneiras de implantar
 
-Há várias maneiras de implantar o aplicativo Web, e a implantação do Git de um repositório local é apenas uma delas. Você pode implantar diretamente do Visual Studio, implantar continuamente do GitHub, sincronizar do DropBox ou do OneDrive, carregar arquivos via FTP etc. Para saber mais sobre opções de implantação, confira [Implantar seu aplicativo no Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md).
+Há várias maneiras de implantar o aplicativo Web, e a implantação do Git de um repositório local é apenas uma delas. Você pode implantar diretamente do Visual Studio, implantar continuamente do GitHub, sincronizar do DropBox ou do OneDrive, carregar arquivos via FTP etc. Para saber mais sobre as opções de implantação, confira [Implantar seu aplicativo no Serviço de Aplicativo do Azure](../app-service-web/web-sites-deploy.md).
 
 ## Ver o aplicativo no portal do Azure
 
 Agora, vamos para o portal do Azure para ver o que você criou:
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta da Microsoft com sua assinatura do Azure.
+1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta da Microsoft que tenha sua assinatura do Azure.
 
 2. Na barra à esquerda, clique em **Serviços de Aplicativos**.
 
@@ -119,7 +117,7 @@ A folha do portal do aplicativo do Serviço de Aplicativo expõe um conjunto ava
 
 - interromper o aplicativo
 - reiniciar o aplicativo
-- clique no link de **Grupo de Recursos** para ver todos os recursos implantados no grupo de recursos
+- clique no link **Grupo de Recursos** para ver todos os recursos implantados no grupo de recursos
 - clique em **Configurações** > **Propriedades** para ver outras informações sobre o aplicativo
 - clique em **Ferramentas** para acessar ferramentas úteis para monitoramento e solução de problemas  
 
@@ -141,4 +139,4 @@ Ou localize mais conteúdo sobre os tipos de aplicativos que você pode criar no
 - [Criar aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/)
 - [Criar aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

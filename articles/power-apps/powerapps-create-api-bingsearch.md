@@ -14,20 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Criar uma nova API de pesquisa do Bing no PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/create-api-bingsearch.md)
+- [Aplicativos lógicos](../articles/connectors/connectors-create-api-bingsearch.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
 
 Adicione a API de Pesquisa do Bing ao ambiente de serviço de aplicativo (locatário) da sua organização.
 
 ## Crie a API no portal do Azure
 
-1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@*SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
+1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
  
 2. Selecione **Procurar** na barra de tarefas: ![][4]
 
@@ -51,7 +51,7 @@ Quando terminar, uma nova API de pesquisa do Bing será adicionada ao seu ambien
 
 ## Consulte as APIs REST
 
-Referência de [API de REST de pesquisa do Bing](../connectors/create-api-bingsearch.md).
+Referência de [API REST da Pesquisa do Bing](../connectors/connectors-create-api-bingsearch.md).
 
 
 ## Resumo e próximas etapas
@@ -66,4 +66,4 @@ Neste tópico, você adicionou a API de pesquisa do Bing para o seu PowersApps E
 [4]: ./media/powerapps-create-api-dropbox/browseall.png
 [5]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!----HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

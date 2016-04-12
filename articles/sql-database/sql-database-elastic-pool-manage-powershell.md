@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# Monitorar e gerenciar um pool de banco de dados elástico (PowerShell) 
+# Monitorar, gerenciar e dimensionar um pool de banco de dados elástico com o PowerShell 
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-elastic-pool-manage-portal.md)
@@ -35,7 +35,7 @@ Você precisa executar o Azure PowerShell 1.0 ou superior. Para obter informaç�
 
 
 
-## Criar um novo banco de dados elástico em um pool de banco de dados elástico
+## Criar um novo banco de dados elástico em um pool
 
 Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet [New-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) e defina o parâmetro **ElasticPoolName**.
 
@@ -43,34 +43,34 @@ Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet [N
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Mover um banco de dados autônomo em um pool de banco de dados elástico
+## Mover um banco de dados independente para um pool
 
 Para mover um banco de dados existente para um pool, use o cmdlet [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) e defina o parâmetro **ElasticPoolName**.
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## Alterar as configurações de desempenho de um pool de banco de dados elástico
+## Alterar as configurações de desempenho de um pool
 
-Para alterar as configurações de desempenho de um pool de banco de dados elástico, use o cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx).
+Para alterar as configurações de desempenho de um pool, use o cmdlet [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx).
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
-## Obter o status de operações do pool de banco de dados elástico
+## Obter o status das operações de pool
 
-É possível acompanhar o status das operações de pool de banco de dados elástico, incluindo criação e atualizações, usando o cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
+É possível acompanhar o status das operações de pool, incluindo criação e atualizações, usando o cmdlet [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx).
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
-## Obter o status de mover um banco de dados elástico para dentro e fora de um pool de banco de dados elástico
+## Obter o status de movimentação de um banco de dados elástico para dentro e fora de um pool
 
 É possível acompanhar o status das operações de banco de dados elástico, incluindo criação e atualizações, usando o cmdlet [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx).
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Obter dados de uso de um pool de banco de dados elástico
+## Obter dados de uso de um pool
 
 Métricas que podem ser recuperadas como uma porcentagem do limite do pool de recursos:
 
@@ -113,7 +113,7 @@ Exporte para um arquivo CSV:
 
 Essas APIs são as mesmas que as APIs (V12) atuais usadas para monitorar a utilização de recursos de um banco de dados autônomo, exceto para as seguintes diferenças semânticas
 
-* Para essa API as métricas recuperadas são expressas como um percentual do databaseDtuMax (ou limite equivalente para a métrica subjacente, como CPU, ES etc) definido para esse pool de banco de dados elástico. Por exemplo, 50% da utilização de qualquer uma dessas métricas indica que o consumo do recursos específico é de 50% do limite por banco de dados desse recurso no pool de banco de dados elástico pai. 
+* Para essa API, as métricas recuperadas são expressadas como um percentual do databaseDtuMax (ou capacidade equivalente para a métrica subjacente, como CPU, ES, etc.) definida para esse pool. Por exemplo, 50% da utilização de qualquer uma dessas métricas indica que o consumo do recursos específico é de 50% do limite por banco de dados desse recurso no pool pai. 
 
 Obtenha as métricas:
 
@@ -132,7 +132,7 @@ Exporte para um arquivo CSV:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
-## Monitorar e gerenciar um exemplo de PowerShell de pool de banco de dados elástico
+## Monitorar e gerenciar um exemplo de PowerShell de pool
 
 
     $subscriptionId = '<Azure subscription id>'
@@ -171,11 +171,11 @@ Exporte para um arquivo CSV:
 
 ## Próximas etapas
 
-- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos facilitam a execução de scripts T-SQL em qualquer quantidade de bancos de dados no pool.
+- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados no pool.
 
 
 ## Referência de banco de dados elástico
 
 Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

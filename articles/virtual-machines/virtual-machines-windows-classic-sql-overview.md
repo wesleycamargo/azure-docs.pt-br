@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
+	ms.date="03/24/2016"
 	ms.author="jroth"/>
 
 # Visão geral do SQL Server em máquinas virtuais do Azure
@@ -26,9 +26,11 @@ Você pode hospedar o [SQL Server em Máquinas Virtuais do Azure](https://azure.
 
 Para criar uma máquina virtual do SQL Server no Azure, você deve primeiro obter uma assinatura da Plataforma Azure. É possível adquirir uma assinatura do Azure em [Opções de Compra](https://azure.microsoft.com/pricing/purchase-options/). Para testá-la gratuitamente, visite [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
+Para uma ótima visão geral, assista ao vídeo [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016).
+
 ### Implantar uma instância do SQL Server em uma única VM
 
-Depois de se inscrever em uma assinatura, a maneira mais fácil de implantar uma máquina virtual do SQL Server no Azure será [provisionar uma imagem da galeria de computador do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md). Essas imagens incluem o licenciamento do SQL Server nos preços para a VM.
+Depois de se inscrever em uma assinatura, a maneira mais fácil de implantar uma máquina virtual do SQL Server no Azure é [provisionar uma imagem da galeria da máquina do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md). Essas imagens incluem o licenciamento do SQL Server nos preços para a VM.
 
 É importante observar que há dois modelos para criar e gerenciar máquinas virtuais do Azure: clássico e Gerenciador de Recursos. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Algumas documentações do SQL Server para VMs do Azure ainda se referem exclusivamente ao modelo clássico. Esses tópicos estão sendo atualizados ao longo do tempo para usar o novo portal do Azure e o modelo do Gerenciador de Recursos. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md).
 
@@ -147,4 +149,4 @@ Se criar uma máquina virtual usando uma imagem do SQL Server fornecida pela pla
 - [Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 - [Máquinas Virtuais do Azure](virtual-machines-linux-about.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -26,7 +26,7 @@ O gerenciador de recursos é um componente do painel de cluster do Spark que per
 
 ## <a name="launchrm"></a>Como iniciar o Gerenciador de Recursos?
 
-1. No [Portal de Visualização do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**. 
+1. No [Portal do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**. 
  
 2. Na folha do cluster Spark, clique em **Painel**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
@@ -84,4 +84,4 @@ Especifique a contagem do núcleo de servidor de Thrift e memória de executor d
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

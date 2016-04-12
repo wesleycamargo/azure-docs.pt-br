@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/23/2016"
+     ms.date="03/29/2016"
      ms.author="obloch"/>
 
 # Introdução ao SDK do dispositivo IoT do Azure para C
@@ -156,6 +156,8 @@ Usaremos esse exemplo de aplicativo para explicar o que é necessário para usar
 
 ### Inicializando a biblioteca
 
+> [AZURE.NOTE] Antes de começar a trabalhar com as bibliotecas, talvez seja necessário executar alguma inicialização específica de plataforma. Por exemplo, se você planeja usar o AMQPS no Linux, você deverá inicializar a biblioteca OpenSSL. Os exemplos de [repositório GitHub](https://github.com/Azure/azure-iot-sdks) chamam a função de utilitário **platform\_init** quando o cliente inicia e chamam a função **platform\_deinit** antes de encerrar. Essas funções são declaradas no arquivo de cabeçalho "platform.h". Você deve examinar as definições dessas funções para sua plataforma de destino no [repositório](https://github.com/Azure/azure-iot-sdks) para determinar se é necessário incluir qualquer código de inicialização de plataforma no seu cliente.
+
 Para começar a trabalhar com as bibliotecas, você deve primeiro alocar um identificador de cliente do Hub IoT:
 
 ```
@@ -276,7 +278,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_CreateFromConnectionStrin
 ContosoAnemometer* myWeather = CREATE_MODEL_INSTANCE(WeatherStation, ContosoAnemometer);
 ```
 
-A chamada à função **serializer\_init** é uma chamada única e é usada para inicializar a biblioteca subjacente. Você chama a função **IoTHubClient\_CreateFromConnectionString**, que é a mesma API do exemplo **IoTHubClient**. Essa chamada define a cadeia de conexão de dispositivo (também é onde você escolhe o protocolo que quer usar). Observe que este exemplo usa o AMQP como transporte, mas poderia ter usado o HTTP.
+A chamada à função **serializer\_init** é uma chamada única e é usada para inicializar a biblioteca subjacente. Então, você chama a função **IoTHubClient\_CreateFromConnectionString**, que é a mesma API do exemplo **IoTHubClient**. Essa chamada define a cadeia de conexão de dispositivo (também é onde você escolhe o protocolo que quer usar). Observe que este exemplo usa o AMQP como transporte, mas poderia ter usado o HTTP.
 
 Por fim, chame a função **CREATE\_MODEL\_INSTANCE**. Observe que **WeatherStation** é o namespace do modelo e **ContosoAnemometer** é o nome do modelo. Depois que a instância do modelo for definida, você poderá usá-lo para começar a enviar eventos e a receber mensagens. No entanto, em primeiro lugar, é importante entender o que é um modelo.
 
@@ -352,7 +354,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 }
 ```
 
-Esse código é muito semelhante ao que vimos no aplicativo **iothub\_client\_sample\_amqp**, em que criamos uma mensagem a partir de uma matriz de bytes e usamos **IoTHubClient\_SendEventAsync** para enviá-la ao Hub IoT. Depois disso, temos apenas que liberar a identificação da mensagem e o buffer de dados serializados que alocamos anteriormente.
+Esse código é muito semelhante ao que vimos no aplicativo **iothub\_client\_sample\_amqp**, em que criamos uma mensagem de uma matriz de bytes e usamos **IoTHubClient\_SendEventAsync** para enviá-la ao Hub IoT. Depois disso, temos apenas que liberar a identificação da mensagem e o buffer de dados serializados que alocamos anteriormente.
 
 Do segundo ao último parâmetro de **IoTHubClient\_SendEventAsync** é uma referência a uma função de retorno de chamada que é chamada quando os dados são enviados com êxito. Veja o exemplo de uma função de retorno de chamada:
 
@@ -458,4 +460,4 @@ Cada uma dessas três funções se alinha às três funções de inicialização
 
 Este artigo abordou os conceitos básicos de como usar as bibliotecas no **SDK do dispositivo IoT do Azure para C**. Ele forneceu informações suficientes para entender o que está incluído no SDK, sua arquitetura e como começar a trabalhar com os exemplos do Windows. O próximo artigo continua a descrição do SDK, explicando [mais sobre a biblioteca IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

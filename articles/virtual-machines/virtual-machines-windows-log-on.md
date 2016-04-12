@@ -63,4 +63,4 @@ No Portal do Azure, você usará o botão **Conectar** para iniciar uma sessão 
 
 Se enfrentar problemas ao tentar se conectar, veja [Solucionar problemas de conexões da Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

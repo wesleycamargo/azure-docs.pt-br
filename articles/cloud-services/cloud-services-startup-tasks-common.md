@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="03/21/2016" 
+ms.date="03/25/2016" 
 ms.author="adegeo"/>
 
 # Tarefas de inicialização comuns do Serviço de Nuvem
@@ -503,4 +503,4 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md).
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

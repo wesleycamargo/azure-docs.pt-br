@@ -66,27 +66,27 @@ Existem duas funções definidas e uma implícita definidas no aplicativo criado
 
 -   **SOMENTE LEITURA IMPLÍCITA:** é igual a Somente Leitura, mas é concedida a todos os usuários do seu locatário do AAD. Isso foi feito para conveniência durante o desenvolvimento. Você poderá remover essa função ao modificar o arquivo de origem [RolePermissions.cs][lnk-resource-cs].
 
-### Alterando as funções de aplicativo
+### Alterando as funções de aplicativo para um usuário
+
+Você pode usar o procedimento a seguir para tornar um usuário em seu Active Directory um administrador de sua solução pré-configurada.
 
 Você deve ser um administrador global do AAD para alterar funções para um usuário:
 
-1. Vá para o [portal clássico do Azure][lnk-classic-portal]
+1. Vá para o [Portal clássico do Azure][lnk-classic-portal].
 
-2. Selecione **Active Directory**
+2. Selecione **Active Directory**.
 
-3. Clique no nome do seu locatário do AAD
+3. Clique no nome do seu locatário do AAD (este é o diretório que você escolheu em azureiotsuite.com quando provisionou sua solução).
 
 4. Clique em **Aplicativos**.
 
-5. Se você não vir seu aplicativo na lista, alterne na lista suspensa **Mostrar** até **Aplicativos que minha empresa possui** e clique na marca de seleção.
-
-6. Clique no nome do aplicativo que corresponda ao nome da solução pré-configurada.
+5. Clique no nome do aplicativo que corresponda ao nome da solução pré-configurada. Se você não vir seu aplicativo na lista, alterne na lista suspensa **Mostrar** até **Aplicativos que minha empresa possui** e clique na marca de seleção.
 
 7. Clique em **Usuários**.
 
 8. Selecione o usuário para o qual você deseja alternar funções.
 
-9. Clique no botão atribuir e na função que você deseja atribuir, clique na marca de seleção.
+9. Clique em **Atribuir** e selecione a função (como **Administrador**) que você deseja atribuir ao usuário, então clique na marca de seleção.
 
 ## Perguntas frequentes
 
@@ -145,4 +145,4 @@ Se você tiver certeza de que tem uma assinatura do Azure, valide o mapeamento d
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

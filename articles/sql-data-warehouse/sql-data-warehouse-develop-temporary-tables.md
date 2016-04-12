@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # Tabelas temporárias no SQL Data Warehouse
@@ -24,7 +24,7 @@ Este artigo contém algumas diretrizes essenciais de como usar as tabelas tempor
 ## Criando tabelas temporárias
 Criar uma tabela temporária é bem simples e fácil. Tudo o que você precisa fazer é prefixar o nome da tabela com #, como no exemplo abaixo:
 
-```
+```sql
 CREATE TABLE #stats_ddl
 (
 	[schema_name]			NVARCHAR(128) NOT NULL
@@ -44,7 +44,7 @@ WITH
 
 As tabelas temporárias também podem ser criadas usando `CTAS` com a mesma abordagem.
 
-```
+```sql
 CREATE TABLE #stats_ddl
 WITH
 (
@@ -102,7 +102,7 @@ FROM    t1
 
 Para garantir que as declarações `CREATE TABLE` sejam bem-sucedidas, é importante garantir que a tabela ainda não exista na sessão. Isso pode ser tratado com uma simples verificação de pré-existência usando o padrão abaixo:
 
-```
+```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
 	DROP TABLE #stats_ddl
@@ -113,7 +113,7 @@ END
 
 Também é uma boa prática usar `DROP TABLE` para remover tabelas temporárias quando você tiver finalizado o trabalho com elas no código.
 
-```
+```sql
 DROP TABLE #stats_ddl
 ```
 
@@ -127,7 +127,7 @@ Vamos fazer um exemplo funcional.
 
 O procedimento armazenado abaixo reúne os exemplos mencionados acima. O código pode ser usado para gerar a DDL exigida na atualização das estatísticas em cada coluna no banco de dados:
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
 	,@sample_pct     tinyint
@@ -209,7 +209,7 @@ No SQL Data Warehouse, é possível usar a tabela temporária fora do procedimen
 
 Isso pode levar a um código mais modular e gerenciável. Veja o exemplo abaixo:
 
-```
+```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
 
 DECLARE @i INT              = 1
@@ -254,4 +254,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

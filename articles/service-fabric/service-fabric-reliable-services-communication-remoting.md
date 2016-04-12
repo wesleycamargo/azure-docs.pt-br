@@ -23,7 +23,7 @@ Para serviços que não estão vinculados a um protocolo de comunicação espec�
 A configuração da comunicação remota de um serviço é feita em duas etapas simples:
 
 1. Crie uma interface para implementar o serviço. Essa interface define os métodos que estarão disponíveis para chamada de procedimento remoto no seu serviço. Os métodos devem ser métodos assíncronos que retornam tarefas. A interface deve implementar `Microsoft.ServiceFabric.Services.Remoting.IService` para sinalizar que o serviço tem uma interface de comunicação remota.
-2. Use `Microsoft.ServiceFabric.Services.Remoting.Runtime.ServiceRemotingListener` em seu serviço. Esta é uma implementação de `ICommunicationListener` que fornece recursos de comunicação remota.
+2. Use `FabricTransportServiceRemotingListener` em seu serviço. Esta é uma implementação de `ICommunicationListener` que fornece recursos de comunicação remota.
 
 Por exemplo, esse serviço Hello World expõe um único método para obter "Hello World" pela chamada de procedimento remoto:
 
@@ -37,7 +37,9 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-        return new[] { new ServiceReplicaListener(parameters => new ServiceRemotingListener<HelloWorldStateful>(parameters, this)) };
+        return new[]{
+                new ServiceReplicaListener(
+                    (context) => new FabricTransportServiceRemotingListener(context,this))};
     }
 
     public Task<string> GetHelloWorld()
@@ -47,7 +49,7 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 }
 
 ```
-> [AZURE.NOTE]Os argumentos e os tipos de retorno na interface de serviço podem ser quaisquer tipos simples, complexos ou personalizados, mas eles devem ser serializáveis pelo [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx) do .NET.
+> [AZURE.NOTE] Os argumentos e os tipos de retorno na interface de serviço podem ser quaisquer tipos simples, complexos ou personalizados, mas eles devem ser serializáveis pelo [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx) do .NET.
 
 
 ## Chamar métodos de serviços remotos
@@ -70,4 +72,6 @@ A estrutura remota propaga exceções lançadas no serviço para o cliente. A l�
 
 * [Comunicação WCF com o Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+* [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
+
+<!-----------HONumber=AcomDC_0330_2016-->

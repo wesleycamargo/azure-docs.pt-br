@@ -329,7 +329,7 @@ Se você receber erros como `Deployment provisioning state was not successful` a
 
     	azure group log show new_res_group --last-deployment
 
-    Em seguida, confira [Solucionando problemas de implantações do grupo de recursos no Azure](../virtual-machines/resource-group-deploy-debug.md) para saber mais.
+    Em seguida, confira [Solucionando problemas de implantações do grupo de recursos no Azure](../resource-manager-troubleshoot-deployments-cli.md) para saber mais.
 
 - As informações sobre o erro também estão disponíveis no Portal do Azure, conforme mostra a seguinte captura de tela. Para navegar até as informações sobre o erro: clique em Grupos de Recursos na Jumpbar, selecione o Grupo de Recursos que apresentou o erro e, na área Essentials da folha Grupo de Recursos, clique na data da Última Implantação. Na folha Histórico de implantação escolha a implantação com falha e, na folha Implantação, clique no Detalhe da operação com o ponto de exclamação vermelho. A Mensagem de Status da implantação com falha é exibida na folha Detalhes da operação.
 
@@ -354,4 +354,4 @@ Para saber mais sobre o Banco de Dados de Documentos, explore estes recursos:
 
 Para obter mais modelos que você possa usar, confira [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

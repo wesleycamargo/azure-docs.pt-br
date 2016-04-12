@@ -15,7 +15,7 @@ Para imagens do Windows Client, determinadas versões do Windows 7 e Windows 8.1
 
 ## Quanto armazenamento eu posso usar com uma máquina virtual?
 
-Cada disco de dados pode ter até 1 TB. O número de discos de dados que você pode usar depende do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-linux-sizes.md).
+Cada disco de dados pode ter até 1 TB. O número de discos de dados que você pode usar depende do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 Uma conta de armazenamento do Azure fornece armazenamento para o disco do sistema operacional e quaisquer discos de dados. Cada disco é um arquivo .vhd armazenado como um blob de páginas. Para obter detalhes sobre preços, veja [Detalhes de preços de armazenamento](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
@@ -23,9 +23,9 @@ Uma conta de armazenamento do Azure fornece armazenamento para o disco do sistem
 
 O Azure dá suporte apenas a discos rígidos virtuais fixos no formato VHD. Se tiver um VHDX que deseja usar no Azure, você precisa primeiro convertê-lo usando o Gerenciador do Hyper-V ou o cmdlet [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). Depois de fazer isso, use o cmdlet [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (no modo de Gerenciamento de Serviços) para carregar o VHD em uma conta de armazenamento do Azure para que você possa usá-lo com máquinas virtuais.
 
-- Para obter instruções sobre o Linux, veja [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+- Para obter instruções sobre o Linux, veja [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
 
-- Para obter instruções sobre o Windows, veja [Criar e carregar um VHD do Windows Server no Azure](virtual-machines-windows-classic-createupload-vhd.md).
+- Para obter instruções sobre o Windows, veja [Criar e carregar um VHD do Windows Server no Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
 
 ## Essas máquinas virtuais são iguais às máquinas virtuais Hyper-V?
 
@@ -45,17 +45,17 @@ Você precisará especificar a rede à qual deseja que a máquina virtual perten
 
 Você precisa estabelecer uma conexão remota para fazer logon na máquina virtual, usando a Conexão de Área de Trabalho Remota para uma VM do Windows ou um SSH (Secure Shell) para uma VM do Linux. Para obter instruções, consulte:
 
-- [Como fazer logon em uma máquina virtual executando o Windows Server](virtual-machines-windows-classic-connect-logon.md). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.  
-- [Como fazer logon em uma máquina virtual que executa o Linux](virtual-machines-linux-classic-log-on.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
+- [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.  
+- [Como fazer logon em uma máquina virtual que executa o Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.
 
 
-Se tiver problemas com a Área de Trabalho Remota ou o SSH, instale e use a extensão [VMAccess](virtual-machines-windows-extensions-features.md) para ajudar a corrigir o problema.
+Se tiver problemas com a Área de Trabalho Remota ou o SSH, instale e use a extensão [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) para ajudar a corrigir o problema.
 
 Para VMs Windows, as opções adicionais incluem:
 
 - No portal clássico do Azure, localize a VM e clique em **Redefinir Acesso Remoto** na barra de comandos.
-- Examine [Solucionar problemas de conexões da Área de Trabalho Remota a uma Máquina Virtual do Azure baseada em Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
-- Use a Comunicação Remota do Windows PowerShell para conectar-se à VM ou crie pontos de extremidade adicionais para outros recursos se conectarem à VM. Para obter detalhes, veja [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-windows-classic-setup-endpoints.md).
+- Examine [Solucionar problemas de conexões da Área de Trabalho Remota a uma Máquina Virtual do Azure baseada em Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
+- Use a Comunicação Remota do Windows PowerShell para conectar-se à VM ou crie pontos de extremidade adicionais para outros recursos se conectarem à VM. Para obter detalhes, veja [Como instalar pontos de extremidade em uma máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 
 Se estiver familiarizado com o Hyper-V, você pode estar em busca de uma ferramenta semelhante ao VMConnect. O Azure não oferece uma ferramenta semelhante porque não há suporte para o acesso de console a uma máquina virtual.
 
@@ -65,7 +65,7 @@ Você não deve usar o disco temporário (a unidade D: por padrão para Windows 
 
 ## Como eu posso alterar a letra da unidade do disco temporário?
 
-Em uma máquina virtual do Windows, você pode alterar a letra da unidade movendo o arquivo de paginação e reatribuindo as letras de unidade, mas você precisará certificar-se de seguir as etapas em uma ordem específica. Para obter instruções, veja [Alterar a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md).
+Em uma máquina virtual do Windows, você pode alterar a letra da unidade movendo o arquivo de paginação e reatribuindo as letras de unidade, mas você precisará certificar-se de seguir as etapas em uma ordem específica. Para obter instruções, veja [Alterar a letra da unidade do disco temporário do Windows](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md).
 
 ## Como eu posso atualizar o sistema operacional convidado?
 
@@ -82,7 +82,7 @@ Para obter detalhes gerais sobre o processo e as ferramentas para migrar um Wind
 
 As imagens fornecidas pelo Azure não têm um nome de usuário e uma senha pré-configurados. Quando cria a máquina virtual usando uma dessas imagens, você precisa fornecer um nome de usuário e senha que você usará para fazer logon na máquina virtual.
 
-Se você esqueceu o nome de usuário ou senha e instalou o agente de VM, você pode instalar e usar a extensão [VMAccess](virtual-machines-windows-extensions-features.md) para corrigir o problema.
+Se você esqueceu o nome de usuário ou senha e instalou o agente de VM, você pode instalar e usar a extensão [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) para corrigir o problema.
 
 Detalhes adicionais:
 
@@ -102,7 +102,7 @@ O Azure oferece diversas opções para soluções antivírus, mas cabe a você g
 
 ## Quais são minhas opções de backup e recuperação?
 
-O Backup do Azure está disponível como visualização em determinadas regiões. Para obter detalhes, veja [Fazer backup de máquinas virtuais do Azure](backup-azure-vms.md). Existem outras soluções de parceiros certificados. Para descobrir o que está disponível no momento, pesquise no Azure Marketplace.
+O Backup do Azure está disponível como visualização em determinadas regiões. Para obter detalhes, veja [Fazer backup de máquinas virtuais do Azure](../articles/backup/backup-azure-vms.md). Existem outras soluções de parceiros certificados. Para descobrir o que está disponível no momento, pesquise no Azure Marketplace.
 
 Uma outra opção é usar os recursos de instantâneo do armazenamento de blob. Para fazer isso, você precisará fechar a VM antes de qualquer operação que se baseie em um instantâneo de blob. Isso salva gravações de dados pendentes e coloca o sistema de arquivos em um estado consistente.
 
@@ -138,4 +138,4 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 
 [Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/27/2015"
+	ms.date="03/27/2016"
 	ms.author="jeffreyg"/>
 
 # Tutorial do Banco de Dados SQL: criar um banco de dados SQL em alguns minutos usando o Portal do Azure
@@ -128,4 +128,4 @@ Agora que você concluiu este tutorial do Banco de Dados SQL e que criou um banc
 
 - [Todos os tópicos sobre o serviço do Banco de Dados SQL do Azure](sql-database-index-all-articles.md), um índice
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

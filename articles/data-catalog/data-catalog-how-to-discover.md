@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Como descobrir fontes de dados"
+   pageTitle="Como descobrir as fontes de dados | Microsoft Azure"
    description="Artigo de instruções realçando como descobrir ativos de dados registrados com o Catálogo de Dados do Azure, incluindo pesquisa e filtragem e o uso dos recursos de realce de ocorrências do portal do Catálogo de Dados do Azure."
    services="data-catalog"
    documentationCenter=""
@@ -13,9 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
-
 
 # Como descobrir fontes de dados
 
@@ -63,4 +62,4 @@ O registro de uma fonte de dados no **Catálogo de Dados do Azure** facilita a d
 ## Consulte também
 - o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como descobrir fontes de dados.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # Como definir um IP interno estático privado
 Na maioria dos casos, você não precisará especificar um endereço IP interno estático para sua máquina virtual. As VMs de uma rede virtual receberão automaticamente endereço IP interno de um intervalo especificado por você. Mas, em alguns casos, a especificação de um endereço IP estático para uma determinada VM fará sentido. Por exemplo, se a sua VM se destinar à execução de DNS ou a ser um controlador de domínio.
 
->[AZURE.NOTE]Um endereço IP interno estático permanece com a VM mesmo em um estado de interrupção/desprovisionamento.
+>[AZURE.NOTE] Um endereço IP interno estático permanece com a VM mesmo em um estado de interrupção/desprovisionamento.
 
 ## Você pode verificar se um endereço IP específico está disponível
 Para verificar se o endereço IP *10.0.0.7* está disponível em uma rede virtual *TestVnet*, execute o seguinte comando do PowerShell e verifique o valor de *IsAvailable*:
@@ -31,7 +31,7 @@ Para verificar se o endereço IP *10.0.0.7* está disponível em uma rede virtua
 	OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
 	OperationStatus      : Succeeded
 
->[AZURE.NOTE]Se você quiser testar o comando acima em um ambiente seguro, siga as diretrizes de [Criar uma rede Virtual](../virtual-network/virtual-networks-create-vnet.md) para criar uma rede virtual denominada *TestVnet* e verifique se ela usa o espaço de endereço *10.0.0.0/8*.
+>[AZURE.NOTE] Se você quiser testar o comando acima em um ambiente seguro, siga as diretrizes de [Criar uma rede Virtual](virtual-networks-create-vnet-classic-portal.md) para criar uma rede virtual denominada *TestVnet* e verifique se ela usa o espaço de endereço *10.0.0.0/8*.
 
 ## Como especificar um endereço IP interno estático ao criar uma máquina virtual
 O script do PowerShell abaixo cria um novo serviço de nuvem chamado *TestService* e, em seguida, recupera uma imagem do Azure e cria uma VM denominada *TestVM* no novo serviço de nuvem usando a imagem recuperada, define a VM em uma sub-rede denominada *Subnet-1* e define *10.0.0.7* como um endereço IP interno estático para a VM:
@@ -92,11 +92,11 @@ Para adicionar um IP interno estático à VM criada usando o script acima, execu
 
 ## Próximas etapas
 
-[IP Reservado](../virtual-networks-reserved-public-ip)
+[IP Reservado](virtual-networks-reserved-public-ip)
 
-[IP Público em Nível de Instância (ILPIP)](../virtual-networks-instance-level-public-ip)
+[IP Público em Nível de Instância (ILPIP)](virtual-networks-instance-level-public-ip)
 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-----------HONumber=AcomDC_0330_2016-->

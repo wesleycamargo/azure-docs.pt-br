@@ -74,8 +74,8 @@ Quando estiver familiarizado com as diferentes camadas do banco de dados, podemo
 6. Verifique se as métricas relevantes são exibidas usando o botão **Adicionar Métricas**. Inclua o seguinte
     - *Porcentagem de CPU* (disponível apenas nas camadas Basic/Standard/Premium)
 
-    - *Porcentagem de E/S de Dados * (disponível apenas nos tipos Básico/Standard/Premium)
-    - *Porcentagem de E/S de Log * (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Porcentagem de E/S de Dados* (disponível apenas nos tipos Básico/Standard/Premium)
+    - *Porcentagem de E/S de Log* (disponível apenas nos tipos Básico/Standard/Premium)
     - *Armazenamento* 
 7. Inspecione as métricas pela janela de tempo quando seu serviço estiver passando por problemas. 
 
@@ -494,4 +494,4 @@ Para analisar o plano de consulta no **Portal de Gerenciamento do Banco de Dados
 <!-- BLOG LINKS -->
 [Quanto custa essa chave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

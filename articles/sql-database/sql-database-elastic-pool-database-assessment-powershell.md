@@ -16,8 +16,6 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
-
-
 # Script do PowerShell para identificar os bancos de dados adequados para um pool de banco de dados elástico
 
 O exemplo de script do PowerShell neste artigo estima os valores agregados de eDTU para bancos de dados do usuário em um servidor de Banco de Dados SQL. O script coleta de dados enquanto é executado e para uma carga de trabalho de produção típica, você deve executar o script por pelo menos um dia. Idealmente, você deseja executar o script por um período que represente um carga de trabalho típica dos seus bancos de dados – ou seja, tempo suficiente para capturar dados que representam a utilização normal e de pico dos bancos de dados. Executar o script por uma semana ou mais provavelmente fornecerá uma estimativa mais precisa.
@@ -268,4 +266,4 @@ Quando o script for concluído, ele produzirá o número estimado de eDTUs neces
     }
         
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

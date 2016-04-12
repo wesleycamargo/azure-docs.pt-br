@@ -31,7 +31,7 @@ Aplicativos Web podem fazer backup das seguintes informações:
 
 * Configuração de aplicativo Web
 * Conteúdo do arquivo de aplicativo Web
-* Quaisquer bancos de dados SQL do Azure ou MySQL conectados ao seu aplicativo (é possível escolher quais serão incluídos no backup)
+* Quaisquer bancos de dados SQL do Azure ou bancos de dados MySQL conectados ao aplicativo (é possível escolher quais serão incluídos no backup)
 
 O backup dessas informações é feito no contêiner e na conta de armazenamento do Azure especificados por você.
 
@@ -190,4 +190,4 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

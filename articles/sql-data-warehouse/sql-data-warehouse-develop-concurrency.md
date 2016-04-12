@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/04/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
@@ -227,7 +227,7 @@ Assim, por exemplo, se DW500 é a configuração atual de DWU para o SQL Data Wa
 
 Para examinar as diferenças na alocação de recursos de memória em detalhes da perspectiva do administrador de recursos, use a seguinte consulta:
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -282,7 +282,7 @@ Para conceder acesso a um usuário ao SQL Data Warehouse, será necessário prim
 
 Abra uma conexão com o banco de dados mestre para seu SQL Data Warehouse e execute os seguintes comandos:
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -294,19 +294,19 @@ Depois que o logon for criado, a conta de usuário deve ser adicionada.
 
 Abra uma conexão com o banco de dados do SQL Data Warehouse e execute o seguinte comando:
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 Uma vez concluídas as permissões, elas precisarão ser concedidas ao usuário. O exemplo a seguir concede `CONTROL` no banco de dados do SQL Data Warehouse. `CONTROL` no nível do banco de dados é equivalente a db\_owner no SQL Server.
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 Para ver as funções de gerenciamento de carga de trabalho, use a seguinte consulta:
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -316,13 +316,13 @@ AND     ro.[is_fixed_role]  = 0
 
 Para adicionar um usuário a uma função de gerenciamento do aumento de cargas de trabalho, use a seguinte consulta:
 
-```
+```sql
 EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 Para remover um usuário de uma função de gerenciamento de carga de trabalho, use a seguinte consulta:
 
-```
+```sql
 EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
@@ -330,7 +330,7 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 
 Para ver quais usuários são membros de uma determinada função, use a seguinte consulta:
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -343,7 +343,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### Detecção de consulta em fila
 Para identificar as consultas que são mantidas em uma fila de simultaneidade, você sempre poderá consultar o `sys.dm_pdw_exec_requests` DMV.
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -374,7 +374,7 @@ O BackupConcurrencyResourceType pode ser visto quando um banco de dados está pa
 
 Para executar a análise das consultas atualmente na fila a fim de descobrir quais recursos uma solicitação está aguardando, consulte o `sys.dm_pdw_waits` DMV.
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -411,7 +411,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 Para exibir apenas as esperas de recursos consumidas por uma determinada consulta, consulte o `sys.dm_pdw_resource_waits` DMV. O tempo de espera do recurso mede apenas o tempo de espera dos recursos a serem fornecidos, não o tempo de espera do sinal, que é o tempo necessário para o SQL Server subjacente agendar a consulta para a CPU.
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -430,7 +430,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 Por fim, para análise de tendências históricas de espera, o SQL Datawarehouse fornece o `sys.dm_pdw_wait_stats` DMV.
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -455,4 +455,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

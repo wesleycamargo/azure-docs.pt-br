@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/11/2016" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 
@@ -48,11 +48,11 @@ Uma maneira melhor, ou a segunda opção, é seguir estas etapas para encontrar 
 
 Por exemplo:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
 
 É possível combinar vários redirecionamentos de dispositivo no mesmo cmdlet. Por exemplo: para redirecionar o armazenamento local e uma webcam USB, o cmdlet tem esta aparência:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`usbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
 
 Ao definir o redirecionamento de dispositivo pelo GUID de classe, todos os dispositivos que correspondem ao GUID de classe na coleção especificada são redirecionados. Por exemplo, se houver vários computadores na rede local que tenham as mesmas webcams USB, você poderá executar um único cmdlet para redirecionar todas as webcams.
 
@@ -70,11 +70,11 @@ A parte mais difícil deste método é encontrar a ID de instância do dispositi
 
 Agora, use a ID de instância no seguinte cmdlet:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s: USB<Device InstanceID value>"
+	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
 
 
 
 ### Ajude-nos a ajudar você 
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

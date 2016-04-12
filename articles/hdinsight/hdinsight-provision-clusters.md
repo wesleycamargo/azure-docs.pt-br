@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [seletor](../../includes/hdinsight-selector-create-clusters.md)]
 
-Um cluster Hadoop consiste em várias máquinas virtuais (nós) que são usadas para processamento distribuído de tarefas no cluster. O Azure abstrai os detalhes da implementação da instalação e configuração de nós individuais, portanto você precisa fornecer informações de configuração geral. Neste artigo, você aprenderá a usar essas definições de configuração.
+Um cluster Hadoop é composto por várias máquinas virtuais (nós) que são usadas para processamento distribuído de tarefas no cluster. O Azure abstrai os detalhes da implementação da instalação e configuração de nós individuais, portanto você precisa fornecer informações de configuração geral. Neste artigo, você aprenderá a usar essas definições de configuração.
 
->[AZURE.NOTE] As informações contidas neste documento são específicas de clusters HDInsight baseados em Windows. Para obter informações sobre clusters baseados em Linux, veja [Criar clusters Hadoop baseados em Windows no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+>[AZURE.NOTE] As informações contidas neste documento são específicas de clusters HDInsight baseados em Windows. Para obter informações sobre clusters baseados em Linux, veja [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Tipos de cluster
 
@@ -43,7 +43,7 @@ Cada tipo de cluster tem sua própria terminologia para nós no cluster, bem com
 |O Hadoop| Nó de cabeçalho (2), Nó de dados (1+)|![Nós de cluster Hadoop do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
 |HBase|Servidor de cabeçalho (2), Servidor de região (1 +), Nó mestre/do Zookeeper (3)|![Nós de cluster HBase do HDInsight](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
 |Storm|Nó do Nimbus (2), Servidor do supervisor (1+), Nó do Zookeeper (3)|![Nós de cluster Storm do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
-|Spark|Nó de cabeçalho (2), Nó de trabalho (1+), Nó do Zookeeper (3) (Gratuito para tamanho de VM A1 do Zookeepers)|![Nós de cluster Spark do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
+|Spark|Nó de cabeçalho (2), Nó de trabalho (1+), Nó do Zookeeper (3) (gratuito para tamanho de VM A1 do Zookeepers)|![Nós de cluster Spark do HDInsight](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
 * Entre parênteses está o número de nós para cada tipo de nó.
 
@@ -106,7 +106,7 @@ Veja a seguir as opções de configuração básica para criar um cluster HDInsi
 
     Não é recomendável usar o contêiner de Blob padrão para armazenar dados corporativos. É uma prática recomendada excluir o contêiner de Blob padrão após cada uso para reduzir o custo de armazenamento. Observe que o contêiner padrão contém os logs do aplicativo e do sistema. Certifique-se de recuperar os logs antes de excluir o contêiner.
     
-	>[AZURE.WARNING] Não há suporte para o compartilhamento de um contêiner do Armazenamento de blobs para vários clusters.
+	>[AZURE.WARNING] Não há suporte para o compartilhamento de um contêiner do armazenamento de Blobs para vários clusters.
 
 	Para obter mais informações sobre o uso de repositórios de blobs secundários, consulte [Usando o Armazenamento de Blobs do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
@@ -243,4 +243,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [SDK .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Modelos de ARM](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mingzhan"/>
+	ms.date="03/14/2016" 
+	ms.author="szark"/>
 
 
 
@@ -26,6 +26,8 @@
 ##Introdução
 
 O Agente Linux do Azure (/usr/sbin/waagent) gerencia a interação entre uma máquina virtual e o Controlador de Malha do Azure. Ele faz o seguinte:
+
+> [AZURE.NOTE] Veja o [LEIAME](https://github.com/Azure/WALinuxAgent/blob/2.0/README) do agente Linux do Azure para obter a versão mais recente deste guia.
 
 * **Provisionamento de imagem**
   - Criar uma conta do usuário
@@ -201,13 +203,13 @@ Se for especificado um caminho para um programa executável, ele é chamado quan
 
 Tipo: Padrão de Cadeia de Caracteres: Nenhum
 
-Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um arquivo de configuração está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que for alterado o arquivo de configuração. Um arquivo de exemplo é fornecido no Apêndice a. O caminho atual desse arquivo é /var/lib/waagent/HostingEnvironmentConfig.xml.
+Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um arquivo de configuração está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que for alterado o arquivo de configuração. O caminho atual desse arquivo é /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
 Tipo: Padrão de Cadeia de Caracteres: Nenhum
 
-Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um novo layout de topologia de rede está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que a topologia de rede é alterado (devido ao serviço reparo por exemplo). Um arquivo de exemplo é fornecido no Apêndice a. O caminho atual desse arquivo é /var/lib/waagent/SharedConfig.xml.
+Se um caminho para um programa executável for especificado, o programa é invocado quando a malha indica que um novo layout de topologia de rede está disponível para a máquina virtual. O caminho para o arquivo de configuração XML é fornecido como um argumento para o executável. Isso pode ser chamado várias vezes sempre que a topologia de rede é alterado (devido ao serviço reparo por exemplo). O caminho atual desse arquivo é /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled:**
 
@@ -321,4 +323,4 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

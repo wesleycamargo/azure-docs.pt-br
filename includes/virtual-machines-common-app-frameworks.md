@@ -1,7 +1,5 @@
 
 
-Geralmente, as cargas de trabalho exigem muitos recursos para funcionarem de acordo com o desejado. Os modelos do Gerenciador de Recursos do Azure permitem que você não só defina como os aplicativos são configurados, mas também como os recursos são implantados para permitir aplicativos configurados. Este artigo apresenta os modelos mais populares da galeria e fornece informações sobre como usar o portal do Azure, o Azure PowerShell ou a CLI do Azure para implantá-los.
-
 ## Aplicativos
 
 Nesta tabela, você pode encontrar mais informações sobre os parâmetros que são usados no modelo. É possível inspecionar o modelo antes de implantá-lo ou implantar o modelo diretamente do portal do Azure.
@@ -59,7 +57,7 @@ Ao executar o comando **New-AzureRmResourceGroupDeployment**, será solicitado q
 
 ## CLI do Azure
 
-[Instale a CLI do Azure](../xplat-cli-install.md), faça logon e verifique se você habilitou os comandos do Gerenciador de Recursos. Para obter mais informações sobre como fazer isso, veja [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+[Instale a CLI do Azure](../articles/xplat-cli-install.md), faça logon e verifique se você habilitou os comandos do Resource Manager. Para obter mais informações sobre como fazer isso, veja [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 Execute esses comandos para criar o grupo de recursos e a implantação depois de substituir o texto entre colchetes pelo nome do grupo de recursos, pelo local, pelo nome da implantação e pelo nome do modelo:
 
@@ -72,6 +70,6 @@ Ao executar o comando **azure group deployment create**, será solicitado que vo
 
 Descubra todos os modelos à sua disposição no [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Saiba mais sobre o [Gerenciador de Recursos do Azure](../resource-group-template-deploy.md).
+Saiba mais sobre o [Gerenciador de Recursos do Azure](../articles/resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

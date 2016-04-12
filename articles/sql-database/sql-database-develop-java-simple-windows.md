@@ -26,19 +26,18 @@
 
 Este tópico apresenta um exemplo de código Java que pode ser usado para se conectar ao Banco de Dados SQL do Azure. O exemplo de Java se baseia no Java Development Kit (JDK) versão 1.8. O exemplo se conecta a um Banco de Dados SQL do Azure usando o driver JDBC.
 
+## Etapa 1: configurar o ambiente de desenvolvimento
 
-## Pré-requisitos
-
-### Drivers e bibliotecas
+Instalar Drivers e Bibliotecas:
 
 - [Driver do Microsoft JDBC para SQL Server - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
 - Qualquer plataforma de sistema operacional que execute o [Java Development Kit 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
-### Um Banco de Dados SQL
+## Etapa 2: Criar um banco de dados SQL
 
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados.
 
-### Uma tabela SQL
+## Etapa 3: criar uma tabela SQL
 
 O exemplo de código Java deste tópico pressupõe que a tabela de teste a seguir já exista no Banco de Dados SQL do Azure.
 
@@ -56,14 +55,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## Etapa 1: Obter a cadeia de conexão
+## Etapa 4: obter a cadeia de conexão
 
 [AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
-> [AZURE.NOTE]Se você estiver usando o driver JTDS JDBC, você precisará adicionar "ssl=require" à URL da cadeia de conexão e precisará também definir a seguinte opção para o JVM: "-Djsse.enableCBCProtection=false". Essa opção do JVM desabilita uma correção para uma vulnerabilidade de segurança, portanto certifique-se de entender o risco envolvido antes de configurá-la.
+> [AZURE.NOTE] Se você estiver usando o driver JTDS JDBC, você precisará adicionar "ssl=require" à URL da cadeia de conexão e precisará também definir a seguinte opção para o JVM: "-Djsse.enableCBCProtection=false". Essa opção do JVM desabilita uma correção para uma vulnerabilidade de segurança, portanto certifique-se de entender o risco envolvido antes de configurá-la.
 
 
-## Etapa 2: Compilar o exemplo de código Java
+## Etapa 5: Compilar o exemplo de código Java
 
 
 A seção contém grande parte do exemplo de código Java. Ela contém comentários indicando onde você poderia copiar e colar os segmentos Java menores apresentados nas seções subsequentes. O exemplo nesta seção poderia ser compilado e executado mesmo sem as ações de copiar e colar nos comentários, mas ele apenas se conectaria e, em seguida, seria encerrado. Estes são os comentários que você encontrará:
@@ -136,7 +135,7 @@ Para realmente executar o exemplo de código Java anterior, seria necessário co
 - sua\_senha
 
 
-## Etapa 3: Inserir linhas
+## Etapa 6: inserir linhas
 
 
 Esse segmento Java emite uma instrução Transact-SQL INSERT para inserir duas linhas na tabela Person. Esta é a sequência geral:
@@ -169,7 +168,7 @@ Copie e cole este pequeno segmento Java no exemplo de código principal, no loca
 	}
 
 
-## Etapa 4: Confirmar uma transação
+## Etapa 7: confirmar uma transação
 
 O segmento de código Java a seguir emite uma instrução Transact-SQL UPDATE para aumentar o valor de `age` para cada linha na tabela de pessoas. Esta é a sequência geral:
 
@@ -199,7 +198,7 @@ Copie e cole este pequeno segmento Java no exemplo de código principal, no loca
 	connection.setAutoCommit(true);
 
 
-## Etapa 4: Executar uma consulta
+## Etapa 8: executar uma consulta
 
 
 Esse segmento Java executa uma instrução Transact-SQL SELECT para ver todas as linhas atualizadas da tabela Person. Esta é a sequência geral:
@@ -228,4 +227,4 @@ Copie e cole este pequeno segmento Java no exemplo de código principal, no loca
 
 Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

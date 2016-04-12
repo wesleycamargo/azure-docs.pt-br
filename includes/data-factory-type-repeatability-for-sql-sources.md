@@ -20,7 +20,7 @@ Suponha que você encontrou erros no arquivo de origem e atualizou a quantidade 
 
 Para evitar isso, você precisará especificar a semântica UPSERT, aproveitando um dos 2 mecanismos descritos abaixo.
 
-> [AZURE.NOTE]Uma fatia pode ser reexecutada automaticamente no Azure Data Factory, de acordo com a política de repetição especificada.
+> [AZURE.NOTE] Uma fatia pode ser reexecutada automaticamente no Azure Data Factory, de acordo com a política de repetição especificada.
 
 ### Mecanismo 1
 
@@ -50,6 +50,7 @@ Suponha que o registro Flat Washer é removido do csv original. Nesse caso, reex
 Não era necessário fazer nada de novo. A atividade de cópia executou o script de limpeza para excluir os dados correspondentes àquela fatia. Em seguida, lê a entrada do csv (que continha apenas 1 registro) e insere-a na tabela.
 
 ### Mecanismo 2
+> [AZURE.IMPORTANT] No momento, não há suporte para sliceIdentifierColumnName no SQL Data Warehouse do Azure.
 
 Outro mecanismo para atingir a capacidade de repetição é ter uma coluna dedicada (**sliceIdentifierColumnName**) na tabela de destino. Essa coluna pode ser usada pelo Azure Data Factory para garantir que a origem e destino permaneçam em sincronia. Essa abordagem funciona quando há flexibilidade para alteração ou definição do esquema de tabela SQL de destino.
 
@@ -68,4 +69,4 @@ A Azure Data Factory vai popular essa coluna para garantir que a origem e destin
 
 Semelhante ao mecanismo 1, a atividade de cópia limpará primeiro automaticamente os dados para a fatia determinada da tabela SQL de destino e, em seguida, executará a atividade de cópia normalmente para inserir os dados da origem para o destino, nessa fatia.
 
-<!---HONumber=Oct15_HO3-->
+<!-----------HONumber=AcomDC_0330_2016-->

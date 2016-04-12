@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao Active Directory do Azure e aos serviços conectados do Visual Studio (projetos da API Web)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [Introdução](vs-active-directory-webapi-getting-started.md)
+> - [O que aconteceu](vs-active-directory-webapi-what-happened.md)
 
 ##Exigir autenticação para acessar os controladores
  
@@ -29,4 +29,4 @@ Todos os controladores em seu projeto foram marcados com o atributo **Autorizar*
 [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

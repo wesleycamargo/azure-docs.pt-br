@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Como se conectar a fontes de dados"
+   pageTitle="Como conectar as fontes de dados | Microsoft Azure"
    description="Artigo de instruções que destaca como se conectar a fontes de dados descobertas com o Catálogo de Dados do Azure."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -54,4 +54,4 @@ O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dad
 ## Consulte também
 - o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como se conectar a fontes de dados.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

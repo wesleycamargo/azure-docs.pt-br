@@ -1,6 +1,6 @@
 <properties
    pageTitle="Gerenciando distorções de distribuição da tabela | Microsoft Azure"
-   description="Diretrizes para ajudar os usuários a identificar a distorção da distribuição em suas tabelas distribuídas"
+   description="Diretrizes para ajudar os usuários a identificar distorções de distribuição em suas tabelas distribuídas"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciando índices columnstore
@@ -24,7 +24,7 @@ Este artigo explica como interrogar os metadados do índice columnstore para sua
 ## Consultando metadados Columnstore
 Para entender a densidade do índice columnstore, é preciso indexar uma consulta aos metadados do sistema. Veja abaixo um exemplo do tipo de informação que você pode descobrir.
 
-```
+```sql
 CREATE VIEW dbo.vColumnstoreDensity
 AS
 WITH CSI
@@ -73,7 +73,7 @@ FROM    CSI
 
 Depois que a exibição tiver sido criada, os metadados columnstore poderão serão facilmente analisados. Uma consulta de exemplo é fornecida abaixo.
 
-```
+```sql
 SELECT	[table_name]
 ,		[table_partition_count]
 ,		[row_count_total]
@@ -149,4 +149,4 @@ Para obter mais dicas de gerenciamento, leia uma visão geral sobre [gerenciamen
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

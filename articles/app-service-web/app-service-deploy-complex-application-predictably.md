@@ -298,11 +298,11 @@ Descubra como [aplicar metodologias ágeis e publicar continuamente o aplicativo
 -	[Funções de modelo do Gerenciador de Recursos do Azure](../resource-group-template-functions.md)
 -	[Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md)
 -	[Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
--	[Solucionando problemas de implantações de grupos de recursos no Azure](../virtual-machines/resource-group-deploy-debug.md)
+-	[Solucionando problemas de implantações de grupos de recursos no Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 
 
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

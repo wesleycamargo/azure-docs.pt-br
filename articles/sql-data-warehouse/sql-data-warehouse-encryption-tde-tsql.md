@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Introdução ao Transparent Data Encryption (TDE)
@@ -32,7 +32,7 @@ Para habilitar a TDE para um SQL Data Warehouse, siga estas etapas:
 1. Conecte ao banco de dados *mestre* no servidor que está hospedando o banco de dados que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre
 2. Execute a instrução a seguir para criptografar o banco de dados.
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -43,7 +43,7 @@ Para desabilitar a TDE para um SQL Data Warehouse, siga estas etapas:
 1. Conecte-se ao banco de dados *mestre* que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre
 2. Execute a instrução a seguir para criptografar o banco de dados.
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
@@ -54,7 +54,7 @@ Para verificar o status de criptografia para um SQL Data Warehouse, siga estas e
 1. Conecte-se ao banco de dados *mestre* ou de instância que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre
 2. Execute a instrução a seguir para criptografar o banco de dados.
 
-```
+```sql
 SELECT
 	[name],
 	[is_encrypted]
@@ -73,4 +73,4 @@ Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica u
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

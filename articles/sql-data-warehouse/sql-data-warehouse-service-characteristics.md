@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # Limites de capacidade do SQL Data Warehouse
@@ -149,7 +149,7 @@ No exemplo a seguir, criamos a tabela T1. O tamanho máximo possível da linha q
 
 Como o tamanho real definido de uma nvarchar usa 26 bytes, a definição de linha é menor que 8060 bytes e pode caber em uma página do SQL Server. Portanto, a instrução CREATE TABLE é bem-sucedida, mesmo que o DMS venha a falhar ao tentar carregar essa linha no seu buffer.
 
-````
+```sql
 CREATE TABLE T1
   (
     c0 int NOT NULL,
@@ -162,10 +162,10 @@ CREATE TABLE T1
   )
 WITH ( DISTRIBUTION = HASH (c0) )
 ;
-````
+```
 A próxima etapa mostra que podemos usar INSERT para inserir dados na tabela com êxito. Essa instrução carrega os dados diretamente para o SQL Server sem usar DMS e, portanto, não causa uma falha de excedente de buffer DMS. Os Serviços de Integração também carregarão essa linha com êxito.</para>
 
-````
+```sql
 --The INSERT operation succeeds because the row is inserted directly into SQL Server without requiring DMS to buffer the row.
 INSERT INTO T1
 VALUES (
@@ -177,11 +177,11 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 
 Para preparar a demonstração de movimentação de dados, este exemplo cria uma segunda tabela com CustomerKey para a coluna de distribuição.
 
-````
+```sql
 --This second table is distributed on CustomerKey. 
 CREATE TABLE T2
   (
@@ -206,20 +206,20 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 Como nenhuma das tabelas é distribuída em CustomerKey, uma união entre T1 e T2 em CustomerKey é incompatível com a distribuição. O DMS precisará carregar pelo menos uma linha e copiá-la para uma distribuição diferente.
 
-````
+```
 SELECT * FROM T1 JOIN T2 ON T1.CustomerKey = T2.CustomerKey;
-````
+```
 
 Como se esperava, o DMS falha ao executar a junção porque a linha, quando todas as colunas nvarchar forem preenchidas, será maior do que o tamanho do buffer do DMS de 32.768 bytes. A mensagem de erro a seguir é exibida.
 
-````
+```sql
 Msg 110802, Level 16, State 1, Line 126
 
 An internal DMS error occurred that caused this operation to fail. Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Workers.DmsSqlNativeException, Message: SqlNativeBufferReader.ReadBuffer, error in OdbcReadBuffer: SqlState: , NativeError: 0, 'COdbcReadConnection::ReadBuffer: not enough buffer space for one row | Error calling: pReadConn-&gt;ReadBuffer(pBuffer, bufferOffset, bufferLength, pBytesRead, pRowsRead) | state: FFFF, number: 81, active connections: 8', Connection String: Driver={SQL Server Native Client 11.0};APP=DmsNativeReader:P13521-CMP02\sqldwdms (4556) - ODBC;Trusted_Connection=yes;AutoTranslate=no;Server=P13521-SQLCMP02,1500
-````
+```
 
 
 ## Próximas etapas
@@ -232,4 +232,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

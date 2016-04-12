@@ -20,53 +20,23 @@
 
 # Conectar-se ao Banco de Dados SQL usando Ruby no Ubuntu Linux
 
-
 [AZURE.INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
+Este tópico apresenta um exemplo de código Ruby executado em um computador cliente Ubuntu Linux, para se conectar a um Banco de Dados SQL do Azure.
 
-Este tópico apresente um exemplo de código Ruby executado em um computador cliente Ubuntu Linux, para se conectar a um Banco de Dados SQL do Azure.
+## Etapa 1: configurar o ambiente de desenvolvimento
 
-## Pré-requisitos
+[Prerequisites for using the TinyTDS Ruby Driver for SQL Server](https://msdn.microsoft.com/library/mt711041.aspx#Ubuntu-Linux)
 
-### Instalar os módulos necessários
-
-Abra seu terminal e instale o FreeTDS se você não tiver em seu computador.
-
-    sudo apt-get --assume-yes update
-    sudo apt-get --assume-yes install freetds-dev freetds-bin
-
-Depois que seu computador estiver configurado com o FreeTDS, instale o Ruby se você ainda não tiver em seu computador.
-
-    sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
-    curl -L https://get.rvm.io | bash -s stable
-
-Se você tiver problemas com assinaturas, execute o seguinte comando.
-
-    command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-
-Se não houver nenhum problema com assinaturas, execute os seguintes comandos.
-
-    source ~/.rvm/scripts/rvm
-    rvm install 2.1.2
-    rvm use 2.1.2 --default
-    ruby -v
-
-Certifique-se de que você está executando a versão 2.1.2 ou a VM do Ruby.
-
-Em seguida, instale o TinyTDS.
-
-    gem install tiny_tds
-
-### Um Banco de Dados SQL
+## Etapa 2: Criar um banco de dados SQL
 
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
-
-## Etapa 1: Obter detalhes da conexão
+## Etapa 3: obter detalhes da conexão
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Etapa 2: Conectar
+## Etapa 4: conectar
 
 A função [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) é usada para se conectar ao Banco de Dados SQL.
 
@@ -75,7 +45,7 @@ A função [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) é usa
     host: 'yourserver.database.windows.net', port: 1433,
     database: 'AdventureWorks', azure:true
 
-## Etapa 3: Executar uma consulta
+## Etapa 5: Executar uma consulta
 
 A função [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) é usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essa função aceita uma consulta e retorna um conjunto de resultados. O conjunto de resultados é iterado usando [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
@@ -89,7 +59,7 @@ A função [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) é usa
     puts row
     end
 
-## Etapa 4: Inserir uma linha
+## Etapa 6: Inserir uma linha
 
 Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) com segurança, passar parâmetros que protegem seu aplicativo contra vulnerabilidade [a injeção de SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e recuperar o valor da [Chave Primária](https://msdn.microsoft.com/library/ms179610.aspx) gerado automaticamente.
 
@@ -118,4 +88,4 @@ Para alinhar com o formato [datetime](http://msdn.microsoft.com/library/ms187819
     puts row
     end
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

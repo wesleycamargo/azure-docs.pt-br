@@ -26,38 +26,20 @@
 
 Este tópico apresenta um exemplo de código Node.js que pode ser usado para se conectar ao Banco de Dados SQL do Azure. O programa do Node.js é executado em um computador cliente com Windows. Para gerenciar a conexão, o driver msnodesql é usado.
 
+## Etapa 1: configurar o ambiente de desenvolvimento
 
-## Pré-requisitos
+[Prerequisites for using the tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Windows)
 
-
-Os seguintes itens de software devem existir no computador de desenvolvimento do cliente.
-
-
--  [Node. js](https://nodejs.org/en/download/) -clique no Windows Installer e baixe o instalador msi apropriado. Uma vez baixado, execute o msi para instalar o Node.js
-
-
-### Instalar os módulos necessários
-
-Após o seu computador estar configurado com **nó**, abra o cmd.exe e navegue até um diretório no qual você planeja criar seu projeto Node. js e digite os seguintes comandos.
-
-
-	npm init
-	npm install tedious
-
-
-**npm init** cria um projeto de nó. Para manter os padrões durante a criação do projeto, pressione enter até que o projeto seja criado. Agora você vê um arquivo **package.json** no diretório do projeto.
-
-
-### Um Banco de Dados SQL
+## Etapa 2: Criar um banco de dados SQL
 
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
 
-## Etapa 1: Obter detalhes da conexão
+## Etapa 3: obter detalhes da conexão
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Etapa 2: Conectar
+## Etapa 4: conectar
 
 A função [new Connection](http://pekim.github.io/tedious/api-connection.html) é usada para se conectar ao Banco de Dados SQL.
 
@@ -76,7 +58,7 @@ A função [new Connection](http://pekim.github.io/tedious/api-connection.html) 
 	});
 
 
-## Etapa 3: Executar uma consulta
+## Etapa 5: executar uma consulta
 
 
 Todas as instruções SQL são executadas usando a função [new Request()](http://pekim.github.io/tedious/api-request.html). Se a instrução retornar linhas, como uma instrução select, você poderá recuperá-las usando a função [request.on()](http://pekim.github.io/tedious/api-request.html). Se não houver linhas, a função [request.on()](http://pekim.github.io/tedious/api-request.html) retornará listas vazias.
@@ -125,7 +107,7 @@ Todas as instruções SQL são executadas usando a função [new Request()](http
 	}
 
 
-## Etapa 4: Inserir uma linha
+## Etapa 6: inserir uma linha
 
 Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) com segurança, passar parâmetros que protegem seu aplicativo contra vulnerabilidade [a injeção de SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e recuperar o valor da [Chave Primária](https://msdn.microsoft.com/library/ms179610.aspx) gerado automaticamente.
 
@@ -169,4 +151,4 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 		connection.execSql(request);
 	}
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

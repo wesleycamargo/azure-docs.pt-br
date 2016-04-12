@@ -1,7 +1,7 @@
 
 Esta seção mostra como enviar as últimas notícias como notificações de modelo marcadas, de um aplicativo de console do .NET.
 
-Se você estiver usando os Serviços Móveis, consulte os tutoriais de [Introdução ao Push](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md).
+Se estiver usando os Aplicativos Móveis, veja o tutorial [Adicionar notificações push aos Aplicativos Móveis](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) e selecione a plataforma na parte superior.
 
 Se desejar usar Java ou PHP, consulte [Como utilizar Hubs de Notificação a partir de Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Você pode enviar notificações de qualquer back-end usando a [interface REST de Hubs de Notificação](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
@@ -78,4 +78,4 @@ Ignore as etapas 1-3, se você tiver criado um aplicativo de console para enviar
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!-----------HONumber=AcomDC_0330_2016-->

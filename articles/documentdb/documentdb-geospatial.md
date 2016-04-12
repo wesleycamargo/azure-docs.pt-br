@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="02/03/2016" 
+    ms.date="03/30/2016" 
     ms.author="arramac"/>
     
 # Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure
@@ -102,7 +102,7 @@ Quando você criar documentos que contenham valores GeoJSON, eles serão automat
        }
     };
 
-    client.createDocument(collectionLink, userProfileDocument, function (err, created) {
+    client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
         // additional code within the callback
     });
 
@@ -124,7 +124,7 @@ Se você estiver trabalhando com os SDKs do .NET (ou do Java), poderá usar as n
     }
     
     await client.CreateDocumentAsync(
-        collection.SelfLink, 
+        UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
         new UserProfile 
         { 
             Name = "documentdb", 
@@ -237,7 +237,7 @@ Veja um exemplo de uma consulta LINQ que localiza todos os documentos da coleç�
 
 **Consulta LINQ para distância**
 
-    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(collection.SelfLink)
+    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
         .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
@@ -259,7 +259,7 @@ Da mesma forma, veja uma consulta para localizar todos os documentos cuja "local
             })
         });
 
-    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(collection.SelfLink)
+    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
         .Where(a => a.Location.Within(rectangularArea)))
     {
         Console.WriteLine("\t" + user);
@@ -288,9 +288,9 @@ O trecho JSON a seguir mostra uma política de indexação com indexação espac
              "path":"/*",
              "indexes":[
                 {
-                   "kind":"Hash",
+                   "kind":"Range",
                    "dataType":"String",
-                   "precision":3
+                   "precision":-1
                 },
                 {
                    "kind":"Range",
@@ -312,40 +312,31 @@ Veja um trecho de código no .NET que mostra como criar uma coleção com indexa
 
 **Criar uma coleção com indexação espacial**
 
-    IndexingPolicy spatialIndexingPolicy = new IndexingPolicy();
-    spatialIndexingPolicy.IncludedPaths.Add(new IncludedPath
-    {
-        Path = "/*",
-        Indexes = new System.Collections.ObjectModel.Collection<Index>()
-            {
-                new RangeIndex(DataType.Number) { Precision = -1 },
-                new RangeIndex(DataType.String) { Precision = -1 },
-                new SpatialIndex(DataType.Point)
-            }
-    });
-
-    Console.WriteLine("Creating new collection...");
-    collection = await client.CreateDocumentCollectionAsync(dbLink, collectionDefinition);
+    DocumentCollection spatialData = new DocumentCollection()
+    spatialData.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point)); //override to turn spatial on by default
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), spatialData);
 
 E veja como você pode modificar uma coleção existente para aproveitar a indexação espacial em quaisquer pontos armazenados em documentos.
 
 **Modificar uma coleção existente com indexação espacial**
 
     Console.WriteLine("Updating collection with spatial indexing enabled in indexing policy...");
-    collection.IndexingPolicy = spatialIndexingPolicy; 
+    collection.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point));
     await client.ReplaceDocumentCollectionAsync(collection);
 
     Console.WriteLine("Waiting for indexing to complete...");
     long indexTransformationProgress = 0;
     while (indexTransformationProgress < 100)
     {
-        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(collection.SelfLink);
+        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));
         indexTransformationProgress = response.IndexTransformationProgress;
 
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
 > [AZURE.NOTE] Se o valor GeoJSON de localização no documento estiver malformado ou inválido, então ele não será indexado para consultas espaciais. Você pode validar valores de localização usando ST\_ISVALID e ST\_ISVALIDDETAILED.
+>
+> Caso sua definição de coleção inclua uma chave de partição, o andamento da transformação de indexação não será relatado.
 
 ## Próximas etapas
 Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco de Dados de Documentos, poderá:
@@ -355,4 +346,4 @@ Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco
 - Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 - Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

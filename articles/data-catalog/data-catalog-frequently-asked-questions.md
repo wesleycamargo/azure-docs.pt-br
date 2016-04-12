@@ -1,6 +1,6 @@
 <properties
    pageTitle="Perguntas frequentes sobre o Catálogo de Dados do Azure"
-   description="Perguntas frequentes sobre a visualização do Catálogo de Dados do Azure, incluindo recursos para descoberta de fontes de dados, anotação e gerenciamento."
+   description="Perguntas frequentes sobre o Catálogo de Dados do Azure, incluindo recursos para descoberta de fontes de dados, anotação e gerenciamento."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/04/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Perguntas frequentes sobre o Catálogo de Dados do Azure
@@ -39,7 +39,7 @@ O **Catálogo de Dados do Azure** fornece recursos para usuários técnicos e n�
 
 ## P.: Qual é a disponibilidade do Catálogo de Dados do Azure nas regiões?
 
-Durante a visualização, os serviços de **Catálogo de Dados do Azure** estão disponíveis apenas nos seguintes data centers:
+No momento, os serviços de **Catálogo de Dados do Azure** estão disponíveis nos seguintes data centers:
 
 - Oeste dos EUA
 - Leste dos EUA
@@ -58,14 +58,13 @@ A Edição Standard do **Catálogo de Dados do Azure** dá suporte a até 100.00
 
 Consulte o [DSR do Catálogo de Dados](data-catalog-dsr.md) para obter a lista de fontes de dados com suporte no momento.
 
-
 ## P.: Como posso solicitar suporte para outra fonte de dados?
 
 Solicitações de recursos e outros comentários podem ser enviados no [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## P.: Como faço para começar a utilizar o Catálogo de Dados do Azure?
 
-O melhor lugar para começar é seguindo as instruções no guia de [Introdução ao Catálogo de Dados](../data-catalog-get-started/). Este artigo é um tour de ponta a ponta dos recursos da visualização pública.
+O melhor lugar para começar é seguindo as instruções no guia de [Introdução ao Catálogo de Dados](../data-catalog-get-started/). Este artigo é uma visão geral de ponta a ponta dos recursos no serviço.
 
 ## P.: Como posso registrar meus dados?
 
@@ -106,10 +105,6 @@ Você pode excluir um objeto do **Catálogo de Dados do Azure** selecionando o o
 
 Especialista é uma pessoa que tem uma perspectiva bem informada sobre um objeto de dados. Um objeto pode ter muitos especialistas. Um especialista não precisa ser o "proprietário" de um objeto, ele simplesmente é alguém que sabe como os dados podem e devem ser usados.
 
-## P.: Qual é o SLA para visualização?
-
-Durante a visualização do **Catálogo de Dados do Azure**, não há nenhum contrato de nível de serviço explícito.
-
 ## P.: Como posso compartilhar informações com a equipe do Catálogo de Dados do Azure se eu encontrar problemas?
 
 Use o fórum do **Catálogo de Dados do Azure** para relatar problemas, compartilhar informações e fazer perguntas. O fórum pode ser encontrado em http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
@@ -141,12 +136,8 @@ R: Selecione os ativos de dados no **Catálogo de Dados do Azure** e clique no b
 
 R.: Para atualizar os metadados de ativos de dados que já estão registrados no Catálogo, basta registrar novamente a fonte de dados que contém os ativos. Todas as alterações na fonte de dados, como colunas que são adicionadas ou removidas de tabelas ou exibições, serão atualizadas no Catálogo, e todas as anotações fornecidas pelos usuários serão mantidas.
 
-## P:. Como posso fazer perguntas ou obter ajuda ao trabalhar com o Catálogo de Dados do Azure?
-
-Se você tiver problemas ou precisar de ajuda com a visualização do **Catálogo de Dados do Azure**, escreva no [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
-
 ## P.: Minha dúvida não foi respondida aqui. O que devo fazer?
 
 Vá diretamente para o [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

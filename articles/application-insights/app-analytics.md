@@ -16,12 +16,10 @@
 	ms.author="awills"/>
 
 
-
-
 # Análise no Application Insights
 
 
-[Análise](app-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
+A [Análise](app-analytics.md) permite executar consultas avançadas na telemetria de seu aplicativo coletada pelo [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -66,6 +64,8 @@ A linguagem tem muitos recursos atrativos:
 >[AZURE.NOTE] É recomendável começar com o [tour de linguagem](app-analytics-tour.md).
 
 
+
+
 ## Conectar-se aos dados do Application Insights
 
 
@@ -74,9 +74,12 @@ Abra a Análise na [folha de visão geral](app-insights-dashboards.md) de seu ap
 ![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-analytics/001.png)
 
 
+## Limites
+
+No momento, os resultados da consulta são limitados apenas a uma semana de dados anteriores.
 
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

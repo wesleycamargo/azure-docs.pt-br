@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Classificando dados do Banco de Dados de Documentos usando Order By
@@ -33,9 +33,9 @@ Para obter uma referência completa sobre consultas SQL, consulte o [tutorial de
 Como no ANSI-SQL, agora você pode incluir uma cláusula opcional Order By em instruções SQL ao consultar o Banco de Dados de Documentos. A cláusula pode incluir um argumento ASC/DESC opcional para especificar a ordem na qual os resultados devem ser recuperados.
 
 ### Ordenação usando SQL
-Por exemplo, aqui está uma consulta para recuperar registros em ordem decrescente de títulos.
+Por exemplo, aqui está uma consulta para recuperar os 10 primeiros registros em ordem decrescente de títulos.
 
-    SELECT * 
+    SELECT TOP 10 * 
     FROM Books 
     ORDER BY Books.Title DESC
 
@@ -44,33 +44,17 @@ Por exemplo, aqui está uma consulta para recuperar registros em ordem decrescen
 
     SELECT * 
     FROM Books 
-	WHERE Books.SalePrice > 4000
+    WHERE Books.SalePrice > 4000
     ORDER BY Books.ShippingDetails.Weight
 
 ### Ordenação usando o provedor LINQ para .NET
 Usando o SDK do .NET versão 1.2.0 e superior, você também pode usar a cláusula OrderBy() ou OrderByDescending() em consultas LINQ, como neste exemplo:
 
-    foreach (Book book in client.CreateDocumentQuery<Book>(booksCollection.SelfLink)
-        .OrderBy(b => b.PublishTimestamp)) 
+    foreach (Book book in client.CreateDocumentQuery<Book>(UriFactory.CreateDocumentCollectionUri("db", "books"))
+        .OrderBy(b => b.PublishTimestamp)
+        .Take(100))
     {
         // Iterate through books
-    }
-
-### Ordenação com paginação usando o SDK do .NET
-Usando o suporte nativo de paginação dentro dos SDKs do Banco de Dados de Documentos, é possível recuperar uma página de resultados por vez, como no seguinte trecho de código do .NET. Aqui buscamos até 10 resultados por vez usando o FeedOptions.MaxItemCount e a interface IDocumentQuery.
-
-    var booksQuery = client.CreateDocumentQuery<Book>(
-        booksCollection.SelfLink,
-        "SELECT * FROM Books ORDER BY Books.PublishTimestamp DESC"
-        new FeedOptions { MaxItemCount = 10 })
-      .AsDocumentQuery();
-            
-    while (booksQuery.HasMoreResults) 
-    {
-        foreach(Book book in await booksQuery.ExecuteNextAsync<Book>())
-        {
-            // Iterate through books
-        }
     }
 
 O Banco de Dados de Documentos dá suporte à ordenação com uma propriedade numérica simples, de cadeia de caracteres ou booliana por consulta, com tipos de consulta adicionais que chegarão em breve. Consulte [Qual é o próximo passo](#Whats_coming_next) para obter mais detalhes.
@@ -86,21 +70,17 @@ Lembre-se de que o Banco de Dados de Documentos dá suporte a dois tipos de índ
 Para obter mais detalhes, consulte [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md).
 
 ### Indexação de Order By em relação a todas as propriedades
-Aqui está como você pode criar uma coleção com indexação "Todos os Intervalos" para Order By em todas as propriedades numéricas ou de cadeia de caracteres que aparecem em documentos JSON dentro dela. Aqui, "/ *" representa todas as propriedades JSON/caminhos dentro da coleção e -1 representa a precisão máxima.
+Aqui está como você pode criar uma coleção com indexação "Todos os Intervalos" para Order By em todas as propriedades numéricas ou de cadeia de caracteres que aparecem em documentos JSON dentro dela. Aqui, substituímos o tipo de índice padrão para valores de cadeia de caracteres para Intervalo e com a precisão máxima (-1).
                    
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
-
-    await client.CreateDocumentCollectionAsync(databaseLink, 
-        booksCollection);  
+    DocumentCollection books = new DocumentCollection();
+    books.Id = "books";
+    books.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
+    
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
 >[AZURE.NOTE] Observe que Order By só retornará resultados dos tipos de dados (cadeia de caracteres e número) indexados com um RangeIndex. Por exemplo, se você tiver a política de indexação padrão que só tem RangeIndex em números, um Order By em um caminho com valores de cadeia de caracteres não retornará nenhum documento.
+>
+> Se você definiu uma chave de partição para as coleções, observe que há suporte para Order By apenas em consultas que filtram em relação a uma chave de partição única.
 
 ### Indexação de Order By para uma única propriedade.
 É possível criar uma coleção com indexação Order By em relação a qualquer propriedade de Título, que seja uma cadeia de caracteres. Há dois caminhos, um para a propriedade de Título ("/Title/?") com indexação por Intervalo e outro para todas as outra propriedade com o esquema de indexação padrão, que é Hash para cadeias de caracteres e Intervalo para números.
@@ -112,27 +92,13 @@ Aqui está como você pode criar uma coleção com indexação "Todos os Interva
                 new RangeIndex(DataType.String) { Precision = -1 } } 
             });
     
-    // Use defaults which are:
-    // (a) for strings, use Hash with precision 3 (just equality queries)
-    // (b) for numbers, use Range with max precision (for equality, range and order by queries)
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*",
-            Indexes = new Collection<Index> { 
-                new HashIndex(DataType.String) { Precision = 3 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }            
-        });
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), booksCollection);  
+
 
 ## Exemplos
 Vejamos este [projeto de amostras do Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) que demonstra como usar Order By, incluindo a criação de políticas de indexação e paginação usando Order By. Os exemplos são de software livre e nós o encorajamos a enviar solicitações pull com contribuições que poderiam beneficiar outros desenvolvedores do Banco de Dados de Documentos. Consulte as [Diretrizes de contribuição](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obter instruções sobre como contribuir.
 
 ## Perguntas frequentes
-
-**Quais plataformas/versões do SDK oferecem suporte à ordenação?**
-
-Para criar coleções com a política de indexação exigida para Order By, você deve baixar a versão mais recente do SDK (1.2.0 para .NET e 1.1.0 para Node.js, JavaScript, Python e Java). O SDK do .NET 1.2.0 também é necessário para usar OrderBy() e OrderByDescending() em expressões de LINQ.
-
 
 **O que é o consumo de Unidade de Solicitação (RU) esperado de consultas Order By?**
 
@@ -170,4 +136,4 @@ Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-docum
 * [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

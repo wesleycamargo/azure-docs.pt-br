@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/18/2016"
+      ms.date="03/28/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Guia de início rápido para a Graph API do AD do Azure
@@ -26,7 +26,7 @@ A Graph API do Active Directory do Azure fornece acesso programático ao AD do A
 
 ## Como criar uma URL da Graph API
 
-Na Graph API, para acessar dados de diretório e objetos (em outras palavras, recursos ou entidades) em relação aos quais você deseja realizar operações CRUD, você pode usar URLs com base no Protocolo OData (Open Data). As URLs usadas na Graph API consistem em quatro partes principais: serviço raiz, identificador de locatário, caminho de recurso e opções de cadeia de caracteres de consulta: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Veja o exemplo da seguinte URL: `https://graph.windows.net/contoso.com/groups?api-version=1.5`.
+Na Graph API, para acessar dados de diretório e objetos (em outras palavras, recursos ou entidades) em relação aos quais você deseja realizar operações CRUD, você pode usar URLs com base no Protocolo OData (Open Data). As URLs usadas na Graph API consistem em quatro partes principais: serviço raiz, identificador de locatário, caminho de recurso e opções de cadeia de caracteres de consulta: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Veja o exemplo da seguinte URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
 - **Raiz de Serviço**: na API do Azure AD Graph, a raiz do serviço é sempre https://graph.windows.net.
 - **Identificador de locatário**: pode ser um nome de domínio (registrado) verificado; no exemplo acima, contoso.com. Também pode ser uma ID de objeto de locatário ou o alias "myorganiztion" ou "me". Para saber mais, confira [Abordando entidades e operações na Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview)).
@@ -35,26 +35,19 @@ Na Graph API, para acessar dados de diretório e objetos (em outras palavras, re
 
 ## Versões da Graph API
 
-As seguintes versões foram liberadas para a Graph API.
-
-* Versão beta
-* Versão 1.5
-* Versão 2013-11-08
-* Versão 2013-04-05
-
-Você especifica a versão de uma solicitação da Graph API no parâmetro de consulta "api-version". Para a versão 1.5, você usa um valor numérico de versão; api-version=1.5. Para versões anteriores, você usa uma cadeia de caracteres de data que segue o formato AAAA-MM-DD; por exemplo, api-version=2013-11-08. Para recursos de visualização, use a cadeia de caracteres "beta"; por exemplo, api-version=beta. Para obter mais informações sobre as diferenças entre as versões da Graph API, consulte [Controle de versão da Graph API do AD do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
+Você especifica a versão de uma solicitação da Graph API no parâmetro de consulta "api-version". Para a versão 1.5 e posterior, você usa um valor numérico de versão; api-version=1.6. Para versões anteriores, você usa uma cadeia de caracteres de data que segue o formato AAAA-MM-DD; por exemplo, api-version=2013-11-08. Para recursos de visualização, use a cadeia de caracteres "beta"; por exemplo, api-version=beta. Para obter mais informações sobre as diferenças entre as versões da Graph API, consulte [Controle de versão da Graph API do AD do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
 
 ## Metadados da Graph API
 
-Para retornar o arquivo de metadados da Graph API, adicione o segmento "$metadata" após o identificador de locatário na URL. Por exemplo, a seguinte URL retorna metadados para a empresa de demonstração usada pelo Gerenciador do Graph: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.5`. Você pode inserir esta URL na barra de endereços de um navegador da Web para ver os metadados. O documento de metadados CSDL retornado descreve as entidades e os tipos complexos, suas propriedades e as funções e ações expostas pela versão da Graph API solicitada. A omissão do parâmetro api-version retornará metadados da versão mais recente.
+Para retornar o arquivo de metadados da Graph API, adicione o segmento "$metadata" após o identificador de locatário na URL. Por exemplo, a seguinte URL retorna metadados para a empresa de demonstração usada pelo Gerenciador do Graph: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. Você pode inserir esta URL na barra de endereços de um navegador da Web para ver os metadados. O documento de metadados CSDL retornado descreve as entidades e os tipos complexos, suas propriedades e as funções e ações expostas pela versão da Graph API solicitada. A omissão do parâmetro api-version retornará metadados da versão mais recente.
 
 ## Consultas comuns
 
 [Consultas comuns da API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) lista as consultas comuns que podem ser usadas com a Graph do AD do Azure, incluindo consultas que podem ser usadas para acessar recursos de nível superior no diretório e consultas para executar operações em seu diretório.
 
-Por exemplo, `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.5` retorna informações de empresa para o diretório contoso.com.
+Por exemplo, `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.6` retorna informações de empresa para o diretório contoso.com.
 
-Ou `https://graph.windows.net/contoso.com/users?api-version=1.5` lista todos os objetos de usuário no diretório contoso.com.
+Ou `https://graph.windows.net/contoso.com/users?api-version=1.6` lista todos os objetos de usuário no diretório contoso.com.
 
 ## Usando o Gerenciador do Graph
 
@@ -62,18 +55,18 @@ Você pode usar o Gerenciador do Graph para a Graph API do AD do Azure para cons
 
 > [AZURE.IMPORTANT] O Gerenciador do Graph não dá suporte para gravar ou excluir os dados de um diretório. Você só pode executar operações de leitura no diretório do AD do Azure com o Gerenciador do Graph.
 
-A seguir está a saída que você verá se navegar para o Gerenciador do Graph, selecionar Usar Demonstração da Empresa e inserir `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5` para exibir todos os usuários no diretório de demonstração:
+A seguir está a saída que você verá se navegar para o Gerenciador do Graph, selecionar Usar Demonstração da Empresa e inserir `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` para exibir todos os usuários no diretório de demonstração:
 
-![Gerenciador de a Graph API do AD do Azure](./media/active-directory-graph-api-quickstart/screen_shot.jpg)
+![Gerenciador de a Graph API do AD do Azure](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Carregar o Gerenciador do Graph**: para carregar a ferramenta, navegue até [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Clique em **Usar Empresa de Demonstração** para executar o Gerenciador do Graph em relação aos dados de um locatário de exemplo. Você não precisa ter credenciais para usar a empresa de demonstração. Como alternativa, você pode clicar em **Entrar** e entrar com suas credenciais de conta do AD do Azure para executar o Gerenciador do Graph no seu locatário. Se executar o Gerenciador do Graph em seu próprio locatário, você ou o administrador precisarão consentir durante o logon. Se tiver uma assinatura do Office 365, você automaticamente terá um locatário do AD do Azure. As credenciais usadas para entrar no Office 365 são, na verdade, contas do AD do Azure, e você pode usar essas credenciais com o Gerenciador do Graph.
 
-**Executar uma consulta**: para executar uma consulta, digite a consulta na caixa de texto de solicitação e clique em **GET** ou clique na tecla **enter**. Os resultados são exibidos na caixa de resposta. Por exemplo, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` listará todos os objetos de grupo no diretório de demonstração.
+**Executar uma consulta**: para executar uma consulta, digite a consulta na caixa de texto de solicitação e clique em **GET** ou clique na tecla **enter**. Os resultados são exibidos na caixa de resposta. Por exemplo, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.6` listará todos os objetos de grupo no diretório de demonstração.
 
 Observe os seguintes recursos e limitações do Gerenciador do Graph:
 - Funcionalidade de preenchimento automático em conjuntos de recursos. Para ver isso, clique em **Usar Empresa de Demonstração** e, em seguida, clique na caixa de texto de solicitação (em que a URL da empresa é exibida). Você pode selecionar um conjunto de recursos na lista suspensa.
 
-- Dá suporte aos aliasesde endereçamento "me" e "myorganization". Por exemplo, você pode usar `https://graph.windows.net/me?api-version=1.5` para retornar o objeto de usuário do usuário conectado ou `https://graph.windows.net/myorganization/users?api-version=1.5` para retornar todos os usuários no diretório atual. Observe que o uso do alias "me" retorna um erro para a empresa de demonstração porque não há um usuário conectado que faz a solicitação.
+- Dá suporte aos aliasesde endereçamento "me" e "myorganization". Por exemplo, você pode usar `https://graph.windows.net/me?api-version=1.6` para retornar o objeto de usuário do usuário conectado ou `https://graph.windows.net/myorganization/users?api-version=1.6` para retornar todos os usuários no diretório atual. Observe que o uso do alias "me" retorna um erro para a empresa de demonstração porque não há um usuário conectado que faz a solicitação.
 
 - Uma seção de cabeçalhos de resposta. Isso pode ser usado para ajudar a solucionar problemas que ocorrem ao executar consultas.
 
@@ -93,7 +86,7 @@ No exemplo a seguir, você usará o Depurador da Web Fiddler para criar um novo 
 
 1. Abra o Depurador da Web Fiddler e alterne para a guia **Composer**.
 2. Como você deseja criar um novo grupo de segurança, selecione **Post** como o método HTTP no menu suspenso. Para saber mais sobre operações e permissões em um objeto de grupo, confira [Grupo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity) na [Referência da Graph REST API do AD do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-3. No campo próxima a **Post**, digite o seguinte como a URL de solicitação: `https://graph.windows.net/mytenantdomain/groups?api-version=1.5`.
+3. No campo próxima a **Post**, digite o seguinte como a URL de solicitação: `https://graph.windows.net/mytenantdomain/groups?api-version=1.6`.
 
     > [AZURE.NOTE] Você deve substituir mytenantdomain pelo nome de domínio de seu próprio diretório do AD do Azure.
 
@@ -125,6 +118,6 @@ Para saber mais sobre entidades e tipos do AD do Azure que são expostos pelo Gr
 ## Próximas etapas
 
 - Saiba mais sobre a [API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
-- Saiba mais sobre [Escopos de permissão da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Saiba mais sobre [Escopos de Permissão da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

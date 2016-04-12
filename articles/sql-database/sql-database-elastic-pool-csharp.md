@@ -20,7 +20,7 @@
 # C&#x23; desenvolvimento de banco de dados: criar e configurar um pool de banco de dados elástico para o banco de dados SQL
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Portal do Azure](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -188,7 +188,7 @@ Pools de banco de dados elásticos estão contidos em servidores de Banco de Dad
 
 Por padrão, um servidor não tem regras de firewall, portanto, não é possível se conectar a um servidor de qualquer local. Para se conectar a um servidor ou a um banco de dados no servidor, é necessário definir uma [regra de firewall](sql-database-firewall-configure.md) que permita o acesso no endereço IP do cliente.
 
-O exemplo a seguir cria uma regra de firewall que libera o acesso ao servidor em qualquer endereço IP. É recomendável que você crie logons e senhas de SQL apropriados para proteger seu banco de dados e não depender de regras de firewall como uma primeira defesa contra invasão. Para saber mais, consulte [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
+O exemplo a seguir cria uma regra de firewall que libera o acesso ao servidor em qualquer endereço IP. É recomendável que você crie logons e senhas de SQL apropriados para proteger seu banco de dados e não depender de regras de firewall como uma primeira defesa contra invasão. Para obter detalhes, veja [Segurança do Banco de Dados SQL: gerenciar acesso ao banco de dados e segurança de logon](sql-database-manage-logins.md).
 
 
     // Create a firewall rule on the server to allow TDS connection
@@ -576,4 +576,4 @@ O exemplo a seguir descreve todos os bancos de dados em um pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

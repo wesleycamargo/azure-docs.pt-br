@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="03/30/2016"
    ms.author="alanwar"/>
 
 # Arquitetura de Reliable Services com e sem estado
@@ -57,15 +57,13 @@ O replicador transacional usa um log para manter informações de estado para qu
 
 ### Registro
 
-O componente de log fornece um armazenamento persistente de alto desempenho que pode ser otimizado para gravação discos giratórios ou de estado sólido. Também pode ser otimizado para o uso mais eficiente do espaço em disco. O design do log é para o armazenamento persistente (ou seja, discos rígidos) ser local para os nós que estão executando o serviço com estado. Isso permite latências baixas e taxa de transferência alta em comparação ao armazenamento persistente, que não é local ao nó.
+O componente de log fornece um armazenamento persistente de alto desempenho que pode ser otimizado para gravação discos giratórios ou de estado sólido. O design do log é para o armazenamento persistente (ou seja, discos rígidos) ser local para os nós que estão executando o serviço com estado. Isso permite baixas latências e altas taxas de transferência em comparação ao armazenamento persistente remoto, que não é local ao nó.
 
-O componente de log usa dois tipos de arquivos de log. Há um arquivo de log compartilhado em todo o nó que deve estar em um disco que é usado somente para esse arquivo de log. Esse arquivo é colocado no diretório de trabalho de nó da Malha de Serviços. Cada réplica do serviço também tem um arquivo de log dedicado e é colocada no diretório de trabalho do serviço.
+O componente de log usa vários arquivos de log. Há um arquivo de log compartilhado em todo o nó que todas as réplicas usam, uma vez que ele pode fornecer a menor latência e a maior taxa de transferência para armazenar dados de estado. Por padrão, o log compartilhado é colocado no diretório de trabalho do nó do Service Fabric, mas também pode ser configurado para ser colocado em outro local, idealmente em um disco reservado apenas para o log compartilhado. Cada réplica do serviço também tem um arquivo de log dedicado e é colocada no diretório de trabalho do serviço. Não há nenhum mecanismo para configurar o log dedicado a ser colocado em um local diferente.
 
-O log compartilhado é uma área de transição para as informações de estado, enquanto o arquivo de log dedicado é seu destino final, onde ele é mantido. Nesse design, as informações de estado são primeiro gravadas no arquivo de log compartilhado e transferidas lentamente ao arquivo de log dedicado em segundo plano. Dessa forma, a gravação no log compartilhado teria a menor latência e a maior taxa de transferência para permitir que o serviço progrida com mais rapidez.
+O log compartilhado é uma área de transição para as informações de estado da réplica, enquanto o arquivo de log dedicado é seu destino final, onde ele é mantido. Nesse design, as informações de estado são primeiro gravadas no arquivo de log compartilhado e então transferidas lentamente para o arquivo de log dedicado em segundo plano. Dessa forma, a gravação para o log compartilhado teria a menor latência e a maior taxa de transferência, permitindo ao serviço progredir com mais rapidez.
 
-No entanto, quando o componente de log está configurado para otimização para discos de estado sólido usando a configuração OptimizeForLocalSSD, as informações de estado são gravadas diretamente no arquivo de log dedicado e ignoram o arquivo de log compartilhado. Como discos de estado sólido não sofrem atrasos devido à contenção de movimentação do cabeçote, não há penalidade para gravar diretamente no arquivo de log dedicado.
-
-Quando o componente de log é otimizado para minimizar o uso de espaço em disco usando a configuração OptimizeLogForLowerDiskUsage, os arquivos de log dedicados são criados como arquivos esparsos do NTFS. Como geralmente os arquivos de log nem sempre estão completamente cheios de informações de estado, o uso de arquivos esparsos permite o superprovisionamento do espaço em disco disponível para mais réplicas. Se não configurado dessa forma, o espaço do arquivo de log é pré-alocado e o componente de log pode gravar diretamente no arquivo com o melhor desempenho.
+Leituras e gravações no log compartilhado são feitas por meio de E/S direta para o espaço pré-alocado no disco para o arquivo de log compartilhado. Para permitir o uso ideal de espaço em disco na unidade com logs dedicados, o arquivo de log dedicado é criado como um arquivo esparso do NTFS. Observe que isso permitirá excesso de provisionamento de espaço em disco, e o SO mostrará os arquivos de log dedicados usando muito mais espaço em disco do que é realmente usado.
 
 Além de uma interface de modo de usuário mínima para o log, o log é gravado como um driver de modo kernel. Executado como um driver de modo kernel, o log pode fornecer o melhor desempenho para todos os serviços que o usam.
 
@@ -99,4 +97,4 @@ Para obter mais informações sobre a Malha de Serviços, consulte:
 
 [Configuração de Reliable Services](service-fabric-reliable-services-configuration.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!-----------HONumber=AcomDC_0330_2016-->

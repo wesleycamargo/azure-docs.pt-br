@@ -13,10 +13,10 @@ Para obter informações detalhadas sobre o planejamento de um cluster Pacote HP
 
 ## Pré-requisitos
 
-* **Assinatura do Azure**: você pode usar a assinatura no serviço Azure Global ou no Azure China. Seus limites de assinatura afetarão o número e o tipo de nós de cluster que você pode implantar. Para obter informações, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md).
+* **Assinatura do Azure**: você pode usar a assinatura no serviço Azure Global ou no Azure China. Seus limites de assinatura afetarão o número e o tipo de nós de cluster que você pode implantar. Para obter informações, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](../articles/azure-subscription-service-limits.md).
 
 
-* **Computador cliente do Windows com o Azure PowerShell 0.8.7 ou posterior instalado e configurado** – Veja [Instalar e configurar o Azure PowerShell](../powershell-install-configure.md). O script é executado no gerenciamento de serviço do Azure.
+* **Computador cliente do Windows com o Azure PowerShell 0.8.7 ou posterior instalado e configurado** – Veja [Instalar e configurar o Azure PowerShell](../articles/powershell-install-configure.md). O script é executado no gerenciamento de serviço do Azure.
 
 
 * **Script de implantação do Pacote HPC IaaS**: baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.4.0 do script.
@@ -362,4 +362,4 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 
     Para contornar esse problema, verifique primeiro o estado da extensão nas VMs. Se a extensão não estiver instalada corretamente, tente remover os nós do cluster de HPC e adicioná-los novamente. Por exemplo, você pode adicionar VMs de nó de computação executando o script Add-HpcIaaSNode.ps1 no nó principal.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

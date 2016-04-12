@@ -3,7 +3,7 @@
   description="Saiba como conectar suas funções web/de trabalho a um domínio do AD personalizado usando o Powershell e a extensão de domínio do AD"
   services="cloud-services"
   documentationCenter=""
-  authors="VMak"
+  authors="Thraka"
   manager="timlt"
   editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/05/2015"
+    ms.date="03/25/2016"
     ms.author="adegeo"/>
 
 # Conectando funções dos Serviços de Nuvem do Azure a um controlador de domínio do AD personalizado hospedado no Azure
@@ -70,11 +70,11 @@ Para fazer isso, crie uma máquina virtual por meio do Powershell usando os coma
 
 $vnetname = '<your-vnet-name>'
 $subnetname = '<your-subnet-name>'
-$vmsvc1 = ‘<your-hosted-service>’
-$vm1 = ‘<your-vm-name>’
-$username = ‘<your-username>’
-$password = ‘<your-password>’
-$ affgrp = ‘<your- affgrp>’
+$vmsvc1 = '<your-hosted-service>'
+$vm1 = '<your-vm-name>'
+$username = '<your-username>'
+$password = '<your-password>'
+$affgrp = '<your- affgrp>'
 
 # Create a VM and add it to the Virtual Network
 
@@ -134,15 +134,15 @@ Quando seu projeto de serviço de nuvem for implantado no Azure, conecte suas in
 ```powershell
 # Initialize domain variables
 
-$domain = ‘<your-domain-name>’;
-$dmuser = ‘$domain<your-username>’;
-$dmpswd = '<your-domain-password>';
-$dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
-$dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);
+$domain = '<your-domain-name>'
+$dmuser = '$domain<your-username>'
+$dmpswd = '<your-domain-password>'
+$dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force
+$dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd)
 
 # Add AD Domain Extension to the cloud service roles
 
-Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35;
+Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35
 ```
 
 E isso é tudo.
@@ -150,10 +150,10 @@ E isso é tudo.
 Os serviços de nuvem agora devem ter ingressado no seu controlador de domínio personalizado. Se você gostaria de saber mais sobre as diferentes opções disponíveis para configurar a extensão do domínio do AD, use a Ajuda do PS conforme mostrado abaixo.
 
 ```powershell
-help Set-AzureServiceADDomainExtension;
-help New-AzureServiceADDomainExtensionConfig;
+help Set-AzureServiceADDomainExtension
+help New-AzureServiceADDomainExtensionConfig
 ```
 
 Também gostaríamos de receber seus comentários sobre se seria útil ter uma extensão que promovesse uma máquina virtual para um controlador de domínio. Então, se você acha que seria, informe-nos na seção de comentários.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal - Gerenciador de Recursos](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Clássico](virtual-machines-windows-classic-portal-sql-availability.md)
+- [Portal – Clássico](virtual-machines-windows-classic-portal-sql-availability.md)
 - [PowerShell - clássico](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
@@ -54,7 +54,7 @@ Este tutorial pressupõe o seguinte:
 
 - Você já tem uma conta do Azure.
 
-- Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, consulte [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-windows-classic-portal-sql.md)
+- Você já sabe como provisionar uma VM clássica do SQL Server por meio da galeria da máquina virtual usando a GUI.
 
 - Você já tem uma compreensão sólida dos Grupos de Disponibilidade AlwaysOn. Para obter mais informações, consulte [Grupos de Disponibilidade AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
@@ -547,6 +547,6 @@ Agora você está pronto para configurar um grupo de disponibilidade. Abaixo est
 ## Próximas etapas
 Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, veja [Configurar um ouvinte ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
-Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->
