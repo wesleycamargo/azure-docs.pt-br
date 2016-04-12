@@ -72,7 +72,7 @@ Após a criação do conector, você poderá usar o conector de SMTP como uma a�
 
 Agora você pode configurar o conector de SMTP para usar em seu fluxo de trabalho. Selecione a ação **Enviar Email** e configure as propriedades de entrada:
 
-	Property | Description
+	Propriedade | Descrição
 	--- | ---
 	Para | Insira o endereço de email do(s) destinatário(s). Separe vários endereços de email com um ponto e vírgula (;). Por exemplo, insira: *recipient1@domain.com;recipient2@domain.com*.
 	Co | Insira o endereço de email do(s) destinatário(s) de cópia carbono. Separe vários endereços de email com um ponto e vírgula (;). Por exemplo, insira: *recipient1@domain.com;recipient2@domain.com*.
@@ -83,7 +83,7 @@ Agora você pode configurar o conector de SMTP para usar em seu fluxo de trabalh
 	Importância | Insira a Prioridade do email. As opções são Normal, Baixa e Alta.
 	Anexos | Anexos a serem enviados junto com o email. Ele contém os seguintes campos: <ul><li>Conteúdo (Cadeia de caracteres)</li><li>Codificação de transferência de conteúdo (Enum) ("none"-"base64")</li><li>Tipo de Conteúdo (Cadeia de caracteres)</li><li>ID de Conteúdo (Cadeia de caracteres)</li><li>Nome do Arquivo (Cadeia de caracteres)</li></ul>
 
-![][5]
+![][5]  
 ![][6]
 
 ## Faça mais com seu Conector
