@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gerenciar a disponibilidade de VMs | Microsoft Azure"
-	description="Saiba como usar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo do Azure."
+	pageTitle="Gerenciar a disponibilidade das máquinas virtuais do Linux | Microsoft Azure"
+	description="Aprenda como usar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo do Linux no Azure"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="kenazk"
@@ -19,8 +19,10 @@
 
 # Gerenciar a disponibilidade de máquinas virtuais do Linux
 
+Aprenda como configurar e gerenciar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo Linux no Azure. Você também pode [gerenciar a disponibilidade das máquinas virtuais do Windows](virtual-machines-windows-manage-availability.md).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-manage-availability](../../includes/virtual-machines-common-manage-availability.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

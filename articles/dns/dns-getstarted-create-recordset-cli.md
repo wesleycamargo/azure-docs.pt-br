@@ -20,10 +20,9 @@
 # Criar registros DNS usando a CLI
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Portal do Azure](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
-
-
+- [CLI do Azure](dns-getstarted-create-recordset-cli.md)
 
 Depois de criar a zona DNS, você precisa adicionar os registros DNS para seu domínio. Para fazer isso, primeiro você precisa entender os registros DNS e conjuntos de registros.
 
@@ -33,7 +32,7 @@ Cada registro DNS tem um nome e um tipo.
 
 Um nome _totalmente qualificado_ inclui o nome da zona, enquanto um nome _relativo_ não. Por exemplo, o nome relativo do registro “www” na zona "contoso.com" fornece o nome totalmente qualificado do registro “www.contoso.com”.
 
->[AZURE.NOTE]No DNS do Azure, os registros são especificados usando nomes relativos.
+>[AZURE.NOTE] No DNS do Azure, os registros são especificados usando nomes relativos.
 
 Há vários tipos de registros de acordo com os dados que eles contêm. O tipo mais comum é um registro "A", que mapeia um nome para um endereço IPv4. Outro tipo é um registro “MX”, que mapeia um nome para um servidor de email.
 
@@ -48,7 +47,7 @@ Este é um exemplo de um conjunto de registros. Um conjunto de registros é a co
 
 O tempo de vida, ou TTL, especifica quanto tempo cada registro é armazenado em cache pelos clientes antes de ser consultado novamente. No exemplo acima, o TTL tem 3600 segundos ou 1 hora. O TTL é especificado para o conjunto de registros, não para cada registro, portanto, o mesmo valor é usado para todos os registros no conjunto de registros.
 
->[AZURE.NOTE]O DNS do Azure gerencia registros DNS usando conjuntos de registros.
+>[AZURE.NOTE] O DNS do Azure gerencia registros DNS usando conjuntos de registros.
 
 
 
@@ -67,7 +66,7 @@ Criar conjunto de registros:
 
 O conjunto de registros tem o nome relativo “www” na zona DNS "contoso.com", então, o nome totalmente qualificado dos registros será “www.contoso.com”. O tipo de registro é “A” e o TTL é 60 segundos.
 
->[AZURE.NOTE]Para criar um conjunto de registros em vértices da zona (nesse caso, "contoso.com"), use o nome do Registro "@", incluindo as aspas. Isso é uma convenção comum do DNS.
+>[AZURE.NOTE] Para criar um conjunto de registros em vértices da zona (nesse caso, "contoso.com"), use o nome do Registro "@", incluindo as aspas. Isso é uma convenção comum do DNS.
 
 O conjunto de registros está vazio e precisamos adicionar registros para poder usar o conjunto de registros "www" recém-criado.<BR>
 
@@ -100,7 +99,7 @@ As alterações foram concluídas. Você pode recuperar o conjunto de registros 
 
 Você também pode usar nslookup ou outras ferramentas DNS para consultar o novo conjunto de registros.
 
->[AZURE.NOTE]Assim como acontece ao criar a zona, se você ainda não tiver delegado o domínio para os servidores de nome do DNS do Azure, você precisará especificar o endereço do servidor de nomes da zona explicitamente.
+>[AZURE.NOTE] Assim como acontece ao criar a zona, se você ainda não tiver delegado o domínio para os servidores de nome do DNS do Azure, você precisará especificar o endereço do servidor de nomes da zona explicitamente.
 
 
 	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
@@ -122,4 +121,4 @@ Você também pode usar nslookup ou outras ferramentas DNS para consultar o novo
 [Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

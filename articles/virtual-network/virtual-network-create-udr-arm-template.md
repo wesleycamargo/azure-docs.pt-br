@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você também pode [criar UDRs no modo de implantação clássico](virtual-networks-udr-how-to.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Este artigo aborda o modelo de implantação do Gerenciador de Recursos.
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -175,7 +175,7 @@ Para implantar o modelo ARM baixado usando o PowerShell, siga as etapas abaixo.
 Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
-2. Execute o comando `azure config mode` para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
+2. Execute a opção de comando `azure config mode` para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
 
@@ -396,4 +396,4 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas abaixo.
 
 >[AZURE.TIP] Se você não encontrar todos os recursos, execute o comando `azure group deployment show` para garantir que o estado de provisionamento da implantação seja *Êxito*.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2016" 
-	ms.author="mimig"/>
+	ms.date="03/30/2016" 
+	ms.author="arramac"/>
 
 
 # Limites e cotas do Banco de Dados de Documentos
@@ -24,4 +24,6 @@ A tabela a seguir descreve os limites e imposições de cota do Banco de Dados d
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](documentdb-increase-limits.md).
+
+<!-----------HONumber=AcomDC_0330_2016-->

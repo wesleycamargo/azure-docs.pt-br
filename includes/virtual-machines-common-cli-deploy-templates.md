@@ -1,5 +1,5 @@
 
-Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI do Azure para automatizar as tarefas comuns de implantação e gerenciamento de máquinas virtuais do Azure a seguir. Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-linux-app-frameworks.md).
+Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI do Azure para automatizar as tarefas comuns de implantação e gerenciamento de máquinas virtuais do Azure a seguir. Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
 
 - [Criar rapidamente uma máquina virtual no Azure](#quick-create-a-vm-in-azure)
@@ -35,9 +35,9 @@ Você também pode executar a CLI do Azure como um contêiner do Docker usando a
 
 Se ainda não tiver uma assinatura do Azure, mas tiver uma assinatura do MSDN, você poderá ativar seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou então, você poderá se inscrever para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Agora, [faça logon com a conta do Azure de modo interativo](../xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguindo os prompts para ter uma experiência de logon interativa para sua conta do Azure.
+Agora, [faça logon com a conta do Azure de modo interativo](../articles/xplat-cli-connect.md#use-the-log-in-method) digitando `azure login` e seguindo os prompts para ter uma experiência de logon interativa para sua conta do Azure.
 
-> [AZURE.NOTE] Se você tiver uma ID corporativa ou de estudante e souber que não tem a autenticação de dois fatores habilitada, poderá **também** usar `azure login -u` juntamente com a ID corporativa ou de estudante para fazer logon *sem* uma sessão interativa. Se você não tiver uma ID corporativa ou de estudante, poderá [criar uma ID corporativa ou de estudante de sua conta pessoal da Microsoft](virtual-machines-windows-create-aad-work-id.md) para fazer logon da mesma maneira.
+> [AZURE.NOTE] Se você tiver uma ID corporativa ou de estudante e souber que não tem a autenticação de dois fatores habilitada, poderá **também** usar `azure login -u` juntamente com a ID corporativa ou de estudante para fazer logon *sem* uma sessão interativa. Se você não tiver uma ID corporativa ou de estudante, poderá [criar uma ID corporativa ou de estudante de sua conta pessoal da Microsoft](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md) para fazer logon da mesma maneira.
 
 Sua conta pode ter mais de uma assinatura. Você pode listar suas assinaturas digitando `azure account list`, que pode ser semelhante a:
 
@@ -75,7 +75,7 @@ Em seguida, você pode gerenciar o ciclo de vida geral dos recursos do grupo usa
 - Auditar operações.
 - Marcar recursos com metadados extras para ter melhor acompanhamento.
 
-Você pode saber muito mais sobre os grupos de recursos do Azure e o que eles podem fazer por você na [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md). Se você estiver interessado na criação de modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Você pode saber muito mais sobre os grupos de recursos do Azure e o que eles podem fazer por você na [Visão geral do Gerenciador de Recursos do Azure](../articles/resource-group-overview.md). Se você estiver interessado na criação de modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](../articles/resource-group-authoring-templates.md).
 
 ## <a id="quick-create-a-vm-in-azure"></a>Tarefa: Criar rapidamente uma VM no Azure
 
@@ -97,7 +97,7 @@ Em primeiro lugar, crie o grupo de recursos.
     info:    group create command OK
 
 
-Em segundo lugar, você precisará de uma imagem. Para encontrar uma imagem com a CLI do Azure, confira [Navegando e selecionando imagens de máquinas virtuais do Azure com o PowerShell e a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md). Porém, para este artigo, aqui está uma pequena lista de imagens populares. Vamos usar a imagem estável do CoreOS para esta criação rápida.
+Em segundo lugar, você precisará de uma imagem. Para encontrar uma imagem com a CLI do Azure, confira [Navegando e selecionando imagens de máquinas virtuais do Azure com o PowerShell e a CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md). Porém, para este artigo, aqui está uma pequena lista de imagens populares. Vamos usar a imagem estável do CoreOS para esta criação rápida.
 
 > [AZURE.NOTE] Para ComputeImageVersion, você pode também pode simplesmente fornecer 'latest' como o parâmetro tanto na linguagem do modelo quanto na CLI do Azure. Isso permitirá que você use sempre a versão mais recente e corrigida da imagem sem ter que modificar seus scripts ou modelos. Isso é mostrado abaixo.
 
@@ -666,9 +666,9 @@ Novamente, você precisará localizar os valores que deseja inserir para os par�
 
 Obviamente, você precisará de um .vhd para isso. Você pode usar um que já tenha no Azure ou pode carregar um.
 
-Para uma máquina virtual baseada no Windows, consulte [Criar e carregar um VHD do Windows Server no Azure](virtual-machines-windows-classic-createupload-vhd.md).
+Para uma máquina virtual baseada no Windows, consulte [Criar e carregar um VHD do Windows Server no Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
 
-Para uma máquina virtual baseada no Linux, confira [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Para uma máquina virtual baseada no Linux, confira [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
 
 ### Etapa 3: criar a máquina virtual usando o modelo
 
@@ -1160,7 +1160,7 @@ Lembre-se que você pode reimplantar em um grupo de recursos, mas se terminar de
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>Tarefa: Mostrar o log para uma implantação do grupo de recursos
 
-Essa é uma tarefa comum ao se criar ou usar modelos. A chamada para exibir os logs de implantação de um grupo é `azure group log show <groupname>`, que exibe várias informações úteis para entender por que algo aconteceu ou não. (Para obter mais informações sobre como solucionar problemas em suas implantações, bem como outras informações sobre problemas, confira [Solucionando problemas das implantações do grupo de recursos no Azure](resource-group-deploy-debug.md).)
+Essa é uma tarefa comum ao se criar ou usar modelos. A chamada para exibir os logs de implantação de um grupo é `azure group log show <groupname>`, que exibe várias informações úteis para entender por que algo aconteceu ou não. (Para obter mais informações sobre como solucionar problemas em suas implantações, bem como outras informações sobre problemas, confira [Solucionando problemas das implantações do grupo de recursos no Azure](../articles/resource-manager-troubleshoot-deployments-cli.md).)
 
 Para lidar com falhas específicas, por exemplo, você pode usar ferramentas como **jq** para consultar itens de forma um pouco mais precisa, por exemplo, quais falhas individuais precisam ser corrigidas. O exemplo a seguir usa **jq** para analisar um log de implantação para **lbgroup**, procurando falhas.
 
@@ -1243,7 +1243,7 @@ E, em seguida, procurar por myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tarefa: Fazer logon em uma máquina virtual baseada no Linux
 
-Normalmente, as máquinas Linux são conectadas por meio de SSH. Para obter mais informações, veja [Como usar o SSH com o Linux no Azure](virtual-machines-linux-ssh-from-linux.md).
+Normalmente, as máquinas Linux são conectadas por meio de SSH. Para obter mais informações, veja [Como usar o SSH com o Linux no Azure](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tarefa: Parar uma VM
 
@@ -1276,9 +1276,9 @@ Em seguida, você precisará montar o disco, como faria normalmente no Linux (ou
 
 ## Próximas etapas
 
-Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](xplat-cli-azure-resource-manager.md). Para saber mais sobre os recursos do Azure e seus conceitos, confira [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
+Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](../articles/xplat-cli-azure-resource-manager.md). Para saber mais sobre os recursos do Azure e seus conceitos, confira [Visão geral do Gerenciador de Recursos do Azure](../articles/resource-group-overview.md).
 
 
-Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](virtual-machines-linux-app-frameworks.md).
+Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

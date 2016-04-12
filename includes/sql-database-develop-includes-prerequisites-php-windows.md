@@ -1,7 +1,4 @@
 
-## Pré-requisitos
-
-
 Para executar o exemplo de código PHP fornecido neste tópico, o computador cliente deverá ter os seguintes softwares instalados:
 
 
@@ -29,4 +26,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!-----------HONumber=AcomDC_0330_2016-->

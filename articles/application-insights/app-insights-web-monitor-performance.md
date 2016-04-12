@@ -110,43 +110,52 @@ Ao selecionar qualquer métrica, desabilitará as outras que não podem aparecer
 
 ## Contadores de desempenho do sistema
 
-Algumas das métricas dentre as quais você pode escolher são [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). O Windows fornece uma ampla variedade deles, mas você também pode definir seus próprios contadores de desempenho.
+
+O Windows fornece uma ampla variedade de contadores de desempenho, mas você também pode definir seus próprios.
 
 (Para aplicativos hospedados no Azure, [envie o Diagnóstico do Azure para o Application Insights](app-insights-azure-diagnostics.md).)
 
-Este exemplo mostra os contadores de desempenho que estão disponíveis por padrão. [Adicionamos um gráfico separado](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador e nomeamos o gráfico [salvando-o como um favorito](app-insights-metrics-explorer.md#editing-charts-and-grids):
+Para ver um conjunto de [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) comuns, abra a folha **Servidores**. Você também pode escolher contadores ao editar um gráfico e selecionar uma métrica da seção Contadores de desempenho:
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
+O conjunto completo de métricas disponíveis no seu sistema pode ser determinado em sistemas Windows usando o comando PowerShell [`Get-Counter -ListSet *`](https://technet.microsoft.com/library/hh849685.aspx).
 
-Se os contadores que deseja não estiverem na lista de propriedades, você poderá adicioná-los ao conjunto coletado pelo SDK. Abra ApplicationInsights.config e edite a diretiva do coletor de desempenho:
+Se os contadores que deseja não estiverem na lista de métricas, você poderá adicioná-los ao conjunto coletado pelo SDK. Abra ApplicationInsights.config e edite a diretiva do coletor de desempenho:
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
         <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-O formato é `\Category(instance)\Counter"`, ou apenas `\Category\Counter` para categorias que não têm instâncias. Para saber quais contadores estão disponíveis no sistema, leia [esta introdução](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
+Você pode capturar os contadores padrão e aqueles implementados por conta própria. `\Objects\Processes` está disponível em todos os sistemas Windows; `\Sales...` é um exemplo de um contador personalizado que pode ser implementado em um servidor Web.
+
+O formato é `\Category(instance)\Counter"`, ou apenas `\Category\Counter` para categorias que não têm instâncias.
+
 
 `ReportAs` é necessário para os nomes de contadores que contêm caracteres além dos seguintes: letras, colchetes arredondados, barras "/", hifens, sublinhados, espaços e pontos.
 
-Se você especificar uma instância, ela será coletada como uma propriedade "CounterInstanceName" da métrica reportada.
+Se você especificar uma instância, ela será coletada como uma dimensão "CounterInstanceName" da métrica reportada.
 
-Se preferir, você pode escrever código que tenha o mesmo efeito:
+### Coletando contadores de desempenho no código
+
+Para coletar contadores de desempenho do sistema e enviá-los por push ao Application Insights, você pode usar o trecho a seguir:
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+Ou você pode fazer a mesma coisa com métricas personalizadas que você criou:
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
-Além disso, se você quiser coletar contadores de desempenho do sistema e enviá-los ao Application Insights, pode usar o trecho a seguir:
-
-    var perfCollectorModule = new PerformanceCollectorModule();
-    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
-    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+Além disso, se você quiser
 
 ### Contagens de exceção
 
@@ -201,4 +210,4 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

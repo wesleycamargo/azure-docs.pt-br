@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="03/25/2016"
 	ms.author="szark"/>
 
 
@@ -44,7 +44,7 @@ Oracle Linux| 6\.4+, 7.0+|No kernel|Pacote: no repositório, em "WALinuxAgent" <
 Red Hat Enterprise Linux |RHEL 6.7+, 7.1+|No kernel|Pacote: no repositório, em "WALinuxAgent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
 SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ e <p><p> SLES para SAP 11.3+ |No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 openSUSE |openSUSE 13.1+|No kernel|Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "WALinuxAgent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
-Ubuntu|Ubuntu 12.04, 14.04, 15.04 e 15.10|No kernel|Pacote: no repositório, em "walinuxagent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
+Ubuntu|Ubuntu 12.04, 14.04, 15.10 e 16.04|No kernel|Pacote: no repositório, em "walinuxagent" <p><p>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
 ## Parceiros
 
 ### OpenLogic
@@ -87,4 +87,4 @@ O controle aberto da comunidade e a engenharia da Canonical impulsionam o sucess
 
 Com desenvolvedores e centros de engenharia no mundo inteiro, a Canonical está posicionada exclusivamente para fazer parceria com fabricantes de hardware, provedores de conteúdo e desenvolvedores de software para oferecer soluções de Ubuntu no mercado, de PCs a servidores e dispositivos portáteis.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

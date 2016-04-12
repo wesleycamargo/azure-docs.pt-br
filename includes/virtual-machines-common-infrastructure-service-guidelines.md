@@ -6,7 +6,7 @@ Esta diretriz identifica muitas áreas para as quais o planejamento é essencial
 
 Este artigo foi adaptado do conteúdo da postagem de blog [Diretrizes de implementação do Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Obrigado Santiago Cánepa (gerente de desenvolvimento de aplicativos da Microsoft,) e Hugo Salcedo (gerente de desenvolvimento de aplicativos da Microsoft) pelo material original.
 
-> [AZURE.NOTE] Grupos de afinidade foram preteridos. Seu uso não é descrito aqui. Para saber mais, consulte [Sobre Redes Virtuais regionais e grupos de afinidade](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE] Grupos de afinidade foram preteridos. Seu uso não é descrito aqui. Para saber mais, consulte [Sobre Redes Virtuais regionais e grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Convenções de nomenclatura
 
@@ -140,7 +140,7 @@ O Armazenamento do Azure é parte integrante de muitas soluções do Azure. O Ar
 
 Há dois tipos de conta de armazenamento disponíveis no Azure: Uma conta de armazenamento padrão fornece acesso ao armazenamento Blob (usado para armazenar discos da Máquina Virtual do Azure), armazenamento de Tabela, armazenamento de Fila e armazenamento de Arquivo. O armazenamento Premium é projetado para aplicativos de alto desempenho, como SQL Servers em um cluster AlwaysOn, e atualmente dá suporte somente para discos de Máquina Virtual do Azure.
 
-As contas de armazenamento são vinculadas às metas de escalabilidade. Consulte [Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md#storage-limits) para se familiarizar com os limites atuais de armazenamento do Azure. Consulte também [Metas de desempenho e escalabilidade do armazenamento do Azure](../storage-scalability-targets.md).
+As contas de armazenamento são vinculadas às metas de escalabilidade. Consulte [Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md#storage-limits) para se familiarizar com os limites atuais de armazenamento do Azure. Consulte também [Metas de desempenho e escalabilidade do armazenamento do Azure](../articles/storage/storage-scalability-targets.md).
 
 O Azure cria máquinas virtuais com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. O disco do sistema operacional e os discos de dados são blobs de página do Azure, enquanto o disco temporário é armazenado localmente no nó em que a máquina reside. Isso torna o disco temporário impróprio para dados que devam persistir durante uma reciclagem de sistema, pois a máquina pode migrar silenciosamente de um nó para outro, perdendo os dados desse disco. Não armazene nada na unidade temporária.
 
@@ -149,7 +149,7 @@ Os discos do sistema operacional e os discos de dados têm um tamanho máximo de
 ### Discos distribuídos
 Além de fornecer a capacidade de criar discos com mais de 1023 GB, em muitos casos, o uso da distribuição para discos de dados pode melhorar o desempenho, permitindo que vários blobs façam o armazenamento de um único volume. Com a distribuição, a E/S necessária para gravar e ler dados de um único disco lógico continua em paralelo.
 
-O Azure impõe limites na quantidade de discos de dados e largura de banda disponíveis, dependendo do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-linux-sizes.md).
+O Azure impõe limites na quantidade de discos de dados e largura de banda disponíveis, dependendo do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-sizes.md).
 
 Se você estiver usando a distribuição de disco para os discos de dados do Azure, considere as seguintes diretrizes:
 
@@ -409,15 +409,15 @@ Essa configuração inclui:
 
 ## Recursos adicionais
 
-[Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md#storage-limits)
+[Assinatura do Microsoft Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Tamanhos das máquinas virtuais](virtual-machines-linux-sizes.md)
+[Tamanhos das máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-sizes.md)
 
-[Metas de desempenho e escalabilidade do Armazenamento do Azure](../storage-scalability-targets.md)
+[Metas de desempenho e escalabilidade do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md)
 
 [Diagrama da arquitetura de referência de extensão do datacenter](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 
 [Computação do Azure, Provedores de Rede e Armazenamento no Gerenciador de Recursos do Azure](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

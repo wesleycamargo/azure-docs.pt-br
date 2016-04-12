@@ -10,7 +10,7 @@ Examine esses vídeos para saber mais sobre conjuntos de dimensionamento de VM:
 
 ## Criando e gerenciando conjuntos de dimensionamento de VM
 
-Os conjuntos de dimensionamento de VM podem ser definidos e implantados usando modelos JSON e [APIs REST](https://msdn.microsoft.com/library/mt589023.aspx), assim como as VMs individuais do Gerenciador de Recursos do Azure. Portanto, quaisquer métodos de implantação do Gerenciador de Recursos do Azure padrão podem ser usados. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Os conjuntos de dimensionamento de VM podem ser definidos e implantados usando modelos JSON e [APIs REST](https://msdn.microsoft.com/library/mt589023.aspx), assim como as VMs individuais do Gerenciador de Recursos do Azure. Portanto, quaisquer métodos de implantação do Gerenciador de Recursos do Azure padrão podem ser usados. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../articles/resource-group-authoring-templates.md).
 
 Um conjunto de modelos de exemplo para conjuntos de dimensionamento de VM pode ser encontrado no repositório GitHub do Guia de início rápido do Azure aqui:
 
@@ -26,7 +26,7 @@ Para aumentar ou diminuir o número de máquinas virtuais em um conjunto de dime
 
 Se estiver reimplantando um modelo para alterar a capacidade, você pode definir um modelo muito menor que inclui apenas a SKU e a capacidade atualizada. Um exemplo disso é mostrado em: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-Para percorrer as etapas para criar um conjunto de dimensionamento que foi dimensionado automaticamente, confira [Dimensionar automaticamente as máquinas em um Conjunto de dimensionamento de máquina virtual](virtual-machines-windows-ps-vmss-create.md)
+Para percorrer as etapas para criar um conjunto de dimensionamento que foi dimensionado automaticamente, confira [Dimensionar automaticamente as máquinas em um Conjunto de dimensionamento de máquina virtual](../articles/virtual-machines/virtual-machines-windows-ps-vmss-create.md)
 
 ## Monitoramento de seu conjunto de dimensionamento de VM
 
@@ -79,7 +79,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **P** Que outros limites de recurso existem para conjuntos de dimensionamento de VM?
 
-**A.** Você está limitado a criar não mais de 500 VMs nos vários conjuntos de dimensionamento por região durante o período de visualização. Os [Limites de serviço de assinatura do Azure/](../azure-subscription-service-limits.md) existentes se aplicam.
+**A.** Você está limitado a criar não mais de 500 VMs nos vários conjuntos de dimensionamento por região durante o período de visualização. Os [Limites de serviço de assinatura do Azure/](../articles/azure-subscription-service-limits.md) existentes se aplicam.
 
 **P.** Há suporte para os discos de dados nos conjuntos de dimensionamento de VM?
 
@@ -130,4 +130,4 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **A.** Sim. Um conjunto de dimensionamento de VM é um conjunto de disponibilidade implícito com 3 FDs e 5 UDs. Não é preciso configurar nada em virtualMachineProfile. Em versões futuras, os conjuntos de dimensionamento de VM provavelmente incluirão vários locatários, mas, por enquanto, um conjunto de dimensionamento é um único conjunto de disponibilidade.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

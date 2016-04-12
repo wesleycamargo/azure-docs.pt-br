@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Gerenciamento de registros
@@ -28,10 +28,10 @@ Este tópico explica como registrar dispositivos em hubs de notificação para r
 O registro de dispositivos com um Hub de Notificação é realizado usando um **Registro** ou uma **Instalação**.
 
 #### Registros
-Um registro é uma subentidade de um hub de notificação e associa o identificador PNS (Serviço de Notificação de Plataforma) de um dispositivo com marcas e, possivelmente, um modelo. O identificador PNS pode ser um ChannelURI, um token do dispositivo ou uma ID de registro de GCM. As marcas são usadas para direcionar notificações para o conjunto correto de identificadores de dispositivos. Para saber mais, veja [Expressões de marca e de roteamento](notification-hubs-routing-tag-expressions.md). Os modelos são usados para implementar transformações por registro. Para saber mais, veja [Modelos](notification-hubs-templates.md).
+Um registro associa o identificador PNS (Serviço de Notificação de Plataforma) de um dispositivo com marcas e, possivelmente, um modelo. O identificador PNS pode ser um ChannelURI, um token do dispositivo ou uma ID de registro de GCM. As marcas são usadas para direcionar notificações para o conjunto correto de identificadores de dispositivos. Para saber mais, veja [Expressões de marca e de roteamento](notification-hubs-routing-tag-expressions.md). Os modelos são usados para implementar transformações por registro. Para saber mais, veja [Modelos](notification-hubs-templates.md).
 
 #### Instalações
-Uma instalação é um registro aprimorado que inclui um conjunto de propriedades relacionadas ao envio por push. No entanto, é a abordagem mais recente e adequada para registrar seus dispositivos.
+Uma instalação é um registro aprimorado que inclui um conjunto de propriedades relacionadas ao envio por push. Essa é a abordagem mais recente e adequada para registrar seus dispositivos. No entanto, não há suporte pelo SDK do .NET do lado do cliente ([SDK do Hub de Notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) até o momento. Isso significa que, se você estiver registrando no próprio dispositivo cliente, precisará usar a abordagem da [API REST de Hubs de Notificação](https://msdn.microsoft.com/library/mt621153.aspx) para dar suporte às instalações. Se você estiver usando um serviço de back-end, deverá ser capaz de usar o [SDK do Hub de Notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 A seguir, algumas vantagens importantes do uso de instalações:
 
@@ -39,9 +39,7 @@ A seguir, algumas vantagens importantes do uso de instalações:
 * O modelo de instalação facilita a realização de envios individuais por push - direcionando a um dispositivo específico. Uma marca de sistema **"$InstallationId: [installationId]"** é adicionada automaticamente com cada registro com base em instalação. Portanto, você pode chamar um envio para essa marca a fim de direcionar a um dispositivo específico sem precisar fazer qualquer codificação adicional.
 * O uso de instalações também permite que você faça atualizações parciais no registro. A atualização parcial de uma instalação é solicitada com um método PATCH usando o [padrão JSON-Patch](https://tools.ietf.org/html/rfc6902). Isso é particularmente útil quando você deseja atualizar marcas no registro. Não é necessário obter todo o registro e reenviar todas as marcas anteriores novamente.
 
-Atualmente, as instalações só têm suporte do [SDK do Hub de Notificação para operações back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Consulte a [Classe de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation.aspx) para saber mais. No momento, para registrar-se de um dispositivo cliente usando uma ID de instalação sem um back-end, seria necessário usar a [API REST dos Hubs de Notificação](https://msdn.microsoft.com/library/mt621153.aspx).
-
-Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa de propriedades de instalação, confira [Criar ou substituir uma instalação com REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriedades de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa de propriedades de instalação, veja [Create or Overwrite an Installation with REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Installation Properties](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) para o .
 
 	// Example installation format to show some supported properties
 	{
@@ -332,4 +330,4 @@ No back-end do aplicativo, você pode executar operações básicas de CRUDS nos
 
 O back-end deve manipular a simultaneidade entre as atualizações do registro. O Barramento de Serviço oferece um controle de simultaneidade otimista para gerenciamento de registro. No nível HTTP, isso é implementado com o uso de ETag nas operações de gerenciamento de registro. Esse recurso é usado de forma transparente pelos SDKs da Microsoft, que lançam uma exceção se uma atualização for rejeitada por motivos de simultaneidade. O back-end é responsável por manipular essas exceções e tentar atualizar novamente, se isso for necessário.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-----------HONumber=AcomDC_0330_2016-->

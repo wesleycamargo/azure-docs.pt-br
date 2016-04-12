@@ -35,7 +35,7 @@ Nesta seção, apresentaremos algumas das mais importantes diferenças conceitua
 | Serviço de Nuvem para Máquinas Virtuais |	O Serviço de Nuvem era um contêiner para manter as máquinas virtuais que precisavam de Disponibilidade da plataforma e Balanceamento de Carga. | O Serviço de Nuvem não é mais um objeto necessário para criar uma Máquina Virtual usando o novo modelo. |
 | Conjuntos de Disponibilidade | A disponibilidade para a plataforma era indicada por meio da configuração do mesmo "AvailabilitySetName" nas Máquinas Virtuais. A contagem máxima de domínios de falha era 2. | O Conjunto de Disponibilidade é um recurso exposto pelo Provedor Microsoft.Compute. Máquinas Virtuais que exigem alta disponibilidade devem ser incluídas no Conjunto de Disponibilidade. A contagem máxima de domínios de falha agora é 3. |
 | Grupos de afinidade |	Grupos de Afinidade eram necessários para criar Redes Virtuais. No entanto, com a introdução de Redes Virtuais Regionais, isso não é mais necessário. |Para simplificar, o conceito de Grupos de Afinidade não existe nas APIs expostas por meio do Gerenciador de Recursos do Azure. |
-| Balanceamento de Carga | A criação de um Serviço de Nuvem fornece um balanceador de carga implícito para as Máquinas Virtuais implantadas. | O Balanceador de Carga é um recurso exposto pelo provedor Microsoft.Network. A interface de rede principal das Máquinas Virtuais que precisam ter o balanceamento de carga deve fazer referência ao balanceador de carga. Os Balanceadores de Carga podem ser internos ou externos. [Leia mais.](resource-groups-networking.md) |
+| Balanceamento de Carga | A criação de um Serviço de Nuvem fornece um balanceador de carga implícito para as Máquinas Virtuais implantadas. | O Balanceador de Carga é um recurso exposto pelo provedor Microsoft.Network. A interface de rede principal das Máquinas Virtuais que precisam ter o balanceamento de carga deve fazer referência ao balanceador de carga. Os Balanceadores de Carga podem ser internos ou externos. [Leia mais.](../articles/resource-groups-networking.md) |
 |Endereço IP Virtual | Os Serviços de Nuvem terão um VIP (Endereço IP Virtual) padrão quando uma VM for adicionada a um serviço de nuvem. O Endereço IP Virtual é o endereço associado ao balanceador de carga implícito. | O Endereço IP público é um recurso exposto pelo provedor Microsoft.Network. O Endereço IP público pode ser Estático (Reservado) ou Dinâmico. IPs Públicos Dinâmicos podem ser atribuídos a um Balanceador de Carga. IPs Públicos podem ser protegidos usando Grupos de Segurança. |
 |Endereço IP Reservado|	Você pode reservar um endereço IP no Azure e associá-lo a um Serviço de Nuvem para garantir que o Endereço IP seja temporário. | O Endereço IP Público pode ser criado no modo "Estático" e oferece a mesma funcionalidade de um "Endereço IP Reservado". IPs Públicos Estáticos só podem ser atribuídos a um Balanceador de carga no momento. |
 |Endereço IP Público (PIP) por VM | Endereços IP Públicos também podem ser associados diretamente a uma VM. | O Endereço IP público é um recurso exposto pelo provedor Microsoft.Network. O Endereço IP público pode ser Estático (Reservado) ou Dinâmico. No entanto, apenas IPs Públicos dinâmicos podem ser atribuídos a uma Interface de Rede para obter um IP Público por VM no momento. |
@@ -53,11 +53,11 @@ O portal do Azure ainda tem a opção de implantar Máquinas Virtuais com o mode
 
 ### PowerShell do Azure
 
-O PowerShell do Azure terá dois modos de implantação: modo **AzureServiceManagement** e modo **AzureResourceManager**. O modo AzureResourceManager agora também conterá os cmdlets para gerenciar Máquinas Virtuais, Redes Virtuais e Contas de Armazenamento. Saiba mais sobre isso [aqui](../powershell-azure-resource-manager.md).
+O PowerShell do Azure terá dois modos de implantação: modo **AzureServiceManagement** e modo **AzureResourceManager**. O modo AzureResourceManager agora também conterá os cmdlets para gerenciar Máquinas Virtuais, Redes Virtuais e Contas de Armazenamento. Saiba mais sobre isso [aqui](../articles/powershell-azure-resource-manager.md).
 
 ### CLI do Azure
 
-A CLI do Azure (Interface de Linha de Comando do Azure) terá dois modos de implantação: modo **AzureServiceManagement** e modo **AzureResourceManager**. O modo AzureResourceManager agora também conterá comandos para gerenciar Máquinas Virtuais, Redes Virtuais e Contas de Armazenamento. Saiba mais sobre isso [aqui](xplat-cli-azure-resource-manager.md).
+A CLI do Azure (Interface de Linha de Comando do Azure) terá dois modos de implantação: modo **AzureServiceManagement** e modo **AzureResourceManager**. O modo AzureResourceManager agora também conterá comandos para gerenciar Máquinas Virtuais, Redes Virtuais e Contas de Armazenamento. Saiba mais sobre isso [aqui](../articles/xplat-cli-azure-resource-manager.md).
 
 ### Visual Studio
 
@@ -79,11 +79,11 @@ Não há suporte para isso no momento. No entanto, você pode copiar os arquivos
 
 **Qual é o impacto sobre a cota da minha assinatura?**
 
-As cotas para as Máquinas Virtuais, Redes Virtuais e Contas de Armazenamento criadas por meio das novas APIs do Gerenciador de Recursos do Azure são separadas das cotas que você tem no momento. Cada assinatura obtém novas cotas para criar os recursos usando as novas APIs. Você pode ler mais sobre as cotas adicionais [aqui](../azure-subscription-service-limits.md).
+As cotas para as Máquinas Virtuais, Redes Virtuais e Contas de Armazenamento criadas por meio das novas APIs do Gerenciador de Recursos do Azure são separadas das cotas que você tem no momento. Cada assinatura obtém novas cotas para criar os recursos usando as novas APIs. Você pode ler mais sobre as cotas adicionais [aqui](../articles/azure-subscription-service-limits.md).
 
 **Posso continuar a usar meus scripts automatizados para provisionar Máquinas Virtuais, Redes Virtuais, Contas de Armazenamento, etc. por meio das novas APIs do Gerenciador de Recursos do Azure?**
 
-Todos os scripts e a automação que você criou continuarão a funcionar para as Máquinas Virtuais e Redes Virtuais existentes criadas no modo de Gerenciamento de Serviços do Azure. No entanto, os scripts devem ser atualizados para usar o novo esquema para criar os mesmos recursos por meio do novo modo do Gerenciador de Recursos do Azure. Leia mais sobre como modificar seus [Scripts da CLI do Azure](virtual-machines-linux-cli-manage.md).
+Todos os scripts e a automação que você criou continuarão a funcionar para as Máquinas Virtuais e Redes Virtuais existentes criadas no modo de Gerenciamento de Serviços do Azure. No entanto, os scripts devem ser atualizados para usar o novo esquema para criar os mesmos recursos por meio do novo modo do Gerenciador de Recursos do Azure. Leia mais sobre como modificar seus [Scripts da CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-manage.md).
 
 **As Redes Virtuais criadas usando as novas APIs do Gerenciador de Recursos do Azure podem ser conectadas a meu circuito do Express Route?**
 
@@ -93,4 +93,4 @@ Não há suporte para isso no momento. Você não pode conectar as Redes Virtuai
 
 Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

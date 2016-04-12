@@ -1,7 +1,7 @@
-### Obtendo o assembly
+### Obter o pacote da Biblioteca do Cliente de Armazenamento
 
-Você pode usar NuGet para obter o assembly `Microsoft.WindowsAzure.Storage.dll`. Clique com o botão direito do mouse no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
+Você pode usar o NuGet para obter o pacote da Biblioteca do Cliente de Armazenamento e suas dependências. Clique com o botão direito do mouse no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. Pesquise online por "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote Armazenamento do Azure e as dependências.
 
-`Microsoft.WindowsAzure.Storage.dll` também está incluído no SDK do Azure para .NET, que pode ser baixado na <a href="http://azure.microsoft.com/develop/net/#">Central de desenvolvedores do .NET</a>. O assembly está instalado no diretório `%Program Files%\Microsoft SDKs\Azure\.NET SDK<sdk-version>\ref`.
+O pacote de Biblioteca de Cliente do Armazenamento também está incluído no [SDK do Azure para .NET](https://azure.microsoft.com/downloads/). No entanto, recomendamos a instalação da Biblioteca de Cliente de Armazenamento do NuGet para garantir que você tenha sempre a versão mais recente da biblioteca do cliente.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -30,20 +30,11 @@ O código-fonte para a solução pré-configurada está disponível no GitHub no
 
 O código-fonte para as soluções pré-configuradas é fornecido para demonstrar os padrões e as práticas usadas para implementar a funcionalidade de ponta a ponta de uma solução IoT usando o Azure IoT Suite. Você pode encontrar mais informações sobre como compilar e implantar as soluções em repositórios GitHub.
 
-## Gerenciar as permissões em uma solução pré-configurada
-O portal de solução para cada solução pré-configurada é criado como um novo aplicativo do Azure Active Directory. Você pode gerenciar as permissões para o portal de solução (aplicativo AAD) da seguinte maneira:
-
-1. Abra no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Navegue até o aplicativo AAD selecionando **Aplicativos que minha empresa possui** e clique na marca de seleção.
-3. Navegue até **Usuários** e atribua membros no seu locatário do Azure Active Directory a uma função. 
-
-Por padrão, o aplicativo é provisionado com as funções **Administrador**, **Somente Leitura** e **Somente Leitura Implícita**. **Somente leitura implícita** é concedida aos usuários que são membros do locatário do Azure Active Directory, mas não têm função atribuída. Você pode modificar o [RolePermissions.cs](https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs) depois de bifurcar o repositório GitHub e reimplantar sua solução.
-
 ## Alterando as regras predefinidas
 
-A solução de monitoramento remoto inclui três trabalhos do [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) para implementar a lógica de regras, a telemetria e informações de dispositivo exibidas para a solução.
+A solução de monitoramento remoto inclui três trabalhos do [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) para implementar informações do dispositivo, telemetria e lógica de regras exibidas para a solução.
 
-Os três trabalhos de Stream Analytics e sua sintaxe estão descritos em detalhes na [Orientação passo a passo da solução pré-configurada de monitoramento remoto](iot-suite-remote-monitoring-sample-walkthrough.md).
+Os três trabalhos de Stream Analytics e sua sintaxe são descritos em detalhes na [Passo a passo da solução pré-configurada de monitoramento remoto](iot-suite-remote-monitoring-sample-walkthrough.md).
 
 Você pode editar esses trabalhos diretamente para alterar a lógica ou adicionar lógica específica para seu cenário. Você pode encontrar os trabalhos do Stream Analytics da seguinte maneira:
  
@@ -53,7 +44,7 @@ Você pode editar esses trabalhos diretamente para alterar a lógica ou adiciona
 4. Interrompa o trabalho selecionando **Parar**no conjunto de comandos. 
 5. Edite as entradas, consulta e saídas.
 
-    É uma modificação simples a fim de alterar a consulta para o trabalho **Regras**, que passa a usar um **"<"** em vez de um **">"**. O portal de solução ainda mostrará **">"** quando a regra for editada, mas você perceberá que o comportamento é invertido devido à alteração no trabalho subjacente.
+    Uma modificação simples é alterar a consulta para o trabalho **Regras** para usar um **"<"**, em vez de um **">"**. O portal de solução ainda mostrará **">"** quando a regra for editada, mas você perceberá que o comportamento é invertido devido à alteração no trabalho subjacente.
 
 6. Iniciar o trabalho
 
@@ -73,22 +64,83 @@ Para ter um guia passo a passo para adicionar dispositivos à solução pré-con
 
 Um simulador .NET é incluído no código-fonte da solução de monitoramento remota (referenciada acima). Esse simulador é provisionado como parte da solução e pode ser alterado para enviar metadados diferentes, telemetria ou responder a comandos diferentes.
 
-O simulador pré-configurado na solução pré-configurada de monitoramento remoto é um dispositivo mais legal que emite a telemetria de temperatura e umidade. Você pode modificar o simulador no projeto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) quando tiver bifurcado o repositório GitHub do projeto.
+O simulador pré-configurado na solução pré-configurada de monitoramento remoto é um dispositivo mais interessante que emite a telemetria de temperatura e umidade. Você pode modificar o simulador no projeto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) quando tiver bifurcado o repositório GitHub do projeto.
 
-Além disso, o Azure IoT fornece um [Exemplo SDK C](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring) que foi projetado para funcionar com a solução pré-configurada de monitoramento remoto.
+Além disso, o Azure IoT fornece um [Exemplo SDK C](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) que foi projetado para funcionar com a solução pré-configurada de monitoramento remoto.
 
 ### Compilando e usando seu próprio dispositivo (físico)
 
 Os [SDKs do Azure IoT](https://github.com/Azure/azure-iot-sdks) fornecem bibliotecas para conectar a vários tipos de dispositivo (linguagens e sistemas operacionais) em soluções de IoT.
 
+## Configuração manual de funções de aplicativo
+
+O procedimento a seguir descreve como adicionar as funções de aplicativo **Admin** e **ReadOnly** a uma solução pré-configurada. Observe que as soluções pré-configuradas provisionadas no site azureiotsuite.com já incluem as funções **Admin** e **ReadOnly**.
+
+Membros da função **ReadOnly** podem ver o painel e a lista de dispositivos, mas não têm permissão para adicionar dispositivos, alterar os atributos do dispositivo ou enviar comandos. Membros da função **Admin** têm acesso completo a toda a funcionalidade na solução.
+
+1. Vá para o [portal clássico do Azure][lnk-classic-portal].
+
+2. Selecione **Active Directory**.
+
+3. Clique no nome do locatário AAD que você usou ao provisionar a solução.
+
+4. Clique em **Aplicativos**.
+
+5. Clique no nome do aplicativo que corresponda ao nome da solução pré-configurada. Se você não visualizar seu aplicativo na lista, selecione **Aplicativos que minha empresa possui** na lista suspensa **Mostrar** e clique na marca de seleção.
+
+6.  Na parte inferior da página, clique em **Gerenciar Manifesto** e então em **Baixar Manifesto**.
+
+7. Isso baixa um arquivo .json para seu computador local. Abra esse arquivo para edição em um editor de texto de sua escolha.
+
+8. Na terceira linha do arquivo .json, você encontrará:
+
+  ```
+  "appRoles" : [],
+  ```
+  Substitua isso pelo seguinte:
+
+  ```
+  "appRoles": [
+  {
+  "allowedMemberTypes": [
+  "User"
+  ],
+  "description": "Administrator access to the application",
+  "displayName": "Admin",
+  "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "isEnabled": true,
+  "value": "Admin"
+  },
+  {
+  "allowedMemberTypes": [
+  "User"
+  ],
+  "description": "Read only access to device information",
+  "displayName": "Read Only",
+  "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
+  "isEnabled": true,
+  "value": "ReadOnly"
+  } ],
+  ```
+
+9. Salve o arquivo .json atualizado (você pode substituir o arquivo existente).
+
+10.  No Portal de Gerenciamento do Azure, na parte inferior da página, selecione **Gerenciar Manifesto** e, em seguida, **Carregar Manifesto** para carregar o arquivo .json salvo na etapa anterior.
+
+11. Agora você adicionou as funções **Admin** e **ReadOnly** ao seu aplicativo.
+
+12. Para atribuir uma dessas funções para um usuário no seu diretório, consulte [Permissões no site do azureiotsuite.com][lnk-permissions].
+
 ## Comentários
 
-Tem alguma personalização que você gostaria de ver abordada neste documento? Adicione as sugestões de recursos ao [User Voice](https://feedback.azure.com/forums/321918-azure-iot) ou faça comentários sobre este artigo abaixo.
+Tem alguma personalização que você gostaria de ver abordada neste documento? Adicione as sugestões de recursos à [Voz do Usuário](https://feedback.azure.com/forums/321918-azure-iot) ou faça comentários sobre este artigo abaixo.
 
 ## Próximas etapas
 
 Para obter mais informações sobre dispositivos IoT, consulte o [Site de desenvolvedores do Azure IoT](https://azure.microsoft.com/develop/iot/) para encontrar links e documentação.
 
 [SDK do Dispositivo IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[lnk-permissions]: iot-suite-permissions.md
+[lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

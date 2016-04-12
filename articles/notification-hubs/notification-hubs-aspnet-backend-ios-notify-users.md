@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 #Notificar usuários nos Hubs de Notificação do Azure para iOS com o back-end do .NET
@@ -24,7 +24,7 @@
 
 O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end da API Web ASP.NET é usada para autenticar clientes e gerar notificações, como mostrado no tópico de instrução [Registrando-se por meio do back-end do aplicativo](notification-hubs-registration-management.md#registration-management-from-a-backend).
 
-> [AZURE.NOTE]Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md). Este tutorial também é um pré-requisito para o tutorial [Push Seguro (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md). Se você estiver usando Serviços Móveis como seu serviço de back-end, consulte a [Versão dos Serviços Móveis](../mobile-services-javascript-backend-ios-push-notifications-app-users.md) deste tutorial.
+> [AZURE.NOTE] Este tutorial presume que você criou e configurou o seu hub de notificação conforme descrito em [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md). Este tutorial também é um pré-requisito para o tutorial [Push Seguro (iOS)](notification-hubs-aspnet-backend-ios-secure-push.md). Se desejar usar os Aplicativos Móveis como seu serviço de back-end, veja [Mobile Apps Get Started with Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 
 
@@ -34,7 +34,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 
 1. Abra o aplicativo de exibição de Página única criado no tutorial [Introdução aos Hubs de Notificação (iOS)](notification-hubs-ios-get-started.md).
 
-	> [AZURE.NOTE]Nesta seção, presumimos que você configurou seu projeto com um nome de organização vazio. Caso contrário, será necessário preceder o nome da sua organização a todos os nomes de classe.
+	> [AZURE.NOTE] Nesta seção, presumimos que você configurou seu projeto com um nome de organização vazio. Caso contrário, será necessário preceder o nome da sua organização a todos os nomes de classe.
 
 2. Em seu Main.storyboard, adicione os componentes mostrados na captura de tela abaixo da biblioteca de objetos.
 
@@ -283,7 +283,7 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 
 		@end
 
-> [AZURE.NOTE]O trecho a seguir não é um esquema de autenticação seguro, você deve substituir a implementação de **createAndSetAuthenticationHeaderWithUsername:AndPassword:** pelo seu mecanismo de autenticação específico que gera um token de autenticação a ser consumido pela classe de cliente do registro, por exemplo, OAuth, Active Directory.
+> [AZURE.NOTE] O trecho a seguir não é um esquema de autenticação seguro, você deve substituir a implementação de **createAndSetAuthenticationHeaderWithUsername:AndPassword:** pelo seu mecanismo de autenticação específico que gera um token de autenticação a ser consumido pela classe de cliente do registro, por exemplo, OAuth, Active Directory.
 
 9. Em seguida, na seção `@implementation` do ViewController.m, adicione o seguinte código que adiciona a implementação para definir o cabeçalho de autenticação e o token do dispositivo.
 
@@ -465,4 +465,4 @@ O suporte à notificação por push no Azure permite que você acesse uma infrae
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!-----------HONumber=AcomDC_0330_2016-->

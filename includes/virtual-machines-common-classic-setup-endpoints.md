@@ -1,10 +1,4 @@
 
-
-
-Todas as máquinas virtuais criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual.
-
-Quando você cria uma máquina virtual no portal clássico do Azure, pontos de extremidade comuns como aqueles para a Área de Trabalho Remota, Comunicação Remota do Windows PowerShell e SSH (Secure Shell) normalmente são criados para você automaticamente, dependendo do sistema operacional que você escolher. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
-
 Cada ponto de extremidade tem uma *porta pública* e uma *porta privada*:
 
 - A porta pública é usada pelo balanceador de carga do Azure para ouvir o tráfego de entrada da Internet com destino à máquina virtual.
@@ -12,9 +6,9 @@ Cada ponto de extremidade tem uma *porta pública* e uma *porta privada*:
 
 Valores padrão para o protocolo IP e as portas TCP ou UDP para protocolos conhecidos são fornecidos quando você cria pontos de extremidade com o portal clássico do Azure. Para pontos de extremidade personalizados, você precisará especificar o protocolo IP correto (TCP ou UDP) e as portas públicas e privadas. Para distribuir o tráfego de entrada aleatoriamente entre várias máquinas virtuais, você precisará criar um conjunto com balanceamento de carga composto de vários pontos de extremidade.
 
-Depois de criar um ponto de extremidade, você pode usar uma lista de controle de acesso (ACL) para definir regras que permitam ou neguem o tráfego de entrada na porta pública do ponto de extremidade com base em seu endereço IP de origem. No entanto, se a máquina virtual estiver em uma rede virtual do Azure, você deverá usar grupos de segurança de rede. Para obter detalhes, veja [Sobre os grupos de segurança de rede](virtual-networks-nsg.md).
+Depois de criar um ponto de extremidade, você pode usar uma lista de controle de acesso (ACL) para definir regras que permitam ou neguem o tráfego de entrada na porta pública do ponto de extremidade com base em seu endereço IP de origem. No entanto, se a máquina virtual estiver em uma rede virtual do Azure, você deverá usar grupos de segurança de rede. Para obter detalhes, veja [Sobre os grupos de segurança de rede](../articles/virtual-network/virtual-networks-nsg.md).
 
-> [AZURE.NOTE]\: a configuração do firewall para máquinas virtuais do Azure é feita automaticamente para as portas associadas com a Área de Trabalho Remota e SSH (Secure Shell), e, na maioria dos casos, para Comunicação Remota do Windows PowerShell. Para portas especificadas para todos os outros pontos de extremidade, nenhuma configuração é feita automaticamente para o firewall da máquina virtual. Ao criar um ponto de extremidade para a máquina virtual, você precisará garantir que o firewall da máquina virtual também permita tráfego para o protocolo e a porta privada correspondente à configuração do ponto de extremidade.
+> [AZURE.NOTE]A configuração do firewall para máquinas virtuais do Azure é feita automaticamente para as portas associadas com a Área de Trabalho Remota e SSH (Secure Shell), e, na maioria dos casos, para Comunicação Remota do Windows PowerShell. Para portas especificadas para todos os outros pontos de extremidade, nenhuma configuração é feita automaticamente para o firewall da máquina virtual. Ao criar um ponto de extremidade para a máquina virtual, você precisará garantir que o firewall da máquina virtual também permita tráfego para o protocolo e a porta privada correspondente à configuração do ponto de extremidade.
 
 ## Criar um ponto de extremidade
 
@@ -40,7 +34,7 @@ O novo ponto de extremidade será listado na página **Pontos de extremidade**.
 
 ![Criação de ponto de extremidade com êxito](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-Para usar um cmdlet do PowerShell do Azure e configurar isso, confira [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). Se estiver usando a CLI do Azure no modo de Gerenciamento de Serviços, use o comando **azure vm endpoint create**.
+ 
 
 ## Gerenciar a ACL em um ponto de extremidade
 
@@ -48,7 +42,7 @@ Para definir o conjunto de computadores que pode enviar tráfego, a ACL em um po
 
 > [AZURE.NOTE] se o ponto de extremidade é parte de um conjunto com balanceamento de carga, quaisquer alterações feitas na ACL em um ponto de extremidade são aplicadas a todos os pontos de extremidade no conjunto.
 
-Se a máquina virtual estiver em uma rede virtual do Azure, recomendamos grupos de segurança de rede em vez de ACLs. Para obter detalhes, veja [Sobre os grupos de segurança de rede](virtual-networks-nsg.md).
+Se a máquina virtual estiver em uma rede virtual do Azure, recomendamos grupos de segurança de rede em vez de ACLs. Para obter detalhes, veja [Sobre os grupos de segurança de rede](../articles/virtual-network/virtual-networks-nsg.md).
 
 1.	Se você ainda não fez isso, entre no portal clássico do Azure.
 2.	Clique em **Máquinas Virtuais** e, em seguida, clique no nome da máquina virtual que você deseja configurar.
@@ -64,13 +58,6 @@ Se a máquina virtual estiver em uma rede virtual do Azure, recomendamos grupos 
 
 Você pode usar regras para permitir somente o tráfego de computadores específicos correspondentes aos seus computadores na Internet ou negar o tráfego de intervalos de endereços específicos e conhecidos.
 
-As regras são avaliadas em ordem, começando com a primeira regra e terminando com a última regra. Isto significa que as regras devem ser ordenadas das menos restritivas para as mais restritivas. Para obter exemplos e saber mais, consulte [O que é uma Lista de Controle de Acesso de rede?](../virtual-network/virtual-networks-acl/).
+As regras são avaliadas em ordem, começando com a primeira regra e terminando com a última regra. Isto significa que as regras devem ser ordenadas das menos restritivas para as mais restritivas. Para obter exemplos e saber mais, consulte [O que é uma Lista de Controle de Acesso de rede?](../articles/virtual-network/virtual-networks-acl.md).
 
-Para usar um cmdlet do Azure PowerShell para configurar isso, consulte [Gerenciando listas de controle de acesso (ACLs) para pontos de extremidade usando o PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
-
-
-## Recursos adicionais
-
-[Introdução à criação de um balanceador de carga para a Internet no Gerenciador de Recursos usando o PowerShell](load-balancer-get-started-internet-arm-ps.md)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

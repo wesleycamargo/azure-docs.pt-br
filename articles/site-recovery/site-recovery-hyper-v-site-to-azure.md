@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="03/15/2016"
+	ms.date="03/30/2016"
 	ms.author="raynew"/>
 
 
@@ -23,41 +23,40 @@
 - [Portal Clássico do Azure](site-recovery-hyper-v-site-to-azure.md)
 - [PowerShell – Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
-
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para ter uma breve visão geral, leia [O que é Azure Site Recovery?](site-recovery-overview.md).
-
-## Visão geral
-
-Este artigo descreve como implantar o Site Recovery para replicar máquinas virtuais Hyper-V quando os hosts Hyper-V não são gerenciados em nuvens do System Center Virtual Machine Manager (VMM).
+Leia este artigo para saber como implantar a Recuperaçã de Site para replicar máquinas virtuais Hyper-V no Azure quando os hosts Hyper-V não são gerenciados em nuvens do System Center Virtual Machine Manager (VMM).
 
 Este artigo resume os pré-requisitos de implantação, ajuda a definir as configurações de replicação e a habilitar a proteção para máquinas virtuais. Ele é concluído com o teste do failover para verificar se tudo está funcionando conforme o esperado.
 
+Após ler este artigo, publique quaisquer comentários ou perguntas no final ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-Poste quaisquer comentários ou perguntas ao final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
+## Visão geral
+
+As organizações precisam de uma estratégia de BCDR (continuidade dos negócios e recuperação de desastre) que determine como os aplicativos, as cargas de trabalho e os dados permanecerão em execução e disponíveis durante o tempo de inatividade planejado e não planejado, e como recuperarão as condições normais de trabalho assim que possível. Sua estratégia de BCDR está centrada em soluções que mantêm os dados comerciais seguros e passíveis de recuperação, e as cargas de trabalho continuamente disponíveis, mediante um desastre.
+
+A Recuperação de Site é um serviço do Azure que colabora com sua estratégia de BCDR por meio da coordenação da replicação de servidores físicos e máquinas virtuais locais na nuvem (Azure) ou em um datacenter secundário. Quando ocorrem paralisações em seu local primário, você realiza o failover em um local secundário a fim de manter os aplicativos e cargas de trabalho disponíveis. Quando o local primário retoma as operações normais, você realiza o failback.
+
+A Recuperação de Site pode ser usada em vários cenários e pode proteger diversas cargas de trabalho. Saiba mais em [O que é o Azure Site Recovery?](site-recovery-overview.md)
 
 
-## Antes de começar
-
-Verifique se tudo está no lugar antes de começar.
-
-### Pré-requisitos do Azure
+## Pré-requisitos do Azure
 
 - Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
-- Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. Não há suporte para a movimentação de contas de Armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos. [Saiba mais sobre o armazenamento do Azure](../storage/storage-introduction.md).
+- Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o cofre do Azure Site Recovery e ser associada à mesma assinatura. [Saiba mais sobre o Armazenamento do Azure](../storage/storage-introduction.md). Observe que não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
 - Você precisará de uma rede virtual do Azure para que as máquinas virtuais do Azure estejam conectadas a uma rede quando o failover de seu site primário for executado.
 
-### Pré-requisitos do Hyper-V
+## Pré-requisitos do Hyper-V
 
-- No site local de origem será necessário pelo menos um servidor executando o Windows Server 2012 R2 com a função Hyper-V instalada. O servidor deve:
+- No site local de origem será necessário um ou mais servidores executando o Windows Server 2012 R2 com a função Hyper-V instalada. O servidor deve:
 - Conter uma ou mais máquinas virtuais.
 - Estar conectado à Internet, diretamente ou por meio de um proxy.
 - Executar as correções descritas na KB [2961977](https://support.microsoft.com/pt-BR/kb/2961977 "KB2961977").
 
-### Pré-requisitos de máquina virtual
+## Pré-requisitos de máquina virtual
 
-As máquinas virtuais que você deseja proteger devem estar em conformidade com os [pré-requisitos para máquinas virtuais](site-recovery-best-practices.md#virtual-machines).
+As máquinas virtuais que você deseja proteger devem estar em conformidade com os [Requisitos de máquinas virtuais do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
-### Pré-requisitos de provedor e do agente
+## Pré-requisitos de provedor e do agente
 
 Como parte da implantação do Azure Site Recovery, você instalará o Provedor do Azure Site Recovery e o Agente dos Serviços de Recuperação do Azure em cada servidor Hyper-V. Observe que:
 
@@ -75,7 +74,7 @@ Como parte da implantação do Azure Site Recovery, você instalará o Provedor 
 
 O gráfico abaixo mostra os diferentes canais de comunicação e portas usados pela Recuperação de Site para coordenação e a replicação
 
-![Topologia B2A](./media/site-recovery-hyper-v-site-to-azure/B2ATopology.png)
+![Topologia B2A](./media/site-recovery-hyper-v-site-to-azure/b2a-topology.png)
 
 
 ## Etapa 1: criar um cofre
@@ -94,7 +93,7 @@ O gráfico abaixo mostra os diferentes canais de comunicação e portas usados p
 
 6. Clique em **Criar cofre**.
 
-	![Novo cofre](./media/site-recovery-hyper-v-site-to-azure/SR_HvVault.png)
+	![Novo cofre](./media/site-recovery-hyper-v-site-to-azure/vault.png)
 
 Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O cofre será listado como **Ativo** na página de Serviços de Recuperação.
 
@@ -103,15 +102,15 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 
 1. Na página Serviços de Recuperação, clique no cofre para abrir a página de Início Rápido. O Início Rápido pode também ser aberto a qualquer tempo usando o ícone.
 
-	![Início rápido](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_QuickStartIcon.png)
+	![Início rápido](./media/site-recovery-hyper-v-site-to-azure/quick-start-icon.png)
 
 2. Na lista suspensa, selecione **Entre um site do Hyper-V local e o Azure**.
 
-	![Cenário de site do Hyper-V](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_SelectScenario.png)
+	![Cenário de site do Hyper-V](./media/site-recovery-hyper-v-site-to-azure/select-scenario.png)
 
 3. Em **Criar um Site do Hyper-V**, clique em **Criar Site do Hyper-V**. Especifique um nome e salve.
 
-	![Site do Hyper-V](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateSite2.png)
+	![Site do Hyper-V](./media/site-recovery-hyper-v-site-to-azure/create-site.png)
 
 
 ## Etapa 3: instalar o Provedor e o agente
@@ -122,7 +121,7 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 1. Em **Preparar servidores Hyper-V**, clique em **Baixar um arquivo de chave de registro**.
 2. Na página **Baixar a Chave de Registro**, clique em **Baixar** ao lado do site. Baixe a chave para um local seguro onde possa ser facilmente acessada pelo servidor Hyper-V. A chave é válida para 5 dias após ser gerada.
 
-	![Chave de Registro](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_DownloadKey2.png)
+	![Chave de Registro](./media/site-recovery-hyper-v-site-to-azure/download-key.png)
 
 4. Clique em **Baixar o Provedor** para obter a versão mais recente.
 5. Execute o arquivo em cada servidor Hyper-V que você deseja registrar no cofre. O arquivo instala dois componentes:
@@ -130,33 +129,33 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 	- **Agente de Serviços de Recuperação do Azure** — Lida com o transporte de dados entre máquinas virtuais em execução no servidor de origem Hyper-V e o armazenamento do Azure.
 6. No **Microsoft Update** você pode optar por atualizações. Com essa configuração habilitada, o Provedor e o Agente de atualizações serão instaladas de acordo com a diretiva do Microsoft Update.
 
-	![Atualizações da Microsoft](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider1.png)
+	![Atualizações da Microsoft](./media/site-recovery-hyper-v-site-to-azure/provider1.png)
 
 7. Em **Instalação** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
 
-	![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider2.png)
+	![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
 8. Após a instalação continue para registrar o servidor no cofre.
 
-	![Instalação concluída](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider3.png)
+	![Instalação concluída](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
 
 9. Na página **Conexão com a Internet**, especifique como o Provedor se conecta ao Azure Site Recovery. Selecione **Usar configurações de proxy padrão do sistema** para usar as configurações de conexão com a Internet definidas no servidor. Se você não especificar um valor, as configurações padrão serão usadas.
 
-	![Configurações da Internet](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider4.png)
+	![Configurações da Internet](./media/site-recovery-hyper-v-site-to-azure/provider4.png)
 
 9. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
 
-	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_SelectKey.png)
+	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/select-key.png)
 
 
 11. Registro começa a registrar o servidor no cofre.
 
-	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider6.png)
+	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/provider5.png)
 
 11. Após a conclusão do registro, os metadados do servidor Hyper-V são recuperados pelo Azure Site Recovery e o servidor é exibido na guia **Sites do Hyper-V** da página **Servidores** no cofre.
 
-	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider7.png)
+	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/provider6.png)
 
 
 ### Instalar o provedor usando a linha de comando
@@ -190,7 +189,7 @@ Em que os parâmetros incluem:
 
 1. Na página **Preparar recursos**, selecione **Criar Conta de Armazenamento** para criar uma conta de armazenamento do Azure, caso você ainda não tenha uma. A conta deve ter a replicação geográfica habilitada. Ela deve estar na mesma região que o cofre do Azure Site Recovery e estar associada à mesma assinatura.
 
-	![Criar conta de armazenamento](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
+	![Criar conta de armazenamento](./media/site-recovery-hyper-v-site-to-azure/create-resources.png)
 
 >[AZURE.NOTE] Não há suporte para a movimentação de contas de Armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
 
@@ -203,7 +202,7 @@ Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você 
 
 2. Na guia **Grupos de Proteção**, adicione um grupo de proteção. Especifique um nome, o site de origem Hyper-V, o **Azure** de destino, o nome da sua assinatura do Azure Site Recovery e a conta de armazenamento do Azure.
 
-	![Grupo de proteção](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_ProtectionGroupCreate3.png)
+	![Grupo de proteção](./media/site-recovery-hyper-v-site-to-azure/protection-group.png)
 
 
 2. Em **Configurações de replicação**, defina a **Frequência de cópia** para especificar com que frequência o delta de dados deve ser sincronizado entre a origem e o destino. Você pode definir como 30 segundos, 5 minutos ou 15 minutos.
@@ -211,7 +210,7 @@ Grupos de proteção são agrupamentos lógicos de máquinas virtuais que você 
 4. Em **Frequência de instantâneos consistentes com o aplicativo**, é possível especificar se deve obter instantâneos que usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Por padrão, eles não obtidos. Defina essa opção com um valor menor do que o número dos pontos de recuperação adicionais que você configurar. Isso só terá suporte se a máquina virtual estiver sendo executada um sistema operacional Windows.
 5. Em **Hora de início da replicação**, especifique quando a replicação inicial das máquinas virtuais no grupo de proteção deve ser enviada ao Azure.
 
-	![Grupo de proteção](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_ProtectionGroup4.png)
+	![Grupo de proteção](./media/site-recovery-hyper-v-site-to-azure/protection-group2.png)
 
 
 ## Etapa 6: habilitar a proteção da máquina virtual
@@ -224,7 +223,7 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 1. Na guia **Máquinas** do grupo de proteção, clique em **Adicionar máquinas virtuais aos grupos de proteção para habilitar a proteção**.
 2. Na página **Habilitar Proteção da Máquina Virtual** selecione as máquinas virtuais que você deseja proteger.
 
-	![Habilitar a proteção da máquina virtual](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_AddVM3.png)
+	![Habilitar a proteção da máquina virtual](./media/site-recovery-hyper-v-site-to-azure/add-vm.png)
 
 	Os trabalhos de Habilitar a Proteção são iniciados. Você pode acompanhar o andamento na guia **Trabalhos**. Após o trabalho de Finalizar Proteção ser executado, a máquina virtual está pronta para failover.
 3. Após a configuração da proteção, é possível:
@@ -234,7 +233,7 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 		- **Nome**: o nome da máquina virtual no Azure.
 		- **Tamanho**: o tamanho de destino da máquina virtual que executa o failover.
 
-		![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
+		![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure/vm-properties.png)
 	- Defina as configurações adicionais de máquina virtual em *Itens Protegidos* > **Grupos de Proteção** > *nome\_grupodeproteção* > **Máquinas Virtuais** *nome\_da\_máquina\_virtual* > **Configurar**, incluindo.
 
 		- **Adaptadores de rede**: o número de adaptadores de rede é determinado pelo tamanho especificado para a máquina virtual de destino. Verifique o número de nics com suporte pelo tamanho da máquina virtual nas [especificações de tamanho de máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md#size-tables).
@@ -250,7 +249,7 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
 		- **Sub-rede** Para cada adaptador de rede na máquina virtual, selecione a sub-rede na rede do Azure à qual a máquina deve se conectar após o failover.
 		- **Endereço IP de destino**: se o adaptador de rede da máquina virtual de origem estiver configurado para usar um endereço IP estático, você poderá especificar o endereço IP da máquina virtual de destino para garantir que a máquina tenha o mesmo endereço IP após o failover. Se você não especificar um endereço IP, qualquer endereço disponível no momento será atribuído durante o failover. Se você especificar um endereço que está sendo usado, o failover falhará.
 
-		![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
+		![Configurar as propriedades da máquina virtual](./media/site-recovery-hyper-v-site-to-azure/multiple-nic.png)
 
 
 
@@ -278,7 +277,7 @@ Execute o failover de teste da seguinte maneira:
 1. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
 2. Na página **Confirmar Failover de Teste**, selecione **Nenhum** ou uma rede específica do Azure. Observe que, se você selecionar **Nenhum**, o failover de teste verificará se a máquina virtual foi replicada corretamente para o Azure, mas não verificará sua configuração de rede de replicação.
 
-	![Failover de teste](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_TestFailoverNoNetwork.png)
+	![Failover de teste](./media/site-recovery-hyper-v-site-to-azure/test-nonetwork.png)
 
 3. Na guia **Trabalhos**, você pode acompanhar o progresso do failover. Você também deverá ver a réplica de teste de máquina virtual no portal do Azure. Se tiver configurado para máquinas virtuais de acesso a rede local, você pode iniciar uma conexão de área de trabalho remota para a máquina virtual.
 4. Quando o failover atinge a fase **Teste completo**, clique em **Teste Completo** para concluir o failover de teste. Você pode fazer uma busca detalhada na guia **Trabalho** para acompanhar o progresso e o status do failover, e para realizar as ações necessárias.
@@ -303,4 +302,4 @@ Execute o failover de teste da seguinte maneira:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

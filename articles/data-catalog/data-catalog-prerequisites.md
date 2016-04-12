@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # O que é necessário para começar a usar o Catálogo de Dados do Azure?
@@ -42,4 +42,4 @@ Para obter mais informações, consulte [Configurando políticas de autenticaç�
 ## Assinatura do Azure
 As assinaturas do Azure ajudam a organizar o acesso aos recursos de serviço de nuvem como o Catálogo de Dados do Azure. Eles também ajudam a controlar como o uso de recursos é reportado, cobrado e pago. Cada assinatura pode ter uma configuração diferente de cobrança e pagamento, assim você pode ter diferentes assinaturas e planos diferentes por departamento, projeto, escritório regional, etc. Cada serviço de nuvem pertence a uma assinatura, e você precisa ter uma assinatura antes de configurar o Catálogo de Dados do Azure. Para saber mais, consulte [Gerenciar contas, assinaturas e funções administrativas](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

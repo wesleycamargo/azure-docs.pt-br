@@ -81,6 +81,10 @@ Use Basic ou um tipo de preço mais alto para aplicativos Web. Para o ClearDB, r
 
 Você pode usar o [Assistente de Atualização do ClearDB](https://www.cleardb.com/store/azure/upgrade). Atualmente, não temos um caminho de atualização no portal do Azure.
 
+## Por que não consigo ver meu banco de dados ClearDB no Portal do Azure?
+
+Se criarmos o banco de dados ClearDB usando o Azure Resource Manager ou o [novo Portal do Azure](https://portal.azure.com), ele não será visível no [antigo Portal do Azure](https://manage.windowsazure.com). Para solucionar o problema, este tem o objetivo de vincular seu banco de dados manualmente ao aplicativo Web. Da mesma forma, se criar o banco de dados ClearDB no [portal antigo](https://manage.windowsazure.com), você não será capaz de ver seu banco de dados no [novo Portal do Azure](https://portal.azure.com). Não há nenhuma solução alternativa para o segundo cenário.
+
 ## Quem devo contatar para obter suporte quando meu banco de dados ficar inativo?
 
 Entre em contato com o [Suporte do ClearDB](https://www.cleardb.com/developers/help/support) para quaisquer problemas relacionados ao banco de dados. Esteja preparado para fornecer as informações de sua assinatura do Azure.
@@ -89,13 +93,17 @@ Entre em contato com o [Suporte do ClearDB](https://www.cleardb.com/developers/h
 
 Não. Não é possível criar usuários adicionais, mas você pode criar bancos de dados adicionais no cluster do banco de dados ClearDB.
 
+## Os bancos de dados das séries Basic/Pro podem ser atualizados no local semelhante aos planos Planetary atualmente no portal ClearDB?
+
+Sim, a série de bancos de dados Basic pode ser atualizada no local (Basic 60 à Basic 500). A série Pro pode ser atualizada no local (Pro 125 à Pro 1000), com exceção da Pro 60. Não damos suporte para atualizar o banco de dados Pro 60 atualmente.
+
 ## Quando migrar meus recursos de uma assinatura para outra, meu banco de dados MySQL ClearDB será migrado também?  
 
-Quando você executar recursos de migração entre assinaturas, mas serão aplicadas algumas [limitações](app-service-move-resources.md). O banco de dados MySQL ClearDB é um serviço de terceiros e, portanto, não será migrado durante a migração da assinatura do Azure. Se você não gerenciar a migração do banco de dados MySQL antes da migração de recursos do Azure, seus bancos de dados MySQL ClearDB poderão ser desabilitados. Primeiro, migre manualmente os bancos de dados e, em seguida, realize a migração da assinatura do Azure para seu aplicativo Web.
+Quando você executar recursos de migração entre assinaturas, serão aplicadas algumas [limitações](./app-service-web/app-service-move-resources.md). O banco de dados MySQL ClearDB é um serviço de terceiros e, portanto, não será migrado durante a migração da assinatura do Azure. Se você não gerenciar a migração do banco de dados MySQL antes da migração de recursos do Azure, seus bancos de dados MySQL ClearDB poderão ser desabilitados. Primeiro, migre manualmente os bancos de dados e, em seguida, realize a migração da assinatura do Azure para seu aplicativo Web.
 
 ## Posso adquirir o WordPress Escalonável com uma assinatura do Enterprise Agreement (EA)?
 
-O processo é o mesmo para qualquer assinatura. Acesse o Azure Marketplace no [portal do Azure](https://portal.azure.com/) e selecione [WordPress Escalonável](https://portal.azure.com/?feature.customportal=false#create/WordPress.ScalableWordPress) para começar a criar o aplicativo. O WordPress Escalonável oferece suporte apenas aos tipos de preço Saturn e Jupiter do ClearDB, e seus créditos de EA irão para seu aplicativo Web em execução no tipo de preço Aplicativos Web Padrão e no banco de dados MySQL (compartilhado) ClearDB.[/marketplace/faq/](/marketplace/faq/) Você receberá uma cobrança em sua EA a cada trimestre com todas as compras na Store em uma fatura consolidada e separada.
+O processo é o mesmo para qualquer assinatura. Acesse o Azure Marketplace no [Portal do Azure](https://portal.azure.com/) e selecione [WordPress Escalonável](https://portal.azure.com/?feature.customportal=false#create/WordPress.ScalableWordPress) para começar a criar o aplicativo. O WordPress Escalonável dá suporte apenas aos tipos de preço Saturn e Jupiter do ClearDB e seus créditos de EA serão empregados no aplicativo Web em execução no tipo de preço Aplicativos Web Padrão e no banco de dados MySQL (compartilhado) ClearDB.[/marketplace/faq/](/marketplace/faq/) Você receberá uma cobrança em sua EA a cada trimestre com todas as compras na Store em uma fatura consolidada e separada.
 
 ## Posso transferir um banco de dados ClearDB de uma assinatura de cartão de crédito para uma assinatura de EA?
 
@@ -112,16 +120,20 @@ Quando você cria um novo aplicativo Web com o MySQL (ClearDB) ou cria um banco 
 
 Para clientes diretos do EA, os encargos do Azure Marketplace ficam visíveis no Portal Empresarial. Observe que todas as compras e consumo no marketplace são faturadas fora do Compromisso monetário e são cobradas trimestralmente e mediante inadimplência. Os clientes de EA precisam pagar diretamente aos provedores de serviços de terceiros e podem fazer isso habilitando um método de pagamento, como um cartão de crédito, com suas contas EA.
 
-Clientes indiretos do EA podem encontrar suas assinaturas do Azure Marketplace na página **Gerenciar Assinaturas** do Portal Empresarial, mas os preços ficam ocultos. Os clientes devem entrar em contato com seus LSPs para saber mais sobre encargos do Marketplace.
+Os clientes indiretos do EA podem encontrar suas assinaturas do Azure Marketplace na página **Gerenciar Assinaturas** do Portal Empresarial, mas os preços ficam ocultos. Os clientes devem entrar em contato com seus LSPs para saber mais sobre encargos do Marketplace.
 
 O acesso ao Azure Marketplace para serviços de terceiros pode ser gerenciado por seus administradores de registro do EA Azure. Eles podem desabilitar ou reabilitar o acesso a compras de terceiros no Armazenamento em Gerenciar Contas e Assinaturas na seção Contas no Portal Empresarial.
 
 ## Quem devo contatar para perguntas sobre minha fatura para serviços do ClearDB em minha assinatura do EA?
 
-Contate o [Atendimento ao Cliente Corporativo](http://aka.ms/AzureEntSupport) sobre a cobrança em sua inscrição no EA. A Equipe de Suporte do Portal de EA responderá à sua pergunta ou ajudará a resolver o problema.
+Entre em contato com o [Atendimento ao Cliente Corporativo](http://aka.ms/AzureEntSupport) sobre a cobrança em seu registro no EA. A Equipe de Suporte do Portal de EA responderá à sua pergunta ou ajudará a resolver o problema.
+
+ 
+
+
 
 ## Mais informações
 
 [Perguntas frequentes sobre o Azure Marketplace](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

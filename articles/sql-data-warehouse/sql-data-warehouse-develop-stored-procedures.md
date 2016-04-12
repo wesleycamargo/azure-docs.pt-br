@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Procedimentos armazenados no SQL Data Warehouse
@@ -38,11 +38,11 @@ O SQL Data Warehouse oferece suporte a um máximo de 8 níveis de aninhamento. I
 
 A chamada de procedimento armazenado de nível superior é igual ao nível 1 de aninhamento
 
-```
+```sql
 EXEC prc_nesting
 ```
 Se o procedimento armazenado também fizer outra chamada EXEC, isso aumentará o nível de aninhamento para 2
-```
+```sql
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
@@ -50,7 +50,7 @@ GO
 EXEC prc_nesting
 ```
 Se o segundo procedimento então executar algum sql dinâmico, isso aumentará o nível de aninhamento para 3
-```
+```sql
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -97,4 +97,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

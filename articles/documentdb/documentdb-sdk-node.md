@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/08/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # SDK do Banco de Dados de Documentos
@@ -36,6 +36,10 @@
 </table></br>
 
 ##Notas de versão
+
+###<a name="1.6.0"/>1.6.0</a>
+- [Coleções particionadas](documentdb-partition-data.md) implementadas e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md). 
+
 ###<a name="1.5.6"/>1.5.6</a>
 
 - O bug RangePartitionResolver.resolveForRead foi corrigido, pois ele não estava retornando links devido a uma concatenação incorreta dos resultados
@@ -124,27 +128,28 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.5.6](#1.5.6) | 8 de março de 2016 |---
-| [1\.5.5](#1.5.5) | 2 de fevereiro de 2016 |---
-| [1\.5.4](#1.5.4) | 1º de fevereiro de 2016 |---
-| [1\.5.2](#1.5.2) | 26 de janeiro de 2016 |---
+| [1\.6.0](#1.6.0) | 29 de março de 2016 |--- 
+| [1\.5.6](#1.5.6) | 8 de março de 2016 |--- 
+| [1\.5.5](#1.5.5) | 2 de fevereiro de 2016 |--- 
+| [1\.5.4](#1.5.4) | 1 de fevereiro de 2016 |--- 
+| [1\.5.2](#1.5.2) | 26 de janeiro de 2016 |--- 
 | [1\.5.2](#1.5.2) | 22 de janeiro de 2016 |---
-| [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |---
-| [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |---
-| [1\.4.0](#1.4.0) | 6 de outubro de 2015 |---
-| [1\.3.0](#1.3.0) | 6 de outubro de 2015 |---
-| [1\.2.2](#1.2.2) | 10 de setembro de 2015 |---
-| [1\.2.1](#1.2.1) | 15 de agosto de 2015 |---
-| [1\.2.0](#1.2.0) | 5 de agosto de 2015 |---
-| [1\.1.0](#1.1.0) | 9 de julho de 2015 |---
-| [1\.0.3](#1.0.3) | 4 de junho de 2015 |---
-| [1\.0.2](#1.0.2) | 23 de maio de 2015 |---
-| [1\.0.1](#1.0.1) | 15 de maio de 2015 |---
-| [1\.0.0](#1.0.0) | 8 de abril de 2015 |---
-| 0.9.4-prelease | 6 de abril de 2015 | 29 de fevereiro de 2016
-| 0.9.3-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016
-| 0.9.2-prelease | 18 de dezembro de 2014 | 29 de fevereiro de 2016
-| 0.9.1-prelease | 22 de agosto de 2014 | 29 de fevereiro de 2016
+| [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |--- 
+| [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |--- 
+| [1\.4.0](#1.4.0) | 6 de outubro de 2015 |--- 
+| [1\.3.0](#1.3.0) | 6 de outubro de 2015 |--- 
+| [1\.2.2](#1.2.2) | 10 de setembro de 2015 |--- 
+| [1\.2.1](#1.2.1) | 15 de agosto de 2015 |--- 
+| [1\.2.0](#1.2.0) | 5 de agosto de 2015 |--- 
+| [1\.1.0](#1.1.0) | 9 de julho de 2015 |--- 
+| [1\.0.3](#1.0.3) | 4 de junho de 2015 |--- 
+| [1\.0.2](#1.0.2) | 23 de maio de 2015 |--- 
+| [1\.0.1](#1.0.1) | 15 de maio de 2015 |--- 
+| [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- 
+| 0.9.4-prelease | 6 de abril de 2015 | 29 de fevereiro de 2016 
+| 0.9.3-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016 
+| 0.9.2-prelease | 18 de dezembro de 2014 | 29 de fevereiro de 2016 
+| 0.9.1-prelease | 22 de agosto de 2014 | 29 de fevereiro de 2016 
 | 0.9.0-prelease | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
 
@@ -155,4 +160,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

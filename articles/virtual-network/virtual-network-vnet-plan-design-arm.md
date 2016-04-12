@@ -215,7 +215,7 @@ De acordo com esses requisitos, é necessário ter uma assinatura para cada unid
 
 ![Assinatura única](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
-Você também precisa especificar o espaço de endereço para cada rede virtual. Como você precisa de centros de conectividade entre os dados locais e as regiões do Azure, o espaço de endereço usado para redes virtuais do Azure não pode estar em conflito com o local e o espaço de endereço usado por cada rede virtual não deve estar em conflito com outras redes virtuais existentes. Você pode usar os espaços de endereço na tabela a seguir para atender a esses requisitos.
+Você também precisa especificar o espaço de endereço para cada rede virtual. Já que você precisa de conectividade entre os datacenters locais e as regiões do Azure, o espaço de endereço utilizado para as Redes Virtuais do Azure não pode estar em conflito com a rede local, e o espaço de endereço utilizado por cada Rede Virtual não deve estar em conflito com outras Redes Virtuais existentes. Você pode usar os espaços de endereço na tabela a seguir para atender a esses requisitos.
 
 |**Assinatura**|**Rede virtual**|**Região do Azure**|**Espaço de endereço**|
 |---|---|---|---|
@@ -265,4 +265,4 @@ Com base nesses requisitos, você pode adicionar usuários da equipe de rede par
 - Saiba mais sobre [NSGs e como planejar e projetar](virtual-networks-nsg.md) uma solução NSG.
 - Saiba mais sobre os [Locais cruzados e opções de conectividade de rede virtual](../vpn-gateway/vpn-gateway-cross-premises-options.md).  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -3,7 +3,7 @@
    description="Introdução ao SQL Data Warehouse e execução de algumas consultas."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="03/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Conectar-se ao SQL Data Warehouse com o Visual Studio
@@ -22,7 +22,7 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Este passo a passo mostra como se conectar e consultar um banco de dados do SQL Data Warehouse do Azure em apenas alguns minutos usando o SQL Server Data Tools no Visual Studio. Uma vez conectado, você executará uma consulta simples.
+Este passo a passo mostra como se conectar e consultar um banco de dados do SQL Data Warehouse do Azure em apenas alguns minutos usando o SSDT (SQL Server Data Tools) no Visual Studio. Uma vez conectado, você executará uma consulta simples.
 
 ## Pré-requisitos
 
@@ -57,7 +57,7 @@ Para obter a melhor experiência, use o Visual Studio 2015 com a [Atualização 
 
     ![Conectar-se ao servidor][4]
 
-    - **Nome do servidor**. Insira o *nome do servidor* localizado anteriormente.
+    - **Nome do servidor**. Insira o *nome do servidor* identificado anteriormente.
     - **Autenticação**. Selecione Autenticação do SQL Server.
     - **Nome de usuário** e **Senha**. Insira o nome de usuário e a senha para o servidor SQL do Azure.
     - **Nome do Banco de Dados** Insira o nome do banco de dados para o banco de dados SQL DW.
@@ -70,7 +70,7 @@ Para obter a melhor experiência, use o Visual Studio 2015 com a [Atualização 
 
 ## Etapa 3: Executar uma consulta de exemplo
 
-Agora que nos conectamos ao servidor, prosseguiremos e escreveremos uma consulta.
+Agora que uma conexão foi estabelecida para o banco de dados, vamos prosseguir e escrever uma consulta.
 
 1. Clique com o botão direito do mouse em seu banco de dados no Gerenciador de Objetos do SQL Server.
 
@@ -110,4 +110,4 @@ Agora que você pode se conectar e consultar, tente [visualizar os dados com o P
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

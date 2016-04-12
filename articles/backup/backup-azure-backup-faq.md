@@ -1,12 +1,12 @@
 <properties
    pageTitle="Perguntas frequentes do Backup do Azure | Microsoft Azure"
-   description="Respostas para perguntas frequentes sobre agente de backup, backup e retenção, recuperação, segurança e outras perguntas comuns sobre a solução de Backup do Azure."
+   description="Respostas para perguntas frequentes sobre o serviço de backup, o agente de backup, o backup e a retenção, a recuperação, a segurança e outras perguntas comuns sobre backup e recuperação de desastre."
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="solução de backup; serviço de backup"/>
+   keywords="backup e recuperação de desastre; serviço de backup"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,15 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/24/2016"
+	 ms.date="03/30/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Serviço de Backup do Azure - Perguntas frequentes
+
+> [AZURE.SELECTOR]
+- [Perguntas frequentes sobre backup para o modo Clássico](backup-azure-backup-faq.md)
+- [Perguntas frequentes sobre backup para o modo ARM](backup-azure-backup-ibiza-faq.md)
+
 Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) sobre o serviço de Backup do Azure. Nossa comunidade responde rapidamente, e se uma pergunta for feita com frequência, nós a adicionaremos a este artigo. As respostas às perguntas normalmente fornecem referência ou informações de suporte. Você pode fazer perguntas sobre o Backup do Azure na seção Disqus deste artigo ou do artigo relacionado. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## Instalação e configuração
@@ -38,7 +43,7 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 |Windows Server 2008 R2 SP1 |64 bits|	Standard, Enterprise, Datacenter, Foundation|
 |Windows Server 2008 SP2 |64 bits|	Standard, Enterprise, Datacenter, Foundation|
 
-**P2. Onde posso baixar o agente mais recente do Backup do Azure?** <br/> R2. Você pode baixar o agente mais recente para fazer backup do Windows Server, do System Center DPM ou do cliente Windows [aqui](http://aka.ms/azurebackup_agent). Se você quiser fazer backup de uma máquina virtual, use o Agente de VM (que instala automaticamente a extensão apropriada). O Agente de VM já está presente em máquinas virtuais criadas na galeria do Azure.
+**P2. Onde posso baixar o agente mais recente do Backup do Azure?** <br/> R2. Você pode baixar o agente mais recente para fazer backup do Windows Server, do System Center DPM ou do cliente Windows [daqui](http://aka.ms/azurebackup_agent). Se você quiser fazer backup de uma máquina virtual, use o Agente de VM (que instala automaticamente a extensão apropriada). O Agente de VM já está presente em máquinas virtuais criadas na galeria do Azure.
 
 **P3. Qual versão do servidor SCDPM tem suporte?** <br/> R3. Recomendamos que você instale o agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) no pacote cumulativo de atualizações mais recente do SCDPM (UR6 de julho de 2015)
 
@@ -54,7 +59,7 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P9. Como registro meu servidor em outro datacenter?**<br/> R9. Os dados de backup são enviados para o datacenter do Serviço de Backup no qual estão registrados. A maneira mais fácil de alterar o datacenter é desinstalar e reinstalar o agente e registrar-se em um novo datacenter.
 
-**P10. O que acontece se eu renomear um servidor Windows que está fazendo backup de dados no Azure?** R10. Ao renomear um servidor, todos os backups configurados atualmente serão interrompidos. Será necessário registrar o novo nome do servidor no Cofre de Backup. Quando você cria um novo registro, a primeira operação de backup é um backup completo, não um backup incremental. Se você precisar recuperar os dados incluídos em backups anteriores no cofre com o nome antigo do servidor, poderá recuperá-los usando a opção [**Outro servidor**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) no assistente **Recuperar Dados**.
+**P10. O que acontece se eu renomear um servidor Windows que está fazendo backup de dados no Azure?**<br/> R10. Ao renomear um servidor, todos os backups configurados atualmente serão interrompidos. Será necessário registrar o novo nome do servidor no Cofre de Backup. Quando você cria um novo registro, a primeira operação de backup é um backup completo, não um backup incremental. Se você precisar recuperar os dados incluídos em backups anteriores no cofre com o nome antigo do servidor, poderá recuperá-los usando a opção [**Outro servidor**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) no assistente **Recuperar Dados**.
 
 
 **P11. Em que tipos de unidades posso fazer backup de arquivos e pastas?** <br/> R11. Não é possível fazer backup do seguinte conjunto de unidades/volumes:
@@ -91,7 +96,7 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P18. Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos?** <br/> R18: Não. O cofre de backup armazena o backup dos dados transferidos até o ponto do cancelamento. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo backup acionado seria incremental em relação os dados cujo backup foi realizado anteriormente. Um backup incremental fornece uma melhor utilização da largura de banda, para que você não precise transferir os mesmos dados repetidamente.
 
-**P19. Por que vejo o aviso "Não foram configurados Backups do Azure para esse servidor" embora tenha agendado backups regulares anteriormente?** <br/> R19: esse aviso ocorre quando as configurações de agendamento de backup armazenadas no servidor local não são iguais às configurações armazenadas no cofre de backup. Quando o servidor ou as configurações tiverem sido recuperadas para um bom estado conhecido, os agendamentos de backup podem perder a sincronização. Se você receber esse aviso, [reconfigure a política de backup](backup-azure-backup-windows-server.md) e escolha **Executar o Backup Agora** para sincronizar novamente o servidor local com o Azure.
+**P19. Por que vejo o aviso "Não foram configurados Backups do Azure para esse servidor" embora tenha agendado backups regulares anteriormente?** <br/> R19: Esse aviso ocorre quando as configurações de agendamento de backup armazenadas no servidor local não são iguais às configurações armazenadas no cofre de backup. Quando o servidor ou as configurações tiverem sido recuperadas para um bom estado conhecido, os agendamentos de backup podem perder a sincronização. Se você receber esse aviso, [reconfigure a política de backup](backup-azure-backup-windows-server.md) e escolha **Executar o Backup Agora** para sincronizar novamente o servidor local com o Azure.
 
 **P20. Quais regras de firewall devem ser configuradas para o Backup do Azure?** <br/> R20. Para obter proteção contínua de dados no local para o Azure e da carga de trabalho para o Azure, é recomendável permitir que seu firewall se comunique com as seguintes URLs:
 
@@ -139,7 +144,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 **P5. Posso configurar minhas políticas de retenção de forma seletiva – ou seja, configurar semanal e diária, mas não anual e mensal?**<br/> R5. Sim, a estrutura de retenção de Backup do Azure permite que você tenha total flexibilidade na definição da política de retenção de acordo com suas necessidades.
 
-**P6. Posso “agendar um backup” às 18h e especificar “políticas de retenção” em um momento diferente?**<br/> R6. Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Na imagem a seguir, a política de retenção é especificada para backups realizados à 00h e às 18h. <br/>
+**P6. Posso “agendar um backup” às 18h e especificar “políticas de retenção” em um momento diferente?**<br/> R6. Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Na imagem a seguir, a política de retenção é especificada para backups realizados à meia-noite e às 18h. <br/>
 
 ![Retenção e agendamento de Backup](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
@@ -153,7 +158,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 **P11. Por que a quantidade de dados transferida no backup não é igual à quantidade de dados da qual fiz backup?**<br/> A11. Todos os dados que passam por backup são compactados e criptografados antes de serem transferidos. Depois que a compactação e a criptografia forem aplicadas, os dados no cofre de backup serão de 30 a 40% menores.
 
-**P12. Há uma maneira de ajustar a quantidade de largura de banda usada pelo serviço de Backup?**<br/> R12. Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Ajuste a quantidade de largura de banda e os horários quando você usa essa largura de banda. Confira [Limitação de rede](../backup-configure-vault.md#enable-network-throttling) para obter mais informações.
+**P12. Há uma maneira de ajustar a quantidade de largura de banda usada pelo serviço de Backup?**<br/> R12. Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Ajuste a quantidade de largura de banda e os horários quando você usa essa largura de banda. Confira [Limitação de rede](../backup-configure-vault.md#enable-network-throttling) para saber mais.
 
 
 ## Recuperação
@@ -192,4 +197,4 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
   Assim que a criação do backup for concluída com êxito no novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

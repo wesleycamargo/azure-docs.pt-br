@@ -1,5 +1,5 @@
 
-Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](virtual-machines-linux-about-disks-vhds.md).
+Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 ##<a id="attachempty"></a>Tutorial: anexar um disco vazio
 
@@ -54,4 +54,4 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 
 	![Disco de dados anexado com êxito](./media/howto-attach-disk-windows-linux/AttachExistingSuccess.png)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Design da tabela no SQL Data Warehouse #
@@ -59,7 +59,7 @@ O SQL Data Warehouse oferece suporte aos tipos comuns de dados corporativos:
 
 É possível identificar colunas no seu data warehouse que contenham tipos incompatíveis usando a seguinte consulta:
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -138,7 +138,7 @@ A distribuição round robin é um método de propagação de dados de máxima u
 
 Veja abaixo um exemplo de tabela distribuída por round robin:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -158,7 +158,7 @@ WITH
 
 Este também é um exemplo de uma tabela distribuída por round robin:
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -205,7 +205,7 @@ Você verá abaixo que a distribuição de hash pode ser muito eficiente para ot
 
 Veja abaixo uma tabela que foi distribuída por hash, por ProductKey.
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -230,7 +230,7 @@ As partições de tabela recebem suporte e são fáceis de definir.
 
 Exemplo de comando `CREATE TABLE` particionado do SQL Data Warehouse :
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -306,4 +306,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

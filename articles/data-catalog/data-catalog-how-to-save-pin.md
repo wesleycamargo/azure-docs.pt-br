@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Como salvar pesquisas e fixar ativos de dados"
+   pageTitle="Como salvar as pesquisas e fixar os ativos de dados | Microsoft Azure"
    description="Artigo de instruções que destaca recursos do Catálogo de Dados do Azure para salvar fontes de dados e ativos de dados para reutilização posterior."
    services="data-catalog"
    documentationCenter=""
@@ -76,4 +76,4 @@ A home page do portal do Catálogo de Dados do Azure inclui uma seção "Meus At
 ## Resumo
 O Catálogo de Dados do Azure fornece recursos que tornam mais fácil para os usuários descobrir as fontes de dados de que precisam. Assim, eles podem gastar menos tempo procurando dados e mais tempo trabalhando com eles. As pesquisas salvas e os ativos de dados fixados se baseiam nesses recursos principais para que os usuários possam facilmente identificar fontes de dados com as quais trabalharão repetidamente.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

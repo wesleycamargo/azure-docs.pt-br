@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/28/2016"
     ms.author="elizapo" />
 
 
@@ -29,4 +29,4 @@ Confira as informações a seguir para confirmar se sua VNET está configurada e
 - [Migrar de uma VNET pessoal para uma VNET do Azure](remoteapp-migratevnet.md)
 - [Validar o VNET do Azure para usar com o RemoteApp do Azure](remoteapp-vnet.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-----------HONumber=AcomDC_0330_2016-->

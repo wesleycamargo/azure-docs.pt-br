@@ -243,4 +243,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

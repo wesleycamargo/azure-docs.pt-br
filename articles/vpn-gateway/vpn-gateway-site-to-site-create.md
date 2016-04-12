@@ -20,8 +20,10 @@
 # Criar uma rede virtual com uma conexão VPN site a site usando o portal clássico do Azure
 
 > [AZURE.SELECTOR]
-- [Portal Clássico do Azure](vpn-gateway-site-to-site-create.md)
+- [Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Portal do Azure - Clássico](vpn-gateway-site-to-site-create.md)
 - [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+
 
 Este artigo o orientará pela criação de uma rede virtual e de uma conexão VPN site a site com sua rede local. As conexões site a site podem ser usadas para configurações entre instalações e híbridas. Este artigo se aplica ao modelo de implantação clássico e usa o portal clássico do Azure.
 
@@ -46,7 +48,7 @@ Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
 -  Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
 
-- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou se inscrever para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Criar sua rede virtual
@@ -105,6 +107,6 @@ Em seguida, você configurará o gateway de rede virtual para criar uma conexão
 
 ## Próximas etapas
 
-Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Confira a documentação de [Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para obter mais informações.
+Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Confira a documentação de [Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para saber mais.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

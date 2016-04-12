@@ -13,12 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/15/2015"
+   ms.date="03/23/2016"
    ms.author="yuemlu"/>
 
 # Sistema operacional convidado do Azure 
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## SO convidado de março 
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-023 | [3142015] | Atualização de segurança cumulativa do Internet Explorer | 4\.30, 3.37, 2.49 | 8 de março de 2016 |  
+| MS16-026 | [3143148] | Atualização de segurança para o Graphic Fonts para tratar da execução remota de código | 4\.30, 3.37, 2.49 | 8 de março de 2016 |  
+| MS16-027 | [3143146] | Atualização de segurança para Windows Media Player para tratar da execução remota de código | 4\.30, 3.37, 2.49 | 8 de março de 2016 |  
+| MS16-028 | [3143081] | Atualização de segurança para a Biblioteca de PDF do Microsoft Windows para tratar da execução remota de código | 4\.30, 3.37 | 8 de março de 2016 |  
+| MS16-030 | [3143136] | Atualização de segurança para Windows OLE para tratar da execução remota de código | 4\.30, 3.37, 2.49 | 8 de março de 2016 |  
+| MS16-031 | [3140410] | Atualização de segurança para Microsoft Windows para tratar da elevação de privilégio | 2\.49 | 8 de março de 2016 |  
+| MS16-032 | [3143141] | Atualização de segurança para o Logon secundário para tratar da elevação de privilégio | 4\.30, 3.37, 2.49 | 8 de março de 2016 |  
+| MS16-033 | [3143142] | Atualização de segurança para o Driver de Classe de Armazenamento em Massa USB para tratar da elevação de privilégio | 4\.30, 3.37, 2.49 | 8 de março de 2016 |  
+| MS16-034 | [3143145] | Atualizações de segurança para o Driver de Modo Kernel para tratar da elevação de privilégio | 4\.30, 3.37, 2.49 | 8 de março de 2016 | | MS16-035 | [3141780] | Atualização de segurança para o .NET Framework para tratar do bypass do recurso de segurança | 4\.30, 3.37, 2.49 | 8 de março de 2016 |  
 
 
 ## SO convidado de fevereiro
@@ -242,6 +256,18 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
+
+[3142015]: http://support.microsoft.com/kb/3142015
+[3143148]: http://support.microsoft.com/kb/3143148
+[3143146]: http://support.microsoft.com/kb/3143146
+[3143081]: http://support.microsoft.com/kb/3143081
+[3143136]: http://support.microsoft.com/kb/3143136
+[3140410]: http://support.microsoft.com/kb/3140410
+[3143141]: http://support.microsoft.com/kb/3143141
+[3143142]: http://support.microsoft.com/kb/3143142
+[3143145]: http://support.microsoft.com/kb/3143145
+[3141780]: http://support.microsoft.com/kb/3141780
+
 [3134220]: http://support.microsoft.com/kb/3134220
 [3134811]: http://support.microsoft.com/kb/3134811
 [3134228]: http://support.microsoft.com/kb/3134228
@@ -406,4 +432,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

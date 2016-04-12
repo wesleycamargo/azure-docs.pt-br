@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Criar uma nova API de Outlook do Office 365 no PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/create-api-office365-outlook.md)
+- [Aplicativos lógicos](../articles/connectors/connectors-create-api-office365-outlook.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
 
 Adicione a API do Office 365 Outlook ao ambiente de serviço de aplicativo (locatário) da sua organização.
@@ -101,7 +101,8 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 
 10. De volta na página de configuração, observe que o _Office 365 Exchange Online_ é adicionado na lista _Permissão para outros aplicativos_.
 
-11. Selecione **Permissões delegadas** para o _Office 365 Exchange Online_ e selecione as seguintes permissões:  
+11. Selecione **Permissões delegadas** para o _Office 365 Exchange Online_ e selecione as seguintes permissões:
+
 	- Ler e gravar contatos do usuário
 	- Ler contatos do usuário
 	- Ler e gravar calendários do usuário
@@ -118,7 +119,7 @@ Algumas informações úteis sobre os aplicativos do AAD em [Como e por que os a
 
 ## Consulte as APIs REST
 
-Referência da [API REST do office 365 Outlook](../connectors/create-api-office365-outlook.md).
+Referência da [API REST do Outlook do Office 365](../connectors/connectors-create-api-office365-outlook.md).
 
 
 ## Resumo e próximas etapas
@@ -143,7 +144,4 @@ Neste tópico, você adicionou a API do Outlook do Office 365 ao PowersApps Ente
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!-----HONumber=AcomDC_0309_2016-->
-
-
-
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -36,7 +36,7 @@ Nosso objetivo com o Serviço de Contêiner do Azure é fornecer um ambiente de 
 Criando um Cluster do Docker usando o Serviço de Contêiner do Azure
 -------------------------------------------------------
 
-Para começar a usar o Serviço de Contêiner do Azure, um cluster ACS será implantado usando um modelo do Gerenciador de Recursos do Azure. Essa implantação pode ser configurada com opções de tamanho e de disponibilidade diferentes e será configurada com o Apache Mesos ou o Docker Swarm. Os Modelos do Azure Resource Manager podem ser implantados por meio do portal do Azure, usando a CLI do Azure ou com o PowerShell. Os modelos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para saber mais sobre implantação e o cluster ACS, confira [Implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md).
+Para começar a usar o Serviço de Contêiner do Azure, um cluster ACS será implantado usando um modelo do Gerenciador de Recursos do Azure. Essa implantação pode ser configurada com diferentes opções de tamanho e de disponibilidade e será configurada com o Apache Mesos ou o Docker Swarm. Os Modelos do Azure Resource Manager podem ser implantados por meio do portal do Azure, usando a CLI do Azure ou com o PowerShell. Os modelos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para saber mais sobre implantação e o cluster ACS, confira [Implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md).
 
 Implantando um aplicativo
 ------------------------
@@ -101,4 +101,4 @@ Introdução ao ACS:
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

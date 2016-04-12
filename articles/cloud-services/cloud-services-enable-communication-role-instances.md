@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/25/2016" 
 ms.author="adegeo"/>
 
 # Habilitar a comunicação para instâncias de função no Azure
@@ -89,7 +89,7 @@ Há uma diferença mínima em relação aos pontos de extremidade quando você t
 ## Usando o SDK do .NET para acessar um ponto de extremidade
 A Biblioteca Gerenciada do Azure fornece métodos para que instâncias de função se comuniquem no tempo de execução. A partir da execução de código em uma instância de função, você poderá recuperar informações sobre a existência de outras instâncias de função e de seus pontos de extremidade, bem como informações sobre a instância de função atual.
 
-> [AZURE.NOTE]Você só pode recuperar informações sobre instâncias de função que estejam sendo executadas em seu serviço de nuvem e que definam pelo menos um ponto de extremidade interno. Não é possível obter dados sobre instâncias de função que estejam sendo executadas em um serviço diferente.
+> [AZURE.NOTE] Você só pode recuperar informações sobre instâncias de função que estejam sendo executadas em seu serviço de nuvem e que definam pelo menos um ponto de extremidade interno. Não é possível obter dados sobre instâncias de função que estejam sendo executadas em um serviço diferente.
 
 Você pode usar a propriedade [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) para recuperar instâncias de uma função. Primeiro use [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) para retornar uma referência à instância da função atual e use a propriedade [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) para retornar uma referência à função propriamente dita.
 
@@ -101,7 +101,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 
 A propriedade **Instances** retorna uma coleção de objetos **RoleInstance**. Esta coleção sempre contém a instância atual. Se a função não definir um ponto de extremidade interno, a coleção incluirá a instância atual, mas nenhuma outra instância. O número de instâncias de função na coleção sempre será 1 quando nenhum ponto de extremidade interno for definido para a função. Se a função definir um ponto de extremidade interno, suas instâncias serão descobríveis no tempo de execução e o número de instâncias na coleção corresponderá ao número de instâncias especificadas para a função no arquivo de configuração de serviço.
 
-> [AZURE.NOTE]A Biblioteca Gerenciada do Azure não oferece um meio de determinar a integridade de outras instâncias de função, mas você pode implementar essas avaliações de integridade caso o serviço precise dessa funcionalidade. Você pode usar o [Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) para obter informações sobre as instâncias de função em execução.
+> [AZURE.NOTE] A Biblioteca Gerenciada do Azure não oferece um meio de determinar a integridade de outras instâncias de função, mas você pode implementar essas avaliações de integridade caso o serviço precise dessa funcionalidade. Você pode usar o [Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) para obter informações sobre as instâncias de função em execução.
 
 Para determinar o número da porta de um ponto de extremidade interno em uma instância de função, você poderá usar a propriedade [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) para retornar um objeto de Dicionário que contenha nomes de ponto de extremidade e seus endereços IP e portas correspondentes. A propriedade [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) retorna o endereço IP e a porta de um ponto de extremidade especificado. A propriedade **PublicIPEndpoint** retorna a porta de um ponto de extremidade com balanceamento de carga. A parte do endereço IP da propriedade **PublicIPEndpoint** não é usada.
 
@@ -120,7 +120,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 
 Veja um exemplo de função de trabalho que expõe o ponto de extremidade por meio da definição de serviço e começa a escutar conexões.
 
-> [AZURE.WARNING]Este código só funcionará para um serviço implantado. Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos **InstanceInputEndpoint**) são ignorados.
+> [AZURE.WARNING] Este código só funcionará para um serviço implantado. Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos **InstanceInputEndpoint**) são ignorados.
 
 ```csharp
 using System;
@@ -242,7 +242,7 @@ O exemplo de código a seguir mostra as definições de função das funções m
 </ServiceDefinition>
 ```
 
-> [AZURE.NOTE]A restrição de comunicação entre funções pode ocorrer com pontos de extremidade internos de portas fixas e atribuídas automaticamente.
+> [AZURE.NOTE] A restrição de comunicação entre funções pode ocorrer com pontos de extremidade internos de portas fixas e atribuídas automaticamente.
 
 Por padrão, após a definição de um ponto de extremidade interno, a comunicação poderá fluir de qualquer função para o ponto de extremidade interno de uma função sem qualquer restrição. Para restringir a comunicação, você deverá adicionar um elemento **NetworkTrafficRules** ao elemento **ServiceDefinition** no arquivo de definição de serviço.
 
@@ -359,4 +359,4 @@ Veja uma referência de esquema XML para os elementos usados acima [aqui](https:
 ## Próximas etapas
 Leia mais sobre o [modelo](cloud-services-model-and-package.md) de Serviço de Nuvem.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-----------HONumber=AcomDC_0330_2016-->

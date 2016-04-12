@@ -26,36 +26,19 @@
 
 Este tópico apresenta um exemplo de código Node.js que é executado no Mac OS X. O exemplo conecta-se ao Banco de Dados SQL usando o driver Tedious.
 
+## Etapa 1: configurar o ambiente de desenvolvimento
 
-## Pré-requisitos
+[Prerequisites for using the Tedious Node.js Driver for SQL Server](https://msdn.microsoft.com/library/mt652094.aspx#Mac)
 
-
-Instale o **node** se ele não estiver instalado no seu computador.
-
-
-Para instalar o node.js no OSX 10.10 Yosemite, você pode baixar um pacote binário pré-compilado que faz uma instalação fácil e interessante. [Acesse nodejs.org](http://nodejs.org/) e clique no botão Instalar para baixar o pacote mais recente.
-
-Instale o pacote de .dmg seguindo o assistente que instalará tanto o **node** quanto o **npm**; npm é o Gerenciador de Pacotes do Node que facilita a instalação de pacotes adicionais para node.js.
-
-
-Após seu computador estar configurado com **node** e **npm**, navegue até um diretório no qual você planeja criar seu projeto Node.js e digite os comandos a seguir
-
-
-	npm init
-	npm install tedious
-
-
-**npm init** cria um projeto de nó. Para manter os padrões durante a criação do projeto, pressione enter até que o projeto seja criado. Agora você vê um arquivo **package.json** no diretório do projeto.
-
-### Um Banco de Dados SQL
+## Etapa 2: Criar um banco de dados SQL
 
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados de exemplo. É importante que você siga o guia para criar um **modelo de banco de dados AdventureWorks**. Os exemplos mostrados abaixo funcionam apenas com o **esquema AdventureWorks**.
 
-## Etapa 1: Obter detalhes da conexão
+## Etapa 3: obter detalhes da conexão
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## Etapa 2: Conectar
+## Etapa 4: conectar
 
 A função [new Connection](http://pekim.github.io/tedious/api-connection.html) é usada para se conectar ao Banco de Dados SQL.
 
@@ -74,7 +57,7 @@ A função [new Connection](http://pekim.github.io/tedious/api-connection.html) 
 	});
 
 
-## Etapa 3: Executar uma consulta
+## Etapa 5: executar uma consulta
 
 
 Todas as instruções SQL são executadas usando a função [new Request()](http://pekim.github.io/tedious/api-request.html). Se a instrução retornar linhas, como uma instrução select, você poderá recuperá-las usando a função [request.on()](http://pekim.github.io/tedious/api-request.html). Se não houver linhas, a função [request.on()](http://pekim.github.io/tedious/api-request.html) retornará listas vazias.
@@ -123,7 +106,7 @@ Todas as instruções SQL são executadas usando a função [new Request()](http
 	}
 
 
-## Etapa 4: Inserir uma linha
+## Etapa 6: inserir uma linha
 
 Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) com segurança, passar parâmetros que protegem seu aplicativo contra vulnerabilidade [a injeção de SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e recuperar o valor da [Chave Primária](https://msdn.microsoft.com/library/ms179610.aspx) gerado automaticamente.
 
@@ -172,4 +155,4 @@ Nesse exemplo, você verá como executar uma instrução [INSERT](https://msdn.m
 
 Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

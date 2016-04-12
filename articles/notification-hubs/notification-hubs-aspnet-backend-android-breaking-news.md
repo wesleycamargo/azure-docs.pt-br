@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/15/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 
@@ -198,7 +198,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na atividade
 
 	`HubName` e `HubListenConnectionString` já devem estar definidos com os espaços reservados `<hub name>` e `<connection string with listen access>` com o nome de seu hub de notificação e a cadeia de conexão para *DefaultListenSharedAccessSignature* obtidos anteriormente.
 
-	> [AZURE.NOTE]Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completa é usada em um serviço back-end protegido para enviar notificações e alterar os registros existentes.
+	> [AZURE.NOTE] Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completa é usada em um serviço back-end protegido para enviar notificações e alterar os registros existentes.
 
 
 6. Em seguida, adicione as seguintes importações e o método `subscribe` para manipular o evento de clique do botão assinar:
@@ -240,7 +240,7 @@ Seu aplicativo agora é capaz de armazenar um conjunto de categorias no armazena
 
 Estas etapas registram com o hub de notificação na inicialização, usando as categorias que foram armazenadas no armazenamento local.
 
-> [AZURE.NOTE]Como o registrationId atribuído pelo Google Cloud Messaging (GCM) pode ser alterado a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação. Este exemplo registra a notificação a cada vez que o aplicativo é iniciado. Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.
+> [AZURE.NOTE] Como o registrationId atribuído pelo Google Cloud Messaging (GCM) pode ser alterado a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação. Este exemplo registra a notificação a cada vez que o aplicativo é iniciado. Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.
 
 
 1. Adicione o código a seguir ao final do método **onCreate** na classe **MainActivity**:
@@ -319,4 +319,4 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [Portal clássico do Azure]: https://manage.windowsazure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_1217_2015-->
+<!-----------HONumber=AcomDC_0330_2016-->

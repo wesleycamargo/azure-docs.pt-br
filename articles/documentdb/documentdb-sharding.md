@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Como particionar os dados no Banco de Dados de Documentos com o SDK do .NET
 
-O Banco de Dados de Documentos do Azure é um serviço de banco de dados de documento que permite que você dimensione perfeitamente sua conta por meio do provisionamento de coleções usando os [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) e as [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) (também chamado de **fragmentação**). Para facilitar o desenvolvimento de aplicativos particionados e reduzir a quantidade de código clichê necessário para tarefas de particionamento, adicionamos funcionalidades nos SDKs do .NET, Node.js e Java que facilitam a criação de aplicativos que são escalados horizontalmente por várias partições.
+O Banco de Dados de Documentos do Azure dá suporte para coleções que podem ser escaladas verticalmente até [grandes volumes de armazenamento e taxa de transferência](documentdb-partition-data.md). No entanto, há casos de uso em que é útil ter um controle refinado sobre o comportamento de particionamento. Para reduzir o código clichê necessário para tarefas de particionamento, adicionamos funcionalidades aos SDKs .NET, Node.js e Java que facilitam a criação de aplicativos que serão escalados verticalmente por várias coleções.
 
 Neste artigo, vamos dar uma olhada nas classes e interfaces no SDK do .NET e como usá-los para desenvolver aplicativos particionados.
 
@@ -26,8 +26,8 @@ Neste artigo, vamos dar uma olhada nas classes e interfaces no SDK do .NET e com
 
 Antes de nos aprofundarmos mais no particionamento, vamos recapitular alguns conceitos básicos do Banco de Dados de Documentos relacionados ao particionamento. Cada conta de banco de dados do Banco de Dados de Documentos do Azure é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas podendo conter procedimentos armazenados, gatilhos, UDFs, documentos e anexos relacionados. Coleções podem ser tratadas como partições no Banco de Dados de Documentos e têm as seguintes propriedades:
 
-- As coleções são partições físicas, não apenas contêineres lógicos. Portanto, há um benefício de desempenho em consultar ou processar documentos que estão localizados na mesma coleção.
-- As coleções são o limite de transações ACID, por exemplo, procedimentos armazenados e gatilhos.
+- As coleções de oferecem isolamento de desempenho. Portanto, há um benefício de desempenho em agrupar documentos semelhantes dentro da mesma coleção. Por exemplo, para dados de série temporal, você pode querer colocar dados para o último mês, que frequentemente são consultados, dentro de uma coleção com uma taxa de transferência maior provisionada, e colocar os dados mais antigos em de coleções com uma taxa de transferência menor provisionada.
+- Transações ACID, ou seja, procedimentos armazenados e gatilhos não podem abranger uma coleção. O escopo das transações é definido para um único valor de chave de partição dentro de uma coleção.
 - As coleções não impõem um esquema, portanto, podem ser usadas para documentos JSON do mesmo tipo ou tipos diferentes.
 
 Começando com a versão [1\.1.0 do SDK do .NET do Banco de Dados de Documentos do Azure](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), você pode executar operações de documentos diretamente em um banco de dados. Internamente, o [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) usa o PartitionResolver que você especificou para o banco de dados para rotear solicitações para a coleção apropriada.
@@ -134,12 +134,11 @@ Os exemplos são de software livre e nós o encorajamos a enviar solicitações 
 >[AZURE.NOTE] As criações da coleção têm sua taxa limitada pelo Banco de Dados de Documentos, por isso, alguns dos métodos de exemplo mostrados aqui podem levar alguns minutos para serem concluídos.
 
 ##Perguntas frequentes
-**Por que o Banco de Dados de Documentos dá suporte ao particionamento do lado do cliente versus particionamento do lado do servidor?**
+**O Banco de Dados de Documentos tem suporte para particionamento no lado do servidor?**
 
-O Banco de Dados de Documentos dá suporte ao particionamento do lado do cliente por duas razões:
+Sim, o Banco de Dados de Documentos dá suporte para [particionamento do lado do servidor](documentdb-partition-data.md). O Banco de Dados de Documentos também dá suporte para particionamento do lado do cliente por meio de resolvedores de partição do lado do cliente para casos de uso mais avançados.
 
-- É muito difícil abstrair o conceito de uma coleção de desenvolvedores sem comprometer um dos três fatores a seguir: indexação/consulta consistente, alta disponibilidade e garantias de transações ACID. 
-- Bancos de dados de documento geralmente exigem flexibilidade em termos de definir estratégias de particionamento, o que uma abordagem do lado do servidor pode não acomodar. 
+**Quando devo usar o particionamento do lado do servidor vs. do lado do cliente?** Para a maioria dos casos de uso, recomendamos usar particionamento do lado do servidor, uma vez que ele lida com as tarefas administrativas de particionar dados e rotear solicitações. No entanto, se você precisar de particionamento por intervalos ou tiver um caso de uso especializado para isolamento de desempenho entre os diferentes valores de chaves de partição, particionamento do lado do cliente pode ser a melhor abordagem.
 
 **Como adicionar ou remover uma coleção ao meu esquema de particionamento?**
 
@@ -154,13 +153,13 @@ Você pode serializar o estado do particionador como JSON e armazená-lo em arqu
 É possível encadear PartitionResolvers implementando seu próprio IPartitionResolver que usa internamente um ou mais resolvedores existentes. Observe o TransitionHashPartitionResolver no projeto de exemplos para obter um exemplo.
 
 ##Referências
-* [Exemplos de código de particionamento no Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
-* [Dados de particionamento com conceitos do Banco de Dados de Documentos](documentdb-partition-data.md)
+* [Particionamento de dados com o Banco de Dados de Documentos](documentdb-partition-data.md)
 * [Coleções e níveis de desempenho do Banco de Dados de Documentos](documentdb-performance-levels.md)
+* [Exemplos de código de particionamento no Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
 * [Documentação do SDK .NET do Banco de Dados de Documentos no MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
 * [Limites do Banco de Dados de Documentos](documentdb-limits.md)
 * [Blog do Banco de Dados de Documentos sobre dicas de desempenho](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -165,7 +165,7 @@ A criação de um novo modelo está fora do escopo deste artigo. Portanto, para 
 
 Você também pode usar um modelo diretamente do [GitHub](https://github.com/Azure/azure-quickstart-templates) em vez de baixar um no computador. Para isso, transmita a URL para o arquivo azuredeploy.json do modelo em seu comando usando a opção **--template-url**. Para obter a URL, abra azuredeploy.json no GitHub no modo _bruto_ e copie a URL que aparece na barra de endereços do navegador. Você pode usar essa URL diretamente para criar uma implantação usando um comando semelhante ao exemplo a seguir.
 
-	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
+	azure group deployment create "testRG" testDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 Você precisará inserir os parâmetros de modelo necessários.
 
 > [AZURE.NOTE] É importante abrir o modelo JSON no modo _bruto_. A URL que aparece na barra de endereços do navegador é diferente daquela que aparece no modo normal. Para abrir o arquivo no modo _raw_ ao exibir o arquivo no GitHub, no canto superior direito, clique em **Raw**.
@@ -215,4 +215,4 @@ Para exibir informações registradas em log sobre operações realizadas em um 
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

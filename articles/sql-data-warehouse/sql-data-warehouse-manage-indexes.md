@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciando índices
@@ -29,13 +29,13 @@ Este artigo demonstra algumas técnicas básicas para gerenciar seus índices.
 
 Veja abaixo um exemplo de como recompilar uma única partição:
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
 ALTER INDEX..REBUILD é melhor usado para volumes menores de dados – especialmente em índices columnstore. Rowgroups abertos, fechados e compactados são incluídos na recompilação. No entanto, caso a partição seja muito grande, você verá que `CTAS` é a operação mais eficiente. Veja abaixo um exemplo de uma recompilação de índice completo
 
-```
+```sql
 ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ```
 
@@ -45,7 +45,7 @@ Consulte o artigo [ALTER INDEX][] para obter mais detalhes sobre essa sintaxe.
 
 Veja abaixo um exemplo de como recompilar uma partição usando CTAS:
 
-```
+```sql
 -- Step 01. Select the partition of data and write it out to a new table using CTAS
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
@@ -82,7 +82,6 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 
 -- Step 04. Switch IN the rebuilt data
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
-
 ```
 
 ## Próximas etapas
@@ -102,4 +101,4 @@ Para obter mais dicas de gerenciamento, vá para a visão geral de [gerenciament
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

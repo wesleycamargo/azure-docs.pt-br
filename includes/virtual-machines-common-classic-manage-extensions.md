@@ -5,7 +5,7 @@
 
 As Extensões de VM do Azure implementam comportamentos ou recursos que ajudam outros programas a funcionar em VMs do Azure (por exemplo, a extensão **WebDeployForVSDevTest** permite o Visual Studio para soluções de implantação da Web em sua VM do Azure) ou fornecem a capacidade de interagir com a máquina virtual para dar suporte a alguns outros comportamentos (por exemplo, você pode usar as extensões de acesso da máquina virtual do Powershell, a CLI do Azure e clientes REST para redefinir ou modificar os valores de acesso remoto na sua VM do Azure).
 
->[AZURE.IMPORTANT] Para obter uma lista completa das extensões pelos recursos que oferecem suporte, consulte [Extensões de VM do Azure e recursos](virtual-machines-windows-extensions-features.md). Como cada extensão de VM dá suporte a um recurso específico, exatamente o que você pode e não pode fazer com uma extensão depende da extensão. Portanto, antes de modificar a sua VM, verifique se que você leu a documentação para a extensão de VM que deseja usar. Não há suporte para remover algumas extensões de VM; outras têm propriedades que podem ser definidas e que alteram radicalmente o comportamento da VM.
+>[AZURE.IMPORTANT] Para obter uma lista completa das extensões pelos recursos que oferecem suporte, consulte [Extensões de VM do Azure e recursos](../articles/virtual-machines/virtual-machines-windows-extensions-features.md). Como cada extensão de VM dá suporte a um recurso específico, exatamente o que você pode e não pode fazer com uma extensão depende da extensão. Portanto, antes de modificar a sua VM, verifique se que você leu a documentação para a extensão de VM que deseja usar. Não há suporte para remover algumas extensões de VM; outras têm propriedades que podem ser definidas e que alteram radicalmente o comportamento da VM.
 
 As tarefas mais comuns são:
 
@@ -19,7 +19,7 @@ As tarefas mais comuns são:
 
 ##Localizar extensões disponíveis
 
-Extensões de VM do Azure (para obter uma lista completa das extensões de acordo com os recursos aos quais elas dão suporte, consulte [Extensões e recursos de VM do Azure](virtual-machines-windows-extensions-features.md).) Você pode localizar a extensão e as informações estendidas usando:
+Extensões de VM do Azure (para obter uma lista completa das extensões de acordo com os recursos aos quais elas dão suporte, consulte [Extensões e recursos de VM do Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).) Você pode localizar a extensão e as informações estendidas usando:
 
 -   PowerShell
 -   Interface de Plataforma Cruzada do Azure (CLI do Azure)
@@ -121,4 +121,4 @@ Você pode usar as APIs REST a seguir para saber se uma extensão requer uma con
 
 >[AZURE.NOTE]As extensões também podem usar as configurações que são definidas com JSON. Quando esses tipos de extensões são usados, apenas o elemento **SampleConfig** é usado.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

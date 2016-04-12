@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # Criar uma nova API de usuários do Office 365 no PowerApps Enterprise
 
 > [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/create-api-office365-users.md)
+- [Aplicativos lógicos](../articles/connectors/connectors-create-api-office365-users.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
 
 Adicione a API de Usuários do Office 365 ao ambiente de serviço de aplicativo (locatário) da sua organização.
@@ -51,7 +51,7 @@ Adicione a API de Usuários do Office 365 ao ambiente de serviço de aplicativo 
 
 9. Digite a *ID do cliente* e a *Chave do Cliente* do seu aplicativo do Active Directory do Azure (AAD) do Office 365. Se você não tiver uma, consulte a seção “Registrar um aplicativo do AAD para uso com o PowerApps” neste tópico para criar a ID e os valores secretos necessários.  
 
-	> [AZURE.IMPORTANT] Copie a **URL de Redirecionamento**. Talvez esse valor seja necessário neste tópico posteriormente.  
+	> [AZURE.IMPORTANT] Copie a **URL de Redirecionamento**. Talvez esse valor seja necessário neste tópico posteriormente.
 
 10. Selecione **OK** para concluir as etapas.
 
@@ -65,7 +65,7 @@ Se não tiver um aplicativo do AAD existente com a chave e valores do segredo, e
 
 2. Selecione **Navegar** e, em seguida, selecione **Active Directory**:  
 
-	> [AZURE.NOTE] Isso abre o Active Directory no portal clássico do Azure.  
+	> [AZURE.NOTE] Isso abre o Active Directory no portal clássico do Azure.
 
 3. Selecione o nome do locatário da sua instituição:  
 ![Inicie o Active Directory do Azure][6]
@@ -107,7 +107,7 @@ Algumas informações úteis sobre os aplicativos do AAD em [Como e por que os a
 
 ## Consulte as APIs REST
 
-Referência da [API REST dos Usuários do Office 365](../connectors/create-api-office365-users.md).
+Referência da [API REST dos Usuários do Office 365](../connectors/connectors-create-api-office365-users.md).
 
 ## Resumo e próximas etapas
 Neste tópico, você adicionou a API dos Usuários do Office 365 ao PowersApps Enterprise. Em seguida, disponibilize aos usuários acesso à API para que ela possa ser adicionada aos seus aplicativos:
@@ -128,4 +128,4 @@ Neste tópico, você adicionou a API dos Usuários do Office 365 ao PowersApps E
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

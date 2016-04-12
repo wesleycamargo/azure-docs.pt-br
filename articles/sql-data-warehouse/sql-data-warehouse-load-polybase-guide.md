@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -45,12 +45,10 @@ Depois de migrar todas as tabelas externas para a nova fonte de dados externa, v
 ## Consultar dados de armazenamento de blob do Azure
 As consultas em tabelas externas simplesmente usam o nome da tabela como se ele fosse uma tabela relacional.
 
-```
-
+```sql
 -- Query Azure storage resident data via external table.
 SELECT * FROM [ext].[CarSensor_Data]
 ;
-
 ```
 
 > [AZURE.NOTE] Uma consulta em uma tabela externa pode falhar com o erro *"Consulta anulada - o limite máximo de rejeição foi atingido durante a leitura de uma fonte externa"*. Isso indica que os dados externos contêm registros *sujos*. Um registro de dados é considerado “sujo” se os tipos de dados/número de colunas reais não correspondem às definições de coluna da tabela externa ou se os dados não são compatíveis com o formato de arquivo externo especificado. Para corrigir esse problema, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições. Caso um subconjunto de registros de dados externos esteja sujo, é possível rejeitar esses registros para suas consultas usando as opções de rejeição em CREATE EXTERNAL TABLE DDL.
@@ -65,7 +63,7 @@ Este exemplo usa a instrução CREATE TABLE AS SELECT para carregar dados. A nov
 
 CREATE TABLE AS SELECT é uma instrução Transact-SQL de alto desempenho que carrega os dados em paralelo em todos os nós de computação do seu SQL Data Warehouse. Ela foi originalmente desenvolvida para o mecanismo MPP (processamento massivamente paralelo) no Analytics Platform System e agora está no SQL Data Warehouse.
 
-```
+```sql
 -- Load data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
@@ -86,7 +84,7 @@ Consulte [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][] no grupo de tópicos Desenvolver. Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo.
 
-```
+```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
 create statistics [CustomerKey] on [Customer_Speed] ([CustomerKey]);
 create statistics [GeographyKey] on [Customer_Speed] ([GeographyKey]);
@@ -99,7 +97,7 @@ Esta seção mostra como exportar dados do SQL Data Warehouse para o armazenamen
 
 O exemplo a seguir cria uma tabela Weblogs2014 externa usando definições de coluna e dados da tabela dbo.Weblogs. A definição da tabela externa é armazenada no SQL Data Warehouse e os resultados da instrução SELECT são exportados para o diretório "/archive/log2014 /" no contêiner de blob especificado pela fonte de dados. Os dados são exportados no formato de arquivo de texto especificado.
 
-```
+```sql
 CREATE EXTERNAL TABLE Weblogs2014 WITH
 (
     LOCATION='/archive/log2014/',
@@ -130,7 +128,7 @@ Há várias maneiras de fazer isso. A seguir estão as duas abordagens usando o 
 
 A seguir está um script simples do PowerShell de uma linha que cria o arquivo.
 
-```
+```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
@@ -140,7 +138,7 @@ No entanto, embora essa seja uma maneira simples de codificar os dados, de forma
 
 O exemplo de código a seguir é mais complexo, mas, por transmitir as linhas de dados da origem para o destino, é muito mais eficiente. Use essa abordagem para arquivos maiores.
 
-```
+```PowerShell
 #Static variables
 $ascii = [System.Text.Encoding]::ASCII
 $utf16le = [System.Text.Encoding]::Unicode
@@ -210,4 +208,4 @@ Para saber mais sobre como mover dados para o SQL Data Warehouse, consulte o [Vi
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

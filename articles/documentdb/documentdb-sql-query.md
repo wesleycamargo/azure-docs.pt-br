@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # Consulta e sintaxe SQL no Banco de Dados de Documentos
@@ -1223,7 +1223,7 @@ Abaixo há um exemplo de como uma UDF pode ser registrada no banco de dados do B
 	   };
 	   
 	   UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
-	       collectionSelfLink/* link of the parent collection*/, 
+	       UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
 	       regexMatchUdf).Result;  
                                                                              
 O exemplo anterior cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valores de cadeia de caracteres JSON `input` e `pattern`, além de verificar, pelo uso da função string.match() do JavaScript, se o primeiro desses valores corresponde ao padrão especificado no segundo.
@@ -1285,7 +1285,9 @@ Para expandir o poder das UDFs, vejamos outro exemplo com lógica condicional:
 	                }"
             };
 
-            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(collection.SelfLink, seaLevelUdf);
+            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
+                UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
+                seaLevelUdf);
 	
 	
 Abaixo há um exemplo que aplica a UDF.
@@ -2316,7 +2318,7 @@ A amostra seguinte mostra junções, expressas por meio do LINQ SelectMany.
 
 O cliente .NET itera automaticamente em todas as páginas dos resultados de pesquisa nos blocos foreach, conforme mostrado acima. As opções de consulta introduzidas na seção da API REST também estão disponíveis no SDK .NET usando as classes `FeedOptions` e `FeedResponse` no método CreateDocumentQuery. O número de páginas pode ser controlado usando a configuração `MaxItemCount`.
 
-Os desenvolvedores também podem controlar explicitamente as páginas criando `IDocumentQueryable` usando o objeto `IQueryable`, lendo então os valores ` ResponseContinuationToken` e retornando-os como `RequestContinuationToken` em `FeedOptions`. `EnableScanInQuery` pode ser configurado para permitir verificações quando não for possível que a política de indexação configurada ofereça suporte à consulta.
+Você também pode controlar explicitamente as páginas criando `IDocumentQueryable` que usa o objeto `IQueryable` e, então, lendo os valores ` ResponseContinuationToken` e retornando-os como `RequestContinuationToken` em `FeedOptions`. `EnableScanInQuery` pode ser configurado para permitir verificações quando não for possível que a política de indexação configurada dê suporte à consulta. Para coleções particionadas, você pode usar `PartitionKey` para executar a consulta em uma única partição (embora os Banco de Dados de Documentos possam extraí-la do texto da consulta) e `EnableCrossPartitionQuery` para executar consultas que precisam ser executadas em várias partições.
 
 Consulte [Amostras .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) para ver mais amostras contendo consultas.
 
@@ -2378,4 +2380,4 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

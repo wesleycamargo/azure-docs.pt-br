@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [Introdução](vs-active-directory-webapi-getting-started.md)
+> - [O que aconteceu](vs-active-directory-webapi-what-happened.md)
 
 ##Referências foram adicionadas
 
@@ -59,7 +59,8 @@ Se você já tiver uma classe de Inicialização em seu projeto, o método **Con
 
 ###Seu arquivo app.config ou web.config possui novos valores de configuração.
 
-As entradas de configuração a seguir foram adicionadas. ```
+As entradas de configuração a seguir foram adicionadas.
+```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
@@ -116,4 +117,4 @@ Seu aplicativo Active Directory do Azure foi atualizado para incluir a permissã
 
 [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

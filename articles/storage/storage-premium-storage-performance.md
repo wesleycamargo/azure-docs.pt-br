@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/20/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 # Armazenamento Premium do Azure: projeto para alto desempenho
@@ -168,9 +168,9 @@ Para obter IOPS e Largura de Banda mais altas do que o valor máximo de um únic
 Para ver os efeitos do tamanho de E/S no desempenho do aplicativo, você pode executar ferramentas de parâmetros comparação na VM e nos discos. Crie várias execuções de teste e use diferentes tamanhos de E/S para cada execução a fim de ver o impacto. Consulte a seção [Parâmetros de comparação](#Benchmarking) no fim deste artigo para obter mais detalhes.
 
 ## Tamanhos de VM de alta escala  
-Quando você começa a criar um aplicativo, uma das primeiras tarefas é escolher uma VM para hospedar o aplicativo. O Armazenamento Premium surge com os tamanhos de VM de alta escala que podem executar aplicativos que exigem potência mais alta de computação e um alto desempenho de E/S do disco local. Essas VMs fornecem processadores mais rápidos, uma taxa mais alta de memória para núcleo e uma SSD (unidade de estado sólido) para o disco local. Exemplos de VMs de alta escala que oferecem suporte ao Armazenamento Premium são as VMs da série DS e GS.
+Quando você começa a criar um aplicativo, uma das primeiras tarefas é escolher uma VM para hospedar o aplicativo. O Armazenamento Premium surge com os tamanhos de VM de alta escala que podem executar aplicativos que exigem potência mais alta de computação e um alto desempenho de E/S do disco local. Essas VMs fornecem processadores mais rápidos, uma taxa mais alta de memória para núcleo e uma SSD (unidade de estado sólido) para o disco local. Exemplos de VMs de alta escala que dão suporte ao Armazenamento Premium são as VMs das séries DS, DSv2 e GS.
 
-As VMs de alta escala estão disponíveis em diferentes tamanhos com diferentes números de núcleos de CPU, memória, sistema operacional e tamanho de disco temporário. Cada tamanho de VM também tem um número máximo de discos de dados que você pode anexar à VM. Sendo assim, o tamanho de VM escolhido afetará a quantidade de capacidade de armazenamento, processamento e memória disponível para o aplicativo. Ele também afeta o custo da computação e do armazenamento. Por exemplo, veja abaixo as especificações do maior tamanho de VM em uma série DS e GS:
+As VMs de alta escala estão disponíveis em diferentes tamanhos com diferentes números de núcleos de CPU, memória, sistema operacional e tamanho de disco temporário. Cada tamanho de VM também tem um número máximo de discos de dados que você pode anexar à VM. Sendo assim, o tamanho de VM escolhido afetará a quantidade de capacidade de armazenamento, processamento e memória disponível para o aplicativo. Ele também afeta o custo da computação e do armazenamento. Por exemplo, abaixo estão as especificações do maior tamanho de VM em uma série DS, uma DSv2 e uma GS:
 
 | Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco da VM | Máx. de discos de dados | Tamanho do cache | IOPS | Limites de E/S do cache da largura de banda |
 |---|---|---|---|---|---|---|---|
@@ -309,7 +309,7 @@ Normalmente, um aplicativo pode atingir a taxa máxima de transferência com 8 a
 
 Por exemplo, no SQL Server, definir o valor MAXDOP de uma consulta para "4" informa ao SQL Server que ele pode usar até quatro núcleos para executar a consulta. O SQL Server determinará qual é o melhor valor de profundidade de fila e o número de núcleos para a execução da consulta.
 
-*Profundidade Ideal de Fila * Um valor muito alto de profundidade de fila também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará impulsionar uma IOPS muito alta. A menos que o aplicativo tenha discos persistentes com provisão suficiente de IOPS, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre a IOPS, a Latência e a Profundidade da Fila. ![](media/storage-premium-storage-performance/image6.png)
+*Profundidade Ideal de Fila* Um valor muito alto de profundidade de fila também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará impulsionar uma IOPS muito alta. A menos que o aplicativo tenha discos persistentes com provisão suficiente de IOPS, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre a IOPS, a Latência e a Profundidade da Fila. ![](media/storage-premium-storage-performance/image6.png)
 
 Você não deve configurar a profundidade da fila para algum valor alto, mas para um valor ideal, o que pode fornecer IOPS suficiente ao aplicativo sem afetar as latências. Por exemplo, se a latência do aplicativo precisa ser de 1 milissegundo, a profundidade da fila necessária para alcançar 5.000 IOPS será, QD = 5000 x 0,001 = 5.
 
@@ -540,4 +540,4 @@ Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de de
 - [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-classic-sql-perf.md)
 - [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

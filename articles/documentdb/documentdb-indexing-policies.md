@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="02/03/2016" 
+    ms.date="03/30/2016" 
     ms.author="arramac"/>
 
 
@@ -42,20 +42,12 @@ Os desenvolvedores podem personalizar as compensações entre armazenamento, des
 
 O seguinte trecho de código .NET mostra como definir uma política de indexação personalizada durante a criação de uma coleção. Aqui, definimos a política com índice de intervalo de cadeias de caracteres e números à precisão máxima. Essa política nos permite executar consultas de Ordenar por com relação a cadeias de caracteres.
 
-    var collection = new DocumentCollection { Id = "myCollection" };
+    DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
     
     collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-    
-    collection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
+    collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
-    await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), collection);   
 
 
 >[AZURE.NOTE] O esquema JSON para política de indexação foi alterado com o lançamento da versão 2015-06-03 da API REST para dar suporte a índices de intervalo nas cadeias de caracteres. .NET SDK 1.2.0 e Java, Python e SDKs do Node. js 1.1.0 oferecem suporte para o novo esquema de política. SDKs mais antigos usam a API REST versão 2015-04-08 e dão suporte ao esquema mais antigo da política de indexação.
@@ -462,7 +454,8 @@ O exemplo a seguir configura um caminho específico com a indexação de interva
             }
         });
         
-    collection = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+
 
 ### Tipos, modelos e precisões de dados
 
@@ -565,7 +558,7 @@ O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em 
             }
         });
 
-    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 
 > [AZURE.NOTE] O Banco de Dados de Documentos retorna um erro quando uma consulta usa um Ordenar por, mas não tem um índice de intervalo do caminho consultado com a precisão máxima.
@@ -576,7 +569,8 @@ Da mesma forma, caminhos podem ser excluídos completamente da indexação. O ex
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
     
-    collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+
 
 
 ## Aceitando e recusando a indexação
@@ -590,7 +584,7 @@ Por exemplo, o exemplo a seguir mostra como incluir um documento explicitamente 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
     // use the RequestOptions.IndexingDirective property.
-    client.CreateDocumentAsync(defaultCollection.SelfLink,
+    client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"),
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
@@ -638,7 +632,9 @@ Você pode verificar o andamento de uma transformação de índice chamando, por
 
     while (progress < 100)
     {
-        ResourceResponse<DocumentCollection> collectionReadResponse = await     client.ReadDocumentCollectionAsync(collection.SelfLink);
+        ResourceResponse<DocumentCollection> collectionReadResponse = await client.ReadDocumentCollectionAsync(
+            UriFactory.CreateDocumentCollectionUri("db", "coll"));
+
         progress = collectionReadResponse.IndexTransformationProgress;
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
@@ -673,19 +669,20 @@ As APIs do Banco de Dados de Documentos fornecem informações sobre as métrica
 Para verificar se a cota de armazenamento e o uso de uma coleção, execute uma solicitação HEAD ou GET em relação ao recurso de coleção e inspecione os cabeçalhos x-ms-request-quota e x-ms-request-usage. No SDK do .NET, as propriedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) em [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) contêm esses valores correspondentes.
 
      // Measure the document size usage (which includes the index size) against   
-     // different policies.        
-     ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(collectionSelfLink);  
+     // different policies.
+     ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));  
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
 Para medir a sobrecarga de indexação em cada operação de gravação (criar, atualizar ou excluir), inspecione o cabeçalho x-ms-request-charge (ou a propriedade equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) em [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
 
      // Measure the performance (request units) of writes.     
-     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);              
+     ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              
      Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
      
      // Measure the performance (request units) of queries.    
-     IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();                                  
+     IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"), queryString).AsDocumentQuery();
+
      double totalRequestCharge = 0;
      while (queryable.HasMoreResults)
      {
@@ -768,4 +765,4 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

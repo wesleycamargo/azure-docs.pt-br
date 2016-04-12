@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/22/2016"
    ms.author="alkohli" />
 
 # Substituir um controlador EBOD em seu dispositivo StorSimple
@@ -30,7 +30,7 @@ Antes de começar, considere as seguintes informações:
 
 - O controlador EBOD é intercambiável e pode ser removido ou substituído. Não remova um módulo com falha até que você tenha uma peça de reposição. Depois de iniciado o processo de substituição, ele precisa ser concluído em até 10 minutos.
 
->[AZURE.IMPORTANT]Antes de remover e substituir um controlador EBOD, examine as informações de segurança em [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Antes de tentar remover ou substituir qualquer componente do StorSimple, lembre-se de consultar as [convenções de ícones de segurança](storsimple-safety.md#safety-icon-conventions) e outras [precauções de segurança](storsimple-safety.md).
 
 ## Remover um controlador EBOD
 
@@ -48,7 +48,7 @@ Antes de substituir o módulo do controlador EBOD com falha em seu dispositivo S
 
 5. Anote a porta SAS exata do módulo do controlador EBOD que foi conectado ao controlador. Você precisará restaurar o sistema de acordo com essa configuração depois de substituir o módulo EBOD.
 
-    >[AZURE.NOTE]Normalmente, será a porta A, que é rotulada como **Host in** no diagrama a seguir.
+    >[AZURE.NOTE] Normalmente, esta será a Porta A, que é rotulada como **Host in** no diagrama a seguir.
 
     ![Backplane do controlador EBOD](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
@@ -101,10 +101,10 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
     |6|Controlador 0 do EBOD|
     |7|Controlador 1 do EBOD|
     |8|Compartimento EBOD|
-    |9|PDUs|
+    |9|Unidades de distribuição de energia|
 
 ## Próximas etapas
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -1,8 +1,9 @@
-In the Visual Studio **Solution Explorer**, right-click the project and select **Add > Docker Support** from the context menu.
+No **Gerenciador de Soluções** do Visual Studio, clique com o botão direito do mouse no projeto e selecione **Adicionar > Suporte ao Docker** do menu de contexto.
 
-![Add Docker Support context menu](./media/vs-azure-tools-docker-add-docker-support/docker-support-context-menu.png)
+![Menu de contexto Adicionar Suporte ao Docker](./media/vs-azure-tools-docker-add-docker-support/docker-support-context-menu.png)
 
-Adding Docker support to an ASP.NET 5 web project results in the addition of several Docker-related
-files being added to the project, including Docker-Compose files, deployment Windows PowerShell scripts, and Docker property files. 
+Adicionar suporte ao Docker a um projeto Web ASP.NET 5 resulta na adição de vários arquivos relacionados ao Docker ao projeto, incluindo arquivos de Redação do Docker, scripts de implantação do Windows PowerShell e arquivos de propriedades do Docker.
 
-![Docker files added to project](./media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
+![Arquivos do Docker adicionados ao projeto](./media/vs-azure-tools-docker-add-docker-support/docker-files-added.png)
+
+<!-----------HONumber=AcomDC_0330_2016-->

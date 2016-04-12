@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Pool de banco de dados elásticos para bancos de dados SQL | Microsoft Azure"
 	description="Descubra como você pode controlar o crescimento explosivo em bancos de dados SQL com pools de banco de dados elásticos, uma maneira de compartilhar recursos disponíveis em muitos bancos de dados."
-	keywords="banco de dados elásticos, bancos de dados sql"	
+	keywords="banco de dados elásticos, bancos de dados sql"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/11/2016"
+	ms.date="03/24/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -20,7 +20,7 @@
 
 # Controlar crescimento explosivo nos bancos de dados SQL usando pools de banco de dados elástico para compartilhar recursos
 
-Um desenvolvedor de SaaS cria e gerencia dezenas, centenas ou até milhares de bancos de dados SQL. Pools Elásticos simplificam o gerenciamento de criação, manutenção e desempenho entre esses bancos de dados dentro de um orçamento que você controla. Adicionar ou subtrair bancos de dados do pool à vontade. [Criar um pool de banco de dados elástico](sql-database-elastic-pool-portal.md) para os seus bancos de dados SQL em minutos usando o portal do Microsoft Azure, [PowerShell](sql-database-elastic-pool-powershell.md) ou [C#](sql-database-elastic-pool-csharp.md).
+Um desenvolvedor de SaaS cria e gerencia dezenas, centenas ou até milhares de bancos de dados SQL. Pools Elásticos simplificam o gerenciamento de criação, manutenção e desempenho entre esses bancos de dados dentro de um orçamento que você controla. Adicionar ou subtrair bancos de dados do pool à vontade. Veja [Criar um pool de banco de dados elástico escalonável para bancos de dados SQL no portal do Azure](sql-database-elastic-pool-create-portal.md), [usando o PowerShell](sql-database-elastic-pool-powershell.md) ou [C#](sql-database-elastic-pool-csharp.md).
 
 Para obter detalhes de APIs e erros, consulte [Referência do Pool de Banco de Dados Elástico](sql-database-elastic-pool-reference.md).
 
@@ -63,9 +63,9 @@ Atualmente em visualização, os bancos de dados elásticos dão suporte à maio
 
 O sistema realiza backup automático dos bancos de dados em um pool de banco de dados elástico, e a política de retenção de backup é a mesma que a camada de serviços correspondente para bancos de dados únicos. Em suma, os bancos de dados em cada camada têm um intervalo de restauração diferente:
 
-* **Pool básico**: capaz de fazer a restauração para qualquer ponto nos últimos 7 dias. 
+* **Pool básico**: capaz de fazer a restauração para qualquer ponto nos últimos 7 dias.
 * **Pool Standard**: capaz de fazer a restauração para qualquer ponto dentro dos últimos 14 dias.
-* **Pool premium**: capaz de fazer a restauração para qualquer ponto nos últimos 35 dias. 
+* **Pool premium**: capaz de fazer a restauração para qualquer ponto nos últimos 35 dias.
 
 Durante a visualização, os bancos de dados em um pool serão restaurados para um novo banco de dados no mesmo pool. Bancos de dados descartados sempre serão restaurados como um banco de dados autônomo fora do pool para o nível de desempenho mais baixo para essa camada de serviço. Por exemplo, um banco de dados elástico em um pool padrão que é descartado será restaurado como um banco de dados S0. Você pode executar operações de restauração de bancos de dados pelo Portal do Azure ou programaticamente usando a API REST. O suporte ao cmdlet do PowerShell será disponibilizado em breve.
 
@@ -86,4 +86,4 @@ A replicação geográfica está disponível para qualquer banco de dados em um 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

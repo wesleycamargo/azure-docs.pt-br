@@ -43,7 +43,7 @@ Se a sua máquina virtual do Azure for de uma imagem do Ubuntu ou CoreOS, você 
 
 ### Imagens de nuvem do Ubuntu
 
-Na maioria das imagens do Linux do Azure você editaria "/etc/waagent.conf" para configurar o disco de recurso temporário e o arquivo de troca. Consulte o [Guia de usuário agente do Linux do Azure](virtual-machines-linux-agent-user-guide.md) para saber mais.
+Na maioria das imagens do Linux do Azure você editaria "/etc/waagent.conf" para configurar o disco de recurso temporário e o arquivo de troca. Consulte o [Guia de usuário agente do Linux do Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) para saber mais.
 
 No entanto, nas Imagens de Nuvem do Ubuntu, devemos usar cloud-init para configurar o disco de recurso (ou seja, o disco "efêmero") e a partição de troca. Consulte a seguinte página no wiki do Ubuntu para obter mais detalhes: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
@@ -59,4 +59,4 @@ Para obter mais informações, consulte [Documentação de cloud-init para Ubunt
 
 [Interface de linha de comando do Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

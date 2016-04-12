@@ -113,10 +113,13 @@ Para avaliações mais flexíveis de uso recursos que permitem estimativas de di
 
 Em casos em que você não pode usar as ferramentas, os procedimentos passo a passo a seguir podem ajudá-lo a estimar se um pool é mais econômico do que bancos de dados individuais:
 
-1.	Estime as eDTUs necessárias para o pool da seguinte forme: MÁX(<*Número total de DBs* X *Utilização de DTU média por DB*>, <*número de DBs em pico simultaneamente* X *Pico de utilização de DTU por DB*)
-2.	Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento. Para ver os limites de armazenamento em pool baseados no tamanho do pool em eDTUs, consulte [Limites de eDTU e armazenamento para pools de banco de dados elástico e bancos de dados elástico](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+1.	Estime as eDTUs necessárias para o pool da seguinte maneira:
+
+    MÁX(<*Número total de DBs* X *utilização de DTU média por DB*>,<br> <*número de DBs em pico simultaneamente* X *pico de utilização de DTU por DB*)
+
+2.	Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento. Para ver os limites de armazenamento em pool baseados no tamanho do pool em eDTUs, consulte [Limites de armazenamento e eDTU para pools de banco de dados elástico e bancos de dados elásticos](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 3.	Escolha a maior entre as estimativas de eDTU das etapas 1 e 2.
-4.	Consulte a [Página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e localize o menor pool de eDTU que seja maior que a estimativa da Etapa 3.
+4.	Consulte a [página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e localize o menor pool de eDTU que seja maior que a estimativa da Etapa 3.
 5.	Compare o preço do pool da Etapa 5 com o preço de usar os níveis de desempenho adequados para bancos de dados individuais.
 
 ## Resumo
@@ -131,4 +134,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools. Banc
 - [Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço](sql-database-service-tiers.md)
 - [Script do PowerShell para identificar os bancos de dados adequados para um pool de banco de dados elástico](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

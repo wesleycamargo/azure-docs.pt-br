@@ -31,7 +31,7 @@ Você deve ter o seguinte:
 
 ## Como inicio a interface do usuário do Ambari Web?
 
-1. No [Portal de Visualização do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**. 
+1. No [Portal do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**. 
  
 2. Na folha do cluster Spark, clique em **Painel**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
@@ -43,7 +43,7 @@ Você deve ter o seguinte:
 
 ## Como inicio o Servidor de Histórico do Spark?
 
-1. No [Portal de Visualização do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial).
+1. No [Portal do Azure](https://ms.portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial).
 
 2. Na folha do cluster, em **Links Rápidos**, clique em **Painel do Cluster**. Na folha **Painel do Cluster**, clique em **Servidor de Histórico do Spark**.
 
@@ -138,4 +138,4 @@ Eis aqui alguns cenários comuns que você pode executar com o cluster Spark e a
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

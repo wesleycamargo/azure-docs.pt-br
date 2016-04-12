@@ -702,7 +702,7 @@ Para publicar o aplicativo, repita o procedimento seguido anteriormente.
 
 7. Marque a caixa de seleção de **Executar Codificar Migrações Iniciais (executado na inicialização do aplicativo)**.
 
-1. Clique em **Avançar** e, em seguida, em **Visualizar **. O Visual Studio exibe uma lista dos arquivos que serão adicionados ou atualizados.
+1. Clique em **Avançar** e, em seguida, em **Visualizar**. O Visual Studio exibe uma lista dos arquivos que serão adicionados ou atualizados.
 
 8. Clique em **Publicar**. Depois que a implantação for concluída, o navegador será aberto na home page do aplicativo.
 
@@ -810,4 +810,4 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!----HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

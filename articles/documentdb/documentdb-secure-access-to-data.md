@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
-# Protegendo o acesso a dados no Banco de Dados de Documentos #
+# Protegendo o acesso a dados no Banco de Dados de Documentos
 
 Este artigo fornece uma visão geral de como proteger o acesso a dados armazenados no [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
@@ -27,7 +27,7 @@ Após ler esta visão geral, você poderá responder as perguntas a seguir:
 -	O que são os tokens de recurso do Banco de Dados de Documentos?
 -	Como eu posso usar os usuários e permissões do Banco de Dados de Documentos para proteger o acesso aos dados que estão nele?
 
-##<a id="Sub1"></a>Conceitos de controle de acesso do Banco de Dados de Documentos##
+## Conceitos de controle de acesso do Banco de Dados de Documentos
 
 O Banco de Dados de Documentos conta com conceitos de primeira classe de controle de acesso a seus recursos. Neste tópico, os recursos do Banco de Dados de Documentos estão agrupados em duas categorias:
 
@@ -64,19 +64,20 @@ Tendo em mente as categorias e recursos mencionados, o modelo de controle de ace
 
 ![Ilustração dos tokens de recurso do Banco de Dados de Documentos](./media/documentdb-secure-access-to-data/resourcekeys.png)
 
-##<a id="Sub2"></a>Trabalhando com chaves mestras e somente leitura do Banco de Dados de Documentos ##
+## Trabalhando com chaves mestras e somente leitura do Banco de Dados de Documentos
+
 Como mencionado anteriormente, chaves mestras do Banco de Dados de Documentos fornecem acesso administrativo total a todos os recursos em uma conta do Banco de Dados de Documentos, enquanto chaves somente leitura habilitam acesso de leitura a todos os recursos dentro da conta. O trecho de código a seguir ilustra como usar o ponto de extremidade e a chave mestra de uma conta do Banco de Dados de Documentos para criar uma instância de DocumentClient e criar um novo banco de dados.
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
     //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
-	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
+    private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
     private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
         
     client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
     
-	//Create Database
+    // Create Database
     Database database = await client.CreateDatabaseAsync(
         new Database
         {
@@ -84,7 +85,8 @@ Como mencionado anteriormente, chaves mestras do Banco de Dados de Documentos fo
         });
 
 
-##<a id="Sub3"></a>Visão geral dos tokens de recursos do Banco de Dados de Documentos ##
+## Visão geral dos tokens de recursos do Banco de Dados de Documentos
+
 Você pode usar um token de recurso (criando usuários e permissões do Banco de Dados de Documentos) quando quiser fornecer acesso a recursos de sua conta do Banco de Dados de Documentos a um cliente que não é confiável para receber a chave mestra. Suas chaves mestras do Banco de Dados de Documentos incluem uma chave primária e uma chave secundária, que concedem acesso administrativo à sua conta e a todos os recursos que ela contém. A exposição de qualquer uma de suas chaves mestras torna sua conta vulnerável a um possível uso mal-intencionado ou negligente.
 
 Da mesma forma, as chaves somente leitura do Banco de Dados de Documentos fornecem acesso de leitura a todos os recursos - exceto recursos de permissão, é claro – de uma conta do Banco de Dados de Documentos e não podem ser usadas para fornecer um acesso mais granular a recursos específicos dele.
@@ -104,16 +106,16 @@ Este é um padrão de design típico no qual tokens de recurso podem ser solicit
 
 ![Fluxo de trabalho dos tokens de recurso do Banco de Dados de Documentos](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
-##<a id="Sub4"></a>Trabalhando com usuários e permissões do Banco de Dados de Documentos ##
+## Trabalhando com usuários e permissões do Banco de Dados de Documentos
 Um recurso de usuário do Banco de Dados de Documentos é associado a um banco de dados do Banco de Dados de Documentos. Cada banco de dados pode conter nenhum ou mais usuários do Banco de Dados de Documentos. O trecho de código a seguir mostra como criar um recurso de usuário do Banco de Dados de Documentos.
 
-	//Create a user.
+    //Create a user.
     User docUser = new User
     {
         Id = "mobileuser"
     };
 
-    docUser = await client.CreateUserAsync(database.SelfLink, docUser);
+    docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
 
 > [AZURE.NOTE] Cada usuário do Banco de Dados de Documentos tem uma propriedade PermissionsLink que pode ser usada para recuperar a lista de permissões associadas ao usuário.
 
@@ -128,8 +130,7 @@ Um recurso de permissão do Banco de Dados de Documentos é associado a um usuá
 
 O trecho de código a seguir mostra como criar um recurso de permissão, ler o token de recurso (token) do recurso de permissão e associar as permissões ao usuário criado anteriormente.
 
-	//Create a permission.
-
+    // Create a permission.
     Permission docPermission = new Permission
     {
         PermissionMode = PermissionMode.Read,
@@ -137,30 +138,32 @@ O trecho de código a seguir mostra como criar um recurso de permissão, ler o t
         Id = "readperm"
     };
             
-	docPermission = await client.CreatePermissionAsync(docUser.SelfLink, docPermission);
-	Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+  docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("banco de dados", "usuário"), docPermission); Console.WriteLine(docPermission.Id + "tem o token de:" + docPermission.Token);
+  
+Se você tiver especificado uma chave de partição para sua coleção, depois a permissão para coleta, os recursos de documento e anexo também deverão incluir o ResourcePartitionKey além do ResourceLink.
 
 Para obter facilmente todos os recursos de permissão associados a um determinado usuário, o Banco de Dados de Documentos disponibiliza um feed de permissões para cada objeto de usuário. O trecho de código a seguir mostra como recuperar a permissão associada ao usuário criado acima, construir uma lista de permissões e instanciar um novo DocumentClient em nome do usuário.
 
-	//Read a permission feed.
-    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(docUser.SelfLink);
-	
-	List<Permission> permList = new List<Permission>();
-    
-	foreach (Permission perm in permFeed)
+    //Read a permission feed.
+    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
+      UriFactory.CreateUserUri("db", "myUser"));
+
+    List<Permission> permList = new List<Permission>();
+      
+    foreach (Permission perm in permFeed)
     {
         permList.Add(perm);
     }
             
-    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
+    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 > [AZURE.TIP] Tokens de recurso têm um intervalo de tempo válido padrão de uma hora. O tempo de vida do token, no entanto, pode ser especificado explicitamente, até um máximo de cinco horas.
 
-##<a name="NextSteps"></a>Próximas etapas
+## Próximas etapas
 
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](http://azure.com/docdb).
 - Para saber sobre o gerenciamento de chaves mestras e somente leitura, clique [aqui](documentdb-manage-account.md).
 - Para saber como criar tokens de autorização do Banco de Dados de Documentos, clique [aqui](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

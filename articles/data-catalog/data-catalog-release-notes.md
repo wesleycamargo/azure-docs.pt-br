@@ -1,6 +1,6 @@
 <properties
    pageTitle="Notas de versão do Catálogo de Dados do Azure"
-   description="Notas de versão para a versão de 28 de agosto de 2015 de visualização pública do Catálogo de Dados do Azure"
+   description="Notas de versão do Catálogo de Dados do Azure."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Notas de versão do Catálogo de Dados do Azure
@@ -50,7 +50,7 @@ Ao conectar-se às fontes de dados do banco de dados Oracle, os usuários devem 
 
 ### Registro e conexão ao SQL Server Reporting Services
 
-O suporte para fontes de dados do SQL Server Reporting Services (SSRS) na versão de teste inicial do Catálogo de Dados do Azure está limitado somente aos servidores de modo nativo. O suporte para o SSRS no modo SharePoint será adicionado em uma versão posterior.
+Atualmente, o suporte para as fontes de dados do SSRS (SQL Server Reporting Services) está limitado somente a servidores do Modo Nativo. O suporte para o SSRS no modo SharePoint será adicionado em uma versão posterior.
 
 ### Abrindo ativos de dados no Excel
 
@@ -88,4 +88,4 @@ Para obter mais informações, consulte [Configurando políticas de autenticaç�
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

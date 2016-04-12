@@ -133,7 +133,7 @@ A tabela a seguir lista os valores padrão para os parâmetros especificados no 
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Criar ambientes
-Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](azure-portal/resource-group-portal#create-resource-group-and-resources.md). Grupos de recursos o habilitam a agrupar recursos do Azure para que eles possam ser gerenciados coletivamente. [Permissões](./active-directory/role-based-access-built-in-roles.md) podem ser atribuídas a grupos de recursos, para que pessoas específicas em sua organização possam criar, modificar, excluir ou exibi-los, juntamente com os recursos neles. Alertas e informações de cobrança de recursos no grupo de recursos podem ser exibidos no [Portal do Azure](https://portal.azure.com). Grupos de recursos são criados em uma [região](https://azure.microsoft.com/regions/) do Azure. Neste artigo, todos os recursos são criados na região EUA Central. Ao começar a criar ambientes reais, você poderá escolher a região que melhor atende às suas necessidades.
+Todos os recursos do Azure devem ser criados em um [grupo de recursos do Azure](./azure-portal/resource-group-portal.md). Grupos de recursos o habilitam a agrupar recursos do Azure para que eles possam ser gerenciados coletivamente. [Permissões](./active-directory/role-based-access-built-in-roles.md) podem ser atribuídas a grupos de recursos, para que pessoas específicas em sua organização possam criar, modificar, excluir ou exibi-los, juntamente com os recursos neles. Alertas e informações de cobrança de recursos no grupo de recursos podem ser exibidos no [Portal do Azure](https://portal.azure.com). Grupos de recursos são criados em uma [região](https://azure.microsoft.com/regions/) do Azure. Neste artigo, todos os recursos são criados na região EUA Central. Ao começar a criar ambientes reais, você poderá escolher a região que melhor atende às suas necessidades.
 
 Crie grupos de recursos para cada ambiente usando qualquer um dos métodos abaixo. Todos os métodos obterão o mesmo resultado.
 
@@ -235,7 +235,7 @@ Após ver uma mensagem de "Aguardando conclusão da implantação" por alguns mi
 	data:    requestedServiceObjectiveName  String        S0
 	info:    group deployment create command OKx
 
-Se o comando não for bem-sucedido, resolva as mensagens de erro e tente novamente. Problemas comuns são o uso de valores de parâmetros que não obedecem às restrições de nomenclatura de recursos do Azure. Outras dicas de solução de problemas podem ser encontradas no artigo [Solucionando problemas de implantações de grupos de recursos no Azure](virtual-machines/resource-group-deploy-debug.md).
+Se o comando não for bem-sucedido, resolva as mensagens de erro e tente novamente. Problemas comuns são o uso de valores de parâmetros que não obedecem às restrições de nomenclatura de recursos do Azure. Outras dicas de solução de problemas podem ser encontradas no artigo [Solucionando problemas de implantações de grupos de recursos no Azure](./resource-manager-troubleshoot-deployments-cli.md).
 
 Na linha de comando da CLI, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de testes, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
 
@@ -279,7 +279,7 @@ Após ver um cursor piscando por alguns minutos, o comando retornará o seguinte
 	                    
 	Outputs           :
 
-  Se o comando não for bem-sucedido, resolva as mensagens de erro e tente novamente. Problemas comuns são o uso de valores de parâmetros que não obedecem às restrições de nomenclatura de recursos do Azure. Outras dicas de solução de problemas podem ser encontradas no artigo [Solucionando problemas de implantações de grupos de recursos no Azure](virtual-machines/resource-group-deploy-debug.md).
+  Se o comando não for bem-sucedido, resolva as mensagens de erro e tente novamente. Problemas comuns são o uso de valores de parâmetros que não obedecem às restrições de nomenclatura de recursos do Azure. Outras dicas de solução de problemas podem ser encontradas no artigo [Solucionando problemas de implantações de grupos de recursos no Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
   Em um prompt de comando do PowerShell, digite o comando a seguir para implantar recursos no grupo de recursos criado para o ambiente de testes, substituindo [path] pelo caminho para os arquivos que você salvou nas etapas anteriores.
 
@@ -357,8 +357,8 @@ Agora que viu como é fácil criar, manter e excluir os ambientes de desenvolvim
 
 ## Próximas etapas
 
-- [Delegar controle administrativo](role-based-access-control-configure.md) para recursos diferentes em cada ambiente atribuindo usuários ou grupos do AD do Microsoft Azure a funções específicas que têm a capacidade de executar um subconjunto de operações nos recursos do Azure.
+- [Delegar controle administrativo](./active-directory/role-based-access-control-configure.md) para recursos diferentes em cada ambiente atribuindo usuários ou grupos do AD do Microsoft Azure a funções específicas que têm a capacidade de executar um subconjunto de operações nos recursos do Azure.
 - [Atribua marcas](resource-group-using-tags.md) aos grupos de recursos de cada ambiente e/ou aos recursos individuais. Você pode adicionar uma marca de "Ambiente" aos grupos de recursos e definir seu valor para corresponder aos nomes de seu ambiente. As marcas podem ser particularmente úteis quando você precisar organizar os recursos de gerenciamento ou de cobrança.
 - Monitore alertas e cobrança de recursos do grupo de recursos no [Portal do Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

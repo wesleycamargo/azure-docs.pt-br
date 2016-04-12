@@ -16,7 +16,7 @@
    ms.date="03/21/2016"
    ms.author="tomfitz"/>
 
-# Implantar um recurso com o modelo do Azure Resource Manager
+# Implantar recursos com modelos do Azure Resource Manager
 
 Este tópico explica como usar modelos do Azure Resource Manager para implantar seus Recursos no Azure. Ele mostra como implantar seus Recursos usando o Azure PowerShell, a CLI do Azure, a API REST ou o portal do Azure.
 
@@ -292,4 +292,4 @@ Para saber como definir parâmetros no modelo, veja [Criando modelos](../resourc
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

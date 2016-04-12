@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 # Como usar os Hubs de notificação do Java
@@ -303,4 +303,4 @@ Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

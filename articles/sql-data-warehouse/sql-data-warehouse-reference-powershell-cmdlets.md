@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # Como usar os cmdlets do PowerShell e as APIs REST com o SQL Data Warehouse
@@ -26,19 +26,19 @@ Da mesma forma, as APIs REST para o **Banco de Dados do SQL Azure** também pode
 
 ## Obter e executar os cmdlets do PowerShell do Azure
 
-1. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+1. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://aka.ms/webpi-azps). Para obter mais informações sobre esse instalador, veja [Como instalar e configurar o Azure PowerShell][].
 2. Para executar o módulo, na janela de início, digite **Windows PowerShell**.
-3. Se ainda não tiver adicionado sua conta ao computador, execute o cmdlet a seguir. (Para saber mais, consulte [Como instalar e configurar o Azure PowerShell]():
+3. Execute este cmdlet para fazer logon no Gerenciador de Recursos do Azure.
 
-	```
-	Login-AzureRmAccount
-	```
+```PowerShell
+Login-AzureRmAccount
+```
 
 3. Selecione sua assinatura para o banco de dados que você deseja suspender ou retomar. Isso seleciona a assinatura denominada "MySubscription".
 
-	```
-	Select-AzureRmSubscription -SubscriptionName "MySubscription"
-	```
+```Powershell
+Select-AzureRmSubscription -SubscriptionName "MySubscription"
+```
 
 ## Suspend-AzureRmSqlDatabase
 
@@ -48,15 +48,15 @@ Para obter a referência do comando, veja [Suspend-AzureRmSqlDatabase](https://m
 
 Este exemplo pausa um banco de dados denominado "Database02" hospedado em um servidor denominado "Server01." O servidor está em um grupo de recursos do Azure denominado "ResourceGroup1".
 
-```
+```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 ### Exemplo 2: Pausar um objeto de banco de dados
 
-Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” contido em um grupo de recursos denominado “ResourceGroup1”. Ele redireciona o objeto recuperado para **Suspend-AzureRmSqlDatabase**. Como resultado, o banco de dados é pausado. O comando final mostra os resultados.
+Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” contido em um grupo de recursos denominado “ResourceGroup1”. Ele canaliza o objeto recuperado para **Suspend-AzureRmSqlDatabase**. Como resultado, o banco de dados é pausado. O comando final mostra os resultados.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
@@ -64,21 +64,21 @@ $resultDatabase
 
 ## Resume-AzureSqlDatabase
 
-Para obter a referência do comando, veja [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
+Para referência sobre o comando, veja [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
 
 ### Exemplo 1: Retomar um banco de dados por nome em um servidor
 
 Este exemplo retoma a operação de um banco de dados denominado "Database02" hospedado em um servidor denominado "Server01." O servidor está contido em um grupo de recursos denominado "ResourceGroup1".
 
-```
+```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ### Exemplo 2: Retomando um objeto de banco de dados
 
-Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” que está contido em um grupo de recursos denominado “ResourceGroup1”. O objeto é redirecionado para **Resume-AzureRmSqlDatabase**.
+Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01” que está contido em um grupo de recursos denominado “ResourceGroup1”. O objeto é canalizado para **Resume-AzureRmSqlDatabase**.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
@@ -96,7 +96,7 @@ RestorePointCreationDate |Tempo do instantâneo de backup (preenchido quando res
 ### Exemplo 1: Recuperando pontos de restauração de um banco de dados por nome em um servidor
 Este exemplo recupera os pontos de restauração para um banco de dados denominado “Database02” de um servidor chamado “Server01” contido em um grupo de recursos denominado “ResourceGroup1”.
 
-```
+```Powershell
 $restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints
 ```
@@ -104,9 +104,9 @@ $restorePoints
 
 ### Exemplo 2: Retomando um objeto de banco de dados
 
-Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01”, contido em um grupo de recursos denominado “ResourceGroup1”. O objeto de banco de dados é redirecionado para **Get-AzureRmSqlDatabase** e o resultado é composto pelos pontos de restauração do banco de dados. O comando final imprime os resultados.
+Este exemplo recupera um banco de dados denominado “Database02” de um servidor chamado “Server01”, contido em um grupo de recursos denominado “ResourceGroup1”. O objeto de banco de dados é canalizado para **Get-AzureRmSqlDatabase** e o resultado são os pontos de restauração do banco de dados. O comando final imprime os resultados.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints = $database | Get-AzureRmSqlDatabaseRestorePoints
 $retorePoints
@@ -123,7 +123,7 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 
 <!--Article references-->
 [Visão geral de referência do SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
-[How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
+[Como instalar e configurar o Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -133,4 +133,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->
