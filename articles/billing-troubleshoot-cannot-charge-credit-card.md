@@ -30,4 +30,4 @@ Caso seu problema do Azure não seja resolvido neste artigo, visite os fóruns d
 
 Se precisa de ajuda para abrir um tíquete, confira, [Como criar um tíquete de suporte para problemas de cobrança e assinatura do Azure](billing-how-to-create-billing-support-ticket.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -228,4 +228,4 @@ Altere seu MainPage.xaml para incluir uma caixa de combinação de localidade:
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

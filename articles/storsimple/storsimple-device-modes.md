@@ -98,4 +98,4 @@ Você pode colocar o dispositivo StorSimple no modo de manutenção (do modo nor
 
 Saiba como [aplicar atualizações do modo normal e de manutenção](storsimple-update-device.md) no dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

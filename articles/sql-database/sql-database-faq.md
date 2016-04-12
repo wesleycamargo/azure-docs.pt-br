@@ -89,4 +89,4 @@ O secundário geográfico é uma réplica assíncrona e não tentamos mantê-la 
 ## Quais ferramentas estão disponíveis para monitorar o retardo de replicação entre o banco de dados primário e o secundário geográfico?
 Expomos o retardo de replicação em tempo real entre o banco de dados primário e o secundário geográfico por meio de um DMV. Para obter detalhes, veja [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

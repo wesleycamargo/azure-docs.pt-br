@@ -201,4 +201,4 @@ Por exemplo, você pode configurar um alerta por email sobre “Porcentagem DTU�
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -13,4 +13,4 @@ Uma máquina virtual *personalizada* é simplesmente uma máquina virtual que vo
 
 ## Para criar a máquina virtual
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

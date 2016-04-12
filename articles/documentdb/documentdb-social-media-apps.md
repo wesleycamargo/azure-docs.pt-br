@@ -198,4 +198,4 @@ Saiba mais sobre a modelagem de dados lendo o artigo [Modelando dados no Banco d
 
 Caso contrário, saiba mais sobre o Banco de Dados de Documentos seguindo o [Roteiro de aprendizagem do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

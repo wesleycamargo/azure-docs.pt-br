@@ -34,4 +34,4 @@ Este artigo mostra como anexar discos novos e existentes a uma máquina virtual 
 
 Depois que o disco for adicionado, você precisará prepará-lo para uso. Veja no sistema operacional da máquina virtual: “Como inicializar um novo disco de dados no Linux” neste [artigo](virtual-machines-linux-classic-attach-disk.md#how-to-initialize-a-new-data-disk-in-linux).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

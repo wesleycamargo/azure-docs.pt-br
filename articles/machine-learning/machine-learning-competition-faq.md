@@ -112,4 +112,4 @@ Atualmente, a plataforma da Competição só é compatível com entradas de envi
 
 As entradas de usuário são mantidas somente para fins de avaliação para identificar as soluções vencedoras. Consulte nossos [Termos e Condições](http://aka.ms/comptermsandconditions) para obter informações específicas.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

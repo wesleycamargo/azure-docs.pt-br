@@ -7,4 +7,4 @@ Provisionamento de armazenamento de documentos / coleção|250 GB (ou superior p
 Máximo de unidades de solicitação / segundos por coleção|250\.000 RU/s (ou superior por solicitação)*
 Tamanho máximo da solicitação de documento |512KB
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

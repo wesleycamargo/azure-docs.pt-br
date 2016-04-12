@@ -170,4 +170,4 @@ Agora que você aprendeu a implantar e monitorar topologias usando o Painel do S
 
 Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

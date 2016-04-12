@@ -112,4 +112,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 <!--Other Web references-->
 [Controle de acesso baseado em função no portal do Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

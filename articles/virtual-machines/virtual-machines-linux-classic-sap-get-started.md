@@ -35,4 +35,4 @@ Atualização: dezembro de 2015
 
 [Esse artigo pode ser encontrado aqui](virtual-machines-linux-sap-on-suse-quickstart.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

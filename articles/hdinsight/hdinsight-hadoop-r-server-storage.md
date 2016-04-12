@@ -110,4 +110,4 @@ Agora que você sabe como criar um novo cluster HDInsight que inclui o Servidor 
 - [Add RStudio Server to HDInsight premium](hdinsight-hadoop-r-server-install-r-studio.md) (Adicionar o servidor RStudio ao HDInsight premium)
 - [Compute context options for R Server on HDInsight premium](hdinsight-hadoop-r-server-compute-contexts.md) (Computar opções de contexto para o servidor R no HDInsight premium)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -27,4 +27,4 @@ O serviço Fila contém os seguintes componentes:
 
 - **Mensagem:** uma mensagem, em qualquer formato, de até 64 KB.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

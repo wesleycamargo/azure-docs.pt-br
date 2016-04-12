@@ -59,4 +59,4 @@ Para obter mais informações, consulte [Documentação de cloud-init para Ubunt
 
 [Interface de linha de comando do Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

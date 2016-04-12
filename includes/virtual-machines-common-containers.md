@@ -217,4 +217,4 @@ Confira o [Docker](https://www.docker.com) e os [Contêineres do Windows](https:
 [microsserviços]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

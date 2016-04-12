@@ -226,4 +226,4 @@ Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao cr
 - Para saber mais sobre ações de auditoria, consulte [Operações de auditoria com o Gerenciador de Recursos](./resource-group-audit.md).
 - Para saber mais sobre ações para determinar os erros durante a implantação, consulte [Solução de problemas de implantação de grupo de recursos](./resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

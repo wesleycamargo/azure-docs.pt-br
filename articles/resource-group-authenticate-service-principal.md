@@ -523,4 +523,4 @@ Para obter mais informações sobre como usar os certificados e a CLI do Azure, 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

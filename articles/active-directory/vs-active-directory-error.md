@@ -96,4 +96,4 @@ Para alterar o tipo de autenticação, remova o tipo de autenticação incompat�
 
 Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

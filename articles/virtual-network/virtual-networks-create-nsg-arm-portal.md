@@ -103,4 +103,4 @@ Para criar o NSG **NSG-BackEnd** e associá-lo à sub-rede **BackEnd**, siga as 
 - Saiba como [gerenciar NSGs existentes](virtual-network-manage-nsg-arm-portal.md)
 - [Habilite o registro em log](virtual-network-nsg-manage-log.md) para NSGs.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

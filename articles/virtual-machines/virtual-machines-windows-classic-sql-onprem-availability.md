@@ -103,4 +103,4 @@ Além de usar o **Assistente de Adição de Réplica do Azure** para estender se
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

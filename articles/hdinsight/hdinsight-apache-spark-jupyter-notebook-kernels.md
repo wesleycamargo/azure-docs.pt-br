@@ -145,4 +145,4 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

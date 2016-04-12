@@ -128,4 +128,4 @@ Execute o cmdlet **Set-AzureRmSqlDatabase** e defina o **-RequestedServiceObject
 - [Documentação do Banco de Dados SQL](http://azure.microsoft.com/documentation/services/sql-database/)
 - [Cmdlets do Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/mt574084.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

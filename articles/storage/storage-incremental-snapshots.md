@@ -136,4 +136,4 @@ As etapas descritas abaixo vão restaurar o disco premium mypremiumdisk para um 
 - [Criando um instantâneo de um Blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [Planejar sua Infraestrutura de backup de VM](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

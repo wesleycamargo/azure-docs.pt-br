@@ -190,4 +190,4 @@ Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure]
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

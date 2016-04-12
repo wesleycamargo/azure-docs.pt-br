@@ -202,4 +202,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Após você conseguir uma autorização `code` e um `id_token`, poderá conectar o usuário e obter tokens de acesso em seu nome. Para conectar o usuário, você deve validar o `id_token` exatamente como descrito [acima](#validating-the-id-token). Para obter tokens de acesso, você pode seguir as etapas descritas em nossa [documentação do protocolo OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

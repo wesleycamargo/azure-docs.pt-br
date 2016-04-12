@@ -639,4 +639,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

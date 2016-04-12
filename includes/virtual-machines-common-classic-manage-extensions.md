@@ -121,4 +121,4 @@ Você pode usar as APIs REST a seguir para saber se uma extensão requer uma con
 
 >[AZURE.NOTE]As extensões também podem usar as configurações que são definidas com JSON. Quando esses tipos de extensões são usados, apenas o elemento **SampleConfig** é usado.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

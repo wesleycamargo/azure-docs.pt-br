@@ -39,4 +39,4 @@ Quando você cria uma máquina virtual do Windows no portal clássico do Azure, 
 
 * Se você criou uma máquina virtual no modelo de implantação do Resource Manager, também pode usar o Azure PowerShell para [criar um balanceador de carga para Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

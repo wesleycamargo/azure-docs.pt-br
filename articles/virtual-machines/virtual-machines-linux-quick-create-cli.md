@@ -149,4 +149,4 @@ Agora que você criou uma VM Linux rapidamente a ser usada para fins de teste ou
 
 bem como qualquer número de implantação de infraestrutura, configuração e ferramentas de orquestração patenteadas e de software livre.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

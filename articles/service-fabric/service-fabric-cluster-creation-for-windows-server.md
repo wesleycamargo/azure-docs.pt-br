@@ -115,4 +115,4 @@ Leia os artigos a seguir para começar com o desenvolvimento e a implantação d
 Leia mais sobre clusters do Azure e clusters autônomos:
 - [Visão geral do recurso de criação de cluster autônomo e uma comparação com clusters gerenciados pelo Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -26,4 +26,4 @@ A tabela a seguir descreve os limites e imposições de cota do Banco de Dados d
 
 Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

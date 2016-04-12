@@ -47,4 +47,4 @@ Semelhantes a outras entidades, as operações de Hub de notificação são perm
 
 Os hubs de notificação aceitam declarações concedidas pelos tokens de controle de acesso do Microsoft Azure e por tokens de assinatura gerados com chaves compartilhadas configuradas diretamente no hub de notificação.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

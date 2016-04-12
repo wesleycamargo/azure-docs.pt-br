@@ -118,4 +118,4 @@ Para criar um gateway de VPN para rede virtual ARM, siga as instruções abaixo.
 - Saiba mais sobre [o Provedor de recursos de rede (NRP) para ARM](resource-groups-networking.md).
 - Crie uma [solução completa conectando uma rede virtual clássica a uma rede virtual de ARM usando uma VPN S2S](virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

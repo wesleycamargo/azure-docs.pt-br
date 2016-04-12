@@ -132,4 +132,4 @@ Para obter instruções sobre como monitorar os níveis de desempenho no Portal 
 Para obter mais informações sobre como escolher os níveis de desempenho para as coleções, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

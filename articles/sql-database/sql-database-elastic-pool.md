@@ -86,4 +86,4 @@ A replicação geográfica está disponível para qualquer banco de dados em um 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

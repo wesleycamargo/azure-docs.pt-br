@@ -62,4 +62,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar um email para [adlafeedback@microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

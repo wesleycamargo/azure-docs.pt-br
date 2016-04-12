@@ -98,4 +98,4 @@ A imagem está pronta para ser usada para criar máquinas virtuais. É possível
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Como criar uma máquina virtual do Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

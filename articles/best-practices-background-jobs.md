@@ -321,4 +321,4 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 - [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Como habilitar o diagnóstico em um serviço de nuvem](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

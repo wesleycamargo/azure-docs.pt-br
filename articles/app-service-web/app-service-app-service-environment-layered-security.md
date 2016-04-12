@@ -109,4 +109,4 @@ Noções básicas sobre [endereços IP de saída][NetworkArchitecture] e Ambient
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

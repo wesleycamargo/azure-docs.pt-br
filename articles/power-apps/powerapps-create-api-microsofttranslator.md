@@ -97,4 +97,4 @@ Neste tópico, você adicionou a API do Microsoft Translator para o seu PowersAp
 [7]: ./media/powerapps-create-api-microsofttranslator/browseall.png
 [8]: ./media/powerapps-create-api-microsofttranslator/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -161,4 +161,4 @@ Para habilitar a redefinição de senha refinada, você precisará criar uma pol
 
 - [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

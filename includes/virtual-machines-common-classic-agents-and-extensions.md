@@ -43,4 +43,4 @@ O Agente de VM é habilitado nas seguintes situações:
 
 Para obter detalhes sobre essas tarefas, veja [Adicionar, encontrar, atualizar e remover Extensões de VM do Azure](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

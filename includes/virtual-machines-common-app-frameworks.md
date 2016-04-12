@@ -72,4 +72,4 @@ Descubra todos os modelos à sua disposição no [GitHub](https://github.com/Azu
 
 Saiba mais sobre o [Gerenciador de Recursos do Azure](../articles/resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

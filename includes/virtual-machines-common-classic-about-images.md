@@ -39,4 +39,4 @@ Para obter exemplos de como usar as ferramentas em uma implantação clássica:
 
 [Diferentes maneiras de criar uma máquina virtual Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

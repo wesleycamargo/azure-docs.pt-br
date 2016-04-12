@@ -19,16 +19,18 @@
 # Expressões escalares na Análise
 
 
-A [Análise](app-analytics.md) permite executar consultas avançadas na telemetria de seu aplicativo coletada pelo [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta.
+A [Análise](app-analytics.md) permite executar consultas avançadas na telemetria de seu aplicativo coletada pelo 
+[Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta.
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ---
 
 [ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
-<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) 
+<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
 <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) 
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) 
+| [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
@@ -42,22 +44,23 @@ As expressões escalares são diferentes de [consultas](app-analytics-queries.md
 
 ## Escalares
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> 
-[gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons)
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 Os tipos que recebem suporte são:
 
 | Tipo | Nomes adicionais | Tipo equivalente do .NET |
 | --------- | -------------------- | -------------------- |
-| `bool` | `boolean` | `System.Boolean` |
-| `datetime`| `date` | `System.DateTime` |
-| `dynamic` | | `System.Object` |
-| `guid` | `uuid`, `uniqueid` | `System.Guid` |
-| `int` | | `System.Int32` |
-| `long` | | `System.Int64` |
-| `double` | `real` | `System.Double` |
-| `string` | | `System.String` |
-| `timespan`| `time` | `System.TimeSpan` |
+| `bool`    | `boolean`            | `System.Boolean`     |
+| `datetime`| `date`               | `System.DateTime`    |
+| `dynamic` |                      | `System.Object`      |
+| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
+| `int`     |                      | `System.Int32`       |
+| `long`    |                      | `System.Int64`       |
+| `double`  | `real`               | `System.Double`      |
+| `string`  |                      | `System.String`      |
+| `timespan`| `time`               | `System.TimeSpan`    |
 
 ### Conversões
 
@@ -138,7 +141,9 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 ```
 ### iff
 
-A função `iff()` avalia o primeiro argumento (o predicado) e retorna o valor do segundo ou do terceiro argumento, dependendo se o predicado for `true` ou `false`. O segundo e o terceiro argumentos devem ser do mesmo tipo.
+A função `iff()` avalia o primeiro argumento (o predicado) e retorna o valor
+do segundo ou do terceiro argumento, dependendo se o predicado 
+for `true` ou `false`. O segundo e o terceiro argumentos devem ser do mesmo tipo.
 
 **Sintaxe**
 
@@ -153,7 +158,8 @@ A função `iff()` avalia o primeiro argumento (o predicado) e retorna o valor d
 
 **Retorna**
 
-Essa função retorna o valor de *ifTrue* se *predicate* for avaliado como `true` ou retorna o valor de *ifFalse* caso ocorra o contrário.
+Essa função retorna o valor de *ifTrue* se *predicate* for avaliado como `true` 
+ou retorna o valor de *ifFalse* caso ocorra o contrário.
 
 **Exemplo**
 
@@ -161,8 +167,8 @@ Essa função retorna o valor de *ifTrue* se *predicate* for avaliado como `true
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a> 
-<a name="isnotnull"/></a> 
+<a name="isnull"/></a>
+<a name="isnotnull"/></a>
 <a name="notnull"/></a>
 ### isnull, isnotnull, notnull
 
@@ -191,7 +197,7 @@ True ou false dependendo se o valor for nulo ou não nulo.
 | "" | false
 |"x" | false
 |parsejson("")|verdadeiro
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 **Exemplo**
@@ -242,7 +248,7 @@ Observe que há outras maneiras de conseguir esse efeito:
 | * | Multiplicar | 
 | / | Dividir | 
 | % | Módulo | 
-|| 
+||
 |`<` |Menor 
 |`<=`|Menor ou Igual a 
 |`>` |Maior 
@@ -280,7 +286,7 @@ Expressão | Resultado
 ---|---
 `bin(4.5, 1)` | `4.0`
 `bin(time(16d), 7d)` | `14d`
-`bin(datetime(1953-04-15 22:25:07), 1d)`| `datetime(1953-04-15)`
+`bin(datetime(1953-04-15 22:25:07), 1d)`|  `datetime(1953-04-15)`
 
 
 A expressão a seguir calcula um histograma de durações, com um tamanho de partição de um segundo:
@@ -355,7 +361,7 @@ A função da raiz quadrada.
 ## Data e hora
 
 
-[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
 
 ### Literais de data e hora
 
@@ -374,7 +380,7 @@ A função da raiz quadrada.
 `0.1s`|0,1 segundo
 `100ms`| 100 milissegundos
 `10microsecond`|
-`1tick`|100 ns
+`1tick`|100ns
 `time("15 seconds")`|
 `time("2")`| 2 dias
 `time("0.12:34:56.7")`|`0d+12h+34m+56.7s`
@@ -411,7 +417,8 @@ Subtrai o período fornecido da hora atual UTC. Assim como `now()`, essa funçã
 
 **Argumentos**
 
-* *a\_timespan*: intervalo a ser subtraído da hora UTC atual (`now()`).
+* *a_timespan*: intervalo a ser subtraído da hora UTC atual
+(`now()`).
 
 **Retorna**
 
@@ -538,7 +545,7 @@ Alias `timespan()`.
 
 ## Cadeia de caracteres
 
-[countof](#countof) | [extract](#extract) | [extractjson](#extractjson) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 
 ### Literais de cadeia de caracteres
@@ -547,10 +554,10 @@ As regras são as mesmas do JavaScript.
 
 As cadeias de caracteres podem ser colocadas entre aspas únicas ou duplas.
 
-Barra invertida (``) é usada para escapar caracteres como `\t` (guia), `\n` (nova linha) e instâncias do caractere de aspas.
+Barra invertida (`\`) é usada para escapar caracteres como `\t` (guia), `\n` (nova linha) e instâncias do caractere de aspas.
 
 * `'this is a "string" literal in single \' quotes'`
-* `"this is a 'string' literal in double " quotes"`
+* `"this is a 'string' literal in double \" quotes"`
 * `@"C:\backslash\not\escaped\with @ prefix"`
 
 ### Literais de cadeia de caracteres ofuscados
@@ -666,8 +673,8 @@ Este exemplo é equivalente a `substring(Text, 2, 4)`:
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a> 
-<a name="isnotempty"></a> 
+<a name="notempty"></a>
+<a name="isnotempty"></a>
 <a name="isempty"></a>
 ### isempty, isnotempty, notempty
 
@@ -696,7 +703,7 @@ Indica se o argumento é uma cadeia de caracteres vazia ou isnull.
 | "" | verdadeiro
 |"x" | false
 |parsejson("")|verdadeiro
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 
@@ -738,7 +745,7 @@ range x from 1 to 5 step 1
 
 Tem os seguintes resultados:
 
-| x | str | replaced|
+| x    | str | replaced|
 |---|---|---|
 | 1 | O número é 1,000000 | O número era: 1,000000|
 | 2 | O número é 2,000000 | O número era: 2,000000|
@@ -843,8 +850,8 @@ Converte uma cadeia de caracteres em letras maiúsculas.
 
 ## Matrizes e objetos - tipos dinâmicos
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) 
-<br/> 
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
+<br/>
 [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
@@ -1150,4 +1157,4 @@ Observe que "[0]" indica a presença de uma matriz, mas não especifica o índic
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!------------HONumber=AcomDC_0330_2016-->

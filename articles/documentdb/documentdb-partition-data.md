@@ -251,4 +251,4 @@ Neste artigo, descrevemos como o particionamento funciona no Banco de Dados de D
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

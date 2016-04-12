@@ -111,6 +111,6 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 4. Atualizar alertas de cobrança para essa assinatura no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nesta assinatura. Você pode fazê-lo no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
 
-<!----HONumber=AcomDC_0330_2016-->
+<!------------HONumber=AcomDC_0330_2016-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

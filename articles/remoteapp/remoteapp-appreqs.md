@@ -55,4 +55,4 @@ Siga as diretrizes apresentadas para desenvolver aplicativos para o RemoteApp.
 - Você deve ajustar e balancear o [uso de thread](https://msdn.microsoft.com/library/aa383520.aspx) do aplicativo para um ambiente multiusuário com vários processadores.
 - Para otimizar o desempenho, é recomendável que os aplicativos [detectem](https://msdn.microsoft.com/library/aa380798.aspx) se estão sendo executados em uma sessão de cliente.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

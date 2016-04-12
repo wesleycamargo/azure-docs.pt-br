@@ -138,4 +138,4 @@ Eis aqui alguns cenários comuns que você pode executar com o cluster Spark e a
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

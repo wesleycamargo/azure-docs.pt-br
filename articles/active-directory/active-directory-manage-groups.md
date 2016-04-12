@@ -89,4 +89,4 @@ Agora que você compreendeu as noções básicas do gerenciamento de acesso, aqu
 
 * [Referência de API do Graph para grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

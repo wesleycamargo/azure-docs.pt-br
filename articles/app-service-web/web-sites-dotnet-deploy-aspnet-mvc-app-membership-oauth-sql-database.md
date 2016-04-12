@@ -759,4 +759,4 @@ Este tutorial foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/)
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

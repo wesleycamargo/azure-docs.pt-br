@@ -33,4 +33,4 @@ Use o SQL Server Management Studio para corrigir problemas de compatibilidade us
 
 [Selecionar método de migração](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

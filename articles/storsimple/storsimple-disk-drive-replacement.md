@@ -124,4 +124,4 @@ Após uma falha de unidade em seu dispositivo StorSimple e depois que você remo
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -346,4 +346,4 @@ Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco
 - Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 - Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

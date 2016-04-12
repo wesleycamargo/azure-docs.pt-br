@@ -34,4 +34,4 @@ Então, como você para atualizar sua coleção? É bem simples:
 
 1. Clique na marca de seleção para iniciar a atualização.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

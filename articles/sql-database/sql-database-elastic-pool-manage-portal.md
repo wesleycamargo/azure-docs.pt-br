@@ -131,4 +131,4 @@ Trabalhos elásticos facilitam a execução de scripts Transact-SQL em qualquer 
 - [Criar um pool de banco de dados elástico com o C#](sql-database-elastic-pool-create-csharp.md)
 - [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

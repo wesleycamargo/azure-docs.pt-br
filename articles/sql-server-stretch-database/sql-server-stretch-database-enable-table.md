@@ -114,4 +114,4 @@ Para obter mais informações, confira a seção [CREATE TABLE (Transact-SQL)](h
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

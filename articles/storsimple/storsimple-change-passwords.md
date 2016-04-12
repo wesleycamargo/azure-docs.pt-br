@@ -69,4 +69,4 @@ A senha do StorSimple Snapshot Manager agora deve ser atualizada.
 
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

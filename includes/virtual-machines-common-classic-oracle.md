@@ -32,4 +32,4 @@ Consulte [Considerações diversas sobre imagens de máquinas virtuais Oracle](.
 
 [Configurando o Oracle GoldenGate para Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md) percorre as etapas de configuração do banco de dados e da replicação.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

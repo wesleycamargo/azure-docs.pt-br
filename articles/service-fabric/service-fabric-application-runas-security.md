@@ -351,4 +351,4 @@ O manifesto do aplicativo abaixo mostra várias configurações diferentes descr
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

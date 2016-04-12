@@ -230,4 +230,4 @@ Os trechos de código de exemplo acima permitem que você crie com facilidade a 
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

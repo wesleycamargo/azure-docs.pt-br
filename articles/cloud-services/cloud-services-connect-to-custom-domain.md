@@ -156,4 +156,4 @@ help New-AzureServiceADDomainExtensionConfig
 
 Também gostaríamos de receber seus comentários sobre se seria útil ter uma extensão que promovesse uma máquina virtual para um controlador de domínio. Então, se você acha que seria, informe-nos na seção de comentários.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

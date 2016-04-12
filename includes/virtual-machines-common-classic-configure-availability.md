@@ -93,4 +93,4 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 [Visão geral da rede virtual]: ../articles/virtual-network/virtual-networks-overview.md
 [Artigos para máquinas virtuais no Gerenciamento de Serviços]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -166,4 +166,4 @@ Confira a [Documentação sobre a obtenção de recomendações de item](http://
 ### O que vem a seguir?
 Parabéns por ter chegado até aqui! Para saber mais, você pode visitar a [Referência da API de Recomendações](http://go.microsoft.com/fwlink/?LinkId=759348) completa. Se tiver dúvidas, não hesite em entrar em contato conosco em mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

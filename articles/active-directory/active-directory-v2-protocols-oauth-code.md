@@ -259,4 +259,4 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 | trace\_id | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
 | correlation\_id | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

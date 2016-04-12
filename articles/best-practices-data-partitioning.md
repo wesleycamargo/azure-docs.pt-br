@@ -564,4 +564,4 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 [O que é a Pesquisa do Azure?]: search/search-what-is-azure-search.md
 [O que é o Banco de Dados SQL do Azure?]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

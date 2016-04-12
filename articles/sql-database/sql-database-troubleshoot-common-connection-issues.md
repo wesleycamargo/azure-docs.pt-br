@@ -42,4 +42,4 @@ Se o aplicativo falhar persistentemente para se conectar ao banco de dados SQL A
 4.	Verifique a integridade do serviço no painel. Se você achar que há uma interrupção regional, confira [Recuperar-se de uma paralisação](sql-database-disaster-recovery.md) para obter as etapas de recuperação de uma nova região.
 5.	Se os problemas de conectividade persistirem, arquive uma solicitação de suporte do Azure selecionando a opção **Obter suporte** no site de [Suporte do Azure](https://azure.microsoft.com/support/options).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

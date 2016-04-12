@@ -359,4 +359,4 @@ Veja uma referência de esquema XML para os elementos usados acima [aqui](https:
 ## Próximas etapas
 Leia mais sobre o [modelo](cloud-services-model-and-package.md) de Serviço de Nuvem.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

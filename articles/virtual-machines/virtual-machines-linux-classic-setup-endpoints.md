@@ -32,4 +32,4 @@ Quando você cria uma máquina virtual do Linux no portal clássico do Azure, po
 
 * Você também pode criar um ponto de extremidade de VM usando a Interface de linha de comando do Azure no [Modo de Gerenciamento de Serviço](../virtual-machines-command-line-tools.md). Execute o comando **azure vm endpoint create**.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

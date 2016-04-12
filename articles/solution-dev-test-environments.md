@@ -361,4 +361,4 @@ Agora que viu como é fácil criar, manter e excluir os ambientes de desenvolvim
 - [Atribua marcas](resource-group-using-tags.md) aos grupos de recursos de cada ambiente e/ou aos recursos individuais. Você pode adicionar uma marca de "Ambiente" aos grupos de recursos e definir seu valor para corresponder aos nomes de seu ambiente. As marcas podem ser particularmente úteis quando você precisar organizar os recursos de gerenciamento ou de cobrança.
 - Monitore alertas e cobrança de recursos do grupo de recursos no [Portal do Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -108,4 +108,4 @@ O que podemos aperfeiçoar? Este tópico explica o recurso de maneira clara? Ou 
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

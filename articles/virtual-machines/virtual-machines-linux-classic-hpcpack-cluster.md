@@ -309,4 +309,4 @@ A ferramenta **clusrun** do HPC Pack pode ser usada para executar comandos em n√
 [nfsperm]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-classic-hpcpack-cluster/nfsmanage.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -282,4 +282,4 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -30,4 +30,4 @@ Você pode alterar quando quiser a [camada de serviço](sql-database-service-tie
 
 Se o problema de desempenho continuar, contate o suporte e abra um caso de suporte.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

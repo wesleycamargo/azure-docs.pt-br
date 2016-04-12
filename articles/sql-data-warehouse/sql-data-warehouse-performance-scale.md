@@ -93,4 +93,4 @@ Para obter uma visão geral do desempenho, consulte [visão geral de desempenho]
 
 [Portal Clássico do Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

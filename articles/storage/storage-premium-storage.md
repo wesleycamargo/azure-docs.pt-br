@@ -538,4 +538,4 @@ Para obter mais informações sobre o Armazenamento Premium do Azure, confira os
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 [Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

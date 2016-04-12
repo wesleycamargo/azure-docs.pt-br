@@ -111,4 +111,4 @@ Os padrões e diretrizes a seguir também podem ser relevantes a esse cenário a
 - [Operações em Dimensionamento Automático](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 - [Microsoft.WindowsAzure.Management.Monitoring.Autoscale Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

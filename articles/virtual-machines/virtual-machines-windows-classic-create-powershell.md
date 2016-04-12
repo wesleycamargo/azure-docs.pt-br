@@ -263,4 +263,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 Se precisar de um disco do sistema operacional que seja maior do que 127 GB, você poderá [expandir a unidade do sistema operacional](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

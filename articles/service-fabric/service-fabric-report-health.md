@@ -297,4 +297,4 @@ Com base nos dados de integridade, os criadores de serviço e administradores de
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

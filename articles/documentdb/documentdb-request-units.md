@@ -180,4 +180,4 @@ Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](ht
 
 [1]: ./media/documentdb-request-units/queryexplorer.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

@@ -101,4 +101,4 @@ Neste tópico, foi adicionada a API do Salesforce ao seu PowersApps Enterprise. 
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

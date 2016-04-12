@@ -136,4 +136,4 @@ Entre em contato com o [Atendimento ao Cliente Corporativo](http://aka.ms/AzureE
 
 [Perguntas frequentes sobre o Azure Marketplace](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

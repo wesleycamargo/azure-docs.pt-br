@@ -22,4 +22,4 @@ O modelo do Gerenciador de Recursos do Azure permite que você especifique de fo
 
 Para implantar com modelos, usamos a mesma versão da Extensão de Script Personalizado disponível para APIs de Gerenciamento de Serviços do Azure. A extensão dá suporte os mesmos parâmetros e cenários de como carregar arquivos para a conta de Armazenamento do Azure ou local do Github. A principal diferença ao usar modelos é que a versão exata da extensão deve ser especificada, em vez de especificar a versão do formato de majorversion.*.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

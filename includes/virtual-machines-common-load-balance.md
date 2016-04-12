@@ -69,4 +69,4 @@ Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Co
 
 Para obter mais informações sobre o balanceador de carga, confira [Balanceamento de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->

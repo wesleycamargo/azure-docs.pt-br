@@ -369,4 +369,4 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 [Portal Clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0330_2016-->
+<!-----------HONumber=AcomDC_0330_2016-->
