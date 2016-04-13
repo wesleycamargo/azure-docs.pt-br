@@ -67,17 +67,17 @@ Apesar de você provavelmente querer ter os *mesmos* recursos do Azure criados e
  - **hostingPlanName**: *TestApp1DevPlan*
  - **siteLocation**: *EUA Central*
  - **serverName**: *testapp1devsrv*
- - **serverLocation**: * EUA Central*
+ - **serverLocation**: *EUA Central*
  - **administratorLogin**: *testapp1Admin*
  - **administratorLoginPassword**: *substitua pela sua senha*
  - **databaseName**: *testapp1devdb*
 
 4. Usando qualquer editor de texto ou JSON, edite o arquivo de parâmetros do ambiente de Teste criado na Etapa 3, substituindo os valores listados à direita dos valores de parâmetro no arquivo pelos *valores* listados à direita dos **parâmetros** abaixo:
  - **siteName**: *TestApp1TestApp*
- - **hostingPlanName**: *TestApp1TestPla*n
+ - **hostingPlanName**: *TestApp1TestPla* 
  - **siteLocation**: *EUA Central*
  - **serverName**: *testapp1testsrv*
- - **serverLocation**: * EUA Central*
+ - **serverLocation**: *EUA Central*
  - **administratorLogin**: *testapp1Admin*
  - **administratorLoginPassword**: *substitua pela sua senha*
  - **databaseName**: *testapp1testdb*
