@@ -51,7 +51,33 @@ Você pode criar um alerta para as métricas a seguir.
 
 |Nome da métrica|	Unidade|
 |---|---|
-|\\Processor(\_Total)\\% Processor Time |Porcentagem| |\\Processor(\_Total)\\% Privileged Time |Porcentagem| |\\Processor(\_Total)\\% User Time |Porcentagem| |\\Processor Information(\_Total)\\Processor Frequency |Contagem| |\\System\\Processes| Contagem| |\\Process(\_Total)\\Thread Count| Contagem| |\\Process(\_Total)\\Handle Count |Contagem| |\\Memory\\% Committed Bytes In Use |Porcentagem| |\\Memory\\Available Bytes| Bytes| |\\Memory\\Committed Bytes |Bytes| |\\Memory\\Commit Limit| Bytes| |\\Memory\\Pool Paged Bytes| Bytes| |\\Memory\\Pool Nonpaged Bytes| Bytes| |\\PhysicalDisk(\_Total)\\% Disk Time| Porcentagem| |\\PhysicalDisk(\_Total)\\% Disk Read Time| Porcentagem| |\\PhysicalDisk(\_Total)\\% Disk Write Time| Porcentagem| |\\PhysicalDisk(\_Total)\\Disk Transfers/sec |CountPerSecond| |\\PhysicalDisk(\_Total)\\Disk Reads/sec |CountPerSecond| |\\PhysicalDisk(\_Total)\\Disk Writes/sec |CountPerSecond| |\\PhysicalDisk(\_Total)\\Disk Bytes/sec |BytesPerSecond| |\\PhysicalDisk(\_Total)\\Disk Read Bytes/sec| BytesPerSecond| |\\PhysicalDisk(\_Total)\\Disk Write Bytes/sec |BytesPerSecond| |\\PhysicalDisk(\_Total)\\Avg. Disk Queue Length| Contagem| |\\PhysicalDisk(\_Total)\\Avg. Disk Read Queue Length| Contagem| |\\PhysicalDisk(\_Total)\\Avg. Disk Write Queue Length |Contagem| |\\LogicalDisk(\_Total)\\% Free Space| Porcentagem| |\\LogicalDisk(\_Total)\\Free Megabytes| Contagem|
+|\\Processor(\_Total)\\% Processor Time |Porcentagem|
+|\\Processor(\_Total)\\% Privileged Time |Porcentagem|
+|\\Processor(\_Total)\\% User Time |Porcentagem|
+|\\Processor Information(\_Total)\\Processor Frequency |Contagem|
+|\\System\\Processes| Contagem|
+|\\Process(\_Total)\\Thread Count| Contagem|
+|\\Process(\_Total)\\Handle Count |Contagem|
+|\\Memory\\% Committed Bytes In Use |Porcentagem|
+|\\Memory\\Available Bytes| Bytes|
+|\\Memory\\Committed Bytes |Bytes|
+|\\Memory\\Commit Limit| Bytes|
+|\\Memory\\Pool Paged Bytes| Bytes|
+|\\Memory\\Pool Nonpaged Bytes| Bytes|
+|\\PhysicalDisk(\_Total)\\% Disk Time| Porcentagem|
+|\\PhysicalDisk(\_Total)\\% Disk Read Time| Porcentagem|
+|\\PhysicalDisk(\_Total)\\% Disk Write Time| Porcentagem|
+|\\PhysicalDisk(\_Total)\\Disk Transfers/sec |CountPerSecond|
+|\\PhysicalDisk(\_Total)\\Disk Reads/sec |CountPerSecond|
+|\\PhysicalDisk(\_Total)\\Disk Writes/sec |CountPerSecond|
+|\\PhysicalDisk(\_Total)\\Disk Bytes/sec |BytesPerSecond|
+|\\PhysicalDisk(\_Total)\\Disk Read Bytes/sec| BytesPerSecond|
+|\\PhysicalDisk(\_Total)\\Disk Write Bytes/sec |BytesPerSecond|
+|\\PhysicalDisk(\_Total)\\Avg. Disk Queue Length| Contagem|
+|\\PhysicalDisk(\_Total)\\Avg. Disk Read Queue Length| Contagem|
+|\\PhysicalDisk(\_Total)\\Avg. Disk Write Queue Length |Contagem|
+|\\LogicalDisk(\_Total)\\% Free Space| Porcentagem|
+|\\LogicalDisk(\_Total)\\Free Megabytes| Contagem|
 
 
 
@@ -161,4 +187,5 @@ Para conjuntos de escala de VM, você pode atualizar a configuração de Autoesc
 
 >[AZURE.NOTE] Para o Barramento de Serviço, o conceito de grupo de recursos não existe, mas o Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos geralmente está no formato 'Default - ServiceBus-[região]'. Por exemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0330_2016-->
+
