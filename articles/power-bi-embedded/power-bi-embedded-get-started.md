@@ -2,7 +2,7 @@
    pageTitle="Introdução ao Microsoft Power BI Embedded Preview"
    description=""
    services="power-bi-embedded"
-   documentationCenter=""
+   documentationCenter="With Power BI Embedded, you can add interactive Power BI reports into your application."
    authors="dvana"
    manager="NA"
    editor=""
