@@ -385,4 +385,4 @@ Habilitar configuração de diagnóstico com retenção para uma categoria de lo
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->
