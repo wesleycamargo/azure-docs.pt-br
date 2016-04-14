@@ -55,4 +55,4 @@ Verificações de validação são executadas somente quando a propriedade de DN
 
 [AZURE.INCLUDE [PERGUNTAS FREQUENTES](../../includes/dns-reverse-dns-record-operations-faq-asm-include.md)]
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0330_2016-->
