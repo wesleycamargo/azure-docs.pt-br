@@ -225,7 +225,7 @@ Para que o dispositivo de borda de sua organização deixe de ser a fonte da fal
 
 ![Diagrama que realça o dispositivo de borda da organização](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Se não tiver um computador que esteja diretamente conectado à Internet, você poderá criar facilmente uma nova máquina virtual do Azure em seu próprio grupo de recursos ou serviço de nuvem e usá-la. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](virtual-machines-linux-cli-create.md). Exclua o grupo de recursos ou a máquina virtual e o serviço de nuvem ao concluir o teste.
+Se não tiver um computador que esteja diretamente conectado à Internet, você poderá criar facilmente uma nova máquina virtual do Azure em seu próprio grupo de recursos ou serviço de nuvem e usá-la. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](virtual-machines-linux-quick-create-cli.md). Exclua o grupo de recursos ou a máquina virtual e o serviço de nuvem ao concluir o teste.
 
 Se você puder criar uma conexão SSH com um computador conectado diretamente à Internet, verifique se há o seguinte no dispositivo de borda da organização:
 
@@ -243,7 +243,7 @@ Para que o ponto de extremidade de serviço de nuvem e uma ACL deixem de ser a f
 
 ![Diagrama que realça a ACL e o ponto de extremidade do serviço de nuvem](./media/virtual-machines-linux-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-Se não houver outra VM na mesma rede virtual, você poderá facilmente criar uma nova. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](virtual-machines-linux-cli-create.md). Exclua a VM extra ao concluir o teste.
+Se não houver outra VM na mesma rede virtual, você poderá facilmente criar uma nova. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](virtual-machines-linux-quick-create-cli.md). Exclua a VM extra ao concluir o teste.
 
 Se for possível criar uma conexão SSH com uma VM na mesma rede virtual, verifique:
 
@@ -281,4 +281,4 @@ Para máquinas virtuais no modelo de implantação clássica, [Como redefinir um
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

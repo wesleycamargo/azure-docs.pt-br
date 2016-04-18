@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/28/2016"
    ms.author="sahajs;barbkess"/>
 
 # Recuperar um banco de dados de uma interrupção no SQL Data Warehouse
 
-A restauração geográfica possibilita restaurar um banco de dados por meio de um backup com redundância geográfica para criar um novo banco de dados. O banco de dados pode ser criado em qualquer servidor em qualquer região do Azure. Como usa um backup com redundância geográfica como sua fonte, ele pode ser usado para recuperar um banco de dados mesmo que este esteja inacessível devido a uma interrupção. Além de recuperar de uma interrupção, a restauração geográfica também pode ser usada em outros cenários, como migrar ou copiar o banco de dados para um servidor ou região diferente.
+A restauração geográfica possibilita restaurar um banco de dados por meio de um backup com redundância geográfica para criar um novo banco de dados. O banco de dados pode ser criado em qualquer servidor em qualquer região do Azure. Como a restauração geográfica usa um backup com redundância geográfica como sua fonte, ele pode ser usado para recuperar um banco de dados mesmo que este esteja inacessível devido a uma interrupção. Além de recuperar de uma interrupção, a restauração geográfica também pode ser usada em outros cenários, como migrar ou copiar o banco de dados para um servidor ou região diferente.
 
 
 ## Quando iniciar a recuperação
@@ -43,14 +43,14 @@ Recuperar um banco de dados cria um novo banco de dados do último backup com re
 ### PowerShell
 Use o Azure PowerShell para executar a recuperação de banco de dados programaticamente. Para baixar o módulo PowerShell do Azure, execute o [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Você pode verificar a versão executando Get-Module -ListAvailable -Name Azure. Este artigo baseia-se na versão 1.0.4 do Microsoft Azure PowerShell.
 
-Para recuperar um banco de dados, use o cmdlet [Start-AzureSqlDatabaseRecovery][].
+Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][].
 
 1. Abra o Windows PowerShell.
 2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
 3. Selecione a assinatura que contém o banco de dados a ser restaurado.
 4. Obtenha o banco de dados que você deseja recuperar.
 5. Crie a solicitação de recuperação para o banco de dados.
-6. Monitore o progresso da recuperação.
+6. Verifique o status do banco de dados com restauração geográfica.
 
 ```Powershell
 
@@ -59,17 +59,17 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$Database = Get-AzureRmSqlRecoverableDatabase -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$RecoveryRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourSourceServerName>" -SourceDatabase $Database -TargetDatabaseName "<NewDatabaseName>" -TargetServerName "<YourTargetServerName>"
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
 
-# Monitor progress of recovery operation
-Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationGuid $RecoveryRequest.RequestID
+# Verify that the geo-restored database is online
+$GeoRestoredDatabase.status
 
 ```
 
-Observe que, se o servidor for foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do Powershell acima.
+>[AZURE.NOTE] Para o servidor foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do Powershell acima.
 
 ### API REST
 Use REST para executar a recuperação do banco de dados de forma programática.
@@ -93,7 +93,7 @@ O banco de dados recuperado será habilitado para TDE se o banco de dados de ori
 
 
 ## Próximas etapas
-Para saber mais sobre os recursos de continuidade de negócios de outras edições do Banco de Dados SQL do Azure, leia a [Visão geral de continuidade de negócios do Banco de Dados SQL do Azure][].
+Para saber mais sobre os recursos de continuidade de negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral de continuidade de negócios do Banco de Dados SQL do Azure][].
 
 
 <!--Image references-->
@@ -103,7 +103,7 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 [Finalize a recovered database]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
-[Start-AzureSqlDatabaseRecovery]: https://msdn.microsoft.com/library/azure/dn720224.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [Listar bancos de dados recuperáveis]: http://msdn.microsoft.com/library/azure/dn800984.aspx
 [Obter banco de dados recuperável]: http://msdn.microsoft.com/library/azure/dn800985.aspx
 [Criar solicitação de recuperação de banco de dados]: http://msdn.microsoft.com/library/azure/dn800986.aspx
@@ -113,4 +113,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 [Portal do Azure]: https://portal.azure.com/
 [contatando o suporte]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

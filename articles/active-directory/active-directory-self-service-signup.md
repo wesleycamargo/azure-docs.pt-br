@@ -1,6 +1,6 @@
 <properties
 	pageTitle="O que é a inscrição no Azure por autoatendimento? | Microsoft Azure"
-	description="Uma visão geral da inscrição por autoatendimento no Azure, como gerenciar o processo de inscrição e como ."
+	description="Uma visão geral da inscrição por autoatendimento no Azure, como gerenciar o processo de inscrição e como adotar um nome de domínio DNS."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
-	ms.author="stevenpo"/>
+	ms.date="04/04/2016"
+	ms.author="curtand"/>
 
 
 # O que é a inscrição no Azure por autoatendimento?
@@ -232,4 +232,4 @@ Para obter mais informações e exemplos de como usar esses parâmetros, consult
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

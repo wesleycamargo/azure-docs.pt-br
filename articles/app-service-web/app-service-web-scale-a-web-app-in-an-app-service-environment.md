@@ -13,29 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="04/04/2016" 
 	ms.author="ccompy"/>
 
 # Escalando aplicativos em um Ambiente do Serviço de Aplicativo #
 
-Em um alto nível, os Ambientes do Serviço de Aplicativo são essencialmente implantações pessoais do Serviço de Aplicativo do Azure na sua VNET (Rede Virtual) e são gerenciáveis apenas pela sua assinatura. Eles oferecem novos recursos de rede porque estão na sua VNET e também podem ser dimensionados além do que normalmente está disponível nos ambientes do Serviço de Aplicativo do Azure. Se precisar de mais informações sobre o que é um ASE (Ambiente do Serviço de Aplicativo), consulte [O que é um Ambiente do Serviço de Aplicativo][WhatisASE]. Para obter detalhes sobre a criação de um Ambiente do Serviço de Aplicativo ou a criação de um aplicativo Web em um Ambiente do Serviço de Aplicativo, consulte [How to Create an App Service Environment (Como criar um Ambiente do Serviço de Aplicativo)][HowtoCreateASE] e [How to create a web app in an App Service Environment (Como criar um aplicativo Web em um Ambiente do Serviço de Aplicativo)][CreateWebappinASE]
-
-Como pequeno lembrete, ao alterar normalmente um atributo de escala de um aplicativo Web, aplicativo móvel ou de API no Serviço de Aplicativo do Azure, você estará alterando-o no nível de um ASP (Plano do Serviço de Aplicativo). Para obter detalhes sobre o dimensionamento de Planos do Serviço de Aplicativo ou apenas para obter detalhes sobre os Planos do Serviço de Aplicativo fora dos Ambientes de Serviço de Aplicativo, consulte [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure][ScaleWebapp] e [Visão geral detalhada dos Planos do Serviço de Aplicativo do Azure][Appserviceplans].
-
-A escala de um aplicativo em um Ambiente do Serviço de Aplicativo é muito semelhante à escala normal de aplicativos. No Serviço de Aplicativo do Azure normalmente há três itens que você pode dimensionar:
+No Serviço de Aplicativo do Azure normalmente há três itens que você pode dimensionar:
 
 - plano de preços
-- tamanho do trabalhador (para instâncias dedicadas)
+- tamanho do trabalho 
 - número de instâncias.
 
-Em um ASE não é necessário selecionar ou alterar o plano de preços. Em termos de recursos, ele já está no nível de recurso de preços Premium. Em um Ambiente do Serviço de Aplicativo também não há nenhum trabalhador compartilhado. Eles estão todos os trabalhadores dedicados.
+Em um ASE não é necessário selecionar ou alterar o plano de preços. Em termos de recursos, ele já está no nível de recurso de preços Premium.
 
 Com relação aos tamanhos de trabalho, o administrador do ASE pode atribuir o tamanho do recurso de computação a ser usado para cada pool de trabalho. Isso significa que você pode ter o Pool de Trabalhadores 1 com recursos de computação P4 e o Pool de Trabalhadores 2 com recursos de computação P1, se desejado. Eles não precisam estar em ordem de tamanho. Para obter detalhes sobre os tamanhos e seus preços, consulte o documento aqui [Preços do Serviço de Aplicativo do Azure][AppServicePricing]. Isso deixa as opções de dimensionamento para aplicativos Web e Planos do Serviço de Aplicativo em um Ambiente do Serviço de Aplicativo sendo:
 
 - seleção do pool de trabalhadores
 - número de instâncias
 
-A alteração de qualquer um dos itens é feita por meio da interface do usuário apropriada mostrada para os seus Planos do Serviço de Aplicativo hospedados no ASE. Você não pode escalar verticalmente seu ASP além do número de recursos de computação disponíveis no pool de trabalho em que seu ASP está localizado. Se precisar de mais, você deve providenciar para que o administrador do seu ASE adicione mais recursos de computação ao pool de trabalhadores no qual precisa deles. Para obter informações sobre a reconfiguração de seu ASE, leia as informações fornecidas aqui: [Como configurar um ambiente do Serviço de Aplicativo][HowtoConfigureASE]. Também convém aproveitar os recursos de autoescala do ASE para adicionar capacidade com base no agendamento ou em métricas. Para obter mais detalhes sobre como configurar a autoescala para o ambiente ASE propriamente dito, veja [Como configurar a autoescala para um Ambiente do Serviço de Aplicativo][ASEAutoscale].
+A alteração de qualquer um dos itens é feita por meio da interface do usuário apropriada mostrada para os seus Planos do Serviço de Aplicativo hospedados no ASE. Você não pode escalar verticalmente seu ASP além do número de recursos de computação disponíveis no pool de trabalho em que o ASP está localizado. Se precisar de recursos de computação no pool de trabalho, providencie para que o administrador do ASE os adicione. Para obter informações sobre a reconfiguração de seu ASE, leia as informações fornecidas aqui: [Como configurar um ambiente do Serviço de Aplicativo][HowtoConfigureASE]. Também convém aproveitar os recursos de autoescala do ASE para adicionar capacidade com base no agendamento ou em métricas. Para obter mais detalhes sobre como configurar a autoescala para o ambiente ASE propriamente dito, veja [Como configurar a autoescala para um Ambiente do Serviço de Aplicativo][ASEAutoscale].
 
 ![][1]
 
@@ -83,4 +79,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

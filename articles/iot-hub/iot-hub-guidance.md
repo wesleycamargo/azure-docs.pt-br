@@ -38,7 +38,7 @@ Os dados de dispositivo que uma determinada solução IoT armazena dependem dos 
 
 O *provisionamento do dispositivo* é o processo de adição dos dados iniciais do dispositivo para as lojas em sua solução. Para permitir que um dispositivo se conecte ao hub, você deve adicionar uma nova ID e chaves de dispositivo ao [registro de identidades do Hub IoT][lnk-devguide-identityregistry]. Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros repositórios da solução.
 
-O artigo [Orientações sobre o gerenciamento de dispositivo do Hub IoT][lnk-device-management] descreve algumas estratégias comuns para o provisionamento de dispositivo. As [APIs do registro de identidade do Hub IoT][lnk-devguide-identityregistry] permitem a integração do Hub IoT em seu processo de provisionamento.
+As [APIs do registro de identidade do Hub IoT][lnk-devguide-identityregistry] permitem a integração do Hub IoT em seu processo de provisionamento.
 
 ## Gateways de campo
 
@@ -97,11 +97,11 @@ O padrão de serviço do token é a maneira recomendada de implementar um esquem
 
 ## Pulsação do dispositivo <a id="heartbeat"></a>
 
-O [registro de identidade do Hub IoT][lnk-devguide-identityregistry] contém um campo chamado **connectionState**. Você deve usar o campo **connectionState** somente durante o desenvolvimento e a depuração. As soluções IoT não devem consultar o campo no tempo de execução (por exemplo, para verificar se um dispositivo está conectado, a fim de decidir se envia uma mensagem da nuvem para o dispositivo ou um SMS). Se sua solução IoT precisar saber se um dispositivo está conectado (seja no tempo de execução, ou com mais precisão do que a fornecida pela propriedade **connectionState**), a solução deverá implementar o *padrão de pulsação*.
+O [registro de identidade do Hub IoT][lnk-devguide-identityregistry] contém um campo chamado **connectionState**. Você deve usar o campo **connectionState** somente durante o desenvolvimento e a depuração. As soluções de IoT não devem consultar o campo no tempo de execução (por exemplo, para verificar se um dispositivo está conectado, a fim de decidir se deve ser enviada uma mensagem da nuvem para o dispositivo ou um SMS). Se a solução de IoT precisar saber se um dispositivo está conectado (em tempo de execução ou com mais precisão do que a fornecida pela propriedade **connectionState**), a solução deverá implementar o *padrão de pulsação*.
 
 No padrão de pulsação, o dispositivo envia mensagens do dispositivo para a nuvem pelo menos uma vez a cada período de tempo fixo (por exemplo, pelo menos uma vez a cada hora). Isso significa que mesmo quando um dispositivo não tiver dados para enviar, ele enviará uma mensagem vazia do dispositivo para a nuvem (geralmente com uma propriedade que a identifique como uma pulsação). No lado do serviço, a solução mantém um mapa com a última pulsação recebida para cada dispositivo e supõe que haja um problema com um dispositivo se ela não receber uma mensagem de pulsação dentro do tempo esperado.
 
-Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falha. Ao implementar o padrão de pulsação, verifique as [cotas e restrições do Hub IoT][].
+Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falham. Ao implementar o padrão de pulsação, verifique as [cotas e restrições do Hub IoT][].
 
 > [AZURE.NOTE] Se uma solução IoT precisar do estado de conexão do dispositivo apenas para determinar se deve enviar mensagens da nuvem para o dispositivo, e as mensagens não forem transmitidas para conjuntos grandes de dispositivos, um padrão muito mais simples a ser considerado será usar um tempo de validade mais curto. Isso proporciona o mesmo resultado que a manutenção de um registro de estado de conexão do dispositivo usando o padrão de pulsação, embora seja significativamente mais eficiente. Também é possível, por meio da solicitação de confirmações de mensagens, receber uma notificação pelo Hub IoT de quais dispositivos são capazes de receber mensagens e quais não estão online ou apresentam falha. Confira o [Guia do Desenvolvedor do Hub IoT][lnk-devguide-messaging] para saber mais sobre mensagens C2D.
 
@@ -115,7 +115,6 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-device-management]: iot-hub-device-management.md
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
@@ -134,4 +133,4 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [cotas e restrições do Hub IoT]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

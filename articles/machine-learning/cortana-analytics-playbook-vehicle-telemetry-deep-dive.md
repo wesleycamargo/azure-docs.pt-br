@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Guia estratégico de solução da análise de telemetria do veículo: aprofunde-se na solução | Microsoft Azure" 
-	description="Usar os recursos do Cortana Analytics para obter informações em tempo real e de previsão sobre a integridade do veículo e hábitos de condução." 
+	description="Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -155,9 +155,9 @@ Depois que o pipeline for executado com êxito e o conjunto de dados 'RawCarEven
 
 ### Referências
 
-[SDK do Hub de Eventos do Azure para ingestão de fluxo](event-hubs-csharp-ephcs-getstarted.md)
+[SDK do Hub de Eventos do Azure para ingestão de fluxo](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-[Funcionalidades de movimentação de dados do Azure Data Factory](data-factory-data-movement-activities.md) [Atividade DotNet do Azure Data Factory](data-factory-use-custom-activities.md)
+[Recursos de movimentação de dados do Azure Data Factory](../data-factory/data-factory-data-movement-activities.md) [Atividade DotNet do Azure Data Factory](../data-factory/data-factory-use-custom-activities.md)
 
 [Solução do Visual Studio de atividade DotNet do Azure Data Factory para preparação de dados de exemplo](http://go.microsoft.com/fwlink/?LinkId=717077)
 
@@ -706,4 +706,4 @@ Clique aqui para obter instruções detalhadas sobre como configurar os relatór
 
 Este documento contém um detalhamento da Solução de Análise da Telemetria do Veículo. Isto apresenta um padrão de arquitetura lambda para a análise em tempo real e em lote com previsões e ações. Esse padrão se aplica a uma ampla variedade de casos de uso que exigem as análises de afunilamento (em tempo real) e de ampliação (em lote).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

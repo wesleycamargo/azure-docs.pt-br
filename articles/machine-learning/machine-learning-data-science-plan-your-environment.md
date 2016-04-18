@@ -76,7 +76,7 @@ Tome o ambiente do Estúdio de Aprendizado de Máquina do Azure como exemplo:
 - Para obter uma lista dos formatos e dos tipos de dados com suporte no Estúdio de Aprendizado de Máquina do Azure, confira a seção [Formatos de dados e tipos de dados com suporte](machine-learning-data-science-import-data.md#data-formats-and-data-types-supported).
 - Para obter informações sobre as limitações de dados para o Estúdio de Aprendizado de Máquina do Azure, confira a seção **De que tamanho deverá ser o conjunto de dados para os meus módulos?** de [Importando e exportando dados para o Aprendizado de Máquina](machine-learning-faq.md#machine-learning-studio-questions)
 
-Para obter informações sobre as limitações de outros serviços do Azure usados no processo de análise, confira [Assinatura do Azure e Limites de Serviço, Cotas e Restrições](azure-subscription-service-limits.md).
+Para obter informações sobre as limitações de outros serviços do Azure usados no processo de análise, confira [Assinatura do Azure e Limites de Serviço, Cotas e Restrições](../azure-subscription-service-limits.md).
 
 ## Perguntas sobre qualidade de dados: exploração e pré-processamento
 
@@ -104,7 +104,7 @@ Há muitas opções, dependendo de quais linguagens e ambientes ou ferramentas d
 
 
 ## Identificar seu cenário de análise avançada
-Depois de responder às perguntas na seção anterior, você está pronto para determinar qual cenário melhor se adapta a seu caso. Os cenários de exemplo são descritos em [Cenários para análise avançada no Aprendizado de Máquina do Azure](../machine-learning-data-science-plan-sample-scenarios.md).
+Depois de responder às perguntas na seção anterior, você está pronto para determinar qual cenário melhor se adapta a seu caso. Os cenários de exemplo são descritos em [Cenários para análise avançada no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md).
 
 
 
@@ -114,4 +114,4 @@ Depois de responder às perguntas na seção anterior, você está pronto para d
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

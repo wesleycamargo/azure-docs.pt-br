@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Atribuições de função - esquema do modelo
@@ -26,7 +26,7 @@ Para criar uma atribuição de função, adicione o esquema a seguir à seção 
     
     {
         "type": "Microsoft.Authorization/roleAssignments",
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2014-10-01-preview",
         "name": string,
         "dependsOn": [ array values ],
         "properties":
@@ -41,21 +41,22 @@ Para criar uma atribuição de função, adicione o esquema a seguir à seção 
 
 As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sim | **Microsoft.Authorization/roleAssignments** | O tipo de recurso a ser criado. |
-| apiVersion | enum | Sim | **2015-07-01** | A versão da API a ser usada para criar o recurso. |  
-| name | cadeia de caracteres | Sim | Identificador global exclusivo | Um identificador para a nova atribuição de função. |
-| dependsOn | array | Não | Uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. | A coleção de recursos da qual esta atribuição de função depende. Se atribuir uma função com escopo a um recurso e esse recurso for implantado no mesmo modelo, inclua esse nome de recurso neste elemento para garantir que o recurso seja implantado primeiro. | 
-| propriedades | objeto | Sim | (mostrado abaixo) | Um objeto que identifica o escopo, a entidade e a definição de função. |  
+| Nome | Valor |
+| ---- | ---- |
+| type | Enum<br />Obrigatório<br />**Microsoft.Authorization/roleAssignments**<br /><br />O tipo de recurso a ser criado. |
+| apiVersion | Enum<br />Obrigatório<br />**2014-10-01-preview**<br /><br />A versão da API a ser usada para criar o recurso. |  
+| name | String<br />Obrigatório<br />**Identificador-global-exclusivo**<br /><br />Um identificador para a nova atribuição de função. |
+| dependsOn | Array<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou os identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que esse bloqueio depende. Se atribuir uma função com escopo a um recurso e esse recurso for implantado no mesmo modelo, inclua esse nome de recurso neste elemento para garantir que o recurso seja implantado primeiro. | 
+| propriedades | Object<br />Obrigatório<br />[properties object](#properties)<br /><br />Um objeto que identifica o escopo, a entidade e a definição de função. |  
 
+<a id="properties" />
 ### properties object
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| roleDefinitionId | cadeia de caracteres | Sim | **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** | O identificador de uma definição de função existente a ser usado na atribuição de função. |
-| principalId | cadeia de caracteres | Sim | Identificador global exclusivo | O identificador de uma entidade existente. Isso mapeia para a ID dentro do diretório e pode apontar para um usuário, uma entidade de serviço ou um grupo de segurança. |
-| scope | cadeia de caracteres | Sim | Para o grupo de recursos:<br />**/subscriptions/{id-da assinatura}/resourceGroups/{nome-do-grupo-de-recursos}**<br /><br />Para o recurso:<br />**/subscriptions/{id-da assinatura}/resourceGroups/{nome-do-grupo-de-recursos}/providers/{namespace-do-provedor}/{tipo-de-recurso}/{nome-do-recurso}** | O escopo ao qual essa atribuição de função se aplica. |
+| Nome | Valor |
+| ------- | ---- |
+| roleDefinitionId | String<br />Obrigatório<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**<br /><br />O identificador de uma definição de função existente a ser usada na atribuição de função. |
+| principalId | String<br />Obrigatório<br />**Identificador-global-exclusivo**<br /><br />O identificador de uma entidade existente. Isso mapeia para a ID dentro do diretório e pode apontar para um usuário, uma entidade de serviço ou um grupo de segurança. |
+| scope | String<br />Obrigatório<br />**/subscriptions/{id-da-assinatura}/resourceGroups/{resource-group-name}** (para grupos de recursos) ou <br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}}** (para recursos)<br /><br />O escopo ao qual esta atribuição de função se aplica. |
 
 
 ## Como usar o recurso de atribuição de função
@@ -123,13 +124,13 @@ O exemplo a seguir atribui um grupo a uma função para o grupo de recursos.
 
 Os modelos a seguir mostram como usar o recurso de atribuição de função:
 
-- [Atribuir função interna ao grupo de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup)
-- [Atribuir função interna a VM existente](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)
-- [Atribuir função interna a VMs existentes múltiplas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
+- [Atribuir função interna ao grupo de recursos](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-resourcegroup)
+- [Atribuir função interna a VM existente](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-virtualmachine)
+- [Atribuir função interna a VMs existentes múltiplas](https://azure.microsoft.com/documentation/templates/201-rbac-builtinrole-multipleVMs)
 
 ## Próximas etapas
 
 - Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função do Active Directory do Azure](active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

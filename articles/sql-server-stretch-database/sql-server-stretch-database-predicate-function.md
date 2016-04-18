@@ -18,16 +18,16 @@
 
 # Usar um predicado de filtro para selecionar linhas para migrar (Stretch Database)
 
-Se você armazenar dados do histórico em uma tabela separada, poderá configurar o Banco de Dados de Stretch para migrar toda a tabela. Por outro lado, se sua tabela contiver dados do histórico e atuais, você poderá especificar um predicado de filtro para selecionar as linhas para migração. O predicado de filtro deve chamar uma função com valor de tabela embutida. Este tópico descreve como escrever uma Função com valor de tabela embutida a fim de selecionar linhas para migração.
-
-No CTP 3.1, por meio do RC1, a opção para especificar um predicado não está disponível no assistente Habilitar Banco de Dados para Stretch. Você precisa usar a instrução ALTERAR TABELA para configurar o Banco de Dados de Stretch com essa opção. Para saber mais, confira [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
-
-Se você não especificar um predicado de filtro, toda a tabela será migrada.
+Se você armazenar dados do histórico em uma tabela separada, poderá configurar o Banco de Dados de Stretch para migrar toda a tabela. Por outro lado, se sua tabela contiver dados do histórico e atuais, você poderá especificar um predicado de filtro para selecionar as linhas para migração. O predicado de filtro é uma função com valor de tabela embutida. Este tópico descreve como escrever uma Função com valor de tabela embutida a fim de selecionar linhas para migração.
 
 >   [AZURE.NOTE] Se você fornecer um predicado de filtro que apresente um desempenho ruim, a migração de dados também terá um desempenho ruim. O Banco de Dados de Stretch aplica o predicado de filtro à tabela usando o operador CROSS APPLY.
 
+Se você não especificar um predicado de filtro, toda a tabela será migrada.
+
+No CTP 3.1, por meio do RC2, a opção para especificar um predicado não está disponível no assistente Habilitar Banco de Dados para Stretch. Você precisa usar a instrução ALTERAR TABELA para configurar o Banco de Dados de Stretch com essa opção. Para obter mais informações, confira [Habilitar Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+
 ## Requisitos básicos para a função embutida com valor de tabela
-Veja no exemplo a seguir a aparência da função embutida com valor de tabela, necessária para a função de filtro do Banco de Dados de Stretch.
+A função com valor de tabela embutida necessária para um predicado de filtro do Stretch Database se parece com o exemplo a seguir.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datatype1, @column2 datatype2 [, ...n])
@@ -42,7 +42,7 @@ Os parâmetros da função precisam ser identificadores para as colunas provenie
 É necessário usar a associação de esquema para evitar que as colunas usadas pelo predicado de filtro sejam descartadas ou alteradas.
 
 ### Valor de retorno
-Se a função retornar um resultado não vazio, a linha poderá ser migrada. Caso contrário, ou seja, se a função não retornar qualquer linha, a linha não poderá ser migrada.
+Se a função retornar um resultado não vazio, a linha poderá ser qualificada para migração. Caso contrário, ou seja, se a função não retornar um resultado - a linha não estará qualificada para ser migrada.
 
 ### Condições
 O &lt;*predicado*&gt; pode ser formado por uma condição ou por várias condições unidas pelo operador lógico AND.
@@ -133,7 +133,117 @@ Você pode usar os operadores BETWEEN e NOT BETWEEN se o predicado resultante es
 
 Não é possível usar subconsultas ou funções não determinísticas como RAND() ou GETDATE().
 
-## Exemplos de funções válidas
+## Adicionar um predicado de filtro a uma tabela
+Adicione um predicado de filtro a uma tabela executando a instrução ALTERAR TABELA e especificando uma função embutida com valor de tabela existente como o valor do parâmetro FILTER\_PREDICATE. Por exemplo:
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+Depois de associar a função à tabela como um predicado, ocorre o seguinte.
+
+-   Na próxima migração de dados, apenas as linhas para as quais a função retornar um valor não vazio serão migradas.
+
+-   As colunas usadas pela função serão associadas ao esquema. Você não poderá alterar essas colunas se uma tabela estiver usando a função como seu predicado de filtro.
+
+Você não poderá descartar a função embutida com valor de tabela se uma tabela estiver usando a função como seu predicado de filtro.
+
+## Filtrar linhas por data
+O exemplo a seguir migra linhas em que a coluna **data** contém um valor antes de 1º de janeiro de 2016.
+
+```tsql
+-- Filter by date
+--
+CREATE FUNCTION dbo.fn_stretch_by_date(@date datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @date < CONVERT(datetime2, '1/1/2016', 101)
+GO
+```
+
+## Filtrar linhas pelo valor em uma coluna de status
+O exemplo a seguir migra linhas em que a coluna **status** contém um dos valores especificados.
+
+```tsql
+-- Filter by status column
+--
+CREATE FUNCTION dbo.fn_stretch_by_status(@status nvarchar(128))
+RETURNS TABLE
+WITH SCHEMABINDING
+AS
+       RETURN SELECT 1 AS is_eligible WHERE @status IN (N'Completed', N'Returned', N'Cancelled')
+GO
+```
+
+## Filtrar linhas usando uma janela deslizante
+Para filtrar linhas usando uma janela deslizante, tenha em mente os seguintes requisitos para a função de filtro.
+
+-   A função deve ser determinística. Portanto, você não pode criar uma função que recalcula automaticamente a janela deslizante com o passar do tempo.
+
+-   A função usa a associação do esquema. Portanto, não é possível simplesmente atualizar a função "no local" diariamente chamando ALTER FUNCTION para mover a janela deslizante.
+
+Iniciar com um predicado de filtro como o exemplo a seguir, que migra as linhas em que a coluna **systemEndTime** contém um valor antes de 1º de janeiro de 2016.
+
+```tsql
+CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
+RETURNS TABLE
+WITH SCHEMABINDING  
+AS  
+RETURN SELECT 1 AS is_eligible
+  WHERE @systemEndTime < CONVERT(datetime2, '2016-01-01T00:00:00', 101) ;
+```
+
+Aplique o predicado de filtro à tabela.
+
+```tsql
+ALTER TABLE <table name>
+SET (
+        REMOTE_DATA_ARCHIVE = ON
+                (
+                        FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160101 (SysEndTime)
+                                , MIGRATION_STATE = OUTBOUND
+                )
+        )
+;
+```
+
+Quando você deseja atualizar a janela deslizante, faça o seguinte.
+
+1.  Crie uma nova função que especifica a nova janela deslizante. O exemplo a seguir seleciona datas anteriores a 2 de janeiro de 2106, em vez de 1º de janeiro de 2016.
+
+2.  Substitua o predicado do filtro anterior pelo novo, chamando ALTER TABLE, conforme mostrado no exemplo a seguir.
+
+3. Opcionalmente, remova a função de filtro anterior que você não usa mais ao chamar DROP FUNCTION. (Essa etapa não é mostrada no exemplo.)
+
+```tsql
+BEGIN TRAN
+GO
+        /*(1) Create new predicate function definition */
+        CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160102(@systemEndTime datetime2)
+        RETURNS TABLE
+        WITH SCHEMABINDING
+        AS
+        RETURN SELECT 1 AS is_eligible
+               WHERE @systemEndTime < CONVERT(datetime2,'2016-01-02T00:00:00', 101)
+        GO
+
+        /*(2) Set the new function as filter predicate */
+        ALTER TABLE <table name>
+        SET
+        (
+               REMOTE_DATA_ARCHIVE = ON
+               (
+                       FILTER_PREDICATE = dbo.fn_StretchBySystemEndTime20160102(SysEndTime),
+                       MIGRATION_STATE = OUTBOUND
+               )
+        )
+COMMIT ;
+```
+
+## Mais exemplos de predicados de filtro válido
 
 -   O exemplo a seguir combina duas condições primitivas usando o operador lógico AND.
 
@@ -200,7 +310,7 @@ Não é possível usar subconsultas ou funções não determinísticas como RAND
     GO
     ```
 
-## Exemplos de funções que não são válidas
+## Exemplos de predicados de filtro que não são válidos
 
 -   A função a seguir não é válida porque contém uma conversão não determinística.
 
@@ -289,32 +399,6 @@ SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column
 ```
 Se a função retornar um resultado não vazio para a linha, a linha poderá ser migrada.
 
-## Adicionar um predicado de filtro a uma tabela
-Adicione um predicado de filtro a uma tabela executando a instrução ALTERAR TABELA e especificando uma função embutida com valor de tabela existente como o valor do parâmetro FILTER\_PREDICATE. Por exemplo:
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = dbo.fn_stretchpredicate(column1, column2),
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-Depois de associar a função à tabela como um predicado, ocorre o seguinte.
-
--   Na próxima migração de dados, apenas as linhas para as quais a função retornar um valor não vazio serão migradas.
-
--   As colunas usadas pela função serão associadas ao esquema. Você não poderá alterar essas colunas se uma tabela estiver usando a função como seu predicado de filtro.
-
-## Remover um predicado de filtro de uma tabela
-Para migrar toda a tabela em vez das linhas selecionadas, remova o FILTER\_PREDICATE existente definido-o como nulo. Por exemplo:
-
-```tsql
-ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
-	FILTER_PREDICATE = NULL,
-	MIGRATION_STATE = <desired_migration_state>
-) )
-```
-Depois de remover o predicado de filtro, todas as linhas na tabela poderão ser migradas.
-
 ## Substituir um predicado de filtro existente
 Você pode substituir um predicado de filtro especificado anteriormente executando novamente a instrução ALTERAR TABELA e especificando um novo valor para o parâmetro FILTER\_PREDICATE. Por exemplo:
 
@@ -400,8 +484,16 @@ RETURN	SELECT 1 AS is_eligible
 GO
 ```
 
-## Descartar um predicado de filtro
-Você não poderá descartar a função embutida com valor de tabela se uma tabela estiver usando a função como seu predicado de filtro.
+## Remover um predicado de filtro de uma tabela
+Para migrar toda a tabela em vez das linhas selecionadas, remova o FILTER\_PREDICATE existente definido-o como nulo. Por exemplo:
+
+```tsql
+ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
+	FILTER_PREDICATE = NULL,
+	MIGRATION_STATE = <desired_migration_state>
+) )
+```
+Depois de remover o predicado de filtro, todas as linhas na tabela poderão ser migradas. Como resultado, você não pode especificar um predicado de filtro para a mesma tabela posteriormente, a menos que você retorne todos os dados remotos para a tabela do Azure primeiro. Essa restrição existe para evitar a situação em que linhas que não estão qualificadas para a migração quando você fornece um novo predicado de filtro já foram migradas para o Azure.
 
 ## Verificar o predicado de filtro aplicado a uma tabela
 Para verificar o predicado de filtro aplicado a uma tabela, abra a exibição de catálogo **sys.remote\_data\_archive\_tables** e verifique o valor da coluna **filter\_predicate**. Se o valor for nulo, a tabela inteira poderá ser arquivada. Para obter mais informações, confira [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
@@ -410,4 +502,4 @@ Para verificar o predicado de filtro aplicado a uma tabela, abra a exibição de
 
 [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

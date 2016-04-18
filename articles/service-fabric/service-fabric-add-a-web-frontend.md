@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/19/2016"
+   ms.date="04/05/2016"
    ms.author="seanmck"/>
 
 
 # Compilar um serviço Web front-end para seu aplicativo
+
+>[AZURE.WARNING] Devido a alterações feitas no ASP.NET Core RC2, este artigo está temporariamente incorreto, pois o modelo de projeto referenciado foi removido do SDK. Este artigo será atualizado quando o ASP.NET Core RC2 for lançado. Enquanto isso, você pode usar o modelo de API Web sem monitoração de estado, que é descrito no [Introdução aos serviços de API Web do Service Fabric com auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md).
 
 Por padrão, os serviços do Azure Service Fabric não fornecem uma interface pública para a Web. Para expor a funcionalidade do aplicativo para clientes HTTP, você precisará criar um projeto Web para atuar como ponto de entrada e se comunicar dali com seus serviços individuais.
 
@@ -36,7 +38,7 @@ O ASP.NET 5 é uma estrutura de desenvolvimento Web leve entre plataformas que p
 
 	![Escolhendo um serviço Web ASP.NET no diálogo Novo serviço][vs-new-service-dialog]
 
-3. A próxima página fornece um conjunto de modelos de projeto do ASP.NET 5. Observe que são os mesmos modelos que você veria se criasse um projeto ASP.NET 5 fora de um aplicativo do Service Fabric. Para este tutorial, escolheremos **API Web**. No entanto, você pode aplicar os mesmos conceitos para compilar um aplicativo Web completo.
+3. A próxima página fornece um conjunto de modelos de projeto do ASP.NET 5. Observe que são os mesmos modelos que você veria se criasse um projeto ASP.NET 5 fora de um aplicativo do Service Fabric. Neste tutorial, escolheremos **API Web**. No entanto, você pode aplicar os mesmos conceitos para compilar um aplicativo Web completo.
 
 	![Escolhendo o tipo de projeto do ASP.NET][vs-new-aspnet-project-dialog]
 
@@ -50,9 +52,9 @@ Para ter uma ideia do que fizemos, vamos implantar o novo aplicativo e examinar 
 
 1. Pressione F5 no Visual Studio para depurar o aplicativo.
 
-2. Quando a implantação for concluída, o Visual Studio iniciará o navegador na raiz do serviço API Web do ASP.NET, por exemplo http://localhost:33003. O número da porta é atribuído aleatoriamente e pode ser diferente em seu computador. O modelo da API Web do ASP.NET 5 não fornece o comportamento padrão para a raiz, então você receberá um erro no navegador.
+2. Quando a implantação for concluída, o Visual Studio iniciará o navegador na raiz do serviço API Web do ASP.NET, algo como http://localhost:33003. O número da porta é atribuído aleatoriamente e pode ser diferente em seu computador. O modelo da API Web do ASP.NET 5 não fornece o comportamento padrão para a raiz, então você receberá um erro no navegador.
 
-3. Adicione `/api/values` ao local no navegador. Isso chamará o método `Get` no ValuesController no modelo de API da Web. Ele retornará a resposta padrão fornecida pelo modelo: uma matriz JSON contendo duas cadeias de caracteres:
+3. Adicione `/api/values` ao local no navegador. Isso chamará o método `Get` no ValuesController no modelo de API Web. Ele retornará a resposta padrão fornecida pelo modelo: uma matriz JSON contendo duas cadeias de caracteres:
 
     ![Valores padrão retornados do modelo de API Web do ASP.NET 5][browser-aspnet-template-values]
 
@@ -61,7 +63,7 @@ Para ter uma ideia do que fizemos, vamos implantar o novo aplicativo e examinar 
 
 ## Conectar os serviços
 
-O Service Fabric fornece total flexibilidade na comunicação com Reliable Services. Em um único aplicativo, você pode ter serviços acessíveis por meio de TCP, outros serviços acessíveis por meio de uma API REST HTTP e ainda outros serviços que são acessíveis por meio de soquetes da Web. Para saber mais sobre as opções disponíveis e as compensações envolvidas, confira [Comunicando com os Serviços](service-fabric-connect-and-communicate-with-services.md). Neste tutorial, seguiremos uma das abordagens mais simples e usaremos as classes `ServiceProxy`/`ServiceRemotingListener` fornecidas no SDK.
+O Service Fabric fornece total flexibilidade na comunicação com Reliable Services. Em um único aplicativo, você pode ter serviços acessíveis por meio de TCP, outros serviços acessíveis por meio de uma API REST HTTP e ainda outros serviços que são acessíveis por meio de soquetes da Web. Para saber mais sobre as opções disponíveis e as compensações envolvidas, confira [Comunicação com os serviços](service-fabric-connect-and-communicate-with-services.md). Neste tutorial, seguiremos uma das abordagens mais simples e usaremos as classes `ServiceProxy`/`ServiceRemotingListener` fornecidas no SDK.
 
 Na abordagem `ServiceProxy` (modelada em chamadas de procedimento remoto ou RPCs), você define uma interface para atuar como o contrato público do serviço. Em seguida, você usa essa interface para gerar uma classe proxy para interação com o serviço.
 
@@ -105,7 +107,7 @@ Agora que definimos a interface, precisamos implementá-la no serviço com estad
 
     ![Adicionando uma referência ao projeto de biblioteca de classes ao serviço com estado][vs-add-class-library-reference]
 
-2. Localize a classe que herda de `StatefulService`, por exemplo, `MyStatefulService`, e a estenda para implementar a interface `ICounter`.
+2. Localize a classe que herda de `StatefulService`, como `MyStatefulService`, e a estenda para implementar a interface `ICounter`.
 
     ```c#
     using MyStatefulService.Interfaces;
@@ -237,4 +239,4 @@ Para saber como configurar valores diferentes para um ambiente diferente, confir
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

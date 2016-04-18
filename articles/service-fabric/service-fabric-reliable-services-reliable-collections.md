@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="mcoskun"
    manager="timlt"
-   editor="masnider,jessebenson"/>
+   editor="masnider,vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/11/2015"
+   ms.date="03/25/2016"
    ms.author="mcoskun"/>
 
 # Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
@@ -39,7 +39,7 @@ As Coleções Confiáveis fornecem sólidas garantias de consistência prontas p
 As APIs de Coleções Confiáveis são uma evolução das APIs de coleções simultâneas (encontradas no namespace **System.Collections.Concurrent**):
 
 - Assíncronas: retorna uma tarefa, já que, ao contrário das coleções concorrentes, as operações são replicadas e mantidas.
-- Sem parâmetro de saída: usa **ConditionalResult<T>** para retornar um bool e um valor em vez de parâmetros. **ConditionalResult<T>** é como **Nullable<T>**, mas não requer que T seja um struct.
+- Sem parâmetro de saída: usam `ConditionalValue<T>` para retornar um bool e um valor em vez de parâmetros. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
 - Transações: usam um objeto de transação para permitir que o usuário agrupe as ações em várias Coleções Confiáveis em uma transação.
 
 Hoje, **Microsoft.ServiceFabric.Data.Collections** contém duas coleções:
@@ -99,16 +99,16 @@ Observe que o cenário de deadlock acima é um ótimo exemplo de como um Bloquei
 
 ## Recomendações
 
-- Não modifique um objeto de tipo personalizado retornado por operações de leitura (por exemplo, **TryPeekAsync** ou **TryGetAsync**). As Coleções Confiáveis, como as Coleções Simultâneas, retornam uma referência aos objetos e não uma cópia.
+- Não modifique um objeto de tipo personalizado retornado por operações de leitura (por exemplo, `TryPeekAsync` ou `TryGetAsync`). As Coleções Confiáveis, como as Coleções Simultâneas, retornam uma referência aos objetos e não uma cópia.
 - Faça uma cópia em profundidade do objeto de tipo personalizado retornado antes de modificá-lo. Como structs e tipos internos são pass-by-value, você não precisa fazer uma cópia em profundidade neles.
-- Não use **TimeSpan. MaxValue** para o tempo limite. Tempos limite devem ser usados para detectar deadlocks.
+- Não use `TimeSpan.MaxValue` para tempos limites. Tempos limite devem ser usados para detectar deadlocks.
 - Não crie uma transação dentro da instrução `using` de outra transação porque isso pode causar deadlocks.
 
 Eis aqui algumas coisas que se deve manter em mente:
 
 - O tempo limite padrão é de 4 segundos para todas as APIs de Coleções Confiáveis. A maioria dos usuários não deve substituir isso.
-- O token de cancelamento padrão é **CancellationToken.None** em todas as APIs de Coleções Confiáveis.
-- O parâmetro de tipo de chave (*TKey*) para um dicionário confiável deve implementar corretamente **GetHashCode()** e **Equals()**. As chaves devem ser imutáveis.
+- O token de cancelamento padrão é `CancellationToken.None` em todas as APIs de Coleções Confiáveis.
+- O parâmetro de tipo de chave (*TKey*) para um dicionário confiável deve implementar corretamente `GetHashCode()` e `Equals()`. As chaves devem ser imutáveis.
 - As Enumerações são instantâneos consistentes dentro de uma coleção. No entanto, as enumerações de várias coleções não são consistentes entre as coleções.
 - Para obter alta disponibilidade para as Coleções Confiáveis, cada serviço deve ter pelo menos um destino e uma réplica mínima com tamanho definido como 3.
 
@@ -119,4 +119,4 @@ Eis aqui algumas coisas que se deve manter em mente:
 - [Uso avançado do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

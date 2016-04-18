@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # Lista de verificação de disponibilidade
@@ -68,4 +68,4 @@
 - **Acompanhe o progresso de fluxos de trabalho de longa execução** e tente novamente em caso de falha. Fluxos de trabalho de longa execução geralmente são compostos de várias etapas. Certifique-se de que cada etapa seja independente e possa ser repetida para minimizar a chance de que todo o fluxo de trabalho precise ser revertido, ou que várias transações de compensação precisem ser executadas. Monitore e gerencie o progresso de fluxos de trabalho de longa duração implementando um padrão como o [Scheduler Agent Supervisor Pattern](https://msdn.microsoft.com/library/dn589780.aspx).
 - **Planeje-se para a eventualidade de uma recuperação de desastre.** Certifique-se de que haja um plano documentado, aceito e totalmente testado para a recuperação de qualquer tipo de falha que possa tornar todo o sistema principal ou parte dele indisponível. Teste os procedimentos regularmente e certifique-se de que toda a equipe de operações está familiarizada com o processo.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

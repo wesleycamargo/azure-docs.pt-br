@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="04/04/2016"
    ms.author="alkohli" />
 
 # Configurar o MPIO em um host do StorSimple executando o CentOS
@@ -476,7 +476,7 @@ Para saber mais, veja como [usar o comando interativo de solução de problemas 
 ||`iscsiadm –m session –s <sessionid> -P 3`|Verificar o estado da sessão de iSCSI e o volume descoberto no host|
 ||`iscsi –m session`|Mostra todas as sessões de iSCSI estabelecidas entre o host e o dispositivo StorSimple|
 | | | |
-||**Múltiplos caminhos**|`service multipathd start`|Iniciar o daemon de vários caminhos|
+|**Múltiplos caminhos**|`service multipathd start`|Iniciar o daemon de vários caminhos|
 ||`service multipathd stop`|Parar o daemon de vários caminhos|
 ||`service multipathd restart`|Reiniciar o daemon de vários caminhos|
 ||`chkconfig multipathd on` </br> OU </br> `mpathconf –with_chkconfig y`|Habilitar daemon de vários caminhos para iniciar no momento da inicialização|
@@ -492,4 +492,4 @@ Já que você está configurando o MPIO no host Linux, talvez também seja neces
 - [Configurando o MPIO no CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Guia de treinamento do Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

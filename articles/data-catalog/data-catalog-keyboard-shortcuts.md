@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="dvana"
    manager="NA"
-   editor=""
+   editor="steelanddata"
    tags=""/>
 <tags
    ms.service="data-catalog"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/07/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # Atalhos de teclado do Catálogo de Dados do Azure
 
-## Atalhos de teclado gerais
+## Atalhos de teclado para a ferramenta de registro de fonte de dados do Catálogo de Dados
 
-Veja a seguir os atalhos de teclado para o Catálogo de Dados do Azure.
+### Atalhos de teclado gerais
 
 |Para fazer isto|Pressione
 |---|---
@@ -31,27 +31,27 @@ Veja a seguir os atalhos de teclado para o Catálogo de Dados do Azure.
 |Abrir o menu da página| ALT+BARRA DE ESPAÇOS
 
 
-## Página de autenticação
+### Página de autenticação
 
 |Para fazer isto|Pressione
 |---|---
 |Entrar no serviço|ALT+S
 
-## Página de seleção de fonte de dados
+### Página de seleção de fonte de dados
 
 |Para fazer isto|Pressione
 |---|---
 |Ir para a próxima página (se estiver habilitado)|ALT+N
 |Alterar o tipo selecionado quando o foco estiver em um bloco|SETA PARA A ESQUERDA, PARA CIMA, PARA A DIREITA ou PARA BAIXO
 
-## Página de conexão de fonte de dados
+### Página de conexão de fonte de dados
 
 |Para fazer isto|Pressione
 |---|---
 |Ir para a página anterior (se estiver habilitado)|ALT+P
 |Escolher o botão Conectar.| ALT+C
 
-## Página de contexto da conexão
+### Página de contexto da conexão
 
 |Para fazer isto|Pressione
 |---|---
@@ -62,7 +62,7 @@ Veja a seguir os atalhos de teclado para o Catálogo de Dados do Azure.
 | Hierarquia do Servidor, expandir o nó do modo de exibição de árvore |SETA PARA A DIREITA
 | Mover os itens selecionados para **Objetos Disponíveis** ou **Objetos a serem registrados** | BARRA DE ESPAÇOS
 
-## Página progresso da publicação
+### Página progresso da publicação
 
 |Para fazer isto|Pressione
 |---|---
@@ -70,14 +70,15 @@ Veja a seguir os atalhos de teclado para o Catálogo de Dados do Azure.
 |Botão Registrar Mais Objetos| ALT+R
 |Botão Exibir Portal | ALT+V
 
-## Página progresso da publicação
+### Página progresso da publicação
 
 |Para fazer isto|Pressione
 |---|---
 |Botão Salvar (se estiver habilitado)| ALT+S
 |Botão Cancelar|ALT+C
 
-## Página do portal
+## Atalhos de teclado para o portal do Catálogo de Dados
+
 |Para fazer isto|Pressione
 |---|---
 |Navegar| TAB e SHIFT+ TAB
@@ -91,4 +92,4 @@ Veja a seguir os atalhos de teclado para o Catálogo de Dados do Azure.
 |Ativar/desativar o menu **Abrir em** | ALT+O
 |Explorar o contêiner, se o ativo for um contêiner | ALT + L
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

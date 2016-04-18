@@ -1,6 +1,6 @@
 <properties
    pageTitle="Novidade no Catálogo de Dados do Azure | Microsoft Azure"
-   description="Visão geral das novas funcionalidades adicionadas ao Catálogo de Dados do Azure."
+   description="Este artigo fornece uma visão geral dos novos recursos adicionados ao Catálogo de Dados do Azure."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # O que há de novo no Catálogo de Dados do Azure
@@ -216,4 +216,4 @@ Na semana de 21 de agosto de 2015, os seguintes recursos foram adicionados ao **
 - Somente para Standard Edition: ao adicionar proprietários aos ativos de dados, o **Catálogo de Dados do Azure** agora dá suporte a contas de usuário e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário de ativos de dados selecionados, você pode inserir o nome para exibição do grupo ou o endereço de email do UPN do grupo, se houver.
 - Suporte para fontes de dados do Armazenamento do Blobs do Azure. Agora, os usuários podem registrar e descobrir os blobs e diretórios de armazenamento do Azure.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

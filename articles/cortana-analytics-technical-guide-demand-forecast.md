@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Guia técnico de Previsão de demanda em energia | Microsoft Azure"
-	description="Um guia técnico para o Modelo de Solução com o Microsoft Cortana Analytics para previsão de demanda em energia"
+	description="Um guia técnico para o Modelo de Solução com o Microsoft Cortana Intelligence para previsão de demanda de energia"
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="yijichen"
@@ -16,11 +16,11 @@
 	ms.date="01/24/2016"
 	ms.author="inqiu;yijichen;ilanr9"/>
 
-# Guia técnico para o Modelo de Solução do Cortana Analytics para previsão de demanda em energia
+# Guia técnico para o Modelo de Solução do Cortana Intelligence para previsão de demanda em energia
 
 ## **Visão geral**
 
-Os Modelos de Solução foram projetados para acelerar o processo de criação de uma demonstração E2E sobre o Cortana Analytics Suite. Um modelo implantado provisionará à sua assinatura os componentes necessários do Cortana Analytics e estabelecerá as relação entre eles. Ele também alimenta o pipeline de dados com amostras de dados geradas em um aplicativo de simulação de dados. Baixe o simulador de dados do link fornecido e instale-o em seu computador local. Consulte o arquivo readme.txt para obter instruções sobre o uso do simulador. Os dados gerados pelo simulador hidratarão o pipeline de dados e começarão a gerar previsões de aprendizado de máquina, que poderão ser visualizadas no painel do Power BI.
+Os Modelos de Solução foram projetados para acelerar o processo de criação de uma demonstração E2E sobre o Cortana Intelligence Suite. Um modelo implantado provisionará à sua assinatura os componentes necessários do Cortana Intelligence e estabelecerá as relações entre eles. Ele também alimenta o pipeline de dados com amostras de dados geradas em um aplicativo de simulação de dados. Baixe o simulador de dados do link fornecido e instale-o em seu computador local. Consulte o arquivo readme.txt para obter instruções sobre o uso do simulador. Os dados gerados pelo simulador hidratarão o pipeline de dados e começarão a gerar previsões de aprendizado de máquina, que poderão ser visualizadas no painel do Power BI.
 
 O processo de implantação guiará você pelas diversas etapas para configurar as credenciais da sua solução. Registre essas credenciais, como o nome da solução, o nome de usuário e a senha fornecidos durante a implantação.
 
@@ -288,4 +288,4 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 
 -   [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 
@@ -31,6 +31,7 @@ Em um nível elevado, um ambiente de serviço de aplicativo consiste em vários 
 - Armazenamento
 - Banco de dados
 - Uma rede virtual clássica "v1" com pelo menos uma sub-rede
+- Atualmente, apenas redes virtuais com um espaço de endereço RFC1918 (ou seja, endereços privados) têm suporte.
 - Sub-rede na qual está em execução o serviço hospedado do ambiente de aplicativo do Azure
 
 Os recursos de computação são usados para seus quatro pools de recursos. Cada Ambiente do Serviço de Aplicativo tem um conjunto de Front-ends e três Pools de Trabalho. Você não precisa usar todos os três Pools de trabalho e, se quiser, poderá usar apenas um. Os front-ends são os pontos de extremidade HTTP para os aplicativos mantidos em seu ASE. Os Trabalhadores são os locais onde seus aplicativos são realmente executados. Saber quando será necessário adicionar mais Front-ends ou mais Trabalhadores está ligado à execução dos aplicativos colocados no ASE. Como exemplo, digamos que você tenha apenas um aplicativo em seu ASE e que ele seja um aplicativo Olá mundo que obtém um grande número de solicitações. Nesse caso, você precisará expandir os Front-ends para lidar com a carga HTTP mas, por outro lado, não precisará expandir seus Trabalhadores. A tentativa de lidar com tudo isso de forma manual é especialmente assustadora quando você considerar que é provável que cada ASE tenha uma mistura de aplicativos em execução com critérios variados de desempenho. Felizmente, adicionamos a autoescala aos Ambientes de Serviço de Aplicativo e é isso que facilitará muito a vida. Para obter detalhes sobre o dimensionamento e a autoescala dos Ambientes do Serviço de Aplicativo, siga este link [Como configurar a autoescala em um Ambiente do Serviço de Aplicativo][ASEAutoscale]
@@ -94,7 +95,10 @@ Para fornecer uma perspectiva melhor sobre como dimensionar aplicativos em um AS
 
 Os pools de recursos, os Front-Ends e os Trabalhadores não estão diretamente acessíveis para locatários. Ou seja, você não pode acessá-los via RDP, alterar o provisionamento deles ou agir como administrador neles. Eles são operados e mantidos pelo Azure. Com isso, a quantidade e os tamanhos dos recursos de computação são decididos pelo usuário.
 
-Há três maneiras de controlar quantos servidores você tem em seus pools de recursos - a operação de escala da folha ASE principal na parte superior - a operação de escala manual da folha Escala do pool de recursos individual, sob Configurações - a autoescala, que é configurada na folha Escala do pool de recursos individual
+Realmente, existem três maneiras para controlar quantos servidores você tem nos pools de recursos
+- Operação de dimensionamento da folha do ASE principal na parte superior
+- Operação de dimensionamento manual da folha de Escala de pool de recursos individuais, que está em Configurações
+- Dimensionamento Automático que você configura na folha Escala do pool de recursos individuais
 
 Para usar a operação Escala na folha ASE, bastará clicar nela, arrastar o controle deslizante até a quantidade desejada e salvar. Essa interface do usuário também oferece suporte à alteração do tamanho.
 
@@ -200,4 +204,4 @@ Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Az
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

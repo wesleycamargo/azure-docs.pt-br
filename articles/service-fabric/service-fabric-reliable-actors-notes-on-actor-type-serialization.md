@@ -13,27 +13,46 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="03/25/2015"
    ms.author="vturecek"/>
 
 # Observações sobre a serialização de tipo dos Reliable Actors do Service Fabric
 
-Você deve ter alguns aspectos importantes em mente ao definir as interfaces e o estado de um ator. Os tipos precisam ser serializáveis de acordo com o contrato de dados. Saiba mais sobre contratos de dados [no MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
-## Tipos de interface do ator
+Os argumentos de todos os métodos, os tipos de resultado das tarefas retornados por cada método em uma interface de ator e os objetos armazenados no Gerenciador de Estado de um ator devem ser [serializáveis por Contrato de Dados](https://msdn.microsoft.com/library/ms731923.aspx). Isso também se aplica aos argumentos dos métodos definidos nas [interfaces de evento de ator](service-fabric-reliable-actors-events.md#actor-events). (Os métodos de interface de eventos de ator sempre retornam nulo).
 
-Os argumentos de todos os métodos e o tipo de resultado da tarefa retornada por cada método, conforme definido na [interface do ator](service-fabric-reliable-actors-introduction.md#actors), precisam ser serializáveis de acordo com o contrato de dados. Isso também se aplica aos argumentos dos métodos definidos nas [interfaces de evento de ator](service-fabric-reliable-actors-events.md#actor-events). (Os métodos de interface de eventos de ator sempre retornam nulo). Por exemplo, se a interface do `IVoiceMail` define um método como:
+## Tipos de dados personalizados
+
+Neste exemplo, a interface de ator a seguir define um método que retorna um tipo de dados personalizado chamado `VoicemailBox`.
 
 ```csharp
+public interface IVoiceMailBoxActor : IActor
+{
+    Task<VoicemailBox> GetMailBoxAsync();
+}
+```
 
-Task<List<Voicemail>> GetMessagesAsync();
+A interface é implementada por um ator, que usa o Gerenciador de Estado para armazenar um objeto `VoicemailBox`:
+
+```csharp
+[StatePersistence(StatePersistence.Persisted)]
+public class VoiceMailBoxActor : Actor, IVoicemailBoxActor
+{
+    public Task<VoicemailBox> GetMailboxAsync()
+    {
+        return this.StateManager.GetStateAsync<VoicemailBox>("Mailbox");
+    }
+}
 
 ```
 
-`List<T>` é um tipo de .NET padrão que já é serializável de acordo com o contrato de dados. O tipo `Voicemail` também deve ser serializável de acordo com o contrato de dados.
+Neste exemplo, o objeto `VoicemailBox` é serializado quando:
+ - O objeto é transmitido entre uma instância do ator e um chamador.
+ - O objeto é salvo no Gerenciador de Estado, onde é mantido no disco e replicado para outros nós.
+ 
+A estrutura Reliable Actor usa a serialização DataContract. Portanto, os objetos de dados personalizados e seus membros devem ser anotados com os atributos **DataContract** e **DataMember**, respectivamente
 
 ```csharp
-
 [DataContract]
 public class Voicemail
 {
@@ -46,25 +65,9 @@ public class Voicemail
     [DataMember]
     public DateTime ReceivedAt { get; set; }
 }
-
 ```
 
-## Classe de estado do ator
-
-O estado do ator deve ser serializável de acordo com o contrato de dados. Por exemplo, uma definição de classe de ator pode ter a seguinte aparência:
-
 ```csharp
-
-public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
-{
-...
-
-```
-
-A classe de estado será definida pela classe e seus membros serão anotados com os atributos **DataContract** e **DataMember**, respectivamente.
-
-```csharp
-
 [DataContract]
 public class VoicemailBox
 {
@@ -79,7 +82,14 @@ public class VoicemailBox
     [DataMember]
     public string Greeting { get; set; }
 }
-
 ```
 
-<!---HONumber=AcomDC_0121_2016-->
+## Próximas etapas
+ - [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
+ - [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
+ - [Eventos de ator](service-fabric-reliable-actors-events.md)
+ - [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
+ - [Polimorfismo de ator e padrões de design orientado a objeto](service-fabric-reliable-actors-polymorphism.md)
+ - [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
+
+<!---HONumber=AcomDC_0406_2016-->

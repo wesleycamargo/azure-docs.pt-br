@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Instruções de instalação do Painel de PowerBI do modelo de solução de análise de telemetria do veículo | Microsoft Azure" 
-	description="Usar os recursos do Cortana Analytics para obter informações em tempo real e de previsão sobre a integridade do veículo e hábitos de condução." 
+	description="Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -24,7 +24,7 @@ Este **menu** fornece links para os capítulos deste manual.
 [AZURE.INCLUDE [cap-vehicle-telemetry-playbook-selector](../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 
-A solução de análise de telemetria do veículo demonstra como revendedores de carro, fabricantes de automóveis e as seguradoras podem aproveitar os recursos de análise do Cortana para obter uma visão em tempo real e uma previsão sobre a integridade do veículo e experiência de hábitos de direção para gerar melhorias na área do cliente, P&D e campanhas de marketing. Este documento contém instruções passo a passo de como você pode configurar os painéis e relatórios do PowerBI depois que a solução é implantada na sua assinatura.
+A solução de análise de telemetria do veículo demonstra como revendedores de carros, fabricantes de automóveis e seguradoras podem aproveitar os recursos do Cortana Intelligence para obter uma visão em tempo real e uma previsão sobre a integridade do veículo e os hábitos de direção para promover melhorias na área do cliente, em pesquisa e desenvolvimento e em campanhas de marketing. Este documento contém instruções passo a passo de como você pode configurar os painéis e relatórios do PowerBI depois que a solução é implantada na sua assinatura.
 
 
 ## Pré-requisitos
@@ -34,8 +34,8 @@ A solução de análise de telemetria do veículo demonstra como revendedores de
 4.	Conta do Microsoft PowerBI
 	
 
-## Componentes do pacote de análise Cortana
-Como parte do modelo de solução de análise de telemetria do veículo, os seguintes serviços de análise do Cortana são implantados em sua assinatura.
+## Componentes do Cortana Intelligence Suite
+Como parte do modelo de solução de análise de telemetria de veículo, os serviços a seguir do Cortana Intelligence são implantados em sua assinatura.
 
 - **Hubs de Eventos** para a ingestão de milhões de eventos de telemetria do veículo no Azure.
 - **Stream Analytics** para obter informações em tempo real sobre a integridade do veículo e persistir esses dados no armazenamento de longo prazo para uma análise de lote mais avançada.
@@ -393,4 +393,4 @@ Fixe os gráficos ao painel existente **Painel de Análise de Telemetria do Veí
 
 Parabéns!! Você criou com êxito os relatórios e o painel para obter informações preditivas, em lote e em tempo real sobre a integridade do veículo e hábitos de condução.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -79,7 +79,7 @@ Ao abordar a dados, determinar o tipo de previsões que deseja fazer com base na
 
 Você pode configurar um ambiente do Azure para análises avançadas que empregue um cluster HDInsight em três etapas:
 
-1. [Criar uma conta de armazenamento](../storage-whatis-account.md): essa conta de armazenamento é usada para armazenar dados no Armazenamento de Blob do Azure. Os dados usados em clusters HDInsight também estão localizados aqui.
+1. [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md): essa conta de armazenamento é usada para armazenar dados no Armazenamento de Blob do Azure. Os dados usados em clusters HDInsight também estão localizados aqui.
 
 2. [Personalizar os clusters do Hadoop do Azure HDInsight para Processo e Tecnologia de Análise Avançada](machine-learning-data-science-customize-hadoop-cluster.md). Esta etapa cria um cluster do Hadoop do Azure HDInsight com Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes a serem lembradas durante a personalização de seu cluster HDInsight.
 
@@ -95,7 +95,7 @@ Você pode configurar um ambiente do Azure para análises avançadas que empregu
 
 Para obter o conjunto de dados [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/) do seu local público, você pode usar qualquer um dos métodos descritos em [Mover dados bidirecionalmente no Armazenamento de Blobs do Azure](machine-learning-data-science-move-azure-blob.md) para copiar os dados para o seu computador.
 
-Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que contêm dados. Para baixar e instalar o AzCopy, siga as instruções em [Introdução ao utilitário de linha de comando do AzCopy](../storage-use-azcopy.md).
+Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que contêm dados. Para baixar e instalar o AzCopy, siga as instruções em [Introdução ao utilitário de linha de comando do AzCopy](../storage/storage-use-azcopy.md).
 
 1. Em uma janela de Prompt de Comando, execute os seguintes comandos do AzCopy, substituindo *<path_to_data_folder>* pelo destino desejado:
 
@@ -786,7 +786,7 @@ b. Para problemas de regressão, medimos as precisões de nossa previsão examin
 
 Podemos ver que o coeficiente de determinação é de 0,709, implicando que aproximadamente 71% da variância é explicada por nossos coeficientes de modelo.
 
-**Observação importante:** para saber mais sobre o aprendizado de máquina do Azure e como acessá-lo e usá-lo, consulte [O que é Aprendizado de Máquina?](machine-learning-what-is-machine-learning.md). Um recurso muito útil para brincar com vários testes de Aprendizado de Máquina no Aprendizado de Máquina do Azure é a [Galeria de Análise do Cortana](https://gallery.azureml.net/). A galeria abrange uma gama de experimentos e fornece uma introdução abrangente para o intervalo de recursos de Aprendizado de Máquina do Azure.
+**Observação importante:** para saber mais sobre o aprendizado de máquina do Azure e como acessá-lo e usá-lo, consulte [O que é Aprendizado de Máquina?](machine-learning-what-is-machine-learning.md). Um recurso muito útil para brincar com vários testes de Aprendizado de Máquina no Aprendizado de Máquina do Azure é a [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). A galeria abrange uma gama de experimentos e fornece uma introdução abrangente para o intervalo de recursos de Aprendizado de Máquina do Azure.
 
 ## Informações de Licença
 
@@ -794,9 +794,7 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## Referências
 
-•	[Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

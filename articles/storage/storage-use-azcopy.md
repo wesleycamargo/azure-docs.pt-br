@@ -313,7 +313,7 @@ Por exemplo, digamos que o AzCopy gere dois arquivos de dados depois que o usuá
 	myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
 	myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
 
-Observe que o menor valor possível para a opção `/SplitSize` é 32 MB. Se o destino especificado for um armazenamento de Blobs, o AzCopy dividirá o arquivo de dados quando alcançar o tamanho limite do blob (200 GB), sem levar em conta se o usuário especificou ou não a opção `/SplitSize`.
+Observe que o menor valor possível para a opção `/SplitSize` é 32 MB. Se o destino especificado for um armazenamento de Blobs, o AzCopy dividirá o arquivo de dados quando alcançar o tamanho limite do blob (200 GB), sem levar em conta se o usuário especificou ou não a opção `/SplitSize`.
 
 ### Exportar tabela para o formato de arquivo de dados JSON ou CSV
 
@@ -565,7 +565,7 @@ Especifica o modo recursivo para operações de cópia. No modo recursivo, o AzC
 
 ### /BlobType:"bloco" | "página" | "anexo"
 
-Especifica o modo recursivo para operações de cópia. No modo recursivo, o AzCopy copiará todos os blobs ou arquivos correspondentes ao padrão do arquivo, inclusive os presentes nas subpastas.
+Especifica se o blob de destino é um blob de blocos, um blob de páginas ou um blob anexo. Essa opção só será possível quando você estiver carregando um blob. Caso contrário, um erro é gerado. Se o destino é um blob e essa opção não está especificada, por padrão, o AzCopy cria um blob de blocos.
 
 **Aplicável a:** Blobs
 
@@ -864,4 +864,4 @@ Para saber mais sobre o Armazenamento do Azure e o AzCopy, consulte os recursos 
 - [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

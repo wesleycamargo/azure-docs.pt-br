@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="03/28/2016"
+   ms.date="04/05/2016"
    ms.author="elizapo"/>
 
 # Criar uma coleção de RemoteApp do Azure
 
 Pelo menos uma vez, inevitavelmente, você precisará atualizar os aplicativos ou a imagem em sua coleção de RemoteApp do Azure. Se você estiver usando uma das imagens incluídas com sua assinatura do RemoteApp do Azure, na coleção de uma nuvem ou híbrida, quaisquer atualizações são manipuladas pelo RemoteApp do Azure, portanto você pode descansar em paz.
 
-No entanto, se você estiver usando uma imagem personalizada (que é criada do zero ou que você criou, modificando uma das nossas imagens), você é responsável pela manutenção da imagem e dos aplicativos.
+No entanto, se você estiver usando uma imagem personalizada (que é criada do zero ou que você criou, modificando uma das nossas imagens), você é responsável pela manutenção da imagem e dos aplicativos. Se você precisar atualizar sua imagem ou de qualquer aplicativo dentro dele, será necessário criar uma nova versão atualizada da imagem e então substituir a imagem existente em sua coleção pela nova imagem atualizada.
 
 Então, como você para atualizar sua coleção? É bem simples:
 
@@ -34,4 +34,4 @@ Então, como você para atualizar sua coleção? É bem simples:
 
 1. Clique na marca de seleção para iniciar a atualização.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

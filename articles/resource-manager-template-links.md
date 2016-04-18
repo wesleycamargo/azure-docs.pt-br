@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Vínculos de recursos - esquema do modelo
@@ -42,20 +42,18 @@ Para criar um vínculo, adicione o esquema a seguir à seção de recursos do se
 
 As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sim | **{namespace}/{tipo}/providers/links** | O tipo de recurso a ser criado. Os valores {namespace} e {tipo} referem-se ao tipo de recurso e ao namespace do provedor do recurso de origem. |
-| apiVersion | enum | Sim | **01-01-2015** | A versão da API a ser usada para criar o recurso. |  
-| name | cadeia de caracteres | Sim | **{recurso}/Microsoft.Resources/{nomevínculo}**<br /><br />até 64 caracteres<br />Não pode conter <, >, %, &,? ou caracteres de controle. | Um valor que especifica o nome do recurso da fonte e um nome para o vínculo. |
-| dependsOn | array | Não | Uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. | A coleção de recursos do qual este vínculo depende. Se os recursos que estiver vinculando forem implantados no mesmo modelo, inclua esses nomes de recurso neste elemento para garantir que eles sejam implantados primeiro. | 
-| propriedades | objeto | Sim | (mostrado abaixo) | Um objeto que identifica o recurso para o qual vincular e observações sobre o vínculo. |  
+| Nome | Valor |
+| ---- | ---- |
+| type | Enum<br />Obrigatório<br />**{namespace}/{tipo}/providers/links**<br /><br />O tipo de recurso a ser criado. Os valores {namespace} e {tipo} referem-se ao tipo de recurso e ao namespace do provedor do recurso de origem. |
+| apiVersion | Enum<br />Obrigatório<br />**2015-01-01**<br /><br />A versão da API a ser usada para criar o recurso. |  
+| name | Cadeia de caracteres<br />Obrigatório<br />**{recurso}/Microsoft.Resources/{nome do link}****<br /> Até 64 caracteres, não pode conter <, >, %, &,? ou caracteres de controle.<br /><br />Um valor que especifica o nome do recurso de origem e um nome para o link. | | dependsOn | Matriz<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que este link depende. Se os recursos que você estiver vinculando estiverem implantados no mesmo modelo, inclua o nome desses recursos neste elemento para garantir que eles sejam implantados primeiro. | | properties | Objeto<br />Obrigatório<br />[Objeto properties](#properties)<br /><br />Um objeto que identifica o recurso a ser vinculado e observações sobre o link. | 
 
+<a id="properties" />
 ### properties object
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| targetId | string | Sim | | O identificador do recurso de destino para o qual vincular. |
-| HDInsight | cadeia de caracteres | Não | 512 caracteres | Descrição do bloqueio. |
+| Nome | Valor |
+| ------- | ---- |
+| targetId | Cadeia de caracteres<br />Obrigatório<br />**{id do recurso}****<br /><br />O identificador do recurso alvo a ser vinculado. | | notes | Cadeia de caracteres<br />Opcional<br />Até 512 caracteres<br /><br />Descrição do bloqueio. |
 
 
 ## Como usar o recurso de lin
@@ -68,7 +66,7 @@ Para trabalhar com vínculos por meio da REST, veja [Recursos vinculados](https:
 
 Use o comando do Azure PowerShell a seguir para ver todos os vínculos em sua assinatura. É possível fornecer outros parâmetros para limitar os resultados.
 
-    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -OutputObjectFormat New
+    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
 
 ## Exemplos
 
@@ -128,16 +126,16 @@ O exemplo a seguir aplica um bloqueio somente leitura a um aplicativo Web.
 
 Os seguintes modelos de início rápido implantam recursos com um link.
 
-- [Alerta de fila com Aplicativo lógico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-- [Alerta de Margem de atraso com Aplicativo lógico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-- [Provisionar um aplicativo de API com um gateway existente](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
-- [Provisionar um aplicativo de API com um novo gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
-- [Crie um Aplicativo Lógico mais um aplicativo de API usando um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
-- [Aplicativo lógico que envia uma mensagem de texto quando um alerta é acionado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+- [Alerta de fila com Aplicativo lógico](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
+- [Alerta de Margem de atraso com Aplicativo lógico](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
+- [Provisionar um aplicativo de API com um gateway existente](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
+- [Provisionar um aplicativo de API com um novo gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
+- [Crie um Aplicativo Lógico mais um aplicativo de API usando um modelo](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
+- [Aplicativo lógico que envia uma mensagem de texto quando um alerta é acionado](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
 
 
 ## Próximas etapas
 
 - Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0406_2016-->

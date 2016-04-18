@@ -108,4 +108,4 @@ Copie o webhook antes de fechar a caixa de diálogo do webhook, pois você preci
 
 ![Adicionar alerta à máquina virtual 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

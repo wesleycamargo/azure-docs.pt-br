@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/23/2016"
 	ms.author="anhoh"/>
 
@@ -79,4 +79,4 @@ O Gerenciador de Consultas no portal do Azure é apenas uma maneira de executar 
 
 Para saber mais sobre a gramática SQL do Banco de Dados de Documentos com suporte no Gerenciador de Consultas, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md). Talvez você também goste de experimentar o [Query Playground](https://www.documentdb.com/sql/demo), onde poderá testar as consultas online usando um conjunto de dados de exemplo.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

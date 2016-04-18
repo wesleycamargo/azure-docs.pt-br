@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="04/01/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement – Principais recursos
@@ -26,7 +26,7 @@ Este artigo fornece uma visão geral de alto nível sobre os principais recursos
 
 - **Portal de SaaS separado** Facilita o acesso à equipe de marketing, sem a necessidade de acessar o portal de gerenciamento do Azure.
 
-- **Disponibilidade de APIs REST abertas** Para integrar e automatizar com sistemas de CRM/CMS/TI usando APIs de plataforma aberta, fornecemos APIs REST abertas e o SDK do .NET para consumir essas APIs que permitem uma fácil integração e automação com o Mobile Engagement. Veja [isto](mobile-engagement-api-authentication.md) para obter mais detalhes
+- **Disponibilidade de APIs REST abertas** Para integrar e automatizar com sistemas de CRM/CMS/TI usando APIs de plataforma aberta, fornecemos APIs REST abertas e o SDK do .NET para consumir essas APIs que permitem uma fácil integração e automação com o Mobile Engagement. Confira [isto](mobile-engagement-api-authentication.md) para obter detalhes.
 
 - **Conector do Power BI disponível** Também é possível extrair os principais gráficos de análise em um painel do Power BI. Veja este [guia](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-content-pack-azure-mobile/)
 
@@ -164,4 +164,4 @@ Este artigo fornece uma visão geral de alto nível sobre os principais recursos
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

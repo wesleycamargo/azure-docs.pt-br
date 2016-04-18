@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="anmolah"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/03/2016"
+   ms.date="03/25/2016"
    ms.author="anmola"/>
 
 # Cenários da possibilidade de teste
 Sistemas grandes distribuídos como infraestruturas de nuvem não são confiáveis por natureza. O Service Fabric do Azure permite aos desenvolvedores gravar os serviços para serem executados em infraestruturas não confiáveis. Para gravar serviços de alta qualidade, os desenvolvedores precisam ser capazes de induzir essa infraestrutura não confiável a testar a estabilidade dos seus serviços.
 
-O Service Fabric fornece aos desenvolvedores a capacidade de induzir ações de falha para testar serviços na presença de falhas. No entanto, falhas simuladas direcionadas não o levarão tão longe. Para fazer mais testes, você pode usar os cenários de teste no Service Fabric: um teste de caos e um de failover. Esses cenários simulam falhas intercaladas contínuas, amigáveis e não amigáveis, em todo o cluster por longos períodos de tempo. Quando um teste é configurado com a taxa e o tipo de falha, ele é executado como uma ferramenta do lado do cliente, por meio de APIs do C# ou do PowerShell para gerar falhas no cluster e no serviço.
+O serviço Análise de Falhas fornece aos desenvolvedores a capacidade de induzir ações de falha para testar serviços em caso de falhas. No entanto, falhas simuladas direcionadas não o levarão tão longe. Para fazer mais testes, você pode usar os cenários de teste no Service Fabric: um teste de caos e um de failover. Esses cenários simulam falhas intercaladas contínuas, amigáveis e não amigáveis, em todo o cluster por longos períodos de tempo. Quando um teste é configurado com a taxa e o tipo de falha, ele pode ser iniciado por meio de APIs do C# ou do PowerShell para gerar falhas no cluster e no serviço.
 
 ## Teste de caos
 O cenário de caos gera falhas em todo o cluster do Service Fabric. O cenário compacta falhas geralmente vistas em meses ou em anos em apenas algumas horas. A combinação de falhas intercaladas com a alta taxa de falhas localiza casos específicos que de outra forma seriam ignorados. Isso leva a uma melhoria significativa na qualidade do código do serviço.
@@ -49,8 +49,6 @@ Em sua forma atual, o mecanismo de geração de falha no teste de caos induz som
 Exemplo de C#
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
-
 using System;
 using System.Fabric;
 using System.Fabric.Testability.Scenario;
@@ -159,11 +157,10 @@ O teste de failover induz a uma falha escolhida e depois executa a validação n
  - **WaitTimeBetweenFaults**: tempo de espera entre cada ciclo de falha e validação.
 
 ### Como executar o teste de failover
-Exemplo de C#
+
+**C#**
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
-
 using System;
 using System.Fabric;
 using System.Fabric.Testability.Scenario;
@@ -236,7 +233,7 @@ class Test
 ```
 
 
-PowerShell
+**PowerShell**
 
 ```powershell
 $connection = "localhost:19000"
@@ -250,4 +247,4 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

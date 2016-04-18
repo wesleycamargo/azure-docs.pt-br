@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Diretrizes e limitações gerais do Banco de Dados SQL do Azure"
    description="Esta página descreve algumas limitações gerais para o Banco de Dados SQL do Azure, bem como áreas de interoperabilidade e suporte."
    services="sql-database"
@@ -6,7 +6,7 @@
    authors="rothja"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
@@ -19,15 +19,15 @@
 
 Este tópico fornece as diretrizes e limitações gerais do Banco de Dados SQL do Azure. Para obter uma compreensão completa das cotas, do gerenciamento de recursos e do suporte, consulte [recursos adicionais](#additional-guidelines) no final deste tópico.
 
-## Conectividade
+## Conectividade e autenticação
 
- - A Autenticação do Windows não é suportada. Consulte [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md) 
+  - A Autenticação do Windows não é suportada. Consulte [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md) No entanto, a autenticação do Azure Active Directory tem suporte com certas limitações. Confira [Conectar-se ao Banco de Dados SQL com a autenticação do Azure Active Directory](sql-database-aad-authentication.md).
 
- - O Banco de Dados SQL do Microsoft Azure dá suporte ao cliente com protocolo TDS versão 7.3 ou posterior.
+  - O Banco de Dados SQL do Microsoft Azure dá suporte ao cliente com protocolo TDS versão 7.3 ou posterior.
 
- - São permitidas apenas conexões TCP/IP.
+  - São permitidas apenas conexões TCP/IP.
 
- - Não há suporte para o navegador do SQL Server 2008 porque o Banco de Dados SQL do Microsoft Azure não tem portas dinâmicas, somente a porta 1433.
+  - Não há suporte para o navegador do SQL Server 2008 porque o Banco de Dados SQL do Microsoft Azure não tem portas dinâmicas, somente a porta 1433.
 
 ## SQL Server Agent/trabalhos
 
@@ -41,11 +41,11 @@ O agrupamento de banco de dados padrão usado pelo Banco de Dados SQL do Microso
 
 Certos nomes de usuário não são permitidos por motivos de segurança. Você não pode usar os seguintes nomes:
 
- - **admin** 
- - **administrator** 
- - **guest** 
- - **root** 
- - **sa** 
+ - **admin**
+ - **administrator**
+ - **guest**
+ - **root**
+ - **sa**
 
 Os nomes de todos os novos objetos devem ser compatíveis com as regras do SQL Server para identificadores. Para saber mais, veja [Identificadores](https://msdn.microsoft.com/library/ms175874.aspx).
 
@@ -63,4 +63,4 @@ Além disso, os nomes de usuário e logon não podem conter o caractere \\ (não
 
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->
