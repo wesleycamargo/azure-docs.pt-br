@@ -1,6 +1,6 @@
 <properties
    pageTitle="Sobre o fluxo de tokens de aplicativo no Power BI Embedded"
-   description=""
+   description="Sobre o fluxo de tokens de aplicativo no Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

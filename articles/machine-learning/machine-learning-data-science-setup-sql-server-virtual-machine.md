@@ -225,7 +225,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 1.  No Portal Clássico do Azure (ou na etapa anterior), selecione **MÁQUINAS VIRTUAIS**.
 
-2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por ****http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
+2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por **http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
 
 ##<a name="cde"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
 

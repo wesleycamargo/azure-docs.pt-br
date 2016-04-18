@@ -167,7 +167,8 @@ Em muitos casos, o cliente pode estar interessado em criar uma justificativa de 
 
 Por outro lado, você deve ter uma boa compreensão do valor de negócio da operação de uma previsão de demanda de energia (a curto ou a longo prazo). Na verdade, é importante perceber o valor de negócio de cada operação de previsão. Por exemplo, prever uma carga de energia para as próximas 24 horas com precisão pode impedir a produção em excesso ou pode ajudar a impedir sobrecargas na rede, Isso pode ser quantificado em termos de economia financeira diariamente.
 
-Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda seria: ![Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda seria:
+![Uma fórmula básica para calcular as vantagens financeiras da solução de previsão de demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Como o Cortana Intelligence Suite fornece um modelo de preços pré-pagos, não é necessário incorrer em um componente de custo fixo para essa fórmula. Esta fórmula pode ser calculada de forma diária, mensal ou anual.
 
@@ -384,4 +385,4 @@ O diagrama a seguir ilustra uma arquitetura típica do Cortana Intelligence que 
 
 Para saber mais sobre cada um dos componentes e sobre a arquitetura inteira, veja o Modelo de Solução de Energia.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

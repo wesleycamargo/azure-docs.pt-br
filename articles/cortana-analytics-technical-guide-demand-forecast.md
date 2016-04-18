@@ -225,7 +225,8 @@ As etapas a seguir mostrarão como visualizar a saída de dados em tempo real de
 
 	-	Passe o mouse sobre esse bloco no painel, clique no ícone "editar" no canto superior direito para alterar seu título para "Demandar por Carimbo de Data/Hora"
 
-4.	Crie outros blocos de painel com base em conjuntos de dados apropriados. O modo de exibição de painel final é exibido abaixo. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
+4.	Crie outros blocos de painel com base em conjuntos de dados apropriados. O modo de exibição de painel final é exibido abaixo.
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
 
 ### Configurar o painel de caminho frio
@@ -252,7 +253,8 @@ No pipeline de dados de caminho frio, o principal objetivo é obter a previsão 
 
 	-	Na pasta **"DemandForecastingDataGeneratorv1.0"** que você baixou, clique duas vezes no arquivo **'Power BI Template\\DemandForecastPowerBI.pbix'**. As visualizações inicias se baseiam em dados fictícios. **Observação:** se você vir uma mensagem de erro, verifique se instalou a versão mais recente do Power BI desktop
 
-		Depois de abri-lo, na parte superior do arquivo, clique em **"Editar Consultas"**. Na janela pop-up, clique duas vezes em **"Origem"** no painel à direita. ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+		Depois de abri-lo, na parte superior do arquivo, clique em **"Editar Consultas"**. Na janela pop-up, clique duas vezes em **"Origem"** no painel à direita.
+![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   Na janela pop-out, substitua **"Servidor"** e **"Banco de dados"** por seus próprios nomes de servidor e de banco de dados e clique em **"OK"**. Para o nome do servidor, especifique a porta 1433 (**NomeDaSuaSolução.database.windows.net, 1433**). Ignore as mensagens de aviso que aparecem na tela.
 
@@ -288,4 +290,4 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 
 -   [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

@@ -99,9 +99,11 @@ XUF99EW9OIQOMV7Q7 | Automóvel de três volumes
 
 
 ### Para gerar dados simulados
-1.	Clique na seta no canto superior direito no nó Simulador de Telemática do Veículo para baixar o pacote do simulador de dados. Salve e extraia os arquivos localmente em seu computador. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Figura 3 – Projeto da Solução de Análise da Telemetria do Veículo*
+1.	Clique na seta no canto superior direito no nó Simulador de Telemática do Veículo para baixar o pacote do simulador de dados. Salve e extraia os arquivos localmente em seu computador.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Figura 3 – Projeto da Solução de Análise da Telemetria do Veículo*
 
-2.	Em seu computador local, vá para a pasta onde você extraiu o pacote Simulador de Telemática do Veículo. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *Figura 4 – Pasta Simulator de Telemática do Veículo*
+2.	Em seu computador local, vá para a pasta onde você extraiu o pacote Simulador de Telemática do Veículo.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *Figura 4 – Pasta Simulator de Telemática do Veículo*
 
 3.	Execute o aplicativo **CarEventGenerator.exe**.
 
@@ -376,7 +378,8 @@ Para saber mais sobre todos os recursos de 'Janelas' no Azure Stream Analytics, 
 
 Um aplicativo é incluído como parte da solução para operar o modelo de aprendizado de máquina em tempo real. Esse aplicativo, chamado "RealTimeDashboardApp", é criado e configurado como parte da implantação da solução. O aplicativo faz o seguinte:
 
-1.	Atende uma instância do Hub de Eventos na qual o Stream Analytics está publicando os eventos em um padrão contínuo. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figura 16 – Consulta do Stream Analytics para publicar os dados em uma saída da instância do Hub de Eventos* 
+1.	Atende uma instância do Hub de Eventos na qual o Stream Analytics está publicando os eventos em um padrão contínuo.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figura 16 – Consulta do Stream Analytics para publicar os dados em uma saída da instância do Hub de Eventos* 
 
 2.	Para cada evento que esse aplicativo recebe:
 
@@ -387,9 +390,10 @@ Esse padrão também é aplicável em situações nas quais você deseja integra
 
 Clique em [Baixar RealtimeDashboardApp](http://go.microsoft.com/fwlink/?LinkId=717078) para baixar a solução RealtimeDashboardApp do Visual Studio para as personalizações.
 
-****Para executar o Aplicativo do Painel em Tempo Real **
+**Para executar o Aplicativo do Painel em Tempo Real**
 
-1.	Clique no nó PowerBI na exibição de diagrama e clique no link Baixar Aplicativo do Painel em Tempo Real no painel de propriedades. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figura 17 – Instruções de instalação do painel do PowerBI*
+1.	Clique no nó PowerBI na exibição de diagrama e clique no link Baixar Aplicativo do Painel em Tempo Real no painel de propriedades.
+![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figura 17 – Instruções de instalação do painel do PowerBI*
 2.	Extrair e salvar localmente ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figura 18 – Pasta RealtimeDashboardApp*
 3.	Executar o aplicativo RealtimeDashboardApp.exe
 4.	Fornecer credenciais válidas do PowerBI, entrar e clicar em Aceitar ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
@@ -706,4 +710,4 @@ Clique aqui para obter instruções detalhadas sobre como configurar os relatór
 
 Este documento contém um detalhamento da Solução de Análise da Telemetria do Veículo. Isto apresenta um padrão de arquitetura lambda para a análise em tempo real e em lote com previsões e ações. Esse padrão se aplica a uma ampla variedade de casos de uso que exigem as análises de afunilamento (em tempo real) e de ampliação (em lote).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

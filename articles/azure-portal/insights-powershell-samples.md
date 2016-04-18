@@ -148,7 +148,13 @@ A tabela a seguir descreve os parâmetros e valores usados para criar um alerta 
 |Local desta regra de alerta|	Leste dos EUA|
 |ResourceGroup|	montest|
 |TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|MetricName do alerta que é criado|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Consulte o cmdlet `Get-MetricDefinitions` abaixo para ver como recuperar os nomes exatos das métricas| |operator| GreaterThan| |Threshold value (count/sec para esta métrica)| 1| |WindowSize (formato hh:mm:ss)| 00:05:00| |aggregator (estatística da métrica, que usa a contagem média neste caso)| Average| |custom emails (matriz da cadeia de caracteres)|'foo@example.com','bar@example.com'| |enviar email para proprietários, colaboradores e leitores| -SendToServiceOwners|
+|MetricName do alerta que é criado|	\\PhysicalDisk(\_Total)\\Disk Writes/sec. Consulte o cmdlet `Get-MetricDefinitions` abaixo para ver como recuperar os nomes exatos das métricas|
+|operator| GreaterThan|
+|Threshold value (count/sec para esta métrica)| 1|
+|WindowSize (formato hh:mm:ss)| 00:05:00|
+|aggregator (estatística da métrica, que usa a contagem média neste caso)| Average|
+|custom emails (matriz da cadeia de caracteres)|'foo@example.com','bar@example.com'|
+|enviar email para proprietários, colaboradores e leitores| -SendToServiceOwners|
 
 Ação Criar um email
 

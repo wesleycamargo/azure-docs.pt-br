@@ -1,6 +1,6 @@
 <properties
    pageTitle="Comunidade do Power BI Embedded"
-   description=""
+   description="Comunidade do Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"

@@ -49,7 +49,7 @@ Hoje em dia, muitas pessoas escolhem o Hive e o Pig em vez do MapReduce. Para ob
 
 ## <a name="hdinsight-sample-wordcount"></a>Contagem de palavras - Java 
 
-Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos. O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem que será usado para contar palavras e o local para a saída.
+Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é **wasb:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos. O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem que será usado para contar palavras e o local para a saída.
 
 O código-fonte pode ser encontrado no [Apêndice A](#apendix-a---the-word-count-MapReduce-program-in-java).
 

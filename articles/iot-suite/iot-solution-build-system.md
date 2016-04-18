@@ -222,7 +222,8 @@ Repita o processo para cada plataforma em que seu aplicativo será executado.
 - Use a [ID do aplicativo](http://support.hockeyapp.net/kb/app-management-2/how-to-find-the-app-id) do painel para enviar comentários e dados de falha do seu aplicativo. No MyDriving, atualize as IDs em src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs 
 -   [**Convide os usuários de teste**](http://support.hockeyapp.net/kb/app-management-2/how-to-invite-beta-testers). Você recebe uma URL para recrutar usuários de teste. Eles poderão se inscrever na sua equipe, baixar o aplicativo e enviar comentários.
 
--   Ou então, se você preferir uma versão beta aberta, defina a distribuição para pública: clique em **Gerenciar Aplicativo, Distribuição, Download = Público.** Agora qualquer pessoa poderá baixar seu aplicativo e enviar comentários, e eles verão uma notificação quando você postar uma nova versão. E você pode também obter alguns relatórios de falha deles. ![](./media/iot-solution-build-system/image3.png)
+-   Ou então, se você preferir uma versão beta aberta, defina a distribuição para pública: clique em **Gerenciar Aplicativo, Distribuição, Download = Público.** Agora qualquer pessoa poderá baixar seu aplicativo e enviar comentários, e eles verão uma notificação quando você postar uma nova versão. E você pode também obter alguns relatórios de falha deles.
+![](./media/iot-solution-build-system/image3.png)
 
 -   [**Vincular relatórios de falhas ao Visual Studio Team Services**](http://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs): clique em **Gerenciar Aplicativo, Visual Studio Team Services**. O HockeyApp pode criar itens de trabalho automaticamente no Team Services quando há relatórios de falha ou ao receber comentários.
 
@@ -389,7 +390,8 @@ E defina o gatilho de versão para implantação contínua, ou seja, cada check-
 
 ![](./media/iot-solution-build-system/image8.png)
 
-Para aplicativos móveis, implantamos para o HockeyApp: ![](./media/iot-solution-build-system/image9.png)
+Para aplicativos móveis, implantamos para o HockeyApp:
+![](./media/iot-solution-build-system/image9.png)
 
 ## Application Insights
 
@@ -475,4 +477,4 @@ Para fazer comentários, [emita um problema no GitHub] ou deixe um comentário a
 
 Aguardamos seu contato!
 
-<!---HONumber=AcomDC_0406_2016-->
+<!-----HONumber=AcomDC_0406_2016-->

@@ -38,7 +38,7 @@ Conceitualmente, uma função de trabalho representa uma carga de trabalho sem e
 
 Semelhante à função de trabalho, uma função Web também representa uma carga de trabalho sem estado e, assim, conceitualmente, ele também pode ser mapeado para um serviço sem estado do Service Fabric. No entanto, diferentemente das funções Web, o Service Fabric não dá suporte a IIS. A migração de um aplicativo Web de uma função Web para um serviço sem estado requer primeiro a mudança para uma estrutura Web que pode ser auto-hospedada e não depende de IIS ou System.Web, como o ASP.NET Core 1.
 
-****Aplicativo ** | **Com Suporte** | **Caminho de migração**
+**Aplicativo** | **Com Suporte** | **Caminho de migração**
 --- | --- | ---
 Web Forms do ASP.NET | Não | Converter em MVC do ASP.NET Core 1
 ASP.NET MVC | Com migração | Atualizar para o ASP.NET Core 1
