@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="03/31/2016"
 	ms.author="rasquill"/>
 
 # Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure
@@ -24,4 +24,4 @@ Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI
 
 [AZURE.INCLUDE [virtual-machines-common-cli-deploy-templates](../../includes/virtual-machines-common-cli-deploy-templates.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

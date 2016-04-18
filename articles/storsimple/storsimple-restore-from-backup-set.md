@@ -3,8 +3,8 @@
    description="Explica como usar a página Catálogo de Backup do serviço StorSimple Manager para restaurar um volume do StorSimple de um conjunto de backup."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
-   ms.author="v-sharos" />
+   ms.date="03/23/2016"
+   ms.author="alkohli" />
 
 # Restaurar um volume do StorSimple de um conjunto de backup
 
@@ -25,7 +25,7 @@ A página **Catálogo de Backup** exibe todos os conjuntos de backup criados ap�
 
  ![Página Catálogo de Backup](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
-Este tutorial explica como usar a página **Catálogo de Backup** para restaurar seu dispositivo a partir de um conjunto de backup.
+Este tutorial explica como usar a página **Catálogo de Backup** para restaurar um volume em seu dispositivo a partir de um conjunto de backup.
 
 ## Como usar o catálogo de backup 
 
@@ -45,10 +45,11 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 
 ## Como restaurar o volume StorSimple de um backup
 
-É possível usar a página **Catálogo de Backup** para restaurar o volume do StorSimple de um backup específico. No entanto, tenha em mente que a restauração de um volume reverterá o volume ao estado em que ele estava quando o backup foi feito. Todos os dados adicionados após a operação de backup serão perdidos.
+É possível usar a página **Catálogo de Backup** para restaurar o volume do StorSimple de um backup específico.
 
 > [AZURE.WARNING] A restauração de um backup substituirá os volumes existentes do backup. Isso pode causar a perda de todos os dados gravados depois que o backup tiver sido feito.
 
+Antes de iniciar uma restauração em um volume, verifique se o volume está offline. Você precisará colocar o volume offline no host primeiro e, em seguida, no dispositivo. Siga as etapas em [Colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline). Execute as etapas a seguir para restaurar um volume de um conjunto de backup.
 
 ### Para restaurar de um conjunto de backup
 
@@ -64,13 +65,11 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
  
     Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
 
-3. Expanda o conjunto de backup para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Acesse os volumes na página **Contêineres de Volume** e, em seguida, siga as etapas em [Colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline) para colocá-los offline.
+3. Expanda o conjunto de backup para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Siga as etapas em [Colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
 
     >  [AZURE.IMPORTANT] Verifique se você colocou os volumes offline primeiro no host antes de colocar os volumes offline no dispositivo. Se você não colocar os volumes offline no host, poderá ocorrer corrupção nos dados.
 
-4. Navegue de volta para a guia **Catálogo de Backup** e selecione um conjunto de backup.
-
-5. Clique em **Restaurar** na parte inferior da página.
+4. Selecione um conjunto de backup. Clique em **Restaurar** na parte inferior da página.
 
 6. Será solicitada a sua confirmação.
 
@@ -90,4 +89,4 @@ Para assistir a um vídeo que demonstra como você pode usar os recursos de clon
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

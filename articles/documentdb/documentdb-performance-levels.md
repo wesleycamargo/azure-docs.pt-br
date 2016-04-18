@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/01/2016" 
 	ms.author="johnmac"/>
 
 # Níveis de desempenho no Banco de Dados de Documentos
@@ -105,12 +105,25 @@ O Portal do Azure é uma opção disponível para você ao gerenciar os níveis 
 4. Na lâmina **Contas do Banco de Dados de Documentos**, clique na conta do Banco de Dados de Documentos que contém a coleção desejada.
 5. Na lâmina **Conta do Banco de Dados de Documentos**, role para baixo até a lente **Bancos de dados** e clique no banco de dados que contém a coleção desejada. 
 6. Na lâmina **Banco de dados** aberta, role para baixo até a lente **Coleções** e selecione a coleção desejada.
-7. Por fim, dentro da lâmina **Coleção**, localize e clique no bloco **Camada de preços** na lente **Uso**.
-8. Na lâmina **Escolha a faixa de preço**, clique no nível de desempenho desejado e clique em **Selecionar** na parte inferior da lâmina. 
+7. Na folha **Gerenciar Coleção**, clique em **Tipo de preço**.
+
+    ![Captura de tela das folhas Gerenciar Coleção e Escolha seu tipo de preço para o Banco de Dados de Documentos do Azure mostrando onde alterar o tipo de preço para a coleção][1]
+
+8. Na folha **Escolha seu tipo de preço**, clique em **Standard**.
+
+9. Na folha **Escolha seu tipo de preço**, clique em **Selecionar**.
+
+10. Na folha **Gerenciar Coleção**, o **Tipo de Preç** foi alterado para **Standard** e a caixa **Taxa de transferência (RU/s)** é exibida.
+
+    Altere o valor da caixa **Taxa de transferência** para um valor entre 400 e 10.000 [Unidades de solicitação](documentdb-request-units.md)/segundo (RUS/s). O **Resumo de Preços** na parte inferior da página é atualizado automaticamente para fornecer uma estimativa do custo mensal.
+
+    ![Captura de tela da folha Gerenciar Coleção mostrando onde alterar o valor de taxa de transferência para a coleção][2]
+
+9. Na folha **Gerenciar Coleção**, clique em **OK** para atualizar a coleção para o desempenho definido pelo usuário.
+
+Se determinar que precisa de uma taxa de transferência maior (mais de 10.000 RU/s) ou mais armazenamento (mais de 10 GB), você poderá criar uma coleção particionada. Para criar uma coleção particionada, confira [Criar uma coleção](documentdb-create-collection.md).
 
 >[AZURE.NOTE] Alterar os níveis de desempenho de uma coleção pode levar até 2 minutos.
-
-![Alterando a camada de preços][1]
 
 ## Alterando os níveis de desempenho usando o SDK .NET
 
@@ -160,6 +173,7 @@ Para saber mais sobre a definição de preços e o gerenciamento de dados no Ban
 
 Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do Banco de Dados de Documentos do Azure.
 
-[1]: ./media/documentdb-performance-levels/img1.png
+[1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
+[2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

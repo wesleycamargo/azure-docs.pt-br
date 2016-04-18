@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/01/2016"
    ms.author="masashin"/>
 
 # Diretrizes de design de API
@@ -42,7 +42,7 @@ Em sua dissertação em 2000, Roy Fielding propôs uma abordagem de arquitetura 
 
 O modelo de REST usa um esquema de navegação para representar objetos e serviços em uma rede (mencionados como _recursos_). Muitos sistemas que implementam REST geralmente usam o protocolo HTTP para transmitir solicitações para acessar esses recursos. Nesses sistemas, um aplicativo cliente envia uma solicitação na forma de um URI que identifica um recurso, além de um método HTTP (os mais comuns são GET, POST, PUT e DELETE) que indica a operação a ser executada nesse recurso. O corpo da solicitação HTTP contém os dados necessários para executar a operação. O ponto que é importante entender é que o REST define um modelo de solicitação sem monitoração de estado. Solicitações HTTP devem ser independentes e podem ocorrer em qualquer ordem, portanto, a tentativa de reter informações de estado transitório entre as solicitações não é viável. O único local onde as informações são armazenadas é nos próprios recursos, e cada solicitação deve ser uma operação atômica. Na verdade, um modelo REST implementa uma máquina de estado finito onde uma solicitação faz, em um recurso, a transição de um estado bem definido não transitório para outro.
 
-> [AZURE.NOTE]A natureza sem monitoração de estado de solicitações individuais no modelo REST permite que um sistema construído seguindo esses princípios seja altamente dimensionável. Não é necessário manter qualquer afinidade entre um aplicativo cliente fazendo uma série de solicitações e os servidores Web específicos tratando dessas solicitações.
+> [AZURE.NOTE] A natureza sem monitoração de estado de solicitações individuais no modelo REST permite que um sistema construído seguindo esses princípios seja altamente dimensionável. Não é necessário manter qualquer afinidade entre um aplicativo cliente fazendo uma série de solicitações e os servidores Web específicos tratando dessas solicitações.
 
 Outro ponto crucial na implementação de um modelo eficaz do REST é entender as relações entre os vários recursos aos quais o modelo fornece acesso. Esses recursos normalmente são organizados como coleções e relacionamentos. Por exemplo, suponha que uma rápida análise de um sistema de comércio eletrônico mostre que há duas coleções pelas quais aplicativos cliente provavelmente se interessam: pedidos e clientes. Cada pedido e cliente deve ter sua própria chave exclusiva para fins de identificação. O URI para acessar a coleção de pedidos pode ser algo tão simples quanto _/pedidos_ e, do mesmo modo, o URI para recuperar todos os clientes pode ser _/clientes_. Emitir uma solicitação HTTP GET para o URI _/pedidos_ deve retornar uma lista que representa todos os pedidos na coleção, codificada como uma resposta HTTP:
 
@@ -75,7 +75,7 @@ Content-Length: ...
 {"orderId":2,"orderValue":10.00,"productId":4,"quantity":2}
 ```
 
-> [AZURE.NOTE]Para simplificar, nestes exemplos mostram as informações nas respostas sendo retornadas como dados de texto JSON. No entanto, não há nenhuma razão pela qual recursos não devam conter qualquer outro tipo de dados para o qual HTTP oferece suporte, como informações binárias ou criptografadas; o tipo de conteúdo na resposta HTTP deve especificar o tipo. Além disso, um modelo REST pode ser capaz de retornar os mesmos dados em diferentes formatos, como XML ou JSON. Nesse caso, o serviço Web deve ser capaz de realizar a negociação de conteúdo com o cliente que está fazendo a solicitação. A solicitação pode incluir um cabeçalho _Accept_ que especifica o formato preferencial que o cliente gostaria de receber, sendo que o serviço Web deve tentar honrar esse formato se possível.
+> [AZURE.NOTE] Para simplificar, nestes exemplos mostram as informações nas respostas sendo retornadas como dados de texto JSON. No entanto, não há nenhuma razão pela qual recursos não devam conter qualquer outro tipo de dados para o qual HTTP oferece suporte, como informações binárias ou criptografadas; o tipo de conteúdo na resposta HTTP deve especificar o tipo. Além disso, um modelo REST pode ser capaz de retornar os mesmos dados em diferentes formatos, como XML ou JSON. Nesse caso, o serviço Web deve ser capaz de realizar a negociação de conteúdo com o cliente que está fazendo a solicitação. A solicitação pode incluir um cabeçalho _Accept_ que especifica o formato preferencial que o cliente gostaria de receber, sendo que o serviço Web deve tentar honrar esse formato se possível.
 
 Observe que a resposta de uma solicitação REST faz uso dos códigos de status HTTP padrão. Por exemplo, uma solicitação que retorna dados válidos deve incluir o código de resposta HTTP 200 (OK), enquanto uma solicitação que não consegue localizar ou excluir um recurso especificado deve retornar uma resposta que inclui o código de status HTTP 404 (Não Encontrado).
 
@@ -87,21 +87,21 @@ Uma API da Web RESTful concentra-se na exposição de um conjunto de recursos co
 
 ### Organizando a API da Web em torno de recursos
 
-> [AZURE.TIP]Os URIs expostos por um serviço Web REST deve se basear em substantivos (os dados aos quais a API da Web fornece acesso) e não em verbos (o que um aplicativo pode fazer com os dados).
+> [AZURE.TIP] Os URIs expostos por um serviço Web REST deve se basear em substantivos (os dados aos quais a API da Web fornece acesso) e não em verbos (o que um aplicativo pode fazer com os dados).
 
 Concentre-se nas entidades comerciais que a API da Web expõe. Por exemplo, em uma API da Web projetada para oferecer suporte ao sistema de comércio eletrônico descrito anteriormente, as entidades principais são clientes e pedidos. Processos como o ato de fazer um pedido podem ser realizados pelo fornecimento de uma operação HTTP POST, que coleta as informações do pedido e adiciona-as à lista de pedidos para o cliente. Internamente, essa operação POST pode executar tarefas como verificação dos níveis de estoque e cobrança do cliente. A resposta HTTP pode indicar se o pedido foi feito com êxito ou não. Observe também que um recurso não precisa se basear em um único item de dados físico. Por exemplo, um recurso de pedido pode ser implementado internamente usando informações agregadas de muitas linhas distribuídas por várias tabelas em um banco de dados relacional, mas apresentadas ao cliente como uma única entidade.
 
-> [AZURE.TIP]Evite a criação de uma interface REST que espelhe ou dependa da estrutura interna dos dados que ele expõe. REST tem maior foco na implementação de operações CRUD (Create, Retrieve, Update, Delete - criar, recuperar, atualizar, excluir) simples em tabelas separadas em um banco de dados relacional. A finalidade do REST é mapear entidades comerciais e as operações que um aplicativo pode executar nessas entidades para a implementação física dessas entidades, mas um cliente não deve ser exposto a esses detalhes físicos.
+> [AZURE.TIP] Evite a criação de uma interface REST que espelhe ou dependa da estrutura interna dos dados que ele expõe. REST tem maior foco na implementação de operações CRUD (Create, Retrieve, Update, Delete - criar, recuperar, atualizar, excluir) simples em tabelas separadas em um banco de dados relacional. A finalidade do REST é mapear entidades comerciais e as operações que um aplicativo pode executar nessas entidades para a implementação física dessas entidades, mas um cliente não deve ser exposto a esses detalhes físicos.
 
 Entidades comerciais individuais raramente existem em isolamento (embora possam existir alguns objetos singleton), mas em vez disso, tendem a ser agrupadas em coleções. Em termos de REST, cada entidade e cada coleção são recursos. Em uma API da Web RESTful, cada coleção tem seu próprio URI contido no serviço Web, e executar uma solicitação HTTP GET por um URI para uma coleção recupera uma lista dos itens nessa coleção. Cada item individual também tem seu próprio URI, e um aplicativo pode enviar outra solicitação HTTP GET usando esse URI para obter os detalhes desse item. Você deve organizar os URIs para coleções e itens de maneira hierárquica. No sistema de comércio eletrônico, o URI _/clientes_ denota a coleção de clientes, e _/clientes/5_ recupera os detalhes para o único cliente com ID 5 desta coleção. Essa abordagem ajuda a manter a API da Web intuitiva.
 
-> [AZURE.TIP]Adote uma convenção de nomenclatura consistente nos URIs; em geral, ajuda usar substantivos plurais para URIs que fazem referência a coleções.
+> [AZURE.TIP] Adote uma convenção de nomenclatura consistente nos URIs; em geral, ajuda usar substantivos plurais para URIs que fazem referência a coleções.
 
 Você também precisa considerar as relações entre diferentes tipos de recursos e como você pode expor essas associações. Por exemplo, os clientes podem fazer zero ou mais pedidos. Uma maneira natural de representar essa relação seria por meio de um URI como _/clientes/5/pedidos_, para localizar todos os pedidos do cliente 5. Você também pode considerar a possibilidade de representar a associação de um pedido a um cliente específico, por meio de um URI como _/pedidos/99/cliente_ para localizar o cliente para o pedido 99, mas estender muito esse modelo pode torná-lo difícil de implementar. Uma solução melhor é fornecer links navegáveis para recursos associados, como o cliente, no corpo da mensagem de resposta HTTP retornada quando se consulta o pedido. Esse mecanismo é descrito mais detalhadamente na seção Usando a Abordagem de HATEOAS Para Habilitar a Navegação Para Recursos Relacionados, posteriormente nestas diretrizes.
 
 Em sistemas mais complexos pode haver muito mais tipos de entidade, e pode ser tentador fornecer URIs que permitem a um aplicativo cliente navegar por vários níveis de relações, como _/clientes/1/pedidos/99/produtos_ para obter a lista de produtos no pedido 99 feito pelo cliente 1. No entanto, esse nível de complexidade pode ser difícil de manter e é inflexível no caso de as relações entre os recursos mudarem no futuro. Em vez disso, você deve tentar manter os URIs relativamente simples. Tenha em mente que uma vez que um aplicativo tem uma referência a um recurso, deve ser possível usar essa referência para localizar itens relacionados a esse recurso. A consulta anterior pode ser substituída pelo URI _/clientes/1/pedidos_ para localizar todos os pedidos do cliente 1 e, em seguida, consultar o URI _/pedidos/99/produtos_ para encontrar os produtos nesse pedido (supondo que o pedido 99 foi feito pelo cliente 1).
 
-> [AZURE.TIP]Evite exigir URIs de recurso mais complexos do que _coleção/item/coleção_.
+> [AZURE.TIP] Evite exigir URIs de recurso mais complexos do que _coleção/item/coleção_.
 
 Outro ponto a considerar é que todas as solicitações da Web impõem uma carga ao servidor Web; quanto maior o número de solicitações, maior será a carga. Você deve tentar definir seus recursos para evitar APIs da Web "verborrágicas", que expõem um grande número de recursos pequenos. Uma API desse tipo pode exigir que um aplicativo cliente envie várias solicitações para localizar todos os dados que ele necessita. Pode ser benéfico desnormalizar dados e combinar informações relacionadas em recursos maiores, que podem ser recuperados por meio de uma única solicitação. No entanto, você precisa equilibrar essa abordagem em relação à sobrecarga causada pela coleta de dados que podem, frequentemente, não ser solicitados pelo cliente. Recuperar objetos grandes pode aumentar a latência de uma solicitação e incorre em custos de largura de banda adicional, o que traz pouca vantagem se os dados adicionais não são usados com frequência.
 
@@ -123,7 +123,7 @@ O protocolo HTTP define vários métodos que atribuem significado semântico a u
 
 - **DELETE**, para remover o recurso no URI especificado.
 
-> [AZURE.NOTE]O protocolo HTTP também define outros métodos menos usados como PATCH, que é usado para solicitar atualizações seletivas a um recurso; HEAD, que é usado para solicitar uma descrição de um recurso; OPTIONS, que permite a um cliente obter informações sobre as opções de comunicação para as quais há suporte no servidor; por fim, TRACE, que permite que um cliente solicite informações que pode usar para fins de teste e diagnóstico.
+> [AZURE.NOTE] O protocolo HTTP também define outros métodos menos usados como PATCH, que é usado para solicitar atualizações seletivas a um recurso; HEAD, que é usado para solicitar uma descrição de um recurso; OPTIONS, que permite a um cliente obter informações sobre as opções de comunicação para as quais há suporte no servidor; por fim, TRACE, que permite que um cliente solicite informações que pode usar para fins de teste e diagnóstico.
 
 O efeito de uma solicitação específica deve depender de o recurso ao qual ela é aplicada tratar-se de uma coleção ou um item individual. A tabela a seguir resume as convenções comuns adotadas pelas implementações mais RESTful, usando o exemplo de comércio eletrônico. Observe que nem todas essas solicitações podem ser implementadas; isso depende do cenário específico.
 
@@ -137,11 +137,11 @@ A finalidade de solicitações GET e DELETE são relativamente simples, mas há 
 
 Uma solicitação POST deve criar um novo recurso com dados fornecidos no corpo da solicitação. No modelo de REST, você aplica frequentemente solicitações POST a recursos que são coleções; o novo recurso é adicionado à coleção.
 
-> [AZURE.NOTE]Você também pode definir as solicitações POST que disparam alguma funcionalidade (e que não necessariamente retornam dados), e esses tipos de solicitação podem ser aplicados a coleções. Por exemplo, você poderia usar uma solicitação POST para transmitir um quadro de horários para um serviço de processamento de folha de pagamento e obter os impostos calculados como uma resposta.
+> [AZURE.NOTE] Você também pode definir as solicitações POST que disparam alguma funcionalidade (e que não necessariamente retornam dados), e esses tipos de solicitação podem ser aplicados a coleções. Por exemplo, você poderia usar uma solicitação POST para transmitir um quadro de horários para um serviço de processamento de folha de pagamento e obter os impostos calculados como uma resposta.
 
 Uma solicitação PUT destina-se a modificar um recurso existente. Se o recurso especificado não existir, a solicitação PUT poderia retornar um erro (em alguns casos ela pode até, na verdade, criar o recurso). Solicitações PUT são aplicadas com mais frequência aos recursos que são itens individuais (como um cliente ou pedido específico), embora elas possam ser aplicadas a coleções - o que, todavia, é implementado menos frequentemente. Observe que as solicitações PUT são idempotentes, enquanto as solicitações POST não são; se um aplicativo envia a mesma solicitação PUT várias vezes, os resultados devem ser sempre os mesmos (o mesmo recurso será modificado com os mesmos valores), mas se um aplicativo repete a mesma solicitação POST, o resultado será a criação de vários recursos.
 
-> [AZURE.NOTE]A rigor, uma solicitação HTTP PUT substitui um recurso existente pelo recurso especificado no corpo da solicitação. Se a intenção é modificar uma seleção de propriedades em um recurso mantendo as demais propriedades inalteradas, isso deve ser implementado usando uma solicitação HTTP PATCH. No entanto, muitas implementações RESTful flexibilizam essa regra e usam PUT para ambas as situações.
+> [AZURE.NOTE] A rigor, uma solicitação HTTP PUT substitui um recurso existente pelo recurso especificado no corpo da solicitação. Se a intenção é modificar uma seleção de propriedades em um recurso mantendo as demais propriedades inalteradas, isso deve ser implementado usando uma solicitação HTTP PATCH. No entanto, muitas implementações RESTful flexibilizam essa regra e usam PUT para ambas as situações.
 
 ### Processando solicitações HTTP
 Os dados incluídos por um aplicativo cliente em muitas solicitações HTTP e as mensagens de resposta correspondentes no servidor Web podem ser apresentados em uma variedade de formatos (ou tipos de mídia). Por exemplo, os dados que especificam os detalhes de um cliente ou pedido podem ser fornecidos como XML, JSON ou algum outro formato codificado e compactado. Uma API da Web RESTful deve oferecer suporte a diferentes tipos de mídia, conforme solicitado pelo aplicativo cliente que envia uma solicitação.
@@ -157,7 +157,7 @@ Accept: application/json
 
 Se o servidor Web oferece suporte a esse tipo de mídia, ele pode enviar uma resposta que inclui o cabeçalho Content-Type, que especifica o formato dos dados no corpo da mensagem:
 
-> [AZURE.NOTE]Para interoperabilidade máxima, a tipos referenciados nos cabeçalhos Accept e Content-Type devem ser tipos MIME reconhecidos, em vez de algum tipo personalizado de mídia.
+> [AZURE.NOTE] Para interoperabilidade máxima, a tipos referenciados nos cabeçalhos Accept e Content-Type devem ser tipos MIME reconhecidos, em vez de algum tipo personalizado de mídia.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -214,11 +214,11 @@ Location: http://adventure-works.com/orders/1
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 ```
 
-> [AZURE.TIP]Se os dados em uma mensagem de solicitação HTTP PUT incluem informações de data e hora, certifique-se de que o serviço Web aceita datas e horários formatados segundo o padrão ISO 8601.
+> [AZURE.TIP] Se os dados em uma mensagem de solicitação HTTP PUT incluem informações de data e hora, certifique-se de que o serviço Web aceita datas e horários formatados segundo o padrão ISO 8601.
 
 Se o recurso a ser atualizado não existe, o servidor Web pode responder com uma resposta “Não Encontrado”, conforme descrito anteriormente. Alternativamente, se o próprio servidor efetivamente cria o objeto, ele pode retornar os códigos de status HTTP 200 (OK) ou HTTP 201 (Criado) e o corpo da resposta pode conter os dados para o novo recurso. Se o cabeçalho Content-Type da solicitação especifica um formato de dados que o servidor Web não pode processar, ele deve responder com o código de status HTTP 415 (Tipo de Mídia Sem Suporte).
 
-> [AZURE.TIP]Considere a possibilidade de implementar operações HTTP PUT em massa, que podem realizar atualizações em lote para vários recursos em uma coleção. A solicitação PUT deve especificar o URI da coleção, enquanto o corpo da solicitação deve especificar os detalhes dos recursos a serem modificados. Essa abordagem pode ajudar a reduzir a verborragia e a melhorar o desempenho.
+> [AZURE.TIP] Considere a possibilidade de implementar operações HTTP PUT em massa, que podem realizar atualizações em lote para vários recursos em uma coleção. A solicitação PUT deve especificar o URI da coleção, enquanto o corpo da solicitação deve especificar os detalhes dos recursos a serem modificados. Essa abordagem pode ajudar a reduzir a verborragia e a melhorar o desempenho.
 
 O formato das solicitações HTTP POST que criam novos recursos é semelhante ao das solicitações PUT; o corpo da mensagem contém os detalhes do novo recurso a ser adicionado. No entanto, o URI normalmente especifica a coleção à qual o recurso deve ser adicionado. O exemplo a seguir cria um novo pedido e adiciona-o à coleção de pedidos:
 
@@ -245,7 +245,7 @@ Content-Length: ...
 {"orderID":99,"productID":5,"quantity":15,"orderValue":400}
 ```
 
-> [AZURE.TIP]Se os dados fornecidos por uma solicitação PUT ou POST forem inválidos, o servidor Web deve responder com uma mensagem com código de status HTTP 400 (Solicitação Incorreta). O corpo da mensagem pode conter informações adicionais sobre o problema com a solicitação e os formatos esperados, ou pode conter um link para uma URL que fornece mais detalhes.
+> [AZURE.TIP] Se os dados fornecidos por uma solicitação PUT ou POST forem inválidos, o servidor Web deve responder com uma mensagem com código de status HTTP 400 (Solicitação Incorreta). O corpo da mensagem pode conter informações adicionais sobre o problema com a solicitação e os formatos esperados, ou pode conter um link para uma URL que fornece mais detalhes.
 
 Para remover um recurso, uma solicitação HTTP DELETE simplesmente fornece o URI do recurso a ser excluído. O exemplo a seguir tenta remover o pedido 99:
 
@@ -264,7 +264,7 @@ Date: Fri, 22 Aug 2014 09:18:37 GMT
 
 Se o recurso não for encontrado, o servidor Web deverá retornar, em vez disso, uma mensagem 404 (Não Encontrado).
 
-> [AZURE.TIP]Se todos os recursos em uma coleção precisarem ser excluídos, permita que uma solicitação HTTP DELETE seja especificada para o URI da coleção, em vez de forçar um aplicativo a remover um recurso da coleção de cada vez.
+> [AZURE.TIP] Se todos os recursos em uma coleção precisarem ser excluídos, permita que uma solicitação HTTP DELETE seja especificada para o URI da coleção, em vez de forçar um aplicativo a remover um recurso da coleção de cada vez.
 
 ### Filtragem e paginação de dados
 
@@ -282,7 +282,7 @@ Você pode seguir uma estratégia semelhante para classificar os dados conforme 
 
 Você pode estender esse método para limitar (projetar) os campos retornados se um único item de recurso contém uma grande quantidade de dados. Por exemplo, você poderia usar um parâmetro de cadeia de consulta que aceita uma lista de campos delimitada por vírgulas, como _/pedidos?fields=ProductID,Quantity_.
 
-> [AZURE.TIP]Forneça padrões significativos a todos os parâmetros opcionais nas cadeias de consulta. Por exemplo, defina o parâmetro `limit` como 10 e o parâmetro `offset` como 0 se você implementar a paginação, defina o parâmetro sort para a chave do recurso se você implementar ordenação e, por fim, defina o parâmetro `fields` para todos os campos no recurso se você oferecer suporte a projeções.
+> [AZURE.TIP] Forneça padrões significativos a todos os parâmetros opcionais nas cadeias de consulta. Por exemplo, defina o parâmetro `limit` como 10 e o parâmetro `offset` como 0 se você implementar a paginação, defina o parâmetro sort para a chave do recurso se você implementar ordenação e, por fim, defina o parâmetro `fields` para todos os campos no recurso se você oferecer suporte a projeções.
 
 ### Manipulação de recursos binários grandes
 
@@ -349,7 +349,7 @@ Content-Range: bytes 2500-4580/4580
 
 Uma das principais motivações por trás de REST é a que deve ser possível navegar por todo o conjunto de recursos sem exigir conhecimento prévio do esquema de URI. Cada solicitação HTTP GET deve retornar as informações necessárias para localizar os recursos relacionados diretamente ao objeto solicitado por hiperlinks incluídos na resposta, e também deve ser provida de informações descrevendo as operações disponíveis em cada um desses recursos. Esse conceito é conhecido como HATEOAS, ou Hipertexto como o Mecanismo de Estado do Aplicativo. O sistema é efetivamente uma máquina de estado finito, e a resposta para cada solicitação contém as informações necessárias para ir de um estado para outro; nenhuma outra informação deve ser necessária.
 
-> [AZURE.NOTE]Atualmente não há padrões nem especificações que definam como modelar o princípio HATEOAS. Os exemplos mostrados nesta seção ilustram uma possível solução.
+> [AZURE.NOTE] Atualmente não há padrões nem especificações que definam como modelar o princípio HATEOAS. Os exemplos mostrados nesta seção ilustram uma possível solução.
 
 Por exemplo, para lidar com o relacionamento entre clientes e pedidos, os dados retornados na resposta para um pedido específico devem conter URIs na forma de um hiperlink que identifica o cliente que fez o pedido e as operações que podem ser executadas nesse cliente.
 
@@ -406,7 +406,7 @@ Content-Length: ...
 {"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
-> [AZURE.NOTE]Para simplicidade e maior clareza, os exemplos de resposta mostrados nesta seção não incluem links HATEOAS.
+> [AZURE.NOTE] Para simplicidade e maior clareza, os exemplos de resposta mostrados nesta seção não incluem links HATEOAS.
 
 Se o campo `DateCreated` é adicionado ao esquema do recurso de cliente, a resposta terá essa aparência:
 
@@ -444,7 +444,7 @@ Em vez de fornecer vários URIs, você pode especificar a versão do recurso usa
 
 Essa abordagem tem a vantagem de semântica que o mesmo recurso é sempre recuperado do mesmo URI, mas para isso, é necessário que o código que processa a solicitação analise a cadeia de consulta e envie de volta a resposta HTTP apropriada. Essa abordagem também tem as mesmas complicações para implementar HATEOAS como o mecanismo de controle de versão do URI.
 
-> [AZURE.NOTE]Alguns navegadores e proxies da Web mais antigos não armazenarão em cache respostas para solicitações que incluam, na URL, uma cadeia de consulta. Isso pode ter um impacto negativo no desempenho de aplicativos Web que usam uma API da Web e que são executados de um navegador da Web desse tipo.
+> [AZURE.NOTE] Alguns navegadores e proxies da Web mais antigos não armazenarão em cache respostas para solicitações que incluam, na URL, uma cadeia de consulta. Isso pode ter um impacto negativo no desempenho de aplicativos Web que usam uma API da Web e que são executados de um navegador da Web desse tipo.
 
 ### Controle de versão de cabeçalho
 
@@ -514,7 +514,7 @@ Se o cabeçalho Accept não especificar nenhum tipo de mídia conhecido, o servi
 
 Essa abordagem é possivelmente o mais puro dos mecanismos de controle de versão e aplica-se naturalmente a HATEOAS, que pode incluir o tipo MIME dos dados relacionados em links de recursos.
 
-> [AZURE.NOTE]Quando você seleciona uma estratégia de controle de versão, você também deve considerar as implicações de desempenho, especialmente no armazenamento em cache no servidor Web. O controle de versão do URI e esquemas de controle de versão de cadeia de consulta facilitam o armazenamento em cache na medida em que, a cada vez, a mesma combinação de URI/cadeia de consulta refere-se aos mesmos dados.
+> [AZURE.NOTE] Quando você seleciona uma estratégia de controle de versão, você também deve considerar as implicações de desempenho, especialmente no armazenamento em cache no servidor Web. O controle de versão do URI e esquemas de controle de versão de cadeia de consulta facilitam o armazenamento em cache na medida em que, a cada vez, a mesma combinação de URI/cadeia de consulta refere-se aos mesmos dados.
 
 > Os mecanismos de controle de versão do cabeçalho e do tipo de mídia, normalmente, exigem lógica adicional para examinar os valores no cabeçalho personalizado ou no cabeçalho Accept. Em um ambiente de grande escala, muitos clientes usando versões diferentes de uma API da Web podem resultar em uma quantidade significativa de dados duplicados em um cache do lado do servidor. Esse problema pode se tornar importante se um aplicativo cliente se comunica com um servidor Web através de um proxy que implementa caching, e que encaminha uma solicitação ao servidor Web somente se ele não mantém atualmente uma cópia dos dados solicitados em seu cache.
 
@@ -523,4 +523,4 @@ Essa abordagem é possivelmente o mais puro dos mecanismos de controle de versã
 - O [Guia RESTful](http://restcookbook.com/) contém uma introdução à criação de APIs RESTful.
 - A [Lista de Verificação de API](https://mathieu.fenniak.net/the-api-checklist/) da Web contém uma lista útil de itens a serem considerados ao projetar e implementar uma API da Web.
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0406_2016-->

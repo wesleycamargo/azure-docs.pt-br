@@ -1,4 +1,4 @@
-### Tipo de VPN para o modelo de implantação do Gerenciador de Recursos
+#### Tipo de VPN – modelo de implantação do Gerenciador de Recursos:
 
 | | **Baseado em rota** | **Baseado em política** |
 |-----------------------------------|--------------------|------------------|
@@ -10,7 +10,7 @@
 | **Clássico para o Gerenciador de Recursos** | sim | não |
 
 
-### Tipo de VPN para o modelo de implantação clássica
+#### Tipo de VPN – modelo de implantação clássico.
 
 
 | | **Dinâmico** | **Estático** |
@@ -22,4 +22,4 @@
 | **Ponto a Site** | sim | não |
 | **Clássico para o Gerenciador de Recursos** | sim | não |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -32,6 +32,7 @@ A Ação de Script pode ser aplicada por meio dos seguintes métodos:
 | ----- |:-----:|:-----:|
 | Portal do Azure | ✓ | ✓ |
 | PowerShell do Azure | ✓ | ✓ |
+| CLI do Azure | &nbsp; | ✓ |
 | SDK do .NET do HDInsight | ✓ | ✓ |
 | Modelo do Azure Resource Manager | ✓ | &nbsp; |
 
@@ -232,4 +233,4 @@ Para o comando acima, substitua __INFILE__ pelo arquivo que contém a BOM. __OUT
 
 * Use a [API REST do HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

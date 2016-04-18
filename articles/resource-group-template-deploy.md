@@ -44,7 +44,7 @@ Especifique o tipo de implantação por meio da propriedade **Mode**, conforme m
 
         PS C:\> Login-AzureRmAccount
 
-        Evironment : AzureCloud
+        Environment : AzureCloud
         Account    : someone@example.com
         ...
 
@@ -292,4 +292,4 @@ Para saber como definir parâmetros no modelo, veja [Criando modelos](../resourc
 
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

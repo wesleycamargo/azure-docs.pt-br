@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/15/2016"
+    ms.date="04/01/2016"
     ms.author="sstein"/>
 
 # Gerenciar e dimensionar um pool de banco de dados elástico com C&#x23;
@@ -22,11 +22,12 @@
 - [Portal do Azure](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
+- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 
 Saiba como gerenciar um [pool de banco de dados elástico](sql-database-elastic-pool.md) usando C&#x23;.
 
-Para obter os códigos de erro comuns, veja [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md).
+Para ver os códigos de erro comuns, confira [Códigos de erro de SQL para aplicativos clientes do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md).
 
 > [AZURE.NOTE] No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server-portal.md) em uma única etapa.
 
@@ -457,4 +458,4 @@ Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguint
 - [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Referência do Pool de Banco de Dados Elástico](sql-database-elastic-pool-reference.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

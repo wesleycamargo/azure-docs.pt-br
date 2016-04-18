@@ -174,7 +174,7 @@ O PowerShell a seguir mostra a implantação completa chamando Deploy-AzureResou
 
 	.\Deploy-AzureResourceGroup.ps1 -ResourceGroupLocation "East US" `
 									-ResourceGroupName $rgName `
-									-UploadArtifacts "container-name" `
+									-UploadArtifacts `
 									-StorageAccountName "name-of-storage-acct-for-package" `
 									-StorageAccountResourceGroupName "resource-group-name-storage-acct" `
 									-TemplateFile "web-app-deploy.json" `
@@ -197,4 +197,4 @@ O PowerShell a seguir mostra a implantação completa chamando Deploy-AzureResou
 
 Neste ponto, seu aplicativo deve ter sido implantado e você deve ser capaz de localizá-lo por meio de https://www.yourcustomdomain.com
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

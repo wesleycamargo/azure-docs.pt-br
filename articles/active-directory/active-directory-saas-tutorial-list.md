@@ -94,6 +94,7 @@ Para obter uma lista abrangente de aplicativos SaaS que foram previamente integr
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Gigya.jpg)| [Gigya](https://go.microsoft.com/fwLink/?LinkID=403245&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_GoogleApps.jpg)| [Google Apps](https://go.microsoft.com/fwLink/?LinkID=309577&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Greenhouse.jpg)| [Greenhouse](https://go.microsoft.com/fwLink/?LinkID=403252&clcid=0x409)|
+| ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_HackerOne.png)| [HackerOne](https://go.microsoft.com/fwLink/?LinkID=785097&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.jpg)| [Halogen Software](https://go.microsoft.com/fwLink/?LinkID=530241&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_HPESaaS.jpg)| [HPE SaaS](https://go.microsoft.com/fwLink/?LinkID=708663&clcid=0x409)|
 | ![logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_HR2day.jpg)| [HR2day by Merces](https://go.microsoft.com/fwLink/?LinkID=708684&clcid=0x409)|
@@ -223,4 +224,4 @@ Para obter uma lista abrangente de aplicativos SaaS que foram previamente integr
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 - [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -3,7 +3,7 @@
 	description="Saiba como desanexar um disco de dados de uma máquina virtual do Azure criada usando o modelo de implantação clássica."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="dkshir"/>
+	ms.date="04/04/2016"
+	ms.author="iainfou"/>
 
 # Como desanexar um disco de uma máquina virtual Linux
 
@@ -28,6 +28,6 @@
 
 [Como anexar um disco de dados na máquina virtual Linux](virtual-machines-linux-classic-attach-disk.md)
 
-[Usar a CLI do Azure com a API de Gerenciamento de Serviço](virtual-machines-command-line-tools.md)
+[Usar a CLI do Azure com a API de Gerenciamento de Serviço](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="04/04/2016"
 	ms.author="swkrish"/>
 
 # Preview do Azure Active Directory B2C: fornecer inscrição e entrada aos consumidores com contas da Microsoft
@@ -55,4 +55,4 @@ Para usar a conta da Microsoft como um provedor de identidade no Azure AD (Azure
 6. Clique em **Configurar este provedor de identidade** e insira a ID do cliente e o segredo do cliente do aplicativo da conta da Microsoft criado anteriormente.
 7. Clique em **OK** e em **Criar** para salvar a configuração da conta da Microsoft.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

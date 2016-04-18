@@ -38,7 +38,7 @@ A ação de script a seguir pode ser usada para instalar o Hue em um cluster HDI
     
 Esta seção fornece instruções sobre como usar o script ao provisionar o cluster usando o Portal do Azure.
 
-> [AZURE.NOTE] Modelos do Azure PowerShell, do SDK do .NET do HDInsight ou do Azure Resource Manager também podem ser usados para aplicar ações de script. Também é possível aplicar ações de script a clusters que já estão em execução. Para obter mais informações, veja [Personalizar clusters HDInsight com a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Modelos do Azure PowerShell, da CLI do Azure, do SDK do .NET do HDInsight ou do Azure Resource Manager também podem ser usados para aplicar ações de script. Também é possível aplicar ações de script a clusters que já estão em execução. Para obter mais informações, veja [Personalizar clusters HDInsight com a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Inicie o provisionamento de um cluster usando as etapas em [Provisionar clusters HDInsight no Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), mas não conclua o provisionamento.
 
@@ -134,4 +134,4 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

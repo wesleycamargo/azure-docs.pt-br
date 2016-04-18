@@ -36,7 +36,7 @@ Este artigo supõe que você:
  
 * Criou uma conta de armazenamento do Azure. Se precisar de instruções para esta tarefa, confira [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage) 
 * Provisionou um cluster do Hadoop com o serviço HDInsight. Se precisar de instruções, consulte [Provisionar um cluster HDInsight](../hdinsight-get-started.md#provision).
-* Carregou os dados em tabelas do Hive em clusters do Hadoop do Azure HDInsight. Se não tiverem sido, siga as instruções fornecidas em [Criar e carregar dados para tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados para tabelas Hive primeiro.
+* Carregou os dados em tabelas do Hive em clusters do Hadoop do Azure HDInsight. Se não tiverem sido, siga as instruções fornecidas em [Criar e carregar dados para tabelas Hive](machine-learning-data-science-move-hive-tables.md) para carregar dados para tabelas Hive primeiro.
 * Habilitou o acesso remoto ao cluster. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
@@ -127,7 +127,7 @@ Descrevemos as seguintes tarefas de disputa de dados nesta seção usando o Hive
 1. [Exploração de dados](#hive-dataexploration)
 2. [Geração de recursos](#hive-featureengineering)
 
-> [AZURE.NOTE] As consultas de Hive de exemplo pressupõem que os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
+> [AZURE.NOTE] As consultas de Hive de exemplo pressupõem que os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-move-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
 
 ###<a name="hive-dataexploration"></a>Exploração de dados
 Aqui estão alguns scripts de Hive de exemplo que podem ser usados para explorar dados em tabelas Hive.
@@ -325,4 +325,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

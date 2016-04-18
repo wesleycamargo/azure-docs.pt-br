@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="04/04/2016"
 	ms.author="swkrish"/>
 
 # Preview do Azure Active Directory B2C: fornecer inscrição e conexão aos consumidores com contas do Google+
@@ -66,4 +66,4 @@ Para usar o Google+ como um provedor de identidade no Azure AD (Azure Active Dir
 6. Clique em **Configurar este provedor de identidade** e insira a ID do cliente e o segredo do cliente do aplicativo do Google+ criado anteriormente.
 7. Clique em **OK** e em **Criar** para salvar a configuração do Google+.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

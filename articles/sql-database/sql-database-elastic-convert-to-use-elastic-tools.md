@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/29/2016"
+   ms.date="04/01/2016"
    ms.author="SilviaDoomra"/>
 
 # Converter bancos de dados existentes para usar ferramentas de banco de dados elástico
 
-Se você tiver uma solução de expansão fragmentada existente, pode tirar proveito das ferramentas de banco de dados elástico usando as técnicas descritas aqui. Após a conversão, você pode usar a [biblioteca do cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md) e a [ferramenta de divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge.md).
+Se você tiver uma solução expandida fragmentada existente, poderá tirar proveito das ferramentas do Banco de Dados Elástico, como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md) e a [ferramenta de divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge.md), usando as técnicas descritas aqui.
 
-Essas técnicas podem ser implementadas usando a [biblioteca de cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou os scripts do PowerShell encontrados em [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Os exemplos aqui usam os scripts do PowerShell.
+Essas técnicas podem ser implementadas usando a [biblioteca de cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou os scripts do PowerShell encontrados em [Azure SQL DB - Scripts de ferramentas de Banco de Dados Elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Os exemplos aqui usam os scripts do PowerShell.
+
+Observe que você deve criar os bancos de dados antes de executar os cmdlets Add-Shard e New-ShardMapManager. Os cmdlets não criam bancos de dados para você.
 
 Há quatro etapas:
 
@@ -29,10 +31,10 @@ Há quatro etapas:
 3. Preparar os fragmentos individuais.  
 2. Adicionar os mapeamentos ao mapa de fragmentos.
 
-Para obter mais informações sobre o ShardMapManager, consulte [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Para obter uma visão geral das ferramentas de banco de dados elástico, consulte [Visão geral dos recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
+Para saber mais sobre o ShardMapManager, confira [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Para obter uma visão geral das ferramentas de banco de dados elástico, confira [Visão geral dos recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
 
 ## Preparação do banco de dados do gerenciador de mapa do fragmentos
-Você pode usar um banco de dados novo ou existente como gerenciador do mapa de fragmentos. Essa é uma operação única.
+Você pode usar um banco de dados novo ou existente como gerenciador do mapa de fragmentos.
 
 ## Etapa 1: criar um gerenciador de mapa de fragmentos
 Observe que um banco de dados que atua como gerenciador de mapa de fragmentos não deve ser o mesmo banco de dados de um fragmento.
@@ -165,7 +167,7 @@ Após ter concluído a configuração, você pode começar a usar a biblioteca d
 ## Próximas etapas
 
 
-Obtenha os scripts do PowerShell de [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Obtenha os scripts do PowerShell de [Azure SQL DB - Scripts de ferramentas de Banco de Dados Elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 As ferramentas também estão no GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
@@ -179,4 +181,4 @@ Use a ferramenta de divisão e mesclagem para mover dados de/para um modelo mult
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

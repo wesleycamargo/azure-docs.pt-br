@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="04/06/2016" 
 	ms.author="ccompy"/>
 
 # Como Criar um Ambiente do Serviço de Aplicativo #
@@ -31,12 +31,14 @@ A criação do ASE requer que os clientes forneçam as seguintes informações:
 - Definição do pool de recursos do ASE
 
 Há alguns detalhes importantes referentes a cada um desses itens.
+
 - O nome do ASE será usado no subdomínio para quaisquer aplicativos feitos no ASE
 - Todos os aplicativos feitos em um ASE estarão na mesma assinatura que o próprio ASE
 - Se você não tiver acesso à assinatura usada para fazer o ASE, o ASE não poderá ser usado para criar aplicativos
 - Redes Virtuais usadas para hospedar um ASE devem ser Redes Virtuais Regionais clássicas “v1” 
 - A sub-rede usada para hospedar o ASE não deve conter outros recursos de computação
 - Somente um ASE pode existir em uma sub-rede
+- Atualmente, apenas redes virtuais com um espaço de endereço RFC1918 (ou seja, endereços privados) têm suporte.
 
 Cada implantação de ASE é um serviço hospedado que o Azure gerencia e mantém. Os recursos de computação hospedando as funções de sistema ASE não podem ser acessadas pelo cliente, embora o cliente gerencie a quantidade de instâncias e seus tamanhos.
 
@@ -62,7 +64,7 @@ O nome especificado para o ASE será usado para os aplicativos Web criados no AS
 Ter os padrões será muito útil para um determinado número de situações, mas muitas vezes você precisará ajustar algo. As próximas seções percorrerão cada uma das seções de configuração relacionadas ao ASE.
 
 ### Rede Virtual ###
-Embora haja uma opção de criação rápida que cria automaticamente uma nova VNET, o recurso também oferece suporte à seleção de uma VNET existente e à criação manual de uma VNET. Você poderá selecionar uma rede virtual existente (somente redes virtuais clássicas "v1" têm suporte neste momento) se ela for grande o suficiente para dar suporte à implantação de um Ambiente do Serviço de Aplicativo. A Rede Virtual deve ter oito endereços ou mais.
+Embora haja uma opção de criação rápida que cria automaticamente uma nova VNET, o recurso também oferece suporte à seleção de uma VNET existente e à criação manual de uma VNET. Você poderá selecionar uma rede virtual existente (somente redes virtuais clássicas "v1" têm suporte neste momento) se ela for grande o suficiente para dar suporte à implantação de um Ambiente do Serviço de Aplicativo. A Rede Virtual deve ter oito endereços ou mais. Atualmente, apenas redes virtuais com um espaço de endereço RFC1918 (ou seja, endereços privados) têm suporte.
 
 Se você selecionar uma VNET pré-existente, você também terá que especificar uma sub-rede para usar ou então criar uma nova. A sub-rede precisa ter oito endereços ou mais e não pode ter qualquer outro recurso. A criação do ASE falhará se você tentar usar uma sub-rede que já tenha VMs alocadas para ele.
 
@@ -163,4 +165,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

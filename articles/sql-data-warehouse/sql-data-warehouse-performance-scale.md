@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="03/29/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # Desempenho e escala elásticos com o SQL Data Warehouse
@@ -36,7 +36,7 @@ Se o seu aplicativo tiver uma carga de trabalho flutuante, mova os níveis de de
 ## Escalando verticalmente para cima e para baixo os recursos de computação
 Independentemente do armazenamento em nuvem, a elasticidade do SQL Data Warehouse permite expandir, reduzir ou pausar o poder da computação usando uma escala deslizante de DWUs (Unidades de Data Warehouse). Isso proporciona a você flexibilidade para ajustar o poder de computação para algo que seja ideal para seus negócios.
 
-Para aumentar a capacidade de computação, você pode adicionar mais DWUs ao serviço usando o controle deslizante de dimensão no Portal Clássico do Azure. Você também pode adicionar DWUs por meio de cmdlets do Powershell, APIs REST ou T-SQL. Ajustar a escala verticalmente para cima ou para baixo cancela todas as atividades em execução ou em fila, mas ela é concluída em segundos, de modo que você pode retomar com mais ou menos poder de computação.
+Para aumentar a capacidade de computação, você pode adicionar mais DWUs ao serviço usando o controle deslizante de dimensão no Portal Clássico do Azure. Você também pode adicionar DWUs por meio de cmdlets do Azure Powershell, APIs REST ou T-SQL. Ajustar a escala verticalmente para cima ou para baixo cancela todas as atividades em execução ou em fila, mas ela é concluída em segundos, de modo que você pode retomar com mais ou menos poder de computação.
 
 No [Portal Clássico do Azure][], você pode clicar no ícone “Escala” na parte superior da página do SQL Data Warehouse e depois usar o controle deslizante para aumentar ou diminuir a quantidade de DWUs aplicadas ao Data Warehouse antes de clicar em “Salvar”. Se prefere alterar a escala por meio de programação, o código T-SQL abaixo mostra como ajustar a alocação da DWU para seu SQL Data Warehouse:
 
@@ -47,10 +47,10 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ```
 Observe que esse T-SQL deve ser executada no seu servidor lógico e não na própria instância do SQL Data Warehouse.
 
-Também é possível atingir o mesmo resultado usando o PowerShell com o código abaixo:
+Você também pode obter o mesmo resultado usando o Azure Powershell importando o módulo AzureRM.Sql e usando o código abaixo:
 
 ```Powershell
-Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
+Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -RequestedServiceObjectiveName "DW1000"
 ```
 
 ## Pausando recursos de computação
@@ -60,22 +60,27 @@ A ação de pausa retorna os recursos de computação para o pool de recursos di
 
 > [AZURE.NOTE] Uma vez que o armazenamento é separado da computação, o armazenamento não é afetado pela pausa.
 
-As ações de pausar e retomar o poder da computação podem ser realizadas no [Portal Clássico do Azure][], por meio das APIs REST ou do PowerShell. A pausa cancela todas as atividades em execução e em fila e, ao retornar, você pode retomar os recursos de computação em questão de segundos.
+As ações de pausar e retomar o poder da computação podem ser realizadas no [Portal Clássico do Azure][], por meio das APIs REST ou do Azure PowerShell. A pausa cancela todas as atividades em execução e em fila e, ao retornar, você pode retomar os recursos de computação em questão de segundos.
 
-O código abaixo mostra como fazer uma pausa usando o PowerShell:
-
-```Powershell
-Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
-"Server01" –DatabaseName "Database02"
-```
-
-Retomar o serviço também é uma ação bastante direta com o PowerShell:
+Para pausar e retomar o serviço usando o Azure Powershell, primeiro você precisará importar o módulo AzureRM.Sql da seguinte maneira:
 
 ```Powershell
-Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+Import-Module AzureRM.Sql
 ```
 
-Para obter mais detalhes sobre como usar o PowerShell, consulte o artigo [Usando os cmdlets do PowerShell e a API REST com o SQL Data Warehouse][].
+O código abaixo mostra como fazer uma pausa usando o Azure PowerShell:
+
+```Powershell
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+Retomar o serviço também é uma ação bastante direta com o Azure PowerShell:
+
+```Powershell
+Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+```
+
+Para obter mais detalhes sobre como usar o Azure PowerShell, consulte o artigo [Usando os cmdlets do PowerShell e a API REST com o SQL Data Warehouse][].
 
 ## Próximas etapas
 Para obter uma visão geral do desempenho, consulte [visão geral de desempenho][].
@@ -93,4 +98,4 @@ Para obter uma visão geral do desempenho, consulte [visão geral de desempenho]
 
 [Portal Clássico do Azure]: http://portal.azure.com/
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

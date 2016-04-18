@@ -12,7 +12,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="03/30/2016" 
 	ms.author="mimig"/>
 
@@ -60,7 +60,7 @@ Não sabe direito o que é uma coleção? Confira [O que é uma coleção do Ban
 
 Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. Uma coleção é uma entidade faturável, em que o [custo](documentdb-performance-levels.md) é determinado pela taxa de transferência provisionada da coleção. As coleções podem abranger uma ou mais partições/servidores e podem ser dimensionadas para lidar com volumes de armazenamento ou taxa de transferência praticamente ilimitados.
 
-As coleções são particionadas automaticamente em um ou mais servidores físicos pelo Banco de Dados de Documentos. Ao criar uma coleção, você pode especificar a taxa de transferência provisionada em termos de unidades de solicitação por segundo e uma propriedade de chave de partição. O valor dessa propriedade será usado pelo Banco de Dados de Documentos para distribuir documentos entre partições e rotear solicitações como consultas. O valor de chave de partição também atua como o limite de transação para procedimentos armazenados e gatilhos. Cada coleção tem uma quantidade reservada de produtividade específica, que não é compartilhada com outras coleções na mesma conta. Portanto, você pode escalar horizontalmente o aplicativo em termos de armazenamento e taxa de transferência.
+As coleções são particionadas automaticamente em um ou mais servidores físicos pelo Banco de Dados de Documentos. Ao criar uma coleção, você pode especificar a produtividade provisionada em termos de unidades de solicitação por segundo e uma propriedade de chave de partição. O valor dessa propriedade será usado pelo Banco de Dados de Documentos para distribuir documentos entre partições e rotear solicitações como consultas. O valor de chave de partição também atua como o limite de transação para procedimentos armazenados e gatilhos. Cada coleção tem uma quantidade reservada de produtividade específica, que não é compartilhada com outras coleções na mesma conta. Portanto, você pode escalar horizontalmente o aplicativo em termos de armazenamento e taxa de transferência.
 
 Coleções não são o mesmo que tabelas em bancos de dados relacionais. As coleções não impõem esquemas. Na verdade, o Banco de Dados de Documentos não impõe nenhum esquema. Trata-se de um banco de dados livre de esquema. Sendo assim, você pode armazenar tipos diferentes de documentos com vários esquemas na mesma coleção. É possível optar por usar coleções para armazenar objetos de um único tipo, assim como acontece com as tabelas. O melhor modelo depende apenas de como os dados aparecem juntos em consultas e transações.
 
@@ -87,4 +87,4 @@ Agora que você tem uma coleção, a próxima etapa é adicionar documentos ou i
 
 Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -3,9 +3,9 @@
 
 ## Marcando uma máquina virtual por meio de modelos
 
-Primeiramente, vamos observar uma marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) coloca marcas nos seguintes recursos: Computação (Máquina Virtual), Armazenamento (Conta de Armazenamento) e Rede (Endereço IP Público, Rede Virtual e Interface de Rede). (Esse exemplo de modelo destina-se a uma VM do Windows, mas pode ser adaptada para VMs do Linux.)
+Primeiramente, vamos observar uma marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca marcas nos seguintes recursos: Computação (Máquina Virtual), Armazenamento (Conta de Armazenamento) e Rede (Endereço IP Público, Rede Virtual e Interface de Rede). (Esse exemplo de modelo destina-se a uma VM do Windows, mas pode ser adaptada para VMs do Linux.)
 
-Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Você será direcionado para o [Portal do Azure](https://portal.azure.com/), onde poderá implantar esse modelo.
+Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Você será direcionado para o [Portal do Azure](https://portal.azure.com/), onde poderá implantar esse modelo.
 
 ![Implantação simples com marcas](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
@@ -64,4 +64,4 @@ Nos detalhes de uso, você pode ver todas as marcas na coluna **Marcas**:
 
 Ao analisar essas marcas juntamente com o uso, as organizações poderão adquirir novas percepções sobre os respectivos dados de consumo.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

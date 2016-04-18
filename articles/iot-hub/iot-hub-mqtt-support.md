@@ -20,6 +20,8 @@
 
 O Hub IoT permite que dispositivos se comuniquem com os pontos de extremidade do dispositivo do Hub IoT usando o protocolo [MQTT v3.1.1][lnk-mqtt-org] a na porta 8883. O Hub IoT exige que todas as comunicações do dispositivo sejam protegidas usando o TLS/SSL.
 
+Para obter informações adicionais, confira [Observações sobre o suporte a MQTT][lnk-mqtt-devguide] no guia do desenvolvedor do Hub IoT do Azure.
+
 ## Conectando-se ao Hub IoT
 
 Um dispositivo pode se conectar a um Hub IoT com o protocolo MQTT usando as bibliotecas nos [SDKs do IoT do Microsoft Azure][lnk-device-sdks] ou usando o protocolo MQTT diretamente.
@@ -46,17 +48,17 @@ Se um dispositivo não puder usar os SDKs do cliente do dispositivo, ele poderá
 - Para o campo **ClientId** use o **deviceId**. 
 - No campo **Username**, use `{iothubhostname}/{device_id}`, em que {iothubhostname} é o CName completo do Hub IoT.
 
-    Por exemplo, se o nome de seu Hub IoT for **contoso.azure devices.net**, e se o nome do dispositivo for **MyDevice01**, o campo **Username** completo deverá conter `contoso.azure-devices.net/MyDevice01`.
+    Por exemplo, se o nome de seu Hub IoT for **contoso.azure devices.net** e se o nome do dispositivo for **MyDevice01**, o campo **Username** completo deverá conter `contoso.azure-devices.net/MyDevice01`.
 
 - Para o campo **Senha** use um token SAS. O [formato do token SAS][lnk-iothub-security] é o mesmo, conforme descrito para os protocolos HTTP e AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
 
-    Para saber mais sobre como gerar tokens SAS, confira [Usando tokens de segurança do Hub IoT][lnk-sas-tokens].
+    Para saber mais sobre como gerar tokens SAS, confira [Uso de tokens de segurança do Hub IoT][lnk-sas-tokens].
     
-    Durante o teste, você também pode usar a ferramenta [Gerenciador de Dispositivo][lnk-device-explorer] para gerar rapidamente um token SAS que você pode copiar e colar em seu próprio código:
+    Durante o teste, você também pode usar a ferramenta [Gerenciador de Dispositivo][lnk-device-explorer] para gerar rapidamente um token SAS, que pode copiar e colar em seu próprio código:
     
     1. Acesse a guia **Gerenciamento** no Gerenciador de Dispositivo.
     2. Clique em **Token SAS** (parte superior direita).
-    3. Em **SASTokenForm**, selecione seu dispositivo no menu suspenso **DeviceID**. Defina seu **TTL**.
+    3. Em **SASTokenForm**, selecione seu dispositivo no menu suspenso **DeviceID**. Defina o **TTL**.
     4. Clique em **Gerar** para criar o token.
     
     O token SAS gerado é semelhante ao seguinte: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
@@ -67,7 +69,7 @@ Para que o MQTT conecte e desconecte pacotes, o Hub IoT emite um evento no canal
 
 ### Enviando mensagens ao Hub IoT
 
-Depois de fazer uma conexão bem-sucedida, um dispositivo pode enviar mensagens ao Hub IoT usando `devices/{did}/messages/events/` ou `devices/{did}/messages/events/{property_bag}` como um **Nome de Tópico**. O elemento `{property_bag}` permite que o dispositivo envie mensagens com propriedades adicionais em um formato codificado de URL. Por exemplo:
+Depois de fazer uma conexão bem-sucedida, um dispositivo pode enviar mensagens ao Hub IoT usando `devices/{did}/messages/events/` ou `devices/{did}/messages/events/{property_bag}` como um **Nome de Tópico**. O elemento `{property_bag}` habilita o dispositivo a enviar mensagens com propriedades adicionais em um formato codificado de URL. Por exemplo:
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -98,5 +100,6 @@ Para saber mais sobre o protocolo MQTT, confira a [documentação do MQTT][lnk-m
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
 [lnk-sas-tokens]: iot-hub-sas-tokens.md
+[lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

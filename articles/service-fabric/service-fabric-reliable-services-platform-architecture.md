@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="AlanWarwick"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -18,18 +18,18 @@
 
 # Arquitetura de Reliable Services com e sem estado
 
-Um serviço confiável do Service Fabric do Azure pode ser com ou sem estado. Cada tipo de serviço é executado em uma arquitetura específica. Essas arquiteturas são descritas neste artigo. Confira [Visão geral dos serviços confiáveis](service-fabric-reliable-services-introduction.md) para obter mais informações sobre as diferenças entre serviços com e sem estado.
+Um serviço confiável do Service Fabric do Azure pode ser com ou sem estado. Cada tipo de serviço é executado em uma arquitetura específica. Essas arquiteturas são descritas neste artigo. Confira [Visão geral do Reliable Services](service-fabric-reliable-services-introduction.md) para saber mais sobre as diferenças entre serviços com e sem estado.
 
-## Reliable services com estado
+## Serviços Confiáveis com estado
 
 ### Arquitetura de um serviço com estado
 ![Diagrama da arquitetura de um serviço com estado](./media/service-fabric-reliable-services-platform-architecture/reliable-stateful-service-architecture.png)
 
-### Serviço confiável com estado
+### Serviço Confiável com estado
 
 Um serviço confiável com estado pode ser derivado da classe StatefulService ou StatefulServiceBase. Ambas essas classes base são fornecidas pelo Service Fabric. Eles oferecem vários níveis de suporte e abstração para o serviço com estado para fazer interface com o Service Fabric – e para participar como um serviço dentro do cluster do Service Fabric.
 
-StatefulService deriva de StatefulServiceBase. StatefulServiceBase oferece aos serviços mais flexibilidade, mas requer mais compreensão dos itens internos do Service Fabric. Confira a [Visão geral dos serviços confiáveis](service-fabric-reliable-services-introduction.md) e [Uso avançado dos serviços confiáveis](service-fabric-reliable-services-advanced-usage.md) para obter mais informações sobre os detalhes do desenvolvimento de serviços usando as classes StatefulService e StatefulServiceBase.
+StatefulService deriva de StatefulServiceBase. StatefulServiceBase oferece aos serviços mais flexibilidade, mas requer mais compreensão dos itens internos do Service Fabric. Confira a [Visão geral dos Reliable Services](service-fabric-reliable-services-introduction.md) e [Uso avançado dos Reliable Services](service-fabric-reliable-services-advanced-usage.md) para saber mais sobre os detalhes do desenvolvimento de serviços usando as classes StatefulService e StatefulServiceBase.
 
 Ambas as classes base gerenciam a vida útil e a função da implementação do serviço. A implementação do serviço pode substituir métodos virtuais de qualquer classe base se a implementação do serviço tiver trabalho a fazer nesses pontos do ciclo de vida de implementação de serviço ou se quiser criar um objeto de ouvinte de comunicação. Embora uma implementação de serviço possa implementar seu próprio objeto de ouvinte de comunicação expondo ICommunicationListener, no diagrama acima, o ouvinte de comunicação é implementado pelo Service Fabric como a implementação de serviço usa um ouvinte de comunicação implementado pelo Service Fabric.
 
@@ -67,20 +67,20 @@ Leituras e gravações no log compartilhado são feitas por meio de E/S direta p
 
 Além de uma interface de modo de usuário mínima para o log, o log é gravado como um driver de modo kernel. Executado como um driver de modo kernel, o log pode fornecer o melhor desempenho para todos os serviços que o usam.
 
-Para obter mais informações sobre como configurar o log, veja [Configurando Reliable Services com estado](service-fabric-reliable-services-configuration.md).
+Para saber mais sobre como configurar o log, confira [Configurando Reliable Services com estado](service-fabric-reliable-services-configuration.md).
 
-## Serviço confiável sem estado
+## Serviço Confiável sem estado
 
 ### Arquitetura de um serviço sem estado
 ![Diagrama da arquitetura de um serviço sem estado](./media/service-fabric-reliable-services-platform-architecture/reliable-stateless-service-architecture.png)
 
-### Serviço confiável sem estado
+### Serviço Confiável sem estado
 
 Implementações de serviço sem estado derivam da classe StatelessService ou StatelessServiceBase. A classe StatelessServiceBase permite mais flexibilidade do que a classe StatelessService. Ambas as classes base gerenciam o tempo de vida e a função de um serviço.
 
 A implementação do serviço pode substituir métodos virtuais de qualquer classe base se o serviço tiver trabalho a fazer nesses pontos do ciclo de vida de serviço ou se quiser criar um objeto de ouvinte de comunicação. Embora seu serviço possa implementar o próprio objeto de ouvinte de comunicação expondo ICommunicationListener, no diagrama acima, o ouvinte de comunicação é implementado pelo Service Fabric, uma vez que essa implementação de serviço usa um ouvinte de comunicação implementado pelo Service Fabric.
 
-Confira [Visão geral dos serviços confiáveis](service-fabric-reliable-services-introduction.md) e [Uso avançado dos serviços confiáveis](service-fabric-reliable-services-advanced-usage.md) para obter mais informações sobre os detalhes do desenvolvimento de serviços usando as classes StatelessService e StatelessServiceBase.
+Confira [Visão geral dos Reliable Services](service-fabric-reliable-services-introduction.md) e [Uso avançado dos Reliable Services](service-fabric-reliable-services-advanced-usage.md) para saber mais sobre os detalhes do desenvolvimento de serviços usando as classes StatelessService e StatelessServiceBase.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
@@ -97,4 +97,4 @@ Para obter mais informações sobre a Malha de Serviços, consulte:
 
 [Configuração de Reliable Services](service-fabric-reliable-services-configuration.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

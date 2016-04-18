@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/21/2016" 
+	ms.date="03/28/2016" 
 	ms.author="tamram"/>
 
 # Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
@@ -21,7 +21,7 @@
 
 O emulador de armazenamento do Microsoft Azure fornece um ambiente local que emula os serviços de blob, fila e tabela do Azure para fins de desenvolvimento. Usando o emulador de armazenamento, você pode testar seu aplicativo contra os serviços de armazenamento locais, sem criar uma assinatura Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento de seu aplicativo no emulador, você pode alternar para usar uma conta de armazenamento do Azure na nuvem.
 
-> [AZURE.NOTE] O emulador de armazenamento está disponível como parte do [SDK do Microsoft Azure](https://azure.microsoft.com/downloads/). Você também pode instalar o emulador de armazenamento como um pacote autônomo. Para configurar o emulador de armazenamento, você deve ter privilégios administrativos no computador.
+> [AZURE.NOTE] O emulador de armazenamento está disponível como parte do [SDK do Microsoft Azure](https://azure.microsoft.com/downloads/). Você também pode instalar o emulador de armazenamento usando o [instalador autônomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Para configurar o emulador de armazenamento, você deve ter privilégios administrativos no computador.
 >  
 > Observe que os dados criados em uma versão do emulador de armazenamento não são garantia de estar acessível ao usar uma versão diferente. Se você precisar persistir seus dados a longo prazo, é recomendável que você armazene esses dados em uma conta de armazenamento do Azure e não no emulador de armazenamento.
 
@@ -232,4 +232,4 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 - A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem total suporte. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -374,7 +374,7 @@ O exemplo a seguir mostra como passar o endereço IP privado gerado em um modelo
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
             "type": "string"
          }
     }
@@ -389,4 +389,4 @@ No modelo principal, você pode usar esses dados com a seguinte sintaxe:
 - [Criação de modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
 - [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

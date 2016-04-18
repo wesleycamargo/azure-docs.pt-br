@@ -3,7 +3,7 @@
 	description="Saiba como criar uma máquina virtual personalizada com o modelo de implantação clássico executando o sistema operacional Linux."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -35,4 +35,4 @@ Este tópico descreve como criar uma máquina virtual *personalizada* com a CLI 
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

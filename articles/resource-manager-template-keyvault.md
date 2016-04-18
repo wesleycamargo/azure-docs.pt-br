@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Esquema de modelo do cofre da chave
@@ -58,51 +58,51 @@ Para criar um cofre da chave, adicione o esquema a seguir à seção de recursos
 
 As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sim | **Microsoft.KeyVault/vaults** | O tipo de recurso a ser criado. |
-| apiVersion | enum | Sim | **2015-06-01** <br /> **2014-12-19-preview** | A versão da API a ser usada para criar o recurso. | 
-| name | cadeia de caracteres | Sim | | O nome do cofre da chave a ser criado. O nome deve ser exclusivo em todo o Azure. Considere o uso da função [uniqueString](resource-group-template-functions.md#uniquestring) com a convenção de nomenclatura, como mostrado no exemplo abaixo. |
-| location | cadeia de caracteres | Sim | Para determinar as regiões válidas, veja [regiões com suporte](resource-manager-supported-services.md#supported-regions). | A região para hospedar o cofre da chave. |
-| propriedades | objeto | Sim | ([mostrado abaixo](#properties)) | Um objeto que especifica o tipo de chave de cofre a ser criada. |
-| recursos | array | Não | [Segredos do cofre da chave](resource-manager-template-keyvault-secret.md) | Recursos filho do cofre da chave. |
+| Nome | Valor |
+| ---- | ---- | 
+| type | Enum<br />Obrigatório<br />**Microsoft.KeyVault/vaults**<br /><br />O tipo de recurso a ser criado. |
+| apiVersion | Enum<br />Obrigatório<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />A versão da API a ser usada para criar o recurso. | 
+| name | Cadeia de caracteres<br />Obrigatório<br />Um nome que seja exclusivo no Azure.<br /><br />O nome do cofre de chaves a ser criado. Considere usar a função [uniqueString](resource-group-template-functions.md#uniquestring) com sua convenção de nomenclatura para criar um nome exclusivo, como mostrado no exemplo abaixo. |
+| location | Cadeia de caracteres<br />Obrigatório<br />Uma região válida para cofres de chaves. Para determinar as regiões válidas, consulte as [regiões com suporte](resource-manager-supported-services.md#supported-regions).<br /><br />A região que hospedará o cofre de chaves. |
+| propriedades | Objeto<br />Obrigatório<br />[Objeto properties](#properties)<br /><br />Um objeto que especifica o tipo de cofre de chaves a ser criado. |
+| recursos | Matriz<br />Opcional<br />Valores permitidos: [recursos secretos do cofre de chaves](resource-manager-template-keyvault-secret.md)<br /><br />Recursos filhos do cofre de chaves. |
 
 <a id="properties" />
 ### properties object
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| enabledForDeployment | Booleano | Não | **true** ou **false** | Especifica se o cofre está habilitado para a implantação de Máquina Virtual ou do Service Fabric. |
-| enabledForTemplateDeployment | Booleano | Não | **true** ou **false** | Especifica se o cofre está habilitado para uso em implantações de modelo do Gerenciador de Recursos. Para obter mais informações, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption | Booleano | Não | **true** ou **false** | Especifica se o cofre está habilitado para criptografia de volume. |
-| tenantId | cadeia de caracteres | Sim | Identificador global exclusivo | O identificador do locatário para a assinatura. Você pode recuperá-lo com o cmdlet **Get-AzureRMSubscription** do PowerShell. |
-| accessPolicies | array | Sim | ([mostrado abaixo](#accesspolicies)) | Uma matriz de até 16 objetos que especificam as permissões do usuário ou da entidade de serviço. |
-| sku | objeto | Sim | ([mostrado abaixo](#sku)) | O SKU do cofre da chave. |
+| Nome | Valor |
+| ---- | ---- | 
+| enabledForDeployment | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para implantação da Máquina Virtual ou do Service Fabric. |
+| enabledForTemplateDeployment | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para uso em implantações de modelo do Gerenciador de Recursos. Para obter mais informações, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md) |
+| enabledForVolumeEncryption | Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para criptografia de volume. |
+| tenantId | Cadeia de caracteres<br />Obrigatório<br />**Globally-unique identifier**<br /><br />O identificador do locatário para a assinatura. Você pode recuperá-lo com o cmdlet [Get-AzureRMSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) do PowerShell ou o comando **azure account show** da CLI do Azure. |
+| accessPolicies | Matriz<br />Obrigatório<br />[Objeto accessPolicies](#accesspolicies)<br /><br />Uma matriz de até 16 objetos que especificam as permissões do usuário ou da entidade de serviço. |
+| sku | Objeto<br />Obrigatório<br />[Objeto sku](#sku)<br /><br />O SKU do cofre de chaves. |
 
 <a id="accesspolicies" />
 ### properties.accessPolicies object
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| tenantId | cadeia de caracteres | Sim | Identificador global exclusivo | O identificador do locatário do locatário do Active Directory do Azure que contém o **objectId** nesta política de acesso |
-| ID do objeto | cadeia de caracteres | Sim | Identificador global exclusivo | O identificador de objeto do usuário do AAD ou a entidade de serviço que terá acesso ao cofre. Você pode recuperar o valor dos cmdlets **Get-AzureRMADUser** ou **Get-AzureRMADServicePrincipal**. |
-| permissões | objeto | Sim | ([mostrado abaixo](#permissions)) | As permissões concedidas para este cofre ao objeto do Active Directory. |
+| Nome | Valor |
+| ---- | ---- | 
+| tenantId | Cadeia de caracteres<br />Obrigatório<br />**Globally-unique identifier**<br /><br />O identificador do locatário do Azure Active Directory que contém o **objectId** nesta política de acesso |
+| ID do objeto | Cadeia de caracteres<br />Obrigatório<br />**Globally-unique identifier**<br /><br />O identificador de objeto do usuário ou da entidade de serviço do Azure Active Directory que terá acesso ao cofre. Você pode recuperar o valor com os cmdlets [Get-AzureRMADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) ou [Get-AzureRMADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) do PowerShell ou com os comandos **azure ad user** ou **azure ad sp** da CLI do Azure. |
+| permissões | Objeto<br />Obrigatório<br />[Objeto permissions](#permissions)<br /><br />As permissões concedidas para este cofre ao objeto do Active Directory. |
 
 <a id="permissions" />
 ### properties.accessPolicies.permissions object
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| chaves | array | Sim | Uma lista separada por vírgulas dos seguintes valores:<br />**all**<br />**backup**<br />**create**<br />**decrypt**<br />**delete**<br />**encrypt**<br />**get**<br />**import**<br />**list**<br />**restore**<br />**sign**<br />**unwrapkey**<br/>**update**<br />**verify**<br />**wrapkey** | As permissões concedidas para as chaves neste cofre a esse objeto do Active Directory. Esse valor deve ser especificado como uma matriz de valores permitidos. |
-| segredos | array | Sim | Uma lista separada por vírgulas dos seguintes valores:<br />**all**<br />**delete**<br />**get**<br />**list**<br />**set** | As permissões concedidas para segredos no cofre a esse objeto do Active Directory. Esse valor deve ser especificado como uma matriz de valores permitidos. |
+| Nome | Valor |
+| ---- | ---- | 
+| chaves | Matriz<br />Obrigatório<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />As permissões concedidas para as chaves neste cofre a este objeto do Active Directory. Esse valor deve ser especificado como uma matriz de um ou mais valores permitidos. |
+| segredos | Matriz<br />Obrigatório<br />**all**, **delete**, **get**, **list**, **set**<br /><br />As permissões concedidas para segredos no cofre a esse objeto do Active Directory. Esse valor deve ser especificado como uma matriz de um ou mais valores permitidos. |
 
 <a id="sku" />
 ### objeto properties.sku
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| name | enum | Sim | **standard**<br />**premium** | A camada de serviço do KeyVault a ser usado. O tipo de preço Standard dá suporte a segredos e chaves protegidas por software. O tipo de preço Premium adiciona suporte para chaves protegidas pelo HSM. |
-| família | enum | Sim | **UMA** | A família de SKU a ser usada. 
+| Nome | Valor |
+| ---- | ---- | 
+| name | Enum<br />Obrigatório<br />**standard** ou **premium** <br /><br />A camada de serviço do KeyVault a ser usada. O tipo de preço Standard dá suporte a segredos e chaves protegidas por software. O tipo de preço Premium adiciona suporte para chaves protegidas pelo HSM. |
+| família | Enum<br />Obrigatório<br />**A** <br /><br />A família de SKU a ser usada. |
  
 	
 ## Exemplos
@@ -237,7 +237,7 @@ O exemplo a seguir implanta um cofre da chave e um segredo.
 
 O modelo de início rápido a seguir implanta um cofre da chave.
 
-- [Criar Cofre da Chave](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
+- [Criar Cofre da Chave](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
 
 
 ## Próximas etapas
@@ -245,4 +245,4 @@ O modelo de início rápido a seguir implanta um cofre da chave.
 - Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
 - Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

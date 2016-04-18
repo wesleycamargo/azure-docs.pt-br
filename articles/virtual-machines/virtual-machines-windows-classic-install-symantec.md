@@ -3,7 +3,7 @@
 	description="Saiba como instalar e configurar a extensão de segurança do Symantec Endpoint Protection em uma VM do Azure nova ou existente criada com o modelo clássico de implantação."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -98,4 +98,4 @@ Para verificar se a extensão de segurança Symantec foi instalada e está atual
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

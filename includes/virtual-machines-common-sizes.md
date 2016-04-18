@@ -145,7 +145,7 @@ Observação: para obter informações e considerações sobre o uso desses tama
 |Standard\_DS2\_v2 |2|7|2|Disco SSD local = 14 GB |4|86| 6\.400 96 MB por segundo | alto |
 |Standard\_DS3\_v2 |4|14|4|Disco SSD local = 28 GB |8|172| 12\.800 192 MB por segundo | alto |
 |Standard\_DS4\_v2 |8|28|8|Disco SSD local = 56 GB |16|344| 25\.600 384 MB por segundo | alto |
-|Standard\_DS5\_v2 |16|56|8|Disco SSD local = 112 GB |16|688| 50\.000 768 MB por segundo | alto |
+|Standard\_DS5\_v2 |16|56|8|Disco SSD local = 112 GB |32|688| 50\.000 768 MB por segundo | alto |
 |Standard\_DS11\_v2 |2|14|2|Disco SSD local = 28 GB |4|72| 6\.400 96 MB por segundo | alto |
 |Standard\_DS12\_v2 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 192 MB por segundo | alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 384 MB por segundo | alto |
@@ -192,4 +192,4 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 - Saiba mais sobre a [Assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
 - Saiba mais [Sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para conhecer cargas de trabalho como HPC (Computação de Alto Desempenho).
 
-<!------------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

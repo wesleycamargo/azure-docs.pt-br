@@ -57,7 +57,7 @@ Na página de configuração **Ações de Script** final, clique no botão **adi
  
 * **NOME** - qualquer cadeia de caracteres como o nome dessa ação de script. 
 * **TIPO DE NÓ** - selecione **Todos os nós**. 
-* **URI do SCRIPT** - *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+* **URI do SCRIPT** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
 	* *publicscripts* é um contêiner público na conta de armazenamento 
 	* *getgoing* é usado para compartilhar arquivos de script do PowerShell a fim de facilitar o trabalho dos usuários no Azure. 
 * **PARÂMETROS** - (deixe em branco)
@@ -88,7 +88,7 @@ Os usuários devem habilitar o acesso remoto ao cluster do Hadoop no Azure para 
 
 	 ![Criar espaço de trabalho][9]
 
-As próximas etapas no processo de análise avançada estão mapeados no [Guia de aprendizado: processamento de dados avançado no Azure](machine-learning-data-science-advanced-data-processing.md) e podem incluir etapas que movimentam dados para o HDInsight, os processam e criam amostras-como parte da preparação para o aprendizado com os dados no Aprendizado de Máquina do Azure.
+As próximas etapas no processo de análise avançada estão mapeados no [Processo do Cortana Analytics (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movimentam dados para o HDInsight, os processam e criam amostras-como parte da preparação para o aprendizado com os dados no Aprendizado de Máquina do Azure.
 
 Consulte [Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo de análise avançada](machine-learning-data-science-process-hive-tables.md) para obter instruções sobre como acessar os módulos Python incluídos no Anaconda por meio do nó principal em UDFs (Funções Definidas pelo Usuário) usadas para processar registros Hive armazenados no cluster.
 
@@ -104,4 +104,4 @@ Consulte [Enviar consultas de Hive para clusters do Hadoop do HDInsight no proce
 
  
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

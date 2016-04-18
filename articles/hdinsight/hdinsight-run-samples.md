@@ -49,7 +49,7 @@ Hoje em dia, muitas pessoas escolhem o Hive e o Pig em vez do MapReduce. Para ob
 
 ## <a name="hdinsight-sample-wordcount"></a>Contagem de palavras - Java 
 
-Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos. O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem que será usado para contar palavras e o local para a saída.
+Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é **wasb:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos. O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem que será usado para contar palavras e o local para a saída.
 
 O código-fonte pode ser encontrado no [Apêndice A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -136,11 +136,11 @@ Para obter mais informações sobre a interface de Streaming do Hadoop, consulte
 - Execute o procedimento em [Contagem de palavras - Java](#word-count-java) e substitua a definição de trabalho pelo seguinte:
 
 		$mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
-									-File "/example/apps/" `
-									-Mapper "cat.exe" `
-									-Reducer "wc.exe" `
-									-InputPath "/example/data/gutenberg/davinci.txt" `
-									-OutputPath "/example/data/StreamingOutput/wc.txt"
+    							-Files "/example/apps/cat.exe","/example/apps/wc.exe" `
+    							-Mapper "cat.exe" `
+    							-Reducer "wc.exe" `
+    							-InputPath "/example/data/gutenberg/davinci.txt" `
+    							-OutputPath "/example/data/StreamingOutput/wc.txt"  
 
 
 	O arquivo de saída deverá ser:
@@ -997,4 +997,4 @@ O código do programa MapReduce TeraSort é apresentado para inspeção nesta se
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

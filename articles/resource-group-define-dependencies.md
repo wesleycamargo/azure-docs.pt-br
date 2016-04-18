@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Definindo dependências em modelos do Gerenciador de Recursos do Azure"
-   description="Descreve como definir um recurso como dependente de outro recurso durante a implantação."
+   pageTitle="Dependências nos modelos do Gerenciador de Recursos | Microsoft Azure"
+   description="Descreve como definir um recurso como dependente de outro recurso durante a implantação para garantir que os recursos sejam implantados na ordem correta."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,43 +13,85 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Definindo dependências em modelos do Gerenciador de Recursos do Azure
 
-Para um determinado recurso, pode haver várias dependências upstream e filho que são essenciais para o sucesso de sua topologia. Você pode definir dependências em outros recursos usando as propriedades **dependsOn** e **resources** de um recurso. Uma dependência também pode ser especificada usando a função **reference**.
+Para um determinado recurso, pode ser necessário que existam outros recursos antes que o recurso em questão seja implantado. Por exemplo, um SQL Server deve existir antes que você tente implantar um Banco de Dados SQL. Você define essa relação marcando um recurso como dependente do outro. Normalmente, você define uma dependência com o elemento **dependsOn**, mas também pode defini-la por meio da função **reference**.
 
-    {
-        "name": "<name-of-the-resource>",
-        "type": "<resource-provider-namespace/resource-type-name>",
-        "apiVersion": "<supported-api-version-of-resource>",
-        "location": "<location-of-resource>",
-        "tags": { <name-value-pairs-for-resource-tagging> },
-        "dependsOn": [ <array-of-related-resource-names> ],
-        "properties": { <settings-for-the-resource> },
-        "resources": { <dependent-resources> }
-    }
-
- Também há links de recursos que podem definir as relações entre os recursos e dar suporte à definição dessas relações entre os grupos de recursos.
+O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente.
 
 ## dependsOn
 
-Para uma determinada máquina virtual, você pode depender de que um recurso de banco de dados seja provisionado com êxito. Em outro caso, você pode depender de que vários nós sejam instalados em seu cluster antes de implantar uma máquina virtual com a ferramenta de gerenciamento de cluster.
+Em seu modelo, o elemento dependsOn possibilita definir um recurso como dependente de um ou mais recursos. O valor dela pode ser uma lista separada por vírgulas de nomes de recursos.
 
-Em seu modelo, a propriedade dependsOn permite definir a dependência de um recurso. O valor dela pode ser uma lista separada por vírgulas de nomes de recursos. As dependências entre recursos são avaliadas e os recursos são implantados na ordem de dependência. Quando os recursos não dependem uns dos outros, é possível que tentem ser implantados paralelamente.
+O exemplo a seguir mostra um conjunto de escala de máquina virtual que é dependente de um balanceador de carga, de uma rede virtual e de um loop que cria várias contas de armazenamento. Esses outros recursos não são mostrados abaixo, mas precisariam existir em outro lugar no modelo.
+
+    {
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "name": "[variables('namingInfix')]",
+      "location": "[variables('location')]",
+      "apiVersion": "2016-03-30",
+      "tags": {
+        "displayName": "VMScaleSet"
+      },
+      "dependsOn": [
+        "storageLoop",
+        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+      ],
+      ...
+    }
+
+Se precisar definir uma dependência entre um recurso e recursos que são criados por meio de um loop de cópia (como mostrado acima), você poderá definir o elemento dependsOn como o nome do loop. Por exemplo, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
 
 Embora você talvez queira usar dependsOn para mapear as dependências entre os seus recursos, é importante entender por que você está fazendo isso, uma vez que o desempenho de sua implantação pode ser afetado. Por exemplo, se você estiver fazendo isso porque deseja documentar como os recursos são interconectados, dependsOn não é a abordagem correta. O ciclo de vida de dependsOn é apenas para a implantação, não ficando disponível após a implantação. Após a implantação, não há como consultar essas dependências. Ao usar dependsOn, você corre o risco de afetar o desempenho, uma vez que é possível fazer com que o mecanismo de implantação pare inadvertidamente de usar paralelismo em situações nas quais isso seria necessário. Para documentar e fornecer capacidade de consulta para as relações entre os recursos, você deve usar a [vinculação de recursos](resource-group-link-resources.md).
 
-Esse elemento não é necessário se a função de referência for usada para obter uma representação de um recurso, pois um objeto de referência implica uma dependência no recurso. Na verdade, se houver a opção para usar uma referência em vez de dependsOn, as diretrizes são usar a função de referência e fazer referências implícitas. A justificativa aqui é novamente o desempenho. As referências definem as dependências implícitas que são sabidamente necessárias, uma vez que são referenciadas no modelo. Por causa da presença delas, elas são relevantes, evitando novamente a otimização para desempenho e para evitar o risco potencial de fazer com que o mecanismo de implantação pare de evitar paralelismo desnecessariamente.
-
-Se você precisar definir uma dependência entre um recurso e os recursos criados por meio de um loop de cópia, defina o elemento dependsOn como o nome do loop. Por exemplo, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
-
-## recursos
+## Recursos filho
 
 A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em 5 níveis de profundidade. É importante observar que não é criada uma dependência implícita entre um recurso filho e o pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn.
 
 Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai. O nome do tipo de recurso de filho inclui o nome do tipo de recurso pai, assim como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos filho do **Microsoft.Web/sites**.
+
+O exemplo a seguir mostra um SQL Server e um Banco de Dados SQL. Observe que uma dependência explícita é definida entre o Banco de Dados SQL e o SQL Server, ainda que o banco de dados seja um filho do servidor.
+
+    "resources": [
+      {
+        "name": "[variables('sqlserverName')]",
+        "type": "Microsoft.Sql/servers",
+        "location": "[resourceGroup().location]",
+        "tags": {
+          "displayName": "SqlServer"
+        },
+        "apiVersion": "2014-04-01-preview",
+        "properties": {
+          "administratorLogin": "[parameters('administratorLogin')]",
+          "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
+        },
+        "resources": [
+          {
+            "name": "[parameters('databaseName')]",
+            "type": "databases",
+            "location": "[resourceGroup().location]",
+            "tags": {
+              "displayName": "Database"
+            },
+            "apiVersion": "2014-04-01-preview",
+            "dependsOn": [
+              "[variables('sqlserverName')]"
+            ],
+            "properties": {
+              "edition": "[parameters('edition')]",
+              "collation": "[parameters('collation')]",
+              "maxSizeBytes": "[parameters('maxSizeBytes')]",
+              "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
+            }
+          }
+        ]
+      }
+    ]
+
 
 ## Função reference
 
@@ -66,4 +108,4 @@ Para saber mais, consulte [Função de referência](../resource-group-template-f
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 - Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

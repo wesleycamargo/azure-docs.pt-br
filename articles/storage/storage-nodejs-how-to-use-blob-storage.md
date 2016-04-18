@@ -82,14 +82,14 @@ O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. 
 Para criar um novo contêiner, use **createContainerIfNotExists**. O exemplo de código a seguir cria um novo contêiner denominado 'mycontainer':
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
-      if(!error){
-        // Container exists and allows
-        // anonymous read access to blob
-        // content and metadata within this container
-      }
+	    if(!error){
+	      // Container exists and allows
+	      // anonymous read access to blob
+	      // content and metadata within this container
+	    }
 	});
 
-Se o contêiner tiver sido criado recentemente, `result` será verdadeiro. Se o contêiner já existir, `result` será falso. `response` contém informações sobre a operação, incluindo as informações de [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) do contêiner.
+Se o contêiner tiver sido criado recentemente, `result.created` será verdadeiro. Se o contêiner já existir, `result.created` será falso. `response` contém informações sobre a operação, incluindo as informações de ETag do contêiner.
 
 ### Segurança do contêiner
 
@@ -101,17 +101,17 @@ Por padrão, novos contêineres são privados e não podem ser acessados ​​a
 
 O exemplo de código a seguir demonstra a configuração do nível de acesso para **blob**:
 
-    blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
-      if(!error){
-        // Container exists and is private
-      }
+	blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
+	    if(!error){
+	      // Container exists and is private
+	    }
 	});
 
 Como alternativa, você poderá modificar o nível de acesso de um contêiner, usando **setContainerAcl** para especificar o nível de acesso. O exemplo de código a seguir altera o nível de acesso para contêiner:
 
-    blobSvc.setContainerAcl('mycontainer', null /* signedIdentifiers */, 'container' /* publicAccessLevel*/, function(error, result, response){
+	blobSvc.setContainerAcl('mycontainer', null /* signedIdentifiers */, {publicAccessLevel : 'container'} /* publicAccessLevel*/, function(error, result, response){
 	  if(!error){
-		// Container access level set to 'container'
+	    // Container access level set to 'container'
 	  }
 	});
 
@@ -121,11 +121,11 @@ O resultado contém informações sobre a operação, incluindo o **ETag** atual
 
 Você pode aplicar operações de filtragem opcionais às operações executadas usando o **BlobService**. As operações de filtragem podem incluir registro em log, repetição automática etc. Os filtros são objetos que implementam um método com a assinatura:
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar "next", passando um retorno de chamada com a assinatura abaixo:
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 Nesse retorno de chamada, e após processar o returnObject (a resposta da solicitação ao servidor), o retorno de chamada precisará invocar next, se ele existir, para continuar processando outros filtros ou simplesmente invocar finalCallback para terminar a invocação de serviço.
 
@@ -136,7 +136,7 @@ Dois filtros que implementam a lógica de repetição estão incluídos no SDK d
 
 ## Carregar um blob em um contêiner
 
-Um blob pode se basear em blocos ou em páginas. Blobs de bloco permitem que você envie mais eficientemente grandes volumes de dados, enquanto blobs de página são otimizados para operações de leitura/gravação. Para obter mais informações, consulte [Compreendendo Blobs de blocos, Blobs de apêndice e Blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Há três tipos de blobs: blob de blocos, blob de páginas e blob de anexo. Blobs de bloco permitem que você carregue grandes volumes de dados com mais eficiência. Blobs de anexo otimizados para operações de acréscimo. Blobs de página são otimizados para operações de leitura/gravação. Para saber mais, confira [Entendendo Blobs de Bloco, Blobs de Acréscimo e Blobs de Página](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ### Blobs de bloco
 
@@ -160,6 +160,49 @@ O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **m
 
 O `result` retornado por esses métodos contém informações sobre a operação, como o **ETag** do blob.
 
+### Blobs de acréscimo
+
+Para carregar dados para um novo blob de acréscimo, use o seguinte:
+
+* **createAppendBlobFromLocalFile** – cria um novo blob de acréscimo e carrega o conteúdo de um arquivo
+
+* **createAppendBlobFromStream** – cria um novo blob de acréscimo e carrega o conteúdo de um fluxo
+
+* **createAppendBlobFromText** – cria um novo blob de acréscimo e carrega o conteúdo de uma cadeia de caracteres
+
+* **createWriteStreamToNewAppendBlob** – cria um novo blob de acréscimo e, em seguida, fornece um fluxo para gravar nele
+
+O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **myappendblob**.
+
+	blobSvc.createAppendBlobFromLocalFile('mycontainer', 'myappendblob', 'test.txt', function(error, result, response){
+	  if(!error){
+	    // file uploaded
+	  }
+	});
+
+Para acrescentar um bloco em um blob de acréscimo existente, use o seguinte:
+
+* **appendFromLocalFile** - acrescentar o conteúdo de um arquivo para um blob de acréscimo
+
+* **appendFromStream** - acrescentar o conteúdo de um fluxo para um blob de acréscimo existente
+
+* **appendFromText** - acrescentar o conteúdo de uma cadeia de caracteres para um blob de acréscimo existente
+
+* **appendBlockFromStream** - acrescentar o conteúdo de um fluxo para um blob de acréscimo existente
+
+* **appendBlockFromText** - acrescentar o conteúdo de uma cadeia de caracteres para um blob de acréscimo existente
+
+> [AZURE.NOTE] As APIs appendFromXXX farão uma validação do lado do cliente falha rápida evitar a chamada de servidor desnecessária. appendBlockFromXXX não fará isso.
+
+O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **myappendblob**.
+
+	blobSvc.appendFromText('mycontainer', 'myappendblob', 'text to be appended', function(error, result, response){
+	  if(!error){
+	    // text appended
+	  }
+	});
+
+
 ### Blobs de página
 
 Para carregar dados para um blob de página, use o seguinte:
@@ -172,7 +215,7 @@ Para carregar dados para um blob de página, use o seguinte:
 
 * **createWriteStreamToExistingPageBlob** – fornece um fluxo de gravação para um blob de páginas
 
-* **createWriteStreamToNewPageBlob** – cria um novo blob e, em seguida, fornece um fluxo para gravar nele
+* **createWriteStreamToNewPageBlob** – cria um novo blob de páginas e, em seguida, fornece um fluxo para gravar nele
 
 O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **mypageblob**.
 
@@ -182,16 +225,16 @@ O exemplo de código a seguir carrega o conteúdo do arquivo **test.txt** em **m
 	  }
 	});
 
-> [AZURE.NOTE] Blobs de página consistem em 'páginas’ de 512 bytes. Você pode receber um erro ao carregar dados com um tamanho que não seja um múltiplo de 512.
+> [AZURE.NOTE] Blobs de página consistem em 'páginas’ de 512 bytes. Você receberá um erro ao carregar dados com um tamanho que não seja um múltiplo de 512.
 
 ## Listar os blobs em um contêiner
 
 Para listar os blobs em um contêiner, use o método **listBlobsSegmented**. Se você quiser retornar blobs com um prefixo específico, use **listBlobsSegmentedWithPrefix**.
 
-    blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
-      if(!error){
-        // result.entries contains the entries
-        // If not all blobs were returned, result.continuationToken has the continuation token.
+	blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
+	  if(!error){
+	      // result.entries contains the entries
+	      // If not all blobs were returned, result.continuationToken has the continuation token.
 	  }
 	});
 
@@ -211,7 +254,7 @@ Para baixar dados de um blob, use o seguinte:
 
 O exemplo de código a seguir demonstra como usar **getBlobToStream** para baixar o conteúdo do blob **myblob** e armazená-lo no arquivo **output.txt** usando um fluxo:
 
-    var fs = require('fs');
+	var fs = require('fs');
 	blobSvc.getBlobToStream('mycontainer', 'myblob', fs.createWriteStream('output.txt'), function(error, result, response){
 	  if(!error){
 	    // blob retrieved
@@ -224,7 +267,7 @@ O `result` contém informações sobre o blob, incluindo informações do **ETag
 
 Finalmente, para excluir um blob, chame **deleteBlob**. O exemplo de código a seguir exclui o blob denominado **myblob**.
 
-    blobSvc.deleteBlob(containerName, 'myblob', function(error, response){
+	blobSvc.deleteBlob(containerName, 'myblob', function(error, response){
 	  if(!error){
 		// Blob has been deleted
 	  }
@@ -240,12 +283,12 @@ Para suportar o acesso simultâneo a uma blob por meio de vários clientes ou v�
 
 ### ETag
 
-Use ETags se você precisar permitir que vários clientes ou instâncias realizem gravações no blob simultaneamente. O ETag permite determinar se o contêiner ou o blob foi modificado desde que foi criado ou lido, o que permite evitar a substituição de alterações aplicadas por outro cliente ou processo.
+Use ETags se você precisar permitir que vários clientes ou instâncias realizem gravações no Blob de blocos ou Blob de páginas simultaneamente. O ETag permite determinar se o contêiner ou o blob foi modificado desde que foi criado ou lido, o que permite evitar a substituição de alterações aplicadas por outro cliente ou processo.
 
 Você pode definir condições de ETag usando o parâmetro `options.accessConditions` opcional. O exemplo de código a seguir só carregará o arquivo **test.txt** se o blob já existir e tiver o valor de ETag contido por `etagToMatch`.
 
-	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { 'if-match': etagToMatch} }, function(error, result, response){
-      if(!error){
+	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', { accessConditions: { EtagMatch: etagToMatch} }, function(error, result, response){
+	    if(!error){
 	    // file uploaded
 	  }
 	});
@@ -319,36 +362,30 @@ Você também pode usar uma lista de controle de acesso (ACL) para definir a pol
 
 Uma ACL é implementada através de um conjunto de políticas de acesso, com uma ID associada a cada política. O exemplo de código a seguir define duas políticas, uma para "user1" e outra para 'user2':
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.BlobUtilities.SharedAccessPermissions.READ,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.BlobUtilities.SharedAccessPermissions.WRITE,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.BlobUtilities.SharedAccessPermissions.WRITE,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 O exemplo de código a seguir obtém a ACL atual para **mycontainer** e adiciona as novas políticas usando **setBlobAcl**. Essa abordagem permite:
 
+	var extend = require('extend');
 	blobSvc.getBlobAcl('mycontainer', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers.push(sharedAccessPolicy);
-		blobSvc.setBlobAcl('mycontainer', result, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+	  if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    blobSvc.setBlobAcl('mycontainer', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -378,4 +415,4 @@ Para saber mais, consulte os recursos a seguir.
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referência do SDK do Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

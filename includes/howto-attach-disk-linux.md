@@ -1,21 +1,18 @@
 
-Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](virtual-machines-linux-about-disks-vhds.md).
+Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md).
 
 <a id="attachempty"></a>
 ## Como: anexar um disco vazio
 Anexar um disco vazio é o modo mais simples de se adicionar um disco de dados, porque o Azure cria o arquivo .vhd para você e o coloca na conta de armazenamento.
 
-1.  Abra a CLI do Azure para Mac, Linux, e Windows e conecte-se à sua assinatura do Azure. Consulte [Conectar ao Azure da CLI do Azure](../xplat-cli-connect.md) para obter mais informações.
+1.  Abra a CLI do Azure e [conecte-se à sua assinatura do Azure](../articles/xplat-cli-connect.md). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
 
-2.  Verifique se você está no modo de gerenciamento de serviços do Azure, que é o padrão digitando `azure config
- 	mode asm`.
-
-3.  Use o comando `azure vm disk attach-new` para criar e anexar um novo disco, conforme mostrado abaixo. Observe que o _ubuntuVMasm_ será substituído pelo nome da VM da máquina virtual do Linux que você criou na sua assinatura. O número 30 é o tamanho do disco em GB neste exemplo.
+2.  Insira `azure vm disk attach-new` para criar e anexar um novo disco, conforme mostrado abaixo. Substitua _ubuntuVMasm_ pelo nome da Máquina Virtual Linux. Em seguida, especifique o tamanho do disco em GB, que é de 30 GB neste exemplo.
 
         azure vm disk attach-new ubuntuVMasm 30
 
-4.	Após o disco de dados ser criado e anexado, ele é listado no resultado do `azure vm disk list
-    <virtual-machine-name>`, da seguinte forma:
+3.	Após o disco de dados ser criado e anexado, ele é listado na saída de `azure vm disk list
+    <virtual-machine-name>`:
 
         $ azure vm disk list ubuntuVMasm
         info:    Executing command vm disk list
@@ -33,11 +30,9 @@ Anexar um disco vazio é o modo mais simples de se adicionar um disco de dados, 
 
 Anexar um disco existente exige que você tenha um .vhd disponível em uma conta de armazenamento.
 
-1. 	Abra a CLI do Azure para Mac, Linux, e Windows e conecte-se à sua assinatura do Azure. Consulte [Conectar ao Azure da CLI do Azure](../xplat-cli-connect.md) para obter mais informações.
+1. 	Abra a CLI do Azure e [conecte-se à sua assinatura do Azure](../articles/xplat-cli-connect.md). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
 
-2.  Verifique se você está no modo de gerenciamento de serviços do Azure, que é o padrão. Se você tiver alterado o modo para gerenciamento de recursos, simplesmente reverta digitando `azure config mode asm`.
-
-3.	Descubra se o VHD que você deseja anexar já está carregado à sua assinatura do Azure usando:
+2.	Verifique se o VHD que você deseja anexar já está carregado à sua assinatura do Azure:
 
         $azure vm disk list
     	info:    Executing command vm disk list
@@ -49,7 +44,7 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
     	data:    ubuntuVMasm-ubuntuVMasm-0-201508060040530369
     	info:    vm disk list command OK
 
-4.  Se você não encontrar o disco que deseja usar, você pode carregar um VHD local na sua assinatura usando `azure vm disk create` ou `azure vm disk upload`. Um exemplo disso seria:
+3.  Se você não encontrar o disco que deseja usar, você pode carregar um VHD local na sua assinatura usando `azure vm disk create` ou `azure vm disk upload`. Um exemplo de `disk create` seria:
 
         $azure vm disk create myTestVhd2 .\TempDisk\test.VHD -l "East US" -o Linux
 		info:    Executing command vm disk create
@@ -62,9 +57,9 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 		uploaded successfully
 		info:    vm disk create command OK
 
-	Você também pode usar o comando `azure vm disk upload` para carregar um VHD em uma conta de armazenamento específico. Leia mais sobre os comandos para gerenciar seus discos de dados de máquinas virtuais do Azure [aqui](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+	Você também pode usar `azure vm disk upload` para carregar um VHD em uma conta de armazenamento específico. Leia mais sobre os comandos para gerenciar seus discos de dados de máquinas virtuais do Azure [aqui](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
 
-5.  Digite o seguinte comando para anexar o VHD carregado desejado na máquina virtual:
+4.  Agora, queremos anexar o VHD desejado à sua máquina virtual:
 
 		$azure vm disk attach ubuntuVMasm myTestVhd
 		info:    Executing command vm disk attach
@@ -74,8 +69,8 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 
 	Certifique-se de substituir _ubuntuVMasm_ com o nome da sua máquina virtual, e _myTestVhd_ com seu VHD desejado.
 
-6.	Você pode verificar se o disco está anexado à máquina virtual com o comando `azure vm disk list
- 	<virtual-machine-name>` como:
+5.	Você pode verificar se o disco está anexado à máquina virtual com `azure vm disk list
+ 	<virtual-machine-name>`:
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -93,4 +88,4 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 > [AZURE.NOTE]
 Depois de adicionar um disco de dados, você precisará fazer logon na máquina virtual e inicializar o disco para que a máquina virtual possa usar o disco para armazenamento.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

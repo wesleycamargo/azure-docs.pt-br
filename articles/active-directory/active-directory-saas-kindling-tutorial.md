@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="04/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do AD do Azure ao Kindling, você precisará dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura habilitada do Kindlling com logo único
+- Uma assinatura do Kindling
 
 
 > [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -84,7 +84,7 @@ Para configurar e testar o logon único do AD do Azur com o Kindling, conclua os
 
 O objetivo desta seção é habilitar o logon único do AD do Azure no portal clássico do Azure e configurar o logon único em seu aplicativo Kindling. Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-Para configurar o logon único para o Kindling, você precisa de um domínio registrado. Se não tiver um domínio registrado, entre em contato com a equipe de suporte do Kindling pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com).
+Para configurar o logon único para o Kindling, você precisa de um domínio registrado. Se não tiver um domínio registrado, entre em contato com a equipe de suporte do Kindling pelo email [support@kindlingapp.com](mailto:support@kindlingapp.com).
 
 
 
@@ -97,11 +97,15 @@ Para configurar o logon único para o Kindling, você precisa de um domínio reg
 3. Na página de caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:<br><br>![Configurar o logon único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) <br>
 
 
-    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo Kindling (por exemplo: **https://fabrikam.Kindling.com/*)).
+    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo Kindling (por exemplo: *https://\<nome\_da\_empresa>.kindlingapp.com/*).
 
-    b. Entre em contato com a equipe de suporte do Kindling para obter o valor do **emissor** e **URL de resposta**.
+    b. Entre em contato com a equipe de suporte do Kindling via [support@kindlingapp.com](mailto:support@kindlingapp.com) para obter o valor do **emissor** e da **URL de resposta**.
+
+    c. Na caixa de texto **Emissor**, digite a URL do Emissor.
+
+    d. Na caixa de texto **URL de Resposta**, digite sua URL de Resposta.
  
-    c. Clique em **Próximo**.
+    e. Clique em **Próximo**.
  
  
 4. Em **Configurar logon único no Kindling**, execute as etapas a seguir: <br><br>![Configurar o logon único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_05.png) <br>
@@ -216,4 +220,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

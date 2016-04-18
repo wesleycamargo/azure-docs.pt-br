@@ -30,7 +30,7 @@ Com esse guia, pressupomos que você saiba [como criar um projeto do Trabalho We
 
 Esta seção mostra como usar o atributo `BlobTrigger`.
 
-> [AZURE.NOTE]O SDK dos Trabalhos Web verifica os arquivos de log para observar blobs novos ou alterados. Esse processo não ocorre em tempo real; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado. Além disso, os [logs de armazenamento são criados com base nos "melhores esforços"](https://msdn.microsoft.com/library/azure/hh343262.aspx); não há nenhuma garantia de que todos os eventos serão capturados. Sob algumas condições, logs poderão ser perdidos. Se as limitações de velocidade e de confiabilidade de gatilhos de blob não forem aceitáveis para o seu aplicativo, o método recomendado será criar uma mensagem de fila ao criar o blob e usar o atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) em vez do atributo `BlobTrigger` na função que processa o blob.
+> [AZURE.NOTE] O SDK dos Trabalhos Web verifica os arquivos de log para observar blobs novos ou alterados. Esse processo não ocorre em tempo real; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado. Além disso, os [logs de armazenamento são criados com base nos "melhores esforços"](https://msdn.microsoft.com/library/azure/hh343262.aspx); não há nenhuma garantia de que todos os eventos serão capturados. Sob algumas condições, logs poderão ser perdidos. Se as limitações de velocidade e de confiabilidade de gatilhos de blob não forem aceitáveis para o seu aplicativo, o método recomendado será criar uma mensagem de fila ao criar o blob e usar o atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) em vez do atributo `BlobTrigger` na função que processa o blob.
 
 ### Espaço reservado único para nome de blob com extensão  
 
@@ -150,6 +150,21 @@ O código de associação `WebImage` é fornecido em uma classe `WebImageBinder`
 		    }
 		}
 
+## Obtendo o caminho do blob para o blob de gatilho
+
+Para obter o nome do contêiner e o nome do blob que disparou a função, inclua um parâmetro de cadeia de caracteres `blobTrigger` na assinatura da função.
+
+		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
+		    string name,
+		    string blobTrigger,
+		    TextWriter logger)
+		{
+		     logger.WriteLine("Full blob path: {0}", blobTrigger);
+		     logger.WriteLine("Content:");
+		     logger.WriteLine(logMessage);
+		}
+
+
 ## <a id="poison"></a> Como manipular blobs suspeitos
 
 Quando uma função `BlobTrigger` falha, o SDK a chama novamente, caso a falha tenha sido causada por um erro transitório. Se a falha for causada pelo conteúdo do blob, a função falhará sempre que tentar processar o blob. Por padrão, o SDK chama uma função até cinco vezes para um blob específico. Se a quinta tentativa falhar, o SDK adicionará uma mensagem a uma fila denominada *webjobs-blobtrigger-poison*.
@@ -238,4 +253,4 @@ Os tópicos relacionados abordados neste artigo incluem o seguinte:
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com blobs do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->
