@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="04/11/2016"
    ms.author="tomfitz"/>
 
-# Visão geral do Gerenciador de Recursos do Azure
+# Visão geral do Azure Resource Manager
 
-A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Gerenciador de Recursos do Azure permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para a sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação.
+A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para a sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação.
 
 ## Os benefícios de usar o Gerenciador de Recursos
 
@@ -55,7 +55,7 @@ Existem alguns fatores importantes a considerar ao definir seu grupo de recursos
 4. Você pode mover um recurso de um grupo de recursos para outro grupo. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](resource-group-move-resources.md).
 4. Um grupo de recursos pode conter recursos que residem em regiões diferentes.
 5. Um grupo de recursos pode ser usado para definir o escopo de controle de acesso para ações administrativas.
-6. Um recurso pode ser vinculado a um recurso em outro grupo de recursos quando os dois recursos tiverem que interagir entre si, mas eles não compartilham o mesmo ciclo de vida (por exemplo, vários aplicativos conectando-se a um banco de dados). Para obter mais informações, confira [Associando recursos no Gerenciador de Recursos do Azure](resource-group-link-resources.md).
+6. Um recurso pode ser vinculado a um recurso em outro grupo de recursos quando os dois recursos tiverem que interagir entre si, mas eles não compartilham o mesmo ciclo de vida (por exemplo, vários aplicativos conectando-se a um banco de dados). Para obter mais informações, confira [Associando recursos no Azure Resource Manager](resource-group-link-resources.md).
 
 ## Provedores de recursos
 
@@ -67,11 +67,11 @@ Para implantar e gerenciar sua infraestrutura, você precisará conhecer os deta
 
 Com o Gerenciador de Recursos, você pode criar um modelo simples (no formato JSON) que define a implantação e a configuração do seu aplicativo. Esse modelo é conhecido como um modelo do Gerenciador de Recursos e fornece uma forma declarativa de definir a implantação. Usando um modelo, você pode implantar seu aplicativo em todo seu ciclo de vida repetidamente e com a confiança que seus recursos são implantados em um estado consistente.
 
-Dentro do modelo, você pode definir a infraestrutura do seu aplicativo, como configurar essa infraestrutura e como publicar seu código do aplicativo a esta infraestrutura. Você não precisa se preocupar sobre a ordem de implantação porque o Gerenciador de Recursos do Azure analisa as dependências para garantir que os recursos sejam criados na ordem correta. Para saber mais, confira [Definindo as dependências nos modelos do Gerenciador de Recursos do Azure](resource-group-define-dependencies.md).
+Dentro do modelo, você pode definir a infraestrutura do seu aplicativo, como configurar essa infraestrutura e como publicar seu código do aplicativo a esta infraestrutura. Você não precisa se preocupar sobre a ordem de implantação porque o Azure Resource Manager analisa as dependências para garantir que os recursos sejam criados na ordem correta. Para saber mais, confira [Definindo as dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md).
 
-Você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode facilmente reutilizar esses modelos para soluções diferentes. Para implantar uma solução específica, você deve criar um modelo mestre que vincule todos os modelos necessários. Para saber mais, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
+Você não precisa definir toda a sua infraestrutura em um único modelo. Muitas vezes, faz sentido dividir seus requisitos de implantação em um conjunto de modelos com destinação e fins específicos. Você pode facilmente reutilizar esses modelos para soluções diferentes. Para implantar uma solução específica, você deve criar um modelo mestre que vincule todos os modelos necessários. Para saber mais, confira [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
 
-Você também pode usar o modelo para atualizações de infraestrutura. Por exemplo, você pode adicionar um novo recurso ao seu aplicativo e adicionar regras de configuração para os recursos que já foram implantados. Se o modelo especificar a criação de um novo recurso, mas esse recurso já existe, o Gerenciador de Recursos do Azure executa uma atualização em vez de criar um novo ativo. O Gerenciador de Recursos do Azure atualiza o ativo existente para o mesmo estado de um novo. Ou então, você pode especificar que o Gerenciador de Recursos deve excluir os recursos que não estão especificados no modelo. Para entender as diferentes opções na implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+Você também pode usar o modelo para atualizações de infraestrutura. Por exemplo, você pode adicionar um novo recurso ao seu aplicativo e adicionar regras de configuração para os recursos que já foram implantados. Se o modelo especificar a criação de um novo recurso, mas esse recurso já existe, o Azure Resource Manager executa uma atualização em vez de criar um novo ativo. O Azure Resource Manager atualiza o ativo existente para o mesmo estado de um novo. Ou então, você pode especificar que o Gerenciador de Recursos deve excluir os recursos que não estão especificados no modelo. Para entender as diferentes opções na implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
 Você pode especificar parâmetros em seu modelo para conferir personalização e flexibilidade à implantação. Por exemplo, você pode passar valores de parâmetro para personalizar a implantação para seu ambiente de teste. Especificando os parâmetros, você pode usar o mesmo modelo para a implantação em todos os ambientes do seu aplicativo.
 
@@ -79,11 +79,13 @@ O Gerenciador de Recursos do Azure fornece extensões para cenários que precisa
 
 Quando você cria uma solução do Marketplace, ela inclui automaticamente um modelo de implantação. Você não precisa criar seu modelo do zero, pois é possível iniciar com o modelo da sua solução e personalizá-lo para atender às suas necessidades específicas.
 
+Você pode recuperar um modelo de um grupo de recursos existente exportando o estado atual do grupo de recursos para um modelo, ou exibindo o modelo que foi usado para uma determinada implantação. As duas opções são exibidas em [Como usar o Portal do Azure para implantar e gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
+
 Finalmente, o modelo se torna parte do código-fonte do seu aplicativo. Você pode adicioná-lo ao repositório de código-fonte e atualizá-lo conforme a evolução de seu aplicativo. Você pode editar o modelo com o Visual Studio.
 
 Para obter mais informações sobre como definir o modelo, consulte [Criação de modelos do Gerenciador de Recursos do Azure](./resource-group-authoring-templates.md).
 
-Para saber mais sobre como usar um modelo de implantação, consulte [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+Para obter instruções detalhadas sobre como criar um modelo, confira [Passo a passo do modelo do Resource Manager](resource-manager-template-walkthrough.md).
 
 Para obter orientações sobre como estruturar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md).
 
@@ -121,7 +123,7 @@ Para obter informações sobre o PowerShell, consulte [Usando o PowerShell do Az
 
 Para obter informações sobre a CLI do Azure, consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
 
-Para obter informações sobre a API REST, consulte [Referência da API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+Para obter informações sobre a API REST, consulte [Referência da API REST do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx). Para exibir as operações REST de seus recursos implantados, confira [Uso do Azure Resource Explorer para exibir e modificar recursos](resource-manager-resource-explorer.md).
 
 Para saber mais sobre o uso do portal, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](azure-portal/resource-group-portal.md).
 
@@ -138,4 +140,4 @@ Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

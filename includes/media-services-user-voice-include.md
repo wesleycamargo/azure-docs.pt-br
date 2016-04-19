@@ -4,8 +4,9 @@ Use o fórum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x
 - [Bibliotecas SDK do cliente](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
 - [Codificação e processamento](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 - [Transmissão ao vivo](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)
+- [Análise de mídia](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 - [Portal do Azure](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 - [Plataforma e a API REST](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 - [Streaming de VoD](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

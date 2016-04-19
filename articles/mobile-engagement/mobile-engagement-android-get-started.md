@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="android"
 	authors="piyushjo"
-	manager=""
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
-	ms.author="piyushjo" />
+	ms.date="04/08/2016"
+	ms.author="piyushjo;ricksal" />
 
 # Introdução ao Mobile Engagement do Azure para Aplicativos Android
 
@@ -22,24 +22,25 @@
 
 Este tópico mostra como usar o Mobile Engagement do Azure para entender o uso do aplicativo e como enviar notificações por push para usuários segmentados de um aplicativo Android. Esse tutorial demonstra um cenário de transmissão simples usando o Mobile Engagement. Nele, você cria um aplicativo Android em branco que coleta dados básicos e recebe notificações por push usando o GCM (Google Cloud Messaging).
 
-Este tutorial exige o seguinte:
+## Pré-requisitos
 
-+ O SDK do Android (pressupõe-se que você usará o Android Studio), que pode ser baixado [aqui](http://go.microsoft.com/fwlink/?LinkId=389797)
-+ O [SDK do Mobile Engagement do Android]
+A conclusão deste tutorial requer as [Ferramentas para desenvolvedores do Android](https://developer.android.com/sdk/index.html), que incluem o ambiente de desenvolvimento integrado do Android Studio e a plataforma Android mais recente.
 
-> [AZURE.NOTE] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
+Também é necessário baixar o [SDK do Mobile Engagement Android](https://aka.ms/vq9mfn).
 
-##<a id="setup-azme"></a>Configuração do Mobile Engagement para seu aplicativo Android
+> [AZURE.IMPORTANT] Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
+
+## Configuração do Mobile Engagement para seu aplicativo Android
 
 [AZURE.INCLUDE [Criar Aplicativo de Mobile Engagement no Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
-##<a id="connecting-app"></a>Conecte o seu aplicativo ao back-end do Mobile Engagement
+## Conectar o aplicativo ao back-end do Mobile Engagement
 
 Este tutorial apresenta uma "integração básica" que é o conjunto mínimo exigido para coletar dados e enviar uma notificação por push. A documentação de integração completa pode ser encontrada na [Integração do SDK do Mobile Engagement Android](../mobile-engagement-android-sdk-overview/).
 
 Vamos criar um aplicativo básico com o Android Studio para demonstrar a integração.
 
-###Criar um novo aplicativo Android
+### Criar um novo aplicativo Android
 
 1. Inicie o **Android Studio** e, no pop-up, selecione **Iniciar um novo projeto Android Studio**.
 
@@ -65,7 +66,7 @@ Vamos criar um aplicativo básico com o Android Studio para demonstrar a integra
 
 O Android Studio agora criará o aplicativo de demonstração para o qual integraremos o Mobile Engagement.
 
-###Inclua a biblioteca de SDK em seu projeto
+### Inclua a biblioteca de SDK em seu projeto
 
 1. Baixe o [SDK do Mobile Engagement Android].
 2. Extraia o file de arquivo para uma pasta no seu computador.
@@ -81,7 +82,7 @@ O Android Studio agora criará o aplicativo de demonstração para o qual integr
 
 	  ![][8]
 
-###Conecte seu aplicativo ao back-end do Mobile Engagement com a Cadeia de Conexão
+### Conecte seu aplicativo ao back-end do Mobile Engagement com a Cadeia de Conexão
 
 1. Copie as seguintes linhas de código para a criação da atividade (deve ser feito apenas em um local do seu aplicativo, geralmente a atividade principal). Para este aplicativo de exemplo, abra a MainActivity em src -> main -> pasta java e adicione o seguinte:
 
@@ -102,7 +103,7 @@ O Android Studio agora criará o aplicativo de demonstração para o qual integr
 
 		engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
-###Adicionar permissões e uma declaração de serviço
+### Adicionar permissões e uma declaração de serviço
 
 1. Adicionar essas permissões ao Manifest.xml do projeto imediatamente anteriores ou posteriores à marca `<application>`:
 
@@ -123,7 +124,7 @@ O Android Studio agora criará o aplicativo de demonstração para o qual integr
 
 3. No código que você acabou de colar, substitua `"<Your application name>"` no rótulo. Isso é exibido no menu **Configurações**, em que os usuários podem ver os serviços em execução no dispositivo. Você pode adicionar a palavra "Serviço" desse rótulo por exemplo.
 
-###Enviar uma tela ao Mobile Engagement
+### Enviar uma tela ao Mobile Engagement
 
 Para iniciar o envio de dados e assegurar que os usuários estejam ativos, você deve enviar pelo menos uma tela (Atividade) para o back-end do Mobile Engagement.
 
@@ -137,17 +138,17 @@ Você deve comentar (excluir) a linha a seguir para este cenário de exemplo sim
 
 Se você quiser manter este quadro, consulte o cenário "Relatórios básicos" no nosso [Integração avançada do Android](mobile-engagement-android-integrate-engagement.md/#basic-reporting)
 
-##<a id="monitor"></a>Conectar o aplicativo com monitoramento em tempo real
+## Conectar o aplicativo com monitoramento em tempo real
 
 [AZURE.INCLUDE [Conectar o aplicativo com monitoramento em tempo real](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Habilitar notificações por push e mensagens no aplicativo
+## Habilitar notificações por push e mensagens no aplicativo
 
 O Mobile Engagement permite a você interagir e entrar em contato com seus usuários com notificações por push e mensagens no aplicativo no contexto de campanhas. Esse módulo é chamado de REACH no portal do Mobile Engagement. As seções a seguir configuram seu aplicativo para recebê-las.
 
 ### Copiar recursos de SDK em seu projeto
-	
-1. Navegue de volta para o conteúdo de download do SDK e copie a pasta **res**.
+
+1. Navegue de volta até o conteúdo baixado do SDK e copie a pasta **res**.
 
 	![][10]
 
@@ -160,10 +161,6 @@ O Mobile Engagement permite a você interagir e entrar em contato com seus usuá
 [AZURE.INCLUDE [Habilitar mensagens no aplicativo](../../includes/mobile-engagement-android-send-push.md)]
 
 [AZURE.INCLUDE [Enviar notificações do portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
-
-<!-- URLs. -->
-[SDK do Mobile Engagement Android]: https://aka.ms/vq9mfn
-[SDK do Mobile Engagement do Android]: https://aka.ms/vq9mfn
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
@@ -178,4 +175,4 @@ O Mobile Engagement permite a você interagir e entrar em contato com seus usuá
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

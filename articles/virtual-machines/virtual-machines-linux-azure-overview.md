@@ -52,7 +52,7 @@ Aqui estão algumas diretrizes básicas para selecionar um tamanho de VM de uma 
 * A série Dv2 é a última versão de nossa série D, com uma CPU mais poderosa. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3,2 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 * As VMs da série G oferecem a maior memória e são executadas em hosts com processadores da família Intel Xeon E5 V3.
 
-Observação: as VMs da série DS e da série GS têm acesso ao Armazenamento Premium: nosso armazenamento de alto desempenho e baixa latência com suporte de SSD para cargas de trabalho com uso intensivo de E/S. O Armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira **[Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage-preview-portal.md)**.
+Observação: as VMs da série DS e da série GS têm acesso ao Armazenamento Premium: nosso armazenamento de alto desempenho e baixa latência com suporte de SSD para cargas de trabalho com uso intensivo de E/S. O Armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira **[Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage.md)**.
 
 Cada assinatura do Azure tem limites de cota padrão que podem afetar a implantação de um grande número de VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região. Esses limites de cota podem ser aumentados com a emissão de um tíquete de suporte para solicitar um aumento de limite. Para obter mais detalhes sobre os limites de cota, confira **[Limites do Serviço de Assinatura do Azure](../azure-subscription-service-limits.md)**
 
@@ -60,4 +60,4 @@ Cada assinatura do Azure tem limites de cota padrão que podem afetar a implanta
 
 Uma conta de avaliação gratuita. **[Obtenha uma.](https://azure.microsoft.com/pricing/free-trial/)** Se você já tiver uma, para experimentá-la, **[instale a CLI do Azure.](../xplat-cli-install.md)**. Se tiver feito isso, [crie uma VM do Linux agora](virtual-machines-linux-quick-create-cli.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

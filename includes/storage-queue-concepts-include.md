@@ -14,17 +14,16 @@ O serviço Fila contém os seguintes componentes:
 ![Fila1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **Formato da URL:** as filas são acessadas usando o seguinte formato de URL:   
-	http://`<storage account>`.queue.core.windows.net/`<queue>` 
+- **Formato da URL:** as filas são acessadas usando o seguinte formato de URL: http://`<storage account>`.queue.core.windows.net/`<queue>' 
       
 	A URL a seguir endereça um fila no diagrama:
 		
-		http://myaccount.queue.core.windows.net/imagesToDownload
+		http://myaccount.queue.core.windows.net/images-to-download
 
 - **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento.
 
-- **Fila:** uma fila contém um conjunto de mensagens. Todas as mensagens devem estar em uma fila.
+- **Fila:** uma fila contém um conjunto de mensagens. Todas as mensagens devem estar em uma fila. Observe que o nome da fila deve estar em letras minúsculas. Para saber mais sobre filas de nomenclatura, confira [Nomenclatura de filas e metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - **Mensagem:** uma mensagem, em qualquer formato, de até 64 KB. O tempo máximo que uma mensagem pode ficar na fila é de sete dias.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

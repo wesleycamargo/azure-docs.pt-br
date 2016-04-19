@@ -20,7 +20,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [CLI do Azure](dns-getstarted-create-dnszone-cli.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
 
 
@@ -40,10 +40,10 @@ Instalar a CLI do Azure. Você pode instalar a CLI do Azure para Windows, Linux 
 
 
 >[AZURE.IMPORTANT] Os comandos DNS exigem a CLI do Azure versão 0.9.8 ou superior. Digite `azure -v`para verificar qual versão da CLI do Azure está instalada atualmente em seu computador.
- 
+
 ### Etapa 2
 
-O DNS do Azure usa o Gerenciador de Recursos do Azure. Configure a alternar CLI para usar comandos ARM e DNS.
+O DNS do Azure usa o Azure Resource Manager. Configure a alternar CLI para usar comandos ARM e DNS.
 
 	Azure config mode arm
 
@@ -68,7 +68,7 @@ Crie um grupo de recursos (pule esta etapa se você estiver usando um grupo de r
 
     Azure group create -n myresourcegroup --location "West US"
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de DNS são globais, não regionais, a escolha do local do grupo de recursos não afeta o DNS do Azure.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Ele é usado como o local padrão para os recursos do grupo de recursos em questão. No entanto, como todos os recursos de DNS são globais, não regionais, a escolha do local do grupo de recursos não afeta o DNS do Azure.
 
 ### Etapa 6
 
@@ -78,7 +78,7 @@ O serviço de DNS do Azure é gerenciado pelo provedor de recursos Microsoft.Net
 
 ## Marcas
 
-Marcas são diferentes das Etags. As marcas são uma lista de pares nome-valor e são usadas pelo Gerenciador de Recursos do Azure para fins de cobrança ou agrupamentos. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](resource-group-using-tags.md). A CLI do DNS do Azure dá suporte a marcas em zonas e conjuntos de registros especificados usando o parâmetro opcional “-Tag”. O exemplo a seguir mostra como criar uma zona DNS com duas marcas, “project = demo” e “env = test”:
+Marcas são diferentes das Etags. As marcas são uma lista de pares nome-valor e são usadas pelo Azure Resource Manager para fins de cobrança ou agrupamentos. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md). A CLI do DNS do Azure dá suporte a marcas em zonas e conjuntos de registros especificados usando o parâmetro opcional “-Tag”. O exemplo a seguir mostra como criar uma zona DNS com duas marcas, “project = demo” e “env = test”:
 
 	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
@@ -103,7 +103,7 @@ Para exibir esses registros, use "azure network dns-record-set show":
 
 
 No exemplo abaixo, executando o comando com o grupo de recursos "myresourcegroup", registre de nome do conjunto como "@" (para um registro raiz) e o tipo "SOA" produzirá a saída a seguir:
- 
+
 
 	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
@@ -169,6 +169,6 @@ O exemplo a seguir usa DIG para consultar o domínio contoso.com usando os servi
 
 ## Próximas etapas
 
-Após criar uma zona DNS, você precisa criar [conjuntos de registros e registros](dns-getstarted-create-recordset-cli.md) para iniciar a resolução de nomes para seu domínio da Internet.<BR> Você também pode aprender [como gerenciar as zonas DNS](dns-operations-dnszones-cli.md) e suas operações de zona DNS.<BR> Saiba [como gerenciar registros DNS](dns-operations-recordsets-cli.md) e [automatizar operações do Azure com o SDK do .NET](dns-sdk.md)<BR> [Referência da API REST do DNS do Azure.](https://msdn.microsoft.com/library/azure/mt163862.aspx)
+Após criar uma zona DNS, você precisa criar [conjuntos de registros e registros](dns-getstarted-create-recordset-cli.md) para iniciar a resolução de nomes do seu domínio da Internet.<BR> Você também pode aprender [como gerenciar as zonas DNS](dns-operations-dnszones-cli.md) e suas operações de zona DNS.<BR> Saiba [como gerenciar os registros DNS](dns-operations-recordsets-cli.md) e [automatizar as operações do Azure com o SDK do .NET](dns-sdk.md)<BR> [Referência da API REST do DNS do Azure.](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

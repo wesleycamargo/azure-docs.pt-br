@@ -15,8 +15,7 @@ O serviço Tabela contém os seguintes componentes:
 
 ![Tabela1][Table1]
 
--   **Formato da URL:** o código aborda as tabelas em uma conta usando o formato desse endereço:   
-    http://`<storage account>`.table.core.windows.net/`<table>`  
+-   **Formato da URL:** o código aborda as tabelas em uma conta usando o formato desse endereço: http://`<storage account>`.table.core.windows.net/`<table>'  
       
     Você pode endereçar as tabelas do Azure diretamente usando esse endereço com o protocolo OData. Para obter mais informações, consulte [OData.org][]
 
@@ -28,9 +27,9 @@ O serviço Tabela contém os seguintes componentes:
 
 -   **Propriedades**: uma propriedade é um par de nome-valor. Cada entidade pode incluir até 252 propriedades para armazenar dados. Cada entidade possui também 3 propriedades do sistema que especificam uma chave de partição, uma chave de linha e um carimbo de hora. As entidades com a mesma chave de partição podem ser consultadas mais rapidamente e inseridas/atualizadas em operações atômicas. A chave de linha de uma entidade é seu identificador exclusivo dentro de uma partição.
 
-
+Para obter detalhes sobre a nomenclatura de tabelas e propriedades, confira [Noções básicas sobre o modelo de dados do serviço Tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).
   
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
 
-<!----HONumber=Oct15_HO3--->
+<!---HONumber=AcomDC_0413_2016-->

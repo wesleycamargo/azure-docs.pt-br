@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/28/2016"
+	ms.date="04/06/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # O que é o Backup do Azure?
@@ -56,21 +56,20 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Agente de Backup do Azure (MARS) | <li>Pode fazer backup de arquivos e de pastas em um computador com o sistema operacional Windows, seja físico ou virtual (as VMs podem estar em qualquer lugar no local ou no Azure)<li>Nenhum servidor de backup separado necessário<li>Usa o Cofre de Backup do Azure | <li>Backup/restauração no nível de arquivo três <li>Restauração somente no nível de arquivo/pasta/volume, sem reconhecimento de aplicativo<li>Não há suporte para Linux | arquivos/pastas/volumes |
 | System Center Data Protection Manager | <li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Flexibilidade total para quando forem feitos backups<li>Granularidade de recuperação (todos)<li>Pode usar o Cofre de Backup Azure<li>Suporte para Linux (se hospedada no Hyper-V) | <li>Falta de suporte heterogêneo (backup de VM VMware, backup de cargas de trabalho do Oracle). | arquivos/pastas/volumes<br>/VMs/aplicativos |
 | Servidor de Backup do Microsoft Azure | <li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Flexibilidade total para quando forem feitos backups<li>Granularidade de recuperação (todos)<li>Pode usar o Cofre de Backup Azure<li>Suporte a Linux (se hospedado no Hyper-V)<li>Não exige uma licença do System Center | <li>Falta de suporte heterogêneo (backup de VM VMware, backup de cargas de trabalho do Oracle).<li>Sempre requer assinatura dinâmica do Azure<li>Não há suporte para backup em fita | arquivos/pastas/volumes<br>/VMs/aplicativos |
-| Backup de VM IaaS do Azure | <li>Backups nativos para Windows/Linux<li>Nenhuma instalação de agente específico necessária<li>Backup em nível de malha com nenhuma infraestrutura de backup necessária<li>Usa o Cofre de Backup do Azure | <li>Backup/restauração no nível do disco uma vez por dia<li>Não pode fazer backup no local | VMs<br>Discos individuais |
+| Backup de VM IaaS do Azure | <li>Backups nativos para Windows/Linux<li>Nenhuma instalação de agente específico necessária<li>Backup em nível de malha com nenhuma infraestrutura de backup necessária | <li>Backup/restauração no nível do disco uma vez por dia<li>Não pode fazer backup no local | VMs<br>Todos os discos (usando o PowerShell) |
 
 ## Quais aplicativos e cargas de trabalho podem passar por backup?
 
 | Carga de trabalho | Máquina de origem | Solução de Backup do Azure |
 | --- | --- |---|
-| Arquivos e pastas | Windows Server | <p>[Agente do Backup do Azure](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (mais o agente do Backup do Azure)</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
-| Arquivos e pastas | Windows Client | <p>[Agente do Backup do Azure](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (mais o agente do Backup do Azure)</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
+| Arquivos e pastas | Windows Server | <p>[Agente de Backup do Azure](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (mais o agente do Backup do Azure)</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
+| Arquivos e pastas | Windows Client | <p>[Agente de Backup do Azure](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (mais o agente do Backup do Azure)</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Máquina virtual do Hyper-V (Windows) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Máquina virtual do Hyper-V (Linux) | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
-| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
-| VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
+| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) | | VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
 
 ## Suporte para ARM e para Linux
 
@@ -79,7 +78,7 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Agente de Backup do Azure (MARS) | Sim | Não (somente agente baseado no Windows) |
 | System Center Data Protection Manager | Sim (agente em convidado) | Somente Hyper-V (VM que não seja do Azure) Somente o backup consistente com arquivo é possível |
 | Servidor de Backup do Azure (MABS) | Sim (agente em convidado) | Somente Hyper-V (VM que não seja do Azure) Somente o backup consistente com arquivo é possível (igual ao DPM) |
-| Backup de VM IaaS do Azure | Em breve | Em breve - VMs Linux V2 <br><br>(consistência no nível do sistema de arquivos) |
+| Backup de VM IaaS do Azure | Em visualização pública | Em visualização pública - VMs do Linux no modelo de implantação do Gerenciador de Recursos <br>(consistência no nível do sistema de arquivos)<br><br>Sim para VMs do Linux no modelo de implantação clássico |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -211,4 +210,4 @@ Como esses tutoriais ajudam a fazer backup rapidamente, eles mostram somente o c
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

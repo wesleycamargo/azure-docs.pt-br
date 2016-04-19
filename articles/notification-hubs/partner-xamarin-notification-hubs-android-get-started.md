@@ -39,7 +39,7 @@ O código completo para este tutorial pode ser encontrado no GitHub [aqui](https
 
 Este tutorial exige o seguinte:
 
-+ [Xamarin.Android]
++ Visual Studio com Xamarin no Windows ou Xamarin Studio no Mac OS X. Encontre instruções de instalação completas em [Configurar e instalar para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 + Conta ativa do Google
 + [Componente de mensagens do Azure]
 + [Componente de mensagens de nuvem do Google]
@@ -517,8 +517,7 @@ Neste exemplo simples, você envia notificações para todos os seus dispositivo
 [GCMClient Component page]: http://components.xamarin.com/view/GCMClient
 [Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
-[Xamarin.Android]: http://xamarin.com/download/
 [Componente de mensagens de nuvem do Google]: http://components.xamarin.com/view/GCMClient/
 [Componente de mensagens do Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

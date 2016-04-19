@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
- 	ms.date="03/28/2016" 
+ 	ms.date="04/07/2016" 
 	ms.author="juliako"/>
 
 
@@ -24,11 +24,10 @@
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
-Os Serviços de Mídia do Microsoft Azure permitem fornecer fluxos criptografados MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com licenças do [DRM do Microsoft PlayReady](https://www.microsoft.com/playready/overview/). Também habilitam o fornecimento de fluxos DASH criptografados com licenças DRM do Widevine. PlayReady e Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC). Você pode usar o [SDK do .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration para usar o Widevine.
+Os Serviços de Mídia do Microsoft Azure permitem fornecer fluxos MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com o [DRM do Microsoft PlayReady](https://www.microsoft.com/playready/overview/). Também habilitam o fornecimento de fluxos DASH criptografados com licenças DRM do Widevine. PlayReady e Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC). Você pode usar o [SDK do .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration para usar o Widevine.
 
-Os Serviços de Mídia fornecem um serviço de distribuição de licenças do Microsoft PlayReady. Os Serviços de Mídia também fornecem APIs que permitem que você configure os direitos e restrições que você deseja que sejam impostos pelo tempo de execução do DRM do PlayReady quando um usuário reproduz conteúdo protegido. Quando um usuário solicita conteúdo protegido do PlayReady, o aplicativo player solicita uma licença do serviço de licença AMS. O serviço de licença AMS emitirá uma licença para o player se ele estiver autorizado. Uma licença do PlayReady contém a chave de descriptografia que pode ser usada pelo player cliente para descriptografar e transmitir o conteúdo.
+Os Serviços de Mídia fornecem um serviço para entregar licenças DRM do PlayReady e do Widevine. Os Serviços de Mídia também fornecem APIs que permitem que você configure os direitos e restrições que você deseja que sejam impostos pelo tempo de execução do DRM do PlayReady ou do Widevine quando um usuário reproduz conteúdo protegido. Quando um usuário solicitar conteúdo protegido por DRM, o aplicativo player solicitará uma licença do serviço de licença AMS. O serviço de licença AMS emitirá uma licença para o player se ele estiver autorizado. Uma licença do PlayReady ou do Widevine contém a chave de descriptografia que pode ser usada pelo player cliente para descriptografar e transmitir o conteúdo.
 
-A partir da versão 3.5.2 do SDK do .NET dos Serviços de Mídia, os Serviços de Mídia também permitem que você configure um modelo de licença do Widevine e obtenha licenças do Widevine.
 
 Você também pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças do Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/). Para saber mais, consulte: integração com [Axinom](media-services-axinom-integration.md) e [castLabs](media-services-castlabs-integration.md).
 
@@ -630,4 +629,4 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 
 [Anunciando os serviços de entrega de licenças do Google Widevine nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -75,7 +75,7 @@ Na folha **Criar Máquina Virtual**, em **Noções Básicas**, forneça as segui
 >![Noções Básicas do SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-basic.png) <br/>
 
 ## 2\. Escolher o tamanho da máquina virtual
-Na folha **Criar Máquina Virtual**, em **Tamanho**, escolha um tamanho de máquina virtual. O Portal do Azure exibirá os tamanhos recomendados. Para saber mais sobre os tamanhos de máquinas virtuais, confira [Tamanhos de máquinas virtuais](virtual-machines-linux-sizes.md). Os tamanhos têm base no modelo selecionado. O tamanho calcula o custo mensal para execução da VM. Selecione um tamanho de VM para seu servidor. Para saber mais sobre os tamanhos de VM do SQL Server, confira as [Práticas recomendadas de desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-sql-perf.md).
+Na folha **Criar Máquina Virtual**, em **Tamanho**, escolha um tamanho de máquina virtual. O Portal do Azure exibirá os tamanhos recomendados. Para saber mais sobre os tamanhos de máquinas virtuais, confira [Tamanhos de máquinas virtuais](virtual-machines-linux-sizes.md). Os tamanhos têm base no modelo selecionado. O tamanho calcula o custo mensal para execução da VM. Selecione um tamanho de VM para seu servidor. Para saber mais sobre os tamanhos de VM do SQL Server, confira as [Práticas recomendadas de desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md).
 
 ## 3\. Definir as configurações da máquina virtual
 Na folha **Criar Máquina Virtual**, em **Configurações**, configure o armazenamento do Azure, a rede e o monitoramento para a máquina virtual.
@@ -146,7 +146,7 @@ A **Aplicação de patch automatizada do SQL** está habilitada por padrão. A a
 
 <br/>![Aplicação de Patch do SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png) <br/>
 
-Para saber mais, confira [Aplicação de patch automatizada para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-ps-sql-patch.md).
+Para saber mais, confira [Aplicação de patch automatizada para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-sql-automated-patching.md).
 
 ### Backups
 Habilite backups automáticos de banco de dados para todos os bancos de dados em **Backup automatizado do SQL**. Ao habilitar o backup automatizado do SQL, é possível configurar o seguinte:
@@ -157,7 +157,7 @@ Habilite backups automáticos de banco de dados para todos os bancos de dados em
 
 <br/>![Backup do SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png) <br/>
 
- Para obter mais informações, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-backup.md).
+ Para obter mais informações, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ### Integração do Cofre da Chave
 Para armazenar segredos de segurança no Azure para criptografia, clique em **Integração do cofre de chaves do Azure** e clique em **Habilitar**.
@@ -201,6 +201,6 @@ As etapas a seguir não serão necessárias se você só precisar acessar a Máq
 > [AZURE.INCLUDE [Conectar-se ao SQL Server em um Gerenciador de Recursos de VM](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ##<a id="Next">Próximas etapas
-Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
+Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

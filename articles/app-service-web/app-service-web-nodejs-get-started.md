@@ -3,7 +3,7 @@
 	description="Saiba como implantar um aplicativo do Node.js em um aplicativo Web no Serviço de Aplicativo do Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="rmcmurray"
+	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
@@ -27,8 +27,6 @@
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
 Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) simples e implantá-lo em um [aplicativo Web](app-service-web-overview.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) em uma linha de comando como cmd.exe ou bash. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o Node.js.
-
-[aplicativos Web do Serviço de Aplicativo do Azure](/services/app-service/web/)
 
 <a name="prereq"/>
 ## Pré-requisitos
@@ -211,4 +209,4 @@ Para habilitar o Node-Inspector, siga estas etapas:
 - [Centro de Desenvolvedores do Node.js](/develop/nodejs/)
 - [Introdução a aplicativos Web no Serviço de Aplicativo do Azure](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -75,7 +75,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 	![Captura de tela que mostra os tamanhos de VM do Azure que você pode selecionar](./media/virtual-machines-windows-hero-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE] O Armazenamento Premium está disponível para máquinas virtuais de série DS em determinadas regiões. O Armazenamento Premium é a melhor opção de armazenamento para cargas de trabalho de uso intensivo de dados, como um banco de dados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage-preview-portal.md).
+	>[AZURE.NOTE] O Armazenamento Premium está disponível para máquinas virtuais de série DS em determinadas regiões. O Armazenamento Premium é a melhor opção de armazenamento para cargas de trabalho de uso intensivo de dados, como um banco de dados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage.md).
 
 3. Clique em **Configurações** para ver as configurações de rede e o armazenamento da nova máquina virtual. Para uma primeira máquina virtual, geralmente você pode aceitar as configurações padrão. Se tiver selecionado um tamanho de máquina virtual compatível, você poderá experimentar o Armazenamento Premium, selecionando **Premium (SSD)** em **Tipo de disco**.
 
@@ -117,4 +117,4 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 * Automatize a máquina virtual e a implantação, bem como o gerenciamento da carga de trabalho, usando os [modelos do Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 * Você pode também [criar uma máquina virtual do Linux](virtual-machines-linux-quick-create-cli.md) rapidamente usando a CLI do Azure.
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

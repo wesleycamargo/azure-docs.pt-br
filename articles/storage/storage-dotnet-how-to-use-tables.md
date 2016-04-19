@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/27/2016"
+	ms.date="04/07/2016"
 	ms.author="tamram"/>
 
 
@@ -27,7 +27,18 @@ O Armazenamento de Tabelas do Azure é um serviço que armazena dados NoSQL estr
 
 Você pode usar o armazenamento de tabela para armazenar conjuntos de dados flexíveis, como dados de usuário para aplicativos web, catálogos de endereços, informações sobre dispositivos e qualquer outro tipo de metadados que o serviço requeira. Você pode armazenar qualquer número de entidades em uma tabela e uma conta de armazenamento pode conter um número ilimitado de tabelas, até o limite de capacidade da conta de armazenamento.
 
+### Sobre este tutorial
+
 Este tutorial mostra como gravar código .NET para alguns cenários comuns usando o armazenamento de Tabelas do Azure, incluindo a criação e a exclusão de uma tabela e a inserção, a atualização, a exclusão e a consulta de dados de tabela.
+
+**Tempo estimado para conclusão:** 45 minutos
+
+**Pré-requisitos:**
+
+- [Microsoft Visual Studio](https://www.visualstudio.com/pt-BR/visual-studio-homepage-vs.aspx)
+- [Biblioteca do Cliente de Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+- [Gerenciador de configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+- Uma [conta de armazenamento do Azure](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -35,36 +46,42 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## Acessar programaticamente o armazenamento de tabela
+### Adicionar declarações do namespace
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+Adicione as seguintes instruções `using` na parte superior do arquivo `program.cs`:
 
-### Declarações de namespace
-Adicione as seguintes declarações de namespace de código à parte superior de qualquer arquivo C# no qual você deseja acessar o Armazenamento do Azure por meio de programação.
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
-    using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Table;
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-Certifique-se de fazer referência ao assembly `Microsoft.WindowsAzure.Storage.dll`.
+### Criar o cliente do serviço Tabela
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
+A classe **CloudTableClient** permite que você recupere tabelas e entidades armazenadas no Armazenamento de Tabelas. Adicione o seguinte código ao final do método **Main()**:
+
+	// Create the table client.
+	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+Agora você está pronto para escrever um código que lê e grava dados no Armazenamento de Tabelas.
 
 ## Criar uma tabela
 
-Um objeto **CloudTableClient** permite obter os objetos de referência para tabelas e entidades. O código a seguir cria um objeto **CloudTableClient** e o utiliza para criar uma nova tabela. Todos os códigos deste artigo pressupõem que o aplicativo que está sendo criado é um projeto dos Serviços de Nuvem do Azure e usa uma cadeia de conexão de armazenamento armazenada na configuração de serviço do aplicativo do Azure.
+Este exemplo mostra como criar uma tabela se ela ainda não existe:
 
-    // Retrieve the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	// Retrieve the storage account from the connection string.
+	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	
+	// Create the table client.
+	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-    // Create the table if it doesn't exist.
+	// Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
+		
+    // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
 ## Adicionar uma entidade a uma tabela
@@ -444,4 +461,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

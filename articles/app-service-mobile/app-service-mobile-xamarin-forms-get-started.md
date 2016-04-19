@@ -32,10 +32,10 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 aplicativos móveis gratuitos que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] ou posterior. Se você instalar o Visual Studio Community 2013, instale o [Xamarin] separadamente. Você pode instalar as ferramentas Xamarin quando você instala o Visual Studio de 2015.
+* Visual Studio com Xamarin. Confira [Configuração e instalação para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) para obter instruções.
 
-* Um Mac com [Xcode] v7.0 ou posterior e [Xamarin Studio] instalados. Se você planeja criar seu aplicativo em um computador com Windows usando o Visual Studio, você ainda precisará acessar um Mac em rede para fazê-lo.
-
+* Um Mac com Xcode v7.0 ou posterior e o Xamarin Studio Community instalados. Confira [Configuração e instalação para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) e [Configuração, instalação e verificações para usuários do Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
+ 
 >[AZURE.NOTE] Se você desejar uma introdução ao Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile), onde poderá criar imediatamente um Aplicativo Móvel inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Criar um novo back-end de aplicativo móvel do Azure
@@ -63,13 +63,9 @@ Se você tiver escolhido uma configuração de back-end .NET acima, também pode
 
 ##Baixar e executar a solução de Xamarin.Forms
 
-Aqui, você tem algumas opções. Você pode baixar a solução em um Mac e abri-la no Xamarin Studio, ou você pode baixar a solução para um computador com Windows e abri-la no Visual Studio. Você também pode usar ambos os ambientes e alternar entre eles. Considere estas coisas:
+Aqui, você tem algumas opções. Você pode baixar a solução em um Mac e abri-la no Xamarin Studio, ou pode baixar a solução para um computador com Windows e abri-la no Visual Studio usando um Mac em rede para compilar o aplicativo para iOS. Novamente, confira [Configuração e instalação para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
 
-* É mais fácil de executar o projeto do iOS de sua solução em um Mac. Você pode usar o Visual Studio no computador com o Windows se quiser, mas é um pouco mais complicado porque você precisa se conectar a um Mac em rede. Se você estiver interessado em fazer isso, consulte [Instalando o Xamarin.iOS no Windows].
-* Você pode executar o projeto Android em seu Mac ou seu computador Windows.
-* Você pode executar os projetos do Windows somente usando o Visual Studio em um computador Windows.
-
-Com isso em mente, vamos continuar.
+Vamos continuar:
 
  1. Em seu Mac ou em seu computador com o Windows, abra o [Portal do Azure] em uma janela do navegador.
  2. Na folha configurações do seu Aplicativo Móvel, clique em **Introdução** (em Celular) > **Xamarin.Forms**. Na etapa 3, clique em **Criar um novo aplicativo** se essa opção ainda não tiver sido selecionada. Em seguida, clique no botão **Baixar**.
@@ -172,11 +168,4 @@ Você encontrará o código que acessa o back-end do aplicativo móvel no arquiv
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal do Azure]: https://portal.azure.com/
 
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xamarin]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-[Instalando o Xamarin.iOS no Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -88,9 +88,11 @@ Nesta seção, você criará um aplicativo do console do Java que cria uma nova 
 
 ## Receber mensagens do dispositivo para a nuvem
 
-Nesta seção, você cria um aplicativo do console do Java que lê mensagens do dispositivo para a nuvem do Hub IoT. Um hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs-overview] para permitir que você leia mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-processd2c-tutorial] mostra como processar mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] oferece informações adicionais sobre como processar mensagens de Hubs de Eventos e se aplica aos pontos de extremidade compatíveis com o Hub de Eventos Hub IoT.
+Nesta seção, você cria um aplicativo do console do Java que lê mensagens do dispositivo para a nuvem do Hub IoT. Um hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs-overview] para permitir que você leia mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-processd2c-tutorial] mostra como processar as mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] oferece informações adicionais sobre como processar as mensagens dos Hubs de Eventos e é aplicável aos pontos de extremidade compatíveis com o Hub de Eventos Hub IoT.
 
-1. Na pasta iot-java-get-started, criada na seção *Criar uma identidade de dispositivo*, crie um novo projeto Maven chamado **read-d2c-messages** usando o comando a seguir no prompt de comando. Observe que é um comando único e longo:
+> [AZURE.NOTE] O ponto de extremidade compatível com os Hubs de Eventos para ler mensagens do dispositivo para a nuvem sempre usa o protocolo AMQPS.
+
+1. Na pasta iot-java-get-started criada na seção *Criar uma identidade de dispositivo*, crie um novo projeto Maven denominado **read-d2c-messages** usando o comando a seguir no prompt de comando. Observe que é um comando único e longo:
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -125,14 +127,14 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     import com.microsoft.eventhubs.client.ConnectionStringBuilder;
     ```
 
-7. Adicione as seguintes variáveis de nível de classe à classe **App**:
+7. Adicione as seguintes variáveis no nível da classe à classe **App**:
 
     ```
     private static EventHubClient client;
     private static long now = System.currentTimeMillis();
     ```
 
-8. Adicione a classe aninhada a seguir à classe **App**. O aplicativo cria dois threads para executar o **MessageReceiver** para ler mensagens de duas partições no Hub de Eventos:
+8. Adicione a classe aninhada a seguir à classe **App**. O aplicativo cria dois threads para executar o **MessageReceiver** para ler as mensagens das duas partições no Hub de Eventos:
 
     ```
     private static class MessageReceiver implements Runnable
@@ -142,7 +144,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     }
     ```
 
-9. Adicione o construtor a seguir à classe **MessageReceiver**:
+9. Adicione o seguinte construtor à classe **MessageReceiver**:
 
     ```
     public MessageReceiver(String partitionId) {
@@ -150,7 +152,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     }
     ```
 
-10. Adicione o método **run** a seguir à classe **MessageReceiver**. Esse método cria uma instância de **EventHubReceiver** para ler de uma partição de Hub de Eventos. Ele repetirá continuamente um loop e exibirá detalhes da mensagem no console até que **stopThread** seja verdadeiro.
+10. Adicione o método **run** a seguir à classe **MessageReceiver**. Esse método cria uma instância de **EventHubReceiver** para ler em uma partição do Hub de Eventos. Ele repetirá continuamente um loop e exibirá detalhes da mensagem no console até que **stopThread** seja verdadeiro.
 
     ```
     public void run() {
@@ -173,7 +175,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     }
     ```
 
-    > [AZURE.NOTE] Esse método usa um filtro ao criar o receptor para que o receptor leia apenas as mensagens enviadas para o Hub IoT após o início da execução do receptor. Isso será útil em um ambiente de teste para que você possa ver o conjunto de mensagens atual, mas em um ambiente de produção, seu código deverá garantir o processamento de todas as mensagens - veja o tutorial [Como processar mensagens do dispositivo para a nuvem do Hub IoT][lnk-processd2c-tutorial] para saber mais.
+    > [AZURE.NOTE] Esse método usa um filtro ao criar o receptor para que o receptor leia apenas as mensagens enviadas para o Hub IoT após o início da execução do receptor. Isso será útil em um ambiente de teste para que você possa ver o conjunto de mensagens atual, mas em um ambiente de produção, seu código deverá garantir o processamento de todas as mensagens - consulte o tutorial [Como processar as mensagens do dispositivo para a nuvem do Hub IoT][lnk-processd2c-tutorial] para saber mais.
 
 11. Modifique a assinatura do método **main** para incluir as exceções mostradas abaixo:
 
@@ -181,7 +183,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     public static void main( String[] args ) throws IOException
     ```
 
-12. Adicione o método a seguir ao método **main** da classe **App**. Esse código cria uma instância de **EventHubClient** para se conectar ao ponto de extremidade compatível com o Hub de Eventos no hub IoT. Em seguida, ele cria dois threads para ler as duas partições. Substitua **{youriothubkey}**, **{youreventhubcompatiblenamespace}** e **{youreventhubcompatiblename}** pelos valores anotados anteriormente. O valor do espaço reservado **{youreventhubcompatiblenamespace}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **xxxxnamespace** (em outras palavras, remova o prefixo ****sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal).
+12. Adicione o código a seguir ao método **main** na classe **App**. Esse código cria uma instância de **EventHubClient** para conectar o ponto de extremidade compatível com o Hub de Eventos no Hub IoT. Em seguida, ele cria dois threads para ler as duas partições. Substitua **{suachavehubiot}**, **{namespacecompatívelcom seuhubdeeventos}** e **{nomecompatívelcomseuhub deeventos}** pelos valores anotados anteriormente. O valor do espaço reservado **{namespacecompatívelcom seuhubdeeventos}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **xxxxnamespace** (em outras palavras, remova o prefixo ****sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal).
 
     ```
     String policyName = "iothubowner";
@@ -209,7 +211,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     client.close();
     ```
 
-    > [AZURE.NOTE] Esse código pressupõe que você tenha criado seu hub IoT na camada F1 (gratuita). Um hub IoT gratuito tem duas partições chamadas "0" e "1". Se você tiver criado o hub IoT usando um dos outros tipos de preços, deverá ajustar o código para criar um **MessageReceiver** para cada partição.
+    > [AZURE.NOTE] Esse código pressupõe que você tenha criado seu hub IoT na camada F1 (gratuita). Um hub IoT gratuito tem duas partições chamadas "0" e "1". Se você criou o Hub IoT usando uma das outras camadas de preço, deverá ajustar o código para criar um **MessageReceiver** para cada partição.
 
 13. Salve e feche o arquivo App.java.
 
@@ -223,9 +225,9 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

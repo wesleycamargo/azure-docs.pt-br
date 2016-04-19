@@ -86,9 +86,4 @@ Essa script cria um novo servidor. Quando você receber uma solicitação por um
 - [Gerenciar o pool](sql-database-elastic-pool-manage-powershell.md)
 - [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados no pool.
 
-
-## Referência de banco de dados elástico
-
-Para saber mais sobre bancos de dados elásticos e sobre pools de banco de dados elásticos, confira a [Referência de banco de dados elásticos](sql-database-elastic-pool-reference.md).
-
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->
