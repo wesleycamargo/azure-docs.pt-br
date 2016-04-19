@@ -24,7 +24,7 @@ Ao longo dos anos, as ferramentas de integração de diretório cresceram e evol
 
 >[AZURE.NOTE] O Azure AD Connect incorpora componentes e funcionalidades lançados anteriormente como Dirsync e AAD Sync. Essas ferramentas não são mais lançadas individualmente e todas as melhorias futuras serão incluídas nas atualizações do Azure AD Connect, para que você sempre saiba onde obter a funcionalidade mais atual.
 >
->DirSync e Azure AD Sync foram preteridos. Para saber mais, confira [Atualizar Windows Azure Active Directory Sync ("DirSync") e o Azure Active Directory Sync ("Azure AD Sync")](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
+>DirSync e Azure AD Sync foram preteridos. Para saber mais, confira [Atualizar Windows Azure Active Directory Sync ("DirSync") e o Azure Active Directory Sync ("Azure AD Sync")]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
 
 
 Use a seguinte chave para cada uma das tabelas.
@@ -94,4 +94,4 @@ Permitir a personalização avançada para fluxos de atributo | ● | ● | | �
 ## Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0413_2016--->

@@ -183,7 +183,7 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
     public static void main( String[] args ) throws IOException
     ```
 
-12. Adicione o código a seguir ao método **main** na classe **App**. Esse código cria uma instância de **EventHubClient** para conectar o ponto de extremidade compatível com o Hub de Eventos no Hub IoT. Em seguida, ele cria dois threads para ler as duas partições. Substitua **{suachavehubiot}**, **{namespacecompatívelcom seuhubdeeventos}** e **{nomecompatívelcomseuhub deeventos}** pelos valores anotados anteriormente. O valor do espaço reservado **{namespacecompatívelcom seuhubdeeventos}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **xxxxnamespace** (em outras palavras, remova o prefixo ****sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal).
+12. Adicione o código a seguir ao método **main** na classe **App**. Esse código cria uma instância de **EventHubClient** para conectar o ponto de extremidade compatível com o Hub de Eventos no Hub IoT. Em seguida, ele cria dois threads para ler as duas partições. Substitua **{suachavehubiot}**, **{namespacecompatívelcom seuhubdeeventos}** e **{nomecompatívelcomseuhub deeventos}** pelos valores anotados anteriormente. O valor do espaço reservado **{namespacecompatívelcom seuhubdeeventos}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **xxxxnamespace** (em outras palavras, remova o prefixo **sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal).
 
     ```
     String policyName = "iothubowner";
