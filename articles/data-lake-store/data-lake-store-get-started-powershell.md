@@ -13,17 +13,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="04/07/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Usando o Portal](data-lake-store-get-started-portal.md)
-- [Usando o PowerShell](data-lake-store-get-started-powershell.md)
-- [Usando o SDK .NET](data-lake-store-get-started-net-sdk.md)
-- [Usando a CLI do Azure](data-lake-store-get-started-cli.md)
-- [Usando o Node.js](data-lake-store-manage-use-nodejs.md)
+- [Portal](data-lake-store-get-started-portal.md)
+- [PowerShell](data-lake-store-get-started-powershell.md)
+- [SDK .NET](data-lake-store-get-started-net-sdk.md)
+- [Java SDK](data-lake-store-get-started-java-sdk.md)
+- [API REST](data-lake-store-get-started-rest-api.md)
+- [CLI do Azure](data-lake-store-get-started-cli.md)
+- [Node.js](data-lake-store-manage-use-nodejs.md)
 
 Saiba como usar o Azure PowerShell para criar uma conta do Repositório Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para obter mais informações sobre o Repositório Data Lake, veja [Visão geral do Repositório Data Lake](data-lake-store-overview.md).
 
@@ -37,7 +39,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ##Instalar o Azure PowerShell 1.0 ou superior
 
-Consulte a seção de pré-requisitos em [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+Consulte a seção Pré-requisito em [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
 
 ## Criar uma conta do Repositório Azure Data Lake
 
@@ -133,17 +135,10 @@ Use o comando a seguir para excluir sua conta do Repositório Data Lake.
 Quando solicitado, insira **Y** para excluir a conta.
 
 
-## Outras maneiras de criar uma conta do Repositório Data Lake
-
-- [Introdução ao Repositório Data Lake usando o Portal](data-lake-store-get-started-portal.md)
-- [Introdução ao Repositório Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
-- [Introdução ao Repositório Data Lake usando o SDK do CLI](data-lake-store-get-started-cli.md)
-
-
 ## Próximas etapas
 
 - [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

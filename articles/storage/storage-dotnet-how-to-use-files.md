@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="03/03/2016"
+	  ms.date="04/07/2016"
       ms.author="minet" />
 
 # Introdução ao Armazenamento de Arquivos do Azure no Windows
@@ -172,10 +172,12 @@ Agora, carregue um arquivo local no diretório. O exemplo a seguir carrega um ar
 
 ### Listar os arquivos no diretório
 
-Para ver o arquivo no diretório, você pode listar os arquivos do diretório. Esse comando também listará os subdiretórios, mas como não há um subdiretório neste exemplo, somente o arquivo será listado.
+Para ver o arquivo no diretório, você pode listar todos os arquivos do diretório. Esse comando retorna os arquivos e subdiretórios (se houver) no diretório CustomLogs.
 
 	# list files in the new directory
-	Get-AzureStorageFile -Share $s -Path CustomLogs
+	Get-AzureStorageFile -Share $s -Path CustomLogs | Get-AzureStorageFile
+
+Get-AzureStorageFile retorna uma lista de arquivos e diretórios para qualquer objeto de diretório que é passado. "Get-AzureStorageFile -Share $s" retorna uma lista de arquivos e diretórios no diretório raiz. Para obter uma lista de arquivos em um subdiretório, você precisa passar o subdiretório para Get-AzureStorageFile. É o que isso faz: a primeira parte do comando até o pipe retorna uma instância de diretório do subdiretório CustomLogs. Em seguida, ela é passada para Get-AzureStorageFile, que retorna os arquivos e diretórios em CustomLogs.
 
 ### Copiar arquivos
 
@@ -266,21 +268,14 @@ Para trabalhar com o armazenamento de arquivos programaticamente, você pode usa
 
 ### Adicionar declarações do namespace
 
-Abra o arquivo program.cs no Gerenciador de Soluções e adicione as seguintes declarações de namespace à parte superior do arquivo.
+Abra o arquivo `program.cs` no Gerenciador de Soluções e adicione as seguintes declarações de namespace à parte superior do arquivo.
 
 	using Microsoft.Azure; // Namespace for Azure Configuration Manager
-	using Microsoft.WindowsAzure.Storage; // Namespaces for Storage Client Library
-	using Microsoft.WindowsAzure.Storage.Blob;
-	using Microsoft.WindowsAzure.Storage.File;
+	using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
+	using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage
+	using Microsoft.WindowsAzure.Storage.File; // Namespace for File storage
 
-### Recuperar sua cadeia de conexão programaticamente
-
-Você pode recuperar suas credenciais salvas por meio do arquivo app.config usando a classe `Microsoft.WindowsAzure.CloudConfigurationManager` ou a classe `System.Configuration.ConfigurationManager `. O pacote do Gerenciador de Configuração do Microsoft Azure, que inclui a classe `Microsoft.WindowsAzure.CloudConfigurationManager`, está disponível no [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager).
-
-O exemplo aqui mostra como recuperar suas credenciais usando a classe `CloudConfigurationManager` e encapsulá-las com a classe `CloudStorageAccount`. Adicione o código a seguir ao método `Main()` em program.cs.
-
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Acessar o compartilhamento de arquivos programaticamente
 
@@ -647,4 +642,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

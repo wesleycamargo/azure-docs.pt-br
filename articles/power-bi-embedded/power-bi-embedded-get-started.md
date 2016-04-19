@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introdução ao Microsoft Power BI Embedded Preview"
-   description="With Power BI Embedded, you can add interactive Power BI reports into your application."
+   description="Introdução ao Microsoft Power BI Embedded Preview"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -74,13 +74,11 @@ Agora que você tem uma instância do Power BI para seu aplicativo e as **Chaves
 
 ## Criar relatórios e conjuntos de dados do Power BI para inserir em um aplicativo
 
-Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisa criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, para começar rapidamente, você pode baixar o [Exemplo PBIX da Análise de Dados de Vendas](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix). Para saber mais sobre como usar o **Power BI Desktop**, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/pt-BR/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
-
-> [AZURE.NOTE] Para saber como o PBIX de Análise de Dados de Vendas foi criado, confira [Tutorial: analisando dados de vendas do Excel e de um feed OData](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-desktop-tutorial-analyzing-sales-data-from-excel-and-an-odata-feed).
+Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisa criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, para começar rapidamente, você pode baixar o [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) (PBIX de exemplo de análise de varejo). Para saber mais sobre como usar o **Power BI Desktop**, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Com o **Power BI Desktop**, você se conecta à fonte de dados importando uma cópia dos dados para o **Power BI Desktop** ou se conectando diretamente à fonte de dados usando o **DirectQuery**.
 
-Aqui estão as diferenças entre o uso de **Importar** e **DirectQuery**.
+Estas são as diferenças entre o uso de **Importar** e **DirectQuery**.
 
 |Importar | DirectQuery
 |---|---
@@ -90,10 +88,10 @@ Para saber mais sobre como se conectar a uma fonte de dados, confira [Conectar-s
 
 Depois de salvar seu trabalho no **Power BI Desktop**, um arquivo PBIX será criado. Esse arquivo contém o relatório. Além disso, se você importar dados, o PBIX conterá o conjunto de dados completo, mas se usar o **DirectQuery**, o PBIX conterá apenas um esquema de conjunto de dados. Implante o PBIX em seu espaço de trabalho programaticamente usando a [API de importação do Power BI](https://msdn.microsoft.com/library/mt711504.aspx).
 
-> [AZURE.NOTE] O **Power BI Embedded** tem APIs adicionais para alterar o servidor e o banco de dados para onde seu conjunto de dados está apontando e para definir uma credencial da conta de serviço que o conjunto de dados usará a fim de se conectar ao banco de dados. Confira [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) e [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
+> [AZURE.NOTE] O **Power BI Embedded** tem APIs adicionais para alterar o servidor e o banco de dados para onde seu conjunto de dados está apontando e para definir uma credencial da conta de serviço que o conjunto de dados usará a fim de se conectar ao banco de dados. Confira [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) e [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx) (Correção de fonte de dados do gateway).
 
 ## Próximas etapas
-Nas etapas anteriores, você criou uma coleção de espaços de trabalho, o primeiro relatório e o primeiro conjunto de dados. Agora é hora de aprender a escrever código para o **Power BI Embedded**. Para ajudá-lo a começar, criamos um aplicativo Web de exemplo: [Introdução a exemplos](power-bi-embedded-get-started-sample.md). O exemplo mostra a você como:
+Nas etapas anteriores, você criou uma coleção de espaços de trabalho, o primeiro relatório e o primeiro conjunto de dados. Agora é hora de aprender a escrever código para o **Power BI Embedded**. Para ajudar você a começar, criamos um aplicativo Web de exemplo: [Introdução a exemplos](power-bi-embedded-get-started-sample.md). O exemplo mostra a você como:
 
   -	Provisionar conteúdo
       - Criar um espaço de trabalho
@@ -109,4 +107,4 @@ Nas etapas anteriores, você criou uma coleção de espaços de trabalho, o prim
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Preço do Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

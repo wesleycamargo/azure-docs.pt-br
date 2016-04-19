@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="03/15/2016"
+	ms.date="04/11/2016"
 	ms.author="wesmc"/>
 
 # Como enviar notificações por push para Android com Hubs de Notificação do Azure
@@ -26,14 +26,9 @@
 
 Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um aplicativo Android. Você criará um aplicativo para Android em branco que recebe notificações por push usando o GCM(Google Cloud Messaging).
 
-Siga o [tutorial de marcação](./notification-hubs-routing-tag-expressions.md) para aprender a usar os Hubs de Notificação para enviar notificações por push direcionadas.
-
-
-## Antes de começar
-
 [AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-O código completo para este tutorial pode ser encontrado no GitHub [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
+O código completo para este tutorial pode ser baixado no GitHub [clicando aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
 
 
 ##Pré-requisitos
@@ -53,7 +48,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 
-&emsp;&emsp;7. Na folha **Configurações**, selecione **Serviços de Notificação** e **Google (GCM)**. Insira a chave de API e salve.
+&emsp;&emsp;6. Na folha **Configurações**, selecione **Serviços de Notificação** e **Google (GCM)**. Insira a chave de API e clique em **Salvar**.
 
 &emsp;&emsp;![Hubs de Notificação do Azure - Google (GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
@@ -71,15 +66,15 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 
    	![Android Studio - fluxo de trabalho de criação de projeto][14]
 
-3. Escolha **Atividade em Branco** para a atividade principal, clique em **Avançar** e em **Concluir**.
+3. Escolha **Atividade Vazia** para a atividade principal, clique em **Avançar** e em **Concluir**.
 
 ###Adicionar serviços do Google Play ao projeto
 
 [AZURE.INCLUDE [Adicionar Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
-###Incluir código
+###Como adicionar bibliotecas dos Hubs de Notificação do Azure
 
-1. Baixe o arquivo `notification-hubs-0.4.jar` da guia **Arquivos** do [Notification-Hubs-Android-SDK no Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Arraste os arquivos diretamente para a pasta **libs** na janela Exibição do Projeto do Android Studio. Em seguida, clique no arquivo com o botão direito do mouse e clique em **Adicionar como biblioteca**.
+1. Baixe o arquivo `notification-hubs-0.4.jar` da guia **Arquivos** do [Notification-Hubs-Android-SDK no Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Arraste o arquivo até a pasta **libs** do diretório de seu projeto.
 
 2. No arquivo `Build.Gradle` para o **aplicativo**, adicione a linha a seguir à seção **dependências**.
 
@@ -93,9 +88,46 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 		    }
 		}
 
-3. Configure o aplicativo para obter uma ID de registro do GCM e use-o para registrar a instância do aplicativo no hub de notificação.
+### Atualização do arquivo AndroidManifest.xml.
 
-	No arquivo `AndroidManifest.xml`, adicione a linha a seguir abaixo da marca `</application>`. Substitua `<your package>` pelo nome do pacote mostrado na parte superior do arquivo `AndroidManifest.xml` (`com.example.testnotificationhubs` neste exemplo).
+
+1. Para oferecer suporte a GCM, devemos implementar um serviço de escuta de ID da Instância em nosso código que será usado para [obter tokens do registro](https://developers.google.com/cloud-messaging/android/client#sample-register) usando a [API de ID da Instância do Google](https://developers.google.com/instance-id/). Neste tutorial, daremos um nome à classe `MyInstanceIDService`: 
+ 
+	Adicione a seguinte definição de serviço ao arquivo Androidmanifest.xml, dentro da marca `<application>`. Substitua o espaço reservado `<your package>` pelo nome real do pacote.
+
+		<service android:name="<your package>.MyInstanceIDService" android:exported="false">
+		    <intent-filter>
+		        <action android:name="com.google.android.gms.iid.InstanceID"/>
+		    </intent-filter>
+		</service>
+
+
+2. Após recebermos nosso token de registro GCM da API de ID da Instância, usaremos ele para [registrar com o Hub de Notificação do Azure](notification-hubs-registration-management.md). Ofereceremos suporte a esse registro em segundo plano usando um `IntentService` chamado `RegistrationIntentService`. Esse serviço também será responsável por [atualizar nosso token de registro GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
+ 
+	Adicione a seguinte definição de serviço ao arquivo Androidmanifest.xml, dentro da marca `<application>`.
+
+        <service
+            android:name="com.example.microsoft.getstarted.RegistrationIntentService"
+            android:exported="false">
+        </service>
+
+
+
+3. Também definiremos um receptor para receber as notificações. Adicione a seguinte definição de receptor ao arquivo AndroidManifest.xml, dentro da marca `<application>`.
+
+		<receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
+		    android:permission="com.google.android.c2dm.permission.SEND">
+		    <intent-filter>
+		        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+		        <category android:name="<your package name>" />
+		    </intent-filter>
+		</receiver>
+
+
+
+4. Adicione as seguintes permissões necessárias relacionadas ao GCM abaixo da marca `</application>`. Substitua `<your package>` pelo nome do pacote mostrado na parte superior do arquivo `AndroidManifest.xml`.
+
+	Para saber mais sobre essas permissões, confira [Configuração de um aplicativo cliente GCM para Android](https://developers.google.com/cloud-messaging/android/client#manifest).
 
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -105,89 +137,209 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 		<permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 		<uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
 
-3. Na classe **MainActivity**, adicione as declarações `import` a seguir acima da declaração da classe.
 
-		import android.app.AlertDialog;
-		import android.content.DialogInterface;
-		import android.os.AsyncTask;
-		import com.google.android.gms.gcm.*;
-		import com.microsoft.windowsazure.messaging.*;
-		import com.microsoft.windowsazure.notifications.NotificationsManager;
-		import android.widget.Toast;
+### Como adicionar um código
 
 
+1. Na Exibição de Projeto, expanda **app** > **src** > **main** > **java**. Clique na pasta do seu pacote em **java**, clique em **Novo** e então clique em **Classe Java**. Adicione uma nova classe chamada `NotificationSettings`. 
 
-4. Adicione os seguintes membros privados na parte superior da classe. Eles são usados para configurar o canal de notificação por push entre seu aplicativo e os serviços de nuvem.
+	![Android Studio - nova classe de Java][6]
 
-		private String SENDER_ID = "<your project number>";
-		private GoogleCloudMessaging gcm;
-		private NotificationHub hub;
-    	private String HubName = "<Enter Your Hub Name>";
-		private String HubListenConnectionString = "<Your default listen connection string>";
-	    private static Boolean isVisible = false;
-
-
-	Atualize os três espaços reservados:
-	* **SENDER\_ID**: defina `SENDER_ID` como o número do projeto obtido anteriormente no [Google Cloud Console](http://cloud.google.com/console).
-	* **HubListenConnectionString**: defina `HubListenConnectionString` como a cadeia de conexão **DefaultListenAccessSignature** para o hub. Você pode copiar essa cadeia de conexão clicando em **Políticas de Acesso** na folha **Configurações** do hub no [Portal do Azure].
+	Atualize esses três espaços reservados no código a seguir para a classe `NotificationSettings`:
+	* **SenderId**: o número do projeto obtido anteriormente no [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString**: a cadeia de conexão **DefaultListenAccessSignature** para o hub. Você pode copiar essa cadeia de conexão clicando em **Políticas de Acesso** na folha **Configurações** do hub no [Portal do Azure].
 	* **HubName**: use o nome do hub de notificação que aparece na folha de hub no [Portal do Azure].
 
+	Código `NotificationSettings`:
 
-5. No método `OnCreate` da classe `MainActivity`, adicione o código a seguir para fazer o registro no hub de notificação quando a atividade for criada.
+		public class NotificationSettings {
+		    public static String SenderId = "<Your SenderId>";
+		    public static String HubName = "<Your HubName>";
+		    public static String HubListenConnectionString = "<Your default listen connection string>";
+		}
 
-        MyHandler.mainActivity = this;
-        NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
-        gcm = GoogleCloudMessaging.getInstance(this);
-        hub = new NotificationHub(HubName, HubListenConnectionString, this);
-        registerWithNotificationHubs();
+2. Usando as etapas acima, adicione outra classe nova chamada `MyInstanceIDService`. Essa será nossa implementação do serviço de escuta de ID da Instância.
 
-6. Em `MainActivity.java`, adicione o código a seguir para o método `registerWithNotificationHubs()`. Esse método relata êxito após o registro no Google Cloud Messaging e no hub de notificação.
+	O código para essa classe chamará nosso `IntentService` para [atualizar o token GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) em segundo plano.
 
-    	@SuppressWarnings("unchecked")
-    	private void registerWithNotificationHubs() {
-        	new AsyncTask() {
-            	@Override
-            	protected Object doInBackground(Object... params) {
-                	try {
-                    	String regid = gcm.register(SENDER_ID);
-                    ToastNotify("Registered Successfully - RegId : " +
-						hub.register(regid).getRegistrationId());
-                	} catch (Exception e) {
-                    	ToastNotify("Registration Exception Message - " + e.getMessage());
-                    	return e;
-                	}
-                	return null;
-            	}
-        	}.execute(null, null, null);
-    	}
+		import android.content.Intent;
+		import android.util.Log;
+		import com.google.android.gms.iid.InstanceIDListenerService;
+		
+		
+		public class MyInstanceIDService extends InstanceIDListenerService {
+		
+		    private static final String TAG = "MyInstanceIDService";
+		
+		    @Override
+		    public void onTokenRefresh() {
+		
+		        Log.i(TAG, "Refreshing GCM Registration Token");
+		
+		        Intent intent = new Intent(this, RegistrationIntentService.class);
+		        startService(intent);
+		    }
+		};
 
 
-7. Adicione o método `ToastNotify` à atividade para exibir a notificação quando o aplicativo estiver em execução e visível. Substitua também `onStart`, `onPause`, `onResume` e `onStop` para determinar se a atividade está visível para exibir a notificação do sistema.
+3. Adicione outra classe nova ao projeto chamado `RegistrationIntentService`. Essa será a implementação de nosso `IntentService` que manipulará a [atualização do token GCM](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) e o [registro com o hub de notificação](notification-hubs-registration-management.md).
+
+	Use o código a seguir para essa classe.
+
+		import android.app.IntentService;
+		import android.content.Intent;
+		import android.content.SharedPreferences;
+		import android.preference.PreferenceManager;
+		import android.util.Log;
+		
+		import com.google.android.gms.gcm.GoogleCloudMessaging;
+		import com.google.android.gms.iid.InstanceID;
+		import com.microsoft.windowsazure.messaging.NotificationHub;
+		
+		public class RegistrationIntentService extends IntentService {
+		
+		    private static final String TAG = "RegIntentService";
+		
+		    private NotificationHub hub;
+		
+		    public RegistrationIntentService() {
+		        super(TAG);
+		    }
+		
+		    @Override
+		    protected void onHandleIntent(Intent intent) {		
+		        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+		        String resultString = null;
+		        String regID = null;
+		
+		        try {
+		            InstanceID instanceID = InstanceID.getInstance(this);
+		            String token = instanceID.getToken(NotificationSettings.SenderId,
+		                    GoogleCloudMessaging.INSTANCE_ID_SCOPE);		
+		            Log.i(TAG, "Got GCM Registration Token: " + token);
+		
+		            // Storing the registration id that indicates whether the generated token has been
+		            // sent to your server. If it is not stored, send the token to your server,
+		            // otherwise your server should have already received the token.
+		            if ((regID=sharedPreferences.getString("registrationID", null)) == null) {		
+		                NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
+		                        NotificationSettings.HubListenConnectionString, this);
+		                Log.i(TAG, "Attempting to register with NH using token : " + token);
+		                regID = hub.register(token).getRegistrationId();
+		                resultString = "Registered Successfully - RegId : " + regID;
+		                Log.i(TAG, resultString);		
+		                sharedPreferences.edit().putString("registrationID", regID ).apply();
+		            } else {
+		                resultString = "Previously Registered Successfully - RegId : " + regID;
+		            }
+		        } catch (Exception e) {
+		            Log.e(TAG, resultString="Failed to complete token refresh", e);
+		            // If an exception happens while fetching the new token or updating our registration data
+		            // on a third-party server, this ensures that we'll attempt the update at a later time.
+		        }
+		
+		        // Notify UI that registration has completed.
+		        MainActivity.mainActivity.ToastNotify(resultString);
+		    }
+		}
+
+
+		
+4. Em sua classe `MainActivity`, adicione as seguintes declarações `import` acima da declaração de classe.
+
+		import com.google.android.gms.common.ConnectionResult;
+		import com.google.android.gms.common.GoogleApiAvailability;
+		import com.google.android.gms.gcm.*;
+		import com.microsoft.windowsazure.notifications.NotificationsManager;
+		import android.util.Log;
+		import android.widget.TextView;
+		import android.widget.Toast;
+
+5. Adicione os seguintes membros privados na parte superior da classe. Usaremos eles para [verificar a disponibilidade do Google Play Services, conforme recomendado pela Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+
+	    public static MainActivity mainActivity;
+		private GoogleCloudMessaging gcm;
+	    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+	    private static Boolean isVisible = false;
+
+6. Em sua classe `MainActivity`, adicione o seguinte método à disponibilidade do Google Play Services.
+
+	    /**
+	     * Check the device to make sure it has the Google Play Services APK. If
+	     * it doesn't, display a dialog that allows users to download the APK from
+	     * the Google Play Store or enable it in the device's system settings.
+	     */
+	    private boolean checkPlayServices() {
+	        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+	        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+	        if (resultCode != ConnectionResult.SUCCESS) {
+	            if (apiAvailability.isUserResolvableError(resultCode)) {
+	                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+	                        .show();
+	            } else {
+	                Log.i(TAG, "This device is not supported by Google Play Services.");
+	                ToastNotify("This device is not supported by Google Play Services.");
+	                finish();
+	            }
+	            return false;
+	        }
+	        return true;
+	    }
+
+
+7. Em sua classe `MainActivity`, adicione o seguinte código que verificará o Google Play Services antes de chamar o `IntentService` a fim de obter seu token de registro GCM e registrar com o hub de notificação.
+
+	    public void registerWithNotificationHubs()
+	    {
+	        Log.i(TAG, " Registering with Notification Hubs");
+	
+	        if (checkPlayServices()) {
+	            // Start IntentService to register this application with GCM.
+	            Intent intent = new Intent(this, RegistrationIntentService.class);
+	            startService(intent);
+	        }
+	    }
+
+
+8. No método `OnCreate` da classe `MainActivity`, adicione o código a seguir para começar o processo de registro quando a atividade for criada.
+
+	    @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_main);
+	
+	        mainActivity = this;
+	        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
+	        registerWithNotificationHubs();
+	    }
+
+
+9. Adicione estes outros métodos ao `MainActivity` para verificar o estado do aplicativo e o status do relatório em seu aplicativo.
 
 	    @Override
 	    protected void onStart() {
 	        super.onStart();
 	        isVisible = true;
 	    }
-
+	
 	    @Override
 	    protected void onPause() {
 	        super.onPause();
 	        isVisible = false;
 	    }
-
+	
 	    @Override
 	    protected void onResume() {
 	        super.onResume();
 	        isVisible = true;
 	    }
-
+	
 	    @Override
 	    protected void onStop() {
 	        super.onStop();
 	        isVisible = false;
 	    }
-
+	
 	    public void ToastNotify(final String notificationMessage)
 	    {
 	        if (isVisible == true)
@@ -195,31 +347,20 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 	                @Override
 	                public void run() {
 	                    Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
+	                    TextView helloText = (TextView) findViewById(R.id.text_hello);
+	                    helloText.setText(notificationMessage);
 	                }
 	            });
 	    }
+	}
 
-8. Como, por padrão, o Android não lida com a exibição de notificação, você deve incluir seu próprio destinatário. Em `AndroidManifest.xml`, adicione o elemento a seguir ao elemento `<application>`.
+10. O método `ToastNotify` usa o controle de *"Hello World"*, `TextView`, para reportar de forma consistente o status e as notificações no aplicativo. Em seu layout activity\_main.xml, adicione a seguinte identificação para esse controle.
 
-	> [AZURE.NOTE] Substitua o espaço reservado pelo nome do pacote.
+        android:id="@+id/text_hello"
 
-        <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="<your package name>" />
-            </intent-filter>
-        </receiver>
+11. Em seguida, adicionaremos uma subclasse para o receptor que definimos em AndroidManifest.xml. Adicione outra classe nova ao projeto chamado `MyHandler`.
 
-
-9. Na Exibição de Projeto, expanda **app** > **src** > **main** > **java**. Clique na pasta do seu pacote em **java**, clique em **Novo** e então clique em **Classe Java**.
-
-	![Android Studio - nova classe de Java][6]
-
-10. No campo **Nome** da nova classe, digite **MyHandler** e clique em **OK**.
-
-
-11. Adicione as seguintes instruções de importação na parte superior de `MyHandler.java`:
+12. Adicione as seguintes instruções de importação na parte superior de `MyHandler.java`:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -230,12 +371,12 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-12. Atualize a declaração de classe como se segue para tornar `MyHandler` uma subclasse de `com.microsoft.windowsazure.notifications.NotificationsHandler`, como mostrado abaixo.
+13. Atualize a declaração de classe como se segue para tornar `MyHandler` uma subclasse de `com.microsoft.windowsazure.notifications.NotificationsHandler`, como mostrado abaixo.
 
 		public class MyHandler extends NotificationsHandler {
 
 
-13. Adicione o código a seguir à classe `MyHandler`.
+14. Adicione o código a seguir à classe `MyHandler`.
 
 	Esse código substitui o método `OnReceive`, de forma que o manipulador exiba um pop-up de Notificação do Sistema para mostrar as notificações recebidas. O manipulador também envia a notificação por push ao gerenciador de notificações do Android usando o método `sendNotification()`.
 
@@ -274,7 +415,7 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-14. No Android Studio, na barra de menus, clique em **Compilar** -> **Recompilar Projeto** para garantir que não haja erros presentes no código.
+15. No Android Studio, na barra de menus, clique em **Compilar** -> **Recompilar Projeto** para garantir que não haja erros presentes no código.
 
 ##Como enviar notificações por push
 
@@ -506,7 +647,7 @@ Recomendamos o tutorial [Usar os Hubs de Notificação para enviar notificaçõe
 
 Para segmentar os usuários por grupos de interesse, confira o tutorial [Usar Hubs de Notificação para enviar notícias mais recentes].
 
-Para obter mais informações gerais sobre os Hubs de Notificação, confira nossas [Diretrizes dos Hubs de Notificação].
+Para obter informações gerais sobre os Hubs de Notificação, confira nossas [Diretrizes dos Hubs de Notificação].
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
@@ -543,4 +684,4 @@ Para obter mais informações gerais sobre os Hubs de Notificação, confira nos
 [Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-aspnet-backend-android-breaking-news.md
 [Portal do Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

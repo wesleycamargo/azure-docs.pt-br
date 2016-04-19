@@ -28,10 +28,9 @@ Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte
 >[AZURE.NOTE] Quando você seleciona **Atualizar Esquema**, executamos automaticamente as etapas de migração e lhe fornecemos o código de saída. Você pode usar isso para atualizar sua definição. No entanto, siga as práticas recomendadas de codificação, como as descritas na seção **Práticas recomendadas** abaixo.
 
 ##Práticas recomendadas ao migrar aplicativos lógicos para a última versão do esquema:  
-não substituir também, começar a mudar para as novas APIs
 
 - Copie o script migrado para um novo aplicativo lógico - não substitua o antigo até concluir o teste e confirmar que o aplicativo migrado funciona conforme o esperado.
-- Testar o aplicativo lógico **antes de** colocá-lo em produção
+- Testar o aplicativo lógico **antes** de colocá-lo em produção
 - Após a conclusão da migração, comece a atualizar os aplicativos lógicos para usar as [APIs gerenciadas](./apis-list.md) sempre que possível. Por exemplo, você pode começar a usar o Dropbox v2 em todos os casos em que usa o DropBox v1.
 
 
@@ -43,4 +42,4 @@ não substituir também, começar a mudar para as novas APIs
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

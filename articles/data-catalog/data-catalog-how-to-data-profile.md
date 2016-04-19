@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="04/07/2016"
    ms.author="derrickv"/>
 
 # Fontes de dados de perfil de dados
@@ -91,4 +91,4 @@ A criação de perfil de dados fornece estatísticas e informações sobre ativo
 -	[Como registrar fontes de dados](data-catalog-how-to-register.md)
 -	[Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

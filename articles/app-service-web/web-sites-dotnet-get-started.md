@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Criar um aplicativo Web usando o Visual Studio | Microsoft Azure"
+	pageTitle="Introdução ao ASP.NET e ao Serviço de Aplicativo do Azure | Microsoft Azure"
 	description="Saiba como criar um projeto Web do ASP.NET no Visual Studio e implantá-lo em um aplicativo Web no Serviço de Aplicativo do Azure."
 	services="app-service\web"
 	documentationCenter=".net"
@@ -12,11 +12,11 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="03/02/2016"
 	ms.author="tdykstra"/>
 
-# Criar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure usando o Visual Studio
+# Introdução aos aplicativos Web do ASP.NET no Serviço de Aplicativo do Azure usando o Visual Studio
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -42,7 +42,7 @@ O que você aprenderá:
 
 Ao final do tutorial, a seção [Solução de problemas](#troubleshooting) dá ideias sobre o que fazer se algo não funcionar, e a seção [Próximas etapas](#next-steps) fornece links para outros tutoriais com mais detalhes sobre como usar o Serviço de Aplicativo do Azure.
 
-> [AZURE.NOTE] Ajude-nos a dar forma ao escopo e à abordagem deste tutorial -- se houver outros tópicos que você gostaria que abordássemos aqui em um tutorial de introdução, deixe um [Comentário do Disqus](#comments) ao final do tutorial.
+## Pré-requisitos
 
 [AZURE.INCLUDE [prereqs](../../includes/app-service-web-dotnet-get-started-prereqs.md)]
 
@@ -170,13 +170,13 @@ Nesta seção, você implanta o projeto Web no aplicativo Web, conforme ilustrad
 
 	![Clique em Avançar na guia Conexão do assistente Publicar Web](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
-	A próxima é a guia **Configurações**. Aqui, você pode alterar a guia de configuração de compilação para implantar uma compilação de depuração para [depuração remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). A guia também oferece várias **Opções de Publicação do Arquivo**:
+	A próxima é a guia **Configurações**. Aqui, você pode alterar a guia de configuração de build para implantar uma compilação de depuração para [depuração remota](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). A guia também oferece várias **Opções de Publicação do Arquivo**:
 
 	* Remover os arquivos adicionais no destino
 	* Pré-compilar durante a publicação
 	* Excluir arquivos da pasta App\_Data
 
-	Para este tutorial, você não precisará de qualquer uma delas. Para obter explicações detalhadas sobre o que elas fazem, confira [Como implantar um projeto Web usando a publicação com um clique no Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
+	Para este tutorial, você não precisará de qualquer uma delas. Para obter explicações detalhadas sobre o que elas fazem, confira [Como implantar um projeto Web usando a publicação de um clique no Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx).
 
 10. Na guia **Configurações**, clique em **Avançar**.
 
@@ -204,19 +204,19 @@ Nesta seção, você implanta o projeto Web no aplicativo Web, conforme ilustrad
 
 O [Portal do Azure](/services/management-portal/) é uma interface da Web que você pode usar para gerenciar e monitorar seus serviços do Azure, como o aplicativo Web que acabou de criar. Nesta seção do tutorial, você descobre um pouco do que pode fazer no portal.
 
-1. No navegador, acesse [https://portal.azure.com](https://portal.azure.com) e entre com as credenciais que você usa para gerenciar sua conta do Azure.
+1. Em seu navegador, acesse [https://portal.azure.com](https://portal.azure.com) e entre com as credenciais que você usa para gerenciar sua conta do Azure.
 
 2. Clique em **Serviços de Aplicativos** e clique no nome do seu aplicativo Web.
 
 	![Serviços de Aplicativos no Portal do Azure](./media/web-sites-dotnet-get-started/selinportal.png)
 
-	A folha **Aplicativo Web** exibe uma visão geral das configurações e estatísticas de uso de seu aplicativo Web. (As janelas abertas à direita do portal são chamadas de *folhas*.)
+	A folha **Aplicativo Web** exibe uma visão geral das configurações e estatísticas de uso de seu aplicativo Web. (As janelas abertas à direita do portal são chamadas de *folhas*).
 
 	![Folha Aplicativo Web no Portal do Azure](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
 	Seu aplicativo Web não teve muito tráfego ainda e talvez não mostre nada no gráfico. Se navegar até o aplicativo, atualizar a página algumas vezes e, em seguida, atualizar a página de portal, você verá que algumas estatísticas serão mostradas.
 
-3. A folha **Configurações** mostra mais opções para configurar o aplicativo Web.
+3. Clique na folha **Configurações** para ver mais opções para configurar seu aplicativo Web.
 
 	![Folha Configurações no Portal do Azure](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
@@ -276,7 +276,7 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 * Outras maneiras de implantar um projeto Web
 
-	Para saber mais sobre outras maneiras de implantar projetos Web em aplicativos Web, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), confira [Como implantar um aplicativo Web do Azure](web-sites-deploy.md).
+	Para saber mais sobre outras maneiras de implantar projetos Web em aplicativos Web, usando o Visual Studio ou [automatizando a implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) de um [sistema de controle do código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), confira [Introdução aos aplicativos Web no Serviço de Aplicativo do Azure](app-service-web-get-started.md) e [Como implantar um aplicativo Web do Azure](web-sites-deploy.md).
 
 * Como adicionar um nome de domínio personalizado e SSL
 
@@ -293,4 +293,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 	No Azure, você pode executar aplicativos Web em aplicativos Web do Serviço de Aplicativo, conforme mostrado neste tutorial, em Serviços de Nuvem ou Máquinas Virtuais. Para saber mais, confira [Aplicativos Web do Azure, serviços de nuvem e VMs: qual deles usar e quando](/manage/services/web-sites/choose-web-app-service/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

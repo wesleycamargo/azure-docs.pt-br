@@ -4,21 +4,21 @@
 	keywords="banco de dados escalonável, configuração do banco de dados"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="03/24/2016"
-	ms.author="jeffreyg"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Criar um pool de banco de dados elástico escalonável para bancos de dados SQL com o Portal do Azure
+# Criar um pool de banco de dados elástico com o portal do Azure
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-elastic-pool-create-portal.md)
@@ -70,7 +70,7 @@ Você pode adicionar vários pools a um servidor, mas não pode adicionar bancos
     | **MÍN. DE eDTU** (de acordo com a configuração do banco de dados)| O número mínimo de eDTUs do pool garantido a qualquer momento a todos os bancos de dados do pool. O **MÍN DE eDTU** normalmente é definido entre 0 e a utilização história média do eDTU por banco de dados. Essa é uma configuração global que se aplica a todos os bancos de dados no pool. |
     | **MÁX. DE eDTU** (de acordo com a configuração do banco de dados) | O número máximo de eDTUs que qualquer banco de dados individual no pool pode usar. Você pode definir esse limite até o valor do **eDTU do POOL**. Configure o **MÁX. DE eDTU** por banco de dados com um valor alto o suficiente para lidar com as intermitências ou picos de utilização do banco de dados. Espera-se um grau de sobrecarga do grupo, uma vez que o pool normalmente assume padrões de uso dos bancos de dados com altos e baixos, em que todos os bancos de dados não atingem um pico simultaneamente. **Por exemplo**: suponha que o pico de utilização por banco de dados seja de 50 DTUs e apenas 20% dos 100 bancos de dados no grupo atinjam o pico simultaneamente. Se o limite de eDTUs por banco de dados for definido para 50 eDTUs, será razoável sobrecarregar o pool em cinco vezes e definir o **eDTU do POOL** para 1.000. O **MÁX. DE eDTU** não é uma garantia de recursos para um banco de dados, mas sim um teto de eDTUs que pode ser atingido se estiver disponível. Essa é uma configuração global que se aplica a todos os bancos de dados no pool. |
 
-    Confira a [Referência do pool de banco de dados elástico](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para obter mais detalhes sobre os limites de cada camada de serviço, e confira as [Considerações de preço e desempenho dos pools de banco de dados elástico](sql-database-elastic-pool-guidance.md) para obter uma orientação detalhada sobre o tamanho correto de um pool.
+    Confira a [Referência do pool de banco de dados elástico](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para obter mais detalhes sobre os limites de cada camada de serviço, e confira as [Considerações de preço e desempenho dos pools de banco de dados elástico](sql-database-elastic-pool-guidance.md) para obter uma orientação detalhada sobre o tamanho correto de um pool.
 
 7. Clique em **Selecionar** quando concluir, em seguida, clique em **OK** para criar o pool.
 
@@ -90,7 +90,6 @@ O serviço avalia os recursos necessários e o custo-benefício de mover os banc
 
 - [Gerenciar um pool elástico do Banco de Dados SQL com o portal](sql-database-elastic-pool-manage-portal.md)
 - [Gerenciar um pool elástico do Banco de Dados SQL com o PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [Gerenciar um pool elástico do Banco de Dados SQL com o C#](sql-database-client-library.md)
-- [Referência de banco de dados elástico](sql-database-elastic-pool-reference.md)
+- [Gerenciar um pool elástico do Banco de Dados SQL com o C#](sql-database-elastic-pool-manage-csharp.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

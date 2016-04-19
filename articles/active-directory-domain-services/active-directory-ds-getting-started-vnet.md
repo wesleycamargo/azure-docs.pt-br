@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="04/11/2016"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do Azure AD *(Visualização)* - Introdução
@@ -22,7 +22,7 @@
 Ao selecionar uma rede virtual para usar com os Serviços de Domínio do Azure AD, lembre-se das seguintes diretrizes:
 
 - Certifique-se de selecionar uma rede virtual em uma região que tem suporte pelos Serviços de Domínio do Azure AD. Confira a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para conhecer as regiões do Azure nas quais os Serviços de Domínio do AD do Azure estão disponíveis.
-- Se você planeja usar uma rede virtual existente, certifique-se de que se trata de uma rede virtual regional. Redes virtuais que usam o mecanismo de grupos de afinidade herdado não podem ser usadas com os Serviços de Domínio do Azure AD. Você precisará [migrar redes virtuais herdadas para redes virtuais regionais](../virtual-networks-migrate-to-regional-vnet.md).
+- Se você planeja usar uma rede virtual existente, certifique-se de que se trata de uma rede virtual regional. Redes virtuais que usam o mecanismo de grupos de afinidade herdado não podem ser usadas com os Serviços de Domínio do Azure AD. Você precisará [migrar redes virtuais herdadas para redes virtuais regionais](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 - Se você planeja usar uma rede virtual existente, certifique-se de que não exista nenhum servidor DNS personalizado configurado para a rede virtual. Os Serviços de Domínio do AD do Azure não oferecem suporte a servidores DNS personalizados/traga seu próprio.
 - Se você planeja usar uma rede virtual existente, certifique-se de que não tenha um domínio existente com o mesmo nome de domínio disponível na rede virtual. Por exemplo, vamos supor que você tenha um domínio chamado ‘contoso.com’ já disponível na rede virtual selecionada. Na sequência, você tenta habilitar um domínio gerenciado pelos Serviços de Domínio do AD do Azure com o mesmo nome de domínio (isto é, ‘contoso.com’) nessa rede virtual. Você encontrará uma falha ao tentar habilitar os Serviços de Domínio do AD do Azure. Isso ocorre devido a conflitos de nome com o nome de domínio nessa rede virtual. Nessa situação, você deve usar um nome diferente para definir o domínio gerenciado pelos Serviços de Domínio do AD do Azure. Como alternativa, você pode desprovisionar o domínio existente e, em seguida, habilitar os Serviços de Domínio do AD do Azure.
 - Selecione a rede virtual que atualmente hospeda/hospedará máquinas virtuais que precisam de acesso aos Serviços de Domínio do Azure AD. Você não poderá mover Serviços de Domínio para uma rede virtual diferente depois que tiver habilitado o serviço.
@@ -58,4 +58,4 @@ Realize as seguintes etapas de configuração para criar uma rede virtual do Azu
 ---
 [**Próxima etapa - Habilitar os Serviços de Domínio do Azure AD.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

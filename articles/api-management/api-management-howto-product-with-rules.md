@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="erikre"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/27/2016"
+	ms.date="04/13/2016"
 	ms.author="sdanie"/>
 
 # Proteja sua API com limites de taxa usando o Gerenciamento de API do Azure
@@ -34,7 +34,7 @@ Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar
 
 ![Portal do editor][api-management-management-console]
 
->Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][] no tutorial [Introdução ao Gerenciamento de API do Azure][].
+>Se você ainda não tiver criado uma instância de serviço de Gerenciamento de API, consulte [ uma instância de serviço de Gerenciamento de API][] no tutorial [Gerenciar sua primeira API no Gerenciamento de API do Azure][].
 
 Clique em **Produtos** no menu **Gerenciamento de API** à esquerda para exibir a página **Produtos**.
 
@@ -70,7 +70,7 @@ Selecione a caixa de seleção **Desenvolvedores** e, em seguida, clique em **Sa
 
 Nesta etapa do tutorial você adicionará a API de ECO a uma produto de avaliação gratuita.
 
->Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de ECO que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, consulte [Introdução ao Gerenciamento de API do Azure][].
+>Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de ECO que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para saber mais, confira [Gerenciar sua primeira API no Gerenciamento de API do Azure][].
 
 Clique em **Produtos** no menu **Gerenciamento de API** à esquerda, depois clique em **Avaliação Gratuita** para configurar o produto.
 
@@ -98,11 +98,11 @@ Para inserir políticas, posicione o cursor na seção **entrada** ou **saída**
 
 ![Editor de políticas][api-management-policy-editor-inbound]
 
-As duas políticas que estamos adicionando neste tutorial são as políticas [Limitar taxa de chamada][] e [Definir cota de uso][].
+As duas políticas que estamos adicionando neste tutorial são [Limitar taxa de chamada por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) e [Definir cota de uso por assinatura](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota).
 
 ![Declarações de políticas][api-management-limit-policies]
 
-Após posicionar o cursor no elemento de política de **entrada**, clique na seta ao lado de **Limitar taxa de chamada** para inserir o modelo de política.
+Após posicionar o cursor no elemento de política de **entrada**, clique na seta ao lado de **Limitar taxa de chamada por assinatura** para inserir o modelo de política.
 
 	<rate-limit calls="number" renewal-period="seconds">
 	<api name="name" calls="number">
@@ -110,7 +110,7 @@ Após posicionar o cursor no elemento de política de **entrada**, clique na set
 	</api>
 	</rate-limit>
 
-A opção **Limitar taxa de chamada** pode ser usada no nível do produto e também nos níveis de nome de operação individual e da API. Neste tutorial, somente serão usadas políticas de nível de produto, por isso exclua os elementos **api** e **operação** do elemento **limite de taxa**, de maneira que apenas o elemento **limite de taxa** permaneça, conforme mostrado no exemplo a seguir.
+A opção **Limitar taxa de chamada por assinatura** pode ser usada no nível do produto e também nos níveis de nome de operação individual e da API. Neste tutorial, somente serão usadas políticas de nível de produto, por isso exclua os elementos **api** e **operação** do elemento **limite de taxa**, de maneira que apenas o elemento **limite de taxa** permaneça, conforme mostrado no exemplo a seguir.
 
 	<rate-limit calls="number" renewal-period="seconds">
 	</rate-limit>
@@ -120,7 +120,7 @@ No produto Avaliação Gratuita, a taxa máxima permitida é de 10 chamadas por 
 	<rate-limit calls="10" renewal-period="60">
 	</rate-limit>
 
-Para configurar a política **Definir cota de uso**, posicione seu cursor imediatamente abaixo do novo elemento **limite de taxa** que acabou de adicionar dentro do elemento **entrada** e clique na seta à esquerda de **Definir cota de uso**.
+Para configurar a política **Definir cota de uso por assinatura**, posicione o cursor imediatamente abaixo do novo elemento **limite de taxa** recém-adicionado dentro do elemento **entrada** e clique na seta à esquerda de **Definir cota de uso por assinatura**.
 
 	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 	<api name="name" calls="number" bandwidth="kilobytes">
@@ -275,11 +275,11 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Gerenciar sua primeira API no Gerenciamento de API do Azure]: api-management-get-started.md
 [Como criar e usar grupos no Gerenciamento de API do Azure]: api-management-howto-create-groups.md
 [View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
-[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[ uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
 
 [Create a product]: #create-product
@@ -290,7 +290,7 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 [Call an operation and test the rate limit]: #test-rate-limit
 [Introdução à configuração avançada de API]: api-management-get-started-advanced.md
 
-[Limitar taxa de chamada]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Definir cota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

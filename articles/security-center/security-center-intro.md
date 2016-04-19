@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/11/2016"
    ms.author="terrylan"/>
 
 # Introdução à Central de Segurança do Azure
@@ -54,7 +54,7 @@ Você pode definir políticas para suas assinaturas do Azure e grupos de recurso
 
 > [AZURE.NOTE] Para modificar uma política de segurança no nível de assinatura ou no nível de grupo de recursos, você deve ser o Proprietário da assinatura ou o Colaborador dela.
 
-Na folha **Central de segurança**, selecione o bloco **Política de segurança** para obter uma lista de suas assinaturas e grupos de recursos.
+Na folha **Central de segurança**, selecione o bloco **Política** para obter uma lista de suas assinaturas e grupos de recursos.
 
 ![Folha da Central de segurança][2]
 
@@ -100,9 +100,9 @@ Clique no bloco **Recomendações** para obter uma lista de recomendações. Cli
 
 ### Integridade de recursos
 
-O bloco **Integridade de recursos** mostra a postura geral de segurança do ambiente por tipo de recurso, incluindo máquinas virtuais, aplicativos web e outros recursos.
+O bloco **Integridade da segurança dos recursos** mostra a postura geral de segurança do ambiente por tipo de recurso, incluindo máquinas virtuais, aplicativos web e outros recursos.
 
-Selecione um tipo de recurso no bloco **Integridade de recursos** para exibir mais informações, incluindo uma lista de possíveis vulnerabilidades de segurança que foram identificadas. (**Máquinas Virtuais** é selecionado no exemplo a seguir.)
+Selecione um tipo de recurso no bloco **Integridade da segurança dos recursos** para exibir mais informações, incluindo uma lista de possíveis vulnerabilidades de segurança que foram identificadas. (**Máquinas virtuais** é selecionado no exemplo a seguir.)
 
 ![Bloco de integridade de recursos][6]
 
@@ -123,21 +123,29 @@ Selecionar um alerta mostra mais informações sobre o ataque e sugestões para 
 
 ![Detalhes do alerta de segurança][8]
 
+### Soluções de parceiros
+
+O bloco **Soluções de parceiros** permite monitorar rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure. A Central de Segurança exibe alertas das soluções.
+
+Selecione o bloco **Soluções de parceiros**. Uma folha será aberta exibindo uma lista de todas as soluções de parceiro conectadas.
+
+![Soluções de parceiros][9]
+
 ## Introdução
 Para começar a usar a Central de Segurança, você precisa ter uma assinatura do Microsoft Azure. A Central de segurança é habilitada com sua assinatura do Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
- Você acessar a Central de Segurança pelo [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
+ Você acessar a Central de Segurança pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
 
 A [Introdução à Central de segurança do Azure](security-center-get-started.md) o orienta rapidamente quanto ao monitoramento de segurança e aos componentes de gerenciamento da política da Central de Segurança.
 
 ## Próximas etapas
 Neste documento, você foi apresentado à Central de Segurança, seus principais recursos e como começar. Para saber mais, consulte os seguintes:
 
-- [Configuração de políticas de segurança na Central de Segurança do Azure](security-center-policies.md)– saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-- [Gerenciamento das recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Gerenciamento das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – saiba como gerenciar e responder a alertas de segurança.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço.
+- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – obtenha as últimas notícias de segurança e as informações do Azure.
 
 <!--Image references-->
@@ -149,5 +157,6 @@ Neste documento, você foi apresentado à Central de Segurança, seus principais
 [6]: ./media/security-center-intro/resources-health.png
 [7]: ./media/security-center-intro/security-alert.png
 [8]: ./media/security-center-intro/security-alert-detail.png
+[9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -45,9 +45,11 @@ Depois de criar seu serviço móvel, você poderá seguir um início rápido fá
 
 Nesta seção você baixará um novo aplicativo Xamarin Android e um projeto de serviço para seu serviço móvel.
 
-1. No [portal clássico], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
+1. Se você ainda não fez isso, instale o Visual Studio com Xamarin. Encontre instruções em [Instalar e configurar para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). Você também pode usar o Xamarin Studio em um computador com Mac OS X. Para isso, confira [Configuração, instalação e verificações para usuários do Mac](https://msdn.microsoft.com/library/mt488770.aspx).  
 
-2. Na guia de início rápido, clique em **Xamarin** em **Escolher plataforma** e expanda **Criar um novo aplicativo Xamarin**.
+2. No [Portal Clássico], clique em **Serviços Móveis** e clique no serviço móvel que você acabou de criar.
+
+3. Na guia de início rápido, clique em **Xamarin** em **Escolher plataforma** e expanda **Criar um novo aplicativo Xamarin**.
 
    	![][6]
 
@@ -55,15 +57,11 @@ Nesta seção você baixará um novo aplicativo Xamarin Android e um projeto de 
 
   	![][7]
 
-3. Se ainda não o fez, baixe e instale o [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546) em seu computador local ou máquina virtual.
-
-4. Se ainda não tiver feito isso, baixe e instale o [Xamarin Studio] ou o Xamarin for Visual Studio.
-
-5. Em **Baixar e publicar seu serviço para nuvem**, selecione **Android** e clique em **Baixar**.
+4. Em **Baixar e publicar seu serviço para nuvem**, selecione **Android** e clique em **Baixar**.
 
   	Isso baixa uma solução que contém projetos para o serviço móvel e para o aplicativo de exemplo _Lista de tarefas pendentes_ que está conectado ao seu serviço móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
 
-6. Baixe seu perfil de publicação, salve o arquivo baixado no computador local e anote o local onde o salvou.
+5. Baixe seu perfil de publicação, salve o arquivo baixado no computador local e anote o local onde o salvou.
 
 ## Testar o serviço móvel
 
@@ -128,13 +126,8 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Azure classic portal]: https://manage.windowsazure.com/
-[portal clássico]: https://manage.windowsazure.com/
+[Portal Clássico]: https://manage.windowsazure.com/
 [Versão de back-end do JavaScript]: mobile-services-android-get-started.md
 [Solucionar problemas de back-end do .NET dos Serviços Móveis]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-
-[Xamarin Studio]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
-[Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

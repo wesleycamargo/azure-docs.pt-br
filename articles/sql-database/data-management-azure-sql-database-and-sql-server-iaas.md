@@ -4,8 +4,8 @@
 	services="sql-database, virtual-machines"
 	keywords="Nuvem do SQL Server, SQL Server na nuvem, banco de dados PaaS, SQL Server na nuvem, DBaaS"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="cjgronlund"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="03/25/2016"
-	ms.author="jeffreyg"/>
+	ms.author="carlrab"/>
 
 # Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)
 
@@ -105,7 +105,7 @@ A seguinte tabela resume as principais características do Banco de Dados SQL e 
 <tr>
    <td valign="middle"><p><b>Continuidade dos negócios</b></p></td>
    <td valign="middle"><ul><li type=round>Além dos recursos internos de infraestrutura de tolerância a falhas, o Banco de Dados SQL do Azure fornece recursos como a Restauração Pontual, Restauração Geográfica e Replicação Geográfica para aumentar a continuidade dos negócios. Para obter mais informações, consulte [visão geral da continuidade de negócios do Banco de Dados SQL](sql-database-business-continuity.md).</ul></td>
-   <td valign="middle"><ul><li type=round>O SQL Server em VMs do Azure permite que você configure uma solução de alta disponibilidade e recuperação de desastre para as necessidades específicas de seu banco de dados. Portanto, você pode ter um sistema altamente otimizado para seu aplicativo. Você pode testar e executar failovers por conta própria, quando necessário. Para saber mais, confira [Alta Disponibilidade e Recuperação de Desastre para SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).</ul></td>
+   <td valign="middle"><ul><li type=round>O SQL Server em VMs do Azure permite que você configure uma solução de alta disponibilidade e recuperação de desastre para as necessidades específicas de seu banco de dados. Portanto, você pode ter um sistema altamente otimizado para seu aplicativo. Você pode testar e executar failovers por conta própria, quando necessário. Para saber mais, consulte [Alta Disponibilidade e Recuperação de Desastre para o SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).</ul></td>
 
 </tr>
 <tr>
@@ -113,7 +113,7 @@ A seguinte tabela resume as principais características do Banco de Dados SQL e 
    <td valign="middle"><ul><li type=round>Seu aplicativo local pode acessar dados no Banco de Dados SQL do Azure.</ul></td>
    <td valign="middle"><ul>
       <li type=round>Com o SQL Server em VMs do Azure você pode ter aplicativos que são executados parcialmente na nuvem e parcialmente no local. Por exemplo, você pode estender sua rede local e o Domínio do Active Directory para a nuvem por meio da [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Além disso, você pode armazenar arquivos de dados locais no Armazenamento do Azure usando os [Arquivos de Dados do SQL Server no Azure](http://msdn.microsoft.com/library/dn385720.aspx). Para obter mais informações, consulte [Introdução à Nuvem Híbrida do SQL Server 2014](http://msdn.microsoft.com/library/dn606154.aspx).
-      <li type=round>Oferece suporte à recuperação de desastre para aplicativos locais do SQL Server usando [Backup e Restauração do SQL Server com o Armazenamento de Blobs do Azure](http://msdn.microsoft.com/library/jj919148.aspx) ou [Réplicas AlwaysOn em VMs do Azure](../virtual-machines/virtual-machines-windows-classic-sql-dr.md).
+      <li type=round>Oferece suporte à recuperação de desastres para os aplicativos locais do SQL Server usando o [Backup e Restauração do SQL Server com o Armazenamento de Blobs do Azure](http://msdn.microsoft.com/library/jj919148.aspx) ou [Réplicas AlwaysOn nas VMs do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
       </ul></td>
 
 </tr>
@@ -175,7 +175,7 @@ Para o **SQL Server em execução em VMs do Azure**, a Microsoft fornece um SLA 
 
 O **Banco de Dados SQL** é a solução ideal para aplicativos baseados em nuvem quando a produtividade do desenvolvedor e o tempo rápido de colocação no mercado são essenciais. Com a funcionalidade de programação como DBA, ele é perfeito para desenvolvedores e arquitetos de nuvem, pois reduz a necessidade de gerenciamento do sistema operacional e do banco de dados subjacentes. Por exemplo, você pode usar a [API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) e os [Cmdlets do PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) para automatizar e gerenciar operações administrativas para milhares de bancos de dados. Recursos como [Pools de Banco de Dados Elásticos](sql-database-elastic-pool.md) permitem que você se concentre na camada de aplicativo e coloque a solução no mercado mais rapidamente.
 
-O **SQL Server em Execução em VMs do Azure** é perfeito se os aplicativos novos ou existentes exigirem acesso e controle para todos os recursos de uma instância do SQL Server. Também é uma boa opção quando você deseja migrar bancos de dados e aplicativos locais existentes no Azure da maneira como estão. Já que você não precisa alterar a apresentação, o aplicativo e as camadas de dados, você economiza tempo e orçamento em rearquitetura da solução existente. Em vez disso, você pode se concentrar em migrar todas as soluções para o Azure e fazer algumas otimizações de desempenho que possam ser necessárias para a plataforma Microsoft Azure. Para obter mais informações, veja [Práticas Recomendadas de Desempenho para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-classic-sql-perf.md).
+O **SQL Server em Execução em VMs do Azure** é perfeito se os aplicativos novos ou existentes exigirem acesso e controle para todos os recursos de uma instância do SQL Server. Também é uma boa opção quando você deseja migrar bancos de dados e aplicativos locais existentes no Azure da maneira como estão. Já que você não precisa alterar a apresentação, o aplicativo e as camadas de dados, você economiza tempo e orçamento em rearquitetura da solução existente. Em vez disso, você pode se concentrar em migrar todas as soluções para o Azure e fazer algumas otimizações de desempenho que possam ser necessárias para a plataforma Microsoft Azure. Para obter mais informações, veja [Práticas Recomendadas de Desempenho para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md).
 
 ## Resumo
 
@@ -204,4 +204,4 @@ Escolha **SQL Server em VMs do Azure** se:
 - Confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
 - Confira [Provisionar uma máquina virtual do SQL Server no Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) para obter uma introdução ao SQL Server em VMs do Azure.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

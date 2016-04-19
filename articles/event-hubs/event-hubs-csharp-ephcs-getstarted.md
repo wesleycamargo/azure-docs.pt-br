@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/08/2016"
+	ms.date="04/12/2016"
 	ms.author="sethm"/>
 
 # Introdução aos Hubs de Evento
@@ -22,15 +22,15 @@
 
 ## Introdução
 
-Os Hubs de Eventos são um serviço que processa grandes quantidades de dados de eventos de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Essa funcionalidade de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a IoT (Internet das Coisas).
+Os Hubs de Eventos são um serviço que processa grandes quantidades de dados de eventos (telemetria) a partir de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Essa funcionalidade de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a IoT (Internet das Coisas).
 
-Este tutorial mostra como usar o portal clássico do Azure para criar um Hub de Eventos. Ele também mostra como coletar mensagens em um Hub de Eventos usando um aplicativo de console escrito em C#, e como recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos] em C#.
+Este tutorial mostra como usar o portal clássico do Azure para criar um Hub de Eventos. Ele também mostra como coletar mensagens em um Hub de Eventos usando um aplicativo de console escrito em C#, e como recuperá-los em paralelo usando a biblioteca do [Host do Processador de Eventos][] em C#.
 
 Para concluir este tutorial, você precisará do seguinte:
 
-+ Microsoft Visual Studio 2013 ou Microsoft Visual Studio Express 2013 para Windows.
++ Microsoft Visual Studio 2013 ou posterior, ou Microsoft Visual Studio Express para Windows. Os exemplos neste artigo usam o Visual Studio 2015.
 
-+ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
++ Uma conta ativa do Azure. <br/>Se você não tiver uma, poderá criar uma conta gratuita em poucos minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F target="\_blank").
 
 ## Criar um Hub de Evento
 
@@ -44,7 +44,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 	![][2]
 
-4. Clique no namespace que você acabou de criar (geralmente ***nome do hub de evento*-ns**).
+4. Se você não selecionou explicitamente um namespace existente em uma determinada região, o portal criará um para você (geralmente, ***o nome do hub de eventos*-ns**). Clique no namespace (neste exemplo, **eventhub-ns**).
 
 	![][3]
 
@@ -52,11 +52,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
 	![][4]
 
-6. Clique na guia **Configurar** na parte superior, adicione uma regra denominada **SendRule** com direitos *Enviar*, adicione outra regra chamada **ReceiveRule** com direitos *Gerenciar, Enviar, Escutar* e clique em **Salvar**.
+6. Clique na guia **Configurar** na parte superior, adicione uma regra denominada **SendRule** com direitos para Enviar, adicione outra regra denominada **ReceiveRule** com direitos para *Gerenciar*, *Enviar*, *Escutar* e clique em **Salvar**.
 
 	![][5]
 
-7. Clique na guia **Painel** parte superior da página e clique em **Informações de Conexão**. Anote as duas cadeias de conexão ou copie-as em algum lugar para usar mais tarde neste tutorial.
+7. Clique na guia **Painel** parte superior da página e clique em **Informações de Conexão**. Copie as duas cadeias de conexão para um local temporário, pois você irá usá-las posteriormente neste tutorial.
 
 	![][6]
 
@@ -71,13 +71,33 @@ Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa par
 
 Agora você está pronto para executar os aplicativos.
 
-1.	No Visual Studio, execute o projeto **Receptor** e aguarde que ele inicie os receptores de todas as partições.
+1. No Visual Studio, abra o projeto **Destinatário** que você criou anteriormente.
+
+2. Clique com o botão direito do mouse na solução **Destinatário**, clique em **Adicionar**, em seguida, em **Projeto Existente**.
+ 
+3. Localize o arquivo Sender.csproj existente e, em seguida, clique duas vezes nele para adicioná-lo à solução.
+ 
+4. Novamente, clique com o botão direito na solução **Destinatário** e clique em **Propriedades**. A página de propriedades **Destinatário** será exibida.
+
+5. Clique em **Projeto de Inicialização** e, em seguida, clique no botão **Vários projetos de inicialização**. Defina a caixa **Ação** de ambos os projetos **Destinatário** e **Remetente** para **Iniciar**.
+
+	![][19]
+
+6. Clique em **Dependências do Projeto**. Na caixa **Projetos**, clique em **Remetente**. Na caixa **Depende**, verifique se o **Destinatário** está marcado.
+
+	![][20]
+
+7. Clique em **OK** para descartar a caixa de diálogo **Propriedades**.
+
+1.	Pressione F5 para executar o projeto **Destinatário** no Visual Studio e aguarde que ele inicie os destinatários para todas as partições.
 
 	![][21]
 
-2.	Execute o projeto **Remetente** pressione **Enter** nas janelas do console e veja os eventos aparecem na janela do receptor.
+2.	O projeto **Remetente** será executado automaticamente. Pressione **Enter** na janela do console e veja os eventos aparecerem na janela do destinatário.
 
 	![][22]
+
+Pressione **Ctrl+C** na janela **Remetente** para encerrar o aplicativo do Remetente e, em seguida, pressione **Enter** na janela do Destinatário para finalizar o aplicativo.
 
 ## Próximas etapas
 
@@ -96,6 +116,8 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [5]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub5.png
 [6]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub6.png
 
+[19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
+[20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
@@ -108,4 +130,4 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties pageTitle="Monitorar o desempenho do banco de dados no Banco de Dados SQL do Azure" | Microsoft Azure" description="Conheça as opções de monitoramento de seu banco de dados com as ferramentas e exibições de gerenciamento dinâmico do Azure." keywords="monitoramento de banco de dados, desempenho do banco de dados em nuvem" services="sql-database" documentationCenter="" authors="jeffgoll" manager="jeffreyg" editor="jeffreyg"/>
+<properties pageTitle="Monitorar o desempenho do banco de dados no Banco de Dados SQL do Azure" | Microsoft Azure" description="Conheça as opções de monitoramento de seu banco de dados com as ferramentas e exibições de gerenciamento dinâmico do Azure." keywords="monitoramento de banco de dados, desempenho do banco de dados em nuvem" services="sql-database" documentationCenter="" authors="carlrabeler" manager="jhubbard" editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -7,7 +7,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="03/25/2016"
-	ms.author="jeffreyg"/>
+	ms.author="carlrab"/>
 
 # Monitorar o desempenho do banco de dados no Banco de Dados SQL do Azure
 O monitoramento do desempenho de um banco de dados SQL no Azure começa com o monitoramento da utilização de recursos em relação ao nível de desempenho de banco de dados escolhido. O monitoramento ajuda você a determinar se o seu banco de dados tem excesso de capacidade ou se está enfrentando problemas por ter atingido o máximo de recursos. Com essas informações, você pode decidir se é hora de ajustar o nível do desempenho e a [camada de serviço](sql-database-service-tiers.md) do banco de dados. Você pode monitorar o banco de dados usando ferramentas gráficas no [Portal do Azure](https://portal.azure.com) ou as [exibições de gerenciamento dinâmico](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
@@ -39,4 +39,4 @@ As mesmas métricas que são expostas no portal também estão disponíveis por 
 
 Para pools de banco de dados elástico, você pode monitorar bancos de dados individuais no pool com as técnicas descritas nesta seção. Mas você também pode monitorar o pool como um todo. Para obter informações, veja [Monitorar e gerenciar um pool de banco de dados elástico](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

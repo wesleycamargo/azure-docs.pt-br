@@ -14,17 +14,15 @@ Para usar o [EventProcessorHost][], você deve ter uma [Conta de armazenamento d
 
     ![][12]
 
-    Copie a chave de acesso para usar posteriormente neste tutorial.
+    Copie a chave de acesso primária para usar posteriormente neste tutorial.
 
 4. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console**. Nomeie o projeto como **Destinatário**.
 
     ![][14]
 
-5. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e, em seguida, clique em **Gerenciar Pacotes NuGet**.
+5. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e clique em **Gerenciar Pacotes NuGet para Solução**.
 
-	A caixa de diálogo **Gerenciar Pacotes NuGet** será exibida.
-
-6. Pesquise por `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, clique em **Instalar** e aceite os termos de uso.
+6. Clique na guia **Procurar** e pesquise `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Verifique se o nome do projeto (**Receptor**) está especificado na caixa **Versão(ões)**. Clique em **Instalar** e aceite os termos de uso.
 
     ![][13]
 
@@ -37,7 +35,6 @@ Para usar o [EventProcessorHost][], você deve ter uma [Conta de armazenamento d
 	```
 	using Microsoft.ServiceBus.Messaging;
 	using System.Diagnostics;
-	using System.Threading.Tasks;
 	```
 
 	Em seguida, substitua o seguinte código no corpo da classe:
@@ -82,29 +79,26 @@ Para usar o [EventProcessorHost][], você deve ter uma [Conta de armazenamento d
             }
 	    }
 	}
-    ````
+    ```
 
 	Essa classe será chamada pelo **EventProcessorHost** para processar eventos recebidos do Hub de Eventos. Observe que a classe `SimpleEventProcessor` usa um cronômetro para chamar o método de ponto de verificação periodicamente no contexto do **EventProcessorHost**. Isso garante que, se o destinatário for reiniciado, ele perderá, no máximo, cinco minutos de trabalho de processamento.
 
-9. Na classe **Program**, adicione as seguintes instruções `using` na parte superior do arquivo:
+9. Na classe **Program**, adicione a seguinte instrução `using` na parte superior do arquivo:
 
 	```
 	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.Threading;
-	using System.Threading.Tasks;
 	```
 
-	Em seguida, modifique o método `Main` na classe `Program` como segue, substituindo o nome do Hub de Evento, a cadeia de conexão, a conta de armazenamento e a chave que você copiou nas seções anteriores:
+	Em seguida, modifique o método `Main` na classe `Program` como mostrado abaixo substituindo o nome do Hub de Evento, a cadeia de conexão **ReceiveRule**, a conta de armazenamento e a chave que você copiou nas seções anteriores. Não deixe de remover o sufixo `EntityPath` da cadeia de conexão:
 
     ```
 	static void Main(string[] args)
     {
-      string eventHubConnectionString = "{event hub connection string}";
-      string eventHubName = "{event hub name}";
+      string eventHubConnectionString = "{Event Hub connection string}";
+      string eventHubName = "{Event Hub name}";
       string storageAccountName = "{storage account name}";
       string storageAccountKey = "{storage account key}";
-      string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-      storageAccountName, storageAccountKey);
+      string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
       string eventProcessorHostName = Guid.NewGuid().ToString();
       EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
@@ -117,7 +111,7 @@ Para usar o [EventProcessorHost][], você deve ter uma [Conta de armazenamento d
       Console.ReadLine();
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
-	````
+	```
 
 > [AZURE.NOTE] Este tutorial usa uma única instância do [EventProcessorHost][]. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do [EventProcessorHost][], conforme mostrado no exemplo de [Processamento de eventos em escala][]. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup**. Ao receber eventos de máquinas diferentes, pode ser útil especificar nomes para instâncias de [EventProcessorHost][] com base em máquinas (ou funções) nas quais eles foram implantados. Para saber mais sobre esses tópicos, confira a [Visão geral de Hubs de Eventos][] e o [Guia de Programação de Hubs de Eventos][].
 
@@ -137,4 +131,4 @@ Para usar o [EventProcessorHost][], você deve ter uma [Conta de armazenamento d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->
