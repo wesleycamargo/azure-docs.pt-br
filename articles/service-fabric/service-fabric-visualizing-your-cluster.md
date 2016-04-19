@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/13/2016"
+   ms.date="04/05/2016"
    ms.author="seanmck"/>
 
 # Visualizando o cluster com o Explorador do Service Fabric
@@ -24,7 +24,7 @@ O Explorador do Service Fabric é uma ferramenta baseada na Web para inspecionar
 
 Se você seguiu as instruções para [preparar o seu ambiente de desenvolvimento](service-fabric-get-started.md), pode iniciar o Explorador do Service Fabric no cluster local navegando para http://localhost:19080/Explorer.
 
->[AZURE.NOTE]Se estiver usando o Internet Explorer com o Explorador do Service Fabric para gerenciar um cluster remoto, você precisará definir algumas configurações do Internet Explorer. Vá para **Ferramentas** -> **Configurações de Exibição de Compatibilidade** e desmarque **Exibir sites da intranet na Exibição de Compatibilidade** para garantir que todas as informações sejam carregadas corretamente.
+>[AZURE.NOTE] Se estiver usando o Internet Explorer com o Explorador do Service Fabric para gerenciar um cluster remoto, você precisará definir algumas configurações do Internet Explorer. Vá para **Ferramentas** -> **Configurações de Exibição de Compatibilidade** e desmarque **Exibir sites da intranet na Exibição de Compatibilidade** para garantir que todas as informações sejam carregadas corretamente.
 
 ## Entender o layout do Explorador do Service Fabric
 
@@ -64,6 +64,8 @@ Por exemplo, para excluir uma instância do aplicativo, basta escolher o aplicat
 
 ![Excluir um aplicativo no Explorador do Service Fabric][sfx-delete-application]
 
+>[AZURE.TIP] As mesmas ações podem ser executadas na exibição em árvore clicando no botão de reticências ao lado de cada elemento.
+
 A tabela a seguir lista as ações disponíveis para cada entidade:
 
 | **Entidade** | **Ação** | **Descrição** |
@@ -79,7 +81,7 @@ A tabela a seguir lista as ações disponíveis para cada entidade:
 
 Como muitas ações são destrutivas, talvez seja necessário confirmar sua intenção antes que a ação seja concluída.
 
->[AZURE.TIP]Todas as ações que podem ser executadas usando o Explorador do Service Fabric também podem ser executadas usando o PowerShell ou uma API REST para habilitar a automação.
+>[AZURE.TIP] Todas as ações que podem ser executadas usando o Explorador do Service Fabric também podem ser executadas usando o PowerShell ou uma API REST para habilitar a automação.
 
 
 
@@ -114,4 +116,4 @@ Se você tentar conectar ao Explorador do Service Fabric em um cluster seguro, o
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

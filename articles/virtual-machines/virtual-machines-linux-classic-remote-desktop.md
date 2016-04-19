@@ -32,7 +32,7 @@ Essa orientação fornecerá a resposta! Ela ajudará você com a instalação e
 Xrdp é um servidor RDP do código aberto que permite a conexão do servidor Linux com a Área de Trabalho Remota de uma máquina com Windows. Ele é executado com muito mais qualidade do que a VNC (Computação de Rede Virtual). A VNC possui uma qualidade "JPEG" e comportamento lento, enquanto o RDP é rápido e claro.
 
 
-> [AZURE.NOTE] Você já deve ter uma VM do Microsoft Azure executando o Linux. Para criar e configurar uma VM do Linux, veja o [tutorial de VM do Linux do Azure](virtual-machines-linux-cli-create.md).
+> [AZURE.NOTE] Você já deve ter uma VM do Microsoft Azure executando o Linux. Para criar e configurar uma VM do Linux, veja o [tutorial de VM do Linux do Azure](virtual-machines-linux-classic-createportal.md).
 
 
 ##Criar ponto de extremidade para a Área de Trabalho Remota
@@ -116,4 +116,4 @@ Faça logon com o `user` e a `password` de sua VM do Linux e aproveite agora mes
 ##Avançar
 Para obter mais informações sobre como usar o xrdp, acesse [aqui](http://www.xrdp.org/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

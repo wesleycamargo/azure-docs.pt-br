@@ -1,20 +1,20 @@
-Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
+Conjuntos de Escala de Máquina Virtual permitem gerenciar diversas Máquinas Virtuais como um conjunto. Em um alto nível, conjuntos de escala têm os seguintes prós e contras:
 
-Pros:
+Prós:
 
-1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)).
-2. Easy integration with Azure Load Balancer and App Gateway.
-3. Easy integration with Azure Autoscale.
-4. Simplified deployment, management, and clean up of VMs.
-5. Support common Windows and Linux flavors, as well as custom images.
+1. Alta disponibilidade. Cada conjunto de escala coloca suas VMs em um Conjunto de Disponibilidade com 5 Domínios de Falha (FDs) e 5 Domínios de Atualização (UDs) para garantir a disponibilidade (para obter mais informações sobre UDs e de FDs, consulte [disponibilidade da VM](../articles/virtual-machines/virtual-machines-linux-manage-availability.md)).
+2. Fácil integração com o Balanceador de Carga do Azure e o Gateway de Aplicativo.
+3. Fácil integração com Autoescala do Azure.
+4. Simplifica implantação, gerenciamento e limpeza de VMs.
+5. Suporte a tipos comuns do Windows e Linux, bem como imagens personalizadas.
 
-Cons:
+Contras:
 
-1. Cannot attach data disks to VM instances in a scale set. Instead, must use Blob Storage, Azure Files, Azure Tables, or other storage solution.
+1. Não é possível anexar discos de dados para instâncias de VM em um conjunto de escala. Em vez disso, deve-se usar Armazenamento de Blobs, Arquivos do Azure, Tabelas do Azure ou outras soluções de armazenamento.
 
-## Quick-Create Using Azure CLI
+## Criação rápida usando a CLI do Azure
 
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a VM scale set:
+Se você ainda não fez isso, você pode obter uma [avaliação gratuita de assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) e [CLI do Azure](../articles/xplat-cli-install.md) [conectado à sua conta do Azure](../articles/xplat-cli-connect.md). Depois que você fizer isso, você pode executar os seguintes comandos para criar rapidamente um conjunto de escala da VM:
 
 ```bash
 # make sure we are in resource manager mode 
@@ -29,9 +29,9 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4$$w0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Se desejar personalizar o local ou a urn da imagem, veja os comandos `azure location list` e `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to SSH into our VMs:
+Depois que esse comando foi retornado, o conjunto de escala terá sido criado. Esse conjunto de escala terá um balanceador de carga com regras NAT de mapeamento de porta 50.000+ i no balanceador de carga para a porta 22 na VM i. Portanto, depois que podemos descobrir o FQDN do balanceador de carga, poderemos fazer SSH em nossas VMs:
 
 ```bash
 # list load balancers in the resource group we created
@@ -70,10 +70,12 @@ FQDN=${split_line[3]}
 ssh -p 50000 $FQDN
 ```
 
-## Next Steps
+## Próximas etapas
 
-For general information, check out the [main landing page for VM scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala VM](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-For documentation, check out the [main documentation page for VM scale sets](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).
+Para obter documentação, confira a [página de documentação principal para conjuntos de escala VM](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).
 
-For example Azure resource manager templates using VM scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+Para modelos do Azure Resource Manager de exemplo usando conjuntos de escala de VM, procure por "vmss" no [repositório github de Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
+
+<!---HONumber=AcomDC_0406_2016-->

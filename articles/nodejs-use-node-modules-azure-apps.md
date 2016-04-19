@@ -1,4 +1,4 @@
-<properties pageTitle="Trabalhando com módulos de Node.js" description="Aprenda a trabalhar com os módulos de Node.js ao usar Sites ou Serviços de Nuvem do Azure." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties pageTitle="Trabalhando com módulos de Node.js" description="Aprenda a trabalhar com os módulos de Node.js ao usar o Serviço de Aplicativo ou Serviços de Nuvem do Azure." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="03/04/2016" ms.author="robmcm"/>
 
@@ -12,12 +12,10 @@ Este documento fornece orientação sobre como usar módulos no Node.js com apli
 
 Se já estiver acostumado a usar os módulos no Node.js e os arquivos **package.json** e **shrinkwrap.json npm**, encontre a seguir um rápido resumo do que será discutido neste artigo:
 
-* Os Sites do Microsoft Azure compreendem arquivos **package.json** e **npm-shrinkwrap.json** e podem instalar módulos com base em entradas nestes arquivos.
-* Os Serviços de Nuvem do Microsoft Azure esperam que todos os módulos sejam instalados no ambiente de desenvolvimento e que o diretório **node\_modules** seja incluído como parte do pacote de implantação.
+* O Serviço de Aplicativo do Azure compreende arquivos **package.json** e **npm-shrinkwrap.json** e podem instalar módulos com base em entradas nestes arquivos.
+* Os Serviços de Nuvem do Microsoft Azure esperam que todos os módulos sejam instalados no ambiente de desenvolvimento e que o diretório **node\_modules** seja incluído como parte do pacote de implantação. É possível habilitar o suporte para instalar módulos usando arquivos **package.json** ou **npm-shrinkwrap.json** nos Serviços de Nuvem; no entanto, isto requer uma personalização dos scripts padrão usados por projetos de Serviço de Nuvem. Para obter um exemplo de como fazer isso, consulte [Tarefa de Inicialização do Azure para executar npm install e evitar a implantação de módulos de nó](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [AZURE.NOTE] As Máquinas Virtuais do Microsoft Azure não serão discutidas neste artigo, já que a experiência de implantação em uma VM depende do sistema operacional hospedado pela Máquina Virtual.
-
-> [AZURE.NOTE] É possível habilitar o suporte para instalar módulos usando arquivos **package.json** ou **npm-shrinkwrap.json** no Microsoft Azure, no entanto, isto requer uma personalização dos scripts padrão usados por projetos de Serviços de Nuvem. Para obter um exemplo de como fazer isso, consulte [Tarefa de Inicialização do Azure para executar npm install e evitar a implantação de módulos de nó](http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure)
 
 ##Módulos no Node.js
 
@@ -31,10 +29,10 @@ Ao implantar o diretório **node\_modules** como parte de seu aplicativo, este a
 
 Enquanto a maioria dos módulos são simples arquivos de texto JavaScript, outros são imagens binárias específicas de plataforma. Estes módulos são compilados no momento da instalação, geralmente usando o Python e o node-gyp. Uma vez que os Serviços de Nuvem do Microsoft Azure contam com a pasta **node\_modules** sendo implantada como parte do aplicativo, qualquer módulo nativo incluído como parte dos módulos instalados deve funcionar em um serviço de nuvem, desde que tenha sido instalado e compilado em um sistema de desenvolvimento do Windows.
 
-Os Sites do Azure não oferecem suporte a todos os módulos nativos e podem falhar em compilá-los com pré-requisitos muito específicos. Embora alguns módulos populares como o MongoDB tenham dependências nativas opcionais e funcionem bem sem elas, duas soluções alternativas foram comprovadamente bem-sucedidas com quase todos os módulos nativos disponíveis hoje:
+O Serviço de Aplicativo do Azure não dá suporte a todos os módulos nativos e pode falhar em compilá-los com pré-requisitos muito específicos. Embora alguns módulos populares como o MongoDB tenham dependências nativas opcionais e funcionem bem sem elas, duas soluções alternativas foram comprovadamente bem-sucedidas com quase todos os módulos nativos disponíveis hoje:
 
-* Execute a **npm install** em uma máquina do Windows que tenha todos os pré-requisitos do módulo nativo. Em seguida, implante a pasta **node\_modules** criada como parte do aplicativo em Sites do Azure.
-* Os Sites do Azure podem ser configurados para executar scripts bash ou de shell personalizados durante a implantação, oferecendo a você a oportunidade de executar comandos personalizados e configurar com precisão a maneira como **npm install** é executado. Para obter um vídeo mostrando como fazer isso, consulte [Scripts de implantação de site personalizado com o Kudu].
+* Execute a **npm install** em uma máquina do Windows que tenha todos os pré-requisitos do módulo nativo. Em seguida, implante a pasta **node\_modules** criada como parte do aplicativo no Serviço de Aplicativo do Azure.
+* O Serviço de Aplicativo do Azure podem ser configurados para executar scripts bash ou de shell personalizados durante a implantação, oferecendo a você a oportunidade de executar comandos personalizados e configurar com precisão a maneira como o **npm install** é executado. Para obter um vídeo mostrando como fazer isso, consulte [Scripts de implantação de site personalizado com o Kudu].
 
 ###Usando um arquivo package.json
 
@@ -45,7 +43,7 @@ Ao instalar módulos durante o desenvolvimento, você pode usar os parâmetros *
 Um problema potencial com o arquivo **package.json** é que este só especifica a versão para dependências de nível superior. Cada módulo instalado pode ou não especificar a versão dos módulos da qual depende e, desta forma, é possível que você acabe com uma cadeia de dependências diferente daquele usada no desenvolvimento.
 
 > [AZURE.NOTE]
-Quando estiver implantando em um Site do Azure, se o seu arquivo <b>package.json</b> fizer referência a um módulo nativo, você verá um erro semelhante ao seguinte ao publicar o aplicativo usando Git:
+Quando estiver implantando no Serviço de Aplicativo do Azure, se o seu arquivo <b>package.json</b> fizer referência a um módulo nativo, você verá um erro semelhante ao seguinte ao publicar o aplicativo usando Git:
 
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 
@@ -59,7 +57,7 @@ O arquivo **npm-shrinkwrap.json** é uma tentativa de resolver as limitações d
 Quando seu aplicativo estiver pronto para produção, você poderá bloquear os requisitos de versão e criar um arquivo **npm-shrinkwrap.json** usando o comando **npm shrinkwrap**. Isto irá usar as versões atualmente instaladas na pasta **node\_modules** e registrá-las no arquivo **npm-shrinkwrap.json**. Após o aplicativo ser implantado no ambiente de hospedagem, o comando **instalar npm** é usado para analisar o arquivo **npm-shrinkwrap.json** e instalar todas as dependências listadas. Para obter mais informações, consulte [instalar-npm](https://npmjs.org/doc/install.html).
 
 > [AZURE.NOTE]
-Quando estiver implantando em um Site do Azure, se o seu arquivo <b>npm-shrinkwrap.json</b> fizer referência a um módulo nativo, você verá um erro semelhantes ao seguinte ao publicar o aplicativo usando Git:
+Quando estiver implantando no Serviço de Aplicativo do Azure, se o seu arquivo <b>npm-shrinkwrap.json</b> fizer referência a um módulo nativo, você verá um erro semelhante ao seguinte ao publicar o aplicativo usando Git:
 
 >		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 
@@ -68,16 +66,16 @@ Quando estiver implantando em um Site do Azure, se o seu arquivo <b>npm-shrinkwr
 
 ##Próximas etapas
 
-Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda como [especificar a versão do Node.js], [criar e implantar um Site no Node.js] e [Como usar a Interface de Linha de Comando do Azure para Mac e Linux].
+Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda como [especificar a versão do Node.js], [compilar e implantar um aplicativo Web Node.js] e [Como usar a Interface de Linha de Comando do Azure para Mac e Linux].
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
 [especificar a versão do Node.js]: nodejs-specify-node-version-azure-apps.md
 [Como usar a Interface de Linha de Comando do Azure para Mac e Linux]: xplat-cli-install.md
-[criar e implantar um Site no Node.js]: web-sites-nodejs-develop-deploy-mac.md
+[compilar e implantar um aplicativo Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
 [Publishing with Git]: web-sites-publish-source-control.md
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de implantação de site personalizado com o Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

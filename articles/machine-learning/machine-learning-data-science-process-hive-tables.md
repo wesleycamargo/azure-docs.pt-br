@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"  />
 
 <tags
@@ -16,7 +16,7 @@
 	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo e tecnologia de análise avançada 
+#<a name="heading"></a> Enviar consultas de Hive para clusters do Hadoop do HDInsight no processo e tecnologia de análise avançada
 
 Este documento descreve várias maneiras de enviar consultas de Hive para clusters de Hadoop gerenciados por um serviço do HDInsight no Azure. Esta tarefa é uma etapa no CAP (Processo de Análise da Cortana). Várias tarefas de wrangling de dados são discutidas: exploração de dados e geração de recursos. Consultas genéricas de Hive que mostram como explorar dados ou gerar recursos usando o Hive em um cluster do Hadoop do Azure HDInsight são apresentadas. Essas consultas de Hive usam UDFs (Funções Definidas pelo Usuário) de Hive incorporadas que são fornecidas.
 
@@ -106,7 +106,7 @@ Os usuários também podem exportar a saída da consulta de Hive para um blob do
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-No exemplo a seguir, a saída da consulta de Hive é gravada em um diretório de blob `queryoutputdir` no contêiner padrão do cluster do Hadoop. Aqui, você deve fornecer somente o nome do diretório, sem o nome do blob. Um erro será gerado se você fornecer os nomes do blob e do diretório, como *wasb:///queryoutputdir/queryoutput.txt*.
+No exemplo a seguir, a saída da consulta de Hive é gravada em um diretório de blob `queryoutputdir` no contêiner padrão do cluster do Hadoop. Aqui, você deve fornecer somente o nome do diretório, sem o nome do blob. Um erro será gerado se você fornecer os nomes do blob e do diretório, como **wasb:///queryoutputdir/queryoutput.txt*.
 
 ![Criar espaço de trabalho](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
@@ -167,7 +167,7 @@ Aqui estão alguns scripts de Hive de exemplo que podem ser usados para explorar
 
 Nesta seção, descrevemos maneiras de gerar recursos usando consultas de Hive.
 
-> [AZURE.NOTE] As consultas de Hive de exemplo nesta seção pressupõem que os dados foram carregados tabelas Hive em clusters de Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
+> [AZURE.NOTE] As consultas de Hive de exemplo nesta seção pressupõem que os dados foram carregados tabelas Hive em clusters de Hadoop do Azure HDInsight. Se não, siga as instruções de [Criar e carregar dados nas tabelas Hive](machine-learning-data-science-move-hive-tables.md) para carregar dados nas tabelas Hive primeiro.
 
 Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser associada à tabela original.
 
@@ -310,8 +310,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-
-
- 
-
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

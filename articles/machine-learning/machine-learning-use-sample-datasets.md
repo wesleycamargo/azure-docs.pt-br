@@ -21,7 +21,7 @@
 
 [top]: #machine-learning-sample-datasets
 
-Quando você cria um novo espaço de trabalho no Aprendizado de Máquina do Azure, um número de conjuntos de dados de exemplo e testes é incluído por padrão. Muitos desses conjuntos de dados de exemplo são usados pelos modelos de exemplo na [Galeria de Análise do Cortana](http://gallery.azureml.net/), e outros são incluídos como exemplos de vários tipos de dados usados no aprendizado de máquina.
+Quando você cria um novo espaço de trabalho no Aprendizado de Máquina do Azure, um número de conjuntos de dados de exemplo e testes é incluído por padrão. Muitos desses conjuntos de dados de exemplo são usados pelos modelos de exemplo na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) e outros são incluídos como exemplos de vários tipos de dados usados no aprendizado de máquina.
 
 Alguns desses conjuntos de dados estão disponíveis no armazenamento de Blob do Azure. Para esses conjuntos de dados, as tabelas a seguir fornecem um link direto. Você pode usar esses conjuntos de dados em seus experimentos com o uso do módulo [Leitor][reader].
 
@@ -316,4 +316,4 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

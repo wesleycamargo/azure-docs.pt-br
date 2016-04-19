@@ -60,7 +60,7 @@ Para usar o armazenamento do Azure, você precisa do SDK de Armazenamento do Azu
 
 Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte à parte superior do arquivo **server.js** do aplicativo no qual você pretende usar o armazenamento:
 
-    var azure = require('azure-storage');
+	var azure = require('azure-storage');
 
 ## Configurar uma conexão de armazenamento do Azure
 
@@ -72,27 +72,27 @@ Para obter um exemplo de como definir as variáveis de ambiente no [Portal do Az
 
 O código a seguir cria um objeto **QueueService**, permitindo que você trabalhe com filas.
 
-    var queueSvc = azure.createQueueService();
+	var queueSvc = azure.createQueueService();
 
 Use o método **createQueueIfNotExists**, que retorna a fila especificada, se já existente, ou cria uma nova fila com o nome especificado se esse nome ainda não existir.
 
 	queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
-      if(!error){
-        // Queue created or exists
+	  if(!error){
+	    // Queue created or exists
 	  }
 	});
 
-Se a fila for criada, `result` é true. Se a fila existir, `result` é false.
+Se a fila for criada, `result.created` é true. Se a fila existir, `result.created` é false.
 
 ### Filtros
 
 É possível aplicar operações de filtragem opcionais às operações executadas usando **QueueService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Os filtros são objetos que implementam um método com a assinatura:
 
-		function handle (requestOptions, next)
+	function handle (requestOptions, next)
 
 Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar "next", passando um retorno de chamada com a assinatura a seguir:
 
-		function (returnObject, finalCallback, next)
+	function (returnObject, finalCallback, next)
 
 Nesse retorno de chamada, e após processar o returnObject (a resposta da solicitação ao servidor), o retorno de chamada precisará invocar avançar, se ele existir, para continuar processando outros filtros ou simplesmente invocar finalCallback para terminar a invocação de serviço.
 
@@ -117,7 +117,7 @@ Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila c
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
-		// Message text is in messages[0].messagetext
+	    // Message text is in messages[0].messageText
 	  }
 	});
 
@@ -136,14 +136,14 @@ O processamento de uma mensagem é um processo de duas fases:
 Para remover uma mensagem da fila, use **getMessages**. Isso torna as mensagens invisíveis na fila, de forma que nenhum outro cliente possa processá-las. Depois que seu aplicativo tiver processado uma mensagem, chame **deleteMessage** para excluí-la da fila. O exemplo a seguir obtém uma mensagem e, em seguida, a exclui:
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
-      if(!error){
-	    // Message text is in messages[0].messagetext
-        var message = result[0];
-        queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
+	  if(!error){
+	    // Message text is in messages[0].messageText
+	    var message = result[0];
+	    queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
 	      if(!error){
-		    //message deleted
-		  }
-		});
+	        //message deleted
+	      }
+	    });
 	  }
 	});
 
@@ -156,15 +156,15 @@ Usar **getMessages** quando não existirem mensagens na fila não retornará um 
 
 Você pode alterar o conteúdo de uma mensagem na fila usando **updateMessage**. O exemplo a seguir atualiza o texto de uma mensagem:
 
-    queueSvc.getMessages('myqueue', function(error, result, response){
+	queueSvc.getMessages('myqueue', function(error, result, response){
 	  if(!error){
-		// Got the message
-		var message = result[0];
-		queueSvc.updateMessage('myqueue', message.messageid, message.popreceipt, 10, {messageText: 'new text'}, function(error, result, response){
-		  if(!error){
-			// Message updated successfully
-		  }
-		});
+	    // Got the message
+	    var message = result[0];
+	    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
+	      if(!error){
+	        // Message updated successfully
+	      }
+	    });
 	  }
 	});
 
@@ -177,18 +177,18 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila:
 
 O seguinte exemplo usa o método **getMessages** para receber 15 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem retornada por este método.
 
-    queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+	queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
 	  if(!error){
-		// Messages retreived
-		for(var index in result){
-		  // text is available in result[index].messageText
-		  var message = result[index];
-		  queueSvc.deleteMessage(queueName, message.messageid, message.popreceipt, function(error, response){
-			if(!error){
-			  // Message deleted
-			}
-		  });
-		}
+	    // Messages retreived
+	    for(var index in result){
+	      // text is available in result[index].messageText
+	      var message = result[index];
+	      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
+	        if(!error){
+	          // Message deleted
+	        }
+	      });
+	    }
 	  }
 	});
 
@@ -196,9 +196,9 @@ O seguinte exemplo usa o método **getMessages** para receber 15 mensagens em um
 
 O **getQueueMetadata** retorna metadados sobre a fila, incluindo o número aproximado de mensagens em espera na fila.
 
-    queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+	queueSvc.getQueueMetadata('myqueue', function(error, result, response){
 	  if(!error){
-		// Queue length is available in result.approximatemessagecount
+	    // Queue length is available in result.approximateMessageCount
 	  }
 	});
 
@@ -218,10 +218,10 @@ Se não for possível retornar todas as filas, `result.continuationToken` poder�
 
 Para excluir uma fila e todas as mensagens contidas nela, chame o método **deleteQueue** no objeto de fila.
 
-    queueSvc.deleteQueue(queueName, function(error, response){
-		if(!error){
-			// Queue has been deleted
-		}
+	queueSvc.deleteQueue(queueName, function(error, response){
+	  if(!error){
+	    // Queue has been deleted
+	  }
 	});
 
 Para limpar todas as mensagens de uma fila sem excluí-la, use **clearMessages**.
@@ -269,36 +269,30 @@ Você também pode usar uma ACL (Lista de Controle de Acesso) para definir a pol
 
 Uma ACL é implementada através de um conjunto de políticas de acesso, com uma ID associada a cada política. O exemplo a seguir define duas políticas; uma para 'user1' e um para 'user2':
 
-	var sharedAccessPolicy = [
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user1'
+	var sharedAccessPolicy = {
+	  user1: {
+	    Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  },
-	  {
-	    AccessPolicy: {
-	      Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
-	      Start: startDate,
-	      Expiry: expiryDate
-	    },
-	    Id: 'user2'
+	  user2: {
+	    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+	    Start: startDate,
+	    Expiry: expiryDate
 	  }
-	];
+	};
 
 O exemplo a seguir obtém a ACL atual para **myqueue**, em seguida, adiciona as novas políticas usando **ssetQueueAcl**. Essa abordagem permite:
 
+	var extend = require('extend');
 	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
-      if(!error){
-		//push the new policy into signedIdentifiers
-		result.signedIdentifiers = result.signedIdentifiers.concat(sharedAccessPolicy);
-		queueSvc.setQueueAcl('myqueue', result.signedIdentifiers, function(error, result, response){
-	  	  if(!error){
-	    	// ACL set
-	  	  }
-		});
+	  if(!error){
+	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+	    queueSvc.setQueueAcl('myqueue', newSignedIdentifiers, function(error, result, response){
+	      if(!error){
+	        // ACL set
+	      }
+	    });
 	  }
 	});
 
@@ -331,4 +325,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Compilar e implantar um aplicativo Web do Node.js no Azure usando o Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

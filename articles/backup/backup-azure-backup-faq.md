@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/30/2016"
+	 ms.date="04/04/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Serviço de Backup do Azure - Perguntas frequentes
@@ -47,7 +47,7 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P3. Qual versão do servidor SCDPM tem suporte?** <br/> R3. Recomendamos que você instale o agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) no pacote cumulativo de atualizações mais recente do SCDPM (UR6 de julho de 2015)
 
-****P4. Ao configurar o agente do Backup do Azure, preciso inserir as **credenciais do cofre**. As credenciais do cofre expiram? R4. Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre de backup.
+**P4. Ao configurar o agente do Backup do Azure, preciso inserir as **credenciais do cofre**. As credenciais do cofre expiram? R4. Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre de backup.
 
 **P5. Há algum limite para o número de cofres de backup que podem ser criados em cada assinatura do Azure?** <br/> R5. Sim. Desde julho de 2015, você pode criar 25 cofres por assinatura. Se você precisar de mais cofres, crie uma nova assinatura.
 
@@ -112,7 +112,12 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P23. Qual é o comprimento do caminho do arquivo que pode ser especificado como parte da política de Backup do Azure usando o agente de Backup do Azure?** <br/> R23. O agente de Backup do Azure baseia-se em NTFS. A [especificação de comprimento de caminho de arquivo é limitada pela API do Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se tiver um caminho de arquivo maior do que o que é permitido pela API do Windows, você poderá fazer backup da pasta pai ou da unidade de disco dos arquivos desejados.
 
-**P24: quais caracteres são permitidos no caminho de arquivo da política de Backup do Azure usando o agente de Backup do Azure?** <br/> R24. O agente de Backup do Azure baseia-se em NTFS. Ela permite os [caracteres com suporte do NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) como parte da especificação de arquivo.
+**P24. Quais caracteres são permitidos no caminho de arquivo da política de Backup do Azure usando o agente de Backup do Azure?** <br/> R24. O agente de Backup do Azure baseia-se em NTFS. Ela permite os [caracteres com suporte do NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) como parte da especificação de arquivo.
+
+**P25. Posso usar o servidor de Backup do Azure para criar um backup BMR (Recuperação Bare-Metal) para um servidor físico?** <br/> R25. Sim.
+
+**P26. Posso configurar o serviço de Backup para enviar emails se um trabalho de backup falhar?** <br/> R26. Sim, o serviço de Backup tem vários alertas baseados em eventos que podem ser usados com um script do PowerShell. Para obter uma descrição completa, confira [Notificações de alerta](backup-azure-manage-vms.md#alert-notifications)
+
 
 
 ## Backup e retenção
@@ -140,7 +145,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 **P3. Há uma diferença entre a política de agendamento de backup do DPM e do Windows Server (ou seja, no Windows Server sem o DPM)?** <br/> R3. Sim. Usando o DPM, você pode especificar o agendamento diário, semanal, mensal e anual. O Windows Server (sem o DPM) permite que você especifique apenas os agendamentos diários e semanais.
 
-**P4. Há uma diferença entre a política de retenção do DPM e do Windows Server/cliente Windows (ou seja, no Windows Server sem o DPM)?**<br/> R4. Não, o DPM e o Windows Server/cliente Windows têm políticas de retenção diárias, semanais, mensais e anuais.
+**P4. Há alguma diferença entre a política de retenção do DPM e do Windows Server/cliente Windows (ou seja, no Windows Server sem o DPM)?**<br/> R4. Não, o DPM e o Windows Server/cliente Windows têm políticas de retenção diárias, semanais, mensais e anuais.
 
 **P5. Posso configurar minhas políticas de retenção de forma seletiva – ou seja, configurar semanal e diária, mas não anual e mensal?**<br/> R5. Sim, a estrutura de retenção de Backup do Azure permite que você tenha total flexibilidade na definição da política de retenção de acordo com suas necessidades.
 
@@ -158,7 +163,9 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 **P11. Por que a quantidade de dados transferida no backup não é igual à quantidade de dados da qual fiz backup?**<br/> A11. Todos os dados que passam por backup são compactados e criptografados antes de serem transferidos. Depois que a compactação e a criptografia forem aplicadas, os dados no cofre de backup serão de 30 a 40% menores.
 
-**P12. Há uma maneira de ajustar a quantidade de largura de banda usada pelo serviço de Backup?**<br/> R12. Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Ajuste a quantidade de largura de banda e os horários quando você usa essa largura de banda. Confira [Limitação de rede](../backup-configure-vault.md#enable-network-throttling) para saber mais.
+**P12. Há uma maneira de ajustar a quantidade de largura de banda usada pelo serviço de Backup?**<br/> R12. Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Ajuste a quantidade de largura de banda e os horários quando você usa essa largura de banda. Veja [Limitação de rede](../backup-configure-vault.md#enable-network-throttling) para saber mais.
+
+**P13. Minha largura de banda de Internet é limitada para a quantidade de dados que preciso incluir no backup. Há uma maneira de mover dados para um determinado local com um pipe de rede grande e de enviar esses dados por push para o Azure?** <br/> P13. Você pode fazer backup de dados no Azure por meio do processo de backup online padrão ou pode usar o serviço Importção/Exportação do Azure para transferir dados para o armazenamento de blobs no Azure. Não há maneiras adicionais de enviar os dados de backup para o armazenamento do Azure. Para saber mais sobre como usar o serviço Importação/Exportação do Azure com o Backup do Azure, veja o artigo [Fluxo de trabalho do backup offline](backup-azure-backup-import-export).
 
 
 ## Recuperação
@@ -197,4 +204,4 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
   Assim que a criação do backup for concluída com êxito no novo local de cache, você poderá remover a pasta de cache original.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Usando modelos vinculados com o Gerenciador de Recursos do Azure"
+   pageTitle="Modelos vinculados ao Azure Resource Manager | Microsoft Azure"
    description="Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="04/04/2016"
    ms.author="tomfitz"/>
 
 # Usando modelos vinculados com o Gerenciador de Recursos do Azure
@@ -110,10 +110,10 @@ Você também pode usar [deployment()](../resource-group-template-functions/#dep
 
 ## Passando valores de um modelo vinculado
 
-Se você precisar passar um valor de modelo vinculado para o modelo principal, poderá criar um valor na seção **saídas** do modelo vinculado. Para obter um exemplo, confira [Compartilhando o estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
+Se você precisar passar um valor de modelo vinculado para o modelo principal, poderá criar um valor na seção **outputs** do modelo vinculado. Para obter um exemplo, confira [Compartilhando o estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 
 ## Próximas etapas
-- [Criação de modelos](./resource-group-authoring-templates.md)
-- [Implantação de modelos](resource-group-template-deploy.md)
+- Para saber mais sobre como definir a ordem de implantação para seus recursos, confira [Definição de dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md)
+- Para saber como definir um recurso, mas criando várias instâncias dele, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0406_2016-->

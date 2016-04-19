@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Notas de versão do Catálogo de Dados do Azure"
+   pageTitle="Notas de versão do Catálogo de Dados do Azure | Microsoft Azure"
    description="Notas de versão do Catálogo de Dados do Azure."
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Notas de versão do Catálogo de Dados do Azure
@@ -88,4 +88,4 @@ Para obter mais informações, consulte [Configurando políticas de autenticaç�
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

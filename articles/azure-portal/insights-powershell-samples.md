@@ -229,10 +229,9 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Uma lista completa das opções disponíveis para `Get-AzureRmMetricDefinition` está disponível em [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-Para exibir uma lista de métricas disponíveis e suas unidades para vários serviços do Azure, consulte [TÍTULO DA PÁGINA DA WEB AQUI](http://link).
 
 ## Criar e gerenciar configurações de Autoescala
-Um recurso, como um aplicativo Web, VM, serviço de nuvem ou conjunto de escalas de VM pode ter apenas uma configuração de autoescala definida. No entanto, cada configuração de autoescala pode ter vários perfis. Por exemplo, um para um perfil de escala baseada em desempenho e outro para um perfil baseado em agendamento. Cada perfil pode ter várias regras configuradas nele. Para obter mais informações sobre a Autoescala, consulte [Como fazer o dimensionamento automático de um aplicativo](../cloud-services/cloud-services-how-to-scale.md).
+Um recurso, como um aplicativo Web, VM, serviço de nuvem ou conjunto de escalas de VM pode ter apenas uma configuração de autoescala definida. No entanto, cada configuração de autoescala pode ter vários perfis. Por exemplo, um para um perfil de escala baseada em desempenho e outro para um perfil baseado em agendamento. Cada perfil pode ter várias regras configuradas nele. Para obter mais informações sobre Dimensionamento Automático, confira [Como fazer o dimensionamento automático de um aplicativo](../cloud-services/cloud-services-how-to-scale.md).
 
 Estas são as etapas que usaremos:
 
@@ -279,7 +278,7 @@ Por fim, crie a configuração de autoescala para adicionar o perfil que você c
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-Para obter mais informações sobre como gerenciar configurações de Autoescala, consulte [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
+Para obter mais informações sobre como gerenciar configurações de Dimensionamento Automático, confira [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
 
 ## Histórico de Autoescala
 O exemplo a seguir mostra como você pode exibir eventos recentes de autoescala e alertas. Use a pesquisa de log de auditoria para exibir o histórico de Autoescala.
@@ -288,16 +287,16 @@ O exemplo a seguir mostra como você pode exibir eventos recentes de autoescala 
 Get-AzureRmLog -Caller "Microsoft.Insights/autoscaleSettings" -DetailedOutput -StartTime 2015-03-01
 ```
 
-Você pode usar o cmdlet `Get-AzureRmAutoScaleHistory` para recuperar o histórico de Autoescala.
+Você pode usar o cmdlet `Get-AzureRmAutoScaleHistory` para recuperar o histórico de Dimensionamento Automático.
 
 ```
 Get-AzureRmAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-Para obter mais informações, consulte [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
+Para obter mais informações, confira [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
 
 ### Exibir os detalhes de uma configuração de autoescala
-Você pode usar o cmdlet `Get-Autoscalesetting` para recuperar mais informações sobre a configuração de autoescala.
+Você pode usar o cmdlet `Get-Autoscalesetting` para recuperar mais informações sobre a configuração de dimensionamento automático.
 
 O exemplo a seguir mostra detalhes de todas as configurações de autoescala no grupo de recursos "myrg1".
 
@@ -312,7 +311,7 @@ Get-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting -Detai
 ```
 
 ### Remover uma configuração de autoescala
-Você pode usar o cmdlet `Remove-Autoscalesetting` para excluir uma configuração de autoescala.
+Você pode usar o cmdlet `Remove-Autoscalesetting` para excluir uma configuração de dimensionamento automático.
 
 ```
 Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
@@ -320,10 +319,10 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 
 ## Gerenciar perfis de log para logs de auditoria
 
-Você pode criar um *perfil de log* e exportar dados de seus logs de auditoria para uma conta de armazenamento e pode configurar retenção de dados para ele. Você também pode transmitir os dados para seu Hub de eventos. Observe que no momento esse recurso está em Preview e você só pode criar um perfil de log por assinatura. Você pode usar os cmdlets a seguir com sua assinatura atual para criar e gerenciar perfis de log. Você também pode escolher uma assinatura específica. Embora o PowerShell selecione por padrão a assinatura atual, você pode alterar isso usando `Set-AzureRmContext`. Você pode configurar logs de auditoria para encaminhar dados para qualquer conta de armazenamento ou Hub de eventos dentro dessa assinatura. Os dados são gravados como arquivos de blob no formato JSON.
+Você pode criar um *perfil de log* e exportar dados de logs de auditoria para uma conta de armazenamento e pode configurar retenção de dados para ele. Você também pode transmitir os dados para seu Hub de eventos. Observe que no momento esse recurso está em Preview e você só pode criar um perfil de log por assinatura. Você pode usar os cmdlets a seguir com sua assinatura atual para criar e gerenciar perfis de log. Você também pode escolher uma assinatura específica. Embora o PowerShell selecione a assinatura atual por padrão, você pode alterar isso usando `Set-AzureRmContext`. Você pode configurar logs de auditoria para encaminhar dados para qualquer conta de armazenamento ou Hub de eventos dentro dessa assinatura. Os dados são gravados como arquivos de blob no formato JSON.
 
 ### Obter um perfil de log
-Para buscar os perfis log existentes, use o cmdlet `Get-AzureRmLogProfile`.
+Para buscar os perfis de log existentes, use o cmdlet `Get-AzureRmLogProfile`.
 
 ### Adicionar um perfil de log sem retenção de dados
 
@@ -385,4 +384,4 @@ Habilitar configuração de diagnóstico com retenção para uma categoria de lo
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!----HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

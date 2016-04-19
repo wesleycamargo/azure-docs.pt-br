@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="03/31/2016"
 	ms.author="lakasa"/>
 
 
@@ -24,6 +24,8 @@
 ## Visão geral
 
 O [pacote Nuget da Biblioteca de Clientes do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) dá suporte à criptografia de dados em aplicativos clientes antes de carregar no Armazenamento do Azure e à descriptografia de dados durante o download para o cliente. A biblioteca também dá suporte à integração com o [Cofre da Chave do Azure](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves de contas de armazenamento.
+
+Para obter um tutorial passo a passo que orienta você pelo processo de criptografia de blobs usando criptografia do lado do cliente e o Cofre da Chave do Azure, confira [Criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando a Chave do Cofre do Azure](storage-encrypt-decrypt-blobs-key-vault.md).
 
 Para a criptografia do lado do cliente com Java, veja [Criptografia do lado do cliente com Java para o Armazenamento do Microsoft Azure](storage-client-side-encryption-java.md).
 
@@ -244,9 +246,9 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 
 ## Próximas etapas
 
+- [Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure](storage-encrypt-decrypt-blobs-key-vault.md)
 - Baixar o [pacote NuGet da Biblioteca de Clientes do Armazenamento do Azure para o .NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-- Baixar o [Código-Fonte da Biblioteca de Clientes do Armazenamento do Azure para o .NET](https://github.com/Azure/azure-storage-net) do GitHub
 - Baixar os pacotes de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre de Chaves do Azure NuGet  
 - Visitar a [Documentação do Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -58,7 +58,7 @@ Você pode configurar CORS no portal do Azure ou usando as ferramentas do [Azure
 
 	Depois que você clicar em **Salvar**, o aplicativo de API aceitará chamadas JavaScript das URLs especificadas.
 
-### Configurar CORS usando as ferramentas do Gerenciador de Recursos do Azure
+#### Configurar CORS usando as ferramentas do Azure Resource Manager
 
 Você também pode configurar o CORS para um aplicativo de API usando os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md) nas ferramentas de linha de comando, como o [Azure PowerShell](../powershell-install-configure.md) e a [CLI do Azure](../xplat-cli-install.md).
 
@@ -261,26 +261,24 @@ As etapas a seguir resumem o processo para habilitar o suporte ao CORS da API We
 		namespace ToDoListAPI.Controllers 
 		{
 		    [HttpOperationExceptionFilterAttribute]
-		    [EnableCors(origins:"*", headers:"*", methods: "*")]
+		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
-	> **Observação**: use esse atributo com cuidado. A especificação de caracteres curinga para todos os parâmetros abre sua API para todas as origens e para todas as solicitações HTTP. As configurações mostradas aqui são apenas para fins de demonstração.
-
 ## Solucionar problemas
 
 Se encontrar um problema ao percorrer este tutorial, verifique se você está usando a versão mais recente do SDK do Azure para .NET. A maneira mais fácil de fazer isso é [baixar o SDK do Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se você tiver a versão atual instalada, o Web Platform Installer avisará que nenhuma instalação é necessária.
 
 Se você continuar recebendo erros de CORS depois de definir uma URL na folha CORS do portal, verifique se as alterações corretas foram feitas nos locais corretos. Por exemplo:
 
-* Verifique se você inseriu o protocolo corretamente (`https`, não `http`) e se você está usando `https` para executar o aplicativo Web de front-end.
+* Verifique se você inseriu o protocolo corretamente (`https`, não `http`) e se está usando `https` para executar o aplicativo Web de front-end.
 * Verifique se você inseriu a configuração CORS no aplicativo de API de camada intermediária e não no aplicativo Web de front-end.
 
 Se você estiver configurando o CORS no código do aplicativo e no Serviço de Aplicativo do Azure, observe que a configuração do CORS do Serviço de Aplicativo substituirá tudo o que você estiver fazendo no código do aplicativo.
 
-Para saber mais sobre os recursos do Visual Studio que simplificam a solução de problemas, veja [Solução de problemas em aplicativos do Serviço de Aplicativo do Azure no Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
+Para saber mais sobre os recursos do Visual Studio que simplificam a solução de problemas, confira [Solução de problemas em aplicativos do Serviço de Aplicativo do Azure no Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Próximas etapas 
 
 Neste artigo, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código JavaScript de cliente possa chamar uma API em um domínio diferente. No próximo artigo da série de introdução a Aplicativos de API, você saberá mais sobre [Autenticação para aplicativos de API do Serviço de Aplicativo](app-service-api-authentication.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

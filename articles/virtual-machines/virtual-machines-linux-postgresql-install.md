@@ -30,7 +30,7 @@ Neste artigo, você aprenderá a instalar e configurar PostgreSQL em uma máquin
 
 ## Instalar o PostgreSQL
 
-> [AZURE.NOTE] Você já deve ter uma máquina virtual do Azure executando o Linux para concluir este tutorial. Para criar e configurar uma VM Linux antes de continuar, consulte o [tutorial da VM Linux do Azure](virtual-machines-linux-cli-create.md)
+> [AZURE.NOTE] Você já deve ter uma máquina virtual do Azure executando o Linux para concluir este tutorial. Para criar e configurar uma VM Linux antes de continuar, consulte o [tutorial da VM Linux do Azure](virtual-machines-linux-quick-create-cli.md)
 
 Nesse caso, use a porta 1999 como a porta do PostgreSQL.
 
@@ -255,4 +255,4 @@ Use o seguinte comando para atualizar dados em uma tabela. Para este, Sandy conf
 ##Obter mais informações sobre o PostgreSQL
 Agora que você concluiu a instalação do PostgreSQL em uma VM do Linux do Azure, aproveite-o usando-o no Azure. Para saber mais sobre o PostgreSQL, visite o [site do PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

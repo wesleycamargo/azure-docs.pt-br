@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Uso avançado do modelo de programação de Reliable Services | Microsoft Azure"
-   description="Saiba mais sobre o uso avançado do modelo de programação de Serviços Confiáveis da Malha de Serviços para obter maior flexibilidade em seus serviços."
+   pageTitle="Uso avançado dos Reliable Services | Microsoft Azure"
+   description="Saiba mais sobre o uso avançado do Reliable Services do Service Fabric para obter maior flexibilidade em seus serviços."
    services="Service-Fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor="masnider"/>
 
@@ -13,16 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/28/2016"
-   ms.author="jesseb"/>
+   ms.date="03/25/2016"
+   ms.author="vturecek"/>
 
 # Uso avançado do modelo de programação de Serviços Confiáveis
-O Service Fabric do Azure simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este guia tratará dos usos avançados do modelo de programação de Serviços Confiáveis para obter mais controle e flexibilidade sobre seus serviços. Antes de ler este guia, familiarize-se com [o do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-introduction.md).
+O Service Fabric do Azure simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este guia trata dos usos avançados dos Reliable Services para obter mais controle e flexibilidade sobre seus serviços. Antes de ler este guia, familiarize-se com [o do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-introduction.md).
 
-## Classes base para serviços sem estado
-A classe base StatelessService fornece o RunAsync() e o CreateServiceInstanceListeners(), que são suficientes para a maioria dos serviços sem estado. A classe StatelessServiceBase fica subjacente ao StatelessService e expõe eventos adicionais de ciclo de vida do serviço. Você pode derivar de StatelessServiceBase se precisar de controle adicional ou flexibilidade. Consulte a documentação de referência do desenvolvedor em [StatelessService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservice.aspx) e [StatelessServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservicebase.aspx) para obter mais informações.
+Os serviços com e sem estado têm dois pontos de entrada principais para o código de usuário:
 
-- `void OnInitialize(StatelessServiceInitializiationParameters)` OnInitialize é o primeiro método chamado pela Malha de Serviço. São fornecidas informações de inicialização do serviço como o nome, ID de partição, ID de instância e informações do pacote de códigos. Nenhum processamento complexo deve ser feito aqui. Inicialização longa deve ser feita em OnOpenAsync.
+ - `RunAsync` é um ponto de entrada de finalidade geral para seu código de serviço.
+ - `CreateServiceReplicaListeners` e `CreateServiceInstanceListeners` servem para abrir ouvintes de comunicação para solicitações de cliente.
+ 
+Para a maioria dos serviços, esses dois pontos de entrada são suficientes. Para casos raros, quando é necessário ter mais controle sobre o ciclo de vida do serviço, existem eventos de ciclo de vida adicionais disponíveis.
+
+## Ciclo de vida de instância de serviço sem estado
+
+O ciclo de vida de um serviço sem estado é muito simples. Um serviço sem estado só pode ser aberto, fechado ou anulado. `RunAsync` em um serviço sem estado é executado quando uma instância de serviço é aberta e cancelado quando uma instância de serviço é fechada ou anulada.
+
+Embora `RunAsync` deva ser suficiente em quase todos os casos, os eventos abrir, fechar e anular em um serviço sem estado também estão disponíveis:
 
 - `Task OnOpenAsync(IStatelessServicePartition, CancellationToken)` OnOpenAsync é chamado quando a instância do serviço sem monitoração de estado está prestes a ser usada. As tarefas de inicialização do serviço estendido podem ser iniciadas nesse momento.
 
@@ -30,19 +38,23 @@ A classe base StatelessService fornece o RunAsync() e o CreateServiceInstanceLis
 
 - `void OnAbort()` OnAbort é chamado quando a instância do serviço sem estado está sendo desligado de modo forçado. Ele geralmente é chamado quando é detectada uma falha permanente no nó ou quando a malha de serviço não pode gerenciar confiavelmente o ciclo de vida da instância do serviço devido a falhas internas.
 
-## Classes base para serviços com estado
-A classe base StatefulService deve ser suficiente para a maioria dos serviços com monitoração de estado. De maneira semelhante aos serviços sem monitoração de estado, a classe StatelessServiceBase fica subjacente ao StatefulService e expõe eventos adicionais de ciclo de vida do serviço. Além disso, você pode usá-la para fornecer um provedor de estado confiável personalizado e, opcionalmente, o suporte a ouvintes de comunicação em secundários. Você pode derivar de StatefulServiceBase se precisar de controle adicional ou flexibilidade. Consulte a documentação de referência do desenvolvedor em [StatefulService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservice.aspx) e [StatefulServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservicebase.aspx) para obter mais informações.
+## Ciclo de vida de réplica de serviço com estado
+
+Um ciclo de vida de uma réplica de serviço com estado é muito mais complexo do que uma instância de serviço sem estado. Além dos eventos abrir, fechar e anular, uma réplica de serviço com estado sofre mudanças de função durante seu ciclo de vida. Quando uma réplica de serviço com estado muda de função, o evento `OnChangeRoleAsync` é disparado:
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync é chamado quando o serviço com estado está alterando funções, por exemplo para primário ou secundário. Réplicas primárias recebem status de gravação (têm permissão para criar as coleções confiáveis e gravar nelas). Réplicas secundárias recebem status de leitura (podem somente ler das coleções confiáveis existentes). É possível iniciar ou atualizar as tarefas em segundo plano em resposta às alterações de função, como realizar validação somente leitura, geração de relatórios ou mineração de dados em um banco de dados secundário.
 
-- `IStateProviderReplica CreateStateProviderReplica()` Um serviço com estado deve ter um provedor de estado confiável. StatefulService usa a classe ReliableStateManager, que fornece as coleções confiáveis (por exemplo, dicionários e filas). Você pode substituir esse método para configurar a classe ReliableStateManager, passando um ReliableStateManagerConfiguration para seu construtor. Você pode, então, fornecer serializadores de estado personalizado, especificar o que acontece quando dados talvez tenham sido perdidos e configurar os provedores de estado/replicador.
+Em um serviço com estado, somente a réplica primária tem acesso de gravação para o estado e isso ocorre geralmente quando o serviço está executando o trabalho real. O método `RunAsync` em um serviço com estado é executado somente quando a réplica de serviço com estado é primária. O método `RunAsync` é cancelado quando a função de uma réplica primária é alterada para algo além de primário e durante os eventos fechar e anular.
 
-StatefulServiceBase também fornece os mesmos quatro eventos do ciclo de vida que StatelessServiceBase, com a mesma semântica e casos de uso:
+O uso do evento `OnChangeRoleAsync` permite que você execute o trabalho dependendo da função da réplica, bem como em resposta à mudança de função.
 
-- `void OnInitialize(StatefulServiceInitializiationParameters)`
+Um serviço com estado também fornece os mesmos quatro eventos do ciclo de vida que o serviço sem estado, com a mesma semântica e casos de uso:
+
 - `Task OnOpenAsync(IStatefulServicePartition, CancellationToken)`
 - `Task OnCloseAsync(CancellationToken)`
 - `void OnAbort()`
+
+
 
 ## Próximas etapas
 Para tópicos mais avançados relacionados ao Service Fabric, consulte os artigos a seguir:
@@ -55,4 +67,4 @@ Para tópicos mais avançados relacionados ao Service Fabric, consulte os artigo
 
 - [Configurando serviços com o Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

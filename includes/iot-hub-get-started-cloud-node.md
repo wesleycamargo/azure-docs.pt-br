@@ -68,9 +68,11 @@ Nesta seção, você cria um aplicativo do console do Node.js que cria uma nova 
 
 ## Receber mensagens do dispositivo para a nuvem
 
-Nesta seção, você cria um aplicativo do console do Node.js que lê mensagens do dispositivo para a nuvem do Hub IoT. Um hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs-overview] para permitir que você leia mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-processd2c-tutorial] mostra como processar mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] oferece informações adicionais sobre como processar mensagens de Hubs de Eventos e se aplica aos pontos de extremidade compatíveis com o Hub de Eventos Hub IoT.
+Nesta seção, você cria um aplicativo do console do Node.js que lê mensagens do dispositivo para a nuvem do Hub IoT. Um hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs-overview] para permitir que você leia mensagens do dispositivo para a nuvem. Para simplificar, este tutorial cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. O tutorial [Processar mensagens do dispositivo para a nuvem][lnk-processd2c-tutorial] mostra como processar as mensagens do dispositivo para a nuvem em escala. O tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial] oferece informações adicionais sobre como processar as mensagens dos Hubs de Eventos e é aplicável aos pontos de extremidade compatíveis com o Hub de Eventos Hub IoT.
 
-1. Crie uma nova pasta vazia chamada **readdevicetocloudmessages**. Na pasta **readdevicetocloudmessages**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+> [AZURE.NOTE] O ponto de extremidade compatível com os Hubs de Eventos para ler mensagens do dispositivo para a nuvem sempre usa o protocolo AMQPS.
+
+1. Crie uma nova pasta vazia denominada **readdevicetocloudmessages**. Na pasta **readdevicetocloudmessages**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
 
     ```
     npm init
@@ -95,7 +97,7 @@ Nesta seção, você cria um aplicativo do console do Node.js que lê mensagens 
     var Promise = require('bluebird');
     ```
 
-5. Adicione as declarações de variáveis a seguir, substituindo os espaços reservados pelos valores que você anotou anteriormente. O valor do espaço reservado **{namespace compatível com seu hub de eventos}** é proveniente do campo **Ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **xxxxnamespace.barramentodoserviço.windows.net** (sem o prefixo **sb://*).
+5. Adicione as declarações de variáveis a seguir, substituindo os espaços reservados pelos valores que você anotou anteriormente. O valor do espaço reservado **{namespacecompatívelcom seuhubdeeventos}** é proveniente do campo **Ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **namespace.barramentodoserviço.windows.net** (sem o prefixo **sb://*).
 
     ```
     var protocol = 'amqps';
@@ -106,9 +108,9 @@ Nesta seção, você cria um aplicativo do console do Node.js que lê mensagens 
     var numPartitions = 2;
     ```
 
-    > [AZURE.NOTE] Esse código pressupõe que você tenha criado seu hub IoT na camada F1 (gratuita). Um hub IoT gratuito tem duas partições chamadas "0" e "1". Se você tiver criado o hub IoT usando um dos outros tipos de preços, deverá ajustar o código para criar um **MessageReceiver** para cada partição.
+    > [AZURE.NOTE] Esse código pressupõe que você tenha criado seu hub IoT na camada F1 (gratuita). Um hub IoT gratuito tem duas partições chamadas "0" e "1". Se você criou o Hub IoT usando uma das outras camadas de preço, deverá ajustar o código para criar um **MessageReceiver** para cada partição.
 
-6. Adicione a definição de filtro a seguir. Esse aplicativo usa um filtro ao criar um receptor para que o receptor leia apenas as mensagens enviadas para o Hub IoT após o início da execução do receptor. Isso será útil em um ambiente de teste para que você possa ver o conjunto de mensagens atual, mas em um ambiente de produção, seu código deverá garantir o processamento de todas as mensagens - veja o tutorial [Como processar mensagens do dispositivo para a nuvem do Hub IoT][lnk-processd2c-tutorial] para saber mais.
+6. Adicione a definição de filtro a seguir. Esse aplicativo usa um filtro ao criar um receptor para que o receptor leia apenas as mensagens enviadas para o Hub IoT após o início da execução do receptor. Isso será útil em um ambiente de teste para que você possa ver o conjunto de mensagens atual, mas em um ambiente de produção, seu código deverá garantir o processamento de todas as mensagens - consulte o tutorial [Como processar as mensagens do dispositivo para a nuvem do Hub IoT][lnk-processd2c-tutorial] para saber mais.
 
     ```
     var filterOffset = new Date().getTime();
@@ -177,9 +179,9 @@ Nesta seção, você cria um aplicativo do console do Node.js que lê mensagens 
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
-[lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-eventhubs-tutorial]: ../articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide.md#identityregistry
+[lnk-event-hubs-overview]: ../articles/event-hubs/event-hubs-overview.md
+[lnk-processd2c-tutorial]: ../articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

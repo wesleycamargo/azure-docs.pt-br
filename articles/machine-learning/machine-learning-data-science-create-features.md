@@ -28,7 +28,9 @@ Os links deste **menu** o levam até os tópicos que descrevem como criar recurs
 
 Este tópico explica a finalidade da criação de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Esses exemplos foram extraídos do Estúdio de Aprendizado de Máquina do Azure.
 
-A engenharia e a seleção de recursos é uma parte do processo de CAP descrito em [O que é o Processo de Análise da Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) A criação e a seleção de recursos fazem parte da etapa **Recursos de desenvolvimento** do CAP. * **engenharia de recurso**: Este processo tenta criar recursos adicionais relevantes de recursos brutos existentes nos dados, e aumenta o poder de previsão do algoritmo de aprendizagem. * **seleção de recurso**: Este processo seleciona o principal subconjunto de recursos de dados originais, em uma tentativa de reduzir a dimensionalidade do problema de treinamento.
+A engenharia e a seleção de recursos é uma parte do processo de CAP descrito em [O que é o Processo de Análise da Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do CAP.
+* **engenharia de recursos**: esse processo tenta criar outros recursos relevantes por meio dos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
+* **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
 
 Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e, em seguida, a etapa de **seleção do recurso** é feita para eliminar recursos redundantes, altamente correlacionados ou irrelevantes.
 
@@ -46,7 +48,7 @@ Que tipos de recursos devem ser criados para aperfeiçoar o conjunto de dados ao
 
 Ao começar a usar o Aprendizado de Máquina do Azure, é mais fácil entender esse processo concretamente usando exemplos fornecidos no Studio. Dois exemplos são apresentados aqui:
 
-* Um exemplo de regressão, [Previsão do número de locações de bicicletas](../machine-learning-sample-prediction-of-number-of-bike-rentals.md), em um experimento supervisionado em que os valores de destino são conhecidos
+* Um exemplo de regressão, [Previsão do número de locações de bicicletas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4), em um experimento supervisionado em que os valores de destino são conhecidos
 * Um exemplo de classificação de mineração de texto usando [Hash de recursos](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ### Exemplo 1: adicionando recursos temporais para o modelo de regressão ###
@@ -96,4 +98,4 @@ Recursos de engenharia e selecionados aumentam a eficiência do processo de trei
 Observe que nem sempre é necessário realizar a engenharia ou a seleção de recursos. Essa necessidade depende dos dados que temos ou coletamos, do algoritmo que escolhemos e do objetivo do experimento.
  
 
-<!---HONumber=AcomDC_0211_2016--->
+<!----HONumber=AcomDC_0406_2016-->

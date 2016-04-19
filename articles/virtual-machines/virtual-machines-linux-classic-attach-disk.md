@@ -3,7 +3,7 @@
 	description="Saiba como anexar um disco de dados a uma máquina virtual do Azure que executa o Linux e inicializá-lo para que esteja pronto para uso."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="dkshir"/>
+	ms.date="04/04/2016"
+	ms.author="iainfou"/>
 
 # Como anexar um disco de dados na máquina virtual Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
-Você pode anexar tanto discos vazios como discos que contenham dados. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Em ambos os casos também, após anexar o disco, será necessário reiniciá-lo para usá-lo.
+Você pode anexar tanto discos vazios como discos que contenham dados. Os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. Após anexar o disco, será necessário reiniciá-lo para usá-lo.
 
-> [AZURE.NOTE] É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual Azure, há um disco do sistema operacional e um disco temporário. **Não use o disco temporário para armazenar dados.** Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure. O disco temporário é normalmente gerenciado pelo agente Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Por outro lado, um disco de dados pode ser chamado pelo kernel Linux como `/dev/sdc`, e você precisará fazer a partição, formatar e montar esse recurso. Consulte o [Guia do Usuário do Azure Linux Agent][Agent] para obter detalhes.
+> [AZURE.NOTE] É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual Azure, há um disco do sistema operacional e um disco temporário. **Não use o disco temporário para armazenar dados persistentes.** Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure. O disco temporário é normalmente gerenciado pelo agente Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Por outro lado, um disco de dados pode ser chamado pelo kernel Linux como `/dev/sdc`, e você precisará fazer a partição, formatar e montar esse recurso. Consulte o [Guia do Usuário do Azure Linux Agent][Agent] para obter detalhes.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
@@ -38,7 +38,7 @@ Você pode usar as mesmas instruções para inicializar vários discos de dados,
 
 2. Em seguida, você precisa localizar o identificador de dispositivo para inicializar o disco de dados. Há duas maneiras de fazer isso:
 
-	a) Na janela SSH, digite o seguinte comando e, em seguida, insira a senha para a conta criada para gerenciar a máquina virtual:
+	a) Na janela SSH, digite o seguinte comando:
 
 			$sudo grep SCSI /var/log/messages
 
@@ -76,11 +76,9 @@ Você pode usar as mesmas instruções para inicializar vários discos de dados,
 
 	O último número na tupla em cada linha é o _lun_. Veja `man lsscsi` para obter mais informações.
 
-3. Na janela SSH, digite o seguinte comando para criar um novo dispositivo e, em seguida, digite a senha da conta:
+3. Na janela SSH, digite o seguinte comando para criar um novo dispositivo:
 
 		$sudo fdisk /dev/sdc
-
-	>[AZURE.NOTE] Neste exemplo, você talvez precisará usar `sudo -i` em algumas distribuições, se /sbin ou /usr/sbin não estiverem em seu `$PATH`.
 
 
 4. Quando solicitado, digite **n** para criar uma nova partição.
@@ -107,7 +105,7 @@ Você pode usar as mesmas instruções para inicializar vários discos de dados,
 
 	![Gravar as alterações de disco](./media/virtual-machines-linux-classic-attach-disk/DiskWrite.png)
 
-8. Crie o sistema de arquivos na nova partição. Acrescente o número da partição (1) à ID do dispositivo. Por exemplo, digite o comando a seguir e, em seguida, digite a senha da conta:
+8. Crie o sistema de arquivos na nova partição. Acrescente o número da partição (1) à ID do dispositivo. Por exemplo, para criar uma partição de ext4 em /dev/sdc1:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -116,7 +114,7 @@ Você pode usar as mesmas instruções para inicializar vários discos de dados,
 	>[AZURE.NOTE] Observe que sistemas SUSE Linux Enterprise 11 dão suporte apenas a acesso somente leitura para sistemas de arquivos ext4. Para esses sistemas, é recomendável formatar o novo sistema de arquivos como ext3 em vez de ext4.
 
 
-9. Crie um diretório para montar o novo sistema de arquivos. Como exemplo, digite o seguinte comando e, em seguida, digite a senha da conta:
+9. Crie um diretório para montar o novo sistema de arquivos. Por exemplo, digite o seguinte comando:
 
 		# sudo mkdir /datadrive
 
@@ -143,7 +141,7 @@ Você pode usar as mesmas instruções para inicializar vários discos de dados,
 
 	>[AZURE.NOTE] A edição inadequada do arquivo **/etc/fstab** pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editá-lo corretamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
 
-	Em seguida, abra o arquivo **/etc/fstab** em um editor de texto. Observe que /etc/fstab é um arquivo do sistema, então será necessário usar `sudo` para editá-lo. Por exemplo:
+	Em seguida, abra o arquivo **/etc/fstab** em um editor de texto:
 
 		# sudo vi /etc/fstab
 
@@ -173,10 +171,10 @@ Você pode usar as mesmas instruções para inicializar vários discos de dados,
 
 [Como desanexar um disco de uma máquina virtual Linux ](virtual-machines-linux-classic-detach-disk.md)
 
-[Usar a CLI do Azure com a API de Gerenciamento de Serviço](virtual-machines-command-line-tools.md)
+[Usar a CLI do Azure com a API de Gerenciamento de Serviço](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-classic-log-on.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

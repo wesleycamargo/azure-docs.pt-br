@@ -85,11 +85,14 @@ O *&#60;nome DNS da máquina virtual>* pode ser encontrado no Portal Clássico d
 
 Você encontrará um aviso informando que _Há um problema com o certificado de segurança deste site_ (Internet Explorer) ou a _Sua conexão não é privada_ (Chrome), conforme mostrado nas figuras a seguir. Clique em **Continuar neste site (não recomendado)** (Internet Explorer) ou **Avançado** e **Continuar em &#60;*Nome DNS*> (perigoso)** (Chrome) para continuar. Em seguida, insira a senha que você especificou anteriormente para acessar o IPython Notebooks.
 
-Internet Explorer: ![Criar espaço de trabalho][20]
+Internet Explorer:
+![Criar espaço de trabalho][20]
 
-Chrome: ![Criar espaço de trabalho][21]
+Chrome:
+![Criar espaço de trabalho][21]
 
-Depois de fazer logon no IPython Notebook, o diretório *DataScienceSamples* aparecerá no navegador. Esse diretório contém o IPython Notebooks de amostra que é compartilhado pela Microsoft para ajudar os usuários a realizar tarefas de ciência de dados. Esses IPython Notebooks de amostra são verificados no [**repositório Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) para as máquinas virtuais durante o processo de configuração do servidor do IPython Notebook. A Microsoft mantém e atualiza esse repositório com frequência. Os usuários podem visitar o repositório Github para obter a amostra do IPython Notebooks atualizada mais recentemente. ![Criar espaço de trabalho][18]
+Depois de fazer logon no IPython Notebook, o diretório *DataScienceSamples* aparecerá no navegador. Esse diretório contém o IPython Notebooks de amostra que é compartilhado pela Microsoft para ajudar os usuários a realizar tarefas de ciência de dados. Esses IPython Notebooks de amostra são verificados no [**repositório Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) para as máquinas virtuais durante o processo de configuração do servidor do IPython Notebook. A Microsoft mantém e atualiza esse repositório com frequência. Os usuários podem visitar o repositório Github para obter a amostra do IPython Notebooks atualizada mais recentemente.
+![Criar espaço de trabalho][18]
 
 ## <a name="upload"></a>Etapa 5: carregar um IPython Notebook existente de um computador local para o servidor do IPython Notebook
 
@@ -122,9 +125,9 @@ A máquina virtual será desalocada, mas não excluída. Você pode reiniciar a 
 
 ## Sua VM do Azure está pronta para uso: o que vem a seguir?
 
-Agora, a sua máquina virtual está pronta para ser usada em seus exercícios de ciência de dados. A máquina virtual também está pronta para uso como um servidor do IPython Notebook para a exploração e o processamento de dados e outras tarefas em conjunto com o Aprendizado de Máquina do Azure e Processo de Análise do Cortana (CAP).
+Agora, a sua máquina virtual está pronta para ser usada em seus exercícios de ciência de dados. A máquina virtual também está pronta para uso como um servidor do IPython Notebook para a exploração e o processamento de dados e outras tarefas em conjunto com o Aprendizado de Máquina do Azure e Processo do Cortana Analytics.
 
-As próximas etapas no processo e tecnologia de análise avançada estão mapeadas no [Guia de aprendizado: processamento de dados avançado no Azure](machine-learning-data-science-advanced-data-processing.md) e podem incluir etapas que movimentam dados para o HDInsight, os processam e criam amostras como parte da preparação para o aprendizado por meio dos dados no Aprendizado de Máquina do Azure.
+As próximas etapas no Processo do Cortana Analytics são mapeadas no [Roteiro de Aprendizagem](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movimentam dados para o HDInsight, os processam e criam amostras-como parte da preparação para o aprendizado com os dados no Aprendizado de Máquina do Azure.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
@@ -141,6 +144,5 @@ As próximas etapas no processo e tecnologia de análise avançada estão mapead
 [27]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0406_2016-->

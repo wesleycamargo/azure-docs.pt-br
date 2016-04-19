@@ -225,7 +225,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 1.  No Portal Clássico do Azure (ou na etapa anterior), selecione **MÁQUINAS VIRTUAIS**.
 
-2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por ****http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
+2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por **http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
 
 ##<a name="cde"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
 
@@ -279,7 +279,7 @@ A máquina virtual será desalocada, mas não excluída. Você pode reiniciar a 
 
 Agora, a sua máquina virtual está pronta para ser usada em seus exercícios de ciência de dados. A máquina virtual também está pronta para uso como um servidor do IPython Notebook para a exploração e o processamento de dados e outras tarefas em conjunto com o Aprendizado de Máquina do Azure e Processo de Análise do Cortana (CAP).
 
-As próximas etapas no processo de ciência de dados estão mapeados no [Guia de aprendizado: processamento de dados avançado no Azure](machine-learning-data-science-advanced-data-processing.md) e podem incluir etapas que movimentam dados para o HDInsight, os processam e criam amostras-como parte da preparação para o aprendizado com os dados no Aprendizado de Máquina do Azure.
+As próximas etapas no processo de ciência de dados estão mapeados no [Guia de aprendizado: processamento de dados avançado no Azure](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) e podem incluir etapas que movimentam dados para o HDInsight, os processam e criam amostras-como parte da preparação para o aprendizado com os dados no Aprendizado de Máquina do Azure.
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png
@@ -298,4 +298,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

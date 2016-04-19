@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Visualização de acesso condicional do Azure para aplicativos SaaS
@@ -49,6 +49,7 @@ Esta seção descreve como configurar as regras de acesso por aplicativo.
 ##Noções básicas de regras de acesso
 
 Esta seção fornece uma descrição detalhada das regras de acesso com suporte na Visualização de Acesso do Aplicativo Condicional do Azure.
+
 ### Especificar os usuários aos quais as regras de acesso se aplicam
 
 Por padrão, a política será aplicada a todos os usuários que têm acesso ao aplicativo. No entanto, também é possível restringir a política aos usuários que são membros dos grupos de segurança especificados. O botão **Adicionar Grupo** é usado para selecionar um ou mais grupos da caixa de diálogo de seleção de grupo ao qual a regra de acesso se aplicará. Essa caixa de diálogo também pode ser usada para remover os grupos selecionados. Quando as regras são selecionadas para serem aplicadas aos Grupos, as regras de acesso só serão impostas para os usuários que pertençam a um dos grupos de segurança especificados.
@@ -78,7 +79,7 @@ Regras de acesso são avaliadas quando um usuário acessa um aplicativo federado
 
 Para locatários federados, a multi-factor authentication (MFA) pode ser executada pelo Active Directory do Azure ou pelo local do servidor AD FS.
 
-Por padrão, a MFA ocorrerá em uma página hospedada pelo Active Directory do Azure. Para configurar o MFA localmente, a propriedade – SupportsMFA deve ser definida como true no Active Directory do Azure, usando o módulo AD do Azure para Windows PowerShell.
+Por padrão, a MFA ocorrerá em uma página hospedada pelo Active Directory do Azure. Para configurar o MFA localmente, a propriedade –SupportsMFA deve ser definida como **true** no Azure Active Directory, usando o módulo Azure AD para Windows PowerShell.
 
 O exemplo a seguir mostra como habilitar a MFA local usando o [cmdlet Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) no locatário contoso.com:
 
@@ -88,6 +89,7 @@ Além de definir esse sinalizador, a instância do AD FS do locatário federado 
 
 ##Artigos relacionados
 
+- [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Active Directory do Azure](active-directory-conditional-access.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

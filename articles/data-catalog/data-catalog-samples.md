@@ -1,6 +1,6 @@
 <properties
    pageTitle="Exemplos de desenvolvedor do Catálogo de Dados | Microsoft Azure"
-   description="Comece a desenvolver aplicativos de catálogo usando a API REST do Catálogo de Dados."
+   description="Este artigo fornece uma visão geral dos exemplos de desenvolvedor disponíveis para a API REST do Catálogo de Dados."
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -32,6 +32,6 @@ Eis os exemplos que temos no GitHub:
 
 - [Ferramenta de importação/exportação](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
 
-  Um exemplo que mostra como usar a API REST do Catálogo de Dados para buscar ativos no Catálogo de Dados do Azure e serializá-los em um arquivo. Ele também demonstra como obter um conjunto de ativos serializado como json e enviá-los para o catálogo. Ele oferece suporte para a exportação de um subconjunto do catálogo usando uma consulta de pesquisa.
+  Um exemplo que mostra como usar a API REST do Catálogo de Dados para buscar ativos no Catálogo de Dados do Azure e serializá-los em um arquivo. Ele também demonstra como obter um conjunto de ativos serializado como JSON e enviá-los ao catálogo. Ele oferece suporte para a exportação de um subconjunto do catálogo usando uma consulta de pesquisa.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="vturecek"
    manager="timlt"
-   editor="jessebenson"/>
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/15/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Introdução aos Reliable Services do Service Fabric
 
-Um aplicativo do Service Fabric do Azure contém um ou mais serviços que executam seu código. Este guia mostra como criar aplicativos do Service Fabric sem e com estado usando os [Reliable Services](service-fabric-reliable-services-introduction.md).
+Um aplicativo do Service Fabric do Azure contém um ou mais serviços que executam seu código. Este guia mostra como criar aplicativos Service Fabric com e sem estado usando os [Reliable Services](service-fabric-reliable-services-introduction.md).
 
 ## Criar um serviço sem estado
 
@@ -42,9 +42,9 @@ Agora, sua solução contém dois projetos:
 
 Abra o arquivo **HelloWorldStateless.cs** no projeto de serviço. No Service Fabric, um serviço pode executar qualquer lógica de negócios. A API de serviço fornece dois pontos de entrada para seu código:
 
- - Um método de ponto de entrada ilimitado chamado *RunAsync*, em que você pode começar a executar qualquer carga de trabalho. Isso inclui cargas de trabalho de computação de execução longa.
+ - Um método de ponto de entrada em aberto chamado *RunAsync*, em que você pode começar a executar qualquer carga de trabalho, incluindo cargas de trabalho de computação de longa duração.
 
-```C#
+```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
     ...
@@ -53,7 +53,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
  - Um ponto de entrada de comunicação em que você pode conectar a pilha de comunicação de sua escolha, como API Web ASP.NET. É onde você pode começar a receber solicitações de usuários e outros serviços.
 
-```C#
+```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
@@ -62,26 +62,26 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 Neste tutorial, enfatizaremos o método de ponto de entrada `RunAsync()`. É aqui que você pode começar imediatamente a executar seu código. O modelo de projeto inclui um exemplo de implementação de `RunAsync()` que incrementa uma contagem progressiva.
 
-> [AZURE.NOTE]Para obter detalhes sobre como trabalhar com uma pilha de comunicação, confira [Serviços de API do Service Fabric com auto-hospedagem do OWIN](service-fabric-reliable-services-communication-webapi.md)
+> [AZURE.NOTE] Para obter detalhes sobre como trabalhar com uma pilha de comunicação, confira [Serviços de API do Service Fabric com auto-hospedagem do OWIN](service-fabric-reliable-services-communication-webapi.md)
 
 
 ### RunAsync
 
-```C#
-protected override async Task RunAsync(CancellationToken cancelServiceInstance)
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic.
+    // TODO: Replace the following sample code with your own logic 
+    //       or remove this RunAsync override if it's not needed in your service.
 
-    int iterations = 0;
-    // This service instance continues processing until the instance is terminated.
-    while (!cancelServiceInstance.IsCancellationRequested)
+    long iterations = 0;
+
+    while (true)
     {
+        cancellationToken.ThrowIfCancellationRequested();
 
-        // Log what the service is doing
-        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", iterations++);
+        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
 
-        // Pause for 1 second before continue processing.
-        await Task.Delay(TimeSpan.FromSeconds(1), cancelServiceInstance);
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
 }
 ```
@@ -105,7 +105,7 @@ O Service Fabric introduz um novo tipo de serviço que é com estado. Um serviç
 
 Para converter o valor de contador de sem estado para altamente disponível e persistente, mesmo quando o serviço for movido ou reiniciado, você precisa de um serviço com estado.
 
-No mesmo aplicativo *HelloWorld*, é possível adicionar um novo serviço clicando com o botão direito duas vezes no projeto de aplicativo e selecionando **Adicionar Service Fabric**.
+No mesmo aplicativo *HelloWorld*, é possível adicionar um novo serviço clicando com o botão direito do mouse nas referências Serviços no projeto de aplicativo e selecionando **Adicionar -> Novo Serviço Service Fabric**.
 
 ![Adicione um serviço ao aplicativo da Malha de Serviços](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
@@ -113,70 +113,63 @@ Selecione **Serviço com Estado** e dê o nome de *HelloWorldStateful*. Clique e
 
 ![Usar a caixa de diálogo Novo Projeto para criar um novo serviço com estado do Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-Seu aplicativo agora deve ter dois serviços: o serviço sem estado *HelloWorld* e o serviço com estado *HelloWorldStateful*.
+Seu aplicativo agora deve ter dois serviços: o serviço sem estado *HelloWorldStateless* e o serviço com estado *HelloWorldStateful*.
+
+Um serviço com estado tem os mesmos pontos de entrada que um serviço sem estado. A principal diferença é a disponibilidade de um *provedor de estado* que pode armazenar estados de maneira confiável. O Service Fabric é fornecido com uma implementação de provedor de estado chamada [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md), que permite que você crie estruturas de dados replicados por meio do Gerenciador de Estado Confiável. Por padrão, um serviço confiável com estado usa esse provedor de estado.
 
 Abra **HelloWorldStateful.cs** em *HelloWorldStateful*, que contém o método RunAsync a seguir:
 
-```C#
-protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic.
+    // TODO: Replace the following sample code with your own logic 
+    //       or remove this RunAsync override if it's not needed in your service.
 
-    // Gets (or creates) a replicated dictionary called "myDictionary" in this partition.
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-    // This partition's replica continues processing until the replica is terminated.
-    while (!cancelServicePartitionReplica.IsCancellationRequested)
+    while (true)
     {
+        cancellationToken.ThrowIfCancellationRequested();
 
-        // Create a transaction to perform operations on data within this partition's replica.
         using (var tx = this.StateManager.CreateTransaction())
         {
+            var result = await myDictionary.TryGetValueAsync(tx, "Counter");
 
-            // Try to read a value from the dictionary whose key is "Counter-1".
-            var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-
-            // Log whether the value existed or not.
             ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
-            // If the "Counter-1" key doesn't exist, set its value to 0
-            // else add 1 to its current value.
-            await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
+            await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
 
-            // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
-            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
-            // discarded, and nothing is sent to this partition's secondary replicas.
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // discarded, and nothing is saved to the secondary replicas.
             await tx.CommitAsync();
         }
 
-        // Pause for one second before continuing processing.
-        await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
-}
 ```
 
 ### RunAsync
 
-Um serviço com estado tem os mesmos pontos de entrada que um serviço sem estado. A principal diferença é a disponibilidade das Reliable Collections e o gerenciador de estado. `RunAsync()` opera de forma semelhante em serviços com e sem estado. No entanto, em um serviço com estado, a plataforma executa trabalho adicional em seu nome antes de executar `RunAsync()`. Esse trabalho pode incluir garantir que o gerenciador de estado e as Reliable Collections estejam prontos para uso.
+`RunAsync()` opera da mesma forma em serviços com e sem estado. No entanto, em um serviço com estado, a plataforma executa trabalho adicional em seu nome antes de executar `RunAsync()`. Esse trabalho pode incluir garantir que o Gerenciador de Estado Confiável e as Coleções Confiáveis estejam prontos para uso.
 
-### Reliable Collections e gerenciador de estado
+### Coleções Confiáveis e Gerenciador de Estado Confiável
 
-```C#
+```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-*IReliableDictionary* é uma implementação de dicionário que você pode usar para armazenar de forma confiável o estado no serviço. Isso faz parte das [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) internas do Service Fabric. Com o Service Fabric e as Reliable Collections, você agora pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. Essa abordagem torna os dados altamente disponíveis. O Service Fabric consegue isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e as respectivas transições de estado.
+*IReliableDictionary* é uma implementação de dicionário que você pode usar para armazenar o estado no serviço de forma confiável. Com o Service Fabric e as Reliable Collections, você agora pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. As Coleções Confiáveis tornam os dados altamente disponíveis. O Service Fabric consegue isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e as respectivas transições de estado.
 
 As Reliable Collections podem armazenar qualquer tipo .NET, incluindo tipos personalizados, com algumas limitações:
 
- - O Service Fabric torna seu estado altamente disponível *replicando* o estado entre nós e armazenando-o no disco local. Isso significa que tudo que é armazenado nas Reliable Collections deve ser *serializável*. Por padrão, as Reliable Collections usam [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) para serialização, de modo que é importante assegurar que seus tipos tenham [suporte do Serializador de Contrato de Dados](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) quando você usar o serializador padrão.
+ - O Service Fabric torna seu estado altamente disponível *replicando* o estado entre nós, e as Coleções Confiáveis armazenam seus dados no disco local em cada réplica. Isso significa que tudo o que é armazenado nas Coleções Confiáveis deve ser *serializável*. Por padrão, as Coleções Confiáveis usam [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) para serialização, de modo que é importante verificar se seus tipos têm [suporte do Serializador de Contrato de Dados](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) quando você usa o serializador padrão.
 
  - Os objetos são replicados para alta disponibilidade quando você confirma uma transação nas Reliable Collections. Objetos armazenados nas Reliable Collections são mantidos na memória local do serviço. Isso significa que você tem uma referência local para o objeto.
 
-    É importante que você não modifique instâncias locais desses objetos sem executar uma operação de atualização na coleção confiável em uma transação. Isso porque essas mudanças não serão replicadas automaticamente.
+    É importante que você não modifique instâncias locais desses objetos sem executar uma operação de atualização na coleção confiável em uma transação. Isso ocorre porque as mudanças para instâncias de objetos locais não serão replicadas automaticamente. Você deve inserir novamente o objeto de volta no dicionário ou usar um dos métodos *atualizar* do dicionário.
 
-O gerenciador de estado gerencia as Reliable Collections para você. Basta solicitar ao gerenciador de estado uma coleção confiável por nome a qualquer momento e em qualquer lugar no seu serviço. O gerenciador de estado assegura que você obtenha uma referência de volta. Não é recomendável salvar referências nas instâncias de coleção confiável em propriedades ou variáveis de membro de classe. É preciso tomar muito cuidado para garantir que a referência seja definida para uma instância o tempo todo no ciclo de vida do serviço. O gerenciador de estado faz esse trabalho para você, sendo otimizado para repetir visitas.
+O Gerenciador De Estado Confiável gerencia as Coleções Confiáveis para você. Basta solicitar ao Gerenciador de Estado Confiável uma coleção confiável por nome a qualquer momento e em qualquer lugar no seu serviço. O Gerenciador de Estado Confiável assegura que você obtenha uma referência de volta. Não é recomendável salvar referências nas instâncias de coleção confiável em propriedades ou variáveis de membro de classe. É preciso tomar muito cuidado para garantir que a referência seja definida para uma instância o tempo todo no ciclo de vida do serviço. O Gerenciador de Estado Confiável faz esse trabalho para você e jé otimizado para repetir visitas.
 
 ### Operações transacionais e assíncronas
 
@@ -191,9 +184,9 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-As Reliable Collections têm muitas das mesmas operações que suas correspondentes `System.Collections.Generic` e `System.Collections.Concurrent`, incluindo o LINQ. No entanto, as operações em Reliable Collections são assíncronas. Isso porque as operações de gravação com Reliable Collections são *replicadas*. Para alta disponibilidade, essas operações são enviadas a outras réplicas do serviço em nós diferentes.
+As Coleções Confiáveis têm muitas das mesmas operações que suas correspondentes `System.Collections.Generic` e `System.Collections.Concurrent`, incluindo o LINQ. As operações nas Coleções Confiáveis são assíncronas. Isso ocorre porque as operações de gravação nas Coleções Confiáveis executam operações de E/S para replicar e manter os dados no disco.
 
-Elas também oferecem suporte a operações *transacionais*, para que você possa manter o estado consistente entre várias Reliable Collections. Por exemplo, você pode remover um item de trabalho de uma fila confiável, executar uma operação nele e salvar o resultado em um dicionário confiável, tudo em uma única transação. Trata-se de uma operação atômica garante que toda a operação seja bem-sucedida, e não apenas uma parte. Se ocorrer um erro depois de remover o item da fila, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
+As operações de Coleção Confiável são *transacionais*, de modo que você pode manter o estado consistente entre várias Coleções Confiáveis e operações. Por exemplo, você pode remover um item de trabalho de uma Fila Confiável, executar uma operação nele e salvar o resultado em um Dicionário Confiável, tudo em uma única transação. Trata-se de uma operação atômica e ela garante que toda a operação seja bem-sucedida ou revertida. Se ocorrer um erro depois de remover o item da fila, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
 
 ## Executar o aplicativo
 
@@ -201,7 +194,7 @@ Agora retornamos ao aplicativo *HelloWorld*. Agora você pode criar e implantar 
 
 Depois que os serviços começaram a ser executados, você poderá exibir os eventos ETW (Rastreamento de Eventos para Windows) gerados em uma janela **Eventos de Diagnóstico**. Observe que os eventos exibidos são dos serviços sem e com estado do aplicativo. Você pode pausar o fluxo clicando no botão **Pausar**. Assim, você pode examinar os detalhes de uma mensagem expandindo-a.
 
->[AZURE.NOTE]Antes de executar o aplicativo, verifique a existência de um cluster de desenvolvimento local em execução. Confira o [guia de introdução](service-fabric-get-started.md) para obter informações sobre como configurar o ambiente local.
+>[AZURE.NOTE] Antes de executar o aplicativo, verifique a existência de um cluster de desenvolvimento local em execução. Confira o [guia de introdução](service-fabric-get-started.md) para obter informações sobre como configurar o ambiente local.
 
 ![Exibir Eventos de Diagnóstico no Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
@@ -220,4 +213,4 @@ Depois que os serviços começaram a ser executados, você poderá exibir os eve
 
 [Referência do desenvolvedor para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="04/04/2016"
 	ms.author="jhubbard"/>
 
 
@@ -22,7 +22,7 @@ Neste tutorial, você aprenderá os conceitos básicos da Sincronização de Dad
 
 Este tutorial pressupõe uma experiência mínima anterior com SQL Server e com o Banco de Dados SQL do Azure. Neste tutorial, você criará um grupo de sincronização híbrido (instâncias do Banco de Dados SQL e do SQL Server) totalmente configurado e sincronizando no agendamento definido.
 
-> [AZURE.NOTE]A documentação técnica completa para Sincronização de Dados do SQL do Azure, localizada anteriormente no MSDN, está disponível como .pdf. Baixe [aqui](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+> [AZURE.NOTE] A documentação técnica completa para Sincronização de Dados do SQL do Azure, localizada anteriormente no MSDN, está disponível como .pdf. Baixe [aqui](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Etapa 1: conecte-se ao Banco de Dados SQL do Azure
 
@@ -44,7 +44,7 @@ Essa etapa somente será necessária se você pretender ter um banco de dados lo
 
 <a id="InstallRequiredSoftware"></a>
 ### Etapa 2a: Instalar o software necessário
-Certifique-se de que você tenha os itens a seguir no computador que você instalar o Agente Cliente.
+Verifique se você tem os itens a seguir no computador em que deseja instalar o Agente Cliente.
 
 - **.NET Framework 4.0.**
 
@@ -52,11 +52,11 @@ Certifique-se de que você tenha os itens a seguir no computador que você insta
 
 - **Tipos de CLR do sistema Microsoft SQL Server 2008 R2 SP1 (x86)**
 
- Você pode instalar os tipos de CLR do sistema Microsoft SQL Server 2008 R2 SP1 (x86) [daqui](http://www.microsoft.com/download/en/details.aspx?id=26728)
+ Instale os tipos de CLR do sistema Microsoft SQL Server 2008 R2 SP1 (x86) [daqui](http://www.microsoft.com/download/en/details.aspx?id=26728)
 
 - **Objetos de gerenciamento compartilhado do Microsoft SQL Server 2008 R2 SP1 (x86)**
 
- Você pode instalar os objetos de gerenciamento compartilhado do Microsoft SQL Server 2008 R2 SP1 (x86) [daqui](http://www.microsoft.com/download/en/details.aspx?id=26728)
+ Instale os objetos de gerenciamento compartilhado do Microsoft SQL Server 2008 R2 SP1 (x86) [daqui](http://www.microsoft.com/download/en/details.aspx?id=26728)
 
 
 
@@ -114,10 +114,10 @@ Depois que o Agente Cliente for instalado, registre cada banco de dados do SQL S
 
 1. No menu suspenso, selecione a instância do Banco de Dados SQL para servir como hub do grupo de sincronização.
 2. Insira as credenciais dessa instância do Banco de Dados SQL - **NOME DE USUÁRIO DO HUB** e **SENHA DO HUB**.
-3. Aguarde a Sincronização de Dados do SQL para confirmar o NOME DE USUÁRIO e a SENHA. Uma marca de seleção verde é exibida à direita da SENHA quando as credenciais são confirmadas.
+3. Aguarde a Sincronização de Dados do SQL para confirmar o NOME DE USUÁRIO e a SENHA. Você verá uma marca de seleção verde ser exibida à direita da SENHA quando as credenciais forem confirmadas.
 4. No menu suspenso, selecione a política **RESOLUÇÃO DE CONFLITOS**.
 
- **Hub Vence** - qualquer alteração gravada no banco de dados hub será gravada nos bancos de dados de referência, substituindo as alterações no mesmo registro de banco de dados de referência. Funcionalmente, isso significa que a primeira alteração gravada no hub é propagada para os outros bancos de dados.
+ **Hub Vence** - qualquer alteração gravada no banco de dados hub grava nos bancos de dados de referência, substituindo as alterações no mesmo registro de banco de dados de referência. Funcionalmente, isso significa que a primeira alteração gravada no hub propaga para os outros bancos de dados.
 
 
  **Cliente Vence** - as alterações gravadas no hub são substituídas pelas alterações nos bancos de dados de referência. Funcionalmente, isso significa que a última alteração gravada no hub é a mantida e propagada para os outros bancos de dados.
@@ -174,7 +174,7 @@ A Sincronização de Dados do SQL do Azure permite que você selecione tabelas e
 
 ## Etapa 6: Configurar seu grupo de sincronização
 
-Você poderá sempre sincronizar um grupo de sincronização, clicando em SINCRONIZAR na parte inferior da página de aterrissagem Sincronização de Dados. Se desejar que um grupo de sincronização seja sincronizado em um agendamento, configure o grupo de sincronização.
+Você poderá sempre sincronizar um grupo de sincronização, clicando em SINCRONIZAR na parte inferior da página de aterrissagem Sincronização de Dados. Para sincronizar em um agendamento, você deve configurar o grupo de sincronização.
 
 1.	Volte ao [portal clássico](http://manage.windowsazure.com).
 2.	Clique em **BANCOS DE DADOS SQL**.
@@ -202,4 +202,4 @@ Para obter informações adicionais sobre banco de dados SQL e Sincronização d
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

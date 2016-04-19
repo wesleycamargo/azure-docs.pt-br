@@ -35,7 +35,7 @@ Essas recomendações são comentários e dicas compilados de muitos cientistas 
 
 Leia os rótulos do caminho e do algoritmo no gráfico, como "Para *&lt;rótulodocaminho&gt;*, use *&lt;algoritmo&gt;*". Por exemplo, "Para*velocidade*, use *regressão logística de duas classes*". Às vezes, mais de uma ramificação se aplicará. Às vezes, nenhuma delas será a solução perfeita. Elas se destinam a serem recomendações gerais, portanto não se preocupe com a exatidão delas. Vários cientistas dados com quem conversei disseram que a única maneira de encontrar o melhor algoritmo é experimentar todos eles.
 
-Veja um exemplo da [Galeria de Análise do Cortana](http://gallery.azureml.net/) de um experimento que experimenta vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+Veja um exemplo da [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) de um teste que experimenta vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 >[AZURE.TIP] Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
@@ -237,4 +237,4 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!------HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

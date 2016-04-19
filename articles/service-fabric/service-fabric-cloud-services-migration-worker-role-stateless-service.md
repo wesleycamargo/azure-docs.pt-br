@@ -38,7 +38,7 @@ Conceitualmente, uma função de trabalho representa uma carga de trabalho sem e
 
 Semelhante à função de trabalho, uma função Web também representa uma carga de trabalho sem estado e, assim, conceitualmente, ele também pode ser mapeado para um serviço sem estado do Service Fabric. No entanto, diferentemente das funções Web, o Service Fabric não dá suporte a IIS. A migração de um aplicativo Web de uma função Web para um serviço sem estado requer primeiro a mudança para uma estrutura Web que pode ser auto-hospedada e não depende de IIS ou System.Web, como o ASP.NET Core 1.
 
-****Aplicativo ** | **Com Suporte** | **Caminho de migração**
+**Aplicativo** | **Com Suporte** | **Caminho de migração**
 --- | --- | ---
 Web Forms do ASP.NET | Não | Converter em MVC do ASP.NET Core 1
 ASP.NET MVC | Com migração | Atualizar para o ASP.NET Core 1
@@ -138,7 +138,7 @@ As definições de configuração nos Serviços de Nuvem são definidas para uma
  - **Config:** todos os arquivos de configuração e configurações de um serviço.
  - **Dados:** arquivos de dados estáticos associados ao serviço.
 
-Cada um desses pacotes pode ter controle de versão e atualização independentes. De forma semelhante aos Serviços de Nuvem, um pacote de configuração pode ser acessado programaticamente por uma API e há eventos disponíveis para notificar o serviço sobre alterações no pacote de configuração. Um arquivo Settings.xml pode ser usado para configuração de chave-valor e acesso programático semelhante a . No entanto, ao contrário dos Serviços de Nuvem, um pacote de configuração do Service Fabric pode conter arquivos de configuração em qualquer formato, seja XML, JSON, YAML ou formato binário personalizado.
+Cada um desses pacotes pode ter controle de versão e atualização independentes. De forma semelhante aos Serviços de Nuvem, um pacote de configuração pode ser acessado programaticamente por uma API e há eventos disponíveis para notificar o serviço sobre alterações no pacote de configuração. Um arquivo Settings.xml pode ser usado para configuração de chave-valor e acesso programático semelhante à seção de configurações do aplicativo de um arquivo App.config. No entanto, ao contrário dos Serviços de Nuvem, um pacote de configuração do Service Fabric pode conter arquivos de configuração em qualquer formato, seja XML, JSON, YAML ou formato binário personalizado.
 
 
 ### Acessando configuração
@@ -277,4 +277,4 @@ Leia mais sobre os Reliable Services do Service Fabric e as diferenças fundamen
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0406_2016-->

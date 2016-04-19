@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="04/11/2016"
    ms.author="terrylan"/>
 
 # Introdução à Central de Segurança do Azure
@@ -45,7 +45,7 @@ No Portal, execute estas etapas para acessar a Central de Segurança:
 
 Você pode configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure. Vamos configurar uma **política** de segurança para sua assinatura:
 
-1. Clique no bloco **Política de Segurança** na folha **Central de Segurança**. ![Central de Segurança][3]
+1. Clique no bloco **Política** na folha **Central de Segurança**. ![Central de Segurança][3]
 
 2. Na folha **Política de segurança - definir política por assinatura ou grupo de recursos**, selecione uma assinatura. ![A folha da política de segurança na Central de Segurança do Azure][4]
 
@@ -64,29 +64,45 @@ Você pode configurar políticas de segurança para suas assinaturas e grupos de
 1. Volte para a folha da **Central de Segurança** e clique no bloco **Recomendações**. A Central de Segurança analisa periodicamente o estado de segurança de seus recursos do Azure. Quando possíveis vulnerabilidades de segurança são identificadas, uma recomendação é mostrada aqui.
 2.	Selecione cada recomendação para exibir mais informações e/ou tomar medidas para resolver o problema. ![Recomendações na Central de Segurança do Azure][5]
 
-Exiba o estado de integridade e segurança de seus recursos por meio da **integridade de recursos**:
+Exiba o estado de integridade e segurança de seus recursos por meio da **integridade de segurança dos recursos**:
 
 1.	Volte para a folha **Central de segurança**.
 2.	O bloco **integridade de recursos** contém indicadores de estado de segurança para as **máquinas virtuais**, **rede**, **SQL** e **aplicativos**.
 3.	Selecione **Máquinas virtuais** para exibir mais informações.
 4.	A folha **Máquinas virtuais** exibe um resumo de status que mostra o status de programas antimalware, atualizações do sistema, reinicializações e as regras de linha de base das máquinas virtuais.
-5.	Selecione um item em **ETAPAS DE PREVENÇÃO** para exibir mais informações e/ou tomar medidas para configurar os controles necessários.
+5.	Selecione um item em **RECOMENDAÇÕES DE MÁQUINA VIRTUAL** para exibir mais informações e/ou tomar medidas para configurar os controles necessários.
 6.	Faça uma busca detalhada para exibir informações adicionais sobre máquinas virtuais específicas. ![O bloco de integridade de recursos na Central de Segurança do Azure][6]
 
-**Alertas de segurança** do endereço:
+Resolva os **Alertas de segurança**:
 
 1.	Volte para a folha **Central de Segurança** e selecione o bloco **Alertas de segurança**. Na folha **Alertas de segurança**, uma lista de alertas é exibida. Os alertas são gerados pela análise da Central de Segurança de seus logs de segurança e pela atividade de rede. Os alertas das soluções de parceiro integradas também estão incluídos. ![Alertas na Central de Segurança do Azure][7]
 
 2.	Selecione um alerta para exibir mais informações. ![Detalhes de alerta de segurança na Central de Segurança do Azure][8]
 
+Exibir a integridade de suas **Soluções de parceiros**:
+
+1. Volte para a folha **Central de segurança**. O bloco **Soluções de parceiros** permite monitorar rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure.
+2. Selecione o bloco **Soluções de parceiros**. Uma folha será aberta exibindo uma lista de suas soluções de parceiro conectadas à Central de Segurança. ![Soluções de parceiros][9]
+
+3. Selecione uma solução de parceiro. Neste exemplo, permite selecionar a solução **WAF2 F5**. Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução. ![Detalhes da solução de parceiro][10]
+
+O **STATUS** de uma solução de parceiro pode ser:
+
+- Íntegro (verde) - não há nenhum problema de integridade
+- Não íntegro (vermelho) - há um problema de integridade que requer atenção imediata
+- Parou de relatar (laranja) - a solução interrompeu o envio de relatórios sobre sua integridade
+- Desconhecido (laranja) - a integridade da solução é desconhecida no momento devido a um processo para adicionar um novo recurso à solução existente com falha
+- Não relatado (cinza) - a solução não reportou nada ainda. O status da solução pode não ser relatado se ele foi conectado e ainda está sendo implantado
+
+
 ## Próximas etapas
 Neste documento, você foi apresentado para o monitoramento de segurança e para os componentes de gerenciamento de políticas na Central de Segurança. Para saber mais, consulte os seguintes:
 
-- [Configuração de políticas de segurança na Central de Segurança do Azure](security-center-policies.md)– saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-- [Gerenciamento das recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Gerenciamento das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – saiba como gerenciar e responder a alertas de segurança.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço.
+- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – obtenha as últimas notícias de segurança e as informações do Azure.
 
 <!--Image references-->
@@ -98,5 +114,7 @@ Neste documento, você foi apresentado para o monitoramento de segurança e para
 [6]: ./media/security-center-get-started/resources-health.png
 [7]: ./media/security-center-get-started/security-alert.png
 [8]: ./media/security-center-get-started/security-alert-detail.png
+[9]: ./media/security-center-get-started/partner-solutions.png
+[10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

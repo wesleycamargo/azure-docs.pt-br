@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Guia técnico do Modelo de Solução do Cortana Analytics para a manutenção preventiva no setor aeroespacial e em outras empresas | Microsoft Azure"
-	description="Um guia técnico para o Modelo de Solução com o Microsoft Cortana Analytics para a manutenção preventiva no setor aeroespacial, de utilitários e de transportes."
+	pageTitle="Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial e em outras empresas | Microsoft Azure"
+	description="Um guia técnico para o Modelo de Solução com o Microsoft Cortana Intelligence para a manutenção preventiva no setor aeroespacial, de utilitários e de transportes."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
@@ -16,14 +16,14 @@
 	ms.date="01/29/2016"
 	ms.author="fboylu" />
 
-# Guia técnico do Modelo de Solução do Cortana Analytics para a manutenção preventiva no setor aeroespacial e em outras empresas
+# Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial e em outras empresas
 
 ## **Confirmações**
 Este artigo foi autorizado pelos cientistas de dados Yan Zhang, Gauher Shaheen, Fidan Boylu Uz e o engenheiro de software Dan Grecoe da Microsoft.
 
 ## **Visão geral**
 
-Os Modelos de Solução foram projetados para acelerar o processo de criação de uma demonstração E2E sobre o Cortana Analytics Suite. Um modelo implantado provisionará sua assinatura com os componentes necessários do Cortana Analytics e criará os relacionamentos entre eles. Ele também propaga o pipeline de dados com dados de amostra gerados por um aplicativo gerador de dados que você vai baixar e instalar no computador local depois de implantar o modelo de solução. Os dados gerados pelo gerador hidratarão o pipeline de dados e iniciarão a geração das previsões de aprendizado de máquina, que poderão ser visualizadas no painel do Power BI. O processo de implantação guiará você pelas diversas etapas para configurar as credenciais da sua solução. Registre essas credenciais, como o nome da solução, o nome de usuário e a senha fornecidos durante a implantação.
+Os Modelos de Solução foram projetados para acelerar o processo de criação de uma demonstração E2E sobre o Cortana Intelligence Suite. Um modelo implantado provisionará à sua assinatura os componentes necessários do Cortana Intelligence e estabelecerá as relações entre eles. Ele também propaga o pipeline de dados com dados de amostra gerados por um aplicativo gerador de dados que você vai baixar e instalar no computador local depois de implantar o modelo de solução. Os dados gerados pelo gerador hidratarão o pipeline de dados e iniciarão a geração das previsões de aprendizado de máquina, que poderão ser visualizadas no painel do Power BI. O processo de implantação guiará você pelas diversas etapas para configurar as credenciais da sua solução. Registre essas credenciais, como o nome da solução, o nome de usuário e a senha fornecidos durante a implantação.
 
 A meta deste documento é explicar a arquitetura de referência e os diferentes componentes provisionados em sua assinatura como parte deste modelo de solução. O documento também fala sobre como substituir os dados de exemplo por dados reais para que você possa ver informações e previsões obtidas de seus próprios dados. Além disso, o documento discute as partes do Modelo de Solução que precisarão ser modificadas caso você queira personalizar a solução com seus próprios dados. As instruções sobre como criar o painel do Power BI para esse Modelo de Solução serão fornecidas ao final.
 
@@ -272,4 +272,4 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 
 -   [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

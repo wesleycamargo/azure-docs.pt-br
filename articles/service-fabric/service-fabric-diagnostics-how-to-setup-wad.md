@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="03/30/2016"
    ms.author="toddabel"/>
 
 
 # Como coletar logs com o Diagnóstico do Azure
 
-Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central facilita analisar e solucionar quaisquer problemas no cluster ou nos aplicativos e serviços em execução nesse cluster. Uma forma de carregar e coletar logs é usar a extensão de Diagnóstico do Azure, que carrega os logs no Armazenamento do Azure. Os logs realmente não são tão úteis diretamente no armazenamento, mas um processo externo pode ser usado para ler os eventos do armazenamento e colocá-los em um produto como [Insights Operacionais](https://azure.microsoft.com/services/operational-insights/), Elastic Search ou outra solução.
+Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central facilita analisar e solucionar quaisquer problemas no cluster ou nos aplicativos e serviços em execução nesse cluster. Uma forma de carregar e coletar logs é usar a extensão de Diagnóstico do Azure, que carrega os logs no Armazenamento do Azure. Os logs realmente não são tão úteis diretamente no armazenamento, mas um processo externo pode ser usado para ler os eventos do armazenamento e colocá-los em um produto como o [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou outra solução de análise de log.
 
 ## Pré-requisitos
 Essas ferramentas serão usadas para executar algumas das operações neste documento:
@@ -45,7 +45,7 @@ Para implantar o Diagnóstico nas VMs do cluster como parte da criação do clus
 
 ![Configuração de Diagnóstico do Azure no portal para a criação do cluster](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
 
-Os Logs de Suporte são **necessários** para a equipe de suporte do Azure para resolver as solicitações de suporte que você criar. Esses logs são coletados em tempo real e serão armazenados na conta de armazenamento criada no grupo de recursos atual. O Diagnóstico de Aplicativos configura eventos no nível do aplicativo, incluindo eventos de [Ator](service-fabric-reliable-actors-diagnostics.md), eventos de [Serviço Confiável](service-fabric-reliable-services-diagnostics.md) e alguns eventos do Service Fabric no nível do sistema a serem armazenados no armazenamento do Azure. Produtos como [Insights Operacionais](https://azure.microsoft.com/services/operational-insights/) ou seu próprio processo podem selecionar os eventos na conta de armazenamento. Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se um processo para remover eventos da tabela não for implementado, a tabela continuará a crescer. Ao criar um cluster usando o portal, é recomendável que você exporte o modelo depois que a implantação for concluída. Modelos podem ser exportados do portal da seguinte forma:
+Os Logs de Suporte são **necessários** para a equipe de suporte do Azure para resolver as solicitações de suporte que você criar. Esses logs são coletados em tempo real e serão armazenados na conta de armazenamento criada no grupo de recursos atual. O Diagnóstico de Aplicativos configura eventos no nível do aplicativo, incluindo eventos de [Ator](service-fabric-reliable-actors-diagnostics.md), eventos de [Serviço Confiável](service-fabric-reliable-services-diagnostics.md) e alguns eventos do Service Fabric no nível do sistema a serem armazenados no armazenamento do Azure. Os produtos como o [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou seu próprio processo podem selecionar os eventos na conta de armazenamento. Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se um processo para remover eventos da tabela não for implementado, a tabela continuará a crescer. Ao criar um cluster usando o portal, é recomendável que você exporte o modelo depois que a implantação for concluída. Modelos podem ser exportados do portal da seguinte forma:
 1. Abra seu grupo de recursos
 2. Selecione Configurações para exibir o painel Configurações
 3. Selecione Implantações para exibir o painel Histórico de implantação
@@ -178,4 +178,4 @@ Para atualizar o diagnóstico para coletar logs de novos canais EventSource que 
 ## Próximas etapas
 Verifique os eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) para entender mais detalhadamente os eventos que você deve examinar na solução de problemas.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

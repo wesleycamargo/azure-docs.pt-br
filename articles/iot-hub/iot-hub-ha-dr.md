@@ -42,7 +42,7 @@ Em um alto nível, para implementar um modelo de failover regional com o Hub IoT
 
 * **Um Hub IoT secundário e lógica de roteamento do dispositivo** - no caso de uma interrupção do serviço em sua região primária, os dispositivos deverão iniciar a conexão com a região secundária. Com base na natureza consciente do estado da maioria dos serviços envolvidos, é comum os administradores de solução acionarem o processo de failover entre regiões. A melhor maneira de comunicar o novo ponto de extremidade para os dispositivos, enquanto mantém o controle do processo, é fazer com que eles verifiquem regularmente um serviço de *concierge* para o ponto de extremidade ativo atual. O serviço de concierge pode ser um aplicativo Web simples que é replicado e acessível usando técnicas de redirecionamento de DNS (por exemplo, usando o [Gerenciador de Tráfego do Azure][]).
 * **Replicação do registro de identidade** - para ser usado, o Hub IoT secundário deverá conter todas as identidades de dispositivo que possam se conectar à solução. A solução deve manter backups replicados geograficamente das identidades do dispositivo e carregá-los no Hub IoT secundário antes de mudar o ponto de extremidade ativo para os dispositivos. A funcionalidade de exportação de identidade do dispositivo do Hub IoT é muito útil neste contexto. Para saber mais, confira [Guia do desenvolvedor do Hub IoT - registro de identidade][].
-* **Mesclando a lógica** - quando a região primária ficar disponível novamente, o estado e os dados criados no site secundário deverão ser migrados de volta para a região primária. Isso está relacionado principalmente às identidades de dispositivo e aos metadados do aplicativo, que deverão ser mesclados ao Hub IoT principal e com todos os outros armazenamentos específicos do aplicativo na região primária. Para simplificar esta etapa, normalmente recomendamos o uso de operações idempotente. Isso minimiza os efeitos colaterais não apenas para a distribuição eventual e consistente de eventos, mas também de duplicatas ou a entrega de eventos fora de ordem. Além disso, a lógica do aplicativo deve ser projetada para tolerar possíveis inconsistências ou situações "ligeiramente" fora do estado dos dados. Isso se deve ao tempo adicional necessário para que o sistema seja “corrigido” com base nos objetivos de ponto de recuperação (RPO). O artigo a seguir fornece mais orientações sobre este tópico: [À prova de falhas: diretrizes para arquiteturas resilientes na nuvem][].
+* **Mesclando a lógica** - quando a região primária ficar disponível novamente, o estado e os dados criados no site secundário deverão ser migrados de volta para a região primária. Isso está relacionado principalmente às identidades de dispositivo e aos metadados do aplicativo, que deverão ser mesclados ao Hub IoT principal e com todos os outros armazenamentos específicos do aplicativo na região primária. Para simplificar esta etapa, normalmente recomendamos o uso de operações idempotente. Isso minimiza os efeitos colaterais não apenas para a distribuição eventual e consistente de eventos, mas também de duplicatas ou a entrega de eventos fora de ordem. Além disso, a lógica do aplicativo deve ser projetada para tolerar possíveis inconsistências ou situações "ligeiramente" fora do estado dos dados. Isso se deve ao tempo adicional necessário para que o sistema seja “corrigido” com base nos objetivos de ponto de recuperação (RPO).
 
 ## Próximas etapas
 
@@ -53,11 +53,11 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 
 [Orientação técnica de continuidade de negócios do Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 [Recuperação de desastres e alta disponibilidade para aplicativos do Azure]: https://msdn.microsoft.com/library/azure/dn251004.aspx
-[À prova de falhas: diretrizes para arquiteturas resilientes na nuvem]: https://msdn.microsoft.com/library/azure/jj853352.aspx
+[Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
 [Gerenciador de Tráfego do Azure]: https://azure.microsoft.com/documentation/services/traffic-manager/
 [Guia do desenvolvedor do Hub IoT - registro de identidade]: iot-hub-devguide.md#identityregistry
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [O que é o Hub IoT do Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

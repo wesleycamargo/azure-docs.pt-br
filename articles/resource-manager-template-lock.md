@@ -4,7 +4,7 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Esquema do modelo de bloqueios de recursos
@@ -42,20 +42,21 @@ Para criar um bloqueio, adicione o esquema a seguir à seção de recursos do se
 
 As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sim | Para recursos: <br />**{namespace}/{tipo}/providers/locks**<br /><br />Para grupos de recursos:<br />**Microsoft.Authorization/locks** | O tipo de recurso a ser criado. |
-| apiVersion | enum | Sim | **01-01-2015** | A versão da API a ser usada para criar o recurso. |  
-| name | cadeia de caracteres | Sim | Para recursos:<br />**{recurso}/Microsoft.Authorization/{nomebloqueio}**<br /><br />Para grupos de recursos:<br />**{nomebloqueio}****<br /><br />até 64 caracteres<br />Não pode conter <, >, %, &, ? ou caracteres de controle. | Um valor que especifica o recurso a ser bloqueado e um nome para o bloqueio. |
-| dependsOn | array | Não | Uma lista separada por vírgulas de nomes de um recurso ou identificadores exclusivos do recurso. | A coleção de recursos do qual o bloqueio depende. Se o recurso que estiver bloqueando for implantado no mesmo modelo, inclua o nome desse recurso neste elemento para garantir que o recurso seja implantado primeiro. | 
-| properties | object | Sim | (mostrado abaixo) | Um objeto que identifica o tipo de bloqueio e observações sobre o bloqueio. | 
+| Nome | Valor |
+| ---- | ---- | 
+| type | Enum<br />Obrigatório<br />**{namespace}/{tipo}/providers/locks** - para recursos ou<br />**Microsoft.Authorization/locks** - para grupos de recursos<br /><br />O tipo de recurso a ser criado. |
+| apiVersion | Enum<br />Obrigatório<br />**2015-01-01**<br /><br />A versão da API a ser usada para criar o recurso. |  
+| name | Cadeia de caracteres<br />Obrigatório<br />**{recurso}/Microsoft.Authorization/{nome do bloqueio}** - para recursos ou<br />**{nome do bloqueio}** - para grupos de recursos<br />Até 64 caracteres, não pode conter <, >, %, &, ? ou caracteres de controle.<br /><br />Um valor que especifica o recurso a ser bloqueado e um nome para o bloqueio. |
+| dependsOn | Matriz<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou os identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que esse bloqueio depende. Se o recurso que você está bloqueando estiver implantado no mesmo modelo, inclua o nome desse recurso neste elemento para garantir que o recurso seja implantado primeiro. | 
+| propriedades | Objeto<br />Obrigatório<br />[Objeto properties](#properties)<br /><br />Um objeto que identifica o tipo de bloqueio, bem como observações sobre o bloqueio. |  
 
+<a id="properties" />
 ### properties object
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ------- | ---- | ---------------- | -------- | ----------- |
-| level | enum | Sim | **CannotDelete** | O tipo de bloqueio a ser aplicado ao escopo. CanNotDelete permite a modificação, mas impede a exclusão. |
-| HDInsight | cadeia de caracteres | Não | 512 caracteres | Descrição do bloqueio. |
+| Nome | Valor |
+| ------- | ---- |
+| level | Enum<br />Obrigatório<br />**CannotDelete**<br /><br />O tipo de bloqueio a ser aplicado ao escopo. CanNotDelete permite a modificação, mas impede a exclusão. |
+| HDInsight | Cadeia de caracteres<br />Opcional<br />Até 512 caracteres<br /><br />Descrição do bloqueio. |
 
 
 ## Como usar o recurso de bloqueio
@@ -135,4 +136,4 @@ O próximo exemplo aplica um bloqueio contra exclusão ao grupo de recursos.
 - Para obter informações sobre a estrutura do modelo, veja [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para obter mais informações sobre bloqueios, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

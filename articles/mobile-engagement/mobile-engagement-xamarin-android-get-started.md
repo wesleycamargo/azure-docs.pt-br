@@ -24,7 +24,7 @@ Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do a
 
 Este tutorial exige o seguinte:
 
-+ [Xamarin Studio](http://xamarin.com/studio) [Você também pode usar o Visual Studio com a extensão Xamarin, mas este tutorial usa o Xamarin Studio para instruções]
++ [Xamarin Studio](http://xamarin.com/studio) Você também pode usar o Visual Studio com Xamarin, mas este tutorial usa o Xamarin Studio. Para obter instruções de instalação, confira [Instalar e configurar para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx)
 + [SDK do Xamarin do Mobile Engagement](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [AZURE.NOTE] Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
@@ -131,4 +131,4 @@ O Mobile Engagement permite a você interagir e entrar em contato com seus usuá
 [5]: ./media/mobile-engagement-xamarin-android-get-started/5.png
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

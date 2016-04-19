@@ -30,8 +30,8 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 >[AZURE.NOTE] **Para todos os cenários a seguir, você precisa:**
 
-*   [Criar uma conta de armazenamento](storage-whatis-account.md)
-*   [Criar um espaço de trabalho de AM do Azure](machine-learning/machine-learning-create-workspace.md)
+*   [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md)
+*   [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>Cenário 1: conjunto de dados tabular pequeno a médio em arquivos locais
@@ -168,7 +168,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
     f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
 
- > [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -208,7 +208,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 
 	f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
 
-> [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, crie tabelas particionadas e importe em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] Para um carregamento mais rápido de grandes quantidades de dados, crie tabelas particionadas e importe em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore dados e crie recursos conforme necessário. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
 
@@ -296,8 +296,8 @@ O diagrama a seguir resume os cenários descritos acima e as opções do Process
 Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Processo e Tecnologia de Análise Avançada usando conjuntos de dados públicos, consulte:
 
 
-* [Processo de Análise do Cortana em ação: usando SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Processo de Análise do Cortana em ação: usando clusters Hadoop do HDInsight](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Processo de Análise do Cortana em ação: usando SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Processo de Análise do Cortana em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -314,4 +314,4 @@ Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Pr
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

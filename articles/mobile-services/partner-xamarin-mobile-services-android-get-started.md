@@ -36,7 +36,7 @@ Uma captura de tela do aplicativo completo está disponível abaixo:
 
 ![][0]
 
-A conclusão deste tutorial requer o [Xamarin.Android], que instala o Xamarin Studio e um plug-in do Visual Studio (no Windows), bem como a mais recente plataforma Android. SDK do Android 4.2 ou uma versão posterior é necessária.
+A conclusão deste tutorial exige o XCode e o Xamarin Studio para OS X ou o Visual Studio no Windows com um Mac em rede. Encontre instruções de instalação completas em [Instalar e configurar para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx),
 
 O projeto quickstart baixado contém o componente dos Serviços Móveis do Azure para o Xamarin.Android. Embora esse projeto tenha como alvo o Android 4.2 ou uma versão posterior, o SDK dos Serviços Móveis exige apenas o Android 2.2 ou uma versão posterior.
 
@@ -137,9 +137,8 @@ Agora que você concluiu o início rápido, aprenda a executar tarefas adicionai
 [Introdução à sincronização de dados offline]: mobile-services-xamarin-android-get-started-offline-data.md
 [Introdução à autenticação]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
 [Introdução às notificações por push]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
 [portal clássico do Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

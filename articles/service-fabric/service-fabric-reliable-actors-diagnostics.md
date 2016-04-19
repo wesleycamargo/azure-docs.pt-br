@@ -3,9 +3,9 @@
    description="Este artigo descreve os recursos de diagnóstico e monitoramento de desempenho no tempo de execução de Reliable Actors do Service Fabric, incluindo os eventos e os contadores de desempenho emitidos por ele."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="abhishekram"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -31,7 +31,7 @@ Todos os eventos que pertencem ao EventSource dos Reliable Actors são associado
 |---|---|
 |0x1|Conjunto de eventos importantes que resumem a operação do tempo de execução dos Atores do Fabric.|
 |0x2|Conjunto de eventos que descrevem as chamadas de método do ator. Para obter mais informações, confira o [tópico introdutório sobre atores](service-fabric-reliable-actors-introduction.md#actors).|
-|0x4|Conjunto de eventos relacionados ao estado do ator. Para obter mais informações, confira o tópico sobre [atores com estado](service-fabric-reliable-actors-introduction.md#stateful-actors).|
+|0x4|Conjunto de eventos relacionados ao estado do ator. Para saber mais, veja o tópico em [gerenciamento de estados do ator](service-fabric-reliable-actors-state-management.md).|
 |0x8|Conjunto de eventos relacionados à simultaneidade baseada no turno do ator. Para obter mais informações, confira o tópico sobre [simultaneidade](service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Contadores de desempenho
@@ -118,7 +118,7 @@ O tempo de execução dos Reliable Actors publica os contadores de desempenho a 
 |Ator da Malha do Serviço|Média de milissegundos de manutenção de bloqueio do ator|Tempo (em milissegundos) pelo qual o bloqueio por ator é mantido|
 
 ### Contadores de desempenho e eventos do gerenciamento de estado do ator
-O tempo de execução de Reliable Actors emite os eventos a seguir relacionados ao [gerenciamento de estado do ator](service-fabric-reliable-actors-introduction.md#actor-state-management).
+O tempo de execução de Reliable Actors emite os eventos a seguir relacionados ao [gerenciamento de estado do ator](service-fabric-reliable-actors-state-management).
 
 |Nome do evento|ID do evento|Nível|Palavra-chave|Descrição|
 |---|---|---|---|---|
@@ -164,4 +164,9 @@ Quando um cliente chama um método por meio de um objeto de proxy do ator, isso 
 |Ator da Malha do Serviço|Média de milissegundos para desserialização de solicitação|Tempo (em milissegundos) para desserializar a mensagem de solicitação do ator quando ela é recebida no serviço|
 |Ator da Malha do Serviço|Média de milissegundos para serialização de resposta|Tempo (em milissegundos) para serializar a mensagem de resposta do ator no serviço antes de a resposta ser enviada ao cliente|
 
-<!-----------HONumber=AcomDC_0330_2016-->
+## Próximas etapas
+ - [Como os Reliable Actors usam a plataforma do Service Fabric](service-fabric-reliable-actors-platform.md)
+ - [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
+
+<!---HONumber=AcomDC_0406_2016-->

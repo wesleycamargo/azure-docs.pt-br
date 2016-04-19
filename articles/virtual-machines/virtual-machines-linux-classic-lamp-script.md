@@ -34,7 +34,7 @@ Para este exemplo, primeiro crie duas VMs do Azure executando o Ubuntu 14.04 ou 
 
 Você também precisa de uma conta de armazenamento do Azure e uma chave para acessá-la (você pode obtê-la no portal clássico do Azure).
 
-Se precisar de ajuda para criar VMs do Linux no Azure, confira [Criar uma máquina virtual executando Linux](virtual-machines-linux-cli-create.md).
+Se precisar de ajuda para criar VMs do Linux no Azure, confira [Criar uma máquina virtual executando Linux](virtual-machines-linux-classic-createportal.md).
 
 Os comandos install reconhecem o Ubuntu, mas você pode adaptar a instalação para qualquer distribuição Linux com suporte.
 
@@ -110,4 +110,4 @@ Recursos adicionais da CLI do Azure, do Linux e da Extensão de Script Personali
 
 [Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->
