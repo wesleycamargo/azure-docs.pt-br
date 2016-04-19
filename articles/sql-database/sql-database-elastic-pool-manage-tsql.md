@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sidneyh"/>
 
 # Monitorar e gerenciar um pool de banco de dados elástico com Transact-SQL  
@@ -81,8 +81,13 @@ Use o [sys.elastic\_pool \_resource \_stats exibir](https://msdn.microsoft.com/l
 ## Monitorar o uso de recursos do banco de dados em um pool elástico
 Use o [sys.dm \_resource\_stats exibição](https://msdn.microsoft.com/library/dn800981.aspx) ou o [sys.resource \_stats exibição](https://msdn.microsoft.com/library/dn269979.aspx) para examinar as estatísticas de uso de recursos do banco de dados em um pool elástico. Esse processo é semelhante à consulta do uso de recursos de qualquer banco de dados individual.
 
+## Latência de operações do pool elástico
+
+- Geralmente, a alteração das eDTUs garantidas por banco de dados ou do máximo de eDTUs por banco de dados é um processo concluído em cinco minutos ou menos.
+- A alteração do limite de armazenamento depende da quantidade total de espaço usado por todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar o limite de eDTUs/armazenamento do pool é de 3 horas ou menos.
+
 ## Próximas etapas
 
 Depois de criar um pool de banco de dados elástico, você pode gerenciar os bancos de dados elásticos no pool criando trabalhos elásticos. Trabalhos elásticos facilitam a execução de scripts T-SQL em qualquer quantidade de bancos de dados no pool. Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de dados](sql-database-elastic-jobs-overview.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

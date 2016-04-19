@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/30/2016"
 	ms.author="femila"/>
 
 # Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1
 
-Você pode usar uma Política de Grupo do Active Directory para configurar os dispositivos associados ao domínio do Windows 8.1 para registro automático com o AD do Azure. Para configurar a Política de Grupo, você deve ter pelo menos um computador Windows Server 2012 R2 ou Windows 8.1 ingressado no domínio com o recurso de Gerenciamento de Política de Grupo instalado. Quando essa Política de Grupo estiver habilitada para o seu domínio, qualquer usuário do domínio que fizer logon no computador será automaticamente e silenciosamente registrado com um objeto de dispositivo no AD do Azure. Haverá um objeto de dispositivo no AD do Azure para todos os usuários registrados do dispositivo físico. Certifique-se de ler e concluir os pré-requisitos do Registro Automático de Dispositivo com Active Directory do Azure para dispositivos ingressados no domínio do Windows.
+Você pode usar uma Política de Grupo do Active Directory para configurar os dispositivos associados ao domínio do Windows 8.1 para registro automático com o AD do Azure. Para configurar a Política de Grupo, você deve ter pelo menos um computador unido ao domínio do Windows Server 2012 R2 ou Windows 8.1 com o recurso de Gerenciamento de Política de Grupo instalado. Quando essa Política de Grupo for habilitada para seu domínio, qualquer usuário que fizer logon no computador do domínio será registrado de forma automática e silenciosa com um objeto de dispositivo no Azure AD. Haverá um objeto de dispositivo no AD do Azure para todos os usuários registrados do dispositivo físico. Certifique-se de ler e concluir os pré-requisitos do Registro Automático de Dispositivo com Active Directory do Azure para dispositivos ingressados no domínio do Windows.
 
 ## Configurar a Política de Grupo para dispositivos ingressados no domínio do Windows 8.1
 
@@ -44,9 +44,13 @@ Cancele o registro de computadores Windows 8.1 existentes ingressados no domíni
 * Opção 2: cancelar o registro de um dispositivo ingressado do domínio do Windows 8.1 usando um script
   	1. Abra um prompt de comando no computador do Windows 8.1 e execute o seguinte comando: ` %SystemRoot%\System32\AutoWorkplace.exe leave`
    
-Este comando deve ser executado no contexto de cada usuário do domínio que tenha entrado no computador. Visualizador de Eventos e Erros de dispositivos ingressados no domínio do Windows 8.1
+Este comando deve ser executado no contexto de cada usuário do domínio que tenha entrado no computador.
 
-O Log de Eventos do Windows no computador Windows 8.1 exibirá mensagens relacionadas ao registro de dispositivos. Você encontrará mensagens para eventos bem-sucedidos e malsucedidos. O Log de Eventos pode ser encontrado no Visualizador de Eventos em Aplicativos e Serviços > **Logs** > **Microsoft** > **Windows > Ingresso no Local de Trabalho**.
+##Visualizador de Eventos e Erros de dispositivos ingressados no domínio do Windows 8.1
+
+O Log de Eventos do Windows em um computador Windows 8.1 exibe mensagens relacionadas ao registro de dispositivos. Você encontrará mensagens para eventos bem-sucedidos e malsucedidos.
+
+O Log de Eventos pode ser encontrado no Visualizador de Eventos em Aplicativos e Serviços > **Logs** > **Microsoft** > **Windows > Ingresso no Local de Trabalho**.
 
 ##Detalhes adicionais
 
@@ -57,4 +61,4 @@ A Política de Grupo permite que uma Tarefa Agendada no sistema que é executada
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-conditional-access-automatic-device-registration.md)
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

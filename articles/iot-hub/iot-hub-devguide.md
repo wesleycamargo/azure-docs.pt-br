@@ -380,13 +380,14 @@ Em um alto nível, você deve usar o AMQP (ou AMQP sobre WebSockets) sempre que 
 
 > [AZURE.NOTE] Claramente, durante o desenvolvimento, é aceitável sondar com mais frequência do que a cada 25 minutos.
 
+<a id="mqtt-support">
 #### Observações sobre o suporte ao MQTT
 O Hub IoT implementa o protocolo MQTT v3.1.1 com as seguintes limitações e comportamento específico:
 
   * **Não há suporte para o QoS 2**: quando um cliente de dispositivo publica uma mensagem com o **QoS 2**, o Hub IoT fecha a conexão de rede. Quando um cliente de dispositivo assina um tópico com o **QoS 2**, o Hub IoT concede, no máximo, o nível 1 do QoS no pacote **SUBACK**.
   * **Retain**: se um dispositivo publica uma mensagem com o sinalizador RETAIN definido como 1, o Hub IoT adiciona a propriedade de aplicativo **x-opt-retain** à mensagem. Isso significa que o Hub IoT não mantém a mensagem retain, mas a transmite ao aplicativo back-end.
 
-Como uma consideração final, você deve examinar o [Gateway de protocolo do IoT do Azure][lnk-azure-protocol-gateway], que permite a implantação de um gateway de protocolo personalizado de alto desempenho que interage diretamente com o Hub IoT. O gateway do protocolo IoT do Azure permite que você personalize o protocolo de dispositivo para acomodar as implantações de MQTT de nível industrial ou outros protocolos personalizados. O dilema dessa abordagem é o requisito de auto-hospedar e operar um gateway de protocolo personalizado.
+Como uma consideração final, você deve examinar o [Gateway de protocolo do IoT do Azure][lnk-azure-protocol-gateway], que o habilita a implantar um gateway de protocolo personalizado de alto desempenho que interage diretamente com o Hub IoT. O gateway do protocolo IoT do Azure permite que você personalize o protocolo de dispositivo para acomodar as implantações de MQTT de nível industrial ou outros protocolos personalizados. O dilema dessa abordagem é o requisito de auto-hospedar e operar um gateway de protocolo personalizado.
 
 ### Dispositivo para a nuvem <a id="d2c"></a>
 
@@ -408,11 +409,11 @@ No entanto, há algumas distinções importantes entre as mensagens do dispositi
 * O Hub IoT não permite o particionamento arbitrário usando uma **PartitionKey**. As mensagens do dispositivo para a nuvem são particionadas com base em sua **deviceId** de origem.
 * O dimensionamento do Hub IoT é um pouco diferente dos Hubs de Eventos. Para saber mais, consulte [Dimensionando o Hub IoT][lnk-guidance-scale].
 
-Observe que isso não significa que você pode substituir o Hub IoT para os Hubs de Eventos em todos os cenários. Por exemplo, em alguns cálculos de processamento de eventos, talvez seja necessário fazer a repartição de eventos com relação a um campo ou propriedade diferente antes de analisar os fluxos de dados. Neste cenário, você poderia usar um Hub de Eventos para desacoplar duas partes do pipeline de processamento do fluxo. Para obter mais informações, consulte *Partições* na [Visão Geral dos Hubs de Eventos][lnk-eventhub-partitions].
+Observe que isso não significa que você pode substituir o Hub IoT para os Hubs de Eventos em todos os cenários. Por exemplo, em alguns cálculos de processamento de eventos, talvez seja necessário fazer a repartição de eventos com relação a um campo ou propriedade diferente antes de analisar os fluxos de dados. Neste cenário, você poderia usar um Hub de Eventos para desacoplar duas partes do pipeline de processamento do fluxo. Para obter mais informações, confira *Partições* na [Visão Geral dos Hubs de Eventos][lnk-eventhub-partitions].
 
 Para obter detalhes sobre como usar as mensagens do dispositivo para a nuvem, consulte [SDKs e APIs do Hub IoT][lnk-apis-sdks].
 
-> [AZURE.NOTE] Ao usar HTTP para enviar mensagens de dispositivo para a nuvem, valores e nomes de propriedade só podem conter caracteres alfanuméricos ASCII mais ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
+> [AZURE.NOTE] Ao se usar HTTP para enviar mensagens de dispositivo para a nuvem, valores e nomes de propriedade só podem conter caracteres alfanuméricos ASCII mais ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Tráfego sem telemetria
 
@@ -459,7 +460,7 @@ Cada mensagem da nuvem para o dispositivo é direcionada a um único dispositivo
 
 **Importante**: cada fila de dispositivo pode conter no máximo 50 mensagens da nuvem para o dispositivo. Tentar enviar mais mensagens ao mesmo dispositivo resultará em um erro.
 
-> [AZURE.NOTE] Ao enviar mensagens de nuvem para dispositivos, valores e nomes de propriedade só podem conter caracteres alfanuméricos ASCII mais ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
+> [AZURE.NOTE] Ao se enviar mensagens de nuvem para dispositivos, valores e nomes de propriedade só podem conter caracteres alfanuméricos ASCII mais ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 #### Ciclo de vida da mensagem <a id="message lifecycle"></a>
 
@@ -491,11 +492,11 @@ Todas as mensagens da nuvem para o dispositivo têm um tempo de expiração. Iss
 
 Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode solicitar a entrega de um comentário por mensagem sobre o estado final dessa mensagem.
 
-- Se você definir a propriedade **Ack** para **positivo**, o Hub IoT gerará uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Concluído**.
-- Se você definir a propriedade **Ack** para **negativo**, o Hub IoT gerará uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Morto**.
-- Se você definir a propriedade **Ack** para **total**, o Hub IoT gerará uma mensagem de comentários em ambos os casos.
+- Se você definir a propriedade **Ack** como **positivo**, o Hub IoT gerará uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Concluído**.
+- Se você definir a propriedade **Ack** como **negativo**, o Hub IoT gerará uma mensagem de comentários se, e somente se, a mensagem da nuvem para o dispositivo atingir o estado **Morto**.
+- Se você definir a propriedade **Ack** como **total**, o Hub IoT gerará uma mensagem de comentários em ambos os casos.
 
-> [AZURE.NOTE] Se **Ack** for **total** e não for recebida nenhuma mensagem de comentários, a mensagem de comentários expirou e o serviço não poderá saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo máximo de validade é de dois dias, portanto, deverá haver tempo suficiente para executar o serviço de backup se ocorrer uma falha.
+> [AZURE.NOTE] Se **Ack** for **total** e não for recebida nenhuma mensagem de comentários, isso indicará que a mensagem de comentários expirou e o serviço não poderá saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo máximo de validade é de dois dias, portanto, deverá haver tempo suficiente para executar o serviço de backup se ocorrer uma falha.
 
 Como explicado em [Pontos de extremidade](#endpoints), o Hub IoT oferece comentários por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo e tem o mesmo [ciclo de vida da mensagem](nº do ciclo de vida da mensagem). Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato.
 
@@ -551,7 +552,7 @@ Cada Hub IoT expõe as seguintes opções de configuração para mensagens da nu
 | feedback.ttlAsIso8601 | Retenção de mensagens informativas do serviço associado. | Intervalo ISO\_8601 de até 2D (mínimo de 1 minuto). Padrão: 1 hora. |
 | feedback.maxDeliveryCount | Contagem máxima de entrega para a fila de comentários. | 1 a 100. Padrão: 100. |
 
-Para obter mais informações, consulte [Gerenciar hubs IoT][lnk-manage].
+Para obter mais informações, confira [Gerenciar hubs IoT][lnk-manage].
 
 ## Cotas e limitação <a id="throttling"></a>
 
@@ -639,4 +640,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-manage]: iot-hub-manage-through-portal.md
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

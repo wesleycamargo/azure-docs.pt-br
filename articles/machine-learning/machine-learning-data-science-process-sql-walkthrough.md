@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016" 
+	ms.date="02/08/2016"
 	ms.author="mohabib;fashah;bradsev"/>
 
 
@@ -74,13 +74,15 @@ Neste tutorial, demonstraremos a importação em massa paralela dos dados para u
 
 Para configurar seu ambiente de Ciência de Dados do Azure:
 
-1. [Criar uma conta de armazenamento](../storage-create-storage-account.md)
+1. [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md)
 
 2. [Criar um espaço de trabalho de AM do Azure](machine-learning-create-workspace.md)
 
 3. [Provisionar uma Máquina Virtual de Ciência de Dados](machine-learning-data-science-setup-sql-server-virtual-machine.md), que servirá como um SQL Server, bem como um servidor do IPython Notebook.
 
-	> [AZURE.NOTE] Os scripts de exemplo e IPython Notebook serão baixados para a máquina virtual de Ciência de Dados durante o processo de instalação. Quando o script de pós-instalação da VM estiver concluída, os exemplos estarão na sua biblioteca de Documentos da VM: — Scripts de exemplo: `C:\Users<user_name>\Documents\Data Science Scripts` — Exemplo de IPython Notebooks: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` onde `<user_name>` é o nome de logon do Windows da sua VM. Vamos nos referir às pastas de exemplo como **Scripts de Exemplo** e **IPython Notebook de Exemplo**.
+	> [AZURE.NOTE] Os scripts de exemplo e IPython Notebook serão baixados para a máquina virtual de Ciência de Dados durante o processo de instalação. Quando o script de pós-instalação da VM for concluído, os exemplos estarão na biblioteca de documentos da VM:
+	> - Scripts de exemplo: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - Exemplo de IPython Notebooks: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` onde `<user_name>` é o nome de logon do Windows da VM. Vamos nos referir às pastas de exemplo como **Scripts de Exemplo** e **IPython Notebook de Exemplo**.
 
 
 Dependendo do tamanho do conjunto de dados, do local da fonte de dados e do ambiente de destino do Azure selecionado, esse cenário será semelhante ao [Cenário nº 5: Conjunto de dados grande em arquivos locais, SQL Server de destino na VM do Azure.](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb)
@@ -714,4 +716,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

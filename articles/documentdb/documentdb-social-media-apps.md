@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/28/2016" 
-	ms.author="ealsur@hotmail.com"/>
+	ms.author="mimig"/>
 
 # Expandindo o Banco de Dados de Documentos para as redes sociais
 
@@ -182,7 +182,7 @@ Mas o que podemos aprender? Alguns exemplos simples incluem a [análise de senti
 
 Agora que prendi a atenção de vocês, é provável que achem que é preciso contratar um PhD em ciência matemática para extrair esses padrões e essas informações de arquivos e bancos de dados simples, mas esse não é o caso.
 
-O [Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/), parte do [Cortana Analytics Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), é um serviço de nuvem totalmente gerenciado que permite a criação de fluxos de trabalho usando algoritmos em uma interface simples do tipo "arrastar e soltar", a codificação de seus próprios algoritmos em [R] (https://en.wikipedia.org/wiki/R_(programming_language)) ou o uso de algumas das APIs já criadas e prontas para uso como: [Análise de Texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Moderador de Conteúdo](https://www.microsoft.com/moderator) ou [Recomendações](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+O [Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/), parte do [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), é um serviço de nuvem totalmente gerenciado que permite a criação de fluxos de trabalho usando algoritmos em uma interface simples do tipo "arrastar e soltar", a codificação de seus próprios algoritmos em [R] (https://en.wikipedia.org/wiki/R_(programming_language)) ou o uso de algumas das APIs já criadas e prontas para uso, como: [Análise de Texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Moderador de Conteúdo](https://www.microsoft.com/moderator) ou [Recomendações](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 ## Conclusão
 
@@ -198,4 +198,4 @@ Saiba mais sobre a modelagem de dados lendo o artigo [Modelando dados no Banco d
 
 Caso contrário, saiba mais sobre o Banco de Dados de Documentos seguindo o [Roteiro de aprendizagem do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

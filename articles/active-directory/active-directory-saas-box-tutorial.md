@@ -26,13 +26,13 @@ O objetivo deste tutorial é mostrar a integração do Azure ao Box O cenário d
 -   Uma assinatura válida do Azure
 -   Um locatário de teste no Box
   
-Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao Box poderão fazer logon único no aplicativo em seu site de empresa do Box (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao Box poderão fazer logon único no aplicativo em seu site de empresa do Box (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
 1.  Habilitando a integração de aplicativos para o Box
 2.  Configurando o logon único
-3.  Configurando o provisionamento de usuários
+3.  Configurando o provisionamento de grupo e usuário
 4.  Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-box-tutorial/IC769537.png "Cenário")
@@ -115,11 +115,15 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 4. Clique em **Conceder acesso à Caixa** para autorizar essa operação e retornar ao Portal de Gerenciamento do Azure. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769549.png "Habilitar o provisionamento automático de usuários.")
 
-5. Para concluir a configuração, clique no botão Concluir. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769551.png "Habilitar o provisionamento automático de usuários.")
+
+5. Na página **Opções de Provisionamento**, as caixas de seleção **Tipos de objeto a provisionar** permitem que você selecione se os objetos de grupo são ou não provisionados para o Box além dos objetos de usuário. Consulte a seção "Atribuindo usuários e grupos" abaixo para obter mais informações.
+
+
+6. Para concluir a configuração, clique no botão Concluir. <br><br> ![Habilitar o provisionamento automático de usuários.](./media/active-directory-saas-box-tutorial/IC769551.png "Habilitar o provisionamento automático de usuários.")
 
 
 
-##Atribuindo usuários
+##Atribuindo um usuário de teste
   
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do AD do Azure que você deseja que usem seu aplicativo.
 
@@ -131,7 +135,6 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 3.  Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição. <br><br> ![Sim](./media/active-directory-saas-box-tutorial/IC767830.png "Sim")
   
-
 Agora, você deve aguardar 10 minutos e verificar se a conta foi sincronizada com o Box.
 
 Como uma primeira etapa de verificação, você pode conferir o status de provisionamento clicando em Dashboard (Painel de Controle) no D na página de integração de aplicativos do Box no Portal de Gerenciamento do Azure.
@@ -148,9 +151,28 @@ Em seu locatário do Box, os usuários sincronizados estão listados em **Usuár
 <br><br> ![Status da integração](./media/active-directory-saas-box-tutorial/IC769556.png "Status da integração")
 
 
+##Atribuindo usuários e grupos
+
+A guia **Box > Usuários e Grupos** no portal clássico do Azure permite que você especifique quais usuários e grupos devem ter acesso ao Box. A atribuição de um usuário ou grupo faz com que as seguintes ações ocorram:
+
+* O Azure AD permite que o usuário atribuído (seja por atribuição direta ou associação de grupo) realize a autenticação no Box. Se um usuário não for atribuído, o Azure AD não permitirá que eles entrem no Box e retornará um erro na página de entrada do Azure AD.
+
+* Um bloco de aplicativo do Box é adicionado ao [iniciador do aplicativo](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) do usuário.
+
+* Se o provisionamento automático estiver habilitado, os usuários e/ou grupos atribuídos serão adicionados à fila de provisionamento para serem provisionado automaticamente.
+
+    * Se apenas os objetos de usuário foram configurados para serem provisionados, todos os usuários atribuídos diretamente serão colocados na fila de provisionamento e todos os usuários que são membros de grupos atribuídos serão colocados na fila de provisionamento. 
+    
+    * Se os objetos de grupo foram configurados para serem provisionados, todos os objetos de grupo atribuídos serão provisionados para o Box, bem como todos os usuários que são membros desses grupos. As associações de grupo e usuário são preservadas ao serem gravadas no Box.
+    
+Você pode usar a guia **Atributos > Logon único** para configurar quais atributos de usuário (ou declarações) são apresentadas ao Box durante a autenticação baseada em SAML e a guia **Atributos > Provisionamento** para configurar como os atributos de usuário e grupo fluem do Azure AD para o Box durante as operações de provisionamento. Consulte os recursos abaixo para obter mais informações.
+
+
 ## Recursos adicionais
 
+* [Personalizando as declarações emitidas no token SAML](active-directory-saml-claims-customization.md)
+* [Provisioning: Customize Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md) (Provisionamento: personalizar mapeamentos de atributos)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

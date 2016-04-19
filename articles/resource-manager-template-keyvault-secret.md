@@ -4,7 +4,7 @@
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
 # Esquema de modelo do segredo do cofre da chave
@@ -38,19 +38,20 @@ Para criar um segredo do cofre da chave, adicione o seguinte esquema ao modelo. 
 
 As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Sim | Como o recurso filho do cofre da chave:<br />**secrets**<br /><br />Como recurso de nível superior:<br />**Microsoft.KeyVault/vaults/secrets** | O tipo de recurso a ser criado. |
-| apiVersion | enum | Sim | **2015-06-01** <br /> **2014-12-19-preview** | A versão da API a ser usada para criar o recurso. | 
-| name | cadeia de caracteres | Sim | | O nome do segredo a ser criado. Se você estiver implantando o segredo como um recurso filho de um cofre da chave, basta fornecer um nome para o segredo. Se estiver implantando o segredo como um recurso de nível superior, os nomes devem estar no formato **{nome-cofre-chave}/{nome-segredo}**. |
-| propriedades | objeto | Sim | (mostrado abaixo) | Um objeto que especifica o valor do segredo a ser criado. |
-| dependsOn | array | Não | Uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. | A coleção de recursos do qual este vínculo depende. Se a chave do cofre do segredo for implantada no mesmo modelo, inclua o nome do cofre da chave neste elemento para garantir que ele é implantado primeiro. |
+| Nome | Valor |
+| ---- | ---- | 
+| type | Enum<br />Obrigatório<br />**secrets** (quando implantado como um recurso filho do cofre da chave) ou<br /> **Microsoft.KeyVault/vaults/secrets** (quando implantado como um recurso de nível superior)<br /><br />O tipo de recurso a ser criado. |
+| apiVersion | Enum<br />Obrigatório<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />A versão da API a ser usada para criar o recurso. | 
+| name | String<br />Obrigatório<br />Uma única palavra quando implantado como um recurso filho de um cofre da chave ou no formato **{nome-do-cofre-da-chave}/{nome-do-segredo}** quando implantado como um recurso de nível superior a ser adicionado a uma chave existente.<br /><br />O nome do segredo a ser criado. |
+| propriedades | Object<br />Obrigatório<br />[properties object](#properties)<br /><br />Um objeto que especifica o valor do segredo a ser criado. |
+| dependsOn | Array<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou os identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que esse link depende. Se a chave do cofre do segredo for implantada no mesmo modelo, inclua o nome do cofre da chave neste elemento para garantir que ele é implantado primeiro. |
 
+<a id="properties" />
 ### properties object
 
-| Nome | Tipo | Obrigatório | Valores permitidos | Descrição |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| value | cadeia de caracteres | Sim | | O valor do segredo a ser armazenado no cofre da chave. Ao transmitir um valor para essa propriedade, use um parâmetro do tipo **securestring**. |
+| Nome | Valor |
+| ---- | ---- | 
+| value | String<br />Obrigatório<br /><br />O valor do segredo a ser armazenado no cofre da chave. Ao transmitir um valor para essa propriedade, use um parâmetro do tipo **securestring**. |
 
 	
 ## Exemplos
@@ -226,4 +227,4 @@ O segundo exemplo implanta o segredo como um recurso de nível superior que é a
 - Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
 - Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -98,9 +98,9 @@ Os diagramas a seguir ilustram os dados que foram usados.
 
 
 *Figura 7: Recursos extraídos da fonte de dados*
-> Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados. No entanto, para um modelo semelhante usando dados publicamente disponíveis, consulte este experimento de exemplo na [Galeria de Análise do Cortana](http://gallery.azureml.net/): [Variação do Cliente de Telecomunicações](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados. No entanto, para um modelo semelhante usando dados publicamente disponíveis, consulte este experimento de exemplo na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Variação do cliente de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Analytics Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok.
+> Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok.
 > 
 
 ###Algoritmos usados no protótipo
@@ -221,7 +221,7 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 
 [4] [Marketing de Big Data: Envolva seus clientes com mais eficiência e agregue valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modelo de variação de telecomunicações] (http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5) na Galeria do Cortana Analytics
+[5] [Modelo de variação de telecomunicações] (http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
 ##Apêndice
 
 ![][10]
@@ -240,4 +240,4 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

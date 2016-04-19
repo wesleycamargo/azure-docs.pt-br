@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="03/25/2016"
    ms.author="vturecek"/>
 
 # Cenários de Possibilidade de Teste do Service Fabric: Comunicação do serviço
@@ -97,4 +97,4 @@ Neste exemplo, definimos `QuorumLossMode` para `QuorumReplicas` para indicar que
 
 [Saiba mais sobre os cenários de possibilidade de teste](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

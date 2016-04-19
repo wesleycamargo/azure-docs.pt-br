@@ -1,7 +1,4 @@
 
-Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI do Azure para automatizar as tarefas comuns de implantação e gerenciamento de máquinas virtuais do Azure a seguir. Para obter mais modelos que você possa usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
-
-
 - [Criar rapidamente uma máquina virtual no Azure](#quick-create-a-vm-in-azure)
 - [Implantar uma máquina virtual no Azure com base em um modelo](#deploy-a-vm-in-azure-from-a-template)
 - [Criar uma máquina virtual com base em uma imagem personalizada](#create-a-custom-vm-image)
@@ -16,7 +13,7 @@ Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI
 
 ## Preparando-se
 
-Para usar a CLI do Azure com grupos de recursos do Azure, você precisará ter a versão correta da CLI do Azure e uma conta do Azure. Se você não tiver a CLI do Azure, [instale-a](xplat-cli-install.md).
+Para usar a CLI do Azure com grupos de recursos do Azure, você precisará ter a versão correta da CLI do Azure e uma conta do Azure. Se você não tiver a CLI do Azure, [instale-a](../articles/xplat-cli-install.md).
 
 ### Atualizar sua versão da CLI do Azure para 0.9.0 ou posterior
 
@@ -214,7 +211,7 @@ Use as instruções nestas seções para implantar uma nova VM do Azure usando u
 
 ### Etapa 1: examinar o arquivo JSON para os parâmetros de modelo
 
-Aqui está o conteúdo do arquivo JSON para o modelo. (O modelo também está localizado no [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json).)
+Aqui está o conteúdo do arquivo JSON para o modelo. (O modelo também está localizado no [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).)
 
 Os modelos são flexíveis, assim, o designer pode ter optado por lhe fornecer muitos parâmetros ou oferecer apenas alguns criando um modelo mais fixo. Para coletar as informações, você precisa passar o modelo como parâmetros, abrir o arquivo de modelo (este tópico tem um modelo embutido, abaixo) e examinar os valores de **parâmetros**.
 
@@ -435,7 +432,7 @@ Você será solicitado a fornecer os valores dos parâmetros na seção "parâme
 
 Aqui está um exemplo:
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json myResourceGroup firstDeployment
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
     newStorageAccountName: storageaccount
@@ -477,7 +474,7 @@ Você já viu o uso básico dos modelos acima. Portanto, agora podemos usar inst
 
 ### Etapa 1: examinar o arquivo JSON do modelo
 
-Aqui está o conteúdo do arquivo JSON do modelo que esta seção usa como um exemplo.
+Aqui está o conteúdo do arquivo JSON do modelo que esta seção usa como um exemplo. (O modelo também está localizado no [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).)
 
 Novamente, você precisará localizar os valores que deseja inserir para os parâmetros que não têm valores padrão. Quando você executar o comando `azure group deployment create`, a CLI do Azure solicitará que você insira esses valores.
 
@@ -1176,7 +1173,7 @@ Você pode descobrir rapidamente qual foi o problema, corrigi-lo e tentar novame
 
 ## <a id="display-information-about-a-virtual-machine"></a>Tarefa: Exibir informações sobre uma máquina virtual
 
-É possível ver informações sobre VMs específicas em seu grupo de recursos usando o `azure vm show <groupname> <vmname> command`. Se você tiver mais de uma VM em seu grupo, talvez seja necessário primeiro listar as VMs em um grupo usando o `azure vm list <groupname>`.
+É possível ver informações sobre VMs específicas em seu grupo de recursos usando o comando `azure vm show <groupname> <vmname>`. Se você tiver mais de uma VM em seu grupo, talvez seja necessário primeiro listar as VMs em um grupo usando o `azure vm list <groupname>`.
 
     azure vm list zoo
     info:    Executing command vm list
@@ -1271,7 +1268,7 @@ Para anexar um disco de dados existente, execute este comando:
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
 
-Em seguida, você precisará montar o disco, como faria normalmente no Linux (ou no Windows).
+Em seguida, você precisará montar o disco, como faria normalmente no Linux.
 
 
 ## Próximas etapas
@@ -1281,4 +1278,4 @@ Para obter mais exemplos de uso da CLI do Azure com o modo **arm**, confira [Usa
 
 Para obter mais modelos que você pode usar, confira [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/) e [Estruturas de aplicativos usando modelos](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

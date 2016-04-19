@@ -1,6 +1,6 @@
 <properties
    pageTitle="Fontes de dados com suporte do Catálogo de Dados do Azure | Microsoft Azure"
-   description="Especificação das fontes de dados com suporte no momento."
+   description="Este artigo lista todas as fontes de dados e tipos de ativos de dados com suporte para registro no Catálogo de Dados do Azure."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,20 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # Fontes de dados com suporte do Catálogo de Dados do Azure
 
-Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando uma API pública, uma ferramenta de registro com um clique ou inserindo manualmente as informações de forma direta no portal da Web do Catálogo de Dados. A grade abaixo resume todas as fontes com suporte hoje do catálogo e os recursos de publicação para cada uma. Também estão listadas as ferramentas de dados externas que cada fonte pode inicializar a partir de nossa experiência "aberta" do portal. E mais, a seguir está uma segunda grade que tem uma especificação mais técnica de cada propriedade de conexão das fontes de dados.
+Os usuários do **Catálogo de Dados do Azure** podem publicar os metadados usando uma API pública, uma ferramenta de registro de dados ClickOnce ou inserindo manualmente as informações de forma direta no portal da Web do Catálogo de Dados.
+
+A tabela abaixo resume todas as fontes com suporte pelo Catálogo de Dados atualmente e os recursos de publicação de cada uma delas. Também são listadas as ferramentas de dados externas que cada fonte pode inicializar por meio da experiência "Abrir em" do portal do Catálogo de Dados.
+
+Mais abaixo, há uma segunda tabela que fornece uma especificação mais técnica das propriedades de cada conexão de fontes de dados e a especificação de DSR (Referência de Fonte de Dados) usada para cada ativo de dados com suporte ao se usar a API do Catálogo de Dados.
 
 
-## Lista das fontes de dados com suporte
+## Lista de fontes de dados e ativos com suporte
 
 <table>
 
     <tr>
-       <td><b>Objeto da Fonte de Dados</b></td>
+       <td><b>Ativo de dados</b></td>
        <td><b>API</b></td>
        <td><b>Entrada Manual</b></td>
        <td><b>Ferramenta de Registro</b></td>
@@ -260,7 +264,7 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
     </tr>
 
     <tr>
-      <td>Tabela Db2</td>
+      <td>Tabela do DB2</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -269,7 +273,7 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
     </tr>
 
     <tr>
-      <td>Exibição do Db2</td>
+      <td>Exibição do DB2</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -398,7 +402,8 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
 
 
 <br> <br>
-## Especificação de referência da fonte de dados
+
+## Especificação de Referência de Fonte de Dados
 
 <table>
     <tr>
@@ -517,7 +522,7 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Contêiner</td>
       <td>Banco de dados</td>
       <td>N/D</td>
@@ -531,7 +536,7 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Tabela</td>
       <td>Tabela</td>
       <td>Banco de dados</td>
@@ -547,7 +552,7 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
     </tr>
 
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Tabela</td>
       <td>Visualizar</td>
       <td>Banco de dados</td>
@@ -1284,4 +1289,4 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
 
 </table>
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

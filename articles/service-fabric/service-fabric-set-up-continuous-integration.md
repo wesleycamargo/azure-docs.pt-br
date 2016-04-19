@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/27/2016"
+   ms.date="03/29/2016"
    ms.author="cawa" />
 
 # Configurar a integração contínua para um aplicativo do Service Fabric usando o Visual Studio Team Services
@@ -41,12 +41,13 @@ Antes de configurar o computador de compilação, você precisará criar uma [en
 
 ### Instale o Azure PowerShell e entre.
 
-1.	Instale o PowerShell do Azure.
-2. Instale o PowerShellGet. Para fazer isso, instale o [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), que inclui o PowerShellGet.
+1.  Instale o PowerShellGet.
 
-    >[AZURE.NOTE] Você pode ignorar esta etapa se estiver executando o Windows 10 com as atualizações mais recentes.
+    a. Se estiver executando o Windows 10 com as atualizações mais recentes, você poderá pular esta etapa (o PowerShellGet já está instalado).
 
-3.	Instale e atualize o módulo AzureRM. Se você tiver qualquer versão anterior do Azure PowerShell instalada, remova-a:
+    b. Se não, instale o [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), que inclui o PowerShellGet.
+
+2.	Instale e atualize o módulo AzureRM. Se você tiver qualquer versão anterior do Azure PowerShell instalada, remova-a:
 
     a. Clique com o botão direito do mouse no botão Iniciar e selecione **Adicionar/Remover Programas**.
 
@@ -80,42 +81,25 @@ Antes de configurar o computador de compilação, você precisará criar uma [en
 
 ### Criar uma entidade de serviço
 
-1.	Baixar e extrair [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) para uma pasta neste computador.
+1. Siga [estas instruções](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para criar uma entidade de serviço e um ponto de extremidade de serviço para seu projeto.
 
-2.	Em um prompt de comando de administrador do PowerShell, altere para o diretório `Powershell\Manual` no arquivo extraído.
+2. Observe os valores que são impressos no fim da saída do script. Você precisará deles para configurar sua definição de compilação.
 
-3.	Escolha uma senha para a entidade de serviço usando o comando a seguir. Guarde essa senha, pois ela será usada como uma variável de build.
+### Crie um certificado e carregue-o em um novo Cofre da Chave do Azure
 
-    ```
-    $password = Read-Host -AsSecureString
-    ```
-4.	Execute o script do PowerShell Create-ServicePrincipal.ps1 com os seguintes parâmetros:
+>[AZURE.NOTE] Esse script de exemplo gera um certificado autoassinado, o que não é uma prática segura e só é aceitável para experimentação. Como alternativa, siga as diretrizes da organização para obter um certificado legítimo. Essas instruções também usam um único certificado para o servidor e o cliente. Em produção, você deve usar certificados de cliente e servidor separados.
 
-|Parâmetro|Valor|
-|---|---|
-|DisplayName|Qualquer nome.|
-|HomePage|Qualquer URI. Não precisa realmente existir.|
-|IdentifierUri|Qualquer URI exclusivo. Não precisa realmente existir.|
-|SecurePassword|$password|
+1. Baixar e extrair [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) para uma pasta neste computador.
 
-Quando o script for concluído, ele produzirá os três valores a seguir. Anote os valores, pois eles serão usados como variáveis de build.
+2. Em um prompt de administrador do PowerShell, altere para o diretório `<extracted zip>/Manual`.
 
- - `ServicePrincipalId`
- - `ServicePrincipalTenantId`
- - `ServicePrincipalSubscriptionId`
-
-### Criar um certificado e carregá-lo em uma nova instância do Cofre da Chave do Azure
-
->[AZURE.NOTE] Este script de exemplo gera um certificado autoassinado, o que não é uma prática segura e só é aceitável para experimentação. Como alternativa, siga as diretrizes da organização para obter um certificado legítimo.
-
-1.	Em um prompt de administrador do PowerShell, altere para o diretório do qual você extraiu o `Manual.zip`.
-
-2.	Execute o script `CreateAndUpload-Certificate.ps1` do PowerShell com os seguintes parâmetros:
+3. Execute o script `CreateAndUpload-Certificate.ps1` do PowerShell com os seguintes parâmetros:
 
 | Parâmetro | Valor |
 | --- | --- |
 | KeyVaultLocation | Qualquer valor Esse parâmetro deve corresponder ao local em que você planeja criar o cluster. |
 | CertificateSecretName | Qualquer valor |
+| CertificateDnsName | Deve corresponder ao nome DNS do cluster. Exemplo: `mycluster.westus.azure.cloudapp.net` |
 | SecureCertificatePassword | Qualquer valor Esse parâmetro é usado quando você importa o certificado para o computador de compilação. |
 | KeyVaultResourceGroupName | Qualquer valor No entanto, não use o nome do grupo de recursos que você planeja usar para seu cluster. |
 | KeyVaultName | Qualquer valor |
@@ -131,7 +115,7 @@ Quando o script for concluído, ele produzirá os três valores a seguir. Anote 
 
 ### Instalar o Visual Studio 2015
 
-Se você já tiver provisionado um computador (ou planeja fornecer a sua própria), instale o [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) no computador selecionado.
+Se você já tiver provisionado um computador (ou planeja fornecer o seu próprio), instale o [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) no computador selecionado.
 
 Se você ainda não tiver um computador, poderá provisionar rapidamente uma VM (máquina virtual do Azure) com o Visual Studio 2015 pré-instalado. Para fazer isso:
 
@@ -153,17 +137,17 @@ Se você ainda não tiver um computador, poderá provisionar rapidamente uma VM 
 
 ### Instalar o SDK do Service Fabric
 
-Instale o [SDK de Service Fabric](https://azure.microsoft.com/campaigns/service-fabric/) em seu computador.
+Instale o [SDK do Service Fabric](https://azure.microsoft.com/campaigns/service-fabric/) em seu computador.
 
 ### Instale o Azure PowerShell
 
 Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instalar o Azure PowerShell e entrar”. Ignore a etapa “Entrar no Azure PowerShell”.
 
-### Registre os módulos do Azure PowerShell com a conta de Serviço Local
+### Registrar os módulos do Azure PowerShell com a conta de Serviço de Rede
 
 >[AZURE.NOTE] Faça isso *antes* de iniciar o agente de compilação. Caso contrário, ele não escolherá a nova variável de ambiente.
 
-1. Pressione a tecla de logotipo do Windows + R, digite **regedit** e pressione Enter.
+1. Pressione a tecla de logotipo do Windows+R, digite **regedit** e pressione Enter.
 
 2. Clique com o botão direito do mouse no nó `HKEY_Users\.Default\Environment` e selecione **Novo** > **Valor de Cadeia de Caracteres Expansível**.
 
@@ -190,19 +174,23 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
     c. Escolha **Ferramentas Administrativas** > **Gerenciar certificados de computador**.
 
-3.	Conceda à conta de Serviço Local permissão para usar o certificado de automação:
+3.	Conceda à conta de Serviço de Rede permissão para usar o certificado de automação:
 
-    a. Em **Certificados - Computador Local**, expanda **Pessoal** e então selecione **Certificados**.
+    a. Em **Certificados – Computador Local**, expanda **Pessoal** e escolha **Certificados**.
 
     b. Selecione um certificado na lista.
 
-    c. Clique com o botão direito do mouse no certificado e selecione **Todas as Tarefas** > **Gerenciar Chaves Privadas**.
+    c. Clique com o botão direito do mouse no certificado e escolha **Todas as Tarefas** > **Gerenciar Chaves Privadas**.
 
-    d. Selecione o botão **Adicionar**, digite **Serviço Local** e selecione **Verificar Nomes**.
+    d. Escolha o botão **Adicionar**, digite **Serviço de Rede** e escolha **Verificar Nomes**.
 
     e. Selecione **OK** e feche o gerenciador de certificados.
 
- ![Captura de tela de etapas para conceder permissão de conta de Serviço Local](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
+    ![Captura de tela de etapas para conceder permissão de conta de Serviço Local](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
+
+4.  Copie o certificado para a pasta `Trusted People`.
+
+    a. O certificado foi importado para **Pessoal/Certificados**, mas precisamos adicioná-lo a **Pessoas Confiáveis**. Clique com o botão direito do mouse no certificado e escolha **Copiar**. Em seguida, clique com o botão direito do mouse na pasta **Pessoas Confiáveis** e escolha **Colar**.
 
 ### Registrar o agente de build
 
@@ -212,15 +200,17 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
     b. Selecione o ícone de “engrenagem” no canto superior direito da tela.
 
-    c. Selecione a guia **Pools de agente**.
+    c. Selecione a guia **Pools de agentes**.
 
-    d. Selecione **Baixar agente** para baixar o arquivo agent.zip.
+    d. Escolha **Baixar agente** para baixar o arquivo agent.zip.
+
+    >[AZURE.NOTE] Se o download não for iniciado, verifique o bloqueador de pop-up.
 
     e. Copie agent.zip no computador de compilação que você criou anteriormente.
 
     f. Descompacte agent.zip em `C:\agent` (ou em qualquer local com um caminho curto) no computador de compilação.
 
-    >[AZURE.NOTE] Se você planeja usar os Serviços Web do ASP.NET 5, é recomendável que escolha o nome mais curto possível para essa pasta, a fim de evitar erros de **PathTooLongExceptions** durante a implantação.
+    >[AZURE.NOTE] Se você planeja usar os Serviços Web do ASP.NET 5, é recomendável escolher o nome mais curto possível para essa pasta, a fim de evitar erros **PathTooLongExceptions** durante a implantação. Quando o ASP.NET Core for lançado, ele minimizará esse problema.
 
 2.	Em um prompt de comando de administrador, execute `C:\agent\ConfigureAgent.cmd`. O script solicitará os seguintes parâmetros:
 
@@ -231,12 +221,13 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 |Pool de Agente|Insira o nome de seu pool de agente. (Se você ainda não criou um pool de agente, aceite o valor padrão).|
 |Pasta de trabalho|Aceite o valor padrão. Essa é a pasta na qual o agente de build realmente criará seu aplicativo. Se você planeja usar os Serviços Web do ASP.NET 5, é recomendável que escolha o nome mais curto possível para essa pasta, a fim de evitar erros de PathTooLongExceptions durante a implantação.|
 |Instalar como Serviço do Windows?|O valor padrão é N. Altere o valor para **Y**.|
-|Conta de usuário para executar o serviço|Aceite o valor padrão, `NT AUTHORITY\LocalService`.|
+|Conta de usuário para executar o serviço|Aceite o valor padrão, `NT AUTHORITY\NetworkService`.|
+|Senha de `NT AUTHORITY\Network Service`|A conta de serviço da rede não tem uma senha, mas recusará senhas em branco. Digite uma cadeia de caracteres não vazia para a senha (o que você inserir será ignorado).|
 |Desconfigurar um agente existente?|Aceite o valor padrão, **N**.|
 
 3.  Quando as credenciais forem solicitadas, insira as credenciais de sua conta da Microsoft que tenha direitos para seu projeto de equipe.
 
-4.  Verifique se o agente de build foi registrado. Para fazer isso:
+4.  Verifique se o agente de compilação foi registrado e configure seus recursos. Para fazer isso:
 
     a. Volte para o navegador da Web (`https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`) e atualize a página.
 
@@ -244,7 +235,11 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
     c. Verifique se o agente de build aparece na lista e tem um status verde realçado. Se o realce for vermelho, o agente de build estará enfrentando problemas para se conectar ao Team Services.
 
- ![Captura de tela que mostra o status do agente de compilação](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
+    ![Captura de tela que mostra o status do agente de compilação](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
+
+    d. Escolha o agente de compilação e a guia **Recursos**.
+
+    e. Adicione um recurso chamado **azureps** com qualquer valor. Isso indica para o VSTS que esse computador tem o Azure PowerShell instalado nele, que é obrigatório para usar algumas das tarefas de compilação fornecidas pelo VSTS.
 
 
 ## Criar sua definição de build
@@ -253,7 +248,7 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
 ### Adicione os scripts de integração contínua ao controle do código-fonte de seu aplicativo
 
-1.	Extrair [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) para qualquer pasta no computador. Copie o conteúdo de `Powershell\Automation` para qualquer pasta no controle do código-fonte.
+1.	Extraia [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) para qualquer pasta no computador. Copie o conteúdo de `Powershell\Automation` para qualquer pasta no controle do código-fonte.
 
 2.	Verifique os arquivos resultantes.
 
@@ -263,67 +258,79 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
     a. Abra o projeto no Visual Studio Team Services.
 
-    b. Selecione a guia **Compilar**.
+    b. Escolha a guia **Compilar**.
 
-    c. Selecione o sinal **+** verde para criar uma nova definição de compilação.
+    c. Escolha o sinal **+** verde para criar uma nova definição de compilação.
 
-    d. Selecione **Vazio** e então selecione **Voltar**.
+    d. Escolha **Vazio** e **Avançar**.
 
     e. Verifique se o repositório e a ramificação certos estão selecionados.
 
-    f. Selecione a fila do agente para o qual você registrou o agente de compilação e marque a caixa de seleção **Integração Contínua**.
+    f. Escolha a fila do agente na qual você registrou o agente de compilação e marque a caixa de seleção **Integração Contínua**.
 
 2.	Na guia **Variáveis**, crie as seguintes variáveis com estes valores.
 
-|Variável|Valor|Segredo|Permitir no tempo da fila|
-|---|---|---|---|
-|BuildConfiguration|Liberar||X|
-|BuildPlatform|x64|||
-|ServicePrincipalPassword|A senha passada para CreateServicePrincipal.ps1.|X||
-|ServicePrincipalId|Da saída de CreateServicePrincipal.ps1.|||
-|ServicePrincipalTenantId|Da saída de CreateServicePrincipal.ps1.|||
-|ServicePrincipalSubscriptionId|Da saída de CreateServicePrincipal.ps1.|||
-|ServiceFabricCertificateThumbprint|Da saída de GenerateCertificate.ps1.|||
-|ServiceFabricKeyVaultId|Da saída de GenerateCertificate.ps1.|||
-|ServiceFabricCertificateSecretId|Da saída de GenerateCertificate.ps1.|||
-|ServiceFabricClusterName|Qualquer nome desejado.|||
-|ServiceFabricClusterResourceGroupName|Qualquer nome desejado.|||
-|ServiceFabricClusterLocation|Qualquer nome que corresponda ao local de sua chave do cofre.|||
-|ServiceFabricClusterAdminPassword|Qualquer nome desejado.|X||
-|ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
-|ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` O ponto de extremidade de conexão em seu perfil de publicação será ignorado. O ponto de extremidade de conexão para o cluster temporário será usado.|||
-|ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
-|ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` Deve ser a pasta que contém o arquivo .sfproj.||||
+    |Variável|Valor|Segredo|Permitir no tempo da fila|
+    |---|---|---|---|
+    |BuildConfiguration|Liberar||X|
+    |BuildPlatform|x64|||
+    |ServicePrincipalPassword|A senha que você usou quando criou a entidade de serviço.|X||
+    |ServicePrincipalId|Na saída do script que você usou para criar sua entidade de serviço.|||
+    |ServicePrincipalTenantId|Na saída do script que você usou para criar sua entidade de serviço.|||
+    |ServicePrincipalSubscriptionId|Na saída do script que você usou para criar sua entidade de serviço.|||
+    |ServiceFabricCertificateThumbprint|Na saída de CreateAndUpload-Certificate.ps1|||
+    |ServiceFabricKeyVaultId|Na saída de CreateAndUpload-Certificate.ps1|||
+    |ServiceFabricCertificateSecretId|Na saída de CreateAndUpload-Certificate.ps1|||
+    |ServiceFabricClusterName|Deve corresponder ao Nome DNS do seu certificado.|||
+    |ServiceFabricClusterResourceGroupName|Qualquer nome desejado.|||
+    |ServiceFabricClusterLocation|Deve corresponder ao local do seu cofre de chaves.|||
+    |ServiceFabricClusterAdminPassword|8 a 123 caracteres, com pelo menos 3 dos seguintes tipos de caractere: letra maiúscula, letra minúscula, número, caracteres especiais.|X||
+    |ServiceFabricClusterResourceGroupTemplateFilePath|`<path/to/extracted/automation/scripts/ArmTemplate-Full-3xVM-Secure.json>`|||
+    |ServiceFabricPublishProfilePath|`<path/to/your/publish/profiles/MyPublishProfile.xml>` O ponto de extremidade de conexão em seu perfil de publicação será ignorado. O ponto de extremidade de conexão para o cluster temporário será usado.|||
+    |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
+    |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` Deve ser a pasta que contém o arquivo .sfproj.||||
 
-3.  Salve a definição de build e dê um nome a ela. (Você pode alterar esse nome mais tarde se quiser.)
+3.  Salve a definição de build e dê um nome a ela. Você pode alterar esse nome mais tarde se quiser.
+
+### Adicionar uma etapa "Restaurar pacotes NuGet"
+
+1. Na guia **Build**, escolha o comando **Adicionar etapa de build...**.
+
+2. Escolha **Pacote** > **Instalador do NuGet**
+
+3. Escolha o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Restaurar pacotes NuGet**.
+
+4. Escolha o botão **...** ao lado do campo **Solução** e, em seguida, escolha o arquivo .sln.
+
+5. Salve definição de build.
 
 ### Adicionar uma etapa de "Compilação"
 
-1.	Na guia **Compilar**, selecione o comando **Adicionar etapa de compilação…**.
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
-2.	Selecione **Compilar** > **MSBuild**.
+2.	Escolha **Compilar** > **MSBuild**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Compilar**.
+3.	Escolha o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Compilar**.
 
-4.	Selecione o botão **...** ao lado do campo **Solução** e selecione o arquivo .sln.
+4.	Escolha o botão **...** ao lado do campo **Solução** e escolha o arquivo .sln.
 
 5.	Digite `$(BuildPlatform)` para **Plataforma**.
 
 6.	Digite `$(BuildConfiguration)` para **Configuração**.
 
-7.	Marque a caixa de seleção **Restaurar Pacotes NuGet** (se ainda não estiver selecionada).
+7.	Desmarque a caixa de seleção **Restaurar Pacotes NuGet**.
 
 8.	Salve definição de build.
 
 ### Adicionar uma etapa de "Pacote"
 
-1.	Na guia **Compilar**, selecione o comando **Adicionar etapa de compilação…**.
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
-2.	Selecione **Compilar** > **MSBuild**.
+2.	Escolha **Compilar** > **MSBuild**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o como **Pacote**.
+3.	Escolha o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Pacote**.
 
-4.	Selecione o botão **...** ao lado do campo **Solução** e selecione o arquivo .sfproj do projeto do aplicativo.
+4.	Escolha o botão **...** ao lado do campo **Solução** e escolha o arquivo .sfproj do projeto do aplicativo.
 
 5.	Digite `$(BuildPlatform)` para **Plataforma**.
 
@@ -339,13 +346,13 @@ Para instalar o Azure PowerShell, siga as etapas da seção anterior, “Instala
 
 Se uma compilação anterior não tiver sido limpa após sua execução (por exemplo, se a compilação tiver sido cancelada antes de poder ser limpa), poderá haver um grupo de recursos existente em conflito com o novo. Para evitar conflitos, limpe qualquer grupo de recursos restante (e seus recursos associados) antes de criar um novo.
 
-1.	Na guia **Compilar**, selecione o comando **Adicionar etapa de compilação…**.
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
-2.	Selecione **Utilitário** > **PowerShell**.
+2.	Escolha **Utilitário** > **PowerShell**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o como **Remover grupo de recursos do cluster**.
+3.	Escolha o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Remover grupo de recursos do cluster**.
 
-4.	Selecione o comando **...** ao lado de **Nome de arquivo do script**. Navegue até o local para onde você extraiu os scripts de automação e selecione **Remove-ClusterResourceGroup.ps1**.
+4.	Escolha o comando **...** ao lado de **Nome de arquivo do script**. Navegue até o local para onde você extraiu os scripts de automação e escolha **Remove-ClusterResourceGroup.ps1**.
 
 5.	Para **Argumentos**, digite `-ServicePrincipalPassword "$(ServicePrincipalPassword)"`.
 
@@ -353,13 +360,13 @@ Se uma compilação anterior não tiver sido limpa após sua execução (por exe
 
 ### Adicionar uma etapa para “Provisionar e implantar em cluster seguro”
 
-1.	Na guia **Compilar**, selecione o comando **Adicionar etapa de compilação…**.
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
-2.	Selecione **Utilitário** > **PowerShell**.
+2.	Escolha **Utilitário** > **PowerShell**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de build e renomeie-o como **Provisionar e implantar em cluster seguro**.
+3.	Escolha o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Provisionar e implantar em cluster seguro**.
 
-4.	Selecione o botão **...** ao lado de **Nome de arquivo do script**. Navegue até onde você extraiu os scripts de automação e selecione **ProvisionAndDeploy-SecureCluster.ps1**.
+4.	Escolha o botão **...** ao lado de **Nome de arquivo do script**. Navegue até onde você extraiu os scripts de automação e escolha **ProvisionAndDeploy-SecureCluster.ps1**.
 
 5.	Para **Argumentos**, digite `-ServicePrincipalPassword "$(ServicePrincipalPassword)" -ServiceFabricClusterAdminPassword "$(ServiceFabricClusterAdminPassword)"`
 
@@ -369,17 +376,17 @@ Se uma compilação anterior não tiver sido limpa após sua execução (por exe
 
 Agora que você terminou de usar o cluster temporário, você deve limpá-lo. Se não fizer isso, você continuará a ser cobrado pelo cluster temporário. Essa etapa remove o grupo de recursos, que remove o cluster e todos os outros recursos no grupo.
 
->[AZURE.NOTE] Há uma diferença entre essa etapa e a anterior, “Remover o grupo de recursos de cluster”: esta deve ter a opção **Sempre Executar** selecionada.
+>[AZURE.NOTE] Há uma diferença entre essa etapa e a anterior, "Remover o grupo de recursos do cluster": esta deve ter a opção **Sempre Executar** selecionada.
 
-1.	Na guia **Compilar**, selecione o comando **Adicionar etapa de compilação…**.
+1.	Na guia **Compilar**, escolha o comando **Adicionar etapa de compilação…**.
 
-2.	Selecione **Utilitário** > **PowerShell**.
+2.	Escolha **Utilitário** > **PowerShell**.
 
-3.	Selecione o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o como **Remover grupo de recursos do cluster**.
+3.	Escolha o ícone de lápis ao lado do nome da etapa de compilação e renomeie-o para **Remover grupo de recursos do cluster**.
 
-4.	Selecione o botão **...** ao lado de **Nome de arquivo do script**. Navegue até o local para onde você extraiu os scripts de automação e selecione **RemoveClusterResourceGroup.ps1**.
+4.	Escolha o botão **...** ao lado de **Nome de arquivo do script**. Navegue até o local para onde você extraiu os scripts de automação e escolha **RemoveClusterResourceGroup.ps1**.
 
-5.	Para **Argumentos**, insira `-ServicePrincipalPassword "$(ServicePrincipalPassword)`”.
+5.	Para **Argumentos**, digite `-ServicePrincipalPassword "$(ServicePrincipalPassword)`.
 
 6.	Em **Opções de Controle**, marque a caixa de seleção **Sempre Executar**.
 
@@ -387,7 +394,7 @@ Agora que você terminou de usar o cluster temporário, você deve limpá-lo. Se
 
 ### Experimente
 
-Clique em **Enfileirar Compilação** para iniciar uma compilação. As compilações também serão disparadas no envio por push ou no check-in.
+Escolha **Enfileirar Compilação** para iniciar uma compilação. As compilações também serão disparadas no envio por push ou no check-in.
 
 
 ## Soluções alternativas
@@ -398,7 +405,7 @@ As instruções anteriores criam um novo cluster para cada build e o remove ao f
 
 2.	Configure o perfil de publicação para dar suporte à atualização do aplicativo seguindo [estas instruções](service-fabric-visualstudio-configure-upgrade.md).
 
-3.	Substitua a etapa **Provisionar e implantar em cluster seguro** por uma etapa que chama Deploy-FabricApplication.ps1 diretamente (e o transmite ao perfil de publicação).
+3.	Substitua a etapa **Provisionar e implantar em cluster seguro** por uma etapa que chame Deploy-FabricApplication.ps1 diretamente (e o transmita ao perfil de publicação).
 
 4.	Remova as etapas de build de **Remover Grupo de Recursos de Cluster** de sua definição de build.
 
@@ -410,4 +417,4 @@ Para saber mais sobre a integração contínua com aplicativos do Service Fabric
  - [Implantar um agente de compilação](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
  - [Criar e configurar uma definição de compilação](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

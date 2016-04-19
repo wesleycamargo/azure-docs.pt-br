@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cortana Analytics Gallery | Microsoft Azure"
-	description="Compartilhe e descubra soluções de análise e muito mais na Cortana Analytics Gallery. Aprenda com os outros e faça suas próprias contribuições à comunidade."
+	pageTitle="Cortana Intelligence Gallery | Microsoft Azure"
+	description="Compartilhe e descubra soluções de análise e muito mais na Cortana Intelligence Gallery. Aprenda com os outros e faça suas próprias contribuições à comunidade."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -17,11 +17,11 @@
 	ms.author="chhavib;cgronlun;garye"/>
 
 
-# Compartilhar e descobrir soluções na Cortana Analytics Gallery
+# Compartilhar e descobrir soluções na Cortana Intelligence Gallery
 
-A Cortana Analytics Gallery é site alimentado pela comunidade para descobrir e compartilhar soluções criadas com o conjunto de produtos Cortana Analytics Suite. É um destino para usuários que desejam aprender com outros, começar a desenvolver suas próprias soluções ou contribuir com seu próprio trabalho para a comunidade de análises avançadas.
+A Cortana Intelligence Gallery é um site alimentado pela comunidade para descobrir e compartilhar soluções criadas com o conjunto de produtos Cortana Intelligence Suite. É um destino para usuários que desejam aprender com outros, começar a desenvolver suas próprias soluções ou contribuir com seu próprio trabalho para a comunidade de análises avançadas.
 
-**[LEVE-ME À GALERIA >>](http://gallery.cortanaanalytics.com)**
+**[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -44,7 +44,7 @@ Você pode localizar facilmente soluções populares e publicadas recentemente n
 Você pode comentar, fornecer comentários ou fazer perguntas por meio da seção de comentários na página de cada solução. Você pode até compartilhar uma solução de interesse com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou do Twitter. Você também pode enviar links por email para essas soluções e convidar outros usuários a ver as páginas.
 
 ## Baixar testes
-A Cortana Analytics Gallery permite copiar facilmente testes de análise preditiva para seu espaço de trabalho do Estúdio de Aprendizado de Máquina com um único clique e começar a usá-lo imediatamente com essa finalidade. Se ainda não tiver feito logon durante a navegação, você precisará entrar usando sua conta da Microsoft antes que o teste seja copiado para o seu espaço de trabalho.
+A Cortana Intelligence Gallery permite copiar facilmente testes de análise preditiva para seu espaço de trabalho do Estúdio de Aprendizado de Máquina com um único clique e começar a usá-lo imediatamente com essa finalidade. Se ainda não tiver feito logon durante a navegação, você precisará entrar usando sua conta da Microsoft antes que o teste seja copiado para o seu espaço de trabalho.
 
 ## Contribuir
 Quando você entra, torna-se um membro da comunidade de galeria, o que lhe permite contribuir com suas próprias experiências e coleções para que outras pessoas possam se beneficiar das soluções descobertas.
@@ -53,7 +53,7 @@ Quando você entra, torna-se um membro da comunidade de galeria, o que lhe permi
 
 Um *teste* é uma tela em Studio de aprendizado de máquina que permite construir um modelo de análise preditiva, conectando dados junto com vários módulos analíticos. Você pode experimentar ideias diferentes, fazer testes e eventualmente publicar seu modelo como um serviço Web no Azure. Para obter um exemplo de criação de uma experiência simples, consulte [Tutorial de aprendizado de máquina: crie sua primeira experiência no Estúdio de Aprendizado de Máquina do Azure](machine-learning-create-experiment.md). Para obter uma explicação mais completa da criação de uma solução de análise preditiva, consulte [Passo a passo: desenvolver uma solução preditiva com o Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md).
 
-Siga estas etapas para contribuir com uma experiência na Cortana Analytics Gallery:
+Siga estas etapas para contribuir com uma experiência na Cortana Intelligence Gallery:
 
 - Entrar no Estúdio de Aprendizado de Máquina usando sua conta da Microsoft
 - Crie seu experimento e execute-o
@@ -61,11 +61,11 @@ Siga estas etapas para contribuir com uma experiência na Cortana Analytics Gall
 
 ### Contribuir com coleções
 
-Uma *coleção* é uma lista de itens da Cortana Analytics Gallery relacionados que são agrupados para futura referência, uso ou compartilhamento. A coleção pode conter itens que você possui ou itens contribuídos pela comunidade.
+Uma *coleção* é uma lista de itens da Cortana Intelligence Gallery relacionados que são agrupados para futura referência, uso ou compartilhamento. A coleção pode conter itens que você possui ou itens contribuídos pela comunidade.
 
 Por exemplo, você pode usar uma coleção para agrupar itens em um tópico específico ou pode agrupar um teste com várias etapas que soluciona um problema complexo. As coleções iniciais contribuídas pela Microsoft consistem em modelos de teste de aprendizado de máquina em várias etapas para solucionar problemas do mundo real, como detecção de fraudes online, classificação de texto, previsão de varejo e manutenção preditiva.
 
-Siga estas etapas para criar e contribuir com uma coleção na Cortana Analytics Gallery:
+Siga estas etapas para criar e contribuir com uma coleção na Cortana Intelligence Gallery:
 
 - Entre na Galeria usando sua conta da Microsoft.
 - Clique na sua imagem na parte superior da janela e clique no seu nome
@@ -74,7 +74,7 @@ Siga estas etapas para criar e contribuir com uma coleção na Cortana Analytics
 - Adicione uma imagem para identificar a coleção
 - Clique em **Criar**
 
-Sua coleção agora é parte da Cortana Analytics Gallery.
+Sua coleção agora faz parte da Cortana Intelligence Gallery.
 
 Você pode adicionar itens à sua coleção abrindo-a, clicando em **Editar** e em **Adicionar Item**. Ou, se ao navegar pela Galeria você encontrar um item que deseja incluir, basta abrir o item, clicar em **Adicionar à coleção** e especificar a coleção a que deseja adicioná-lo.
 
@@ -134,6 +134,6 @@ Você pode delimitar as marcas por tabulação.
 
 A renderização de descrição avançada não está disponível para todos os usuários da Galeria. Estamos trabalhando ativamente para disponibilizar essa funcionalidade por meio do suporte para renderização de redução.
 
-**[LEVE-ME À GALERIA >>](http://gallery.cortanaanalytics.com)**
+**[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

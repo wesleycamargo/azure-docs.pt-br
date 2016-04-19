@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016" 
+	ms.date="02/05/2016"
 	ms.author="bradsev;hangzh;weig"/>
 
 
@@ -26,7 +26,7 @@ O procedimento segue o fluxo de trabalho do [CAP(Processo do Cortana Analytics)]
 
 ## <a name="dataset"></a>O conjunto de dados Corridas de Táxi de NYC
 
-Os dados de Corridas de Táxi de NYC são formados por cerca de 20 GB de arquivos CSV compactados (aproximadamente 48 GB descompactados) que incluem mais de 173 milhões de corridas individuais, com tarifas pagas por cada corrida. Cada registro de corrida inclui o local e o horário de saída e chegada, o número da carteira de habilitação do taxista anônima e o número de medalhão (identificador exclusivo do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
+Os dados de Corridas de Táxi de NYC são formados por cerca de 20 GB de arquivos CSV compactados (aproximadamente 48 GB descompactados) que incluem mais de 173 milhões de corridas individuais, com tarifas pagas por cada corrida. Cada registro de corrida inclui o local e o horário de saída e chegada, o número da carteira de habilitação do taxista anônimo e o número de medalhão (identificador exclusivo do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
 
 1. O arquivo **trip\_data.csv** contém detalhes da corrida, como o número de passageiros, pontos de saída e chegada, duração e quilometragem da corrida. Aqui estão alguns exemplos de registros:
 
@@ -48,11 +48,11 @@ Os dados de Corridas de Táxi de NYC são formados por cerca de 20 GB de arquivo
 
 A **chave exclusiva** para unir trip\_data e trip\_fare é composta pelos três campos a seguir:
 
-- medallion, 
-- hack\_license e 
+- medallion,
+- hack\_license e
 - pickup\_datetime.
 
-## <a name="mltasks"></a>Resolver três tipos de tarefas de previsão 
+## <a name="mltasks"></a>Resolver três tipos de tarefas de previsão
 
 Formulamos três problemas de previsão com base em *tip\_amount* para ilustrar três tipos de tarefas de modelagem:
 
@@ -75,23 +75,23 @@ Para configurar o ambiente de Ciência de Dados do Azure, execute estas etapas:
 
 **Crie sua própria conta de armazenamento de blobs do Azure.**
 
-- Ao provisionar seu próprio armazenamento de blobs do Azure, escolha uma localização geográfica para ele mais próxima possível do **Centro-Sul dos EUA**, que é onde estão armazenados os dados da NYC Taxi. Os dados serão copiados usando o AzCopy do contêiner de armazenamento de blobs público para um contêiner em sua própria conta de armazenamento. Quanto mais próximo seu armazenamento de blobs do Azure estiver do Centro-Sul dos EUA, mais rápido esta tarefa (Etapa 4) será concluída. 
-- Para criar sua própria conta de armazenamento do Azure, execute as etapas descritas em [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md). Lembre-se de anotar os valores das seguintes credenciais de conta de armazenamento, pois eles serão necessários mais tarde neste passo a passo. 
+- Ao provisionar seu próprio armazenamento de blobs do Azure, escolha uma localização geográfica para ele mais próxima possível do **Centro-Sul dos EUA**, que é onde estão armazenados os dados da NYC Taxi. Os dados serão copiados usando o AzCopy do contêiner de armazenamento de blobs público para um contêiner em sua própria conta de armazenamento. Quanto mais próximo seu armazenamento de blobs do Azure estiver do Centro-Sul dos EUA, mais rápido esta tarefa (Etapa 4) será concluída.
+- Para criar sua própria conta de armazenamento do Azure, siga as etapas descritas em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md). Lembre-se de anotar os valores das seguintes credenciais de conta de armazenamento, pois eles serão necessários mais tarde neste passo a passo.
 
   - **Nome da Conta de Armazenamento**
   - **Chave da conta de armazenamento**
   - **Nome do Contêiner** (no qual você deseja armazenar os dados no armazenamento de blobs do Azure)
 
-**Provisione sua instância do Azure SQL DW.** Siga a documentação em [Criar um SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) para provisionar uma instância do SQL Data Warehouse. Lembre-se de fazer anotações sobre as seguintes credenciais do SQL Data Warehouse que serão usadas em etapas posteriores.
- 
+**Provisione sua instância do Azure SQL DW.** Siga a documentação em [Criar um SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para provisionar uma instância do SQL Data Warehouse. Lembre-se de fazer anotações sobre as seguintes credenciais do SQL Data Warehouse que serão usadas em etapas posteriores.
+
   - **Nome do Servidor**: <server Name>.database.windows.net
-  - **Nome do SQLDW (Banco de Dados)** 
+  - **Nome do SQLDW (Banco de Dados)**
   - **Nome de Usuário**
   - **Senha**
 
-**Instale o Visual Studio 2015 e o SQL Server Data Tools.** Para obter instruções, confira [Instalar o Visual Studio 2015 e/ou SSDT (SQL Server Data Tools) para o SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md).
+**Instale o Visual Studio 2015 e o SQL Server Data Tools.** Para obter instruções, confira [Instalar o Visual Studio 2015 e/ou SSDT (SQL Server Data Tools) para o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Conectar-se ao Azure SQL DW com o Visual Studio.** Para obter instruções, consulte as etapas 1 e 2 em [Conectar-se ao Azure SQL Data Warehouse com o Visual Studio](sql-data-warehouse-get-started-connect.md).
+**Conectar-se ao Azure SQL DW com o Visual Studio.** Para obter instruções, veja as etapas 1 e 2 em [Conectar-se ao Azure SQL Data Warehouse com o Visual Studio](../sql-data-warehouse/sql-data-warehouse-get-started-connect.md).
 
 >[AZURE.NOTE] Execute a seguinte consulta SQL no banco de dados que você criou no SQL Data Warehouse (em vez da consulta fornecida na etapa 3 do tópico de conexão) para **criar uma chave mestra**.
 
@@ -114,7 +114,7 @@ Abra um console de comando do Windows PowerShell. Execute os seguintes comandos 
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
 	$wc = New-Object System.Net.WebClient
-	$wc.DownloadFile($source, $ps1_dest) 
+	$wc.DownloadFile($source, $ps1_dest)
 	.\Download_Scripts_SQLDW_Walkthrough.ps1 –DestDir 'C:\tempSQLDW'
 
 Após a execução bem-sucedida, o diretório de trabalho atual mudará para *-DestDir*. Você deverá ver uma tela como a mostrada abaixo:
@@ -149,13 +149,13 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
 				if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
 					Write-Host $AzCopy_path_i 'not in system path, add it...'
 					[Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
-					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") 
+					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 					$env_path = $env:Path
-				}	
+				}
 
 - **Copia dados para sua conta de armazenamento de blobs particular** com o blob público com AzCopy
 
-		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"	
+		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
 		$start_time = Get-Date
 		AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
 		$end_time = Get-Date
@@ -166,20 +166,20 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
 
 
 - **Carrega dados usando o Polybase (executando LoadDataToSQLDW.sql) em seu Azure SQL DW** de sua conta de armazenamento de blobs particular com os seguintes comandos.
-	
+
 	- Criar um esquema
 
 			EXEC (''CREATE SCHEMA {schemaname};'');
 
 	- Criar uma credencial com escopo de banco de dados
-			
-			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias} 
-			WITH IDENTITY = ''asbkey'' , 
+
+			CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
+			WITH IDENTITY = ''asbkey'' ,
 			Secret = ''{StorageAccountKey}''
 
 	- Criar uma fonte de dados externa para um blob de armazenamento do Azure
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -188,7 +188,7 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
 			)
 			;
 
-			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage} 
+			CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
 			WITH
 			(
     			TYPE = HADOOP,
@@ -199,10 +199,10 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
 
 	- Criar um formato de arquivo externo para um arquivo csv. Os dados não são compactados e os campos são separados pelo caractere de pipe.
 
-			CREATE EXTERNAL FILE FORMAT {csv_file_format} 
-			WITH 
+			CREATE EXTERNAL FILE FORMAT {csv_file_format}
+			WITH
 			(   
-    			FORMAT_TYPE = DELIMITEDTEXT, 
+    			FORMAT_TYPE = DELIMITEDTEXT,
     			FORMAT_OPTIONS  
     			(
         			FIELD_TERMINATOR ='','',
@@ -210,7 +210,7 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
     			)
 			)
 			;
-		
+
 	- Criar tabelas externas de tarifas e corridas para o conjunto de dados Táxi de NYC na conta de Armazenamento de Blobs do Azure.
 
 			CREATE EXTERNAL TABLE {external_nyctaxi_fare}
@@ -244,7 +244,7 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
        			rate_code char(3),
        			store_and_fwd_flag char(3),
        			pickup_datetime datetime  not null,
-       			dropoff_datetime datetime, 
+       			dropoff_datetime datetime,
        			passenger_count int,
        			trip_time_in_secs bigint,
        			trip_distance float,
@@ -264,40 +264,40 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
 	- Carregar dados das tabelas externas no Armazenamento de Blobs do Azure para o SQL Data Warehouse.
 
 			CREATE TABLE {schemaname}.{nyctaxi_fare}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_fare}
 			;
 
 			CREATE TABLE {schemaname}.{nyctaxi_trip}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
-			SELECT * 
+			AS
+			SELECT *
 			FROM   {external_nyctaxi_trip}
 			;
 
 	- Criar um exemplo de tabela de dados (NYCTaxi\_Sample) e inserir dados nela escolhendo consultas SQL nas tabelas de corridas e tarifas. Algumas etapas deste passo a passo precisam usar esse exemplo de tabela.
 
 			CREATE TABLE {schemaname}.{nyctaxi_sample}
-			WITH 
+			WITH
 			(   
     			CLUSTERED COLUMNSTORE INDEX,
 				DISTRIBUTION = HASH(medallion)
 			)
-			AS 
+			AS
 			(
 	    		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount,
 				tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
-				tip_class = CASE 
+				tip_class = CASE
 						WHEN (tip_amount = 0) THEN 0
                         WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
                         WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
@@ -321,7 +321,7 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
 ![Plotar nº 21][21]
 
 >[AZURE.TIP] **Usar seus próprios dados:** se os dados estiverem em seu computador local em seu aplicativo real, você ainda poderá usar o AzCopy para carregar dados locais no armazenamento de blobs do Azure particular. Você só precisará alterar o local de **Origem**,`$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, no comando AzCopy do arquivo de script do PowerShell para um diretório local que contenha seus dados.
-	
+
 >[AZURE.TIP] Se seus dados já estiverem no armazenamento de blobs particular do Azure em seu aplicativo real, ignore a etapa do AzCopy no script do PowerShell e carregue os dados diretamente no Azure SQL DW. Isso exigirá mais edições do script para ajustá-lo para o formato de seus dados.
 
 
@@ -453,7 +453,7 @@ Este exemplo converte a longitude e latitude de saída e chegada para pontos geo
 
 	-- User-defined function to calculate the direct distance  in mile between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -474,7 +474,7 @@ Este exemplo converte a longitude e latitude de saída e chegada para pontos geo
 	END
 	GO
 
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -500,7 +500,7 @@ Este é o script SQL que define a função de distância.
 
 	-- User-defined function calculate the direct distance between two geographical coordinates.
 	CREATE FUNCTION [dbo].[fnCalculateDistance] (@Lat1 float, @Long1 float, @Lat2 float, @Long2 float)
-	
+
 	RETURNS float
 	AS
 	BEGIN
@@ -519,12 +519,12 @@ Este é o script SQL que define a função de distância.
   		END
   		RETURN @distance
 	END
-	GO 
+	GO
 
 Veja um exemplo para chamar essa função a fim de gerar recursos em sua consulta SQL:
 
 	-- Sample query to call the function to create features
-	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude, 
+	SELECT pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude,
 	dbo.fnCalculateDistance(pickup_latitude, pickup_longitude, dropoff_latitude, dropoff_longitude) AS DirectDistance
 	FROM <schemaname>.<nyctaxi_trip>
 	WHERE datepart("mi",pickup_datetime)=1
@@ -534,7 +534,7 @@ Veja um exemplo para chamar essa função a fim de gerar recursos em sua consult
 
 **Saída:** esta consulta gera uma tabela (com 2.803.538 linhas) com latitudes e longitudes de saída e chegada e as distâncias diretas correspondentes em milhas. Estes são os resultados para as primeiras 3 linhas:
 
-|pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
+||pickup\_latitude | pickup\_longitude | dropoff\_latitude |dropoff\_longitude | DirectDistance |
 |---| --------- | -------|-------| --------- | -------|
 |1 | 40\.731804 | -74.001083 | 40\.736622 | -73.988953 | .7169601222 |
 |2 | 40\.715794 | -74,010635 | 40\.725338 | -74.00399 | .7448343721 |
@@ -564,7 +564,7 @@ A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera u
 Quando você estiver pronto para prosseguir para o Aprendizado de Máquina do Azure, você pode:
 
 1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo de [Leitor][reader] no Aprendizado de Máquina do Azure ou
-2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela do SQL DW e use a nova tabela no módulo [Leitor][reader] no Aprendizado de Máquina do Azure. O script do PowerShell na etapa anterior fez isso para você. Você pode ler diretamente dessa tabela no módulo Leitor. 
+2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela do SQL DW e use a nova tabela no módulo [Leitor][reader] no Aprendizado de Máquina do Azure. O script do PowerShell na etapa anterior fez isso para você. Você pode ler diretamente dessa tabela no módulo Leitor.
 
 
 ## <a name="ipnb"></a>Exploração de dados e engenharia de recursos no IPython Notebook
@@ -575,7 +575,7 @@ As informações necessárias do Azure SQL DW no exemplo de Notebook IPython e o
 
 Se você já tiver configurado um espaço de trabalho do AzureML, carregue diretamente o exemplo de Notebook IPython no serviço do Notebook IPython do AzureML e comece a executá-lo. Estas são as etapas para carregar no serviço Notebook IPython do AzureML:
 
-1. Faça logon em seu espaço de trabalho do AzureML, clique em "Studio" na parte superior e clique em "NOTEBOOKS" no lado esquerdo da página Web. 
+1. Faça logon em seu espaço de trabalho do AzureML, clique em "Studio" na parte superior e clique em "NOTEBOOKS" no lado esquerdo da página Web.
 
 	![Plotar nº 22][22]
 
@@ -808,7 +808,7 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
 
 	pd.read_sql(query,conn)
 
-#### Exploração: distribuição de corridas por medallion e hack\_license
+#### Exploração: distribuição de corridas por medalhão e carteira de habilitação
 
 	query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
 	pd.read_sql(query,conn)
@@ -964,4 +964,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

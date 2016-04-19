@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configurar uma Cadeia de Conexão para o Armazenamento do Azure | Microsoft Azure"
-	description="Saiba como configurar uma cadeia de conexão para uma conta de armazenamento do Azure. Uma cadeia de conexão inclui as informações necessárias para autenticar o acesso programático a recursos em uma conta de armazenamento. A cadeia de conexão pode encapsular sua chave de acesso da conta para uma conta que você possui, ou pode incluir uma assinatura de acesso compartilhado para acessar recursos em uma conta sem a chave de acesso."
+	description="Crie uma cadeia de conexão para uma conta de armazenamento do Azure. Uma cadeia de conexão inclui as informações necessárias para autenticar o acesso a recursos em uma conta de armazenamento de seu aplicativo."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/01/2016"
 	ms.author="tamram"/>
 
 # Configurar cadeias de conexão do Armazenamento do Azure
@@ -96,13 +96,13 @@ Por exemplo, uma cadeia de conexão para um ponto de extremidade de Blob em um d
 
 ### Especificando um ponto de extremidade de Blob com uma assinatura de acesso compartilhado
 
-Você pode criar uma cadeia de conexão com pontos de extremidade explícitos para acessar recursos de armazenamento por meio de uma assinatura de acesso compartilhado. Nesse caso, você pode especificar a assinatura de acesso compartilhado como parte da cadeia de conexão, em vez do nome da conta e credenciais de chave. O token de assinatura de acesso compartilhado encapsula informações sobre o recurso a ser acessado, o período de tempo em que está disponível e as permissões concedidas. Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/ee395415.aspx).
+Você pode criar uma cadeia de conexão com pontos de extremidade explícitos para acessar recursos de armazenamento por meio de uma assinatura de acesso compartilhado. Nesse caso, você pode especificar a assinatura de acesso compartilhado como parte da cadeia de conexão, em vez do nome da conta e credenciais de chave. O token de assinatura de acesso compartilhado encapsula informações sobre o recurso a ser acessado, o período de tempo em que está disponível e as permissões concedidas. Para obter mais informações sobre assinatura de acesso compartilhado, Confira [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
 
 Para criar uma cadeia de conexão que inclui uma assinatura de acesso compartilhado, especifique a cadeia de caracteres no seguinte formato:
 
-    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature
+    BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=sasToken
 
-O ponto de extremidade pode ser um ponto de extremidade de serviço padrão ou um ponto de extremidade personalizado. O `base64Signature` corresponde à parte de assinatura de uma assinatura de acesso compartilhado. A assinatura é um HMAC computado em uma cadeia de caracteres para assinatura válida e uma chave usando o algoritmo SHA256, que é codificado na Base64.
+O ponto de extremidade pode ser um ponto de extremidade de serviço padrão ou um ponto de extremidade personalizado. O `sasToken` é a cadeia de consulta que segue o ponto de interrogação (?) na URL do SAS.
 
 ### Criando uma cadeia de conexão com um sufixo de ponto de extremidade
 
@@ -119,4 +119,9 @@ Por exemplo, a cadeia de conexão deve ser semelhante ao seguinte exemplo de cad
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0218_2016-->
+## Próximas etapas
+
+- [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md)
+- [Pesquisadores de armazenamento do Azure](storage-explorers.md)
+
+<!---HONumber=AcomDC_0406_2016-->

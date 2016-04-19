@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
-   ms.author="dkshir;memccror"/>
+   ms.date="04/04/2016"
+   ms.author="iainfou;memccror"/>
 
 # Como marcar uma máquina virtual do Windows no Azure
 
@@ -101,4 +101,4 @@ Para saber mais sobre marcação usando o PowerShell, confira [Cmdlets de recurs
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obter informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

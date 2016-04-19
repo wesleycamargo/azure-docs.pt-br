@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Perguntas frequentes sobre as Competições do Cortana Analytics | Microsoft Azure"
-	description="Perguntas frequentes sobre as Competições do Microsoft Cortana Analytics."
+	pageTitle="Perguntas frequentes sobre as Competições do Cortana Intelligence | Microsoft Azure"
+	description="Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence."
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,11 +16,11 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# Perguntas frequentes sobre as competições do Microsoft Cortana Analytics
+# Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence
 
-**O que são as Competições do Cortana Analytics?**
+**O que são as Competições do Cortana Intelligence?**
 
-A Microsoft está anunciando as Competições do Cortana Analytics. As Competições do Cortana Analytics permitem unir uma comunidade global de entusiastas de dados para resolver coletivamente alguns dos problemas de ciência de dados mais complexos do mundo. As Competições do Cortana Analytics permitem que entusiastas de dados em todo o mundo compitam e criem modelos de ciência de dados altamente precisos e inteligentes. As competições que patrocinamos são baseadas em conjuntos de dados exclusivos que são disponibilizados publicamente pela primeira vez. Os participantes podem ganhar prêmios ou reconhecimento em nosso placar de líderes público dos 10 primeiros colocados. Acesse [aqui](http://aka.ms/CIComp) para visitar a home page das Competições.
+A Microsoft está anunciando as Competições do Cortana Intelligence. As Competições do Cortana Intelligence permitem unir uma comunidade global de entusiastas de dados para resolver coletivamente alguns dos problemas de ciência de dados mais complexos do mundo. As Competições do Cortana Intelligence permitem que entusiastas de dados em todo o mundo compitam e criem modelos de ciência de dados altamente precisos e inteligentes. As competições que patrocinamos são baseadas em conjuntos de dados exclusivos que são disponibilizados publicamente pela primeira vez. Os participantes podem ganhar prêmios ou reconhecimento em nosso placar de líderes público dos 10 primeiros colocados. Acesse [aqui](http://aka.ms/CIComp) para visitar a home page das Competições.
 
 **Com que frequência a Microsoft lançará novas competições?**
 
@@ -32,9 +32,9 @@ Use nosso [fórum do Aprendizado de Máquina do Microsoft Azure](https://social.
 
 **Como faço para participar de uma competição?**
 
-Acesse a home page das Competições usando a Galeria do Cortana Analytics. Essa página contém todas as competições que estão em andamento. Cada competição terá instruções e regras de participação, prêmios e duração detalhados na página de inscrição. Acesse [aqui](http://aka.ms/CIComp) para visitar a home page das Competições.
+Acesse a home page das Competições usando a Cortana Intelligence Gallery. Essa página contém todas as competições que estão em andamento. Cada competição terá instruções e regras de participação, prêmios e duração detalhados na página de inscrição. Acesse [aqui](http://aka.ms/CIComp) para visitar a home page das Competições.
 
-1. Encontre a competição de que você gostaria de participar na galeria do Cortana Analytics, leia todas as instruções e assista ao vídeo do tutorial. Em seguida, clique no botão "Ingressar na Competição" para copiar o Teste Inicial para seu espaço de trabalho existente do Aprendizado de Máquina do Azure. Se você ainda não tiver acesso ao espaço de trabalho, crie um com antecedência. Execute o Teste Inicial, observe a métrica de desempenho e use sua criatividade para melhorar o desempenho do modelo. Você provavelmente passará a maior parte do seu tempo nessa etapa.   
+1. Encontre a competição de que você gostaria de participar na Cortana Intelligence Gallery, leia todas as instruções e assista ao vídeo do tutorial. Em seguida, clique no botão "Ingressar na Competição" para copiar o Teste Inicial para seu espaço de trabalho existente do Aprendizado de Máquina do Azure. Se você ainda não tiver acesso ao espaço de trabalho, crie um com antecedência. Execute o Teste Inicial, observe a métrica de desempenho e use sua criatividade para melhorar o desempenho do modelo. Você provavelmente passará a maior parte do seu tempo nessa etapa.   
 
 2. Crie um Teste Preditivo com o modelo treinado fora do Teste Inicial. Ajuste cuidadosamente o esquema de entrada e saída do serviço Web para fazer com que estejam em conformidade com os requisitos especificados nas regras da Competição. O documento do tutorial geralmente terá instruções detalhadas sobre como fazer isso. Você também pode assistir ao vídeo do tutorial, se ele estiver disponível.
 
@@ -49,8 +49,11 @@ Os participantes da competição usam o Estúdio de Aprendizado de Máquina do A
 **É necessário ser um cientista de dados para participar?**
 
 Não. Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidade a respeito da ciência de dados e outros aspirantes a cientista de dados para participar de nossa competição. Criamos documentos de suporte para permitir que todos possam participar. Nosso público-alvo é:
+
 * Desenvolvedores de dados, cientistas de dados, profissionais de BI e de análise: aqueles responsáveis por produzir conteúdo de dados e análises para outras pessoas consumirem
+
 * Administradores de dados: aqueles que têm conhecimento sobre os dados, o que eles significam, como se destinam a serem usados e para qual finalidade
+
 * Estudantes e Pesquisadores: aqueles que estão aprendendo e obtendo habilidades relacionadas a dados em programas acadêmicos universitários ou participantes de MOOCs (Massively Open Online Courses, Cursos Online de Acesso Livre)
 
 
@@ -60,7 +63,7 @@ A plataforma da Competição atualmente não é compatível com a participação
 
 **Preciso pagar para participar de uma competição?**
 
-A participação nas Competições é gratuita. No entanto, você precisa ter acesso a um espaço de trabalho de Aprendizado de Máquina do Azure para participar. Você pode criar um espaço de trabalho livre sem um cartão de crédito. Para isso, basta fazer logon com uma conta da Microsoft válida ou uma conta do Office 365. Se você já for um cliente do Azure ou do Cortana Analytics Suite, poderá criar e usar um espaço de trabalho Standard com a mesma assinatura do Azure. Se quiser comprar uma assinatura do Azure, poderá fazê-lo [aqui](https://azure.microsoft.com/pricing). Observe que as taxas padrão se aplicam ao uso de um espaço de trabalho Standard para construir testes. Confira as informações sobre preços de Aprendizado de Máquina do Azure [aqui](https://azure.microsoft.com/pricing/details/machine-learning/).
+A participação nas Competições é gratuita. No entanto, você precisa ter acesso a um espaço de trabalho de Aprendizado de Máquina do Azure para participar. Você pode criar um espaço de trabalho livre sem um cartão de crédito. Para isso, basta fazer logon com uma conta da Microsoft válida ou uma conta do Office 365. Se você já for um cliente do Azure ou do Cortana Intelligence Suite, poderá criar e usar um espaço de trabalho Standard com a mesma assinatura do Azure. Se quiser comprar uma assinatura do Azure, poderá fazê-lo [aqui](https://azure.microsoft.com/pricing). Observe que as taxas padrão se aplicam ao uso de um espaço de trabalho Standard para construir testes. Confira as informações sobre preços de Aprendizado de Máquina do Azure [aqui](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -112,4 +115,4 @@ Atualmente, a plataforma da Competição só é compatível com entradas de envi
 
 As entradas de usuário são mantidas somente para fins de avaliação para identificar as soluções vencedoras. Consulte nossos [Termos e Condições](http://aka.ms/comptermsandconditions) para obter informações específicas.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

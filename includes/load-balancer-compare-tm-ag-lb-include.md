@@ -8,9 +8,9 @@ Há diferentes opções para distribuir o tráfego de rede usando o Microsoft Az
 
 - 	O Gerenciador de Tráfego funciona no nível de DNS. Ele usa respostas de DNS para direcionar o tráfego do usuário final para pontos de extremidade globalmente distribuídos. Assim, os clientes se conectam a esses pontos de extremidade diretamente. A tabela a seguir resume os recursos oferecidos por cada serviço:
 
-|Balanceador de carga do Azure |	Application Gateway | Gerenciador de Tráfego |
-|---|---|---|
-|Tecnologia| Nível de rede (nível 4) | Nível de aplicativo (nível 7) |	Nível de DNS |
+| O Barramento de | Balanceador de carga do Azure | Application Gateway | Gerenciador de Tráfego |
+|---|---|---|---|
+|Tecnologia| Nível de rede (nível 4) | Nível de aplicativo (nível 7) | Nível de DNS |
 | Protocolos de aplicativo com suporte |	Qualquer | HTTP e HTTPS | 	Qualquer um (um ponto de extremidade HTTP/S é exigido para monitoramento do ponto de extremidade) |
 | Pontos de extremidade | VMs do Azure e instâncias de função dos Serviços de Nuvem | Qualquer endereço IP interno do Azure ou endereço IP público de Internet | VMs do Azure, Serviços de Nuvem, Aplicativos Web do Azure e pontos de extremidade externos |
 | Suporte à rede virtual | Pode ser usado para aplicativos voltados para a Internet e internos (rede virtual) | Pode ser usado para aplicativos voltados para a Internet e internos (rede virtual) |	Suporte apenas para aplicativos voltados para a Internet |
@@ -30,4 +30,4 @@ Monitoramento do ponto de extremidade | Tem suporte por meio de investigações 
 
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

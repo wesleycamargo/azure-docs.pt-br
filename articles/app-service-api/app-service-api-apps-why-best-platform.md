@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2016" 
+	ms.date="03/31/2016" 
 	ms.author="tdykstra"/>
 
 # Visão geral de Aplicativos de API
@@ -22,11 +22,11 @@ Os Aplicativos de API são um dos quatro tipos de aplicativos oferecidos pelo [S
 
 ![Tipos de aplicativos no Serviço de Aplicativo do Azure](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-O [Serviço de Aplicativo](../app-service/app-service-value-prop-what-is.md) é uma plataforma completamente gerenciada para Web, móvel e situações de integração. Os aplicativos de API no Serviço de Aplicativo oferecem recursos que tornam mais fácil criar, hospedar e consumir APIs na nuvem e no local. Implante sua API como um aplicativo de API no Serviço de Aplicativo e beneficie-se da segurança de nível corporativo, controle de acesso simples, conectividade híbrida, geração automática do SDK e integração perfeita com [Aplicativos Lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+O [Serviço de Aplicativo](../app-service/app-service-value-prop-what-is.md) é uma plataforma completamente gerenciada para Web, móvel e situações de integração. Os aplicativos de API no Serviço de Aplicativo oferecem recursos que tornam mais fácil criar, hospedar e consumir APIs na nuvem e no local. Com aplicativos de API, você obtém segurança de nível corporativo, controle de acesso simples, conectividade híbrida, geração automática do SDK e integração perfeita com [Aplicativos Lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 ## Por que aplicativos de API?
 
-Os aplicativos de API oferecem os seguintes recursos:
+Aqui estão alguns dos principais recursos dos aplicativos de API:
 
 - **Consumo fácil** - O suporte integrado para [Metadados de API do Swagger](#concepts) torna suas APIs facilmente consumíveis por uma variedade de clientes. Geração automática de código do cliente para suas APIs em uma variedade de linguagens incluindo C#, Java e Javascript. Configure facilmente [CORS](#concepts) sem alterar seu código. Para obter mais informações, consulte [Metadados de aplicativos de API para geração de código e descoberta de API](app-service-api-metadata.md) e [Consumir um aplicativo de API a partir do JavaScript usando CORS](app-service-api-cors-consume-javascript.md). 
 
@@ -64,4 +64,4 @@ Para começar a usar os Aplicativos de API, siga um dos tutoriais de [Introduç�
 
 Para fazer perguntas sobre os aplicativos de API, inicie um thread no [Fórum dos Aplicativos de API](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureAPIApps).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

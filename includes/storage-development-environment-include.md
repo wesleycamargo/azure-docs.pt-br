@@ -8,7 +8,9 @@ No Visual Studio, crie um novo aplicativo de console do Windows, conforme exibid
 
 ![Criar aplicativo de console do Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-Você pode usar a Biblioteca de Cliente da Armazenamento do Azure a partir de qualquer tipo de aplicativo .NET, incluindo um serviço de nuvem do Azure, um aplicativo Web do Azure, um aplicativo de desktop ou um aplicativo móvel. Neste guia, usaremos um aplicativo de console para simplificar.
+Todos os exemplos de código neste tutorial podem ser adicionados ao método **Main()** em `program.cs` em seu aplicativo de console.
+
+Observe que você pode usar a Biblioteca de Cliente da Armazenamento do Azure a partir de qualquer tipo de aplicativo .NET, incluindo um serviço de nuvem do Azure, um aplicativo Web do Azure, um aplicativo de desktop ou um aplicativo móvel. Neste guia, usamos um aplicativo de console para simplificar.
 
 ### Use o NuGet para instalar os pacotes necessários
 
@@ -40,7 +42,7 @@ Se você estiver selecionando uma conta de armazenamento na nuvem, copie a chave
 
 A Biblioteca de Cliente de Armazenamento do Azure para .NET oferece suporte ao uso de uma cadeia de conexão de armazenamento para configurar pontos de extremidade e credenciais para acesso a serviços de armazenamento. A melhor maneira de manter a cadeia de conexão de armazenamento é em um arquivo de configuração.
 
-Para obter mais detalhes sobre as sequências de conexão, veja [Configurar uma cadeia de conexão para o Armazenamento do Azuree](../articles/storage/storage-configure-connection-string.md).
+Para obter mais detalhes sobre as sequências de conexão, veja [Configurar uma cadeia de conexão para o Armazenamento do Azure](../articles/storage/storage-configure-connection-string.md).
 
 > [AZURE.NOTE] Sua chave de conta de armazenamento é semelhante para a senha raiz da sua conta de armazenamento. Sempre tenha cuidado para proteger a chave de sua conta de armazenamento. Evite distribuí-la a outros usuários, embuti-la no código ou salvá-lo em um arquivo de texto sem formatação que esteja acessível a outras pessoas. Regenere a chave usando o Portal do Azure se você achar que ela pode ter sido comprometida.
 
@@ -57,10 +59,10 @@ Para configurar a cadeia de conexão, abra o arquivo `app.config` do Gerenciador
 
 Por exemplo, a configuração será semelhante a:
 
-	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln9fT7bvY+rxu2iWAEyzPNITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
+	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofpK7C8fHcZc2kIZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
 
 Para direcionar o emulador de armazenamento, você pode usar um atalho que mapeia para o nome de conta e chave bem conhecidos. Nesse caso, a configuração da cadeia de conexão será:
 
 	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

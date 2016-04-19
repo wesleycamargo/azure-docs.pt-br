@@ -10,7 +10,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### Obter a cadeia de conexão no portal do Azure
 
 
-Use o [portal de visualização do Azure](https://portal.azure.com/) para obter a cadeia de conexão necessária para o seu programa cliente interagir com o Banco de Dados SQL do Azure:
+Obtenha no [portal do Azure](https://portal.azure.com/) a cadeia de conexão necessária para o seu programa cliente interagir com o Banco de Dados SQL do Azure:
 
 
 1. Clique em **PROCURAR** > **bancos de dados SQL**.
@@ -57,4 +57,4 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

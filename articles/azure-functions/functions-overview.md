@@ -23,7 +23,7 @@
 
 ## Uma maneira mais rápida de conferir as funções
 
-Escreva qualquer função em um minuto, seja ao precisar de um trabalho simples para limpar um banco de dados ou ao criar uma funcionalidade que processa milhões de mensagens de dispositivos conectados. Use sua linguagem de desenvolvimento preferida (C#, Node.js, Python e muito mais). Pague somente pelo tempo de execução do seu código e confie no Azure para dimensioná-lo conforme a necessidade.
+Escreva qualquer função rápida, ao precisar de um trabalho simples para limpar um banco de dados ou para criar uma funcionalidade que processa milhões de mensagens a partir dos dispositivos conectados. Use sua linguagem de desenvolvimento preferida (C#, Node.js, Python e muito mais). Pague somente pelo tempo de execução do seu código e confie no Azure para dimensioná-lo conforme a necessidade.
 
 As Funções do Azure são uma solução para executar facilmente pequenos trechos de código, ou "funções", na nuvem. Você pode simplesmente escrever o código de que necessita para o problema em questão, sem se preocupar com todo o aplicativo ou a infraestrutura para executá-lo. Isso pode tornar o desenvolvimento ainda mais produtivo, e você pode [começar sua primeira função](functions-create-first-azure-function.md) em apenas alguns minutos.
 
@@ -68,4 +68,8 @@ Em um **Plano de Serviço de Aplicativo dinâmico**, você não precisa se preoc
 
 Um **Plano de Serviço de Aplicativo clássico** permite que você execute funções como seus aplicativos Web, móveis e de API. Isso é uma boa solução se você já está usando o serviço de aplicativo para outros aplicativos, pois suas funções podem ser executadas no mesmo plano sem nenhum custo adicional. Os detalhes completos podem ser encontrados na [página Preço do Serviço de Aplicativo](/pricing/details/app-service/).
 
-<!---HONumber=AcomDC_0406_2016-->
+## Problemas de relatórios
+
+[AZURE.INCLUDE [Problemas de relatórios](../../includes/functions-reporting-issues.md)]
+
+<!---HONumber=AcomDC_0413_2016-->

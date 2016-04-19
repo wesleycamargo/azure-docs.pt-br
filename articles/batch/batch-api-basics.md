@@ -225,7 +225,7 @@ O diretório raiz contém a seguinte estrutura de diretório:
 
 - **Compartilhado** – esse local é uma pasta compartilhada para todas as tarefas executadas em um nó, independentemente do trabalho. No nó, o diretório compartilhado é acessado por meio de `%AZ_BATCH_NODE_SHARED_DIR%`. Esse diretório oferece acesso de leitura/gravação para todas as tarefas executadas no nó. As tarefas podem criar, ler, atualizar e excluir arquivos nesse diretório.
 
-- **Inicialização** – esse local é usado por uma tarefa de inicialização como seu diretório de trabalho. Todos os arquivos que são baixados pelo serviço Batch para executar a tarefa de inicialização também são armazenados nesse diretório. No nó, o diretório inicial está disponível por meio da variável de ambiente `%AZ_BATCH_NODE_START_DIR%`. A tarefa inicial pode criar, ler, atualizar e excluir arquivos contidos nesse diretório, que pode ser usado pelas tarefas de inicialização para configurar o sistema operacional.
+- **Inicialização** – esse local é usado por uma tarefa de inicialização como seu diretório de trabalho. Todos os arquivos que são baixados pelo serviço Batch para executar a tarefa de inicialização também são armazenados nesse diretório. No nó, o diretório inicial está disponível por meio da variável de ambiente `%AZ_BATCH_NODE_STARTUP_DIR%`. A tarefa inicial pode criar, ler, atualizar e excluir arquivos contidos nesse diretório, que pode ser usado pelas tarefas de inicialização para configurar o sistema operacional.
 
 - **Tarefas** -um diretório é criado para cada tarefa executada no nó, acessado via `%AZ_BATCH_TASK_DIR%`. Em cada diretório de tarefas, o serviço Lote cria um diretório de trabalho (`wd`) cujo caminho exclusivo é especificado pela variável de ambiente `%AZ_BATCH_TASK_WORKING_DIR%`. Esse diretório oferece acesso de leitura/gravação à tarefa. A tarefa pode criar, ler, atualizar e excluir arquivos nesse diretório, e esse diretório é mantido com base na restrição *RetentionTime* especificada para a tarefa.
   - `stdout.txt` e `stderr.txt` - esses arquivos são gravados na pasta de tarefas durante a execução da tarefa.
@@ -411,4 +411,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

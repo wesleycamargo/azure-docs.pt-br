@@ -19,7 +19,7 @@
 # Introdução à Máscara de Dados Dinâmicos do Banco de Dados SQL (Portal clássico do Azure)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
+- [Mascaramento de dados dinâmicos - Portal do Azure](sql-database-dynamic-data-masking-get-started.md)
 
 ## Visão geral
 
@@ -88,6 +88,10 @@ A Máscara de dados dinâmica pode ser configurada através de funções do admi
 9. Clique em **SALVAR** para salvar a política de mascaramento nova ou atualizada.
 
 
+## Configurar dados dinâmicos de mascaramento para o banco de dados usando instruções Transact-SQL
+
+Confira [Mascaramento de dados dinâmicos](https://msdn.microsoft.com/library/mt130841.aspx)
+
 ## Configurar a máscara de dados dinâmica para o banco de dados usando cmdlets do Powershell
 
 Confira [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx).
@@ -96,4 +100,4 @@ Confira [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/libr
 
 Confira [Operações para Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -112,9 +112,9 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 	
 [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-windows-cli-deploy-templates.md)
 		
-[Backup automatizado para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-backup.md)
+[Backup automatizado para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-patch.md)
+[Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-patching.md)
 
 [Dimensionar automaticamente máquinas em um conjunto de escalas de máquina virtual](virtual-machines-windows-ps-vmss-create.md)
 
@@ -161,7 +161,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-windows-lob.md)
 
@@ -281,9 +281,9 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Extensão de script personalizado para clássicos máquinas virtuais do Windows](virtual-machines-windows-classic-extensions-customscript.md)
 
-[Backup automatizado para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-backup.md)
+[Backup automatizado para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
-[Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-patch.md)
+[Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-patching.md)
 
 
 
@@ -351,7 +351,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Oracle](virtual-machines-windows-classic-oracle.md)
 
-[SQL Server](virtual-machines-windows-classic-sql-overview.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [SharePoint](virtual-machines-windows-sharepoint-farm.md)
 
@@ -375,4 +375,4 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

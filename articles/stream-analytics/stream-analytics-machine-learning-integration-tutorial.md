@@ -21,7 +21,7 @@
 
 # Tutorial: Executar análise de sentimento usando o Stream Analytics e o Aprendizado de Máquina #
 
-Este tutorial é projetado para ajudá-lo a configurar rapidamente um trabalho de Stream Analytics simples com a integração do Aprendizado de Máquina. Vamos aproveitar um Modelo do Aprendizado de Máquina da Análise de Sentimento da Galeria da Análise da Cortana para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Este é um bom tutorial para entender cenários como análise de sentimento em tempo real do fluxo de dados do Twitter, análise de registro do chat do cliente com a equipe de suporte, comentários em fóruns/blogs/vídeos e muitos outros cenários preditivos com pontuação em tempo real.
+Este tutorial é projetado para ajudá-lo a configurar rapidamente um trabalho de Stream Analytics simples com a integração do Aprendizado de Máquina. Vamos aproveitar um Modelo do Aprendizado de Máquina da Análise de Sentimento da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Este é um bom tutorial para entender cenários como análise de sentimento em tempo real do fluxo de dados do Twitter, análise de registro do chat do cliente com a equipe de suporte, comentários em fóruns/blogs/vídeos e muitos outros cenários preditivos com pontuação em tempo real.
   
 Neste tutorial, um arquivo CSV com texto (como mostrado na Figura 1 abaixo) é fornecido como entrada no Armazenamento de Blobs do Azure. O trabalho aplicará o modelo de análise de sentimento como uma UDF (função definida pelo usuário) nos dados de texto de exemplo do armazenamento de blob. O resultado final será colocado no mesmo Armazenamento de Blobs do Azure em outro arquivo CSV. Um diagrama dessa configuração é fornecido na Figura 2 abaixo. Para um cenário mais realista, essa entrada do armazenamento de blob pode ser substituída pelo fluxo de dados do Twitter usando uma entrada de Hub de Eventos do Azure. Além disso, uma visualização em tempo real do sentimento total pode ser criada com o [Power BI](https://powerbi.microsoft.com/) As próximas iterações deste artigo incluirão essas extensões.
 
@@ -43,7 +43,7 @@ Os pré-requisitos para este artigo são os seguintes:
 Em um alto nível, estas etapas serão executadas:
 
 1.	Carregar o arquivo CSV de entrada no Armazenamento de Blobs
-2.	Adicionar um modelo de Análise de Sentimento da Galeria da Análise da Cortana ao seu espaço de trabalho do Aprendizado de Máquina
+2.	Adicionar um modelo de Análise de Sentimento da Galeria do Cortana Intelligence ao seu espaço de trabalho do Aprendizado de Máquina
 3.	Implantar esse modelo como um serviço Web no espaço de trabalho do Aprendizado de Máquina do Azure
 4.	Criar um trabalho do Stream Analytics que chama o serviço Web como uma função para determinar o sentimento da entrada de texto
 5.	Iniciar o trabalho do Stream Analytics e observar a saída 
@@ -63,9 +63,9 @@ Nesta etapa, você pode usar qualquer arquivo CSV, incluindo aquele especificado
 
 3.	Carregue o arquivo CSV clicando no ícone **Carregar Blob** e escolha **arquivo do disco local**.
 
-## Adicione o modelo de análise de sentimento da Galeria da Análise da Cortana
+## Adicione o modelo de análise de sentimento da Galeria do Cortana Intelligence
 
-1.	Baixe o [modelo preditivo de análise de sentimento](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) na Galeria da Análise da Cortana.  
+1.	Baixe o [modelo preditivo de análise de sentimento](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) na Galeria do Cortana Intelligence.  
 2.	Clique em **Abrir** no Estúdio:  
 
     ![abrir estúdio de aprendizado de máquina tutorial do aprendizado de máquina do stream analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)
@@ -140,7 +140,7 @@ Anote a URL do serviço Web e a tecla de acesso da planilha em Excel baixada, co
 
 ## Conclusão
 
-Neste tutorial, um trabalho de Stream Analytics foi criado para ler fluxo de dados de texto e analisar o sentimento nele em tempo real. Você conseguiu fazer tudo isso sem precisar se preocupar com a complexidade de criar um modelo de análise de sentimento. Essa é uma das vantagens do pacote Análise da Cortana.
+Neste tutorial, um trabalho de Stream Analytics foi criado para ler fluxo de dados de texto e analisar o sentimento nele em tempo real. Você conseguiu fazer tudo isso sem precisar se preocupar com a complexidade de criar um modelo de análise de sentimento. Essa é uma das vantagens do Cortana Intelligence Suite.
 
 A métrica relativa à função de Aprendizado de Máquina do Azure também pode ser observada. Clique na guia **MONITOR**. Há três métricas relativas à função.
   
@@ -150,4 +150,4 @@ A métrica relativa à função de Aprendizado de Máquina do Azure também pode
 
     ![tutorial stream analytics aprendizado de máquina exibição no monitor am](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -42,7 +42,7 @@ Este procedimento mostra como usar o programa PuTTY para acessar a máquina virt
 
 	![Abra o PuTTY](./media/virtual-machines-linux-classic-log-on/putty.png)
 
-4. Faça logon na máquina virtual usando a conta especificada quando ela foi criada. Para obter mais detalhes sobre como criar uma máquina virtual com o nome de usuário e senha, confira [Criar uma máquina virtual que executa Linux](virtual-machines-linux-cli-create.md).
+4. Faça logon na máquina virtual usando a conta especificada quando ela foi criada. Para obter mais detalhes sobre como criar uma máquina virtual com o nome de usuário e senha, confira [Criar uma máquina virtual que executa Linux](virtual-machines-linux-classic-createportal.md).
 
 	![Faça logon na máquina virtual](./media/virtual-machines-linux-classic-log-on/sshlogin.png)
 
@@ -53,4 +53,4 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 <!-- LINKS -->
 [Como redefinir uma senha ou SSH para máquinas virtuais Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

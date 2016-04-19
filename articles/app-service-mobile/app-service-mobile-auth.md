@@ -91,8 +91,6 @@ Os seguintes tutoriais mostram como configurar o Serviço de Aplicativo para apr
 
 Se você deseja usar um sistema de identidade diferente daqueles fornecidos aqui, também é possível utilizar o [suporte de autenticação personalizada da visualização no SDK do servidor do .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
-Você também pode encontrar mais detalhes sobre os fluxos descritos acima na [visão geral da autenticação do Serviço de Aplicativo](app-service-authentication-overview.md). Este tópico também inclui informações sobre o Gateway de Serviço de Aplicativo, que não são mais usadas nos Aplicativos Móveis, mas o conteúdo conceitual ainda se aplica.
-
 [Adicione autenticação ao seu aplicativo do iOS]: app-service-mobile-ios-get-started-users.md
 [Adicionar autenticação ao aplicativo Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started-users.md
 [Adicione autenticação ao aplicativo Xamarin.Android]: app-service-mobile-xamarin-android-get-started-users.md
@@ -104,4 +102,4 @@ Você também pode encontrar mais detalhes sobre os fluxos descritos acima na [v
 [Como configurar seu aplicativo para usar o logon da Conta da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Como configurar seu aplicativo para usar o logon do Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/04/2016"
    ms.author="yuridio"/>
 
 #Introdução à segurança do Microsoft Azure
@@ -138,9 +138,9 @@ O Azure fornece três níveis principais de separação de rede em cada cluster 
 O tráfego de rede em VMs deve passar pelo switch virtual do hipervisor. O componente de filtro IP no Sistema Operacional Raiz isola a VM raiz das VMs convidadas e das VMs convidadas umas das outras. Ele executa a filtragem de tráfego para restringir a comunicação entre nós do locatário e a Internet pública (com base na configuração do serviço do cliente), separando-os de outros locatários.
 
 O filtro IP ajuda a evitar que as VMs convidadas:
- 
+
 - Gerem tráfego falsificado
- 
+
 - Recebam tráfego não endereçado a elas
 
 - Direcionem o tráfego para pontos de extremidade de infraestrutura protegidos
@@ -209,7 +209,7 @@ Os administradores do Azure acessam logs por meio de um portal da Web para acess
 
 A Microsoft coleta logs de dispositivos de rede usando o protocolo Syslog e de servidores de host usando os Serviços de Coleta de Auditoria (ACS) da Microsoft. Esses logs são colocados em um banco de dados de log do qual os alertas de eventos suspeitos serão gerados diretamente para um administrador do Microsoft. O administrador pode acessar e analisar esses logs.
 
-O [Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) é um recurso do Azure que permite coletar dados de diagnóstico de um aplicativo em execução no Azure. São dados de diagnóstico para tarefas de depuração e solução de problemas, medição de desempenho, monitoramento de uso de recursos, análise de tráfego e planejamento da capacidade e auditoria. Depois que os dados de diagnóstico forem coletados, eles poderão ser transferidos para uma conta de armazenamento do Azure para persistência. As transferências podem ser agendadas ou sob demanda. O artigo [Gerenciamento de logs de auditoria e de segurança do Microsoft Azure](azure-security-audit-log-management.md) fornece detalhes sobre como coletar essas informações e analisá-las.
+O [Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx) é um recurso do Azure que permite coletar dados de diagnóstico de um aplicativo em execução no Azure. São dados de diagnóstico para tarefas de depuração e solução de problemas, medição de desempenho, monitoramento de uso de recursos, análise de tráfego e planejamento da capacidade e auditoria. Depois que os dados de diagnóstico forem coletados, eles poderão ser transferidos para uma conta de armazenamento do Azure para persistência. As transferências podem ser agendadas ou sob demanda.
 
 ##Atenuação de ameaças
 
@@ -241,4 +241,4 @@ O Azure tem controles de segurança para implementar a atenuação de ameaças e
 
 [Blog do Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

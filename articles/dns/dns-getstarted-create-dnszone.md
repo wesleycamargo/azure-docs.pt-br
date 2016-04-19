@@ -18,10 +18,10 @@
 
 # Introdução ao DNS do Azure usando o Powershell
 
-
 > [AZURE.SELECTOR]
-- [CLI do Azure](dns-getstarted-create-dnszone-cli.md)
+- [Portal do Azure](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
+- [CLI do Azure](dns-getstarted-create-dnszone-cli.md)
 
 O domínio "contoso.com" pode conter uma série de registros DNS, como “mail.contoso.com” (para um servidor de email) e “www.contoso.com” (para um site da Web). Uma zona DNS é usada para hospedar os registros DNS para um domínio específico.
 
@@ -31,7 +31,7 @@ Essas instruções usam o Microsoft Azure PowerShell. Certifique-se de atualizar
 
 As etapas a seguir devem ser concluídas antes de poder gerenciar o DNS do Azure usando o PowerShell do Azure.
 
-O DNS do Azure usa o ARM (Gerenciador de Recursos do Azure). Siga estas instruções para o Azure PowerShell 1.0.0 e superior. Mais informações estão disponíveis em [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+O DNS do Azure usa o ARM (Gerenciador de Recursos do Azure). Siga estas instruções para o Azure PowerShell 1.0.0 e superior. Mais informações estão disponíveis em [Uso do Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Etapa 1
 Faça logon na sua conta do Azure (você deverá autenticar com suas credenciais)
@@ -147,4 +147,4 @@ Se você ainda não delegou seu domínio para usar a nova zona no DNS do Azure, 
 [Começar a criar conjuntos de registro e registros](dns-getstarted-create-recordset.md)<BR> [Como gerenciar as zonas DNS](dns-operations-dnszones.md)<BR> [Como gerenciar registros DNS](dns-operations-recordsets.md)<BR> [Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)<BR> [Referência da API REST do DNS do Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/01/2016"
+	ms.date="04/07/2016"
 	ms.author="klam"/>
 
 #O que são aplicativos lógicos?
@@ -65,11 +65,12 @@ A seguir estão algumas das principais partes que compõem a experiência de apl
 -  **Ações** - cada etapa após o gatilho em um fluxo de trabalho é chamada de uma ação. Cada ação normalmente é mapeada para uma operação em seus aplicativos de API gerenciados ou personalizados.
 - **BizTalk** - para obter cenários mais avançados de integração, os Aplicativos Lógicos incluem recursos do Biztalk. O BizTalk é a plataforma de integração da Microsoft líder do setor. Os aplicativos de API do BizTalk permitem que você inclua facilmente validação, transformação, regras e mais em seus fluxos de trabalho de aplicativo lógico. Saiba mais em [O que são Aplicativos de API do BizTalk][biztalk].
 
-## Introdução
+## Introdução  
 
-Para começar com aplicativos lógicos, siga o tutorial [Criar um aplicativo lógico][create].
-
-Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][appservice].
+ - Para começar com aplicativos lógicos, siga o tutorial [Criar um aplicativo lógico][create].  
+ - [Você pode automatizar processos de negócios com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/T694) 
+ - [Aprenda a integrar seus sistemas com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/P462)
+- Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][appservice].
 
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
@@ -79,4 +80,4 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

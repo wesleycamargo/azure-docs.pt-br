@@ -18,9 +18,12 @@
 
 # Como gerenciar registros DNS usando a CLI
 
+
 > [AZURE.SELECTOR]
+- [Portal do Azure](dns-operations-recordsets-portal.md)
 - [CLI do Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
+
 
 Este guia mostrará como gerenciar conjuntos de registro e registros de zona DNS usando a CLI do Azure de plataforma cruzada.
 
@@ -238,8 +241,8 @@ O comutador opcional “-q” pode ser usado para suprimir o prompt de confirma�
 
 ## Próximas etapas
 
-Depois de criar a zona DNS e os registros, você poderá [delegar seu domínio ao DNS do Azure](dns-domain-delegation.md).<BR> Saiba como [gerenciar zonas DNS](dns-operations-dnszones-cli.md) usando a CLI.<BR> Você também pode [automatizar operações usando o SDK do .NET](dns-sdk.md) para codificar as operações DNS do Azure em seu aplicativo.
+Depois de criar a zona DNS e os registros, você poderá [delegar seu domínio ao DNS do Azure](dns-domain-delegation.md).<BR> Saiba como [gerenciar zonas DNS](dns-operations-dnszones-cli.md) usando a CLI.<BR> Você também pode [automatizar operações usando o SDK do .NET](dns-sdk.md) para codificar as operações DNS do Azure no aplicativo.
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

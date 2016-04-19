@@ -20,7 +20,7 @@
 # Tarefas para preparar dados para o aprendizado de máquina avançado
 
 ## Introdução
-O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Essas tarefas fazem parte do processo de análise da Cortana (CAP) e normalmente seguem uma análise inicial de um conjunto de dados usado para descobrir e planejar o pré-processamento necessário. Para obter instruções mais detalhadas sobre o processo de CAP, consulte as etapas descritas no [Processo de Análise da Cortana](cortana-analytics-process.md).
+O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Essas tarefas fazem parte do processo de análise da Cortana (CAP) e normalmente seguem uma análise inicial de um conjunto de dados usado para descobrir e planejar o pré-processamento necessário. Para obter instruções mais detalhadas sobre o processo de CAP, consulte as etapas descritas no [Processo de Análise da Cortana](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 As tarefas de pré-processamento e de limpeza, assim como a tarefa de exploração de tarefas, podem ser executadas em uma ampla variedade de ambientes, como o SQL ou o Hive ou o Estúdio de Aprendizado de Máquina do Azure e com diversas ferramentas e linguagens, como R ou Python, dependendo de onde seus dados estejam armazenados e de como estejam formatados. Como o CAP é iterativo por natureza, essas tarefas podem ocorrer em várias etapas do fluxo de trabalho do processo.
 
@@ -47,9 +47,9 @@ Podemos verificar a qualidade geral dos dados confirmando:
 * O número de **atributos** (ou de **recursos**).
 * O atributo **tipos de dados** (nominais, ordinais ou contínuos).
 * O número de **valores ausentes**.
-* **Boa formação** dos dados. 
-	* Se os dados estiverem em TSV ou CSV, verifique se os separadores de colunas e os separadores de linha sempre separam colunas e linhas corretamente. 
-	* Se os dados estiverem em formato HTML ou XML, verifique se os dados são bem formados com base nos seus respectivos padrões. 
+* **Boa formação** dos dados.
+	* Se os dados estiverem em TSV ou CSV, verifique se os separadores de colunas e os separadores de linha sempre separam colunas e linhas corretamente.
+	* Se os dados estiverem em formato HTML ou XML, verifique se os dados são bem formados com base nos seus respectivos padrões.
 	* A análise também pode ser necessária para extrair informações estruturadas de dados não estruturados ou semiestruturados.
 * **Registros de dados inconsistentes**. Verifique o intervalo de valores permitidos, por exemplo, se os dados contêm a média de notas de um aluno, verifique se a média de notas está no intervalo designado, digamos, 0 a 4.
 
@@ -92,7 +92,7 @@ Dados podem ser diferenciados ao converter valores contínuos em atributos nomin
 * **Compartimentalização de largura igual**: dividir o intervalo de todos os possíveis valores de um atributo entre N grupos do mesmo tamanho e atribuir os valores correspondentes a um compartimento a um número do compartimento.
 * **Compartimentação de altura igual**: dividir o intervalo de todos os possíveis valores de um atributo em N grupos que contém o mesmo número de instâncias e atribuir os valores correspondentes a um compartimento ao número do compartimento.  
 
-## Como reduzir os dados? 
+## Como reduzir os dados?
 
 Há vários métodos para reduzir o tamanho dos dados para facilitar a manipulação de dados. Dependendo do tamanho dos dados e do domínio, os métodos a seguir podem ser aplicados:
 
@@ -109,6 +109,5 @@ A **exploração de dados** oferece uma exibição antecipada dos dados. Alguns 
 ## Referências
 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber e Jian Pei
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0406_2016-->
