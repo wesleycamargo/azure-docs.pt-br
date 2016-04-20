@@ -61,7 +61,7 @@ O tempo de vida, ou TTL, especifica quanto tempo cada registro é armazenado em 
 
 O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
 
-Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*", ou um nome cujo primeiro rótulo seja "*", por exemplo, "*.foo".
+Para criar um conjunto de registros curinga, use o nome do conjunto de registros "\*", ou um nome cujo primeiro rótulo seja "\*", por exemplo, "\*.foo".
 
 #### Conjuntos de registros CNAME
 
@@ -104,4 +104,4 @@ Você pode testar a zona do DNS usando ferramentas do DNS como nslookup, dig ou 
 
 Para saber mais sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md). Para saber mais sobre como automatizar o DNS, confira [Criar zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->
