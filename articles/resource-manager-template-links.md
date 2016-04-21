@@ -46,7 +46,9 @@ As tabelas a seguir descrevem os valores necessários para definir no esquema.
 | ---- | ---- |
 | type | Enum<br />Obrigatório<br />**{namespace}/{tipo}/providers/links**<br /><br />O tipo de recurso a ser criado. Os valores {namespace} e {tipo} referem-se ao tipo de recurso e ao namespace do provedor do recurso de origem. |
 | apiVersion | Enum<br />Obrigatório<br />**2015-01-01**<br /><br />A versão da API a ser usada para criar o recurso. |  
-| name | Cadeia de caracteres<br />Obrigatório<br />**{recurso}/Microsoft.Resources/{nome do link}**<br /> Até 64 caracteres, não pode conter <, >, %, &,? ou caracteres de controle.<br /><br />Um valor que especifica o nome do recurso de origem e um nome para o link. | | dependsOn | Matriz<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que este link depende. Se os recursos que você estiver vinculando estiverem implantados no mesmo modelo, inclua o nome desses recursos neste elemento para garantir que eles sejam implantados primeiro. | | properties | Objeto<br />Obrigatório<br />[Objeto properties](#properties)<br /><br />Um objeto que identifica o recurso a ser vinculado e observações sobre o link. | 
+| name | Cadeia de caracteres<br />Obrigatório<br />**{recurso}/Microsoft.Resources/{nome do link}**<br /> Até 64 caracteres, não pode conter <, >, %, &,? ou caracteres de controle.<br /><br />Um valor que especifica o nome do recurso de origem e um nome para o link. | 
+| dependsOn | Matriz<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que este link depende. Se os recursos que você estiver vinculando estiverem implantados no mesmo modelo, inclua o nome desses recursos neste elemento para garantir que eles sejam implantados primeiro. | 
+| properties | Objeto<br />Obrigatório<br />[Objeto properties](#properties)<br /><br />Um objeto que identifica o recurso a ser vinculado e observações sobre o link. | 
 
 <a id="properties" />
 ### properties object
