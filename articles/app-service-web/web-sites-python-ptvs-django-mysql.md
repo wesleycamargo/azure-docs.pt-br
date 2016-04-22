@@ -218,4 +218,4 @@ Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0406_2016--->
