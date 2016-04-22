@@ -127,4 +127,4 @@ Saiba como fazer mais com o aplicativo implantado. Aqui está uma lista parcial:
 - [Acessar recursos locais](web-sites-hybrid-connection-get-started.md)
 - [Saber como funciona o Serviço de Aplicativo](../app-service/app-service-how-works-readme.md) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0323_2016--->
