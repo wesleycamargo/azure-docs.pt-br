@@ -2,7 +2,7 @@
 
 Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de eventos. Usaremos a biblioteca Proton AMQP do projeto [Apache Qpid](http://qpid.apache.org/). Isso é semelhante a usar Tópicos e Filas do Barramento de Serviço com AMQP por meio de C, como mostrado [aqui](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
 
-1. Na [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), clique no link **Instalação do Qpid Proton** e siga as instruções dependendo do ambiente. Vamos considerar um ambiente Linux, por exemplo, uma [VM do Linux do Azure](../articles/virtual-machines/virtual-machines-linux-cli-create.md) com Ubuntu 14.04.
+1. Na [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), clique no link **Instalação do Qpid Proton** e siga as instruções dependendo do ambiente. Vamos considerar um ambiente Linux, por exemplo, uma [VM do Linux do Azure](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) com Ubuntu 14.04.
 
 2. Para compilar a biblioteca Proton, instale os pacotes a seguir:
 
@@ -32,7 +32,7 @@ Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de 
 	```
 	#include "proton/message.h"
 	#include "proton/messenger.h"
-	
+
 	#include <getopt.h>
 	#include <proton/util.h>
 	#include <sys/time.h>
@@ -41,7 +41,7 @@ Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de 
 	#include <string.h>
 	#include <unistd.h>
 	#include <stdlib.h>
-	
+
 	#define check(messenger)                                                     \
 	  {                                                                          \
 	    if(pn_messenger_errno(messenger))                                        \
@@ -50,61 +50,61 @@ Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de 
 	      die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
 	    }                                                                        \
 	  }  
-	
+
 	pn_timestamp_t time_now(void)
 	{
 	  struct timeval now;
 	  if (gettimeofday(&now, NULL)) pn_fatal("gettimeofday failed\n");
 	  return ((pn_timestamp_t)now.tv_sec) * 1000 + (now.tv_usec / 1000);
 	}  
-	
+
 	void die(const char *file, int line, const char *message)
 	{
 	  printf("Dead\n");
 	  fprintf(stderr, "%s:%i: %s\n", file, line, message);
 	  exit(1);
 	}
-	
+
 	int sendMessage(pn_messenger_t * messenger) {
 		char * address = (char *) "amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/{event hub name}";
 		char * msgtext = (char *) "Hello from C!";
-	
+
 		pn_message_t * message;
 		pn_data_t * body;
 		message = pn_message();
-	
+
 		pn_message_set_address(message, address);
 		pn_message_set_content_type(message, (char*) "application/octect-stream");
 		pn_message_set_inferred(message, true);
-	
+
 		body = pn_message_body(message);
 		pn_data_put_binary(body, pn_bytes(strlen(msgtext), msgtext));
-	
+
 		pn_messenger_put(messenger, message);
 		check(messenger);
 		pn_messenger_send(messenger, 1);
 		check(messenger);
-	
+
 		pn_message_free(message);
 	}
-	
+
 	int main(int argc, char** argv) {
 		printf("Press Ctrl-C to stop the sender process\n");
-	
+
 		pn_messenger_t *messenger = pn_messenger(NULL);
 		pn_messenger_set_outgoing_window(messenger, 1);
 		pn_messenger_start(messenger);
-	
+
 		while(true) {
 			sendMessage(messenger);
 			printf("Sent message\n");
 			sleep(1);
 		}
-	
+
 		// release messenger resources
 		pn_messenger_stop(messenger);
 		pn_messenger_free(messenger);
-	
+
 		return 0;
 	}
 	```
@@ -117,4 +117,4 @@ Nesta seção, gravaremos um aplicativo C para enviar eventos para o seu hub de 
 
 > [AZURE.NOTE] No código acima, usamos uma janela de saída de 1 para forçar a saída das mensagens assim que possível. Em geral, o aplicativo deve tentar enviar mensagens em lote para aumentar a taxa de transferência. Consulte a página [Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obter mais informações sobre como usar a biblioteca Qpid Proton neste e em outros ambientes e de plataformas para as quais associações são fornecidas (atualmente Perl, PHP, Python e Ruby).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

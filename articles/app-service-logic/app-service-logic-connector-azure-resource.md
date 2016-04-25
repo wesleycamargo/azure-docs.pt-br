@@ -16,7 +16,7 @@
    ms.date="02/10/2016"
    ms.author="stepsic"/>
 
-# Introdução ao Conector de Recursos do Azure e à adição dele a seu Aplicativo Lógico 
+# Introdução ao Conector de Recursos do Azure e à adição dele a seu Aplicativo Lógico
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
 Use o Conector de Recursos do Azure para gerenciar facilmente os Recursos do Azure em seu Aplicativo lógico.
@@ -32,18 +32,18 @@ David Ebbo escreveu [uma postagem de blog excelente](http://blog.davidebbo.com/2
 ### Gatilho
 Há dois gatilhos que têm suporte no Conector:
 
-Nome | Descrição 
----- | ----------- 
-Evento ocorre | Gatilho quando ocorre um evento para um recurso em sua assinatura. 
+Nome | Descrição
+---- | -----------
+Evento ocorre | Gatilho quando ocorre um evento para um recurso em sua assinatura.
 A métrica cruza o limite | Gatilho quando uma métrica atinge um determinado limite.
 
 ### Ação
 
 Da mesma forma, você pode fornecer um grande número de ações dentro de sua assinatura do Azure:
- 
+
 Para **grupos de recursos**, você pode:
 
-Nome | Descrição 
+Nome | Descrição
 ---- | -----------
 Listar os grupos de recursos | Listar todos os grupos de recursos na assinatura.
 Obter o grupo de recursos | Obter um grupo de recursos de acordo com sua ID.
@@ -52,7 +52,7 @@ Excluir grupo de recursos | Excluir um grupo de recursos.
 
 Para **Recursos**, você pode:
 
-Nome | Descrição 
+Nome | Descrição
 ---- | -----------
 Listar recursos | Listar os recursos em sua assinatura de acordo com os diferentes tipos de filtros.
 Obter recurso | Obter um único recurso de acordo com sua ID de recurso.
@@ -62,13 +62,13 @@ Excluir recurso | Excluir um recurso.
 
 Para **provedores de recursos**, você pode:
 
-Nome | Descrição 
+Nome | Descrição
 ---- | -----------
 Listar provedores de recursos | Listar todos os provedores de recursos disponíveis na assinatura.
 
 Para **Implantações de Grupos de Recursos**, você pode:
 
-Nome | Descrição 
+Nome | Descrição
 ---- | -----------
 Listar implantações | Listar todas as implantações em um grupo de recursos.
 Obter implantação | Obter uma implantação de modelo de acordo com sua ID.
@@ -93,11 +93,9 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial us
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
-
 <!--References -->
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

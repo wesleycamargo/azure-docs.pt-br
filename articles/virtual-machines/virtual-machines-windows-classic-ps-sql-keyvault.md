@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Configurar a integração do Cofre da Chave do Azure para SQL Server em VMs do Azure (Implantação clássica)"
-	description="Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração da Chave do Cofre do Azure com máquinas virtuais do SQL Server para criação no modelo de implantação clássico." 
-	services="virtual-machines-windows" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg"
+<properties
+	pageTitle="Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)"
+	description="Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração da Chave do Cofre do Azure com máquinas virtuais do SQL Server para criação no modelo de implantação clássico."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="rothja"
+	manager="jhubbard"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -13,11 +13,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="12/17/2015"
+	ms.workload="infrastructure-services"
+	ms.date="04/08/2016"
 	ms.author="jroth"/>
 
-# Configurar a integração do Cofre da Chave do Azure para SQL Server em VMs do Azure (Implantação clássica)
+# Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)
 
 > [AZURE.SELECTOR]
 - [Gerenciador de Recursos](virtual-machines-windows-ps-sql-keyvault.md)
@@ -53,7 +53,7 @@ A tabela a seguir lista os parâmetros necessários para executar o script do Po
 O cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** cria um objeto de configuração para o recurso de integração do Cofre da Chave do Azure. O cmdlet **Set-AzureVMSqlServerExtension** configura essa integração com o parâmetro **KeyVaultCredentialSettings**. As etapas a seguir mostram como usar esses comandos.
 
 1. No Azure PowerShell, primeiro configure os parâmetros de entrada com valores específicos conforme descrito nas seções anteriores deste tópico. Veja a seguir um exemplo de script.
-	
+
 		$akvURL = "https://contosokeyvault.vault.azure.net/"
 		$spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
 		$spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
@@ -61,7 +61,7 @@ O cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** cria um objeto de conf
 		$vmName = "myvmname"
 		$serviceName = "mycloudservicename"
 2.	Em seguida, use o script abaixo para configurar e habilitar a integração de AKV.
-	
+
 		$secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
 		$akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
 		Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
@@ -70,4 +70,4 @@ A extensão do Agente IaaS do SQL atualizará a VM do SQL com essa nova configur
 
 [AZURE.INCLUDE [Próximas Etapas da Integração de AKV](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

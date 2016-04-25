@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/01/2016"
+    ms.date="04/11/2016"
     ms.author="sstein"/>
 
 # Gerenciar e dimensionar um pool de banco de dados elástico com C&#x23;
@@ -34,7 +34,6 @@ Para ver os códigos de erro comuns, confira [Códigos de erro de SQL para aplic
 Os exemplos usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) e, por isso, é necessário instalar a biblioteca. É possível instalar pela execução do seguinte comando no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
-
 
 
 ## Atualizar um pool
@@ -124,18 +123,21 @@ O exemplo a seguir descreve todos os bancos de dados em um pool:
         Console.WriteLine("  Database {0}", db.Name);
     }
 
+## Latência de operações do pool elástico
 
+- Geralmente, a alteração das eDTUs garantidas por banco de dados (databaseDtuMin) ou do máximo de eDTUs por banco de dados (databaseDtuMax) é um processo concluído em 5 minutos ou menos.
+- A alteração do limite de eDTUs/armazenamento (storageMB) do pool depende da quantidade total de espaço usado por todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar o limite de eDTUs/armazenamento do pool é de 3 horas ou menos.
 
 
 ## Gerenciar um exemplo de pool C&#x23;
 
-As seguintes bibliotecas são necessárias para executar este exemplo. É possível instalar pela execução do seguinte comando no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**)
+As seguintes bibliotecas são necessárias para executar este exemplo. Você pode instalar executando os comandos a seguir no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**)
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente necessária e os valores relacionados, veja [Registrar seu aplicativo e obter os valores de cliente necessários para conectar seu aplicativo ao Banco de Dados SQL](sql-database-client-id-keys.md).
+Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente necessária e os valores relacionados, consulte [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md) (Registrar seu aplicativo e obter os valores de cliente necessários para conectar seu aplicativo ao Banco de Dados SQL).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -458,4 +460,4 @@ Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguint
 - [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [Referência do Pool de Banco de Dados Elástico](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

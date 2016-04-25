@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Integração do Active Directory do Azure com o Novatus | Microsoft Azure"
+	pageTitle="Tutorial: integração do Azure Active Directory ao HackerOne | Microsoft Azure"
 	description="Saiba como configurar o logon único entre o Azure Active Directory e o HackerOne."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 
 Para configurar a integração do Azure AD ao HackerOne, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
+- Uma assinatura do Azure
 - Uma assinatura habilitada para logon único do HackerOne
 
 
@@ -86,38 +86,60 @@ Para configurar e testar o logon único do Azure AD com o HackerOne, você preci
 
 Em seguida, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo HackerOne.
 
+Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+
 **Para configurar o logon único do Azure AD com o HackerOne, execute as seguintes etapas:**
 
 1. No portal clássico do Azure, na página de integração de aplicativos do **HackerOne**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
-2. Na página **Como você deseja que os usuários façam logon no HackerOne**, selecione **Logon Único do Azure AD** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_03.png) <br>
+2. Na página **Como você deseja que os usuários façam logon no HackerOne**, selecione **Logon Único do Azure AD** e, em seguida, clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_03.png) <br>
 
-3. Na página de caixa de diálogo **Definir Configurações do Aplicativo**, realize as etapas a seguir e clique em **Avançar**: <br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
-
-
-    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon em seu aplicativo HackerOne usando o seguinte padrão: **“https://hackerone.com/companyname/authentication”**. Ao referenciar um nome genérico, **companyname** precisará ser substituído por um nome real.<br>
-
-	b. Na caixa de texto IDENTIFICADOR, digite a URL do locatário. Entre em contato com a Equipe de Suporte do HackerOne via support@hackerone.com para obter a URL do locatário.
-
-	c. Clique em **Próximo**.
+3. Na página de caixa de diálogo **Definir Configurações do Aplicativo**, execute as etapas a seguir e clique em **Avançar**: <br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_04.png) <br>
 
 
-4. Na página **Configurar logon único no HackerOne**, realize as seguintes etapas e clique em **Avançar**: <br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
+    a. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon em seu aplicativo HackerOne usando o seguinte padrão: **“https://hackerone.com/<company name>/authentication”**.
+
+    b. Entre em contato com a equipe de suporte por meio de HackerOne [support@hackerone.com](mailto:support@hackerone.com) para obter a URL do locatário se você não souber qual é.
+
+	c. Na caixa de texto **Identificador**, digite a URL do locatário.
+
+	d. Clique em **Próximo**.
+
+
+4. Na página **Configurar logon único no HackerOne**, execute as seguintes etapas e clique em **Avançar**: <br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_05.png) <br>
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
     b. Clique em **Próximo**.
 
 
-5. Para ter o SSO configurado para seu aplicativo, você precisa entrar no locatário do HackerOne com o usuário administrador.
+1. Faça logon no seu locatário HackerOne como administrador.
+
+1. No menu na parte superior, clique em **Configurações**.<br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+
+1. Em seguida, navegue até "**Autenticação**" e clique em "**Adicionar configurações do SAML**".<br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+
+
+1. Na página **Configurações de SAML**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br>
+
+    a. Na caixa de texto **Domínio de Email**, digite um domínio registrado.
+
+	b. No portal clássico do Azure, copie a **URL do Serviço de Logon Único** e cole-a na caixa de texto URL de Logon Único.
+
+    c. Crie um arquivo **codificado em base 64** usando o certificado baixado.
+
+       >[AZURE.TIP] Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 	
-	a. Acesse o painel e clique em **Configurações** no canto superior direito da página.<br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) <br>
+    d. Abra seu certificado codificado de base 64 no bloco de notas, copie seu conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado X509**.
 
-	b. Em seguida, navegue até "**Autenticação**"e clique no botão "**Adicionar configurações do SAML**".<br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) <br>
+    e. Clique em **Salvar**.
 
-	c. Preencha o formulário **Configurações do SAML**.<br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) <br><br> c1. Insira um domínio registrado na caixa de texto **Domínio de Email**. Para registrar o domínio no HackerOne, entre em contato com support@hackerone.com.<br><br> c2. Copie a URL do serviço de logon único do Azure AD para **URL de Logon Único** no HackerOne.<br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_006.png) <br> c3. Converta o certificado baixado para um arquivo base64 e abra-o no Bloco de Notas, copie e cole na caixa de texto **Certificado X509** do HackerOne.<br>
 
-	d. Clique no botão **Salvar**.<br><br> e. Clique no botão **Executar teste** e certifique-se de que o teste funciona. Se funcionar, solicite a análise de suas configurações do SAML para a equipe de suporte do HackerOne via support@hackerone.com e eles vão aprová-las.<br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+1. No diálogo Configurações de Autenticação, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) <br><br>
+
+    a. Clique em **Executar teste**.
+
+    b. Se o valor do campo **Status** for igual a **Último status do teste: criado**, entre em contato com sua equipe de suporte do HackerOne por meio de [support@hackerone.com](mailto:support@hackerone.com) para solicitar uma análise da configuração.
 
 
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
@@ -227,4 +249,4 @@ Por fim, você testará sua configuração de logon único do Azure AD usando o 
 [204]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hackerone-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

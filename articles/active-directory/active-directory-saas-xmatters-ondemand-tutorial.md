@@ -1,8 +1,8 @@
 <properties 
     pageTitle="Tutorial: Integração do Active Directory do Azure com o xMatters OnDemand | Microsoft Azure"
-    description="Saiba como usar o xMatters OnDemand com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
+    description="Saiba como usar o xMatters OnDemand com o Azure Active Directory para habilitar logon único, provisionamento automatizado e muito mais." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o xMatters OnDemand
   
@@ -151,4 +151,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

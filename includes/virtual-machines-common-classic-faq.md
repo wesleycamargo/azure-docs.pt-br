@@ -32,12 +32,12 @@ O Azure dá suporte apenas a discos rígidos virtuais fixos no formato VHD. Se t
 De muitas formas, elas são semelhantes às VMs Hyper-V da "Geração 1", mas não são exatamente iguais. Os dois tipos oferecem hardware virtualizado e os discos rígidos virtuais em formato VHD são compatíveis. Isso significa que você pode movê-los entre o Hyper-V e o Azure. Três diferenças principais que às vezes surpreendem os usuários do Hyper-V são:
 
 - O Azure não fornece acesso ao console para uma máquina virtual. Não é possível acessar uma VM até a conclusão da inicialização.
-- As VMs do Azure na maioria dos [tamanhos](virtual-machines-linux-sizes.md) têm apenas um adaptador de rede virtual, o que significa que elas também podem ter apenas um endereço IP externo. (Os tamanhos A8 e A9 usam um segundo adaptador de rede para comunicação de aplicativos entre instâncias em cenários limitados.)
+- As VMs do Azure na maioria dos [tamanhos](../articles/virtual-machines/virtual-machines-linux-sizes.md) têm apenas um adaptador de rede virtual, o que significa que elas também podem ter apenas um endereço IP externo. (Os tamanhos A8 e A9 usam um segundo adaptador de rede para comunicação de aplicativos entre instâncias em cenários limitados.)
 - As VMs do Azure não são compatíveis com recursos de VM do Hyper-V de geração 2. Para obter detalhes sobre esses recursos, veja [Especificações de máquina virtual do Hyper-V](http://technet.microsoft.com/library/dn592184.aspx) e [Visão geral da máquina virtual geração 2](https://technet.microsoft.com/library/dn282285.aspx).
 
 ## Essas máquinas virtuais podem usar minha infraestrutura de rede local existente?
 
-Para máquinas virtuais criadas modelo de implantação clássico, é possível usar a Rede Virtual do Azure para ampliar a infraestrutura existente. A abordagem é semelhante ao estabelecimento de uma filial. Você provisionar e gerenciar VPNs (redes virtuais privadas) no Azure e conectá-las com segurança à infraestrutura de TI local. Para obter detalhes, veja [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md).
+Para máquinas virtuais criadas modelo de implantação clássico, é possível usar a Rede Virtual do Azure para ampliar a infraestrutura existente. A abordagem é semelhante ao estabelecimento de uma filial. Você provisionar e gerenciar VPNs (redes virtuais privadas) no Azure e conectá-las com segurança à infraestrutura de TI local. Para obter detalhes, veja [Visão geral da Rede Virtual](../articles/virtual-network/virtual-networks-overview.md).
 
 Você precisará especificar a rede à qual deseja que a máquina virtual pertença quando criar a máquina virtual. Você não pode vincular uma máquina virtual existente a uma rede virtual. No entanto, você pode contornar esse problema desanexando o VHD (disco rígido virtual) da máquina virtual existente e usá-lo para criar uma nova máquina virtual com a configuração de rede desejada.
 
@@ -72,7 +72,7 @@ Em uma máquina virtual do Windows, você pode alterar a letra da unidade movend
 O termo atualizar geralmente significa passar para uma versão mais recente do sistema operacional, mantendo o mesmo hardware. Para VMs do Azure, o processo de mudança para uma versão mais recente é diferente para o Linux e o Windows:
 
 - Para VMs do Linux, use os procedimentos e ferramentas de gerenciamento do pacote adequados à distribuição.
-- Para uma máquina virtual do Windows, você precisa para migrar o servidor usando algo como as Ferramentas de Migração do Windows Server. Não tente atualizar o SO convidado enquanto ele estiver no Azure. Isso não tem suporte devido ao risco de perder o acesso à máquina virtual. Se ocorrerem problemas durante a atualização, você pode perder a capacidade de iniciar uma sessão de Área de Trabalho Remota e não seria possível solucionar os problemas. 
+- Para uma máquina virtual do Windows, você precisa para migrar o servidor usando algo como as Ferramentas de Migração do Windows Server. Não tente atualizar o SO convidado enquanto ele estiver no Azure. Isso não tem suporte devido ao risco de perder o acesso à máquina virtual. Se ocorrerem problemas durante a atualização, você pode perder a capacidade de iniciar uma sessão de Área de Trabalho Remota e não seria possível solucionar os problemas.
 
 Para obter detalhes gerais sobre o processo e as ferramentas para migrar um Windows Server, veja [Migrar funções e recursos para o Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
@@ -128,14 +128,14 @@ Para qualquer VM autônoma (ou seja, uma VM que não faz parte de um conjunto de
 
 Você também pode usar o portal clássico do Azure ou Azure PowerShell para exibir os logs de reinicialização quando a reinicialização ocorrer devido a uma manutenção planejada. Para obter detalhes, veja [Exibindo logs de reinicialização de VM](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semelhante no mesmo conjunto de disponibilidade. Isso ajuda a garantir que pelo menos uma VM esteja disponível durante a manutenção planejada ou não planejada. O Azure garante determinados níveis de disponibilidade de VM para essa configuração. Para obter detalhes, veja [Gerenciar a disponibilidade de máquinas virtuais](virtual-machines-windows-manage-availability.md).
+Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semelhante no mesmo conjunto de disponibilidade. Isso ajuda a garantir que pelo menos uma VM esteja disponível durante a manutenção planejada ou não planejada. O Azure garante determinados níveis de disponibilidade de VM para essa configuração. Para obter detalhes, veja [Gerenciar a disponibilidade de máquinas virtuais](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
 
 ## Recursos adicionais
 
-[Sobre Máquinas Virtuais do Azure](virtual-machines-linux-about.md)
+[Sobre Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Diferentes maneiras de criar uma Máquina Virtual Linux](virtual-machines-linux-creation-choices.md)
+[Diferentes maneiras de criar uma Máquina Virtual Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
-[Diferentes maneiras de criar uma máquina virtual Windows](virtual-machines-windows-creation-choices.md)
+[Diferentes maneiras de criar uma máquina virtual Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

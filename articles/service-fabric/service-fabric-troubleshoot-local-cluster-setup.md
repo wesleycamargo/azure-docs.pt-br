@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/08/2016"
+   ms.date="04/06/2016"
    ms.author="seanmck"/>
 
 # Solucionar problemas de configuração do cluster de desenvolvimento local
@@ -50,6 +50,8 @@ Se você tentar executar qualquer um dos cmdlets do PowerShell do Service Fabric
 #### Solução
 
 Sempre execute os cmdlets do Service Fabric diretamente do Windows PowerShell.
+
+>[AZURE.NOTE] A versão mais recente do Azure PowerShell não cria um atalho especial, então isso não deverá mais ocorrer.
 
 ### Exceção de Inicialização de Tipo
 
@@ -96,4 +98,4 @@ Verifique se você não possui um projeto de serviço definido como projeto de i
 - [Entender e solucionar problemas de cluster com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualizando o cluster com o Explorador do Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

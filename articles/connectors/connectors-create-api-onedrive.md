@@ -30,7 +30,7 @@ Conecte-se ao OneDrive para gerenciar seus arquivos, incluindo carregar, obter, 
 
 &nbsp;
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [API do OneDrive](../app-service-logic/app-service-logic-connector-onedrive.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o OneDrive, você pode:
 
@@ -59,7 +59,7 @@ Quando você adiciona essa API aos seus aplicativos lógicos, precisa autorizar 
 1. Entre em sua conta do OneDrive.
 2. Permitir que seus aplicativos lógicos se conectem e usem o OneDrive. 
 
-Depois de criar a conexão, insira as propriedades do OneDrive, como o caminho da pasta ou o nome do arquivo. A **referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do OneDrive, como o caminho da pasta ou o nome do arquivo. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão em outros aplicativos lógicos.
 
@@ -220,7 +220,7 @@ Dispara um fluxo quando um novo arquivo é criado em uma pasta do OneDrive.```GE
 
 
 ### Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive.
-Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive.```GET: /datasets/default/triggers/onupdatedfile```
+Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -312,4 +312,4 @@ Volte para a [Lista de APIs](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -17,7 +17,7 @@
 
 # Configurando o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais
 
-Quando você precisar solucionar problemas de um serviço de nuvem do Azure ou da máquina virtual do Azure, pode configurar o diagnóstico do Azure com mais facilidade usando o Visual Studio. O diagnóstico do Azure captura dados do sistema e dados do log em máquinas virtuais e instâncias de máquinas virtuais que executam o serviço de nuvem e transfere os dados para uma conta de armazenamento de sua escolha. Consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](/app-service-web/web-sites-enable-diagnostic-log.md) para obter mais informações sobre o registro em log de diagnóstico no Azure.
+Quando você precisar solucionar problemas de um serviço de nuvem do Azure ou da máquina virtual do Azure, pode configurar o diagnóstico do Azure com mais facilidade usando o Visual Studio. O diagnóstico do Azure captura dados do sistema e dados do log em máquinas virtuais e instâncias de máquinas virtuais que executam o serviço de nuvem e transfere os dados para uma conta de armazenamento de sua escolha. Consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](./app-service-web/web-sites-enable-diagnostic-log.md) para obter mais informações sobre o registro em log de diagnóstico no Azure.
 
 Este tópico mostra como habilitar e configurar o diagnóstico do Azure no Visual Studio, antes e depois da implantação, bem como em máquinas virtuais do Azure. Ele também mostra como selecionar os tipos de informações de diagnóstico para coletar e exibir as informações depois que são coletadas.
 
@@ -169,7 +169,7 @@ Após habilitar a coleção de dados de diagnóstico, você pode escolher exatam
 
   ![Logs de aplicativo](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
-  Consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-enable-diagnostic-log.md) para obter mais informações sobre os logs de aplicativo.
+  Consulte [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](./app-service-web/web-sites-enable-diagnostic-log.md) para obter mais informações sobre os logs de aplicativo.
 
 ### Logs de eventos do Windows
 
@@ -221,7 +221,7 @@ Os eventos são capturados das origens de eventos e manifestos de evento que voc
 
   ![Logs do ETW](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  O framework do ETW tem suporte no ASP.NET por meio de classes no namespace [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). O namespace Microsoft.WindowsAzure.Diagnostics, que herda e estende as classes padrão [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110), permite o uso de [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) como uma estrutura de registros no ambiente do Azure. Para obter mais informações, consulte [Tomar controle de registro em log e rastreamento no Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) e [Habilitando o diagnóstico no serviços de nuvem do Azure e Máquinas virtuais](/cloud-services/cloud-services-dotnet-diagnostics.md).
+  O framework do ETW tem suporte no ASP.NET por meio de classes no namespace [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). O namespace Microsoft.WindowsAzure.Diagnostics, que herda e estende as classes padrão [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110), permite o uso de [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) como uma estrutura de registros no ambiente do Azure. Para obter mais informações, consulte [Tomar controle de registro em log e rastreamento no Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) e [Habilitando o diagnóstico no serviços de nuvem do Azure e Máquinas virtuais](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ### Despejos de falhas
 
@@ -355,6 +355,6 @@ Agora, na janela **Propriedades**, defina a propriedade **Copiar para Diretório
 
 ## Próximas etapas
 
-Para saber mais sobre o diagnóstico do log no Azure, consulte [Habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](cloud-services-dotnet-diagnostics.md) e [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-enable-diagnostic-log.md).
+Para saber mais sobre o diagnóstico do log no Azure, consulte [Habilitando o diagnóstico nos serviços de nuvem do Azure e máquinas virtuais](./cloud-services/cloud-services-dotnet-diagnostics.md) e [Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](./app-service-web/web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

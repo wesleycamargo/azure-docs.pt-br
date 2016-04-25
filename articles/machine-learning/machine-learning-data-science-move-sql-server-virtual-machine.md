@@ -173,7 +173,7 @@ Descrevemos cada um deles abaixo:
 
 ### Assistente para implantar um Banco de Dados do SQL Server em uma VM do Microsoft Azure
 
-O **Assistente para implantar um banco de dados do SQL Server em uma Máquina Virtual do Microsoft Azure** é uma maneira simples e recomendada de mover dados de uma instância do SQL Server local para o SQL Server em uma Máquina Virtual do Azure. Para obter etapas detalhadas, bem como uma discussão sobre outras alternativas, consulte [Migrar um banco de dados para o SQL Server em uma Máquina Virtual do Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md).
+O **Assistente para implantar um banco de dados do SQL Server em uma Máquina Virtual do Microsoft Azure** é uma maneira simples e recomendada de mover dados de uma instância do SQL Server local para o SQL Server em uma Máquina Virtual do Azure. Para obter etapas detalhadas, bem como uma discussão sobre outras alternativas, consulte [Migrar um banco de dados para o SQL Server em uma Máquina Virtual do Azure](../virtual-machines/virtual-machines-windows-migrate-sql.md).
 
 ### <a name="export-flat-file"></a>Exportar para arquivo simples
 
@@ -217,11 +217,11 @@ Abaixo está uma captura de tela das opções de backup/restauração de banco d
 
 ## Recursos
 
-[Migrar um banco de dados para o SQL Server em uma VM do Azure](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
+[Migrar um banco de dados para o SQL Server em uma VM do Azure](../virtual-machines/virtual-machines-windows-migrate-sql.md)
 
-[Visão geral do SQL Server em máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
+[Visão geral do SQL Server em máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

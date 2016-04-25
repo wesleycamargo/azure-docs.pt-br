@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 # Como usar o plug-in subordinado do Azure com Hudson Continuous Integration
@@ -204,4 +204,4 @@ Nesta seção, você criará uma tarefa do Hudson que será executada em um nó 
 
 Em seguida, o Hudson criará um nó subordinado usando o modelo criado na seção anterior e executará o script que você especificou na etapa de compilação dessa tarefa.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

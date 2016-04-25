@@ -3,16 +3,16 @@
 	description="Este tutorial orienta você pelas etapas de implementação de um aplicativo básico de streaming ao vivo dos Serviços de Mídia, onde um canal recebe um fluxo ao vivo de múltiplas taxas de bits de um codificador ao vivo local."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako,cenkdin"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
 	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
@@ -37,7 +37,7 @@ Neste tutorial, o Portal Clássico do Azure é usado para realizar as seguintes 
 ## Pré-requisitos
 Os itens a seguir são necessários para concluir o tutorial.
 
-- Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+- Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 - Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Criar Conta](media-services-create-account.md).
 - Uma webcam e um codificador que possa enviar um fluxo ao vivo de múltiplas taxas de bits.
 
@@ -88,7 +88,7 @@ Depois que o canal é criado, você pode obter URLs de ingestão que você forne
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Para obter mais informações sobre URLs de ingestão, consulte [Usando codificadores de locais para enviar um fluxo ao vivo de múltiplas taxas de bits para um canal](media-services-channels-overview.md).
+Para obter mais informações sobre URLs de ingestão, consulte [Usando codificadores de locais para enviar um fluxo ao vivo de múltiplas taxas de bits para um canal](media-services-manage-channels-overview.md).
 
 ## Configurar um codificador ao vivo e receber transmissão ao vivo
 
@@ -212,4 +212,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

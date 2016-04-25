@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Implantar VMs com várias NICs usando o PowerShell no modelo de implantação clássica | Microsoft Azure"
    description="Aprenda a implantar VMs com várias NICs usando o PowerShell no modelo de implantação clássica"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Como, neste momento, você não pode ter VMs com uma única NIC e VMs com várias NICs no mesmo serviço de nuvem, implementará os servidores de back-end em um serviço de nuvem diferente e depois todos os outros componentes no cenário. As etapas a seguir usam um serviço de nuvem chamado *IaaSStory* para os principais recursos, e *back-end IaaSStory* para os servidores back-end.
+No momento, você não pode ter VMs com uma única NIC e VMs com várias NICs no mesmo serviço de nuvem. Portanto, você precisa implementar servidores back-end em um serviço de nuvem diferente de todos os outros componentes no cenário. As etapas a seguir usam um serviço de nuvem chamado *IaaSStory* para os principais recursos, e *back-end IaaSStory* para os servidores back-end.
 
 ## Pré-requisitos
 
@@ -41,7 +41,7 @@ As VMs de back-end dependem da criação dos recursos descritos abaixo.
 
 - **Sub-rede de back-end**. Os servidores de banco de dados serão parte de uma sub-rede separada, para segregar o tráfego. O script a seguir espera que essa sub-rede exista em uma vnet chamada *WTestVnet*.
 - **Conta de armazenamento para discos de dados**. Para obter um melhor desempenho, os discos de dados dos servidores de banco de dados usam a tecnologia SDD (unidade de estado sólido), que requer uma conta de Armazenamento Premium. Verifique se o local do Azure no qual você vai implantar é compatível com o Armazenamento Premium.
-- **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção. 
+- **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção.
 
 ### Etapa 1: iniciar o script
 
@@ -129,7 +129,7 @@ Você deve usar um loop para criar várias VMs desejadas e para criar as NICs e 
 		    Add-AzureNetworkInterfaceConfig -Name ("RemoteAccessNIC"+$suffixNumber) `
 		        -SubnetName $backendSubnetName `
 		        -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
-		        -VM $vmConfig 
+		        -VM $vmConfig
 
 6. Crie discos de dados para cada VM.
 
@@ -138,7 +138,7 @@ Você deve usar um loop para criar várias VMs desejadas e para criar as NICs e 
 		        -DiskSizeInGB $diskSize `
 		        -DiskLabel $dataDisk1Name `
 		        -LUN 0       
-		
+
 		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"   
 		    Add-AzureDataDisk -CreateNew -VM $vmConfig `
 		        -DiskSizeInGB $diskSize `
@@ -163,12 +163,12 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		--------------------    -----------                          ---------------
 		New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
 		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-		                                                                            
+
 		WARNING: No deployment found in service: 'IaaSStory-Backend'.
 
 2. Preencha as informações necessárias na solicitação de credenciais e clique em **OK**. A saída abaixo será exibida.
 
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

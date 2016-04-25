@@ -5,7 +5,7 @@
     keywords="banco de dados em c#, desenvolvimento de sql"
     documentationCenter=""
     authors="stevestein"
-    manager="jeffreyg"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -285,7 +285,7 @@ O exemplo a seguir atualiza as características de desempenho de um pool de banc
 
 ## Mover um banco de dados existente para um pool de banco de dados elástico
 
-*Depois de criar um pool, você pode também usar o Transact-SQL para mover bancos de dados existentes dentro e fora de um pool. Para saber mais, confira [Referência do Pool de Banco de Dados Elástico – Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+Depois de criar um pool, você também pode usar o Transact-SQL para mover os bancos de dados existentes dentro e fora de um pool. Para obter detalhes, veja [Monitorar e gerenciar um Pool de Banco de Dados Elástico com Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 O exemplo a seguir move um Banco de Dados SQL do Azure existente para um pool:
 
@@ -576,4 +576,4 @@ O exemplo a seguir descreve todos os bancos de dados em um pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

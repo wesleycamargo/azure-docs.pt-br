@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Controlar a integridade do serviço" 
-	description="Saiba quando o Azure sofreu interrupções de serviço ou degradação do desempenho." 
-	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
+<properties
+	pageTitle="Controlar a integridade do serviço"
+	description="Saiba quando o Azure sofreu interrupções de serviço ou degradação do desempenho."
+	authors="stepsic-microsoft-com"
+	manager="kamrani"
+	editor=""
+	services="azure-portal"
 	documentationCenter="na"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Controlar a integridade do serviço
@@ -45,12 +45,11 @@ O Azure publica sempre que há uma degradação no desempenho ou interrupção d
 7. Agora você verá todos os eventos de integridade do serviço que têm impacto em sua assinatura: ![Grupos de recursos](./media/insights-service-health/Insights_HealthEvent.png)
 
 8. A partir daí, você pode ir para a folha de detalhes para ver os detalhes do evento.
-   
+
 ## Próximas etapas
 
 * [Receber notificações de alerta](insights-receive-alert-notifications.md) sempre que um evento ocorre.
 * [Monitore as métricas de serviço](insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e responsivo.
-* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
- 
+* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

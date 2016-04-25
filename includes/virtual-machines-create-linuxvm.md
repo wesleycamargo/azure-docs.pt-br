@@ -1,3 +1,4 @@
+
 1. Conecte-se à sua assinatura do Azure usando as etapas listadas em [Conectar ao Azure pela CLI do Azure](../articles/xplat-cli-connect.md).
 
 2. Verifique se você está no modo Gerenciamento de Serviços usando:
@@ -8,7 +9,7 @@
 
         azure vm image list | grep "Linux"
 
-   Em uma janela de prompt de comando do Windows, use find em vez de grep.
+   Em uma janela de prompt de comando do Windows, use **find** em vez de grep.
 
 4. Use `azure vm create` para criar uma nova máquina virtual com a imagem do Linux da lista acima. Essa etapa cria um novo serviço de nuvem, bem como uma nova conta de armazenamento. Você também pode conectar essa máquina virtual a um serviço de nuvem existente com uma opção `-c`. Ela também cria um ponto de extremidade SSH para fazer logon na máquina virtual Linux com a opção `-e`.
 
@@ -41,4 +42,4 @@
 
 Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure, leia [Usando a CLI do Azure com a API de Gerenciamento de Serviços](../articles/virtual-machines-command-line-tools.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

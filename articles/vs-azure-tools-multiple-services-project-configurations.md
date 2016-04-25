@@ -27,7 +27,7 @@ As ferramentas do Azure para Microsoft Visual Studio fornecem páginas de propri
 
 ![VS\_Solution\_Explorer\_Roles\_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Para obter informações sobre os esquemas subjacentes para a definição e os arquivos de configuração do serviço, consulte a [Referência do esquema](https://msdn.microsoft.com/library/azure/dd179398.aspx). Para obter mais informações sobre a configuração de serviço, consulte [Como configurar serviços de nuvem](/cloud-services/cloud-services-how-to-configure.md).
+Para obter informações sobre os esquemas subjacentes para a definição e os arquivos de configuração do serviço, consulte a [Referência do esquema](https://msdn.microsoft.com/library/azure/dd179398.aspx). Para obter mais informações sobre a configuração de serviço, consulte [Como configurar serviços de nuvem](./cloud-services/cloud-services-how-to-configure.md).
 
 ## Configurando propriedades da função
 
@@ -43,7 +43,7 @@ Na página de **Configuração**, você pode definir essas propriedades:
 
 Definir a **instância** propriedade de contagem para o número de instâncias o serviço deve ser executado para esta função.
 
-Defina a propriedade de **Tamanho da VM** como **Extra Pequeno**, **Pequeno**, **Médio**, **Grande**, ou **Extra Grande**. Para obter mais informações, consulte [Tamanhos para Serviços de Nuvem](/cloud-services/cloud-services-sizes-specs.md).
+Defina a propriedade de **Tamanho da VM** como **Extra Pequeno**, **Pequeno**, **Médio**, **Grande**, ou **Extra Grande**. Para obter mais informações, consulte [Tamanhos para Serviços de Nuvem](./cloud-services/cloud-services-sizes-specs.md).
 
 **Ação de inicialização** (somente função web)
 
@@ -55,7 +55,7 @@ Se você já tiver adicionado um ponto de extremidade HTTPS, a opção de ponto 
 
 **Diagnostics**
 
-Por padrão, o diagnóstico é habilitado para a função web. A conta de armazenamento e o projeto de serviço de nuvem do Azure são definidos para usar o emulador de armazenamento local. Quando você estiver pronto para implantar no Azure, você pode clicar no botão de construtor (**...**) para atualizar a conta de armazenamento para usar o armazenamento do Azure na nuvem. Você pode transferir os dados de diagnóstico para a conta de armazenamento sob demanda ou em intervalos agendados automaticamente. Para obter mais informações sobre o diagnóstico do Azure, consulte [Habilitando o diagnóstico no serviços de nuvem do Azure e máquinas virtuais](/cloud-services/cloud-services-dotnet-diagnostics.md).
+Por padrão, o diagnóstico é habilitado para a função web. A conta de armazenamento e o projeto de serviço de nuvem do Azure são definidos para usar o emulador de armazenamento local. Quando você estiver pronto para implantar no Azure, você pode clicar no botão de construtor (**...**) para atualizar a conta de armazenamento para usar o armazenamento do Azure na nuvem. Você pode transferir os dados de diagnóstico para a conta de armazenamento sob demanda ou em intervalos agendados automaticamente. Para obter mais informações sobre o diagnóstico do Azure, consulte [Habilitando o diagnóstico no serviços de nuvem do Azure e máquinas virtuais](./cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Página Configurações
 
@@ -65,9 +65,9 @@ Na página **Configurações**, você pode adicionar parâmetros de configuraç�
 
 Uma cadeia de conexão é uma definição de configuração que fornece informações de conexão e autenticação para o emulador de armazenamento ou para uma conta de armazenamento do Azure. Sempre que o código precisar acessar dados de serviços de armazenamento do Azure – ou seja, blob, fila ou dados da tabela – do código em execução em uma função, você precisará definir uma cadeia de conexão para essa conta de armazenamento.
 
-Uma cadeia de conexão que aponta para uma conta de armazenamento do Azure deve usar um formato definido. Para obter informações sobre como criar cadeias de conexão, consulte [Configurar cadeias de conexão de armazenamento do Azure](/storage/storage-configure-connection-string.md).
+Uma cadeia de conexão que aponta para uma conta de armazenamento do Azure deve usar um formato definido. Para obter informações sobre como criar cadeias de conexão, consulte [Configurar cadeias de conexão de armazenamento do Azure](./storage/storage-configure-connection-string.md).
 
-Quando você estiver pronto para testar seu serviço em relação aos serviços de armazenamento do Azure, ou quando você estiver pronto para implantar seu serviço de nuvem no Azure, pode alterar o valor de qualquer cadeia de conexão para apontar para sua conta de armazenamento do Azure. Clique em (**...**), selecione **inserir credenciais da conta de armazenamento**. Insira as informações de sua conta que incluem o nome da conta e a chave de conta. Na caixa de diálogo **Cadeia de conexão da conta de armazenamento**, você também pode indicar se deseja usar os pontos de extremidade HTTPS padrão (a opção padrão), os pontos de extremidade HTTP padrão ou pontos de extremidade personalizados. Você pode decidir usar pontos de extremidade personalizados se registrou um nome de domínio personalizado para seu serviço, conforme descrito em [Configurar um nome de domínio personalizado para dados blob em uma conta de armazenamento do Azure](/storage/storage-custom-domain-name.md).
+Quando você estiver pronto para testar seu serviço em relação aos serviços de armazenamento do Azure, ou quando você estiver pronto para implantar seu serviço de nuvem no Azure, pode alterar o valor de qualquer cadeia de conexão para apontar para sua conta de armazenamento do Azure. Clique em (**...**), selecione **inserir credenciais da conta de armazenamento**. Insira as informações de sua conta que incluem o nome da conta e a chave de conta. Na caixa de diálogo **Cadeia de conexão da conta de armazenamento**, você também pode indicar se deseja usar os pontos de extremidade HTTPS padrão (a opção padrão), os pontos de extremidade HTTP padrão ou pontos de extremidade personalizados. Você pode decidir usar pontos de extremidade personalizados se registrou um nome de domínio personalizado para seu serviço, conforme descrito em [Configurar um nome de domínio personalizado para dados blob em uma conta de armazenamento do Azure](./storage/storage-custom-domain-name.md).
 
 >[AZURE.IMPORTANT] Você deve modificar as cadeias de conexão para apontar para uma conta de armazenamento do Azure antes de implantar seu serviço. A falha em fazer isso pode fazer com que sua função não inicie, ou que ela alterne entre os estados inicializando, ocupado e parando.
 
@@ -85,7 +85,7 @@ Uma função de trabalho pode ter qualquer número de pontos de extremidade HTTP
 
 ## Página Armazenamento Local
 
-Você pode usar a página de propriedades **Armazenamento Local** para reservar um ou mais recursos de armazenamento local para uma função. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual do Azure no qual uma instância de uma função está em execução. Para obter mais informações sobre como trabalhar com recursos de armazenamento local, consulte [Configurar recursos de armazenamento local](/cloud-services/cloud-services-configure-local-storage-resources.md).
+Você pode usar a página de propriedades **Armazenamento Local** para reservar um ou mais recursos de armazenamento local para uma função. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual do Azure no qual uma instância de uma função está em execução. Para obter mais informações sobre como trabalhar com recursos de armazenamento local, consulte [Configurar recursos de armazenamento local](./cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ## Página Certificados
 
@@ -110,4 +110,4 @@ Para definir configurações que se aplicam a todo um projeto de serviço de nuv
 |Desenvolvimento|Nessa página, você pode especificar instruções de configuração da compilação e as condições sob as quais eventos de pós-compilação são executados.|
 |Web|Nessa página, você pode definir as configurações relacionadas ao servidor Web.|
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

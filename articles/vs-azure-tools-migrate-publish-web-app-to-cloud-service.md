@@ -19,7 +19,7 @@
 
 Para tirar proveito dos serviços de hospedagem e a escalabilidade do Azure, você pode migrar e publicar seu aplicativo Web em um serviço de nuvem do Azure. Você pode executar um aplicativo Web no Azure fazendo alterações mínimas nele.
 
->[AZURE.NOTE] Este tópico é sobre a implantação de serviços de nuvem, não em sites. Para obter informações sobre a implantação de sites da web, consulte [implantar um aplicativo web no serviço de aplicativo do Azure](/app-service-web/web-sites-deploy.md).
+>[AZURE.NOTE] Este tópico é sobre a implantação de serviços de nuvem, não em sites. Para obter informações sobre a implantação de sites da web, consulte [implantar um aplicativo web no serviço de aplicativo do Azure](./app-service-web/web-sites-deploy.md).
 
 Para obter uma lista de modelos específicos com suporte para Visual c# e Visual Basic, consulte a seção **Modelos de Projetos com Suporte** mais adiante neste tópico.
 
@@ -208,4 +208,4 @@ Para publicar um aplicativo Web no Azure, o aplicativo deve usar um dos modelos 
 ## Próximas etapas
 Para obter mais informações sobre a publicação, consulte [preparar, publicar ou implantar um aplicativo do Azure do Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Confira também [Configuração de credenciais de autenticação nomeadas](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=AcomDC_0204_2016--->
+<!---HONumber=AcomDC_0413_2016-->

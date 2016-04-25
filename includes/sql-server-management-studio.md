@@ -1,14 +1,16 @@
 
-   * Sign in to the Azure account by entering your credentials.
+   * Entrar na conta do Azure inserindo suas credenciais.
 
-     This method is quicker and easier, but if you use this method you won't be able to see Azure SQL Database or Mobile Services in the **Server Explorer** window.
+     Esse método é mais rápido e fácil, mas se você usá-lo, não será capaz de ver o Banco de Dados SQL ou os Serviços Móveis do Azure na janela **Gerenciador de Servidores**.
 
-     In **Server Explorer**, click the **Connect to Azure** button. An alternative is to right-click the **Azure** node, and then click **Connect to Azure** in the context menu.
+     No **Gerenciador de Servidores**, clique no botão **Conectar ao Azure**. Uma alternativa é clicar com o botão direito do mouse no nó **Azure** e clicar em **Conectar ao Azure** no menu de contexto.
 
-   * Install a management certificate that enables access to your account.
+   * Instale um certificado de gerenciamento que permita o acesso à sua conta.
 
-     In **Server Explorer**, right-click the **Azure** node, and then click **Manage Subscriptions** in the context menu. In the **Manage Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and then import a subscription file (also called a *.publishsettings* file) for your Azure account.
+     No **Gerenciador de Servidores**, clique com o botão direito do mouse no nó **Azure** e clique em **Gerenciar Assinaturas** no menu de contexto. Na caixa de diálogo **Gerenciar Assinaturas do Azure**, clique na guia **Certificados** e em **Importar**. Siga as instruções para baixar e importe um arquivo de assinatura (também chamado de arquivo *.publishsettings*) para a conta do Azure.
 
-     > [AZURE.NOTE] Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Azure services.
+     > [AZURE.NOTE] Baixe o arquivo de assinatura em uma pasta fora de seus diretórios de código-fonte (por exemplo, na pasta Downloads) e exclua-o após a conclusão da importação. Um usuário mal-intencionado que consiga acesso ao arquivo de assinatura pode editar, criar e excluir os serviços do Azure.
 
-	For more information, see [How to Connect to Azure from Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
+	Para obter mais informações, consulte [Como se conectar ao Azure no Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
+
+<!---HONumber=AcomDC_0413_2016-->

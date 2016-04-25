@@ -28,9 +28,9 @@
 7. Altere **Atribuição do usuário necessária para acessar o aplicativo** para Sim.
 8. Clique no botão **Salvar** na parte inferior da tela.
 
-Agora, você precisará atribuir usuários e/ou grupos ao aplicativo. Consulte [Atribuir usuários a um aplicativo](active-directory-guiding-developers-assigning-users.md) e [Atribuir grupos a um aplicativo](active-directory-guiding-developers-assigning-groups.md).
+Agora, você precisará atribuir usuários e/ou grupos ao aplicativo. Consulte [Atribuir usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md) e [Atribuir grupos a um aplicativo](active-directory-applications-guiding-developers-assigning-groups.md).
 
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Como criar NSGs no modo clássico usando a CLI do Azure | Microsoft Azure"
    description="Aprenda a criar e implantar NSGs no modo clássico usando a CLI do Azure"
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -32,7 +32,7 @@ Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já cr
 ## Como criar o NSG para a sub-rede front-end
 Para criar um NSG chamado **NSG-FrontEnd** com base no cenário acima, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 
 2. Execute o comando **`azure config mode`** para alternar para o modo clássico, como mostrado abaixo.
 
@@ -104,12 +104,12 @@ Para criar um NSG chamado **NSG-FrontEnd** com base no cenário acima, siga as e
 	- **-n (or --name)**. Nome para a nova regra. Para o nosso cenário, *rdp-rule*.
 	- **-c (or --action)**. Nível de acesso para a regra (Negar ou Permitir).
 	- **-p (or --protocol)**. Protocolo (Tcp, Udp ou *) para a regra.
-	- **-r (or --type)**. Direção da conexão (Entrada ou Saída).
+- **-r (or --type)**. Direção da conexão (Entrada ou Saída).
 	- **-y (or --priority)**. Prioridade da regra.
 	- **-f (or --source-address-prefix)**. Prefixo do endereço de origem no CIDR ou uso de marcas padrão.
 	- **-o (or --source-port-range)**. Porta de origem ou intervalo de porta.
 	- **-e (or --destination-address-prefix)**. Prefixo do endereço de destino no CIDR ou uso de marcas padrão.
-	- **-u (or --destination-port-range)**. Porta de destino ou intervalo de porta.	
+	- **-u (or --destination-port-range)**. Porta de destino ou intervalo de porta.
 
 5. Execute o comando **`azure network nsg rule create`** para criar uma regra que permite o acesso à porta 80 (HTTP) por meio da Internet.
 
@@ -134,7 +134,7 @@ Para criar um NSG chamado **NSG-FrontEnd** com base no cenário acima, siga as e
 
 6. Execute o comando **`azure network nsg subnet add`** para vincular o NSG à sub-rede front-end.
 
-		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd 
+		azure network nsg subnet add -a NSG-FrontEnd --vnet-name TestVNet --subnet-name FrontEnd
 
 	Saída esperada:
 
@@ -228,7 +228,7 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 
 6. Execute o comando **`azure network nsg subnet add`** para vincular o NSG à sub-rede back-end.
 
-		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd 
+		azure network nsg subnet add -a NSG-BackEnd --vnet-name TestVNet --subnet-name BackEnd
 
 	Saída esperada:
 
@@ -239,4 +239,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

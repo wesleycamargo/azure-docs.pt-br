@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/07/2016" 
 	ms.author="juliako"/>
 
 #Utilizando criptografia dinâmica AES-128 e serviço de entrega de chaves
@@ -27,7 +27,7 @@
 
 Os Serviços de Mídia do Microsoft Azure permitem distribuir conteúdo HLS (Http Live Streaming) e Smooth Streams criptografados com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits). Os Serviços de Mídia também fornecem o serviço de distribuição de chaves, que distribui chaves de criptografia para usuários autorizados. Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia ao ativo e também configurar políticas de autorização para a chave. Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: aberta, restrição de token ou restrição de IP. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os Serviços de Mídia dão suporte a tokens no formato SWT ([Tokens Web Simples](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e no formato JWT ([Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)). Para saber mais, consulte [Configure a política de autorização de chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: aberta ou restrição de token. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os Serviços de Mídia dão suporte a tokens no formato SWT ([Tokens Web Simples](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e no formato JWT ([Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)). Para saber mais, consulte [Configure a política de autorização de chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
 Para tirar proveito da criptografia dinâmica, você precisa ter um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Você também precisa configurar a política de entrega para o ativo (descrita mais adiante neste tópico). Em seguida, com base no formato especificado na URL de streaming, o servidor de streaming sob demanda garantirá que você receba o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente.
 
@@ -621,4 +621,4 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

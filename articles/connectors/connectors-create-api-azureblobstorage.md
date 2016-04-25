@@ -22,7 +22,7 @@ Conecte-se a um Blob do Azure para gerenciar arquivos em um contêiner de blob, 
 
 - Aplicativos lógicos 
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do Blob de Armazenamento do Azure](../app-service-logic/app-service-logic-connector-azurestorageblob.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o armazenamento de blobs do Azure, você pode:
 
@@ -57,7 +57,7 @@ Depois de criar a conexão, insira as propriedades do blob, como o caminho da pa
 Aplica-se à versão: 1.0.
 
 ### Criar arquivo
-Carrega um arquivo no Armazenamento de Blobs do Azure.```POST: /datasets/default/files```
+Carrega um arquivo no Armazenamento de Blobs do Azure. ```POST: /datasets/default/files```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -72,7 +72,7 @@ Carrega um arquivo no Armazenamento de Blobs do Azure.```POST: /datasets/default
 |padrão|Falha na operação.|
 
 ### Copiar arquivo
-Copia um arquivo no Armazenamento de Blobs do Azure.```POST: /datasets/default/copyFile```
+Copia um arquivo para o Armazenamento de Blobs do Azure. ```POST: /datasets/default/copyFile```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -88,7 +88,7 @@ Copia um arquivo no Armazenamento de Blobs do Azure.```POST: /datasets/default/c
 
 
 ### Excluir arquivo
-Exclui um arquivo do Armazenamento de Blobs do Azure.```DELETE: /datasets/default/files/{id}```
+Exclui um arquivo do Armazenamento de Blobs do Azure. ```DELETE: /datasets/default/files/{id}```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -102,7 +102,7 @@ Exclui um arquivo do Armazenamento de Blobs do Azure.```DELETE: /datasets/defaul
 
 
 ### Extrair o arquivo morto para a pasta
-Extrai um arquivo morto para uma pasta no Armazenamento de Blobs do Azure (exemplo: .zip).```POST: /datasets/default/ExtractFolderV2```
+Extrai um arquivo do arquivo morto para uma pasta no Armazenamento de Blobs do Azure (exemplo: .zip). ```POST: /datasets/default/ExtractFolderV2```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -118,7 +118,7 @@ Extrai um arquivo morto para uma pasta no Armazenamento de Blobs do Azure (exemp
 
 
 ### Obter conteúdo do arquivo
-Recupera o conteúdo do arquivo do Armazenamento de Blobs do Azure usando a ID.```GET: /datasets/default/files/{id}/content```
+Recupera o conteúdo do arquivo do Armazenamento de Blobs do Azure usando a id. ```GET: /datasets/default/files/{id}/content```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -132,7 +132,7 @@ Recupera o conteúdo do arquivo do Armazenamento de Blobs do Azure usando a ID.`
 
 
 ### Obter o conteúdo do arquivo usando o caminho
-Recupera o conteúdo do arquivo do Armazenamento de Blobs do Azure usando o caminho.```GET: /datasets/default/GetFileContentByPath```
+Recupera o conteúdo do arquivo do Armazenamento de Blobs do Azure usando o caminho. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -146,7 +146,7 @@ Recupera o conteúdo do arquivo do Armazenamento de Blobs do Azure usando o cami
 
 
 ### Obter Metadados do Arquivo
-Recupera os metadados do arquivo do Armazenamento de Blobs do Azure usando a ID do arquivo.```GET: /datasets/default/files/{id}```
+Recupera os metadados do arquivo do Armazenamento de Blobs do Azure usando a id do arquivo. ```GET: /datasets/default/files/{id}```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -160,7 +160,7 @@ Recupera os metadados do arquivo do Armazenamento de Blobs do Azure usando a ID 
 
 
 ### Obter metadados do arquivo usando o caminho
-Recupera os metadados do arquivo do Armazenamento de Blobs do Azure usando o caminho.```GET: /datasets/default/GetFileByPath```
+Recupera os metadados do arquivo do Armazenamento de Blobs do Azure usando o caminho. ```GET: /datasets/default/GetFileByPath```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -174,7 +174,7 @@ Recupera os metadados do arquivo do Armazenamento de Blobs do Azure usando o cam
 
 
 ### Atualizar arquivo
-Atualiza um arquivo no Armazenamento de Blobs do Azure.```PUT: /datasets/default/files/{id}```
+Atualiza um arquivo no Armazenamento de Blobs do Azure. ```PUT: /datasets/default/files/{id}```
 
 | Nome|Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -234,4 +234,4 @@ Atualiza um arquivo no Armazenamento de Blobs do Azure.```PUT: /datasets/default
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

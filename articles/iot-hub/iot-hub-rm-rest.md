@@ -61,7 +61,7 @@ Para concluir este tutorial, você precisará do seguinte:
     using Newtonsoft.Json;
     ```
     
-7. Em Program.cs, adicione as variáveis estáticas a seguir, substituindo os valores de espaço reservado. Você fez uma anotação de **ApplicationId**, **SubscriptionId**, **TenantId**, e **Password** anteriormente neste tutorial. **Nome do grupo de recursos** é o nome do grupo de recursos que você usará ao criar o hub IoT; ele pode ser um grupo de recursos pré-existente ou um novo. **Nome do Hub IoT** é o nome do Hub IoT que você criará, como **MyIoTHub**. **Nome de implantação** é um nome para a implantação, como **Deployment\_01**.
+7. Em Program.cs, adicione as variáveis estáticas a seguir, substituindo os valores de espaço reservado. Você fez uma anotação de **ApplicationId**, **SubscriptionId**, **TenantId**, e **Password** anteriormente neste tutorial. **Nome do grupo de recursos** é o nome do grupo de recursos que você usará ao criar o hub IoT; ele pode ser um grupo de recursos pré-existente ou um novo. **Nome do Hub IoT** é o nome do Hub IoT que você criará, por exemplo **MyIoTHub** (observe que esse nome precisa ser globalmente exclusivo). **Nome de implantação** é um nome para a implantação, como **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -183,4 +183,4 @@ Agora que você implantou um Hub IoT usando a API REST, convém explorar ainda m
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

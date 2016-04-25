@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Fase 4 da carga de trabalho do farm de intranet do SharePoint: configurar servidores do SharePoint
@@ -205,4 +205,4 @@ Esta é a configuração resultante da conclusão bem-sucedida desta fase.
 
 - Use a [Fase 5](virtual-machines-windows-ps-sp-intranet-ph5.md) para continuar com a configuração desta carga de trabalho.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

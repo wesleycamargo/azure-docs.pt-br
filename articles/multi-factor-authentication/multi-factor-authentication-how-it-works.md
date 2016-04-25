@@ -66,18 +66,7 @@ Aplicativos móveis como um fator secundário|* | * | *
 Chamada telefônica como um fator secundário|* | * | *
 SMS como um fator secundário|* | * | *
 Senhas de aplicativos para clientes que não oferecem suporte a MFA|* | * | *
-Controle do administrador sobre métodos de autenticação| | | *
-Modo PIN| | | *
-Alerta de fraude| | | *
-Relatórios de MFA| | | *
-Desvio único| | | *
-Saudações personalizadas para chamadas telefônicas| | | *
-Personalização da ID do chamador para chamadas telefônicas| | | *
-Confirmação de evento| | | *
-IPs Confiáveis| | | *
-Suspender MFA para dispositivos lembrados (visualização pública)| | | *
-SDK de MFA| | | *
-MFA para aplicativos locais usando o servidor MFA| | | *
+Controle do administrador sobre métodos de autenticação| **| *| * Modo PIN | | | * Alerta de fraude | | | * Relatórios MFA | | | * Bypass Avulso| | | * Saudações personalizadas para ligações| | | * Personalização da identificação de chamadas para ligações| | | * Confirmação de Evento | | | * IPs Confiáveis| | | * MFA suspenso para dispositivos lembrados (Visualização Pública)| | | * SDK do MFA | | | * MFA para aplicativos locais usando o servidor MFA | | | *
 
 
 ##Como obter o Azure Multi-Factor Authentication
@@ -102,4 +91,4 @@ Escolha o modelo baseado em consumo que funciona melhor para sua organização. 
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

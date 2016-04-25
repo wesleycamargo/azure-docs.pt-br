@@ -3,7 +3,7 @@
 	description="Etapas da solução de problemas detalhada de conexões de RDP ou Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
-	ms.author="dkshir"/>
+	ms.date="04/06/2016"
+	ms.author="iainfou"/>
 
 # Solução de problemas detalhada de conexões de Área de Trabalho Remota para máquinas virtuais do Azure baseadas em Windows
 
@@ -195,4 +195,4 @@ Verifique se o ponto de extremidade da Área de Trabalho Remota para a VM do Azu
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -2,9 +2,10 @@
 Entidade|Cota (oferta padrão)
 ---|---
 Contas de banco de dados*|50
-Armazenamento máximo de documentos por conta de banco de dados |1 TB (ou superior por solicitação)*
-Provisionamento de armazenamento de documentos / coleção|250 GB (ou superior por solicitação)*
-Máximo de unidades de solicitação / segundos por coleção|250\.000 RU/s (ou superior por solicitação)*
+Armazenamento máximo de documentos por conta de banco de dados* |1 TB (ou superior por solicitação)
+Armazenamento de documentos provisionado*/coleção|250 GB (ou superior por solicitação)
+Máximo de [Unidades de solicitação](../articles/documentdb/documentdb-request-units.md)*/segundo por coleção|250\.000 RU/s (ou superior por solicitação)
 Tamanho máximo da solicitação de documento |512KB
+Tempo de execução máximo para procedimento armazenado e gatilho|5 s 
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

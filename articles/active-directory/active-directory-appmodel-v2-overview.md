@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/02/2016"
 	ms.author="dastrock"/>
 
 # Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
@@ -39,6 +39,7 @@ As informações conceituais aqui serão úteis para entender o que é possível
 ## Referência
 Estes links serão úteis na exploração em profundidade da plataforma:
 
+- Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps (Introdução às identidades da Microsoft: conexão de classe empresarial para seus aplicativos)](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
 - Obtenha ajuda sobre o Estouro de Pilha usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
 - [Referência do Protocolo v2.0](active-directory-v2-protocols.md)
 - [Referência do Token v2.0](active-directory-v2-tokens.md)
@@ -56,10 +57,4 @@ Estes links serão úteis na exploração em profundidade da plataforma:
   - [Cliente OAuth2 do Android](https://github.com/wuman/android-oauth-client)
   - [Cliente OpenID Connect do Android](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!-- TODO: These articles
-- [ADAL Library Reference]()
-- [v2 Endpoint FAQs](active-directory-v2-faq.md)
-- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
--->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

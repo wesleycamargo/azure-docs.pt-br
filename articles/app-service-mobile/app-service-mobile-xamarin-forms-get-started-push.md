@@ -30,15 +30,9 @@ O [simulador de iOS não dá suporte a notificações de push](https://developer
 
 ##Pré-requisitos
 
-Para concluir este tutorial, você precisará do seguinte:
-
-* Uma conta ativa do Azure. Se você ainda não tiver uma conta, inscreva-se para uma avaliação do Azure e obtenha até 10 aplicativos móveis grátis. Você pode continuar usando-os até mesmo após o término de sua avaliação. Consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* Um Mac com o [Xamarin Studio] e o [Xcode] v4.4 ou posterior instalado. Se quiser, você poderá executar o aplicativo Xamarin.Forms usando o Visual Studio em um computador com Windows, mas isso é um pouco mais complicado, pois você precisa se conectar a um Mac em rede executando o Xamarin.iOS Build Host. Se você estiver interessado em fazer isso, confira [Instalando o Xamarin.iOS no Windows].
+* Conclua o tutorial [Criar um aplicativo Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md), que lista outros pré-requisitos. Este artigo usa o aplicativo concluído desse tutorial.
 
 * Um dispositivo físico iOS. Não há suporte para notificações por push pelo simulador do iOS.
-
-* Complete o [Tutorial de início rápido do Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
 
 ##Criar um Hub de notificação para seu aplicativo móvel
 
@@ -529,10 +523,8 @@ Esta seção trata da execução do projeto WinApp Xamarin para dispositivos Win
 <!-- Images. -->
 
 <!-- URLs. -->
-[Xamarin Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Instalando o Xamarin.iOS no Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

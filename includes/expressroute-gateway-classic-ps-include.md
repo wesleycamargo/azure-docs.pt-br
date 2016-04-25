@@ -1,25 +1,27 @@
-You must create a VNet and a gateway subnet first, before working on the following tasks. See the article [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) for more information.   
+Você deve criar uma rede virtual e uma sub-rede de gateway primeiro, antes de iniciar as tarefas a seguir. Confira o artigo [Configurar uma Rede Virtual usando o portal clássico](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) para obter mais informações.
 
-## Add a gateway
+## Adicionar um gateway
 
-Use the command below to create a gateway. Be sure to substitute any values for your own.
+Use o comando a seguir para criar um gateway. Certifique-se de substituir quaisquer valores pelos seus próprios.
 
 	New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 
-## Verify the gateway was created
+## Verificar se o gateway foi criado
 
-Use the command below to verify that the gateway has been created. This command also retrieves the gateway ID, which you need for other operations.
+Use o comando abaixo para verificar se o gateway foi criado. Esse comando também recupera a ID do gateway, que você precisa para outras operações.
 
 	Get-AzureVirtualNetworkGateway
 
-## Resize a gateway
+## Redimensionar um gateway
 
-There are three [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). You can use the following command to change the Gateway SKU at any time.
+Há três [SKUs de gateway](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Você pode usar o comando a seguir para alterar a SKU de gateway a qualquer momento.
 
 	Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
-## Remove a gateway
+## Remover um gateway
 
-Use the command below to remove a gateway
+Use o comando a seguir para remover um gateway
 
 	Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+
+<!---HONumber=AcomDC_0413_2016-->

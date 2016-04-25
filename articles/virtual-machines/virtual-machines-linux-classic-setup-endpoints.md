@@ -17,9 +17,9 @@
 	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-# Como configurar pontos de extremidade em uma máquina virtual clássica do Linux no Azure
+# Como configurar pontos de extremidade em uma máquina virtual clássica no Azure
 
-Todas as máquinas virtuais do Linux criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Se desejar obter informações sobre pontos de extremidade em VMs do Windows, consulte [How to set up endpoints on a classic Windows virtual machine in Azure (Como configurar pontos de extremidade em uma máquina virtual Windows clássica no Azure)](virtual-machines-windows-classic-setup-endpoints.md).
+Todas as máquinas virtuais do Linux criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Este artigo também está disponível para [máquinas virtuais do Windows](virtual-machines-windows-classic-setup-endpoints.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
@@ -32,4 +32,4 @@ Quando você cria uma máquina virtual do Linux no portal clássico do Azure, po
 
 * Você também pode criar um ponto de extremidade de VM usando a Interface de linha de comando do Azure no [Modo de Gerenciamento de Serviço](../virtual-machines-command-line-tools.md). Execute o comando **azure vm endpoint create**.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

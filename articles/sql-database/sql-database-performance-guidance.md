@@ -3,9 +3,9 @@
 	description="Este documento oferece diretrizes para ajudar você a determinar a camada de serviço adequada para seu aplicativo e oferece recomendações para ajustar seu aplicativo para obter o máximo proveito de seu Banco de Dados SQL do Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" />
+	authors="carlrabeler"
+	manager="jhubbard"
+	editor="" />
 
 
 <tags
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
-	ms.author="jroth" />
+	ms.date="04/11/2016"
+	ms.author="carlrab" />
 
 # Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos
 
@@ -23,7 +23,7 @@
 
 O Banco de Dados SQL do Microsoft Azure tem três [camadas de serviço](sql-database-service-tiers.md), Basic, Standard e Premium. Todas elas isolam estritamente o recurso fornecido ao seu Banco de Dados SQL do Azure e garantem um desempenho previsível. A produtividade garantida ao seu banco de dados aumenta gradativamente do Basic para o Standard e para o Premium.
 
->[AZURE.NOTE] As camadas de serviço Web e de negócios serão desativadas em setembro de 2015. Para saber mais, confira [Perguntas frequentes sobre a descontinuação das edições Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Para obter informações detalhadas sobre como atualizar bancos de dados da Web e Business existentes para novas camadas de serviço, consulte [Atualizar banco de dados SQL Web/Business para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md).
+>[AZURE.NOTE] As camadas de serviço Web e de negócios serão desativadas em setembro de 2015. Para saber mais, confira [Perguntas frequentes sobre a descontinuação das edições Web e Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Para obter informações detalhadas sobre como atualizar bancos de dados da Web e Business existentes para novas camadas de serviço, consulte [Atualizar banco de dados SQL Web/Business para novas camadas de serviço](sql-database-upgrade-server-portal.md).
 
 Este documento fornece orientação para ajudar você a determinar a camada de serviço adequada para seu aplicativo e fornece recomendações para ajustar seu aplicativo para obter o máximo proveito de seu Banco de Dados SQL do Azure.
 
@@ -324,7 +324,7 @@ O exemplo a seguir cria um caso em que o plano de consulta selecionado contém u
 
 O Banco de Dados SQL do Azure contém funcionalidade para ajudar os administradores de banco de dados sobre como localizar e corrigir condições comuns de índice ausente. As exibições de gerenciamento dinâmico (DMVs) incorporadas ao Banco de Dados SQL do Azure examinam a compilação da consulta em que um índice reduziria significativamente o custo estimado para executar uma consulta. Durante a execução da consulta, ela controla com que frequência cada plano de consulta é executado, bem como o intervalo estimado entre o plano de consulta em execução e o imaginado onde esse índice existia. Isso permite que um administrador de banco de dados adivinhe rapidamente quais alterações de design de banco de dados físico podem melhorar a carga de trabalho geral para um determinado banco de dados e sua carga de trabalho real.
 
->[AZURE.NOTE] Antes de usar os DMVs para encontrar índices ausentes, leia primeiro a seção sobre [Informações de Desempenho de Consulta e Supervisor de Índice](query-performance-insight-and-index-advisor.md).
+>[AZURE.NOTE] Antes de usar os DMVs para encontrar índices ausentes, leia primeiro a seção sobre [Informações de Desempenho de Consulta e Supervisor de Índice](#query-performance-insight-and-index-advisor).
 
 A consulta a seguir pode ser usada para avaliar potenciais índices ausentes.
 
@@ -491,4 +491,4 @@ Alguns aplicativos de banco de dados contêm cargas de trabalho de leitura pesad
 
 As camadas de serviço no Banco de Dados SQL do Azure capacita você a elevar o nível nos tipos de aplicativos criados na nuvem. Quando combinadas ao ajuste cuidadoso do aplicativo, você poderá obter o desempenho ideal e previsível para seu aplicativo. Este documento descreve as técnicas recomendadas para otimizar o consumo de recursos do banco de dados para o ajuste adequado a um dos níveis de desempenho. O ajuste é um exercício contínuo no modelo de nuvem e as camadas de serviço e seus níveis de desempenho permitem aos administradores maximizar o desempenho e minimizar os custos na plataforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

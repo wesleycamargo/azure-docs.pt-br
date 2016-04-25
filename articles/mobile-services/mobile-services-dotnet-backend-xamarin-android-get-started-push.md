@@ -34,7 +34,7 @@ Este tutorial exige o seguinte:
 + Uma conta ativa do Google.
 + [Componente do cliente Google Cloud Messaging]. Você adicionará esse componente durante o tutorial.
 
-Você já deve ter os componentes [Xamarin.Android] e os [Serviços Móveis do Azure][Azure Mobile Services Component] instalados em seu projeto de quando concluiu a [Introdução aos Serviços Móveis].
+Você já deve ter instalado os componentes do Xamarin.Android e dos [Serviços Móveis do Azure][Azure Mobile Services Component] em seu projeto quando concluiu a [Introdução aos Serviços Móveis].
 
 ##<a id="register"></a>Habilitar as mensagens em nuvem do Google
 
@@ -68,10 +68,7 @@ Você pode testar o aplicativo anexando um telefone Android com um cabo USB dire
 
 <!-- URLs. -->
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-xamarin-android-get-started.md
-
-
 [Componente do cliente Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

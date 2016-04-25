@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="04/06/2016"
 	ms.author="renash"/>
 
 
@@ -58,7 +58,7 @@ Ao criar um trabalho de importação ou de exportação, você também precisar�
 4.	**Destinos de armazenamento de blob:** é possível carregar dados para blobs de blocos e blobs de páginas e baixar dados desses blobs.
 5.	**Número de trabalhos:** um cliente pode ter até 20 trabalhos ativos por conta de armazenamento.
 6.	**Tamanho máximo de um trabalho:** o tamanho de um trabalho é determinado pela capacidade dos discos rígidos usados e a quantidade máxima de dados que podem ser armazenados em uma conta de armazenamento. Cada trabalho pode conter, no máximo, 10 discos rígidos.
-7.  **Sistema Operacional com Suporte:** o cliente pode usar um dos seguintes sistemas operacionais de 64 bits para preparar o disco rígido usando a Ferramenta de Importação/Exportação do Azure antes do envio para o Azure - Windows 7, Windows 8, Windows 8.1, Windows 10*, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.  
+7.  **Sistema Operacional com Suporte:** o cliente pode usar um dos seguintes sistemas operacionais de 64 bits para preparar o disco rígido usando a Ferramenta de Importação/Exportação do Azure antes do envio para o Azure - Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10*, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Todos esses sistemas operacionais dão suporte à Criptografia de Unidade de Disco BitLocker.  
 
   > [AZURE.IMPORTANT]
   >  
@@ -288,4 +288,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

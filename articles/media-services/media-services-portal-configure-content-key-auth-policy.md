@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/07/2016"  
 	ms.author="juliako"/>
 
 
@@ -24,14 +24,16 @@
 
 ##Visão geral
 
-Os serviços de mídia do Microsoft Azure permitem distribuir o conteúdo criptografado com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits) e PlayReady DRM. Os Serviços de Mídia também fornecem um **Serviço de Entrega de Chave/Licença** do qual os clientes podem obter uma chave ou uma licença para reproduzir o conteúdo criptografado.
+Os Serviços de Mídia do Microsoft Azure permitem distribuir fluxos MPEG-DASH, Smooth Streaming e HLS (HTTP-Live-Streaming) protegidos com a criptografia AES (usando chaves de criptografia de 128 bits) ou com o [DRM do Microsoft PlayReady](https://www.microsoft.com/playready/overview/). O AMS também permite distribuir fluxos DASH criptografados com o DRM do Widevine. PlayReady e Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC).
+
+Os Serviços de Mídia também fornecem um **Serviço de Entrega de Chaves/Licenças** por meio do qual os clientes podem obter chaves AES ou licenças do PlayReady/Widevine para reproduzir o conteúdo criptografado.
 
 Este tópico mostra como usar o **Portal Clássico do Azure** para configurar a política de autorização de chave de conteúdo. A chave pode ser usada posteriormente para criptografar dinamicamente o conteúdo. Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
  
-Quando um player solicita um fluxo que é definido para ser criptografado dinamicamente, os serviços de mídia usam a chave configurada para criptografar dinamicamente seu conteúdo usando a criptografia AES ou PlayReady. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+Quando um player solicita um fluxo definido para ser criptografado dinamicamente, os Serviços de Mídia usam a chave configurada para criptografar dinamicamente o conteúdo usando a criptografia AES ou DRM. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
 
-Se você planeja ter várias chaves de conteúdo ou deseja especificar uma URL de **Serviço de Entrega de Chave/Licença** diferente do serviço de distribuição de chaves dos Serviços de Mídia, use as APIs SDK ou REST do .NET dos Serviços de Mídia.
+Se você pretende ter várias chaves de conteúdo ou se deseja especificar uma URL de **Serviço de Entrega de Chave/Licença** diferente do serviço de entrega de chaves dos Serviços de Mídia, use o SDK do .NET dos Serviços de Mídia ou as APIs REST.
 
 [Configurar política de autorização de chave de conteúdo usando o SDK do .NET dos Serviços de Mídia](media-services-dotnet-configure-content-key-auth-policy.md)
 
@@ -103,4 +105,4 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

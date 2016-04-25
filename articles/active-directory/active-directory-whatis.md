@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/14/2016"
+    ms.date="04/07/2016"
     ms.author="markusvi"/>
 
 
@@ -84,13 +84,13 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 
 - [Habilitando seu diretório para gerenciamento híbrido com o Azure AD Connect](active-directory-aadconnect.md)
 
-- [Segurança adicional para um mundo sempre conectado](multi-factor-authentication.md)
+- [Segurança adicional para um mundo sempre conectado](../multi-factor-authentication/multi-factor-authentication.md)
 
 - [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 - [Introdução aos Relatórios do AD do Azure](active-directory-reporting-getting-started.md)
 
-- [Gerenciar suas senhas de qualquer lugar](articles/active-directory-passwords.md)
+- [Gerenciar suas senhas de qualquer lugar](active-directory-passwords.md)
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -104,4 +104,4 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 
 - [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

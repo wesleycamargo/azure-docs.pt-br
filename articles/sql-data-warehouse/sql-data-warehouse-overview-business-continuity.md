@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="04/07/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -51,7 +51,7 @@ Uma vez que o SQL Data Warehouse separa computação e armazenamento, todos os s
 
 ### Restauração do banco de dados
 
-A restauração do banco de dados foi desenvolvida para restaurar seu banco de dados para um determinado ponto anterior. O serviço do Azure SQL Data Warehouse protege todos os bancos de dados com instantâneos automáticos de armazenamento pelo menos a cada oito horas e os mantêm por sete dias para fornecer a você um conjunto distinto de pontos de restauração. Esses backups são armazenados no Armazenamento do Azure RA-GRS e, portanto, com redundância geográfica por padrão. Os recursos de backup e restauração automáticos são gratuitos, além de não terem nenhum custo e não exigirem administração para proteger os bancos de dados contra corrupção ou exclusão acidentais. Para saber mais sobre restauração de banco de dados, consulte [Recuperar após erro do usuário][].
+A restauração do banco de dados foi desenvolvida para restaurar seu banco de dados para um determinado ponto anterior. O serviço do Azure SQL Data Warehouse protege todos os bancos de dados com instantâneos automáticos de armazenamento pelo menos a cada oito horas e os mantêm por sete dias para fornecer a você um conjunto distinto de pontos de restauração. Esses backups são armazenados no Armazenamento do Azure RA-GRS e, portanto, com redundância geográfica por padrão. Os recursos de backup e restauração automáticos são gratuitos, além de não terem nenhum custo e não exigirem administração para proteger os bancos de dados contra corrupção ou exclusão acidentais. Para saber mais sobre a restauração de banco de dados, consulte [Restore from snapshot][] (Restaurar do instantâneo).
 
 ### Restauração geográfica
 
@@ -68,7 +68,7 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 [Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Opções de redundância de armazenamento do Azure]: ../storage/storage-redundancy.md#read-access-geo-redundant-storage
 [Visão geral de continuidade de negócios do Banco de Dados SQL]: ../sql-database/sql-database-business-continuity.md
-[Recuperar após erro do usuário]: sql-data-warehouse-business-continuity-recover-from-user-error.md
+[Restore from snapshot]: sql-data-warehouse-backup-and-restore-from-snapshot.md
 
 <!--MSDN references-->
 [Create database restore request]: http://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -78,4 +78,4 @@ Para saber mais sobre os recursos de continuidade de negócios de outras ediçõ
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

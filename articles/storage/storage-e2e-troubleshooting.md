@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="04/06/2016"
 	ms.author="robinsh"/>
 
 # Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
@@ -36,11 +36,13 @@ Para solucionar problemas de aplicativos cliente que usam o armazenamento do Mic
 
 	- **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343259.aspx) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
 
+> [AZURE.NOTE] As contas de armazenamento com um tipo de replicação de armazenamento com redundância de zona (ZRS) não têm métricas ou funcionalidade de log habilitadas no momento.
+
 - **Portal do Azure**. Você pode configurar log e métricas para sua conta de armazenamento no [Portal do Azure](https://portal.azure.com). Você também pode exibir gráficos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
 
-	Consulte [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no Portal do Azure.
+	Confira [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md) (Monitorar uma conta de armazenamento no Portal do Azure) para obter informações sobre como configurar o monitoramento no Portal do Azure.
 
-- **AzCopy**. Os logs do servidor do Armazenamento do Azure são armazenados como blobs, então você pode usar o AzCopy para copiar os blobs de log para um diretório local para análise usando o Analisador de Mensagem da Microsoft. Consulte [Transferir dados com o utilitário de linha de comando do AzCopy](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
+- **AzCopy**. Os logs do servidor do Armazenamento do Azure são armazenados como blobs, então você pode usar o AzCopy para copiar os blobs de log para um diretório local para análise usando o Analisador de Mensagem da Microsoft. Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
 
 - **Analisador de Mensagem da Microsoft**. O Analisador de Mensagem é uma ferramenta que consome os arquivos de log e exibe dados de log em um formato visual que torna mais fácil a filtragem, pesquisa e agrupamento de dados de log em conjuntos úteis que você pode usar para analisar erros e problemas de desempenho. Consulte o [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o Analisador de Mensagem.
 
@@ -92,7 +94,7 @@ Primeiro, precisaremos configurar o log de armazenamento do Azure e suas métric
 
 **Através do Portal do Azure**
 
-Para configurar o registro em log e as métricas para sua conta de armazenamento usando o [Portal Azure](https://portal.azure.com), siga as instruções em [Monitorar uma conta de armazenamento no Portal do Azure](storage-monitor-storage-account.md).
+Para configurar o registro em log e as métricas para sua conta de armazenamento usando o [Portal Azure](https://portal.azure.com), siga as instruções em [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md) (Monitorar uma conta de armazenamento no Portal do Azure).
 
 > [AZURE.NOTE] Não é possível definir a métrica de minutos usando o Portal do Azure. No entanto, é recomendável que você a defina para os fins deste tutorial e para investigar problemas de desempenho com seu aplicativo. Você pode definir a métrica de minutos usando o PowerShell como mostrado abaixo ou de forma pragmática usando a biblioteca do cliente de armazenamento.
 >
@@ -130,7 +132,7 @@ Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o 
 
 ### Configurar o log de cliente .NET
 
-Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Consulte o [Log do Cliente usando a Biblioteca do Cliente de Armazenamento .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
+Para configurar o log do cliente de um aplicativo .NET, habilite o diagnóstico do .NET no arquivo de configuração do aplicativo (Web.config ou App.config). Confira [Log do Cliente usando a Biblioteca do Cliente de Armazenamento .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Log do Cliente com o SDK de Armazenamento do Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
 
 O log do lado do cliente inclui informações detalhadas sobre como o cliente prepara a solicitação e recebe e processa a resposta.
 
@@ -184,9 +186,9 @@ Você pode usar a ferramenta de linha de comando AzCopy para baixar esses arquiv
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-O AzCopy está disponível para download na página [Downloads do Azure](https://azure.microsoft.com/downloads/). Para obter detalhes sobre como usar o AzCopy, consulte [Transferir dados com o utilitário de linha de comando do AzCopy](storage-use-azcopy.md).
+O AzCopy está disponível para download na página [Downloads do Azure](https://azure.microsoft.com/downloads/). Para obter detalhes sobre como usar o AzCopy, confira [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) (Transferir dados com o utilitário de linha de comando do AzCopy).
 
-Para obter informações adicionais sobre como baixar os logs do servidor, consulte [Baixar armazenamento de dados de log](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Para obter informações adicionais sobre como baixar os logs do servidor, confira [Download Storage Logging log data](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata) (Baixar dados de log do log de armazenamento).
 
 ## Usar o Analisador de Mensagem da Microsoft para analisar dados de log
 
@@ -339,18 +341,7 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Atrasos inesperados na entrega de mensagens em uma fila | AzureStorageClientDotNetV4.Description contém "Repetindo a operação que falhou". | Cliente |
 | Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rede |
 | Aumento em PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rede |
-| Aumento em PercentTimeoutError (todos) |    *StatusCode == 500 |Todos |
-| Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
-| Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede |
-| Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede |
-| 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorização da SAS (Assinatura de Acesso Compartilhado) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede |
-| Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede |
-| 409 (todos) | *StatusCode == 409 | Todos |
-|O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
-| Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor |
-| Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede |
-| Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
+| Aumento em PercentTimeoutError (todos) |    **StatusCode == 500 |Todos | | Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | | Mensagens HTTP 403 (Proibido) | HTTP.Response.StatusCode == 403 | Rede | | Mensagens HTTP 404 (Não encontrado) | HTTP.Response.StatusCode == 404 | Rede | | 404 (todos) | *StatusCode == 404 | Todos | | Problema de autorização da SAS (Assinatura de Acesso Compartilhado) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Rede | | Mensagens HTTP 409 (Conflito) | HTTP.Response.StatusCode == 409 |Rede | | 409 (todos) | *StatusCode == 409 | Todos | |O PercentSuccess Baixo ou as entradas do log de análise têm operações com o status de transação ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor | | Aviso Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor | | Intervalo de tempo nos logs de Servidor e Rede | #Timestamp >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 | Servidor, Rede | | Intervalo de tempo nos logs de Servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Próximas etapas
@@ -363,4 +354,4 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 - [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 - [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

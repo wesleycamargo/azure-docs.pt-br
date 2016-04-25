@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/18/2016"
+ms.date="04/12/2016"
 ms.author="larryfr"/>
 
 #Usar túnel SSH para acessar a interface do usuário do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie, entre outras
@@ -161,9 +161,9 @@ Após a execução destas etapas, somente solicitações de URLs que contêm a c
 
 Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verificar se você pode acessar as interfaces do usuário da Web do serviço Ambari Web:
 
-1. Em seu navegador, vá para https://CLUSTERNAME.azurehdinsight.net, em que CLUSTERNAME é o nome do cluster HDInsight.
-
-	Quando solicitado, insira o nome de usuário do administrador (admin) e a senha do seu cluster. Talvez a interface do usuário do Ambari Web seja solicitada uma segunda vez. Nesse caso, insira novamente as informações.
+1. No seu navegador, acesse http://headnodehost:8080. O endereço `headnodehost` será enviado pelo túnel para o cluster e resolverá o nó principal Ambari em execução. Quando solicitado, insira o nome de usuário do administrador (admin) e a senha do seu cluster. Talvez a interface do usuário do Ambari Web seja solicitada uma segunda vez. Nesse caso, insira novamente as informações.
+    
+    > [AZURE.NOTE] Ao usar o endereço http://headnodehost:8080 para se conectar ao cluster, você está se conectando diretamente através do túnel com o nó principal que o Ambari está executando ao utilizar o HTTP, e a comunicação é protegida usando o túnel SSH. Ao se conectar pela Internet sem o uso de um túnel, a comunicação é protegida usando o HTTPS. Para se conectar pela Internet usando o HTTPS, use https://CLUSTERNAME.azurehdinsight.net, no qual o __CLUSTERNAME__ é o nome do cluster.
 
 2. Na interface do usuário do Ambari Web, selecione YARN na lista à esquerda da página.
 
@@ -174,15 +174,14 @@ Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verific
 	![Imagem do menu Links Rápidos expandido](./media/hdinsight-linux-ambari-ssh-tunnel/yarnquicklinks.png)
 
 	> [AZURE.NOTE] Se você tiver uma conexão lenta com a Internet ou se o nó de cabeçalho estiver muito ocupado, será possível obter um indicador de espera em vez de um menu quando você selecionar __Links Rápidos__. Nesse caso, aguarde um minuto ou dois pelos dados a serem recebidos do servidor e experimente a lista novamente.
-
-
-	> [AZURE.TIP] Se o monitor de resolução for inferior, ou se a janela do navegador não estiver maximizada, algumas entradas do menu __Links Rápidos__ poderão ser cortadas no lado direito da tela. Nesse caso, expanda o menu usando o mouse e a tecla de seta para a direita para rolar a tela para a direita e ver o restante do menu.
+    >
+	> Se o monitor de resolução for inferior, ou se a janela do navegador não estiver maximizada, algumas entradas do menu __Links Rápidos__ poderão ser cortadas no lado direito da tela. Nesse caso, expanda o menu usando o mouse e a tecla de seta para a direita para rolar a tela para a direita e ver o restante do menu.
 
 4. Você verá uma página semelhante à seguinte:
 
 	![Imagem da interface do usuário do ResourceManager YARN](./media/hdinsight-linux-ambari-ssh-tunnel/yarnresourcemanager.png)
 
-	> [AZURE.TIP] Observe a URL dessa página; ela deverá ser semelhante a \___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Ela está usando o nome de domínio totalmente qualificado (FQDN) interno do nó e não pode ser acessada sem a utilização de um túnel SSH.
+	> [AZURE.NOTE] Observe a URL dessa página; ela deverá ser semelhante a \___http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster__. Ela está usando o nome de domínio totalmente qualificado (FQDN) interno do nó e não pode ser acessada sem a utilização de um túnel SSH.
 
 ##Próximas etapas
 
@@ -196,4 +195,4 @@ Para obter mais informações sobre como usar SSH com o HDInsight, consulte o se
 
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

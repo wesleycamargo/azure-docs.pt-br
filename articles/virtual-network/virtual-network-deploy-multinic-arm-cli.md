@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Implantar VMs com várias NICs usando a CLI do Azure no Gerenciador de Recursos | Microsoft Azure"
    description="Saiba como implantar VMs com várias NICs usando a CLI do Azure no Gerenciador de Recursos"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Uma vez que você não pode ter VMs com uma única NIC e VMs com várias NICs no mesmo grupo de recursos neste momento, implemente os servidores de back-end em um grupo de recursos diferente de todos os outros componentes. As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para o grupo de recursos principal e *IaaSStory-BackEnd* para os servidores de back-end.
+No momento, você não pode ter VMs com uma única NIC e VMs com várias NICs no mesmo grupo de recursos. Portanto, você precisa implementar servidores back-end em um grupo de recursos diferente de todos os outros componentes. As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para o grupo de recursos principal e *IaaSStory-BackEnd* para os servidores de back-end.
 
 ## Pré-requisitos
 
@@ -47,7 +47,7 @@ As VMs de back-end dependem da criação dos recursos descritos abaixo.
 
 - **Conta de armazenamento para discos de dados**. Para obter um melhor desempenho, os discos de dados dos servidores de banco de dados usam a tecnologia SDD (unidade de estado sólido), que requer uma conta de Armazenamento Premium. Verifique se o local do Azure no qual você vai implantar é compatível com o Armazenamento Premium.
 - **NICs**. Cada VM tem duas NICs, uma para acesso ao banco de dados e outra para gerenciamento.
-- **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção. 
+- **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção.
 
 ### Etapa 1 – Iniciar o script
 
@@ -60,7 +60,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
 		vnetName="WTestVNet"
 		backendSubnetName="BackEnd"
 		remoteAccessNSGName="NSG-RemoteAccess"
-		
+
 2. Altere os valores das variáveis a seguir de acordo com os valores que deseja usar na implantação do back-end.
 
 		backendRGName="IaaSStory-Backend"
@@ -107,7 +107,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
 		azure storage account create $prmStorageAccountName \
 		    --resource-group $backendRGName \
 		    --location $location \
-			--type PLRS 
+			--type PLRS
 
 3. Criar um conjunto de disponibilidade para as VMs.
 
@@ -171,7 +171,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
 		        --vhd-name $dataDiskName$suffixNumber-1.vhd \
 		        --size-in-gb $diskSize \
 		        --lun 0
-		
+
 		    azure vm disk attach-new --resource-group $backendRGName \
 		        --vm-name $vmNamePrefix$suffixNumber \        
 		        --storage-account-name $prmStorageAccountName \
@@ -330,4 +330,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

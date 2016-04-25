@@ -23,7 +23,7 @@
 
 Este artigo fornece a sintaxe e as opções de comandos da CLI (interface de linha de comando) do Azure que normalmente seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação do Azure Resource Manager. É possível acessar esses comandos executando a CLI no modo ARM (Resource Manager). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes.
 
-Para começar, primeiro [instale a CLI do Azure](xplat-cli-install.md) e [conecte-se à sua assinatura do Azure](xplat-cli-connect.md) usando uma conta corporativa ou de estudante, ou uma identidade de conta da Microsoft.
+Para começar, primeiro [instale a CLI do Azure](../xplat-cli-install.md) e [conecte-se à sua assinatura do Azure](../xplat-cli-connect.md) usando uma conta corporativa ou de estudante, ou uma identidade de conta da Microsoft.
 
 Para ver as atuais opções e a sintaxe de comandos na linha de comando no modo do Gerenciador de Recursos, digite `azure help` ou, para exibir a ajuda para um comando específico, `azure help [command]`. Você também encontrará exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
 
@@ -208,11 +208,11 @@ Exemplo: crie um arquivo de configuração que contém uma ação de script para
 **Comando para criar um cluster em um grupo de recursos**
 
 	hdinsight cluster create [options] <clusterName>
-	 
+
 Exemplo: criar um Storm no cluster do Linux
 
 	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
-	
+
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
 	info:    hdinsight cluster create command OK
@@ -220,11 +220,11 @@ Exemplo: criar um Storm no cluster do Linux
 Exemplo: criar um cluster com uma ação de script
 
 	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
-	
+
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
 	info:    hdinsight cluster create command OK
-	
+
 Opções de parâmetro:
 
 	-h, --help                                                 output usage information
@@ -255,7 +255,7 @@ Opções de parâmetro:
 	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
 	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
 	For example 12/12/2015 (only for Windows clusters)
-	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
+	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster.
 	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
 	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
 	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
@@ -1872,4 +1872,4 @@ Opções de parâmetro:
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

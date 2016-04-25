@@ -4,8 +4,8 @@
    services="sql-database"
    documentationCenter=""
    authors="tmullaney"
-   manager="jeffreyg"
-   editor="jeffreyg"/>
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
@@ -77,7 +77,7 @@ Existem maneiras de limitar ainda mais o que um usuário pode fazer com o Banco 
 * [Mascaramento de dados](sql-database-dynamic-data-masking-get-started.md) pode ser usado para limitar a exposição de dados confidenciais.
 * [Procedimentos armazenados](https://msdn.microsoft.com/library/ms190782) podem ser usados para limitar as ações que podem ser executadas no banco de dados.
 
-O gerenciamento de bancos de dados e servidores lógicos pelo Portal Clássico do Azure ou usando a API do Gerenciador de Recursos do Azure é controlado pelas atribuições de função da sua conta de usuário. Para saber mais sobre esse tópico, confira [Controle de acesso baseado em função no portal do Azure](../role-based-access-control-configure.md).
+O gerenciamento de bancos de dados e servidores lógicos pelo Portal Clássico do Azure ou usando a API do Gerenciador de Recursos do Azure é controlado pelas atribuições de função da sua conta de usuário. Para saber mais sobre esse tópico, confira [Controle de acesso baseado em função no portal do Azure](../active-directory./role-based-access-control-configure.md).
 
 
 ## Criptografia
@@ -106,4 +106,4 @@ A Auditoria e o rastreamento dos eventos de banco de dados podem ajudar você a 
 
 Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a atender a vários requisitos de conformidade de segurança, o Banco de Dados SQL do Azure também participa de auditorias regulares e foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](https://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

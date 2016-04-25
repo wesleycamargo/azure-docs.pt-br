@@ -13,18 +13,18 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="identity" 
+    ms.workload="identity"
 	ms.date="12/07/2015"
 	ms.author="femila"/>
 
 
-# Determinar uma estratégia de adoção para o ciclo de vida da identidade híbrida 
-Nesta tarefa, você define a estratégia de gerenciamento de identidade para sua solução de identidade híbrida, para atender aos requisitos de negócios definidos na seção [Determinar as tarefas de gerenciamento de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md).
+# Determinar uma estratégia de adoção para o ciclo de vida da identidade híbrida
+Nesta tarefa, você define a estratégia de gerenciamento de identidade para sua solução de identidade híbrida, para atender aos requisitos de negócios definidos na seção [Determinar as tarefas de gerenciamento de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
 
 
 Para definir as tarefas de gerenciamento de identidade híbrida de acordo com o ciclo de vida da identidade de ponta a ponta apresentado anteriormente nesta etapa, considere as opções disponíveis para cada fase do ciclo de vida.
 
-## Provisionamento e gerenciamento de acesso 
+## Provisionamento e gerenciamento de acesso
 Com uma solução de gerenciamento de acesso de conta válida, você pode controlar de forma precisa os usuários que têm acesso às informações da organização.
 
 O controle de acesso é uma função essencial de um sistema centralizado e de ponto único de provisionamento. Além de proteger informações confidenciais, os controles de acesso revelam as contas existentes cujas autorizações não são aprovadas ou não são mais necessárias. Para controlar as contas obsoletas, o sistema de provisionamento vincula as informações da conta às informações autoritativas sobre os proprietários das contas. As informações autoritativas de identidade do usuário normalmente são mantidas em bancos de dados e em diretórios de recursos humanos.
@@ -40,7 +40,7 @@ As contas de empresas de TI sofisticadas incluem centenas de parâmetros que def
 O controle de acesso baseado em função (RBAC) usa funções e políticas de provisionamento para avaliar, testar e impor processos de negócios e regras para conceder acesso aos usuários. Os principais administradores criam políticas de provisionamento e atribuem usuários a funções, além de definir conjuntos de qualificações de recursos para essas funções. O RBAC amplia a solução de gerenciamento de identidades para usar processos baseados em software e reduzir a interação manual do usuário no processo de provisionamento. O RBAC do AD do Azure permite à empresa restringir a quantidade de operações que um usuário pode realizar quando obtém acesso ao Portal de Gerenciamento do Azure. Ao usar o RBAC para controlar o acesso ao portal, os administradores de TI podem delegar o acesso usando as seguintes abordagens de gerenciamento de acesso:
 
 - **Atribuição de função baseada em grupo**: você pode atribuir acesso aos grupos do AD do Azure, que podem ser sincronizados no Active Directory local. Isso permite aproveitar os investimentos existentes que sua organização já fez em ferramentas e processos para gerenciar os grupos. Também é possível usar o recurso de gerenciamento de grupos delegado do Azure AD Premium.
-- **Aproveitar funções internas do Azure**: você pode usar três funções: Proprietário, Colaborador e Leitor para garantir que os usuários e grupos tenham permissão para realizar apenas as tarefas necessárias para concluir seus respectivos trabalhos. 
+- **Aproveitar funções internas do Azure**: você pode usar três funções: Proprietário, Colaborador e Leitor para garantir que os usuários e grupos tenham permissão para realizar apenas as tarefas necessárias para concluir seus respectivos trabalhos.
 - **Acesso granular aos recursos**: você pode atribuir funções a usuários e grupos de uma determinada assinatura, grupo de recursos ou recurso individual do Azure, como um site ou banco de dados. Dessa forma, é possível garantir que os usuários tenham acesso a todos os recursos necessários e nenhum acesso a recursos que não precisem gerenciar.
 
 ## Provisionamento e outras opções de personalização
@@ -60,7 +60,8 @@ Use grupos de sincronização do AD local ou gerencie-os no AD do Azure. Com o e
 ## Administração autoreguladora de usuários
 Quando a empresa começa a provisionar recursos para todas as organizações internas, você pode implementar o recurso autorregulador de administração de usuário. Aproveite as vantagens e os benefícios do provisionamento de usuários através dos limites organizacionais. Nesse ambiente, uma alteração no status de um usuário se reflete automaticamente nos direitos de acesso em regiões geográficas e limites da organização. Você pode reduzir os custos de provisionamento e simplificar os processos de aprovação e acesso. A implementação envolve todo o potencial da implementação do controle de acesso baseado em função para o gerenciamento de acesso de ponta a ponta na empresa. Reduza os custos administrativos por meio de procedimentos automatizados para controlar o provisionamento de usuários. Você pode aprimorar a segurança automatizando a aplicação de políticas de segurança, além de simplificar e centralizar o gerenciamento do ciclo de vida do usuário e o provisionamento de recursos para grandes grupos de usuários.
 
->[AZURE.NOTE]Para saber mais, veja o tópico Configurando o AD do Azure para o gerenciamento de acesso a aplicativos por autoatendimento
+>[AZURE.NOTE]
+Para saber mais, veja o tópico Configurando o AD do Azure para o gerenciamento de acesso a aplicativos por autoatendimento
 
 Os Serviços do AD do Azure baseados em licença (baseados em direito) funcionam ativando uma assinatura no locatário de serviço/diretório do AD do Azure. Quando a assinatura está ativa, os recursos de serviço podem ser gerenciados por administradores de serviço/diretório e usados por usuários licenciados. Para saber mais, consulte o tópico Como funciona o licenciamento do AD do Azure? Integração com outros provedores de terceiros
 
@@ -69,7 +70,7 @@ O Active Directory do Azure fornece logon único e segurança avançada de acess
 ## Definir o gerenciamento de sincronização
 A integração de seus diretórios locais ao AD do Azure torna os usuários mais produtivos fornecendo uma identidade comum para acesso aos recursos na nuvem e locais. Com essa integração, os usuários e as organizações podem se beneficiar do seguinte:
 
-- As organizações podem fornecer aos usuários uma identidade híbrida comum para serviços baseados em nuvem ou locais, aproveitando o Active Directory do Windows Server e, em seguida, conectando-se ao Active Directory do Azure. 
+- As organizações podem fornecer aos usuários uma identidade híbrida comum para serviços baseados em nuvem ou locais, aproveitando o Active Directory do Windows Server e, em seguida, conectando-se ao Active Directory do Azure.
 - Os administradores podem fornecer acesso condicional com base no recurso do aplicativo, na identidade de usuário e dispositivo, no local de rede e na autenticação multifator.
 - Os usuários podem aproveitar sua identidade comum por meio das contas no AD do Azure para o Office 365, o Intune, os aplicativos SaaS e os aplicativos de terceiros.
 - Os desenvolvedores podem criar aplicativos que aproveitam o modelo de identidade comum, integrando aplicativos ao Active Directory local ou o Azure para aplicativos baseados em nuvem.
@@ -87,10 +88,11 @@ Analise a tabela a seguir para comparar as opções de sincronização:
 | Com base em sincronização (através do DirSync ou do AADConnect) | Usuários e grupos sincronizados no local e na nuvem <br> **Controle de políticas**: as Políticas de Conta podem ser definidas no Active Directory, que fornece ao administrador a capacidade de gerenciar políticas de senha, estações de trabalho, restrições, controles de bloqueio e muito mais, sem ter que realizar outras tarefas na nuvem. <br> **Controle de acesso**: pode restringir o acesso ao serviço de nuvem para que os serviços possam ser acessados através do ambiente corporativo, através de servidores online, ou das duas maneiras. <br>Menos chamadas de suporte: quando os usuários têm menos senhas para se lembrar, é menos provável esquecê-las. <br>Segurança: as informações e identidades dos usuários são protegidas porque todos os servidores e serviços usados no logon único são gerenciados e controlados localmente. <br>Suporte para autenticação forte: use uma autenticação forte (também chamada de autenticação de dois fatores) com o serviço de nuvem. No entanto, se usar esse recurso, você deve usar o logon único. | |
 | Com base em federação (através do AD FS) | Habilitado pelo serviço de token de segurança (STS). Quando você configura um STS para fornecer acesso de logon único com um serviço de nuvem da Microsoft, cria ao mesmo tempo uma relação de confiança federada entre o STS local e o domínio federado que você especificou no locatário do AD do Microsoft Azure. <br>Permite que os usuários finais usem o mesmo conjunto de credenciais para obter acesso a vários recursos <br>os usuários finais não precisam manter vários conjuntos de credenciais. Além disso, os usuários devem fornecer suas credenciais a cada um dos recursos participantes. Cenários com suporte para relações B2B e B2C. | Requer profissionais especializados para implantação e manutenção de servidores dedicados do AD FS local. Há restrições sobre o uso de autenticação forte, caso planeje usar o AD FS para o STS. Para saber mais, consulte o artigo [Configurando opções avançadas do AD FS 2.0](http://go.microsoft.com/fwlink/?linkid=235649). |
 
->[AZURE.NOTE]Para saber mais, veja o artigo [Integrando identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+>[AZURE.NOTE]
+Para saber mais, veja o artigo [Integrando identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
 
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

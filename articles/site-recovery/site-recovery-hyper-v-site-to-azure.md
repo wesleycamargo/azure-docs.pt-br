@@ -63,11 +63,11 @@ Como parte da implantação do Azure Site Recovery, você instalará o Provedor 
 - Recomendamos que você sempre execute as versões mais recentes do provedor e do agente. Elas estão disponíveis no portal do Site Recovery.
 - Todos os servidores Hyper-V em um cofre devem ter as mesmas versões do provedor e do agente.
 - O provedor em execução no servidor deve se conectar ao Site Recovery pela Internet. Você pode fazer isso sem um proxy, com as configurações de proxy definidas no servidor Hyper-V ou com as configurações personalizadas de proxy definidas durante a instalação do provedor. Você precisa garantir que o servidor proxy que deseja usar é capaz acessar essas URLs para conectar ao Azure:
-- *.hypervrecoverymanager.windowsazure.com
-- *.accesscontrol.windows.net
-- *.backup.windowsazure.com
-- *.blob.core.windows.net
-- *.store.core.windows.net
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 	
 - Além disso, permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 
@@ -131,7 +131,7 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 
 	![Atualizações da Microsoft](./media/site-recovery-hyper-v-site-to-azure/provider1.png)
 
-7. Em **Instalação** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
+7. Em **Instalação ** especifique onde você deseja instalar o Provedor e o Agente no servidor Hyper-V.
 
 	![Local de instalação](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
@@ -144,7 +144,7 @@ Se você estiver instalando em um cluster do Hyper-V, execute as etapas 5 a 11 e
 
 	![Configurações da Internet](./media/site-recovery-hyper-v-site-to-azure/provider4.png)
 
-9. Na página **Configurações do Cofre**, clique em **Procurar** para selecionar o arquivo da chave. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
+9. Na página **Configurações do Cofre**, clique em **Procurar ** para selecionar o arquivo da chave. Especifica a assinatura do Azure Site Recovery, o nome do cofre e o site de Hyper-V ao qual pertence o servidor Hyper-V.
 
 	![Registros do servidor](./media/site-recovery-hyper-v-site-to-azure/select-key.png)
 
@@ -274,6 +274,8 @@ Para testar totalmente a replicação e a implantação da rede, você precisar�
 
 Execute o failover de teste da seguinte maneira:
 
+>[AZURE.NOTE] Para obter o melhor desempenho ao fazer um failover para o Azure, não deixe de instalar o agente do Azure no computador protegido. Isso ajuda na inicialização mais rápida e também no diagnóstico em caso de problemas. O agente do Linux pode ser encontrado [aqui](https://github.com/Azure/WALinuxAgent) e o agente do Windows pode ser encontrado [aqui](http://go.microsoft.com/fwlink/?LinkID=394789)
+
 1. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
 2. Na página **Confirmar Failover de Teste**, selecione **Nenhum** ou uma rede específica do Azure. Observe que, se você selecionar **Nenhum**, o failover de teste verificará se a máquina virtual foi replicada corretamente para o Azure, mas não verificará sua configuração de rede de replicação.
 
@@ -302,4 +304,4 @@ Execute o failover de teste da seguinte maneira:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

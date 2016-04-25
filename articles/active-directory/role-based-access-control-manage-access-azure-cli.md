@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/29/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
@@ -23,9 +23,14 @@
 - [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 - [API REST](role-based-access-control-manage-access-rest.md)
 
-## Listar as funções RBCA (Controle de Acesso baseado em função)
+O RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Azure Resource Manager permite gerenciar o acesso a sua assinatura e aos recursos de maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
->[AZURE.IMPORTANT] Antes de usar os cmdlets apresentados neste artigo, é necessário [instalar a CLI do Azure](../xplat-cli-install.md).
+Antes de poder usar a CLI do Azure para gerenciar o RBAC, é necessário ter o seguinte:
+
+- CLI do Azure versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
+- Azure Resource Manager na Azure CLI. Acesse [Usando a Azure CLI com o Resource Manager](../xplat-cli-azure-resource-manager.md) para obter mais detalhes.
+
+## Listar funções
 
 ###	Relacionar todas as funções disponíveis
 Para relacionar todas as funções disponíveis, use:
@@ -47,17 +52,17 @@ O exemplo a seguir mostra as ações do *Colaborador* e as funções do *Colabor
 
 ##	Relacionar acesso
 ###	Relacionar as atribuições de função como efetivas em um grupo de recursos
-Para relacionar as atribuições de função como efetivas em um grupo de recursos, use:
+Para listar as atribuições de função que existem em um grupo de recursos, use:
 
     azure role assignment list --resource-group <resource group name>
 
-O exemplo a seguir mostra as atribuições de função efetivas no grupo *pharma-sales-projecforcast*.
+O exemplo a seguir mostra as atribuições de função no grupo *pharma-sales-projecforcast*.
 
 ![Linha de comando do Azure RBAC - lista de atribuição de funções do azure por grupo - captura de tela](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ###	Relacionar atribuições de função a um usuário, incluindo os que são atribuídos a um grupo de usuários
 
-O exemplo a seguir mostra as atribuições de função efetivas no usuário **sameert@aaddemo.com*.
+O exemplo a seguir mostra as atribuições de função concedidas ao usuário **sameert@aaddemo.com*. Isso inclui funções atribuídas diretamente ao usuário, mas também funções herdadas de grupos.
 
 ![Linha de comando do Azure RBAC - lista de atribuição de funções do azure por usuário - captura de tela](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
@@ -157,4 +162,4 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ## Tópicos RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

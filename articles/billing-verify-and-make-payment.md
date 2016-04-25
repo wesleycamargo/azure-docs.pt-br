@@ -19,7 +19,7 @@
 
 # Como verificar a forma de pagamento e fazer pagamentos para uma assinatura do Azure
 
->[AZURE.NOTE]Se você receber um erro após enviar as informações do cartão de crédito, confira o artigo [Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure](../billing-credit-card-fails-during-azure-sign-up.md).
+>[AZURE.NOTE] Se você receber um erro após enviar as informações do cartão de crédito, confira o artigo [Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure](billing-credit-card-fails-during-azure-sign-up.md).
 
 ## Verifique a forma de pagamento atual
 1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o Administrador da Conta.
@@ -38,8 +38,8 @@
 
 ## Fazer pagamentos
 
-Se você tiver configurado um cartão de crédito ou débito como a forma de pagamento, o pagamento será feito automaticamente. Para alterar o cartão a qualquer momento, veja [Como alterar Pagamentos ou Créditos para uma assinatura do Azure](../billing-how-to-change-credit-card.md).
+Se você tiver configurado um cartão de crédito ou débito como a forma de pagamento, o pagamento será feito automaticamente. Para alterar o cartão a qualquer momento, veja [Como alterar Pagamentos ou Créditos para uma assinatura do Azure](billing-how-to-change-credit-card.md).
 
 Se você estiver em um modo de pagamento de fatura, envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, entre em contato com o [Suporte da Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Monitorar métricas de serviço" 
-	description="Saiba como personalizar gráficos de monitoramento no Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
+<properties
+	pageTitle="Monitorar métricas de serviço"
+	description="Saiba como personalizar gráficos de monitoramento no Azure."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
 	services="azure-portal"
 documentationCenter=""/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="azure-portal"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Monitorar métricas de serviço
@@ -22,7 +22,7 @@ Todos os serviços do Azure monitoram métricas-chave que permitem que você mon
 
 Para alguns serviços, talvez seja necessário ativar o diagnóstico para ver as métricas. Para outros, como máquinas virtuais, você obterá um conjunto básico de métricas, mas precisa habilitar o conjunto completo de métricas de alta frequência. Consulte [Habilitar monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para obter mais informações.
 
-## Usando gráficos de monitoramento 
+## Usando gráficos de monitoramento
 
 Você pode criar um gráfico com as métricas relativas a qualquer período de tempo escolhido.
 
@@ -51,7 +51,7 @@ Com a poderosa personalização no portal, você pode adicionar quantos gráfico
 
 1. No menu **...** na parte superior da folha, clique em **Adicionar blocos**:![Adicionar menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
 2. Em seguida, você pode selecionar um gráfico na **Galeria** no lado direito da tela: ![Galeria](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
-3. Se você não vir a métrica desejada, você sempre poderá adicionar uma das métricas predefinidas e **Editar** o gráfico para mostrar a métrica que você precisa. 
+3. Se você não vir a métrica desejada, você sempre poderá adicionar uma das métricas predefinidas e **Editar** o gráfico para mostrar a métrica que você precisa.
 
 ## Monitorando cotas de uso
 
@@ -69,8 +69,7 @@ Assim como com as métricas, você pode usar a [API REST](https://msdn.microsoft
 * [Habilite o monitoramento e diagnóstico](insights-how-to-use-diagnostics.md) para coletar métricas detalhadas de alta frequência em seu serviço.
 * [Dimensione a contagem de instâncias automaticamente](insights-how-to-scale.md) para se certificar de que o serviço está disponível e responsivo.
 * [Monitore o desempenho do aplicativo](insights-perf-analytics.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
-* Use os [aplicativos e páginas da Web do Application Insights para JavaScript](../app-insights-web-track-usage.md) para obter a análise do cliente sobre os navegadores que visitam uma página da Web.
-* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
- 
+* Use os [aplicativos e páginas da Web do Application Insights para JavaScript](../application-insights/app-insights-web-track-usage.md) para obter a análise do cliente sobre os navegadores que visitam uma página da Web.
+* [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

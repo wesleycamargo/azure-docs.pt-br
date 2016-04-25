@@ -162,6 +162,8 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 
 - [Carregar dados no HDInsight][hdinsight-upload-data]
 - [Usar o Pig com o HDInsight][hdinsight-use-pig]
+- [Use o Sqoop com o HDInsight](hdinsight-use-sqoop.md)
+- [Usar o Oozie com o HDInsight](hdinsight-use-oozie.md)
 - [Usar trabalhos do MapReduce com o HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
@@ -194,7 +196,7 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
@@ -204,4 +206,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

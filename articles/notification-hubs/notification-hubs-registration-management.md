@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="04/11/2016"
 	ms.author="wesmc"/>
 
 # Gerenciamento de registros
@@ -77,9 +77,9 @@ Uma instalação pode conter as seguintes propriedades. Para obter uma lista com
 
  
 
-É importante observar que os registros e as instalações, junto com os identificadores PNS que eles contêm, expiram. Você pode definir a vida útil no Hub de Notificação como no máximo 90 dias. Esse limite significa que eles devem ser atualizados periodicamente e também que não devem ser o único armazenamento de informações importantes. Essa expiração automática também simplifica a limpeza quando o aplicativo móvel é desinstalado.
+É importante observar que, por padrão, os registros e as instalações não expiram mais.
 
-Os registros e instalações devem conter o identificador PNS mais recente para cada dispositivo/canal. Como os identificadores PNS só podem ser obtidos em um aplicativo cliente no dispositivo, um padrão é registrar diretamente no dispositivo com o aplicativo cliente. Por outro lado, as considerações de segurança e a lógica de negócios relacionadas às marcas podem exigir o gerenciamento do registro do dispositivo no back-end do aplicativo.
+Os registros e instalações devem conter um identificador PNS válido para cada dispositivo/canal. Como os identificadores PNS só podem ser obtidos em um aplicativo cliente no dispositivo, um padrão é registrar diretamente no dispositivo com o aplicativo cliente. Por outro lado, as considerações de segurança e a lógica de negócios relacionadas às marcas podem exigir o gerenciamento do registro do dispositivo no back-end do aplicativo.
 
 #### Modelos
 
@@ -241,7 +241,6 @@ Esses métodos criam ou atualizam um registro para o dispositivo no qual são ch
 	}
 	catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 	{
-		// regId likely expired, delete from local storage and try again
 		settings.Remove("__NHRegistrationId");
 	}
 
@@ -330,4 +329,4 @@ No back-end do aplicativo, você pode executar operações básicas de CRUDS nos
 
 O back-end deve manipular a simultaneidade entre as atualizações do registro. O Barramento de Serviço oferece um controle de simultaneidade otimista para gerenciamento de registro. No nível HTTP, isso é implementado com o uso de ETag nas operações de gerenciamento de registro. Esse recurso é usado de forma transparente pelos SDKs da Microsoft, que lançam uma exceção se uma atualização for rejeitada por motivos de simultaneidade. O back-end é responsável por manipular essas exceções e tentar atualizar novamente, se isso for necessário.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

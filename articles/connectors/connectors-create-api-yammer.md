@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Conecte-se ao Yammer para acessar conversas em sua rede corporativa.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Yammer](../app-service-logic/app-service-logic-connector-yammer.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o Yammer, você pode:
 
@@ -41,7 +41,7 @@ Gatilho | Ações
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o Yammer
-Para usar a API do Yammer, crie primeiro uma **conexão**, em seguida, forneça os detalhes dessas propriedades:
+Para usar a API do Yammer, crie primeiro uma **conexão** e, em seguida, forneça os detalhes dessas propriedades:
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
@@ -93,7 +93,7 @@ Corresponde a “Todas” as conversas na interface da Web do Yammer.```GET: /me
 
 
 ### Postar uma mensagem em um grupo ou no Feed de Toda a Empresa
-Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado; caso contrário, ela será postada no Feed de Toda a Empresa.```POST: /messages.json```
+Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado. Caso contrário, ela será postada no Feed de Toda a Empresa.```POST: /messages.json```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -206,4 +206,4 @@ Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado; 
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

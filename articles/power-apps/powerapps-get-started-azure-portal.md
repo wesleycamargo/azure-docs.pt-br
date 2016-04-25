@@ -3,7 +3,7 @@
 	description="Introdução ao PowerApps Enterprise e como criar o ambiente do serviço de aplicativo"
 	services=""
     suite="powerapps"
-	documentationCenter="" 
+	documentationCenter=""
 	authors="linhtranms"
 	manager="dwrede"
 	editor=""/>
@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na" 
+   ms.workload="na"
    ms.date="11/29/2015"
    ms.author="litran"/>
 
@@ -33,8 +33,8 @@ Usando uma interface no estilo Office com faixas de opções e fórmulas do Exce
 Os Administradores de TI podem gerenciar aplicativos criados por usuários empresariais em suas empresas, incluindo:
 
 - Gerenciar esses aplicativos e o acesso do usuário a esses aplicativos.
-- Criar APIs e conexões com fontes de dados diferentes. 
-- Gerenciar o acesso do usuário às APIs e as conexões a essas fontes de dados. 
+- Criar APIs e conexões com fontes de dados diferentes.
+- Gerenciar o acesso do usuário às APIs e as conexões a essas fontes de dados.
 
 ## Como começar?
 
@@ -61,12 +61,12 @@ Se você já se inscreveu em uma assinatura do Azure com sua conta individual da
 Para fazer isso, execute as seguintes etapas. Como alternativa, você poderá criar um novo locatário e criar um administrador nesse locatário seguindo um processo semelhante.
 
 1.	Entre no [portal clássico do Azure](https://manage.windowsazure.com/) com sua conta individual.
-2.	Na barra de menus esquerda, escolha **Active Directory**. 
+2.	Na barra de menus esquerda, escolha **Active Directory**.
 3.	Escolha **Diretório Padrão** na lista de diretórios disponíveis.
 4.	Escolha a guia **Usuários** na parte superior. Há um único usuário listado com "Conta da Microsoft" na coluna Originado de.
-5.	Escolha **Adicionar Usuário** na parte inferior. 
+5.	Escolha **Adicionar Usuário** na parte inferior.
 6.	No formulário **Adicionar Usuário**, forneça os detalhes a seguir:  
-	
+
 	Propriedade | Descrição
 --- | ---
 Tipo de Usuário | Novo usuário na organização
@@ -75,7 +75,7 @@ Nome/Sobrenome/Nome de Exibição | Insira os valores
 Função | Administrador global
 Endereço de Email Alternativo | Insira seu valor
 Opcional | Habilitar o Multi-Factor Authentication  
-	
+
 	Clique no botão **CRIAR** para concluir e exibir a senha temporária.
 
 Quando terminar, registre essa senha temporária do novo usuário administrativo. Para alterar a senha temporária, acesse [https://login.microsoftonline.com](https://login.microsoftonline.com) usando essa nova conta de usuário e altere a senha. Você também pode enviar a senha diretamente para o usuário, usando um email alternativo.
@@ -104,7 +104,7 @@ Se você não se inscrever no PowerApps Enterprise, verá uma folha "sem acesso"
 
 Depois de concluir o processo de inscrição e estar pronto para usar o PowerApps Enterprise, você pode:
 
-- Adicionar usuários em sua empresa e, usando o [Controle de acesso baseado em função](../role-based-access-control-configure.md), fornecer a esses usuários funções de Administrador do PowerApps para acessar o portal do PowerApps Enterprise.
+- Adicione usuários em sua empresa e, usando o [Controle de acesso baseado em função](../active-directory/role-based-access-control-configure.md), forneça a esses usuários funções de Administrador do PowerApps para acessar o portal do PowerApps Enterprise.
 - Criar um ambiente do serviço de aplicativo dedicado para hospedar seu PowerApps.
 - Criar APIs e conexões para execução em seu ambiente do serviço de aplicativo dedicado.
 - Além dos aplicativos criados no PowerApps, você pode adicionar outros aplicativos ao seu ambiente de serviço de aplicativo, incluindo aplicativos Web, aplicativos móveis, aplicativos de API e aplicativos lógicos.
@@ -120,11 +120,11 @@ Crie um ambiente do serviço de aplicativo para hospedar suas APIs e conexões d
 Um ambiente do serviço de aplicativo é um ambiente isolado e dedicado que executa com segurança todos os seus aplicativos. Os recursos de computação são usados em um ambiente de serviço de aplicativo e são dedicados exclusivamente a executar apenas seus aplicativos. Quando você se inscreve no PowerApps Enterprise, um ambiente de serviço de aplicativo dedicado é usado para hospedar as APIs e as conexões usadas por seus aplicativos. Esse ambiente de serviço de aplicativo é um tipo "especial" de ambiente de serviço de aplicativo. Especificamente:
 
 - Você pode usar esse ambiente de serviço de aplicativo para fazer o que quiser. Ele está vinculado à sua empresa, não à assinatura.
-- Configure as APIs e as conexões que serão usadas por seus aplicativos criados no PowerApps. Porém, você também pode adicionar aplicativos Web, aplicativos móveis, aplicativos lógicos e aplicativos de API para esse mesmo ambiente de serviço de aplicativo. 
+- Configure as APIs e as conexões que serão usadas por seus aplicativos criados no PowerApps. Porém, você também pode adicionar aplicativos Web, aplicativos móveis, aplicativos lógicos e aplicativos de API para esse mesmo ambiente de serviço de aplicativo.
 - A cobrança é fixa e está incluída no PowerApps Enterprise.  
 - A escala é gerenciada automaticamente para você. Você não precisa monitorar o ambiente para determinar se os recursos de computação adicionais são necessários.
 
-O ambiente de serviço de aplicativo regular do Azure possui recursos diferentes. Confira [Introdução ao ambiente de Serviço de Aplicativo](../app-service-app-service-environment-intro.md) para obter mais detalhes.
+O ambiente de serviço de aplicativo regular do Azure possui recursos diferentes. Confira [Introdução ao ambiente de Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-intro.md) para ver esse detalhes.
 
 #### Requisitos para começar
 
@@ -136,16 +136,16 @@ O ambiente de serviço de aplicativo regular do Azure possui recursos diferentes
 > [AZURE.NOTE] Se você não vir a opção para criar o ambiente de serviço de aplicativo, ele já terá criado para seu locatário. Para exibir os detalhes, selecione **Configurações** para abrir o ambiente de serviço de aplicativo.
 
 1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta corporativa. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
- 
+
 2. Selecione **Procurar** na barra de tarefas: ![Procurar PowerApps][1]
-  
+
 3. Na lista, você poderá rolar a tela para localizar PowerApps ou digitar *powerapps*: ![Pesquisar PowerApps][2]
 
 4. Na folha **PowerApps**, escolha **Criar o Ambiente do Serviço de Aplicativo para começar** ou selecione **Ambiente do Serviço de Aplicativo** em *Configurações*: ![][5]
 
 	> [AZURE.NOTE] Se você clicar em **Criar o Ambiente do Serviço de Aplicativo para começar**, você verá uma folha extra com detalhes sobre o Ambiente do Serviço de Aplicativo. Basta clicar em Criar link nessa folha para iniciar a folha de criação.
 
-5. Em seguida, insira o nome, selecione a assinatura que você deseja usar, selecione ou crie um novo grupo de recursos e selecione uma rede virtual. **Perceba** que depois de escolher uma rede virtual, não será possível alterar: ![][6] Para saber mais sobre como as redes virtuais funcionam com um ambiente de serviço de aplicativo, consulte [Como criar um Ambiente do Serviço de Aplicativo](../app-service-web-how-to-create-an-app-service-environment.md).
+5. Em seguida, insira o nome, selecione a assinatura que você deseja usar, selecione ou crie um novo grupo de recursos e selecione uma rede virtual. **Perceba** que depois de escolher uma rede virtual, não será possível alterar: ![][6] Para saber mais sobre como as redes virtuais funcionam com um ambiente de serviço de aplicativo, consulte [Como criar um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md).
 
 6. Selecione **Adicionar** para concluir a criação do ambiente do serviço de aplicativo.
 
@@ -159,9 +159,7 @@ Para obter acesso ao ambiente de serviço de aplicativo, criar APIs, conexões e
 
 1. Selecione o ambiente de serviço de aplicativo que você acabou de criar.
 2. No Essentials, selecione a propriedade **Grupo de recursos**. Isso abre o grupo de recursos que contém o ambiente do serviço de aplicativo: ![][7]
-3. Escolha o ícone RBAC para gerenciar as permissões:
-![][8]  
-	Adicionar usuários e atribuir funções é o mesmo que usar o [Controle de acesso baseado em função]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) do Azure.
+3. Escolha o ícone RBAC para gerenciar as permissões: ![][8]Adicionar usuários e atribuir funções é o mesmo que usar o [ Controle de acesso baseado em função](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) do Azure.
 
 > [AZURE.NOTE] No momento, você não pode conceder permissões de RBAC para o ambiente de serviço de aplicativo. Você pode conceder permissões de RBAC no nível do grupo de recursos pai.
 
@@ -183,4 +181,4 @@ Agora sua empresa está inscrita no PowerApps e tem um ambiente de serviço de a
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0413_2016-->

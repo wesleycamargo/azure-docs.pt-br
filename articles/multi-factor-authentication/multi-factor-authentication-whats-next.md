@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="04/07/2016" 
 	ms.author="billmath"/>
 
 # Configurando o Azure Multi-Factor Authentication
@@ -36,7 +36,7 @@ Recurso| Descrição| O que é coberto
 [IPs Confiáveis](#trusted-ips)|IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa.|Instalar e configurar endereços IP que estão isentos para autenticação multifator	
 [Senhas de aplicativo](#app-passwords)|As senhas de aplicativo permitem que um aplicativo que não tenha reconhecimento de MFA possa se desviar da autenticação multifator e continuar trabalhando.|Informações sobre senhas de aplicativo.
 [Lembrar o Multi-Factor Authentication para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-users-trust)|Permite lembrar dispositivos por um número de dias específico após a entrada bem-sucedida de um usuário usando o MFA.|Informações sobre como habilitar esse recurso e configurar o número de dias.
-[Métodos de verificação selecionável (visualização pública)](#selectable-verification-methods-public-preview)|Permite que você escolha os métodos de autenticação disponíveis para os usuários usarem.|Informações sobre como habilitar ou desabilitar os métodos de autenticação específicos, como mensagens de texto ou chamada.
+[Métodos de verificação selecionáveis](#selectable-verification-methods)|Permite que você escolha os métodos de autenticação disponíveis para os usuários usarem.|Informações sobre como habilitar ou desabilitar os métodos de autenticação específicos, como mensagens de texto ou chamada.
 
 
 
@@ -355,7 +355,7 @@ No entanto, já que os usuários têm permissão para lembrar o MFA para disposi
 10. Clique em Fechar.
 
 
-## Métodos de verificação selecionável (visualização pública)
+## Métodos de verificação selecionáveis
 Agora é possível escolher os métodos de autenticação que estão disponíveis para os usuários ao usar a Multi-Factor Authentication. Anteriormente, este recurso só estava disponível na versão do servidor local. A tabela a seguir fornece uma visão geral dos vários métodos de autenticação que podem ser habilitados ou desabilitados para os seus usuários.
 
 Método|Descrição
@@ -376,4 +376,4 @@ Método|Descrição
 9. Clique em Salvar.
 10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

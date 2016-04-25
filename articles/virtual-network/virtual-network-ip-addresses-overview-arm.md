@@ -28,7 +28,7 @@ Endereços IP privados são usados para comunicação em uma VNet (rede virtual)
 Se você estiver familiarizado com o modelo de implantação clássico, verifique as [diferenças de endereçamento IP entre o clássico e o Gerenciador de Recursos](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Endereços IP públicos
-Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [bancos de dados SQL](sql-database-technical-overview.md) e [armazenamento do Azure](storage-introduction.md).
+Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [bancos de dados SQL](../sql-database/sql-database-technical-overview.md) e [armazenamento do Azure](../storage/storage-introduction.md).
 
 No Gerenciador de recursos do Azure, um endereço [IP público](resource-groups-networking.md#public-ip-address) é um recurso com as próprias propriedades. Você pode associar um recurso de endereço IP público a qualquer um dos seguintes recursos:
 
@@ -62,13 +62,13 @@ Você pode especificar um rótulo de nome de domínio DNS para um recurso IP pú
 Você pode associar um endereço IP público a uma VM ([Máquina Virtual](../virtual-machines/virtual-machines-linux-about.md)) atribuindo-o à sua NIC (**placa de interface de rede**). No caso de uma VM de várias NICs, você pode atribuí-la apenas para a NIC *primária*. Você pode atribuir um endereço IP público dinâmico ou estático a uma VM.
 
 ### Balanceadores de carga para Internet
-Você pode associar um endereço IP público com um [balanceador de carga](load-balancer-overview.md), atribuindo-o à configuração de **front-end** do balanceador de carga. Este endereço IP público serve como um balanceamento de carga de endereço VIP (IP virtual). Você pode atribuir um endereço IP público estático ou dinâmico a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um front-end de balanceador de carga, que permite cenários [multi-vip](load-balancer-multivip.md) como um ambiente de multilocatário com sites baseados em SSL.
+Você pode associar um endereço IP público com um [balanceador de carga](../load-balancer/load-balancer-overview.md), atribuindo-o à configuração de **front-end** do balanceador de carga. Este endereço IP público serve como um balanceamento de carga de endereço VIP (IP virtual). Você pode atribuir um endereço IP público estático ou dinâmico a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um front-end de balanceador de carga, que permite cenários [multi-vip](../load-balancer/load-balancer-multivip.md) como um ambiente de multilocatário com sites baseados em SSL.
 
 ### Gateways VPN
-O [Gateway de VPN do Azure](vpn-gateway-about-vpngateways.md) é usado para conectar uma rede virtual do Azure (VNet) a outras VNets do Azure ou rede local. É necessário atribuir um endereço IP público à sua **configuração IP** para permitir a comunicação com a rede remota. No momento, você pode atribuir apenas um endereço IP público dinâmico a um gateway de VPN.
+O [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md) é usado para conectar uma rede virtual do Azure (VNet) a outras VNets do Azure ou rede local. É necessário atribuir um endereço IP público à sua **configuração IP** para permitir a comunicação com a rede remota. No momento, você pode atribuir apenas um endereço IP público dinâmico a um gateway de VPN.
 
 ### Application gateways
-Você pode associar um endereço IP público do Azure [Application Gateway](application-gateway-introduction.md), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. No momento, você pode atribuir apenas um endereço IP público *dinâmico* a uma configuração de front-end de do Application Gateway.
+Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md), atribuindo-o à configuração de **front-end** do gateway. Esse endereço IP público serve como um VIP com balanceamento de carga. No momento, você pode atribuir apenas um endereço IP público *dinâmico* a uma configuração de front-end de do Application Gateway.
 
 ### Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP público pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.
@@ -113,7 +113,7 @@ Quando você cria uma VM, um mapeamento para o nome de host para seu endereço I
 Máquinas virtuais configuradas com servidores DNS gerenciados do Azure serão capazes de resolver os nomes de host de todas as VMs em sua rede virtual para seus endereços IP privados.
 
 ### Balanceadores de carga internos (ILB) e gateways de aplicativo
-Você pode atribuir um endereço IP privado para a configuração de **front-end** de um [balanceador de carga interno do Azure](load-balancer-internal-overview.md) (ILB) ou um [Azure Application Gateway](application-gateway-introduction.md). Esse endereço IP privado serve como ponto de extremidade interno, acessível somente aos recursos dentro da sua rede virtual (VNet) e de redes remotas conectadas à VNet. Você pode atribuir a um endereço IP privado dinâmico ou estático à configuração de front-end.
+Você pode atribuir um endereço IP privado para a configuração de **front-end** de um [balanceador de carga interno do Azure](../load-balancer/load-balancer-internal-overview.md) (ILB) ou um [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). Esse endereço IP privado serve como ponto de extremidade interno, acessível somente aos recursos dentro da sua rede virtual (VNet) e de redes remotas conectadas à VNet. Você pode atribuir a um endereço IP privado dinâmico ou estático à configuração de front-end.
 
 ### Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP privado pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.
@@ -137,4 +137,4 @@ Na maioria dos casos, endereços IP públicos são gratuitos. Há um custo nomin
 - Saiba como [implantar uma VM com um IP público estático usando um modelo](virtual-network-deploy-static-pip-arm-template.md).
 - [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-arm-pportal.md) usando o Portal do Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

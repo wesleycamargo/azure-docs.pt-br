@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="03/07/2016"
+   ms.date="04/13/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guia para criar uma imagem de máquina virtual para o Azure Marketplace
@@ -45,96 +45,13 @@ Depois de adicionar uma oferta, você terá de definir e identificar sua SKU. Vo
 
 1. **Adicionar uma SKU.** A SKU requer um identificador, que é usado na URL. O identificador tem que ser exclusivo no perfil de publicação, mas não há risco de conflito de identificador com outros editores.
 
-> [AZURE.NOTE] A oferta e o identificador da SKU são exibido na URL da oferta no Marketplace.
+    > [AZURE.NOTE] A oferta e o identificador da SKU são exibido na URL da oferta no Marketplace.
 
 2. **Adicionar uma descrição resumida para a sua SKU.** As descrições resumidas ficam visíveis para os clientes; portanto, você deve torná-las fáceis de ler. Essa informação não precisa ser bloqueada até a fase "Mover para o Preparo". Até lá, você estará livre para editá-la.
 3. Se você estiver usando SKUs baseadas no Windows, siga os links sugeridos para adquirir as versões aprovadas do Windows Server.
 
 ## 2\. Criar VHD compatível com o Azure (baseado em Linux)
-Esta seção concentra-se nas melhores práticas para a criação de uma imagem VM baseada em Linux para o Azure Marketplace. Para uma explicação passo a passo, consulte a seguinte documentação: [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux][link-azure-vm-1]
-
-> [AZURE.TIP] Muitas das etapas a seguir (por exemplo, instalação de agente, parâmetros de inicialização do kernel) já foram realizadas para imagens do Linux disponíveis na galeria de imagens do Microsoft Azure. Assim, começar com uma dessas imagens como uma base pode representar uma economia de tempo em relação a configurar uma imagem do Linux que não está ciente do Azure.
-
-### 2\.1 Escolha o tamanho correto do VHD
-SKUs publicadas (imagens de VM) devem ser projetadas para trabalhar com todos os tamanhos de VM que dão suporte ao número de discos da SKU. Você pode fornecer orientações sobre tamanhos recomendados, mas estes serão tratados como recomendações e não imposições:
-
-1. VHD do sistema operacional Linux: o VHD do sistema operacional Linux em sua imagem VM deve ser criado como um VHD de formato fixo de 30 GB a 50 GB. Ele não pode ser inferior a 30 GB. Se o tamanho físico for menor do que o tamanho do VHD, o VHD deve ser esparso. VHDs do Linux maiores de 50 GB serão considerados caso a caso. Se você já tiver um VHD em um formato diferente, poderá usar o [cmdlet PowerShell de conversão de VHD para alterar o formato.][link-technet-1]
-2. VHD de disco de dados: os discos de dados podem ser de até 1 TB. Os VHDs de disco de dados devem ser criados como um VHD de formato fixo. Eles também devem ser esparsos. Ao decidir sobre o tamanho do disco, lembre-se que os clientes não podem redimensionar VHDs dentro de uma imagem.
-
-### 2\.2 Verifique se o mais recente agente Linux do Azure está instalado
-Ao preparar o sistema operacional do VHD, verifique se o [Agente Linux do Azure][link-azure-vm-2] mais recente está instalado. Usando os pacotes RPM ou Deb. O pacote é frequentemente chamado walinuxagent ou WALinuxAgent, mas verifique a sua distribuição para ter certeza. O agente oferece funções-chave para a implantação da IaaS do Linux no Azure, como provisionamento de VM e recursos de rede.
-
-Apesar do agente poder ser configurado em uma variedade de formas, recomendamos que você use uma configuração de agente genérico para maximizar a compatibilidade. Você pode instalar o agente manualmente, mas recomendamos que você use os pacotes pré-configurados da sua distribuição, se disponíveis.
-
-Se você optar por instalar o agente manualmente usando o [repositório GitHub][link-github-waagent], primeiro copie o arquivo Waagent em /usr/sbin e execute os seguintes comandos no diretório-raiz:
-
-    # chmod 755 /usr/sbin/waagent
-    # /usr/sbin/waagent -install
-
-O arquivo de configuração do agente é colocado em /etc/waagent.conf.
-
-### 2\.3 Verifique se as bibliotecas necessárias estão incluídas
-Além do agente Linux do Azure, as seguintes bibliotecas também devem ser incluídas:
-
-1. O [Linux Integration Services][link-intsvc] versão 3.0 ou superior deve estar habilitado no kernel. Consulte [Requisitos do kernel do Linux](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)
-2. [Patch do Kernel](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) para estabilidade de E/S do Azure (provavelmente não é necessário para kernel recente, mas ele deve ser verificado)
-3. [Python][link-python] 2.6 ou posterior
-4. Pacote Python pyasn1, se já não estiver instalado
-5. [OpenSSL][link-openssl] (versão 1.0 ou superior recomendado)
-
-### 2\.4 Configuração das partições de disco
-Recomendamos que você não use o Gerenciador de Volume Lógico. Crie uma partição única raiz para o disco do sistema operacional. Não use uma partição swap no disco de dados ou no sistema operacional. Recomendamos remover uma partição swap, mesmo que não esteja montada em /etc/fstab. Se necessário, uma partição swap pode ser criada no disco de recursos local (/dev/sdb) pelo Agente Linux.
-
-### 2\.5 Adicionar parâmetros necessários de linha de inicialização do kernel
-Os seguintes parâmetros também precisam ser adicionados à linha de inicialização do kernel:
-
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
-
-Isso garante que o Suporte Azure pode oferecer aos clientes saída de console serial quando necessário. Ele também fornece o tempo limite adequado para montar o disco do sistema operacional usando o armazenamento na nuvem. Mesmo que suas SKU impeçam os clientes de usar o SSH diretamente na máquina virtual, a saída do console serial deve ser habilitada.
-
-### 2\.6 Inclua o servidor SSH por padrão
-Recomendamos fortemente habilitar o SSH para o cliente. Se o servidor SSH estiver habilitado, adicione o SSH keep alive à configuração sshd com a seguinte opção: **ClientAliveInterval 180**. Recomenda-se 180, mas o intervalo de 30 a 235 é aceitável. Nem todos os aplicativos desejam fornecer aos clientes acesso direto de SSH à máquina virtual. Se o SSH for explicitamente bloqueado, a opção **ClientAliveInterval** não precisará ser definida.
-
-### 2\.7 Atenda aos requisitos de rede
-A seguir estão os requisitos de rede para uma imagem VM do Linux compatível com Azure.
-
-- Em muitos casos, é melhor desativar o NetworkManager. Uma exceção é com sistemas baseados em CentOS 7.x (e derivados), que devem manter o NetworkManager habilitado.
-- A configuração de rede deve ser controlável por meio de scripts de **ifup** e **ifdown**. O agente Linux pode usar esses comandos para reiniciar o sistema de rede durante o provisionamento.
-- Não deve haver nenhuma configuração de rede personalizada. O arquivo Resolv.conf deve ser excluído como etapa final. Isso geralmente é feito como parte do desprovisionamento (consulte [Guia do usuário do Azure Linux Agent](./virtual-machines-linux-agent-user-guide/)). Você também pode executar essa etapa manualmente com o comando a seguir.
-
-        rm /etc/resolv.conf
-
-- O dispositivo de rede precisa ser usado na inicialização e usar o DHCP.
-- Não há suporte para IPv6 6 no Azure. Se essa propriedade estiver habilitada, ele não vai funcionar.
-
-### 2\.8 Verifique se as práticas recomendadas de segurança estão em vigor
-É fundamental que as SKUs no Azure Marketplace sigam as melhores práticas no que diz respeito à segurança. Elas incluem as seguintes:
-
-- Instale todos os patches de segurança para a sua distribuição.
-- Siga as diretrizes de segurança de distribuição.
-- Evite criar contas padrão, que permanecem as mesmas, nas instâncias de provisionamento.
-- Limpe entradas de histórico de bash.
-- Inclua software de iptables (firewall), mas não habilite regras. Isto fornece uma experiência padrão perfeita para os clientes. Clientes que desejam usar um firewall de VM para configuração adicional podem configurar as regras de iptables para atender às suas necessidades específicas.
-
-### 2\.9 Generalizar a imagem
-Todas as imagens do Azure Marketplace devem ser reutilizáveis de uma forma genérica, o que exige tirar delas certas especificidades de configuração. Para conseguir isso no Linux, o VHD do sistema operacional deve ser desprovisionado.
-
-O comando Linux para desprovisionamento é este abaixo.
-
-        # waagent -deprovision
-
-Este comando automaticamente:
-
-- Remove a configuração do servidor de nome em /etc/resolv.conf.
-- Remove concessões de cliente DHCP em cache.
-- Reinicia o nome de host para localdomain.localdomain.
-
-Recomendamos definir o arquivo de configuração (/etc/waagent.conf) para garantir que as seguintes ações também sejam concluídas:
-
-- Definir Provisioning.RegenerateSshHostKeyPair como “y” no arquivo de configuração para remover todas as chaves de host SSH.
-- Definir Provisioning.DeleteRootPassword como “y” no arquivo de configuração para remover a senha raiz de /etc/shadow. Para obter a documentação sobre o conteúdo do arquivo de configuração, consulte a seção "Configuração" do arquivo Leia-me na página do repositório Github Agent ([https://github.com/Azure/WALinuxAgent](https://github.com/Azure/WALinuxAgent) e role para baixo).  
-
-Neste ponto, você concluiu a generalização da VM Linux. Desligar a VM no Portal do Azure, na linha de comando ou na VM. Quando a VM estiver desligada, continue a Etapa 3.4.
+Esta seção concentra-se nas melhores práticas para a criação de uma imagem VM baseada em Linux para o Azure Marketplace. Para uma explicação passo a passo, consulte a seguinte documentação: [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
 
 ## 3\. Criar um VHD compatível com Azure (baseado no Windows)
 Esta seção enfoca as etapas para criar uma SKU baseada no Windows Server para o Azure Marketplace.
@@ -252,7 +169,7 @@ Todas as imagens do Azure Marketplace devem ser reutilizáveis de uma forma gen�
 
         sysprep.exe /generalize /oobe /shutdown
 
-  Orientação sobre como aplicar o sysprep no sistema operacional é fornecida na Etapa do seguinte artigo MSDN: [Criar e carregar um VHD do Windows Server no Azure](./virtual-machines-create-upload-vhd-windows-server/).
+  Orientação sobre como aplicar o sysprep no sistema operacional é fornecida na Etapa do seguinte artigo MSDN: [Criar e carregar um VHD do Windows Server no Azure](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
 
 ## 4\. Implantar uma VM por meio dos seus VHDs
 Depois de carregar seus VHDs (o VHD do sistema operacional generalizado e zero ou mais VHDs de disco de dados) para uma conta de armazenamento do Azure, você pode registrá-los como uma imagem VM do usuário. Em seguida, você pode testar essa imagem. Observe que, como seu VHD do sistema operacional é generalizado, você não pode implantar a VM diretamente fornecendo a URL do VHD.
@@ -644,11 +561,10 @@ Depois de terminar com os detalhes do SKU, avance até o [Guia de conteúdo de m
 [link-datactr-2012]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]: ./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]: https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]: ./virtual-machines-linux-agent-user-guide/
 [link-openssl]: https://www.openssl.org/
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -24,7 +24,7 @@ Use as diretrizes a seguir referentes a quando incluir informações de "estrutu
 1.	**Para fontes de dados estruturados** que armazenam o esquema de dados e informações de tipo junto com os dados em si (fontes como tabela do Azure do SQL Server, Oracle, etc.), você deve especificar a seção "estrutura" apenas se quiser fazer o mapeamento de coluna de colunas de origem específicas para colunas específicas no coletor e seus nomes não forem iguais (consulte detalhes na seção mapeamento de coluna abaixo). 
 
 	Conforme mencionado acima, as informações de tipo são opcionais na seção "estrutura". Para fontes estruturadas, as informações de tipo já estão disponíveis como parte da definição de conjunto de dados no repositório de dados, portanto, você não deve incluir informações de tipo quando você incluir a seção "estrutura".
-2. **Para esquema de fontes de dados de leitura (especificamente blob do Azure)** você pode optar por armazenar os dados sem armazenar nenhuma informação de tipo ou esquema juntamente com esses dados. Para esses tipos de fontes de dados, você deve incluir "estrutura" nos 2 casos a seguir:
+2. **Para esquema de fontes de dados de leitura (especificamente o blob do Azure)**, você pode optar por armazenar os dados sem armazenar nenhuma informação de tipo ou esquema juntamente com esses dados. Para esses tipos de fontes de dados, você deve incluir "estrutura" nos 2 casos a seguir:
 	1. Você deseja fazer o mapeamento de coluna.
 	2. Quando o conjunto de dados é uma fonte em uma Atividade de cópia, você pode fornecer informações de tipo em "estrutura" e o data factory usará essas informações de tipo para conversão em tipos nativos para o coletor. Consulte o artigo [Mover dados de e para o Blob do Azure](../articles/data-factory/data-factory-azure-blob-connector.md) para obter mais informações.
 
@@ -47,4 +47,4 @@ O data factory dá suporte aos valores de tipo baseados em .NET compatíveis com
 
 Para Datetime e Datetimeoffset, você também pode especificar as cadeias de caracteres para "cultura" e "formato" para facilitar a análise de sua cadeia de caracteres Datetime personalizada. Consulte o exemplo de conversão de tipo abaixo.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

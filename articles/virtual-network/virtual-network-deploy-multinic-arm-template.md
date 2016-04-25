@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Implantar VMs com várias NICs usando um modelo no Gerenciador de Recursos | Microsoft Azure"
    description="Saiba como implantar VMs com várias NICs usando um modelo no Gerenciador de Recursos"
    services="virtual-network"
@@ -229,20 +229,20 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
 		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'
 
 	Saída esperada:
 
 		ResourceGroupName : IaaSStory-Backend
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
+		Tags              :
+		Permissions       :
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *                  
-		                    
-		Resources         : 
+
+		Resources         :
 		                    Name                 Type                                 Location
 		                    ===================  ===================================  ========
 		                    ASDB                 Microsoft.Compute/availabilitySets   westus  
@@ -253,14 +253,14 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 		                    NICDB-RA-1           Microsoft.Network/networkInterfaces  westus  
 		                    NICDB-RA-2           Microsoft.Network/networkInterfaces  westus  
 		                    wtestvnetstorageprm  Microsoft.Storage/storageAccounts    westus  
-		                    
+
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 
 ## Implantar o modelo usando a CLI do Microsoft Azure
 
 Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute a opção de comando **`azure config mode`** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
@@ -292,4 +292,4 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

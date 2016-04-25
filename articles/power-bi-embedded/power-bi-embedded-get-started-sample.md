@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introdução ao exemplo"
-   description="Introdução ao exemplo"
+   description=""
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -21,7 +21,7 @@
 O **Microsoft Power BI Embedded Preview** habilita você a integrar relatórios do Power BI em seus aplicativos móveis ou Web para que você não precise compilar soluções personalizadas para visualizar dados para os seus usuários. Os recursos a seguir podem ajudá-lo a começar a integração de relatórios do Power BI em seu aplicativo.
 
  -	[Aplicativo Web do painel de exemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
- -	[Referência da API do Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
+ -	[Referência da API do Power BI Embedded](https://msdn.microsoft.com/library/mt712303.aspx)
  -	[SDK do .NET do Power BI Embedded (disponível via NuGet)](http://go.microsoft.com/fwlink/?LinkId=746472)
 
 Neste artigo, você é apresentado ao exemplo de introdução do **Power BI Embedded**. Vamos começar a configurar o aplicativo de exemplo para que você possa executar o aplicativo Web de exemplo.
@@ -52,7 +52,7 @@ O conteúdo a seguir orientará você sobre como configurar seu ambiente de dese
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
-8. Para importar um arquivo PBIX para o **Espaço de Trabalho**, selecione a opção **6. Importe o arquivo da Área de Trabalho PBIX em um espaço de trabalho existente**. Se você não tiver um PBIX arquivo prático, você poderá baixar o [exemplo PBIX Analisando Dados de Vendas](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix).
+8. Para importar um arquivo PBIX para o **Espaço de Trabalho**, selecione a opção **6. Importe o arquivo da Área de Trabalho PBIX em um espaço de trabalho existente**. Se você não tiver um arquivo PBIX prático, poderá baixar o [PBIX de Exemplo de Análise de Vendas](http://go.microsoft.com/fwlink/?LinkID=780547).
 
 9. Se solicitado, insira um nome amigável para o **Conjunto de Dados**.
 
@@ -86,7 +86,7 @@ Aqui está como configurar o aplicativo Web de exemplo.
     ```
 3. Execute o aplicativo Web **EmbedSample**.
 
-Depois que você executar o aplicativo Web **EmbedSample**, o painel de navegação esquerdo deve conter um menu **Relatórios**. Para exibir o relatório que você importou, expanda **Relatórios** e clique em um relatório. Se você importou o [exemplo de PBIX Analisando Dados de Vendas](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), o aplicativo Web de exemplo teria essa aparência:
+Depois que você executar o aplicativo Web **EmbedSample**, o painel de navegação esquerdo deve conter um menu **Relatórios**. Para exibir o relatório que você importou, expanda **Relatórios** e clique em um relatório. Se você tivesse importado o [PBIX de Exemplo de Análise de Vendas](http://go.microsoft.com/fwlink/?LinkID=780547), o aplicativo Web de exemplo teria esta aparência:
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
@@ -221,6 +221,20 @@ Depois de ter um **Relatório**, você usa um **IFrame** para inserir o **Relat�
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
+
+### Filtrar relatórios inseridos no seu aplicativo
+
+Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta à sua URL src iFrame com o filtro especificado. Aqui está a sintaxe de consulta de filtro:
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
+$filter={tableName/fieldName} eq '{fieldValue}'
+```
+
+> [AZURE.NOTE] {tableName/fieldName} não pode incluir espaços ou caracteres especiais. O {fieldValue} aceita um único valor categórico.
+
+
 ## Consulte também
 
 - [O que é o Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
@@ -228,4 +242,4 @@ Depois de ter um **Relatório**, você usa um **IFrame** para inserir o **Relat�
 - [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 - [Sobre o fluxo de tokens de aplicativo no Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

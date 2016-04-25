@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="03/03/2016"
+	ms.date="04/07/2016"
 	ms.author="billmath"/>
 
 # O que é o Azure Multi-Factor Authentication?
@@ -108,7 +108,7 @@ Aplicativos móveis como um fator secundário|* | * | *
 Chamada telefônica como um fator secundário|* | * | *
 SMS como um fator secundário|* | * | *
 Senhas de aplicativos para clientes que não oferecem suporte a MFA|* | * | *
-Controle do administrador sobre métodos de autenticação| (Visualização pública)|(Visualização pública) | *
+Controle do administrador sobre métodos de autenticação| *|* | *
 Modo PIN| | | *
 Alerta de fraude| | | *
 Relatórios de MFA| | | *
@@ -193,7 +193,7 @@ SMS unidirecional como segundo fator | ● | ●
 SMS bidirecional como segundo fator | | ●
 Tokens de hardware como segundo fator | | ●
 Senhas de aplicativos para clientes que não oferecem suporte a MFA | ● |  
-Controle do administrador sobre métodos de autenticação | (Visualização pública) | ●
+Controle do administrador sobre métodos de autenticação | ● | ●
 Modo PIN | | ●
 Alerta de fraude | ● | ●
 Relatórios de MFA | ● | ●
@@ -209,4 +209,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

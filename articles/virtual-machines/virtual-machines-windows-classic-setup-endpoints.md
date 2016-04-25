@@ -17,15 +17,14 @@
 	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-# Como configurar pontos de extremidade em uma máquina virtual clássica do Windows no Azure
+# Como configurar pontos de extremidade em uma máquina virtual clássica no Azure
 
 
-
-Todas as máquinas virtuais do Windows criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Se desejar obter informações sobre pontos de extremidade em VMs do Linux, consulte [How to set up endpoints on a classic Linux virtual machine in Azure (Como configurar pontos de extremidade em uma máquina virtual Linux clássica no Azure)](virtual-machines-linux-classic-setup-endpoints.md).
+Todas as máquinas virtuais do Windows criadas no Azure usando o modelo de implantação clássico podem se comunicar automaticamente com outras máquinas virtuais no mesmo serviço de nuvem ou rede virtual por um canal de rede privada. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos de extremidade para direcionar o tráfego de rede de entrada para uma máquina virtual. Este artigo também está disponível para [máquinas virtuais Linux](virtual-machines-linux-classic-setup-endpoints.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
-Quando você cria uma máquina virtual do Windows no portal clássico do Azure, pontos de extremidade comuns como aqueles para a Área de Trabalho Remota e a Comunicação Remota do Windows PowerShell normalmente são criados para você automaticamente, dependendo do sistema operacional que escolher. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
+Quando você cria uma máquina virtual do Windows no portal clássico do Azure, pontos de extremidade comuns como aqueles para a Área de Trabalho Remota e a Comunicação Remota do Windows PowerShell normalmente são criados para você automaticamente. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
 
 
 
@@ -39,4 +38,4 @@ Quando você cria uma máquina virtual do Windows no portal clássico do Azure, 
 
 * Se você criou uma máquina virtual no modelo de implantação do Resource Manager, também pode usar o Azure PowerShell para [criar um balanceador de carga para Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

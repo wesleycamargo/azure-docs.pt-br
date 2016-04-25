@@ -24,17 +24,9 @@
 
 Este tutorial apresenta o recurso de sincronização offline de Aplicativos móveis do Azure para Xamarin.iOS. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local; quando o dispositivo estiver online novamente, essas alterações são sincronizadas ao serviço remoto.
 
-Neste tutorial, você atualizará o projeto de aplicativo do Xamarin.iOS do tutorial [Criar um aplicativo do Xamarin iOS] para dar suporte aos recursos offline dos Aplicativos Móveis do Azure. Se você não usar o projeto baixado do início rápido do servidor, deve adicionar os pacotes de extensão de acesso de dados autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Neste tutorial, você atualizará o projeto de aplicativo do Xamarin.iOS de [Criar um aplicativo Xamarin.iOS] para dar suporte aos recursos offline dos Aplicativos Móveis do Azure. Se você não usar o projeto baixado do início rápido do servidor, deve adicionar os pacotes de extensão de acesso de dados autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Para saber mais sobre o recurso de sincronização offline, confira o tópico [Sincronização de dados offline nos Aplicativos Móveis do Azure].
-
-## Requisitos
-
-Este tutorial exige o seguinte:
-
-* Visual Studio 2013
-* [Extensão Xamarin] do Visual Studio **ou** [Xamarin Studio em OS X]
-* Conclusão do tutorial [Criar um aplicativo Xamarin iOS]. Este tutorial usa o aplicativo concluído abordado nesse tutorial.
 
 ## Examine o código de sincronização do cliente
 
@@ -65,10 +57,10 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
     No código fornecido, todos os registros na tabela remota `TodoItem` são solicitados, mas também é possível filtrar os registros passando uma ID de consulta e uma consulta ao `PushAsync`. Para obter mais informações, confira a seção *Sincronização incremental* em [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
- 	-->
+	-->
 
 
-			// QSTodoService.cs
+		// QSTodoService.cs
 
         public async Task SyncAsync()
         {
@@ -143,7 +135,7 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 
 * [Sincronização de dados offline em Aplicativos Móveis do Azure]
 
-* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] \(observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
+* [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure] (observação: o vídeo está nos Serviços Móveis, mas a sincronização offline funciona de maneira semelhante nos Aplicativos Móveis do Azure)
 
 <!-- ##Summary
 
@@ -159,16 +151,11 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 <!-- Images -->
 
 <!-- URLs. -->
-[Criar um aplicativo Xamarin iOS]: ../app-service-mobile-xamarin-ios-get-started.md
-[Criar um aplicativo do Xamarin iOS]: ../app-service-mobile-xamarin-ios-get-started.md
-[Sincronização de dados Offline em aplicativos móveis do Azure]: ../app-service-mobile-offline-data-sync.md
-[Sincronização de dados offline nos Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
-
-[How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
-
-[Xamarin Studio em OS X]: http://xamarin.com/download
-[Extensão Xamarin]: http://xamarin.com/visual-studio
-
+[Criar um aplicativo Xamarin iOS]: app-service-mobile-xamarin-ios-get-started.md
+[Criar um aplicativo Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
+[Sincronização de dados Offline em aplicativos móveis do Azure]: app-service-mobile-offline-data-sync.md
+[Sincronização de dados offline nos Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

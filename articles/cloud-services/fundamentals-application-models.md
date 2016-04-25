@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Opções de hospedagem de computação fornecidas pelo Azure" 
-	description="Saiba mais sobre as opções de hospedagem de computação do Azure e como elas funcionam: Serviços de Aplicativo, Serviços de Nuvem, Máquinas Virtuais entre outros" 
-	headerExpose="" 
-	footerExpose="" 
-	services="cloud-services,virtual-machines"
-	authors="Thraka" 
+<properties
+	pageTitle="Opções de hospedagem de computação fornecidas pelo Azure"
+	description="Saiba mais sobre as opções de hospedagem de computação do Azure e como elas funcionam: Serviços de Aplicativo, Serviços de Nuvem, Máquinas Virtuais entre outros"
+	headerExpose=""
+	footerExpose=""
+	services="cloud-services"
+	authors="Thraka"
 	documentationCenter=""
 	manager="timlt"/>
 
@@ -14,71 +14,50 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="adegeo;cephalin;kathydav"/>
+	ms.date="03/28/2016" 
+	ms.author="adegeo"/>
 
 
+# Devo escolher os serviços de nuvem ou algo mais?
 
+Os Serviços de Nuvem do Azure são a escolha certa para você? A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada um deles fornece um conjunto de serviços diferente, portanto, qual deles você escolhe depende exatamente do que você está tentando fazer.
 
-# Opções de hospedagem de computação fornecidas pelo Azure
+[AZURE.INCLUDE [tabela de computação](../../includes/compute-options-table.md)]
 
-A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada um deles fornece um conjunto de serviços diferente e, portanto, qual deles você escolhe depende exatamente do que você está tentando fazer. Este artigo aborda as opções, descrevendo cada tecnologia e fornecendo exemplos de quando usá-la.
+<a name="tellmecs"></a>
+## Fale-me sobre os serviços de nuvem
 
-| Opções de computação | Público-alvo |
-| ------------------ | --------   |
-| [Serviço de Aplicativo] | Aplicativos Web escalonáveis, Aplicativos Móveis, Aplicativos de API e Aplicativos Lógicos para qualquer dispositivo |
-| [Serviços de Nuvem] | Aplicativos de nuvem de n camadas altamente disponíveis e escalonáveis com mais controle do sistema operacional |
-| [Máquinas virtuais] | VMs Windows e Linux personalizadas com controle completo do sistema operacional |
+Os Serviços de Nuvem é um exemplo de PaaS (Plataforma como Serviço). Como o [Serviço de Aplicativo](../app-service-web/app-service-web-overview.md), essa tecnologia foi desenvolvida para dar suporte a aplicativos escalonáveis, confiáveis e baratos. Assim como o Serviço de Aplicativo é hospedado em VMs, os Serviços de Nuvem também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software nas VMs do Serviço de Nuvem e controlá-los remotamente.
 
-[AZURE.INCLUDE [conteúdo](../../includes/app-service-choose-me-content.md)]
+![cs\_diagram](./media/cloud-services-choose-me/diagram.png)
 
-[AZURE.INCLUDE [conteúdo](../../includes/cloud-services-choose-me-content.md)]
+Mais controle também significa menos facilidade de uso. A menos que você precise de opções de controle adicional, geralmente é mais rápido e fácil colocar um aplicativo Web em funcionamento em Aplicativos Web, Serviço de Aplicativo, em comparação com os serviços de nuvem.
 
-[AZURE.INCLUDE [conteúdo](../../includes/virtual-machines-choose-me-content.md)]
+A tecnologia fornece duas opções de VM ligeiramente diferentes: as instâncias das *funções Web* executam uma variante do Windows Server com IIS, enquanto as instâncias das *funções de trabalho* executam a mesma variante do Windows Server sem IIS. Um aplicativo de Serviços de Nuvem depende de uma combinação dessas duas opções.
 
-## Outras opções
+Qualquer combinação dessas duas opções de hospedagem de VM ligeiramente diferentes estão disponíveis em um serviço de nuvem:
 
-A Azure também oferece outros modelos de hospedagem de computação para fins mais especializados, como os seguintes:
+* **Função Web** Executa o Windows Server com o seu aplicativo Web automaticamente implantado no IIS.
+  
+* **Função de trabalho** Executa o Windows Server sem o IIS.
 
-* [Serviços Móveis](/services/mobile-services/)  
-  Otimizado para fornecer um back-end de nuvem para aplicativos que são executados em dispositivos móveis.
-* [Lote](/services/batch/)  
-  Otimizado para processar grandes volumes de tarefas semelhantes, idealmente a cargas de trabalho que prestam-se para executar como tarefas paralelas em vários computadores.
-* [HDInsight (Hadoop)](/services/hdinsight/)  
-  Otimizado para execução de trabalhos [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) em clusters de Hadoop. 
+Por exemplo, um aplicativo simples pode usar apenas uma função Web, enquanto um aplicativo mais complexo pode usar uma função Web para lidar com solicitações de entrada de usuários, em seguida, passar o trabalho que essas solicitações criam a uma função de trabalho para processamento. (Essa comunicação pode usar o [Barramento de Serviço](../service-bus/service-bus-fundamentals-hybrid-solutions.md) ou as [Filas do Azure](../storage/storage-introduction.md).)
 
-## Qual devo usar? Fazendo uma escolha
+Como a figura acima sugere, todas as VMs em um único aplicativo são executados no mesmo serviço de nuvem. Em razão disso, os usuários acessam o aplicativo por meio de um único endereço IP público, com a carga de solicitações balanceada automaticamente entre as VMs do aplicativo. A plataforma vai [escalar e implantar](cloud-services-how-to-scale.md) as VMs em um aplicativo de Serviços de Nuvem de uma maneira que evita um único ponto de falha de hardware.
 
-Todas os três modelos de hospedagem de computação da Azure para propósito geral permitem que você crie aplicativos escalonáveis e confiáveis na nuvem. Dada essa importante semelhança, qual deles devo usar?
+Ainda que os aplicativos sejam executados em máquinas virtuais, é importante entender que os Serviços de Nuvem fornecem PaaS, e não IaaS. Aqui está uma forma de pensar: com a IaaS, como as Máquinas Virtuais do Azure, primeiramente você cria e configura o ambiente em que seu aplicativo será executado, em seguida, implanta o aplicativo nesse ambiente. Você é responsável por gerenciar grande parte desse mundo, realizando tarefas como a implantação de novas versões com aplicações de patches do sistema operacional em cada VM. Em contrapartida, na PaaS, é como se o ambiente já existisse. Tudo o que você precisa fazer é implantar o aplicativo. O gerenciamento da plataforma em que ele é executado, incluindo implantar novas versões do sistema operacional, é manipulado para você.
 
-O Serviço de Aplicativo é a melhor opção para a maioria dos aplicativos Web. A implantação e o gerenciamento estão integrados na plataforma, os sites podem ser dimensionados rapidamente para dar suporte a altas cargas de tráfego e o gerenciador de balanceamento de carga e tráfego integrado oferece alta disponibilidade. Você pode mover sites existentes para o Serviço de Aplicativo facilmente com uma [ferramenta de migração online](https://www.migratetoazure.net/), usar um aplicativo de software livre da Galeria de Aplicativos Web ou criar um novo site usando a estrutura e as ferramentas de sua escolha. O recurso [Trabalhos Web](http://go.microsoft.com/fwlink/?linkid=390226) facilita o trabalho em segundo plano para o seu aplicativo de processamento de adicionar, ou até mesmo executar uma carga de trabalho de computação que não seja um aplicativo da web em qualquer caso.
+## Escala e gerenciamento
+Com os Serviços de Nuvem, você não cria máquinas virtuais. Em vez disso, fornece um arquivo de configuração que informa ao Azure quantas delas você deseja, como **três instâncias da função Web** e **duas instâncias da função de trabalho**, e a plataforma as cria para você. Você ainda escolhe o [tamanho](cloud-services-sizes-specs.md) que as VMs devem ter, mas não as cria explicitamente. Se o aplicativo precisar manipular uma carga de trabalho maior, é possível solicitar mais VMs, e o Azure criará essas instâncias. Se a carga diminuir, essas instâncias podem ser desligadas e você não paga mais por elas.
 
-Se precisar de mais controle sobre o ambiente do servidor Web, como a capacidade de acessar remotamente seu servidor ou configurar as tarefas de inicialização do servidor, os Serviços de Nuvem do Azure geralmente são a melhor opção.
+Um aplicativo dos Serviços de Nuvem geralmente é disponibilizado aos usuários por um processo de duas etapas. Primeiro, o desenvolvedor [carrega o aplicativo](cloud-services-how-to-create-deploy.md) na área de preparo da plataforma. Quando o desenvolvedor estiver pronto para ativar o aplicativo, ele usará o Portal de Gerenciamento do Azure para solicitar que o aplicativo seja colocado em produção. Essa [troca entre o preparo e a produção](cloud-services-nodejs-stage-application.md) pode ser feita sem tempo de inatividade, o que permite que um aplicativo em execução seja atualizado para uma nova versão sem perturbar seus usuários.
 
-Se você tiver um aplicativo existente que necessitaria de modificações substanciais para ser executado em Websites do Azure ou nos Serviços de Nuvem do Azure, você pode escolher as Máquinas Virtuais do Azure para simplificar a migração para a nuvem. No entanto, configurar, proteger e manter as máquinas virtuais corretamente requer muito tempo e conhecimento de TI em comparação aos Websites do Azure e aos Serviços de Nuvem. Se estiver considerando as Máquinas Virtuais do Azure, assegure-se de levar em conta o contínuo esforço de manutenção necessário para corrigir, atualizar e gerenciar seu ambiente de máquinas virtuais.
+## Monitoramento
+Os Serviços de Nuvem também fornecem monitoramento. Assim como as Máquinas Virtuais do Azure, eles detectarão um servidor físico com falha e reiniciarão as VMs que estavam em execução nesse servidor em numa nova máquina. Mas os Serviços de Nuvem também detectam as VMs e os aplicativos com falha, não apenas as falhas de hardware. Diferentemente das Máquinas Virtuais, os Serviços têm um representante dentro de cada função Web e de trabalho, de modo que podem iniciar novas instâncias de aplicativo e VMs quando uma falha ocorre.
 
-Às vezes, nenhuma opção única é certa. Em situações como essa, é perfeitamente legal combinar as opções. Por exemplo, suponha que você esteja criando um aplicativo onde deseja os benefícios de gerenciamento das funções Web dos Serviços de Nuvem, mas também precisa usar o SQL Server padrão hospedado em uma Máquina Virtual por motivos de compatibilidade ou desempenho.
-
-<!-- In this case, the best option is to combine compute hosting options, as the figure below shows.--
-
-<a name="fig4"></a>
-![07_CombineTechnologies][07_CombineTechnologies] 
- 
-**Figure: A single application can use multiple hosting options.**
-
-As the figure illustrates, the Cloud Services VMs run in a separate cloud service from the Virtual Machines VMs. Still, the two can communicate quite efficiently, so building an app this way is sometimes the best choice.
-[07_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png
-!-->
-
-[Serviço de Aplicativo]: #tellmeas
-[Máquinas virtuais]: #tellmevm
-[Serviços de Nuvem]: #tellmecs
+A natureza da PaaS dos Serviços de Nuvem tem outras implicações também. Uma das mais importantes é que os aplicativos com base nessa tecnologia devem ser escritos para serem executados corretamente quando houver falha de alguma instância da função de trabalho ou da Web. Para isso, um aplicativo dos Serviços de Nuvem não deve manter o estado de suas próprias VMs no sistema de arquivos. Diferentemente das VMs criadas com as Máquinas Virtuais do Azure, as gravações feitas nas VMs dos Serviços de Nuvem não são persistentes; não há nada parecido com um disco de dados das Máquinas Virtuais. Um aplicativo dos Serviços de Nuvem deve gravar explicitamente todo o estado no Banco de Dados SQL, em blobs, tabelas ou em algum outro armazenamento externo. Criar aplicativos dessa forma facilita o dimensionamento deles e os torna mais resistente a falhas, que são metas importantes dos Serviços de Nuvem.
 
 ## Próximas etapas
+[Criar um aplicativo de serviço de nuvem no .NET](cloud-services-dotnet-get-started.md) [Criar um aplicativo de serviço de nuvem no Node.js](cloud-services-nodejs-develop-deploy-app.md) [Criar um aplicativo de serviço de nuvem no PHP](../cloud-services-php-create-web-role.md) [Criar um aplicativo de serviço de nuvem em Python](../cloud-services-python-ptvs.md)
 
-* [Comparação](../choose-web-site-cloud-service-vm/) de Serviço de Aplicativo, serviços de nuvem e máquinas virtuais
-* Saiba mais sobre [Serviço de Aplicativo](../app-service-web-overview.md)
-* Saiba mais sobre [Serviço de Nuvem](services/cloud-services/)
-* Saiba mais sobre [Máquinas virtuais](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->
