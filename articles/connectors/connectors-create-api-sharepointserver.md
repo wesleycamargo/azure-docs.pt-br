@@ -76,9 +76,11 @@ Para se conectar ao **SharePoint Online**, você precisa fornecer sua identidade
 
 No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e criar a conexão **conexão** para uso em seu aplicativo lógico:
 
-1. Digite SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome: ![Configurar o SharePoint][1]  
+1. Digite SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome:
+![Configurar o SharePoint][1]  
 2. Selecione **SharePoint Online - Quando um arquivo é criado**   
-3. Selecione **Entrar no SharePoint Online**: ![Configurar o SharePoint][2]    
+3. Selecione **Entrar no SharePoint Online**:
+![Configurar o SharePoint][2]    
 4. Forneça suas credenciais do SharePoint para entrar e se autenticar com o SharePoint ![Configurar o SharePoint][3]     
 5. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração do diálogo **Quando um arquivo é criado** do SharePoint.![Configurar o SharePoint][4]  
 6. Em seguida, é possível adicionar outros gatilhos e outras ações necessárias para concluir seu aplicativo lógico.   

@@ -198,7 +198,8 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
     e. Clique em **Próximo**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
+7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
 
 
 8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:

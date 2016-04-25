@@ -30,9 +30,11 @@ Você pode usar tipos diferentes de logs no Azure para gerenciar e solucionar pr
 ##Habilitar o registro em log
 O log de auditoria é sempre habilitado automaticamente para todos os recursos do Gerenciador de Recursos. Você precisa habilitar o log de acesso e de desempenho para começar a coletar os dados disponíveis por meio desses logs. Para habilitar os logs, siga as etapas abaixo.
 
-1. Observe a ID do Recurso da conta de armazenamento onde os dados de log serão armazenados. Isso deverá estar no formato: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Todas as contas de armazenamento da assinatura podem ser usadas. Você pode usar o portal de visualização para encontrar essas informações. ![Portal de visualização - diagnóstico do Application Gateway](./media/application-gateway-diagnostics/diagnostics1.png)
+1. Observe a ID do Recurso da conta de armazenamento onde os dados de log serão armazenados. Isso deverá estar no formato: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>. Todas as contas de armazenamento da assinatura podem ser usadas. Você pode usar o portal de visualização para encontrar essas informações.
+![Portal de visualização - diagnóstico do Application Gateway](./media/application-gateway-diagnostics/diagnostics1.png)
  
-2. Observe a ID do Recurso do Application Gateway para o qual o log deve ser habilitado. Isso deverá estar no formato: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. Você pode usar o portal de visualização para encontrar essas informações. ![Portal de visualização - diagnóstico do Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
+2. Observe a ID do Recurso do Application Gateway para o qual o log deve ser habilitado. Isso deverá estar no formato: /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>. Você pode usar o portal de visualização para encontrar essas informações.
+![Portal de visualização - diagnóstico do Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Habilite o log de diagnóstico usando o cmdlet do powershell a seguir.
 

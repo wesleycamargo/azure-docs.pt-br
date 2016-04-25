@@ -78,7 +78,8 @@ Comece com uma nova conta de avaliação do Azure. Depois de concluir a configur
 |---|---|
 |Detalhes de rede virtual|**NAME = ContosoNET**<br/>**REGION = West US**|
 |Conectividade de VPN e servidores DNS|Nenhum|
-|Espaços de Endereço da Rede Virtual|As configurações são mostradas na captura de tela abaixo: ![Criar Rede Virtual](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
+|Espaços de Endereço da Rede Virtual|As configurações são mostradas na captura de tela abaixo:
+![Criar Rede Virtual](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png)|
 
 1. Em seguida, crie a VM que será usada como o DC (Controlador de Domínio). Clique novamente em **Novo**, depois em **Computação**, em **Máquina Virtual** e em **Da Galeria**, conforme mostrado abaixo.
 

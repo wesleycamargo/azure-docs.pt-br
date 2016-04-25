@@ -395,7 +395,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
   adb logcat > "C:\logmsg\logfile.txt"
  ```
- Mais exemplos sobre adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+Mais exemplos sobre adb cmds: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Rastreamentos de rede
 

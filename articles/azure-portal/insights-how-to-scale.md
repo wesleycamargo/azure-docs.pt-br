@@ -28,9 +28,11 @@ Você pode reduzir horizontalmente no portal, e você também pode usar a [API R
 
 1. No [Portal do Azure](https://portal.azure.com/), clique em **Procurar**, navegue até o recurso que você deseja dimensionar, como um **plano de Serviço de Aplicativo**.
 
-2. O bloco **Dimensionar** em **Operações** informará o status do dimensionamento: **Desativado** para quando você estiver dimensionando manualmente, **Ativado** para quando você estiver dimensionando de acordo com uma ou mais métricas de desempenho. ![Bloco Dimensionar](./media/insights-how-to-scale/Insights_UsageLens.png)
+2. O bloco **Dimensionar** em **Operações** informará o status do dimensionamento: **Desativado** para quando você estiver dimensionando manualmente, **Ativado** para quando você estiver dimensionando de acordo com uma ou mais métricas de desempenho.
+![Bloco Dimensionar](./media/insights-how-to-scale/Insights_UsageLens.png)
 
-3. Clicar no bloco abrirá a folha **Dimensionar**. Na parte superior da folha Dimensionar, você pode ver um histórico das ações de dimensionamento automático do serviço. ![Lâmina Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
+3. Clicar no bloco abrirá a folha **Dimensionar**. Na parte superior da folha Dimensionar, você pode ver um histórico das ações de dimensionamento automático do serviço.
+![Lâmina Escala](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
 
 >[AZURE.NOTE] Apenas as ações executadas pelo dimensionamento automático aparecerão neste gráfico. Se você ajustar manualmente a contagem de instâncias, a alteração não será refletida no gráfico.
 
@@ -57,11 +59,13 @@ Você pode dimensionar com base em métricas que não sejam as métricas predefi
 
 ### Adicionar ou alterar uma regra
 
-1. Escolha as **regras de planejamento e desempenho** no menu suspenso **Dimensionar por**: ![Regras de desempenho](./media/insights-how-to-scale/Insights_PerformanceRules.png)
+1. Escolha as **regras de planejamento e desempenho** no menu suspenso **Dimensionar por**:
+![Regras de desempenho](./media/insights-how-to-scale/Insights_PerformanceRules.png)
 
 2. Se você tiver utilizado o dimensionamento automático anteriormente, você verá uma exibição das regras exatas utilizadas.
 
-3. Para dimensionar com base em outra métrica clique na linha **Adicionar regra**. Você também pode clicar em uma das linhas existentes para alterar a métrica utilizada anteriormente para a métrica de acordo com a qual deseja dimensionar. ![Adicionar regra](./media/insights-how-to-scale/Insights_AddRule.png)
+3. Para dimensionar com base em outra métrica clique na linha **Adicionar regra**. Você também pode clicar em uma das linhas existentes para alterar a métrica utilizada anteriormente para a métrica de acordo com a qual deseja dimensionar.
+![Adicionar regra](./media/insights-how-to-scale/Insights_AddRule.png)
 
 4. Agora, você precisa selecionar de acordo com qual métrica deseja dimensionar. Ao escolher uma métrica, existem algumas coisas a serem consideradas:
     * O *recurso* do qual a métrica é proveniente. Normalmente, ele será o mesmo que o recurso que você está dimensionando. No entanto, se quiser dimensionar pela profundidade de uma fila de armazenamento, o recurso é a fila de acordo com a qual você deseja dimensionar.
@@ -105,11 +109,13 @@ No entanto, você talvez queira ter um dimensionamento mais agressivo durante o 
 
 2. Por exemplo, para que um perfil se aplique durante a semana, no menu suspenso **Dias** desmarque **sábado** e **domingo**.
 
-3. Para que um perfil se aplique durante o dia, defina o **horário de início** para o horário do dia em que você deseja iniciar. ![Recorrência padrão](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
+3. Para que um perfil se aplique durante o dia, defina o **horário de início** para o horário do dia em que você deseja iniciar.
+![Recorrência padrão](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 
 4. Clique em **OK**.
 
-5. Em seguida, você precisará adicionar o perfil que deseja aplicar em outros momentos. Clique na linha **Adicionar perfil**. ![Dia livre](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+5. Em seguida, você precisará adicionar o perfil que deseja aplicar em outros momentos. Clique na linha **Adicionar perfil**.
+![Dia livre](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 
 6. Nomeie o segundo novo perfil. Por exemplo, você poderia chamá-lo de **Dias livres**.
 
@@ -121,7 +127,8 @@ No entanto, você talvez queira ter um dimensionamento mais agressivo durante o 
 
 9. Clique em **OK**.
 
-10. Agora, você precisará adicionar as regras que você deseja aplicar durante o segundo perfil. Clique em **Adicionar regra** e, em seguida, você pode construir a mesma regra usada durante o perfil padrão. ![Adicionar regra para dia livre](./media/insights-how-to-scale/Insights_RuleOffWork.png)
+10. Agora, você precisará adicionar as regras que você deseja aplicar durante o segundo perfil. Clique em **Adicionar regra** e, em seguida, você pode construir a mesma regra usada durante o perfil padrão.
+![Adicionar regra para dia livre](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 
 11. Certifique-se de criar uma regra para escala e redução horizontal, caso contrário, durante o perfil, a contagem de instâncias vai apenas aumentar (ou diminuir).
 

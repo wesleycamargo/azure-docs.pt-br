@@ -34,7 +34,7 @@ Antes de solicitar acesso ao programa de visualização, você deve ter o seguin
 Para solicitar acesso à visualização, execute as seguintes etapas.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **NOVO**, **Dados + Armazenamento**, **Ver todos**, **Mais**, em seguida, clique em ** Banco de Dados de Documentos - Suporte do Protocolo para MongoDB**.
+2. Clique em **NOVO**, **Dados + Armazenamento**, **Ver todos**, **Mais**, em seguida, clique em **Banco de Dados de Documentos - Suporte do Protocolo para MongoDB**.
 
 	![Captura de tela das folhas Marketplace e Dados + Armazenamento, destacando o Banco de Dados de Documentos - Suporte do Protocolo para o MongoDB, banco de dados Mongo](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
 

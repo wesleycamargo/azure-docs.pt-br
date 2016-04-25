@@ -204,7 +204,8 @@ Somente para VM do Linux: verifique se você definiu a configuração disk.enabl
 3. Clique em **Criar Novo** > **Criação Rápida**.
 4. Em **Nome**, digite um nome amigável para identificar o cofre.
 5. Em **Região**, selecione a região geográfica para o cofre. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](https://azure.microsoft.com/pricing/details/site-recovery/)
-6. Clique em **Criar cofre**. ![Novo cofre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
+6. Clique em **Criar cofre**.
+![Novo cofre](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
 
 Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O cofre será listado como **Ativo** na página principal de **Serviços de Recuperação**.
 
@@ -237,11 +238,11 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 ## Etapa 5: instalar o servidor de gerenciamento
 > [AZURE.TIP] Verifique se que essas URLs podem ser acessadas a partir do servidor de gerenciamento:
 >
-- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+- *.hypervrecoverymanager.windowsazure.com
+- *.accesscontrol.windows.net
+- *.backup.windowsazure.com
+- *.blob.core.windows.net
+- *.store.core.windows.net
 - https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi
 - https://www.msftncsi.com/ncsi.txt
 
@@ -304,7 +305,10 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 	![Resumo](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 >[AZURE.WARNING] O proxy do agente de serviço de recuperação do Microsoft Azure precisa ser configurado. Quando a instalação for concluída, inicie um aplicativo chamado “Shell de Serviços de Recuperação do Microsoft Azure” no menu Iniciar do Windows. Na janela de comando que abre, execute o seguinte conjunto de comandos para configurar as configurações do servidor proxy.
 >
-	$pwd = ConvertTo-SecureString -String ProxyUserPassword Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd net stop obengine net start obengine
+	$pwd = ConvertTo-SecureString -String ProxyUserPassword
+	Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\\username -ProxyPassword $pwd
+	 net stop obengine
+	 net start obengine
 
 
 
@@ -424,7 +428,7 @@ Veja como preparar os computadores com Windows para que o Serviço de mobilidade
 
 2. Adicione a conta que você criou:
 
-	- Abra o **cspsconfigtool**. Ela está disponível como um atalho na área de trabalho e está localizada na pasta [LOCAL DE INSTALAÇÃO]\\home\\svsystems\\bin.
+	- Abra **cspsconfigtool**. Ela está disponível como um atalho na área de trabalho e está localizada na pasta [LOCAL DE INSTALAÇÃO]\\home\\svsystems\\bin.
 	- Na guia **Gerenciar Contas**, clique em **Adicionar Conta**.
 	- Adicione a conta que você criou. Depois de adicionar a conta, será preciso fornecer as credenciais quando adicionar um computador a um grupo de proteção.
 
@@ -435,7 +439,7 @@ Veja como preparar os computadores com Windows para que o Serviço de mobilidade
 
 2.	Crie uma conta que pode ser usada pelo servidor de processo para acessar o computador. A conta deve ser de um usuário raiz no servidor Linux de origem. Observe que essas credenciais são usadas somente para a instalação por push do Serviço de mobilidade.
 
-	- Abra o **cspsconfigtool**. Ela está disponível como um atalho na área de trabalho e está localizada na pasta [LOCAL DE INSTALAÇÃO]\\home\\svsystems\\bin.
+	- Abra **cspsconfigtool**. Ela está disponível como um atalho na área de trabalho e está localizada na pasta [LOCAL DE INSTALAÇÃO]\\home\\svsystems\\bin.
 	- Na guia **Gerenciar Contas**, clique em **Adicionar Conta**.
 	- Adicione a conta que você criou. Depois de adicionar a conta, será preciso fornecer as credenciais quando adicionar um computador a um grupo de proteção.
 
@@ -459,7 +463,8 @@ Os instaladores estão disponíveis em C:\\Program Files (x86) \\Microsoft Azure
 Sistema operacional de origem | Arquivo de instalação do Serviço de mobilidade
 --- | ---
 Windows Server (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_Windows\_* release.exe
-CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4, 6.5, 6.6 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_RHEL6-64\_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -753,6 +758,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 ## Próximas etapas
 
-[Saiba mais sobre o failback](site-recovery-failback-azure-to-vmware-classic.md) para recolocar seus computadores com failover em execução no Azure no ambiente local.
+[Saiba mais sobre failback](site-recovery-failback-azure-to-vmware-classic.md) para recolocar seus computadores com failover em execução no Azure no ambiente local.
 
 <!---HONumber=AcomDC_0413_2016-->

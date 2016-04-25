@@ -121,7 +121,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 	c. Na caixa de texto **Identificador**, digite a URL do locatário.
 
-    d. Na caixa de texto **URL de resposta**, digite a URL no seguinte padrão: "****https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
+    d. Na caixa de texto **URL de resposta**, digite a URL no seguinte padrão: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
 
 	e. Clique em **Próximo**.
 

@@ -67,7 +67,7 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
     No código fornecido, todos os registros na tabela remota `TodoItem` são solicitados, mas também é possível filtrar os registros passando uma ID de consulta e uma consulta ao `PushAsync`. Para obter mais informações, confira a seção *Sincronização incremental* em [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->
+	-->	
 
 
 		// ToDoActivity.cs

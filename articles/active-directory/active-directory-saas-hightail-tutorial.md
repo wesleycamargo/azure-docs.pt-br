@@ -165,7 +165,7 @@ O aplicativo Hightail espera que as declarações SAML estejam em um formato esp
 
 	![Configurar o logon único](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_06.png)
 
-	a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para entrar em seu aplicativo Hightail usando o seguinte padrão: ****https://www.hightail.com/loginSSO**. Essa é a página de Logon comum para todos os clientes que querem usar SSO.
+	a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para entrar em seu aplicativo Hightail usando o seguinte padrão: **https://www.hightail.com/loginSSO**. Essa é a página de Logon comum para todos os clientes que querem usar SSO.
 
 	b. Clique em **Próximo**.
 

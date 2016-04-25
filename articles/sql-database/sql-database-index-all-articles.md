@@ -327,7 +327,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 | 163 | [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md) | Esta página descreve alguns limites de recurso comuns para o Banco de Dados SQL do Azure. |
 | 164 | [Diferenças de Transact-SQL de Banco de Dados SQL do Azure](sql-database-transact-sql-information.md) | Instruções Transact-SQL que têm suporte menor que o total pelo Banco de Dados SQL |
 | 165 | [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md) | Lista o número de versão mínimo para cada driver que os programas clientes podem usar para se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server. Foi fornecido um link para obtenção de informações de versão sobre drivers lançados pela comunidade, e não pela Microsoft. |
-| 166 | [Pesquisar com filtros](https://azure.microsoft.com/pt-BR/documentation/articles/?service=sql-database) | Pesquise com filtros artigos de documentação sobre o Banco de Dados SQL do Azure. |
+| 166 | [Pesquisar com filtros](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Pesquise com filtros artigos de documentação sobre o Banco de Dados SQL do Azure. |
 
 
 ## Diversos

@@ -50,7 +50,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Isso instrui o Sqoop a se conectar ao Banco de Dados SQL, ao banco de dados **sqooptest** e exportar os dados do ****wasb:///hive/warehouse/hivesampletable** (arquivos físico para o *hivesampletable*) à tabela **mobiledata**.
+    Isso instrui o Sqoop a se conectar ao Banco de Dados SQL, ao banco de dados **sqooptest** e exportar os dados do **wasb:///hive/warehouse/hivesampletable** (arquivos físico para o *hivesampletable*) à tabela **mobiledata**.
 
 5. Depois de concluir o comando, use o seguinte para se conectar ao banco de dados usando TSQL:
 
@@ -65,7 +65,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ##Importação do Sqoop
 
-1. Use o seguinte para importar dados da tabela **mobiledata** no Banco de Dados SQL para o diretório ****wasb:///tutorials/usesqoop/importeddata** do HDInsight:
+1. Use o seguinte para importar dados da tabela **mobiledata** no Banco de Dados SQL para o diretório **wasb:///tutorials/usesqoop/importeddata** do HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 

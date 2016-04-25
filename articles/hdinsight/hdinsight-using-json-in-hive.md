@@ -81,7 +81,7 @@ Os métodos listados na próxima seção exigem que o documento JSON estejam em 
 
 	SELECT * FROM StudentsOneLine
 
-O arquivo JSON bruto está localizado em ****wasb://processjson@hditutorialdata.blob.core.windows.net/**. A tabela Hive *StudentsRaw* aponta para o documento JSON bruto não nivelado.
+O arquivo JSON bruto está localizado em **wasb://processjson@hditutorialdata.blob.core.windows.net/**. A tabela Hive *StudentsRaw* aponta para o documento JSON bruto não nivelado.
 
 A tabela Hive *StudentsOneLine* armazenará os dados no sistema de arquivos padrão do HDInsight no caminho */json/students/*.
 

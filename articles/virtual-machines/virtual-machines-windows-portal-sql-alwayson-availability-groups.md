@@ -76,8 +76,10 @@ O Azure fornece uma imagem da galeria para a solução inteira. Para localizar o
 
 1. 	Faça logon no portal do Azure usando sua conta.
 1.	No Portal do Azure, clique em **+Novo**. O portal abrirá a folha Novo.
-1.	Na folha Novo, procure **AlwaysOn**. ![Localizar o modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-1.	Nos resultados da pesquisa, localize **Cluster do SQL Server AlwaysOn**. ![Modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
+1.	Na folha Novo, procure **AlwaysOn**.
+![Localizar o modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
+1.	Nos resultados da pesquisa, localize **Cluster do SQL Server AlwaysOn**.
+![Modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 1.	Em **Selecione um modelo de implantação**, escolha **Resource Manager**.
 
 ### Noções básicas
@@ -243,7 +245,8 @@ Para usar protocolo RDP com o controlador de domínio primário, siga estas etap
 
 1.	Na folha **Recursos**, clique em **ad-primary-dc**, que é o nome de computador da máquina virtual do controlador de domínio primário.
 
-1.	Na folha **ad-primary-dc**, clique em **Conectar**. Seu navegador perguntará se você deseja abrir ou salvar o objeto de conexão remota. Clique em **Abrir**. ![Conectar-se ao controlador de domínio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
+1.	Na folha **ad-primary-dc**, clique em **Conectar**. Seu navegador perguntará se você deseja abrir ou salvar o objeto de conexão remota. Clique em **Abrir**.
+![Conectar-se ao controlador de domínio](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
 1.	**Conexão de área de trabalho remota** pode avisar você de que o publicador dessa conexão remota não pode ser identificado. Clique em **Conectar**.
 
 1.	A segurança do Windows solicita que você insira suas credenciais para se conectar ao endereço IP do controlador de domínio primário. Clique em **Usar outra conta**. Em **Nome de usuário**, digite **contoso\\DomainAdmin**. Essa é a conta que você escolheu para o nome de usuário de administrador. Use a senha complexa que você escolheu quando configurou o modelo.

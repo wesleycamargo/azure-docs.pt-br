@@ -138,7 +138,8 @@ A tabela abaixo resume os fatores de desempenho e as etapas para otimizar a IOPS
 ## Natureza das solicitações de E/S  
 Uma solicitação de E/S é uma unidade da operação de entrada/saída que seu aplicativo executará. Identificar a natureza das solicitações de E/S, aleatória ou sequencial, leitura ou gravação, grande ou pequena, ajudará você a determinar os requisitos de desempenho do aplicativo. É muito importante entender a natureza das solicitações de E/S para tomar das decisões certas ao projetar a infraestrutura do aplicativo.
 
-O tamanho de E/S é um dos fatores mais importantes. O tamanho de E/S é o tamanho da solicitação de operação de entrada/saída gerada pelo aplicativo. O tamanho de E/S tem um impacto significativo no desempenho, especificamente na IOPS e na largura de banda que o aplicativo é capaz de atingir. A fórmula a seguir mostra a relação entre IOPS, tamanho de E/S e largura de banda/taxa de transferência. ![](media/storage-premium-storage-performance/image1.png)
+O tamanho de E/S é um dos fatores mais importantes. O tamanho de E/S é o tamanho da solicitação de operação de entrada/saída gerada pelo aplicativo. O tamanho de E/S tem um impacto significativo no desempenho, especificamente na IOPS e na largura de banda que o aplicativo é capaz de atingir. A fórmula a seguir mostra a relação entre IOPS, tamanho de E/S e largura de banda/taxa de transferência.
+![](media/storage-premium-storage-performance/image1.png)
 
 Alguns aplicativos permitem a você alterar o tamanho de E/S, enquanto outros aplicativos, não. Por exemplo, o SQL Server determina por si só o tamanho ideal de E/S e não fornece aos usuários nenhum botão para alterá-lo. Por outro lado, o Oracle oferece um parâmetro chamado [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) com o qual você pode configurar o tamanho da solicitação de E/S do banco de dados.
 
@@ -309,7 +310,8 @@ Normalmente, um aplicativo pode atingir a taxa máxima de transferência com 8 a
 
 Por exemplo, no SQL Server, definir o valor MAXDOP de uma consulta para "4" informa ao SQL Server que ele pode usar até quatro núcleos para executar a consulta. O SQL Server determinará qual é o melhor valor de profundidade de fila e o número de núcleos para a execução da consulta.
 
-*Profundidade Ideal de Fila * Um valor muito alto de profundidade de fila também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará impulsionar uma IOPS muito alta. A menos que o aplicativo tenha discos persistentes com provisão suficiente de IOPS, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre a IOPS, a Latência e a Profundidade da Fila. ![](media/storage-premium-storage-performance/image6.png)
+*Profundidade Ideal de Fila* Um valor muito alto de profundidade de fila também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará impulsionar uma IOPS muito alta. A menos que o aplicativo tenha discos persistentes com provisão suficiente de IOPS, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre a IOPS, a Latência e a Profundidade da Fila.
+![](media/storage-premium-storage-performance/image6.png)
 
 Você não deve configurar a profundidade da fila para algum valor alto, mas para um valor ideal, o que pode fornecer IOPS suficiente ao aplicativo sem afetar as latências. Por exemplo, se a latência do aplicativo precisa ser de 1 milissegundo, a profundidade da fila necessária para alcançar 5.000 IOPS será, QD = 5000 x 0,001 = 5.
 
@@ -436,7 +438,8 @@ Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
 
 	sudo fio --runtime 30 fiowrite.ini
 
-Enquanto o teste é executado, você poderá ver o número de IOPS de gravação fornecido pela VM e pelos discos premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo seu limite máximo de IOPS de gravação, isto é, 50.000 IOPS. ![](media/storage-premium-storage-performance/image11.png)
+Enquanto o teste é executado, você poderá ver o número de IOPS de gravação fornecido pela VM e pelos discos premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo seu limite máximo de IOPS de gravação, isto é, 50.000 IOPS.
+![](media/storage-premium-storage-performance/image11.png)
 
 *IOPS máxima de leitura* Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de leitura. Dê o nome de "fioread.ini".
 
@@ -472,7 +475,8 @@ Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
 
 	sudo fio --runtime 30 fioread.ini
 
-Enquanto o teste for executado, você poderá ver o número de IOPS de leitura fornecido pela VM e pelos discos premium. Conforme mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 64.000 IOPS de leitura. Essa é uma combinação do desempenho do cache e do disco. ![](media/storage-premium-storage-performance/image12.png)
+Enquanto o teste for executado, você poderá ver o número de IOPS de leitura fornecido pela VM e pelos discos premium. Conforme mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 64.000 IOPS de leitura. Essa é uma combinação do desempenho do cache e do disco.
+![](media/storage-premium-storage-performance/image12.png)
 
 *IOPS Máxima de Leitura e Gravação* Crie o arquivo de trabalho com as especificações a seguir para obter a IOPS Máxima de Leitura e Gravação. Dê o nome de "fioreadwrite.ini".
 
@@ -525,7 +529,8 @@ Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
 
 	sudo fio --runtime 30 fioreadwrite.ini
 
-Enquanto o teste for executado, você poderá ver o número de IOPS de leitura e gravação combinadas fornecido pela VM e pelos discos premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 100.000 IOPS de leitura e gravação combinadas. Essa é uma combinação do desempenho do cache e do disco. ![](media/storage-premium-storage-performance/image13.png)
+Enquanto o teste for executado, você poderá ver o número de IOPS de leitura e gravação combinadas fornecido pela VM e pelos discos premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 100.000 IOPS de leitura e gravação combinadas. Essa é uma combinação do desempenho do cache e do disco.
+![](media/storage-premium-storage-performance/image13.png)
 
 *Taxa de Transferência Máxima Combinada* Para atingir a Taxa de Transferência máxima de Leitura e Gravação combinadas, use um tamanho de bloco maior e uma profundidade de fila grande com vários threads executando leituras e gravações. É possível usar um tamanho de bloco de 64 KB e uma profundidade de fila de 128.
 

@@ -28,15 +28,20 @@ Essa experiência simplificada é possível porque criamos e registramos anterio
 
 Até mesmo no contexto de Aplicativos Lógicos, você pode usar seu próprio aplicativo em vez do aplicativo padrão que fornecemos. Se ocorrer falha ao se conectar usando o botão "Autorizar", você pode tentar criar seu próprio aplicativo. As etapas usadas para o conector do Twitter são listadas abaixo:
 
-1. Abra o Conector do Twitter no Portal de Visualização do Azure. Vá para **Procurar** > **Aplicativos de API**. Selecione o conector do Twitter: ![][1]
+1. Abra o Conector do Twitter no Portal de Visualização do Azure. Vá para **Procurar** > **Aplicativos de API**. Selecione o conector do Twitter:
+![][1]
 
-2. Selecione **Configurações** > **Autenticação**: ![][2]
+2. Selecione **Configurações** > **Autenticação**:
+![][2]
 
-3. Copie o valor de **URI de Redirecionamento**: ![][3]
+3. Copie o valor de **URI de Redirecionamento**:
+![][3]
 
-4. Vá para [Twitter](http://apps.twitter.com) e **Criar um Novo Aplicativo**. Na propriedade **URL de Retorno de Chamada**, cole o valor de **URI de Redirecionamento** copiado do seu conector do Twitter: ![][4]
+4. Vá para [Twitter](http://apps.twitter.com) e **Criar um Novo Aplicativo**. Na propriedade **URL de Retorno de Chamada**, cole o valor de **URI de Redirecionamento** copiado do seu conector do Twitter:
+![][4]
 5. Quando o aplicativo do Twitter é criado, selecione **Chave e Tokens de Acesso**. Copie esses valores.
-6. Nas configurações de autenticação do conector do Twitter, cole esses valores nas propriedades **ID do Cliente** e **Segredo do Cliente**: ![][5]  
+6. Nas configurações de autenticação do conector do Twitter, cole esses valores nas propriedades **ID do Cliente** e **Segredo do Cliente**:
+![][5]  
 7. Salve as configurações do conector.  
 
 Agora você pode usar o Conector por meio de Aplicativos Lógicos. Ao usar o Conector por meio de Aplicativos Lógicos, ele usa seu aplicativo em vez do aplicativo padrão.

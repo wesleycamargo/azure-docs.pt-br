@@ -111,7 +111,8 @@ Pronto para experimentar? Vamos começar.
 11. Clique em **Editar** para iniciar o Editor de Consultas para que possamos transformar os dados.
 
 ## Nivelando e transformando documentos JSON
-1. No Editor de Consultas do Power BI, você deve ver uma coluna **Documento** no painel central. ![Editor de Consultas do Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
+1. No Editor de Consultas do Power BI, você deve ver uma coluna **Documento** no painel central.
+![Editor de Consultas do Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 
 2. Clique no expansor no lado direito do cabeçalho da coluna **Documento**. O menu de contexto com uma lista de campos será exibido. Selecione os campos necessários para o relatório, por exemplo, Nome do Vulcão, País, Região, Local, Elevação, Tipo, Status e Última Erupção Conhecida e clique em **OK**.
 

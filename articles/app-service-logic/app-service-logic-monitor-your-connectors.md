@@ -121,7 +121,10 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 
 ## Leia mais
 
-[Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/> [Lista de conectores de aplicativos de API no Serviço de Aplicativo](app-service-logic-connectors-list.md)<br/> [Controle de acesso baseado em função no portal do Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/> [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)
+[Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Lista de conectores de aplicativos de API no Serviço de Aplicativo](app-service-logic-connectors-list.md)<br/>
+[Controle de acesso baseado em função no portal do Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/>
+[Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->

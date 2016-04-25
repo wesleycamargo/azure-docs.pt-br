@@ -57,7 +57,7 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 	)
 	
 	foreach($endpoint in $endpoints)
-	{
+{
 	Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
 	}
 	

@@ -55,9 +55,11 @@ Siga estas etapas para entrar na Margem de atraso e concluir a configuração da
 3. Selecione **Adicionar uma ação** ![Configurar a Margem de atraso][1]  
 4. Insira Margem de atraso na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Margem de atraso no nome
 5. Selecione **Margem de atraso – Postar mensagem**
-6. Selecione **Entrar na Margem de atraso**: ![Configurar a Margem de atraso][2]
+6. Selecione **Entrar na Margem de atraso**:
+![Configurar a Margem de atraso][2]
 7. Forneça suas credenciais da Margem de atraso para entrar e autorizar o aplicativo ![Configurar a Margem de atraso][3]  
-8. Você será redirecionado à página de logon de sua organização. **Autorize** a Margem de atraso a interagir com seu aplicativo lógico: ![Configurar a Margem de atraso][5] 
+8. Você será redirecionado à página de logon de sua organização. **Autorize** a Margem de atraso a interagir com seu aplicativo lógico:
+![Configurar a Margem de atraso][5] 
 9. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração da seção **Margem de atraso - Obter todas as mensagens**. Adicione outros gatilhos e outras ações necessárias.![Configurar a Margem de atraso][6]
 10. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
 

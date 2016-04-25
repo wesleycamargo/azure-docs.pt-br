@@ -60,7 +60,7 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
 	-->
 
 
-		// QSTodoService.cs
+			// QSTodoService.cs
 
         public async Task SyncAsync()
         {

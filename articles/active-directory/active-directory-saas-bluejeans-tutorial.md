@@ -110,8 +110,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Salvar Alterações](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Salvar Alterações")
 
-    1.  Na caixa de texto **ID do usuário**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  Na caixa de texto **Email**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    1.  Na caixa de texto **ID do usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+2.  Na caixa de texto **Email**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
 3.  Clique em **Salvar Alterações**.
 
 10. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.

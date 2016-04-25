@@ -53,14 +53,14 @@ Quando sua organização ou empresa se inscreve para um serviço de nuvem do Mic
 Use as etapas a seguir para determinar se você já possui um locatário ou para aprender a criar um.
 
 #### Tem uma assinatura existente do Office 365
-Se você possui uma assinatura do Office 365 (ou do Microsoft Dynamic CRM Online, Enterprise Mobility Suite ou outros serviços da Microsoft), você tem uma assinatura gratuita do Active Directory do Azure. É possível usar o AD do Azure para criar e gerenciar contas de usuário e de grupo Se você não conseguir entrar no Portal do Azure, provavelmente você precisa ativar a assinatura. Para fazer isso, acesse o [portal clássico do Azure](https://manage.windowsazure.com/) e conclua um processo de registro único. Use estas [etapas](https://technet.microsoft.com/library/dn832618.aspx) para acessar seu locatário do AD do Azure.
+Se você possui uma assinatura do Office 365 (ou do Microsoft Dynamic CRM Online, Enterprise Mobility Suite ou outros serviços da Microsoft), você tem uma assinatura gratuita do Active Directory do Azure. É possível usar o AD do Azure para criar e gerenciar contas de usuário e de grupo Se você não conseguir entrar no Portal do Azure, provavelmente você precisa ativar a assinatura. Para fazer isso, acesse o [portal clássico do Azure]( https://manage.windowsazure.com/) e conclua um processo de registro único. Use estas [etapas]( https://technet.microsoft.com/library/dn832618.aspx) para acessar seu locatário do AD do Azure.
 
 #### Tenho uma assinatura existente do Azure associada a uma conta da Microsoft
-Se você já se inscreveu em uma assinatura do Azure com sua conta individual da Microsoft (hotmail ou live), você já tem um locatário! No [portal clássico do Azure](https://manage.windowsazure.com/), o **Locatário Padrão** está listado em **Todos os Itens** e em **Active Directory**. Você é livre para usar esse locatário como achar melhor - mas você talvez queira criar uma conta de administrador organizacional.
+Se você já se inscreveu em uma assinatura do Azure com sua conta individual da Microsoft (hotmail ou live), você já tem um locatário! No [portal clássico do Azure]( https://manage.windowsazure.com/), o **Locatário Padrão** está listado em **Todos os Itens** e em **Active Directory**. Você é livre para usar esse locatário como achar melhor - mas você talvez queira criar uma conta de administrador organizacional.
 
 Para fazer isso, execute as seguintes etapas. Como alternativa, você poderá criar um novo locatário e criar um administrador nesse locatário seguindo um processo semelhante.
 
-1.	Entre no [portal clássico do Azure](https://manage.windowsazure.com/) com sua conta individual.
+1.	Entre no [portal clássico do Azure]( https://manage.windowsazure.com/) com sua conta individual.
 2.	Na barra de menus esquerda, escolha **Active Directory**.
 3.	Escolha **Diretório Padrão** na lista de diretórios disponíveis.
 4.	Escolha a guia **Usuários** na parte superior. Há um único usuário listado com "Conta da Microsoft" na coluna Originado de.
@@ -78,14 +78,14 @@ Opcional | Habilitar o Multi-Factor Authentication
 
 	Clique no botão **CRIAR** para concluir e exibir a senha temporária.
 
-Quando terminar, registre essa senha temporária do novo usuário administrativo. Para alterar a senha temporária, acesse [https://login.microsoftonline.com](https://login.microsoftonline.com) usando essa nova conta de usuário e altere a senha. Você também pode enviar a senha diretamente para o usuário, usando um email alternativo.
+Quando terminar, registre essa senha temporária do novo usuário administrativo. Para alterar a senha temporária, acesse [https://login.microsoftonline.com]( https://login.microsoftonline.com) usando essa nova conta de usuário e altere a senha. Você também pode enviar a senha diretamente para o usuário, usando um email alternativo.
 
 
 #### Tenho uma assinatura existente do Azure associada a uma conta organizacional
-Se você já se inscreveu anteriormente para uma assinatura do Azure com sua conta organizacional, você já tem um locatário. No [portal clássico do Azure](https://manage.windowsazure.com/), o locatário está listado em **Todos os Itens** em **Active Directory**. Você é livre para usar esse locatário como desejar. Você também pode criar um novo locatário usando o menu **Novo** na barra de tarefas na parte inferior.
+Se você já se inscreveu anteriormente para uma assinatura do Azure com sua conta organizacional, você já tem um locatário. No [portal clássico do Azure]( https://manage.windowsazure.com/), o locatário está listado em **Todos os Itens** em **Active Directory**. Você é livre para usar esse locatário como desejar. Você também pode criar um novo locatário usando o menu **Novo** na barra de tarefas na parte inferior.
 
 #### Não tenho nenhuma delas e desejo começar do zero
-Se nenhuma das opções se aplicar a você, visite [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para inscrever-se no Azure com uma nova organização. Depois de inscrito, você terá seu próprio locatário do AD do Azure com seu nome de domínio escolhido. No [portal clássico do Azure](https://manage.windowsazure.com/), você pode ver o locatário no **Active Directory** no menu à esquerda.
+Se nenhuma das opções se aplicar a você, visite [https://account.windowsazure.com/organization]( https://account.windowsazure.com/organization) para inscrever-se no Azure com uma nova organização. Depois de inscrito, você terá seu próprio locatário do AD do Azure com seu nome de domínio escolhido. No [portal clássico do Azure]( https://manage.windowsazure.com/), você pode ver o locatário no **Active Directory** no menu à esquerda.
 
 ## Etapa 2: criar uma assinatura do Azure ou usar uma existente
 Agora que você tem seu locatário do AD, pode criar uma assinatura nova do Azure ou usar uma existente. A assinatura do AD do Azure inclui várias edições. Para o PowerApps Enterprise, você pode usar a edição Gratuita. No entanto, se você precisar usar Proxy AAD para criar conectividade híbrida com dados locais, aconselhamos a edição Básica ou Premium.
@@ -98,7 +98,7 @@ As [Edições do Active Directory do Azure](../active-directory/active-directory
 
 Agora que você tem seu locatário do AD e uma assinatura do Azure, os administradores de assinatura corporativos podem se inscrever para o PowerApps enterprise. O Administrador também pode adicionar usuários da empresa para "administrar" o PowerApps, incluindo a atribuição de permissões de usuários, e para gerenciar o PowerApps publicado em sua assinatura do Azure.
 
-Se você não se inscrever no PowerApps Enterprise, verá uma folha "sem acesso" ao acessar o [Portal do Azure](https://portal.azure.com/) e procurar os PowerApps. Para inscrever-se em sua empresa, o **administrador da assinatura** pode acessar [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=716848) e entrar em contato conosco para saber mais sobre preços e o processo de inscrição.
+Se você não se inscrever no PowerApps Enterprise, verá uma folha "sem acesso" ao acessar o [Portal do Azure]( https://portal.azure.com/) e procurar os PowerApps. Para inscrever-se em sua empresa, o **administrador da assinatura** pode acessar [PowerApps]( http://go.microsoft.com/fwlink/p/?LinkId=716848) e entrar em contato conosco para saber mais sobre preços e o processo de inscrição.
 
 ![][4]
 
@@ -135,17 +135,27 @@ O ambiente de serviço de aplicativo regular do Azure possui recursos diferentes
 ### Criar um ambiente de serviço de aplicativo
 > [AZURE.NOTE] Se você não vir a opção para criar o ambiente de serviço de aplicativo, ele já terá criado para seu locatário. Para exibir os detalhes, selecione **Configurações** para abrir o ambiente de serviço de aplicativo.
 
-1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta corporativa. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
+1. No [Portal do Azure]( https://portal.azure.com/), entre com sua conta corporativa. Por exemplo, entre com *Seunomedeusuário*@* SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
 
-2. Selecione **Procurar** na barra de tarefas: ![Procurar PowerApps][1]
+2. Selecione **Procurar** na barra de tarefas:
 
-3. Na lista, você poderá rolar a tela para localizar PowerApps ou digitar *powerapps*: ![Pesquisar PowerApps][2]
+	![Procurar PowerApps][1]
 
-4. Na folha **PowerApps**, escolha **Criar o Ambiente do Serviço de Aplicativo para começar** ou selecione **Ambiente do Serviço de Aplicativo** em *Configurações*: ![][5]
+3. Na lista, você poderá rolar a tela para localizar PowerApps ou digitar *powerapps*:
+
+	![Pesquisar PowerApps][2]
+
+4. Na folha **PowerApps**, escolha **Criar o Ambiente do Serviço de Aplicativo para começar** ou selecione **Ambiente do Serviço de Aplicativo** em *Configurações*:
+
+	![][5]
 
 	> [AZURE.NOTE] Se você clicar em **Criar o Ambiente do Serviço de Aplicativo para começar**, você verá uma folha extra com detalhes sobre o Ambiente do Serviço de Aplicativo. Basta clicar em Criar link nessa folha para iniciar a folha de criação.
 
-5. Em seguida, insira o nome, selecione a assinatura que você deseja usar, selecione ou crie um novo grupo de recursos e selecione uma rede virtual. **Perceba** que depois de escolher uma rede virtual, não será possível alterar: ![][6] Para saber mais sobre como as redes virtuais funcionam com um ambiente de serviço de aplicativo, consulte [Como criar um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md).
+5. Em seguida, insira o nome, selecione a assinatura que você deseja usar, selecione ou crie um novo grupo de recursos e selecione uma rede virtual. **Perceba** que depois de escolher uma rede virtual, não será possível alterar:
+
+	![][6]
+
+Para saber mais sobre como as redes virtuais funcionam com um ambiente de serviço de aplicativo, consulte [Como criar um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md).
 
 6. Selecione **Adicionar** para concluir a criação do ambiente do serviço de aplicativo.
 
@@ -158,8 +168,15 @@ Lembre-se de que você também pode adicionar aplicativos Web, aplicativos móve
 Para obter acesso ao ambiente de serviço de aplicativo, criar APIs, conexões e outros recursos, os usuários devem ser adicionados com a função Proprietário.
 
 1. Selecione o ambiente de serviço de aplicativo que você acabou de criar.
-2. No Essentials, selecione a propriedade **Grupo de recursos**. Isso abre o grupo de recursos que contém o ambiente do serviço de aplicativo: ![][7]
-3. Escolha o ícone RBAC para gerenciar as permissões: ![][8]Adicionar usuários e atribuir funções é o mesmo que usar o [ Controle de acesso baseado em função](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) do Azure.
+2. No Essentials, selecione a propriedade **Grupo de recursos**. Isso abre o grupo de recursos que contém o ambiente do serviço de aplicativo:
+
+	![][7]
+
+3. Escolha o ícone RBAC para gerenciar as permissões:
+
+	![][8]
+
+Adicionar usuários e atribuir funções é o mesmo que usar o [ Controle de acesso baseado em função]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) do Azure.
 
 > [AZURE.NOTE] No momento, você não pode conceder permissões de RBAC para o ambiente de serviço de aplicativo. Você pode conceder permissões de RBAC no nível do grupo de recursos pai.
 

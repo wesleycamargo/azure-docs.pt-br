@@ -126,7 +126,7 @@ Para cada disco, siga estas etapas:
 
 	![DisknameAndLUN][2]
 
-1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos ** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
+1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
 
 	![VirtualDiskProperties][3]
 

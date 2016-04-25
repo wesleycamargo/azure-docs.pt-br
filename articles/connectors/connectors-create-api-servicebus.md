@@ -64,7 +64,8 @@ Siga estas etapas para criar uma **conexão** do Barramento de Serviço que pode
 3. Selecione **Adicionar uma ação** ![Configurar o Barramento de Serviço][2]   
 4. Digite **Barramento de Serviço** na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Barramento de Serviço no nome
 5. Selecione **Barramento de Serviço – Enviar mensagem** ![Configurar o Barramento de Serviço][3]
-7. Insira um **Nome da conexão** e uma **Cadeia de conexão** e, em seguida, selecione **Criar conexão**: ![Configurar o Barramento de Serviço][4]
+7. Insira um **Nome da conexão** e uma **Cadeia de conexão** e, em seguida, selecione **Criar conexão**:
+![Configurar o Barramento de Serviço][4]
 7. Depois de criar a conexão, você verá o diálogo **Enviar mensagem**. Insira todas as informações necessárias para enviar uma mensagem.![Configurar o Barramento de Serviço][5]
 8. Selecione o botão **Salvar** no menu acima para salvar seu trabalho.    
 

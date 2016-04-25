@@ -102,7 +102,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     2.  No portal do Azure, na página de diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **ID do Provedor de Identidade** e, em seguida, cole-o na caixa de texto **ID do Provedor de Identidade**.
     3.  No portal do Azure, na página do diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon Único**.
     4.  No portal do Azure, na página do diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL de Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff Único**.
-    5.  Na página Detalhes da Empresa, na parte superior, clique em **Salvar Alterações**. ![Detalhes da empresa](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
+    5.  Na página Detalhes da Empresa, na parte superior, clique em **Salvar Alterações**.
+![Detalhes da empresa](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
 
 8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 

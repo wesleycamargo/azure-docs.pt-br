@@ -28,13 +28,16 @@ Para usar o conector de espera, primeiro você precisa criar uma instância do a
 O conector de espera pode ser usado como uma ação. Ele não tem gatilhos.
 
 ### Ação
-- Clique no Conector de Espera no painel à direita: ![Lista de ações][1]
+- Clique no Conector de Espera no painel à direita:
+![Lista de ações][1]
 - O conector de espera dá suporte a duas ações: 
 	- Atrasar
 	- Atrasar até
 	 
-- Selecione *Atrasar*. ![Entrada de atraso][2]
-- Fornecer as entradas para a ação e configurá-la: ![Ação configurada][3]
+- Selecione *Atrasar*.
+![Entrada de atraso][2]
+- Fornecer as entradas para a ação e configurá-la:
+![Ação configurada][3]
 
 Parâmetro|Tipo|Descrição do parâmetro
 ---|---|---

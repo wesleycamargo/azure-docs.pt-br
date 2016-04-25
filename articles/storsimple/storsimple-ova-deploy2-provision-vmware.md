@@ -148,7 +148,8 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  Uma janela **Criar nova máquina Virtual** será exibida. Sobre a página **Configuração**, selecione a opção **Personalizada**. Clique em **Próximo**. ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
+1.  Uma janela **Criar nova máquina Virtual** será exibida. Sobre a página **Configuração**, selecione a opção **Personalizada**. Clique em **Próximo**.
+![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
 2.  Na página **Nome e Local**, especifique o nome da máquina virtual. Esse nome deve corresponder ao nome da pasta (melhor prática recomendada) que você especificou anteriormente na Etapa 8.
 

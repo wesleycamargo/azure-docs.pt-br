@@ -28,9 +28,11 @@ Você pode criar um gráfico com as métricas relativas a qualquer período de t
 
 1. No [Portal do Azure](https://portal.azure.com/), clique em **Navegar** e, em seguida, clique em um recurso que você esteja interessado em monitorar.
 
-2. A seção **Monitoramento** contém as métricas mais importantes para cada recurso do Azure. Por exemplo, um aplicativo Web tem **Solicitações e erros**, enquanto que uma máquina virtual teria **Percentual de CPU** e **Leitura e gravação de disco**: ![Lente Monitoramento](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
+2. A seção **Monitoramento** contém as métricas mais importantes para cada recurso do Azure. Por exemplo, um aplicativo Web tem **Solicitações e erros**, enquanto que uma máquina virtual teria **Percentual de CPU** e **Leitura e gravação de disco**:
+![Lente Monitoramento](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
-3. Clicar em qualquer gráfico mostrará a folha **Métrica**. Na folha, além do gráfico, há uma tabela que mostra as agregações das métricas (como média, mínima e máxima, para o intervalo de tempo que você escolheu). Abaixo disso estão as regras de alerta para o recurso. ![Lâmina Métrica](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
+3. Clicar em qualquer gráfico mostrará a folha **Métrica**. Na folha, além do gráfico, há uma tabela que mostra as agregações das métricas (como média, mínima e máxima, para o intervalo de tempo que você escolheu). Abaixo disso estão as regras de alerta para o recurso.
+![Lâmina Métrica](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 
 4. Para personalizar as linhas que aparecem, clique no botão **Editar** no gráfico ou no comando **Editar gráfico** na folha Métrica.
 
@@ -39,7 +41,8 @@ Você pode criar um gráfico com as métricas relativas a qualquer período de t
     - Trocar a aparência das barras e linhas
     - Escolher métricas diferentes ![Editar Consulta](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
 
-6. A alteração do intervalo de tempo é tão fácil quanto selecionar um intervalo diferente (como **Última Hora**) e clicar em **Salvar** na parte inferior da lâmina. Você também pode escolher **Personalizar**, permite escolher qualquer período de tempo nas duas últimas semanas. Por exemplo, você pode ver as duas semanas inteiras ou apenas uma hora do dia anterior. Digite na caixa de texto para inserir outra hora. ![Intervalo de tempo personalizado](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
+6. A alteração do intervalo de tempo é tão fácil quanto selecionar um intervalo diferente (como **Última Hora**) e clicar em **Salvar** na parte inferior da lâmina. Você também pode escolher **Personalizar**, permite escolher qualquer período de tempo nas duas últimas semanas. Por exemplo, você pode ver as duas semanas inteiras ou apenas uma hora do dia anterior. Digite na caixa de texto para inserir outra hora.
+![Intervalo de tempo personalizado](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
 
 7. Abaixo do intervalo de tempo, você pode escolher qualquer número de métricas para mostrar no gráfico.
 
@@ -50,7 +53,8 @@ Você pode criar um gráfico com as métricas relativas a qualquer período de t
 Com a poderosa personalização no portal, você pode adicionar quantos gráficos quiser.
 
 1. No menu **...** na parte superior da folha, clique em **Adicionar blocos**:![Adicionar menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. Em seguida, você pode selecionar um gráfico na **Galeria** no lado direito da tela: ![Galeria](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. Em seguida, você pode selecionar um gráfico na **Galeria** no lado direito da tela:
+![Galeria](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Se você não vir a métrica desejada, você sempre poderá adicionar uma das métricas predefinidas e **Editar** o gráfico para mostrar a métrica que você precisa.
 
 ## Monitorando cotas de uso

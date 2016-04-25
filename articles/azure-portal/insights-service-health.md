@@ -26,23 +26,27 @@ O Azure publica sempre que há uma degradação no desempenho ou interrupção d
 
 2. Em **Página Inicial** você deve ver um bloco chamado **Integridade do serviço** ![Home](./media/insights-service-health/Insights_Home.png)
 
-3. Ao clicar nesse bloco uma lista com todas as regiões no Azure será exibida. Você pode clicar em qualquer região para ver o histórico de integridade do serviço para essa região. ![Home](./media/insights-service-health/Insights_Regions.png)
+3. Ao clicar nesse bloco uma lista com todas as regiões no Azure será exibida. Você pode clicar em qualquer região para ver o histórico de integridade do serviço para essa região.
+![Home](./media/insights-service-health/Insights_Regions.png)
 
 4. Você também pode ver os detalhes de um incidente individual clicando nele na tabela.
 
 ## Procurar por logs completos de integridade do serviço
 
-2. Clique em **Procurar** e selecione **Logs de auditoria**. ![Hub de procura](./media/insights-service-health/Insights_Browse.png)
+2. Clique em **Procurar** e selecione **Logs de auditoria**.
+![Hub de procura](./media/insights-service-health/Insights_Browse.png)
 
 3. Isso abrirá uma folha mostrando todos os eventos que afetaram qualquer uma das suas assinaturas nos últimos 7 dias. Entradas de integridade do serviço serão exibidas nessa lista, mas talvez seja difícil encontrá-las, pois a lista pode ser grande.
 
 4. Clique no comando **Filtrar**.
 
-5. Selecione **Categoria de evento** e escolha **Integridade do serviço**: ![Todos os eventos](./media/insights-service-health/Insights_Filter.png)
+5. Selecione **Categoria de evento** e escolha **Integridade do serviço**:
+![Todos os eventos](./media/insights-service-health/Insights_Filter.png)
 
 6. Clique em **Atualizado**.
 
-7. Agora você verá todos os eventos de integridade do serviço que têm impacto em sua assinatura: ![Grupos de recursos](./media/insights-service-health/Insights_HealthEvent.png)
+7. Agora você verá todos os eventos de integridade do serviço que têm impacto em sua assinatura:
+![Grupos de recursos](./media/insights-service-health/Insights_HealthEvent.png)
 
 8. A partir daí, você pode ir para a folha de detalhes para ver os detalhes do evento.
 

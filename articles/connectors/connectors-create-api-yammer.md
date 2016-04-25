@@ -54,9 +54,11 @@ Siga estas etapas para entrar no Yammer e concluir a configuração da **conexã
 3. Selecione **Adicionar uma ação** ![Configurar o Yammer][1]
 4. Insira Yammer na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Yammer no nome
 5. Selecione **Yammer – Obter todas as mensagens**
-6. Selecione **Entrar no Yammer**: ![Configurar o Yammer][2]
+6. Selecione **Entrar no Yammer**:
+![Configurar o Yammer][2]
 7. Forneça suas credenciais do Yammer para entrar e autorizar o aplicativo ![Configurar o Yammer][3]  
-8. Você será redirecionado à página de logon de sua organização. **Permita** que o Yammer interaja com seu aplicativo lógico: ![Configurar o Yammer][4] 
+8. Você será redirecionado à página de logon de sua organização. **Permita** que o Yammer interaja com seu aplicativo lógico:
+![Configurar o Yammer][4] 
 9. Depois de entrar, retorne ao aplicativo lógico para concluí-lo configurando a seção **Yammer – Obter todas as mensagens** e adicionando outros gatilhos e outras ações necessárias.![Configurar o Yammer][5]  
 10. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
 

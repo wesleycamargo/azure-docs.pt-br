@@ -173,11 +173,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
    
     j. Para **Configuração de segurança de provisionamento automático**, selecione **Configuração de Usuário Padrão**.
    
-    k. Na caixa de texto Atributo de email, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    k. Na caixa de texto Atributo de email, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    l. Na caixa de texto **Atributo de nome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    l. Na caixa de texto **Atributo de nome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    m. Na caixa de texto **Atributo de sobrenome**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    m. Na caixa de texto **Atributo de sobrenome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
     n. Clique em **Salvar**.
    

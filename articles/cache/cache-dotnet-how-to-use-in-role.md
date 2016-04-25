@@ -23,7 +23,7 @@
 
 # Como usar o Cache na Função para Cache do Azure
 
-Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache ** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][].
+Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][].
 
 >[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. Nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](../redis-cache/cache-migrate-to-redis.md).
 

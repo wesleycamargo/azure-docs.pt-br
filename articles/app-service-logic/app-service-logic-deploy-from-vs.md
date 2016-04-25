@@ -27,15 +27,19 @@ Você deve ter o Azure SDK 2.7 ou posterior instalado para que você siga as eta
 
 ## Criar um projeto
 
-1. Vá até o menu **Arquivo** e selecione **Novo** > **Projeto** (ou então, você pode ir até **Adicionar** e selecionar **Novo projeto** para adicioná-lo a uma solução existente): ![Menu Arquivo](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. Vá até o menu **Arquivo** e selecione **Novo** > **Projeto** (ou então, você pode ir até **Adicionar** e selecionar **Novo projeto** para adicioná-lo a uma solução existente):
+![Menu Arquivo](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
-2. Na caixa de diálogo, encontre **Nuvem** e selecione **Grupo de Recursos do Azure**. Digite um **Nome** e, em seguida, clique em **OK**. ![Adicionar novo projeto](./media/app-service-logic-deploy-from-vs/addnewproject.png)
+2. Na caixa de diálogo, encontre **Nuvem** e selecione **Grupo de Recursos do Azure**. Digite um **Nome** e, em seguida, clique em **OK**.
+![Adicionar novo projeto](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. Agora você precisa selecionar se deseja um **Aplicativo lógico** ou **Aplicativo lógico e Aplicativo de API**. Selecionar **Aplicativo lógico** exige que você aponte para APIs existentes. Caso selecione **Aplicativo lógico e Aplicativo de API**, você também poderá criar, simultaneamente, um Aplicativo de API novo e vazio. Neste documento, selecionei o Aplicativo lógico. ![Selecionar modelo do Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+3. Agora você precisa selecionar se deseja um **Aplicativo lógico** ou **Aplicativo lógico e Aplicativo de API**. Selecionar **Aplicativo lógico** exige que você aponte para APIs existentes. Caso selecione **Aplicativo lógico e Aplicativo de API**, você também poderá criar, simultaneamente, um Aplicativo de API novo e vazio. Neste documento, selecionei o Aplicativo lógico.
+![Selecionar modelo do Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
 4. Depois de selecionar o **Modelo**, aperte **OK**.
 
-Agora, seu projeto de aplicativo lógico foi adicionado à sua solução. Você deve ver a implantação no Gerenciador de Soluções: ![Implantação](./media/app-service-logic-deploy-from-vs/deployment.png)
+Agora, seu projeto de aplicativo lógico foi adicionado à sua solução. Você deve ver a implantação no Gerenciador de Soluções:
+![Implantação](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## Configurando seu aplicativo lógico
 
@@ -59,12 +63,14 @@ Finalmente, depois de configurar seu aplicativo, você pode implantar diretament
 
 2. Você é solicitado a entrar em suas assinaturas do Azure.
 
-3. Agora você precisa escolher os detalhes do grupo de recursos no qual você deseja implantar o aplicativo lógico. ![Implantar no grupo de recursos](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
+3. Agora você precisa escolher os detalhes do grupo de recursos no qual você deseja implantar o aplicativo lógico.
+![Implantar no grupo de recursos](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
 
      > [AZURE.NOTE]    Certifique-se de selecionar os arquivos certos de modelo e de parâmetros para o grupo de recursos (por exemplo, se você estiver implantando em um ambiente de produção, você preferirá escolher o arquivo de parâmetros de produção). 
 4.  Escolha o botão Implantar
     
-5. O status da implantação aparece na janela **Saída** (talvez você precise escolher **Provisionamento do Azure**). ![Saída](./media/app-service-logic-deploy-from-vs/output.png)
+5. O status da implantação aparece na janela **Saída** (talvez você precise escolher **Provisionamento do Azure**).
+![Saída](./media/app-service-logic-deploy-from-vs/output.png)
 
 No futuro, você pode revisar seu aplicativo lógico no controle do código-fonte e usar o Visual Studio para implantar novas versões.
 

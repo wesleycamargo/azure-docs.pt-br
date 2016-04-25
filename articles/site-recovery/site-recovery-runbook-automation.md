@@ -266,7 +266,8 @@ O script completo é fornecido abaixo para sua referência
 
 Quando o script estiver pronto, você poderá adicioná-lo ao plano de recuperação criado anteriormente.
 
-1.  No plano de recuperação que você criou, escolha adicionar um script após o grupo 2. ![](media/site-recovery-runbook-automation/15.png)
+1.  No plano de recuperação que você criou, escolha adicionar um script após o grupo 2.
+![](media/site-recovery-runbook-automation/15.png)
 
 2.  Especifique um nome de script. Esse é apenas um nome amigável para mostrar o script no Plano de recuperação.
 

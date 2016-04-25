@@ -81,7 +81,8 @@ Agora que temos eventos de Tweets, podemos configurar, em tempo real, um trabalh
 	* **REGIÃO**: selecione a região em que você deseja executar o trabalho. Considere a opção de colocar o trabalho e o hub de eventos na mesma região para garantir um desempenho melhor e assegurar que você não pague para transferir dados entre regiões.
 	* **CONTA DE ARMAZENAMENTO**: escolha a conta de armazenamento que você deseja usar para armazenar dados de monitoramento de todos os trabalhos de Stream Analytics em execução nessa região. Você tem a opção de escolher uma conta de armazenamento existente ou criar uma nova.
 
-3.	Clique em **STREAM ANALYTICS** no painel à esquerda para listar os trabalhos de Stream Analytics. ![Ícone do serviço Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+3.	Clique em **STREAM ANALYTICS** no painel à esquerda para listar os trabalhos de Stream Analytics.
+![Ícone do serviço Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	O novo trabalho será mostrado com um status de **CRIADO**. Observe que o botão **INICIAR**, na parte inferior da página, está desabilitado. Você deve configurar a entrada, a saída, a consulta do trabalho e assim por diante antes de iniciar o trabalho.
 
@@ -94,7 +95,7 @@ Agora que temos eventos de Tweets, podemos configurar, em tempo real, um trabalh
 
 	* **ALIAS DE ENTRADA**: insira um nome amigável para a entrada do trabalho, como TwitterStream. Observe que você usará esse nome na consulta posteriormente. **HUB DE EVENTOS**: se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione o namespace em que o hub de eventos está.
 
-		Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para ** NAMESPACE DO SERVICE BUSs**, **NOME DO HUB DE EVENTOS**, **NOME DA POLÍTICA DO HUB DE EVENTOS**, **CHAVE DE POLÍTICA DO HUB DE EVENTOS** e **CONTAGEM DE PARTIÇÕES DO HUB DE EVENTOS**.
+		Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para **NAMESPACE DO SERVICE BUSs**, **NOME DO HUB DE EVENTOS**, **NOME DA POLÍTICA DO HUB DE EVENTOS**, **CHAVE DE POLÍTICA DO HUB DE EVENTOS** e **CONTAGEM DE PARTIÇÕES DO HUB DE EVENTOS**.
 
 	* **NOME DO HUB DE EVENTOS**: selecione o nome do Hub de Eventos
 	* **NOME DE POLÍTICA DO HUB DE EVENTOS**: selecione a política de hub de eventos criada anteriormente neste tutorial.

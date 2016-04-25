@@ -1,7 +1,7 @@
 Se você ainda não fez isso, você pode obter uma [avaliação gratuita de assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) e a [CLI do Azure](../articles/xplat-cli-install.md) [conectada à sua conta do Azure](../articles/xplat-cli-connect.md). Depois que você fizer isso, você pode executar os seguintes comandos para criar rapidamente um conjunto de escala:
 
 ```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/pt-BR/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set

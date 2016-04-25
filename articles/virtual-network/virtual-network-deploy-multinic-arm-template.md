@@ -213,7 +213,7 @@ Antes de implantar o modelo fornecido com esta documentação, você deve compre
 
 > [AZURE.IMPORTANT] Não deixe de seguir as etapas [necessárias](#Pre-requisites) antes de seguir as instruções abaixo.
 
-O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando o recurso clicar para implantar, clique [neste link](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), à direita do ** grupo de recursos Back-end (confira a documentação)** e clique em **Implantar no Azure**. Caso necessário, substitua os valores de parâmetro padrão e siga as instruções no portal.
+O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando o recurso clicar para implantar, clique [neste link](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), à direita do **grupo de recursos Back-end (confira a documentação)** e clique em **Implantar no Azure**. Caso necessário, substitua os valores de parâmetro padrão e siga as instruções no portal.
 
 A figura a seguir mostra o conteúdo do novo grupo de recursos, após a implantação.
 

@@ -44,7 +44,8 @@ Para se inscrever em uma assinatura de Avaliação Gratuita do Azure, você deve
 
 1. Abra a [página de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) e selecione **Experimentar agora**.
 2. Entre com sua conta da Microsoft ou com sua conta corporativa ou de estudante.
-3. Na seção **Sobre você**, digite suas informações pessoais. ![Captura de tela de informações pessoais](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
+3. Na seção **Sobre você**, digite suas informações pessoais.
+![Captura de tela de informações pessoais](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
  **Observação**: o endereço de email e as informações sobre o país que você fornecer ao se inscrever para uma assinatura do Azure sempre serão associados à assinatura e não podem ser alterados posteriormente.</br>
 4. Em **Verificação por seção** de telefone, você deve fornecer um número de telefone para receber um código de verificação que você pode fornecer para concluir o processo de verificação.
