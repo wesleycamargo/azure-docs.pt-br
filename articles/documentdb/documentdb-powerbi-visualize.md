@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Tutorial do Power BI para o conector do Banco de Dados de Documentos | Microsoft Azure" 
-	description="Use este tutorial do Power BI para importar o JSON, criar relatórios interessantes e visualizar dados usando o conector do Banco de Dados de Documentos e do Power BI." 
+<properties
+	pageTitle="Tutorial do Power BI para o conector do Banco de Dados de Documentos | Microsoft Azure"
+	description="Use este tutorial do Power BI para importar o JSON, criar relatórios interessantes e visualizar dados usando o conector do Banco de Dados de Documentos e do Power BI."
 	keywords="tutorial do power bi, visualizar dados, conector do power bi"
-	services="documentdb" 
-	authors="h0n" 
-	manager="jhubbard" 
-	editor="mimig" 
+	services="documentdb"
+	authors="h0n"
+	manager="jhubbard"
+	editor="mimig"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/26/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/26/2016"
 	ms.author="hawong"/>
 
 # Tutorial do Power BI para o Banco de Dados de Documentos: visualizar dados usando o conector do Power BI
@@ -24,19 +24,19 @@ Neste tutorial do Power BI, explicaremos as etapas para conectar a uma conta do 
 
 Depois de concluir este tutorial do Power BI, você estará apto a responder às seguintes perguntas:
 
--	Como posso criar relatórios com dados do Banco de Dados de Documentos usando o Power BI Desktop? 
+-	Como posso criar relatórios com dados do Banco de Dados de Documentos usando o Power BI Desktop?
 -	Como posso me conectar a uma conta do Banco de Dados de Documentos no Power BI Desktop?
 -	Como posso recuperar dados de uma coleção no Power BI Desktop?
 -	Como posso transformar dados JSON aninhados no Power BI Desktop?
--	Como posso publicar e compartilhar meus relatórios no PowerBI.com? 
+-	Como posso publicar e compartilhar meus relatórios no PowerBI.com?
 
 ## Pré-requisitos
 
 Antes de seguir as instruções neste tutorial do Power BI, certifique-se de ter o seguinte:
 
 - [A versão mais recente do Power BI Desktop](https://powerbi.microsoft.com/desktop).
-- Acesse nossa conta ou dados de demonstração em sua conta do Banco de Dados de Documentos do Azure. 
-	- A conta de demonstração é populada com os dados do vulcão mostrados neste tutorial. Essa conta de demonstração não está vinculada por nenhum SLA e se destina apenas a fins de demonstração. Reservamos o direito de fazer modificações a essa conta de demonstração, incluindo, entre outros, encerramento da conta, alteração da chave, restrição do acesso, alteração e exclusão dos dados, a qualquer momento, sem aviso prévio ou justificativa. 
+- Acesse nossa conta ou dados de demonstração em sua conta do Banco de Dados de Documentos do Azure.
+	- A conta de demonstração é populada com os dados do vulcão mostrados neste tutorial. Essa conta de demonstração não está vinculada por nenhum SLA e se destina apenas a fins de demonstração. Reservamos o direito de fazer modificações a essa conta de demonstração, incluindo, entre outros, encerramento da conta, alteração da chave, restrição do acesso, alteração e exclusão dos dados, a qualquer momento, sem aviso prévio ou justificativa.
 		- URL: https://analytics.documents.azure.com
 		- Chave somente leitura: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
 	- Ou então, para criar sua própria conta, veja [Criar uma conta de banco de dados do Banco de Dados de Documentos usando o Portal do Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Em seguida, para obter dados de vulcão de exemplo semelhantes aos que são usados neste tutorial (mas que não contêm os blocos GeoJSON), confira o [site da NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) e importe os dados usando a [ferramenta de migração de dados do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
@@ -62,7 +62,7 @@ Neste tutorial, vamos imaginar que você é um geólogo que estuda os vulcões e
   		"Type": "Stratovolcano",
   		"Status": "Dendrochronology",
   		"Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-	}	
+	}
 
 Você deseja recuperar os dados de vulcão da conta do Banco de Dados de Documentos e visualizar dados em um relatório interativo do Power BI como o mostrado abaixo.
 
@@ -94,7 +94,7 @@ Pronto para experimentar? Vamos começar.
     ![Tutorial do Power BI para conector do Power BI do Banco de Dados de Documentos — janela Conexão da Área de Trabalho](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 
 7. Se estiver se conectando a este ponto de extremidade pela primeira vez, você será solicitado a fornecer a chave de conta. Insira a chave de conta e clique em **Conectar**.
-	
+
 	*Observação. Recomendamos que você use a chave somente leitura ao criar relatórios. Isso impedirá a exposição desnecessária da chave mestra a possíveis riscos de segurança. A chave somente leitura está disponível na folha Chaves Somente Leitura do Portal do Azure, ou você pode usar as informações da conta de demonstração fornecidas acima.*
 
     ![Tutorial do Power BI para conector do Power BI do Banco de Dados de Documentos — chave da conta](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
@@ -111,10 +111,11 @@ Pronto para experimentar? Vamos começar.
 11. Clique em **Editar** para iniciar o Editor de Consultas para que possamos transformar os dados.
 
 ## Nivelando e transformando documentos JSON
-1. No Editor de Consultas do Power BI, você deve ver uma coluna **Documento** no painel central. ![Editor de Consultas do Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
+1. No Editor de Consultas do Power BI, você deve ver uma coluna **Documento** no painel central.
+![Editor de Consultas do Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 
 2. Clique no expansor no lado direito do cabeçalho da coluna **Documento**. O menu de contexto com uma lista de campos será exibido. Selecione os campos necessários para o relatório, por exemplo, Nome do Vulcão, País, Região, Local, Elevação, Tipo, Status e Última Erupção Conhecida e clique em **OK**.
-    
+
 	![Tutorial do Power BI para conector do Power BI do Banco de Dados de Documentos — expandir documentos](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 
 3. O painel central exibirá uma visualização do resultado com os campos selecionados.
@@ -135,7 +136,7 @@ Pronto para experimentar? Vamos começar.
 8. Forneça um nome para a nova coluna, por exemplo, LatLong.
 
 9. Em seguida, especifique a fórmula personalizada para a nova coluna. Para nosso exemplo, os valores de Latitude e Longitude, separados por uma vírgula, serão concatenados com a seguinte fórmula, como mostrado abaixo: Text.From([coordinates]{1})&","&Text.From([coordinates]{0}). Clique em **OK**.
-	
+
     *Observação. Para obter mais informações sobre o DAX (Data Analysis Expressions), incluindo as funções DAX, visite [Noções básicas do DAX no Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).*
 
     ![Tutorial do Power BI para conector do Power BI do Banco de Dados de Documentos — adicionar coluna personalizada](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
@@ -149,14 +150,14 @@ Pronto para experimentar? Vamos começar.
     ![Tutorial do Power BI para conector do Power BI do Banco de Dados de Documentos — alterar tipo de coluna](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
 
 12. Clique em **Fechar e Aplicar** para salvar o modelo de dados.
-    
+
     ![Tutorial do Power BI para conector do Power BI do Banco de Dados de Documentos — fechar e aplicar](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
 ## Compilar os relatórios
 A exibição de Relatório do Power BI Desktop é aquela em que você pode começar a criar relatórios para visualizar dados. Você pode criar relatórios arrastando e soltando campos na tela **Relatório**.
 
 ![Exibição de relatório do Power BI Desktop — conector do Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)
- 
+
 Na exibição de Relatório, você deve encontrar:
 
  1. O painel **Campos** é onde você verá uma lista de modelos de dados com campos que podem ser usados para seus relatórios.
@@ -191,7 +192,7 @@ Para compartilhar seu relatório, você deve ter uma conta no PowerBI.com.
 4. Em seguida, você poderá compartilhar seu relatório no PowerBI.com.
 
 ## Próximas etapas
-- Para saber mais sobre o Power BI, clique [aqui](https://support.powerbi.com/knowledgebase)
+- Para saber mais sobre o Power BI, clique [aqui](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
 - Para saber mais sobre o Banco de Dados de Documentos, clique [aqui](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

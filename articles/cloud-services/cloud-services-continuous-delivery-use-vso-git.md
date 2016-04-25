@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Entrega contínua com o Git e o Visual Studio Team Services no Azure | Microsoft Azure" 
+	pageTitle="Entrega contínua com o Git e o Visual Studio Team Services no Azure | Microsoft Azure"
 	description="Saiba como configurar seus projetos de equipe do Visual Studio Team Services para usarem o Git para serem compilados e implantados automaticamente no recurso Aplicativo Web no Serviço de Aplicativo do Azure ou nos serviços de nuvem."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -23,7 +23,8 @@ Você pode usar os projetos de equipe do Visual Studio Team Services para hosped
 Você precisará do Visual Studio 2013 e do SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita (a página pode estar em inglês)** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE] Você precisa de uma conta do Visual Studio Team Services para concluir este tutorial: você pode [abrir uma conta do Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE] Você precisa de uma conta do Visual Studio Team Services para concluir este tutorial:
+> você pode [abrir uma conta do Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar um serviço de nuvem para compilação e implantação automática no Azure usando o Visual Studio Team Services, siga essas etapas.
 
@@ -43,7 +44,7 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
 
 	![][4]
 
-2. Você pode implantar um aplicativo Web ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo. Crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. Certifique-se de que o projeto direciona-se ao .NET Framework 4 ou posterior. Se você está criando um projeto de serviço de nuvem, adicione uma função de trabalho e uma função web MVC do ASP.NET. Se você quiser criar um aplicativo Web, escolha o modelo de projeto de **Aplicativo Web ASP.NET** e escolha **MVC**. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](/app-service-web/web-sites-dotnet-get-started.md) para obter mais informações.
+2. Você pode implantar um aplicativo Web ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo. Crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. Certifique-se de que o projeto direciona-se ao .NET Framework 4 ou posterior. Se você está criando um projeto de serviço de nuvem, adicione uma função de trabalho e uma função web MVC do ASP.NET. Se você quiser criar um aplicativo Web, escolha o modelo de projeto de **Aplicativo Web ASP.NET** e escolha **MVC**. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](../app-service-web/web-sites-dotnet-get-started.md) para obter mais informações.
 
 3. Abra o menu de atalho da solução e escolha **Confirmar**.
 
@@ -224,7 +225,7 @@ Quando usa o Git, normalmente você faz alterações em uma ramificação em and
 
 ## Próximas etapas
 
-Para obter mais dicas de como usar o Git com Visual Studio Team Services, consulte [Desenvolver e compartilhar seu código no Git usando Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx); para obter informações de como usar um repositório Git que não é gerenciado pelo Visual Studio Team Services para publicar no Azure, consulte [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](/app-service-web/web-sites-publish-source-control.md). Para obter mais informações sobre o Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Para obter mais dicas de como usar o Git com Visual Studio Team Services, consulte [Desenvolver e compartilhar seu código no Git usando Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx); para obter informações de como usar um repositório Git que não é gerenciado pelo Visual Studio Team Services para publicar no Azure, consulte [Implantação contínua usando GIT no Serviço de Aplicativo do Azure](../app-service-web/web-sites-publish-source-control.md). Para obter mais informações sobre o Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -272,4 +273,4 @@ Para obter mais dicas de como usar o Git com Visual Studio Team Services, consul
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

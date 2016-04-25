@@ -85,7 +85,9 @@ Um cronograma de exemplo que ilustra o processo de monitoramento com um único s
 7. **O tráfego para o serviço de nuvem diminui** – o tráfego pode continuar fluindo para o serviço de nuvem indisponível. Os clientes vão experienciar falhas porque o serviço está indisponível. Os clientes e servidores DNS secundários armazenaram em cache o registro DNS para o endereço IP do serviço de nuvem indisponível. Elas continuam a resolver o nome DNS do domínio da empresa para o endereço IP do serviço. Além disso, os servidores DNS secundários ainda podem distribuir as informações de DNS do serviço indisponível. Conforme os clientes e servidores DNS secundários são atualizados, o tráfego para o endereço IP do serviço indisponível diminuirá. O sistema de monitoramento continua realizando verificações em intervalos de 30 segundos. Neste exemplo, o serviço não responde e permanece indisponível.
 8. **O tráfego para o serviço de nuvem para** – nesse momento, a maioria dos servidores DNS e clientes deve ser atualizada e o tráfego para o serviço indisponível é interrompido. A quantidade máxima de tempo antes do tráfego ser completamente interrompido depende do tempo de TTL. O TTL padrão do DNS é 300 segundos (5 minutos). Usando esse valor, os clientes param de usar o serviço após 5 minutos. O sistema de monitoramento continua executando verificações em intervalos de 30 segundos e o serviço de nuvem não responde.
 9. **O serviço de nuvem volta a ficar online e a recebe tráfego** – o serviço torna-se disponível, mas o Gerenciador de Tráfego não sabe disso até o sistema de monitoramento executar uma verificação.
-10. **O tráfego para o serviço volta é retomado** – o Gerenciador de Tráfego envia um GET e recebe uma resposta 200 OK em menos de 10 segundos. Ele então começa a distribuir o nome DNS do serviço de nuvem para servidores DNS conforme eles solicitam atualizações. Como resultado, o tráfego começa a fluir novamente para o serviço.
+10. **O tráfego para o serviço volta é retomado** – o Gerenciador de Tráfego envia um GET e recebe uma resposta 200 OK em menos de 10 segundos. Ele então começa a distribuir o nome DNS do serviço de nuvem para servidores DNS conforme eles solicitam atualizações. O tráfego retornará ao ponto de extremidade novamente à medida que as respostas de DNS em cache que retornam outros pontos de extremidade expirarem, e suas conexões com outros pontos de extremidade sejam encerradas.
+
+>[AZURE.NOTE] Como o Gerenciador de Tráfego funciona no nível do DNS, ele não consegue influenciar as conexões existentes com qualquer ponto de extremidade. Durante o failback, enquanto o Gerenciador de Tráfego direciona novas conexões para o ponto de extremidade primário, os pontos de extremidade secundários continuarão a receber o tráfego por meio de conexões existentes até que as sessões sejam encerradas. Se o failback rápido for necessário, os aplicativos deverão limitar a duração da sessão em pontos de extremidade secundários.
 
 ## Status de pontos de extremidade pai e filho para perfis aninhados
 
@@ -115,4 +117,4 @@ A tabela a seguir descreve o comportamento de monitoramento do Gerenciador de Tr
 [Solucionando problemas de status degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

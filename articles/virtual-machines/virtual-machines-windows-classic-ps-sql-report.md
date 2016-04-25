@@ -77,7 +77,8 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
 	
 	- **Nova Senha** e **Confirmar**. Essa senha será usada para a nova conta de administrador, portanto, recomendamos o uso de uma senha forte.
 	
-	- Clique em **Próximo**. ![avançar](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+	- Clique em **Próximo**.
+![avançar](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. Na próxima página edite os campos a seguir:
 
@@ -97,11 +98,13 @@ Este tópico descreve e fornece orientação para a implantação e a configura�
 
 		- **HTTPS**: as portas pública e privada padrão são **443**. Uma prática recomendada de segurança é alterar a porta privada e configurar o firewall e o servidor de relatório para usar a porta privada. Para saber mais sobre os pontos de extremidade, consulte [Como Configurar a Comunicação com uma Máquina Virtual](virtual-machines-windows-classic-setup-endpoints.md). Se você usar uma porta diferente da 443, altere o parâmetro **$HTTPsport = 443** no script HTTPS.
 	
-	- Clique em Próximo. ![avançar](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+	- Clique em Próximo.
+![avançar](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 
 1. Na última página do assistente, mantenha o padrão **Instalar o agente de VM** selecionado. As etapas neste tópico não utilizam o agente de VM, mas se você planeja manter essa VM, o agente de VM e as extensões permitirão o aprimoramento da VM. Para saber mais sobre o agente de VM, consulte [Agente de VM e Extensões – Parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Uma das extensões padrão instaladas e em execução é a “BGINFO”, que exibe na área de trabalho da VM informações sobre o sistema, por exemplo, o IP interno e o espaço disponível na unidade.
 
-1. Clique em Concluído. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+1. Clique em Concluído.
+![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 
 1. O **Status** da VM é exibido como **Iniciando (Provisionando)** durante o processo de provisionamento. Em seguida, é exibido como **Executando** quando a VM é provisionada e está pronta para ser usada.
 
@@ -703,6 +706,6 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 ### Links para outros recursos para SQL Server em VMs do Azure
 
-[Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-sql-overview.md)
+[Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

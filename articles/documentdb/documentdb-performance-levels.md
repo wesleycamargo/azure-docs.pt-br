@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="04/08/2016" 
 	ms.author="johnmac"/>
 
 # Níveis de desempenho no Banco de Dados de Documentos
@@ -97,9 +97,9 @@ Coleções do Banco de Dados de Documentos permitem agrupar seus dados com base 
 
 ## Alterando os níveis de desempenho usando o Portal do Azure
 
-O Portal do Azure é uma opção disponível para você ao gerenciar os níveis de desempenho de suas coleções. Siga estas etapas para alterar o nível de desempenho da coleção no Portal Clássico do Azure.
+O Portal do Azure é uma opção disponível para você ao gerenciar os níveis de desempenho de suas coleções. Execute estas etapas para alterar o uso de níveis de desempenho predefinidos para níveis de desempenho definidos pelo usuário no Portal do Azure, ou assista ao [vídeo do Channel 9](https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance) de 75 segundos. Para saber mais sobre a mudança das opções de preço, confira a postagem de blog [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/) (Banco de Dados de Documentos: tudo o que você precisa saber sobre como usar as novas opções de preços).
 
-1. Navegue para o [**portal do Microsoft Azure**](https://portal.azure.com) em seu navegador.
+1. Navegue até o [**Portal do Azure**](https://portal.azure.com) em seu navegador.
 2. Clique em **Procurar** na barra de salto no lado esquerdo.
 3. No hub **Procurar**, clique em **Contas do Banco de Dados de Documentos** no rótulo **Filtrar por**.
 4. Na lâmina **Contas do Banco de Dados de Documentos**, clique na conta do Banco de Dados de Documentos que contém a coleção desejada.
@@ -113,9 +113,9 @@ O Portal do Azure é uma opção disponível para você ao gerenciar os níveis 
 
 9. Na folha **Escolha seu tipo de preço**, clique em **Selecionar**.
 
-10. Na folha **Gerenciar Coleção**, o **Tipo de Preç** foi alterado para **Standard** e a caixa **Taxa de transferência (RU/s)** é exibida.
+10. Na folha **Gerenciar Coleção**, o **Tipo de Preço** foi alterado para **Standard** e a caixa **Taxa de transferência (RU/s)** é exibida.
 
-    Altere o valor da caixa **Taxa de transferência** para um valor entre 400 e 10.000 [Unidades de solicitação](documentdb-request-units.md)/segundo (RUS/s). O **Resumo de Preços** na parte inferior da página é atualizado automaticamente para fornecer uma estimativa do custo mensal.
+    Altere o valor da caixa **Taxa de transferência** para um valor entre 400 e 10.000 [Unidades de solicitação](documentdb-request-units.md)/segundo (RU/s). O **Resumo de Preços** na parte inferior da página é atualizado automaticamente para fornecer uma estimativa do custo mensal.
 
     ![Captura de tela da folha Gerenciar Coleção mostrando onde alterar o valor de taxa de transferência para a coleção][2]
 
@@ -176,4 +176,4 @@ Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](ht
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

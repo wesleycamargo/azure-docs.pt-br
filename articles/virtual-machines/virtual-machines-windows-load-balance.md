@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Balanceamento de carga para serviços de infraestrutura | Microsoft Azure"
-	description="Descreve os dois tipos diferentes de balanceamento de carga com suporte do Azure: Balanceador de carga para serviços em nuvem e o Azure Traffic Manager para o tráfego do cliente."
+	description="Descreve os dois tipos de balanceamento de carga com suporte pelo Azure: balanceador de carga para serviços de nuvem e o Gerenciador de Tráfego do Azure para o tráfego do cliente."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="joaoma"
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-load-balance](../../includes/virtual-machines-common-load-balance.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

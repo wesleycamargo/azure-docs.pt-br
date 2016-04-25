@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Galeria de Imagens do Governo do Azure" 
-   description="Este artigo fornece uma visão geral da Galeria de Imagens do Governo do Azure e as imagens incluídas" 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
+<properties
+   pageTitle="Galeria de Imagens do Governo do Azure"
+   description="Este artigo fornece uma visão geral da Galeria de Imagens do Governo do Azure e as imagens incluídas"
+   services="Azure-Government"
+   documentationCenter=""
+   authors="joharve2"
+   manager="chrisnie"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="azure-government" 
+   ms.workload="azure-government"
    ms.date="05/20/2015"
    ms.author="jharve"/>
 
@@ -91,15 +91,15 @@ SUSE|SUSE Linux Enterprise Server 12|Execute com segurança suas cargas de traba
 
 O recursos abaixo devem fornecer mais informações sobre como implantar da galeria de imagens ou criar seu próprio VHD. Consulte o <a href="../azure-government-developer-guide">Guia para desenvolvedor do Azure Government</a> para descobrir diferenças programáticas com pontos de extremidade ao trabalhar com o Azure Government.
 
-###Outros recursos: 
+###Outros recursos:
 
-- [Implantação de uma Máquina Virtual do Windows](virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- [Implantação de uma Máquina Virtual do Windows](./virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-- [Implantar uma Máquina Virtual Linux](virtual-machines/virtual-machines-linux-cli-create.md)
+- [Implantar uma Máquina Virtual Linux](./virtual-machines/virtual-machines-linux-create-cli-complete.md)
 
-- [Perguntas Frequentes sobre Máquina Virtual](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+- [Perguntas Frequentes sobre Máquina Virtual](./virtual-machines/virtual-machines-linux-classic-faq.md)
 
-- [Criar e carregar seu próprio VHD](virtual-machines-create-upload-vhd-windows-server/)
+- [Criar e carregar seu próprio VHD](./virtual-machines/virtual-machines-linux-about-disks-vhds.md/)
 
 - [Capturar imagem de VM do Linux](virtual-machines/virtual-machines-linux-classic-capture-image.md)
 
@@ -114,8 +114,8 @@ O recursos abaixo devem fornecer mais informações sobre como implantar da gale
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: ./virtual-machines/virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ./app-service-web/web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ./storage/storage-whatis-account.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

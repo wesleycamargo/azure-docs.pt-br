@@ -15,6 +15,6 @@ Tipo de disco de armazenamento Premium | P10 | P20 | P30
 Tamanho do disco | 128 GiB | 512 GiB | 1024 GiB (1 TB)
 IOPS máxima por disco | 500 | 2\.300 | 5\.000
 Taxa de transferência máxima por disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo
-Número máximo de discos altamente utilizados | 62 | 41 | 31
+Número máximo de discos por conta de armazenamento | 280 | 140 | 35
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -1,8 +1,8 @@
 <properties 
     pageTitle="Tutorial: Integração do Active Directory do Azure com o xMatters OnDemand | Microsoft Azure"
-    description="Saiba como usar o xMatters OnDemand com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais." 
+    description="Saiba como usar o xMatters OnDemand com o Azure Active Directory para habilitar logon único, provisionamento automatizado e muito mais." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure com o xMatters OnDemand
   
@@ -102,7 +102,8 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     2.  No portal do Azure, na página de diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **ID do Provedor de Identidade** e, em seguida, cole-o na caixa de texto **ID do Provedor de Identidade**.
     3.  No portal do Azure, na página do diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon Único**.
     4.  No portal do Azure, na página do diálogo **Configurar logon único no XMatters OnDemand**, copie o valor da **URL de Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff Único**.
-    5.  Na página Detalhes da Empresa, na parte superior, clique em **Salvar Alterações**. ![Detalhes da empresa](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
+    5.  Na página Detalhes da Empresa, na parte superior, clique em **Salvar Alterações**.
+![Detalhes da empresa](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Detalhes da empresa")
 
 8.  No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar o diálogo **Configurar Logon Único**.
 
@@ -151,4 +152,4 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -3,7 +3,7 @@
     description="como configurar consultas elásticas em partições horizontais"    
     services="sql-database"
     documentationCenter=""  
-    manager="jeffreyg"
+    manager="jhubbard"
     authors="torsteng"/>
 
 <tags
@@ -192,31 +192,20 @@ Depois de definir a fonte de dados externa e as tabelas externas, agora você po
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2\.2 Procedimento armazenado SP\_EXECUTE\_FANOUT 
+### 2\.2 Procedimento armazenado para a execução remota de T-SQL
 
-A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado sp\_execute\_fanout e usa os seguintes parâmetros:
+A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado sp\_execute\_remote e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL em bancos de dados remotos. Ele usa os seguintes parâmetros:
+* Nome da fonte de dados (nvarchar): o nome da fonte de dados externa do tipo RDBMS. 
+* Consulta (nvarchar): a consulta T-SQL a ser executada em cada fragmento. 
+* Declaração de parâmetro (nvarchar) - opcional: cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro Query (como sp\_executesql). 
+* Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp\_executesql).
 
-* Nome do servidor (nvarchar): nome totalmente qualificado do servidor lógico que hospeda o mapa de fragmentos. 
-* Nome do banco de dados do mapa de fragmentos (nvarchar): o nome do banco de dados do mapa de fragmentos. 
-* Nome de usuário (nvarchar): o nome de usuário para fazer logon no banco de dados do mapa de fragmentos. 
-* Senha (nvarchar): senha do usuário. 
-* Nome do mapa de fragmentos (nvarchar): o nome do mapa de fragmentos a ser usado para a consulta. O nome é encontrado na tabela \_ShardManagement.ShardMapsGlobal, que é o nome padrão usado na criação de bancos de dados com o aplicativo de exemplo encontrado em [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). O nome padrão encontrado no aplicativo é "CustomerIDShardMap".
-*  Consulta: a consulta T-SQL a ser executada em cada fragmento. 
-*  Declaração de parâmetro (nvarchar) - opcional: cadeia de caracteres com definições de tipo de dados para os parâmetros usados no parâmetro Query (como sp\_executesql). 
-*  Lista de valores de parâmetro - opcional: lista separada por vírgulas de valores de parâmetro (como sp\_executesql)  
-
-sp\_execute\_fanout usa as informações do mapa de fragmentos fornecidas nos parâmetros de invocação para executar a instrução T-SQL indicada em todos os fragmentos registrados no mapa de fragmentos. Os resultados são mesclados com semânticas UNION ALL. O resultado também inclui a coluna adicional “virtual” com o nome do fragmento.
-
-Observe que as mesmas credenciais são usadas para conectar ao banco de dados do mapa de fragmentos e aos fragmentos.
+O sp\_execute\_remote usa a fonte de dados externa fornecida nos parâmetros de invocação para executar a instrução T-SQL especificada nos bancos de dados remotos. Ele usa a credencial da fonte de dados externa para a conexão com o banco de dados do gerenciador de mapa do fragmento e bancos de dados remotos.
 
 Exemplo:
 
-	sp_execute_fanout 
-		N'myserver.database.windows.net', 
-		N'ShardMapDb', 
-		N'myuser', 
-		N'MyPwd', 
-		N'ShardMap', 
+	EXEC sp_execute_remote
+		N'MyExtSrc',
 		N'select count(w_id) as foo from warehouse' 
 
 ## Conectividade de ferramentas  
@@ -241,4 +230,4 @@ Use cadeias de conexão regulares do SQL Server para conectar seu aplicativo e s
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

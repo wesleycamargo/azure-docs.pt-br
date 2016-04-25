@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="03/28/2016"
+ms.date="04/07/2016"
 ms.author="larryfr"/>
 
 #Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux
@@ -21,6 +21,8 @@ ms.author="larryfr"/>
 Embora o HDInsight baseado em Windows seja uma maneira fácil de usar o Hadoop na nuvem, você pode descobrir que precisa de um cluster baseado em Linux para aproveitar as ferramentas e tecnologias necessárias para sua solução. Muitos itens no ecossistema do Hadoop são desenvolvidos em sistemas baseados em Linux e alguns podem não estar disponíveis para uso com o HDInsight baseado em Windows. Além disso, muitos livros, vídeos e outros materiais de treinamento supõem que você esteja usando um sistema Linux quando trabalha com o Hadoop.
 
 Este documento fornece detalhes sobre as diferenças entre o HDInsight no Windows e no Linux, bem como instruções sobre como migrar cargas de trabalho existentes para um cluster baseado em Linux.
+
+> [AZURE.NOTE] O Ubuntu 12.04.05 LTS é a distribuição do Linux usada para clusters do HDInsight baseados em Linux.
 
 ## Tarefas de migração
 
@@ -30,7 +32,7 @@ Veja a seguir o fluxo de trabalho geral da migração.
 
 1.  Leia cada seção deste documento para entender as alterações que podem ser necessárias ao migrar fluxos de trabalho, trabalhos etc. existentes para um cluster baseado em Linux.
 
-2.  Crie um cluster baseado em Linux como um ambiente de teste/controle de qualidade. Para saber mais sobre como criar um cluster baseado em Linux, confira [Criar clusters baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+2.  Crie um cluster baseado em Linux como um ambiente de teste/controle de qualidade. Para saber mais sobre como criar um cluster baseado em Linux, confira [Criar clusters Hadoop baseados em Linux em HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 3.  Copie trabalhos, fontes de dados e coletores existentes para o novo ambiente. Confira a seção Copiar dados para o ambiente de teste para obter mais detalhes.
 
@@ -99,8 +101,8 @@ A tabela a seguir fornece instruções de como migrar componentes do lado servid
 
 | Se estiver usando esta tecnologia... | Execute esta ação... |
 | ----- | ----- |
-| **PowerShell** (scripts do lado do servidor, incluindo Ações de Script usadas durante a criação do cluster) | Reescreva-os como scripts Bash. Para Ações de Script, confira [Personalizar HDInsight baseado em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Desenvolvimento de Ação de Script com o HDInsight baseado em Linux](hdinsight-hadoop-script-actions-linux.md). |
-| **CLI do Azure** (scripts de servidor) | Embora a CLI do Azure esteja disponível no Linux, ela não vem pré-instalada nos nós principais do cluster HDInsight. Se você precisar dela para criar script de servidor, confira [Instalar a CLI do Azure](../xplat-cli-install.md) para obter informações sobre a instalação em plataformas baseadas em Linux. |
+| **PowerShell** (scripts do lado do servidor, incluindo as Ações de Script usadas durante a criação do cluster) | Reescreva-os como scripts Bash. Para as Ações de Script, confira [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) (Personalizar clusters HDInsight baseados em Linux usando as Ações de Script) e [Script action development for Linux-based HDInsigh](hdinsight-hadoop-script-actions-linux.md) (Desenvolvimento de Ação de Script com o HDInsight). |
+| **CLI do Azure** (scripts de servidor) | Embora a CLI do Azure esteja disponível no Linux, ela não vem pré-instalada nos nós principais do cluster HDInsight. Se você precisar dela para criar o script de servidor, confira [Instalar a CLI do Azure](../xplat-cli-install.md) para obter informações sobre a instalação em plataformas baseadas em Linux. |
 | **Componentes do .NET** | Atualmente, o .NET não é compatível com clusters HDInsight baseados em Linux, mas será adicionado em uma atualização futura. Se precisar migrar agora, você deverá reescrever os componentes em Java ou Python. |
 | **Componentes do Win32 ou de outra tecnologia exclusiva do Windows** | A orientação depende do componente ou da tecnologia; talvez você possa encontrar uma versão que seja compatível com Linux, ou talvez precise encontrar uma solução alternativa, ou reescrever esse componente. |
 
@@ -110,7 +112,7 @@ Esta seção fornece informações sobre as diferenças na criação do cluster.
 
 ### Usuário do SSH
 
-Os clusters HDInsight baseados em Linux usam o protocolo **SSH (Secure Shell)** para fornecer acesso remoto aos nós do cluster. Diferentemente da Área de Trabalho Remota para clusters baseados em Windows, a maioria dos clientes SSH não proporciona uma experiência de usuário gráfica, mas uma linha de comando que permite executar comandos no cluster. Alguns clientes (como [MobaXterm](http://mobaxterm.mobatek.net/)) fornecem um navegador gráfico de sistema de arquivos além da linha de comando remota.
+Os clusters do HDInsight baseados em Linux usam o protocolo **SSH (Secure Shell)** para fornecer acesso remoto aos nós do cluster. Diferentemente da Área de Trabalho Remota para clusters baseados em Windows, a maioria dos clientes SSH não proporciona uma experiência de usuário gráfica, mas uma linha de comando que permite executar comandos no cluster. Alguns clientes (como a [MobaXterm](http://mobaxterm.mobatek.net/)) fornecem um navegador gráfico de sistema de arquivos além da linha de comando remota.
 
 Durante a criação do cluster, você deve fornecer um usuário SSH e uma **senha** ou um **certificado de chave pública** para autenticação.
 
@@ -124,21 +126,21 @@ Para saber mais sobre como usar SSH com HDInsight, confira:
 
 ### Personalização do cluster
 
-As **Ações de Script** usadas com clusters baseados em Linux devem ser escritas no script Bash. Embora as Ações de Script possam ser usadas durante a criação do cluster, em clusters baseados em Linux, elas também podem ser usadas na personalização depois que um cluster estiver ativo. Para saber mais, confira [Personalizar HDInsight baseado em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Desenvolvimento de Ação de Script com o HDInsight baseado em Linux](hdinsight-hadoop-script-actions-linux.md).
+As **Ações de Script** usadas com clusters baseados em Linux devem ser escritas no script Bash. Embora as Ações de Script possam ser usadas durante a criação do cluster, em clusters baseados em Linux, elas também podem ser usadas na personalização depois que um cluster estiver ativo. Para mais informações, confira [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) (Personalizar clusters HDInsight baseados em Linux usando as Ações de Script) e [Script action development for Linux-based HDInsigh](hdinsight-hadoop-script-actions-linux.md) (Desenvolvimento de Ação de Script com o HDInsight).
 
-Outro recurso de personalização é a **inicialização**. Em clusters do Windows, ela permite especificar o local das bibliotecas adicionais para uso com o Hive. Após a criação do cluster, essas bibliotecas são automaticamente disponibilizadas para uso com as consultas do Hive sem a necessidade de usar `ADD JAR`.
+Outro recurso de personalização é a **inicialização**. Em clusters do Windows, ela permite especificar o local das bibliotecas adicionais para uso com o Hive. Após a criação do cluster, essas bibliotecas são automaticamente disponibilizadas para uso com as consultas do Hive sem a necessidade de usar o `ADD JAR`.
 
-A inicialização para clusters baseados em Linux não fornece essa funcionalidade. No lugar, use a ação de script documentada em [Adicionar bibliotecas do Hive durante a criação do cluster](hdinsight-hadoop-add-hive-libraries.md).
+A inicialização para clusters baseados em Linux não fornece essa funcionalidade. Em vez disso, use a ação de script documentada em [Adicionar bibliotecas do Hive durante a criação do cluster](hdinsight-hadoop-add-hive-libraries.md).
 
 ### Redes Virtuais
 
-Os clusters HDInsight baseados em Windows funcionam apenas com Rede Virtuais Clássicas, enquanto os clusters HDInsight baseados em Linux exigem Redes Virtuais do Resource Manager. Se você tiver recursos em uma Rede Virtual Clássica à qual o cluster HDInsight Linux deve se conectar, confira [Conectando uma Rede Virtual Clássica a uma Rede Virtual do Resource Manager](../virtual-network/virtual-networks-arm-asm-s2s.md).
+Os clusters HDInsight baseados em Windows funcionam apenas com Rede Virtuais Clássicas, enquanto os clusters HDInsight baseados em Linux exigem Redes Virtuais do Resource Manager. Se você tiver recursos em uma Rede Virtual Clássica à qual o cluster HDInsight Linux deve se conectar, confira [Conectando redes virtuais clássicas a novas redes virtuais](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
-Para saber mais sobre requisitos de configuração para usar Redes Virtuais do Azure com o HDInsight, confira [Estender os recursos do HDInsight usando uma Rede Virtual](hdinsight-extend-hadoop-virtual-network.md).
+Para saber mais sobre os requisitos de configuração para usar as Redes Virtuais do Azure com o HDInsight, confira [Extend HDInsight capabilities by using a Virtual Network](hdinsight-extend-hadoop-virtual-network.md) (Estender os recursos do HDInsight usando uma Rede Virtual).
 
 ##Gerenciamento e monitoramento
 
-Muitas das interfaces de usuário que você pode ter usado com HDInsight baseado em Windows, a interface de usuário do Yarn ou do Histórico de Trabalhos, estão disponíveis por meio do Ambari. Além disso, o Modo de Exibição do Hive do Ambari fornece uma maneira de executar consultas Hive usando o navegador da Web. A interface de usuário do Ambari Web está disponível em clusters baseados em Linux em https://CLUSTERNAME.azurehdinsight.net.
+Muitas das interfaces de usuário que você pode ter usado com HDInsight baseado em Windows, a interface de usuário do Yarn ou do Histórico de Trabalhos, estão disponíveis por meio do Ambari. Além disso, o Modo de Exibição do Hive do Ambari fornece uma maneira de executar consultas Hive usando o navegador da Web. A interface do usuário do Ambari Web está disponível nos clusters baseados em Linux em https://CLUSTERNAME.azurehdinsight.net.
 
 Para saber mais sobre como trabalhar com o Ambari, confira os seguintes documentos:
 
@@ -164,7 +166,7 @@ O sistema de arquivos do cluster Linux é disposto de modo diferente dos cluster
 | ----- | ----- |
 | Configuração | `/etc`. Por exemplo, `/etc/hadoop/conf/core-site.xml` |
 | Arquivos de log | `/var/logs` |
-| HDP (Hortonworks Data Platform) | `/usr/hdp`. Há dois diretórios localizados aqui, um que é a versão atual do HDP (por exemplo, `2.2.9.1-1`) e `current`. O diretório `current` contém links simbólicos para arquivos e diretórios localizados no diretório do número da versão e é fornecido como uma maneira conveniente de acessar arquivos HDP, uma vez que o número da versão mudará conforme a versão do HDP é atualizada. |
+| HDP (Hortonworks Data Platform) | `/usr/hdp`. Há dois diretórios localizados aqui, um que é a versão atual do HDP (por exemplo, `2.2.9.1-1`) e `current`. O diretório `current` contém links simbólicos para arquivos e diretórios localizados no diretório do número de versão e é fornecido como uma maneira conveniente de acessar arquivos HDP, uma vez que o número de versão mudará conforme a versão do HDP for atualizada. |
 | hadoop-streaming.jar | `/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 De modo geral, se você souber o nome do arquivo, será possível usar o comando a seguir em uma sessão do SSH para encontrar o caminho do arquivo:
@@ -190,21 +192,21 @@ A tabela a seguir fornece instruções para migrar as cargas de trabalho do Hive
 | **Editor de Hive** | [Modo de Exibição do Hive no Ambari](hdinsight-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` para habilitar o Tez | O Tez é o mecanismo de execução padrão para clusters baseados em Linux, de modo que a instrução set não é mais necessária. |
 | Arquivos ou scripts CMD no servidor invocados como parte de um trabalho do Hive | Scripts Bash |
-| O comando `hive` na área de trabalho remota | O [Beeline](hdinsight-hadoop-use-hive-beeline.md) ou o [Hive em uma sessão do SSH](hdinsight-hadoop-use-hive-ssh.md) |
+| O comando `hive` na Área de Trabalho Remota | O [Beeline](hdinsight-hadoop-use-hive-beeline.md) ou o [Hive em uma sessão do SSH](hdinsight-hadoop-use-hive-ssh.md) |
 
 ##Storm
 
 | Com base no Windows, uso... | Com base no Linux... |
 | ----- | ----- |
-| Painel de Controle do Storm | O Painel Storm não está disponível. Confira [Implantar e gerenciar topologias Storm no HDInsight baseado em Linux](hdinsight-storm-deploy-monitor-topology-linux.md) para saber como enviar topologias |
-| Interface do Usuário do Storm | A interface de usuário do Storm está disponível no https://CLUSTERNAME.azurehdinsight.net/stormui |
+| Painel de Controle do Storm | O Painel Storm não está disponível. Confira [Deploy and Manage Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) (Implantar e gerenciar topologias Storm no HDInsight baseado em Linux) para saber como enviar topologias |
+| Interface do Usuário do Storm | A interface do usuário do Storm está disponível em https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio para criar, implantar e gerenciar topologias híbridas ou do C# | Atualmente, os clusters baseados em Linux não são compatíveis com topologias do .NET. No entanto, elas serão permitidas em uma atualização futura. Se precisar migrar antes, você precisará reimplementar as topologias em Java. Confira [Desenvolver topologias baseadas em Java](hdinsight-storm-develop-java-topology.md) para saber mais sobre como criar topologias baseadas em Java. |
 
 ##HBase
 
 Em clusters baseados em Linux, o znode pai do HBase é `/hbase-unsecure`. Você deve definir isso na configuração para qualquer aplicativo cliente Java que use API Java nativa para HBase.
 
-Confira [Criar aplicativo HBase baseado em Java](hdinsight-hbase-build-java-maven.md) para obter um exemplo de cliente que defina esse valor.
+Confira [Build a Java-based HBase application](hdinsight-hbase-build-java-maven.md) (Criar aplicativo HBase baseado em Java) para obter um exemplo de cliente que defina esse valor.
 
 ##Spark
 
@@ -218,7 +220,7 @@ Atualmente, atividades personalizadas do .NET no Azure Data Factory não são co
 
 -   Execute atividades do .NET no pool do Lote do Azure. Confira a seção Usar serviço vinculado do Lote do Azure em [Usar atividades personalizadas em um pipeline do Azure Data Factory](../data-factory/data-factory-use-custom-activities.md/#AzureBatch)
 
--   Implemente a atividade como uma atividade do MapReduce. Confira [Chamar programas MapReduce do Data Factory](../data-factory/data-factory-map-reduce.md) para obter mais informações.
+-   Implemente a atividade como uma atividade do MapReduce. Confira [Invocar Programas MapReduce da Data Factory](../data-factory/data-factory-map-reduce.md) para obter mais informações.
 
 ### Terminações de linha
 
@@ -252,4 +254,4 @@ Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, 
 
 -   [Gerenciar um cluster baseado em Linux usando o Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -290,11 +290,11 @@ Usar o Provedor de Estado de Sessão com o Cache Redis do Azure oferece vários 
 - ele dá suporte acesso controlado e simultâneo aos mesmos dados de estado de sessão para múltiplos leitores e um único gravador;
 - ele pode usar compactação para economizar memória e melhorar o desempenho da rede.
 
-Para obter mais informações, visite a página [Provedor de Estado de Sessão ASP.NET para Cache Redis do Azure](redis-cache/cache-asp.net-session-state-provider.md), no site da Microsoft.
+Para obter mais informações, visite a página [Provedor de Estado de Sessão ASP.NET para Cache Redis do Azure](redis-cache/cache-aspnet-session-state-provider.md), no site da Microsoft.
 
 > [AZURE.NOTE] Não use o Provedor de Estado de Sessão para Cache Redis do Azure para aplicativos ASP.NET executados fora do ambiente do Azure. A latência de acessar o cache de fora do Azure pode eliminar os benefícios de desempenho obtidos pelo caching de dados.
 
-De modo similar, o Provedor de Cache de Saída para Cache Redis do Azure permite que você salve as respostas HTTP geradas por um aplicativo Web ASP .NET. Usar o Provedor de Cache de Saída com o Cache Redis do Azure pode melhorar os tempos de resposta dos aplicativos que processam saída HTML complexa; instâncias do aplicativo gerando respostas semelhantes podem fazer uso dos fragmentos de saída compartilhados no cache em vez de gerar essa saída HTML novamente. Para obter mais informações, visite a página [Provedor de Cache de Saída ASP.NET para Cache Redis do Azure](redis-cache/cache-asp.net-output-cache-provider.md), no site da Microsoft.
+De modo similar, o Provedor de Cache de Saída para Cache Redis do Azure permite que você salve as respostas HTTP geradas por um aplicativo Web ASP .NET. Usar o Provedor de Cache de Saída com o Cache Redis do Azure pode melhorar os tempos de resposta dos aplicativos que processam saída HTML complexa; instâncias do aplicativo gerando respostas semelhantes podem fazer uso dos fragmentos de saída compartilhados no cache em vez de gerar essa saída HTML novamente. Para obter mais informações, visite a página [Provedor de Cache de Saída ASP.NET para Cache Redis do Azure](redis-cache/cache-aspnet-output-cache-provider.md), no site da Microsoft.
 
 ### Cache Redis do Azure
 
@@ -325,11 +325,11 @@ Usar o provedor de estado de sessão com o Cache Redis do Azure oferece vários 
 - Suporte ao acesso controlado e simultâneo aos mesmos dados de estado de sessão para múltiplos leitores e um único gravador.
 - Uso da compactação para economizar memória e melhorar o desempenho da rede.
 
-Para saber mais, visite a página [Provedor de estado de sessão ASP.NET para Cache Redis do Azure](redis-cache/cache-asp.net-session-state-provider.md) no site da Microsoft.
+Para saber mais, visite a página [ASP.NET session state provider for Azure Redis Cache (Provedor de estado de sessão ASP.NET para Cache Redis do Azure)](redis-cache/cache-aspnet-session-state-provider.md) no site da Microsoft.
 
 > [AZURE.NOTE] Não use o provedor de estado de sessão para o Cache Redis do Azure com aplicativos ASP.NET executados fora do ambiente do Azure. A latência de acessar o cache de fora do Azure pode eliminar os benefícios de desempenho obtidos pelo caching de dados.
 
-De modo similar, o provedor de cache de saída para Cache Redis do Azure permite que você salve as respostas HTTP geradas por um aplicativo Web ASP .NET. O uso do provedor de cache de saída com o Cache Redis do Azure pode melhorar os tempos de resposta dos aplicativos que processam saídas HTML complexas. As instâncias de aplicativo que geram respostas semelhantes podem usar os fragmentos de saída compartilhados no cache, em vez de gerar essa saída HTML novamente. Para saber mais, visite a página [Provedor de cache de saída ASP.NET para Cache Redis do Azure](redis-cache/cache-asp.net-output-cache-provider.md) no site da Microsoft.
+De modo similar, o provedor de cache de saída para Cache Redis do Azure permite que você salve as respostas HTTP geradas por um aplicativo Web ASP .NET. O uso do provedor de cache de saída com o Cache Redis do Azure pode melhorar os tempos de resposta dos aplicativos que processam saídas HTML complexas. As instâncias de aplicativo que geram respostas semelhantes podem usar os fragmentos de saída compartilhados no cache, em vez de gerar essa saída HTML novamente. Para saber mais, visite a página [ASP.NET output cache provider for Azure Redis Cache (Provedor de cache de saída ASP.NET para Cache Redis do Azure)](redis-cache/cache-aspnet-output-cache-provider.md) no site da Microsoft.
 
 ## Criando um cache Redis personalizado
 
@@ -927,11 +927,11 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - A página [Segurança do Redis](http://redis.io/topics/security) no site do Redis
 - A página [Visão geral do Cache Redis do Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) no blog do Azure
 - A página [Executando o Redis em uma VM Linux do CentOS no Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx), no site da Microsoft
-- A página [Provedor de Estado de Sessão ASP.NET para Cache Redis do Azure](redis-cache/cache-asp.net-session-state-provider.md), no site da Microsoft
-- A página [Provedor de cache de saída ASP.NET para Cache Redis do Azure](redis-cache/cache-asp.net-output-cache-provider.md), no site da Microsoft
+- A página [ASP.NET session state provider for Azure Redis Cache (Provedor de estado de sessão ASP.NET para Cache Redis do Azure)](redis-cache/cache-aspnet-session-state-provider.md) no site da Microsoft
+- A página [ASP.NET output cache provider for Azure Redis Cache (Provedor de cache de saída ASP.NET para Cache Redis do Azure)](redis-cache/cache-aspnet-output-cache-provider.md) no site da Microsoft
 - A página [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) (Uma introdução a abstrações e tipos de dados do Redis), no site do Redis
 - A página [Uso básico](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md), no site StackExchange.Redis.
 - Para saber mais, confira a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório StackExchange.Redis.
 - O [Guia de particionamento de dados](http://msdn.microsoft.com/library/dn589795.aspx), no site da Microsoft.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

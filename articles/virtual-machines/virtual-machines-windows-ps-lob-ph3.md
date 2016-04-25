@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 3: configurar a infraestrutura do SQL Server
@@ -180,7 +180,7 @@ O SQL Server exige uma porta que os clientes usam para acessar o servidor de ban
 
 Saia como administrador local de cada uma das máquinas virtuais do SQL Server.
 
-Para obter informações sobre como otimizar o desempenho do SQL Server no Azure, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-sql-perf.md). Você também pode desabilitar o GRS (Armazenamento com Redundância Geográfica) para a conta de armazenamento do aplicativo de linha de negócios e usar os espaços de armazenamento para otimizar o IOPs.
+Para obter informações sobre como otimizar o desempenho do SQL Server no Azure, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md). Você também pode desabilitar o GRS (Armazenamento com Redundância Geográfica) para a conta de armazenamento do aplicativo de linha de negócios e usar os espaços de armazenamento para otimizar o IOPs.
 
 ## Configurar o servidor do nó principal do cluster
 
@@ -259,4 +259,4 @@ Este diagrama mostra a configuração resultante da conclusão bem-sucedida dest
 
 - Use a [Fase 4](virtual-machines-windows-ps-lob-ph4.md) para continuar com a configuração desta carga de trabalho.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

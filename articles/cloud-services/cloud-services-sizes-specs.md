@@ -41,7 +41,7 @@ As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
 * Os tamanhos de máquina virtual A8/A10 e A9/A11 têm as mesmas capacidades. As instâncias de máquina virtual A8 e A9 incluem um adaptador de rede adicional que é conectado a uma rede de Acesso Remoto Direto à Memória (RDMA) para uma comunicação rápida entre máquinas virtuais. As instâncias A8 e A9 destinam-se a aplicativos de computação de alto desempenho que exigem comunicação constante e de baixa latência entre os nós durante a execução como, por exemplo, os aplicativos que usam MPI (Message Passing Interface). As instâncias de máquina virtual A10 e A11 não incluem o adaptador de rede adicional. As instâncias A10 e A11 destinam-se a aplicativos de computação de alto desempenho que não exigem comunicação constante e de baixa latência entre os nós, também conhecidos como aplicativos paramétricos ou totalmente paralelos.
 
-    >[AZURE.NOTE] Se você estiver considerando tamanhos de A8 até A11, leia [estas](..\virtual-machines\virtual-machines-a8-a9-a10-a11-specs.md) informações.
+    >[AZURE.NOTE] Se você estiver considerando tamanhos de A8 até A11, leia [estas](..\virtual-machines\virtual-machines-windows-a8-a9-a10-a11-specs.md) informações.
 
 >[AZURE.NOTE] Todos os tamanhos de computador fornecem um **disco de aplicativo** que armazena todos os arquivos do pacote de serviço de nuvem; ele tem um tamanho de cerca de 1,5 GB.
 
@@ -148,7 +148,7 @@ Para banco de dados maiores, farms de servidores SharePoint e aplicativos de alt
 
 Você pode especificar o tamanho da Máquina Virtual de uma instância de função como parte do modelo de serviço descrito pelo [arquivo de definição de serviço](cloud-services-model-and-package.md#csdef). O tamanho da função determina o número de núcleos de CPU, a capacidade de memória e o tamanho do sistema de arquivos local alocados para uma instância em execução. Escolha o tamanho da função com base em requisitos de recurso do aplicativo.
 
-Aqui está um exemplo para definir o tamanho de função para [Standard\_D2] (Finalidade geral (D)) para uma instância de função web:
+Veja um exemplo de definição do tamanho da função como [Standard\_D2](#general-purpose-d) para uma instância de função web:
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
@@ -156,4 +156,4 @@ Aqui está um exemplo para definir o tamanho de função para [Standard\_D2] (Fi
 </WebRole>
 ```
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

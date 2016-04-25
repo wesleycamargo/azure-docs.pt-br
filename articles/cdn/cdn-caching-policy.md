@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Política de armazenamento em cache de CDN na extensão dos Serviços de Mídia" 
-	description="Este tópico fornece uma visão geral de uma política de armazenamento em cache de CDN na extensão dos Serviços de Mídia." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Política de armazenamento em cache de CDN na extensão dos Serviços de Mídia"
+	description="Este tópico fornece uma visão geral de uma política de armazenamento em cache de CDN na extensão dos Serviços de Mídia."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/01/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/01/2016"
 	ms.author="juliako"/>
 
 #Política de armazenamento em cache de CDN na extensão dos Serviços de Mídia
@@ -32,7 +32,7 @@ Os Serviços de Mídia do Azure fornecem [CDN integrada](https://azure.microsoft
 
 Você pode usar o Portal de Gerenciamento do Azure ou as APIs de Serviços de Mídia do Azure para configurar os valores de cabeçalho de cache.
 
-1. Para configurar cabeçalhos de cache usando o Portal de Gerenciamento, consulte [Como gerenciar pontos de extremidade de streaming](../media-services-manage-origins.md), seção Configurando o ponto de extremidade de streaming.
+1. Para configurar cabeçalhos de cache usando o Portal de Gerenciamento, consulte [Como gerenciar pontos de extremidade de streaming](../media-services/media-services-manage-origins.md), seção Configurando o ponto de extremidade de streaming.
 2. API REST dos Serviços de Mídia do Azure, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
 3. SDK do .NET dos Serviços de Mídia do Azure, [Propriedades de StreamingEndpointCacheControl](http://go.microsoft.com/fwlink/?LinkId=615302).
 
@@ -41,6 +41,5 @@ Você pode usar o Portal de Gerenciamento do Azure ou as APIs de Serviços de M�
 1. O valor de cache configurado dos Serviços de Mídia do Azure substitui o valor padrão.
 2. Se não houver configuração manual, os valores padrão serão aplicados.
 3. Por padrão, os cabeçalhos de cache de 2 segundos são aplicados ao manifesto (lista de reprodução) do streaming dinâmico, independentemente da configuração de Mídia do Azure ou do Armazenamento do Azure, e não é possível substituir esse valor.
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

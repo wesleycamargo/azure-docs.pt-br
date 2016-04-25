@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Mover dados do Armazenamento de Blob do Azure usando conectores SSIS | Microsoft Azure" 
-	description="Mover dados do Armazenamento de Blob do Azure usando conectores SSIS." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Mover dados do Armazenamento de Blob do Azure usando conectores SSIS | Microsoft Azure"
+	description="Mover dados do Armazenamento de Blob do Azure usando conectores SSIS."
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/08/2016" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
 	ms.author="bradsev" />
 
 # Mover dados do Armazenamento de Blobs do Azure usando conectores SSIS
@@ -32,14 +32,14 @@ Normalmente, essa é a primeira etapa das instruções passo a passo de [SQL](ma
 
 Para conferir uma discussão de cenários canônicos que usam o SSIS para atender às necessidades comerciais comuns em cenários de integração de dados híbridos, consulte o blog [Realizando mais com o Feature Pack dos serviços de integração do SQL Server para o Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx).
 
-> [AZURE.NOTE] Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ## Pré-requisitos
 
 Para realizar as tarefas descritas neste artigo, você deve ter uma assinatura do Azure e configurar uma conta de armazenamento do Azure. Você precisa saber o nome da conta e a chave de conta do Armazenamento do Azure para carregar ou baixar os dados.
 
 - Para configurar uma **assinatura do Azure**, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
-- Para obter instruções sobre como criar uma **conta de armazenamento** e para obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage-create-storage-account.md).
+- Para obter instruções sobre como criar uma **conta de armazenamento** e para obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
 
 
 Para usar os **conectores SSIS**, você deverá baixar:
@@ -77,7 +77,7 @@ Campo|Descrição|
 
 
 > [AZURE.NOTE] As credenciais do **AzureStorageConnection** precisam estar corretas e o **BlobContainer** deve existir antes de tentar a transferência.
- 
+
 ## Baixar dados do armazenamento de blob do Azure
 
 Para baixar dados do armazenamento de blob do Azure no armazenamento local com SSIS, use uma instância da [Tarefa de Carregamento de Blob do Azure](https://msdn.microsoft.com/library/mt146779.aspx).
@@ -88,4 +88,4 @@ Podemos observar aqui que o pacote de recursos do SSIS permite que fluxos mais c
 - Para executar um script Hive em um cluster HDInsight do Azure com SSIS, use a [Tarefa Hive de HDInsight do Azure](https://msdn.microsoft.com/library/mt146771.aspx).
 - Para executar um script Pig em um cluster HDInsight do Azure com SSIS, use a [Tarefa Pig de HDInsight do Azure](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

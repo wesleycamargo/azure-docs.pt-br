@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/05/2016" 
+	ms.date="04/10/2016" 
 	ms.author="arramac"/>
 
 # Particionamento e dimensionamento no Banco de Dados de Documentos do Azure
@@ -210,7 +210,7 @@ Vamos ler o documento pela chave da partição e ID, atualizá-lo e, então, com
     // Read document. Needs the partition key and the ID to be specified
     Document result = await client.ReadDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" }});
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
     DeviceReading reading = (DeviceReading)(dynamic)result;
 
@@ -225,7 +225,7 @@ Vamos ler o documento pela chave da partição e ID, atualizá-lo e, então, com
     // Delete document. Needs partition key
     await client.DeleteDocumentAsync(
       UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
-      new RequestOptions { PartitionKey = new object[] { "XMS-0001" } });
+      new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
 
 
@@ -261,12 +261,10 @@ Na próxima seção, examinaremos como é possível passar de coleções de part
 ### Migração de coleções de partição única para coleções particionadas
 Quando um aplicativo usando uma coleção de partição única precisa de uma maior produtividade (> 10.000 RU/s) ou de um maior armazenamento de dados (> 10 GB), você pode usar a [Ferramenta de Migração de Dados para o Banco de Dados de Documentos](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar os dados da coleção de partição única para uma coleção particionada.
 
-Além disso, como chaves de partição podem ser especificadas somente durante a criação de coleções, você deve exportar e importar novamente seus dados usando a [Ferramenta de Migração de Dados do Banco de Dados de Documentos](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para criar uma coleção particionada.
-
 Para migrar de uma coleção de partição única para uma coleção particionada
 
-1. Exporte dados da coleção de partição única para JSON. Consulte [Exportar para arquivo JSON](documentdb-import-data.md#export-to-json-file) para obter detalhes adicionais.
-2. Importe os dados para uma coleção particionada criada com uma definição de chave de partição e produtividade de mais de 10.000 unidades de solicitação por segundo, conforme mostrado no exemplo a seguir. Consulte [Importar para Banco de Dados de Documentos](documentdb-import-data.md#DocumentDBSeqTarget) para obter detalhes adicionais.
+1. Exporte dados da coleção de partição única para JSON. Confira [Exportar para arquivo JSON](documentdb-import-data.md#export-to-json-file) para obter detalhes adicionais.
+2. Importe os dados para uma coleção particionada criada com uma definição de chave de partição e produtividade de mais de 10.000 unidades de solicitação por segundo, conforme mostrado no exemplo a seguir. Confira [Importar para Banco de Dados de Documentos](documentdb-import-data.md#DocumentDBSeqTarget) para obter detalhes adicionais.
 
 ![Migrando Dados para uma Coleção particionada no Banco de Dados de Documentos][3]
 
@@ -278,7 +276,7 @@ Agora que concluímos as noções básicas, vejamos algumas considerações de d
 A escolha da chave de partição é uma decisão importante que você precisará fazer no momento do design. Esta seção descreve algumas das compensações envolvidas na seleção de uma chave de partição para a coleção.
 
 ### Chave de partição como o limite de transação
-Sua escolha de chave de partição deve equilibrar a necessidade de habilitar o uso de transações em relação à necessidade de distribuir suas entidades por várias partições para garantir uma solução escalonável. Por um lado, você pode armazenar todas as suas entidades em uma única partição, mas isso pode limitar a escalabilidade da solução. Por outro lado, você pode armazenar um documento por chave de partição, o que seria altamente escalonável, mas impediria o uso de transações entre documentos por meio de procedimentos e gatilhos armazenados. Uma chave de partição ideal é aquela que permite que você use consultas eficientes e que tenha partições suficientes para garantir que sua solução seja escalonável.
+Sua escolha de chave de partição deve equilibrar a necessidade de habilitar o uso de transações em relação à necessidade de distribuir suas entidades por várias chaves de partição para garantir uma solução escalonável. Por um lado, você pode definir a mesma chave de partição para todos os seus documentos, mas isso pode limitar a escalabilidade da solução. Por outro lado, você pode atribuir uma chave de partição exclusiva para cada documento, o que seria altamente escalonável, mas impediria o uso de transações entre documentos por meio de procedimentos e gatilhos armazenados. Uma chave de partição ideal é aquela que permite o uso de consultas eficientes, e que tenha cardinalidade suficiente para garantir que sua solução seja escalonável.
 
 ### Evitando gargalos de armazenamento e desempenho 
 Também é importante escolher uma propriedade que permita que as gravações sejam distribuídas entre vários de valores distintos. Solicitações para a mesma chave de partição não podem exceder a produtividade de uma única partição e serão limitadas. Portanto, é importante escolher uma chave de partição que não resulte em **"pontos de acesso"** dentro de seu aplicativo. O tamanho total de armazenamento de documentos com a mesma chave de partição também não pode exceder 10 GB de armazenamento.
@@ -321,4 +319,4 @@ Neste artigo, descrevemos como o particionamento funciona no Banco de Dados de D
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

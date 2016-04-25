@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 Conecte-se ao Yammer para acessar conversas em sua rede corporativa.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Yammer](../app-service-logic/app-service-logic-connector-yammer.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o Yammer, você pode:
 
@@ -41,7 +41,7 @@ Gatilho | Ações
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o Yammer
-Para usar a API do Yammer, crie primeiro uma **conexão**, em seguida, forneça os detalhes dessas propriedades:
+Para usar a API do Yammer, crie primeiro uma **conexão** e, em seguida, forneça os detalhes dessas propriedades:
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
@@ -54,9 +54,11 @@ Siga estas etapas para entrar no Yammer e concluir a configuração da **conexã
 3. Selecione **Adicionar uma ação** ![Configurar o Yammer][1]
 4. Insira Yammer na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Yammer no nome
 5. Selecione **Yammer – Obter todas as mensagens**
-6. Selecione **Entrar no Yammer**: ![Configurar o Yammer][2]
+6. Selecione **Entrar no Yammer**:
+![Configurar o Yammer][2]
 7. Forneça suas credenciais do Yammer para entrar e autorizar o aplicativo ![Configurar o Yammer][3]  
-8. Você será redirecionado à página de logon de sua organização. **Permita** que o Yammer interaja com seu aplicativo lógico: ![Configurar o Yammer][4] 
+8. Você será redirecionado à página de logon de sua organização. **Permita** que o Yammer interaja com seu aplicativo lógico:
+![Configurar o Yammer][4] 
 9. Depois de entrar, retorne ao aplicativo lógico para concluí-lo configurando a seção **Yammer – Obter todas as mensagens** e adicionando outros gatilhos e outras ações necessárias.![Configurar o Yammer][5]  
 10. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
 
@@ -93,7 +95,7 @@ Corresponde a “Todas” as conversas na interface da Web do Yammer.```GET: /me
 
 
 ### Postar uma mensagem em um grupo ou no Feed de Toda a Empresa
-Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado; caso contrário, ela será postada no Feed de Toda a Empresa.```POST: /messages.json```
+Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado. Caso contrário, ela será postada no Feed de Toda a Empresa.```POST: /messages.json```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -206,4 +208,4 @@ Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado; 
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

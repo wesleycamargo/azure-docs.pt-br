@@ -3,7 +3,7 @@
 
 Se você não conseguir acessar um aplicativo em execução em uma máquina virtual do Azure, este artigo descreve uma abordagem metódica para isolar a origem do problema e corrigi-lo.
 
-> [AZURE.NOTE]  Para obter ajuda para se conectar a uma máquina virtual do Azure, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection.md) ou [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-linux-troubleshoot-ssh-connection.md).
+> [AZURE.NOTE]  Para obter ajuda para se conectar a uma máquina virtual do Azure, consulte [Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md) ou [Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Para enviar um incidente, vá para o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
 
@@ -65,10 +65,10 @@ Por exemplo, se o aplicativo for um servidor Web, tente acessar uma página da W
 
 Se não conseguir acessar o aplicativo, verifique o seguinte:
 
-- Para VMs criadas usando o modelo de implantação clássica, esse configuração do ponto de extremidade para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-windows-classic-setup-endpoints.md)
-- Para VMs criadas usando o modelo de implantação clássica, essas ACLs (listas de controle de acesso) no ponto de extremidade não estão impedindo o tráfego da Internet. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](virtual-machines-windows-classic-setup-endpoints.md)
+- Para VMs criadas usando o modelo de implantação clássica, esse configuração do ponto de extremidade para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)
+- Para VMs criadas usando o modelo de implantação clássica, essas ACLs (listas de controle de acesso) no ponto de extremidade não estão impedindo o tráfego da Internet. Para obter mais informações, confira [Como configurar pontos de extremidade para uma Máquina Virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)
 - Para VMs criadas usando o modelo de implantação Resource Manager, essa configuração da regra NAT de entrada para a VM está permitindo o tráfego de entrada, especialmente o protocolo (TCP ou UDP) e os números de porta pública e privada.
-- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md).
+- Se os Grupos de segurança de rede permitem o tráfego de saída de respostar e de entrada de solicitações. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../articles/virtual-network/virtual-networks-nsg.md).
 
 Se a máquina virtual ou ponto de extremidade for um membro de um conjunto com balanceamento de carga:
 
@@ -98,8 +98,8 @@ Para obter mais informações, consulte [Solução de problemas de conectividade
 
 ## Recursos adicionais
 
-[Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
+[Solucionar problemas de conexões de Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-[Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](virtual-machines-linux-troubleshoot-ssh-connection.md)
+[Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -253,6 +253,7 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 9. Você pode fazer logon na máquina virtual no local para verificar se tudo está funcionando conforme esperado. Em seguida, clique em **Confirmar** para concluir o failover.
 10. Clique em **Replicação Inversa** para iniciar a proteção da máquina virtual local.
 
+	>[AZURE.NOTE] Se você cancelar o trabalho de failback durante a etapa de Sincronização de Dados, a VM local ficará em um estado corrompido. Isso ocorre porque a Sincronização de Dados copia os dados mais recentes dos discos da VM do Azure para os discos de dados locais e, até que a sincronização seja concluída, o disco de dados pode não estar em um estado consistente. Se a VM local for inicializada após o cancelamento da Sincronização de Dados, talvez ela não seja inicializada. Dispare novamente o failover para concluir a Sincronização de Dados.
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

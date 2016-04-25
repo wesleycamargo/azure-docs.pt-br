@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="04/08/2016"  
 	ms.author="juliako"/>
 
 
@@ -48,7 +48,7 @@ Os vídeos a seguir mostram como usar o designer.
 O vídeo do Dia 1 abrange:
 
 - Visão geral do designer
-- Fluxos de trabalho básicos – "Hello World"
+- Fluxos de trabalho básicos – “Hello World”
 - Criar vários arquivos MP4 de saída para uso com o streaming dos Serviços de Mídia do Azure
 
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]
@@ -90,4 +90,4 @@ Se precisar de suporte ou se tiver perguntas sobre a criação de fluxos de trab
 
 [Vídeos de treinamento de Designer de Fluxo de Trabalho do Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -120,13 +120,13 @@ Isso o ajudará a integrar o locatário do Azure AD ao Active Directory local, u
   1.	Adicionar domínios.
   2.	Instalar e executar o Azure AD Connect: instale o Azure AD Connect usando as instruções a seguir, [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verificar e gerenciar a sincronização de diretórios. Instruções de logon único estão disponíveis nessa etapa.
-  >[AZURE.NOTE] Configure a Federação com o AD FS conforme descrito no documento vinculado acima.
-  >[AZURE.NOTE] Você não precisa configurar nenhum dos recursos de visualização.
-
-
+  
+  > [AZURE.NOTE] 
+  Configure a Federação com o AD FS conforme descrito no documento vinculado acima. Você não precisa configurar nenhum dos recursos de visualização.
 
 
 ## Atualizar o esquema dos Serviços de Domínio do Active Directory
+
 > [AZURE.NOTE]
 A atualização do esquema do Active Directory não pode ser desfeita. É recomendável executar isso primeiro em um ambiente de teste.
 
@@ -136,6 +136,7 @@ A atualização do esquema do Active Directory não pode ser desfeita. É recome
 4. Em um prompt de comando, navegue até o diretório adprep e execute: **adprep.exe /forestprep**. Siga as instruções na tela para concluir a atualização do esquema.
 
 ## Preparar seu Active Directory para dar suporte a dispositivos
+
 >[AZURE.NOTE] Isso é uma operação única que você deve executar para preparar a floresta do Active Directory para dar suporte a dispositivos. Você deve fazer logon com permissões de administrador corporativo e sua floresta do Active Directory deve ter o esquema do Windows Server 2012 R2 para concluir esse procedimento.
 
 
@@ -206,6 +207,7 @@ Por padrão, os objetos de dispositivo que são gravados no Active Directory do 
 Considere o seguinte cenário: você cria uma relação de confiança de aplicativo com a terceira parte confiável no AD FS e configura uma regra de autorização de emissão que permite apenas dispositivos registrados. Agora somente os dispositivos que estão registrados têm permissão para acessar o aplicativo. Para tornar mais fácil o acesso ao aplicativo para os usuários, você deve configurar uma mensagem de acesso negado personalizada que inclui instruções sobre como adicionar seu dispositivo. Agora os usuários têm uma maneira perfeita de registrar seus dispositivos para acessar um aplicativo.
 
 As etapas a seguir mostram como implementar esse cenário.
+
 >[AZURE.NOTE]
 Esta seção pressupõe que você já tenha configurado uma relação de confiança de terceira parte confiável para o seu aplicativo no AD FS.
 
@@ -250,4 +252,4 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

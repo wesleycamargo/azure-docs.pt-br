@@ -17,8 +17,8 @@ O Azure AD permite que você integre seus aplicativos e contas provisionadas. Is
 
 - Se o aplicativo não estiver na Galeria, você ainda pode configurar a maioria dos aplicativos no Azure AD como um aplicativo personalizado. Isso requer um pouco mais experiência técnica para ser configurado. Você pode adicionar qualquer aplicativo que ofereça suporte ao SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma página de entrada baseada em HTML como um aplicativo do SSO de senha.
 
-No caso em que usuários criam suas próprias contas para aplicativos de SaaS que não são gerenciados pela IT, a ferramenta [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) oferece uma solução. Essa ferramenta monitora o tráfego da Web para identificar quais aplicativos estão sendo usados em toda a organização e o número de pessoas que usam cada um deles. A TI pode usar essas informações para saber quais aplicativos os usuários preferem e decidir o que integrar ao Azure AD para SSO.
+No caso em que usuários criam suas próprias contas para aplicativos de SaaS que não são gerenciados pela IT, a ferramenta [Cloud App Discovery](../articles/active-directory/active-directory-cloudappdiscovery-whatis.md) oferece uma solução. Essa ferramenta monitora o tráfego da Web para identificar quais aplicativos estão sendo usados em toda a organização e o número de pessoas que usam cada um deles. A TI pode usar essas informações para saber quais aplicativos os usuários preferem e decidir o que integrar ao Azure AD para SSO.
 
 Ao integrar um aplicativo ao Azure AD, você pode mapear as identidades do aplicativo estabelecido pelos usuários para suas respectivas identidades Azure AD.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0413_2016-->

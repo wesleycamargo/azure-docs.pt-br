@@ -30,7 +30,7 @@ Conecte-se ao Outlook do Office 365 para receber emails, responder a um email, a
 
 &nbsp;
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [API do Office 365](../app-service-logic/app-service-logic-connector-office365.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o Outlook do Office 365, você pode:
 
@@ -61,7 +61,7 @@ Quando você adicionar essa API aos seus aplicativos lógicos, é necessário en
 1. Entre em sua conta do Outlook do Office 365.
 2. Permita que seus aplicativos lógicos se conectem e usem sua conta do Office 365. 
 
-Depois de criar a conexão, insira as propriedades do Outlook do Office 365, como o caminho da pasta de caixa de entrada ou a mensagem de email. A **referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do Outlook do Office 365, como o caminho da pasta de caixa de entrada ou a mensagem de email. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] É possível usar essa mesma conexão do Outlook do Office 365 em outros aplicativos lógicos.
 
@@ -135,7 +135,7 @@ Envia uma mensagem de email. ```POST: /Mail```
 
 
 ### Excluir email 
-Exclui uma mensagem de email por id. ```DELETE: /Mail/{messageId}```
+Exclui uma mensagem de email por ID. ```DELETE: /Mail/{messageId}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -194,7 +194,7 @@ Responde a uma mensagem de email. ```POST: /Mail/ReplyTo/{messageId}```
 
 
 ### Obter anexo 
-Recupera o anexo da mensagem por id. ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+Recupera o anexo da mensagem por ID. ```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -754,9 +754,9 @@ Atualiza parcialmente um contato. ```PATCH: /datasets/contacts/tables/{table}/it
 
 ## Próximas etapas
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Volte para a [Lista de APIs](apis-list.md).
+Voltar para a [Lista de APIs](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -768,4 +768,4 @@ Volte para a [Lista de APIs](apis-list.md).
 [12]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/connectors-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

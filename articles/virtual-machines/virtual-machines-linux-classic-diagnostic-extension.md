@@ -49,7 +49,7 @@ Este artigo se concentra na habilitação e configuração de extensão por meio
 
 ## Pré-requisitos
 - Agente Linux do Microsoft Azure versão 2.0.6 ou posterior. Observe que a maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.0.6 ou posterior. É possível executar **WAAgent-version** para confirmar a versão instalada na VM. Se a VM estiver executando uma versão anterior ao 2.0.6, execute estas [instruções](https://github.com/Azure/WALinuxAgent "instruções") para atualizá-la.
-- [CLI do Azure](./xplat-cli-install.md) Siga [esta orientação](./xplat-cli-install.md) para configurar o ambiente da CLI do Azure em seu computador. Depois de instalar a CLI do Azure, você poderá usar o comando **azure** em sua interface de linha de comando (Bash, Terminal, prompt de comando) para acessar os comandos da CLI do Azure. Por exemplo, execute **azure vm extension set --help** para ver o uso detalhado, execute **azure login** para fazer logon no Azure e execute **azure vm list** para listar todas as máquinas virtuais que você tem no Azure.
+- [CLI do Azure](../xplat-cli-install.md) Siga [esta orientação](../xplat-cli-install.md) para configurar o ambiente da CLI do Azure em seu computador. Depois de instalar a CLI do Azure, você poderá usar o comando **azure** em sua interface de linha de comando (Bash, Terminal, prompt de comando) para acessar os comandos da CLI do Azure. Por exemplo, execute **azure vm extension set --help** para ver o uso detalhado, execute **azure login** para fazer logon no Azure e execute **azure vm list** para listar todas as máquinas virtuais que você tem no Azure.
 - Uma conta de armazenamento para armazenar os dados. Você precisará de um nome de conta de armazenamento e de uma tecla de acesso criados anteriormente para carregar os dados no armazenamento.
 
 
@@ -127,7 +127,7 @@ Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OST
 
 
 ## Examinar os dados
-Os dados de desempenho e diagnóstico são armazenados em uma tabela de Armazenamento do Azure. Leia [este artigo](storage-ruby-how-to-use-table-storage.md) para saber como acessar os dados na tabela de armazenamento usando scripts da CLI do Azure.
+Os dados de desempenho e diagnóstico são armazenados em uma tabela de Armazenamento do Azure. Leia [este artigo](../storage/storage-ruby-how-to-use-table-storage.md) para saber como acessar os dados na tabela de armazenamento usando scripts da CLI do Azure.
 
 Além disso, você pode usar as ferramentas de interface do usuário a seguir para acessar os dados:
 
@@ -143,4 +143,4 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 ## Problemas conhecidos
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

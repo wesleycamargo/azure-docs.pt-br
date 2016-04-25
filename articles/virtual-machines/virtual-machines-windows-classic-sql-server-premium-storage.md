@@ -37,7 +37,7 @@ Este artigo fornece informações de planejamento e diretrizes para migração d
 - Abordagens de migração possíveis.
 - Exemplo de ponta a ponta completo mostrando as etapas do Azure, do Windows e do SQL Server para a migração de uma implementação AlwaysOn existente.
 
-Para obter informações gerais sobre o SQL Server em máquinas virtuais do Azure, confira [SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
+Para obter informações gerais sobre o SQL Server em máquinas virtuais do Azure, confira [SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
 **Autor:** Daniel Sol **Revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
@@ -126,7 +126,7 @@ Para cada disco, siga estas etapas:
 
 	![DisknameAndLUN][2]
 
-1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos ** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
+1. Área de trabalho remota na VM. Em seguida, vá para **Gerenciamento do Computador** | **Gerenciador de Dispositivos** | **Unidades de Disco**. Examine as propriedades de cada um dos 'Discos Virtuais da Microsoft'
 
 	![VirtualDiskProperties][3]
 
@@ -402,8 +402,6 @@ Você deve provisionar o tempo em que você possa executar o failover manual e t
 1. Copie sobre backups e restauração completos com **NORECOVERY**.
 1. Copie sobre objetos dependentes de ‘banco de dados fora do usuário’, como logons etc.
 1. Crie um novo ILB (balanceador de carga interno) ou use um ELB (balanceador de carga externo) e configure pontos de extremidade balanceados de carga em ambos os nós novos.
-
-
 > [AZURE.NOTE] Verifique se todos os nós têm a configuração do ponto de extremidade correta antes de continuar
 
 1. Interrompa o acesso de usuário/aplicativo ao SQL Server (se você estiver usando pools de armazenamento).
@@ -1121,7 +1119,7 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 ## Recursos adicionais
 - [Armazenamento Premium do Azure](../storage/storage-premium-storage.md)
 - [Máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/)
-- [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md)
+- [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png
@@ -1150,4 +1148,4 @@ Para adicionar o endereço IP, confira o [Apêndice](#appendix-migrating-a-multi
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
 
-<!-----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

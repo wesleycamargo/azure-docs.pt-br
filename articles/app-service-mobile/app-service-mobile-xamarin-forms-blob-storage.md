@@ -22,7 +22,7 @@
 
 O cliente de Aplicativos Móveis do Azure e o SDK do servidor oferecem suporte a sincronização offline de dados estruturados com operações CRUD com base no ponto de extremidade /tables. Geralmente, esses dados são armazenados em um banco de dados ou armazenamento semelhante, e geralmente esses armazenamentos de dados não podem armazenar grandes quantidades de dados binários com eficiência. Além disso, alguns aplicativos têm dados relacionados armazenados em outro lugar (por exemplo, armazenamento de blobs, compartilhamentos de arquivos), e ser capaz de criar associações entre registros no ponto de extremidade /tables e em outros dados é bastante útil.
 
-Este tópico mostra como adicionar suporte para imagens ao início rápido de lista de tarefas pendentes dos Aplicativos Móveis. Você deve primeiro concluir o tutorial [Criar um aplicativo Xamarin.Forms].
+Este tópico mostra como adicionar suporte para imagens ao início rápido de lista de tarefas pendentes dos Aplicativos Móveis. Primeiro, você precisa concluir o tutorial [Criar um aplicativo Xamarin.Forms].
 
 Neste tutorial, você criará uma conta de armazenamento e adicionará uma cadeia de conexão ao back-end do Aplicativo Móvel. Em seguida, você adicionará uma nova herança do novo tipo de Aplicativos Móveis `StorageController<T>` ao projeto de seu servidor.
 
@@ -30,15 +30,7 @@ Neste tutorial, você criará uma conta de armazenamento e adicionará uma cadei
 
 ## Pré-requisitos
 
-Para concluir este tutorial, você precisará do seguinte:
-
-* Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 aplicativos móveis gratuitos que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* [Visual Studio Community 2013] ou posterior.
-
-* Um Mac com [Xcode](https://go.microsoft.com/fwLink/?LinkID=266532) versão 7.0 ou posterior e [Xamarin Studio](http://xamarin.com/download) instalados.
-
-* Conclusão do tutorial [Criar um aplicativo Xamarin.Forms]. Este artigo usa o aplicativo concluído desse tutorial.
+* Conclua o tutorial [Criar um aplicativo Xamarin.Forms], que lista outros pré-requisitos. Este artigo usa o aplicativo concluído desse tutorial.
 
 >[AZURE.NOTE] Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile). Lá, você pode criar imediatamente um aplicativo móvel de curta duração inicial no Serviço de Aplicativo – sem cartão de crédito e sem compromissos.
 
@@ -46,7 +38,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 1. Crie uma conta de armazenamento seguindo o tutorial [Criar uma conta de armazenamento do Azure]. 
 
-2. No Portal do Azure, navegue até a sua conta de armazenamento recém-criada e clique no ícone **Chaves**. Copie a **Cadeia de Conexão Principal**.
+2. No Portal do Azure, navegue até a conta de armazenamento recém-criada e clique no ícone **Chaves**. Copie a **Cadeia de Conexão Primária**.
 
 3. Navegue até seu back-end de aplicativo móvel. Em **Todas as Configurações** -> **Configurações do Aplicativo** -> **Cadeias de Conexão**, crie uma nova chave chamada `MS_AzureStorageAccountConnectionString` e use o valor copiado de sua conta de armazenamento. Use **Personalizado** como o tipo de chave.
 
@@ -54,7 +46,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 1. No Visual Studio, abra o projeto de servidor .NET. Adicione o pacote NuGet [Microsoft.Azure.Mobile.Server.Files]. Selecione **Incluir pré-lançamento**.
 
-2. No Visual Studio, abra o projeto de servidor .NET. Clique com o botão direito na pasta **Controladores** e selecione **Adicionar** > **Controlador** -> **API Web 2 Controlador - Vazio**. Dê ao controlador o nome `TodoItemStorageController`.
+2. No Visual Studio, abra o projeto de servidor .NET. Clique com o botão direito do mouse na pasta **Controladores** e selecione **Adicionar** > **Controlador** -> **API Web 2 Controlador - Vazio**. Dê ao controlador o nome `TodoItemStorageController`.
 
 3. Adicione as seguintes instruções using:
 
@@ -121,7 +113,7 @@ O novo `TodoItemStorageController` expõe dois sub-recursos sob o registro que g
 
 ###Comunicação de cliente e servidor
 
-Observe que o `TodoItemStorageController` *não* tem uma rota para carregar ou baixar um blob. Isso ocorre porque um cliente móvel interage *diretamente* com o armazenamento de blobs para executar essas operações, depois de obter primeiro um token SAS (Assinatura de Acesso Compartilhado) para acessar com segurança um contêiner ou blob específico. Esse é um design arquitetônico importante, pois, de outra forma, o acesso ao armazenamento ficaria limitado pela capacidade de expansão e disponibilidade do back-end móvel. Em vez disso, conectando-se diretamente ao Armazenamento do Azure, o cliente móvel pode aproveitar seus recursos, como o particionamento automático e a distribuição geográfica.
+Observe que o `TodoItemStorageController` *não* tem uma rota para carregar ou baixar um blob. Isso ocorre porque um cliente móvel interage *diretamente* com o armazenamento de blobs para executar essas operações, depois de obter primeiro um token SAS (Assinatura de Acesso Compartilhado) para acessar com segurança um contêiner ou blob específico. Esse é um design arquitetônico importante, pois, de outra forma, o acesso ao armazenamento ficaria limitado pela escalabilidade e disponibilidade do back-end móvel. Em vez disso, conectando-se diretamente ao Armazenamento do Azure, o cliente móvel pode aproveitar seus recursos, como o particionamento automático e a distribuição geográfica.
 
 Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta. Para saber mais, confira [Noções básicas da Assinatura de Acesso Compartilhado].
 
@@ -276,7 +268,7 @@ O SDK do cliente móvel do Azure não armazena realmente quaisquer dados do arqu
 
 1. Em **TodoItemManager.cs**, remova a marca de comentário da linha `#define OFFLINE_SYNC_ENABLED`.
 
-2. No **TodoItemManager.cs**, adicione as seguintes instruções using:
+2. Em **TodoItemManager.cs**, adicione as seguintes instruções using:
 
         using System.IO;
         using Xamarin.Forms;
@@ -717,7 +709,7 @@ Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e c
 <!-- URLs. -->
 
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-[Criar um aplicativo Xamarin.Forms]: ../app-service-mobile-xamarin-forms-get-started.md
+[Criar um aplicativo Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Xamarin.Forms DependencyService]: https://developer.xamarin.com/guides/xamarin-forms/dependency-service/
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
@@ -726,4 +718,4 @@ Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e c
 [Noções básicas das Assinaturas de Acesso Compartilhado]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Criar uma conta de armazenamento do Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

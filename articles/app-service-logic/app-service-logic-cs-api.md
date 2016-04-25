@@ -38,7 +38,8 @@ Para usar o aplicativo de API de C#, você precisa primeiro criar uma instância
 ###Gatilho
 Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algo diferente de `false`, o Aplicativo Lógico será executado; caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
 
-As entradas para o gatilho são: -**Expressão C#** - Uma expressão que será avaliada. Ele é invocado dentro de uma função e deverá retornar `false` quando você não quiser que o Aplicativo Lógico seja executado, podendo retornar qualquer outra coisa quando quiser que o aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do aplicativo lógico.
+As entradas para o gatilho são:
+- **Expressão C#** - uma expressão que será avaliada. Ela é invocada dentro de uma função e deve retornar `false` quando você não quiser que o Aplicativo lógico seja executado, podendo retornar qualquer outra coisa quando você quiser que o Aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do aplicativo lógico.
 
 Você pode ter um gatilho simples que somente executa seu aplicativo lógico entre os minutos 15 e 30 da hora:
 
@@ -50,7 +51,10 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 
 Da mesma forma, você pode fornecer uma ação a ser executada.
 
-As entradas para a ação são: - **Expressão C#** - Uma expressão que será avaliada. Você deve incluir a instrução `return` para obter qualquer conteúdo. -**Objetos de contexto** - um objeto de contexto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a base deve ser um JObject `{ ... }`, e os objetos podem ser referenciados no script por meio do nome da chave (o valor é transmitido como um JToken correspondente ao nome). - **Bibliotecas** - uma matriz opcional de arquivos. dll para incluir na compilação do script. A matriz usa a seguinte estrutura e funciona melhor ao lado de um conector de armazenamento de blob com o arquivo. dll como a saída:
+As entradas para a ação são:
+- **Expressão C#** - uma expressão que será avaliada. Você precisa incluir a instrução `return` para obter qualquer conteúdo. 
+- **Objeto(s) de contexto** - um objeto de contexto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a base deve ser um JObject `{ ... }`, e os objetos podem ser referenciados no script por meio do nome da chave (o valor é transmitido como um JToken correspondente ao nome).
+- **Bibliotecas** - uma matriz opcional de arquivos .dll para incluir ao compilar o script. A matriz usa a seguinte estrutura e funciona melhor ao lado de um conector de armazenamento de blob com o arquivo. dll como a saída:
 
 ```javascript
 [{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
@@ -101,11 +105,11 @@ A ação retorna o objeto retornado da sua função em um objeto de resultados. 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -42,7 +42,7 @@ Com os cmdlets do Cofre da Chave do Azure, você pode executar estas tarefas e m
 
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Cofre da Chave do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
-* Consulte o [Tutorial de introdução](../automation-create-runbook-from-samples.md) da Automação do Azure.
+* Consulte o [Tutorial de introdução](../automation/automation-first-runbook-graphical.md) da Automação do Azure.
 * Consulte os [scripts do PowerShell do Cofre da Chave do Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

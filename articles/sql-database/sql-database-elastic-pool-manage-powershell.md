@@ -32,9 +32,6 @@ Para ver os códigos de erro comuns, confira [Códigos de erro de SQL para aplic
 
 Você precisa executar o Azure PowerShell 1.0 ou superior. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
-
-
-
 ## Criar um novo banco de dados elástico em um pool
 
 Para criar um novo banco de dados diretamente dentro de um pool, use o cmdlet [New-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) e defina o parâmetro **ElasticPoolName**.
@@ -132,6 +129,12 @@ Exporte para um arquivo CSV:
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
+## Latência de operações do pool elástico
+
+- Geralmente, a alteração das eDTUs garantidas por banco de dados (DatabaseDtuMin) ou do máximo de eDTUs por banco de dados (DatabaseDtuMax) é um processo concluído em 5 minutos ou menos.
+- A alteração do limite de eDTUs/armazenamento (Dtu) do pool depende da quantidade total de espaço usado por todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar o limite de eDTUs/armazenamento do pool é de 3 horas ou menos.
+
+
 ## Monitorar e gerenciar um exemplo de PowerShell de pool
 
 
@@ -173,9 +176,4 @@ Exporte para um arquivo CSV:
 
 - [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados no pool.
 
-
-## Referência de banco de dados elástico
-
-Para saber mais sobre pools de banco de dados elásticos e bancos de dados elásticos, incluindo detalhes sobre APIs e erros, confira a [Referência de bancos de dados elásticos](sql-database-elastic-pool-reference.md).
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

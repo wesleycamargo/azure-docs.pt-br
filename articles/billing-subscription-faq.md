@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="04/07/2016"
 	ms.author="genli"/>
 
 #  Perguntas Frequentes sobre Assinatura e Cobrança do Azure
@@ -44,6 +44,8 @@ Este artigo responde a algumas das perguntas mais comuns sobre Assinatura e Cobr
 - [Como os Contratos de Nível de Serviço do Azure funcionam com contratos atuais de licenciamento da Microsoft locais?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
 **Assinaturas**
+
+- [Não consigo fazer logon no portal do Azure](#i-am-unable-to-log-in-to-the-azure-portal)
 
 - [Como faço para adquirir o Suporte do Azure?](#how-do-i-purchase-azure-support)
 
@@ -97,7 +99,7 @@ Você pode comprar o Azure usando um cartão de crédito ou débito ou optar por
 
 **OBSERVAÇÃO:**
 
-- depois de escolher a opção de fatura, não será possível mudar para a opção de cartão de crédito. Para se inscrever no faturamento, confira [Faturamento do Azure](https://azure.microsoft.com/pricing/invoicing/).
+- depois de escolher a opção de fatura, não será possível mudar para a opção de cartão de crédito. Para se inscrever no faturamento, consulte [Faturamento do Azure](https://azure.microsoft.com/pricing/invoicing/).
 - Note que não aceitamos cartões de crédito pré-pagos e virtuais.
 - Você é exclusivamente responsável por quaisquer juros de cartão de crédito ou outras cobranças resultantes no cartão de crédito.
 
@@ -111,7 +113,7 @@ Você deve enviar um tíquete de suporte para solicitar assistência. Para criar
 
 ### Como faço para obter uma cópia da minha fatura?
 
-Como o Administrador da Conta do Azure, é possível exibir a fatura atual no Centro de Contas do Azure e baixar demonstrativos dos seis períodos anteriores de cobrança também. Para mais detalhes, confira [Como baixar sua fatura de cobrança e de dados de uso diário do Azure](billing-download-azure-invoice-daily-usage-date.md).
+Como o Administrador da Conta do Azure, é possível exibir a fatura atual no Centro de Contas do Azure e baixar demonstrativos dos seis períodos anteriores de cobrança também. Para ver mais detalhes, confira [Como baixar sua fatura de cobrança e de dados de uso diário do Azure](billing-download-azure-invoice-daily-usage-date.md).
 
 ### Como faço para remover um cartão de crédito que já não utilizo como método de pagamento do Azure?
 
@@ -119,17 +121,17 @@ Você deve enviar um tíquete de suporte para solicitar assistência. Para criar
 
 ### Como faço para atualizar ou alterar minhas informações de cartão de crédito?
 
-Para obter instruções sobre como usar um cartão de crédito diferente como método de pagamento ou sobre como adicionar um novo cartão de crédito, confira [Como alterar o cartão de crédito usado para pagar uma assinatura do Azure](billing-how-to-change-credit-card.md).
+Para obter instruções sobre como usar um cartão de crédito diferente como método de pagamento ou como adicionar um novo cartão de crédito, confira [Como alterar o cartão de crédito usado para pagar uma assinatura do Azure](billing-how-to-change-credit-card.md).
 
 ### Como sabemos antecipadamente sobre o tempo de inatividade do serviço devido a uma manutenção planejada?
 
 Nosso Contrato de Nível de Serviço para disponibilidade se aplica a aplicativos clientes que usam no mínimo duas instâncias de função. Não há SLAs para instâncias únicas. Consulte sua [página do SLA](https://azure.microsoft.com/support/legal/sla/) para ver todos os detalhes.
 
-**Manutenção planejada (Portal Clássico)**: para configurações de uma ou várias instâncias, o Azure envia um comunicado por email prévio para alertar você sobre a próxima manutenção planejada (uma semana de antecedência para instância única e 48 horas de antecedência para várias instâncias). Este email será enviado para as contas de email do administrador da conta, do administrador do serviço e do coadministrador fornecidas na assinatura.
+**Manutenção planejada (Portal Clássico)**: para configurações de uma ou várias instâncias, o Azure envia com antecedência um comunicado por email para alertar você sobre a próxima manutenção planejada (uma semana de antecedência para instância única e 48 horas de antecedência para várias instâncias). Este email será enviado para as contas de email do administrador da conta, do administrador do serviço e do coadministrador fornecidas na assinatura.
 
-**OBSERVAÇÃO:** para obter mais informações específicas das Máquinas Virtuais, confira o artigo [Manutenção planejada para máquinas virtuais do Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
+**OBSERVAÇÃO:** para obter mais informações específicas sobre as Máquinas Virtuais, confira o artigo [Manutenção planejada para máquinas virtuais do Azure](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
-**Manutenção não planejada:** no caso de uma interrupção no serviço não planejado na Plataforma do Azure, as atualizações do status serão feitas na página de [painel do serviço](http://status.azure.com/) e os clientes também receberão o aviso no [portal clássico do Azure](https://manage.windowsazure.com/).
+**Manutenção não planejada:** no caso de uma interrupção no serviço não planejada na Plataforma do Azure, as atualizações de status serão feitas em nosso [painel do serviço](http://status.azure.com/) e os clientes também receberão o aviso no [portal clássico do Azure](https://manage.windowsazure.com/).
 
 ### O que é o Contrato de Nível de Serviço do Azure para tempo de atividade e conectividade?
 
@@ -145,8 +147,16 @@ Os Contratos de Nível de Serviço do Azure são independentes de nossos contrat
 
 ## Assinaturas
 
+### Não consigo fazer logon no portal do Azure
+
+O artigo a seguir ajudará a solucionar algumas causas comuns de problemas de logon:
+
+[Não consigo fazer logon para gerenciar minha assinatura do Azure](billing-cannot-login-subscription.md)
+
+**Observação** Certifique-se de fazer logon como o administrador correto: um Administrador da Conta pode acessar apenas o [Centro de Contas](https://account.windowsazure.com/), enquanto os SAs (Administradores de Serviço) e CAs (Coadministradores) têm acesso apenas ao [portal do Azure](https://portal.azure.com/) ou ao [portal clássico do Azure](https://manage.windowsazure.com/).
+
 ### Como faço para adquirir o Suporte do Azure?
-Os planos de Suporte do Azure podem ser comprados online ou por meio de um Enterprise Agreement. Os planos de Suporte Developer, Standard ou Professional Direct estão disponíveis online na página [Planos de Suporte do Azure](https://azure.microsoft.com/support/plans/). Você deve ser o proprietário da conta do Microsoft Azure para comprar um plano de suporte.
+Os planos de Suporte do Azure podem ser comprados online ou por meio de um Enterprise Agreement. Os planos de suporte Developer, Standard ou Professional Direct estão disponíveis online na página [Planos de Suporte do Azure](https://azure.microsoft.com/support/plans/). Você deve ser o proprietário da conta do Microsoft Azure para comprar um plano de suporte.
 
 Se você comprar o Microsoft Azure por meio do EA (Enterprise Agreement), poderá adicionar um plano de suporte Standard ou Professional Direct ao seu Enterprise Agreement ao entrar em contato com seu LAR (Large Account Reseller). O Suporte Developer não está disponível por meio de um Enterprise Agreement.
 
@@ -258,4 +268,4 @@ Sim.
 
 Atualmente, não há planos para oferecer o Azure ou o Banco de Dados SQL pelo SPLA.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

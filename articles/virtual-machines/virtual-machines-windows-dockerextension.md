@@ -1,6 +1,6 @@
 <properties
 	pageTitle="A extensão de máquina virtual Docker para Linux no Azure"
-	description="Descreve o Docker e contêineres, as extensões de Máquinas virtuais do Azure, além de indicar mais recursos para criar contêineres Docker por meio da CLI do Azure e do portal."
+	description="Descreve o Docker e contêineres, as extensões de Máquinas virtuais do Azure, além de indicar mais recursos para criar contêineres Docker por meio da CLI do Azure e do portal do Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="squillace"
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-dockerextension](../../includes/virtual-machines-common-dockerextension.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

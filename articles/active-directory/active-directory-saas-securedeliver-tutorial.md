@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Tutorial: Integração do Azure Active Directory ao Secure Deliver | Microsoft Azure"
-	description="Saiba como configurar o logon único entre o Azure Active Directory e o Secure Deliver."
+	pageTitle="Tutorial: Integração do Active Directory do Azure com o Novatus | Microsoft Azure"
+	description="Saiba como configurar o logon único entre o Azure Active Directory e o SECURE DELIVER."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
-# Tutorial: Integração do Azure Active Directory ao Secure Deliver
+# Tutorial: integração do Azure Active Directory ao SECURE DELIVER
 
-O objetivo deste tutorial é mostrar a você como integrar o Secure Deliver ao AD do Azure (Azure Active Directory).<br>A integração do Secure Deliver com o AD do Azure oferece os seguintes benefícios:
+O objetivo desse tutorial é mostrar como integrar o SECURE DELIVER ao Azure AD (Azure Active Directory).<br> A integração do SECURE DELIVER ao Azure AD oferece os seguintes benefícios:
 
-- No AD do Azure, é possível controlar quem tem acesso ao Secure Deliver
-- Você pode permitir que seus usuários façam logon automaticamente no Secure Deliver (logon único) com suas contas do AD do Azure
+- No Azure AD, é possível controlar quem tem acesso ao SECURE DELIVER
+- Você pode permitir que seus usuários façam logon automaticamente no SECURE DELIVER (Logon Único) com suas contas do Azure AD
 - Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
 ## Pré-requisitos
 
-Para configurar a integração do AD do Azure ao Secure Deliver, você precisa dos seguintes itens:
+Para configurar a integração do Azure AD ao SECURE DELIVER, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do Secure Deliver
+- Uma assinatura do Azure
+- Uma assinatura habilitada para logon único do SECURE DELIVER
 
 
 > [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -47,14 +47,14 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Como adicionar o Secure Deliver da galeria
+1. Adicionando o SECURE DELIVER pela galeria
 2. Configurar e testar o logon único do AD do Azure
 
 
-## Como adicionar o Secure Deliver da galeria
-Para configurar a integração do Secure Deliver ao AD do Azure, você precisará adicionar o Secure Deliver da galeria à sua lista de aplicativos SaaS gerenciados.
+## Adicionando o SECURE DELIVER pela galeria
+Para configurar a integração do SECURE DELIVER ao Azure AD, você precisará adicionar o SECURE DELIVER da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Secure Deliver da galeria, execute as seguintes etapas:**
+**Para adicionar o SECURE DELIVER da galeria, execute as seguintes etapas:**
 
 1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
 
@@ -63,55 +63,64 @@ Para configurar a integração do Secure Deliver ao AD do Azure, você precisar�
 3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
 4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
-6. Na caixa de pesquisa, digite **Secure Deliver**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
-7. No painel de resultados, selecione **Secure Deliver** e clique em **Concluir** para adicionar o aplicativo. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_02.png)<br>
+6. Na caixa de pesquisa, digite **SECURE DELIVER**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
+7. No painel de resultados, selecione **SECURE DELIVER** e clique em **Concluir** para adicionar o aplicativo.<br><br> ![Logotipo do aplicativo e o Nome na galeria](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_06.png)<br>
+
 ##  Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o Secure Deliver, com base em um usuário de teste chamado "Brenda Fernandes".
+O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o SECURE DELIVER, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Secure Deliver é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no Secure Deliver.<br>
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do SECURE DELIVER é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no SECURE DELIVER.<br> Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como o valor de **Nome de usuário** no SECURE DELIVER.
 
+Para configurar e testar o logon único do Azure AD com o SECURE DELIVER, você precisa concluir os seguintes blocos de construção:
 
-Para configurar e testar o logon único do AD do Azure com o Secure Deliver, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configurando o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criando um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criação de um usuário de teste do Secure Deliver](#creating-a-secure-deliver-test-user)** - para ter um equivalente de Brenda Fernandes no Secure Deliver que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuindo o usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criando um usuário de teste do SECURE DELIVER](#creating-a-secure-deliver-test-user)** - para ter um equivalente de Brenda Fernandes em Pessoas, que esteja vinculado à representação dela no Azure AD.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único em seu aplicativo Secure Deliver.
+O objetivo desta seção é habilitar o logon único do Azure AD no portal do Azure AD e configurar o logon único em seu aplicativo SECURE DELIVER.
 
 
 
-**Para configurar o logon único do AD do Azure com o Secure Deliver, execute as seguintes etapas:**
+**Para configurar o logon único do Azure AD com o SECURE DELIVER, execute as seguintes etapas:**
 
-1. No Portal do Azure AD, na página de integração do aplicativo **Secure Deliver**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No Portal do Azure AD, na página de integração do aplicativo **SECURE DELIVER**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
-2. Na página **Como você deseja que os usuários façam logon no Secure Deliver**, selecione **Logon Único do AD do Azure** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) <br>
+2. Na página **Como você deseja que os usuários façam logon no SECURE DELIVER**, selecione **Logon Único do AD do Azure** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) <br>
 
-3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) <br>
-
-
-    a. Na caixa de texto da URL de Entrada, digite a URL usada pelos usuários para fazer logon em seu aplicativo do Secure Deliver usando o seguinte padrão: **“https://<nome da empresa>.i-securedeliver.jp/sd/<nome da empresa>”**.
-
-    b. Clique em **Próximo**.
+3. Na página de caixa de diálogo **Definir Configurações do Aplicativo**, execute as etapas a seguir e clique em **Avançar**: <br><br>![Configurar o logon único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) <br>
 
 
-4. Na página **Configurar logon único no Secure Deliver**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) <br>
+    a. Na caixa de texto da **URL de Entrada**, digite a URL usada pelos usuários para fazer logon em seu aplicativo do SECURE DELIVER usando o seguinte padrão: **“https://i-securedeliver.jp/sd/<nome da empresa>/jsf/login/sso”**.
+
+    b. Entre em contato com Equipe de Suporte do SECURE DELIVER via [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) para obter a URL do locatário se você não souber o valor.
+
+	c. Na caixa de texto **Identificador**, digite a URL do locatário.
+
+	d. Clique em **Próximo**.
+
+
+4. Na página **Configurar logon único no SECURE DELIVER**, execute as seguintes etapas e clique em **Avançar**: <br><br>![Configurar o logon único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) <br>
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
     b. Clique em **Próximo**.
 
 
-5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do Secure Deliver pelo email [teruhiko.iwashita@fujifilm.com](mailto:teruhiko.iwashita@fujifilm.com) e forneça o seguinte:
-   
-    - O arquivo de certificado baixado
-    - A **ID da Entidade**
-    - A **URL de Serviço de Logon Único**
-    - A **URL do Serviço de Logoff Único**
+5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do SECURE DELIVER pelo email [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) e forneça o seguinte:<br>
+	
+	• O arquivo de certificado baixado
+
+	• A **ID da Entidade**
+
+	• A **URL de Serviço de Logon Único**
+
+	• A **URL do Serviço de Logoff Único**
+
+
 
 6. No portal do AD do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
 
@@ -123,7 +132,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 ### Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**Para criar um usuário de teste do SECURE DELIVER no Azure AD, execute as seguintes etapas:**
 
 1. No **Portal de Gerenciamento do Azure**, no painel de navegação esquerdo, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_09.png) <br>
 
@@ -163,24 +172,22 @@ O objetivo desta seção é criar um usuário de teste no Portal clássico do Az
 
 
 
-### Criar um usuário de teste do Secure Deliver
+### Criar um usuário de teste do SECURE DELIVER
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Secure Deliver. O Secure Deliver dá suporte ao provisionamento Just-In-Time, que está habilitado por padrão.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no SECURE DELIVER. Trabalhe com a equipe de suporte do SECURE DELIVER para adicionar os usuários à conta do SECURE DELIVER.
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Secure Deliver se ele ainda não existir. [Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on).
-
-> [AZURE.NOTE] Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Secure Deliver.
+> [AZURE.NOTE] Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do SECURE DELIVER.
 
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes a usar o logon único do Azure, concedendo a ela acesso ao Secure Deliver. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao SECURE DELIVER. <br><br>![Atribuir usuário][200] <br>
 
-**Para atribuir Brenda Fernandes ao Secure Deliver, execute as seguintes etapas:**
+**Para atribuir Brenda Fernandes ao SECURE DELIVER, execute as seguintes etapas:**
 
 1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 
-2. Na lista de aplicativos, escolha **Secure Deliver**. <br><br>![Configurar o logon único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_50.png) <br>
+2. Na lista de aplicativos, escolha **SECURE DELIVER**. <br><br>![Configurar o logon único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_50.png) <br>
 
 1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 
@@ -192,7 +199,7 @@ O objetivo desta seção é permitir que Brenda Fernandes a usar o logon único 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> Ao clicar no bloco do Secure Deliver no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do Secure Deliver.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> Ao clicar no bloco do SECURE DELIVER no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do SECURE DELIVER.
 
 
 ## Recursos adicionais
@@ -219,4 +226,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_205.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

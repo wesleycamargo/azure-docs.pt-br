@@ -96,7 +96,7 @@ chrisL@fedora$ azure vm show testrg testvm
 
 ### Introdução
 
-Este artigo cria uma implantação que é semelhante a uma implantação de serviço de nuvem com uma VM do Linux dentro de uma sub-rede VNetwork. Ele abrange toda a implantação básica imperativamente, comando por comando, até que você tenha uma VM do Linux funcional e segura à qual você pode se conectar de qualquer lugar na Internet.
+Este artigo compila uma implantação com uma VM Linux dentro de uma sub-rede de rede virtual. Ele abrange toda a implantação básica imperativamente, comando por comando, até que você tenha uma VM do Linux funcional e segura à qual você pode se conectar de qualquer lugar na Internet.
 
 Aos poucos você entenderá a hierarquia de dependência que o modelo de implantação do Gerenciador de Recursos oferece e todo o seu poder. Depois de ver como o sistema é criado, é possível recriá-lo de forma muito mais rápida usando comandos da CLI do Azure mais diretos (veja [isso](virtual-machines-linux-quick-create-cli.md) para, aproximadamente, a mesma implantação usando o comando `azure vm quick-create`) ou continuar para ter domínio perfeito de como projetar e automatizar implantações inteiras de rede e aplicativo e atualizá-las usando os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Após ver como as partes de sua implantação se encaixam, fica mais fácil criar modelos para automatizá-las.
 
@@ -123,7 +123,7 @@ info:    group create command OK
 
 ### Criar uma conta de armazenamento
 
-Você precisará de contas de armazenamento para seus discos de VM e quaisquer discos de dados adicionais, entre outros cenários. Em resumo, você sempre criará contas de armazenamento quase que imediatamente depois de criar grupos de recursos.
+Você precisará de contas de armazenamento para seus discos de VM e quaisquer discos de dados adicionais que deseje adicionar, entre outros cenários. Em resumo, você sempre criará contas de armazenamento quase que imediatamente depois de criar grupos de recursos.
 
 Aqui usamos o comando `azure storage account create`, passando o local da conta, o grupo de recursos que vai controlá-la e o tipo de suporte de armazenamento que você deseja.
 
@@ -270,7 +270,7 @@ chrisL@fedora$ azure group show testrg --json | jq '.'
 }
 ```
 
-Agora vamos criar uma sub-rede na rede virtual `TestVnet` na qual a VM será implantada. Usamos o comando `azure network vnet subnet create`, junto com os recursos que já criamos: o grupo de recursos `TestRG`, a rede virtual `TestVNet` e adicionaremos o nome da sub-rede `FrontEnd` e o prefixo de endereço de sub-rede `192.168.1.0/24`, da seguinte maneira.
+Agora vamos criar uma sub-rede na rede virtual `TestVnet` na qual a VM será implantada. Usamos o comando `azure network vnet subnet create`, junto com os recursos que já criamos: o grupo de recursos `TestRG`, a rede virtual `TestVNet` e adicionaremos o nome da sub-rede `FrontEnd` e o prefixo de endereço de sub-rede `192.168.1.0/24`, conforme demonstrado a seguir.
 
 ```
 chrisL@fedora$ azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
@@ -429,7 +429,7 @@ chrisL@fedora$ azure network nic show testrg testnic --json | jq '.'
 
 ### Crie o seu Grupo de Segurança de Rede e suas regras
 
-Agora podemos criar o Grupo de Segurança de Rede (NSG) e as regras de entrada que regulam o acesso à NIC.
+Agora podemos criar seu NSG (grupo de segurança de rede) e as regras de entrada que regulam o acesso à NIC.
 
 ```
 chrisL@fedora$ azure network nsg create testrg testnsg westeurope
@@ -690,4 +690,4 @@ info:    vm show command OK
 
 Agora você está pronto para começar a usar vários componentes de rede e VMs.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

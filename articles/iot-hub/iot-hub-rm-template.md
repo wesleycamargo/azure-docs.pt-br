@@ -115,7 +115,7 @@ Use um modelo JSON e um arquivo de parâmetros para criar um novo Hub IoT em seu
 
 3. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto, clique em **Adicionar** e clique em **Novo Item**. Adicione um novo arquivo JSON chamado **parameters.json** ao seu projeto.
 
-4. Substitua o conteúdo do arquivo **parameters.json** pelas seguintes informações de parâmetro que definem o nome do novo Hub IoT para **mynewiothub**:
+4. Substitua o conteúdo do arquivo **parameters.json** pelas seguintes informações de parâmetro que definem o nome do novo Hub IoT como **mynewiothub** (observe que esse nome precisa ser globalmente exclusivo):
 
     ```
     {
@@ -215,4 +215,4 @@ Agora que você implantou um Hub IoT usando um modelo ARM com um programa em C#,
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

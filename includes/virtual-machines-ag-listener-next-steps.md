@@ -2,6 +2,6 @@ Além de conectar automaticamente os clientes com a réplica primária, um ouvin
 
 >[AZURE.NOTE] Para obter as dicas de solução de problemas sobre ouvintes do Azure, confira [Troubleshooting Availability Group Listener in Azure](http://blogs.msdn.com/b/alwaysonpro/archive/2016/02/01/troubleshooting-availability-group-listener-in-azure.aspx) no [blog](http://blogs.msdn.com/b/alwaysonpro/) da Equipe de Suporte do AlwaysOn.
 
-Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md).
+Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

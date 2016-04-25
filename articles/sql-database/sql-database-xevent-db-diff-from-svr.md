@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Eventos estendidos no Banco de Dados SQL | Microsoft Azure" 
-	description="Descreve eventos estendidos (XEvents) no Banco de Dados SQL do Azure e como as sessões de eventos diferem ligeiramente das sessões de eventos no Microsoft SQL Server." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
-	editor="" 
+<properties
+	pageTitle="Eventos estendidos no Banco de Dados SQL | Microsoft Azure"
+	description="Descreve eventos estendidos (XEvents) no Banco de Dados SQL do Azure e como as sessões de eventos diferem ligeiramente das sessões de eventos no Microsoft SQL Server."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
+	editor=""
 	tags=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -27,14 +27,14 @@ Este tópico explica como a implementação de eventos estendidos no Banco de Da
 
 - O Banco de Dados SQL V12 recebeu o recurso de eventos estendidos na segunda metade de 2015.
 - O SQL Server já tem eventos estendidos desde 2008.
-- O conjunto de recursos de eventos estendidos no Banco de Dados SQL é um subconjunto robusto dos recursos do SQL Server. 
+- O conjunto de recursos de eventos estendidos no Banco de Dados SQL é um subconjunto robusto dos recursos do SQL Server.
 
 
 *XEvents* é um apelido informal usado às vezes para "eventos estendidos" em blogs e outras fontes de informações.
 
 
 > [AZURE.NOTE] A partir de outubro de 2015, o recurso de sessão de evento estendido foi ativado no Banco de Dados SQL do Azure no nível de visualização. A data de Disponibilidade geral (GA) ainda não foi definida.
-> 
+>
 > A página [Atualizações de Serviço](https://azure.microsoft.com/updates/?service=sql-database) do Azure apresentará postagens quando forem feitos anúncios sobre a GA.
 
 
@@ -58,7 +58,7 @@ A exposição prévia aos itens a seguir é útil ao escolher o Arquivo de Event
 
 
 - PowerShell
- - [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
+ - [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
 
 
 ## Exemplos de código
@@ -244,12 +244,12 @@ O destino **Arquivo de Evento** pode enfrentar latência de rede ou falhas ao pe
 ## Links relacionados
 
 
-- [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full.md).
+- [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md).
 - [Cmdlets do Armazenamento do Azure](http://msdn.microsoft.com/library/dn806401.aspx)
 
 
-- [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
-- [Como usar o Armazenamento de blob do .NET](storage-dotnet-how-to-use-blobs.md)
+- [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
+- [Como usar o Armazenamento de blob do .NET](../storage/storage-dotnet-how-to-use-blobs.md)
 
 
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
@@ -269,4 +269,4 @@ Encontre outros tópicos com exemplos de código para eventos estendidos nos lin
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

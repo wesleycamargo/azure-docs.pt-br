@@ -1,5 +1,3 @@
-## Visão geral de configuração
-
 As etapas para essa tarefa usam uma Rede Virtual com base nos valores abaixo. Nomes e configurações adicionais também são descritos nesta lista. Não usamos essa lista diretamente em nenhuma uma das etapas, embora adicionemos variáveis com base nos valores contidos nessa lista. É possível fazer uma cópia da lista para usá-la como referência, substituindo os valores pelos seus próprios.
 
 Lista de referência de configuração:
@@ -9,13 +7,13 @@ Lista de referência de configuração:
 - Grupo de recursos = “TestRG”
 - Nome de Subnet1 = “FrontEnd” 
 - Espaço de endereço de Subnet1 = “192.168.0.0/16”
-- Nome da Sub-Rede do Gateway: “GatewaySubnet” Deve-se sempre nomear uma sub-rede do gateway como *GatewaySubnet*.
+- Nome da Sub-rede do Gateway: “GatewaySubnet” Deve-se sempre nomear uma sub-rede do gateway como *GatewaySubnet*.
 - Espaço de endereço da Sub-Rede do Gateway = “192.168.200.0/26”
 - Região = “Leste dos EUA”
 - Nome do Gateway = “GW”
 - Nome do IP do Gateway = “GWIP”
 - Nome da configuração de IP do Gateway = “gwipconf”
-- Tipo de VPN = “Rota Expressa” Este tipo de VPN é necessário para uma configuração da Rota Expressa.
+-  Tipo = “Rota Expressa” Este tipo é necessário para uma configuração de Rota Expressa.
 - Nome do IP público do Gateway = “gwpip”
 
 
@@ -61,8 +59,27 @@ Lista de referência de configuração:
 
 		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -SubnetId $subnet.Id -PublicIpAddressId $pip.Id 
 
-9. Crie o gateway. Nesta etapa, o **-GatewayType** é especialmente importante. É necessário usar o valor **ExpressRoute**. Observe que, depois de executar esses cmdlets, o gateway pode levar 20 minutos ou mais para ser criado.
+9. Crie o gateway. Nesta etapa, o **-GatewayType** é especialmente importante. É necessário usar o valor **Rota Expressa**. Observe que, depois de executar esses cmdlets, o gateway pode levar 20 minutos ou mais para ser criado.
 
-		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute
+		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
 
-<!---HONumber=AcomDC_0309_2016-->
+## Verificar se o gateway foi criado
+
+Use o comando abaixo para verificar se o gateway foi criado.
+
+	Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG
+
+## Redimensionar um gateway
+
+Há três [SKUs de gateway](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Você pode usar o comando a seguir para alterar a SKU de gateway a qualquer momento.
+
+	$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
+	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+
+## Remover um gateway
+
+Use o comando a seguir para remover um gateway
+
+	Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
+
+<!---HONumber=AcomDC_0413_2016-->

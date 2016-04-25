@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/11/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
@@ -344,6 +344,14 @@ Para exibir os logs:
 
 Os logs serão transmitidos para a janela fornecida como eles são gerados. Você também pode baixar os logs para análise posterior usando suas credenciais de implantação. Consulte a documentação de [Registro em log] para obter mais informações.
 
+## <a name="known-issues"></a>Problemas conhecidos
+
+### Excluir o clone de um aplicativo móvel migrado causa interrupção do site
+
+Se você clonar seu serviço móvel migrado usando o Azure PowerShell e excluir o clone, a entrada DNS do seu serviço de produção será removida. Como resultado, o site deixará de ficar acessível pela Internet.
+
+Solução: estamos trabalhando para corrigir esse problema. Se quiser clonar seu site, faça isso por meio do portal.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais recursos você pode aproveitar:
@@ -366,17 +374,17 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
+[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Dimensionamento automático]: ../app-service-web/web-sites-scale.md
 [Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
 [Documentação de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
 [Portal clássico do Azure]: https://manage.windowsazure.com
 [Portal do Azure]: https://portal.azure.com
-[Região do Azure]: https://azure.microsoft.com/pt-BR/regions/
+[Região do Azure]: https://azure.microsoft.com/regions/
 [Planos do Agendador do Azure]: ../scheduler/scheduler-plans-billing.md
 [implantar continuamente]: ../app-service-web/web-sites-publish-source-control.md
-[Converter seus namespaces mistos]: https://azure.microsoft.com/pt-BR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[Converter seus namespaces mistos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nomes de domínio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
@@ -393,4 +401,4 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -23,14 +23,14 @@ Este tutorial demonstra como configurar e implementar o Oracle Data Guard em amb
 
 O Oracle Data Guard dá suporte à proteção de dados e recuperação de desastres para o banco de dados Oracle. É uma solução simples, pronta para uso e de alto desempenho para recuperação de desastres, proteção de dados e alta disponibilidade para todo o banco de dados Oracle.
 
-Este tutorial presume que você já tem conhecimento teórico e prático sobre os conceitos de alta disponibilidade e recuperação de desastre do Oracle Database. Para obter informações, veja o [Site da Oracle](http://www.oracle.com/technetwork/database/features/availability/index.html) e também o [Guia de administração e conceitos do Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17022/create_ps.htm).
+Este tutorial presume que você já tem conhecimento teórico e prático sobre os conceitos de alta disponibilidade e recuperação de desastre do Oracle Database. Para obter informações, veja o [Site da Oracle](http://www.oracle.com/technetwork/database/features/availability/index.html) e também o [Guia de administração e conceitos do Oracle Data Guard](https://docs.oracle.com/cd/E11882_01/server.112/e41134/toc.htm).
 
 Além disso, o tutorial presume que você já tenha implementado os seguintes pré-requisitos:
 
 - Você já revisou a seção de Considerações de alta disponibilidade e recuperação de desastres no tópico [Imagens de máquina virtual Oracle – diversas considerações](virtual-machines-windows-classic-oracle-considerations.md). Observe que o Azure dá suporte a instâncias de banco de dados Oracle autônomas, mas não a Oracle RAC (Oracle Real Application Clusters) ao mesmo tempo.
 
 
-- Você criou duas VMs (máquinas virtuais) no Azure usando a mesma imagem Oracle Enterprise Edition fornecida pela plataforma no Windows Server. Para obter informações, veja [Criando uma máquina virtual do Oracle Database 12c no Azure](virtual-machines-windows-create-oracle-weblogic-server-12c.md) e [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Verifique se as Máquinas Virtuais estão no [mesmo serviço de nuvem](virtual-machines-windows-load-balance.md) e na mesma [Rede Virtual](azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente. Além disso, é recomendável colocar as VMs no mesmo [conjunto de disponibilidade](virtual-machines-windows-manage-availability.md) para permitir que o Azure coloque-as em domínios de falha e domínios de atualização separados. Observe que o Oracle Data Guard só está disponível com o Oracle Database Enterprise Edition. Cada computador deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco. Para obter as informações mais atualizadas sobre os tamanhos de VM fornecidos pela plataforma, veja [Tamanhos de máquina virtual para o Azure](http://msdn.microsoft.com/library/dn197896.aspx). Se você precisar de volume de disco adicional para suas VMs, pode anexar discos adicionais. Para obter informações, veja [Como anexar um disco de dados a uma máquina virtual](virtual-machines-windows-classic-attach-disk.md).
+- Você criou duas VMs (máquinas virtuais) no Azure usando a mesma imagem Oracle Enterprise Edition fornecida pela plataforma no Windows Server. Para obter informações, veja [Criando uma máquina virtual do Oracle Database 12c no Azure](virtual-machines-windows-create-oracle-weblogic-server-12c.md) e [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Verifique se as Máquinas Virtuais estão no [mesmo serviço de nuvem](virtual-machines-windows-load-balance.md) e na mesma [Rede Virtual](azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente. Além disso, é recomendável colocar as VMs no mesmo [conjunto de disponibilidade](virtual-machines-windows-manage-availability.md) para permitir que o Azure coloque-as em domínios de falha e domínios de atualização separados. Observe que o Oracle Data Guard só está disponível com o Oracle Database Enterprise Edition. Cada computador deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco. Para obter as informações mais atualizadas sobre os tamanhos de VM fornecidos pela plataforma, veja [Tamanhos de máquina virtual para o Azure](virtual-machines-windows-sizes.md). Se você precisar de volume de disco adicional para suas VMs, pode anexar discos adicionais. Para obter informações, veja [Como anexar um disco de dados a uma máquina virtual](virtual-machines-windows-classic-attach-disk.md).
 
 
 
@@ -137,7 +137,7 @@ Para implementar um banco de dados do estado de espera, é necessário habilitar
 
 Para poder enviar e aplicar os logs arquivados do servidor primário para o servidor em espera, a senha sys deve ser idêntica nos servidores primários e em espera. É por isso que você cria um arquivo de senha no banco de dados primário e copiá-o para o servidor em espera.
 
->[AZURE.IMPORTANT] Ao usar o Oracle Database 12c, há um novo usuário, **SYSDG**, que você pode usar para administrar o Oracle Data Guard. Para obter mais informações, veja [Alterações no Oracle Database Versão 12c](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm).
+>[AZURE.IMPORTANT] Ao usar o Oracle Database 12c, há um novo usuário, **SYSDG**, que você pode usar para administrar o Oracle Data Guard. Para obter mais informações, veja [Alterações no Oracle Database Versão 12c](http://docs.oracle.com/database/121/UNXAR/release_changes.htm#UNXAR404).
 
 Além disso, certifique-se de que o ambiente ORACLE\_HOME já esteja definido em Machine1. Caso contrário, defina-o como uma variável de ambiente usando a caixa de diálogo Variáveis de Ambiente. Para acessar essa caixa de diálogo, inicie o utilitário **Sistema** clicando duas vezes no ícone Sistema no **Painel de Controle**; clique na guia **Avançado** e escolha **Variáveis de Ambiente**. Clique no botão **Novo** em **Variáveis de Sistema** para definir as variáveis de ambiente. Depois de configurar as variáveis de ambiente, feche o prompt de comando do Windows existente e abra um novo.
 
@@ -629,6 +629,6 @@ Se você não tiver habilitado o flashback no banco de dados primário original,
 Recomendamos habilitar o banco de dados de flashback nos bancos de dados primário e em espera. Quando ocorre um failover, o banco de dados primário pode ser atualizado de volta para o momento antes do failover e rapidamente convertido em um banco de dados em espera.
 
 ##Recursos adicionais
-[Imagens de Máquina Virtual Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
+[Imagens de Máquina Virtual Oracle para Azure](virtual-machines-windows-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

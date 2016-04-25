@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnóstico Proativo Quase em Tempo Real no Application Insights" 
-	description="O Diagnóstico Proativo NRT notificará você automaticamente se o tempo de resposta do servidor mostrar um comportamento incomum. Nenhuma configuração é necessária." 
+	description="Alerta sobre padrões de falha incomuns em seu aplicativo e fornece a análise do diagnóstico. Nenhuma configuração é necessária." 
 	services="application-insights" 
     documentationCenter=""
 	authors="yorac" 
@@ -138,4 +138,4 @@ O Diagnóstico Proativo NRT complementa outros recursos distintos, mas parecidos
 
 *Estamos muito interessados em saber sua opinião sobre isso. Envie seus comentários para:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

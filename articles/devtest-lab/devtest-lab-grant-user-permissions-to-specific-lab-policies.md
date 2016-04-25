@@ -24,13 +24,13 @@ Este artigo ilustra como usar o PowerShell para conceder aos usuários permissõ
 
 ## Políticas como recursos
 
-Como discutido no artigo [Controle de acesso baseado em função do Azure](/role-based-access-control-configure.md), o RBAC permite o gerenciamento de acesso refinado de recursos do Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
+Como discutido no artigo [Controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md), o RBAC permite o gerenciamento de acesso refinado de recursos do Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
 
 No laboratório de Desenvolvimento/Teste, uma política é um tipo de recurso que habilita a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada política do laboratório de Desenvolvimento/Teste é um recurso do tipo de recurso Política e pode ser atribuída como um escopo a uma função RBAC.
 
 Por exemplo, para conceder aos usuários permissão de leitura/gravação para a política **Tamanhos de VM permitidos**, você deve criar uma função personalizada que funciona com a ação **Microsoft.DevTestLab/labs/policySets/policies/*** e, em seguida, atribuir os usuários adequados para esta função personalizada no escopo do **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Para saber mais sobre as funções personalizadas no RBAC, consulte a seção [Funções personalizadas no RBAC do Azure](/role-based-access-control-configure.md#custom-roles-in-azure-rbac) do artigo [Controle de acesso baseado em funções do Azure](/role-based-access-control-configure.md) artigo.
+Para saber mais sobre as funções personalizadas no RBAC, consulte a seção [Funções personalizadas no RBAC do Azure](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) do artigo [Controle de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md) artigo.
 
 ##Criar uma função personalizada do laboratório de Desenvolvimento/Teste usando o PowerShell
 Para começar, você precisará ler o seguinte artigo, que explica como instalar e configurar os cmdlets do Azure PowerShell: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
@@ -95,4 +95,4 @@ Após você tiver concedido permissões de usuário para políticas específicas
 
 - [Adicionar uma VM com artefatos a um Laboratório de Desenvolvimento/Teste do Azure](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

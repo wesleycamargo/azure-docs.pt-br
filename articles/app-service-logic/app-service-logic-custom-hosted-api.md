@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Chamar uma API personalizada em Aplicativos Lógicos" 
-	description="Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+<properties
+	pageTitle="Chamar uma API personalizada em Aplicativos Lógicos"
+	description="Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos"
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na"	
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/23/2016"
 	ms.author="stepsic"/>
-	
+
 # Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos
 
 Embora os Aplicativos Lógicos tenham um conjunto avançado de mais de 40 conectores para uma gama de serviços, convém chamar a sua própria API personalizada que pode executar seu próprio código. Uma das maneiras mais fáceis e mais escalonáveis de hospedar sua própria API Web personalizada é usar o Serviço de Aplicativo. Este artigo aborda como chamar a API Web hospedada em um aplicativo de API do Serviço de Aplicativo, aplicativo Web ou aplicativo móvel.
@@ -37,7 +37,7 @@ Se desejar proteger sua API, existem algumas maneiras diferentes de fazer isso:
 1. Nenhuma alteração de código necessária: o Azure Active Directory pode ser usado para proteger sua API sem exigir alterações ou reimplantação de código.
 1. Impor as autenticações básica, AAD ou de certificado no código de sua API.
 
-## Protegendo chamadas à API sem alteração de código 
+## Protegendo chamadas à API sem alteração de código
 
 Nesta seção, você vai criar dois aplicativos do Active Directory do Azure, um para o seu Aplicativo Lógico e outro para seu aplicativo Web. Você vai autenticar chamadas para seu aplicativo Web usando a entidade de serviço (id e segredo do cliente) associada ao aplicativo AAD para seu Aplicativo Lógico. Finalmente, você irá incluir os IDs de aplicativo em sua definição do Aplicativo Lógico.
 
@@ -71,12 +71,12 @@ Se seu aplicativo Web já está implantado, você pode habilitá-lo no portal. C
 #### Habilitar autorização no Portal do Azure
 
 1. Navegue até o aplicativo Web e clique em **Configurações** na barra de comandos.
-2. Clique em **Autenticação/Autorização**. 
+2. Clique em **Autenticação/Autorização**.
 3. Clique em **Ativado**.
 
 Neste ponto, um aplicativo é criado automaticamente para você. Você precisará da ID do cliente do aplicativo para a Parte 3, então você precisará:
 
-1. Vá para o [Active Directory no Portal clássico do Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selecione seu diretório. 
+1. Vá para o [Active Directory no Portal clássico do Azure](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) e selecione seu diretório.
 2. Procure o aplicativo na caixa de pesquisa
 3. Clique nele na lista
 4. Clique na guia **Configurar**
@@ -110,7 +110,9 @@ Quando tiver a ID de cliente a ID de locatário, inclua o seguinte como um recur
 ]
 ```
 
-Para executar uma implantação automaticamente que implanta um aplicativo Web em branco e um Aplicativo Lógico ao mesmo tempo usando o AAD, clique no seguinte botão: [![Implantar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+Para executar automaticamente uma implantação que implanta ao mesmo tempo um aplicativo Web em branco e um Aplicativo lógico usando o AAD, clique no seguinte botão:
+
+[![Implantar no Azure](./media/app-service-logic-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 Para o modelo completo, consulte [Aplicativo Lógico chama uma API personalizada hospedada no Serviço de Aplicativo e protegida por AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
@@ -125,7 +127,7 @@ Na seção **Autorização** da ação **HTTP**: `{"tenant":"<<tenantId>>", "aud
 | locatário | O identificador do locatário usado para identificar o locatário do AD. |
 | audiência | Obrigatório. O recurso a que você está se conectando. |
 | clientID | O identificador de cliente para o aplicativo do AD do Azure. |
-| segredo | Obrigatório. Segredo do cliente que está solicitando o token. | 
+| segredo | Obrigatório. Segredo do cliente que está solicitando o token. |
 
 O modelo acima já tem isso definido, mas se você estiver criando o Aplicativo Lógico diretamente, precisará incluir a seção de autorização completa.
 
@@ -154,7 +156,7 @@ Na seção *Autorização*, você deve fornecer: `{"type": "basic","username": "
 | type | Obrigatório. Tipo de autenticação. Para a autenticação básica, o valor deve ser Basic. |
 | Nome de Usuário | Obrigatório. Nome de usuário para autenticação. |
 | Senha | Obrigatório. Senha para autenticação. |
- 
+
 ### Lidar com autenticação AAD em código
 
 Por padrão, a autenticação do Active Directory do Azure que você habilita no Portal não tem autorizações refinadas. Por exemplo, ela não vincula sua API a um usuário ou aplicativo específico, mas somente a um locatário específico.
@@ -165,4 +167,4 @@ Além disso, se você deseja implementá-lo inteiramente em seu próprio código
 
 Você ainda precisa seguir as etapas acima para criar uma identidade de aplicativo para seu Aplicativo Lógico e usá-la para chamar a API.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

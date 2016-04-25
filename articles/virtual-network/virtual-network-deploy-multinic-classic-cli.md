@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Implantar VMs com várias NICs usando a CLI do Azure no modelo de implantação clássico | Microsoft Azure"
    description="Aprenda a implantar VMs com várias NICs usando a CLI do Azure no modelo clássico de implantação"
    services="virtual-network"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Como, neste momento, você não pode ter VMs com uma única NIC e VMs com várias NICs no mesmo serviço de nuvem, implementará os servidores de back-end em um serviço de nuvem diferente e depois todos os outros componentes no cenário. As etapas a seguir usam um serviço de nuvem chamado *IaaSStory* para os principais recursos, e *back-end IaaSStory* para os servidores back-end.
+No momento, você não pode ter VMs com uma única NIC e VMs com várias NICs no mesmo serviço de nuvem. Portanto, você precisa implementar servidores back-end em um serviço de nuvem diferente de todos os outros componentes no cenário. As etapas a seguir usam um serviço de nuvem chamado *IaaSStory* para os principais recursos, e *back-end IaaSStory* para os servidores back-end.
 
 ## Pré-requisitos
 
@@ -41,7 +41,7 @@ As VMs de back-end dependem da criação dos recursos descritos abaixo.
 
 - **Conta de armazenamento para discos de dados**. Para obter um melhor desempenho, os discos de dados dos servidores de banco de dados usam a tecnologia SDD (unidade de estado sólido), que requer uma conta de Armazenamento Premium. Verifique se o local do Azure no qual você vai implantar é compatível com o Armazenamento Premium.
 - **NICs**. Cada VM tem duas NICs, uma para acesso ao banco de dados e outra para gerenciamento.
-- **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção. 
+- **Conjunto de disponibilidade**. Todos os servidores de banco de dados são adicionados a um conjunto de disponibilidade único, para garantir que pelo menos uma das VMs está ativa e em execução durante a manutenção.
 
 ### Etapa 1 – Iniciar o script
 
@@ -81,7 +81,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
 
 		azure storage account create $prmStorageAccountName \
 		    --location $location \
-		    --type PLRS 
+		    --type PLRS
 
 ### Etapa 3 - Criar VMs com várias NICs
 
@@ -95,7 +95,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
 		    nic1Name=$vmNamePrefix$suffixNumber-DA
 		    x=$((suffixNumber+3))
 		    ipAddress1=$ipAddressPrefix$x
-		
+
 		    nic2Name=$vmNamePrefix$suffixNumber-RA
 		    x=$((suffixNumber+53))
 		    ipAddress2=$ipAddressPrefix$x
@@ -117,7 +117,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
-		
+
 		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
 		        $diskSize \
 		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
@@ -174,4 +174,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

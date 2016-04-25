@@ -27,7 +27,7 @@
 
 ##Visão geral
 
-Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando a biblioteca de autenticação do Active Directory para dar suporte a [operações de logon direcionadas pelo cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) com o Active Directory do Azure. Para dar suporte a [operações de logon direcionadas pelo serviço](http://msdn.microsoft.com/library/azure/dn283952.aspx) com o Active Directory do Azure, comece pelo tutorial [Adicionar autenticação ao aplicativo de Serviços Móveis](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md).
+Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando a biblioteca de autenticação do Active Directory para dar suporte a [operações de logon direcionadas pelo cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) com o Active Directory do Azure. Para dar suporte a [operações de logon direcionadas pelo serviço](http://msdn.microsoft.com/library/azure/dn283952.aspx) com o Active Directory do Azure, comece pelo tutorial [Adicionar autenticação ao aplicativo de Serviços Móveis](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
 Para poder autenticar os usuários, deve-se registrar o seu aplicativo com o Active Directory do Azure (AAD). Isso é feito em duas etapas. Primeiro, deve-se registrar o seu serviço móvel e expor nele as permissões. Segundo, deve-se registrar o seu aplicativo Windows Store e liberar o acesso a essas permissões.
 
@@ -214,4 +214,4 @@ O seu serviço móvel agora está configurado no AAD para receber logons únicos
 [Introdução aos serviços móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Painel do Dev Center do Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

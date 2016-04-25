@@ -26,4 +26,8 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+## Próximas etapas
+
+Você também pode [criar uma máquina virtual personalizada executando o Linux](virtual-machines-linux-classic-createportal.md) usando o portal clássico.
+
+<!---HONumber=AcomDC_0413_2016-->

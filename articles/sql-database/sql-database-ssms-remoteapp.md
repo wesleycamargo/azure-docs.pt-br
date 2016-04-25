@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Conectar-se ao Banco de Dados SQL usando o SQL Server Management Studio no Azure RemoteApp | Microsoft Azure" 
+<properties
+	pageTitle="Conectar-se ao Banco de Dados SQL usando o SQL Server Management Studio no Azure RemoteApp | Microsoft Azure"
 	description="Use este tutorial para aprender a usar o SQL Server Management Studio no Azure RemoteApp para segurança e desempenho ao se conectar ao Banco de Dados SQL"
-	services="sql-database" 
+	services="sql-database"
 	documentationCenter=""
-	authors="adhurwit" 
+	authors="adhurwit"
 	manager=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+	ms.topic="article"
+	ms.date="04/12/2016"
 	ms.author="adhurwit"/>
 
 # Usar o SQL Server Management Studio no Azure RemoteApp para conectar-se ao Banco de dados SQL
@@ -24,7 +24,7 @@ Este tutorial mostra como usar o SQL Server Management Studio (SSMS) no RemoteAp
 
 ## SSMS no Azure RemoteApp
 
-O Azure RemoteApp é um serviço RDS no Azure que fornece aplicativos. Saiba mais sobre ele aqui: [O que é o RemoteApp?](../remoteapp-whatis.md)
+O Azure RemoteApp é um serviço RDS no Azure que fornece aplicativos. Saiba mais sobre ele aqui: [O que é o RemoteApp?](../remoteapp/remoteapp-whatis.md)
 
 O SSMS em execução no Azure RemoteApp fornece a mesma experiência que a execução local do SSMS.
 
@@ -37,7 +37,7 @@ O SSMS em execução no Azure RemoteApp fornece a mesma experiência que a execu
 Há muitos benefícios no uso do SSMS no Azure RemoteApp, incluindo:
 
 - A porta 1433 no Azure SQL Server não precisa ser exposta externamente (fora do Azure).
-- Não há necessidade de continuar a adicionar e remover endereços IP no firewall do Azure SQL Server. 
+- Não há necessidade de continuar a adicionar e remover endereços IP no firewall do Azure SQL Server.
 - Todas as conexões do Azure RemoteApp ocorrem por HTTPS na porta 443 usando o protocolo de Área de Trabalho Remota
 - Ele é multiusuário e pode ser dimensionado.
 - Há um ganho de desempenho por ter o SSMS na mesma região que o Banco de Dados SQL.
@@ -158,4 +158,4 @@ Isso é tudo por enquanto. Aproveite!
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

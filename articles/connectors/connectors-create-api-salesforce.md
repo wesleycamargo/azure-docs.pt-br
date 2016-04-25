@@ -29,7 +29,7 @@ Conecte-se ao Salesforce e crie objetos, obtenha objetos muito mais. A API do Sa
 
 &nbsp;
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do Salesforce](../app-service-logic/app-service-logic-connector-salesforce.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o Salesforce, você pode:
 
@@ -58,7 +58,7 @@ Quando você adiciona essa API aos seus aplicativos lógicos, precisa autorizar 
 1. Entre em sua conta do Salesforce.
 2. Permitir que seus aplicativos lógicos se conectem e usem sua conta do Salesforce. 
 
-Depois de criar a conexão, insira as propriedades do Salesforce, como o nome da tabela. A **referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do Salesforce, como o nome da tabela. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão em outros aplicativos lógicos.
 
@@ -256,9 +256,9 @@ Dispara um fluxo quando um objeto é modificado no Salesforce.```GET: /datasets/
 
 ## Próximas etapas
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Volte para a [Lista de APIs](apis-list.md).
+Voltar para a [Lista de APIs](apis-list.md).
 
 
 [5]: https://developer.salesforce.com
@@ -266,4 +266,4 @@ Volte para a [Lista de APIs](apis-list.md).
 [7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
 [8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

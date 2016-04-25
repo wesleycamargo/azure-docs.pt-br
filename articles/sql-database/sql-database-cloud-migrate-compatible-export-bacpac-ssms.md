@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -40,7 +40,9 @@ Este artigo mostra como exportar um banco de dados do SQL Server para um arquivo
 
 4. No assistente de exportação, configure a exportação para salvar o arquivo BACPAC em um disco local ou em um blob do Azure. O BACPAC exportado sempre inclui o esquema de banco de dados completo e, por padrão, os dados de todas as tabelas. Se você quiser excluir dados de algumas ou de todas as tabelas, use a guia Avançado. Por exemplo, você pode optar por exportar somente os dados das tabelas de referência em vez de todas as tabelas.
 
-	![Exportar configurações](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
+***Importante*** ao exportar um BACPAC para o armazenamento de blobs do Azure, use o armazenamento standard. Não há suporte para a importação de um BACPAC do armazenamento premium.
+
+	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
 
 ## Próxima Etapa: importar para o Banco de Dados SQL a partir de um arquivo BACPAC
 
@@ -49,4 +51,4 @@ Este artigo mostra como exportar um banco de dados do SQL Server para um arquivo
 - [Portal do Azure](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -28,12 +28,6 @@ Neste tutorial, você atualizará o projeto de cliente do tutorial [Criar um apl
 
 Para saber mais sobre o recurso de sincronização offline, confira o tópico [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
-## Requisitos
-
-* Visual Studio 2013
-* [Extensão Xamarin] do Visual Studio **ou** [Xamarin Studio]
-* Conclusão do tutorial [Criar um aplicativo do Xamarin Android]. Este tutorial usa o aplicativo concluído abordado nesse tutorial.
-
 ## Examine o código de sincronização do cliente
 
 O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um aplicativo Xamarin Android] já contém a sincronização offline do código de suporte usando um banco de dados SQLite local. Aqui há um resumo breve do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados Offline em aplicativos móveis do Azure].
@@ -74,6 +68,8 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
 	-->	
+
+
 		// ToDoActivity.cs
         private async Task SyncAsync()
         {
@@ -172,8 +168,8 @@ Nesta seção, você vai reconectar o aplicativo ao back-end móvel, que simula 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
 [Xamarin Studio]: http://xamarin.com/download
-[Extensão Xamarin]: http://xamarin.com/visual-studio
+[Xamarin extension]: http://xamarin.com/visual-studio
 
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

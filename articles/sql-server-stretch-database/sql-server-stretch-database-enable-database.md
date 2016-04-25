@@ -69,7 +69,7 @@ A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exig
     USE <database>
     GO
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD='<password>'
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD ='<password>'
     ```
 
 4.  Quando você configura um banco de dados para o Banco de Dados de Stretch, precisa fornecer uma credencial para o Banco de Dados de Stretch usar para a comunicação entre o SQL Server local e o servidor remoto do Azure. Você tem duas opções.
@@ -102,13 +102,13 @@ A habilitação do Banco de Dados de Stretch em um banco de dados ou tabela exig
 
     1.  Para o argumento SERVER, forneça o nome de um servidor existente do Azure, incluindo a `.database.windows.net` parte do nome, por exemplo, `MyStretchDatabaseServer.database.windows.net`.
 
-    2.  Forneça uma credencial de administrador existente com o argumento CREDENCIAL ou especifique FEDERATED\_SERVICE\_ACCOUNT \\ = ON. O exemplo a seguir fornece uma credencial existente.
+    2.  Forneça uma credencial de administrador existente com o argumento CREDENTIAL ou especifique FEDERATED\_SERVICE\_ACCOUNT = ON. O exemplo a seguir fornece uma credencial existente.
 
     ```tsql
     ALTER DATABASE <database name>
         SET REMOTE_DATA_ARCHIVE = ON
             (
-                SERVER = <server_name> ,
+                SERVER = '<server_name>',
                 CREDENTIAL = <db_scoped_credential_name>
             ) ;
     GO;
@@ -133,4 +133,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 
 [Opções ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

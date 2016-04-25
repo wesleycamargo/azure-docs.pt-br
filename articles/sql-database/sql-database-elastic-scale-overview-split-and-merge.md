@@ -3,7 +3,7 @@
     description="Explica como manipular fragmentos e mover os dados por meio de um serviço auto-hospedado usando APIs de banco de dados elástico." 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove"/>
 
 <tags 
@@ -27,7 +27,13 @@ Para começar, veja [Ferramenta de divisão/mesclagem de Banco de dados elástic
 
 A versão 1.1.0 da ferramenta de divisão/mesclagem fornece a capacidade de limpar automaticamente os metadados da solicitação concluída. Uma opção de configuração controla por quanto tempo os metadados são retidos antes de serem removidos.
 
-A versão 1.0.0 da ferramenta de divisão/mesclagem apresenta as seguintes melhorias: * APIs .Net foram incluídas para fazer interface com a divisão/mesclagem – a função web agora é opcional * Tipos de data e hora agora têm suporte para chaves de fragmentação * Mapas de fragmento de lista agora têm suporte. * Limites de intervalo em solicitações podem corresponder mais facilmente aos intervalos armazenados no mapa de fragmentos. * Várias instâncias de função de trabalho agora têm suporte para melhoria da disponibilidade. * As credenciais armazenadas como parte da operação de divisão/mesclagem agora são criptografadas em repouso.
+A versão 1.0.0 da ferramenta de divisão/mesclagem oferece os seguintes aprimoramentos:
+* APIs .NET foram incluídas para interagir com a divisão/mesclagem. A função web agora é opcional 
+* Agora há suporte para tipos de data e hora para chaves de fragmentação 
+* Agora há suporte para mapas de fragmento da lista. 
+* Limites de intervalo em solicitações podem corresponder mais facilmente aos intervalos armazenados no mapa do fragmento.
+* Agora há suporte para várias instâncias de função de trabalho para aumentar a disponibilidade. 
+* As credenciais armazenadas como parte de sua operação de divisão/mesclagem agora estão criptografadas em rest.
 
 ## Como atualizar
 
@@ -169,7 +175,7 @@ O Serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de 
 
 ### Diagnóstico do Azure
 
-O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do Azure 2.5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico conforme explicado aqui: [Habilitando diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure](../service-fabric/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função web e outro para a função de trabalho. Essas configurações de diagnóstico para o serviço seguem as orientações contidas em [Noções básicas do Serviço de Nuvem no Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Inclui as definições para registrar os Contadores de desempenho, logs do IIS, Logs de Eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem.
+O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do Azure 2.5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico conforme explicado aqui: [Habilitando diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função web e outro para a função de trabalho. Essas configurações de diagnóstico para o serviço seguem as orientações contidas em [Noções básicas do Serviço de Nuvem no Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Inclui as definições para registrar os Contadores de desempenho, logs do IIS, Logs de Eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem.
 
 ## Implantando o diagnóstico 
 
@@ -195,7 +201,7 @@ Para habilitar o monitoramento e diagnóstico usando a configuração de diagnó
     
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-Você pode encontrar mais informações sobre como configurar e implantar configurações de diagnóstico aqui: [Habilitando o diagnóstico nos Serviços de Nuvem e nas Máquinas Virtuais do Azure](../cloud-services-dotnet-diagnostics.md).
+Você pode encontrar mais informações sobre como configurar e implantar configurações de diagnóstico aqui: [Habilitando o diagnóstico nos Serviços de Nuvem e nas Máquinas Virtuais do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## Recuperação de diagnósticos 
 
@@ -239,4 +245,4 @@ Além disso, uma propriedade de exclusividade com a chave de fragmentação como
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->
