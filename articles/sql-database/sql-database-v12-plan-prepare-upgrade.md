@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management" 
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -60,7 +60,7 @@ Começando com V12, o Banco de Dados SQL do Azure oferecerá suporte apenas as c
 Para obter informações detalhadas sobre as camadas de serviço Basic, Standard e Premium, consulte:
 
 - [Camadas de serviço do Banco de Dados SQL](sql-database-service-tiers.md)
-- [Atualizar os bancos de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-new-service-tiers.md)
+- [Atualizar os bancos de dados Web/Business do Banco de Dados SQL para novas camadas de serviço](sql-database-upgrade-server-portal.md)
 
 
 
@@ -225,7 +225,7 @@ O cenário a seguir explica que um banco de dados SQL do Azure V11 excluído pod
 
 Os cmdlets do PowerShell estão disponíveis para iniciar, parar ou monitorar uma atualização para o Banco de Dados SQL do Azure da V11 para a V12 ou de qualquer outra versão anterior à V12.
 
-- [Atualização para o Banco de Dados SQL V12 com o PowerShell](sql-database-upgrade-server.md)
+- [Atualização para o Banco de Dados SQL V12 com o PowerShell](sql-database-upgrade-server-powershell.md)
 
 Para ver a documentação de referência sobre esses cmdlets do PowerShell, confira:
 
@@ -252,6 +252,5 @@ Se a atualização falhar por algum motivo estranho, seu banco de dados V11 perm
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

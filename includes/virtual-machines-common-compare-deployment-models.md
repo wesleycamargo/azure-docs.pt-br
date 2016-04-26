@@ -1,9 +1,9 @@
-A inclusão de recursos de computação, de rede e de armazenamento no Azure Resource Manager simplificará fundamentalmente a implantação e o gerenciamento de aplicativos complexos em execução no IaaS. Muitos aplicativos exigem uma combinação de recursos, incluindo uma Rede Virtual, uma Conta de Armazenamento, uma Máquina Virtual e uma Interface de Rede. O Gerenciador de Recursos do Azure oferece a capacidade de criar um modelo JSON para implantar e gerenciar todos esses recursos juntos como um único aplicativo.
 
 
-## Vantagens da integração de Computação, Rede e Armazenamento no Gerenciador de Recursos do Azure
 
-O Gerenciador de Recursos do Azure oferece a capacidade de utilizar facilmente modelos de aplicativos predefinidos ou criar um modelo de aplicativo para implantar e gerenciar recursos de computação, rede e armazenamento no Azure. Nesta seção, vamos examinar as vantagens da implantação de recursos por meio do Gerenciador de Recursos do Azure.
+## Vantagens de integrar a Computação, Rede e Armazenamento no modelo de implantação do Azure Resource Manager
+
+O modelo de implantação do Azure Resource Manager oferece a capacidade de utilizar facilmente os modelos de aplicativos predefinidos ou criar um modelo de aplicativo para implantar e gerenciar os recursos de computação, rede e armazenamento no Azure. Nesta seção, examinaremos as vantagens de implantar os recursos por meio do modelo de implantação do Azure Resource Manager.
 
 -	Complexidade simplificada: crie, integre e colabore em aplicativos complicados que podem incluir toda a gama de recursos do Azure (como Sites, Bancos de Dados SQL, Máquinas Virtuais ou Redes Virtuais) por meio de um arquivo de modelo compartilhável
 -	A flexibilidade de ter implantações repetíveis para desenvolvimento, administradores de sistema e operação de desenvolvimento quando você usa o mesmo arquivo de modelo
@@ -15,7 +15,7 @@ O Gerenciador de Recursos do Azure oferece a capacidade de utilizar facilmente m
 
 ## Avanços das APIs de Computação, Rede e Armazenamento no Gerenciador de Recursos do Azure
 
-Além das vantagens mencionadas acima, há alguns avanços de desempenho significativos nas APIs lançadas.
+Além das vantagens mencionadas acima, há alguns avanços de desempenho significativos nas APIs lançadas:
 
 -	Habilitação da implantação paralela e de grande volume de Máquinas Virtuais
 -	Suporte a três Domínios de Falha em Conjuntos de Disponibilidade
@@ -83,7 +83,7 @@ As cotas para as Máquinas Virtuais, Redes Virtuais e Contas de Armazenamento cr
 
 **Posso continuar a usar meus scripts automatizados para provisionar Máquinas Virtuais, Redes Virtuais, Contas de Armazenamento, etc. por meio das novas APIs do Gerenciador de Recursos do Azure?**
 
-Todos os scripts e a automação que você criou continuarão a funcionar para as Máquinas Virtuais e Redes Virtuais existentes criadas no modo de Gerenciamento de Serviços do Azure. No entanto, os scripts devem ser atualizados para usar o novo esquema para criar os mesmos recursos por meio do novo modo do Gerenciador de Recursos do Azure. Leia mais sobre como modificar seus [Scripts da CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-manage.md).
+Todos os scripts e a automação que você criou continuarão a funcionar para as Máquinas Virtuais e Redes Virtuais existentes criadas no modo de Gerenciamento de Serviços do Azure. No entanto, os scripts devem ser atualizados para usar o novo esquema para criar os mesmos recursos por meio do novo modo do Gerenciador de Recursos do Azure.
 
 **As Redes Virtuais criadas usando as novas APIs do Gerenciador de Recursos do Azure podem ser conectadas a meu circuito do Express Route?**
 
@@ -93,4 +93,4 @@ Não há suporte para isso no momento. Você não pode conectar as Redes Virtuai
 
 Um conjunto abrangente de modelos iniciais pode ser encontrado em [modelos de início rápido do Gerenciador de Recursos do Azure](https://azure.microsoft.com/documentation/templates/).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

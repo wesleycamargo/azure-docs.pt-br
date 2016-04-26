@@ -46,7 +46,7 @@ Este artigo mostra como criar uma máquina virtual baseada em uma imagem Oracle 
 
 	c. Não adicione nenhum ponto de extremidade neste momento.
 
-9.	Escolha ou crie um grupo de recursos. Para obter mais informações, consulte [Usando o portal do Azure para gerenciar os recursos do Azure](../resource-group-portal.md).
+9.	Escolha ou crie um grupo de recursos. Para obter mais informações, consulte [Usando o portal do Azure para gerenciar os recursos do Azure](../azure-portal/resource-group-portal.md).
 
 10. Escolha uma **Assinatura**.
 
@@ -71,4 +71,4 @@ Siga as instruções em [Criar uma máquina virtual Oracle WebLogic Server 12c n
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

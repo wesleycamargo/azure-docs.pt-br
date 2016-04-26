@@ -4,7 +4,7 @@
 	keywords="introdução ao aprendizado de máquina, modelagem preditiva, o que é aprendizado de máquina"
 	services="machine-learning"
 	documentationCenter=""
-	authors="pablissima"
+	authors="garyericson"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/25/2016"
-	ms.author="paulettm"/>
+	ms.date="04/18/2016"
+	ms.author="garye"/>
 
 # Perguntas frequentes (FAQ) sobre o Aprendizado de Máquina do Azure: cobrança, suporte, recursos e limitações
 
-Essas perguntas frequentes são perguntas sobre o Aprendizado de Máquina do Azure, um serviço de nuvem para modelagem preditiva e soluções de operacionalização através de serviços Web. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte.
+Essas perguntas frequentes são perguntas sobre o Aprendizado de Máquina do Azure, um serviço de nuvem para desenvolver modelos preditivos e soluções de operacionalização através de serviços Web. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte.
 
 ## Perguntas gerais
 
@@ -32,13 +32,13 @@ O Aprendizado de Máquina do Azure é um serviço totalmente gerenciado que voc�
 
 **O que é o Estúdio de Aprendizado de Máquina?**
 
-O Estúdio de Aprendizado de Máquina é um ambiente de bancada de trabalho que você acessa por meio de um navegador da Web. O Estúdio de Aprendizado de Máquina hospeda uma paleta de módulos com uma interface de composição visual que permite criar um fluxo de trabalho de ciência de dados de ponta a ponta na forma de um experimento.
+O Estúdio de Aprendizado de Máquina é um ambiente de bancada de trabalho que você acessa por meio de um navegador da Web. O Estúdio de Aprendizado de Máquina hospeda uma paleta de módulos com uma interface de composição visual que permite criar um fluxo de trabalho de ciência de dados de ponta a ponta na forma de um teste.
 
-Para saber mais sobre o Estúdio do Aprendizado de Máquina, consulte [O que é o Estúdio de Aprendizado de Máquina](machine-learning-what-is-ml-studio.md)
+Para saber mais sobre o Estúdio do Aprendizado de Máquina, confira [O que é o Estúdio de Aprendizado de Máquina](machine-learning-what-is-ml-studio.md)
 
 **O que é a o serviço de API de Aprendizado de Máquina do Azure?**
 
-O serviço de API do Aprendizado de Máquina permite implantar modelos preditivos no Estúdio de Aprendizado de Máquina como serviços Web escaláveis e tolerantes a falhas. Os serviços Web criados pelo serviço de API do Aprendizado de Máquina são APIs REST, que fornecem uma interface para comunicação entre aplicativos externos e seu modelo analítico preditivo.
+O serviço de API do Aprendizado de Máquina permite implantar modelos preditivos, por exemplo, os criados no Estúdio de Aprendizado de Máquina, como serviços Web escalonáveis e tolerantes a falhas. Os serviços Web criados pelo serviço de API do Aprendizado de Máquina são APIs REST, que fornecem uma interface para comunicação entre aplicativos externos e seu modelo analítico preditivo.
 
 Consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md) para obter mais informações.
 
@@ -56,14 +56,16 @@ Para obter informações sobre preços e cobrança, consulte [Preços do Aprendi
 ## Perguntas sobre o Estúdio de Aprendizado de Máquina
 
 ### Criando um experimento
+
 **Há controle de versão ou integração Git para gráficos de experimento?**
 
-Não, mas sempre que um experimento é executado a versão do gráfico é mantida e não pode ser modificada por outros usuários.
+Não. No entanto, o Estúdio de Aprendizado de Máquina retém cada iteração de um teste que não pode ser modificada por outros usuários. Para saber mais, confira [Gerenciar iterações de teste no Estúdio de Aprendizado de Máquina](machine-learning-manage-experiment-iterations.md).
 
 ### Importando e exportando dados para o Aprendizado de Máquina
+
 **Para quais fontes de dados o Aprendizado de Máquina dá suporte?**
 
-Os dados podem ser carregados no Estúdio de Aprendizado de Máquina de uma de duas formas: ao fazer upload de arquivos locais como conjunto de dados ou usando o módulo de leitor para importar dados. Arquivos locais podem ser transferidos por upload adicionando novos conjuntos de dados ao Estúdio de Aprendizado de Máquina. Consulte [Importar dados de treinamento para o Estúdio de Aprendizado de Máquina](machine-learning-data-science-import-data.md) para saber mais sobre os formatos de arquivo com suporte.
+Dados podem ser carregados em um teste de Estúdio de Aprendizado de Máquina em uma destas três maneiras: carregando um arquivo local como um conjunto de dados, usando um módulo para importar dados de serviços de dados de nuvem ou importando um conjunto de dados salvo de outro teste. Consulte [Importar dados de treinamento para o Estúdio de Aprendizado de Máquina](machine-learning-data-science-import-data.md) para saber mais sobre os formatos de arquivo com suporte.
 
 
 #### <a id="ModuleLimit"></a>Que tamanho o conjunto de dados para os meus módulos pode ter?
@@ -93,25 +95,25 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para qualquer quantidade maior de dados, transfira-os para o armazenamento do Azure primeiro e, em seguida, use o modulo [Leitor][reader] para colocá-los em seu experimento.
+Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para uma quantidade maior de dados, transfira-os para o Armazenamento do Azure primeiro e use o módulo [Leitor][reader] para colocá-los em seu teste.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
 
 **Há uma funcionalidade interna de entrada de imagem?**
 
-Você pode aprender sobre a funcionalidade de entrada de imagem na referência [Leitor de Imagem][image-reader].
+Você pode aprender sobre a funcionalidade de entrada de imagem na referência [Importar Imagens][image-reader].
 
 ### Módulos
 
-**O algoritmo, a fonte de dados, o formato de dados ou a operação de transformação de dados que estou procurando não está no Estúdio AM do Azure. Quais são minhas opções?**
+**O algoritmo, a fonte de dados, o formato de dados ou a operação de transformação de dados que estou procurando não está no Estúdio de Aprendizado de Máquina do Azure. Quais são minhas opções?**
 
-É possível visitar o [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231) para ver solicitações de recurso que estamos acompanhando. Inclua seu voto nesta solicitação se um recurso que está procurando já tiver sido solicitado. Se o recurso que está procurando não existir, crie uma nova solicitação. É possível exibir o status de sua solicitação neste fórum também. Acompanhamos esta lista de perto e atualizamos o status da disponibilidade do recurso com frequência. Além do suporte interno para R e Python, transformações personalizadas podem ser criadas conforme necessário.
+Você pode visitar o [fórum de feedback do usuário](http://go.microsoft.com/fwlink/?LinkId=404231) para ver solicitações de recurso que estamos acompanhando. Inclua seu voto em uma solicitação se um recurso que está procurando já foi solicitado. Se o recurso que está procurando não existe, crie uma nova solicitação. É possível exibir o status de sua solicitação neste fórum também. Acompanhamos esta lista de perto e atualizamos o status da disponibilidade do recurso com frequência. Além disso, com o suporte interno para R e Python, transformações personalizadas podem ser criadas conforme necessário.
 
 
-**Posso trazer meu código existente para o Estúdio AM?**
+**Posso trazer meu código existente para o Estúdio de Aprendizado de Máquina?**
 
-Sim, é possível levar seus códigos existentes do R para o Estúdio AM e executá-los no mesmo teste com os aprendizes fornecidos pelo Aprendizado de Máquina do Azure e implantá-los como um serviço Web por meio do Aprendizado de Máquina do Azure. Consulte [Estender seu experimento com R](machine-learning-extend-your-experiment-with-r.md).
+Sim, é possível levar seus códigos existentes de R ou Python para o Estúdio de Aprendizado de Máquina, executá-los no mesmo teste com os aprendizes fornecidos pelo Aprendizado de Máquina do Azure e implantar a solução como um serviço Web por meio do Aprendizado de Máquina do Azure. Para saber mais, confira [Estender seu teste com R](machine-learning-extend-your-experiment-with-r.md) e [Executar scripts Python de aprendizado de máquina no Estúdio de Aprendizado de Máquina do Azure](machine-learning-execute-python-scripts.md).
 
 **É possível usar algo como um [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language) para definir um modelo?**
 
@@ -130,7 +132,7 @@ Clicando na saída de um módulo, você pode visualizar os dados e obter estatí
 
 **Ao visualizar resultados ou dados no navegador, o número de linhas e colunas é limitado, por que?**
 
-Como os dados são transmitidos ao navegador e podem ser grandes, o tamanho dos dados é limitado para evitar lentidão do Estúdio AM. É melhor baixar os dados/resultados e usar o Excel ou outra ferramenta para visualizar todos os dados.
+Como os dados são transmitidos ao navegador e podem ser grandes, o tamanho dos dados é limitado para evitar lentidão do Estúdio de Aprendizado de Máquina. Para visualizar todos os dados/resultados, é melhor baixar os dados e usar o Excel ou outra ferramenta.
 
 ### Algoritmos
 
@@ -182,21 +184,25 @@ Não, não há um ambiente REPL para R no estúdio.
 
 **É possível criar um módulo personalizado em Python?**
 
-Não atualmente, mas com o módulo Python padrão ou um conjunto deles, o mesmo resultado pode ser obtido.
+Atualmente, não, mas você pode usar um ou mais módulos [Executar Script Python][python] para obter o mesmo resultado.
 
 **Há um ambiente REPL para Python?**
 
-Você pode usar os blocos de notas Jupyter no Estúdio de aprendizado de máquina. Para saber mais, consulte [Introdução aos blocos de notas Jupyter no Estúdio AM do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
+Você pode usar os blocos de notas Jupyter no Estúdio de Aprendizado de Máquina. Para saber mais, confira [Introdução aos blocos de anotações do Jupyter no Estúdio de Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
 
 ## Serviço Web
 
 ###Treinando modelos programaticamente
 
-**Como posso treinar novamente modelos do AzureML programaticamente?** Use as APIs de novos treinamentos. Há código de exemplo disponível [aqui](https://azuremlretrain.codeplex.com/).
+**Como posso readaptar os modelos de Aprendizado de Máquina de forma programática?**
+
+Use as APIs de novos treinamentos. Para saber mais, confira [Readaptar os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação de Aprendizado de Máquina do Microsoft Azure](https://azuremlretrain.codeplex.com/).
 
 ### Criar
 
-**Posso implantar o modelo localmente ou em um aplicativo sem conexão à Internet?** Nº
+**Posso implantar o modelo localmente ou em um aplicativo sem conexão à Internet?**
+
+Nº
 
 
 **Há uma latência de linha de base que é esperada para todos os serviços Web?**
@@ -211,27 +217,31 @@ O Serviço de Solicitação-Resposta (RRS) é um serviço Web de baixa latência
 
 **Como posso atualizar o modelo para o serviço Web implantado?**
 
-Atualizar um modelo preditivo para um serviço já implantado é tão simples quanto modificar e executar novamente o experimento usado para criar e salvar o modelo treinado. Uma vez que tiver uma nova versão do modelo treinado disponível, o Estúdio AM perguntará se você deseja atualizar seu serviço Web de preparação. Depois que a atualização é aplicada ao serviço Web de preparo, a mesma atualização ficará disponível para ser aplicada também ao serviço Web de produção. Consulte [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como atualizar um serviço Web implantado.
+Atualizar um modelo preditivo para um serviço já implantado é tão simples quanto modificar e executar novamente o teste que você usou para criar e salvar o modelo adaptado. Uma vez que tiver uma nova versão do modelo adaptado disponível, o Estúdio de Aprendizado de Máquina perguntará se você deseja atualizar seu serviço Web. Consulte [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md) para obter detalhes sobre como atualizar um serviço Web implantado.
 
-Você também pode usar as APIs de novos treinamentos. O código de exemplo está disponível [aqui](https://azuremlretrain.codeplex.com/).
+Você também pode usar as APIs de novos treinamentos. Para saber mais, confira [Readaptar os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md). O exemplo de código também está disponível na [Demonstração de readaptação de Aprendizado de Máquina do Microsoft Azure](https://azuremlretrain.codeplex.com/).
 
 **Como posso monitorar meu serviço Web implantado na produção?**
 
-Depois que um modelo de previsão for colocado em produção, você pode monitorá-lo no Portal Clássico do Azure. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço.
+Depois que um modelo de previsão for implantado, você poderá monitorá-lo no portal clássico do Azure. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço.
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
-Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode gravá-la em um blob. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo Gravador.
+Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode escrevê-lo no Armazenamento de Blobs do Azure. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo [Exportar Dados][writer].
 
- ** Posso criar serviços Web apenas de modelos criados no Estúdio? Não. Você também pode criar serviços Web diretamente no bloco de notas Jupyter e no RStudio.
+**Posso criar serviços Web apenas de modelos criados no Estúdio de Aprendizado de Máquina?**
 
- **Onde posso encontrar informações sobre códigos de erro? Os códigos de erro estão descritos [aqui.](https://msdn.microsoft.com/library/azure/dn905910.aspx)
+Não, você também pode criar serviços Web diretamente no bloco de anotações do Jupyter e no RStudio.
+
+**Onde posso encontrar informações sobre códigos de erro?**
+
+Confira [Códigos de erro do módulo de Aprendizado de Máquina](https://msdn.microsoft.com/library/azure/dn905910.aspx) para obter uma lista dos códigos de erro e descrições.
 
 ## Escalabilidade
 
 **Qual é a escalabilidade do serviço Web?**
 
-Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensionar as solicitações simultâneas a 200 solicitações por ponto de extremidade e é possível dimensionar cada serviço Web em 10.000 pontos de extremidade, conforme descrito no artigo [pontos de extremidade de API de dimensionamento](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez e solicitações adicionais, além de 40 solicitações que são enfileiradas. Essas solicitações enfileiradas serão executadas automaticamente conforme a fila anda.
+Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações RRS simultâneas por ponto de extremidade. Você pode dimensionar as solicitações simultâneas a 200 solicitações por ponto de extremidade e os serviços Web a 10 mil pontos de extremidade por serviço Web, conforme descrito no artigo [Dimensionamento de pontos de extremidade de API](machine-learning-scaling-endpoints.md). Para BES, cada ponto de extremidade permite processar 40 solicitações por vez. Acima de 40 solicitações, as restantes são enfileiradas. Essas solicitações enfileiradas serão executadas automaticamente conforme a fila anda.
 
 
 **Trabalhos em R são distribuídos entre nós?**
@@ -239,16 +249,16 @@ Atualmente, o ponto de extremidade padrão é provisionado com 20 solicitações
 Nº
 
 
-**Qual é a quantidade de dados com que posso treinar?**
+**Quantos dados posso usar para treinamento?**
 
-Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo receber mais de uma entrada, os 10 GB são o total dos tamanhos das entradas. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados SQL do Hive ou Azure ou do pré-processamento do Aprendizado por contagens, antes da ingestão.
+Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo tiver mais de uma entrada, o tamanho total de todas as entradas juntas será de 10 GB. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados Azure SQL ou de pré-processamento com módulos [Aprendizado por contagens][counts] antes da ingestão.
 
 Os seguintes tipos de dados podem ser expandidos para conjuntos de dados maiores durante a normalização de recursos e são limitados a menos de 10 GB:
 
-- Esparsos
-- Categóricos
-- Cadeias de caracteres
-- Dados binários
+- esparso
+- categóricos
+- cadeias de caracteres
+- dados binários
 
 Os seguintes módulos são limitados a conjuntos de dados com menos de 10 GB:
 
@@ -256,57 +266,59 @@ Os seguintes módulos são limitados a conjuntos de dados com menos de 10 GB:
 - Módulo SMOTE
 - Módulos de script: R, Python, SQL
 - Módulos em que o tamanho dos dados de saída pode ser maior que o tamanho dos dados de entrada, como Join ou Feature Hashing.
-- Validação Cruzada, Parâmetros de Varredura, Regressão Ordinal e Classes múltiplas, um versos todos, quando o número de iterações é muito grande.
+- Validação Cruzada, Hiperparâmetros de Modelo de Ajuste, Regressão Ordinal e Classes Múltiplas, um versos todos, quando o número de iterações é muito grande.
 
-Para conjuntos com mais de alguns GB, você deve fazer upload de dados para o armazenamento do Azure ou Banco de Dados SQL do Azure ou usar o HDInsight, em vez de fazer upload diretamente do arquivo local.
+Para conjuntos com mais de alguns GB, você deve fazer upload de dados para o armazenamento do Azure ou Banco de Dados Azure SQL ou usar o HDInsight, em vez de fazer upload diretamente de um arquivo local.
 
 
 **Há qualquer limitação de tamanho de vetores?**
 
 Linhas e colunas são têm a limitação do .NET de Int Máximo: 2.147.483.647.
 
-**O tamanho da VM em que ele está sendo executado em pode ser ajustado?**
+**O tamanho da máquina virtual que está sendo usada para executar o serviço Web pode ser ajustado?**
 
 Nº
 
 ## Segurança e disponibilidade
 
-**Quem tem acesso ao ponto de extremidade http para o serviço Web implantado na produção por padrão? Como fazer para restringir o acesso ao terminal?**
+**Quem tem acesso ao ponto de extremidade HTTP para o serviço Web por padrão? Como faço para restringir o acesso ao ponto de extremidade?**
 
-Depois que um serviço Web for implantado, criamos um ponto de extremidade padrão para esse serviço. O ponto de extremidade padrão é implantado na produção e pode ser chamado usando sua chave de API. Outros pontos de extremidade podem ser adicionados com suas próprias chaves no Portal Clássico do Azure ou de forma programática usando as APIs de Gerenciamento de Serviço Web. Elas são necessárias para fazer chamadas ao serviço Web em produção e preparação. Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md).
-
-
-**O que acontece se minha Conta de Armazenamento não puder ser encontrada?**
-
-O Estúdio de Aprendizado de Máquina depende de uma Conta de Armazenamento do Azure fornecida pelo usuário para salvar dados intermediários ao executar o fluxo de trabalho. Esta Conta de Armazenamento é fornecida ao Estúdio de Aprendizado de Máquina no momento em um espaço de trabalho é criado. Após o espaço de trabalho ser criado, se a Conta de armazenamento for excluída e não puder mais ser encontrada, o espaço de trabalho deixará de funcionar e todos os experimentos nele falharão.
-
-Se você excluir acidentalmente a Conta de armazenamento, a única maneira de recuperar é recriar essa Conta de Armazenamento exatamente com o mesmo nome e exatamente na mesma Região que a conta excluída. Depois disso, sincronize novamente a Chave de Acesso.
+Depois que um serviço Web for implantado, criaremos um ponto de extremidade padrão para esse serviço. O ponto de extremidade padrão pode ser chamado usando sua chave de API. Outros pontos de extremidade podem ser adicionados com suas próprias chaves no portal clássico do Azure ou de forma programática usando as APIs de Gerenciamento de Serviços Web. São necessárias chaves de acesso para fazer chamadas ao serviço Web. Para saber mais, consulte [Conectar a um serviço Web do Aprendizado de Máquina](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 
-**O que acontece se a Chave de Acesso da minha Conta de Armazenamento não estiver sincronizada?** O Estúdio de Aprendizado de Máquina depende de uma Conta de Armazenamento do Azure fornecida pelo usuário para salvar dados intermediários ao executar o fluxo de trabalho. Esta Conta de Armazenamento é fornecida ao Estúdio de Aprendizado de Máquina no momento em um espaço de trabalho é criado e as Chaves de Acesso são associadas a esse espaço de trabalho. Após o espaço de trabalho ser criado, se as Chaves de Armazenamento foram alteradas, o espaço de trabalho não poderá mais acessar a Conta de Armazenamento, deixará de funcionar e todos os experimentos nele falharão.
+**O que acontece se minha conta de armazenamento do Azure não puder ser encontrada?**
 
-Se você tiver alterado as Chaves de Acesso da Conta de Armazenamento, certifique-se de ressincronizar as Chaves de Acesso na configuração do espaço de trabalho no Portal Clássico do Azure
+O Estúdio de Aprendizado de Máquina depende de uma conta de armazenamento do Azure fornecida pelo usuário para salvar dados intermediários ao executar o fluxo de trabalho. Esta conta de armazenamento é fornecida ao Estúdio de Aprendizado de Máquina no momento em um espaço de trabalho é criado. Após o espaço de trabalho ser criado, se a conta de armazenamento for excluída e não puder mais ser encontrada, o espaço de trabalho deixará de funcionar e todos os testes nele falharão.
+
+Se você excluir acidentalmente a conta de armazenamento, a única maneira de recuperar é recriar essa conta de armazenamento exatamente com o mesmo nome e exatamente na mesma região que a conta de armazenamento excluída. Depois disso, sincronize novamente a Chave de Acesso.
+
+
+**O que acontecerá se a chave de acesso da minha conta de armazenamento não estiver sincronizada?**
+
+O Estúdio de Aprendizado de Máquina depende de uma conta de armazenamento do Azure fornecida pelo usuário para salvar dados intermediários ao executar o fluxo de trabalho. Esta conta de armazenamento é fornecida ao Estúdio de Aprendizado de Máquina no momento em um espaço de trabalho é criado e as Chaves de Acesso são associadas a esse espaço de trabalho. Após o espaço de trabalho ser criado, se as Chaves de Armazenamento foram alteradas, o espaço de trabalho não poderá mais acessar a conta de armazenamento, deixará de funcionar e todos os testes nele falharão.
+
+Se você tiver alterado as Chaves de Acesso da conta de armazenamento, sincronize novamente as Chaves de Acesso na configuração do espaço de trabalho no portal clássico do Azure
 
 
 ## Azure Marketplace
 
-Consulte as [Perguntas frequentes sobre a publicação e utilização de aplicativos no Marketplace do Aprendizado de Máquina](machine-learning-marketplace-faq.md)
+Confira as [Perguntas frequentes sobre a publicação e utilização de aplicativos no Marketplace do Aprendizado de Máquina](machine-learning-marketplace-faq.md).
 
 ## Suporte e treinamento
 
-**Onde posso obter treinamento para o AM do Azure?**
+**Onde posso obter treinamento para o Aprendizado de Máquina do Azure?**
 
-O [Centro de Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o AM do Azure.
+O [Centro de Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/services/machine-learning/) hospeda tutoriais em vídeo e guias de instruções. Esses guias passo a passo fornecem uma introdução aos serviços e explicam o ciclo de vida de ciência dos dados da importação de dados, limpeza de dados, criação de modelos preditivos e implantação deles na produção com o Aprendizado de Máquina do Azure.
 
-Incluiremos novo material continuamente no Centro de Aprendizado de Máquina. É possível enviar solicitações de material de aprendizado adicional no Centro de Aprendizado de Máquina no [fórum de feedback do usuário](https://windowsazure.uservoice.com/forums/257792-machine-learning).
+Incluiremos novo material continuamente no Centro de Aprendizado de Máquina. Você pode enviar solicitações de material de aprendizado adicional no Centro de Aprendizado de Máquina no [fórum de feedback do usuário](https://windowsazure.uservoice.com/forums/257792-machine-learning).
 
 Você também pode encontrar treinamento na [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning)
 
 **Como fazer para obter suporte ao Aprendizado de Máquina do Azure?**
 
-Para obter suporte técnico para o Aprendizado de Máquina do Azure, vá até [Suporte do Azure](/support/options/) e selecione **Aprendizado de Máquina**.
+Para obter suporte técnico para o Aprendizado de Máquina do Azure, vá para [Suporte do Azure](/support/options/) e selecione **Aprendizado de Máquina**.
 
-O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSDN, em que é possível fazer questões relacionadas ao AM do Azure. O fórum é monitorado pela equipe do AM do Azure. Visite o [Fórum do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSDN, em que é possível fazer questões relacionadas ao Aprendizado de Máquina do Azure. O fórum é monitorado pela equipe do Aprendizado de Máquina do Azure. Visite o [Fórum do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 
 <!-- Module References -->
@@ -315,6 +327,9 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [machine-learning-modules]: https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[writer]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+[python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
+[counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

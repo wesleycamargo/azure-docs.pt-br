@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -72,7 +72,7 @@ Para preparar um arquivo de texto de exemplo:
 
 Para localizar o ponto de extremidade do serviço blob:
 
-1. No portal clássico do Azure, selecione **Procurar** > **Contas de Armazenamento**.
+1. No portal do Azure, selecione **Procurar** > **Contas de Armazenamento**.
 2. Clique na conta de armazenamento que você deseja usar.
 3. Na folha da conta de Armazenamento, clique em Blobs
 
@@ -86,7 +86,7 @@ Para localizar o ponto de extremidade do serviço blob:
 
 Para encontrar a chave de armazenamento do Azure:
 
-1. Na tela inicial, selecione **Procurar** > **Contas de Armazenamento**.
+1. No Portal do Azure, selecione **Procurar** > **Contas de Armazenamento**.
 2. Clique na conta de armazenamento que você deseja usar.
 3. Selecione **Todas as configurações** > **Chaves de acesso**.
 4. Clique na caixa de cópia para copiar uma das suas chaves de acesso para a área de transferência.
@@ -128,7 +128,7 @@ Para ver o arquivo carregado no armazenamento de blobs:
 
 Nesta seção, criamos uma tabela externa que define os dados de exemplo.
 
-O PolyBase usa tabelas externas para acessar dados no armazenamento de blobs do Azure ou no Hadoop. Uma vez que os dados não são armazenados no SQL Data Warehouse, o PolyBase lida com a autenticação de dados externos usando uma credencial com escopo do banco de dados.
+O PolyBase usa tabelas externas para acessar dados no Armazenamento de Blobs do Azure. Uma vez que os dados não são armazenados no SQL Data Warehouse, o PolyBase lida com a autenticação de dados externos usando uma credencial com escopo do banco de dados.
 
 O exemplo nesta etapa usa essas instruções Transact-SQL para criar uma tabela externa.
 
@@ -162,6 +162,7 @@ WITH
 
 
 -- C: Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 
@@ -286,4 +287,4 @@ Confira o [Guia do PolyBase][] para saber mais sobre como desenvolver uma soluç
 [Criar Credencial com Escopo do Banco de Dados (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Arquitetura do Barramento de Serviço | Microsoft Azure"
-   description="Descreve a arquitetura de processamento de mensagens do Barramento de Serviço do Azure."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Arquitetura do Barramento de Serviço | Microsoft Azure"
+    description="Descreve a arquitetura de processamento de mensagens do Barramento de Serviço do Azure."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/19/2016"
+    ms.author="sethm" />
 
 # Arquitetura do Barramento de Serviço
 
@@ -29,13 +29,9 @@ Um namespace de Barramento de Serviço é mapeado para uma unidade de escala. A 
 
 - **Um conjunto de nós do agente de mensagens.** Os nós do agente de mensagens processam solicitações referentes às entidades de mensagens.
 
-- **Um conjunto de nós de notificação.** Os nós de notificação enviam notificações por push para todos os dispositivos registrados.
-
 - **Um repositório de gateway.** O repositório de gateway mantém os dados para cada entidade definida nessa unidade de escala. O repositório de gateway é implementado sobre um banco de dados do SQL do Azure.
 
-- **Muitos repositórios de mensagens.** Os repositórios de mensagens mantêm as mensagens de todas as filas, tópicos e assinaturas que são definidas na unidade de escala. Eles também contêm todos os dados de assinatura. A menos que o [particionamento entidades de mensagens](service-bus-partitioning.md) esteja habilitado, uma fila ou tópico é mapeado para um repositório de mensagens. As assinaturas são armazenadas no mesmo repositório de mensagens que o tópico pai. Com exceção do [Sistema de Mensagens Premium](service-bus-premium-messaging.md) do Barramento de Serviço, os repositórios de mensagens são implementados no topo de bancos de dados do SQL Azure.
-
-- **Vários repositórios de registros.** Os repositórios de registros contêm registros de dispositivos para todos os hubs de notificação que são definidos na unidade de escala. Os repositórios de registros são implementados no topo de bancos de dados do SQL Azure.
+- **Múltiplos repositórios de mensagens.** Repositórios de mensagens mantêm as mensagens de todas as filas, tópicos e assinaturas que são definidas na unidade de escala. Eles também contêm todos os dados de assinatura. A menos que o [particionamento entidades de mensagens](service-bus-partitioning.md) esteja habilitado, uma fila ou tópico é mapeado para um repositório de mensagens. As assinaturas são armazenadas no mesmo repositório de mensagens que o tópico pai. Com exceção do [Sistema de Mensagens Premium](service-bus-premium-messaging.md) do Barramento de Serviço, os repositórios de mensagens são implementados no topo de bancos de dados do SQL Azure.
 
 ## Contêineres
 
@@ -55,12 +51,6 @@ Quando a conexão de retransmissão é estabelecida, os clientes podem trocar me
 
 ![Processamento de mensagens de solicitações de retransmissão](./media/service-bus-architecture/IC690645.png)
 
-## Processamento de solicitações recebidas do hub de notificação
-
-Quando um cliente envia uma solicitação ao Barramento de Serviço, o balanceador de carga do Azure direciona para qualquer um de nós do gateway. Se a solicitação for um registro de dispositivo para um hub de notificação existente, o nó do gateway grava o registro no repositório de registros e envia uma resposta ao dispositivo de chamada. Se a solicitação for uma mensagem de notificação, o nó do gateway coloca a mensagem em uma fila de notificação. Um dos nós de notificação tira a mensagem da fila de notificação e envia a mensagem a todos os dispositivos que estão registrados no repositório de registros. Se uma mensagem for destinada a um grande número de dispositivos, vários nós de notificação participarão do envio das mensagens para os dispositivos.
-
-![Processamento de solicitações recebidas do hub de notificação](./media/service-bus-architecture/IC690646.png)
-
 ## Próximas etapas
 
 Agora que você teve uma visão geral de como funciona o Barramento de Serviço, para começar, visite os links a seguir:
@@ -69,4 +59,4 @@ Agora que você teve uma visão geral de como funciona o Barramento de Serviço,
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Uma solução de mensagens na fila usando filas do Barramento de Serviço](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

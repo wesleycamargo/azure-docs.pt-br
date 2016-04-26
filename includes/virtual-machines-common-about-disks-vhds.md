@@ -1,7 +1,5 @@
 
 
-Assim como qualquer outro computador, as máquinas virtuais do Azure usam os discos como locais onde armazenar um sistema operacional, aplicativos e dados. Todas as máquinas virtuais do Azure têm pelo menos dois discos - um disco do sistema operacional e um disco temporário. O disco do sistema operacional é criado por meio de uma imagem, e o disco do sistema operacional e a imagem na verdade são VHDs (discos rígidos virtuais) armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados que também são armazenados em VHDs.
-
 ## Disco do sistema operacional
 
 Cada máquina virtual tem um disco de sistema operacional anexado. Ele é registrado como uma unidade SATA e rotulado como a unidade C:. Este disco tem uma capacidade máxima de 1023 GB (Gigabytes). Quando o Azure cria um disco do sistema operacional, três cópias do disco são criadas para maior durabilidade. Além disso, se você configurar a máquina virtual para replicação geográfica, seu VHD também será replicado em sites diferentes, distantes mais de 400 milhas.
@@ -38,4 +36,4 @@ Antes de excluir um arquivo .vhd de origem, você precisará remover a concessã
 
 >[AZURE.WARNING] Se você excluir um arquivo .vhd de origem do armazenamento ou excluir sua conta de armazenamento, a Microsoft não poderá recuperar esses dados para você.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

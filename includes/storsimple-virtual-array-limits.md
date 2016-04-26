@@ -13,7 +13,6 @@
 | Número máximo de backups retidos pelo dispositivo virtual na pasta *.backups* do servidor de arquivos | 5 | Isso inclui os backups manuais e os backups agendados mais recentes (gerados pela política de backup padrão). |
 | Número máximo de backups agendados mantidos pelo dispositivo | 55 | 30 backups diários<br>12 backups mensais<br>13 backups anuais |
 | Número máximo de backups manuais mantidos pelo dispositivo | 45 | |
-| Número máximo de volumes que podem ser processados paralelamente para backup ou restauração | 3 | Se houver mais de 3 volumes, eles serão processados sequencialmente conforme os slots de processamento ficarem disponíveis. |
 | Tempo de recuperação de restauração | Restauração rápida | A restauração é baseada no mapa de calor e depende do tamanho do volume.<br>Operações de backup podem ocorrer enquanto uma operação de restauração está em andamento. |
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

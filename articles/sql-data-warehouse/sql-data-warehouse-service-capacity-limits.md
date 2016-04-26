@@ -1,9 +1,9 @@
 <properties
    pageTitle="Limites de capacidade do SQL Data Warehouse | Microsoft Azure"
-   description="Valores máximos para conexões, consultas, Transact-SQL DDL e DML e exibições do sistema para SQL Data Warehouse."
+   description="Valores máximos de bancos de dados, tabelas, conexões e consultas para o SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="barbkess;jrj;sonyama"/>
+   ms.date="04/12/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # Limites de capacidade do SQL Data Warehouse
 
@@ -24,32 +24,24 @@ Valores máximos para dar suporte às cargas de trabalho de análise mais exigen
 
 | Categoria | Descrição | Máximo |
 | :---------------- | :------------------------------------------- | :----------------- |
+| Banco de dados | Tamanho máximo | 60 TB compactados<br/><br/>O SQL Data Warehouse permite até 60 TB de espaço em disco bruto por banco de dados. O espaço em disco é o tamanho compactado para tabelas permanentes. Esse espaço é independente do espaço de tempdb ou de log e, portanto, esse espaço é dedicado a tabelas permanentes. A compactação columnstore clusterizada é estimada em 5 vezes, o que significa que o tamanho descompactado do banco de dados pode crescer até aproximadamente 300 TB quando todas as tabelas são columnstore clusterizadas (o tipo de tabela padrão). O limite de 60 TB aumentará para 240 TB no final da preview pública, que deve permitir que a maioria dos bancos de dados aumente para mais de 1 PB de dados não compactados.|
 | Banco de dados | Sessões abertas simultâneas | 1\.024<br/><br/>Damos suporte a um máximo de 1.024 conexões ativas que podem enviar solicitações para cada banco de dados do SQL Data Warehouse ao mesmo tempo. Observe que há limites no número de consultas que podem ser, de fato, executadas simultaneamente. Quando um limite for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento.|
 | Conexão de banco de dados | Memória máxima para instruções preparadas | 20 MB |
+| Gerenciamento de carga de trabalho | Máximo de consultas simultâneas | 32<br/><br/> O SQL Data Warehouse tem 32 unidades de simultaneidade chamadas slots de simultaneidade.<br/><br/>Se todas as consultas forem executadas com a alocação de recurso padrão de um slot de simultaneidade, será possível ter 32 consultas de usuário simultâneas. Na prática, o máximo de consultas simultâneas depende do SLO (objetivo de nível de serviço) e os requisitos de recursos para cada consulta. Quando não houver recursos disponíveis, consultas esperam em uma fila interna. Para obter mais informações, consulte [Gerenciamento de simultaneidade e carga de trabalho][].|
+| Gerenciamento de carga de trabalho | Máximo de slots de simultaneidade por SLO (objetivo de nível de serviço) |Este é o número de slots de simultaneidade que cada nível de serviço pode usar para executar consultas que exigem recursos adicionais de CPU e memória. Para o gerenciamento de carga de trabalho, você pode usar classes de recursos internas para aumentar os recursos de CPU e memória para uma consulta. Executar com mais recursos significa que a consulta requer mais slots de simultaneidade.<br/><br/>Algumas consultas não são executadas em classes de recursos. Essas consultas usam uma unidade de simultaneidade e não consomem nenhum dos slots de simultaneidade listados abaixo. Para obter uma lista de consultas que o SQL Data Warehouse executa (e não executa) dentro de classes de recursos, consulte [Gerenciamento de simultaneidade e carga de trabalho][].<br/><br/>DWU100 = 4<br/><br/>DWU200 = 8<br/><br/>DWU300 = 12<br/><br/>DWU400 = 16<br/><br/>DWU500 = 20<br/><br/>DWU600 = 24<br/><br/>DWU1000 = 40<br/><br/>DWU1200 = 48<br/><br/>DWU1500 = 60 |
 
 
-## Processamento de consulta
-
-| Categoria | Descrição | Máximo |
-| :---------------- | :------------------------------------------- | :----------------- |
-| Consultar | Consultas simultâneas em tabelas de usuário. | 32<br/><br/>Esse é o número máximo de consultas que podem ser executadas simultaneamente. O número real em qualquer momento determinado depende o Objetivo de Nível de Serviço do banco de dados e a classe de recurso da consulta. Quando não houver recursos disponíveis, consultas esperam em uma fila interna. Para obter mais informações, consulte [Gerenciamento de simultaneidade e carga de trabalho][].|
-| Consultar | Consultas em fila em tabelas de usuário. | 1000 |
-| Consultar | Consultas simultâneas em exibições do sistema. | 100 |
-| Consultar | Consultas em fila em exibições do sistema | 1000 |
-| Consultar | Máximo de parâmetros | 2098 |
-| Batch | Tamanho máximo | 65\.536*4096 |
-
-
-## DDL (Linguagem de Definição de Dados)
+## Objetos de banco de dados
 
 | Categoria | Descrição | Máximo |
 | :---------------- | :------------------------------------------- | :----------------- |
+| Tabela | Tamanho máx. | 60 TB compactados em disco |
 | Tabela | Tabelas por banco de dados | 2 bilhões |
 | Tabela | Colunas por tabela | 1024 colunas |
 | Tabela | Bytes por coluna | 8000 bytes |
-| Tabela | Bytes por linha, tamanho definido | 8\.060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server com a opção Compactação de página ativada. Como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha que permite que colunas de comprimento variável sejam empurradas para fora da linha. Somente uma raiz de 24 bytes é armazenada no registro principal para colunas de comprimento variável empurradas para fora da linha. Para obter mais informações, veja o tópico [Dados de Estouro de Linha Excedendo 8 KB](https://msdn.microsoft.com/library/ms186981.aspx) nos Manuais Online do SQL Server.<br/><br/>Para obter uma lista dos tamanhos de tipo de dados do SQL Data Warehouse, veja [CREATE TABLE (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt203953.aspx). |
-| Tabela | Bytes por linha, tamanho do buffer interno para a movimentação de dados | 32\.768<br/><br/>OBSERVAÇÃO: esse limite existe atualmente, mas será removido em breve.<br/><br/>O SQL Data Warehouse usa um buffer interno para mover as linhas no sistema distribuído do SQL Data Warehouse. O serviço que move linhas é chamado de DMS (Serviço de Movimentação de Dados) e armazena linhas em um formato diferente do SQL Server.<br/><br/>Se uma linha não couber no buffer interno, você obterá um erro de compilação de consulta ou um erro de movimentação de dados internos. Para evitar esse problema, confira [Detalhes sobre o tamanho de buffer do DMS](#details-about-the-dms-buffer-size).|
-| Tabela | Partições por tabela | 15\.000<br/><br/>Para alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte a seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento.|
+| Tabela | Bytes por linha, tamanho definido | 8\.060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que para o SQL Server com a opção de compactação de página ativada. Como o SQL Server, o SQL Data Warehouse dá suporte ao armazenamento de estouro de linha que permite que colunas de comprimento variável sejam empurradas para fora da linha. Somente uma raiz de 24 bytes é armazenada no registro principal para colunas de comprimento variável empurradas para fora da linha. Para obter mais informações, veja o tópico [Dados de estouro de linha excedendo 8 KB](https://msdn.microsoft.com/library/ms186981.aspx) nos Manuais Online do SQL Server.<br/><br/>Para obter uma lista dos tamanhos de tipo de dados do SQL Data Warehouse, veja [CREATE TABLE (Azure SQL Data Warehouse)](https://msdn.microsoft.com/library/mt203953.aspx) (CRIAR TABELA (SQL Data Warehouse do Azure)). |
+| Tabela | Bytes por linha, tamanho do buffer interno para a movimentação de dados | 32\.768<br/><br/>OBSERVAÇÃO: esse limite existe atualmente, mas será removido em breve.<br/><br/>O SQL Data Warehouse usa um buffer interno para mover as linhas no sistema distribuído do SQL Data Warehouse. O serviço que move linhas é chamado de DMS (Serviço de Movimentação de Dados) e armazena linhas em um formato diferente do SQL Server.<br/><br/>Se uma linha não couber no buffer interno, você obterá um erro de compilação de consulta ou um erro de movimentação de dados interno. Para evitar esse problema, veja [Detalhes sobre o tamanho de buffer do DMS](#details-about-the-dms-buffer-size).|
+| Tabela | Partições por tabela | 15\.000<br/><br/>Para alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento.|
 | Tabela | Caracteres por valor de limite de partição.| 4000 |
 | Índice | Índices não clusterizados por tabela. | 999<br/><br/>Aplica-se somente a tabelas rowstore.|
 | Índice | Índices clusterizados por tabela. | 1<br><br/>Aplica-se a tabelas rowstore e columnstore.|
@@ -64,18 +56,25 @@ Valores máximos para dar suporte às cargas de trabalho de análise mais exigen
 | Visualizar | Colunas por exibição | 1\.024 |
 
 
-## DML (Linguagem de Manipulação de Dados)
+## Consultas
 
 | Categoria | Descrição | Máximo |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Resultados de SELECT | Colunas por linha | 4096<br/><br/>Você nunca poderá ter mais de 4096 colunas por linha no resultado de SELECT. Não há garantia de que você sempre terá 4096. Se o plano de consulta exigir uma tabela temporária, poderão ser aplicadas no máximo 1024 colunas por tabela.|
+| Consultar | Consultas em fila em tabelas de usuário. | 1000 |
+| Consultar | Consultas simultâneas em exibições do sistema. | 100 |
+| Consultar | Consultas em fila em exibições do sistema | 1000 |
+| Consultar | Máximo de parâmetros | 2098 |
+| Batch | Tamanho máximo | 65\.536*4096 |
+| Resultados de SELECT | Colunas por linha | 4\.096<br/><br/>Nunca será possível ter mais de 4.096 colunas por linha no resultado de SELECT. Não há garantia de que você sempre terá 4096. Se o plano de consulta exigir uma tabela temporária, poderão ser aplicadas no máximo 1024 colunas por tabela.|
 | SELECIONAR | Subconsultas aninhadas | 32<br/><br/>Nunca será possível ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há garantia de que você sempre terá 32. Por exemplo, JOIN pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível.|
 | SELECIONAR | Colunas por JOIN | 1\.024 colunas<br/><br/>Nunca será possível ter mais de 1.024 colunas em JOIN. Não há garantia de que você sempre terá 1024. Se o plano JOIN exigir uma tabela temporária com mais colunas do que o resultado de JOIN, o limite de 1024 se aplicará à tabela temporária. |
 | SELECIONAR | Bytes por colunas GROUP BY. | 8\.060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes.|
 | SELECIONAR | Bytes por colunas ORDER BY | 8\.060 bytes.<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8.060 bytes.|
-| Identificadores e constantes por instrução | O número de identificadores referenciados e constantes. | 65\.535<br/><br/>O SQL Data Warehouse limita o número de identificadores e de constantes que podem ser contidos em uma única expressão de uma consulta. Esse limite é de 65.535. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão](http://support.microsoft.com/kb/913050/).|
+| Identificadores e constantes por instrução | O número de identificadores referenciados e constantes. | 65\.535<br/><br/>O SQL Data Warehouse limita o número de identificadores e de constantes que podem ser contidos em uma única expressão de uma consulta. Esse limite é de 65.535. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido um limite de serviços de expressão](http://support.microsoft.com/kb/913050/).|
 
-## Exibições do sistema
+
+
+## Metadados
 
 | Exibição do sistema | Máximo de linhas |
 | :--------------------------------- | :------------|
@@ -234,4 +233,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

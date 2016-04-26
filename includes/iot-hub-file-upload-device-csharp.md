@@ -69,9 +69,9 @@ Nesta seção, você modificará o aplicativo do dispositivo simulado criado em 
 > [AZURE.NOTE] É importante lembrar que essa implementação do dispositivo simulado conclui a mensagem da nuvem para o dispositivo somente depois que o blob for carregado. Essa abordagem simplifica o processamento dos arquivos carregados no back-end, pois a confirmação de entrega representa a disponibilidade do arquivo carregado para processamento. No entanto, como explicado no [Guia do Desenvolvedor do Hub IoT][IoT Hub Developer Guide - C2D], uma mensagem que não seja concluída antes do *tempo limite de visibilidade* (geralmente 1 minuto) é colocada de volta na fila de dispositivo e o método **ReceiveAsync()** a receberá novamente. Para cenários em que o upload de arquivo possa levar mais tempo, talvez seja preferível que o dispositivo simulado mantenha um armazenamento durável dos atuais trabalhos de upload. Isso permite que o dispositivo simulado conclua a mensagem da nuvem para o dispositivo antes de concluir o upload do arquivo e, em seguida, envie uma mensagem do dispositivo para a nuvem notificando o back-end da conclusão.
 
 <!-- Links -->
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Armazenamento do Azure - Como usar blobs]: ../storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
+[IoT Hub Developer Guide - C2D]: ../articles/iot-hub/iot-hub-devguide.md#c2d
+[Armazenamento do Azure - Como usar blobs]: ../articles/storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

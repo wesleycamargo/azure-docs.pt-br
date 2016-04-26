@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Azure Site Recovery: Replica Máquinas virtuais de Hyper-V (único servidor VMM)"
-	description="O Azure Site Recovery coordena a replicação, o failover e a recuperação de máquinas virtuais localizadas em nuvens VMM locais para o Azure ou para uma nuvem VMM secundária."
+	pageTitle="Azure Site Recovery: replicar máquinas virtuais do Hyper-V em um único servidor VMM | Microsoft Azure"
+	description="Este artigo descreve como replicar máquinas virtuais do Hyper-V quando você tem apenas um único servidor VMM."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -14,68 +14,83 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="03/30/2016"
 	ms.author="raynew"/>
 
-#  Azure Site Recovery: Replica Máquinas virtuais de Hyper-V (único servidor VMM)
+#  Replicar máquinas virtuais do Hyper-V em um único servidor de VMM
 
-O serviço do Azure Site Recovery contribui para uma solução de recuperação de desastre e continuidade de negócios (BCDR) robusta ao gerenciar e automatizar a replicação de servidores físicos locais e máquinas virtuais no Azure ou em um datacenter local secundário. Este artigo descreve como implantar a Recuperação de Site para proteger as máquinas virtuais Hyper-V que estão localizadas em uma nuvem VMM, quando você tem apenas um único servidor VMM em sua implantação. Se você tiver dúvidas após a leitura deste artigo, publique-as no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Leia este artigo para saber como replicar máquinas virtuais do Hyper-V localizadas em um servidor do host do Hyper-V em uma nuvem VMM quando você tem apenas um único servidor VMM na sua implantação.
+
+Se você tiver dúvidas após a leitura deste artigo, publique-as no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Visão geral
 
-Você pode replicar máquinas virtuais Hyper-V de duas maneiras:
+Você pode replicar VMs do Hyper-V localizadas em hosts do Hyper-V em nuvens do VMM de duas maneiras:
 
-- Replicar máquinas virtuais do Hyper-V que estão localizadas em hosts Hyper-V que não estão localizados em uma nuvem VMM para o Azure
-- Replicar máquinas virtuais do Hyper-V que estão localizadas em hosts Hyper-V em uma nuvem VMM para o Azure
-- Replicar máquinas virtuais do Hyper-V que estão localizadas em hosts Hyper-V em uma nuvem VMM para o Azure
+- Replicar para o Azure. 
+- Replicar para um site do VMM secundário
 
-Mas o que acontece se você quiser usar o VMM, mas tiver apenas um único servidor VMM em sua infraestrutura?
+Porém, o que acontecerá se você desejar replicar para um local de VMM secundário, mas tiver apenas um único servidor VMM em sua implantação?
 
-Nesse caso, você tem duas opções:
+Nesse cenário, você tem duas opções:
 
-- Replicar suas VMs Hyper-V em suas nuvens do VMM no Azure. [Saiba mais](site-recovery-vmm-to-azure.md) sobre esse cenário.
-- Replicar entre nuvens em um único servidor VMM
+- Replicar VMs do Hyper-V em nuvens VMM para o Azure. [Saiba mais](site-recovery-vmm-to-azure.md) sobre esse cenário.
+- Replicar entre nuvens em um único servidor VMM.
 
-Recomendamos a primeira opção, pois o failover e a recuperação não são perfeitos na segunda opção e são necessárias várias etapas manuais.
+Recomendamos a primeira opção, pois o failover e a recuperação não são perfeitos na segunda opção e várias etapas manuais são necessárias. Se você quiser replicar entre sites em vez do Azure, você terá duas opções.
 
 
-### Replicar entre sites com um único servidor VMM autônomo
+## Replicar entre sites com um único servidor VMM autônomo
 
-Neste cenário, você implantará um único servidor VMM autônomo como uma máquina virtual em um site primário e replicará essa máquina virtual para um site secundário com a Recuperação de Site e a Réplica do Hyper-V. Para fazer isso:
+Para replicar entre sites neste cenário, você implantará um único servidor VMM como uma máquina virtual no site primário e replicará essa VM para um site secundário com a Recuperação de Site e a Réplica do Hyper-V. Para fazer isso:
 
-1. Configure o VMM em uma VM Hyper-V. Considere a colocação da instância do SQL Server usada pelo VMM na mesma VM. Isso economiza tempo, pois apenas uma VM deverá ser instanciada. Se você deseja usar uma instância remota e ocorrer uma paralisação, você precisará recuperar essa instância antes de recuperar o VMM.
-2. O servidor VMM único deve ter pelo menos duas nuvens configuradas. Uma nuvem conterá as máquinas virtuais que deseja replicar e outra nuvem servirá como o local secundário. A nuvem que contém as máquinas virtuais que você deseja proteger deve ter um ou mais grupos de hosts do VMM com um ou mais servidores de host do Hyper-V em cada grupo de hosts e pelo menos uma máquina virtual Hyper-V em cada servidor host.
-2. Criar um cofre de Recuperação de Site, gerar e baixar uma chave de registro do cofre e registrar o servidor VMM no cofre.
-2. Configurar uma ou mais nuvens na VM do VMM e adicionar os hosts Hyper-V que contêm máquinas virtuais que você deseja proteger a essas nuvens.
+1. Configure o VMM em uma VM Hyper-V. Quando você fizer isso, sugerimos colocar a instância do SQL Server usada pelo VMM na mesma VM. Isso economiza tempo, pois apenas uma VM deverá ser instanciada. Se você quiser usar uma instância remota do SQL Server e uma paralisação ocorrer, precisará recuperar essa instância antes de recuperar o VMM.
+2. Verifique se o servidor VMM tem pelo menos duas nuvens configuradas. Uma nuvem conterá as máquinas virtuais que deseja replicar e outra nuvem servirá como o local secundário. A nuvem que contém as VMs que você deseja proteger deve ter:
+
+	- Um ou mais grupos de host de VMM que contém um ou mais servidores de host do Hyper-V em cada grupo de hosts.
+	- Pelo menos uma máquina virtual do Hyper-V em cada servidor de host do Hyper-V.
+3. Criar um cofre de Recuperação de Site, gerar e baixar uma chave de registro do cofre e registrar o servidor VMM no cofre. Durante o registro, você instalará o Provedor do Azure Site Recovery nos servidores VMM.
+4. Configurar uma ou mais nuvens na VM do VMM e adicionar os hosts Hyper-V que contêm máquinas virtuais que você deseja proteger a essas nuvens.
 3. Em Azure Site Recovery, defina as configurações de proteção para nuvens. Em Local de Origem e de Destino, especifique o nome do servidor VMM único. Se configurar o mapeamento de rede, você mapeará a rede VM para a nuvem que contém máquinas virtuais que você deseja proteger para a rede VM para a nuvem para a qual você deseja replicar.
 4. Habilite a replicação para máquinas virtuais que deseja proteger usando **Pela rede** como o método de replicação, pois ambas as nuvens estão localizadas no mesmo servidor.
 4. No console do Gerenciador do Hyper-V, habilite a Réplica do Hyper-V no host Hyper-V que contém a VM do VMM e habilite a replicação na VM. Certifique-se de que você não adicione a máquina virtual do VMM às nuvens que são protegidas pela Recuperação de Site, para garantir que as configurações de réplica do Hyper-V não sejam substituídas pela Recuperação de Site.
-5. Se você quiser criar planos de recuperação, especifique o mesmo servidor VMM de origem e destino. 
+5. Se você quiser criar planos de recuperação, especifique o mesmo servidor VMM de origem e destino.
 
-Quando ocorrem paralisações, recupere as cargas de trabalho em VMs Hyper-V da seguinte maneira:
+Siga as instruções [neste artigo](site-recovery-vmm-to-vmm.md) para criar um cofre, obter uma chave, registrar o servidor e a configurar a proteção.
 
-1. Faça o failover manualmente da réplica da VM VMM para o site secundário usando o Gerenciador do Hyper-V com um failover planejado.
-2. Depois que a VM VMM foi recuperada, você pode efetuar login no Gerenciador de Recuperação do Hyper-V do site secundário e fazer um failover não planejado das máquinas virtuais do site primário para o site secundário.
-3. Após a conclusão do failover não planejado os usuários poderão acessar todos os recursos no site principal.
+### Após uma paralisação
 
-Observe que a VM do VMM precisa sofrer failover manualmente para o site secundário antes de as cargas de trabalho falharem.
+Quando paralisações ocorrem, você recuperará as cargas de trabalho em VMs do Hyper-V da seguinte maneira:
+
+1. Faça o failover da réplica da VM do VMM manualmente para o site secundário usando o Gerenciador do Hyper-V com um failover planejado. 
+2. Depois que a VM do VMM for recuperada, você pode entrar no Gerenciador de Recuperação do Hyper-V do site secundário e fazer um failover não planejado das VMs do site secundário para o site primário. Observe que a VM do VMM precisa passar por um failover manualmente para o site secundário para que as VMs de carga de trabalho possam passar por failover.
+3. Após a conclusão do failover não planejado, todos os recursos poderão ser acessados no site principal novamente.
+
 
 ![Servidor VMM virtual autônomo](./media/site-recovery-single-vmm/single-vmm-standalone.png)
 
-### Replicar entre sites com um único servidor VMM em um cluster estendido
+## Replicar entre sites com um único servidor VMM em um cluster estendido
 
-Em vez de implantar um servidor VMM autônomo como uma máquina virtual que é replicada para um site secundário, você pode tornar o VMM altamente disponível, implantando-o como uma VM em um cluster de failover do Windows, fornecendo resiliência de carga de trabalho e proteção contra falhas de hardware. Para implantar com Recuperação de Site, o VMM deve ser implantado em um cluster alongado em sites geograficamente separados. Para fazer isso:
+Em vez de implantar um servidor VMM autônomo como uma máquina virtual que é replicada para um site secundário, você pode tornar o VMM altamente disponível, implantando-o como uma VM em um cluster de failover do Windows. Isso fornece resiliência de carga de trabalho e proteção contra falhas de hardware. Para implantar com Recuperação de Site, a VM de VMM deve ser implantada em um cluster estendido em sites geograficamente separados. Para fazer isso:
 
 1. Instale o VMM em uma máquina virtual em um cluster de failover do Windows e selecione a opção para executar o servidor como altamente disponível durante a instalação.
-2. A instância do SQL Server usada pelo VMM deve ser replicada com grupos de disponibilidade do AlwaysOn do SQL Server para que haja uma réplica de banco de dados no local secundário. 
+2. A instância do SQL Server usada pelo VMM deve ser replicada com grupos de disponibilidade do AlwaysOn do SQL Server para que haja uma réplica de banco de dados no site secundário.
 
-Quando ocorrem paralisações do servidor VMM e isso for correspondente ao banco de dados do SQL Server com falha e acessado no site secundário.
+Observe que, quando você configura a Recuperação de Site, será necessário registrar cada servidor VMM no cluster no cofre de Recuperação de Site. Para fazer isso, instale o Provedor em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre. Em seguida, instale o Provedor nos outros nós.
+ 
+### Após uma paralisação 
+
+Quando paralisações ocorrem, o servidor de VMM e seu banco de dados do SQL Server correspondente passam por failover e são acessado do site secundário.
 
 ![Servidor VMM virtual clusterizado.](./media/site-recovery-single-vmm/single-vmm-cluster.png)
+
+## Próximas etapas
+
+[Saiba mais](site-recovery-vmm-to-vmm.md) sobre a implantação de Recuperação de Site detalhada do VMM para replicação do VMM.
 
 
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

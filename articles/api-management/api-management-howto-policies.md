@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Políticas do Gerenciamento de API do Azure" 
+	pageTitle="Políticas no Gerenciamento de API do Azure | Microsoft Azure" 
 	description="Aprenda a criar, editar e configurar políticas de Gerenciamento de API." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 
@@ -51,6 +51,8 @@ Primeiro, a política é exibida em formato somente leitura. Para editar a defin
 A definição da política é um documento XML simples que descreve uma sequência de instruções de entrada e de saída. O XML pode ser editado diretamente na janela de definição. Uma lista de instruções é fornecida à direita e as declarações aplicáveis ao escopo atual ficam habilitadas e destacadas, conforme demonstrado pela instrução **Limit Call Rate** (Taxa limite de chamadas) na captura de tela acima.
 
 Clicar em uma instrução habilitada adicionará o XML adequado ao local onde estiver o cursor na exibição de definição.
+
+>[AZURE.NOTE] Se a política que deseja adicionar não estiver habilitada, verifique se você está no escopo correto para essa política. Cada declaração de política é projetada para uso em determinados escopos e seções da política. Para examinar as seções da política e os escopos de uma política, verifique a seção **Uso** dessa política na [Referência à política][].
 
 Uma lista completa de instruções de políticas e suas configurações está disponível na [Referência de política][].
 
@@ -131,6 +133,7 @@ Confira o vídeo a seguir sobre expressões de política.
 > [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Referência de Política]: api-management-policy-reference.md
+[Referência à política]: api-management-policy-reference.md
 [Produto]: api-management-howto-add-products.md
 [API]: api-management-howto-add-products.md#add-apis
 [Operação]: api-management-howto-add-operations.md
@@ -148,4 +151,4 @@ Confira o vídeo a seguir sobre expressões de política.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

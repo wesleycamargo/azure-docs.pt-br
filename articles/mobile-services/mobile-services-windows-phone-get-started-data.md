@@ -172,7 +172,7 @@ Este tutorial demonstrou as noções básicas sobre a habilitação de um aplica
 
 * [Adicionar notificações por push ao seu aplicativo](mobile-services-javascript-backend-windows-phone-get-started-push.md) <br/>Saiba como enviar uma notificação por push bem básica ao seu aplicativo com os Serviços Móveis.
 
-* [Referência conceitual de tutorial de C# dos Serviços Móveis](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
+* [Referência conceitual de tutorial de C# dos Serviços Móveis](mobile-services-dotnet-how-to-use-client-library.md) <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
 
 <!-- Anchors. -->
 [Download the Windows Phone 8 app project]: #download-app
@@ -196,4 +196,4 @@ Este tutorial demonstrou as noções básicas sobre a habilitação de um aplica
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Site de Exemplos de Código do Desenvolvedor]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

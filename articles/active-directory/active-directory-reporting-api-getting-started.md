@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introdução à API de relatório do AD do Azure"
+   pageTitle="Introdução à API de Relatório do Azure AD | Microsoft Azure"
    description="Como começar a usar a API de relatório do Active Directory do Azure"
    services="active-directory"
    documentationCenter=""
@@ -13,32 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="04/07/2016"
    ms.author="dhanyahk"/>
 
 
-# Introdução à API de relatório do AD do Azure
+# Introdução à API de Relatório do Azure Active Directory
 
 *Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
 
-O Active Directory do Azure fornece uma variedade de relatórios de atividade, segurança e auditoria. Esses dados podem ser consumidos por meio do portal do Azure, mas também podem ser muito úteis em vários outros aplicativos, como sistemas SIEM, ferramentas de auditoria e de business intelligence.
+O AD (Azure Active Directory) fornece diversos relatórios de atividade, segurança e auditoria. Esses dados podem ser consumidos por meio do portal clássico do Azure, mas também podem ser muito úteis em vários outros aplicativos, como sistemas SIEM, ferramentas de auditoria e de business intelligence.
 
-As APIs de relatórios do AD do Azure fornecem acesso programático a esses dados por meio de um conjunto de APIs baseadas em REST que podem ser chamadas de várias ferramentas e linguagens de programação.
+As [APIs de relatórios do Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) fornecem acesso programático a esses dados por meio de um conjunto de APIs baseadas em REST que podem ser chamadas de várias ferramentas e linguagens de programação.
 
 Este artigo o guiará pelo processo de chamada das APIs de relatório do AD do Azure usando o PowerShell. Você pode modificar o exemplo de script do PowerShell para acessar dados de qualquer um dos relatórios disponíveis no formato JSON, XML ou texto, conforme o seu cenário exigir.
 
-Para usar esse exemplo, você precisará de um [Active Directory do Azure](active-directory-whatis.md)
+Para usar esse exemplo, você precisará de um locatário do [Azure Active Directory](active-directory-whatis.md).
 
 ## Criando um aplicativo do AD do Azure para acessar a API
 
-A API de relatório usa [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar o acesso às APIs da Web. Para acessar informações do diretório, crie um aplicativo no Active Directory e conceda as permissões apropriadas para acessar os dados do AAD.
+A API de relatório usa [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar o acesso às APIs da Web. Para acessar informações do seu diretório, será necessário criar um aplicativo no locatário do Azure AD e conceder permissões apropriadas para acessar os dados do Azure AD.
 
 
 ### Criar um aplicativo
 - Navegue até o [portal clássico do Azure](https://manage.windowsazure.com/).
-- Navegue até seu diretório.
-- Navegue até os aplicativos.
-- Na barra de ferramentas inferior, clique em "Adicionar".
+- Navegue no locatário do Azure AD.
+- Navegue até a guia **Aplicativos**.
+- Na barra de ferramentas inferior, clique em **Adicionar**.
 	- Clique em “Adicionar um aplicativo que minha organização está desenvolvendo”.
 	- **Nome**: qualquer nome serve. Algo como "Aplicativo de API de relatório" é recomendado.
 	- **Tipo**: selecione Aplicativo Web e/ou API Web.
@@ -48,11 +48,11 @@ A API de relatório usa [OAuth](https://msdn.microsoft.com/library/azure/dn64554
 	- Clique na marca de seleção para concluir a adição do aplicativo.
 
 ### Conceda permissão ao aplicativo para usar a API
-- Navegue até a guia Aplicativos.
+- Navegue até a guia **Aplicativos**.
 - Navegue até o aplicativo recém-criado.
 - Clique na guia **Configurar**.
 - Na seção “Permissões para outros aplicativos”:
-	- Em Azure Active Directory > Permissões de Aplicativo, selecione **Ler dados do diretório**.
+	- No Azure Active Directory > Permissões de Aplicativo, selecione **Ler dados do diretório**.
 - Clique em **Salvar** na barra inferior.
 
 
@@ -61,7 +61,7 @@ A API de relatório usa [OAuth](https://msdn.microsoft.com/library/azure/dn64554
 As etapas a seguir guiarão você para obter a ID do cliente do aplicativo e o segredo do cliente. Você também precisará saber o nome do locatário, que pode ser seu *.onmicrosoft.com ou um nome de domínio personalizado. Copie-os em um local separado; você vai usá-los para modificar o script.
 
 #### ID do cliente do aplicativo
-- Navegue até a guia Aplicativos.
+- Navegue até a guia **Aplicativos**.
 - Navegue até o aplicativo recém-criado.
 - Navegue até a guia **Configurar**.
 - Sua ID do cliente do aplicativo está listada no campo **ID do cliente**.
@@ -182,17 +182,17 @@ Edite um dos scripts abaixo para trabalhar com seu diretório, substituindo $Cli
 ## Execute o script
 Quando você terminar de editar o script, execute-o e verifique se os dados esperados do relatório AuditEvents são retornados.
 
-O script retorna listas de todos os relatórios disponíveis e retorna a saída do relatório AccountProvisioningEvents na janela do PowerShell, no formato JSON. Ele também cria arquivos com a mesma saída em XML, JSON e texto. Você pode comentar experimentos de modificação do script para retornar dados de outros relatórios, além de comentar os formatos de saída de que você não precisa.
+O script lista todos os relatórios disponíveis e retorna a saída do relatório AccountProvisioningEvents na janela do PowerShell, no formato JSON. Ele também cria arquivos com a mesma saída em XML, JSON e texto. Você pode experimentar ao modificar o script para retornar dados de outros relatórios, além de comentar os formatos de saída de que você não precisa.
 
 ## Observações
 
 - Não há qualquer limite para o número de eventos retornados pela API de Relatórios do Azure AD (usando a paginação de OData).
-	- Para conhecer os limites de retenção em dados de relatório, confira [Políticas de retenção de relatório](active-directory-reporting-retention.md).
+- Para conhecer os limites de retenção em dados de relatório, confira [Políticas de retenção de relatório](active-directory-reporting-retention.md).
 
 
 ## Próximas etapas
-- Curioso sobre que relatórios de segurança, auditoria e atividade estão disponíveis? Verifique [Relatórios de segurança, auditoria e atividade do AD do Azure](active-directory-view-access-usage-reports.md)
+- Curioso sobre quais relatórios de segurança, auditoria e atividade estão disponíveis? Verifique [Relatórios de segurança, auditoria e atividade do AD do Azure](active-directory-view-access-usage-reports.md)
 - Consulte [Eventos de relatório de auditoria do AD do Azure](active-directory-reporting-audit-events.md) para obter mais detalhes sobre o relatório de auditoria
-- Consulte [Eventos e relatórios de auditoria do AD do Azure (visualização)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obter mais detalhes sobre o serviço REST de Graph API
+- Consulte [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) (Eventos e Relatórios de Auditoria do Azure AD [Preview]) para obter mais detalhes sobre o serviço REST da API do Graph do Azure AD
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

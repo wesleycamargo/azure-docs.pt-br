@@ -65,7 +65,7 @@ Para usar o AD do Azure para compartilhar uma conta, você precisará:
 - Usar a [atribuição baseada em grupo](active-directory-accessmanagement-group-saasapps.md) e selecionar a opção para inserir uma credencial compartilhada
 - Opcional: em alguns aplicativos, como o Facebook, Twitter ou LinkedIn, você pode habilitar a opção para a [Substituição de senha automatizada do AD do Azure](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
 
-Você também pode tornar sua conta compartilhada mais segura com o Multi-Factor Authentication (MFA) (saiba mais sobre como [proteger os aplicativos com o AD do Azure](multi-factor-authentication-get-started.md)) e pode delegar a capacidade de gerenciar quem tem acesso ao aplicativo usando o Gerenciamento de Grupo do [Autoatendimento do AD do Azure](active-directory-accessmanagement-self-service-group-management.md).
+Você também pode tornar sua conta compartilhada mais segura com o Multi-Factor Authentication (MFA) (saiba mais sobre como [proteger os aplicativos com o AD do Azure](../multi-factor-authentication/multi-factor-authentication-get-started.md)) e pode delegar a capacidade de gerenciar quem tem acesso ao aplicativo usando o Gerenciamento de Grupo do [Autoatendimento do AD do Azure](active-directory-accessmanagement-self-service-group-management.md).
 
 ## Artigos relacionados
 
@@ -73,4 +73,4 @@ Você também pode tornar sua conta compartilhada mais segura com o Multi-Factor
 - [Proteger aplicativos com acesso condicional](active-directory-conditional-access.md)
 - [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

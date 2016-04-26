@@ -3,7 +3,7 @@
    description="Descreve o painel de serviço do StorSimple Manager e explica como usá-lo para monitorar a integridade de sua Matriz Virtual StorSimple."
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="04/07/2016"
+   ms.author="alkohli" />
 
-# Use o painel do serviço StorSimple Manager para a Matriz Virtual do StorSimple (visualização)
+# Usar o painel do serviço StorSimple Manager para a Matriz Virtual do StorSimple
 
 ## Visão geral
 
@@ -62,4 +62,4 @@ Você pode exibir os logs de operação clicando no link de logs de operação d
 
 Aprenda como [usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

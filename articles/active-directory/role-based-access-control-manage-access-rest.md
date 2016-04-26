@@ -13,21 +13,24 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="04/12/2016"
 	ms.author="kgremban"/>
 
 # Gerenciar o controle de acesso com base em função com a API REST
 
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
+- [API REST](role-based-access-control-manage-access-rest.md)
+
+O RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Azure Resource Manager permite gerenciar o acesso a sua assinatura e aos recursos de maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
+
 
 ## Lista todas as atribuições de função
 
 Lista todas as atribuições de função no escopo e sub-escopos especificados.
 
-Para listar as atribuições de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read` no escopo. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, veja [Controle de Acesso baseado em função do Azure](role-based-access-control-configure.md).
+Para listar as atribuições de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read` no escopo. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### Solicitação
 
@@ -37,7 +40,7 @@ Use o método **GET** com o seguinte URI:
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
-Substitua *{scope}* pelo escopo para o qual deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
 
 | Nível | *{Scope}* |
 |-------|-----------|
@@ -47,14 +50,14 @@ Substitua *{scope}* pelo escopo para o qual deseja listar as atribuições de fu
 
 Substitua *{api-version}* por 2015-07-01.
 
-Substitua *{filter}* pela condição que deseja aplicar a fim de filtrar a lista de atribuições de função. As seguintes condições são suportadas.
+Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a lista de atribuições de função. As seguintes condições são suportadas.
 
 
 | Condição | *{Filter}* | Substitua |
 |-----------|------------|---------|
 | Para atribuições de função da lista para apenas o escopo especificado, não incluindo as atribuições de função em sub-escopos. | `atScope()` | |
-| Para listar atribuições de função somente para um usuário, grupo ou aplicativo específico | `principalId%20eq%20'{objectId}'` | Substitua *{objectId}* pela objectId do AD do Azure do usuário, do grupo ou da entidade de serviço. Por exemplo, `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-| Para listar atribuições de função somente para um usuário específico incluindo aqueles atribuídas a grupos dos quais o usuário é membro | `assignedTo('{objectId}')` | Substitua *{objectId}* pelo objectId do AD do Azure do usuário. Por exemplo, `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
+| Para listar atribuições de função somente para um usuário, grupo ou aplicativo específico | `principalId%20eq%20'{objectId}'` | Substitua *{objectId}* pela objectId do Azure AD do usuário, do grupo ou da entidade de serviço. Por exemplo, `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+| Para listar atribuições de função somente para um usuário específico incluindo aqueles atribuídas a grupos dos quais o usuário é membro | `assignedTo('{objectId}')` | Substitua *{objectId}* pelo objectId do Azure AD do usuário. Por exemplo, `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
 
 
@@ -89,7 +92,7 @@ Código de status: 200
 
 Obtém informações sobre uma atribuição de função única especificada pelo identificador de atribuição de função.
 
-Para saber mais sobre uma atribuição de função, você deve ter acesso à operação `Microsoft.Authorization/roleAssignments/read`. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, veja [Controle de Acesso baseado em função do Azure](role-based-access-control-configure.md).
+Para saber mais sobre uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read`. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### Solicitação
 
@@ -99,7 +102,7 @@ Use o método **GET** com o seguinte URI:
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
-Substitua *{scope}* pelo escopo para o qual deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
 
 | Nível | *{Scope}* |
 |-------|-----------|
@@ -137,7 +140,7 @@ Código de status: 200
 
 Crie uma atribuição de função no escopo especificado para a entidade especificada, concedendo a função especificada.
 
-Para criar uma atribuição de função, você deve ter acesso à operação `Microsoft.Authorization/roleAssignments/write`. Das funções internas, somente *Proprietário* e *Administrador do Acesso de Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, veja [Controle de acesso baseado em função do Azure](role-based-access-control-configure.md)
+Para criar uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/write`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### Solicitação
 
@@ -147,7 +150,7 @@ Use o método **PUT** com o seguinte URI:
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
-Substitua *{scope}* pelo escopo para o qual deseja criar as atribuições de função. Quando você cria uma atribuição de função em um escopo pai, todos os escopos filho herdam a mesma atribuição de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+Substitua *{scope}* pelo escopo para o qual você deseja criar as atribuições de função. Quando você cria uma atribuição de função em um escopo pai, todos os escopos filho herdam a mesma atribuição de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
 
 | Nível | *{Scope}* |
 |-------|-----------|
@@ -202,7 +205,7 @@ Código de status: 201
 
 Exclua uma atribuição de função no escopo especificado.
 
-Para excluir uma atribuição de função, você deve ter acesso à operação `Microsoft.Authorization/roleAssignments/delete`. Das funções internas, somente *Proprietário* e *Administrador do Acesso de Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, veja [Controle de acesso baseado em função do Azure](role-based-access-control-configure.md)
+Para excluir uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/delete`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### Solicitação
 
@@ -212,7 +215,7 @@ Use o método **DELETE** com o seguinte URI:
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
-Substitua *{scope}* pelo escopo para o qual deseja criar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+Substitua *{scope}* pelo escopo para o qual você deseja criar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
 
 | Nível | *{Scope}* |
 |-------|-----------|
@@ -220,7 +223,7 @@ Substitua *{scope}* pelo escopo para o qual deseja criar as atribuições de fun
 | Grupo de recursos | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1 |
 | Recurso | /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1 |
 
-Substitua *{role-assignment-id}* pelo GUID da id da atribuição de função.
+Substitua *{role-assignment-id}* pelo GUID da ID da atribuição de função.
 
 Substitua *{api-version}* por 2015-07-01.
 
@@ -250,7 +253,7 @@ Código de status: 200
 
 Lista todas as funções que estão disponíveis para atribuição no escopo especificado.
 
-Para listar as funções, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/read` no escopo. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, veja [Controle de Acesso baseado em função do Azure](role-based-access-control-configure.md).
+Para listar as funções, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/read` no escopo. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### Solicitação
 
@@ -260,7 +263,7 @@ Use o método **GET** com o seguinte URI:
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
-Substitua *{scope}* pelo escopo para o qual deseja listar as funções. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+Substitua *{scope}* pelo escopo para o qual você deseja listar as funções. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
 
 | Nível | *{Scope}* |
 |-------|-----------|
@@ -344,7 +347,7 @@ Código de status: 200
 
 Obtém informações sobre uma função única especificada pelo identificador de definição da função. Para obter informações sobre uma única função usando seu nome de exibição, consulte Lista todas as funções e o filtro roleName.
 
-Para saber mais sobre uma função, você deve ter acesso à operação `Microsoft.Authorization/roleDefinitions/read`. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, veja [Controle de Acesso baseado em função do Azure](role-based-access-control-configure.md).
+Para saber mais sobre uma função, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/read`. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### Solicitação
 
@@ -354,7 +357,7 @@ Use o método **GET** com o seguinte URI:
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
-Substitua *{scope}* pelo escopo para o qual deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
 
 | Nível | *{Scope}* |
 |-------|-----------|
@@ -428,7 +431,7 @@ Código de status: 200
 ## Criar uma Função personalizada
 Criar uma função personalizada.
 
-Para criar uma função personalizada, você deve ter acesso à operação `Microsoft.Authorization/roleDefinitions/write` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso de Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, veja [Controle de acesso baseado em função do Azure](role-based-access-control-configure.md).
+Para criar uma função personalizada, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/write` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### Solicitação
 
@@ -438,7 +441,7 @@ Use o método **PUT** com o seguinte URI:
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
-Substitua *{scope}* pela primeira *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis.
+Substitua *{scope}* pelo primeiro *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis.
 
 | Nível | *{Scope}* |
 |-------|-----------|
@@ -538,7 +541,7 @@ Código de status: 201
 
 Modificar uma função personalizada.
 
-Para modificar uma função personalizada, você deve ter acesso à operação `Microsoft.Authorization/roleDefinitions/write` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso de Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, veja [Controle de acesso baseado em função do Azure](role-based-access-control-configure.md).
+Para modificar uma função personalizada, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/write` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### Solicitação
 
@@ -548,7 +551,7 @@ Use o método **PUT** com o seguinte URI:
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
-Substitua *{scope}* pela primeira *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+Substitua *{scope}* pelo primeiro *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
 
 | Nível | *{Scope}* |
 |-------|-----------|
@@ -648,7 +651,7 @@ Código de status: 201
 
 Excluir uma função personalizada.
 
-Para excluir uma função personalizada, você deve ter acesso à operação `Microsoft.Authorization/roleDefinitions/delete` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso de Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, veja [Controle de acesso baseado em função do Azure](role-based-access-control-configure.md).
+Para excluir uma função personalizada, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/delete` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
 ### Solicitação
 
@@ -658,7 +661,7 @@ Use o método **DELETE** com o seguinte URI:
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
-Substitua *{scope}* pelo escopo para o qual deseja excluir as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
+Substitua *{scope}* pelo escopo para o qual deseja você excluir as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
 
 | Nível | *{Scope}* |
 |-------|-----------|
@@ -711,4 +714,4 @@ Código de status: 200
 
 ```
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

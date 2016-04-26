@@ -20,8 +20,6 @@
 
 O Hub IoT permite que dispositivos se comuniquem com os pontos de extremidade do dispositivo do Hub IoT usando o protocolo [MQTT v3.1.1][lnk-mqtt-org] a na porta 8883. O Hub IoT exige que todas as comunicações do dispositivo sejam protegidas usando o TLS/SSL.
 
-Para obter informações adicionais, confira [Observações sobre o suporte a MQTT][lnk-mqtt-devguide] no guia do desenvolvedor do Hub IoT do Azure.
-
 ## Conectando-se ao Hub IoT
 
 Um dispositivo pode se conectar a um Hub IoT com o protocolo MQTT usando as bibliotecas nos [SDKs do IoT do Microsoft Azure][lnk-device-sdks] ou usando o protocolo MQTT diretamente.
@@ -48,17 +46,17 @@ Se um dispositivo não puder usar os SDKs do cliente do dispositivo, ele poderá
 - Para o campo **ClientId** use o **deviceId**. 
 - No campo **Username**, use `{iothubhostname}/{device_id}`, em que {iothubhostname} é o CName completo do Hub IoT.
 
-    Por exemplo, se o nome de seu Hub IoT for **contoso.azure devices.net** e se o nome do dispositivo for **MyDevice01**, o campo **Username** completo deverá conter `contoso.azure-devices.net/MyDevice01`.
+    Por exemplo, se o nome de seu Hub IoT for **contoso.azure devices.net**, e se o nome do dispositivo for **MyDevice01**, o campo **Username** completo deverá conter `contoso.azure-devices.net/MyDevice01`.
 
 - Para o campo **Senha** use um token SAS. O [formato do token SAS][lnk-iothub-security] é o mesmo, conforme descrito para os protocolos HTTP e AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
 
-    Para saber mais sobre como gerar tokens SAS, confira [Uso de tokens de segurança do Hub IoT][lnk-sas-tokens].
+    Para saber mais sobre como gerar tokens SAS, confira [Usando tokens de segurança do Hub IoT][lnk-sas-tokens].
     
-    Durante o teste, você também pode usar a ferramenta [Gerenciador de Dispositivo][lnk-device-explorer] para gerar rapidamente um token SAS, que pode copiar e colar em seu próprio código:
+    Durante o teste, você também pode usar a ferramenta [Gerenciador de Dispositivo][lnk-device-explorer] para gerar rapidamente um token SAS que você pode copiar e colar em seu próprio código:
     
     1. Acesse a guia **Gerenciamento** no Gerenciador de Dispositivo.
     2. Clique em **Token SAS** (parte superior direita).
-    3. Em **SASTokenForm**, selecione seu dispositivo no menu suspenso **DeviceID**. Defina o **TTL**.
+    3. Em **SASTokenForm**, selecione seu dispositivo no menu suspenso **DeviceID**. Defina seu **TTL**.
     4. Clique em **Gerar** para criar o token.
     
     O token SAS gerado é semelhante ao seguinte: `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2fdevices%2fMyDevice01&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
@@ -69,7 +67,7 @@ Para que o MQTT conecte e desconecte pacotes, o Hub IoT emite um evento no canal
 
 ### Enviando mensagens ao Hub IoT
 
-Depois de fazer uma conexão bem-sucedida, um dispositivo pode enviar mensagens ao Hub IoT usando `devices/{did}/messages/events/` ou `devices/{did}/messages/events/{property_bag}` como um **Nome de Tópico**. O elemento `{property_bag}` habilita o dispositivo a enviar mensagens com propriedades adicionais em um formato codificado de URL. Por exemplo:
+Depois de fazer uma conexão bem-sucedida, um dispositivo pode enviar mensagens ao Hub IoT usando `devices/{did}/messages/events/` ou `devices/{did}/messages/events/{property_bag}` como um **Nome de Tópico**. O elemento `{property_bag}` permite que o dispositivo envie mensagens com propriedades adicionais em um formato codificado de URL. Por exemplo:
 
 ```
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -84,6 +82,8 @@ O aplicativo cliente do dispositivo também pode usar `devices/{did}/messages/ev
 Para receber mensagens do Hub IoT, um dispositivo deve fazer uma assinatura usando `devices/{did}/messages/devicebound/#”` como um **Filtro de Tópico**. O Hub IoT entrega mensagens com o **Nome do Tópico** `devices/{did}/messages/devicebound/`, ou `devices/{did}/messages/devicebound/{property_bag}` se houver alguma propriedade de mensagem. `{property_bag}` contém pares de chave/valor codificados em URL das propriedades da mensagem. Somente propriedades de aplicativo e propriedades do sistema definível pelo usuário (como **messageId** ou **correlationId**) estão incluídas no recipiente de propriedades. Os nomes de propriedade do sistema têm o prefixo **$**; as propriedades de aplicativo usam o nome da propriedade original sem prefixo.
 
 ## Próximas etapas
+
+Para saber mais sobre o suporte a MQTT com os SDKs de Dispositivo do IoT, confira [Observações sobre o suporte a MQTT][lnk-mqtt-devguide] no guia do desenvolvedor do Hub IoT do Azure.
 
 Para saber mais sobre como usar os SDKs do cliente do dispositivo para se comunicar com o Hub IoT, confira [Introdução ao Hub IoT do Azure][lnk-iot-get-stated].
 
@@ -102,4 +102,4 @@ Para saber mais sobre o protocolo MQTT, confira a [documentação do MQTT][lnk-m
 [lnk-sas-tokens]: iot-hub-sas-tokens.md
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

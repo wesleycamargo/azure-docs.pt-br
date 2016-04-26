@@ -207,7 +207,7 @@ Depois de ter configurado uma maneira de fornecer respostas TwiML, você pode pa
         });
     };
 
-[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
@@ -229,4 +229,4 @@ Depois de ter configurado uma maneira de fornecer respostas TwiML, você pode pa
 [azure_twilio_howto_python]: /partner-twilio-python-how-to-use-voice-sms.md
 [azure_twilio_howto_php]: /partner-twilio-php-how-to-use-voice-sms.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

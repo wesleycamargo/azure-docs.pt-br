@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Aplicativos de Big Data compatíveis com o Repositório Data Lake | Azure" 
-   description="Lista de aplicativos de software livre que funcionam com o Repositório Azure Data Lake" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Aplicativos de Big Data compatíveis com o Repositório Data Lake | Azure"
+   description="Lista de aplicativos de software livre que funcionam com o Repositório Azure Data Lake"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake
 
-Este artigo lista os aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake. Para os aplicativos na tabela abaixo, há suporte apenas para as versões disponíveis com a distribuição listada. Para obter informações sobre quais versões desses aplicativos estão disponíveis com o HDInsight, veja [Controle de versão de componente do HDInsight](/hdinsight/hdinsight-component-versioning.md).
+Este artigo lista os aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake. Para os aplicativos na tabela abaixo, há suporte apenas para as versões disponíveis com a distribuição listada. Para obter informações sobre quais versões desses aplicativos estão disponíveis com o HDInsight, veja [Controle de versão de componente do HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 
 | Software livre | Distribuição |
@@ -39,6 +39,5 @@ Este artigo lista os aplicativos de Big Data de software livre que funcionam com
 ## Consulte também
 
 - [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

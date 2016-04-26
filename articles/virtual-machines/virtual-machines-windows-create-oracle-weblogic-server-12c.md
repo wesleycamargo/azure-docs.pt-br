@@ -43,7 +43,7 @@ O exemplo a seguir mostra como você pode criar uma Máquina Virtual baseada em 
 	2. Deixe **Conjunto de Disponibilidade** como "Não Configurado".
 	3. Não adicione nenhum **ponto de extremidade** neste momento.
 
-9.	Escolha ou crie um [Grupo de Recursos](../resource-group-portal.md).
+9.	Escolha ou crie um [Grupo de Recursos](../azure-portal/resource-group-portal.md).
 
 10. Escolha uma **Assinatura**.
 
@@ -187,4 +187,4 @@ Agora que você configurou a Máquina Virtual executando o Oracle WebLogic Serve
 
 -	[Imagens de Máquina Virtual Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

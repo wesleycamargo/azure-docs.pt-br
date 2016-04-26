@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="04/09/2016"
+   ms.date="04/14/2016"
    ms.author="jimpark;"/>
 
 # Introdução: fazer backup de arquivos e pastas do Windows Server ou do cliente para o Azure
@@ -99,7 +99,7 @@ Agora que o cofre foi criado e que você baixou tudo, instale e registre o agent
 ## Etapa 3: Instalar e registrar o agente de backup
 
 1. Clique duas vezes em **MARSagentinstaller.exe** a partir do local salvo.
-2. Conclua o Assistente de Instalação do Agente do Serviços de Recuperação do Microsoft Azure. Para concluir o assistente, você precisará:
+2. Conclua o Assistente de Instalação do Agente do Serviços de Recuperação do Microsoft Azure. Para concluir o assistente, você precisa fazer o seguinte:
     - Escolher um local para a instalação e a pasta de cache.
     - Fornecer as informações de seu servidor proxy se você usar um servidor proxy para conectar-se à Internet.
     - Forneça os detalhes do seu nome de usuário e de sua senha se usar um proxy autenticado.
@@ -142,4 +142,4 @@ Parabéns, você concluiu com êxito o backup de seus arquivos e de suas pastas 
 - Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
 - Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

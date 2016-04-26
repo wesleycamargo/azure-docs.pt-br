@@ -3,7 +3,7 @@
 	description="Lista as diferentes maneiras de criar uma máquina virtual do Linux no Azure e fornece links para mais instruções"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="03/07/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Diferentes maneiras de criar uma máquina virtual do Linux com o Gerenciador de Recursos
 
@@ -23,9 +23,17 @@
 
 O Azure oferece maneiras diferentes de criar uma VM que se adapte a usuários e finalidades diferentes. Este artigo resume essas diferenças e as opções que você pode utilizar para criar máquinas virtuais Linux.
 
-Os modelos do Gerenciador de Recursos do Azure foram introduzidos recentemente como uma maneira de criar e gerenciar uma máquina virtual e seus recursos diferentes, como uma unidade lógica de implantação. Instruções para essa abordagem são incluídas abaixo, quando disponíveis. Para saber mais sobre o Gerenciador de Recursos do Azure e como gerenciar recursos como uma unidade, confira o [visão geral](../resource-group-overview.md).
+Os modelos do Azure Resource Manager também fornecem um modo de criar e gerenciar uma máquina virtual e seus recursos diferentes como uma unidade de implantação lógica. Para saber mais sobre o Gerenciador de Recursos do Azure e como gerenciar recursos como uma unidade, confira o [visão geral](../resource-group-overview.md).
 
 ## Opções da ferramenta
+
+### Shell de comando: CLI do Azure 
+
+Na CLI, use a interface de linha de comando do Azure. Consulte estes tutoriais para usar a CLI do Azure:
+
+* [Criar uma VM do Linux na CLI para desenvolvimento e teste](virtual-machines-linux-quick-create-cli.md) 
+
+* [Criar uma VM do Linux protegida usando um modelo do Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
 ### GUI: portal do Azure
 
@@ -33,23 +41,13 @@ A interface gráfica do usuário do [portal do Azure](https://portal.azure.com) 
 
 * [Criar uma máquina virtual executando o Linux usando o portal do Azure](virtual-machines-linux-portal-create.md) 
 
-### Shell de comando: CLI do Azure 
-
-Se preferir trabalhar em um shell de comando, use a CLI (interface de linha de comando) do Azure para usuários do Mac, do Linux e do Windows.
-
-Para a CLI do Azure, confira estes tutoriais:
-
-* [Criar uma VM do Linux na CLI para desenvolvimento e teste](virtual-machines-linux-quick-create-cli.md) 
-
-* [Criar uma VM do Linux protegida usando um modelo do Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-
 ## Sistema operacional e opções de imagem
 
 Escolha uma imagem com base no sistema operacional que você deseja executar. A Azure e seus parceiros oferecem muitas imagens, algumas delas incluem aplicativos e ferramentas. Ou use uma das suas próprias imagens.
 
 ### Imagens do Azure
 
-Em todos os artigos acima, você pode facilmente usar uma imagem existente do Azure para criar uma máquina virtual e personalizá-la para a rede, para balanceamento de carga e muito mais. O portal oferece o Azure Marketplace para imagens fornecidas pelo Azure. Você pode obter listas semelhantes usando a linha de comando. Por exemplo, na CLI do Azure, execute `azure vm image list` para obter uma lista de todas as imagens disponíveis, por local e editor. Confira [Navegar e selecionar imagens da máquinas virtuais do Azure com a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md).
+Em todos os artigos acima, você pode facilmente usar uma imagem existente do Azure para criar uma máquina virtual e personalizá-la para a rede, para balanceamento de carga e muito mais. O portal oferece o Azure Marketplace para imagens fornecidas pelo Azure. Você pode obter listas semelhantes usando a linha de comando. Por exemplo, na CLI do Azure, execute `azure vm image list` para obter uma lista de todas as imagens disponíveis, por local e editor. Consulte [Navegar e selecionar imagens da máquina virtual do Azure com a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md).
 
 ### Usar sua própria imagem
 
@@ -63,8 +61,8 @@ Use uma imagem com base em uma máquina virtual do Azure existente *capturando* 
 
 ## Próximas etapas
 
-* Experimente um dos tutoriais para criar uma VM do Linux por meio do [portal](virtual-machines-linux-portal-create.md), com a [CLI](virtual-machines-linux-quick-create-cli.md) ou usando um [modelo](virtual-machines-linux-cli-deploy-templates.md) do Azure Resource Manager.
+* Experimente um dos tutoriais para criar uma VM do Linux por meio do [portal](virtual-machines-linux-portal-create.md), com a [CLI](virtual-machines-linux-quick-create-cli.md) ou usando um modelo do [Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md).
 
-* Após criar uma VM do Linux, você pode facilmente [adicionar um disco de dados](virtual-machines-linux-add-disk.md).
+* Após criar uma VM do Linux, você poderá [adicionar um disco de dados](virtual-machines-linux-add-disk.md) facilmente.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

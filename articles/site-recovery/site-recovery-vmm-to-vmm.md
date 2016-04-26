@@ -38,9 +38,9 @@ A figura abaixo mostra os canais de comunicação e as portas diferentes usados 
 
 Verifique se estes pré-requisitos estão em vigor:
 
-**Pré-requisitos** | **Detalhes** 
+**Pré-requisitos** | **Detalhes**
 --- | ---
-**As tabelas**| Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site. 
+**As tabelas**| Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site.
 **VMM** | Será necessário pelo menos um servidor do VMM.<br/><br/>O servidor deve executar pelo menos o System Center 2012 SP1 com as últimas atualizações cumulativas.<br/><br/>Se quiser configurar a proteção com um único servidor do VMM, precisará de pelo menos duas nuvens configuradas no servidor.<br/><br/>Se quiser implantar a proteção com dois servidores VMM, cada servidor precisará ter no mínimo uma nuvem configurada no servidor VMM primário que deseja proteger e uma nuvem configurada no servidor VMM secundário que deseja usar para proteção e recuperação<br/><br/>Todas as nuvens do VMM precisam ter o conjunto de perfis de Capacidade do Hyper-V.<br/><br/>A nuvem de origem que você quer proteger deve conter um ou mais grupos de hosts do VMM.<br/><br/>Saiba mais sobre a configuração de nuvens do VMM em [Passo a passo: Criando nuvens privadas com o System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) no blog de Keith Mayer.
 **Hyper-V** | Você precisará de um ou mais servidores de host do Hyper-V nos grupos de hosts do VMM primários e secundários e de uma ou mais máquinas virtuais em cada servidor de host do Hyper-V.<br/><br/>Os servidores do Hyper-V de host e de destino devem executar pelo menos o Windows Server 2012 com a função Hyper-V e ter as atualizações mais recentes instaladas.<br/><br/>Qualquer servidor do Hyper-V com VMs que você deseja proteger deve estar localizado em uma nuvem do VMM.<br/><br/>Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente caso tenha um cluster baseado em endereços IP estáticos. Você precisará configurar o agente de cluster manualmente. [Saiba mais](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) na entrada do blog de Aidan Finn.
 **Mapeamento de rede** | Você pode definir o mapeamento de rede para assegurar que as máquinas virtuais de réplica sejam colocadas da melhor forma possível em servidores host Hyper-V secundários após o failover e que possam se conectar às redes VM apropriadas. Se você não configurar a réplica de mapeamento de rede, as VMs não serão conectadas a nenhuma rede após o failover.<br/><br/>Para configurar o mapeamento de rede durante a implantação, certifique-se de que as máquinas virtuais no servidor host Hyper-V de origem estejam conectadas a uma rede VM do VMM. Essa rede deve estar vinculada a uma rede lógica associada à nuvem.<br/<br/>A nuvem de destino no servidor do VMM secundário que você usar para recuperação deverá ter uma rede VM correspondente configurada, que, por sua vez, deverá estar vinculada a uma rede lógica correspondente associada à nuvem de destino.<br/><br/>[Saiba mais](site-recovery-network-mapping.md) sobre o mapeamento de rede.
@@ -73,7 +73,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 	![Ícone de Inicialização Rápida](./media/site-recovery-vmm-to-vmm/quick-start-icon.png)
 
-2. Na lista suspensa, selecione **Entre dois sites Hyper-V no local**.
+2. Na lista suspensa, escolha **Entre dois sites de VMM locais**.
 3. Em **Preparar Servidores VMM**, clique em **Gerar arquivo de chave de registro**. O arquivo de chave é gerado automaticamente e é válido por cinco dias após ter sido gerado. Se não estiver acessando o portal do Azure por meio do servidor VMM, você precisará copiar esse arquivo para o servidor.
 
 	![Chave de Registro](./media/site-recovery-vmm-to-vmm/register-key.png)
@@ -82,8 +82,9 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 4. Na página **Início Rápido**, em **Preparar servidores VMM**, clique **Baixar o Provedor de Recuperação de Site do Microsoft Azure para instalação nos servidores VMM** para obter a versão mais recente do arquivo de instalação do Provedor.
 
-2. Execute esse arquivo no servidor VMM de origem. Se o VMM for implantado em um cluster e você estiver instalando o Provedor pela primeira vez, instale-o em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre. Em seguida, instale o Provedor nos outros nós. Observe que, se estiver atualizando o Provedor você precisará fazer a atualização em todos os nós porque todos eles devem estar executando a mesma versão do Provedor.
+2. Execute esse arquivo no servidor VMM de origem.
 
+	>[AZURE.NOTE] Se o VMM for implantado em um cluster e você estiver instalando o Provedor pela primeira vez, instale-o em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre. Em seguida, instale o Provedor nos outros nós. Observe que, se estiver atualizando o Provedor você precisará fazer a atualização em todos os nós porque todos eles devem estar executando a mesma versão do Provedor.
 
 3. O Instalador faz algumas **Verificações de Pré-requisitos** e solicita permissão para interromper o serviço VMM para iniciar a instalação do Provedor. O Serviço VMM será reiniciado automaticamente quando a instalação for finalizada. Se estiver instalando em um cluster do VMM, você deverá parar a função de Cluster.
 
@@ -95,7 +96,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 	![InstallLocation](./media/site-recovery-vmm-to-vmm/install-location.png)
 
-6. Após o Provedor ser instalado, clique em **Registrar** para registrar o servidor no cofre.
+6. Após a instalação do Provedor, clique em **Registrar** para registrar o servidor no cofre.
 
 	![InstallComplete](./media/site-recovery-vmm-to-vmm/install-complete.png)
 
@@ -106,11 +107,11 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 	- Se quiser usar um proxy personalizado, você deverá configurá-lo antes de instalar o provedor. Quando você definir as configurações personalizadas de proxy, será executado um teste para verificar a conexão proxy.
 	- Se usar um proxy personalizado ou se seu proxy padrão exigir autenticação, você precisará inserir os detalhes do proxy, incluindo a porta e o endereço do proxy.
 	- As URLs a seguir devem estar acessíveis no servidor do VMM e nos hosts Hyper-V
-		- **.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
+        - *.hypervrecoverymanager.windowsazure.com
+        - *.accesscontrol.windows.net
+        - *.backup.windowsazure.com
+        - *.blob.core.windows.net
+        - *.store.core.windows.net
 	- Permita os endereços IP descritos em [Intervalos de IP do armazenamento de dados do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e o protocolo HTTPS (443). Você teria que fazer uma lista de intervalos IP válidos da região do Azure que você planeja usar e do oeste dos EUA.
 	- Se você usar um proxy personalizado, uma conta RunAs VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações da conta RunAs VMM podem ser modificadas no console do VMM. Para fazer isso, abra o espaço de trabalho **Configurações**, expanda **Segurança**, clique em **Executar como Contas**e modifique a senha de DRAProxyAccount. Você precisará reiniciar o serviço VMM para que essa configuração entre em vigor.
 
@@ -125,7 +126,7 @@ Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recov
 
 11.  Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
 12.  Em **Sincronizar metadados de nuvem**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor do VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
- 
+
 	![Registros do servidor](./media/site-recovery-vmm-to-vmm/friendly-name.png)
 
 13.  Clique em **Avançar** para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia **Servidores VMM** da página **Servidores** no cofre.
@@ -188,7 +189,7 @@ Depois que os servidores VMM são registrados, você pode definir as configuraç
 11. Em **Método de replicação**, especifique como a replicação inicial de dados de locais de origem para destino será tratada, antes de iniciar a replicação normal:
 
 	- **Pela rede**- Copiando dados pela rede pode ser demorado e consumir muitos recursos. É recomendável usar essa opção se a nuvem contiver máquinas virtuais com discos rígidos virtuais relativamente pequenos e se o site primário estiver conectado ao site secundário por uma conexão com largura de banda ampla. Você pode especificar que a cópia deve iniciar imediatamente ou selecionar uma hora. Se você usar a replicação de rede, recomendamos que você agende fora dos horários de pico.
-	- **Offline**- Esse método especifica que a replicação inicial será executada usando mídia externa. É útil se você deseja evitar a degradação no desempenho da rede ou para locais geograficamente remotos. Para usar esse método, você especifica o local de exportação na nuvem de origem e o local de importação na nuvem de destino. Ao ativar a proteção de uma máquina virtual, o disco rígido virtual é copiado para o local de exportação especificado. Você envia para o local de destino e copia para o local de importação. O sistema copia as informações importadas para as máquinas virtuais de réplica. 
+	- **Offline**- Esse método especifica que a replicação inicial será executada usando mídia externa. É útil se você deseja evitar a degradação no desempenho da rede ou para locais geograficamente remotos. Para usar esse método, você especifica o local de exportação na nuvem de origem e o local de importação na nuvem de destino. Ao ativar a proteção de uma máquina virtual, o disco rígido virtual é copiado para o local de exportação especificado. Você envia para o local de destino e copia para o local de importação. O sistema copia as informações importadas para as máquinas virtuais de réplica.
 
 12. Selecione **Excluir Máquina Virtual de Réplica** para especificar que a máquina virtual de réplica deve ser excluída se você parar de proteger a máquina virtual ao selecionar a opção **Excluir proteção para a máquina virtual** na guia Máquinas Virtuais das propriedades da nuvem. Com esta configuração habilitada, quando você desabilita a proteção, a máquina virtual é removida da Recuperação de Site do Azure, as configurações da Recuperação de Site para a máquina virtual são removidas no console VMM, e a réplica é excluída.
 
@@ -252,7 +253,7 @@ Depois de redes, servidores e nuvens estarem configurados corretamente, você po
 3. Acompanhe o progresso da ação Habilitar Proteção na guia **Trabalhos**, incluindo a replicação inicial. Após o trabalho de Finalizar Proteção ser executado, a máquina virtual está pronta para failover. Após a proteção estar habilitada e as máquinas virtuais serem replicadas, você será capaz de visualizá-los no Azure.
 
 	![Trabalho de proteção da máquina virtual](./media/site-recovery-vmm-to-vmm/vm-jobs.png)
-	
+
 >[AZURE.NOTE] Também é possível habilitar a proteção para máquinas virtuais no console do VMM. Clique em **Habilitar Proteção** na barra de ferramentas na guia do **Azure Site Recovery** nas propriedades da máquina virtual.
 
 ### Integrar máquinas virtuais existentes
@@ -311,7 +312,7 @@ Execute este script de exemplo para atualizar o DNS especificando o endereço IP
 
 ## Próximas etapas
 
-Depois de executar um failover de teste para verificar se o seu ambiente está funcionando conforme o esperado, [descubra mais sobre](site-recovery-failover.md) diferentes tipos de failover.
+Depois de executar um failover de teste para verificar se o seu ambiente está funcionando conforme o esperado, [saiba mais sobre](site-recovery-failover.md) os diferentes tipos de failover.
 
 
 ## Informações de privacidade para Site Recovery
@@ -375,4 +376,4 @@ O Provedor no servidor VMM é notificado do evento pelo Serviço e executa uma a
 
 - **Escolha**: essa é uma parte essencial do serviço e não pode ser desativada. Se não quiser que essas informações sejam enviadas ao Serviço, não use esse Serviço.
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

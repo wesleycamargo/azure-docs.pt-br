@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Visão geral do Provedor de recursos de rede | Microsoft Azure"
    description="Saiba mais sobre o novo Provedor de recursos de rede no Gerenciador de Recursos do Azure"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -23,9 +23,9 @@ O Gerenciador de Recursos do Azure utiliza diferentes provedores de recursos par
 - **Metadados** – você pode adicionar informações aos recursos usando marcas. Essas marcas podem ser usadas para controlar a utilização de recursos em grupos de recursos e assinaturas.
 - **Maior controle da sua rede** - recursos de rede são flexíveis e você pode controlá-los de forma mais granular. Isso significa que você tem mais flexibilidade no gerenciamento de recursos de rede.
 - **Configuração mais rápida** - já que os recursos de rede são agrupados de modo menos rígido, você pode criar e organizar os recursos de rede em paralelo. Isso reduziu drasticamente o tempo de configuração.
-- **Controle de acesso com base em função** - o RBAC fornece funções padrão, com escopo de segurança específico, além de permitir a criação de funções personalizadas para gerenciamento seguro. 
+- **Controle de acesso com base em função** - o RBAC fornece funções padrão, com escopo de segurança específico, além de permitir a criação de funções personalizadas para gerenciamento seguro.
 - **Gerenciamento e implantação simplificados** - é mais fácil implantar e gerenciar aplicativos, já que você pode criar uma pilha com todo o aplicativo como uma única coleção de recursos em um grupo de recursos. E isso agiliza a implantação, pois você pode implantar simplesmente fornecendo uma carga JSON de modelo.
-- **Personalização rápida** - você pode usar modelos de estilo declarativo para habilitar a personalização repetível e rápida de implantações. 
+- **Personalização rápida** - você pode usar modelos de estilo declarativo para habilitar a personalização repetível e rápida de implantações.
 - **Personalização repetível** - você pode usar modelos de estilo declarativo para habilitar a personalização repetível e rápida de implantações.
 - **Interfaces de gerenciamento** - você pode usar qualquer uma das seguintes interfaces para gerenciar seus recursos:
 	- API baseada em REST
@@ -37,7 +37,7 @@ O Gerenciador de Recursos do Azure utiliza diferentes provedores de recursos par
 	- Portal de Visualização
 	- Idioma do modelo ARM
 
-## Recursos de rede 
+## Recursos de rede
 Agora você pode gerenciar recursos de rede de modo independente, em vez de ter todos eles gerenciados por meio de um recurso de computação único (uma máquina virtual). Isso garante um maior grau de flexibilidade e agilidade em redigir uma infraestrutura complexa e em grande escala em um grupo de recursos.
 
 Uma exibição conceitual de uma implantação de exemplo envolvendo um aplicativo de várias camadas é apresentado a seguir. Cada recurso que você vê, como NICs, endereços IP públicos e VMs, pode ser gerenciado independentemente.
@@ -77,7 +77,7 @@ Você pode verificar as propriedades individuais de recursos nas seções abaixo
 ## Interfaces de gerenciamento
 Você pode gerenciar os recursos de rede do Azure usando interfaces diferentes. Neste documento, vamos nos concentrar em duas dessas interfaces: API REST e modelos.
 
-### API REST 
+### API REST
 Como mencionado anteriormente, os recursos de rede podem ser gerenciados por meio de uma variedade de interfaces, inclusive API REST, o SDK do .NET, SDK do Node.JS, Java SDK, PowerShell, CLI, Portal do Azure e modelos.
 
 A API Rest está de acordo com a especificação do protocolo HTTP 1.1. A estrutura geral do URI da API é apresentada abaixo:
@@ -92,7 +92,7 @@ E os parâmetros entre chaves representam os elementos a seguir:
 
 Os métodos HTTP a seguir têm suporte ao fazer chamadas para a API REST:
 
-- **PUT** - usado para criar um recurso de um determinado tipo, modificar uma propriedade de recurso ou alterar uma associação entre os recursos. 
+- **PUT** - usado para criar um recurso de um determinado tipo, modificar uma propriedade de recurso ou alterar uma associação entre os recursos.
 - **GET** - usado para recuperar informações de um recurso provisionado.
 - **DELETE** - usado para excluir um recurso existente.
 
@@ -138,7 +138,7 @@ O modelo é basicamente uma descrição de JSON os recursos e os valores de inst
 	        "metadata" : {
 	          "Description" : "Address prefix"
 	        }
-	
+
 	      },
 	      "subnet1Name": {
 	        "type" : "string",
@@ -229,9 +229,9 @@ Você tem a opção de fornecer os valores de parâmetro manualmente ao usar um 
 
 As principais vantagens de usar modelos são:
 
-- Você pode criar uma infraestrutura complexa em um grupo de recursos em um estilo declarativo. A orquestração de criação de recursos, incluindo gerenciamento de dependência é manipulada pela ARM. 
-- A infraestrutura pode ser criada de forma repetida por várias regiões e dentro de uma região, simplesmente alterando os parâmetros. 
-- O estilo declarativo resulta em menor tempo de avanço na criação de modelos e implantação da infraestrutura. 
+- Você pode criar uma infraestrutura complexa em um grupo de recursos em um estilo declarativo. A orquestração de criação de recursos, incluindo gerenciamento de dependência é manipulada pela ARM.
+- A infraestrutura pode ser criada de forma repetida por várias regiões e dentro de uma região, simplesmente alterando os parâmetros.
+- O estilo declarativo resulta em menor tempo de avanço na criação de modelos e implantação da infraestrutura.
 
 Para exemplos de modelo, consulte [Modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 
@@ -260,8 +260,8 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 
 [Rede do Azure - modelos usados frequentemente](https://github.com/Azure/azure-quickstart-templates)
 
-[Provedor de recursos de computação](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Provedor de recursos de computação](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
 [Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

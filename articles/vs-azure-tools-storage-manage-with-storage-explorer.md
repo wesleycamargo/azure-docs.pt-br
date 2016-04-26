@@ -158,7 +158,7 @@ Para controlar o acesso aos contêineres de blob, escolha os comandos **Gerencia
 	![][20]
 
 ## Próximas etapas
-Saiba mais sobre os recursos nos serviços de Armazenamento do Azure lendo artigos em [Introdução ao Armazenamento do Microsoft Azure](/storage/storage-introduction.md).
+Saiba mais sobre os recursos nos serviços de Armazenamento do Azure lendo artigos em [Introdução ao Armazenamento do Microsoft Azure](./storage/storage-introduction.md).
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
@@ -182,4 +182,4 @@ Saiba mais sobre os recursos nos serviços de Armazenamento do Azure lendo artig
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0413_2016-->

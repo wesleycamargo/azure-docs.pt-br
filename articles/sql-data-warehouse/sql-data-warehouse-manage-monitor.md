@@ -3,7 +3,7 @@
    description="Aprenda a monitorar sua carga de trabalho usando DMVs."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/29/2016"
+   ms.date="04/12/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitore sua carga de trabalho usando DMVs
@@ -132,6 +132,17 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 - Verifique a coluna *total\_elapsed\_time* para ver se uma distribuição específica está demorando muito mais do que outras para movimentar dados.
 - Para a distribuição de longa execução, verifique a coluna *rows\_processed* para verificar se o número de linhas sendo movidas dessa distribuição é significativamente maior do que outros. Se for o caso, isso poderá indicar distorção de dados subjacentes.
 
+Se a consulta estiver em execução no momento, [DBCC PDW\_SHOWEXECUTIONPLAN][] poderá ser usado para recuperar o plano de execução do SQL Server para a Etapa de DMS em execução no momento para uma distribuição específica.
+
+```sql
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Replace distribution_id and spid with values from previous query.
+
+DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
+
+```
+
+
 ## Investigar distorção de dados
 
 Use [DBCC PDW\_SHOWSPACEUSED][] para consultar o espaço usado por uma tabela.
@@ -143,17 +154,20 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 O resultado dessa consulta lhe mostrará o número de linhas da tabela que são armazenadas em cada uma das 60 distribuições do seu banco de dados. Para ótimo desempenho, as linhas na tabela distribuída devem ser divididas uniformemente em todas as distribuições.
 
-Para saber mais, consulte o [design da tabela][]\:
+Para obter mais informações, consulte o artigo sobre [gerenciar a distorção de dados para tabelas distribuídas][] ou sobre [design de tabela][].
 
 ## Próximas etapas
-Para obter mais informações sobre o Transact-SQL e DMVs (Exibições de Gerenciamento Dinâmico), consulte a [visão geral de referência][]. Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte [visão geral de gerenciamento][].
+Para obter mais informações sobre o Transact-SQL e DMVs (Exibições de Gerenciamento Dinâmico), consulte a [visão geral de referência][]. Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte a [visão geral de gerenciamento][].
 
 <!--Image references-->
 
 <!--Article references-->
 [visão geral de gerenciamento]: sql-data-warehouse-overview-manage.md
-[design da tabela]: sql-data-warehouse-develop-table-design.md
+[design de tabela]: sql-data-warehouse-develop-table-design.md
 [visão geral de referência]: sql-data-warehouse-overview-reference.md
+[gerenciar a distorção de dados para tabelas distribuídas]: sql-data-warehouse-manage-distributed-data-skew.md
+
+<!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm\_pdw\_exec\_requests]: http://msdn.microsoft.com/library/mt203887.aspx
 [sys.dm\_pdw\_exec\_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
@@ -162,6 +176,4 @@ Para obter mais informações sobre o Transact-SQL e DMVs (Exibições de Gerenc
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!--MSDN references-->
-
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

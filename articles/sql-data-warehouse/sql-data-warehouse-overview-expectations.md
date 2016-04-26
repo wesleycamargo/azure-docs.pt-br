@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/12/2016"
-   ms.author="mausher;barbkess;sonyama;nicw"/>
+   ms.date="04/19/2016"
+   ms.author="nicw;barbkess;sonyama"/>
+
 
 # Expectativas de visualização do SQL Data Warehouse
 
@@ -23,7 +24,8 @@ Este artigo descreve os recursos de visualização do SQL Data Warehouse e nossa
 Nossas metas para o SQL Data Warehouse:
 
 - Desempenho previsível e escalabilidade linear até petabytes de dados.
-- Alta disponibilidade para todas as operações de data warehouse com o apoio de um contrato de nível de serviço (SLA, service level agreement).
+- Alta confiabilidade para todas as operações de data warehouse
+- Curto tempo de carregamento de dados para insights de dados em dados relacionais e não relacionais
 
 Nós trabalharemos continuamente visando essas metas antes de promover o SQL Data Warehouse para disponibilidade geral.
 
@@ -36,11 +38,10 @@ Qualquer data warehouse tem duas métricas de desempenho fundamentais:
 - Taxa de carga. O número de registros que podem ser carregadas no data warehouse por segundo. Nós medimos especificamente o número de registros que podem ser importados, via PolyBase, do Armazenamento de Blob do Azure para uma tabela com um Índice de Repositório de Colunas Clusterizado.
 - Taxa de varredura. O número de registros que podem ser recuperados em sequência do data warehouse por segundo. Nós medimos especificamente o número de registros retornados por uma consulta em um Índice de Repositório de Colunas Clusterizado.
 
-
 Nós estamos medindo alguns importantes aprimoramentos de desempenho e em breve compartilharemos as taxas esperadas. Durante a visualização, faremos aprimoramentos contínuos (por exemplo, aumentar a compactação e o armazenamento em cache) para aumentar essas taxas e garantir que eles sejam dimensionados de maneira previsível.
 
 
-## Alta confiabilidade apoiado por um SLA
+## Alta confiabilidade
 
 ### Proteção de dados
 
@@ -59,6 +60,11 @@ Os instantâneos são copiados de modo assíncrono para uma região remota do Az
 O SQL Data Warehouse armazena dados em um ou mais nós de computação, e cada um desses nós armazena alguns dados do usuário e controla a execução da consulta nesses dados. Como parte da arquitetura do processamento altamente paralelo (MPP, massively parallel processing), as consultas são executadas em paralelo em todos os nós de computação. O SQL Data Warehouse detecta e reduz as falhas de nó de computação automaticamente. No entanto, durante a visualização, uma operação (por exemplo, a consulta ou o carregamento de dados) pode falhar devido a falhas de nós individuais. Durante a visualização, estamos fazendo aprimoramentos contínuos para concluir com êxito as operações independentemente de falhas de nó.
 
 
+### Atualizações e tempo de inatividade
+
+Durante a visualização, o SQL Data Warehouse será atualizado periodicamente para adicionar novos recursos e instalar correções críticas. Essas atualizações podem causar interrupção e, neste momento, as atualizações não são executadas em uma programação previsível. Se você achar que esse processo causa muita interrupção, incentivamos você a [criar um tíquete de suporte][] para que possamos ajudar a contornar esse processo.
+
+
 ## Próximas etapas
 
 [Introdução][] com visualização pública.
@@ -72,4 +78,4 @@ O SQL Data Warehouse armazena dados em um ou mais nós de computação, e cada u
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

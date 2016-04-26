@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="04/07/2016"
      ms.author="dobett"/>
 
 # Criar um Hub IoT usando PowerShell
@@ -58,7 +58,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 Use um modelo JSON para criar um novo hub IoT em seu grupo de recursos. Você também pode usar um modelo para fazer alterações em um hub IoT existente.
 
-1. Use um editor de texto para criar um modelo ARM chamado **template.json** com a seguinte definição de recurso a fim de criar um novo Hub IoT padrão. Este exemplo adiciona o Hub IoT na região **Leste dos EUA** e usa a versão **2016-02-03** da API. Esse modelo também espera que você passe o nome do Hub IoT como um parâmetro chamado **hubName**.
+1. Use um editor de texto para criar um modelo ARM chamado **template.json** com a seguinte definição de recurso a fim de criar um novo Hub IoT padrão. Este exemplo adiciona o Hub IoT à região **Leste dos EUA**, cria dois grupos de consumidores (**cg1** e **cg2**) no ponto de extremidade compatível com o Hub de Eventos e usa a versão de API **2016-02-03**. Esse modelo também espera que você passe o nome do Hub IoT como um parâmetro chamado **hubName**.
 
     ```
     {
@@ -83,6 +83,22 @@ Use um modelo JSON para criar um novo hub IoT em seu grupo de recursos. Você ta
         "properties": {
           "location": "East US"
         }
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg1')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
+      },
+      {
+        "apiVersion": "2016-02-03",
+        "type": "Microsoft.Devices/IotHubs/eventhubEndpoints/ConsumerGroups",
+        "name": "[concat(parameters('hubName'), '/events/cg2')]",
+        "dependsOn": [
+          "[concat('Microsoft.Devices/Iothubs/', parameters('hubName'))]"
+        ]
       }
       ],
       "outputs": {
@@ -96,7 +112,7 @@ Use um modelo JSON para criar um novo hub IoT em seu grupo de recursos. Você ta
 
 2. Salve o arquivo de modelo em seu computador local. Este exemplo pressupõe que você irá salvá-lo em uma pasta chamada **c:\\templates**.
 
-3. Execute o seguinte comando para implantar seu novo Hub IoT, passando o nome de seu Hub IoT como um parâmetro. Neste exemplo, o nome do Hub IoT é **myiothub**:
+3. Execute o seguinte comando para implantar seu novo Hub IoT, passando o nome de seu Hub IoT como um parâmetro. Neste exemplo, o nome do Hub IoT é **myiothub** (observe que esse nome precisa ser globalmente exclusivo).
 
     ```
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName myiothub
@@ -106,7 +122,7 @@ Use um modelo JSON para criar um novo hub IoT em seu grupo de recursos. Você ta
 
 5. Você pode verificar se o seu aplicativo adicionou o novo hub IoT visitando o [portal][lnk-azure-portal] e exibindo sua lista de recursos ou usando o cmdlet **Get-AzureRmResource** do PowerShell.
 
-> [AZURE.NOTE] Este aplicativo de exemplo adiciona um IoT Hub de padrão S1 pelo qual você será cobrado. É possível excluir o hub IoT por meio do [portal][lnk-azure-portal] ou usando o cmdlet **Remove-AzureRmResource** do PowerShell quando tiver terminado.
+> [AZURE.NOTE] Este aplicativo de exemplo adiciona um IoT Hub de padrão S1 pelo qual você será cobrado. É possível excluir o hub IoT por meio do [portal][lnk-azure-portal] ou usando o cmdlet **Remove-AzureRmResource**do PowerShell quando tiver terminado.
 
 ## Próximas etapas
 
@@ -123,4 +139,4 @@ Agora que você implantou um Hub IoT usando um modelo ARM com PowerShell, convé
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0413_2016-->

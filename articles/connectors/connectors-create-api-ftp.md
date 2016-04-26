@@ -22,7 +22,7 @@ Conecte-se a um servidor FTP para gerenciar seus arquivos, incluindo carregar, e
 
 - Aplicativos lógicos
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Conector do FTP](../app-service-logic/app-service-logic-connector-ftp.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o FTP, você pode:
 
@@ -30,7 +30,7 @@ Com o FTP, você pode:
 - Use um gatilho quando um arquivo for atualizado.
 - Use ações para criar arquivos, obter o conteúdo do arquivo e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter o conteúdo de um arquivo e então atualizar um banco de dados SQL. 
 
-Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Gatilhos e ações
@@ -38,7 +38,7 @@ O FTP tem os seguintes gatilhos e ações disponíveis.
 
 Gatilhos | Ações
 --- | ---
-<ul><li>Obtém um arquivo atualizado</li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Obter um arquivo atualizado</li><li>Atualizar arquivo</li></ul>
+<ul><li>Obtém um arquivo atualizado</li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados de arquivo</li><li>Obter metadados de arquivo usando o caminho</li><li>Obtém um arquivo atualizado</li><li>Atualizar arquivo</li></ul>
 
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
@@ -51,7 +51,7 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 |Nome de usuário| Sim | Insira o nome de usuário para se conectar ao Servidor FTP.|
 |Senha | Sim | Insira a senha do nome de usuário.|
 
-Depois de criar a conexão, insira as propriedades do FTP, como o arquivo de origem ou a pasta de destino. A **referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do FTP, como o arquivo de origem ou a pasta de destino. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do FTP em outros aplicativos lógicos.
 
@@ -247,4 +247,4 @@ Atualiza um arquivo no servidor FTP.```PUT: /datasets/default/files/{id}```
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

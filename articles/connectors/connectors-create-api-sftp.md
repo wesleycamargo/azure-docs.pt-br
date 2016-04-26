@@ -22,7 +22,7 @@ Conecte-se a um servidor SFTP para gerenciar seus arquivos. Você pode realizar 
 
 - Aplicativos lógicos
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do SFTP](../app-service-logic/app-service-logic-connector-sftp.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o SFTP, você pode:
 
@@ -30,7 +30,7 @@ Com o SFTP, você pode:
 - Usar um gatilho quando um arquivo for atualizado.
 - Usar ações para criar arquivos, excluí-los e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter o conteúdo de um arquivo e então atualizar um banco de dados SQL. 
 
-Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Gatilhos e ações
@@ -38,7 +38,7 @@ A API do SFTP tem os gatilhos e as ações disponíveis a seguir.
 
 Gatilhos | Ações
 --- | ---
-<ul><li>Quando um arquivo é criado ou modificado </li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é criado ou modificado </li></ul>
+<ul><li>Quando um arquivo é criado ou modificado </li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter o conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é criado ou modificado </li></ul>
 
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
@@ -51,7 +51,7 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 |Endereço do Servidor Host| Sim | Insira o FQDN (domínio totalmente qualificado) ou o endereço IP do servidor SFTP.|
 |Nome de usuário| Sim | Insira o nome de usuário para se conectar ao Servidor SFTP.|
 |Senha | Sim | Insira a senha do nome de usuário.|
-|Impressão Digital da Chave de Host do Servidor SSH | Sim | Insira a impressão digital da chave pública de host para o servidor SSH. <br/><br/>Normalmente, o administrador do servidor pode dar essa chave a você. Também é possível usar as ferramentas ```WinSCP``` ou ```ssh-keygen-g3 -F``` para obter a impressão digital da chave. | 
+|Impressão Digital da Chave de Host do Servidor SSH | Sim | Insira a impressão digital da chave pública de host para o servidor SSH. <br/><br/>Normalmente, o administrador do servidor pode dar a você essa chave. Você também pode usar as ferramentas ```WinSCP``` ou ```ssh-keygen-g3 -F``` para obter a impressão digital da chave. | 
 
 Depois de criar a conexão, insira as propriedades do SFTP, como o caminho da pasta ou o arquivo. A **referência da API REST** neste tópico descreve essas propriedades.
 
@@ -250,4 +250,4 @@ Dispara um fluxo quando um arquivo é modificado no SFTP.```GET: /datasets/defau
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

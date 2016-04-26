@@ -133,7 +133,7 @@ Correção:
 
 ## <a name="q03"></a> Nenhum dado do servidor (ou nenhum dado)
 
-*Executei meu aplicativo e, em seguida, abri o serviço Application Insights no Microsoft Azure, mas todos os gráficos mostram “Saiba como coletar...” ou “Não configurado”.* Ou *somente Exibição de Página e dados de usuário, mas nenhum dado do servidor.*
+* Executei meu aplicativo e, em seguida, abri o serviço Application Insights no Microsoft Azure, mas todos os gráficos mostram “Saiba como coletar...” ou “Não configurado”.* Ou *somente Exibição de Página e dados de usuário, mas nenhum dado do servidor.*
 
 + Execute seu aplicativo em modo de depuração no Visual Studio (F5). Use o aplicativo para gerar alguma telemetria. Verifique se você pode ver os eventos registrados na janela de saída do Visual Studio. 
 
@@ -167,6 +167,12 @@ Os dados vêm de scripts nas páginas da Web.
 
 Confira [telemetria de dependência](app-insights-asp-net-dependencies.md) e [telemetria de exceção](app-insights-asp-net-exceptions.md).
 
+## Nenhum dado de desempenho
+
+Há dados de desempenho (CPU, taxa de E/S etc) disponíveis para [Serviços Web Java](app-insights-java-collectd.md), [aplicativos da área de trabalho do Windows](app-insights-windows-desktop.md), [aplicativos Web e serviços IIS se você instalar o monitor de status](app-insights-monitor-performance-live-website-now.md) e [Serviços de Nuvem do Azure](app-insights-azure.md). Encontre-as em Configurações, Servidores.
+
+Esses dados não estão disponíveis para sites do Azure.
+
 ## Nenhum dado (servidor) desde que publiquei o aplicativo no servidor
 
 + Verifique que você copiou todos da Microsoft. DLLs do ApplicationInsights no servidor, junto com Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
@@ -199,4 +205,4 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 
 * [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/pt-BR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

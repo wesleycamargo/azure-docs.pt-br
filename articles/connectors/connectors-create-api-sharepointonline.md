@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 O provedor de conexão do SharePoint fornece uma API para trabalhar com as Listas do SharePoint.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [SharePoint](../app-service-logic/app-service-logic-connector-SharePoint.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o SharePoint, você pode:
 
@@ -66,7 +66,7 @@ Você pode escutar estes eventos:
 
 
 ## Criar uma conexão com o SharePoint
-Para usar a API do SharePoint, crie primeiro uma **conexão** e então forneça os detalhes dessas propriedades:
+Para usar a API do SharePoint, crie primeiro uma **conexão** e, então, forneça os detalhes dessas propriedades:
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
@@ -76,9 +76,11 @@ Para se conectar ao **SharePoint Online**, você precisa fornecer sua identidade
 
 No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e criar a conexão **conexão** para uso em seu aplicativo lógico:
 
-1. Insira SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome: ![Configurar o SharePoint][1]  
-2. Selecione **SharePoint Online, Quando um arquivo é criado**   
-3. Selecione **Entrar no SharePoint Online**: ![Configurar o SharePoint][2]    
+1. Digite SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome:
+![Configurar o SharePoint][1]  
+2. Selecione **SharePoint Online - Quando um arquivo é criado**   
+3. Selecione **Entrar no SharePoint Online**:
+![Configurar o SharePoint][2]    
 4. Forneça suas credenciais do SharePoint para entrar e se autenticar com o SharePoint ![Configurar o SharePoint][3]     
 5. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração do diálogo **Quando um arquivo é criado** do SharePoint.![Configurar o SharePoint][4]  
 6. Em seguida, é possível adicionar outros gatilhos e outras ações necessárias para concluir seu aplicativo lógico.   
@@ -97,7 +99,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
 
 
@@ -118,7 +120,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
 |corpo| |sim|corpo|nenhum|O conteúdo do arquivo|
 
@@ -140,7 +142,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
 
 
@@ -161,7 +163,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |path|string|sim|query|nenhum|Caminho do arquivo|
 
 
@@ -182,7 +184,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |path|string|sim|query|nenhum|Caminho do arquivo|
 
 
@@ -203,7 +205,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |ID|string|sim|path|nenhum|Identificador exclusivo do arquivo|
 
 
@@ -224,7 +226,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |folderPath|string|sim|query|nenhum|O caminho para a pasta|
 |name|string|sim|query|nenhum|Nome do arquivo|
 |corpo| |sim|corpo|nenhum|O conteúdo do arquivo|
@@ -247,7 +249,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |fonte|string|sim|query|nenhum|Caminho para o arquivo de origem|
 |destino|string|sim|query|nenhum|Caminho para o arquivo de destino|
 |substituir|booleano|não|query|false|Se deseja ou não substituir um arquivo existente|
@@ -312,7 +314,7 @@ No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
-|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo, http://contoso.sharepoint.com/sites/mysite|
+|dataset|string|sim|path|nenhum|URL do site do SharePoint. Por exemplo http://contoso.sharepoint.com/sites/mysite|
 |fonte|string|sim|query|nenhum|Caminho para o arquivo de origem|
 |destino|string|sim|query|nenhum|Caminho para a pasta de destino|
 |substituir|booleano|não|query|false|Se deseja ou não substituir um arquivo existente|
@@ -701,4 +703,4 @@ Nenhuma das propriedades é obrigatória.
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

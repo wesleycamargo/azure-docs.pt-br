@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="get-started-article"
-    ms.date="02/12/2016"
+    ms.date="04/14/2016"
     ms.author="andkjell"/>
 
 # Topologias para o Azure AD Connect
@@ -110,6 +110,8 @@ Em uma topologia de floresta de conta-recurso, você tem uma ou mais florestas d
 
 Este cenário inclui uma floresta que confia em todas as florestas de conta. Essa floresta normalmente tem um esquema do AD estendido com o Exchange e o Lync. Todos os serviços do Exchange e do Lync, bem como outros serviços compartilhados, estão localizados nessa floresta. Os usuários têm uma conta de usuário desabilitada nesta floresta e a caixa de correio está vinculada à floresta da conta.
 
+Também há suporte ao uso de várias florestas de recursos. Esse pode ser o estado após uma fusão. Espera-se que um usuário tenha apenas uma conta desabilitada em uma floresta de recursos.
+
 ## Office 365 e considerações de topologia
 Algumas cargas de trabalho do Office 365 têm certas restrições a topologias com suporte. Se você planeja usar qualquer um desses, consulte as páginas de topologias com suporte de cada carga de trabalho.
 
@@ -147,7 +149,10 @@ Nessa topologia, um servidor do AAD Connect Sync está conectado a cada diretór
 
 Nessa topologia não há nenhum “GALsync” entre as instâncias de diretório do AD do Azure, por isso o catálogo de endereços no Exchange Online e Skype for Business mostrará apenas os usuários no mesmo diretório.
 
-Com esta topologia, apenas um dos diretórios do AD do Azure pode habilitar Exchange híbridos com o Active Directory local.
+Essa topologia tem as seguintes restrições aos cenários que, caso contrário, têm suporte:
+
+- Apenas um dos diretórios do AD do Azure pode habilitar o Exchange híbrido com o Active Directory local.
+- Os dispositivos Windows 10 só podem ser associados a um diretório do AD do Azure.
 
 O requisito para um conjunto de objetos mutuamente exclusivo também se aplica ao write-back. Isso faz com que alguns recursos de write-back não tenham suporte com esta topologia, pois eles supõem a existência de uma única configuração local. Isso inclui:
 
@@ -177,4 +182,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

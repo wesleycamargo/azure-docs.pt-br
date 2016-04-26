@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.workload="identity" 
+    ms.workload="identity"
 	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
@@ -25,9 +25,10 @@ Quando uma organização está projetando sua solução de identidade híbrida, 
 - Autorização
 - Auditoria
 
-As seções a seguir abordarão a autenticação e a autorização com mais detalhes; a administração e a auditoria são parte do ciclo de vida da identidade híbrida. Leia [Determinar as tarefas de gerenciamento de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) para saber mais sobre esses recursos.
+As seções a seguir abordarão a autenticação e a autorização com mais detalhes; a administração e a auditoria são parte do ciclo de vida da identidade híbrida. Leia [Determinar as tarefas de gerenciamento de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) para saber mais sobre esses recursos.
 
->[AZURE.NOTE]Leia [Os quatro pilares da identidade - gerenciamento de identidade na era da TI híbrida](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para saber mais sobre cada um desses pilares.
+>[AZURE.NOTE]
+Leia [Os quatro pilares da identidade - gerenciamento de identidade na era da TI híbrida](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para saber mais sobre cada um desses pilares.
 
 ## Autenticação e autorização
 Há cenários diferentes para autenticação e autorização; esses cenários terão requisitos específicos que devem ser atendidos pela solução de identidade híbrida que a empresa adotar. Cenários que envolvem a comunicação entre empresas (B2B) podem representar um desafio adicional para administradores de TI, pois estes precisam garantir que os métodos de autenticação e autorização usados pela organização possam se comunicar com seus parceiros comerciais. Durante o processo de criação de requisitos de autenticação e autorização, verifique se as seguintes perguntas são respondidas:
@@ -37,7 +38,9 @@ Há cenários diferentes para autenticação e autorização; esses cenários te
  - Se sim, você já sabe quais protocolos (SAML, OAuth, Kerberos, Tokens ou Certificados) serão usados para conectar as duas empresas?
 - A solução de identidade híbrida que vocês vão adotar dá suporte a esses protocolos?
 
-Outro ponto importante a considerar é onde o repositório de autenticação que será usado pelos usuários e parceiros estará localizado e o modelo administrativo que será usado. Considere as seguintes duas principais opções: - Centralizado: neste modelo, as credenciais do usuário, as políticas e a administração podem ser centralizadas no local ou na nuvem. -Híbrido: neste modelo, as credenciais do usuário, as políticas e a administração podem ser centralizadas no local e replicadas na nuvem.
+Outro ponto importante a considerar é onde o repositório de autenticação que será usado pelos usuários e parceiros estará localizado e o modelo administrativo que será usado. Considere as duas opções principais a seguir:
+- Centralizado: nesse modelo, as políticas, a administração e as credenciais do usuário podem ser centralizadas localmente ou na nuvem.
+- Híbrido: nesse modelo, as políticas, a administração e as credenciais do usuário serão centralizadas localmente e replicadas na nuvem.
 
 Qual modelo sua organização adotará vai variar de acordo com suas necessidades de negócios. Responda às seguintes perguntas para identificar onde residirá o sistema de gerenciamento de identidade e o modo de uso administrativo:
 
@@ -53,14 +56,15 @@ Embora a autenticação e a autorização sejam os principais elementos para hab
 - Sua empresa tem mais de um usuário com privilégio elevado para gerenciar seu sistema de identidade?
  - Em caso afirmativo, cada usuário precisa do mesmo nível de acesso?
 - Sua empresa precisa delegar acesso aos usuários para gerenciar recursos específicos?
- - Em caso afirmativo, com que frequência isso acontece? 
+ - Em caso afirmativo, com que frequência isso acontece?
 - Sua empresa precisa integrar os recursos de controle de acesso entre recursos locais e na nuvem?
 - Sua empresa precisa limitar o acesso aos recursos de acordo com algumas condições?
 - Sua empresa tem qualquer aplicativo que precise acessar alguns recursos de controle de acesso personalizado?
  - Em caso afirmativo, onde estão localizados os aplicativos (no local ou na nuvem)?
  - Em caso afirmativo, onde estão localizados os recursos de destino (no local ou na nuvem)?
- 
->[AZURE.NOTE]Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
+
+>[AZURE.NOTE]
+Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Definir a estratégia de proteção de dados](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) abordará as opções disponíveis e as vantagens/desvantagens de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades de sua empresa.
 
 ## Próximas etapas
 
@@ -69,4 +73,4 @@ Embora a autenticação e a autorização sejam os principais elementos para hab
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0413_2016-->

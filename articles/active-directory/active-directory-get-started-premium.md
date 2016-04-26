@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="04/18/2016"
 	ms.author="markvi"/>
 
 # Introdução ao Active Directory Premium do Azure
@@ -23,9 +23,16 @@ O Active Directory do Azure é oferecido em três edições: Gratuito, Basic e P
 > [AZURE.NOTE]
 As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-O Azure Active Directory Premium também está incluído na **Enterprise Mobility Suite**. A Enterprise Mobility Suite é um modo econômico para as organizações usarem o Microsoft Intune, o Azure Rights Management e o Active Directory Premium juntos em um único plano de licenciamento. Para obter mais informações, consulte o site [Enterprise Mobility Suite](https://www.microsoft.com/pt-BR/server-cloud/enterprise-mobility/overview.aspx).
+O Azure Active Directory Premium também está incluído na **Enterprise Mobility Suite**. O Enterprise Mobility Suite é uma maneira econômica para as organizações usarem os serviços a seguir em conjunto sob um plano de licenciamento.
 
-Para começar a usar os recursos do Active Directory Premium do Azure hoje, siga as etapas abaixo. As mesmas etapas aplicam-se à edição Basic do Active Directory do Azure.
+- Active Directory Premium 
+- Azure Rights Management
+- Microsoft Intune
+
+
+Para obter mais informações, consulte o site [Enterprise Mobility Suite](https://www.microsoft.com/pt-BR/server-cloud/enterprise-mobility/overview.aspx).
+
+Para começar a usar os recursos do Azure Active Directory Premium hoje, siga as etapas das próximas seções. As mesmas etapas também se aplicam à edição Basic do Azure Active Directory.
 
 ## Etapa 1: inscrever-se no Active Directory Premium do Azure
 
@@ -33,47 +40,54 @@ Para se inscrever, consulte o site [Licenciamento por Volume](http://www.microso
 
 ## Etapa 2: ativar seu plano de licença
 
-Se esta for a primeira vez que você comprou um plano de licença pelo programa de licenciamento por volume corporativo da Microsoft, você precisará primeiro ativar seu plano de licença antes que possa começar a atribuir licenças de dentro de seu diretório do Active Directory do Azure. Para fazer isso, você deve clicar em um dos links Inscrever-se ou Entrar encontrados no email de confirmação (veja abaixo) que você receberá após concluir sua primeira compra de plano de licença. Em qualquer compra subsequente para esse diretório, as licenças serão automaticamente ativadas no mesmo diretório.
+Quando sua primeira compra de plano de licença por meio do programa de Licenciamento por Volume Enterprise da Microsoft tiver sido concluída, você receberá um email de confirmação. Você precisará desse email para ativar seu primeiro plano de licença. Em qualquer compra subsequente para esse diretório, as licenças são automaticamente ativadas no mesmo diretório.
+
+Para iniciar a ativação, clique em **Entrar** ou em **Inscrever-se**.
+
 
 ![][1]
 
-Se você tiver um locatário existente, selecione o link **Entrar** para entrar com sua conta de administrador existente. É importante que você entre com as credenciais de administrador global do diretório onde as licenças devem ser ativadas.
+Se você tiver um locatário existente, clique em **Entrar** para entrar com sua conta de administrador existente. É importante que você entre com as credenciais de administrador global do diretório onde as licenças devem ser ativadas.
 
-Se você deseja criar um novo locatário do Active Directory do Azure para usar com seu plano de licenciamento, você deve selecionar o link **Inscrever-se** que o levará para a tela a seguir.
+Se você quiser criar um novo locatário do Azure Active Directory para usar com seu plano de licenciamento, clique em **Inscrever-se** para abrir o diálogo **Criar Perfil de Conta**.
 
 ![][2]
 
-Quando você terminar o processo de inscrição ou o processo de entrada que começou a partir do email, você verá a tela a seguir confirmando que o plano de licença está sendo ativado para seu locatário.
+Quando terminar, o diálogo a seguir será mostrado como a confirmação da ativação do plano de licença para seu locatário.
 
 ![][3]
 
 ## Etapa 3: ativar o acesso ao Active Directory do Azure
 
-Depois que as licenças estiverem provisionadas para o diretório, você receberá um email de boas-vindas (veja abaixo) que confirmará que você pode começar a gerenciar licenças e recursos do Active Directory Premium do Azure ou Enterprise Mobility Suite. Se você tiver usado o Microsoft Azure anteriormente, você poderá prosseguir para http://manage.windowsazure.com para atribuir as novas licenças (consulte a etapa 4 abaixo para obter mais instruções). Se você for novo no Microsoft Azure, selecionar o link Entrar no email ou então acessar a [Página de ativação do acesso ao Active Directory do Azure](https://account.windowsazure.com/signup?offer=MS-AZR-0110P) irá conduzi-lo por uma série de etapas para ajudá-lo a acessar o diretório por meio do Portal de Gerenciamento do Azure.
+Quando as licenças forem provisionadas no diretório, um **email de boas-vindas** será enviado a você. O email confirma que você pode começar a gerenciar suas licenças e seus recursos do Azure Active Directory Premium ou do Enterprise Mobility Suite.
+
+Se você tiver usado o Microsoft Azure anteriormente, poderá prosseguir para [http://manage.windowsazure.com](http://manage.windowsazure.com) para atribuir as novas licenças (veja a [Etapa 4](#step-4-assign-license-to-user-accounts) abaixo para obter mais detalhes).
+
+Se você não tiver experiência no Microsoft Azure, poderá clicar em **Entrar** no email ou acessar a [página de ativação Acesso ao Azure Active Directory](https://account.windowsazure.com/signup?offer=MS-AZR-0110P). Ambos os métodos guiam você por uma série de etapas para ajudá-lo a acessar seu diretório por meio do portal clássico do Azure.
 
 ![][4]
 
-Depois que você tiver se conectado com êxito, você precisará concluir a tela de autenticação de um segundo fator (abaixo), fornecendo um número de telefone celular e validando-o. Depois disso será possível ativar seu acesso ao Active Directory do Azure selecionando **Inscrever-se**.
+Quando você entrar com êxito, precisará concluir a tela de autenticação de um segundo fator, fornecendo um número de telefone celular e validando-o. Quando você tiver concluído a verificação de celular, será possível ativar seu acesso ao Azure Active Directory clicando em **Inscrever-se**.
 
 ![][5]
 
-A ativação pode levar alguns minutos, conforme ilustrado abaixo; depois que o acesso for ativado, a barra marrom desaparecerá e você poderá clicar no link de Portal no canto superior direito ou navegar até o [Portal de Gerenciamento](http://manage.windowsazure.com).
+A ativação pode levar alguns minutos. Quando o acesso estiver ativo, a barra marrom desaparecerá e você poderá clicar em **Portal**.
 
 ![][6]
 
-Nesse caso, o acesso ao Azure será limitado ao Active Directory do Azure.
+Nesse caso, o acesso ao Azure será limitado ao Azure Active Directory.
 
 ![][7]
 
-Você pode já ter tido acesso ao Azure em uma utilização anterior; além disso, você pode atualizar seu acesso do Active Directory do Azure para acesso completo ao Azure, ao ativar assinaturas adicionais do Azure. Nesses casos o Portal de Gerenciamento terá mais recursos, como demonstrado a seguir.
+Você pode já ter tido acesso ao Azure em uma utilização anterior; além disso, você pode atualizar seu acesso do Active Directory do Azure para acesso completo ao Azure, ao ativar assinaturas adicionais do Azure. Nesses casos, o portal clássico do Azure tem mais recursos.
 
 ![][8]
 
-Se você tentar ativar seu acesso ao Active Directory do Azure antes de receber o email de boas-vindas acima, você poderá receber a mensagem de erro a seguir. Tente novamente alguns minutos após ter recebido o email.
+Se você tentar ativar seu acesso ao Azure Active Directory antes de receber o email de boas-vindas, você poderá receber a mensagem de erro a seguir. Tente novamente alguns minutos após ter recebido o email.
 
 ![][9]
 
-Novos administradores em sua assinatura também podem ativar o acesso ao Portal de Gerenciamento por meio desse link.
+Os novos administradores em sua assinatura também podem ativar o acesso ao portal clássico do Azure por meio desse link.
 
 ## Etapa 4: atribuir licenças a contas de usuário
 
@@ -81,7 +95,7 @@ Antes de começar a usar o plano que você adquiriu, você precisará atribuir m
 
 Para atribuir licenças aos usuários:
 
-1. Entre no Portal de Gerenciamento como o administrador global do diretório que você quer personalizar.
+1. Entre no portal clássico do Azure como o administrador global do diretório que você quer personalizar.
 2. Clique em **Active Directory** e, em seguida, selecione o diretório onde você deseja atribuir licenças.
 3. Selecione a guia **Licenças** selecione **Active Directory Premium** ou **Enterprise Mobility Suite** e, em seguida, clique em **Atribuir**.
 
@@ -93,15 +107,15 @@ Para atribuir licenças aos usuários:
 
 ## Restrições de licença
 
-Alguns planos de licenças são subconjuntos ou superconjuntos de outros planos de licenças. Na maioria dos casos, não é possível atribuir a um usuário um plano de licença que já tenha sido atribuído a ele. Se for sua intenção atribuir um plano de licença que é um superconjunto, você precisará primeiro remover o plano de licença que é um subconjunto.
+Alguns planos de licenças são subconjuntos ou superconjuntos de outros planos de licenças. Normalmente, não é possível atribuir a um usuário um plano de licença que já tenha sido atribuído a ele. Se for sua intenção atribuir um plano de licença que é um superconjunto, você precisará primeiro remover o plano de licença que é um subconjunto.
 
 ## Requisitos de licença
 
-Quando você atribuir uma licença a um usuário, você pode especificar um local de uso primário nas propriedades da conta desse usuário, conforme mostrado abaixo. Se um local de uso não for especificado, o local do inquilino é atribuído automaticamente ao usuário.
+Quando você atribuir uma licença a um usuário, você pode especificar um local de uso primário nas propriedades da conta desse usuário. Se um local de uso não for especificado, o local do inquilino é atribuído automaticamente ao usuário.
 
 ![][12]
 
-A disponibilidade dos serviços e recursos de um serviço de nuvem da Microsoft varia segundo o país ou região. Um serviço, como VoIP (Voice over Internet Protocol, voz por protocolo de Internet) pode estar disponível em um país ou região e não estar disponível em outro. Recursos dentro de um serviço podem ser limitados por motivos jurídicos em determinados países ou regiões. Para ver se um serviço ou recurso está disponível com ou sem restrições, procure seu país ou região no site de restrições de licença do serviço.
+A disponibilidade dos serviços e recursos de um serviço de nuvem da Microsoft varia segundo o país ou região. Um serviço, como VoIP (Voice over Internet Protocol, voz por protocolo de Internet) pode estar disponível em um país ou região e não estar disponível em outro. Recursos dentro de um serviço podem ser limitados por motivos jurídicos em determinados países ou regiões. Para ver se um serviço ou recurso está disponível com ou sem restrições, procure seu país ou região no site de restrições de licença de um serviço.
 
 ## O que vem a seguir
 
@@ -122,4 +136,4 @@ A disponibilidade dos serviços e recursos de um serviço de nuvem da Microsoft 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

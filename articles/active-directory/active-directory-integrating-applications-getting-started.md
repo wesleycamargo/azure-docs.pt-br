@@ -62,15 +62,13 @@ Como mencionado acima, pode haver aplicativos que ainda não foram gerenciados p
 Cada um dos seus aplicativos pode ter requisitos de autenticação diferentes. Com o AD do Azure, pode-se usar certificados de autenticação com aplicativos que usam os Protocolos SAML 2.0, WS-Federation ou OpenID Connect, bem como Logon Único com Senha. Para obter mais informações sobre os tipos de autenticação de aplicativo para uso com o AD do Azure, veja [Gerenciando certificados para Logon Único Federado no Active Directory do Azure](active-directory-sso-certs.md) e [Logon único baseado em senha](active-directory-appssoaccess-whatis.md).
 
 ### Habilitando o SSO com o Proxy de Aplicativo do AD do Azure
-Com o Proxy de Aplicativo do AD do Microsoft Azure, você pode fornecer acesso a aplicativos localizados em sua rede privada com segurança, de qualquer lugar e em qualquer dispositivo. Depois de instalar um conector de proxy de aplicativo em seu ambiente, ele pode ser facilmente configurado com o AD do Azure. Veja [Habilitando o SSO com o Proxy de Aplicativo do AD do Azure](active-directory-appssoaccess-enable-hybrid-access.md) e [Publicando novos aplicativos com o Proxy de Aplicativo do AD do Azure](active-directory-application-proxy-configure.md).
+Com o Proxy de Aplicativo do AD do Microsoft Azure, você pode fornecer acesso a aplicativos localizados em sua rede privada com segurança, de qualquer lugar e em qualquer dispositivo. Depois de instalar um conector de proxy de aplicativo em seu ambiente, ele pode ser facilmente configurado com o Azure AD.
 
 ### Integrando aplicativos com o AD do Azure
 Os artigos a seguir abordam as diferentes maneiras pelas quais os aplicativos são integrados com o AD do Azure, além de fornecer uma orientação.
 
 - [Determinando qual Active Directory será usado](active-directory-administer.md)
-- [Integrando com aplicativos existentes](active-directory-sso-integrate-existing-apps.md)
-- [Publicando novos aplicativos com o Proxy de Aplicativo do AD do Azure](active-directory-application-proxy-configure.md)
-- [Usando aplicativos na galeria de aplicativos do Azure](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery.md)
+- [Usando aplicativos na galeria de aplicativos do Azure](active-directory-appssoaccess-whatis.md)
 - [Integrando a lista de tutoriais de aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
 ## Gerenciando o acesso a aplicativos
@@ -91,4 +89,4 @@ Se desejar adicionar seu aplicativo personalizado à Galeria de Aplicativos do A
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

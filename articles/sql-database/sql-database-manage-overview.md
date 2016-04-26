@@ -3,9 +3,9 @@
 	description="Compara as ferramentas e opções de gerenciamento de Banco de Dados SQL do Azure"
 	services="sql-database"
 	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor="jeffreyg"/>
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="jeffreyg"/>
+	ms.date="04/04/2016"
+	ms.author="sstein"/>
 
 # Visão geral: ferramentas de gerenciamento para o Banco de Dados SQL
 
@@ -36,4 +36,12 @@ Você pode usar ferramentas de linha de comando, como o PowerShell para gerencia
 
 Para obter mais informações sobre como gerenciar seus bancos de dados SQL do Azure com ferramentas de linha de comando, consulte [Gerenciamento de banco de dados SQL com o PowerShell](sql-database-command-line-tools.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+## Ferramentas de Banco de Dados Elástico
+Use as ferramentas de banco de dados elástico para executar ações como
+
+* Executar um script T-SQL em um conjunto de bancos de dados usando um [trabalho elástico](sql-database-elastic-jobs-overview.md)
+* Mover bancos de dados do modelo de multilocatário para um modelo de locatário único com a [ferramenta de divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge.md)
+* Gerenciar bancos de dados em um modelo de locatário único ou um modelo de multilocatário usando a [biblioteca de cliente de dimensionamento elástico](sql-database-elastic-database-client-library.md).
+ 
+
+<!---HONumber=AcomDC_0413_2016-->

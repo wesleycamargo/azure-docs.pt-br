@@ -35,7 +35,9 @@ O [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite execu
 
 OU
 
-* [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md).
+* [CLI do Azure](../xplat-cli-install.md)
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##O que é o SSH?
 
@@ -243,4 +245,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

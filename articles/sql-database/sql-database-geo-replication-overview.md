@@ -3,8 +3,8 @@
 	description="Este tópico explica a Replicação Geográfica Ativa para o Banco de Dados SQL e seus usos."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="stevestein"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="03/07/2016"
-	ms.author="jroth" />
+	ms.author="sstein" />
 
 # Replicação Geográfica Ativa para o Banco de Dados SQL do Azure
 
@@ -66,4 +66,4 @@ Devido à alta latência das redes de longa distância, a cópia contínua usa u
 ## Próximas etapas
 Para obter informações sobre recursos adicionais de continuidade dos negócios do Banco de Dados SQL, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

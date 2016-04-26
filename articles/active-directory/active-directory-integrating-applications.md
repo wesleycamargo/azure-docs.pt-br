@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="04/06/2016"
    ms.author="mbaldwin;bryanla" />
 
 # Integrando aplicativos ao Active Directory do Azure
@@ -37,17 +37,17 @@ Se estiver criando um aplicativo Web que precise apenas oferecer suporte à entr
 
 1. Clique no ícone do Active Directory no menu esquerdo e clique no diretório desejado.
 
-1. No menu superior, clique em Aplicativos. Se nenhum aplicativo tiver sido adicionado ao diretório, essa página mostrará apenas o link Adicionar um Aplicativo. Clique no link ou, se preferir, você pode clicar no botão Adicionar, na barra de comandos.
+1. No menu superior, clique em **Aplicativos**. Se nenhum aplicativo tiver sido adicionado ao diretório, essa página mostrará apenas o link Adicionar um Aplicativo. Clique no link ou, se preferir, você poderá clicar no botão **Adicionar**, na barra de comandos.
 
-1. Na página O que você deseja fazer, clique no link Adicionar um aplicativo que minha organização esteja desenvolvendo.
+1. Na página O que você deseja fazer, clique no link **Adicionar um aplicativo que minha organização esteja desenvolvendo**.
 
-1. Na página Conte-nos sobre o seu aplicativo, você deve especificar um nome para o aplicativo, bem como indicar o tipo de aplicativo que está registrando no AD do Azure. Você pode escolher um aplicativo Web e/ou uma API Web (padrão, conhecido como cliente confidencial na linguagem OAuth2) ou um aplicativo cliente nativo, que representa um aplicativo que está instalado em um dispositivo, como telefone ou computador (conhecido como cliente público na linguagem OAuth2). Quando terminar, clique no ícone de seta no canto inferior direito da página.
+1. Na página Conte-nos sobre o seu aplicativo, você deve especificar um nome para o aplicativo, bem como indicar o tipo de aplicativo que está registrando no AD do Azure. Você pode escolher um aplicativo Web e/ou uma API Web (padrão, conhecido como cliente confidencial no OAuth2) ou um aplicativo cliente nativo, que representa um aplicativo que está instalado em um dispositivo, como telefone ou computador (conhecido como cliente público no OAuth2). Quando terminar, clique no ícone de seta no canto inferior direito da página.
 
-1. Na página Propriedades do Aplicativo, forneça a URL de Logon e o URI da ID do Aplicativo do aplicativo Web (ou apenas o URI de Redirecionamento de um aplicativo cliente nativo), em seguida, clique na caixa de seleção no canto inferior direito da página.
+1. Na página propriedades do Aplicativo, forneça a URL de Entrada e o URI da ID do Aplicativo se estiver registrando um aplicativo Web ou apenas o URI de Redirecionamento de um aplicativo cliente Nativo e, em seguida, clique na caixa de seleção no canto inferior direito da página.
 
 1. O aplicativo foi adicionado e você será levado para a página Início Rápido do seu aplicativo. Dependendo do tipo de aplicativo, Web ou nativo, você verá diferentes opções sobre como adicionar mais recursos ao aplicativo. Depois que o aplicativo tiver sido adicionado, você poderá começar a atualizá-lo para permitir que os usuários se conectem, acessem APIs Web em outros aplicativos, ou a configurar o aplicativo multilocatário (o que permite que outras organizações acessem o aplicativo).
 
->[AZURE.NOTE]Por padrão, o registro de aplicativo recentemente criado é configurado para permitir que os usuários do seu diretório entrem no aplicativo.
+>[AZURE.NOTE] Por padrão, o registro de aplicativo recentemente criado é configurado para permitir que os usuários do seu diretório entrem no aplicativo.
 
 ## Atualizando um aplicativo
 
@@ -61,7 +61,7 @@ Por exemplo, se um aplicativo cliente Web precisar chamar um aplicativo de recur
 
 A estrutura de consentimento foi criada com base no OAuth 2.0 e seus vários fluxos, como concessão de código de autorização e concessão de credenciais de cliente, usando clientes públicos ou confidenciais. Com o OAuth 2.0, o AD do Azure possibilita a criação de muitos tipos diferentes de aplicativo cliente, como em um telefone, tablet, servidor, ou um aplicativo Web, assim como obtém acesso aos recursos necessários.
 
-Para obter informações mais detalhadas sobre a estrutura de autorização, confira [OAuth 2.0 no AD do Azure](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Cenários de autenticação do AD do Azure](active-directory-authentication-scenarios.md) e o tópico do Office 365 [Entendendo a autenticação com as APIs do Office 365](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks).
+Para obter informações mais detalhadas sobre a estrutura de autorização, confira [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md) e o tópico do Office 365 [Entendendo a autenticação com as APIs do Office 365](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks).
 
 #### Exemplo da experiência de consentimento
 
@@ -97,15 +97,15 @@ Quando um aplicativo cliente é configurado para acessar uma API Web exposta por
 
 1. Clique no ícone do Active Directory no menu esquerdo e clique no diretório desejado.
 
-1. No menu superior, clique em Aplicativos e no aplicativo que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
+1. No menu superior, clique em **Aplicativos** e no aplicativo que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
 
-1. Expanda Acessar APIs Web na seção Outros Aplicativos de Início Rápido e clique no link Configurá-la agora na seção Selecionar permissões. A página de propriedades do aplicativo será exibida.
+1. Expanda Acessar APIs Web na seção Outros Aplicativos no Início Rápido e, em seguida, clique no link **Configurá-la agora** na seção Selecionar permissões. A página de propriedades do aplicativo será exibida.
 
 1. Role para baixo até a seção Permissões para outros aplicativos. A primeira coluna permite selecionar dentre os aplicativos de recurso disponíveis no diretório que expõem uma API Web. Depois de selecionado, você pode selecionar as permissões de aplicativo e delegação que a API Web expõe.
 
-1. Depois de selecionadas, clique no botão Salvar na barra de comandos.
+1. Depois de selecionadas, clique no botão **Salvar** na barra de comandos.
 
->[AZURE.NOTE]Clicar no botão Salvar também define automaticamente as permissões para o aplicativo no seu diretório com base nas Permissões para outros aplicativos que você configurou. É possível ver essas permissões de aplicativo na guia Propriedades do aplicativo.
+>[AZURE.NOTE] Clicar no botão Salvar também define automaticamente as permissões para o aplicativo no seu diretório com base nas Permissões para outros aplicativos que você configurou. É possível ver essas permissões de aplicativo na guia Propriedades do aplicativo.
 
 ### Configurando um aplicativo de recurso para expor APIs Web
 
@@ -117,9 +117,9 @@ Você pode desenvolver uma API Web e disponibilizá-la aos aplicativos cliente e
 
 1. Clique no ícone do Active Directory no menu esquerdo e clique no diretório desejado.
 
-1. No menu superior, clique em Aplicativos e no aplicativo de recurso que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
+1. No menu superior, clique em **Aplicativos** e, em seguida, clique no aplicativo de recurso que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
 
-1. Clique no botão Gerenciar manifesto, na barra de comandos, e selecione Baixar manifesto.
+1. Clique no botão **Gerenciar manifesto** na barra de comandos e selecione **Baixar manifesto**.
 
 1. Abra o arquivo de manifesto do aplicativo JSON e substitua o nó "oauth2Permissions" pelo trecho JSON a seguir. Este trecho é um exemplo de como expor um escopo de permissão conhecido como representação de usuário. Verifique se você mudou o texto e os valores do seu próprio aplicativo:
 
@@ -136,27 +136,27 @@ Você pode desenvolver uma API Web e disponibilizá-la aos aplicativos cliente e
 			}
 		],
 
-    O valor da id deve ser um novo GUID gerado que você cria usando uma ferramenta de geração de GUID ou de modo programático. Ele representa um identificador exclusivo para a permissão que é exposta pela API Web. Depois que o cliente estiver configurado corretamente para solicitar acesso à API Web e chamar a API Web, ele apresentará um token JWT do OAuth 2.0 que tem a declaração de escopo (scp) definida com o valor acima que, nesse caso, é user\_impersonation.
+    O valor da ID deve ser um novo GUID gerado que você cria usando uma [ferramenta de geração de GUID](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) ou de modo programático. Ele representa um identificador exclusivo para a permissão que é exposta pela API Web. Depois que o cliente estiver configurado corretamente para solicitar acesso à API Web e chamar a API Web, ele apresentará um token JWT do OAuth 2.0 que tem a declaração de escopo (scp) definida com o valor acima que, nesse caso, é user\_impersonation.
 
-	>[AZURE.NOTE]É possível expor escopos de permissão adicionais posteriormente conforme a necessidade. Lembre-se de que a API Web pode expor várias permissões associadas a uma variedade de funções diferentes. Agora, você pode controlar o acesso à API Web usando a declaração de escopo (scp) no token JWT do OAuth 2.0 recebido.
+	>[AZURE.NOTE] É possível expor escopos de permissão adicionais posteriormente conforme a necessidade. Lembre-se de que a API Web pode expor várias permissões associadas a uma variedade de funções diferentes. Agora, você pode controlar o acesso à API Web usando a declaração de escopo (scp) no token JWT do OAuth 2.0 recebido.
 
-1. Salve o arquivo JSON atualizado e carregue-o clicando no botão Gerenciar manifesto, na barra de comandos, selecionando Carregar manifesto, navegando até o arquivo de manifesto atualizado e selecionando-o. Depois de carregada, a API Web estará configurada para ser usada por outros aplicativos do seu diretório.
+1. Salve o arquivo JSON atualizado e carregue-o clicando no botão **Gerenciar manifesto** na barra de comandos, selecionando **Carregar manifesto**, navegando até o arquivo do manifesto atualizado e selecionando-o. Depois de carregada, a API Web estará configurada para ser usada por outros aplicativos do seu diretório.
 
 #### Para verificar se a API Web é exposta a outros aplicativos no diretório
 
-1. No menu superior, clique em Aplicativos, selecione o aplicativo cliente para o qual deseja configurar o acesso à API Web e clique em Configurar.
+1. No menu superior, clique em **Aplicativos**, selecione o aplicativo cliente para o qual deseja configurar o acesso à API Web e clique em **Configurar**.
 
 1. Role para baixo até a seção Permissões para outros aplicativos. Clique no menu suspenso Selecionar aplicativo e você poderá escolher a API Web para a qual acabou de expor uma permissão. No menu suspenso Permissões Delegadas, escolha a nova permissão.
 
 ![Permissões da lista de tarefas são mostradas](./media/active-directory-integrating-applications/listpermissions.png)
 
 #### Mais sobre o manifesto do aplicativo
-O manifesto do aplicativo, na verdade, funciona como um mecanismo para atualizar a entidade de aplicativo, que define todos os atributos de configuração de identidade de um aplicativo do AD do Azure, incluindo os escopos de permissão de API que discutimos. Para obter mais informações sobre a entidade de aplicativo, confira a [documentação da entidade de aplicativo da Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity). Nela, você encontrará informações de referência completas sobre os membros da entidade de aplicativo usados para especificar permissões para sua API:
+O manifesto do aplicativo, na verdade, funciona como um mecanismo para atualizar a entidade de aplicativo, que define todos os atributos de configuração de identidade de um aplicativo do AD do Azure, incluindo os escopos de permissão de API que discutimos. Para obter mais informações sobre a entidade de Aplicativo, confira a [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity) (Documentação da entidade de aplicativo da API do Graph). Nela, você encontrará informações de referência completas sobre os membros da entidade de aplicativo usados para especificar permissões para sua API:
 
-- O membro appRoles, que é uma coleção de entidades [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) que podem ser usadas para definir as **Permissões de Aplicativo** para uma API Web  
-- O membro oauth2Permissions, que é uma coleção de entidades [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) que podem ser usadas para definir as **Permissões Delegadas** para uma API Web
+- o membro appRoles, que é uma coleção de entidades [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) que podem ser usadas para definir as **Permissões de Aplicativo** para uma API Web  
+- o membro oauth2Permissions, que é uma coleção de entidades [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) que podem ser usadas para definir as **Permissões Delegadas** para uma API Web
 
-Para obter mais informações gerais sobre os conceitos do manifesto do aplicativo, veja [Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure](active-directory-application-manifest.md).
+Para obter mais informações gerais sobre os conceitos do manifesto do aplicativo, veja [Entendendo o manifesto de aplicativo do Azure Active Directory](active-directory-application-manifest.md).
 
 ### Acessando as APIs do Office 365 e da Graph do AD do Azure
 
@@ -164,10 +164,10 @@ Conforme mencionado anteriormente, além de expor/acessar APIs em seus próprios
 
 Para ver uma abordagem completa sobre escopos de permissão expostos pela(s):
 
-- Graph API do AD Azure, confira o artigo [Permission scopes | Graph API concepts](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
-- APIs do Office 365, confira o artigo [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/office/office365/howto/application-manifest). Confira [Set up your Office 365 development environment](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) para ver uma discussão mais ampla sobre como criar um aplicativo cliente que se integra às APIs do Office 365.
+- API do Graph do Azure AD, confira o artigo [Permission scopes | Graph API concepts](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) (Escopos de permissão | Conceitos da API do Graph).
+- APIs do Office 365, confira o artigo [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/office/office365/howto/application-manifest) (Autenticação e autorização usando Common Consent Framework). Confira [Set up your Office 365 development environment](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) (Configurar seu ambiente de desenvolvimento do Office 365) para ver uma discussão mais ampla sobre como criar um aplicativo cliente que se integra às APIs do Office 365.
 
->[AZURE.NOTE]Devido a uma limitação atual, os aplicativos cliente nativos só poderão chamar a Graph API do AD Azure se usarem a permissão "Acessar o diretório da sua organização". Essa restrição não se aplica a aplicativos Web.
+>[AZURE.NOTE] Devido a uma limitação atual, os aplicativos cliente nativos só poderão chamar a Graph API do AD Azure se usarem a permissão "Acessar o diretório da sua organização". Essa restrição não se aplica a aplicativos Web.
 
 ### Configurando aplicativos multilocatários
 
@@ -175,14 +175,14 @@ Ao adicionar um aplicativo ao AD do Azure, talvez você queira que ele seja aces
 
 É importante observar as diferenças entre um aplicativo de locatário único e multilocatário:
 
-- Um aplicativo de locatário único é destinado para uso em uma organização. Normalmente, trata-se de um aplicativo LoB (linha de negócios) escrito por um desenvolvedor corporativo. Um aplicativo de locatário único só precisa ser acessado por usuários em um diretório e, como resultado, ele só precisa ser provisionado em um diretório. 
+- Um aplicativo de locatário único é destinado para uso em uma organização. Normalmente, trata-se de um aplicativo LoB (linha de negócios) escrito por um desenvolvedor corporativo. Um aplicativo de locatário único só precisa ser acessado por usuários em um diretório e, como resultado, ele só precisa ser provisionado em um diretório.
 - Um aplicativo multilocatário é destinado para uso em muitas organizações. Geralmente, trata-se de um aplicativo Web SaaS (software como serviço) escrito por um ISV (fornecedor independente de software). Os aplicativos multilocatários precisam ser provisionados em cada diretório em que serão usados, o que requer o autorização do usuário ou administrador para registrá-los, com suporte da estrutura de autorização do AD do Azure. Observe que todos os aplicativos cliente nativos são multilocatários por padrão, pois eles são instalados no dispositivo do proprietário do recurso. Confira a seção acima, Visão geral da estrutura de autorização, para obter mais detalhes sobre a estrutura de autorização.
 
 #### Permitindo que usuários externos concedam acesso
 
 Se estiver escrevendo um aplicativo que queira disponibilizar para seus clientes ou parceiros fora da organização, você precisará atualizar a definição do aplicativo no portal clássico do Azure.
 
->[AZURE.NOTE]Ao habilitar o multilocatário, você deve garantir que o URI da ID do Aplicativo do seu aplicativo pertença a um domínio verificado. Além disso, a URL de Retorno deve começar com https://. Para saber mais, consulte [Objetos de aplicativo e objetos de entidade de serviço](active-directory-application-objects.md).
+>[AZURE.NOTE] Ao habilitar o multilocatário, você deve garantir que o URI da ID do Aplicativo do seu aplicativo pertença a um domínio verificado. Além disso, a URL de Retorno deve começar com https://. Para saber mais, consulte [Objetos de aplicativo e objetos de entidade de serviço](active-directory-application-objects.md).
 
 ##### Para habilitar o acesso ao seu aplicativo para usuários externos
 
@@ -190,17 +190,17 @@ Se estiver escrevendo um aplicativo que queira disponibilizar para seus clientes
 
 1. Clique no ícone do Active Directory no menu esquerdo e clique no diretório desejado.
 
-1. No menu superior, clique em Aplicativos e no aplicativo que deseja configurar. A página Início Rápido será exibida com as opções de configuração.
+1. No menu superior, clique em **Aplicativos** e no aplicativo que deseja configurar. A página Início Rápido será exibida com as opções de configuração.
 
-1. Expanda a seção Configurar Aplicativo Multilocatário de Início Rápido e clique no link Configurá-lo agora na seção Habilitar Acesso. A página de propriedades do aplicativo será exibida.
+1. Expanda a seção **Configurar Aplicativo Multilocatário** no Início Rápido e clique no link **Configurá-lo agora** na seção Habilitar Acesso. A página de propriedades do aplicativo será exibida.
 
-1. Clique no botão Sim ao lado de O aplicativo é multilocatário e clique no botão Salvar na barra de comandos.
+1. Clique no botão **Sim** ao lado de Aplicativo multilocatário e, em seguida, clique no botão **Salvar** na barra de comandos.
 
 Depois de ter feito a alteração acima, os usuários e administradores em outras organizações poderão conceder ao aplicativo acesso aos respectivos diretórios e outros dados.
 
-### Disparando a estrutura de autorização do AD do Azure em tempo de execução 
+### Disparando a estrutura de autorização do AD do Azure em tempo de execução
 
-Para usar a estrutura de autorização, os aplicativos cliente multilocatários devem solicitar autorização usando o OAuth 2.0. Os [códigos de exemplo](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) estão disponíveis para mostrar como um aplicativo Web, um aplicativo nativo ou um aplicativo de servidor/daemon solicita códigos de autorização e tokens de acesso para chamar APIs Web.
+Para usar a estrutura de autorização, os aplicativos cliente multilocatários devem solicitar autorização usando o OAuth 2.0. Os [códigos de exemplo](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) estão disponíveis para mostrar como um aplicativo Web, um aplicativo Nativo ou um aplicativo de servidor/daemon solicita códigos de autorização e tokens de acesso para chamar APIs Web.
 
 Seu aplicativo Web também pode proporcionar uma experiência de inscrição para usuários. Se você oferecer uma experiência de inscrição, é esperado que o usuário clique em um botão de inscrição que redirecionará o navegador para o ponto de extremidade de autorização OAuth2.0 do AD do Azure ou um ponto de extremidade userinfo do OpenID Connect. Esses pontos de extremidade permitem ao aplicativo obter informações sobre o novo usuário inspecionando o id\_token. Depois da fase de inscrição, o usuário verá uma solicitação de autorização semelhante àquela mostrada acima na seção Visão geral da estrutura de autorização.
 
@@ -217,7 +217,7 @@ Os SPAs (Aplicativos de Uma Página) normalmente são estruturados com um front-
 1. No menu superior, clique em **Aplicativos** e no aplicativo que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
 1. Clique no botão **Gerenciar manifesto** na barra de comandos e selecione **Baixar manifesto**. Abra o arquivo de manifesto de aplicativo JSON e defina o valor de "oauth2AllowImplicitFlow" como "true". Por padrão, é "false".
 
-       "oauth2AllowImplicitFlow": true,
+    `"oauth2AllowImplicitFlow": true,`
 
 1. Salve o arquivo JSON atualizado e carregue-o clicando no botão **Gerenciar manifesto** na barra de comandos, selecionando **Carregar manifesto**, navegando até o arquivo do manifesto atualizado e selecionando-o. Uma vez carregada, a API Web agora está configurada para usar a Concessão Implícita do OAuth 2.0 e autenticar usuários.
 
@@ -238,7 +238,7 @@ Você pode seguir as etapas em [Desenvolvendo aplicativos Web multilocatários c
 
 Para que os usuários externos se inscrevam em seu aplicativo usando as respectivas contas organizacionais, você precisará atualizar o aplicativo para mostrar um botão que se vincule à página no AD do Azure e os permita conceder acesso. As diretrizes de identidade visual desse botão de registro são discutidas no tópico [Diretrizes de identidade visual para aplicativos integrados](active-directory-branding-guidelines.md). Depois que o usuário concede ou nega acesso, a página de concessão de acesso do AD do Azure redireciona o navegador de volta para seu aplicativo com uma resposta. Para saber mais sobre propriedades do aplicativo, consulte [Objetos de aplicativo e de entidades de serviço](active-directory-application-objects.md).
 
-A página de concessão de acesso é criada pelo AD do Azure, e você pode encontrar um link para ela na página Configuração do seu aplicativo no portal clássico do Azure. Para acessar a página Configuração, clique no link Aplicativos, no menu superior do seu locatário do AD Azure, clique no aplicativo que deseja configurar e, em Configurar, no menu superior da página Início Rápido.
+A página de concessão de acesso é criada pelo AD do Azure, e você pode encontrar um link para ela na página Configuração do seu aplicativo no portal clássico do Azure. Para acessar a página Configuração, clique no link **Aplicativos**, no menu superior do seu locatário do Azure AD, clique no aplicativo que deseja configurar e, em seguida, clique em **Configurar**, no menu superior da página Início Rápido.
 
 O link para seu aplicativo se parecerá com este: `http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`. A tabela a seguir descreve as partes do link:
 
@@ -262,7 +262,7 @@ Depois que o usuário for autenticado, o AD do Azure o redirecionará para a pá
 
 ![Conceder Acesso](./media/active-directory-integrating-applications/grantaccess.png)
 
->[AZURE.NOTE]Somente o administrador da empresa da organização externa pode conceder acesso ao aplicativo. Se o usuário não for um administrador da empresa, ele terá a opção de enviar um email ao administrador de sua empresa para solicitar que o acesso seja concedido a esse aplicativo.
+>[AZURE.NOTE] Somente o administrador da empresa da organização externa pode conceder acesso ao aplicativo. Se o usuário não for um administrador da empresa, ele terá a opção de enviar um email ao administrador de sua empresa para solicitar que o acesso seja concedido a esse aplicativo.
 
 Depois que o cliente tiver recebido acesso para o aplicativo clicando em Conceder Acesso, ou se ele tiver negado o acesso clicando em Cancelar, o AD do Azure enviará uma resposta à ConsentReturnUrl ou à URL de Resposta configurada. Essa resposta contém os seguintes parâmetros:
 
@@ -273,7 +273,7 @@ Depois que o cliente tiver recebido acesso para o aplicativo clicando em Concede
 
 Os parâmetros adicionais serão retornados ao aplicativo se eles tiverem sido especificados como parte da URL codificada ConsentReturnUrl. Veja a seguir um exemplo de resposta a uma solicitação de concessão de acesso que indica que o aplicativo foi autorizado e inclui uma ContextID que foi fornecida na solicitação de concessão de acesso: `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Granted&TenantId=f03dcba3-d693-47ad-9983-011650e64134`.
 
->[AZURE.NOTE]A resposta de concessão de acesso não conterá um token de segurança para o usuário; o aplicativo deve conectar o usuário separadamente.
+>[AZURE.NOTE] A resposta de concessão de acesso não conterá um token de segurança para o usuário; o aplicativo deve conectar o usuário separadamente.
 
 A seguir, um exemplo de resposta para uma solicitação de concessão de acesso que foi negada: `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Denied`
 
@@ -281,11 +281,11 @@ A seguir, um exemplo de resposta para uma solicitação de concessão de acesso 
 
 Durante o tempo de vida do seu aplicativo, talvez seja necessário alterar as chaves que você usa quando chama o AD do Azure para adquirir um token de acesso para chamar a Graph API. Em geral, a alteração dessas chaves acontece por dois motivos: substituição de emergência, no caso de comprometimento da chave, ou uma substituição quando a chave atual está prestes a expirar. O procedimento a seguir deve ser seguido para fornecer ao aplicativo acesso ininterrupto enquanto você atualiza as chaves (basicamente para o segundo caso).
 
-1. No portal clássico do Azure, clique no locatário do diretório, clique em Aplicativos no menu superior e clique no aplicativo que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
+1. No portal clássico do Azure, clique no locatário do diretório, clique em **Aplicativos** no menu superior e, em seguida, clique no aplicativo que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
 
-1. Clique em Configurar, no menu superior, para ver uma lista de propriedades do aplicativo, e você verá uma lista de suas chaves.
+1. Clique em **Configurar**, no menu superior, para ver uma lista de propriedades do aplicativo, e você encontrará uma lista de suas chaves.
 
-1. Em Chaves, clique no menu suspenso Selecionar duração e escolha 1 ou 2 anos. Clique em Salvar na barra de comandos. Isso gera uma nova chave de senha para o aplicativo. Copie essa nova chave de senha. Nesse ponto, tanto a chave existente quanto a nova podem ser usadas pelo aplicativo para obter um token de acesso do AD do Azure.
+1. Em Chaves, clique no menu suspenso **Selecionar duração** e escolha 1 ou 2 anos e, em seguida, clique em **Salvar** na barra de comandos. Isso gera uma nova chave de senha para o aplicativo. Copie essa nova chave de senha. Nesse ponto, tanto a chave existente quanto a nova podem ser usadas pelo aplicativo para obter um token de acesso do AD do Azure.
 
 1. Volte para o aplicativo e atualize a configuração para iniciar usando a nova chave de senha. Consulte [Usando a Graph API para consultar o Azure AD](https://msdn.microsoft.com/library/azure/dn151791.aspx) para obter um exemplo de onde essa atualização deverá acontecer.
 
@@ -304,7 +304,7 @@ Se você fizer uma alteração em RequestedPermissions para solicitar um nível 
 Esta seção descreve como remover um aplicativo do locatário do AD do Azure.
 
 ### Removendo um aplicativo autorizado pela sua organização
-Esses são os aplicativos que são mostrados no filtro "Aplicativos que minha empresa possui" na página principal "Aplicativos" do locatário do AD do Azure. Em termos técnicos, esses são os aplicativos que você registrou manualmente pelo portal clássico do Azure ou de modo programático pelo PowerShell ou pela Graph API. Mais especificamente, eles são representados por um objeto de Aplicativo e Entidade de Serviço em seu locatário. Para obter mais informações, confira [Objetos de Aplicativo e de Entidade de Serviço](active-directory-application-objects.md).
+Esses são os aplicativos que são mostrados no filtro "Aplicativos que minha empresa possui" na página principal "Aplicativos" do locatário do AD do Azure. Em termos técnicos, esses são os aplicativos que você registrou manualmente pelo portal clássico do Azure ou de modo programático pelo PowerShell ou pela API do Graph. Mais especificamente, eles são representados por um objeto de Aplicativo e Entidade de Serviço em seu locatário. Para obter mais informações, confira [Objetos de Aplicativo e de Entidade de Serviço](active-directory-application-objects.md).
 
 #### Para remover um aplicativo de locatário único do diretório
 
@@ -312,11 +312,11 @@ Esses são os aplicativos que são mostrados no filtro "Aplicativos que minha em
 
 1. Clique no ícone do Active Directory no menu esquerdo e clique no diretório desejado.
 
-1. No menu superior, clique em Aplicativos e no aplicativo que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
+1. No menu superior, clique em **Aplicativos** e no aplicativo que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
 
-1. Clique no botão Excluir na barra de comandos.
+1. Clique no botão **Excluir** na barra de comandos.
 
-1. Clique em Sim na mensagem de confirmação.
+1. Clique em **Sim** na mensagem de confirmação.
 
 #### Para remover um aplicativo multilocatário do diretório
 
@@ -324,18 +324,18 @@ Esses são os aplicativos que são mostrados no filtro "Aplicativos que minha em
 
 1. Clique no ícone do Active Directory no menu esquerdo e clique no diretório desejado.
 
-1. No menu superior, clique em Aplicativos e no aplicativo que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
+1. No menu superior, clique em **Aplicativos** e no aplicativo que deseja configurar. A página Início Rápido aparecerá com o logon único e outras informações de configuração.
 
-1. Na seção O aplicativo é multilocatário, clique em Não. Isso converte o aplicativo em locatário único, mas o aplicativo ainda permanecerá em uma organização que já tenha sido consentida para ele.
+1. Na seção Aplicativo multilocatário, clique em **Não**. Isso converte seu aplicativo em locatário único, mas o aplicativo continuará em uma organização que já tenha sido consentida para ele.
 
-1. Clique no botão Excluir na barra de comandos.
+1. Clique no botão **Excluir** na barra de comandos.
 
-1. Clique em Sim na mensagem de confirmação.
+1. Clique em **Sim** na mensagem de confirmação.
 
 ### Removendo um aplicativo multilocatário autorizado por outra organização
 Esses são um subconjunto dos aplicativos que são mostrados no filtro "Aplicativos que minha empresa usa" na página principal "Aplicativos" do seu locatário do AD do Azure, mais especificamente aqueles que não estão listados na lista "Aplicativos que minha empresa possui". Em termos técnicos, são aplicativos multilocatários registrados durante o processo de autorização. Mais especificamente, eles são representados apenas por um objeto de Entidade de Serviço em seu locatário. Para obter mais informações, confira [Objetos de Aplicativo e de Entidade de Serviço](active-directory-application-objects.md).
 
-Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois de ter dado autorização), o administrador da empresa deve ter uma assinatura do Azure para remover o acesso usando o portal clássico do Azure. Basta navegar até a página de configuração do aplicativo e clicar no botão "Gerenciar Acesso" na parte inferior. Como alternativa, o administrador de empresa pode usar os [Cmdlets do Azure PowerShell AD](http://go.microsoft.com/fwlink/?LinkId=294151) para remover o acesso.
+Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois de ter dado autorização), o administrador da empresa deve ter uma assinatura do Azure para remover o acesso usando o portal clássico do Azure. Basta navegar até a página de configuração do aplicativo e clicar no botão "Gerenciar Acesso" na parte inferior. Como alternativa, o administrador de empresa pode usar os [Cmdlets do PowerShell do Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) para remover o acesso.
 
 ## Próximas etapas
 
@@ -347,4 +347,4 @@ Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois
 
 - Visite o [Guia do desenvolvedor do Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

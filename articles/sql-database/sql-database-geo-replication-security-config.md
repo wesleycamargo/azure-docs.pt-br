@@ -3,8 +3,8 @@
 	description="Este tópico explica as considerações sobre segurança para gerenciar cenários de Replicação Geográfica Ativa ou Padrão para o Banco de Dados SQL."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/22/2015"
-	ms.author="jroth" />
+	ms.date="02/01/2016"
+	ms.author="carlrab" />
 
 # Configuração de segurança para a Replicação Geográfica Ativa ou Padrão
 
@@ -27,7 +27,7 @@ Com a [versão V12 do Banco de Dados SQL do Azure](sql-database-v12-whats-new.md
 
 Com usuários independentes, se você tiver vários bancos de dados que usam o mesmo logon, você deve gerenciar esse usuário separadamente para cada banco de dados (por exemplo, para alterar a senha), em vez de gerenciar o logon no nível do servidor.
 
->[AZURE.NOTE]Se desejar alterar o acesso de leitura do primário e secundário de maneira independente, é necessário usar logons e usuários tradicionais. Os usuários independentes não podem ser gerenciados no secundário de modo independente do primário.
+>[AZURE.NOTE] Se desejar alterar o acesso de leitura do primário e secundário de maneira independente, é necessário usar logons e usuários tradicionais. Os usuários independentes não podem ser gerenciados no secundário de modo independente do primário.
 
 ## Usando logons e usuários tradicionais
 Se estiver usando logons e usuários tradicionais (em vez de usuários independentes), é necessário realizar etapas extras para assegurar que os mesmos logons existam no servidor de banco de dados secundário. As seções a seguir descrevem as etapas envolvidas e considerações adicionais.
@@ -67,7 +67,7 @@ A consulta a seguir pode ser usada para ver todas as entidades de usuário e seu
 	FROM [sys].[database_principals]
 	WHERE [type_desc] = 'SQL_USER'
 
->[AZURE.NOTE]Os usuários **INFORMATION\_SCHEMA** e **sys** têm SIDs *NULL* e o SID **Convidado** é **0x00**. O SID **dbo** pode começar com *0x01060000000001648000000000048454* se o criador do banco de dados foi o administrador do servidor, em vez de um membro do **DbManager**.
+>[AZURE.NOTE] Os usuários **INFORMATION\_SCHEMA** e **sys** têm SIDs *NULL* e o SID **Convidado** é **0x00**. O SID **dbo** pode começar com *0x01060000000001648000000000048454* se o criador do banco de dados foi o administrador do servidor, em vez de um membro do **DbManager**.
 
 #### 3\. Gere os logons no servidor de destino:
 A última etapa é acessar o servidor de destino, ou servidores, e gerar os logons com os SIDs apropriados. A sintaxe básica é mostrada a seguir.
@@ -76,7 +76,7 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 	WITH PASSWORD = <login password>,
 	SID = <desired login SID>
 
->[AZURE.NOTE]Se desejar conceder ao usuário o acesso ao secundário, mas não ao primário, você poderá fazer isso alterando o logon do usuário no servidor primário usando a sintaxe a seguir.
+>[AZURE.NOTE] Se desejar conceder ao usuário o acesso ao secundário, mas não ao primário, você poderá fazer isso alterando o logon do usuário no servidor primário usando a sintaxe a seguir.
 >
 >ALTER LOGIN <login name> DISABLE
 >
@@ -98,4 +98,4 @@ Para obter mais informações sobre as etapas necessárias após o failover, vej
 ## Próximas etapas
 Para obter mais informações sobre a Replicação Geográfica e recursos adicionais de continuidade dos negócios do Banco de Dados SQL, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0413_2016-->

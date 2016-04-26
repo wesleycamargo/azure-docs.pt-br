@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/26/2016"
+   ms.date="04/18/2016"
    ms.author="seanmck"/>
 
 # Preparar seu ambiente de desenvolvimento
@@ -27,6 +27,8 @@ Há suporte de desenvolvimento para as seguintes versões de sistema operacional
 - Windows 8/Windows 8.1
 - Windows Server 2012 R2
 - Windows 10
+
+>[AZURE.NOTE] O Windows 7 inclui, por padrão, apenas o Windows PowerShell 2.0. Você precisará instalar o PowerShell 3.0 ou mais recente para usar os cmdlets do PowerShell do Service Fabric. É possível [baixar o Windows PowerShell 5.0][powershell5-download] do Centro de Download da Microsoft.
 
 ## Instalar o tempo de execução, o SDK e as ferramentas
 
@@ -60,5 +62,6 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 [full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Link do WebPI do VS 2015"
 [full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Link do WebPI do Dev15"
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Link do WebPI do SDK principal"
+[powershell5-download]: https://www.microsoft.com/pt-BR/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

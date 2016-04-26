@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/10/2016"
 	ms.author="robmcm"/>
 
 
@@ -31,7 +31,8 @@ Este guia mostra como executar cenários comuns usando o serviço Tabela do Azur
 
 ## Criar um aplicativo Ruby
 
-Para obter instruções sobre como criar um aplicativo Ruby, veja [Aplicativo Web Ruby on Rails em uma VM do Azure](../virtual-machines/virtual-machines-ruby-rails-linux-classic-web-app.md).
+Para obter instruções sobre como criar um aplicativo Ruby, veja [Aplicativo Web Ruby on Rails em uma VM do Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+
 
 ## Configurar seu aplicativo para acessar o Armazenamento
 
@@ -163,4 +164,4 @@ Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 - [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [SDK do Azure para repositório Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

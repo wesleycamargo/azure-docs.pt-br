@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # Maximizar o uso de recursos de computação do Lote do Azure com tarefas de nó simultâneas
 
 Neste artigo, você aprenderá a executar mais de uma tarefa simultaneamente em cada nó de computação de seu pool do Lote do Azure. A habilitação da execução de tarefas simultâneas em nós de computação de um pool permite a maximização do uso de recursos em uma quantidade menor de nós no pool. Para algumas cargas de trabalho, isso pode economizar tempo e dinheiro.
@@ -38,7 +38,7 @@ Em vez de usar nós Standard\_D1, que têm um núcleo de CPU, você poderia empr
 
 ## Habilitar a execução de tarefas paralelas
 
-A configuração de nós de computação em sua solução do Lote para execução de tarefas em paralelo é feita no nível do pool. Ao usar a biblioteca .NET do Lote, a propriedade [CloudPool.MaxTasksPerComputeNode][maxtasks_net] é definida durante a criação de um pool. Se você estiver usando a API REST do Lote, o elemento [maxTasksPerNode][maxtasks_rest] é definido no corpo da solicitação durante a criação do pool.
+A configuração de nós de computação em sua solução do Lote para execução de tarefas em paralelo é feita no nível do pool. Ao usar a biblioteca .NET do Lote, a propriedade [CloudPool.MaxTasksPerComputeNode][maxtasks_net] é definida durante a criação de um pool. Se você estiver usando a API REST do Lote, o elemento [maxTasksPerNode][rest_addpool] é definido no corpo da solicitação durante a criação do pool.
 
 O Lote do Azure permite que você configure o número máximo de tarefas por nó até quatro vezes (4x) o número de núcleos de nó. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), será possível definir `maxTasksPerNode` como 16. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, confira [Tamanhos para serviços de nuvem](./../cloud-services/cloud-services-sizes-specs.md). Para saber mais sobre limites de serviço, confira [Cotas e limites para o serviço de Lote do Azure](batch-quota-limit.md).
 
@@ -56,27 +56,37 @@ Como um exemplo de como esse recurso é útil, considere o pool de nós Standard
 
 Esse trecho de código da API [.NET do Lote][api_net] mostra uma solicitação para criar um pool com quatro nós grandes, com um máximo de quatro tarefas por nó. Isso especifica uma política de agendamento de tarefas que preencherá cada nó com tarefas antes de atribuir tarefas a outro nó no pool. Para saber mais sobre como adicionar pools usando a API .NET do Lote, confira [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
-        CloudPool pool = batchClient.PoolOperations.CreatePool(poolId: "mypool",
-        													osFamily: "2",
-        													virtualMachineSize: "large",
-        													targetDedicated: 4);
-        pool.MaxTasksPerComputeNode = 4;
-        pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
-        pool.Commit();
+```
+CloudPool pool =
+    batchClient.PoolOperations.CreatePool(
+        poolId: "mypool",
+		targetDedicated: 4
+		virtualMachineSize: "large",
+		cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+
+pool.MaxTasksPerComputeNode = 4;
+pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
+pool.Commit();
+```
 
 ## Exemplo REST do Lote
 
-Esse trecho da API [REST do Lote][api_rest] mostra uma solicitação para criar um pool com dois nós grandes, com um máximo de quatro tarefas por nó. Para saber mais sobre como adicionar pools usando a API REST, confira [Adicionar um pool a uma conta][maxtasks_rest].
+Esse trecho da API [REST do Lote][api_rest] mostra uma solicitação para criar um pool com dois nós grandes, com um máximo de quatro tarefas por nó. Para saber mais sobre como adicionar pools usando a API REST, confira [Adicionar um pool a uma conta][rest_addpool].
 
-        {
-          "id": "mypool",
-          "vmSize": "Large",
-          "osFamily": "2",
-          "targetOSVersion": "*",
-          "targetDedicated": 2,
-          "enableInterNodeCommunication": false,
-          "maxTasksPerNode": 4
-        }
+```
+{
+  "odata.metadata":"https://myaccount.myregion.batch.azure.com/$metadata#pools/@Element",
+  "id":"mypool",
+  "vmSize":"large",
+  "cloudServiceConfiguration": {
+    "osFamily":"4",
+    "targetOSVersion":"*",
+  }
+  "targetDedicated":2,
+  "maxTasksPerNode":4,
+  "enableInterNodeCommunication":true,
+}
+```
 
 > [AZURE.NOTE] Você pode definir o elemento `maxTasksPerNode` e a propriedade [MaxTasksPerComputeNode][maxtasks_net] apenas no momento da criação do pool. Eles não poderão ser modificados após a criação do pool.
 
@@ -124,11 +134,11 @@ O [Gerenciador de Lote do Azure][batch_explorer], um dos [aplicativos de exemplo
 [fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx
-[maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
+[rest_addpool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [parallel_tasks_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks
 [poolcreate_net]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

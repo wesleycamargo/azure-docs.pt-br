@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Carga de trabalho de serviços de infraestrutura do Azure: farm do SharePoint na Intranet
@@ -35,8 +35,6 @@ Hospedar um farm do SharePoint na Intranet nos serviços de infraestrutura do Az
 
 A próxima etapa é configurar um farm do SharePoint na Intranet para desenvolvimento/teste hospedado no Azure.
 
-> [AZURE.NOTE] A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para obter mais informações, veja [Testar o SharePoint Server 2016 IT Preview no Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
-
 ## Criar um farm do SharePoint na Intranet para desenvolvimento/teste hospedado no Azure
 
 Você tem duas opções para a criação de um ambiente de desenvolvimento/teste para um farm do SharePoint hospedado no Azure:
@@ -44,7 +42,7 @@ Você tem duas opções para a criação de um ambiente de desenvolvimento/teste
 - Rede virtual somente na nuvem
 - Rede virtual entre locais
 
-Você pode criar gratuitamente esses ambientes de desenvolvimento/teste com sua [assinatura do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou com uma [Assinatura de avaliação do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Você pode criar gratuitamente esses ambientes de desenvolvimento/teste com sua [assinatura do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou com uma assinatura do Azure.
 
 ### Rede virtual somente na nuvem
 
@@ -54,7 +52,7 @@ Uma rede virtual somente na nuvem não é conectada a uma rede local. Se você a
 
 ### Rede virtual entre locais
 
-Uma rede virtual entre locais é conectada a uma rede local com uma conexão VPN ou de Rota Expressa entre sites. Se você quiser criar um ambiente de desenvolvimento/teste que simule a configuração final e fazer experiências com o acesso ao servidor do SharePoint e executar a administração remota em uma conexão VPN, consulte [Configurar um farm de Intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
+Uma rede virtual entre locais é conectada a uma rede local com uma conexão VPN ou de Rota Expressa entre sites. Se você quiser criar um ambiente de desenvolvimento/teste que simule a configuração final e fazer experiências com o acesso ao servidor do SharePoint e executar a administração remota em uma conexão VPN, consulte [Configurar um farm de Intranet do SharePoint em uma nuvem híbrida para teste](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md).
 
 ![](./media/virtual-machines-windows-sp-intranet/CreateSPFarmHybridCloud.png)
 
@@ -102,4 +100,4 @@ Depois de configurado, você poderá expandir esse farm do SharePoint com as dir
 
 - Obtenha uma [visão geral](virtual-machines-windows-sp-intranet-overview.md) da carga de trabalho de produção antes começar a configuração.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

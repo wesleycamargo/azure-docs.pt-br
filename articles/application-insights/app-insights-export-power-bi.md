@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usar o Stream Analytics para exportar o Power BI por meio do Application Insights" 
-	description="Demonstra como usar o Stream Analytics para processar os dados exportados." 
+	pageTitle="Exportar para o Power BI do Application Insights" 
+	description="Artigos" 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,46 +12,50 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="04/05/2016" 
 	ms.author="awills"/>
- 
-# Usar o Stream Analytics para alimentar o Power BI por meio do Application Insights
 
-Este artigo mostra como usar [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para processar dados [exportados](app-insights-export-telemetry.md) do [Application Insights do Visual Studio](app-insights-overview.md). Como um destino de exemplo, podemos enviar os dados para o [Microsoft Power BI](https://powerbi.microsoft.com/).
+# Alimentar o Power BI do Application Insights
 
+O [Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de análise de negócios para analisar dados e compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, inclusive do [Visual Studio Application Insights](app-insights-overview.md).
 
-> [AZURE.NOTE] A maneira mais fácil de inserir dados no Power BI por meio do Application Insights é [usando o adaptador](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-content-pack-application-insights/), que você encontrará na Galeria do Power BI em Serviços. O que descrevemos neste artigo é atualmente mais versátil, mas também é uma demonstração de como usar o Stream Analytics com o Application Insights.
+Para começar, veja [Exibir os dados do Application Insights no Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/).
 
-O [Microsoft Power BI](https://powerbi.microsoft.com/) apresenta seus dados em elementos visuais variados e avançados, com a capacidade de reunir informações de várias fontes.
+Você obtém um painel inicial que pode ser personalizado ao combinar os gráficos do Application Insights com os de outras fontes. Há uma galeria de visualização onde você pode obter mais gráficos e cada um deles possui parâmetros que podem ser definidos.
 
-
-![Exemplo de exibição do Power BI de dados de uso do Application Insights](./media/app-insights-export-power-bi/010.png)
-
-O [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é um serviço do Azure que funciona como um adaptador, processando continuamente os dados exportados do Application Insights.
-
-![Exemplo de exibição do Power BI de dados de uso do Application Insights](./media/app-insights-export-power-bi/020.png)
+![](./media/app-insights-export-power-bi/010.png)
 
 
+Após a importação inicial, o painel e os relatórios continuarão a ser atualizados diariamente. Você pode controlar o agendamento de atualização no conjunto de dados.
 
 
-## Vídeo
+**Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. Isso também será verdadeiro se você tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
-Noam Ben Zeev mostra o que descrevemos neste artigo.
+## Maneiras alternativas de ver dados do Application Insights
 
-> [AZURE.VIDEO export-to-power-bi-from-application-insights]
+* Os [Painéis do Azure que contêm gráficos do Application Insights](app-insights-dashboards.md) podem ser mais apropriados se você não precisar exibir dados que não sejam do Azure. Por exemplo, se você quiser configurar um painel de gráficos do Application Insights que monitore componentes diferentes de um sistema, talvez em conjunto com alguns monitores de serviço do Azure, um painel do Azure é a opção ideal. Por padrão, ele é atualizado com mais frequência. 
+* A [exportação contínua](app-insights-export-telemetry.md) copia os dados de entrada para o armazenamento do Azure e, de la, eles podem ser movidos e processados da forma que você desejar.
+* A [Análise](app-insights-analytics.md) permite que você execute consultas complexas sobre os dados brutos mantidos pelo Application Insights.
 
 
-**Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+## Criar seu próprio adaptador do Power BI usando o Stream Analytics
 
-## Monitorar seu aplicativo com o Application Insights
+O pacote de conteúdo do Power BI para o Application Insights exibe um subconjunto útil de telemetria do aplicativo que provavelmente suprirá suas necessidades. Mas, se você quiser obter um intervalo mais amplo de telemetria do que o fornecido, ou se quiser calcular alguns dados com a telemetria bruta, poderá criar seu próprio adaptador usando o serviço Azure Stream Analytics.
 
-Se você nunca experimentou, agora é o momento para começar. O Application Insights pode monitorar qualquer aplicativo Web ou dispositivo em uma grande variedade de plataformas, incluindo Windows, iOS, Android, J2EE e muito mais. [Introdução](app-insights-overview.md).
+Neste esquema, exportaremos dados do Application Insights para o Armazenamento do Azure. O [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) enviará os dados a partir daí, renomeará e processará alguns dos campos e os enviará por pipe para o Power BI. O Stream Analytics é um serviço que pode filtrar, agregar e executar cálculos em um fluxo contínuo de dados.
 
-## Criar armazenamento no Azure
+![Diagrama de bloco para exportação por meio do SA para PBI](./media/app-insights-export-power-bi/020.png)
+
+
+>[AZURE.TIP] **Não é necessário seguir os demais procedimentos deste artigo** (usando o Stream Analytics) para ver os dados do Application Insights no Power BI. Há uma maneira muito mais fácil! ([Use o adaptador gratuito](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/). Siga o restante deste artigo somente se o adaptador não fornecer todos os dados desejados ou se você quiser definir suas próprias agregações ou funções aos dados.
+
+### Criar armazenamento no Azure
 
 Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
 
-1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure](https://portal.azure.com).
+1. Você já experimentou o [powerpack do Power BI para o Application Insights](https://powerbi.microsoft.com/documentation/powerbi-content-pack-application-insights/)? Se for suficiente para suas necessidades, você já não precisará de nada mostrado no restante deste artigo.
+
+2.  Crie uma conta de armazenamento “clássica” na sua assinatura do [portal do Azure](https://portal.azure.com).
 
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-power-bi/030.png)
 
@@ -65,7 +69,7 @@ Exportação contínua sempre gera dados para uma conta de armazenamento do Azur
 
     ![No armazenamento, abra Configurações, Chaves e faça uma cópia da Chave de Acesso Primária](./media/app-insights-export-power-bi/045.png)
 
-## Iniciar exportação contínua no armazenamento do Azure
+### Iniciar exportação contínua no armazenamento do Azure
 
 A [exportação contínua](app-insights-export-telemetry.md) move os dados do Application Insights para o armazenamento do Azure.
 
@@ -98,7 +102,7 @@ A [exportação contínua](app-insights-export-telemetry.md) move os dados do Ap
 
 Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Podemos fazer todos os tipos de coisas com os dados, mas nosso plano para hoje é usar o Stream Analytics para redirecionar os dados ao Power BI.
 
-## Criar uma instância do Azure Stream Analytics
+### Criar uma instância do Azure Stream Analytics
 
 No [Portal do Azure Clássico](https://manage.windowsazure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
 
@@ -154,7 +158,7 @@ Feche o assistente e aguarde até que a instalação seja concluída.
 
 > [AZURE.TIP] Use o comando Sample para baixar alguns dados. Mantenha-os como exemplo de teste para depurar sua consulta.
 
-## Definir a saída
+### Definir a saída
 
 Agora, selecione seu trabalho e defina a saída.
 
@@ -164,7 +168,7 @@ Forneça sua **conta corporativa ou de estudante** para autorizar o Stream Analy
 
 ![Crie três nomes](./media/app-insights-export-power-bi/170.png)
 
-## Definir a consulta
+### Definir a consulta
 
 A consulta controla a conversão de entrada para a saída.
 
@@ -237,7 +241,7 @@ Cole esta consulta:
 
 * Essa consulta inclui os valores das propriedades de dimensão sem a necessidade de ter uma determinada dimensão em um índice fixo na matriz de dimensão.
 
-## Executar o trabalho
+### Executar o trabalho
 
 Você pode selecionar uma data no passado a partir da qual iniciar o trabalho.
 
@@ -245,7 +249,7 @@ Você pode selecionar uma data no passado a partir da qual iniciar o trabalho.
 
 Aguarde até o trabalho estar Em execução.
 
-## Ver os resultados no Power BI
+### Ver os resultados no Power BI
 
 Abra o Power BI com sua conta corporativa ou de estudante e selecione o conjunto de dados e a tabela que você definiu como a saída do trabalho do Stream Analytics.
 
@@ -256,7 +260,7 @@ Agora você pode usar esse conjunto de dados em relatórios e painéis no [Power
 
 ![No Power BI, selecione o conjunto de dados e os campos.](./media/app-insights-export-power-bi/210.png)
 
-## Vídeo
+### Vídeo
 
 Noam Ben Zeev mostra como exportar para o Power BI.
 
@@ -268,5 +272,6 @@ Noam Ben Zeev mostra como exportar para o Power BI.
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
+ 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

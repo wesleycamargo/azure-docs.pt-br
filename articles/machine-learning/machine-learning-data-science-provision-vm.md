@@ -91,7 +91,7 @@ Depois de criar a VM, é possível fazer logon nela usando a área de trabalho r
 
 Depois de criar e provisionar sua VM, você estará pronto para começar a usar as ferramentas que estão instaladas e configuradas nela. Há blocos do menu Iniciar e ícones da área de trabalho para várias das ferramentas.
 
-## Como criar uma senha forte no servidor do bloco de anotações do Jupyter 
+##Como criar uma senha forte no servidor do bloco de anotações do Jupyter 
 
 Execute o comando a seguir em um prompt de comando na Máquina Virtual de Ciência de Dados para criar sua própria senha forte para o servidor de bloco de anotações do Jupyter instalado na máquina.
 
@@ -149,4 +149,4 @@ Veja algumas das próximas etapas para continuar sua aprendizagem e exploração
 * Aprenda a compilar sistematicamente soluções completas de análise usando o [Processo de ciência de dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite a [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu Iniciar e na área de trabalho na máquina virtual para facilitar o acesso 
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

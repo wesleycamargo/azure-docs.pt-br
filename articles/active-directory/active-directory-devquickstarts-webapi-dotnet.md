@@ -23,7 +23,9 @@
 
 Se você estiver criando um aplicativo que fornece acesso a recursos protegidos, você precisará saber como proteger esses recursos de acessos não garantidos. O Azure faz com que seja simples e direto proteger uma API da Web usando tokens de acesso do OAuth Bearer 2.0 com apenas algumas linhas de código.
 
-Em aplicativos da Web Asp.NET, você pode fazer isso usando a implementação da Microsoft do middleware OWIN voltado à comunidade, incluído no .NET Framework 4.5. Aqui usaremos o OWIN para compilar uma API da web "Lista de tarefas" que: - Designa qual APIs estão protegidas. - Valida que as chamadas de API da Web contêm um token de acesso válido.
+Em aplicativos da Web Asp.NET, você pode fazer isso usando a implementação da Microsoft do middleware OWIN voltado à comunidade, incluído no .NET Framework 4.5. Aqui, você usará o OWIN para compilar uma API Web de “Lista de Tarefas Pendentes” que:
+-	Designa quais APIs estão protegidas.
+-	Valida que as chamadas à API Web contêm um Token de Acesso válido.
 
 Para isso, você precisará:
 
@@ -135,10 +137,8 @@ Antes de poder ver o serviço de lista de tarefas em ação, você precisa confi
 
 Por fim, limpe, compile e execute cada projeto! Se você ainda não fez isso, agora é o momento de criar um novo usuário em seu locatário com um domínio *.onmicrosoft.com. Entre no cliente de lista de tarefas com esse usuário e adicione algumas tarefas na lista de tarefas do usuário.
 
-Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido [aqui](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Agora você pode passar para cenários de identidade adicionais. Você pode querer tentar:
-
-[Compilar um cliente nativo do .NET com o AD do Azure >>](../active-directory-devquickstarts-native-dotnet.md)
+Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido [aqui](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Agora, você pode seguir para cenários de identidade adicionais.
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

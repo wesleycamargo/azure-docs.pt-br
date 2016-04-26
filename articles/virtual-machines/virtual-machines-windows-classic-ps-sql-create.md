@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar uma Máquina Virtual do SQL Server no PowerShell | Microsoft Azure"
-	description="Fornece etapas e scripts do PowerShell para criar uma VM do Azure com imagens da galeria de máquinas virtuais do SQL Server."
+	pageTitle="Criar uma máquina virtual do SQL Server no Azure PowerShell (Clássico) | Microsoft Azure"
+	description="Fornece etapas e scripts do PowerShell para criar uma VM do Azure com imagens da galeria de máquinas virtuais do SQL Server. Este tópico usa o modo de implantação clássico."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/22/2016"
+	ms.date="04/08/2016"
 	ms.author="jroth" />
 
-# Criar uma máquina virtual do SQL Server no Azure (PowerShell)
+# Criar uma máquina virtual do SQL Server no Azure PowerShell (Clássico)
 
 ## Visão geral
 
@@ -24,14 +24,17 @@ Este artigo fornece as etapas para a criação de uma máquina virtual do SQL Se
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de recursos.
 
-
 ## Instalar e configurar o PowerShell
 
 1. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. [Instale os cmdlets mais recentes do Azure PowerShell](../powershell-install-configure.md/#how-to-install-azure-powershell).
+2. [Instale os cmdlets mais recentes do Azure PowerShell](../powershell-install-configure.md).
 
-3. [Conecte o PowerShell com sua assinatura do Azure](../powershell-install-configure.md/#how-to-connect-to-your-subscription).
+3. Após a instalação, inicie o Windows PowerShell.
+
+4. Em seguida, conecte o PowerShell à sua assinatura do Azure usando o comando Add-AzureAccount.
+
+		Add-AzureAccount
 
 ## Determinar o região de destino do Azure
 
@@ -163,10 +166,10 @@ Depois de fazer logon no computador com a área de trabalho remota, configure o 
 
 Encontre mais instruções para o provisionamento de máquinas virtuais com o PowerShell na [documentação das máquinas virtuais](virtual-machines-windows-classic-create-powershell.md). Para obter scripts adicionais relacionados ao SQL Server e ao Armazenamento Premium, veja [Usar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais](virtual-machines-windows-classic-sql-server-premium-storage.md).
 
-Em muitos casos, a próxima etapa é migrar os bancos de dados para essa nova VM do SQL Server. Para obter orientações sobre a migração de banco de dados, veja [Migrando um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-windows-classic-migrate-sql.md).
+Em muitos casos, a próxima etapa é migrar os bancos de dados para essa nova VM do SQL Server. Para obter orientações sobre a migração de banco de dados, veja [Migrando um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-windows-migrate-sql.md).
 
-Se você também está interessado em usar o Portal do Azure para criar máquinas virtuais do SQL, confira a seção [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md). Observe que o tutorial que orienta você sobre o portal cria máquinas virtuais usando o modelo recomendado do Gerenciador de Recursos, em vez do modelo clássico usado neste tópico do PowerShell.
+Se você também está interessado em usar o Portal do Azure para criar máquinas virtuais do SQL, confira a seção [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md). Observe que o tutorial que orienta você sobre o portal cria máquinas virtuais usando o modelo recomendado do Gerenciador de Recursos, em vez do modelo clássico usado neste tópico do PowerShell.
 
-Além desses recursos, recomendamos ver [outros tópicos relacionados à execução do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
+Além desses recursos, recomendamos ver [outros tópicos relacionados à execução do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

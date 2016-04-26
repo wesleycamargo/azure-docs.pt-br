@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Suporte do protocolo do Banco de Dados de Documentos para o MongoDB | Microsoft Azure" 
 	description="Saiba mais sobre o suporte do protocolo do Banco de Dados de Documentos para o MongoDB, agora disponível para a visualização." 
-	keywords="protocolo mongodb, mongodb"
+	keywords="protocolo mongodb, mongodb, banco de dados mongo"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="03/31/2016" 
 	ms.author="stbaro"/>
 
@@ -34,13 +34,13 @@ Antes de solicitar acesso ao programa de visualização, você deve ter o seguin
 Para solicitar acesso à visualização, execute as seguintes etapas.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **NOVO**, **Dados + Armazenamento**, **Ver todos**, **Mais**, em seguida, clique em ** Banco de Dados de Documentos - Suporte do Protocolo para MongoDB**.
+2. Clique em **NOVO**, **Dados + Armazenamento**, **Ver todos**, **Mais**, em seguida, clique em **Banco de Dados de Documentos - Suporte do Protocolo para MongoDB**.
 
-	![Captura de tela das folhas Marketplace e Dados + Armazenamento, destacando o Banco de Dados de Documentos - Suporte do Protocolo para o MongoDB](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
+	![Captura de tela das folhas Marketplace e Dados + Armazenamento, destacando o Banco de Dados de Documentos - Suporte do Protocolo para o MongoDB, banco de dados Mongo](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
 
 3. Como alternativa, procure a categoria **Dados + Armazenamento** para ver o "Protocolo do Banco de Dados de Documentos".
 
-	![Captura de tela das folhas de pesquisa Marketplace e Dados + Armazenamento, destacando o Banco de Dados de Documentos - Suporte do Protocolo para o MongoDB](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
+	![Captura de tela das folhas de pesquisa Marketplace e Dados + Armazenamento, destacando o Banco de Dados de Documentos - Suporte do Protocolo para o MongoDB, banco de dados Mongo](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
 
 4. Clique em **Criar** para iniciar o processo de inscrição da visualização.
 
@@ -56,4 +56,4 @@ Para solicitar acesso à visualização, execute as seguintes etapas.
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

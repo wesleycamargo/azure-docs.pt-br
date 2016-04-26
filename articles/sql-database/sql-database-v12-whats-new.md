@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="O que há de novo na V12 do Banco de dados SQL | Microsoft Azure" 
-	description="Descreve por que os sistemas de negócios que estão usando o Banco de Dados SQL do Azure na nuvem terão benefícios com a atualização para a versão V12 agora." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
+<properties
+	pageTitle="O que há de novo na V12 do Banco de dados SQL | Microsoft Azure"
+	description="Descreve por que os sistemas de negócios que estão usando o Banco de Dados SQL do Azure na nuvem terão benefícios com a atualização para a versão V12 agora."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/21/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/21/2016"
 	ms.author="genemi"/>
 
 
@@ -37,10 +37,11 @@ As informações mais recentes sobre os limites de recurso para o Banco de Dados
 ## Maior compatibilidade do aplicativo com o SQL Server
 
 
-A meta principal para o Banco de Dados SQL V12 era melhorar a compatibilidade com o Microsoft SQL Server 2014 e manter a compatibilidade conforme são lançadas novas versões do SQL Server. Entre outras áreas, a V12 atinge paridade com o SQL Server na importante área da programação. Por exemplo,
+A meta principal para o Banco de Dados SQL V12 era melhorar a compatibilidade com o Microsoft SQL Server 2014 e manter a compatibilidade conforme são lançadas novas versões do SQL Server. Entre outras áreas, a V12 atinge paridade com o SQL Server na importante área da programação. Por exemplo:
 
+- [Suporte interno do JSON](https://msdn.microsoft.com/library/dn921897.aspx)
 
-- [Funções de Janela](http://msdn.microsoft.com/library/ms189798.aspx), com [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Funções de Janela](http://msdn.microsoft.com/library/ms189798.aspx), com [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
 
 - [Índices XML](http://msdn.microsoft.com/library/bb934097.aspx) e [índices XML seletivos](http://msdn.microsoft.com/library/jj670104.aspx)
 
@@ -166,4 +167,4 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 
 [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

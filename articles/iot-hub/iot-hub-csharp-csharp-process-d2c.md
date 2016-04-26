@@ -28,28 +28,30 @@ Esse tutorial se baseia no código mostrado no tutorial [Introdução ao Hub IoT
 
 - O processamento confiável de mensagens *interativas* do dispositivo para nuvem. As mensagens do dispositivo para a nuvem são interativas quando disparadas imediatamente para um conjunto de ações no back-end do aplicativo, diferente das mensagens de *ponto de dados*, que são alimentadas em um mecanismo de análise. Por exemplo, um alarme proveniente de um dispositivo que deve disparar a inserção de um tíquete em um sistema de CRM é uma mensagem de dispositivo para nuvem interativa, diferente da telemetria, como exemplos de temperatura, que é uma mensagem de dispositivo de ponto de dados para a nuvem.
 
-Como o Hub IoT expõe um ponto de extremidade compatível com os Hubs de Eventos para receber mensagens de dispositivo para nuvem, este tutorial usa uma instância [EventProcessorHost], que:
+Como o Hub IoT expõe um ponto de extremidade compatível com os [Hubs de Eventos][lnk-event-hubs] para receber mensagens de dispositivo para nuvem, este tutorial usa uma instância [EventProcessorHost], que:
 
 * Armazena com segurança as mensagens *do ponto de dados* nos Blobs do Azure.
 * Encaminha mensagens *interativas* do dispositivo para nuvem para uma [Fila do barramento de serviço] para processamento imediato.
 
 O Barramento de Serviço é uma ótima maneira de garantir processamento confiável de mensagens interativas, pois fornece pontos de verificação por mensagem e eliminação de duplicação baseados em janela de tempo.
 
+> [AZURE.NOTE] Uma instância **EventProcessorHost** é apenas uma maneira de processar mensagens interativas. Entre as outras opções estão [Service Fabric do Azure][lnk-service-fabric] e [Stream Analytics do Azure][lnk-stream-analytics].
+
 No final deste tutorial, você executará três aplicativos de console do Windows:
 
-* **SimulatedDevice**, uma versão modificada do aplicativo criado no tutorial [Introdução com Hub IoT] que envia mensagens do dispositivo de ponto de dados para nuvem a cada segundo, e mensagens interativas do dispositivo para nuvem a cada 10 segundos.
+* **SimulatedDevice**, uma versão modificada do aplicativo criado no tutorial [Introdução com Hub IoT] que envia mensagens do dispositivo de ponto de dados para nuvem a cada segundo, e mensagens interativas do dispositivo para nuvem a cada 10 segundos. Este aplicativo usa o protocolo AMQPS para se comunicar com o Hub IoT.
 * **ProcessDeviceToCloudMessages**, que usa a classe [EventProcessorHost] para recuperar mensagens do ponto de extremidade compatível com o Hub de Eventos e, depois, armazenar com confiança mensagens de ponto de dados em um blob do Azure e encaminhar mensagens interativas para uma fila do Barramento de Serviço.
 * **ProcessD2CInteractiveMessages**, que desenfileira as mensagens interativas da fila do Barramento de Serviço.
 
-> [AZURE.NOTE] O Hub IoT tem suporte de SDK para várias plataformas de dispositivo e linguagens, incluindo C, Java e JavaScript. Consulte o [Centro de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como substituir o dispositivo simulado neste tutorial por um dispositivo físico e, de modo geral, como conectar dispositivos ao Hub IoT do Azure.
+> [AZURE.NOTE] O Hub IoT tem suporte de SDK para várias plataformas de dispositivo e linguagens, incluindo C, Java e JavaScript. Confira o [Centro de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como substituir o dispositivo simulado neste tutorial por um dispositivo físico e, de modo geral, como conectar dispositivos ao Hub IoT do Azure.
 
-Este tutorial se aplica diretamente a outras formas de consumir mensagens compatíveis com Hubs de Eventos, como projetos do [HDInsight (Hadoop)]. Veja o [Guia do desenvolvedor do Hub IoT do Azure - Dispositivo para nuvem] para saber mais.
+Este tutorial se aplica diretamente a outras formas de consumir mensagens compatíveis com Hubs de Eventos, como projetos do [HDInsight (Hadoop)]. Confira o [Guia do desenvolvedor do Hub IoT do Azure - Dispositivo para nuvem] para saber mais.
 
 Para concluir este tutorial, você precisará do seguinte:
 
 + Microsoft Visual Studio 2015.
 
-+ Uma conta ativa do Azure. <br/>Se não tiver uma conta, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Uma conta ativa do Azure. <br/>Se você não tiver uma conta, crie uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fpt-BR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
 Você também precisa ter um conhecimento básico do [Armazenamento do Azure] e do [Barramento de Serviço do Azure].
 
@@ -97,28 +99,27 @@ Informações adicionais sobre o Hub IoT:
 [Fila do barramento de serviço]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Transient Fault Handling]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
-[Tratamento de falhas transitórias]: https://msdn.microsoft.com/pt-BR/library/hh680901(v=pandp.50).aspx
+
 
 [Guia do desenvolvedor do Hub IoT do Azure - Dispositivo para nuvem]: iot-hub-devguide.md#d2c
 
 [Armazenamento do Azure]: https://azure.microsoft.com/documentation/services/storage/
 [Barramento de Serviço do Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[Azure preview portal]: https://portal.azure.com/
+
 
 [Enviar mensagens de nuvem para o dispositivo com o Hub IoT]: iot-hub-csharp-csharp-c2d.md
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Processar mensagens do dispositivo para a nuvem]: iot-hub-csharp-csharp-process-d2c.md
 [Carregando arquivos de dispositivos]: iot-hub-csharp-csharp-file-upload.md
 
 [Visão geral do Hub IoT]: iot-hub-what-is-iot-hub.md
 [Orientação sobre o Hub IoT]: iot-hub-guidance.md
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Introdução ao Hub Iot]: iot-hub-csharp-csharp-getstarted.md
 [Introdução com Hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: iot-hub-tested-configurations.md
 [Centro de Desenvolvedores do IoT do Azure]: https://azure.microsoft.com/develop/iot
+[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
+[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

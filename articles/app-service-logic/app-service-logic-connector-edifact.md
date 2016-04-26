@@ -41,7 +41,7 @@ O Conector do Edifact pode ser usado como um gatilho ou uma ação.
 
 ### Gatilho
 - Iniciar o designer de fluxo de Aplicativos Lógicos do Azure
-- Clique no conector do Edifact no painel à direita:  
+- Clique no Conector do Edifact no painel à direita:  
 ![Configurações do gatilho][3]
 - Clique em ->:  
 ![Opções do gatilho][4]
@@ -84,7 +84,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial us
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 
 <!--References -->
@@ -99,4 +99,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

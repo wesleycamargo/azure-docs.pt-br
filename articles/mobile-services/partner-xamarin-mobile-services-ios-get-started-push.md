@@ -33,7 +33,7 @@ Este tutorial exige o seguinte:
 
 + Um dispositivo iOS 8 (não é possível testar notificações por push no simulador do iOS)
 + Associação no Programa de Desenvolvedores de iOS
-+ [Xamarin.iOS Studio]
++ [Xamarin Studio]
 + [Componente dos Serviços Móveis do Azure]
 
 >[AZURE.IMPORTANT] Devido aos requisitos de APNS, você deve implantar e testar as notificações por push em um dispositivo compatível com o iOS (iPhone ou iPad), em vez de no emulador.
@@ -387,7 +387,6 @@ Este tutorial foi concluído com êxito.
 [121]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png
 [122]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png
 
-[Xamarin.iOS Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
@@ -401,6 +400,6 @@ Este tutorial foi concluído com êxito.
 [objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Componente dos Serviços Móveis do Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

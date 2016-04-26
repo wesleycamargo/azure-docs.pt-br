@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -137,11 +137,11 @@ Verifique se as configurações de regra de alerta existentes foram mapeadas par
   + O banco de dados recuperado usa um nome diferente do nome do banco de dados de origem
   + O banco de dados recuperado está em um servidor diferente do servidor de origem
 
-Para obter mais informações sobre regras de alerta de banco de dados, consulte [Receber notificações de alerta](insights-receive-alert-notifications.md) e [Acompanhar a integridade do serviço](insights-service-health.md).
+Para obter mais informações sobre regras de alerta de banco de dados, consulte [Receber notificações de alerta](../azure-portal/insights-receive-alert-notifications.md) e [Acompanhar a integridade do serviço](../azure-portal/insights-service-health.md).
 
 
 ### Habilitar a auditoria
 
 Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de auditoria é obrigatório, pois os aplicativos cliente usam cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->
