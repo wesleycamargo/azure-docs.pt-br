@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/>
 
 # O que são aplicativos de API do BizTalk e conectores
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 O produto de Serviços de Aplicativos do Azure é construído sobre um princípio de extensibilidade e conectividade comuns entre os Aplicativos da API. Um *Conector* é um tipo de Aplicativo de API que se concentra na conectividade. Conectores, como qualquer outro Aplicativo de API, são utilizados de aplicativos Web, aplicativos móveis e aplicativos lógicos. Os conectores tornam fácil conectar-se a serviços existentes e ajudam a gerenciar a autenticação, fornecem monitoramento, análise e muito mais.
 
@@ -33,7 +35,7 @@ No Serviço de Aplicativo do Azure, há diferentes "Níveis" de serviço dispon�
 
 
 ## Conectores híbridos 
-Os conectores híbridos estendem o alcance dos Serviços de Aplicativos ainda mais na empresa com conectividade para [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) e WebSphere MQ.
+Os conectores híbridos estendem ainda mais o alcance dos Serviços de Aplicativos na empresa com a conectividade para [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) e WebSphere MQ.
 
 ## Serviços EDI e EAI
 A criação de aplicativos críticos para os negócios exige mais do que apenas a conectividade. Baseado na base da plataforma de integração líder do setor da Microsoft - BizTalk Server - os aplicativos de API do BizTalk fornecem recursos de integração avançada que podem ser ajustados em aplicativos Web, móveis e de lógica com facilidade. Alguns desses recursos de integração incluem [Validar](app-service-logic-xml-validator.md), [Extrair](app-service-logic-xpath-extract.md), [Transformar](app-service-logic-transform-xml-documents.md), [Codificadores](app-service-logic-connector-jsonencoder.md), [Gerenciamento de Parceiros Comerciais](app-service-logic-connector-tpm.md) e suporte para formatos EDI como [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) e [AS2](app-service-logic-connector-as2.md).
@@ -42,10 +44,10 @@ Recursos adicionais: [Conectores B2B e aplicativos de API](app-service-logic-b2b
 
 
 ## Regras
-As regras de negócios encapsulam as políticas e as decisões que controlam processos de negócios. Normalmente, as regras são dinâmicas e mudam com o tempo por diferentes motivos, incluindo planos de negócios, regulamentos entre muitos outros. O recurso de [Regras do BizTalk nos Serviços de Aplicativos](app-service-logic-use-biztalk-rules.md) permite desassociar essas políticas do código de aplicativo e simplificar e agilizar o processo de alteração.
+As regras de negócios encapsulam as políticas e as decisões que controlam processos de negócios. Normalmente, as regras são dinâmicas e mudam com o tempo por diferentes motivos, incluindo planos de negócios, regulamentos entre muitos outros. [Regras do BizTalk nos Serviços de Aplicativos](app-service-logic-use-biztalk-rules.md) permite desassociar essas políticas do código de aplicativo e simplificar e agilizar o processo de alteração.
 
 ## Lista de conectores e aplicativos de API
 Consulte [Conectores e lista de aplicativos da API](app-service-logic-connectors-list.md) para obter uma lista completa dos conectores e API aplicativos presentes em cada categoria, incluindo conectores padrão, BizTalk EAI, conectores Premium etc.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

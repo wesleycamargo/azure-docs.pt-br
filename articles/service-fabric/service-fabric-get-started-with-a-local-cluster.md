@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/26/2016"
+   ms.date="04/12/2016"
    ms.author="seanmck"/>
 
 # Introdução à implantação e à atualização de aplicativos em seu cluster local
@@ -84,7 +84,7 @@ Neste tutorial, usaremos um aplicativo de exemplo existente (chamado WordCount) 
 
     ![Implantar um aplicativo no cluster local][deploy-app-to-local-cluster]
 
-7. Para ver o aplicativo em ação, inicie o navegador e navegue até [http://localhost:8081/wordcount/index](http://localhost:8081/wordcount/index). Você deverá ver algo assim:
+7. Para ver o aplicativo em ação, inicie o navegador e navegue até [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Você deverá ver algo assim:
 
     ![IU do aplicativo implantado][deployed-app-ui]
 
@@ -148,11 +148,11 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
 
     ![Andamento da atualização no PowerShell][ps-appupgradeprogress]
 
-3. Durante a atualização, talvez você ache mais fácil monitorar seu status do Service Fabric Explorer. Inicie uma janela de navegador e navegue até [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Clique em **Aplicativos** na árvore à esquerda e escolha **Atualizações em Andamento**.
+3. Durante a atualização, talvez você ache mais fácil monitorar seu status do Service Fabric Explorer. Inicie uma janela de navegador e navegue até [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expanda **Aplicativos** na árvore à esquerda, escolha **WordCount** e, por fim, **malha:/WordCount**. Na guia essentials, você verá o status da atualização conforme ela prossegue pelos domínios de atualização do cluster.
 
     ![Andamento da atualização no Service Fabric Explorer][sfx-upgradeprogress]
 
-    Observe que o indicador Andamento da Atualização representa o estado da atualização nos domínios de atualização do cluster. À medida que a atualização prosseguir em cada domínio, serão executadas verificações de integridade para garantir que o aplicativo está se comportando adequadamente.
+    À medida que a atualização prosseguir em cada domínio, serão executadas verificações de integridade para garantir que o aplicativo está se comportando adequadamente.
 
 4. Se você executar novamente a consulta anterior para o conjunto de serviços incluídos no aplicativo fabric:/WordCount, observará que, enquanto a versão do WordCountService foi alterada, a versão do WordCountWebService não foi:
 
@@ -190,4 +190,4 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

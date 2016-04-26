@@ -20,60 +20,79 @@
 
 # Implantar um cluster do Serviço de Contêiner do Azure
 
-O Serviço de Contêiner do Azure fornece implantação rápida de soluções populares de orquestração e clustering de contêiner de software livre. Ao usar o Serviço de Contêiner do Azure, você pode implantar clusters Marathon Mesos e Docker Swarm com modelos do Azure Resource Manager ou por meio do portal do Azure. Você implanta esses clusters usando Conjuntos de Escala de Máquina Virtual do Azure e tiram proveito das ofertas de rede e armazenamento do Azure. Para acessar o Serviço de Contêiner do Azure, você precisa de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+O Serviço de Contêiner do Azure fornece implantação rápida de soluções populares de orquestração e clustering de contêiner de software livre. Usando o Serviço de Contêiner do Azure, você pode implantar clusters DC/OS e Docker Swarm com modelos do Azure Resource Manager ou por meio do portal do Azure. Você implanta esses clusters usando Conjuntos de Escala de Máquina Virtual do Azure e tiram proveito das ofertas de rede e armazenamento do Azure. Para acessar o Serviço de Contêiner do Azure, você precisa de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Este documento orienta você durante a implantação de um cluster do Serviço de Contêiner do Azure usando o [Portal do Azure](#creating-a-service-using-the-azure-portal), a [interface de linha de comando (CLI) do Azure](#creating-a-service-using-the-azure-cli) e o [módulo do Azure PowerShell](#creating-a-service-using-powershell).
 
 ## Criar um serviço usando o portal do Azure
 
-Para implantar um cluster Mesos ou Docker Swarm, selecione um dos modelos a seguir no GitHub. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
+Faça logon no portal do Azure, selecione Novo e pesquise o mercado do Azure em busca do **Serviço de Contêiner do Azure**.
 
-* [Modelo do Mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Modelo do Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+![Criar implantação](media/acs-portal1.png) <br />
 
-Quando você seleciona o botão **Implantar no Azure** ou em uma das páginas de modelo, o portal do Azure abre com um formulário semelhante a este: <br />
+Selecione **Serviço de Contêiner do Azure** e clique em **Criar**.
 
-![Criar a implantação usando um formulário](media/create-mesos-params.png) <br />
+![Criar implantação](media/acs-portal2.png) <br />
 
-Preencha o formulário usando esta orientação e selecione **OK** quando terminar. <br />
+Insira as seguintes informações:
 
-Campo | Descrição
-----------------|-----------
-DNSNAMEPREFIX | Esse deve ser um valor exclusivo no mundo. Ele será usado para criar nomes DNS para cada uma das partes principais do serviço. Veja mais informações posteriormente neste artigo.
-AGENTCOUNT | Esse é o número de máquinas virtuais que serão criadas no conjunto de escala de agente do Serviço de Contêiner do Azure.
-AGENTVMSIZE | É o tamanho das máquinas virtuais do agente. Tenha cuidado para selecionar um tamanho que forneça recursos suficientes para hospedar os maiores contêineres.
-ADMINUSERNAME | É o nome de usuário que será usado para uma conta em cada uma das máquinas virtuais e conjuntos de escala de máquina virtual no cluster do Serviço de Contêiner do Azure.
-ORCHESTRATORTYPE| É o tipo de orquestrador a ser usado em seu cluster do Serviço de Contêiner do Azure.
-MASTERCOUNT | É o número de máquinas virtuais a serem configuradas como mestres para o cluster. Você pode selecionar uma, mas isso não fornecerá resiliência no cluster e é recomendado apenas para fins de teste. É recomendável usar três ou cinco para um cluster de produção.
-SSHRSAPUBLICKEY | Você deve usar o SSH (Secure Shell) para autenticação nas máquinas virtuais. Este é o local onde você adiciona a chave pública. É muito importante tomar cuidado ao colar o valor da chave nessa caixa. Alguns editores inserem quebras de linha no conteúdo e isso invalidará a chave. Verifique se a chave não tem quebras de linha e se inclui o prefixo 'ssh-rsa' e o sufixo 'nomedeusuário@domínio'. Ele deve ser semelhante a 'ssh-rsa AAAAB3Nz...CONTEÚDODOTRECHO...UcyupgH azureuser@linuxvm'. Se precisar criar uma chave SSH, você encontrará diretrizes para o [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) e o [Linux](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) no site de documentação do Azure.
+- Nome de Usuário – é o nome de usuário que será usado para uma conta em cada uma das máquinas virtuais e conjuntos de escala de máquina virtual no cluster do Serviço de Contêiner do Azure.
+- Assinatura – selecione uma assinatura do Azure.
+- Grupo de recursos – selecione um grupo de recursos existente ou crie um novo.
+- Local – selecione uma região do Azure para a implantação do Serviço de Contêiner do Azure.
+- Chave pública SSH – adicione a chave pública que será usada para autenticação em relação a Máquinas Virtuais do Serviço de Contêiner do Azure. É muito importante que a chave não contenha quebras de linha e que inclua o prefixo 'ssh-rsa' e o sufixo 'nomedeusuário@domínio'. Ela deve semelhante ao seguinte: "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" Para obter orientação sobre a criação de chaves SSH, confira os artigos referentes ao [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e ao [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
-Após definir os valores apropriados para os parâmetros, selecione **OK**. Em seguida, forneça um nome de grupo de recursos, selecione uma região e examine e concorde com os termos legais.
+Clique em **OK** quando estiver pronto para continuar.
 
-> [AZURE.NOTE] Durante a visualização, não há encargos para o Serviço de Contêiner do Azure. Há apenas encargos de computação padrão, como de máquinas virtuais, de armazenamento e de rede.
+![Criar implantação](media/acs-portal3.png) <br />
 
-![Selecionar o grupo de recursos](media/resourcegroup.png)
+Selecione um tipo de Orquestração. As opções são:
 
-Por fim, selecione **Criar**. Volte para o painel. Supondo que você não tenha desmarcado a caixa de seleção **Fixar no painel** na folha implantação, você verá um bloco animado semelhante a este:
+- DC/OS – implanta um cluster de DC/OS.
+- Swarm – implanta um cluster Docker Swarm.
 
-![Implantação do bloco de modelo](media/deploy.png)
+Clique em **OK** quando estiver pronto para continuar.
 
-Agora, relaxe enquanto o cluster é criado. Após a criação do cluster, você verá algumas folhas que mostram os recursos que fazem parte do cluster do Serviço de Contêiner do Azure.
+![Criar implantação](media/acs-portal4.png) <br />
 
-![Concluído](media/final.png)
+Insira as seguintes informações:
+
+- Contagem de mestres – o número de mestres do cluster.
+- Contagem de agentes – para Docker Swarm, esse será o número inicial de agentes no conjunto de escala de agentes. Para DC/OS, esse será o número inicial de agentes em um conjunto de escala privado. Além disso, será criado um conjunto de escala pública, com um número predeterminado de agentes. O número de agentes no conjunto de escala público determina quantos mestres foram criados no cluster, 1 agente pública para 1 mestre e 2 agentes públicos para 3 ou 5 mestres.
+- Tamanho da máquina virtual de agente – o tamanho das máquinas virtuais de agente.
+- Prefixo DNS – um nome exclusivo no mundo que será usado para prefixar partes-chave dos nomes de domínio totalmente qualificados para o serviço. 
+
+Clique em **OK** quando estiver pronto para continuar.
+
+![Criar implantação](media/acs-portal5.png) <br />
+
+Clique em **OK** após a conclusão da validação de serviço.
+
+![Criar implantação](media/acs-portal6.png) <br />
+
+Clique em **Criar** para iniciar o processo de implantação.
+
+![Criar implantação](media/acs-portal7.png) <br />
+
+Se você tiver optado por fixar a implantação no portal do Azure, o status de implantação poderá ser visto.
+
+![Criar implantação](media/acs-portal8.png) <br />
+
+Quando a implantação for concluída, o cluster do Serviço de Contêiner do Azure estará pronto para uso.
 
 ## Criar um serviço usando a CLI do Azure
 
-Para criar uma instância do Serviço de Contêiner do Azure usando a linha de comando, você precisará de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Você também precisará ter instalado e configurado a CLI do Azure.
+Para criar uma instância do Serviço de Contêiner do Azure usando a linha de comando, você precisará de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Você também precisará ter instalado e configurado a CLI do Azure.
 
-Para implantar um cluster Mesos ou Docker Swarm, selecione um dos modelos a seguir no GitHub. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
+Para implantar um cluster DC/OS ou Docker Swarm, selecione um dos modelos a seguir no GitHub. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
 
-* [Modelo do Mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Modelo do Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modelo DC/OS]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modelo do Swarm]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Em seguida, verifique se a CLI do Azure foi conectada a uma assinatura do Azure. Faça isso usando este comando:
 
 ```bash
-Azure account show
+azure account show
 ```
 Se uma conta do Azure não for retornada, use o comando a seguir para fazer logon da CLI do Azure.
 
@@ -87,35 +106,35 @@ Em seguida, configure as ferramentas da CLI do Azure para usar o Azure Resource 
 azure config mode arm
 ```
 
-Se desejar criar o cluster em um novo grupo de recursos, primeiro crie o grupo de recursos. Use o comando a seguir, em que `GROUP_NAME` é o nome do grupo de recursos que você deseja criar e `REGION` é a região onde deseja criar o grupo de recursos:
+Crie um cluster do Grupo de Recursos do Azure e um cluster do Serviço de Contêiner com o seguinte comando, em que:
 
+- **RESOURCE\_GROUP** é o nome do Grupo de Recursos que você deseja usar para esse serviço.
+- **LOCATION** é a região do Azure e que a implantação do Grupo de Recursos e do Serviço de Contêiner do Azure será criada.
+- **TEMPLATE\_URI** é o local do arquivo de implantação. **Observação** - esse deve ser o arquivo BRUTO, não um ponteiro para a interface do usuário do GitHub. Para localizar essa URL, selecione o arquivo azuredeploy.json no GitHub e clique no botão BRUTO:
+
+> Observação - quando você executar esse comando, o shell solicitará valores de parâmetros de implantação.
+ 
 ```bash
-azure group create GROUP_NAME REGION
-```
+# sample deployment
 
-Depois de ter criado um grupo de recursos, você poderá criar seu cluster com este comando, em que:
-
-- **RESOURCE\_GROUP** é o nome do grupo de recursos que você deseja usar para esse serviço.
-- **DEPLOYMENT\_NAME** é o nome da implantação.
-- **TEMPLATE\_URI** é o local do arquivo de implantação. Observe que este deve ser o arquivo BRUTO, *não* um ponteiro para a interface do usuário do GitHub. Para localizar essa URL, selecione o arquivo azuredeploy.json no GitHub e selecione o botão **BRUTO**.
-
-> [AZURE.NOTE] Quando você executar esse comando, o shell solicitará valores de parâmetros de implantação.
-
-```bash
-azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI
+azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
 ### Fornecer parâmetros de modelo
 
-Esta versão do comando requer que você defina os parâmetros interativamente. Se você quiser fornecer parâmetros, como uma cadeia de caracteres formatada por JSON, poderá fazer isso com a opção `-p`. Por exemplo:
+Esta versão do comando requer que você defina os parâmetros interativamente. Se você quiser fornecer parâmetros, como uma cadeia de caracteres formatada em JSON, poderá fazer isso com a opção `-p`. Por exemplo:
 
  ```bash
+ # sample deployment
+
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
  ```
 
-Como alternativa, você pode fornecer um arquivo de parâmetros formatado por JSON usando a opção `-e`:
+Como alternativa, você pode fornecer um arquivo de parâmetros formatado em JSON usando a opção `-e`:
 
  ```bash
+ # sample deployment
+
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
  ```
 
@@ -123,14 +142,14 @@ Para ver um arquivo de parâmetros de exemplo chamado `azuredeploy.parameters.js
 
 ## Criar um serviço usando o PowerShell
 
-Você também pode implantar um cluster do Serviço de Contêiner do Azure com o PowerShell. Este documento se baseia na versão 1.0 do [módulo do Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
+Você também pode implantar um cluster do Serviço de Contêiner do Azure com o PowerShell. Este documento se baseia na versão 1.0 do [módulo do Azure PowerShell]( https://azure.microsoft.com/blog/azps-1-0/).
 
-Para implantar um cluster Mesos ou Docker Swarm, selecione um dos modelos a seguir. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
+Para implantar um cluster DC/OS ou Docker Swarm, selecione um dos modelos a seguir. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
 
-* [Modelo do Mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Modelo do Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modelo DC/OS]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modelo do Swarm]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
-Antes de criar um cluster em sua assinatura do Azure, verifique se sua sessão do PowerShell foi conectada ao Azure. Faça isso com o parâmetro `Get-AzureRMSubscription`:
+Antes de criar um cluster em sua assinatura do Azure, verifique se sua sessão do PowerShell foi conectada ao Azure. Você pode fazer isso com o comando `Get-AzureRMSubscription`:
 
 ```powershell
 Get-AzureRmSubscription
@@ -151,6 +170,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 Depois de criar um grupo de recursos, você poderá criar seu cluster com o comando a seguir. O URI do modelo desejado será especificado para o parâmetro `-TemplateUri`. Quando você executar esse comando, o PowerShell solicitará os valores de parâmetros de implantação.
 
 ```powershell
+# sample deployment
+
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
 
@@ -160,15 +181,18 @@ Se estiver familiarizado com o PowerShell, você saberá que pode percorrer os p
 
 A seguir, o comando completo com os parâmetros incluídos. Você pode fornecer seus próprios valores para os nomes dos recursos.
 
-```
+```powershell
+# sample deployment
+
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
 ## Próximas etapas
+ 
+Agora que você tem um cluster em funcionamento, acesse estes documentos para obter detalhes sobre conexão e gerenciamento.
+ 
+[Conectar-se a um cluster do Serviço de Contêiner do Azure](./container-service-connect.md) 
+[Trabalhar com o Serviço de Contêiner do Azure e DC/OS](./container-service-mesos-marathon-rest.md) 
+[Trabalhar com o Serviço de Contêiner do Azure e Docker Swarm](./container-service-docker-swarm.md)
 
-Agora que você tem um cluster em funcionamento, veja estes artigos para obter detalhes sobre conexão e gerenciamento.
-
-- [Conectar a um cluster do Serviço de Contêiner do Azure](./container-service-connect.md)
-- [Trabalhar com o Mesos e o Serviço de Contêiner do Azure](./container-service-mesos-marathon-rest.md)
-
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0420_2016-->

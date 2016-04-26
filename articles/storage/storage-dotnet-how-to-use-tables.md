@@ -56,11 +56,13 @@ Adicione as seguintes instruções `using` na parte superior do arquivo `program
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
+### Analisar a cadeia de conexão
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Criar o cliente do serviço Tabela
 
-A classe **CloudTableClient** permite que você recupere tabelas e entidades armazenadas no Armazenamento de Tabelas. Adicione o seguinte código ao final do método **Main()**:
+A classe **CloudTableClient** permite que você recupere as tabelas e entidades armazenadas no Armazenamento de tabelas. Aqui está uma maneira de criar o cliente de serviço:
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -461,4 +463,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

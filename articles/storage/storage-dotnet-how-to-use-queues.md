@@ -54,11 +54,13 @@ Adicione as seguintes instruções `using` na parte superior do arquivo `program
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
+### Analisar a cadeia de conexão
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Criar o cliente do serviço Fila
 
-A classe **CloudQueueClient** permite que você recupere filas armazenadas no Armazenamento de Filas. Adicione o seguinte código ao final do método **Main()**:
+A classe **CloudQueueClient** permite que você recupere as filas armazenadas no Armazenamento de filas. Aqui está uma maneira de criar o cliente de serviço:
 
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
@@ -273,4 +275,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Fila, siga es
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

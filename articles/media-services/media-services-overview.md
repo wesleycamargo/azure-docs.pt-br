@@ -3,8 +3,8 @@
 	description="Este tópico oferece uma visão geral dos Serviços de Mídia do Azure" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,anilmur" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="02/02/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 #Visão geral e cenários comuns do Serviços de Mídia do Azure
 
@@ -57,7 +57,7 @@ Para começar a usar o Azure Media Services, você deve possuir o seguinte:
 2. Uma conta de Serviços de Mídia do Azure. Use o Portal Clássico do Azure, o .NET ou a API REST para criar a conta dos Serviços de Mídia do Azure. Para obter mais informações, veja [Criar conta](media-services-create-account.md).
 3. (Opcional) Configure o ambiente de desenvolvimento. Escolha .NET ou API REST para seu ambiente de desenvolvimento. Para obter mais informações, veja [Configurar ambiente](media-services-dotnet-how-to-use.md). 
 
-	Além disso, saiba como conectar de forma programática [Conectar](media-services-dotnet-connect_programmatically.md).
+	Além disso, saiba como conectar de forma programática [Conectar](media-services-dotnet-connect-programmatically.md).
 4. (Recomendado) Aloque uma ou mais unidades de escala. É recomendável alocar uma ou mais unidades de escala para aplicativos no ambiente de produção. Para obter mais informações, veja [Gerenciando pontos de extremidade de transmissão](media-services-manage-origins.md).
 
 ##Visão geral e conceitos
@@ -236,4 +236,4 @@ O [Suporte do Azure](https://azure.microsoft.com/support/options/) fornece opç�
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

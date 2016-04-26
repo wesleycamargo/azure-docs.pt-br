@@ -4,7 +4,7 @@
 	services="app-service\api"
 	documentationCenter="node"
 	authors="bradygaster"
-	manager="mohisri" 
+	manager="mohisri"
 	editor="tdykstra "/>
 
 <tags
@@ -130,11 +130,11 @@ Os comandos a seguir devem ser executados usando a linha de comando do Node.js. 
 
     A execução desse comando iniciará o servidor HTTP do Node.js e começará a atender à sua API.
 
-1. Ao navegar até ****http://localhost:8000/contacts** você verá a saída JSON da lista de contatos (ou receberá uma solicitação para baixá-la, dependendo de seu navegador).
+1. Ao navegar até **http://localhost:8000/contacts** você verá a saída JSON da lista de contatos (ou receberá uma solicitação para baixá-la, dependendo de seu navegador).
 
     ![Chamada à Api de todos os contatos](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. Ao navegar até ****http://localhost:8000/contacts/2** você verá o contato representado por esse valor de ID.
+1. Ao navegar até **http://localhost:8000/contacts/2** você verá o contato representado por esse valor de ID.
 
     ![Chamada à Api de contato específico](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
@@ -243,4 +243,4 @@ Agora, você já criou e implantou com êxito seu primeiro Aplicativo de API usa
 
 Para expandir esse exemplo, você pode adicionar código aos manipuladores para armazenar os dados em um banco de dados ou no disco da instância de Aplicativo de API. Agora que você a Implantação Contínua está conectada, a alteração da funcionalidade do Aplicativo de API e sua extensão será tão fácil quanto a alterar e enviar seu código por push ao repositório Git.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

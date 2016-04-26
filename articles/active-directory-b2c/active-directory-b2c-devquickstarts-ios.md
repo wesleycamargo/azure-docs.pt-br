@@ -1,4 +1,11 @@
-<properties pageTitle="Visualização do Azure Active Directory B2C: chamar uma API Web de um aplicativo do iOS | Microsoft Azure" description="Este artigo mostrará como criar um aplicativo de "lista de tarefas pendentes" do iOS que chama uma API Web do Node.js usando tokens de portador OAuth 2.0. O aplicativo do iOS e a API Web usam o Azure Active Directory B2C para gerenciar identidades de usuário e autenticar usuários." services="active-directory-b2c" documentationCenter="ios" authors="brandwe" manager="mbaldwin" editor=""/>
+<properties
+	pageTitle="Visualização do Azure Active Directory B2C: chamar uma API Web de um aplicativo iOS | Microsoft Azure"
+	description="Este artigo mostrará como criar um aplicativo de ";lista de tarefas pendentes"; do iOS que chama uma API Web do Node.js usando tokens de portador OAuth 2.0. Tanto o aplicativo do iOS quanto a API Web usam o Azure Active Directory B2C para gerenciar identidades de usuário e autenticar usuários."
+	services="active-directory-b2c"
+	documentationCenter="ios"
+	authors="brandwe"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -18,10 +25,10 @@ Usando o Azure Active Directory (Azure AD) B2C, você poderá adicionar recursos
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
-	Para funcionar plenamente, este Guia de início rápido requer que você já tenha uma API Web protegida pelo Azure AD B2C. Criamos uma para .NET e Node.js que você pode usar. Este passo a passo presume que o exemplo de API Web do Node.js esteja configurado. Confira o [exemplo de API Web do Azure Active Directory para Node.js ](active-directory-b2c-devquickstarts-api-node.md) para obter mais informações.)
+	Para funcionar plenamente, este Guia de início rápido requer que você já tenha uma API Web protegida pelo Azure AD B2C. Criamos uma para .NET e Node.js que você pode usar. Este passo a passo presume que o exemplo de API Web do Node.js esteja configurado. Confira o [exemplo de API Web do Azure Active Directory para Node.js](active-directory-b2c-devquickstarts-api-node.md) para saber mais).
 
 > [AZURE.NOTE]
-	Este artigo não aborda como implementar entrada, inscrição e gerenciamento de perfil com o Azure AD B2C. Ele se concentra na chamada a APIs Web depois que o usuário é autenticado. Se não estiver, você deve começar com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para saber mais sobre os conceitos básicos do Azure AD B2C.
+	Este artigo não aborda como implementar entrada, inscrição e gerenciamento de perfil com o Azure AD B2C. Ele se concentra na chamada a APIs Web depois que o usuário é autenticado. Se ainda não tiver feito isto, você deverá começar com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para saber mais sobre os conceitos básicos do Azure AD B2C.
 
 ## Obter um diretório AD B2C do Azure
 
@@ -29,12 +36,12 @@ Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um 
 
 ## Criar um aplicativo
 
-Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornece ao AD do Azure as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. O aplicativo e a API Web são representados por uma única **ID de aplicativo** nesse caso, pois abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
+Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornece ao AD do Azure as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Nesse caso, aplicativo e a API Web são representados por uma única **ID do Aplicativo**, pois abrangem um aplicativo lógico. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
 
 - Inclua um **aplicativo Web/API Web** no aplicativo.
-- Digite `http://localhost:3000/auth/openid/return` como uma **URL de Resposta**. É a URL padrão deste exemplo de código.
+- Insira `http://localhost:3000/auth/openid/return` como um **URL de Resposta**. É a URL padrão deste exemplo de código.
 - Crie um **Segredo de aplicativo** para seu aplicativo e copie-o. Você precisará dela mais tarde.
-- Copie a **ID de aplicativo** atribuída ao aplicativo. Você também precisará dela mais tarde.
+- Copie a **ID do Aplicativo** atribuída ao seu aplicativo. Você também precisará dela mais tarde.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
@@ -43,18 +50,18 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornec
 No Azure AD B2C, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém três experiências de identidade: inscrição, entrada e entrada usando o Facebook. Você precisa criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar as três políticas, não se esqueça de:
 
 - Escolha o **Nome de exibição** e atributos de inscrição em sua política de inscrição.
-- Escolha as declarações de aplicativo **Nome de exibição** e **ID de objeto** em cada política. Você pode escolher outras declarações também.
-- Copie o **Nome** de cada política após criá-la. Ele deve ter o prefixo `b2c_1_`. Você precisará esses nomes de política mais tarde.
+- Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas. Você pode escolher outras declarações também.
+- Copie o **Nome** de cada política depois de criá-la. Ele deve ter o prefixo `b2c_1_`. Você precisará esses nomes de política mais tarde.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Depois de criar as três políticas, você estará pronto para compilar o aplicativo.
 
-Observe que este artigo não aborda como usar as políticas que você acabou de criar. Para saber mais sobre como as políticas funcionam no Azure AD B2C, inicie com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Observe que este artigo não aborda como usar as políticas que você acabou de criar. Para saber mais sobre o funcionamento das políticas no Azure AD B2C, comece com o [tutorial de introdução ao aplicativo Web do .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Baixar o código
 
-O código para este tutorial [é mantido no GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Para compilar o exemplo à medida que avança, [baixe um projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip): Também é possível clonar o esqueleto:
+O código para este tutorial [é mantido no GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Para compilar o exemplo à medida que avança, [baixe um projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip). Também é possível clonar o esqueleto:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
@@ -366,7 +373,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 
 `getTasksList` fornece uma matriz que representa as tarefas no servidor. `addTask` e `deleteTask` executam as ações subsequentes e retornam `true` ou `false` se forem bem-sucedidos.
 
-Grave `getTaskList` primeiro:
+Escreva `getTaskList` primeiro:
 
 ```
 
@@ -459,7 +466,7 @@ Adicione o seguinte código ao arquivo `samplesWebAPIConnector.m`:
 }
 ```
 
-Isso usa um URI (uniform resource identifier) da Web, adiciona o token a ele usando o cabeçalho `Bearer` no HTTP e o retorna para você. Você chama a API `getTokenClearingCache`. Isso pode parecer estranho, mas basta usar essa chamada para obter um token do cache e garantir que ele ainda é válido. (As chamadas `getToken` fazem isso para você perguntando à ADAL.) Você usará esse código em cada chamada. Em seguida, crie seus métodos de tarefa adicionais.
+Isso usa um URI (uniform resource identifier) da Web, adiciona o token a ele usando o cabeçalho `Bearer` no HTTP e o retorna para você. Você chama a API `getTokenClearingCache`. Isso pode parecer estranho, mas basta usar essa chamada para obter um token do cache e garantir que ele ainda é válido. (As chamadas `getToken` fazem isso para você perguntando à ADAL). Você usará esse código em cada chamada. Em seguida, crie seus métodos de tarefa adicionais.
 
 Escreva `addTask`:
 
@@ -534,7 +541,7 @@ Isso segue o mesmo padrão, mas também introduz o método final que você preci
 
 ```
 
-Em seguida, grave `deleteTask`:
+Em seguida, escreva `deleteTask`:
 
 ```
 +(void) deleteTask:(samplesTaskItem*)task
@@ -623,4 +630,4 @@ Agora você pode ir para tópicos mais avançados sobre o B2C. Você pode experi
 
 [Personalizar a experiência do usuário para um aplicativo B2C]()
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->
