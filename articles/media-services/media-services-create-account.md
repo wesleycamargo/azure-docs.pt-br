@@ -67,7 +67,7 @@ O acesso aos Serviços de Mídia requer duas contas associadas:
 
 Você pode monitorar o status do processo na área de mensagem na parte inferior da janela.
 
-O status alterado para Ativa quando a conta foi criada com êxito. A página **serviços de mídia ** é aberta com a nova conta exibida.
+O status alterado para Ativa quando a conta foi criada com êxito. A página **serviços de mídia** é aberta com a nova conta exibida.
 
 Na parte inferior da página, o botão **GERENCIAR CHAVES** é exibido. Quando você clica nesse botão, é exibida uma página com o nome da conta de Serviços de Mídia e as chaves primárias e secundárias. Será necessário o nome da conta e as informações de chave primária para acessar a conta de Serviços de Mídia de modo programático.
 

@@ -22,7 +22,7 @@ O Azure AD Connect é a ferramenta para integrar seu sistema de identidade local
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
 
 ![O que é o Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -48,7 +48,7 @@ O Azure Active Directory Connect é composto de três partes principais. Elas s�
 
 ## Instalar o Azure AD Connect
 
-Você pode encontrar o download para o Azure AD Connect no [Centro de Download da Microsoft.](http://go.microsoft.com/fwlink/?LinkId=615771).
+Você pode encontrar o download para o Azure AD Connect no [Centro de Download da Microsoft.]( http://go.microsoft.com/fwlink/?LinkId=615771).
 
 
 | Solução | Cenário |
@@ -66,7 +66,7 @@ Você pode encontrar o download para o Azure AD Connect no [Centro de Download d
 
 | Tópico | |
 | --------- | --------- |
-| Baixar o Azure AD Connect | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+| Baixar o Azure AD Connect | [Baixar o Azure AD Connect]( http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Instalar usando as Configurações expressas | [Instalação expressa do Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Instalar usando Configurações personalizadas | [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
 | Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
@@ -161,4 +161,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0420_2016--->
