@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/06/2016" 
+	ms.date="04/14/2016" 
 	ms.author="awills"/>
 
 
@@ -179,7 +179,19 @@ Abra a Pesquisa investigar solicitações individuais e seus eventos associados.
 
 Agora implante seu aplicativo e assista a acumulação dos dados.
 
-Quando você executa no modo de depuração, a telemetria é expressa através da pipeline, de modo que voc~e deve ver dados aparecendo dentro de segundos. Quando você implanta seu aplicativo, os dados acumulam mais lentamente.
+### Live Stream
+
+Os primeiros minutos de uma implantação dizem a você se o seu aplicativo está funcionando corretamente. Especialmente quando estiver substituindo uma versão mais antiga, você deseja saber se o desempenho foi aprimorado. Se houver um problema, você poderá reverter para a versão antiga.
+
+O Live Stream fornece uma exibição imediata de um conjunto de métricas de desempenho chave. Ele foi projetado para que você possa assisti-lo durante uma reimplantação ou uma reconfiguração.
+
+![Na folha de visão geral, clique em Live Stream](./media/app-insights-asp-net/45.png)
+
+Ao contrário de outros gráficos de métricas, o Live Stream mostra somente os dados dos últimos minutos e não retém nenhum dado. O pipeline de agregação é mínimo e a exibição é atualizada a cada segundo.
+
+O Live Stream exige a versão 2.1.0-beta1 ou posterior do SDK.
+
+*O Live Stream ficou paralisado em sua página de configuração? - Atualize seu navegador (F5).*
 
 #### Problemas no servidor de compilação?
 
@@ -234,4 +246,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

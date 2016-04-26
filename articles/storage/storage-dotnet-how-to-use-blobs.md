@@ -55,11 +55,13 @@ Adicione as seguintes instruções `using` na parte superior do arquivo `program
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
+### Analisar a cadeia de conexão
+
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Criar o cliente do serviço Blob
 
-A classe **CloudBlobClient** permite que você recupere contêineres e blobs armazenados no Armazenamento de Blobs. Adicione o seguinte código ao final do método **Main()**:
+A classe **CloudBlobClient** permite que você recupere contêineres e blobs armazenados no armazenamento de Blobs. Aqui está uma maneira de criar o cliente de serviço:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
@@ -177,7 +179,7 @@ Quando você chama **ListBlobs** no contêiner 'photos' (como no exemplo acima),
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Opcionalmente, você pode definir o parâmetro **UseFlatBlobListing** do método **ListBlobs** como **true**. Nesse caso, cada blob no contêiner é retornado como um objeto **CloudBlockBlob**. A chamada para **ListBlobs** para retornar uma lista simples tem esta aparência:
+Opcionalmente, você pode definir o parâmetro **UseFlatBlobListing** do método **ListBlobs** como** true**. Nesse caso, cada blob no contêiner é retornado como um objeto **CloudBlockBlob**. A chamada para **ListBlobs** para retornar uma lista simples tem esta aparência:
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -363,7 +365,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga es
 - [Introdução ao Armazenamento de arquivos para .NET](storage-dotnet-how-to-use-files.md)
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy)
 - [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-- [Usando o Banco de Dados SQL do .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -376,4 +377,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga es
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

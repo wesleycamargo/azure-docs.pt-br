@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Funções Web e de trabalho do Python com as Ferramentas Python 2.2 para Visual Studio | Microsoft Azure"
 	description="Visão geral do uso do Python Tools para Visual Studio para criar serviços de nuvem do Azure, incluindo funções Web e de Trabalho."
-	services=""
+	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="thraka"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="hero-article"
 	ms.date="08/30/2015"
-	ms.author="huvalo"/>
+	ms.author="adegeo"/>
 
 
 
@@ -38,7 +38,7 @@ O Azure fornece três modelos de computação para a execução de aplicativos: 
 
 Para obter mais informações, consulte [O que é um Serviço de Nuvem?].
 
-> [AZURE.NOTE]*Deseja criar um site simples?* Se o seu cenário envolver apenas um front-end de site simples, considere usar um recurso Aplicativos Web leve no Serviço de Aplicativo do Azure. Você pode atualizar facilmente para um serviço de nuvem conforme o site cresce e suas necessidades mudam. Consulte o <a href="/develop/python/">Centro de Desenvolvedores do Python</a> para obter artigos que abordem o desenvolvimento do recurso Aplicativos Web no Serviço de Aplicativo do Azure. <br />
+> [AZURE.NOTE] *Deseja criar um site simples?* Se o seu cenário envolver apenas um front-end de site simples, considere usar um recurso Aplicativos Web leve no Serviço de Aplicativo do Azure. Você pode atualizar facilmente para um serviço de nuvem conforme o site cresce e suas necessidades mudam. Consulte o <a href="/develop/python/">Centro de Desenvolvedores do Python</a> para obter artigos que abordem o desenvolvimento do recurso Aplicativos Web no Serviço de Aplicativo do Azure. <br />
 
 
 ## Criação do projeto
@@ -114,17 +114,17 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 
 <!--Link references-->
 
-[O que é um Serviço de Nuvem?]: /manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: fundamentals-application-models.md#WebSites
-[execution model-vms]: fundamentals-application-models.md#VMachine
-[execution model-cloud services]: fundamentals-application-models.md#CloudServices
+[O que é um Serviço de Nuvem?]: ./cloud-services/cloud-services-choose-me.md
+[execution model-web sites]: ./app-service-web/app-service-web-overview.md
+[execution model-vms]: ./virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: ./cloud-services/cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Serviço Blob]: storage-python-how-to-use-blob-storage.md
-[Serviço Fila]: storage-python-how-to-use-queue-storage.md
-[Serviço Tabela]: storage-python-how-to-use-table-storage.md
-[Filas do Barramento de Serviço]: service-bus-python-how-to-use-queues.md
-[Tópicos do Barramento de Serviço]: service-bus-python-how-to-use-topics-subscriptions.md
+[Serviço Blob]: ./storage/storage-python-how-to-use-blob-storage.md
+[Serviço Fila]: ./storage/storage-python-how-to-use-queue-storage.md
+[Serviço Tabela]: ./storage/storage-python-how-to-use-table-storage.md
+[Filas do Barramento de Serviço]: ./service-bus/service-bus-python-how-to-use-queues.md
+[Tópicos do Barramento de Serviço]: ./service-bus/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -138,4 +138,4 @@ Para obter mais detalhes sobre o uso dos serviços do Azure por meio das funçõ
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

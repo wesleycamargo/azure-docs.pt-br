@@ -3,7 +3,7 @@
    description="Introdução ao SQL Data Warehouse e execução de algumas consultas."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="03/23/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="sonyama;barbkess"/>
 
 # Conectar e consultar com o Visual Studio
 
@@ -34,7 +34,7 @@ Este passo a passo mostra como se conectar e consultar um banco de dados do SQL 
 
 ## Obtenha o nome de servidor totalmente qualificado do SQL Azure
 
-Para conectar-se ao banco de dados, você precisará do nome completo do servidor ( ***nomedoservidor**.database.windows.net* ) que contenha o banco de dados ao qual você deseja se conectar.
+Para conectar-se ao banco de dados, você precisará do nome completo do servidor (****nomedoservidor**.database.windows.net*) que contenha o banco de dados ao qual você deseja se conectar.
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Navegue até o banco de dados ao qual você deseja se conectar.
@@ -69,13 +69,13 @@ Agora que registramos o nosso servidor, vamos prosseguir e criar uma consulta.
 
 3. Digite o seguinte código na janela de consulta:
 
-	```sql
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. Execute a consulta.
 
-	Para executar a consulta, clique na seta verde ou use este atalho: `CTRL`+`SHIFT`+`E`:
+   Para executar a consulta, clique na seta verde ou use este atalho: `CTRL`+`SHIFT`+`E`:
 
 ## Próximas etapas
 
@@ -91,4 +91,4 @@ Agora que você pode se conectar e consultar, tente [conectar-se ao PowerBI][].
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

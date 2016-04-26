@@ -48,7 +48,7 @@ Aqui está um passo a passo deste tutorial.
 
 2. No menu Hub, clique em **Novo** > **Computação** > **Windows Server 2012 R2 Datacenter**.
 
-	![Captura de tela que mostra as imagens de VM do Azure disponíveis no portal de visualização](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
+	![Captura de tela que mostra as imagens da VM do Azure disponíveis no portal](./media/virtual-machines-windows-hero-tutorial/marketplace_new.png)
 
 	>[AZURE.TIP] Para localizar outras imagens, clique em **Marketplace**e pesquise ou filtre os itens disponíveis.
 
@@ -117,4 +117,4 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 * Automatize a máquina virtual e a implantação, bem como o gerenciamento da carga de trabalho, usando os [modelos do Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 * Você pode também [criar uma máquina virtual do Linux](virtual-machines-linux-quick-create-cli.md) rapidamente usando a CLI do Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

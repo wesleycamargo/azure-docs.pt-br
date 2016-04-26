@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/13/2016"
+	ms.date="04/14/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integração de suas identidades locais com o Active Directory do Azure
@@ -22,7 +22,7 @@ O Azure AD Connect é a ferramenta para integrar seu sistema de identidade local
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
 
 ![O que é o Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -84,7 +84,7 @@ Você também deve se preparar para questões [operacionais](active-directory-aa
 | Planejamento operacional | [Sincronização do Azure AD Connect: considerações e tarefas operacionais](active-directory-aadconnectsync-operations.md) |
 | Opções de entrada de usuário | [Opções de entrada de usuário do Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 
-## Configurar recursos
+## Configurar recursos de sincronização
 O Azure Connect AD vem com vários recursos que você pode ativar opcionalmente ou que estão habilitados por padrão. Em alguns casos, alguns recursos podem exigir configuração adicional em certos cenários e topologias.
 
 A [filtragem](active-directory-aadconnectsync-configure-filtering.md) é usada para limitar quais objetos são sincronizados ao Azure AD. Por padrão todos os usuários, contatos, grupos e computadores do Windows 10 são sincronizados, mas você pode limitar isso com base em domínios, UOs ou atributos.
@@ -99,7 +99,7 @@ O recurso [impedir exclusões acidentais](active-directory-aadconnectsync-featur
 
 A [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) está habilitada por padrão para instalações de configurações expressas e garantirá que o Azure AD Connect esteja sempre atualizado com a última versão.
 
-### Próximas etapas para configurar recursos
+### Próximas etapas para configurar recursos de sincronização
 
 | Tópico | |
 | --------- | --------- |
@@ -130,12 +130,25 @@ O modelo de configuração em sincronização é chamado de [provisionamento dec
 | Provisionamento declarativo | [Azure AD Connect Sync: noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Alterar a configuração padrão | [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
+## Configurar recursos de federação
+O ADFS pode ser configurado para oferecer suporte a [vários domínios](active-directory-aadconnect-multiple-domains.md). Por exemplo, você pode ter vários domínios superiores que precisem ser usados para federação.
+
+Se seu servidor ADFS não tiver sido configurado para atualizar automaticamente os certificados do AD do Azure ou se você usar uma solução não ADFS, será notificado quando tiver de [atualizar os certificados](active-directory-aadconnect-o365-certs.md).
+
+### Próximas etapas para configurar recursos de federação
+
+| Tópico | |
+| --------- | --------- |
+| Configurar o ADFS com subdomínios | [Suporte a Vários Domínios para Federação com o Azure AD](active-directory-aadconnect-multiple-domains.md) |
+| Atualização manual dos certificados de federação | [Renovando certificados de federação para o Office 365 e AD do Azure](active-directory-aadconnect-o365-certs.md) |
+
 ## Mais informações e referências
 
 | Tópico | |
 | --------- | --------- |
 | Histórico de versão | [Histórico de versão](active-directory-aadconnect-version-history.md) |
 | Comparar o DirSync, Azure ADSync e o Azure AD Connect | [Comparação de ferramentas de integração de diretório](active-directory-hybrid-identity-design-considerations-tools-comparison.md) |
+| Lista de compatibilidade de soluções não ADFS para o AD do Azure | [Lista de compatibilidade de federação do AD do Azure](active-directory-aadconnect-federation-compatibility.md) |
 | Atributos sincronizados | [Atributos sincronizados](active-directory-aadconnectsync-attributes-synchronized.md) |
 | Monitorando com o Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md) |
 | Perguntas frequentes | [Perguntas frequentes do Azure AD Connect](active-directory-aadconnect-faq.md) |
@@ -148,4 +161,4 @@ Apresentação Ignite 2015 sobre como expandir seus diretórios locais para a nu
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0413_2016--->
+<!---HONumber=AcomDC_0420_2016-->

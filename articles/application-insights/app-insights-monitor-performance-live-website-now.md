@@ -159,7 +159,6 @@ Você precisa abrir algumas portas de saída no firewall do servidor para permit
  -	`login.live.com:443`
 + Instalação:
  +	`packages.nuget.org:443`
- +	`appinsightsstatusmonitor.blob.core.windows.net:80`
 
 Esta lista pode mudar de tempos em tempos.
 
@@ -275,7 +274,7 @@ Se o aplicativo Web estiver no Azure e se você criar os recursos usando um mode
        ]
      } 
 
-* `nameOfAIAppResource` - um nome para o recurso do Application Insights.
+* `nameOfAIAppResource` - um nome para o recurso do Application Insights
 * `myWebAppName` - a id do aplicativo Web
 
 ## <a name="next"></a>Próximas etapas
@@ -302,4 +301,4 @@ Se o aplicativo Web estiver no Azure e se você criar os recursos usando um mode
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

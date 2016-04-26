@@ -6,7 +6,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="" />
 
 <tags
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="03/25/2016"
-	ms.author="sstein" />
+	ms.author="sstein;carlrab" />
 
 # Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL
 
@@ -25,34 +25,21 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Este artigo mostra como conectar-se a um banco de dados SQL do Azure usando o SQL Server Management Studio (SSMS) e executar uma consulta simples com instruções Transact-SQL.
+Este artigo mostra como conectar-se a um Banco de Dados SQL do Azure usando a versão mais recente do SQL Server Management Studio (SSMS) e executar uma consulta simples com instruções Transact-SQL.
 
-Em primeiro lugar, você precisará de um banco de dados SQL no Azure. Você pode criar um rapidamente com as instruções em [Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md). Os exemplos aqui são baseados no banco de dados de exemplo AdventureWorks, que você cria nesse artigo, mas as mesmas etapas se aplicam a qualquer banco de dados SQL, até a execução da consulta.
+[AZURE.INCLUDE [Entrar](../../includes/azure-getting-started-portal-login.md)]
 
-## Instalar e iniciar o SQL Server Management Studio (SSMS)
+[AZURE.INCLUDE [Instalação do SSMS](../../includes/sql-server-management-studio-install.md)]
 
-Ao trabalhar com o Banco de Dados SQL, você deverá usar a versão mais recente do SSMS. Consulte [Baixar SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtê-lo. Com a versão mais recente, o SSMS notifica você automaticamente quando a atualização mais recente estiver disponível.
+[AZURE.INCLUDE [Conexão SSMS](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-## Iniciar o SSMS e se conectar ao servidor de banco de dados SQL
-
-1. Digite "Microsoft SQL Server Management Studio" na caixa de pesquisa do Windows e clique no aplicativo de área de trabalho para iniciar o SSMS.
-2. Na caixa de diálogo **Conectar ao Servidor**, na caixa **Nome do servidor**, digite o nome do servidor que hospeda o banco de dados SQL no formato *&lt;nomedoservidor >*.**database.windows.net**.
-3. Escolha **Autenticação do SQL Server** na lista **Autenticação**.
-4. Digite o **Logon** e a **Senha** que você configurou ao criar o servidor e clique em **Conectar** para se conectar ao Banco de Dados SQL.
-
-	![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-connect-query-ssms/1-connect.png)
-
-5. Se você ainda não estabeleceu uma conexão com o Azure, o SSMS solicitará as informações de logon do Azure.
-
-### Se a conexão falhar
-
-O motivo mais comum das falhas de conexão são os erros no nome do servidor (lembre-se, <*nomeservidor*> é o nome do servidor lógico, não do banco de dados), nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança. Se você estiver conectando pela primeira vez ou se a conexão falhar devido a uma configuração de IP alterada, a [versão mais recente do SSMS](https://msdn.microsoft.com/library/mt238290.aspx) solicitará seu logon do Azure e criará a regra de firewall no Azure para você. Se você estiver usando uma versão anterior, o endereço IP será informado em uma mensagem de erro e você precisará adicionar esse endereço IP à regra de firewall do servidor no Azure. Verifique se as configurações de firewall do servidor permitem conexões do endereço IP do seu computador local e o endereço IP usado pelo cliente do SSMS. Às vezes, eles são diferentes. Para saber mais, consulte [Como definir configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
+Para saber mais sobre regras de firewall, confira [Como definir as configurações de firewall (Banco de Dados SQL do Azure)](sql-database-configure-firewall-settings.md).
 
 ## Executar consultas de exemplo
 
-Depois que se conectar ao servidor lógico, você pode se conectar a um banco de dados e executar uma consulta de exemplo. Se você não tiver criado o banco de dados usando o exemplo da AdventureWorks em [Introdução ao Banco de Dados SQL do Microsoft Azure](sql-database-get-started.md), essa consulta não funcionará. Vá direto para as Próximas Etapas para saber mais.
+Depois que se conectar ao servidor lógico, você pode se conectar a um banco de dados e executar uma consulta de exemplo.
 
-1. No **Pesquisador de Objetos**, navegue até o banco de dados **AdventureWorks**.
+1. Em **Pesquisador de Objetos**, navegue até um banco de dados no servidor ao qual você tem permissão, como o exemplo de banco de dados **AdventureWorks**.
 2. Clique com o botão direito do mouse no banco de dados e selecione **Nova consulta**.
 
 	![Nova consulta. Conectar-se ao servidor de Banco de Dados SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
@@ -77,4 +64,6 @@ Você pode usar instruções T-SQL para criar e gerenciar bancos de dados no Azu
 
 Se não tiver experiência com o T-SQL, consulte [Tutorial: Escrevendo instruções Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) e a [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-<!---HONumber=AcomDC_0330_2016-->
+Para começar a criação de usuários de banco de dados e administradores de usuários de banco de dados, confira [Introdução à segurança do Banco de Dados SQL](sql-database-get-started-security.md)
+
+<!---HONumber=AcomDC_0420_2016-->

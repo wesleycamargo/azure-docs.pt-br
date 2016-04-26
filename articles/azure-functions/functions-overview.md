@@ -72,4 +72,4 @@ Um **Plano de Serviço de Aplicativo clássico** permite que você execute funç
 
 [AZURE.INCLUDE [Problemas de relatórios](../../includes/functions-reporting-issues.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

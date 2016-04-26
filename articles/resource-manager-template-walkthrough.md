@@ -89,7 +89,7 @@ Observe que **name** é definido para o valor de uma variável. Para esse modelo
 
 O valor especificado para **type** contém o provedor de recursos e o tipo de recurso. Para os conjuntos de disponibilidade, o provedor de recursos é **Microsoft.Compute** e o tipo de recurso é **availabilitySets**. Você pode obter a lista de provedores de recursos disponíveis executando o seguinte comando do PowerShell:
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
 
 Ou se estiver usando a CLI do Azure, você poderá executar o comando a seguir:
 
@@ -103,7 +103,7 @@ Considerando que, neste tópico, você está criando com contas de armazenamento
 
 Para ver os tipos de recursos para um provedor específico, execute o seguinte comando do PowerShell:
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 
 Ou, para a CLI do Azure, o comando a seguir retornará os tipos disponíveis no formato JSON; salve-o em um arquivo.
 
@@ -133,7 +133,7 @@ O método de alocação é definido para **Dinâmico**, mas você pode defini-lo
 
 Agora, vejamos como determinar a **apiVersion**. O valor especificado simplesmente corresponde à versão da API REST que você deseja usar ao criar o recurso. Portanto, você pode examinar a documentação da API REST para esse tipo de recurso. Ou pode executar o seguinte comando do PowerShell para um tipo específico.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 
 Isso retorna os seguintes valores:
 
@@ -503,4 +503,4 @@ Você concluiu a criação do seu modelo e está pronto para a implantação.
 - Para saber mais sobre a estrutura de um modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar um modelo, confira [Implantar um Grupo de Recursos com modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

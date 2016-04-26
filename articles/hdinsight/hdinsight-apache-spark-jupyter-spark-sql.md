@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/08/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Introdução: criar cluster Apache Spark no Azure HDInsight (Linux) e executar consultas interativas usando o Spark SQL
+# Introdução: criar cluster Apache Spark no HDInsight Linux e executar consultas interativas usando o Spark SQL (Visualização)
 
 Saiba como criar um cluster Apache Spark no HDInsight e usar o bloco de anotações do [Jupyter](https://jupyter.org) para executar consultas interativas do Spark SQL no cluster Spark.
 
@@ -79,7 +79,7 @@ Nesta seção, você cria um cluster HDInsight versão 3.3 (Spark versão 1.5.1)
 
 ## Executar consultas do Spark SQL usando um bloco de anotações do Jupyter
 
-Nesta seção, você usa um bloco de anotações do Jupyter para executar consultas do Spark SQL em relação ao cluster Spark. Por padrão, o notebook do Jupyter vem com um kernel **Python2**. Os clusters HDInsight Spark fornecem dois kernels adicionais que você pode usar com o notebook Jupyter. Estes são:
+Nesta seção, você usa um bloco de anotações do Jupyter para executar consultas do Spark SQL em relação ao cluster Spark. Os clusters HDInsight Spark fornecem dois kernels que você pode usar com o bloco de anotações do Jupyter. Estes são:
 
 * **PySpark** (para aplicativos escritos em Python)
 * **Spark** (para aplicativos escritos em Scala)
@@ -100,7 +100,7 @@ Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em 
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. Crie um novo bloco de anotações. Clique em **Novo** e **PySpark**.
+2. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
 	![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
 
@@ -108,7 +108,7 @@ Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em 
 
 	![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Fornecer um nome para o bloco de anotações")
 
-4. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos obrigatórios para este cenário. Para fazer isso, cole o trecho de código a seguir em uma célula e pressione **SHIFT + ENTER**.
+4. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos obrigatórios para este cenário. Para fazer isso, cole o trecho de código a seguir em uma célula vazia e pressione **SHIFT + ENTER**.
 
 		from pyspark.sql.types import *
 		
@@ -135,7 +135,7 @@ Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em 
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. Como você está usando um kernel PySpark, agora poderá executar diretamente uma consulta SQL na tabela temporária **hvac** que acabou de criar usando a mágica `%%sql`. Para obter mais informações sobre a mágica `%%sql`, bem como outras mágicas disponíveis com o kernel PySpark, consulte [Kernels disponíveis em blocos de anotações Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Como está usando um kernel PySpark, agora você pode executar diretamente uma consulta SQL na tabela temporária **hvac** que acabou de criar usando a mágica de `%%sql`. Para obter mais informações sobre a mágica de `%%sql`, bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em blocos de anotações Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
@@ -206,4 +206,4 @@ Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

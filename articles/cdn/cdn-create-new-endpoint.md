@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="Como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure"
-	 description="Este tópico mostra como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure."
+	 pageTitle="Como usar a CDN do Azure"
+	 description="Este tópico mostra como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure. O tutorial o orienta ao longo da criação de um novo perfil da CDN e do ponto de extremidade."
 	 services="cdn"
 	 documentationCenter=""
 	 authors="camsoper"
@@ -12,14 +12,14 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="02/25/2016" 
+	 ms.date="04/15/2016" 
 	 ms.author="casoper"/>
 
+# Como usar a CDN do Azure  
 
+A CDN pode ser habilitada no [Portal do Azure](https://portal.azure.com). Há suporte para vários tipos de origens integradas do Azure, incluindo Aplicativos Web, Armazenamento de Blobs e Serviços de Nuvem. Você também pode habilitar a CDN para o ponto de extremidade de Streaming dos Serviços de Mídia do Azure. Se a origem não for um desses serviços do Azure ou se estiver hospedada em outro lugar fora do Azure, você poderá criar uma origem personalizada. Depois de habilitar um ponto de extremidade da CDN para sua origem, todos os objetos publicamente disponíveis ficam qualificados para o cache de borda da CDN.
 
-#Como habilitar a CDN (Rede de Distribuição de Conteúdo) para o Azure  
-
-A CDN pode ser habilitada para a origem por meio do Portal de Gerenciamento. Há suporte para vários tipos de origens integradas do Azure, incluindo Aplicativos Web, Armazenamento de Blobs e Serviços de Nuvem. Você também pode habilitar a CDN para o ponto de extremidade de Streaming dos Serviços de Mídia do Azure. Se a origem não for um desses serviços do Azure, ou for hospedada em outro lugar fora do Azure, você também poderá criar uma origem personalizada. Depois de habilitar um ponto de extremidade da CDN para sua origem, todos os objetos publicamente disponíveis ficam qualificados para o cache de borda da CDN.
+>[AZURE.NOTE] Para obter uma introdução sobre o funcionamento da CDN, bem como uma lista de recursos, confira a [Visão geral da CDN](./cdn-overview.md).
 
 ## Criar um novo perfil CDN
 
@@ -32,7 +32,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 **Para criar um perfil CDN**
 
-1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), no canto superior esquerdo, clique em **Novo**. Na folha **Novo**, selecione **Mídia + CDN** e, em seguida, **CDN**.
+1. No [Portal do Azure](https://portal.azure.com), no canto superior esquerdo, clique em **Novo**. Na folha **Novo**, selecione **Mídia + CDN** e, em seguida, **CDN**.
 
     A folha do novo perfil CDN é exibida.
 
@@ -54,7 +54,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 **Para criar um novo ponto de extremidade CDN para sua conta de armazenamento**
 
-1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), navegue até o seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Se não, você poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
+1. No [Portal do Azure](https://portal.azure.com), navegue até seu perfil da CDN. Você pode ter fixado ao painel na etapa anterior. Se não, você poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
 
     A folha do perfil CDN é exibida.
 
@@ -68,7 +68,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
     ![Adicionar folha de ponto de extremidade][cdn-add-endpoint]
 
-3. Insira um **Nome** para esse ponto de extremidade CDN. Esse nome será usado para acessar os recursos armazenados em cache no domínio `<EndpointName>.azureedge.net`.
+3. Insira um **Nome** para esse ponto de extremidade CDN. Esse nome será usado para acessar os recursos armazenados em cache no domínio `<endpointname>.azureedge.net`.
 
 4. No menu suspenso **Tipo de origem**, selecione o tipo de origem.
 
@@ -81,6 +81,11 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 7. No **Cabeçalho de host de origem**, digite o cabeçalho de host que você deseja que o CDN envie com cada solicitação ou deixe o padrão.
 
 8. Para **Protocolo** e **Porta de origem**, especifique os protocolos e as portas usadas para acessar os recursos na origem. Seus clientes continuarão usando esses mesmos protocolos e portas ao acessar recursos na CDN. É necessário selecionar pelo menos um protocolo (HTTP ou HTTPS).
+	
+	> [AZURE.TIP] O acesso a conteúdo da CDN usando HTTPS tem as seguintes restrições:
+	> 
+	> - Você deve usar SSL para o certificado fornecido pela CDN. Não há suporte a certificados de terceiros.
+	> - Você deve usar o domínio fornecido pela CDN (`<identifier>.azureedge.net`) para acessar o conteúdo HTTPS. O suporte a HTTPS não está disponível para CNAMEs (nomes de domínio personalizados), pois a CDN não dá suporte a certificados personalizados no momento.
 
 9. Clique no botão **Adicionar** para criar um novo ponto de extremidade.
 
@@ -91,7 +96,9 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
     > [AZURE.NOTE] O ponto de extremidade não estará imediatamente disponível para uso. Pode levar até 90 minutos para que o registro seja propagado pela rede CDN. Os usuários que tentarem usar imediatamente o nome de domínio CDN poderão receber o código de status 404 até que o conteúdo esteja disponível pela CDN.
 
 ##Consulte também
-- [Como mapear o conteúdo da CDN (rede de distribuição de conteúdo) para um domínio personalizado](cdn-map-content-to-custom-domain.md)
+- [Controle do comportamento do cache de solicitações com cadeias de caracteres de consulta](cdn-query-string.md)
+- [Como mapear o conteúdo da CDN para um domínio personalizado](cdn-map-content-to-custom-domain.md)
+- [Pré-carregar ativos em um ponto de extremidade da CDN do Azure](cdn-preload-endpoint.md)
 - [Limpar um ponto de extremidade CDN do Azure](cdn-purge-endpoint.md)
 
 [new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
@@ -100,4 +107,4 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->
