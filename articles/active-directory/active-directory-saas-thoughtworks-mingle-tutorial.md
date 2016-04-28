@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar logon único](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Configurar logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Locatário do Thoughtworks Mingle**, digite a URL usando o padrão "**http://company.mingle.thoughtworks.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Locatário do Thoughtworks Mingle**, digite a URL usando o padrão "**http://company.mingle.thoughtworks.com**" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "Configurar a URL do Aplicativo
 ")

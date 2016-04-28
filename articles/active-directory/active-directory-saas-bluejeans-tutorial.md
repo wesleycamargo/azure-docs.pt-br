@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-bluejeans-tutorial/IC785864.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do BlueJeans**, digite a URL usando o padrão "**https://company.BlueJeans.com*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do BlueJeans**, digite a URL usando o padrão "**https://company.BlueJeans.com**" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-bluejeans-tutorial/IC785865.png "Configurar a URL do Aplicativo")
 
