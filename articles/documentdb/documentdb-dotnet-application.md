@@ -588,4 +588,4 @@ Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs dispon√
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 [projeto de exemplo completo do GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->
