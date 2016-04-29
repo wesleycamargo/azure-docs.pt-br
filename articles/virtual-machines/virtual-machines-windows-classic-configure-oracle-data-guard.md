@@ -16,7 +16,8 @@
 
 #Configurando o Oracle Data Guard para Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+Modelo do Gerenciador de Recursos.
 
 
 Este tutorial demonstra como configurar e implementar o Oracle Data Guard em ambiente de máquinas virtuais do Azure para alta disponibilidade e recuperação de desastres. O tutorial concentra-se na replicação unidirecional para bancos de dados não Oracle RAC.
