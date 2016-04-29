@@ -85,7 +85,7 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configurar a URL do Aplicativo")
 
-    1.  Na caixa de texto **URL de Logon Único do SuccessFactors**, digite a URL usada pelos usuários para fazer logon em seu aplicativo do SuccessFactors (por exemplo: "**https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*")).
+    1.  Na caixa de texto **URL de Logon Único do SuccessFactors**, digite a URL usada pelos usuários para fazer logon em seu aplicativo do SuccessFactors (por exemplo: "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
     2.  Na caixa de texto **URL de Resposta do SuccessFactors**, digite **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE] Esse valor é apenas um espaço reservado temporário.
@@ -103,7 +103,7 @@ Para obter logon único configurado, você precisará entrar em contato com sua 
     2.  A URL de Logon Remoto
     3.  A URL de Logoff Remoto
 
-    >[AZURE.IMPORTANT] Solicite que a equipe de suporte do SuccessFactors defina o parâmetro NameId Format como “*Unspecified*”.
+    >[AZURE.IMPORTANT]Solicite que a equipe de suporte do SuccessFactors defina o parâmetro NameId Format como *“Unspecified”*.
 
     A equipe de suporte do Successfactors enviará a **URL de Resposta do Successfactors** correta necessária para o diálogo **Configurar URL do Aplicativo**.
 
