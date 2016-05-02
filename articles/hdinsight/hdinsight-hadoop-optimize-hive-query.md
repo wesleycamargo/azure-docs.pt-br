@@ -22,12 +22,6 @@
 
 Por padrão, os clusters do Hadoop não são otimizados para desempenho. Este artigo aborda alguns dos métodos de otimização de desempenho do Hive mais comuns que você pode aplicar a nossas consultas.
 
-
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-
-* [Otimizar consultas do Hive para Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md).
-
 ##Escalar nós de trabalho horizontalmente
 
 O aumento do número de nós de trabalho em um cluster pode aproveitar mais mapeadores e redutores para execução paralela. Há duas maneiras de aumentar a escalabilidade horizontal no HDInsight:
@@ -226,4 +220,4 @@ Neste artigo, você aprendeu a vários métodos comuns de otimização de consul
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

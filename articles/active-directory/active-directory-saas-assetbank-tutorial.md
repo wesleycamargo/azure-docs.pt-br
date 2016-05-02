@@ -85,6 +85,7 @@ Para configurar a integração do Asset Bank ao Azure AD, você precisa adiciona
 
 7. No painel de resultados, selecione **Asset Bank** e, em seguida, clique em **Concluir** para adicionar o aplicativo.
 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-assetbank-tutorial/tutorial_assetbank_02.png)
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Asset Bank, com base em um usuário de teste chamado “Brenda Fernandes”.
@@ -97,7 +98,7 @@ Para configurar e testar o logon único do Azure AD com o Asset Bank, você prec
 
 1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criando um usuário de teste do Asset Bank](#creating-a-asset-bank-test-user)** - para ter um equivalente de Brenda Fernandes no Asset Bank que esteja vinculado à representação dela no Azure AD.
+4. **[Criar um usuário de teste do Asset Bank](#creating-a-asset-bank-test-user)**: para ter um equivalente de Brenda Fernandes no Asset Bank que esteja vinculado à representação dela no Azure AD.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
@@ -140,7 +141,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 5. Para configurar o SSO para seu aplicativo, entre em contato com a equipe de suporte do Asset Bank por meio de [support@assetbank.co.uk](mailto:support@assetbank.co.uk) e anexe o arquivo de metadados ao email.
 
 
-6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
 
 	![Logon único do AD do Azure][10]
 
@@ -174,7 +175,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-assetbank-tutorial/create_aaduser_04.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-assetbank-tutorial/create_aaduser_05.png)
 
@@ -184,7 +185,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
     c. Clique em **Próximo**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página de caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-assetbank-tutorial/create_aaduser_06.png)
 
@@ -198,11 +199,10 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
     e. Clique em **Próximo**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
-![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
+7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-assetbank-tutorial/create_aaduser_07.png)
 
 
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-assetbank-tutorial/create_aaduser_08.png)
 
@@ -281,4 +281,4 @@ Ao clicar no bloco Asset Bank no Painel de Acesso, você deverá ser conectado a
 [204]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-assetbank-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

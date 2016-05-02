@@ -1,6 +1,6 @@
 <properties
  pageTitle="Planos e Cobrança no Agendador do Azure"
- description=""
+ description="Planos e Cobrança no Agendador do Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -85,4 +85,4 @@ Para obter detalhes sobre preços, confira [Preços do Agendador](https://azure.
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

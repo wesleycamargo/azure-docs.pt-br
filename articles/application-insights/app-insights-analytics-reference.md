@@ -19,9 +19,32 @@
 
 [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
-*Use a pesquisa do navegador para localizar elementos de linguagem nesta página, que combina o conteúdo das páginas Consultas, Agregações e Escalares.*
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
+
+
+| | | | | 
+|---|---|---|---|---
+|[ago](#ago)|[dayofweek](#dayofweek)|[cláusula Let](#let-clause)|[range](#range)|[operador summarize](#summarize-operator)
+|[qualquer](#any)|[dcount](#dcount)|[operador limit](#limit-operator)|[operador range](#range-operator)|[operador take](#take-operator)
+|[argmax](#argmax)|[Objetos dinâmicos em cláusulas let](#dynamic-objects-in-let-clauses)|[makelist](#makelist)|[operador reduce](#reduce-operator)|[todatetime](#todatetime)
+|[argmin](#argmin)|[operador extend](#extend-operator)|[makeset](#makeset)|[renderizar política](#render-directive)|[todouble](#todouble)
+|[Operadores aritméticos](#arithmetic-operators)|[extract](#extract)|[max](#max)|[substitui](#replace)|[todynamic](#todynamic)
+|[Literais de matriz e objeto](#array-and-object-literals)|[extractjson](#extractjson)|[min](#min)|[Comparações escalares](#scalar-comparisons)|[toint](#toint)
+|[arraylength](#arraylength)|[floor](#floor)|[operador mvexpand](#mvexpand-operator)|[operador sort](#sort-operator)|[tolong](#tolong)
+|[avg](#avg)|[getmonth](#getmonth)|[notempty](#notempty)|[split](#split)|[tolower](#tolower)
+|[bin](#bin)|[gettype](#gettype)|[notnull](#notnull)|[sqrt](#sqrt)|[operador top](#top-operator)
+|[Literais boolianos](#boolean-literals)|[getyear](#getyear)|[now](#now)|[startofmonth](#startofmonth)|[totimespan](#totimespan)
+|[Operadores boolianos](#boolean-operators)|[hash](#hash)|[Literais numéricos](#numeric-literals)|[startofyear](#startofyear)|[toupper](#toupper)
+|[buildschema](#buildschema)|[iff](#iff)|[Literais de cadeia de caracteres ofuscados](#obfuscated-string-literals)|[stdev](#stdev)|[treepath](#treepath)
+|[Conversões](#casts)|[isempty](#isempty)|[operador parse](#parse-operator)|[strcat](#strcat)|[operador union](#union-operator)
+|[count](#count)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[Comparações de cadeias de caracteres](#string-comparisons)|[variance](#variance)
+|[operador count](#count-operator)|[isnotnull](#isnotnull)|[percentile](#percentile)|[Literais de cadeia de caracteres](#string-literals)|[operador where](#where-operator)
+|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[strlen](#strlen)
+|[Expressões de data e hora](#date-and-time-expressions)|[operador join](#join-operator)|[operador project](#project-operator)|[substring](#substring)
+|[Literais de data e hora](#date-and-time-literals)|[Expressões de caminho JSON](#json-path-expressions)|[rand](#rand)|[sum](#sum)
+
+
 
 
 
@@ -127,10 +150,10 @@ Mescla as linhas das duas tabelas fazendo a correspondência entre valores da co
 
 **Argumentos**
 
-* *Table1* - o 'lado esquerdo' da junção.
-* *Table2* - o 'lado direito' da junção. Pode ser uma expressão de consulta aninhada que gera uma tabela.
-* *CommonColumn* - uma coluna que tem o mesmo nome nas duas tabelas.
-* *Kind* - especifica como deve ser feita a correspondência entre as linhas das duas tabelas.
+* *Table1*: o 'lado esquerdo' da junção.
+* *Table2*: o 'lado direito' da junção. Pode ser uma expressão de consulta aninhada que gera uma tabela.
+* *CommonColumn*: uma coluna que tem o mesmo nome nas duas tabelas.
+* *Kind*: especifica como deve ser feita a correspondência entre as linhas das duas tabelas.
 
 **Retorna**
 
@@ -292,11 +315,11 @@ O resultado é:
 
 **Argumentos**
 
-* *ColumnName:* no resultado, as matrizes da coluna nomeada são expandidas para várias linhas. 
-* *ArrayExpression:* uma expressão, que resulta em uma matriz. Se esse formato for usado, uma nova coluna será adicionada e a existente será preservada.
-* *Nome:* um nome para a nova coluna.
+* *ColumnName:* no resultado, as matrizes na coluna nomeada são expandidas para várias linhas. 
+* *ArrayExpression:* uma expressão que resulta em uma matriz. Se esse formato for usado, uma nova coluna será adicionada e a existente será preservada.
+* *Name:* um nome para a nova coluna.
 * *Typename:* converte a expressão expandida em um tipo específico
-* *RowLimit:* o número máximo de linhas geradas a partir de cada linha original. O padrão é 128.
+* *RowLimit:* o número máximo de linhas geradas em cada linha original. O padrão é 128.
 
 **Retorna**
 
@@ -343,7 +366,7 @@ Os elementos na cláusula `with` são comparados à cadeia de caracteres de orig
 * *kind:* simples ou regex. O padrão é simples.
 * *StringExpression:* uma expressão que é avaliada ou pode ser convertida em uma cadeia de caracteres.
 * *SimpleMatch:* uma cadeia de caracteres que corresponde à próxima parte do texto.
-* *Coluna:* especifica a nova coluna à qual atribuir uma correspondência.
+* *Column:* especifica a nova coluna à qual atribuir uma correspondência.
 * *Type:* especifica como analisar a próxima parte da cadeia de caracteres de origem.
 * *Regex:* uma expressão regular para corresponder à próxima parte da cadeia de caracteres. 
 
@@ -361,10 +384,10 @@ No exemplo a seguir, suponha que a coluna `EventNarrative` da tabela `StormEvent
 
 |EventNarrative|
 |---|
-|Green River em Brownsville com altura máxima de 5,7 m por volta das 0930EST em 12 de dezembro. O estágio de inundação em Brownsville é de 5 m. Pequenas inundações ocorrem nesse nível. O rio transborda pelas barragens e algumas das margens inferiores, além de terras planas cultivadas.|
-|Rolling Fork River em Boston com altura máxima de 11,9 m por volta das 1700EST em 12 de dezembro. O estágio de inundação em Boston é de 10,6 m. Pequenas inundações ocorrem nesse nível e afetam terras planas cultivadas.|
-|Green River em Woodbury com altura máxima de 11,1 m por volta das 0600EST em 16 de dezembro. O estágio de inundação em Woodbury é de 10 m. Pequenas inundações ocorrem nesse nível, com terras planas em torno da cidade de Woodbury cobertas pelas águas.|
-|The Ohio River em Tell City com altura máxima de 11, 8 m por volta das 0700EST em 18 de dezembro. O estágio de inundação em Tell City é de 11,5 m. Nesse nível, o rio começa a transbordar nas margens acima da escala. Inundações em Indiana Highway 66 entre Rome e Derby.|
+|Green River em Brownsville com altura máxima de 5,7 m por volta das 0930EST em 12 de dezembro (The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12). O estágio de inundação em Brownsville é de 5 m (Flood stage at Brownsville is 18 feet.). Pequenas inundações ocorrem nesse nível (Flood stage at Brownsville is 18 feet.). O rio transborda pelas barragens e algumas das margens inferiores, além de terras planas cultivadas (The river overflows lock walls and some of the lower banks, along with some agricultural bottom land).|
+|Rolling Fork River em Boston com altura máxima de 11,9 m por volta das 1700EST em 12 de dezembro (The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12). O estágio de inundação em Boston é de 10,6 m (Flood stage at Boston is 35 feet). Pequenas inundações ocorrem nesse nível e afetam terras planas cultivadas (Minor flooding occurs at this level, with some agricultural bottom land covered).|
+|Green River em Woodbury com altura máxima de 11,1 m por volta das 0600EST em 16 de dezembro (The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16). O estágio de inundação em Woodbury é de 10 m (Flood stage at Woodbury is 33 feet). Pequenas inundações ocorrem nesse nível, com terras planas em torno da cidade de Woodbury cobertas pelas águas (Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water).|
+|The Ohio River em Tell City com altura máxima de 11, 8 m por volta das 0700EST em 18 de dezembro (The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18). O estágio de inundação em Tell City é de 11,5 m (Flood stage at Tell City is 38 feet). Nesse nível, o rio começa a transbordar nas margens acima da escala (At this level, the river begins to overflow its banks above the gage). Inundações em Indiana Highway 66 entre Rome e Derby (Indiana Highway 66 floods between Rome and Derby).|
 
 ```AIQL
 
@@ -565,7 +588,7 @@ Classifica as linhas da tabela de entrada em ordem de acordo com uma ou mais col
 **Argumentos**
 
 * *T:* a tabela de entrada a ser classificada.
-* *Column:* coluna *T* de acordo com a qual a classificação deve ser feita. O tipo dos valores deve ser numérico, de data, hora ou cadeia de caracteres.
+* *Column:* coluna de *T* de acordo com a qual a classificação deve ser feita. O tipo dos valores deve ser numérico, de data, hora ou cadeia de caracteres.
 * `asc` Classificar em ordem crescente, do mais baixo para o mais alto. O padrão é `desc`, em ordem decrescente do mais alto para o mais baixo.
 
 **Exemplo**
@@ -575,7 +598,7 @@ Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
 ```
-Todas as linhas na tabela Rastreamentos que têm um `ActivityId` específico, classificadas por seu carimbo de data/hora.
+Todas as linhas na tabela Traces que têm um `ActivityId` específico, classificadas por seu carimbo de data/hora.
 
 ### operador summarize
 
@@ -603,7 +626,7 @@ Uma tabela que mostra quantos itens têm preços em cada intervalo [0,10,0], [10
 **Argumentos**
 
 * *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão. 
-* *Aggregation*: uma chamada para uma função de agregação, como `count()` ou `avg()`, com nomes de coluna como argumentos. Confira [agregações](#aggregations).
+* *Aggregation:* uma chamada para uma função de agregação, como `count()` ou `avg()`, com nomes de coluna como argumentos. Confira [agregações](#aggregations).
 * *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento. 
 
 Se você fornecer uma expressão numérica ou de hora sem usar `bin()`, a Análise a aplicará automaticamente com um intervalo de `1h` para horas ou de `1.0` para números.
@@ -671,8 +694,8 @@ Usa duas ou mais tabelas e retorna as linhas de todas elas.
  *  Uma expressão de consulta, como `(events | where id==42)`
  *  Um conjunto de tabelas especificadas com um curinga. Por exemplo, `E*` formaria a união de todas as tabelas no banco de dados cujos nomes começam por `E`.
 * `kind`: 
- * `inner` - o resultado tem o subconjunto de colunas que são comuns a todas as tabelas de entrada.
- * `outer` - o resultado tem todas as colunas que ocorrem em qualquer uma das entradas. As células que não foram definidas por uma linha de entrada são definidas como `null`.
+ * `inner`: o resultado tem o subconjunto de colunas que são comuns a todas as tabelas de entrada.
+ * `outer`: o resultado tem todas as colunas que ocorrem em qualquer uma das entradas. As células que não foram definidas por uma linha de entrada são definidas como `null`.
 * `withsource=`*ColumnName:* se especificado, a saída inclui uma coluna chamada *ColumnName* cujo valor indica qual tabela de origem contribuiu com cada linha.
 
 **Retorna**
@@ -735,7 +758,7 @@ As linhas em *T* para as quais o *Predicate* é `true`.
 
 Para obter o desempenho mais rápido:
 
-* **Use comparações simples** entre os nomes de coluna e as constantes. ('Constante' significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma cláusula [`let`](#let-clause).)
+* **Use comparações simples** entre os nomes de coluna e as constantes. ('Constante' significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma [cláusula `let`](#let-clause)).
 
     Por exemplo, prefira `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -813,7 +836,7 @@ Encontre o menor valor de cada métrica, junto com seu carimbo de hora e outros 
 
     avg(Expression)
 
-Calcula a média da *Expressão* no grupo.
+Calcula a média da *Expression* no grupo.
 
 ### buildschema
 
@@ -907,11 +930,11 @@ São equivalentes a um subconjunto das anotações do tipo TypeScript, codificad
 
     count([ Predicate ])
 
-Retorna uma contagem de linhas para o qual *Predicado* é avaliado como `true`. Se nenhum *Predicado* for especificado, retorna o número total de registros no grupo.
+Retorna uma contagem de linhas para a qual *Predicate* é avaliado como `true`. Se nenhum *Predicate* for especificado, retornará o número total de registros no grupo.
 
 **Dica de desempenho**: use `summarize count(filter)` em vez de `where filter | summarize count()`
 
-> [AZURE.NOTE] Evite usar count() para localizar o número de solicitações, exceções ou outros eventos que ocorreram. Quando [amostragem](app-insights-sampling.md) está em operação, o número de pontos de dados pode ser menor que o número de eventos reais. Em vez disso, use `summarize sum(itemCount)...`. A propriedade itemCount reflete o número de eventos originais que são representados por cada ponto de dados mantido.
+> [AZURE.NOTE] Evite usar count() para localizar o número de solicitações, exceções ou outros eventos que ocorreram. Quando a [amostragem](app-insights-sampling.md) está em operação, o número de pontos de dados é menor que o número de eventos reais. Em vez disso, use `summarize sum(itemCount)...`. A propriedade itemCount reflete o número de eventos originais que são representados por cada ponto de dados mantido.
    
 
 ### dcount
@@ -920,7 +943,7 @@ Retorna uma contagem de linhas para o qual *Predicado* é avaliado como `true`. 
 
 Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para listar os valores distintos, use [`makeset`](#makeset)).
 
-*Precisão*, se for especificada, controla o equilíbrio entre velocidade e precisão.
+*Accuracy*, se for especificada, controlará o equilíbrio entre velocidade e precisão.
 
  * `0` = o cálculo menos preciso e mais rápido.
  * `1`, que é o padrão, equilibra a precisão e o tempo de cálculo; cerca de 0,8% de erro.
@@ -940,7 +963,7 @@ Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para
 
 Retorna uma matriz `dynamic` (JSON) de todos os valores de *Expr* no grupo.
 
-* *MaxListSize* é um limite de inteiro opcional sobre o número máximo de elementos retornados (o padrão é *128*).
+* *MaxListSize* é um limite de inteiro opcional sobre o número máximo de elementos retornados (o padrão é de *128*).
 
 ### makeset
 
@@ -948,7 +971,7 @@ Retorna uma matriz `dynamic` (JSON) de todos os valores de *Expr* no grupo.
 
 Retorna uma matriz `dynamic` (JSON) do conjunto de valores distintos que *Expr* usa no grupo. (Dica: para contar apenas os valores distintos, use [`dcount`](#dcount)).
   
-*  *MaxSetSize* é um limite de inteiro opcional sobre o número máximo de elementos retornados (o padrão é *128*).
+*  *MaxSetSize* é um limite de inteiro opcional sobre o número máximo de elementos retornados (o padrão é de *128*).
 
 **Exemplo**
 
@@ -971,7 +994,7 @@ Calcula o número máximo de *Expr*.
 
 Calcula o número mínimo de *Expr*.
 
-**Dica**: isso oferece a você o mínimo ou o máximo por conta própria, por exemplo, o preço mais alto ou o mais baixo. Mas se você quiser outras colunas na linha, por exemplo, o nome do fornecedor com o menor preço, use [argmin ou argmax](#argmin-argmax).
+**Dica**: isso apresenta o mínimo ou o máximo por conta própria, por exemplo, o preço mais alto ou o mais baixo. No entanto, se você quiser outras colunas na linha, por exemplo, o nome do fornecedor com o menor preço, use [argmin ou argmax](#argmin-argmax).
 
 
 <a name="percentile"></a> <a name="percentiles"></a>
@@ -979,7 +1002,7 @@ Calcula o número mínimo de *Expr*.
 
     percentile(Expression, Percentile)
 
-Retorna uma estimativa para a *Expressão* do percentual especificado no grupo. A precisão depende da densidade da população na região do percentil.
+Retorna uma estimativa para a *Expression* do percentual especificado no grupo. A precisão depende da densidade da população na região do percentil.
     
     percentiles(Expression, Percentile1 [ , Percentile2 ] )
 
@@ -1020,7 +1043,7 @@ Calcule várias estatísticas:
 
 ##### Erro de estimativa em percentuais
 
-As agregação de percentis fornece um valor aproximado usando [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf).
+A agregação de percentis fornece um valor aproximado usando [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf).
 
 Alguns pontos importantes:
 
@@ -1153,12 +1176,12 @@ A função `iff()` avalia o primeiro argumento (o predicado) e retorna o valor d
 **Argumentos**
 
 * *predicate:* uma expressão que é avaliada como um valor `boolean`.
-* *ifTrue:* uma expressão que é avaliada e tem seu valor retornado da função se *predicate* for avaliado como `true`.
-* *ifFalse:* uma expressão que é avaliada e tem seu valor retornado da função se *predicate* for avaliado como `false`.
+* *ifTrue:* uma expressão que será avaliada e terá seu valor retornado da função se *predicate* for avaliado como `true`.
+* *ifFalse:* uma expressão que será avaliada e terá seu valor retornado da função se *predicate* for avaliado como `false`.
 
 **Retorna**
 
-Essa função retorna o valor de *ifTrue* se *predicate* for avaliado como `true` ou retorna o valor de *ifFalse* caso ocorra o contrário.
+Essa função retornará o valor de *ifTrue* se *predicate* for avaliado como `true` ou retornará o valor de *ifFalse* se ocorrer o contrário.
 
 **Exemplo**
 
@@ -1240,16 +1263,16 @@ Observe que há outras maneiras de conseguir esse efeito:
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair |
-| * | Multiplicar |
-| / | Dividir |
-| % | Módulo |
-||
-|`<` |Menor
-|`<=`|Menor ou Igual a
-|`>` |Maior
-|`>=`|Maior ou Igual a
-|`<>`|Diferente de
+| - | Subtrair | 
+| * | Multiplicar | 
+| / | Dividir | 
+| % | Módulo | 
+|| 
+|`<` |Menor 
+|`<=`|Menor ou Igual a 
+|`>` |Maior 
+|`>=`|Maior ou Igual a 
+|`<>`|Diferente de 
 |`!=`|Diferente de
 
 
@@ -1301,8 +1324,8 @@ Um alias para [`bin()`](#bin).
 
 Um gerador de número aleatório.
 
-* `rand()` - um número real entre 0,0 e 1,0
-* `rand(n)` - um número inteiro entre 0 e n-1
+* `rand()`: um número real entre 0,0 e 1,0
+* `rand(n)`: um número inteiro entre 0 e n-1
 
 
 
@@ -1549,7 +1572,7 @@ As regras são as mesmas do JavaScript.
 
 As cadeias de caracteres podem ser colocadas entre aspas únicas ou duplas.
 
-Barra invertida (``) é usada para escapar caracteres como `\t` (guia), `\n` (nova linha) e instâncias do caractere de aspas.
+A barra invertida (``) é usada para escapar caracteres como `\t` (guia), `\n` (nova linha) e instâncias do caractere de aspas.
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -1633,7 +1656,7 @@ O número de vezes que a cadeia de caracteres de pesquisa pode ser correspondida
 
     extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
 
-Obtém uma correspondência para um [expressão regular](#regular-expressions) a partir de uma cadeia de caracteres de texto. Opcionalmente, converte a subcadeia de caracteres extraída para o tipo indicado.
+Obtém uma correspondência para uma [expressão regular](#regular-expressions) por meio de uma cadeia de caracteres de texto. Opcionalmente, converte a subcadeia de caracteres extraída para o tipo indicado.
 
 **Sintaxe**
 
@@ -1805,7 +1828,7 @@ Extrai uma subcadeia de caracteres de uma cadeia de caracteres de origem forneci
 
 **Argumentos**
 
-* *source:* a cadeia de caracteres de origem a partir da qual a subcadeia de caracteres será extraída.
+* *source:* a cadeia de caracteres de origem por meio da qual a subcadeia de caracteres será extraída.
 * *startingIndex:* a posição do caractere inicial com base em zero da subcadeia de caracteres solicitada.
 * *lenght:* um parâmetro opcional que pode ser usado para especificar o número solicitado de caracteres na subcadeia de caracteres. 
 
@@ -1842,14 +1865,14 @@ Converte uma cadeia de caracteres em letras maiúsculas.
 
 ## Matrizes, objetos e dinâmico
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literais](#dynamic-literals) | [conversão](#casting-dynamic-objects) | [operadores](#operators) | [cláusulas let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Este é o resultado de uma consulta em uma exceção do Application Insights. O valor em `details` é uma matriz.
 
 ![](./media/app-analytics-scalars/310.png)
 
-**Indexação:** Índice de matrizes e objetos, assim como no JavaScript:
+**Indexação:** índice de matrizes e objetos, assim como no JavaScript:
 
     exceptions | take 1
     | extend 
@@ -1858,7 +1881,7 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
 
 * Contudo, use `arraylength` e outras funções da Análise (não “.length”).
 
-**Conversão** Em alguns casos, é necessário converter um elemento que você extraiu de um objeto, pois seu tipo pode variar. Por exemplo, `summarize...to` precisa de um tipo específico:
+**Conversão**: em alguns casos, é necessário converter um elemento que você extraiu de um objeto, pois seu tipo pode variar. Por exemplo, `summarize...to` precisa de um tipo específico:
 
     exceptions 
     | summarize count() 
@@ -1868,7 +1891,7 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
     | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
-**Literais** Para criar uma matriz explícita ou um objeto de recipiente de propriedades, escreva-a como uma cadeia de caracteres JSON e a converta:
+**Literais**: para criar uma matriz explícita ou um objeto de recipiente de propriedades, escreva-a como uma cadeia de caracteres JSON e a converta:
 
     todynamic('[{"x":"1", "y":"32"}, {"x":"6", "y":"44"}]')
 
@@ -1926,12 +1949,12 @@ Observe que o `indexer` é usado para marcar onde você deve usar um índice num
 
 Para criar um literal dinâmico, use `parsejson` (alias `todynamic`) com um argumento de cadeia de caracteres JSON:
 
-* `parsejson('[43, 21, 65]')` - uma matriz de números
+* `parsejson('[43, 21, 65]')`: uma matriz de números
 * `parsejson('{"name":"Alan", "age":21, "address":{"street":432,"postcode":"JLK32P"}}')` 
-* `parsejson('21')` - um único valor de tipo dinâmico contendo um número
-* `parsejson('"21"')` - um único valor de tipo dinâmico contendo uma cadeia de caracteres
+* `parsejson('21')`: um único valor de tipo dinâmico contendo um número
+* `parsejson('"21"')`: um único valor de tipo dinâmico contendo uma cadeia de caracteres
 
-Observe que, ao contrário do JavaScript, JSON exige o uso de aspas duplas (`"`) ao redor de cadeias de caracteres. Portanto, é geralmente mais fácil citar literais de uma cadeia de caracteres codificada em JSON usando aspas simples (`'`).
+Observe que, ao contrário do JavaScript, o JSON exige o uso de aspas duplas (`"`) ao redor de cadeias de caracteres. Portanto, é geralmente mais fácil citar literais de uma cadeia de caracteres codificada em JSON usando aspas simples (`'`).
 
 Este exemplo cria um valor dinâmico e então usa seus campos:
 
@@ -1943,7 +1966,7 @@ T
 ```
 
 
-### Operadores e funções sobre tipos dinâmicos
+## Funções de objeto dinâmico
 
 |||
 |---|---|
@@ -2055,7 +2078,7 @@ A notação de ponto e a notação [colchetes] são equivalentes:
 
 ### parsejson
 
-Interpreta um `string` como um [valor de JSON](http://json.org/)) e retorna o valor como `dynamic`. É superior ao uso de `extractjson()` quando você precisa extrair mais de um elemento de um objeto JSON composto.
+Interpreta um `string` como um [valor de JSON](http://json.org/) e retorna o valor como `dynamic`. É superior ao uso de `extractjson()` quando você precisa extrair mais de um elemento de um objeto JSON composto.
 
 **Sintaxe**
 
@@ -2077,7 +2100,7 @@ No exemplo a seguir, quando `context_custom_metrics` é um `string` que se parec
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-daí, o fragmento a seguir recupera o valor do slot `duration` no objeto e, a partir disso, recupera dois slots, `duration.value` e `duration.min` (`118.0` e `110.0`, respectivamente).
+daí, o fragmento a seguir recupera o valor do slot `duration` no objeto e, a por meio disso, recupera dois slots, `duration.value` e `duration.min` (`118.0` e `110.0`, respectivamente).
 
 ```AIQL
 T
@@ -2088,7 +2111,7 @@ T
 
 
 
-#### range
+### range
 
 A função `range()` (não deve ser confundida com o operador `range`) gera uma matriz dinâmica que contém uma série de valores espaçados igualmente.
 
@@ -2148,5 +2171,4 @@ Observe que "[0]" indica a presença de uma matriz, mas não especifica o índic
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!----HONumber=AcomDC_0330_2016-->
-
+<!---HONumber=AcomDC_0420_2016-->

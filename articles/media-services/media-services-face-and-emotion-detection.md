@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 #Detectar a face e a emoção com o Azure Media Analytics
 
 ##Visão geral
@@ -30,7 +30,7 @@ O MP (processador de mídia) **Azure Media Face Detector** permite que você con
 
 - **Detecção de emoções**
 	
-	A Detecção de Emoções é um componente opcional do Face Detection Media Processor que retorna uma análise sobre vários atributos emocionais das faces detectadas, incluindo felicidade, tristeza, medo, irritação e muito mais. Esses dados podem retornar de acordo com a face ou como um valor de grupo, e podem ser agregados em uma janela e intervalo personalizáveis.
+	A Detecção de Emoções é um componente opcional do Face Detection Media Processor que retorna uma análise sobre vários atributos emocionais das faces detectadas, incluindo felicidade, tristeza, medo, irritação e muito mais.
 
 No momento, o MP do **Azure Media Face Detector** está em versão de Visualização.
 
@@ -164,18 +164,22 @@ Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especifi
 	}
 
 
+####Descrições de atributos
+
 Nome do atributo|Descrição
 ---|---
-Modo|Faces: somente detecção facial <br/>AggregateEmotion: retorna uma média de valores de emoção para todas as faces no quadro.
+Modo|Faces: somente detecção facial <br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro.
 AggregateEmotionWindowMs|Use se o modo AggregateEmotion for selecionado. Especifica a duração do vídeo usado para produzir cada resultado da agregação, em milissegundos.
 AggregateEmotionIntervalMs|Use se o modo AggregateEmotion for selecionado. Especifica com que frequência deve-se produzir resultados agregados.
 
-Os padrões de agregação abaixo são os valores recomendados para as configurações de janela e intervalo de agregação. A janela deve ser maior do que o Intervalo.
+####Padrões de agregação
+
+Abaixo, temos os valores recomendados para as configurações de janela e intervalo de agregação. AggregateEmotionWindowMs deve ser maior que AggregateEmotionIntervalMs.
 
  |Padrões|Máx.|Mín.
 ---|---|---|---
-Duração da Janela|2|3|1
-Intervalo|0,5|1|0,25
+AggregateEmotionWindowMs|0,5|2|0,25
+AggregateEmotionIntervalMs|0,5|1|0,25
 
 ###Saída em JSON
 
@@ -531,4 +535,6 @@ O programa a seguir mostra como:
 
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

@@ -24,7 +24,13 @@ Se você armazenar dados do histórico em uma tabela separada, poderá configura
 
 Se você não especificar um predicado de filtro, toda a tabela será migrada.
 
-No CTP 3.1, por meio do RC2, a opção para especificar um predicado não está disponível no assistente Habilitar Banco de Dados para Stretch. Você precisa usar a instrução ALTERAR TABELA para configurar o Banco de Dados de Stretch com essa opção. Para obter mais informações, confira [Habilitar Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).
+No RC3, quando você executar Habilitar Banco de Dados para o Assistente do Stretch, poderá migrar uma tabela inteira ou especificar um predicado de filtro simples baseado em data no assistente. Se você quiser usar um predicado de filtro diferente para selecionar linhas a serem migradas, siga um destes procedimentos.
+
+-   Saia do assistente e execute a instrução ALTER TABLE para habilitar o Stretch para tabela e especificar um predicado.
+
+-   Execute a instrução ALTER TABLE para especificar um predicado depois que você sair do assistente.
+
+A sintaxe ALTER TABLE para adicionar um predicado é descrita posteriormente neste tópico.
 
 ## Requisitos básicos para a função embutida com valor de tabela
 A função com valor de tabela embutida necessária para um predicado de filtro do Stretch Database se parece com o exemplo a seguir.
@@ -212,7 +218,7 @@ SET (
 
 Quando você deseja atualizar a janela deslizante, faça o seguinte.
 
-1.  Crie uma nova função que especifica a nova janela deslizante. O exemplo a seguir seleciona datas anteriores a 2 de janeiro de 2106, em vez de 1º de janeiro de 2016.
+1.  Crie uma nova função que especifica a nova janela deslizante. O exemplo a seguir seleciona datas anteriores a 2 de janeiro de 2016, em vez de 1º de janeiro de 2016.
 
 2.  Substitua o predicado do filtro anterior pelo novo, chamando ALTER TABLE, conforme mostrado no exemplo a seguir.
 
@@ -502,4 +508,4 @@ Para verificar o predicado de filtro aplicado a uma tabela, abra a exibição de
 
 [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

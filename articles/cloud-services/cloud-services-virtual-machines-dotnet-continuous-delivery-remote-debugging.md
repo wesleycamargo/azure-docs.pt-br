@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 # Habilitar a depuração remota ao utilizar a entrega contínua para publicar no Azure
@@ -57,7 +57,7 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 	)
 	
 	foreach($endpoint in $endpoints)
-{
+	{
 	Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
 	}
 	
@@ -91,4 +91,4 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 
 6. Importe o certificado (.pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 #  Amostragem no Application Insights
@@ -42,6 +42,7 @@ Defina a taxa de amostragem na folha Cotas e Preços:
 
 Assim como outros tipos de amostragem, o algoritmo retém os itens relacionados de telemetria. Por exemplo, quando você estiver analisando a telemetria na Pesquisa, poderá localizar a solicitação relacionada a uma exceção específica. As contagens de métrica como a taxa de solicitação e a taxa de exceções são mantidas corretamente.
 
+A amostragem de ingestão não funciona enquanto a amostragem adaptável ou de taxa fixa com base no SDK estiver em operação. Se a taxa de amostragem no SDK for menor que 100%, a taxa de amostragem de ingestão definida será ignorada.
 
 
 ## Amostragem adaptável em seu servidor Web
@@ -342,4 +343,4 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
  * Inicialize uma instância separada de TelemetryClient com um novo TelemetryConfiguration (não o Active padrão). Use isso para enviar seus eventos raros.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

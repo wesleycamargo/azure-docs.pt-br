@@ -4,8 +4,8 @@
 	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
 	ms.service="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/18/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -24,17 +24,18 @@ Este tópico mostra como mover os recursos de um grupo de recursos para outro. V
 2. Um recurso já não compartilha o mesmo ciclo de vida que os recursos com os quais estava agrupado anteriormente. Você deseja movê-lo para um novo grupo de recursos para gerenciar esse recurso separadamente dos outros.
 3. Um recurso compartilha o mesmo ciclo de vida como outros recursos em um grupo de recursos diferente. Deseja movê-lo para o grupo de recursos com os outros recursos para gerenciá-los juntos.
 
-## Considerações antes de mover os recursos
+Ao mover recursos, ambos o grupo de origem e o grupo de destino estão bloqueados pela duração da operação. As operações de gravação e exclusão são bloqueadas nos grupos até que a migração seja concluída.
 
-Há algumas questões importantes a considerar antes de mover um recurso:
+Você não pode alterar o local do recurso. Mover um recurso só o move para um novo grupo de recursos. O novo grupo de recursos pode ter um local diferente, mas que não altere o local do recurso.
 
-1. Você não pode alterar o local do recurso. Mover um recurso só o move para um novo grupo de recursos. O novo grupo de recursos pode ter um local diferente, mas que não altere o local do recurso.
-2. Nem todos os serviços atualmente dão suporte à capacidade de mover recursos. Consulte na lista abaixo informações sobre quais serviços dão suporte à movimentação de recursos.
-3. O provedor de recursos do recurso que está sendo movido deve ser registrado na assinatura de destino. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso. Por exemplo, se você estiver movendo uma instância do serviço Gerenciamento de API para uma assinatura que não tenha registrado o provedor de recursos **Microsoft.ApiManagement**, a movimentação não terá êxito. Para saber como verificar o status do registro e registrar provedores de recursos, confira [Provedores e tipos de recursos](../resource-manager-supported-services/#resource-providers-and-types).
-4. O grupo de recursos de destino deve conter somente recursos que compartilham o mesmo ciclo de vida de aplicativo que os recursos que você está movendo.
-5. Se você estiver usando o Azure PowerShell ou a CLI do Azure, verifique se está usando a versão mais recente. Para atualizar sua versão, execute o Microsoft Web Platform Installer e verifique se uma nova versão está disponível. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e [Instalar a CLI do Azure](xplat-cli-install.md).
-6. A operação de transferência pode levar algum tempo para ser concluída e, durante esse tempo, seu prompt aguardará até que a operação seja concluída.
-7. Ao mover recursos, ambos o grupo de origem e o grupo de destino estão bloqueados pela duração da operação. As operações de gravação e exclusão são bloqueadas nos grupos até que a migração seja concluída.
+## Lista de verificação antes de mover recursos
+
+Há algumas etapas importantes a serem realizadas antes de mover um recurso. Verificando essas condições você pode evitar erros.
+
+1. O serviço deve dar suporte à capacidade de mover recursos. Veja na lista abaixo informações sobre quais [serviços dão suporte à movimentação de recursos](#services-that-support-move).
+2. A assinatura de destino deve estar registrada para que o provedor de recursos do recurso seja movido. Se não estiver, você receberá um erro afirmando que a **assinatura não está registrada para um tipo de recurso**. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso. Para saber como verificar o status do registro e registrar provedores de recursos, consulte [Provedores e tipos de recursos](../resource-manager-supported-services/#resource-providers-and-types).
+3. Se estiver usando o Azure PowerShell ou a CLI do Azure, use a versão mais recente. Para atualizar sua versão, execute o Microsoft Web Platform Installer e verifique se uma nova versão está disponível. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e [Instalar a CLI do Azure](xplat-cli-install.md).
+4. Se estiver movendo um aplicativo do Serviço de Aplicativo, você examinou as [limitações do Serviço de Aplicativo](#app-service-limitations).
 
 ## Serviços que dão suporte à movimentação
 
@@ -90,14 +91,14 @@ Para mover os recursos existentes para outro grupo de recursos ou assinatura, us
 
 O primeiro exemplo mostra como mover um recurso para um novo grupo de recursos.
 
-    PS C:\> $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
+    $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 
 O segundo exemplo mostra como mover vários recursos para um novo grupo de recursos.
 
-    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+    $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+    Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 
 Para mover para uma nova assinatura, inclua um valor para o parâmetro **DestinationSubscriptionId**.
 
@@ -132,9 +133,9 @@ Você especifica para onde deseja mover o recurso. Se outros recursos tiverem de
 ![selecionar destino](./media/resource-group-move-resources/select-destination.png)
 
 ## Próximas etapas
-- [Usando o PowerShell do Azure com o Gerenciador de Recursos](./powershell-azure-resource-manager.md)
-- [Usando a CLI do Azure com o Gerenciador de Recursos](./xplat-cli-azure-resource-manager.md)
-- [Usando o Portal do Azure para gerenciar recursos](azure-portal/resource-group-portal.md)
-- [Usando marcas para organizar os recursos](./resource-group-using-tags.md)
+- Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, consulte [Usando o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
+- Para saber mais sobre comandos da CLI do Azure para gerenciar sua assinatura, consulte [Usar a CLI do Azure com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+- Para saber mais sobre recursos do portal para gerenciar sua assinatura, consulte [Usando o Portal do Azure para implantar e gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
+- Para saber mais sobre como aplicar uma organização lógica aos seus recursos, consulte [Usando marcas para organizar os recursos do Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

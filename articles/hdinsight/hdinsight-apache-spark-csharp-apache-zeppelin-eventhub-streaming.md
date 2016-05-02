@@ -18,9 +18,9 @@
 	ms.author="nitinme"/>
 
 
-# Streaming Spark: processar eventos de Hubs de Eventos do Azure com o Apache Spark no HDInsight (Windows)
+# Streaming Spark: processar eventos de Hubs de Eventos do Azure com o Apache Spark no HDInsight Windows (Preview)
 
-> [AZURE.NOTE] O HDInsight agora fornece clusters do Spark no Linux. Para obter informações sobre como executar um aplicativo de streaming em clusters do Spark no HDInsight no Linux, confira [Streaming do Spark: processar eventos de Hubs de Eventos do Azure com o Apache Spark no HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
+> [AZURE.NOTE] O HDInsight agora fornece clusters Spark no Linux. Para obter informações sobre como executar um aplicativo de streaming em clusters do Spark no HDInsight no Linux, confira [Streaming do Spark: processar eventos de Hubs de Eventos do Azure com o Apache Spark no HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
 
 Streaming Spark estende a API de núcleo do Spark para criar aplicativos de processamento de fluxo dimensionável, de alta taxa de transferência e com tolerância a falhas. Os dados podem ser ingeridos de várias fontes. Neste artigo, usamos Hubs de Eventos para ingerir dados. Hubs de Eventos é um sistema de ingestão altamente dimensionável, que pode receber milhões de eventos por segundo.
 
@@ -196,4 +196,4 @@ Instruções sobre como executar essas etapas e um exemplo de aplicativo de stre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Configurando seu projeto do Azure usando várias configurações de serviço
@@ -110,4 +110,4 @@ Para definir configurações que se aplicam a todo um projeto de serviço de nuv
 |Desenvolvimento|Nessa página, você pode especificar instruções de configuração da compilação e as condições sob as quais eventos de pós-compilação são executados.|
 |Web|Nessa página, você pode definir as configurações relacionadas ao servidor Web.|
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

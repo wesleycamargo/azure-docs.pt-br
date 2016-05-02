@@ -17,7 +17,7 @@
 	ms.author="nitinme"/>
 
 
-# Início Rápido: criar o Apache Spark no HDInsight e executar consultas interativas usando o Spark SQL (Windows)
+# Início Rápido: criar Apache Spark no HDInsight Windows e executar consultas interativas usando o Spark SQL (Preview)
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
@@ -262,4 +262,4 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

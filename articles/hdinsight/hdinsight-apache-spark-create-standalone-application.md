@@ -14,20 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Criar um aplicativo Scala autônomo e executar no cluster HDInsight Spark (Linux)
+# Criar um aplicativo Scala autônomo e executar em clusters HDInsight Spark Linux (Preview)
 
-Esse artigo fornece orientação passo a passo sobre como desenvolver aplicativos Spark autônomos escritos em Scala usando IntelliJ IDEA. O artigo usa o Apache Maven como o sistema de compilação e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA. Em um alto nível, criar um aplicativo Scala no IntelliJ IDEA envolverá as seguintes etapas:
+Esse artigo fornece orientação passo a passo sobre como desenvolver aplicativos Spark autônomos escritos em Scala usando o Maven com IntelliJ IDEA. O artigo usa o Apache Maven como o sistema de build e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA. Em um alto nível, criar um aplicativo Scala no IntelliJ IDEA envolverá as seguintes etapas:
 
 
 * Usar o Maven como o sistema de compilação.
-* Atualizar o arquivo de modelo de objeto do projeto (POM) para resolver as dependências do módulo Spark
+* Atualize o arquivo do POM (Modelo de Objeto do Projeto) para resolver as dependências do módulo Spark.
 * Escreva seu aplicativo em Scala.
 * Gere um arquivo jar que pode ser enviado aos clusters HDInsight Spark.
-* Execute o aplicativo no cluster Spark usando spark-submit.
+* Executar os aplicativos em um cluster do Spark usando Livy.
+
+>[AZURE.NOTE] O HDInsight também fornece uma ferramenta de plug-in do IntelliJ IDEA para facilitar o processo de criação e envio de aplicativos para um cluster HDInsight Spark no Linux. Para obter mais informações, consulte [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md).
+
 
 **Pré-requisitos**
 
@@ -196,4 +199,4 @@ Para executar o aplicativo no cluster, faça o seguinte:
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

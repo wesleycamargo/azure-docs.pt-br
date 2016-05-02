@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="andkjell"/>
 
 # Solucionar problemas de conectividade com o Azure AD Connect
@@ -37,10 +37,10 @@ Desses intervalos, a tabela a seguir é o mínimo absoluto para oferecer a capac
 | URL | Port | Descrição |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Usada para baixar as listas CRL. |
-| **.verisign.com | HTTP/80 | Usado para baixar listas CRL. |
-| *.trust.com | HTTP/80 | Usado para baixar listas CRL para MFA. |
-| *.windows.net | HTTPS/443 | Usado para entrar na AD do Azure. |
-| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usado para MFA. |
+| *.verisign.com | HTTP/80 | Usado para baixar listas CRL. | 
+| *.trust.com | HTTP/80 | Usado para baixar listas CRL para MFA. | 
+| *.windows.net | HTTPS/443 | Usado para entrar na AD do Azure. | 
+| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usado para MFA. | 
 | *.microsoftonline.com | HTTPS/443 | Usado para configurar seu diretório do AD do Azure e importar/exportar dados. |
 
 ## Erros no assistente
@@ -55,7 +55,7 @@ Esse erro será exibido quando o assistente não conseguir acessar o proxy. ![no
 - Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
 
 ### Não é possível alcançar o ponto de extremidade da MFA
-Esse erro será exibido se o ponto de extremidade ****https://secure.aadcdn.microsoftonline-p.com** não puder ser alcançado e o administrador global tiver a MFA habilitada. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Esse erro será exibido se o ponto de extremidade **https://secure.aadcdn.microsoftonline-p.com** não puder ser alcançado e o administrador global tiver a MFA habilitada. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Se vir isso, verifique se o ponto de extremidade secure.aadcdn.microsoftonline-p.com foi adicionado ao proxy.
 
@@ -140,4 +140,4 @@ Esse erro ocorre quando o assistente de conexão não consegue acessar o proxy o
 ## Próximas etapas
 Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -5,7 +5,7 @@
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/16/2016"
+	ms.date="04/15/2016"
 	ms.author="jeffstok"/>
 
 # Direcionar as saídas de transformação de dados do Stream Analytics para ferramentas de análise de opções de armazenamento de dados
@@ -169,8 +169,6 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 
 O [Power BI](https://powerbi.microsoft.com/) pode ser usado como saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização dos resultados da análise. Essa funcionalidade pode ser usada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
 
-> [AZURE.NOTE] No momento, há suporte para a criação e configuração das saídas do Power BI apenas no Portal Clássico do Azure.
-
 ### Autorizar uma conta do Power BI
 
 1.	Quando o Power BI é selecionado como uma saída no portal de Gerenciamento do Azure, você será solicitado a autorizar um usuário existente do Power BI ou criar uma nova conta do Power BI.  
@@ -200,7 +198,7 @@ Para um guia passo a passo de configuração de uma saída do Power BI e do pain
 
 ### Renovar a autorização do Power BI
 
-Há uma limitação temporária em que o token de autenticação deve ser atualizado manualmente a cada 90 dias para todos os trabalhos com saída do Power BI. Você também precisará autenticar novamente sua conta do Power BI caso sua senha tenha sido alterada depois que seu trabalho tenha sido criado ou autenticado pela última vez. Um sintoma desse problema é nenhuma saída de trabalho e um "erro de Autenticar usuário" nos Logs de Operação:
+Você precisará autenticar novamente sua conta do Power BI caso sua senha tenha sido alterada depois de seu trabalho ser criado ou autenticado pela última vez. Se a MFA (Multi-Factor Authentication) estiver configurada no locatário do AAD (Azure Active Directory) também será necessário renovar a autorização do Power BI a cada 2 semanas. Um sintoma desse problema é nenhuma saída de trabalho e um "erro de Autenticar usuário" nos Logs de Operação:
 
   ![Erro de token de atualização do Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
 
@@ -318,4 +316,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

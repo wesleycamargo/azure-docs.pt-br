@@ -477,6 +477,8 @@ Antes de prosseguir, verifique se você instalou e configurou o PowerShell do Az
 
 Antes de prosseguir, certifique-se de ter instalado e configurado a CLI do Azure. Para obter mais informações, veja [Instalar a CLI do Azure](../xplat-cli-install.md).
 
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+
 1. Abra um terminal, prompt de comando ou sessão do shell ou outra linha de comando para o seu sistema e use o comando a seguir para alternar para modo Azure Resource Manager.
 
         azure config mode arm
@@ -489,11 +491,11 @@ Antes de prosseguir, certifique-se de ter instalado e configurado a CLI do Azure
 
         azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
 
-    Se você omitir parâmetros para esse comando, você será solicitado a fornecê-los. Se o script que você especificar com `-u` aceitar parâmetros, você poderá especificá-los usando o parâmetro `-p`.
+    Se você omitir parâmetros para esse comando, você será solicitado a fornecê-los. Caso o script especificado com `-u` aceite parâmetros, você poderá especificá-los usando o parâmetro `-p`.
 
     __Nodetypes__ válidos são __headnode__, __workernode__ e __zookeeper__. Caso o script deva ser aplicado a vários tipos de nós, especifique os tipos separados por um ';'. Por exemplo: `-n headnode;workernode`.
 
-    Para persistir o script, adicione a `--persistOnSuccess`. Você também pode persistir o script em uma data posterior usando `azure hdinsight script-action persisted set`.
+    Para persistir o script, adicione a `--persistOnSuccess`. Também é possível persistir o script em uma data posterior usando `azure hdinsight script-action persisted set`.
     
     Quando o trabalho for concluído, você receberá uma saída semelhante à seguinte.
     
@@ -507,15 +509,15 @@ Antes de prosseguir, certifique-se de ter instalado e configurado a CLI do Azure
 
 ### Aplicar uma Ação de Script em um cluster em execução no SDK do .NET do HDInsight
 
-Para obter um exemplo de como usar o SDK do .NET para aplicar scripts em um cluster, consulte [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Para obter um exemplo de como usar o SDK do .NET para aplicar scripts a um cluster, veja [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## Exibir o histórico, promover e rebaixar Ações de Script
 
 ### Usando o Portal do Azure
 
-1. No [Portal do Azure](https://portal.azure.com), escolha o cluster HDInsight.
+1. No [portal do Azure](https://portal.azure.com), selecione o cluster HDInsight.
 
-2. Na folha de cluster do HDInsight, selecione __Configurações__.
+2. Na folha do cluster HDInsight, selecione __Configurações__.
 
     ![Ícone Configurações](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
 
@@ -531,7 +533,7 @@ Para obter um exemplo de como usar o SDK do .NET para aplicar scripts em um clus
 
     ![Folha Propriedades das ações de script](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionproperties.png)
 
-6. Você também pode usar __...__ à direita das entradas na folha de Ações de Script para realizar ações como executar novamente, manter ou (para as ações persistentes) excluir.
+6. Também é possível usar __...__ à direita das entradas na folha Ações de Script para realizar ações como executar novamente, persistir ou (para as ações persistentes) excluir.
 
     ![Ações de script... uso](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
@@ -544,7 +546,7 @@ Para obter um exemplo de como usar o SDK do .NET para aplicar scripts em um clus
 | Set-AzureRmHDInsightPersistedScriptAction | Promove uma ação de script ad hoc para uma ação de script persistente |
 | Remove-AzureRmHDInsightPersistedScriptAction | Rebaixa uma ação de script persistente a uma ação ad hoc |
 
-> [AZURE.IMPORTANT] Usar `Remove-AzureRmHDInsightPersistedScriptAction` não desfaz as ações realizadas por um script, apenas remove o sinalizador persistente para que o script não seja executado nos novos nós de trabalho adicionados ao cluster.
+> [AZURE.IMPORTANT] Usar `Remove-AzureRmHDInsightPersistedScriptAction` não desfaz as ações executadas por um script, apenas remove o sinalizador persistente para que o script não seja executado nos novos nós de trabalho adicionados ao cluster.
 
 O script de exemplo a seguir demonstra como usar os cmdlets para promover e depois rebaixar um script.
 
@@ -575,7 +577,7 @@ O script de exemplo a seguir demonstra como usar os cmdlets para promover e depo
 | `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` | Promove uma ação de script ad hoc para uma ação de script persistente |
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` | Rebaixa uma ação de script persistente a uma ação ad hoc |
 
-> [AZURE.IMPORTANT] Usar `azure hdinsight script-action persisted delete` não desfaz as ações realizadas por um script, apenas remove o sinalizador persistente para que o script não seja executado nos novos nós de trabalho adicionados ao cluster.
+> [AZURE.IMPORTANT] Usar `azure hdinsight script-action persisted delete` não desfaz as ações executadas por um script, apenas remove o sinalizador persistente para que o script não seja executado nos novos nós de trabalho adicionados ao cluster.
 
 ### Usando o SDK do .NET do HDInsight
 
@@ -609,10 +611,10 @@ Se a criação de cluster falhou devido a um erro na ação de script, os logs d
 
 	![Captura de tela de operações](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	Nele, os logs são organizados separadamente em nó de cabeçalho, nó de trabalho e nós do Zookeeper. Alguns exemplos incluem:
+	Nele, os logs são organizados separadamente em nó de cabeçalho, nó de trabalho e nós do Zookeeper. Alguns exemplos são:
 	* **Nó de cabeçalho** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **Nó de trabalho** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **Nó do Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	* **Nó de Trabalho** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **Nó Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Todos os stdout e stderr do host correspondentes são carregados para a conta de armazenamento. Há um **output-*.txt** e um **errors-*.txt** para cada ação de script. O arquivo *.txt de saída contém informações sobre o URI do script que foi executado no host. Por exemplo,
 
@@ -678,4 +680,4 @@ Consulte as informações e exemplos a seguir sobre como criar e usar scripts pa
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

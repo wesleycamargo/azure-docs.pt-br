@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/19/2016"
    ms.author="rajram"/>
 
 # Comece a usar o Conector de Espera e adicione-o ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+>[AZURE.NOTE] Estamos encerrando o suporte para esse conector porque sua funcionalidade agora está incluída por padrão como a **ação de atraso** quando você cria novos Aplicativos Lógicos. É recomendável que você atualize todos os seus Aplicativos Lógicos que estão usando esse conector. Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
 O conector de espera permite que um aplicativo atrase a execução por um período especificado ou até um horário especificado. Você pode adicionar o Conector de Espera ao seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico. Quando usado em um Aplicativo Lógico, ele pode ser usado para atrasar a execução.
 
@@ -28,16 +29,13 @@ Para usar o conector de espera, primeiro você precisa criar uma instância do a
 O conector de espera pode ser usado como uma ação. Ele não tem gatilhos.
 
 ### Ação
-- Clique no Conector de Espera no painel à direita:
-![Lista de ações][1]
+- Clique no Conector de Espera no painel à direita: ![Lista de ações][1]
 - O conector de espera dá suporte a duas ações: 
 	- Atrasar
 	- Atrasar até
 	 
-- Selecione *Atrasar*.
-![Entrada de atraso][2]
-- Fornecer as entradas para a ação e configurá-la:
-![Ação configurada][3]
+- Selecione *Atrasar*. ![Entrada de atraso][2]
+- Fornecer as entradas para a ação e configurá-la: ![Ação configurada][3]
 
 Parâmetro|Tipo|Descrição do parâmetro
 ---|---|---
@@ -58,4 +56,4 @@ Exibir a referência da API REST de Swagger em [Conectores e referência de apli
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

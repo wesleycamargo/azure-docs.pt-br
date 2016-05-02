@@ -62,6 +62,8 @@ A Microsoft fornece os seguintes utilitários para trabalhar com armazenamento d
 
 O Azure CLI é uma ferramenta de plataforma cruzada que permite que você gerencie os serviços do Azure. Use as seguintes etapas para carregar dados no armazenamento de Blob do Azure:
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 1. [Instalar e configurar o Azure CLI para Mac, Linux e Windows](../xplat-cli-install.md).
 
 2. Abra um prompt de comando, bash ou outro shell e use os dados a seguir para autenticar a sua assinatura do Azure.
@@ -103,6 +105,8 @@ O Azure CLI é uma ferramenta de plataforma cruzada que permite que você gerenc
 ###<a id="powershell"></a>Azure PowerShell
 
 O Azure PowerShell é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Para saber mais sobre como configurar sua estação de trabalho para executar o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **Para carregar um arquivo local para o Armazenamento de Blob do Azure**
 
@@ -278,4 +282,4 @@ Agora que você compreende como obter dados no HDInsight, leia os seguintes arti
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

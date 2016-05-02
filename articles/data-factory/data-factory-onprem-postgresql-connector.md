@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados do PostgreSQL usando o Azure Data Factory
@@ -179,7 +179,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "select * from public.usstates"
+	                        "query": "select * from "public"."usstates""
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -221,7 +221,7 @@ Propriedade | Descrição | Obrigatório
 type | A propriedade tipo deve ser definida como: **OnPremisesPostgreSql** | Sim
 server | Nome do servidor PostgreSQL. | Sim 
 database | Nome do banco de dados PostgreSQL. | Sim 
-schema | Nome do esquema no banco de dados. | Não 
+schema | Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. | Não 
 authenticationType | Tipo de autenticação usado para se conectar ao banco de dados PostgreSQL. Os valores possíveis são: Anonymous, Basic e Windows. | Sim 
 Nome de Usuário | Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. | Não 
 Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. | Não 
@@ -237,7 +237,7 @@ A seção typeProperties é diferente para cada tipo de conjunto de dados e forn
 
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
-tableName | Nome da tabela na instância do banco de dados PostgreSQL à qual o serviço vinculado se refere. | Não (se **query** de **RelationalSource** for especificado) 
+tableName | Nome da tabela na instância do banco de dados PostgreSQL à qual o serviço vinculado se refere. O tableName diferencia maiúsculas de minúsculas. | Não (se **query** de **RelationalSource** for especificado) 
 
 ## Propriedades de tipo da atividade de cópia do PostgreSQL
 
@@ -249,7 +249,13 @@ No caso da Atividade de Cópia, quando a fonte é do tipo **RelationalSource** (
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-query | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. | Não (se **tableName** de **dataset** for especificado)
+query | Utiliza a consulta personalizada para ler os dados. | Cadeia de caracteres de consulta SQL. Por exemplo: "query": "select * from "MySchema"."MyTable"". | Não (se **tableName** de **dataset** for especificado)
+
+> [AZURE.NOTE] Nomes de esquema e de tabelas diferenciam maiúsculas de minúsculas e precisam estar entre "" (aspas duplas) na consulta.
+
+**Exemplo:**
+
+ "query": "select * from "MySchema"."MyTable""
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -310,4 +316,7 @@ texto | | Cadeia de caracteres
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+## Desempenho e Ajuste  
+Confira o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho e o movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+
+<!---HONumber=AcomDC_0420_2016-->

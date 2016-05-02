@@ -10,7 +10,7 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
    ms.date="02/01/2016"
@@ -60,4 +60,4 @@ Cada assinatura do Azure tem limites de cota padrão que podem afetar a implanta
 
 Uma conta de avaliação gratuita. **[Obtenha uma.](https://azure.microsoft.com/pricing/free-trial/)** Se você já tiver uma, para experimentá-la, **[instale a CLI do Azure.](../xplat-cli-install.md)**. Se tiver feito isso, [crie uma VM do Linux agora](virtual-machines-linux-quick-create-cli.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

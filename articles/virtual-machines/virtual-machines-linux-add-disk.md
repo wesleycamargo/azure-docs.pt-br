@@ -11,7 +11,7 @@
 
 <tags
 	ms.service="virtual-machines-linux"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -20,7 +20,7 @@
 
 # Adicionar um disco a uma VM do Linux
 
-Este artigo mostra como anexar um disco persistente à sua VM para que você possa preservar seus dados, mesmo que sua máquina virtual seja provisionada novamente devido a manutenção ou redimensionamento. Para adicionar um disco, você precisará da [CLI do Azure](../xplat-cli-install.md) no modo do gerenciador de recursos (`azure config mode arm`).
+Este artigo mostra como anexar um disco persistente à sua VM para que você possa preservar seus dados, mesmo que sua máquina virtual seja provisionada novamente devido a manutenção ou redimensionamento. Para adicionar um disco, você precisará da [CLI do Azure](../xplat-cli-install.md) no modo do resource manager (`azure config mode arm`).
 
 ## Comandos rápidos
 
@@ -32,7 +32,7 @@ rick@ubuntu$ azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size
 
 ## Anexar um disco
 
-Anexar um novo disco é rápido. Basta digitar `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` para criar e anexar um novo disco GB a uma VM. O resultado deve ser semelhante a esse:
+Anexar um novo disco é rápido. Basta digitar `azure vm disk attach-new <myuniquegroupname> <myuniquevmname> <size-in-GB>` para criar e anexar um novo disco GB a uma VM. Se você não identificar explicitamente uma conta de armazenamento, qualquer disco que você criar será colocado na mesma conta de armazenamento na qual o disco do sistema operacional reside. O resultado deve ser semelhante a esse:
 
 	azure vm disk attach-new myuniquegroupname myuniquevmname 5
 	info:    Executing command vm disk attach-new
@@ -177,4 +177,4 @@ O disco de dados agora está pronto para uso como o `/datadrive`.
 - Examine as recomendações de [Otimizar o desempenho do computador Linux](virtual-machines-linux-optimization.md) para assegurar que sua VM do Linux esteja configurada corretamente.
 - Expanda a capacidade de armazenamento ao adicionar outros discos e [configurar o RAID](virtual-machines-linux-configure-raid.md) para obter desempenho adicional.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

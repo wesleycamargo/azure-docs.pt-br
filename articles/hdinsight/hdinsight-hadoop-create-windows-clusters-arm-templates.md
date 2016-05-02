@@ -33,11 +33,13 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 - [Assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) e/ou [CLI do Azure](../xplat-cli-install.md). 
 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+
 ## Modelos de ARM
 
 O modelo de ARM simplifica a criação de clusters HDInsight, seus recursos dependentes (como a conta de armazenamento padrão) e outros recursos (como o Banco de Dados SQL do Azure para usar o Apache Sqoop) para seu aplicativo em uma única operação coordenada. No modelo, você define os recursos que são necessários para o aplicativo e especifica os parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na construção de valores para sua implantação.
 
-Um modelo do ARM para a criação de um cluster HDInsight e a conta dependente do Armazenamento do Azure podem ser encontrados no [Apêndice A](#appx-a-arm-template). Use um editor de texto para salvar o modelo em um arquivo na sua estação de trabalho. Você aprenderá a chamar o modelo usando várias ferramentas.
+Um modelo do ARM para a criação de um cluster HDInsight e a conta do Armazenamento do Azure dependente podem ser encontrados no [Apêndice A](#appx-a-arm-template). Use um editor de texto para salvar o modelo em um arquivo na sua estação de trabalho. Você aprenderá a chamar o modelo usando várias ferramentas.
 
 Para obter mais informações sobre o modelo de ARM, consulte
 
@@ -135,7 +137,7 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 
 
 - Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](../virtual-machines/virtual-machines-windows-csharp-template.md).
-- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obter um exemplo detalhado de como implantar um aplicativo, veja [Provisionar e implantar microsserviços de forma previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](../solution-dev-test-environments.md).
 - Para saber mais sobre as seções do modelo do Azure Resource Manager, veja [Criando modelos](../resource-group-authoring-templates.md).
 - Para obter uma lista das funções que podem ser usadas em um modelo do Azure Resource Manager, veja [Funções do modelo](../resource-group-template-functions.md).
@@ -292,4 +294,4 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
         }
     }
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

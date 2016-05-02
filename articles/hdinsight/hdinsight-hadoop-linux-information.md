@@ -27,12 +27,15 @@ Muitas das etapas neste documento usam os seguintes utilitários, que talvez pre
 
 * [cURL](https://curl.haxx.se/) - usado para se comunicar com serviços baseados na Web
 * [jq](https://stedolan.github.io/jq/) - usado para analisar documentos JSON
+* [CLI do Azure](../xplat-cli-install.md) – usada para gerenciar remotamente os serviços do Azure
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## Nomes de domínio
 
 O FQDN (Nome de Domínio Totalmente Qualificado) a ser usado ao se conectar com um cluster na Internet é **&lt;clustername>.azurehdinsight.net** ou (só para SSH) **&lt;clustername-ssh>.azurehdinsight.net**.
 
-Internamente, cada nó no cluster tem um nome que é atribuído durante a configuração do cluster. Para localizar nomes de cluster, você pode visitar a página __Hosts__ na interface de usuário do Ambari Web ou usar o seguinte para retornar uma lista de hosts de API REST do Ambari:
+Internamente, cada nó no cluster tem um nome que é atribuído durante a configuração do cluster. Para encontrar os nomes de cluster, visite a página __Hosts__ na interface do usuário do Ambari Web ou use o seguinte para retornar uma lista de hosts da API REST do Ambari:
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -105,7 +108,7 @@ O HDInsight também permite que você associe várias contas de armazenamento de
 
 Durante a criação do cluster, você optou por usar uma conta e um contêiner existentes do Armazenamento do Azure ou por criar uma nova conta. Em seguida, você provavelmente esquece dela. Você pode a API REST do Ambari para localizar a conta e o contêiner de armazenamento padrão.
 
-1. Use o comando a seguir para recuperar informações de configuração do HDFS usando o curl e filtrá-las usando [jq](https://stedolan.github.io/jq/):
+1. Use o comando a seguir para recuperar informações de configuração do HDFS usando o curl e as filtre usando o [jq](https://stedolan.github.io/jq/):
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
@@ -115,7 +118,7 @@ Durante a criação do cluster, você optou por usar uma conta e um contêiner e
 
         wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-1. Obter o grupo de recursos para a conta de armazenamento, usar a [CLI do Azure](../xplat-cli-install.md). No comando a seguir, substitua __NOMEDACONTA__ pelo nome da conta de armazenamento recuperada do Ambari:
+1. Para obter o grupo de recursos para a Conta de Armazenamento, use a [CLI do Azure](../xplat-cli-install.md). No comando a seguir, substitua __NOMEDACONTA__ pelo nome da Conta de Armazenamento recuperada do Ambari:
 
         azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
     
@@ -203,7 +206,7 @@ Os diferentes tipos de cluster são afetados pelo dimensionamento da seguinte ma
 
 	* __Interface do usuário do Storm__: use as etapas a seguir para rebalancear uma topologia usando a interface do usuário do Storm.
 
-		1. Abra __https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do seu cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
+		1. Abra \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ no navegador da Web, em que NOMEDOCLUSTER é o nome do cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
 
 		3. Selecione a topologia que você quer rebalancear e, em seguida, selecione o botão __Rebalancear__. Insira o atraso antes de a operação de rebalanceamento ser executada.
 
@@ -254,4 +257,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

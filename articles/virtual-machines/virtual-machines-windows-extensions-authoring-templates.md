@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Criando modelos do Azure Resource Manager com extensões de VM do Windows
@@ -52,4 +52,4 @@ Consulte o seguinte para obter um modelo completo com extensões de VM.
 
 Depois de criar o modelo, você poderá implantá-lo usando o Azure PowerShell.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

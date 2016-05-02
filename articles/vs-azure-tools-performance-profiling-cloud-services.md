@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 
@@ -80,7 +80,7 @@ Ao publicar seu serviço de nuvem do Visual Studio, você poderá analisar o ser
 
 Para saber mais sobre o perfil de desempenho no Visual Studio, consulte [Guia de criação de perfis de desempenho para iniciantes](https://msdn.microsoft.com/library/azure/ms182372.aspx) e [Analisando o desempenho do aplicativo usando ferramentas de criação de perfil](https://msdn.microsoft.com/library/azure/z9z62c29.aspx).
 
->[AZURE.NOTE]Você pode habilitar o IntelliTrace ou a criação de perfis quando publicar seu serviço de nuvem. Não é possível habilitar ambos.
+>[AZURE.NOTE] Você pode habilitar o IntelliTrace ou a criação de perfis quando publicar seu serviço de nuvem. Não é possível habilitar ambos.
 
 ###Métodos de coleção do criador de perfil
 
@@ -102,7 +102,7 @@ A seguinte ilustração mostra como definir as configurações de criação de p
 
 ![Definir configurações de criação de perfil](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
->[AZURE.NOTE]Para habilitar a caixa de seleção **Habilitar criação de perfil**, você deve ter o criador de perfil instalado no computador local que está usando para publicar seu serviço de nuvem. Por padrão, o criador de perfil é instalado quando você instala o Visual Studio.
+>[AZURE.NOTE] Para habilitar a caixa de seleção **Habilitar criação de perfil**, você deve ter o criador de perfil instalado no computador local que está usando para publicar seu serviço de nuvem. Por padrão, o criador de perfil é instalado quando você instala o Visual Studio.
 
 ### Para definir configurações de criação de perfil
 
@@ -114,7 +114,7 @@ A seguinte ilustração mostra como definir as configurações de criação de p
 
 1. Para definir suas configurações de criação de perfil, escolha o hiperlink **Configurações**. A caixa de diálogo Configurações de Criação de Perfil aparecerá.
 
-1. Nos botões de opção **Qual método de criação de perfil você gostaria de usar**, escolha o tipo de criação de perfil necessário.
+1. Dos botões de opção **Qual método de criação de perfil você gostaria de usar**, escolha o tipo de criação de perfil de que você precisa.
 
 1. Para coletar os dados de criação de perfil de interação de camada, marque a caixa de seleção **Habilitar Criação de Perfil de Interação de Camada**.
 
@@ -146,4 +146,4 @@ Uma sessão de criação de perfil é gerada para cada instância de uma funçã
 
 [Publicando em um Serviço de Nuvem do Azure do Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

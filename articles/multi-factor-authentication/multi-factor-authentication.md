@@ -35,7 +35,7 @@ O Azure Multi-Factor Authentication ajuda a proteger o acesso a dados e aplicati
 Para obter uma visão geral de como funciona o Azure Multi-Factor Authentication, consulte o vídeo a seguir.
 
 
-<center>[AZURE.VIDEO multi-factor-authentication-overview]</center>
+> [AZURE.VIDEO multi-factor-authentication-overview]
 
 ##Por que usar o Azure Multi-Factor Authentication?
 
@@ -54,7 +54,7 @@ O Azure Multi-Factor Authentication é uma solução fácil de usar, escalonáve
 
 Para obter informações adicionais sobre por que usar o Azure Multi-Factor Authentication, consulte o vídeo a seguir.
 
-<center>[AZURE.VIDEO windows-azure-multi-factor-authentication]</center>
+> [AZURE.VIDEO windows-azure-multi-factor-authentication]
 
 
 ## Como funciona o Azure Multi-Factor Authentication
@@ -75,7 +75,7 @@ O Azure Multi-Factor Authentication ajuda a proteger o acesso a dados e aplicati
 
 Para obter informações adicionais sobre como ele funciona, veja o vídeo a seguir.
 
-[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
+> [AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ## Métodos disponíveis para autenticação multifator
 Quando um usuário entra, uma verificação adicional é enviada ao usuário. Veja a seguir uma lista de métodos que podem ser usados para essa segunda verificação.
@@ -137,11 +137,11 @@ Ao usar um Provedor do Azure Multi-Factor Authentication, há dois modelos de us
 - **Por usuário**. Geralmente para empresas que desejam habilitar a autenticação multifator para um número fixo de funcionários que precisam regularmente de autenticação.
 - **Por autenticação**. Em geral, para empresas que querem habilitar a autenticação multifator para um grupo grande de usuários externos que raramente precisam de autenticação.
 
-O Azure Multi-Factor Authentication fornece métodos de verificação selecionável para a nuvem e o servidor. Isso significa que é possível escolher quais métodos estarão disponíveis para os usuários usar com a autenticação multifator. Atualmente, esse recurso está em preview pública para a versão de nuvem da autenticação multifator. Para obter mais informações, veja [métodos de verificação selecionáveis](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
+O Azure Multi-Factor Authentication fornece métodos de verificação selecionável para a nuvem e o servidor. Isso significa que é possível escolher quais métodos estarão disponíveis para os usuários usar com a autenticação multifator. Atualmente, esse recurso está em preview pública para a versão de nuvem da autenticação multifator. Para obter mais informações, veja [métodos de verificação selecionável](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview).
 
 Para obter detalhes sobre preços, consulte [Preços do Azure MFA.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
-Escolha o modelo baseado em consumo que funciona melhor para sua organização. Depois, para iniciar, consulte [Introdução](multi-factor-authentication-get-started.md).
+Escolha o modelo baseado em consumo que funciona melhor para sua organização. Depois, para iniciar, veja [Introdução.](multi-factor-authentication-get-started.md)
 
 ## Escolha a solução de segurança multifator para você
 
@@ -209,4 +209,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

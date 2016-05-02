@@ -21,6 +21,11 @@
 
 # Restaurar máquinas virtuais no Azure
 
+> [AZURE.SELECTOR]
+- [Restaurar VMs no portal do Azure](backup-azure-arm-restore-vms.md)
+- [Restaurar VMs no portal Clássico](backup-azure-restore-vms.md)
+
+
 Com as etapas a seguir, restaure uma máquina virtual em uma nova VM a partir de backups armazenados no cofre de backup do Azure.
 
 ## Restaurar o fluxo de trabalho
@@ -135,7 +140,7 @@ Para recriar completamente a máquina virtual após restaurar os discos, execute
 
 2. Crie a configuração da VM necessária para o balanceador de carga/múltiplos NICs, múltiplos IPs reservados usando os cmdlets do PowerShell e use-a para criar a VM com a configuração desejada.
 	- Criar a VM no serviço de nuvem com o [balanceador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Criar a máquina virtual para se conectar ao [balanceador de carga voltado para a Internet](https://azure.microsoft.com/pt-BR/documentation/articles/load-balancer-internet-getstarted/)
+	- Criar a máquina virtual para se conectar ao [balanceador de carga voltado para a Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
 	- Criar uma VM [com várias NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Criar VMs com [vários IPs reservados](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
@@ -144,4 +149,4 @@ Para recriar completamente a máquina virtual após restaurar os discos, execute
 - [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Criar clusters de Hadoop, HBase, Storm ou Spark em Linux no HDInsight usando a CLI do Azure | Microsoft Azure"
-   	description="Aprenda a criar clusters Hadoop, HBase, Storm ou Spark em Linux para HDInsight usando a CLI do Azure."
+   	pageTitle="Criar clusters Hadoop, HBase, Storm ou Spark no Linux para o HDInsight usando o Azure PowerShell | Microsoft Azure"
+   	description="Saiba como criar clusters Hadoop, HBase, Storm ou Spark no Linux para o HDInsight usando o Azure PowerShell."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -144,6 +144,6 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
+* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

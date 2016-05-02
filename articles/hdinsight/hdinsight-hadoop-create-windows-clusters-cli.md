@@ -31,7 +31,9 @@ Saiba como criar clusters do HDInsight usando a CLI do Azure. Para outros recurs
 Antes de começar a seguir as instruções neste artigo, você deve ter o seguinte:
 
 - **Assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **CLI do azure** - consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para obter informações de instalação e configuração.
+- **CLI do Azure**
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Conecte-se ao Azure
 
@@ -86,7 +88,7 @@ Você deve ter um ARM (Gerenciamento de Recursos do Azure) e uma conta de armaze
 		-- Lists the keys for a Storage account
 		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
 
-	Para obter detalhes sobre como obter as informações usando o Portal do Azure, confira a seção “Gerenciar sua conta de armazenamento” em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account#manage-your-storage-account).
+	Para obter detalhes sobre como obter as informações usando o Portal do Azure, veja a seção “Gerenciar sua conta de armazenamento” em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account#manage-your-storage-account).
 
 - **Contêiner de Blob Padrão (Opcional)**: o comando **azure hdinsight cluster create** cria o contêiner caso ele não exista. Se você optar por criar o contêiner com antecedência, poderá usar o seguinte comando:
 
@@ -128,7 +130,7 @@ Para obter informações gerais sobre ação de script, veja [Personalizar clust
 
 ## Criar clusters usando modelos de ARM
 
-Você pode usar a CLI para criar clusters chamando modelos de ARM. Consulte [Implantar com a CLI do Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
+Você pode usar a CLI para criar clusters chamando modelos de ARM. Veja [Implantar com a CLI do Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## Consulte também
 
@@ -137,4 +139,4 @@ Você pode usar a CLI para criar clusters chamando modelos de ARM. Consulte [Imp
 - [Gerenciar clusters Hadoop no HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)
 - [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](../virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

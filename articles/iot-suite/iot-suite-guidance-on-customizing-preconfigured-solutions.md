@@ -58,15 +58,13 @@ Além de alterar os trabalhos de Stream Analytics do Azure, você pode usar o po
 
 Uma das atividades mais comuns de extensão é o trabalho com dispositivos específicos ao seu cenário. Há vários métodos para trabalhar com dispositivos. Esses métodos incluem alterar um dispositivo simulado de acordo com seu cenário, ou usar o [SDK do Dispositivo IoT][] para conectar o seu dispositivo físico à solução.
 
-Para ter um guia passo a passo para adicionar dispositivos à solução pré-configurada de monitoramento remoto, consulte [Dispositivos de conexão do Pacote IoT](iot-suite-connecting-devices.md).
+Para obter um guia passo a passo para adicionar dispositivos à solução pré-configurada de monitoramento remoto, veja [Dispositivos de conexão do Iot Suite](iot-suite-connecting-devices.md) e o [Exemplo de SDK de monitoramento remoto em C](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) que foi projetado para trabalhar com a solução pré-configurada de monitoramento remoto.
 
 ### Criando seu próprio dispositivo simulado
 
 Um simulador .NET é incluído no código-fonte da solução de monitoramento remota (referenciada acima). Esse simulador é provisionado como parte da solução e pode ser alterado para enviar metadados diferentes, telemetria ou responder a comandos diferentes.
 
-O simulador pré-configurado na solução pré-configurada de monitoramento remoto é um dispositivo mais interessante que emite a telemetria de temperatura e umidade. Você pode modificar o simulador no projeto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) quando tiver bifurcado o repositório GitHub do projeto.
-
-Além disso, o Azure IoT fornece um [Exemplo SDK C](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring) que foi projetado para funcionar com a solução pré-configurada de monitoramento remoto.
+O simulador pré-configurado na solução pré-configurada de monitoramento remoto é um dispositivo mais interessante que emite a telemetria de temperatura e umidade. Você pode modificar o simulador no projeto [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) quando tiver bifurcado o repositório GitHub.
 
 ### Compilando e usando seu próprio dispositivo (físico)
 
@@ -86,9 +84,9 @@ Membros da função **ReadOnly** podem ver o painel e a lista de dispositivos, m
 
 4. Clique em **Aplicativos**.
 
-5. Clique no nome do aplicativo que corresponda ao nome da solução pré-configurada. Se você não visualizar seu aplicativo na lista, selecione **Aplicativos que minha empresa possui** na lista suspensa **Mostrar** e clique na marca de seleção.
+5. Clique no nome do aplicativo que corresponda ao nome da solução pré-configurada. Se você não vir seu aplicativo na lista, selecione **Aplicativos que minha empresa possui** na lista suspensa **Mostrar** e clique na marca de seleção.
 
-6.  Na parte inferior da página, clique em **Gerenciar Manifesto** e então em **Baixar Manifesto**.
+6.  Na parte inferior da página, clique em **Gerenciar Manifesto** e em **Baixar Manifesto**.
 
 7. Isso baixa um arquivo .json para seu computador local. Abra esse arquivo para edição em um editor de texto de sua escolha.
 
@@ -129,11 +127,11 @@ Membros da função **ReadOnly** podem ver o painel e a lista de dispositivos, m
 
 11. Agora você adicionou as funções **Admin** e **ReadOnly** ao seu aplicativo.
 
-12. Para atribuir uma dessas funções para um usuário no seu diretório, consulte [Permissões no site do azureiotsuite.com][lnk-permissions].
+12. Para atribuir uma dessas funções a um usuário no diretório, veja [Permissões no site do azureiotsuite.com][lnk-permissions].
 
 ## Comentários
 
-Tem alguma personalização que você gostaria de ver abordada neste documento? Adicione as sugestões de recursos à [Voz do Usuário](https://feedback.azure.com/forums/321918-azure-iot) ou faça comentários sobre este artigo abaixo.
+Há alguma personalização que você gostaria que fosse abordada neste documento? Adicione sugestões de recursos ao [User Voice](https://feedback.azure.com/forums/321918-azure-iot) ou faça comentários sobre este artigo abaixo.
 
 ## Próximas etapas
 
@@ -143,4 +141,4 @@ Para obter mais informações sobre dispositivos IoT, consulte o [Site de desenv
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

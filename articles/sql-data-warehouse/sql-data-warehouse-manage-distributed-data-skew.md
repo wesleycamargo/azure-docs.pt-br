@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/07/2016"
+   ms.date="04/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Gerenciar a distorção de dados para tabelas distribuídas no SQL Data Warehouse do Azure
@@ -27,6 +27,18 @@ Neste tutorial, você irá:
 - Aprender dicas para saber quando resolver distorções de dados
 - Recriar a tabela para resolver a distorção de dados
 
+## DBCC PDW\_SHOWSPACEUSED
+
+Um método de identificar a distorção de dados é usar [DBCC PDW\_SHOWSPACEUSED()][]
+
+```sql
+-- Find data skew for a distributed table
+DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
+```
+
+Esta é uma maneira simples e rápida de ver o número de linhas da tabela que estão armazenadas em cada uma das 60 distribuições do seu banco de dados. Lembre-se que, para um desempenho mais equilibrado, as linhas na tabela distribuída devem ser divididas uniformemente entre todas as distribuições.
+
+No entanto, se você consultar as exibições de gerenciamento dinâmico do Azure SQL Data Warehouse (DMV), poderá executar uma análise mais detalhada. O resto deste artigo mostra como realizar ambas as tarefas.
 
 ## Etapa 1: Criar uma exibição que localiza a distorção de dados
 
@@ -219,7 +231,8 @@ Para obter mais detalhes sobre a distribuição da tabela, consulte os seguintes
 [Distribuição hash]: sql-data-warehouse-develop-hash-distribution-key.md
 
 <!--MSDN references-->
+[DBCC PDW\_SHOWSPACEUSED()]: https://msdn.microsoft.com/pt-BR/library/mt204028.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Usando a Transformação do BizTalk em aplicativos lógicos do Serviço de Aplicativo do Azure | Microsoft Azure" 
 	description="Aprenda a transformar documentos XML de um esquema para outro" 
 	authors="anuragdalmia" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="04/20/2016"
 	ms.author="anuragdalmia"/>
 
 # Transformação do BizTalk
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## Visão geral
 O Aplicativo de API de Transformação do BizTalk converte dados de um formato para outro. Por exemplo, você pode usar endereços de cobrança e remessas de ordens de compra e inseri-los em um documento de nota fiscal. Ou talvez você tenha uma mensagem de entrada contendo a data atual no formato *YearMonthDay*. Você deseja reformatar a data para que fique no formato *MonthDayYear*.
@@ -117,4 +117,4 @@ Depois que o mapa tiver sido criado e testado, ele estará pronto para consumo.
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

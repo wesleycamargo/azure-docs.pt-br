@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Gerenciar recursos do cluster Apache Spark no Azure HDInsight (Linux)
+# Gerenciar recursos do cluster Apache Spark no HDInsight Linux (Preview)
 
 O Spark no Azure HDInsight (Linux) fornece a interface do usuário do Ambari Web para gerenciar os recursos de cluster e monitorar a integridade do cluster. Você também pode usar o Servidor de Histórico do Spark para controlar os aplicativos cuja execução foi finalizada no cluster. É possível usar a interface do usuário do YARN para monitorar aqueles que atualmente estão em execução no cluster. Este artigo fornece instruções sobre como acessar essas interfaces do usuário e como realizar algumas tarefas básicas de gerenciamento de recursos usando essas interfaces.
 
@@ -138,4 +138,4 @@ Eis aqui alguns cenários comuns que você pode executar com o cluster Spark e a
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Opções de contexto de computação para o Servidor R no HDI Premium | Azure"
-   description="Conheça as diferentes opções de contexto de computação disponíveis para usuários com o Servidor R no HDInsight Premium"
+   pageTitle="Opções de contexto de computação para o Servidor R no HDInsight (preview) | Azure"
+   description="Conheça as diferentes opções de contexto de computação disponíveis para usuários com o Servidor R no HDInsight (preview)"
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -18,9 +18,9 @@
    ms.author="jeffstok"
 />
 
-# Opções de contexto de computação para o Servidor R no HDInsight Premium
+#Opções de contexto de computação para o Servidor R no HDInsight (preview)
 
-O Servidor R no HDI Spark fornece os recursos mais recentes para análise com base em R usando dados armazenados em HDFS em um contêiner em sua conta de armazenamento de [Blobs do Azure](../storage/storage-introduction.md "Armazenamento do Blob do Azure") ou no sistema de arquivos local do Linux. Como o Servidor R é criado em R de software livre, os aplicativos baseados em R que você criar poderão aproveitar qualquer um dos mais de oito mil pacotes de software livre R, bem como as rotinas em [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), o pacote de análise de big data da Microsoft incluído no Servidor R. O nó de borda de clusters Premium fornece uma conveniente zona de aterrissagem para conexão com o cluster e para executar seus scripts em R. Com um nó de borda, você tem a opção de executar funções paralelizadas e distribuídas do ScaleR entre os núcleos do servidor de nó de borda ou entre todos os nós do cluster por meio do uso do Hadoop Map Reduce do ScaleR ou dos contextos de computação do Spark.
+O Servidor R no HDInsight (preview) fornece as funcionalidades mais recentes para análise baseada em R usando os dados armazenados no HDFS em um contêiner em sua conta de armazenamento do [Blob do Azure](../storage/storage-introduction.md "Armazenamento do Blob do Azure") ou no sistema de arquivos local do Linux. Como o Servidor R é criado em R de software livre, os aplicativos baseados em R que você criar poderão aproveitar qualquer um dos mais de oito mil pacotes de software livre R, bem como as rotinas em [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), o pacote de análise de big data da Microsoft incluído no Servidor R. O nó de borda de clusters Premium fornece uma conveniente zona de aterrissagem para conexão com o cluster e para executar seus scripts em R. Com um nó de borda, você tem a opção de executar funções paralelizadas e distribuídas do ScaleR entre os núcleos do servidor de nó de borda ou entre todos os nós do cluster por meio do uso do Hadoop Map Reduce do ScaleR ou dos contextos de computação do Spark.
 
 ## Contextos de computação para um nó de extremidade
 
@@ -77,6 +77,6 @@ Agora que você entende como criar um novo cluster HDInsight que inclui o Servid
 - [Overview of R Server on Hadoop (Visão geral do servidor R no Hadoop)](hdinsight-hadoop-r-server-overview.md)
 - [Get started with R server on Hadoop (Introdução ao servidor R no Hadoop)](hdinsight-hadoop-r-server-get-started.md)
 - [Adicionar RStudio Server ao HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
-- [Opções de armazenamento do Azure para o Servidor R no HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
+- [Opções de armazenamento do Azure para o R Server no HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

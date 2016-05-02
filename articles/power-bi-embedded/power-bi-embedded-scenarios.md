@@ -33,4 +33,4 @@ Aqui estão alguns cenários para uso do **Power BI Embedded** em seus aplicativ
 - [Amostra de introdução](power-bi-embedded-get-started.md)
 - [Estender o Power BI com elementos visuais personalizados](https://powerbi.microsoft.com/custom-visuals/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

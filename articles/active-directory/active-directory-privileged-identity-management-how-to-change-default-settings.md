@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Como alterar ou exibir as configurações padrão de uma função | Microsoft Azure"
+   pageTitle="Como gerenciar configurações de ativação de função | Microsoft Azure"
    description="Aprenda a alterar as configurações padrão para identidades com privilégios com a extensão Privileged Identity Management do Azure Active Directory."
    services="active-directory"
    documentationCenter=""
@@ -13,36 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
-# Privileged Identity Management do Azure AD: como alterar ou exibir as configurações padrão de ativação para uma função
+# Como gerenciar as configurações de ativação de função no Privileged Identity Management do Azure AD
 
-## Alterando e exibindo a ativação de função padrão
-1. No painel, clique na função a ser configurada da tabela de funções.
-2. Clique em **Configurações**.
-3. Defina a duração padrão da ativação em horas ao ajustar o controle deslizante ou ao digitar o número de horas no campo de texto.
-4. Clique em **Habilitar** ou em **Desabilitar**, para enviar ou não as notificações sobre a ativação aos administradores.
-5. Clique em **Habilitar** ou **Desabilitar** para permitir ou não que os administradores insiram informações de emissão de tíquetes em sua solicitação de ativação.
-6. Clique em **Habilitar** ou **Desabilitar** para exigir ou não autenticação multifator para uma solicitação de ativação.
+Um administrador pode personalizar o Azure AD PIM (Privileged Identity Management) em sua organização, incluindo alterar a experiência de um usuário que está ativando uma atribuição de função temporária.
 
-    Você não pode desabilitar o MFA para funções com altos privilégios do Azure AD e do Office365, incluindo:
+## Gerenciar as configurações de ativação de função
 
-    - Administrador global
-    - Administrador da conta de usuário
-    - Gravador de diretório
-    - Suporte de camada 1 do parceiro
-    - Suporte de camada 2 do parceiro
-    - Administrador de cobrança
-    - Administrador de segurança
-    - Administrador do Exchange
-    - Administrador de caixa de correio
-    - Administrador do Skype for Business
-    - Administrador do SharePoint
-    - Administrador de conformidade
-
-7. Clique em **Habilitar** ou **Desabilitar** para permitir que os Administradores Globais sejam temporários.
+1. Acesse o [portal do Azure](https://portal.azure.com) e selecione o aplicativo **Azure AD Privileged Identity Management** do painel.
+2. Selecione a função que você deseja gerenciar na tabela de funções.
+3. Clique em **Configurações**.
+4. Defina a duração padrão da ativação em horas ajustando o controle deslizante ou digitando o número de horas no campo de texto. O máximo é 72 horas.
+5. Clique em **Habilitar** ou em **Desabilitar** para enviar ou não notificações sobre a ativação para os administradores. (Habilitar as notificações pode ajudar a detectar atividade de administrador não autorizado.)
+6. Clique em **Habilitar** para permitir que os administradores insiram informações de emissão de tíquetes em sua solicitação de ativação. (Essas informações podem ser úteis durante a auditoria de acesso de função posteriormente.)
+7. Clique em **Habilitar** ou **Desabilitar** para exigir ou não a autenticação multifator para uma solicitação de ativação.
 8. Clique em **Salvar**.
+
+Você não pode desabilitar o MFA para funções com altos privilégios do Azure AD e do Office365, incluindo:
+- Administrador global  
+- Administrador da conta de usuário  
+- Gravador de diretório  
+- Suporte de camada 1 do parceiro  
+- Suporte de camada 2 do parceiro  
+- Administrador de cobrança  
+- Administrador de segurança  
+- Administrador do Exchange  
+- Administrador de caixa de correio  
+- Administrador do Skype for Business  
+- Administrador do SharePoint  
+- Administrador de conformidade  
 
 Para obter mais informações sobre como usar MFA com PIM, consulte [Como Exigir MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
@@ -52,4 +53,4 @@ Para obter mais informações sobre como usar MFA com PIM, consulte [Como Exigir
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -36,11 +36,11 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
   - O [portal do Azure](https://portal.azure.com/)
 
-   ![Portal do Azure](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-   Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
+        Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
 
-   ![Implantação do Gerenciador de Recursos](./media/resource-manager-deployment-model/select-resource-manager.png)
+        ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
   - Para o Azure PowerShell, use a versão de comandos do Gerenciador de Recursos. Esses comandos têm o formato *Verb-AzureRmNoun*, conforme mostrado abaixo.
 
@@ -53,7 +53,7 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
 - O tipo de recurso não inclui **(classic)** no nome. A imagem abaixo mostra o tipo como **Conta de armazenamento**.
 
-   ![aplicativo web](./media/resource-manager-deployment-model/resource-manager-type.png)
+    ![aplicativo web](./media/resource-manager-deployment-model/resource-manager-type.png)
 
 O aplicativo exibido no diagrama a seguir mostra como os recursos implantados por meio do Gerenciador de Recursos estão contidos em um único grupo de recursos.
 
@@ -83,11 +83,11 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
   - [Portal clássico](https://manage.windowsazure.com)
 
-   ![Portal clássico](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-   Ou pelo portal do Azure, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
+        Ou pelo portal de visualização, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
 
-   ![Implantação Clássica](./media/resource-manager-deployment-model/select-classic.png)
+        ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
   - Para o Azure PowerShell, use a versão de comandos do Gerenciamento de Serviço. Esses nomes de comandos têm o formato *Verb-AzureNoun*, conforme mostrado abaixo.
 
@@ -97,7 +97,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
   - Comandos CLI do Azure executados no modo **asm** ou padrão.
 - O tipo de recurso inclui **(classic)** no nome. A imagem abaixo mostra o tipo como **Conta de armazenamento (classic)**.
 
-   ![tipo clássico](./media/resource-manager-deployment-model/classic-type.png)
+    ![tipo clássico](./media/resource-manager-deployment-model/classic-type.png)
 
 Você ainda pode usar o portal do Azure para gerenciar recursos que foram criados por meio da implantação clássica.
 
@@ -169,16 +169,14 @@ Há algumas considerações importantes ao trabalhar com máquinas virtuais.
 
 Se você puder se dar ao luxo de ter um tempo de inatividade para as suas Máquinas Virtuais, é possível fazer sua transição da implantação clássica para o Gerenciador de Recursos com os [scripts ASM2ARM do PowerShell](https://github.com/fullscale180/asm2arm).
 
-Para obter uma lista de comandos equivalentes da CLI do Azure durante a transição da implantação clássica para o Gerenciador de Recursos, veja a seção [Comandos equivalentes do Gerenciador de Recursos e do Gerenciamento de Serviços para operações de VM](./virtual-machines/virtual-machines-linux-cli-manage.md).
-
 Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 Para saber como conectar redes virtuais de diferentes modelos de implantação, veja [Conectando Redes Virtuais clássicas a Redes Virtuais novas](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Próximas etapas
 
-- Para fazer um acompanhamento da criação do modelo que define uma máquina virtual, da conta de armazenamento e da rede virtual, confira [Passo a passo do Modelo do Gerenciador de Recursos](resource-manager-template-walkthrough.md).
+- Para ver um passo a passo da criação do modelo que define uma máquina virtual, uma conta de armazenamento e uma rede virtual, confira [Passo a passo do Modelo do Gerenciador de Recursos](resource-manager-template-walkthrough.md).
 - Para saber mais sobre a estrutura de modelos do Gerenciador de Recursos, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

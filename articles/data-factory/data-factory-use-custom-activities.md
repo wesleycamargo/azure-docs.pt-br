@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="04/18/2016"
 	ms.author="spelluru"/>
 
 # Usar atividades personalizadas em um pipeline do Data Factory do Azure
@@ -823,6 +823,15 @@ No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o
 	  }
 	}
 
+## Exemplos
+
+| Amostra | Qual atividade personalizada realiza| 
+| ------ | ----------- | 
+| [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Baixa dados de um ponto de extremidade de HTTP para o Armazenamento de Blobs do Azure usando uma atividade de C# personalizada no Data Factory. |
+| [Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Invoca um modelo ML do Azure e faz análise de opinião, contagem de pontos, previsão, etc. |
+| [Executar script de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. | 
+| [Atividade cruzada do .NET no AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Usa versões de assembly diferentes daquelas usadas pelo inicializador do Data Factory (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
+ 
 
 ## Consulte também
 
@@ -863,4 +872,4 @@ No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

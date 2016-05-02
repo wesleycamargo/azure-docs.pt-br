@@ -3,8 +3,8 @@
 	description="Esta página descreve alguns limites de recurso comuns para o Banco de Dados SQL do Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
+	authors="carlrabeler"
+	manager="jhubbard"
 	editor="monicar" />
 
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="03/02/2016"
-	ms.author="jroth" />
+	ms.date="04/19/2016"
+	ms.author="carlrab" />
 
 
 # Limites de recursos do Banco de Dados SQL do Azure
@@ -60,6 +60,10 @@ Para obter uma definição expandida de cada recurso listado nas tabelas anterio
 | Área | Limite | Descrição |
 |---|---|---|
 | Bancos de dados usando Exportação automatizada por assinatura | 10 | A exportação automatizada permite que você crie uma agenda personalizada para realização do backup de seus bancos de dados SQL. Para saber mais, consulte [Bancos de dados SQL: suporte a exportações automatizadas de Banco de Dados SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
+| Banco de dados por servidor | Até 5.000 | Até 5.000 bancos de dados são permitidos por servidor em servidores V12. Limites inferiores podem se aplicar na prática, dependendo da atividade de logon em todos os bancos de dados no servidor e do uso de consultas em exibições do sistema no banco de dados mestre. Recomendamos que os clientes monitorem as conexões de banco de dados quanto a quaisquer problemas quando aumentarem significativamente o número de bancos de dados em um servidor. |  
+| DTUs por servidor | 45000 | 45\.000 DTUs estão disponíveis por servidor em servidores V12 para o provisionamento de bancos de dados, pools elásticos e data warehouses. |
+
+
 
 ## Recursos
 
@@ -69,4 +73,4 @@ Para obter uma definição expandida de cada recurso listado nas tabelas anterio
 
 [Mensagens de erro para programas cliente do Banco de Dados SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

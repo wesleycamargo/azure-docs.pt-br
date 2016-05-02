@@ -19,7 +19,7 @@
 
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função de Serviço de Nuvem (funções web e funções de trabalho). Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos.
 
-As Máquinas Virtuais e os Serviços de Nuvem do Azure são dois dos vários tipos de recursos de computação oferecidos pelo Azure. Para obter explicações, confira [Computar opções de hospedagem fornecidas pelo Azure](fundamentals-application-models.md)
+O Serviços de Nuvem é um dos vários tipos de recursos de computação oferecidos pelo Azure. Clique [aqui](cloud-services-choose-me.md) para obter mais informações sobre Serviços de Nuvem.
 
 > [AZURE.NOTE]Para ver os limites relacionados do Azure, confira [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
 
@@ -41,7 +41,7 @@ As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
 * Os tamanhos de máquina virtual A8/A10 e A9/A11 têm as mesmas capacidades. As instâncias de máquina virtual A8 e A9 incluem um adaptador de rede adicional que é conectado a uma rede de Acesso Remoto Direto à Memória (RDMA) para uma comunicação rápida entre máquinas virtuais. As instâncias A8 e A9 destinam-se a aplicativos de computação de alto desempenho que exigem comunicação constante e de baixa latência entre os nós durante a execução como, por exemplo, os aplicativos que usam MPI (Message Passing Interface). As instâncias de máquina virtual A10 e A11 não incluem o adaptador de rede adicional. As instâncias A10 e A11 destinam-se a aplicativos de computação de alto desempenho que não exigem comunicação constante e de baixa latência entre os nós, também conhecidos como aplicativos paramétricos ou totalmente paralelos.
 
-    >[AZURE.NOTE] Se você estiver considerando tamanhos de A8 até A11, leia [estas](..\virtual-machines\virtual-machines-windows-a8-a9-a10-a11-specs.md) informações.
+    >[AZURE.NOTE] Se você estiver considerando tamanhos de A8 até A11, leia [estas](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) informações.
 
 >[AZURE.NOTE] Todos os tamanhos de computador fornecem um **disco de aplicativo** que armazena todos os arquivos do pacote de serviço de nuvem; ele tem um tamanho de cerca de 1,5 GB.
 
@@ -156,4 +156,4 @@ Veja um exemplo de definição do tamanho da função como [Standard\_D2](#gener
 </WebRole>
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

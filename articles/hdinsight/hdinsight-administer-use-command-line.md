@@ -25,6 +25,8 @@ Saiba como usar a [Interface de Linha de Comando do Azure](../xplat-cli-install.
 
 Este artigo aborda apenas o uso da CLI do Azure com o HDInsight. Para obter um guia geral sobre como usar a CLI do Azure, veja [Instalar e configurar a CLI do Azure][azure-command-line-tools].
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 ##Pré-requisitos
 
 Antes de começar este artigo, você deve ter o seguinte:
@@ -47,7 +49,7 @@ Para obter ajuda, use a opção **-h**. Por exemplo:
 	
 ##Criar clusters
 
-Confira [Criar clusters baseados em Linux no HDInsight usando o Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+Consulte [Criar clusters baseados em Linux no HDInsight usando a CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ##Listar e mostrar detalhes do cluster
 Use os seguintes comandos para listar e mostrar os detalhes do cluster:
@@ -106,4 +108,4 @@ Neste artigo, você aprendeu a executar diferentes tarefas administrativas de cl
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Listar e mostrar clusters"
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -71,15 +71,15 @@ Na Pesquisa do Azure, a chave do documento identifica exclusivamente um document
 
 Como as linhas de tabela têm uma chave composta, a Pesquisa do Azure gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de linha e chave de partição. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, em seguida, o valor do campo `Key` será `PK1RK1`.
 
-> AZURE. OBSERVAÇÃO: o valor `Key` pode conter caracteres inválidos em chaves de documentos, como traços. Você pode lidar com caracteres inválidos habilitando a opção `base64EncodeKeys` nas propriedades do indexador. Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas de API, como Pesquisa. (Por exemplo, em .NET você pode usar o [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
+> [AZURE.NOTE] O valor `Key` pode conter caracteres inválidos em chaves de documentos, como traços. Você pode lidar com caracteres inválidos habilitando a opção `base64EncodeKeys` nas propriedades do indexador. Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas de API, como Pesquisa. (Por exemplo, em .NET você pode usar o [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
 
 ## Lidando com nomes de campos diferentes
 
-Geralmente, os nomes de campos no índice existente serão diferentes dos nomes de propriedades da sua tabela. Você pode usar os **mapeamentos de campo** para mapear os nomes de propriedade da tabela aos nomes de campo em seu índice de pesquisa. Para saber mais sobre mapeamentos de campo, confira [Personalização do Indexador da Pesquisa do Azure](search-indexers-customization.md).
+Geralmente, os nomes de campos no índice existente serão diferentes dos nomes de propriedades da sua tabela. Você pode usar os **mapeamentos de campo** para mapear os nomes de propriedade da tabela para os nomes de campo em seu índice de pesquisa. Para saber mais sobre mapeamentos de campo, confira [Personalização do indexador da Pesquisa do Azure](search-indexers-customization.md).
 
 ## Indexação incremental e detecção de exclusão
  
-Quando você configura um indexador de tabela para ser executado de forma agendada, ele reindexará somente linhas novas ou atualizadas, conforme determinado pelo valor `Timestamp` de uma linha. Não é necessário especificar uma política de detecção de alteração, a indexação incremental é habilitada automaticamente para você.
+Quando você configurar um indexador de tabela para ser executado de forma agendada, ele reindexará somente linhas novas ou atualizadas, conforme determinado pelo valor `Timestamp` de uma linha. Não é necessário especificar uma política de detecção de alteração, a indexação incremental é habilitada automaticamente para você.
 
 Para indicar que determinados documentos devem ser removidos do índice, você pode usar uma estratégia de exclusão reversível: em vez de excluir uma linha, adicione uma propriedade para indicar que ela deve ser excluída e configure uma política de detecção de exclusão reversível na fonte de dados. Por exemplo, a política abaixo considerará que uma linha foi excluída se tiver uma propriedade `IsDeleted` com o valor `"true"`:
 
@@ -100,4 +100,4 @@ Para indicar que determinados documentos devem ser removidos do índice, você p
 
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

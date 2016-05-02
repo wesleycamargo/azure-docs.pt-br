@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="02/16/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: conceitos de design
@@ -36,6 +36,7 @@ Este tópico falará somente sobre o sourceAnchor, uma vez que ele está relacio
 O valor do atributo deve seguir as regras a seguir:
 
 - Ter menos de 60 caracteres
+    - Caracteres diferentes de a-z, A-Z ou 0-9 serão codificados e contados como 3 caracteres
 - Não conter nenhum caractere especial: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ \_
 - Ser globalmente exclusivo
 - Ser uma cadeia de caracteres, um inteiro ou um binário
@@ -67,4 +68,4 @@ Por esse motivo, as seguintes restrições se aplicam ao Azure AD Connect:
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
-
 
 # Visão Geral da Análise dos Serviços de Mídia do Azure
 
@@ -49,7 +48,9 @@ Veja abaixo alguns cenários em que a Análise de Mídia do Azure pode ajudar as
 
 - **Vigilância** - com o crescimento de câmeras IP, há uma explosão de vídeos de vigilância. Revisar manualmente o vídeo de vigilância consome muito tempo e está sujeito a erros humanos. A Análise de Mídia do Azure fornece vários componentes, como detecção de movimento, detecção de face e Hyperlapse para facilitar o processo de revisão, gerenciamento e criação de derivados.
 
+##Demonstrações
 
+[Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -67,4 +68,4 @@ Veja abaixo alguns cenários em que a Análise de Mídia do Azure pode ajudar as
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 #Adicionar um Laboratório de Teste de Desenvolvimento?
@@ -66,4 +66,4 @@ Os artefatos são o Gerenciador de Recursos do Azure (ARM) com base em arquivos 
 
 Para iniciar o Laboratório de Desenvolvimento de Teste, siga o tutorial passo a passo para [Criar um laboratório de Teste de Desenvolvimento do Azure](devtest-lab-create-lab.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

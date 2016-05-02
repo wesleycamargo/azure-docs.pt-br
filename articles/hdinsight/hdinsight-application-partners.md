@@ -1,5 +1,12 @@
-<properties pageTitle="HDInsight Application Partners | Microsoft Azure" description="Agora, os clientes podem descobrir e implantar com facilidade os aplicativos de big data em seus clusters HDInsight diretamente do portal de provisionamento." services="hdinsight" documentationCenter="na" authors="pablissima" manager="paulettm="" tags=""/>
-<tags 
+<properties
+	pageTitle="Parceiros de Aplicativos do HDInsight | Microsoft Azure" 
+	description="Os clientes agora podem facilmente descobrir e implantar aplicativos de big data junto com seus clusters HDInsight diretamente do portal de provisionamento."
+	services="hdinsight" 
+	documentationCenter="na" 
+	authors="pablissima" 
+	manager="paulettm" 
+	tags=""/>
+<tags
 	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="article"
@@ -31,7 +38,13 @@ http://bluetalon.com/
 
 Com a RedPoint, os mesmos analistas de dados e administradores de banco de dados que já trabalhem com os bancos de dados tradicionais agora poderão trabalhar com os dados armazenados no Hadoop com a mesma facilidade. Nenhuma habilidade nova será necessária. Sem MapReduce, sem Hive, sem Pig – graças à interface gráfica do usuário da RedPoint e à arquitetura pura do YARN (certificados no Hadoop 2.0 pela Hortonworks).
 
-Com a RedPoint: - Todas as funções de integração de dados e de qualidade de dados podem ser realizadas no cluster Hadoop - ELT, limpeza, correspondência, cancelamento de duplicação, mesclagem/limpeza, organização, análise, particionamento, anexação, padronização de endereço, criação e manutenção de chaves, automação, monitoramento, notificação - Sem MapReduce e nenhuma habilidade em MapReduce necessária - Os processos de qualidade de dados e de integração são executados com igual eficiência - e, em muitos casos, com mais eficiência - com soluções baseadas na RedPoint do que em soluções baseadas em MapReduce - Não é necessário retirar os dados do Hadoop para processamento, análise, geração de relatórios ou outra ação - Nenhum software precisa ser instalado no cluster e a RedPoint respeita a priorização de tarefas do YARN em vez de competir por recursos de computação no cluster - Os usuários podem gerenciar os dados nos repositórios tradicionais e do Hadoop com um único produto e até mesmo agrupar dados de ambientes separados ou migrar dados de um para outro
+Com o RedPoint:
+-  Todas as funções de qualidade e integração dos podem ser executadas no cluster do Hadoop, como ELT, descartar, corresponder, eliminar duplicação, mesclar/limpeza, abrigar, analisar, particionar, acrescentar, padronizar o endereço, criar e realizar manutenção da chave, automatizar, monitorar e notificar  
+-  Nenhum MapReduce está envolvido e nenhuma habilidade de MapReduce é necessária  
+-  Os processos de qualidade e integração de dados são executados de maneira tão eficiente quanto (ou até mais eficiente) com o RedPoint como com solução baseada em MapReduce  
+-  Os dados não precisam ser movidos para fora do Hadoop para processamento, análise, relatório ou outras ações  
+-  Nenhum software precisa ser instalado no próprio cluster e o RedPoint respeita a priorização de tarefas do YARN, em vez de competir pelos recursos de computação no cluster  
+-  Os usuários podem gerenciar dados em repositórios tradicional e do Hadoop com um único produto, até mesmo reunindo dados de ambientes separados ou migrando dados de um para o outro
 
 Para saber mais, consulte os recursos no lado direito desta página.
 
@@ -41,4 +54,4 @@ A RedPoint foi a primeira colocada em pesquisas de usuário em relação a veloc
 
 ![](media/hdinsight-application-partners/kyvos8.png) A Kyvos está comprometida em desvendar o poder da Análise de Big Data com sua exclusiva tecnologia “OLAP no Hadoop”. Isso permite que você crie cubos locais no Hadoop com escalabilidade linear, eliminando as limitações das soluções tradicionais de OLAP e permitindo a análise multidimensional interativa em Big Data. Os usuários podem visualizar, explorar e analisar os dados interativamente no Hadoop sem a necessidade de programação.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

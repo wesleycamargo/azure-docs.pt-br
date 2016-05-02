@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como: definir configurações de firewall | Microsoft Azure"
+	pageTitle="Como configurar um firewall do Banco de Dados SQL | Microsoft Azure"
 	description="Saiba como configurar o firewall para endereços IP que acessam bancos de dados SQL do Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="04/12/2016"
+	ms.date="04/14/2016"
 	ms.author="rickbyh;carlrab"/>
 
 
-# Como definir as configurações de firewall no Banco de Dados SQL usando o Portal do Azure
+# Como configurar um firewall do Banco de Dados SQL do Azure usando o Portal do Azure
 
 
 > [AZURE.SELECTOR]
@@ -57,4 +57,4 @@ Para ver um tutorial sobre como criar um banco de dados, confira [Criar seu prim
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

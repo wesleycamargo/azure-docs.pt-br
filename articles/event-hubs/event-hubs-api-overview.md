@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Visão geral dos APIs dos Hubs de Eventos do Azure | Microsoft Azure"
-   description="Um resumo de algumas das principais APIs de cliente .NET de Hubs de Eventos."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Visão geral dos APIs dos Hubs de Eventos do Azure | Microsoft Azure"
+    description="Um resumo de algumas das principais APIs de cliente .NET de Hubs de Eventos."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Visão geral de API de Hubs de Eventos
 
@@ -189,4 +189,4 @@ As referências de API .NET estão aqui:
 - [Referências da API do .NET de Hubs de Eventos e do Barramento de Serviço](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [Referência de API do host de processador de eventos](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

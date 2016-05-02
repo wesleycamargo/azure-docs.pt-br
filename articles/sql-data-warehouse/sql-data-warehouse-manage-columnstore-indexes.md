@@ -123,7 +123,7 @@ Depois de executar a consulta, você poderá começar a analisar os dados e seus
 | [OPEN\_rowgroup\_rows\_MIN] | Os grupos abertos indicam que os dados estão sendo carregados lentamente na tabela ou que a carga anterior foi despejada sobre as linhas restantes nesse grupo de linhas. Use as colunas MIN, MAX, AVG para ver a quantidade de dados colocada nos grupos de linhas ABERTOS. Em tabelas pequenas, esse valor pode ser de 100% de dados! Nesse caso, use ALTER INDEX REBUILD para forçar os dados para columnstore. |
 | [OPEN\_rowgroup\_rows\_MAX] | Como acima |
 | [OPEN\_rowgroup\_rows\_AVG] | Como acima |
-| [CLOSED\_rowgroup\_rows] | Analise as linhas do grupo de linhas fechado como uma verificação de integridade. Se houver |
+| [CLOSED\_rowgroup\_rows] | Analise as linhas do grupo de linhas fechado como uma verificação de integridade. |
 | [CLOSED\_rowgroup\_count] | O número de grupos de linhas fechados deverá ser baixo se algum for visto. Os grupos de linhas fechados podem ser convertidos em grupos de linhas compactados usando a instrução ALTER INDEX... Comando REORGANISE. No entanto, normalmente isso não é obrigatório. Os grupos fechados são convertidos automaticamente em grupos de linhas columnstore pelo processo em segundo plano "motor de tupla". |
 | [CLOSED\_rowgroup\_rows\_MIN] | Os grupos de linhas fechados devem ter uma taxa de preenchimento alta. Se a taxa de preenchimento de um grupo de linhas fechado for baixa, será necessário fazer outra análise do columnstore. |
 | [CLOSED\_rowgroup\_rows\_MAX] | Como acima |
@@ -259,4 +259,4 @@ Para obter mais dicas de gerenciamento, acesse a visão geral de [gerenciamento]
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

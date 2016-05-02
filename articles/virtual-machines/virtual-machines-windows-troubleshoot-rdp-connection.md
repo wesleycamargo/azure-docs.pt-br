@@ -4,7 +4,7 @@
 	keywords="Erro de área de trabalho remota, erro de conexão de área de trabalho remota, não é possível conectar-se à VM, solução de problemas da área de trabalho remota"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,9 +14,9 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/25/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows
 
@@ -48,7 +48,7 @@ Essas etapas podem resolver a maioria das falhas de conexão de Área de Trabalh
 
 - Verifique se há problemas de plataforma na Integridade do Recurso da VM.<br> Clique em **Procurar** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Configurações** > **Verificar Integridade**.
 
-## Máquinas virtuais criadas usando o modelo de implantação do Gerenciador de Recursos
+### Máquinas virtuais criadas usando o modelo de implantação do Gerenciador de Recursos
 
 Essas etapas podem resolver a maioria das falhas de conexão de Área de Trabalho Remota em máquinas virtuais criadas com o modelo de implantação do Gerenciador de Recursos. Após cada etapa, tente se reconectar à VM.
 
@@ -171,4 +171,4 @@ Se nenhum desses erros ocorreu e ainda não foi possível para você conectar-se
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

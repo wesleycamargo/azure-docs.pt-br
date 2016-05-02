@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="04/19/2016"
    ms.author="larryfr"/>
 
 #Gerenciar clusters HDInsight usando a API REST do Ambari
@@ -29,6 +29,9 @@ O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop,
 
 * [cURL](http://curl.haxx.se/): o cURL é um utilitário de plataforma cruzada que pode ser usado para trabalhar com APIs REST na linha de comando. Neste documento, ele é usado para se comunicar com a API REST do Ambari.
 * [jq](https://stedolan.github.io/jq/): o jq é um utilitário de linha de comando de plataforma cruzada para trabalhar com documentos JSON. Neste documento, ele é usado para analisar os documentos JSON retornados da API REST do Ambari.
+* [CLI do Azure](../xplat-cli-install.md): um utilitário de linha de comando de plataforma cruzada usado para trabalhar com serviços do Azure.
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ##<a id="whatis"></a>O que é o Ambari?
 
@@ -111,7 +114,7 @@ Isso retornará um valor semelhante ao seguinte, no qual __CONTÊINER__ é o con
 
     wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md) para carregar ou baixar dados do contêiner. Por exemplo:
+Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md) para carregar ou baixar dados do contêiner.
 
 1. Obter o grupo de recursos para a conta de armazenamento. Substitua __NOMEDACONTA__ pelo nome da conta de armazenamento recuperada do Ambari:
 
@@ -143,7 +146,7 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_configs"
         
-    Isso retornará um documento JSON contendo a configuração atual (identificado pelo valor de _tag_) para os componentes instalados no cluster. Por exemplo, veja a seguir um trecho dos dados retornados de um tipo de cluster Spark.
+    Isso retornará um documento JSON contendo a configuração atual (identificada pelo valor de _tag_) para os componentes instalados no cluster. Por exemplo, veja a seguir um trecho dos dados retornados de um tipo de cluster Spark.
     
         "spark-metrics-properties" : {
             "tag" : "INITIAL",
@@ -163,13 +166,13 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
 
     Nesta lista, você precisa copiar o nome do componente (por exemplo, __spark\_thrift\_sparkconf__ e o valor de __tag__.
     
-2. Recupere a configuração do componente e da marca usando o comando a seguir. Substitua __spark-thrift-sparkconf__ e __INITIAL__ pelo componente e a marca cuja configuração você deseja recuperar.
+2. Recupere a configuração do componente e da marca usando o comando a seguir. Substitua __spark-thrift-sparkconf__ e __INITIAL__ pelo componente e pela marcação cuja configuração você deseja recuperar.
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     
     Curl recupera o documento JSON e, depois, jq é usado para fazer algumas modificações para criar um modelo que podemos usar para adicionar/modificar valores de configuração. Especificamente, ele faz o seguinte:
     
-    * Cria um valor exclusivo que contém a cadeia de caracteres "version" e a data, que é armazenada em __newtag__
+    * Cria um valor exclusivo que contém a cadeia de caracteres “version” e a data, que é armazenada em __newtag__
     * Cria um documento raiz para a nova configuração desejada
     * Obtém o conteúdo da matriz .items e o adiciona sob o elemento __desired\_config__.
     * Exclui os elementos __href__, __version__ e __Config__, pois não são necessários para enviar uma nova configuração
@@ -206,7 +209,7 @@ Você pode usar essas informações com a [CLI do Azure](../xplat-cli-install.md
 
 ###Exemplo: reiniciar um componente de serviço
 
-Neste ponto, se você examinar a interface do usuário da Web do Ambari, o serviço do Spark indicará que ele precisa ser reiniciado para que a nova configuração entre em vigor. Use as etapas a seguir para reiniciar o serviço. Um exame mais cuidadoso indicará
+Neste ponto, se você examinar a interface do usuário da Web do Ambari, o serviço do Spark indicará que ele precisa ser reiniciado para que a nova configuração entre em vigor. Use as etapas a seguir para reiniciar o serviço.
 
 1. Use o seguinte para habilitar o modo de manutenção para o serviço do Spark:
 
@@ -232,11 +235,11 @@ Neste ponto, se você examinar a interface do usuário da Web do Ambari, o servi
             }
         }
     
-    O valor `href` retornado por esse URI está usando o endereço IP interno do nó do cluster. Para usá-lo de fora do cluster, substitua a parte '10.0.0.18:8080' pelo FQDN do cluster. Por exemplo, isto recuperará o status da solicitação:
+    O valor `href` retornado por esse URI usa o endereço IP interno do nó de cluster. Para usá-lo de fora do cluster, substitua a parte '10.0.0.18:8080' pelo FQDN do cluster. Por exemplo, isto recuperará o status da solicitação:
     
         curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME/api/v1/clusters/CLUSTERNAME/requests/29" | jq .Requests.request_status
     
-    Se esse valor retornar `"COMPLETED"`, a solicitação foi concluída.
+    Se esse valor retornar `"COMPLETED"`, isso significará que a solicitação foi concluída.
 
 4. Quando a solicitação anterior for concluída, use o seguinte para iniciar o serviço:
 
@@ -254,4 +257,4 @@ Para obter uma referência completa da API REST, consulte [Referência de API do
 
 > [AZURE.NOTE] Algumas funcionalidades do Ambari estão desabilitadas, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

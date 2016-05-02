@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="04/15/2016"
 	ms.author="ryanwi"/>
 
 # Automatizar o ciclo de vida do aplicativo usando o PowerShell
 
-Muitos aspectos do [ciclo de vida de um aplicativo do Service Fabric](service-fabric-application-lifecycle.md) podem ser automatizados. Este artigo mostra como usar o PowerShell para automatizar tarefas comuns de implantação, atualização, remoção e teste de aplicativos do Service Fabric.
+Muitos aspectos do [ciclo de vida de um aplicativo do Service Fabric](service-fabric-application-lifecycle.md) podem ser automatizados. Este artigo mostra como usar o PowerShell para automatizar tarefas comuns de implantação, atualização, remoção e teste de aplicativos do Service Fabric. APIs gerenciadas e HTTP para gerenciamento de aplicativos também estão disponíveis, consulte [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) para obter mais informações.
 
 ## Pré-requisitos
 Antes de passar para as tarefas deste artigo, não deixe de:
 
 + Familiarizar-se com os conceitos do Service Fabric descritos em [Visão geral técnica do Service Fabric](service-fabric-technical-overview.md).
-+ [Instalar as ferramentas, o SDK e o tempo de execução](service-fabric-get-started.md), que também instala o módulo **ServiceFabric** do PowerShell.
++ [Instalar as ferramentas, o SDK e o tempo de execução](service-fabric-get-started.md), o que também instala o módulo **ServiceFabric** do PowerShell.
 + [Habilitar a execução de script do PowerShell](service-fabric-get-started.md#enable-powershell-script-execution).
-+ Iniciar um cluster local. Inicie uma nova janela do PowerShell como administrador e execute o script de instalação de cluster da pasta SDK: `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
++ Iniciar um cluster local. Inicie uma nova janela do PowerShell como administrador e execute o script de instalação de cluster na pasta do SDK: `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
 + Antes de executar qualquer comando do PowerShell neste artigo, primeiro conecte-se ao cluster local do Service Fabric usando [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx): `Connect-ServiceFabricCluster localhost:19000`
-+ As tarefas a seguir exigem um pacote de aplicativos v1 para implantar e um pacote de aplicativos v2 para atualizar. Baixe o aplicativo [**WordCount** de exemplo](http://aka.ms/servicefabricsamples) (localizado nas amostras da Introdução). Crie e empacote o aplicativo no Visual Studio (clique com o botão direito do mouse em **WordCount** no Gerenciador de Soluções e selecione **Pacote**). Copie o pacote v1 em `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` para `C:\Temp\WordCount`. Copie `C:\Temp\WordCount` para `C:\Temp\WordCountV2`, criando o pacote de aplicativos v2 para a atualização. Abra `C:\Temp\WordCountV2\ApplicationManifest.xml` em um editor de texto. No elemento **ApplicationManifest**, altere o atributo **ApplicationTypeVersion** de "1.0.0" para “2.0.0”. Isso atualiza o número da versão do aplicativo. Salve o arquivo ApplicationManifest.xml alterado.
++ As tarefas a seguir exigem um pacote de aplicativos v1 para implantar e um pacote de aplicativos v2 para atualizar. Baixe o [aplicativo de exemplo **WordCount**](http://aka.ms/servicefabricsamples) (localizado nas amostras da Introdução). Crie e empacote o aplicativo no Visual Studio (clique com o botão direito do mouse em **WordCount** no Gerenciador de Soluções e selecione **Pacote**). Copie o pacote v1 em `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` para `C:\Temp\WordCount`. Copie `C:\Temp\WordCount` para `C:\Temp\WordCountV2`, criando o pacote de aplicativos v2 para a atualização. Abra `C:\Temp\WordCountV2\ApplicationManifest.xml` em um editor de texto. No elemento **ApplicationManifest**, altere o atributo **ApplicationTypeVersion** de "1.0.0" para “2.0.0”. Isso atualiza o número da versão do aplicativo. Salve o arquivo ApplicationManifest.xml alterado.
 
 ## Tarefa: Implantar um aplicativo do Service Fabric
 
@@ -42,7 +42,7 @@ Copy-ServiceFabricApplicationPackage C:\Temp\WordCount\ -ImageStoreConnectionStr
 ```
 
 ### Etapa 2: Registrar o tipo de aplicativo
-O registro do pacote de aplicativos disponibiliza para uso o tipo de aplicativo e a versão declarada no manifesto do aplicativo. O sistema lê o pacote carregado na etapa 1, verifica o pacote (equivalente a executar [**Test-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125950.aspx) localmente), processa o conteúdo do pacote e copia o pacote processado em um local interno do sistema. Execute o cmdlet [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx):
+O registro do pacote de aplicativos disponibiliza para uso o tipo de aplicativo e a versão declarada no manifesto do aplicativo. O sistema lê o pacote carregado na etapa 1, verifica o pacote (equivalente a executar [**Test-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125950.aspx) localmente), processa o conteúdo do pacote e copia o pacote processado para um local interno do sistema. Execute o cmdlet [**Register-ServiceFabricApplicationType**](https://msdn.microsoft.com/library/azure/mt125958.aspx):
 
 ```powershell
 Register-ServiceFabricApplicationType WordCount
@@ -74,7 +74,7 @@ Você pode atualizar um aplicativo do Service Fabric implantado anteriormente co
 Para manter as coisas simples neste exemplo, somente o número de versão do aplicativo foi atualizado no pacote de aplicativos WordCountV2 criado nos pré-requisitos. Um cenário mais realista envolveria a atualização de seus arquivos de código, configuração ou dados de serviço e a recriação e empacotamento do aplicativo com números de versão atualizados.
 
 ### Etapa 1: carregar o pacote de aplicativos
-O aplicativo v1 WordCount está pronto para ser atualizado. Se você abrir uma janela do PowerShell como administrador e digitar [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx), verá a versão 1.0.0 do tipo de aplicativo WordCount implantado.
+O aplicativo v1 WordCount está pronto para ser atualizado. Se abrir uma janela do PowerShell como administrador e digitar [**Get-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt163515.aspx), você verá que a versão 1.0.0 do tipo de aplicativo WordCount foi implantada.
 
 Agora, copie o pacote de aplicativos atualizado para o repositório de imagens do Service Fabric (onde os pacotes de aplicativo são armazenados pelo Service Fabric). O parâmetro **ApplicationPackagePathInImageStore** informa à Malha de serviço onde ela pode encontrar o pacote do aplicativo. O comando a seguir copiará o pacote de aplicativos para **WordCountV2** no repositório de imagens:
 
@@ -90,7 +90,7 @@ Register-ServiceFabricApplicationType WordCountV2
 ```
 
 ### Etapa 3: Iniciar a atualização
-É possível aplicar vários parâmetros de atualização, tempo limite e critérios de integridade para atualizações de aplicativo. Leia os documentos [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md) e [processo de atualização](service-fabric-application-upgrade.md) para saber mais. Todos os serviços e instâncias deverão estar _íntegros_ após a atualização. Defina o **HealthCheckStableDuration** para 60 segundos (de modo que os serviços fiquem íntegros pelo menos 20 segundos antes de a atualização prosseguir para o próximo domínio de atualização). Defina também **UpgradeDomainTimeout** como 1200 segundos e **UpgradeTimeout** como 3000 segundos. Por fim, defina **UpgradeFailureAction** para **reversão**, o que solicita ao Service Fabric a reversão do aplicativo para a versão anterior, caso ocorram falhas durante a atualização.
+É possível aplicar vários parâmetros de atualização, tempo limite e critérios de integridade para atualizações de aplicativo. Leia os documentos [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md) e [processo de atualização](service-fabric-application-upgrade.md) para saber mais. Todos os serviços e instâncias deverão estar _íntegros_ após a atualização. Defina o **HealthCheckStableDuration** para 60 segundos (de modo que os serviços fiquem íntegros pelo menos 20 segundos antes que a atualização prossiga para o domínio de atualização seguinte). Defina também **UpgradeDomainTimeout** como 1200 segundos e **UpgradeTimeout** como 3000 segundos. Por fim, defina **UpgradeFailureAction** para **reversão**, o que solicita ao Service Fabric a reversão do aplicativo para a versão anterior, caso ocorram falhas durante a atualização.
 
 Agora você pode iniciar a atualização do aplicativo usando o cmdlet [**Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx):
 
@@ -101,7 +101,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/WordCount -Applic
 Observe que o nome do aplicativo é igual ao do aplicativo v1.0.0 implantado anteriormente (fabric:/WordCount). A Malha de serviços usa esse nome para identificar qual aplicativo está sendo atualizado. Se você definir um tempo limite muito curto, poderá receber uma mensagem de erro de tempo limite informando o problema. Consulte [Solucionar problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md) ou aumente o tempo limite.
 
 ### Etapa 4: verificar o andamento da atualização
-Você pode monitorar o progresso da atualização do aplicativo usando o [Gerenciador do Service Fabric](service-fabric-visualizing-your-cluster.md) ou usando o cmdlet [**Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx):
+Você pode monitorar o progresso da atualização do aplicativo usando o [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou usando o cmdlet [**Get-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125988.aspx):
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/WordCount
@@ -172,4 +172,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Cmdlets de capacidade de teste do Service Fabric do Azure](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

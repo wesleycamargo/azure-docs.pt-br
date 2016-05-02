@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/13/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados de armazenamentos de dados ODBC usando o Azure Data Factory
@@ -327,4 +327,34 @@ Ao mover dados de repositórios de dados ODBC, os tipos de dados ODBC são mapea
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+## Repositório GE Historian
+Você cria um serviço vinculado de ODBC para vincular um armazenamento de dados [GE Proficy Historian (agora GE Historian)](http://www.geautomation.com/products/proficy-historian) a um Azure Data Factory, como mostrado no seguinte exemplo:
+
+	{
+	    "name": "HistorianLinkedService",
+	    "properties":
+	    {
+	        "type": "OnPremisesOdbc",
+	        "typeProperties":
+	        {
+			    "connectionString": "DSN=<name of the GE Historian store>",
+			    "gatewayName": "<gateway name>",
+			    "authenticationType": "Basic",
+			    "userName": "<user name>",
+			    "password": "<password>"
+	        }
+	    }
+	}
+
+É necessário instalar o Gateway de Gerenciamento de Dados em um computador local e registrar o gateway no portal. O gateway instalado no computador local usa o driver ODBC para GE Historian para se conectar ao armazenamento de dados GE Historian, portanto instale o driver, se ele já não estiver instalado no computador do gateway. Consulte a seção [Habilitando a conectividade](#enabling-connectivity) para obter detalhes.
+
+Antes de usar o repositório GE Historian em uma solução de Data Factory, verifique se o gateway pode se conectar ao armazenamento de dados usando instruções na próxima seção.
+
+Leia o artigo desde o início para uma visão geral detalhada do uso de dados ODBC armazena como armazenamentos de dados de origem em uma operação de cópia.
+
+[AZURE.INCLUDE [data-factory-troubleshoot-connectivity](../../includes/data-factory-troubleshoot-connectivity.md)]
+
+## Desempenho e Ajuste  
+Confira o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho e o movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Preparar para publicar ou implantar um aplicativo do Azure do Visual Studio
@@ -104,7 +104,7 @@ Uma conta de armazenamento fornece acesso aos serviços de blob, fila e tabela. 
 
 Depois de criar sua conta de armazenamento, você verá as URLs que pode usar para acessar recursos em cada um dos serviços de armazenamento do Azure e as chaves de acesso primária e secundária para sua conta. Você pode usar essas chaves para autenticar solicitações feitas nos serviços de armazenamento.
 
->[AZURE.NOTE]A chave de acesso secundária fornece o mesmo acesso à sua conta de armazenamento que a chave de acesso primária e é gerada como um backup, caso sua chave de acesso primária seja comprometida. Além disso, é recomendável que você gere novamente e regularmente suas chaves de acesso. Você pode modificar uma configuração de cadeia de conexão para usar a chave secundária enquanto gera novamente a chave primária, e então poderá modificá-la para usar a chave primária gerada enquanto gera novamente a chave secundária.
+>[AZURE.NOTE] A chave de acesso secundária fornece o mesmo acesso à sua conta de armazenamento que a chave de acesso primária e é gerada como um backup, caso sua chave de acesso primária seja comprometida. Além disso, é recomendável que você gere novamente e regularmente suas chaves de acesso. Você pode modificar uma configuração de cadeia de conexão para usar a chave secundária enquanto gera novamente a chave primária, e então poderá modificá-la para usar a chave primária gerada enquanto gera novamente a chave secundária.
 
 ## Configurar seu aplicativo para usar os serviços fornecidos pela conta de armazenamento
 
@@ -130,7 +130,7 @@ Configure qualquer função que acessa os serviços de armazenamento para usar o
 
 1. No **Nome da conta** digite o nome da sua conta de armazenamento.
 
-    >[AZURE.NOTE]Faça logon no Portal de Gerenciamento do Azure e, em seguida, selecione o botão **Armazenamento**. O portal mostra uma lista de contas de armazenamento. Se você escolher uma conta, uma página será aberta para ela. Você pode copiar o nome da conta de armazenamento nessa página. Se você estiver usando uma versão anterior do Portal de Gerenciamento, o nome da sua conta de armazenamento aparece na exibição **Contas de armazenamento** do Portal de Gerenciamento. Para copiar esse nome, realce-na janela **Propriedades** desta exibição, em seguida, escolha as teclas Ctrl-C. Para colar o nome no Visual Studio, selecione a caixa de texto **Nome da conta** e, em seguida, selecione as teclas Ctrl+V.
+    >[AZURE.NOTE] Faça logon no Portal de Gerenciamento do Azure e, em seguida, selecione o botão **Armazenamento**. O portal mostra uma lista de contas de armazenamento. Se você escolher uma conta, uma página será aberta para ela. Você pode copiar o nome da conta de armazenamento nessa página. Se você estiver usando uma versão anterior do Portal de Gerenciamento, o nome da sua conta de armazenamento aparece na exibição **Contas de armazenamento** do Portal de Gerenciamento. Para copiar esse nome, realce-na janela **Propriedades** desta exibição, em seguida, escolha as teclas Ctrl-C. Para colar o nome no Visual Studio, selecione a caixa de texto **Nome da conta** e, em seguida, selecione as teclas Ctrl+V.
 
 1. No caixa **Chave de conta**, digite sua chave primária, ou copie e cole-a do [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar essa chave do Portal de Gerenciamento:
 
@@ -145,7 +145,7 @@ Configure qualquer função que acessa os serviços de armazenamento para usar o
         - **Use HTTPS** para uma conexão segura. Por exemplo: `https://<accountname>.blob.core.windows.net`.
         - **Especifique pontos de extremidade personalizados** para cada um dos três serviços. Em seguida, você pode digitar esses pontos de extremidade no campo para o serviço específico.
 
-        >[AZURE.NOTE]Se você criar pontos de extremidade personalizados, poderá criar uma cadeia de conexão mais complexa. Ao usar esse formato de cadeia de caracteres, você pode especificar pontos de extremidade de serviço de armazenamento que incluem um nome de domínio personalizado que você registrou para sua conta de armazenamento com o serviço Blob. Além disso, você pode conceder acesso apenas aos recursos de blob em um único contêiner por meio de uma assinatura de acesso compartilhado. Para obter mais informações sobre como criar pontos de extremidade personalizados, consulte [Configurar cadeias de conexão de armazenamento do Azure](storage-configure-connection-string.md).
+        >[AZURE.NOTE] Se você criar pontos de extremidade personalizados, poderá criar uma cadeia de conexão mais complexa. Ao usar esse formato de cadeia de caracteres, você pode especificar pontos de extremidade de serviço de armazenamento que incluem um nome de domínio personalizado que você registrou para sua conta de armazenamento com o serviço Blob. Além disso, você pode conceder acesso apenas aos recursos de blob em um único contêiner por meio de uma assinatura de acesso compartilhado. Para obter mais informações sobre como criar pontos de extremidade personalizados, consulte [Configurar cadeias de conexão de armazenamento do Azure](storage-configure-connection-string.md).
 
 1. Para salvar essas alterações da cadeia de conexão, selecione o botão **OK** e, em seguida, selecione **Salvar** na barra de ferramentas. Após salvar essas alterações, você pode obter o valor dessa cadeia de conexão no seu código usando [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Quando você publica seu aplicativo no Azure, escolhe a configuração do serviço que contém a conta de armazenamento do Azure para a cadeia de conexão. Depois de publicar o aplicativo, verifique se ele funciona conforme esperado nos serviços de armazenamento do Azure
 
@@ -153,4 +153,4 @@ Configure qualquer função que acessa os serviços de armazenamento para usar o
 
 Para obter mais informações sobre publicação de aplicativos para o Azure do Visual Studio, consulte [Publicando um serviço de nuvem usando as ferramentas do Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

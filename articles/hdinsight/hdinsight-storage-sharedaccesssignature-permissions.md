@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/01/2016"
+ms.date="04/19/2016"
 ms.author="larryfr"/>
 
 #Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados com o HDInsight
@@ -290,4 +290,4 @@ Agora que você aprendeu a adicionar armazenamento de acesso limitado ao seu clu
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/29/2016"
+   ms.date="04/14/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric no Linux
@@ -38,4 +38,4 @@ Observe que o Service Fabric no Linux será conceitualmente equivalente ao que e
 
 Conheça as estruturas de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

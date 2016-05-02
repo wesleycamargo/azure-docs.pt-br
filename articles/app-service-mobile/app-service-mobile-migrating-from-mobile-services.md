@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="04/14/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
@@ -38,44 +38,20 @@ A Microsoft está recomendando que você migre o serviço móvel do Azure para a
 
 Para obter mais informações sobre os benefícios do Serviço de Aplicativo do Azure, consulte o [Serviços Móveis vs. Serviço de Aplicativo].
 
-## <a name="why-not-migrate"></a>Por que você não deve migrar seu site
-
-Há alguns motivos pelos quais você não deve migrar seus Serviços Móveis agora:
-
-  *  Você está atualmente em um período ocupado e não pode reiniciar um site no momento.
-  *  Você não deseja afetar seu site de produção antes de testar o processo de migração.
-  *  Você tem vários sites nos tipos de preços Básico ou Gratuito e não deseja migrar todos os sites ao mesmo tempo.
-
-Você está em um período ocupado, assim, planeje a migração durante uma janela de manutenção programada. O processo de migração reinicia seu site como parte do processo e seus usuários podem observar essa interrupção momentânea de disponibilidade.
-
-Há soluções alternativas para a maioria dos itens na lista. Consulte a seção [Antes de começar a](#before-you-begin) abaixo para obter detalhes.
-
 ## <a name="before-you-begin"></a>Antes de começar
 
-Siga as etapas apresentadas antes de migrar seu site:
+Antes de começar qualquer trabalho importante no seu site, você deve [fazer backup dos scripts do serviço móvel] e do Banco de Dados SQL.
 
-  *  [Fazer backup dos scripts do serviço móvel] e do Banco de Dados SQL
-  *  (Opcional) Elevar o tipo de Serviço Móvel para Standard
+Se você quiser testar o processo de migração antes de migrar seu site de produção, duplique seu serviço móvel do Azure de produção dentro de uma nova [região do Azure] (completo com uma cópia da fonte de dados) e teste a migração em relação à nova URL. Você também precisará de uma implementação de cliente de teste que aponte para o site de teste para testar adequadamente o site migrado.
 
-Se você quiser testar o processo de migração antes de migrar seu site de produção, duplique seu serviço móvel do Azure de produção (completo com uma cópia da fonte de dados) e teste a migração em relação à nova URL. Você também precisará de uma implementação de cliente de teste que aponte para o site de teste para testar adequadamente o site migrado.
+## <a name="migrating-site"></a>Migrando seus sites
 
-### <a name="opt-raise-service-tier"></a>(Opcional) Elevar o tipo de Serviço Móvel para Standard
-
-Todos os sites de Serviços Móveis que compartilham um plano de hospedagem são migrados ao mesmo tempo. Os Serviços Móveis nos tipos de preços Básico ou Gratuito compartilham um plano de hospedagem com outros serviços no mesmo tipo de preço e [Região do Azure]. Se seu Serviço Móvel estiver funcionando no tipo de preço Standard, ele estará localizado em seu próprio plano de hospedagem. Se você quiser migrar individualmente sites nos tipos de preços Básico ou Gratuito, atualize temporariamente o tipo de preço do serviço móvel para Standard. Você pode fazer isso no menu ESCALA para seu serviço móvel.
-
-  1.  Faça logon no [Portal clássico do Azure].
-  2.  Selecione o seu serviço móvel.
-  3.  Selecione a guia **ESCALAR VERTICALMENTE**.
-  4.  Em **Tipo de Serviço Móvel**, clique no tipo **STANDARD**. Clique no ícone **SALVAR** na parte inferior da página.
-
-Lembre-se de definir o tipo de preço para uma configuração apropriada após a migração.
-
-## <a name="migrating-site"></a>Migrando seu site
+O processo de migração migrará todos os sites em uma única região do Azure.
 
 Para migrar seu site:
 
   1.  Faça logon no [Portal clássico do Azure].
-  2.  Selecione o seu serviço móvel.
+  2.  Selecione um serviço móvel na região que você deseja migrar.
   3.  Clique no botão **Migrar para o Serviço de Aplicativo**.
 
     ![O botão Migração][0]
@@ -83,8 +59,6 @@ Para migrar seu site:
   4.  Leia o diálogo Migrar para o Serviço de Aplicativo.
   5.  Insira o nome do serviço móvel na caixa fornecida. Por exemplo, se seu nome de domínio for contoso.azure-mobile.net, digite _contoso_ na caixa fornecida.
   6.  Clique no botão de escala.
-
-Se você estiver migrando um serviço móvel nos tipos de preços Básico ou Gratuito, todos os serviços móveis nesse tipo de preço serão migrados ao mesmo tempo. Você pode evitar isso por [elevando o serviço móvel que você está migrando](#opt-raise-service-tier) para Standard durante a migração.
 
 Você pode monitorar o status da migração no monitor de atividade e seu site será listado como *migrando* no Portal clássico do Azure.
 
@@ -145,7 +119,7 @@ Essa é uma tarefa opcional, mas fornece uma melhor experiência de gerenciament
 
 > [AZURE.TIP]  Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte a seção de [próximas etapas](#next-steps) para obter mais informações.
 
-### <a name="download-publish-profile"></a>Baixar um novo Perfil de publicação
+### <a name="download-publish-profile"></a>Baixar um novo perfil de publicação
 
 O perfil de publicação do seu site é alterado durante a migração para o Serviço de Aplicativo do Azure. Você precisará de um novo perfil de publicação se pretende publicar o site de dentro do Visual Studio. Para baixar um novo perfil de publicação:
 
@@ -153,7 +127,7 @@ O perfil de publicação do seu site é alterado durante a migração para o Ser
   2.  Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
   3.  Clique em **Obter perfil de publicação**.
 
-O arquivo PublishSettings será baixado para o seu computador. Ele normalmente será chamado _sitename_. PublishSettings. Você pode importar as configurações de publicação para o seu projeto existente:
+O arquivo PublishSettings será baixado para o seu computador. Ele normalmente será chamado _sitename_.PublishSettings. Você pode importar as configurações de publicação para o seu projeto existente:
 
   1.  Abra o Visual Studio e o seu projeto de Serviço móvel do Azure.
   2.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Publicar...**
@@ -255,10 +229,10 @@ Trabalhos agendados serão listados com a frequência especificada antes da migr
 
   1. Selecione o trabalho que você deseja executar.
   2. Se necessário, clique em **Habilitar** para habilitar o trabalho.
-  3. Clique em **Configurações** e, depois, **Agenda**.
+  3. Clique em **Configurações** e em **Agenda**.
   4. Selecione uma Recorrência de **Uma vez** e clique em **Salvar**
 
-Os trabalhos sob demanda estão localizados em `App_Data/config/scripts/scheduler post-migration`. É recomendável converter todos os trabalhos sob demanda para [WebJobs]. Você deve escrever novos trabalhos do Agendador como [WebJobs].
+Os trabalhos sob demanda estão localizados em `App_Data/config/scripts/scheduler post-migration`. É recomendável converter todos os trabalhos sob demanda para [WebJobs]. Você deve escrever novos trabalhos do agendador como [WebJobs].
 
 ### <a name="notification-hubs"></a>Hubs de Notificação
 
@@ -282,6 +256,12 @@ O Hub de notificação será gerenciado por meio de [Portal do Azure]. Observe o
 Para obter mais informações, consulte a documentação [Hubs de Notificação].
 
 > [AZURE.TIP] Recursos de gerenciamento de Hubs de notificação no [Portal do Azure] ainda estão em visualização. O [Portal Clássico do Azure] permanece disponível para gerenciar os hubs de notificação.
+
+### <a name="legacy-push"></a>Configurações de envio por push herdado
+
+Se você configurou o envio por push no seu serviço móvel antes da introdução em Hubs de Notificação, está usando o _envio por push herdado_. Caso você esteja usando o envio por push e não vir um Hub de Notificação listado em sua configuração, é provável que você esteja usando o _envio por push herdado_. Este recurso será migrado com todos os outros recursos e ainda estará disponível. No entanto, recomendamos que você atualize para Hubs de Notificação logo após a migração ser concluída.
+
+Enquanto isso, todas as configurações de envio por push herdado (com a exceção notável do certificado APNS) estão disponíveis nas Configurações de Aplicativo. O certificado APNS pode ser substituído substituindo o arquivo apropriado no site. Isso pode ser feito por meio de qualquer uma das opções de implantação disponíveis para o Serviço de Aplicativo do Azure.
 
 ### <a name="app-settings"></a>Outras configurações de aplicativo
 
@@ -381,7 +361,7 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [Documentação de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
 [Portal clássico do Azure]: https://manage.windowsazure.com
 [Portal do Azure]: https://portal.azure.com
-[Região do Azure]: https://azure.microsoft.com/regions/
+[região do Azure]: https://azure.microsoft.com/regions/
 [Planos do Agendador do Azure]: ../scheduler/scheduler-plans-billing.md
 [implantar continuamente]: ../app-service-web/web-sites-publish-source-control.md
 [Converter seus namespaces mistos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
@@ -396,9 +376,9 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [Hubs de Notificação]: ../notification-hubs/notification-hubs-overview.md
 [monitoramento de desempenho]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[Fazer backup dos scripts do serviço móvel]: ../mobile-services/mobile-services-disaster-recovery.md
+[fazer backup dos scripts do serviço móvel]: ../mobile-services/mobile-services-disaster-recovery.md
 [slots de preparo]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

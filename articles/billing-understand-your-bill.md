@@ -4,7 +4,7 @@
    services=""
    documentationCenter="Azure"
    authors="erihur"
-   manager="kareni"
+   manager="stevenpo"
    editor=""
    tags="billing"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/13/2016"
    ms.author="erihur"/>
 
 
@@ -33,32 +33,17 @@ Para obter mais informações sobre os planos de taxa e consumo, confira a [pág
 
 <!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
-<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
-
-## Content:
-
-This topic helps you with the following tasks when reading your bill.
-
--  View or Download a Bill for Azure
--  Customer Information
--  Understand the Invoice Summary
--  Understand the Current Charges
--  Footer Information
--  Understand the Additional Information
--  Understand Detailed Usage Charges
--  Analyze Daily Usage Data -->
-
 ### Exibir ou baixar uma fatura do Microsoft Azure:
 
-No [Portal de uso e cobrança](https://account.windowsazure.com/subscriptions) você pode exibir a fatura atual e baixar faturas passadas.
+No [Portal da Conta do Azure](https://account.windowsazure.com/subscriptions), você pode exibir cobranças atuais e baixar cobranças passadas.
 
 Para exibir ou baixar uma fatura:
 
-1. Entre no [Portal de uso e cobrança](https://account.windowsazure.com/subscriptions) usando sua ID da conta da Microsoft ou a ID da conta do corporativa ou de estudante.
+1. Entre no [Portal da Conta](https://account.windowsazure.com/subscriptions) usando sua ID da Conta da Microsoft ou a ID da Conta do corporativa ou de estudante.
 
 2. Clique na assinatura na qual você gostaria de ver os detalhes e o uso.
 
-3. Clique em Histórico de **Cobrança**
+3. Clique em **Histórico de Cobrança**
 
     ![Resumo - histórico de cobrança -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
@@ -78,7 +63,7 @@ Para exibir ou baixar uma fatura:
     ![Resumo -histórico de cobrança 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
-***Importante:*** *os encargos listados nas declarações de cobrança para clientes internacionais servem somente para fins de estimativa, já que os bancos têm custos diferentes para as taxas de conversão.*
+***Importante:*** *os encargos listados nos demonstrativos de cobrança para clientes internacionais servem somente para fins de estimativa, já que os bancos têm custos diferentes para as taxas de conversão.*
 
 
 A seguir estão algumas instruções de exemplo para duas ofertas diferentes disponíveis no Microsoft Azure.
@@ -90,42 +75,42 @@ Oferta de compromisso | Gastar com dedução do seu compromisso pré-pago | [Arq
 
 
 
-## Cabeçalho - Informações do cliente
+## Informações da conta
 
-A seção de informações do cliente identifica informações pertinentes no que diz respeito ao seu uso e perfil.
+A seção de informações da conta identifica informações pertinentes no que diz respeito ao seu uso e perfil. 
     ![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 ### Nº da Fatura
 Um identificador de fatura único para fins de acompanhamento
 
-### Ciclo de Cobrança
+### Ciclo de cobrança
 O intervalo de tempo em que ocorreu o uso.
 
-### Data da Fatura
+### Data da fatura
 A data em que a fatura foi gerada.
 
-### Forma de Pagamento
-Tipo de pagamento usado na conta (isto é, Fatura ou Cartão de Crédito).
+### Método de pagamento
+Tipo de pagamento usado na conta (isto é, fatura ou cartão de crédito).
 
 ### Enviar cobrança para
 Endereço de pagamentos do Microsoft Azure.
 
 ### Oferta de assinatura
-Tipo de oferta de assinatura que foi adquirida (ou seja, pré-pago, MSDN-Visual Studio Enterprise, etc.)
+Tipo de oferta de assinatura que tiver sido adquirida (ou seja, pré-pago, BizSpark Plus, Azure Pass etc.)
 
-### Email do Proprietário da Conta
+### Email do proprietário da conta
 O endereço de email da conta no qual a conta do Microsoft Azure está registrada.
 
 
 
-## Entender o Resumo da Fatura
-A seção Resumo da Fatura da fatura resume as transações desde sua última fatura e os encargos de uso atuais.
+## Entender o resumo da fatura
+A seção **Resumo da Fatura** da fatura resume as transações desde sua última fatura e os encargos de uso atuais.
 
 ![resumo da fatura](./media/billing-understand-your-bill/InvoiceSummary.png)
 
-A seção Saldos, Pagamentos e Outros Créditos da fatura resume as transações desde sua última fatura.
+A seção saldo anterior, pagamentos e saldo pendente da fatura resume as transações desde sua última fatura.
 
-### Saldo Anterior
+### Saldo anterior
 Saldo anterior é o valor total devido em sua última fatura.
 
 ### Pagamentos
@@ -135,10 +120,10 @@ Pagamentos são os pagamentos totais aplicados à sua última fatura.
 Qualquer ajuste de fatura (créditos ou saldos) aplicado à sua conta desde sua última fatura.
 
 
-## Entender os Encargos Atuais
+## Entender os encargos atuais
 A seção Encargos Atuais da fatura contém detalhes sobre seus encargos mensais. Os links são organizados nas subseções a seguir.
 
-### Encargos de Uso
+### Encargos de uso
 Encargos de uso são o total de encargos mensais em uma assinatura. Você é cobrado com atraso de pagamento para uso do seu mês anterior.
 
 ### Descontos
@@ -150,21 +135,21 @@ Ajustes diversos são créditos diversos ou encargos pendentes aplicados à sua 
 ## Informações do rodapé
 ![rodapé](./media/billing-understand-your-bill/footerinformation.png)
 
-## Entender as Informações Adicionais
+## Entender as informações adicionais
 A página de informações adicionais fornece referências para outros recursos para entender sua fatura e links para exibir seu uso, bem como outras informações relevantes para sua fatura.
 
 ![informações adicionais](./media/billing-understand-your-bill/AdditionalInformation.png)
 
-### Uso Detalhado
-Um link na descrição em Uso Detalhado direciona você para o Portal de uso e cobrança do Azure em que você pode exibir seu uso detalhado para essa assinatura. Agora há duas versões disponíveis para download: **. csv versão 1** contém os campos de uso e a antiga convenção de nomenclatura e **. csv versão 2** contém nomes amigáveis de cliente para cada uma das categorias mais campos adicionais que ajudam você a compreender quais serviços está usando no Microsoft Azure.
+### Uso detalhado
+Um link na descrição em **Uso Detalhado** direciona você para o Portal da Conta, em que você pode exibir seu uso detalhado para essa assinatura. Agora há duas versões disponíveis para download: **. csv versão 1** contém os campos de uso e a antiga convenção de nomenclatura e **. csv versão 2** contém nomes amigáveis de cliente para cada uma das categorias mais campos adicionais que ajudam você a compreender quais serviços está usando no Microsoft Azure. Observe que no. csv versão 1 que não há nenhum detalhe do Azure Resource Manager. Informações do Azure Resource Manager podem ser encontradas no. csv versão 2.
 
-### Informações Adicionais e Recursos Úteis
+### Informações adicionais e recursos úteis
 Esta seção contém links para perguntas simples sobre tamanhos de instância de computação, encargos de Banco de Dados SQL e links úteis para ajudá-lo a responder a perguntas adicionais.
 
-### Vendido Para
+### Vendido para
 Isso é pré-preenchido com o endereço do perfil na conta.
 
-### Instruções de Pagamento
+### Instruções de pagamento
 Esta seção é composta pelas instruções de pagamento de para onde enviar cheques, transferências ou cheques noturnos se o método de pagamento for fatura.
 
 ## Entender os encargos de uso detalhados
@@ -241,7 +226,7 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md) Serviços que oferecem suporte a marcas de emissão são:  
+- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md). Serviços que oferecem suporte a marcas de emissão são:  
     - Máquinas Virtuais
     - Armazenamento e
     - Serviços de rede fornecidos com o [API do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -249,7 +234,7 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 ![marcas](./media/billing-understand-your-bill/tags.png)
 
 
-## Mais Recursos
+## Mais recursos
 Navegue até a seção **Gerenciar contas, assinaturas e funções administrativas**, em [Gerenciar seus serviços](https://msdn.microsoft.com/library/azure/dn578292.aspx) para obter alguns links muito úteis:
 
 - [Perguntas Frequentes sobre Assinatura e Cobrança do Azure](billing-subscription-faq.md)
@@ -268,4 +253,4 @@ Navegue até a seção **Gerenciar contas, assinaturas e funções administrativ
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

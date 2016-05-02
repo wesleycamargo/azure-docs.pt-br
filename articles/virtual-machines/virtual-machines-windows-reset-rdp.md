@@ -3,7 +3,7 @@
 	description="Redefina a senha de administrador ou os serviços de Área de Trabalho Remota em uma VM do Windows criada com o modelo de implantação do Gerenciador de Recursos."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Como redefinir o serviço Área de Trabalho Remota ou sua senha de logon em uma VM do Windows
 
@@ -27,7 +27,7 @@ Se não puder se conectar a uma máquina virtual do Windows porque você esquece
 Dependendo do modelo de implantação de sua máquina virtual, você pode usar o portal do Azure ou a extensão de Acesso à VM no Azure PowerShell. Se estiver usando o PowerShell, verifique se você tem o módulo do PowerShell mais recente instalado no computador de trabalho e se está conectado à sua assinatura do Azure. Para ver etapas detalhadas, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
 
-> [AZURE.TIP] Você pode verificar a versão do PowerShell que tem instalada usando o comando `Get-Module azure | format-table version`.
+> [AZURE.TIP] Você pode verificar a versão do PowerShell instalada usando `Import-Module Azure; Get-Module Azure | Format-Table Version`.
 
 
 ## VMs do Windows no modelo de implantação clássico
@@ -140,4 +140,4 @@ Se você ainda não consegue se conectar remotamente à máquina virtual, veja m
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

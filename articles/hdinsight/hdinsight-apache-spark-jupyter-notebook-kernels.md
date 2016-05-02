@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Kernels disponíveis para notebooks Jupyter com clusters do Spark no HDInsight (Linux)
+# Kernels disponíveis para notebooks Jupyter com clusters do HDInsight Spark Linux no HDInsight (Preview)
 
-O cluster do Apache Spark no HDInsight (Linux) inclui blocos de anotações do Jupyter que você pode usar para testar seus aplicativos. Por padrão, o notebook do Jupyter vem com um kernel **Python2**. Um kernel é um programa que é executado e que interpreta seu código. Os clusters HDInsight Spark fornecem dois kernels adicionais que você pode usar com o notebook Jupyter. Estes são:
+O cluster do Apache Spark no HDInsight (Linux) inclui blocos de anotações do Jupyter que você pode usar para testar seus aplicativos. Um kernel é um programa que é executado e que interpreta seu código. Os clusters HDInsight Spark fornecem dois kernels que você pode usar com o bloco de anotações do Jupyter. Estes são:
 
 1. **PySpark** (para aplicativos escritos em Python)
 2. **Spark** (para aplicativos escritos em Scala)
@@ -50,14 +50,14 @@ Você deve ter o seguinte:
 
 3. Isso deve abrir um novo notebook com o kernel selecionado.
 
-## Por que devo usar os novos kernels?
+## Por que devo usar kernels PySpark ou Spark?
 
 Há alguns benefícios em usar os novos kernels.
 
-1. **Contextos de predefinição**. Com o kernel padrão **Python2**, disponibilizado com notebooks Jupyter, você precisa definir explicitamente o contexto do Spark ou do Hive antes de começar a trabalhar com o aplicativo que está desenvolvendo. Se você usar os novos kernels (**PySpark** ou **Spark**), esses contextos estarão disponíveis para você por padrão. Esses contextos são:
+1. **Contextos de predefinição**. Com os kernels padrão **PySpark** ou **Spark** que são fornecidos com notebooks Jupyter, você não precisa definir explicitamente contextos do Spark ou do Hive antes de começar a trabalhar com o aplicativo que está em desenvolvimento; eles estão disponíveis por padrão para você. Esses contextos são:
 
 	* **sc** - para o contexto do Spark
-	* **sqlContext** - para o contexto Hive
+	* **sqlContext**: para o contexto Hive
 
 
 	Portanto, você não precisa executar instruções como as seguintes para definir os contextos:
@@ -70,7 +70,7 @@ Há alguns benefícios em usar os novos kernels.
 
 	Em vez disso, pode usar os contextos predefinidos diretamente em seu aplicativo.
 	
-2. **A mágica da célula**. O kernel PySpark fornece alguns "comandos mágicos" predefinidos, comandos especiais que podem ser chamados com o `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causará um erro. Para saber mais sobre palavras mágicas, veja [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+2. **A mágica da célula**. O kernel PySpark fornece algumas "palavras mágicas" predefinidas, que são comandos especiais que podem ser chamados com o `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causará um erro. Para saber mais sobre palavras mágicas, consulte [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
 
 	A tabela a seguir lista os diferentes comandos mágicos disponíveis por meio dos kernels.
 
@@ -78,7 +78,7 @@ Há alguns benefícios em usar os novos kernels.
 	|-----------|---------------------------------|--------------|
 	| ajuda | `%%help` | Gera uma tabela de todos os comandos mágicos disponíveis com exemplo e descrição |
 	| informações | `%%info` | Envia informações de sessão para o ponto de extremidade Livy atual |
-	| configurar | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) será obrigatório se uma sessão já tiver sido criada, e a sessão será descartada e recriada. Veja [Corpo da Solicitação de sessões/POST do Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na linha seguinte, logo após a mágica, conforme mostrado na coluna de exemplo. |
+	| configurar | `%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} | Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) será obrigatório se uma sessão já tiver sido criada, e a sessão será descartada e recriada. Veja o [Corpo da Solicitação de sessões/POST do Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na linha seguinte, logo após a mágica, conforme mostrado na coluna de exemplo. |
 	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | Executa uma consulta do Hive no dqlContext. Se o parâmetro `-o` for passado, o resultado da consulta será persistido no contexto %%local do Python como um dataframe do [Pandas](http://pandas.pydata.org/). |
 	| local | `%%local`<br>`a=1` | Todo o código nas linhas subsequentes será executado localmente. O código deve ser um código Python válido. |
 	| logs | `%%logs` | Gera os logs da sessão atual do Livy. |
@@ -95,9 +95,9 @@ A mágica %%sql é compatível com diversos parâmetros que podem ser usados par
 |-----------|---------------------------------|--------------|
 | -o | `-o <VARIABLE NAME>` | Use esse parâmetro para manter o resultado da consulta, no contexto Python %%local, como um dataframe [Pandas](http://pandas.pydata.org/). O nome da variável dataframe é o nome da variável que você especificar. |
 | -q | `-q` | Use esta opção para desativar visualizações da célula. Se não desejar visualizar o conteúdo de uma célula automaticamente, mas apenas capturá-la como um dataframe, use `-q -o <VARIABLE>`. Se desejar desativar as visualizações sem capturar os resultados (por exemplo, para executar uma consulta SQL com efeitos colaterais, como uma instrução `CREATE TABLE`), basta usar `-q` sem especificar um argumento `-o`. |
-| -m | `-m <METHOD>` | Em que **METHOD** for **ake** ou **sample** (o padrão é **take**). Se o método for **ake**, o kernel seleciona elementos da parte superior do conjunto de dados de resultados especificado por MAXROWS (descrito posteriormente nesta tabela). Se o método for **sample**, o kernel selecionará aleatoriamente elementos de exemplo do conjunto de dados de acordo com o parâmetro `-r`, descrito a seguir nesta tabela. |
+| -m | `-m <METHOD>` | Em que **METHOD** seja **take** ou **sample** (o padrão é **take**). Se o método for **take**, o kernel selecionará elementos da parte superior do conjunto de dados de resultados especificado por MAXROWS (descrito posteriormente nesta tabela). Se o método for **sample**, o kernel selecionará aleatoriamente elementos de exemplo do conjunto de dados de acordo com o parâmetro `-r`, descrito a seguir nesta tabela. |
 | -r | `-r <FRACTION>` | Aqui **FRACTION** é um número de ponto flutuante entre 0,0 e 1,0. Se o método de exemplo para a consulta SQL for `sample`, o kernel recolherá exemplos aleatórios da fração especificada dos elementos do conjunto de resultados para você. Por exemplo, se você executar uma consulta SQL com os argumentos `-m sample -r 0.01`, 1% das linhas de resultado será amostrado aleatoriamente. |
-| -n | `-n <MAXROWS>` | **MAXROWS** for um valor inteiro. O kernel limitará o número de linhas de saída para **MAXROWS**. Se **MAXROWS** for um número negativo como **-1**, o número de linhas no conjunto de resultados não será limitado. |
+| -n | `-n <MAXROWS>` | **MAXROWS** é um valor inteiro. O kernel limitará o número de linhas de saída para **MAXROWS**. Se **MAXROWS** for um número negativo como **-1**, o número de linhas no conjunto de resultados não será limitado. |
 
 **Exemplo:**
 
@@ -114,9 +114,7 @@ A instrução acima faz o seguinte:
 
 ## Considerações ao usar os novos kernels
 
-Seja qual for o kernel que você use (Python2, PySpark ou Spark), deixar os notebooks em execução consumirá os recursos de cluster. Com o notebook Python2, uma vez que você criará o contexto explicitamente, você poderá também eliminar esses contextos quando sair do aplicativo.
-
-No entanto, nos kernels PySpark e Spark, uma vez que os contextos são predefinidos, você não pode explicitamente eliminar o contexto também. Portanto, se você simplesmente sair do notebook, o contexto poderá ainda estar em execução, usando os recursos de cluster. Uma boa prática com kernels PySpark e Spark seria usar a opção **Fechar e Interromper** opção do menu **Arquivo** do notebook. Isso elimina o contexto e encerra o notebook.
+Seja qual for o kernel que você use (PySpark ou Spark), deixar os notebooks em execução consumirá os recursos de cluster. Com esses kernels, como os contextos são predefinidos, simplesmente sair dos notebooks não elimina o contexto e, portanto, os recursos de cluster continuarão em uso. Uma boa prática com kernels PySpark e Spark seria usar a opção **Fechar e Interromper** opção do menu **Arquivo** do notebook. Isso elimina o contexto e encerra o notebook.
 
 
 ## Mostre-me alguns exemplos
@@ -130,7 +128,7 @@ Você pode abrir o notebook **00 - [LEIA-ME PRIMEIRO] Recursos do kernel mágico
 
 ## Onde os blocos de anotações são armazenados?
 
-Os blocos de anotações do Jupyter são salvos na conta de armazenamento associada ao cluster na pasta **/HdiNotebooks**. Os blocos de anotações, arquivos de texto e pastas que você criar no Jupyter poderão ser acessados no WASB. Por exemplo, se você usar o Jupyter para criar uma pasta **myfolder** e um bloco de anotações **myfolder/mynotebook.ipynb**, poderá acessar o bloco de anotações em `wasb:///HdiNotebooks/myfolder/mynotebook.ipynb`. O inverso também é verdadeiro, ou seja, se você carregar um bloco de anotações diretamente para sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, o bloco de anotações também ficará visível no Jupyter. Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
+Os notebooks Jupyter são salvos na conta de armazenamento associada ao cluster na pasta **/HdiNotebooks**. Os blocos de anotações, arquivos de texto e pastas que você criar no Jupyter poderão ser acessados no WASB. Por exemplo, se você usar o Jupyter para criar uma pasta **myfolder** e um notebook **myfolder/mynotebook.ipynb**, poderá acessar o notebook em `wasb:///HdiNotebooks/myfolder/mynotebook.ipynb`. O inverso também é verdadeiro, ou seja, se você carregar um notebook anotações diretamente para sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, o notebook também ficará visível no Jupyter. Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
 
 A forma como os blocos de anotações são salvos na conta de armazenamento é compatível com HDFS. Portanto, se você se conectar por SSH ao cluster, poderá usar comandos de gerenciamento de arquivos como o seguinte:
 
@@ -139,7 +137,7 @@ A forma como os blocos de anotações são salvos na conta de armazenamento é c
 	hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
 
-Caso haja problemas para acessar a conta de armazenamento do cluster, os blocos de anotações também são salvos no `/var/lib/jupyter` do nó principal.
+Caso haja problemas para acessar a conta de armazenamento do cluster, os notebooks também são salvos no `/var/lib/jupyter` do nó principal.
 
 ## Navegador com suporte
 Os blocos de anotações do Jupyter em execução em clusters HDInsight Spark só têm suporte no Google Chrome.
@@ -182,4 +180,4 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

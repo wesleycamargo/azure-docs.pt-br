@@ -1,6 +1,6 @@
 <properties
- pageTitle="Limites, padrões e códigos de erro do Agendador"
- description=""
+ pageTitle="Limites e padrões do Agendador"
+ description="Limites e padrões do Agendador"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -12,10 +12,10 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="03/09/2016"
+ ms.date="04/18/2016"
  ms.author="krisragh"/>
 
-# Limites, padrões e códigos de erro do Agendador
+# Limites e padrões do Agendador
 
 ## Aceleradores, limites, padrões e cotas do Agendador
 
@@ -25,31 +25,7 @@
 
 Cada solicitação feita no serviço de Agendador retorna um cabeçalho de resposta chamado * * x-ms-solicitação-id * *. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação.
 
-Se uma solicitação estiver falhando consistentemente e você tiver verificado que a solicitação foi formulada corretamente, você poderá usar esse valor para relatar o erro à Microsoft. Em seu relatório, inclua o valor ofx-ms-request-id, o tempo aproximado no qual a solicitação foi feita, o identificador da assinatura, a coleção de trabalhos e/ou o trabalho e o tipo de operação para o qual a solicitação realizou uma tentativa.
-
-## Códigos de erro e status do Agendador
-
-Além dos códigos de status HTTP padrão, a API REST do Agendador do Azure retorna códigos de erro estendidos e mensagens de erro. Os códigos estendidos não substituem os códigos de status HTTP padrão, mas fornecem informações adicionais e acionáveis que podem ser usadas em conjunto com os códigos de status HTTP padrão.
-
-Por exemplo, um erro HTTP 404 pode ocorrer por várias razões, portanto, ter informações adicionais na mensagem estendida pode ajudá-lo na resolução do problema. Para obter mais informações sobre os códigos HTTP padrões retornados pela API REST, consulte [Status do gerenciamento de serviço e códigos de erro](https://msdn.microsoft.com/library/windowsazure/ee460801.aspx). As operações da API REST para a API de gerenciamento de serviço retornam códigos de status HTTP padrão, conforme definido nas[Definições de código de Status HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). A tabela a seguir descreve os erros comuns que podem ser retornados pelo serviço.
-
-|Código do erro|Código de status HTTP|Mensagem do usuário|
-|----|----|----|
-|MissingOrIncorrectVersionHeader|Solicitação incorreta (400)|O cabeçalho de controle de versão não foi especificado ou foi especificado incorretamente.|
-|InvalidXmlRequest|Solicitação incorreta (400)|O XML do corpo da solicitação era inválido ou não estava especificado corretamente.|
-|MissingOrInvalidRequiredQueryParameter|Solicitação incorreta (400)|Um parâmetro de consulta necessário não foi especificado para esta solicitação ou foi especificado incorretamente.|
-|InvalidHttpVerb|Solicitação incorreta (400)|O verbo HTTP especificado não foi reconhecido pelo servidor ou não é válido para este recurso.|
-|AuthenticationFailed|Proibido (403)|O servidor falhou ao autenticar a solicitação. Verifique se o certificado é válido e está associado a esta assinatura.|
-|ResourceNotFound|Não encontrado (404)|O recurso especificado não existe.|
-|InternalError|Erro interno do servidor (500)|O servidor encontrou um erro interno. Tente novamente a solicitação.|
-|OperationTimedOut|Erro interno do servidor (500)|A operação não pôde ser concluída dentro do tempo permitido ou do número máximo de tentativas possível.|
-|ServerBusy|Serviço não disponível (503)|O servidor (ou um componente interno) não está disponível no momento para receber solicitações. Tente novamente a sua solicitação.|
-|SubscriptionDisabled|Proibido (403)|A assinatura está em um estado desabilitado.|
-|BadRequest|Solicitação incorreta (400)|Um parâmetro estava incorreto.|
-|ConflictError|Conflito (409)|Ocorreu um conflito para impedir que a operação seja concluída.|
-|TemporaryRedirect|Redirecionamento temporário (307)|O objeto solicitado não está disponível. Um URI temporário para o novo local do objeto pode ser obtido a partir do campo Localização na resposta. A solicitação original pode ser repetida no novo URI.|
-
-As operações de API também podem retornar informações de erro adicionais que são definidas pelo serviço de gerenciamento. Essas informações de erro adicionais são retornadas no corpo da resposta.
+Se uma solicitação estiver falhando consistentemente e você tiver verificado que a solicitação foi formulada corretamente, você poderá usar esse valor para relatar o erro à Microsoft. Em seu relatório, inclua o valor de x-ms-request-id, a hora aproximada na qual a solicitação foi feita, o identificador da assinatura, a coleção de trabalhos e/ou o trabalho e o tipo de operação para o qual a solicitação realizou uma tentativa.
 
 ## Consulte também
 
@@ -70,4 +46,4 @@ As operações de API também podem retornar informações de erro adicionais qu
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->
