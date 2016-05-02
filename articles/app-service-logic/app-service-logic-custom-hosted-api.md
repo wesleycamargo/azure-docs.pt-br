@@ -20,13 +20,15 @@
 
 Embora os Aplicativos Lógicos tenham um conjunto avançado de mais de 40 conectores para uma gama de serviços, convém chamar a sua própria API personalizada que pode executar seu próprio código. Uma das maneiras mais fáceis e mais escalonáveis de hospedar sua própria API Web personalizada é usar o Serviço de Aplicativo. Este artigo aborda como chamar a API Web hospedada em um aplicativo de API do Serviço de Aplicativo, aplicativo Web ou aplicativo móvel.
 
+Para obter informações sobre a criação de APIs como um gatilho ou ação nos Aplicativos Lógicos, confira [este artigo](app-service-logic-create-api-app.md).
+
 ## Implante seu aplicativo Web.
 
 Primeiro, você precisa implantar sua API como um aplicativo Web no Serviço de Aplicativo. Estas instruções abordam a implantação básica: [Criar um aplicativo Web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Embora você possa chamar qualquer API de um Aplicativo Lógico, para ter a melhor experiência possível, é recomendável adicionar metadados do Swagger para integrar facilmente as ações de Aplicativos Lógicos. Você pode encontrar mais detalhes sobre a [adição ao swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
 
 ### Configurações da API
 
-Para o designer de Aplicativos Lógicos analisar o Swagger, é importante habilitar o CORS e definir as propriedades de APIDefinition do seu aplicativo Web. Isso é muito fácil de definir no Portal do Azure. Basta abrir a folha de configurações do seu Aplicativo Web e, na seção da API, definir a “Definição da API” como a URL do seu arquivo swagger.json (normalmente é https://{name}.azurewebsites.net/swagger/docs/v1)), depois adicione uma política CORS como “*” para permitir solicitações do Designer de Aplicativos Lógicos.
+Para o designer de Aplicativos Lógicos analisar o Swagger, é importante habilitar o CORS e definir as propriedades de APIDefinition do seu aplicativo Web. Isso é muito fácil de definir no Portal do Azure. Basta abrir a folha de configurações do seu Aplicativo Web e, na seção da API, configurar a “Definição da API” como a URL do seu arquivo swagger.json (normalmente é https://{name}.azurewebsites.net/swagger/docs/v1)), depois adicionar uma política CORS como “*” para permitir solicitações do Designer de Aplicativos Lógicos.
 
 ## Chamando a API
 
@@ -43,7 +45,7 @@ Nesta seção, você vai criar dois aplicativos do Active Directory do Azure, um
 
 ### Parte 1: configurando uma identidade de aplicativo para seu Aplicativo Lógico
 
-Isso é o que o Aplicativo Lógico usa para autenticar no Active Directory. Você só *precisa* fazer isso uma vez para seu diretório. Por exemplo, você pode optar por usar a mesma identidade para todos os seus aplicativos lógicos, embora também possa criar identidades exclusivas por aplicativo lógico se desejar. Você pode fazer isso na interface do usuário ou usar o PowerShell.
+Isso é o que o Aplicativo Lógico usa para autenticar no Active Directory. Você *precisa* fazer isso apenas uma vez para seu diretório. Por exemplo, você pode optar por usar a mesma identidade para todos os seus aplicativos lógicos, embora também possa criar identidades exclusivas por aplicativo lógico se desejar. Você pode fazer isso na interface do usuário ou usar o PowerShell.
 
 #### Criar a identidade do aplicativo usando o Portal clássico do Azure
 
@@ -167,4 +169,4 @@ Além disso, se você deseja implementá-lo inteiramente em seu próprio código
 
 Você ainda precisa seguir as etapas acima para criar uma identidade de aplicativo para seu Aplicativo Lógico e usá-la para chamar a API.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

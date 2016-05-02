@@ -1,6 +1,6 @@
 <properties
- pageTitle="Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo"
- description=""
+ pageTitle="Como gerenciar a expiração de conteúdo do serviço de nuvem no Azure CDN | Microsoft Azure"
+ description="Descreve como gerenciar a expiração de conteúdo do serviço de nuvem no Azure CDN"
  services="cdn"
  documentationCenter=".NET"
  authors="camsoper"
@@ -12,10 +12,10 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="02/25/2016" 
+ ms.date="02/25/2016"
  ms.author="casoper"/>
 
-#Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo
+# Como gerenciar a expiração do conteúdo do serviço de nuvem na CDN do Azure (Rede de Distribuição de Conteúdo
 
 Os objetos que mais se beneficiam do cache da CDN do Azure são aqueles que são acessados frequentemente durante seu período de TTL (vida útil). Um objeto permanece no cache pelo período de TTL e é atualizado pelo serviço de nuvem depois que esse tempo termina. Em seguida, o processo se repete.
 
@@ -50,4 +50,4 @@ Por exemplo, para armazenar o conteúdo em cache por uma hora, adicione o seguin
 
 [Como gerenciar a expiração do conteúdo de blob na CDN (Rede de Distribuição de Conteúdo) do Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

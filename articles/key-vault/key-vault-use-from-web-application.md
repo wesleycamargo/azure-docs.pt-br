@@ -1,4 +1,11 @@
-<properties pageTitle="Use o cofre da chave do Azure em um aplicativo Web | Microsoft Azure" description="Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
+<properties
+	pageTitle="Usar o Cofre de Chaves do Azure de um aplicativo Web | Microsoft Azure"
+	description="Use este tutorial para ajudá-lo a saber como usar o cofre da chave do Azure por meio de um aplicativo Web."
+	services="key-vault"
+	documentationCenter=""
+	authors="adhurwit"
+	manager=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -6,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="04/13/2016"
 	ms.author="adhurwit"/>
 
 # Usar cofre da chave do Azure em um aplicativo Web #
@@ -149,11 +156,11 @@ Para saber mais sobre a criação de um certificado de teste, confira [Como cria
 	# this is where the end date from the cert above is used
 	PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31")
 
-	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
+	PS C:\> $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 
-	PS C:\> $sp = New-AzureADServicePrincipal -ApplicationId $adapp.ApplicationId
+	PS C:\> $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-	PS C:\> Set-AzureKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
+	PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
 
 	# get the thumbprint to use in your app settings
 	PS C:\>$x509.Thumbprint
@@ -242,4 +249,4 @@ Para referências de programação, consulte [Referência de API do cliente C# d
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

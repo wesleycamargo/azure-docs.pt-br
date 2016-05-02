@@ -33,7 +33,9 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**
 
-- **CLI do Azure**: para obter mais informações, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md)
+- **CLI do Azure**
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##Configurar variáveis de ambiente
 
@@ -288,4 +290,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

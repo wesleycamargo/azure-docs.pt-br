@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução ao exemplo"
-   description="Introdução ao exemplo"
+   pageTitle="Exemplos do Power BI Embedded"
+   description="Exemplos do Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -32,6 +32,6 @@ Para ajudar a começar, criamos um aplicativo Web de exemplo. Você pode baixá-
 ## Consulte também
 
 - [O que é o Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Introdução à Visualização do Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
+- [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

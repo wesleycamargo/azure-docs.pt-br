@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="03/04/2016"
+   ms.date="04/14/2016"
    ms.author="genli"/>
 
 # Transferindo uma assinatura do Azure
@@ -59,9 +59,8 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 
     Não há nenhum impacto no serviço. Isso efetivamente cancela a assinatura do atual administrador da conta e cria uma nova na conta do destinatário, mas associa os serviços do Azure subjacentes à nova assinatura. A ID da assinatura permanece a mesma.
 
--   **Como usar esse mecanismo para alterar o diretório para assinatura?**-   
-    Uma assinatura do Azure é criada no diretório ao qual o administrador da conta pertence. Portanto, para alterar o diretório, basta transferir a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura avançará automaticamente para o diretório de destino.
-   
+-   **Como usar esse mecanismo para alterar o diretório para assinatura?**-Uma assinatura do Azure é criada no diretório ao qual o administrador da conta pertence. Portanto, para alterar o diretório, basta transferir a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura avançará automaticamente para o diretório de destino.
+
 -   **Se eu assumir a propriedade de cobrança de uma assinatura de outra organização, eles continuarão a ter acesso aos meus recursos?**
 
     Se a assinatura é transferida para outro locatário, os usuários associados ao locatário anterior perdem o acesso à assinatura. Mesmo que um usuário não seja mais um administrador ou coadministrador de serviços, ele ainda terá acesso à assinatura por meio de outros mecanismos de segurança. Estão incluídos:
@@ -100,6 +99,10 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 
     Sim. Há limitações aqui: agora o histórico de cobrança da assinatura é dividido em duas contas. Mas a vantagem é que você pode fazer isso sem precisar [entre em contato com o suporte](http://go.microsoft.com/fwlink/?LinkID=619338).
 
+-   **O método de pagamento será afetado depois que eu transferir uma assinatura do Azure?**
+
+    Para aceitar uma transferência de assinatura, um cartão de crédito ou o método de pagamento semelhante deve ser fornecido para pagar pela assinatura. Por exemplo, se Pedro transfere uma assinatura para Clara e ela aceita a transferência, Clara também deve fornecer um método de pagamento que ela usará a pagar pela assinatura. Depois que a transferência for concluída, Pedro não será cobrado pela assinatura que ele transferiu para Clara.
+
 ## Próximas etapas depois de aceitar a posse de uma assinatura
 
 1. Agora, você é o Administrador da conta. Examine e atualize o Administrador de serviços e os Coadministradores. Gerencie administradores no [portal clássico do Azure](https://manage.windowsazure.com) acessando configurações. [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533293).
@@ -111,6 +114,4 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 4. Atualizar alertas de cobrança para essa assinatura no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) [Saiba mais](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nesta assinatura. Você pode fazê-lo no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
 
-<!------------HONumber=AcomDC_0330_2016-->
-
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

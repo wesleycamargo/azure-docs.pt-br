@@ -2,7 +2,7 @@
 	pageTitle="Gerenciar contas dos Serviços de Mídia do Azure com o PowerShell" 
 	description="Saiba como gerenciar contas dos Serviços de Mídia do Azure com cmdlets do PowerShell." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -122,4 +122,4 @@ Quando você estiver pronto para excluir a conta de mídia do Azure, use [Remove
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

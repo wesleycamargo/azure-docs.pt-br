@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="04/15/2016" 
 	ms.author="casoper"/>
 
 # Substituir o comportamento HTTP padrão usando o mecanismo de regras
 
 ## Visão geral
 
-O mecanismo de regras permite personalizar a forma como as solicitações HTTP são manipuladas, como o bloqueio de entrega de alguns tipos de conteúdo, definição de uma política de caching e modificação dos cabeçalhos HTTP. Este tutorial demonstrará a criação de uma regra que irá alterar o comportamento de caching dos ativos da CDN.
+O mecanismo de regras permite personalizar a forma como as solicitações HTTP são manipuladas, como o bloqueio de entrega de alguns tipos de conteúdo, definição de uma política de caching e modificação dos cabeçalhos HTTP. Este tutorial demonstrará a criação de uma regra que irá alterar o comportamento de caching dos ativos da CDN. Também há conteúdo de vídeo disponível na seção "[Veja também](#see-also)".
 
 > [AZURE.NOTE] O mecanismo de regras é um recurso da camada Premium da CDN. Para obter uma comparação dos recursos de CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
 
@@ -63,10 +63,7 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
 - A ordem na qual são listadas várias regras afeta como elas são manipuladas. Uma regra subsequente poderá substituir as ações especificadas por uma regra anterior.
 
 ## Consulte também
+* [Azure Fridays: novos recursos Premium poderosos do Azure CDN](../../videos/azure-cdns-powerful-new-premium-features/) (vídeo)
 * [Condição de correspondência do mecanismo de regras e detalhes do recurso](cdn-rules-engine-details.md)
-* [Visão geral da CDN do Azure](cdn-overview.md)
-* [Estatísticas em tempo real na CDN do Microsoft Azure](cdn-real-time-stats.md)
-* [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
-* [Analisar o desempenho de borda](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

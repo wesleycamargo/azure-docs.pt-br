@@ -3,8 +3,8 @@
 	description="Este tópico mostra como configurar o codificador Flash Media Live Encoder (FMLE) para enviar um único fluxo de taxa de bits para os canais AMS que são habilitados para codificação ativa." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
-	manager="dwrede" 
+	authors="Juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="02/03/2016"   
-	ms.author="juliako"/>
+	ms.date="04/18/2016" 
+	ms.author="juliako;cenkdin;anilmur"/>
 
 #Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única
 
@@ -170,4 +170,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

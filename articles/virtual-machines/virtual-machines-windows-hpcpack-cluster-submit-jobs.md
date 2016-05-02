@@ -13,14 +13,14 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/14/2016"
+ ms.date="04/14/2016"
  ms.author="danlep"/>
 
 # Enviar trabalhos HPC de um computador local para um cluster de Pacote HPC implantado no Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Este artigo mostra como configurar um computador cliente local executando o Windows para executar ferramentas de envio de trabalho do Pacote HPC que se comunicam com um cluster de Pacote HPC no Azure via HTTPS. Isso fornece uma maneira simples e flexível para uma variedade de usuários de enviar trabalhos para um cluster de Pacote HPC baseado em nuvem sem a necessidade de se conectar diretamente à VM do nó principal ou acessar uma assinatura do Azure para executar as ferramentas de envio de trabalho.
+Configure um computador cliente local executando o Windows para executar ferramentas de envio de trabalho do HPC Pack que se comunicam com um cluster de HPC Pack no Azure via HTTPS. Isso fornece uma maneira simples e flexível para uma variedade de usuários de enviar trabalhos para um cluster de Pacote HPC baseado em nuvem sem a necessidade de se conectar diretamente à VM do nó principal ou acessar uma assinatura do Azure para executar as ferramentas de envio de trabalho.
 
 ![Enviar um trabalho para um cluster no Azure][jobsubmit]
 
@@ -39,7 +39,7 @@ Para habilitar uma interface REST para enviar trabalhos ao cluster por HTTPS, in
 
 Para obter procedimentos detalhados, consulte [Instalar os componentes Web do Microsoft Pacote HPC](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP] Alguns modelos de início rápido do Azure instalam e configuram os componentes Web automaticamente. Se você usar o [script de implantação do Pacote HPC IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para criar o cluster, pode, opcionalmente, instalar e configurar os componentes Web como parte da implantação.
+>[AZURE.TIP] Alguns modelos de início rápido do Azure para o HPC Pack instalam e configuram os componentes Web automaticamente. Se você usar o [script de implantação do Pacote HPC IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) para criar o cluster, pode, opcionalmente, instalar e configurar os componentes Web como parte da implantação.
 
 **Para instalar os componentes Web**
 
@@ -82,7 +82,7 @@ Para obter procedimentos detalhados, consulte [Instalar os componentes Web do Mi
 
 ## Etapa 2: instalar os utilitários de cliente do Pacote HPC em um computador local
 
-Se você ainda não o fez, baixe no computador cliente os arquivos de configuração do Pacote HPC (instalação completa) pelo [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024). Quando você começar a instalação, escolha a opção de instalação dos utilitários cliente do Pacote HPC.
+Se você desejar instalar os utilitários do HPC Pack, baixe os arquivos de instalação do HPC Pack (instalação completa) pelo [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=328024) para o computador cliente. Quando você começar a instalação, escolha a opção de instalação dos utilitários cliente do Pacote HPC.
 
 Para usar as ferramentas clientes Pacote HPC para enviar trabalhos para a VM do nó principal, você também precisará exportar um certificado do nó principal e instalá-lo no computador cliente. Você precisará do certificado no. Formato .CER.
 
@@ -90,9 +90,9 @@ Para usar as ferramentas clientes Pacote HPC para enviar trabalhos para a VM do 
 
 1. No nó principal, adicione o snap-in de Certificados ao Console de Gerenciamento Microsoft para a conta do computador local. Para obter as etapas para adicionar o snap-in, consulte [Adicionar o Snap-in de Certificados a um MMC](https://technet.microsoft.com/library/cc754431.aspx).
 
-2. Na árvore de console, expanda **Certificados – Computador Local**, expanda **Pessoal** e clique em **Certificados**.
+2. Na árvore de console, expanda **Certificados – Computador Local**,**Pessoal** e clique em **Certificados**.
 
-3. Localize o certificado que você configurou para os componentes Web do Pacote HPC na [Etapa 1: Instalar e configurar os componentes Web no nó principal](#step-1:-install-and-configure-the-web-components-on-the-head-node) (por exemplo, CN=&lt;HeadNodeDnsName&gt;.cloudapp.net).
+3. Localize o certificado que você configurou para os componentes Web do HPC Pack na [Etapa 1: Instalar e configurar os componentes Web no nó principal](#step-1:-install-and-configure-the-web-components-on-the-head-node) (por exemplo, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
 
 4. Clique no certificado, clique em **Todas as Tarefas** e clique em **Exportar**.
 
@@ -108,7 +108,7 @@ Para usar as ferramentas clientes Pacote HPC para enviar trabalhos para a VM do 
 
 2. No computador cliente, execute o certmgr.msc.
 
-3. No Gerenciador de Certificados, expanda **Certificados – Usuário atual**, expanda **Autoridades de Certificação Raiz Confiáveis**, clique com o botão direito do mouse em**Certificados**, clique em **Todas as Tarefas** e em **Importar**.
+3. No Gerenciador de Certificados, expanda **Certificados – Usuário atual** > **Autoridades de Certificação Confiáveis**, clique com o botão direito do mouse em **Certificados**, clique em **Todas as Tarefas** e em **Importar**.
 
 4. No Assistente de Importação de Certificados, clique em **Avançar** e siga as etapas para importar o certificado exportado do nó principal para o repositório de Autoridades de Certificação Confiáveis.
 
@@ -149,11 +149,11 @@ Para verificar a configuração, tente executar trabalhos no cluster no Azure us
 
     b. Clique nas **Credenciais do Windows** e clique em **Adicionar uma credencial genérica**.
 
-    c. Especifique o endereço de Internet (por exemplo, https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler ou https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler) e forneça o nome de usuário (com a forma &lt;NomedeDomínio&gt;&lt;NomedeUsuário&gt;) e a senha do administrador do cluster HPC ou de outro usuário do cluster que você configurou.
+    c. Especifique o endereço de Internet (por exemplo, https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler ou https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler), e forneça o nome de usuário (com a forma &lt;NomedeDomínio&gt;&lt;NomedeUsuário&gt;) e a senha do administrador do cluster HPC ou de outro usuário do cluster que você configurou.
 
 2. No computador cliente, inicie o gerenciador de trabalho do HPC.
 
-3. Na caixa de diálogo **Selecionar nó principal**, digite a URL para o nó principal no Azure (por exemplo, https://&lt;HeadNodeDnsName&gt;.cloudapp.net ou https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
+3. Na caixa de diálogo **Selecionar Nó Principal**, digite a URL para o nó principal no Azure (por exemplo, https://&lt;HeadNodeDnsName&gt;.cloudapp.net ou https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
 
     O gerenciador de trabalhos do HPC abre e mostra uma lista de trabalhos no nó principal.
 
@@ -164,9 +164,9 @@ Para verificar a configuração, tente executar trabalhos no cluster no Azure us
     ```
     https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
 
-    https://<HeadNodeDnsName>.<region>cloudapp.azure.com/HpcPortal
+    https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. Na caixa de diálogo de segurança, digite as credenciais de domínio do administrador de cluster HPC. (Você também pode adicionar outros usuários do cluster em funções diferentes. Consulte [Gerenciando usuários de cluster](https://technet.microsoft.com/library/ff919335.aspx).)
+2. Na caixa de diálogo de segurança, digite as credenciais de domínio do administrador de cluster HPC. (Você também pode adicionar outros usuários do cluster em funções diferentes. Consulte [Gerenciando Usuários de Cluster](https://technet.microsoft.com/library/ff919335.aspx).)
 
     O portal da Web abre no modo de exibição de lista de trabalho.
 
@@ -182,10 +182,10 @@ Para verificar a configuração, tente executar trabalhos no cluster no Azure us
 
 * Você também pode enviar trabalhos para o cluster do Azure com a [API REST do Pacote HPC](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 
-* Se você quiser enviar o cluster de um cliente Linux, consulte o exemplo do Python no [SDK do Pacote HPC 2012 R2 e código de exemplo](https://www.microsoft.com/download/details.aspx?id=41633).
+* Se você quiser enviar trabalhos do cluster de um cliente Linux, consulte o exemplo do Python no [SDK do HPC Pack 2012 R2 e código de exemplo](https://www.microsoft.com/download/details.aspx?id=41633).
 
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

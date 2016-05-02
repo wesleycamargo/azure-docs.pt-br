@@ -133,7 +133,7 @@ Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamen
 ![](./media/app-insights-export-power-bi/140.png)
 
 
-Defina o Formato de Data como AAAA-MM-DD (com traços).
+**Defina o Formato de Data como AAAA-MM-DD (com traços).**
 
 O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o assim:
 
@@ -260,6 +260,12 @@ Agora você pode usar esse conjunto de dados em relatórios e painéis no [Power
 
 ![No Power BI, selecione o conjunto de dados e os campos.](./media/app-insights-export-power-bi/210.png)
 
+
+### Não há dados?
+
+* Verifique se você [definiu o formato de data](#set-path-prefix-pattern) corretamente para AAAA-MM-DD (com traços).
+
+
 ### Vídeo
 
 Noam Ben Zeev mostra como exportar para o Power BI.
@@ -274,4 +280,4 @@ Noam Ben Zeev mostra como exportar para o Power BI.
 * [Mais exemplos e explicações passo a passo](app-insights-code-samples.md)
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

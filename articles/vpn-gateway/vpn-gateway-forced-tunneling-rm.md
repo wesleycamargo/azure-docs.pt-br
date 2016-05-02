@@ -1,28 +1,37 @@
-<properties pageTitle="Configurar o túnel forçado para Gateways de VPN usando o Gerenciador de Recursos | Microsoft Azure"
-description="Caso tenha uma Rede Virtual com um Gateway de VPN entre locais, você pode redirecionar ou "forçar" todo o tráfego direcionado à Internet para um local determinado. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos. "
-services="vpn-gateway" 
-documentationCenter="na" 
-authors="cherylmc" 
-manager="carolz" 
-editor="" tags="azure-resource-manager"/>
-<tags  
+<properties 
+   pageTitle="Configurar o túnel forçado para Gateways de VPN usando Resource Manager | Microsoft Azure"
+   description="Se você tiver uma rede virtual com um Gateway de VPN entre locais, você poderá redirecionar ou “forçar” todo o tráfego direcionado à Internet de volta para seu local. Este artigo se aplica ao modelo de implantação do Gerenciador de Recursos."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carmonm"
+   editor=""
+   tags="azure-resource-manager"/>
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/17/2015"
+   ms.date="04/12/2016"
    ms.author="cherylmc" />
 
 # Configurar o túnel forçado usando o PowerShell e Gerenciador de Recursos do Azure
 
 > [AZURE.SELECTOR]
-- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
-- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+- [PowerShell – Gerenciamento de Serviços](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell – Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 
-Este artigo se aplica aos Gateways de Redes Virtuais e de VPN criados com o modelo de implantação do Gerenciador de Recursos do Azure. Caso pretenda configurar o túnel forçado para redes virtuais que foram criadas usando o Gerenciamento de Serviços (também conhecido como modelo de implantação clássico), confira [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.md).
+Este artigo se aplica aos Gateways de Redes Virtuais e de VPN criados com o modelo de implantação do Gerenciador de Recursos do Azure.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+**Sobre modelos de implantação do Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**Ferramentas e modelos de implantação para túnel forçado**
+
+[AZURE.INCLUDE [vpn-gateway-table-forced-tunneling](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
+
 
 ## Sobre túnel forçado
 
@@ -58,16 +67,17 @@ O túnel forçado no Azure é configurado por meio de rotas de rede virtual defi
 
 Observe o procedimento a seguir para criar um grupo de recursos e uma Rede Virtual. Em seguida, crie um crie um Gateway de VPN e configure um túnel forçado.
 
-No exemplo, a Rede Virtual "MultiTier-VNet" tem 3 sub-redes: *Front-end*, *Mid-Tier* e *Back-end*, com 4 conexões entre locais: *DefaultSiteHQ* e 3 *Branches*. As etapas do procedimento definem *DefaultSiteHQ* como a conexão de site padrão para o túnel forçado e configuram as sub-redes *Mid-Tier* e *Back-end* para usarem túnel forçado.
+No exemplo, a rede virtual "MultiTier-VNet" tem 3 sub-redes: *Front-end*, *Mid-Tier* e *Back-end*, com 4 conexões entre locais: *DefaultSiteHQ* e 3 *Ramificações*. As etapas do procedimento definem *DefaultSiteHQ* como a conexão de site padrão para o túnel forçado e configuram as sub-redes *Mid-Tier* e *Back-end* para usarem túnel forçado.
 
 	
 ### Antes de começar
 
 Antes de começar a configurar, verifique se você tem os itens a seguir.
 
-- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-- Cmdlets do Azure PowerShell (1.0 ou posterior) Os cmdlets necessários para esta configuração não estão presentes nas versões anteriores a 1.0. Você pode baixar e instalar essa versão na seção Windows PowerShell da [página Download](https://azure.microsoft.com/downloads/). Se você não estiver familiarizado com a instalação e a configuração do PowerShell, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais.
+- Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager (1.0 ou posterior). Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações sobre como instalar os cmdlets do PowerShell.
+
 
 ### Etapas da configuração
 
@@ -81,7 +91,7 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 
 2. Especifique a assinatura que você deseja usar.
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 		
 3. Crie um grupos de recursos.
 
@@ -140,4 +150,4 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

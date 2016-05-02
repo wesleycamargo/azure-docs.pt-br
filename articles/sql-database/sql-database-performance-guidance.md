@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/11/2016"
+	ms.date="04/19/2016"
 	ms.author="carlrab" />
 
 # Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos
 
-## Visão geral 
+## Visão geral
 
 O Banco de Dados SQL do Microsoft Azure tem três [camadas de serviço](sql-database-service-tiers.md), Basic, Standard e Premium. Todas elas isolam estritamente o recurso fornecido ao seu Banco de Dados SQL do Azure e garantem um desempenho previsível. A produtividade garantida ao seu banco de dados aumenta gradativamente do Basic para o Standard e para o Premium.
 
@@ -39,10 +39,10 @@ Para entender como as camadas de serviço Basic, Standard e Premium melhoram o s
 
 O Microsoft também inclui muitos recursos de gerenciamento automático no Banco de Dados SQL do Azure, como HA automática e gerenciamento interno.
 
-### A alta disponibilidade (HA) automática 
+### A alta disponibilidade (HA) automática
  O Banco de Dados SQL do Azure mantém pelo menos três réplicas para cada banco de dados de usuário e tem lógica para confirmar automaticamente cada alteração para um quorum de réplicas de forma síncrona. Isso garante que qualquer falha única de máquina não cause perda de dados. Além disso, cada réplica é colocada em racks de hardwares diferentes para que a perda de energia ou de switches de rede não afete o banco de dados. Por fim, há lógica para recriar automaticamente as réplicas caso um computador seja perdido, de forma que o sistema preserve as propriedades desejadas de integridade mesmo que um computador se torne não íntegro. Esses mecanismos impedem o processo demorado exigido hoje para a instalação e a configuração de soluções de alta disponibilidade. Ter uma solução de HA pré-configurada para seus dados elimina outro problema da criação de uma solução de banco de dados de missão crítica usando técnicas tradicionais.
 
-### Gerenciamento interno 
+### Gerenciamento interno
  O Banco de Dados SQL do Azure é executado como um serviço. Isso significa que há destinos de atividade definidos para cada banco de dados, evitando períodos de inatividade de manutenção demoradas. A Microsoft fornece uma solução de fornecedor único para o serviço, o que significa que há apenas uma empresa a ser chamada caso surja algum problema. A Microsoft também está atualizando continuamente o serviço, adicionando recursos, capacidade e encontrando maneiras de melhorar a experiência em cada atualização que fazemos. As atualizações ocorrem de modo transparente e sem períodos de inatividade, o que significa que elas são integradas ao nosso mecanismo normal de failover de HA. Isso permite tirar proveito dos novos recursos imediatamente sempre que anunciamos sua disponibilidade em vez de esperar um servidor a ser atualizado durante um período de inatividade futuro.
 
 Todos esses recursos são fornecidos em todos os níveis de serviço, começando em uma faixa de preços de entrada baixo de alguns dólares por mês. Isso é muito menos do que custaria comprar e executar seu próprio servidor, o que significa que mesmo o menor dos projetos pode tirar proveito do Azure sem o gasto de muito dinheiro.
@@ -123,12 +123,12 @@ Para saber mais, consulte a [Visão geral sobre a continuidade dos negócios](sq
 
 **Máximo de solicitações simultâneas** é o número máximo de solicitações simultâneas de usuário/aplicativo em execução no banco de dados. Para ver o número de solicitações simultâneas, execute a seguinte consulta Transact-SQL em seu banco de dados SQL:
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests]
 	FROM sys.dm_exec_requests R
 
 Se você estiver analisando a carga de trabalho de um banco de dados local do SQL Server, modifique essa consulta a fim de filtrar o banco de dados específico que você está analisando. Por exemplo, se você tiver um banco de dados local chamado MyDatabase, a consulta Transact-SQL a seguir retornará a contagem de solicitações simultâneas nesse banco de dados.
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
+	SELECT COUNT(*) AS [Concurrent_Requests]
 	FROM sys.dm_exec_requests R
 	INNER JOIN sys.databases D ON D.database_id = R.database_id
 	AND D.name = 'MyDatabase'
@@ -173,17 +173,17 @@ Há dois modos de exibição que permitem o monitoramento do uso de recursos par
 ### Usando sys.dm\_db\_resource\_stats
 A exibição [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe em cada banco de dados SQL e fornece dados sobre a utilização recente de recursos com relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por uma hora.
 
-Como esse modo de exibição oferece uma análise mais granular da utilização de recursos, use primeiro **sys.dm\_db\_resource\_stats** para qualquer análise do estado atual ou para solução de problemas. Por exemplo, a consulta a seguir mostra a utilização de recursos média e máxima do banco de dados atual durante a última hora:
+Como esse modo de exibição oferece uma análise mais granular da utilização de recursos, use primeiro **sys.dm\_db\_resource\_stats ** para qualquer análise do estado atual ou para solução de problemas. Por exemplo, a consulta a seguir mostra a utilização de recursos média e máxima do banco de dados atual durante a última hora:
 
 	SELECT  
-	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
-	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
-	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent', 
-	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent', 
-	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
-	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
-	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent', 
-	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
+	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
+	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
+	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent',
+	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent',
+	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
+	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
+	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent',
+	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent'
 	FROM sys.dm_db_resource_stats;  
 
 Para outras consultas, consulte os exemplos em [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx).
@@ -206,9 +206,9 @@ O Banco de Dados SQL do Azure expõe informações de recurso consumido para cad
 
 O exemplo a seguir demonstra como os dados são expostos nessa exibição:
 
-	SELECT TOP 10 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
+	SELECT TOP 10 *
+	FROM sys.resource_stats
+	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
 ![estatísticas de recursos do sistema](./media/sql-database-performance-guidance/sys_resource_stats.png)
@@ -218,16 +218,16 @@ O exemplo a seguir demonstra maneiras diferentes de entender a utilização de r
 >[AZURE.NOTE] Algumas colunas de **sys.resource\_stats** foram alteradas nos bancos de dados V12 atuais e, portanto, os exemplos de consulta nos exemplos a seguir podem gerar erros. As atualizações futuras deste tópico fornecerão novas versões das consultas que resolvam esse problema.
 
 1. Por exemplo, para pesquisar o uso de recursos da semana passada para o banco de dados, "userdb1", você poderá executar a seguinte consulta.
-	
-		SELECT * 
-		FROM sys.resource_stats 
-		WHERE database_name = 'userdb1' AND 
+
+		SELECT *
+		FROM sys.resource_stats
+		WHERE database_name = 'userdb1' AND
 		      start_time > DATEADD(day, -7, GETDATE())
 		ORDER BY start_time DESC;
-	
+
 2. Para avaliar como sua carga de trabalho se ajusta ao nível de desempenho, terá de detalhar cada aspecto diferente da métrica de recursos: CPU, leituras, gravação, número de trabalhadores e número de sessões. Veja uma consulta revisada usando sys.resource\_stats para relatar os valores médio e máximo dessa métrica de recurso.
-	
-		SELECT 
+
+		SELECT
 		    avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
 		    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
 		    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
@@ -238,41 +238,41 @@ O exemplo a seguir demonstra maneiras diferentes de entender a utilização de r
 		    max(active_session_count) AS 'Maximum # of Sessions',
 		    avg(active_worker_count) AS 'Average # of Workers',
 		    max(active_worker_count) AS 'Maximum # of Workers'
-		FROM sys.resource_stats 
+		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 3. Com as informações acima de valores médio e máximo de cada métrica de recurso, você poderá avaliar como sua carga de trabalho se ajusta ao nível de desempenho escolhido. Na maioria dos casos, os valores médios de sys. resource\_stats oferecem uma boa referência a ser usada com o tamanho de destino. Deve ser seu cartão de medida principal. Por exemplo, se você estiver usando a camada de serviço Standard com nível de desempenho S2, as porcentagens de utilização média de CPU, as leituras e as gravações estejam abaixo de 40%, o número médio de trabalhadores for inferior a 50 e o número médio de sessões for inferior a 200, sua carga de trabalho talvez se ajuste ao nível de desempenho S1. É fácil ver se o banco de dados se ajusta aos limites de sessão e de trabalho. Para ver se um banco de dados se enquadra em um nível de desempenho inferior em termos de CPU, leituras e gravações, você poderá dividir o número de DTUs do nível de desempenho inferior pelo número de DTUs do nível de desempenho atual e multiplicar o resultado por 100:
-	
+
 	**S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
-	
+
 	O resultado é a diferença de desempenho relativo entre os dois níveis de desempenho em porcentagem. Se sua utilização não exceder essa porcentagem, sua carga de trabalho talvez se ajuste ao nível de desempenho inferior. No entanto, você precisará examinar todos os intervalos de valores de uso de recursos e determinar, em relação à porcentagem, com que frequência a carga de trabalho do banco de dados se ajustaria ao nível de desempenho inferior. A consulta a seguir produz a porcentagem de ajuste por dimensão de recurso com base no limite de 40% calculado acima.
-	
-		SELECT 
+
+		SELECT
 		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 	Com base no seu objetivo de nível de serviço (SLO) do banco de dados, você pode decidir se sua carga de trabalho se enquadra no nível de desempenho inferior. Se sua carga de trabalho do banco de dados SLO for de 99,9% e a consulta acima retornar valores superiores a 99,9 para todas as três dimensões, é muito provável que sua carga de trabalho se ajuste ao nível de desempenho inferior.
-	
+
 	O exame da porcentagem de ajuste também oferece informações que indicam se você precisará ir para o próximo nível de desempenho superior para atender ao seu SLO. Por exemplo, "userdb1" mostra a seguinte utilização para a semana passada.
-	
+
 	| Porcentagem média da CPU | Porcentagem máxima de CPU |
 	|---|---|
 	| 24,5 | 100,00 |
-	
+
 	A Média de CPU é de aproximadamente um quarto do limite do nível de desempenho, o que se ajusta bem ao nível de desempenho do banco de dados. No entanto, o valor máximo mostra que o banco de dados atinge o limite do nível de desempenho. Você precisa ir para o próximo nível mais alto de desempenho? Novamente, você precisará examinar quantas vezes sua carga de trabalho atinge 100% e a compara ao SLO da carga de trabalho do seu banco de dados.
-	
-		SELECT 
+
+		SELECT
 		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
 		,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+
 	Se a consulta acima retornar um valor inferior a 99,9 em qualquer uma das três dimensões, você deverá considerar a ida para o próximo nível mais alto de desempenho ou usar técnicas de ajuste de aplicativo para reduzir a carga no Banco de Dados SQL do Azure.
-	
+
 4. O exercício acima também deve levar em consideração o aumento da carga de trabalho projetada no futuro.
 
 ## Ajustando seu aplicativo
@@ -316,8 +316,8 @@ O exemplo a seguir cria um caso em que o plano de consulta selecionado contém u
 	END
 	COMMIT TRANSACTION;
 	GO
-	SELECT m1.col1 
-	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1) 
+	SELECT m1.col1
+	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1)
 	WHERE m1.col2 = 4;
 
 ![plano de consulta com índices ausentes](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
@@ -328,25 +328,25 @@ O Banco de Dados SQL do Azure contém funcionalidade para ajudar os administrado
 
 A consulta a seguir pode ser usada para avaliar potenciais índices ausentes.
 
-	SELECT CONVERT (varchar, getdate(), 126) AS runtime, 
-	    mig.index_group_handle, mid.index_handle, 
-	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact * 
-	            (migs.user_seeks + migs.user_scans)) AS improvement_measure, 
-	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' + 
-	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + ' 
-	              (' + ISNULL (mid.equality_columns,'') 
-	              + CASE WHEN mid.equality_columns IS NOT NULL 
-	                          AND mid.inequality_columns IS NOT NULL 
+	SELECT CONVERT (varchar, getdate(), 126) AS runtime,
+	    mig.index_group_handle, mid.index_handle,
+	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact *
+	            (migs.user_seeks + migs.user_scans)) AS improvement_measure,
+	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' +
+	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + '
+	              (' + ISNULL (mid.equality_columns,'')
+	              + CASE WHEN mid.equality_columns IS NOT NULL
+	                          AND mid.inequality_columns IS NOT NULL
 	                     THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
-	              + ')' 
-	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement, 
-	    migs.*, 
-	    mid.database_id, 
+	              + ')'
+	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement,
+	    migs.*,
+	    mid.database_id,
 	    mid.[object_id]
 	FROM sys.dm_db_missing_index_groups AS mig
-	INNER JOIN sys.dm_db_missing_index_group_stats AS migs 
+	INNER JOIN sys.dm_db_missing_index_group_stats AS migs
 	    ON migs.group_handle = mig.index_group_handle
-	INNER JOIN sys.dm_db_missing_index_details AS mid 
+	INNER JOIN sys.dm_db_missing_index_details AS mid
 	    ON mig.index_handle = mid.index_handle
 	ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
 
@@ -371,7 +371,7 @@ A seguir, uma configuração de exemplo.
 
 	DROP TABLE psptest1;
 	CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
-	
+
 	DECLARE @a int = 0;
 	SET NOCOUNT ON;
 	BEGIN TRANSACTION
@@ -384,16 +384,16 @@ A seguir, uma configuração de exemplo.
 	COMMIT TRANSACTION
 	CREATE INDEX i1 on psptest1(col2);
 	GO
-	
+
 	CREATE PROCEDURE psp1 (@param1 int)
 	AS
 	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1 
+	    INSERT INTO t1 SELECT * FROM psptest1
 	    WHERE col2 = @param1
 	    ORDER BY col2;
 	END
 	GO
-	
+
 	CREATE PROCEDURE psp2 (@param2 int)
 	AS
 	BEGIN
@@ -402,7 +402,7 @@ A seguir, uma configuração de exemplo.
 	    OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
 	END
 	GO
-	
+
 	CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
 	GO
 
@@ -413,7 +413,7 @@ O código de configuração cria uma tabela que contém a distribuição de dado
 	-- Prime Procedure Cache with scan plan
 	EXEC psp1 @param1=1;
 	TRUNCATE TABLE t1;
-	
+
 	-- Iterate multiple times to show the performance difference
 	DECLARE @i int = 0;
 	WHILE @i < 1000
@@ -427,7 +427,7 @@ O código de configuração cria uma tabela que contém a distribuição de dado
 
 	EXEC psp2 @param2=1;
 	TRUNCATE TABLE t1;
-	
+
 	DECLARE @i int = 0;
 	WHILE @i < 1000
 	BEGIN
@@ -452,9 +452,9 @@ A segunda parte do exemplo usa uma dica de consulta para dizer ao otimizador par
 
 Você poderá ver o impacto disso ao examinar a tabela **sys.resource\_stats** (observação: haverá um atraso entre o tempo de execução de teste até a hora em que os dados são populados na tabela). Para este exemplo, a parte 1 foi executada durante a janela de tempo 22:25:00 e a parte 2 foi executada em 22:35:00. Observe que a janela de tempo anterior usou mais recursos nessa janela de tempo do que a mais recente (devido a melhorias na eficiência do plano).
 
-	SELECT TOP 1000 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
+	SELECT TOP 1000 *
+	FROM sys.resource_stats
+	WHERE database_name = 'resource1'
 	ORDER BY start_time DESC
 
 ![Ajuste de Consulta](./media/sql-database-performance-guidance/query_tuning_4.png)
@@ -491,4 +491,4 @@ Alguns aplicativos de banco de dados contêm cargas de trabalho de leitura pesad
 
 As camadas de serviço no Banco de Dados SQL do Azure capacita você a elevar o nível nos tipos de aplicativos criados na nuvem. Quando combinadas ao ajuste cuidadoso do aplicativo, você poderá obter o desempenho ideal e previsível para seu aplicativo. Este documento descreve as técnicas recomendadas para otimizar o consumo de recursos do banco de dados para o ajuste adequado a um dos níveis de desempenho. O ajuste é um exercício contínuo no modelo de nuvem e as camadas de serviço e seus níveis de desempenho permitem aos administradores maximizar o desempenho e minimizar os custos na plataforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Mover e processar arquivos de log usando o Data Factory (PowerShell)
@@ -108,7 +108,7 @@ Neste tutorial, você realizará as seguintes etapas:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Monitorar pipelines e fatias de dados](#monitor-pipelines). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal Clássico do Azure.
+6. [Monitorar pipelines e fatias de dados](#monitor-pipelines). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal do Azure.
 
 ## Carregar dados de exemplo e scripts
 Nesta etapa, você carregará todos os dados de exemplo (incluindo todos os logs e dados de referência) e scripts do Hive/Pig que são executadas pelos fluxos de trabalho. Os scripts que você executa também criam um banco de dados SQL do Azure chamado **MarketingCampaigns**, tabelas, tipos definidos pelo usuário e procedimentos armazenados.
@@ -129,7 +129,7 @@ As tabelas, os tipos definidos pelo usuário e procedimentos armazenados são us
 	
 	Alternativamente, você pode usar os arquivos na pasta: C:\\ADFWalkthrough\\Scripts para carregar scripts do hive/pig e arquivos de exemplo no contêiner adfwalkthrough no armazenamento de blob e criar a tabela MarketingCampaignEffectiveness no banco de dados SQL do Azure MarketingCamapaigns.
    
-2. Confirme que seu computador local tem permissão para acessar o Banco de Dados SQL do Azure. Para habilitar o acesso, use o [Portal Clássico do Azure](http://manage.windowsazure.com) ou **sp\_set\_firewall\_rule** no banco de dados mestre para criar uma regra de firewall para o endereço IP do seu computador. Pode levar até cinco minutos para que essa alteração tenha efeito. Consulte [Configurando regras de firewall para Azure SQL][azure-sql-firewall].
+2. Confirme que seu computador local tem permissão para acessar o Banco de Dados SQL do Azure. Para habilitar o acesso, use o [Portal do Azure](http://manage.windowsazure.com) ou **sp\_set\_firewall\_rule** no banco de dados mestre para criar uma regra de firewall para o endereço IP do seu computador. Pode levar até cinco minutos para que essa alteração tenha efeito. Consulte [Configurando regras de firewall para Azure SQL][azure-sql-firewall].
 4. No PowerShell do Azure, navegue até o local onde você extraiu os exemplos (por exemplo: **C:\\ADFWalkthrough**)
 5. Execute **uploadSampleDataAndScripts.ps1** 
 6. Depois que o script for executado com êxito, você verá o seguinte:
@@ -250,7 +250,7 @@ Nesta etapa, você criará as seguintes tabelas:
  
 A figura acima exibe pipelines na linha intermediária e tabelas nas linhas superior e inferior.
 
-O Portal Clássico do Azure ainda não dá suporte à criação de conjuntos de dados e tabelas, portanto, será necessário usar o Azure PowerShell para criar tabelas nesta versão.
+O Portal do Azure não dá suporte à criação de conjuntos de dados e tabelas ainda, portanto, será necessário usar o PowerShell do Azure para criar tabelas nesta versão.
 
 ### Para criar as tabelas
 
@@ -504,4 +504,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

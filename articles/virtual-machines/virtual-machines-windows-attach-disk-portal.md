@@ -19,7 +19,7 @@
 
 # Como anexar um disco de dados a uma VM do Windows no portal do Azure
 
-Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM Linux no portal do Azure](virtual-machines-linux-attach-disk-portal.md). Antes de fazer isso, revise estas dicas:
+Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Windows por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM Linux no portal do Azure](virtual-machines-linux-attach-disk-portal.md). Antes de fazer isso, revise estas dicas:
 
 - O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md).
 - Para usar o Armazenamento Premium, você precisará de uma máquina virtual da série DS ou GS. Você pode usar discos de contas de armazenamento Premium e Standard com essas máquinas virtuais. O armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage.md).
@@ -31,7 +31,7 @@ Este artigo mostra como anexar discos novos e existentes a uma máquina virtual 
 
 ## <a id="initializeinWS"></a>Como: inicializar um novo disco de dados no Windows Server
 
-1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server](virtual-machines-windows-log-on.md).
+1. Conectar-se à máquina virtual. Para ver instruções, consulte [Como se conectar e fazer logon em uma máquina virtual do Azure que executa o Windows Server](virtual-machines-windows-connect-logon.md).
 
 2. Depois de entrar na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, selecione **Arquivos e serviços de armazenamento**.
 
@@ -55,4 +55,4 @@ Este artigo mostra como anexar discos novos e existentes a uma máquina virtual 
 
 Caso seu aplicativo precise usar a unidade D: para armazenar dados, é possível [alterar a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,7 +3,7 @@
 	description="Saiba como capturar uma imagem de uma VM (máquina virtual) do Azure baseada em Linux criada com o modelo de implantação clássico."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 
 # Como capturar uma máquina virtual clássica do Linux como uma imagem
@@ -87,7 +87,7 @@ Essas etapas pressupõem que você já criou uma máquina virtual do Azure usand
 
 
 ## Próximas etapas
-A imagem está pronta para ser usada para criar máquinas virtuais. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](../virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, use o [portal clássico do Azure][] para criar uma máquina virtual personalizada usando o método **Da galeria** e selecionando a imagem que você acabou de criar. Consulte [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
+A imagem está pronta para ser usada para criar máquinas virtuais. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você acabou de criar. Consulte [Como usar a CLI do Azure com o Azure Service Management](../virtual-machines-command-line-tools.md) para obter detalhes sobre o comando. Como alternativa, use o [portal clássico do Azure][] para criar uma máquina virtual personalizada usando o método **Da galeria** e selecionando a imagem que você acabou de criar. Consulte [Como criar uma máquina virtual personalizada][] para obter mais detalhes.
 
 **Consulte também:** [Guia do usuário do agente Linux para o Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -98,4 +98,4 @@ A imagem está pronta para ser usada para criar máquinas virtuais. É possível
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [Como criar uma máquina virtual do Linux]: virtual-machines-linux-classic-create-custom.md
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
 # Transformar e analisar usando o Azure Data Factory
@@ -24,15 +24,14 @@ As atividades de transformação no Azure Data Factory transformam e processam o
 
 Atividade de transformação | Ambiente de computação 
 :----------------------- | :--------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
-[Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
-[Atividades de aprendizado de máquina: recurso de execução em lote e de atualização](data-factory-azure-ml-batch-execution-activity.md) | VM do Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [Atividades de aprendizado de máquina: recurso de execução em lote e de atualização](data-factory-azure-ml-batch-execution-activity.md) | VM do Azure 
 [Procedimento armazenado](data-factory-stored-proc-activity.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server |
 [U-SQL da Análise Data Lake](data-factory-usql-activity.md) | Análise Azure Data Lake 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Lote do Azure
    
+> [AZURE.NOTE] 
+Você pode usar a atividade MapReduce para executar programas Spark no cluster HDInsight Spark. Consulte [Invoke Spark programs from Azure Data Factory (Invocar programas Spark da Azure Data Factory)](data-factory-spark.md) para obter detalhes. Você pode criar uma atividade personalizada para executar scripts R em seu cluster HDInsight com R instalado. Consulte [Executar Script R usando o Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
+ 
 
 É necessário criar um serviço vinculado para o ambiente de computação e, em seguida, usar o serviço vinculado ao definir uma atividade de transformação. Há dois tipos de ambientes de computação com suporte do Data Factory.
 
@@ -41,4 +40,4 @@ Atividade de transformação | Ambiente de computação
 
 Consulte o artigo [Serviços vinculados de computação](data-factory-compute-linked-services.md) para saber mais sobre os serviços vinculados de computação com suporte do Data Factory.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0420_2016-->

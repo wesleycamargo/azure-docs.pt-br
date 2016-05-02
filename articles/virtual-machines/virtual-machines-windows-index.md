@@ -11,7 +11,7 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="02/24/2016"
@@ -37,9 +37,6 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 [Saiba mais sobre implantações do Azure Resource Manager](../resource-group-overview.md)
 
 [Máquinas virtuais e contêineres no Azure](virtual-machines-windows-containers.md)
-
-[Conjuntos de Dimensionamento de Máquina Virtual - Visão Geral](virtual-machines-windows-scale-sets-overview.md)
-
 
 
 ### Configuração do ambiente
@@ -115,8 +112,6 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 [Backup automatizado para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-patching.md)
-
-[Dimensionar automaticamente máquinas em um conjunto de escalas de máquina virtual](virtual-machines-windows-ps-vmss-create.md)
 
 
 
@@ -329,8 +324,6 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Criando uma máquina virtual para um aplicativo Web com o Visual Studio](virtual-machines-windows-classic-web-app-visual-studio.md)
 
-[Como executar uma tarefa que exija muita computação no .NET em uma máquina virtual Azure](virtual-machines-windows-classic-run-compute-intensive-task.md)
-
 [Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual](virtual-machines-windows-classic-java-run-compute-intensive-task.md)
 
 [Aplicativo Web Django Hello World em uma VM do Windows Server](virtual-machines-windows-classic-python-django-web-app.md)
@@ -375,4 +368,4 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

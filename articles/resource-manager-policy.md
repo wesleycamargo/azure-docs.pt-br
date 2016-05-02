@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="ravbhatnagar"
 	manager="ryjones"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/26/2016"
+	ms.date="04/18/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Usar a política para gerenciar recursos e controlar o acesso
@@ -23,8 +23,6 @@ O Gerenciador de Recursos do Azure agora permite que você controle o acesso por
 Crie definições de política que descrevem as ações ou os recursos que são especificados negados. Atribua essas definições de política no escopo desejado, como a assinatura, grupo de recursos ou um recurso individual.
 
 Neste artigo, explicaremos a estrutura básica de linguagem de definição de política que você pode usar para criar políticas. Em seguida, descreveremos como você pode aplicar essas políticas em escopos diferentes e, por fim, mostraremos alguns exemplos sobre como você pode obter isso por meio da API REST.
-
-A política está disponível atualmente como uma visualização.
 
 ## Qual é a diferença dela em relação ao RBAC?
 
@@ -56,10 +54,10 @@ Basicamente, uma política contém o seguinte:
 
     {
       "if" : {
-        <condition> | <logical operator>
+          <condition> | <logical operator>
       },
       "then" : {
-        "effect" : "deny | audit"
+          "effect" : "deny | audit | append"
       }
     }
     
@@ -67,7 +65,7 @@ Basicamente, uma política contém o seguinte:
 
 A política será avaliada quando ocorrer a criação de recurso ou implantação de modelo usando HTTP PUT. No caso da implantação de modelo, a política será avaliada durante a criação de cada recurso no modelo.
 
-Observação: os tipos de recursos que não dão suporte a marcas, variante e local não são avaliadas pela política, como Microsoft.Resources/deployments. O suporte será adicionado no futuro. Para evitar problemas de compatibilidade com versões anteriores, é uma melhor prática especificar explicitamente o tipo ao criar políticas. Por exemplo, uma política de marca sem especificar os tipos será aplicada para todos os tipos, portanto, a implantação de modelo poderá falhar se houver um recurso aninhado que não dá suporte à marca quando o tipo de recurso for adicionado à avaliação no futuro.
+> [AZURE.NOTE] Atualmente, a política não avalia os tipos de recursos que não dão suporte a marcas, tipo e local, como o tipo de recurso Microsoft.Resources/deployments. Esse suporte será adicionado no futuro. Para evitar problemas de compatibilidade com versões anteriores, você deve especificar explicitamente o tipo ao criar políticas. Por exemplo, uma política de marcação que não especifica tipos será aplicada a todos os tipos. Nesse caso, uma implantação de modelo poderá falhar no futuro se houver um recurso aninhado que não dê suporte a marcação e o tipo de recurso de implantação tiver sido adicionado à avaliação da política.
 
 ## Operadores lógicos
 
@@ -93,7 +91,7 @@ Uma condição avalia se um **campo** ou uma **fonte** atende a determinados cri
 | No | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | containsKey" : "&lt;keyName&gt;" |
 
-## Campos e fontes
+### Campos e fontes
 
 As condições são formadas por meio do uso de campos e fontes. Um campo representa as propriedades na carga de solicitação de recurso que é usada para descrever o estado do recurso. Uma fonte representa as características da solicitação em si.
 
@@ -103,37 +101,70 @@ Campos: **nome**, **variante**, **tipo**, **local**, **marcas**, **marcas.*** e 
 
 Fontes: **ação**.
 
-Alias de propriedade é um nome que pode ser usado na definição de política para acessar as propriedades específicas do tipo de recurso, como SKUs e configurações. Ele funciona em todas as versões de API que contêm a propriedade. Aliases podem ser recuperados usando a API REST abaixo (o suporte ao PowerShell será adicionado no futuro):
+### Aliases de propriedade 
+Alias de propriedade é um nome que pode ser usado em uma definição de política para acessar as propriedades específicas do tipo de recurso, como SKUs e configurações. Ele funciona em todas as versões de API que contêm a propriedade. Aliases podem ser recuperados usando a API REST mostrada abaixo (o suporte ao PowerShell será adicionado no futuro):
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 	
-A definição de um alias é semelhante ao descrito abaixo. Como é possível ver, um alias define caminhos em diferentes versões de API, mesmo quando há uma alteração de nome da propriedade.
+A definição de um alias é mostrada abaixo. Como é possível ver, um alias define caminhos em diferentes versões de API, mesmo quando há uma alteração de nome da propriedade.
 
-    "aliases": [
-      {
-        "name": "Microsoft.Storage/storageAccounts/sku.name",
-        "paths": [
-          {
-            "path": "Properties.AccountType",
-            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
-          }
-        ]
-      }
-    ]
+	"aliases": [
+	    {
+	      "name": "Microsoft.Storage/storageAccounts/sku.name",
+	      "paths": [
+	        {
+	          "path": "properties.accountType",
+	          "apiVersions": [
+	            "2015-06-15",
+	            "2015-05-01-preview"
+	          ]
+	        },
+	        {
+	          "path": "sku.name",
+	          "apiVersions": [
+	            "2016-01-01"
+	          ]
+	        }
+	      ]
+	    }
+	]
 
 Atualmente, os aliases com suporte são:
 
 | Nome do alias | Descrição |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Os tipos de recursos com suporte são: Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Os tipos de recursos com suporte são: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | O tipo de recurso com suporte é Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | O tipo de recurso com suporte é Microsoft.Cache/Redis |
+| Microsoft.Compute/virtualMachines/imagePublisher | |
+| Microsoft.Compute/virtualMachines/imageOffer | |
+| Microsoft.Compute/virtualMachines/imageSku | |
+| Microsoft.Compute/virtualMachines/imageVersion | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
 
 
 Para saber mais sobre ações, confira [RBAC - Funções internas](active-directory/role-based-access-built-in-roles.md). Atualmente, a política só funciona em solicitações PUT.
 
+## Efeito
+A política dá suporte a três tipos de efeito - **negar**, **auditar** e **acrescentar**.
+
+- Negar gera um evento no log de auditoria e causa uma falha da solicitação
+- Auditar gera um evento no log de auditoria, mas não causa falha da solicitação
+- Acrescentar adiciona o conjunto de campos definido à solicitação 
+
+Para **acrescentar**, você precisa fornecer os detalhes conforme mostrado abaixo:
+
+    ....
+    "effect": "append",
+    "details": [
+      {
+        "field": "field name",
+        "value": "value of the field"
+      }
+    ]
+
+O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON.
 
 ## Exemplos de definições de política
 
@@ -154,6 +185,51 @@ A política a seguir nega todas as solicitações que não têm uma marca que co
         "effect" : "deny"
       }
     }
+
+A política abaixo acrescentará a marcação costCenter com um valor predefinido se nenhuma marca estiver presente.
+
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": {"costCenter":"myDepartment" }
+	      }
+	    ]
+	  }
+	}
+	
+A política abaixo acrescentará a marcação costCenter com um valor predefinido se nenhuma outra marca estiver presente.
+
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
 
 
 ### Conformidade geográfica: Garantir locais de recursos
@@ -311,24 +387,25 @@ Com um corpo de solicitação semelhante ao seguinte:
     }
 
 
-Definição de política pode ser definida como um dos exemplos mostrados acima. Para a versão de API, use *2015-10-01-preview*. Para obter exemplos e mais detalhes, veja a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+Definição de política pode ser definida como um dos exemplos mostrados acima. Para api-version, use *2016-04-01*. Para obter exemplos e mais detalhes, veja a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Criar definição de política usando o PowerShell
 
 Você pode criar uma nova definição de política usando o cmdlet New-AzureRmPolicyDefinition, conforme mostrado abaixo. Os exemplos a seguir criam uma política para permitir recursos somente na Europa Setentrional e Ocidental.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
-    	    			    "not" : {
-    	      			    	"field" : "location",
-    	      			    		"in" : ["northeurope" , "westeurope"]
-    	    			    	}
-    	    		          },
-    	      		    		"then" : {
-    	    			    		"effect" : "deny"
-    	      			    		}
-    	    		    	}'    		
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    		
 
-A saída da execução é armazenada no objeto $policy, visto que ele pode ser usado durante a atribuição da política. Para o parâmetro de política, o caminho para um arquivo .json que contém a política também pode ser fornecido em vez de especificar a política incorporada, conforme mostrado abaixo.
+A saída da execução é armazenada no objeto $policy e pode ser usada posteriormente durante a atribuição da política. Para o parâmetro de política, o caminho para um arquivo .json que contém a política também pode ser fornecido em vez de especificar a política incorporada, conforme mostrado abaixo.
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
@@ -343,7 +420,7 @@ Para criar uma nova atribuição de política, execute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-A {Atribuição da política} é o nome da atribuição da política. Para a versão de API, use *2015-10-01-preview*.
+A {Atribuição da política} é o nome da atribuição da política. Para api-version, use *2016-04-01*.
 
 Com um corpo de solicitação semelhante ao seguinte:
 
@@ -380,11 +457,11 @@ Depois de aplicar a política, você começará a ver eventos relacionados à po
 
 Para exibir todos os eventos relacionados ao efeito de recusa, você pode usar o comando a seguir.
 
-    Get-AzureRmLog | where {$_.subStatus -eq "Forbidden"}     
+    Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usar o comando a seguir.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

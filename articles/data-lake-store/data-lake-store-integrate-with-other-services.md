@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="04/13/2016"
    ms.author="nitinme"/>
 
 # Integrando o Repositório Data Lake com outros Serviços do Azure
@@ -47,6 +47,10 @@ Para obter instruções sobre como usar o Azure Data Factory com o Repositório 
 
 O Repositório Data Lake do Azure fornece uma ferramenta de linha de comando, AdlCopy, que permite copiar dados do Armazenamento de Blobs do Azure para o Repositório Data Lake. Para obter mais informações, consulte [Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake](data-lake-store-copy-data-azure-storage-blob.md).
 
+## Copiar dados entre o Banco de Dados SQL do Azure e o Repositório Data Lake
+
+Você pode usar o Apache Sqoop para importar e exportar dados entre o Banco de Dados SQL do Azure e o Repositório Data Lake. Para mais informações, confira [Copiar dados entre o Repositório Data Lake e o Banco de Dados SQL do Azure usando o Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+
 
 ## Consulte também
 
@@ -54,4 +58,4 @@ O Repositório Data Lake do Azure fornece uma ferramenta de linha de comando, Ad
 - [Introdução ao Repositório Data Lake usando o Portal](data-lake-store-get-started-portal.md)
 - [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

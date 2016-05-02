@@ -87,9 +87,8 @@ Abra a folha do Banco de Dados SQL do banco de dados que você deseja exportar.
 
 ## Próximas etapas
 
-- [Importar um banco de dados SQL do Azure][5]
-
-
+- [Importar um BACPCAC para um banco de dados SQL do Azure](sql-database-import.md)
+- [Importar um BACPCAC para um banco de dados do SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
 
 ## Recursos adicionais
 
@@ -105,4 +104,4 @@ Abra a folha do Banco de Dados SQL do banco de dados que você deseja exportar.
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -22,6 +22,26 @@ Se você já tiver integrado uma versão anterior do Engagement no seu aplicativ
 
 Você precisará seguir vários procedimentos se perdeu várias versões do SDK. Por exemplo, se você migrar do 0.10.1 para 0.11.0 você tem que primeiro seguir o procedimento "de 0.9.0 a 0.10.1” e depois o procedimento "de 0.10.1 a 0.11.0".
 
+##De 3.3.0 a 3.4.0
+
+### Logs de teste
+
+Agora, os logs do console produzidos pelo SDK podem ser habilitados/desabilitados/filtrados. Para personalizar esse recurso, atualize a propriedade `EngagementAgent.Instance.TestLogEnabled` para um dos valores disponíveis na enumeração `EngagementTestLogLevel`, por exemplo:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+### Recursos
+
+A sobreposição do Alcance foi aprimorada. Ela faz parte dos recursos do pacote NuGet do SDK.
+
+Ao atualizar para a nova versão do SDK, você pode escolher se deseja ou não manter os arquivos existentes da pasta de sobreposição de seus recursos:
+
+* Se a sobreposição anterior estiver funcionando para você ou se você estiver integrando os elementos `WebView` manualmente, você poderá optar por manter os arquivos existentes e ela ainda funcionará. 
+* Se você deseja atualizar para a nova sobreposição, basta substituir toda a pasta `overlay` dos seus recursos pela nova pasta do pacote do SDK (aplicativos UWP: após a atualização, você pode obter a nova pasta de sobreposição de %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
+
+> [AZURE.WARNING] Usar a nova sobreposição substituirá todas as personalizações feitas na versão anterior.
+
 ##De 3.2.0 a 3.3.0
 
 ### Recursos
@@ -294,4 +314,4 @@ Observe que renomear também afeta métodos substituídos.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

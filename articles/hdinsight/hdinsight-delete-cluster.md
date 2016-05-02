@@ -44,7 +44,7 @@ Substitua __CLUSTERNAME__ pelo nome do seu cluster HDInsight.
 
 ##CLI do Azure
 
-> [AZURE.NOTE] Se você não tiver instalado e configurado a CLI do Azure, use as etapas descritas no documento [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 Em um prompt, use o seguinte para excluir o cluster:
 
@@ -52,4 +52,4 @@ Em um prompt, use o seguinte para excluir o cluster:
     
 Substitua __CLUSTERNAME__ pelo nome do seu cluster HDInsight.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

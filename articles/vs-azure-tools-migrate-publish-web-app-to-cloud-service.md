@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azure por meio do Visual Studio
@@ -45,7 +45,7 @@ Para migrar e publicar um aplicativo Web no Azure do Visual Studio, siga estas e
 
     - A propriedade **Copiar Local** é definida como verdadeira para todos os assemblies que são necessários para MVC 2, MVC 3, MVC 4 e aplicativos de negócios do Silverlight. Isso adicionará esses assemblies ao pacote de serviço usado para a implantação.
 
-  >[AZURE.IMPORTANT]Se tiver outros assemblies ou arquivos necessários para o aplicativo Web, você precisa definir manualmente as propriedades para esses arquivos. Para obter informações sobre como definir essas propriedades, consulte a seção **Incluir Arquivos no Pacote de Serviço** posteriormente neste artigo.  
+  >[AZURE.IMPORTANT] Se tiver outros assemblies ou arquivos necessários para o aplicativo Web, você precisa definir manualmente as propriedades para esses arquivos. Para obter informações sobre como definir essas propriedades, consulte a seção **Incluir Arquivos no Pacote de Serviço** posteriormente neste artigo.
 
   >[AZURE.NOTE] Se já existir uma função web para um projeto Web específicos em um projeto do Azure na solução, **Converter**, **Converter em projeto de serviço de nuvem do Azure** não é exibido no menu de atalho para este projeto Web.
 
@@ -208,4 +208,4 @@ Para publicar um aplicativo Web no Azure, o aplicativo deve usar um dos modelos 
 ## Próximas etapas
 Para obter mais informações sobre a publicação, consulte [preparar, publicar ou implantar um aplicativo do Azure do Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Confira também [Configuração de credenciais de autenticação nomeadas](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

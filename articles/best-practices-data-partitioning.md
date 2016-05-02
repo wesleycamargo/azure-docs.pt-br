@@ -324,7 +324,7 @@ O armazenamento de blobs é particionado automaticamente com base no nome do blo
 
 As ações de gravação de um único bloco (blob de blocos) ou uma página (blob de páginas) são atômicas, mas as operações que abrangem blobs, páginas ou blocos não. Se precisar garantir a consistência ao executar operações de gravação em blocos, páginas e blobs, remova um bloco de gravação usando uma concessão de blob.
 
-O armazenamento de blobs do Azure permite taxas de transferência de até 60 MB por segundo ou 500 solicitações por segundo para cada blob. Se você prevê que esses limites serão excedidos e os dados do blob forem relativamente estáticos, considere replicar os blobs usando a Rede de Distribuição de Conteúdo do Azure. Para saber mais, visite a página [Usando a CDN para Azure] no site da Microsoft. Para obter mais instruções e considerações, consulte [Using Content Delivery Network for Azure] (Usando a Rede de Distribuição de Conteúdo para Azure).
+O armazenamento de blobs do Azure permite taxas de transferência de até 60 MB por segundo ou 500 solicitações por segundo para cada blob. Se você prevê que esses limites serão excedidos e os dados do blob forem relativamente estáticos, considere replicar os blobs usando a Rede de Distribuição de Conteúdo do Azure. Para saber mais, visite a página [Usando a CDN para Azure] no site da Microsoft. Para obter mais instruções e considerações, consulte Usando a Rede de Distribuição de Conteúdo do Azure.
 
 ## Particionamento de filas de armazenamento do Azure
 
@@ -512,7 +512,7 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 - O [padrão de fragmentação], conforme descrito no site da Microsoft, resume algumas estratégias comuns para a fragmentação de dados.
 - O [padrão da tabela de índice], conforme descrito no site da Microsoft, ilustra como criar índices secundários sobre os dados. Um aplicativo pode recuperar dados rapidamente com essa abordagem, usando consultas que não referenciam a chave primária de uma coleção.
 - O [padrão de exibição materializada], conforme descrito no site da Microsoft, descreve como gerar exibições pré-populadas que resumem os dados para dar suporte a operações de consulta rápidas. Essa abordagem poderá ser útil em um armazenamento de dados particionado se as partições que contêm os dados sendo resumidos forem distribuídas em vários locais.
-- O artigo [Using Content Delivery Network for Azure] (Usando a Rede de Distribuição de Conteúdo para Azure), no site da Microsoft, fornece instruções adicionais sobre como configurar e usar a Rede de Distribuição de Conteúdo com o Azure.
+- O artigo [Using Azure Content Delivery Network], no site da Microsoft, fornece instruções adicionais sobre como configurar e usar a Rede de Distribuição de Conteúdo com o Azure.
 
 ## Mais informações
 
@@ -522,7 +522,7 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 - A página [Metas de desempenho e escalabilidade do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn249410.aspx), no site da Microsoft, documenta os limites atuais de tamanho e taxa de transferência do Armazenamento do Azure.
 - A página [Performing entity group transactions] (Executando transações do grupo de entidades), no site da Microsoft, fornece informações detalhadas sobre como implementar operações transacionais nas entidades que são armazenadas no armazenamento de tabelas do Azure.
 - O artigo [Guia de design de tabela de armazenamento do Azure], no site da Microsoft, contém informações detalhadas sobre como particionar dados no armazenamento de tabelas do Azure.
-- A página [Using Content Delivery Network for Azure] (Usando a Rede de Distribuição de Conteúdo para Azure), no site da Microsoft, descreve como replicar os dados que são mantidos no armazenamento de blobs do Azure usando a Rede de Distribuição de Conteúdo do Azure.
+- A página [Using Azure Content Delivery Network], no site da Microsoft, descreve como replicar os dados que são mantidos no armazenamento de blobs do Azure usando a Rede de Distribuição de Conteúdo do Azure.
 - A página [Manage DocumentDB capacity needs] (Gerenciar necessidades de capacidade do Banco de Dados de Documentos), no site da Microsoft, contém informações sobre como os bancos de dados do Banco de Dados de Documentos do Azure alocam recursos.
 - A página [O que é a Pesquisa do Azure?], no site da Microsoft, fornece uma descrição completa dos recursos que estão disponíveis com a Pesquisa do Azure.
 - A página [Limites de serviço na Pesquisa do Azure], no site da Microsoft, contém informações sobre a capacidade de cada instância da Pesquisa do Azure.
@@ -553,7 +553,7 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 [tutorial de cluster do Redis]: http://redis.io/topics/cluster-tutorial
 [Running Redis on a CentOS Linux VM in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Dimensionamento usando a ferramenta de divisão/mesclagem do Banco de Dados Elástico]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Using Content Delivery Network for Azure]: cdn/cdn-how-to-use-cdn.md
+[Using Azure Content Delivery Network]: cdn/cdn-create-new-endpoint.md
 [Cotas do Barramento de Serviço]: service-bus/service-bus-quotas.md
 [Limites de serviço na Pesquisa do Azure]: search/search-limits-quotas-capacity.md
 [Sharding pattern]: http://aka.ms/Sharding-Pattern
@@ -564,4 +564,4 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 [What is Azure SQL Database?]: sql-database/sql-database-technical-overview.md
 [O que é o Banco de Dados SQL do Azure?]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

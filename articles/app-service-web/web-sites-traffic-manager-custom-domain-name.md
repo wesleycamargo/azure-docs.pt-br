@@ -1,4 +1,11 @@
-<properties pageTitle="Configurar um nome de domínio personalizado para um aplicativo web no serviço de aplicativo do Azure que usa o Gerenciador de Tráfego"wpickett"Usar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que inclua o Gerenciador de Tráfego para balanceamento de carga." description="Usar um nome de domínio personalizado para um aplicativo web no serviço de aplicativo do Azure que inclua o Gerenciador de Tráfego para balanceamento de carga." services="appp service\\web" documentationCenter="" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties
+	pageTitle="Configurar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que usa o Gerenciador de Tráfego para balanceamento de carga."
+    description="Use um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que inclua o Gerenciador de Tráfego para balanceamento de carga."
+	services="app-service\web"
+	documentationCenter=""
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -38,7 +45,7 @@ Este artigo fornece instruções genéricas sobre como usar um nome de domínio 
 
 Para associar seu domínio personalizado a um aplicativo Web no Serviço de Aplicativo do Azure, você deve adicionar uma nova entrada na tabela DNS para seu domínio personalizado usando as ferramentas fornecidas pelo registrador de domínio do qual comprou seu nome de domínio. Use as seguintes etapas para localizar e usar as ferramentas DNS.
 
-1. Entre em sua conta em seu registrador de domínios e procure uma página de gerenciamento de registros DNS. Procure links ou áreas do site rotuladas como **Nome de domínio**, **DNS**, ou **Gerenciamento de servidor de nome**. Normalmente, um link para essa página pode ser encontrado exibindo-se as informações de conta e procurando-se um link como **Meus domínios**.
+1. Entre em sua conta em seu registrador de domínios e procure uma página de gerenciamento de registros DNS. Procure links ou áreas do site rotuladas como **Nome de Domínio**, **DNS** ou **Gerenciamento do Servidor de Nomes**. Normalmente, um link para essa página pode ser encontrado exibindo-se as informações de conta e procurando-se um link como **Meus domínios**.
 
 4. Depois de localizar a página de gerenciamento para seu nome de domínio, procure um link que permita editar os registros DNS. Ele pode estar listado como um **Arquivo de zona**, **Registros DNS** ou como um link de configuração **Avançado**.
 
@@ -59,4 +66,4 @@ Para associar seu domínio personalizado a um aplicativo Web no Serviço de Apli
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

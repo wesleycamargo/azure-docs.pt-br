@@ -4,7 +4,7 @@
 	keywords="Erro de área de trabalho remota, erro de conexão de área de trabalho remota, não é possível conectar-se à VM, solução de problemas da área de trabalho remota"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,9 +14,9 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/25/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows
 
@@ -48,7 +48,7 @@ Essas etapas podem resolver a maioria das falhas de conexão de Área de Trabalh
 
 - Verifique se há problemas de plataforma na Integridade do Recurso da VM.<br> Clique em **Procurar** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Windows > **Configurações** > **Verificar Integridade**.
 
-## Máquinas virtuais criadas usando o modelo de implantação do Gerenciador de Recursos
+### Máquinas virtuais criadas usando o modelo de implantação do Gerenciador de Recursos
 
 Essas etapas podem resolver a maioria das falhas de conexão de Área de Trabalho Remota em máquinas virtuais criadas com o modelo de implantação do Gerenciador de Recursos. Após cada etapa, tente se reconectar à VM.
 
@@ -121,7 +121,7 @@ A parte do endereço neste arquivo RDP tem o nome de domínio totalmente qualifi
 
 Causa: a VM de destino não pôde localizar a autoridade de segurança na parte do nome de usuário das suas credenciais.
 
-Quando seu nome de usuário estiver no formato *SecurityAuthority*\\*UserName* (exemplo: CORP\\User1), o trecho *SecurityAuthority* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário estiver no formato *SecurityAuthority*\*UserName* (exemplo: CORP\\User1), o trecho *SecurityAuthority* será o nome do computador da máquina virtual (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Soluções possíveis:
 
@@ -136,8 +136,8 @@ Causa: o VM de destino não pôde validar seu nome de conta e senha.
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-- Para contas locais, use a sintaxe *NomeComputador*\\*NomeUsuário* (exemplo: SQL1\\Admin4798).
-- Para contas de domínio, use a sintaxe *DomainName*\\*UserName* (exemplo: CONTOSO\\johndoe).
+- Para contas locais, use a sintaxe *NomeComputador*\*NomeUsuário* (exemplo: SQL1\\Admin4798).
+- Para contas de domínio, use a sintaxe *DomainName*\*UserName* (exemplo: CONTOSO\\johndoe).
 
 Se você promoveu sua VM a um controlador de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado também é convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então excluída. Por exemplo, se você estiver conectado à conta local DC1\\DCAdmin e tiver promovido a máquina virtual como um controlador de domínio em uma nova floresta para o domínio corp.contoso.com, a conta local DC1\\DCAdmin será excluída, e uma nova conta de domínio (CORP\\DCAdmin) será criada com a mesma senha.
 
@@ -171,4 +171,4 @@ Se nenhum desses erros ocorreu e ainda não foi possível para você conectar-se
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -11,10 +11,10 @@
 <tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="support-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Solucionando problemas de falhas da extensão da VM do Windows no Azure
@@ -70,4 +70,4 @@ Se estiver executando scripts na VM usando a Extensão de Script Personalizado, 
 
 Depois que a extensão tiver sido removida, o modelo poderá ser executado novamente para executar os scripts na VM.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

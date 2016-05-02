@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="andkjell"/>
 
 # Solucionar problemas de conectividade com o Azure AD Connect
@@ -37,11 +37,7 @@ Desses intervalos, a tabela a seguir é o mínimo absoluto para oferecer a capac
 | URL | Port | Descrição |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Usada para baixar as listas CRL. |
-| **.verisign.com | HTTP/80 | Usado para baixar listas CRL. |
-| *.trust.com | HTTP/80 | Usado para baixar listas CRL para MFA. |
-| *.windows.net | HTTPS/443 | Usado para entrar na AD do Azure. |
-| secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usado para MFA. |
-| *.microsoftonline.com | HTTPS/443 | Usado para configurar seu diretório do AD do Azure e importar/exportar dados. |
+| **.verisign.com | HTTP/80 | Usado para baixar listas CRL. | | *.trust.com | HTTP/80 | Usado para baixar listas CRL para MFA. | | *.windows.net | HTTPS/443 | Usado para entrar na AD do Azure. | | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usado para MFA. | | *.microsoftonline.com | HTTPS/443 | Usado para configurar seu diretório do AD do Azure e importar/exportar dados. |
 
 ## Erros no assistente
 O assistente de instalação está usando dois contextos de segurança diferentes. Na página **Conectar-se ao AD do Azure** utiliza o usuário conectado no momento. Na página **Configurar** o assistente muda para a [conta que executa o serviço no mecanismo de sincronização](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). As configurações de proxy que realizamos são globais para o computador de forma que, se houver um problema, ele provavelmente já aparecerá na página **Conectar-se ao AD do Azure** no assistente.
@@ -140,4 +136,4 @@ Esse erro ocorre quando o assistente de conexão não consegue acessar o proxy o
 ## Próximas etapas
 Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

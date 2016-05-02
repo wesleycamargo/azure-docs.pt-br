@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/18/2016"
+	ms.date="04/15/2016"
 	ms.author="jeffstok"/>
 
 #  Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
@@ -25,7 +25,7 @@ Use o [Microsoft Power BI](https://powerbi.com/) para criar um painel dinâmico 
 
 Neste artigo, saiba como criar suas próprias ferramentas de inteligência de negócios personalizadas usando o Power BI como uma saída de seus trabalhos da Stream Analytics do Azure e utilize um painel em tempo real.
 
-> [AZURE.NOTE] A Saída de da Power BI é um recurso de visualização da Stream Analytics do Azure. No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal do Azure, apenas no Portal Clássico do Azure.
+> [AZURE.NOTE] No momento, não há suporte para a criação e configuração das saídas do Power BI no Portal do Azure, apenas no Portal Clássico do Azure.
 
 ## Pré-requisitos
 
@@ -98,12 +98,13 @@ Forneça valores como a seguir:
 * **Alias de Saída** – Você pode colocar qualquer alias de saída que seja fácil de lembrar. Esse alias de saída será particularmente útil se você optar por ter várias saídas para seu trabalho. Nesse caso, você precisa se referir a essa saída em sua consulta. Por exemplo, vamos usar o valor do alias de saída = "OutPbi".
 * **Nome do Conjunto de Dados** -Forneça um nome de conjunto de dados que você deseja que a saída do Power BI tenha. Por exemplo, usaremos “pbidemo”.
 *	**Nome da Tabela** - Forneça um nome de tabela sob o conjunto de dados da sua saída do Power BI. Digamos que nós a chamaremos de “pbidemo”. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados.
+*	**Espaço de trabalho**: selecione um espaço de trabalho no seu locatário do Power BI sob a qual o conjunto de dados será criado.
 
->	[AZURE.NOTE] Não crie explicitamente este conjunto de dados e esta tabela na conta do Power BI. Eles serão criados automaticamente quando você iniciar o trabalho do Stream Analytics e este começar a colocar a saída no Power BI. Se sua consulta de trabalhar não retornar nenhum resultado, o conjunto de dados e a tabela não serão criados.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Clique em **OK**, **Testar Conexão** e agora sua configuração de saída está concluída.
 
->	[AZURE.WARNING] Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Gravar consulta
@@ -161,7 +162,7 @@ Agora quando você exibir o painel com esse relatório fixado, você verá a atu
 
 Observe que este tutorial demonstrou como criar um tipo de gráfico para um conjunto de dados. O Power BI pode ajudá-lo a criar outras ferramentas de cliente business intelligence para sua organização. Para obter outro exemplo de um painel do Power BI, assista ao vídeo [Introdução ao Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 
-Para obter mais informações sobre como configurar uma saída do Power BI e utilizar grupos do Power BI, analise a [seção Power BI](stream-analytics-define-outputs.md#power-bi) de [Noções básicas sobre saídas do Stream Analytics](stream-analytics-define-outputs.md "Noções básicas sobre saídas do Stream Analytics"). Outro recurso útil para saber mais sobre como criar Painéis com o Power BI é [Painéis no Power BI Preview](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+Para obter mais informações sobre como configurar uma saída do Power BI e utilizar grupos do Power BI, analise a [seção Power BI](stream-analytics-define-outputs.md#power-bi) de [Noções básicas sobre saídas do Stream Analytics](stream-analytics-define-outputs.md "Noções básicas sobre saídas do Stream Analytics"). Outro recurso útil para saber mais sobre como criar Painéis com o Power BI é [Painéis no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## Limitações e práticas recomendadas
 
@@ -198,7 +199,7 @@ Para fazer isso, no PowerBI utiliza P e R, faz uma pergunta como "Valor máximo 
 
 ### Renovar autorização
 
-Há uma limitação temporária em que o token de autenticação deve ser atualizado manualmente a cada 90 dias para todos os trabalhos com saída do Power BI. Você também precisará autenticar novamente sua conta do Power BI caso sua senha tenha sido alterada depois que seu trabalho tenha sido criado ou autenticado pela última vez. Um sintoma desse problema é nenhuma saída de trabalho e um "erro de Autenticar usuário" nos Logs de Operações:
+Você precisará autenticar novamente sua conta do Power BI caso sua senha tenha sido alterada depois de seu trabalho ser criado ou autenticado pela última vez. Se a MFA (Multi-Factor Authentication) estiver configurada no locatário do AAD (Azure Active Directory) também será necessário renovar a autorização do Power BI a cada 2 semanas. Um sintoma desse problema é nenhuma saída de trabalho e um "erro de Autenticar usuário" nos Logs de Operação:
 
 ![elementográfico12][graphic12]
 
@@ -232,4 +233,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

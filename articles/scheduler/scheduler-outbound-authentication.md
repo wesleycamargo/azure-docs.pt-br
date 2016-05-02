@@ -1,6 +1,6 @@
 <properties
  pageTitle="Autenticação de Saída do Agendador"
- description=""
+ description="Autenticação de Saída do Agendador"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -120,4 +120,4 @@ Quando uma solicitação é enviada com as informações de autenticação, a re
 
  [Limites, padrões e códigos de erro do Agendador do Azure](scheduler-limits-defaults-errors.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

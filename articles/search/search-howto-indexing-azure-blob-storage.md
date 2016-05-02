@@ -74,6 +74,7 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 - ZIP
 - EML
 - Arquivos de texto sem formatação  
+- JSON (consulte [Indexing JSON blobs (Indexando blobs JSON)](search-howto-index-json-blobs.md) para obter detalhes)
 
 ## Processo de extração de documento
 
@@ -191,7 +192,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extração do texto, incluindo anexos
 ZIP (application/zip) | `metadata_content_type` | Extração do texto de todos os documentos no arquivo
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Remoção da marcação XML e extração do texto
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrair texto<br/>OBSERVAÇÃO: se você precisar extrair vários campos de documento de um blob JSON, vote [nessa sugestão UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/)
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrair texto<br/>OBSERVAÇÃO: se você precisar extrair vários campos de documento de um blob JSON, consulte [Indexing JSON blobs (Indexando blobs JSON)](search-howto-index-json-blobs.md) para obter detalhes
 EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extração do texto, incluindo anexos
 Texto sem formatação (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
@@ -223,4 +224,4 @@ Se precisar extrair metadados e ignorar a extração de conteúdo para todos os 
 
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

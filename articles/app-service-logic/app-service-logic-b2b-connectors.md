@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2016" 
+	ms.date="04/20/2016" 
 	ms.author="mandia"/>
 
 # Conectores entre empresas e aplicativos de API no Serviço de Aplicativo do Microsoft Azure
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 O Serviço de Aplicativo do Microsoft Azure (ou Serviço de Aplicativo, para abreviar) inclui muitos aplicativos de API do BizTalk que são vitais para ambientes de integração. Esses Aplicativos de API são baseados nos conceitos e ferramentas usados no BizTalk Server, mas agora estão disponíveis como parte do Serviço de Aplicativo do Azure.
 
@@ -193,7 +194,7 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 4. Selecione **OK** para salvar suas alterações.
 
->[AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+>[AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic) (Experimentar os Aplicativos Lógicos). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 ## Mais recursos B2B
 
@@ -208,4 +209,4 @@ As etapas a seguir adicionam aplicativos de API B2B a aplicativos lógicos, móv
 
 [Lista de conectores e Aplicativos de API](app-service-logic-connectors-list.md)<br/><br/> [O que são conectores e Aplicativos de API do BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

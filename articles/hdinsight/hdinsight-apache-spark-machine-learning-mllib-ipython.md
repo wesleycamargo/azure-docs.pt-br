@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Aprendizado de máquina: análise de previsão nos dados de inspeção de alimentos usando MLlib com Spark no HDInsight (Linux)
+# Aprendizado de máquina: análise preditiva nos dados de inspeção de alimentos usando MLlib com Spark no HDInsight Linux (Preview)
 
-> [AZURE.TIP] Este tutorial também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência do notebook permite executar os trechos de código Python no próprio notebook. Para executar o tutorial de dentro de um notebook, crie um cluster do Spark, inicie um notebook do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o notebook **Aprendizado de máquina do Spark - análise de previsão em dados de inspeção de alimentos usando MLLib.ipynb** na pasta **Python**.
+> [AZURE.TIP] Este tutorial também está disponível como um bloco de anotações do Jupyter em um cluster Spark (Linux) que você cria no HDInsight. A experiência do notebook permite executar os trechos de código Python no próprio notebook. Para executar o tutorial de dentro de um notebook, crie um cluster do Spark, inicie um notebook do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o notebook **Aprendizado de máquina do Spark - análise de previsão em dados de inspeção de alimentos usando MLLib.ipynb** na pasta **Python**.
 
 
 Este artigo demonstra como usar **MLLib**, as bibliotecas de aprendizado de máquina internas do Spark, para executar uma análise de previsão simples em um conjunto de dados aberto. MLLib é uma biblioteca Spark principal que fornece vários utilitários úteis para tarefas de aprendizado de máquina, incluindo utilitários adequados para:
@@ -412,4 +412,4 @@ Depois de concluir a execução do aplicativo, você deve encerrar o notebook pa
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

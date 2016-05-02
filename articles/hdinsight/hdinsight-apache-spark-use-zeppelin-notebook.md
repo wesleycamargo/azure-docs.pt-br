@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Usar blocos de anotações do Zeppelin com cluster Spark no HDInsight (Linux)
+# Usar notebooks do Zeppelin com cluster Spark no HDInsight Linux (Preview)
 
 Saiba como instalar blocos de anotações do Zeppelin em clusters Spark e como usar esses blocos de anotações.
 
@@ -39,13 +39,13 @@ Saiba como instalar blocos de anotações do Zeppelin em clusters Spark e como u
 
 ## Instalar o Zeppelin como parte da criação do cluster
 
-Você pode instalar o Zeppelin em um cluster Spark usando ação de script. A ação de script usa scripts personalizados para instalar componentes no cluster que não estão disponíveis por padrão. O script personalizado para instalar o Zeppelin em um cluster do Spark está disponível em **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+Você pode instalar o Zeppelin em um cluster Spark usando ação de script. A ação de script usa scripts personalizados para instalar componentes no cluster que não estão disponíveis por padrão. O script personalizado para instalar o Zeppelin em um cluster do Spark está disponível em ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 ### Usando o Portal do Azure
 
 Para obter instruções sobre como usar o SDK do .NET do HDInsight para executar a ação de script a fim de instalar o Zeppelin, confira [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). Você deve fazer algumas alterações nas instruções deste artigo.
 
-* Você deve usar o script para instalar o Zeppelin. O script a ser usado é **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Você deve usar o script para instalar o Zeppelin. O script a ser usado é ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * Você deve executar a ação de script somente no nó principal.
 
@@ -55,7 +55,7 @@ Para obter instruções sobre como usar o SDK do .NET do HDInsight para executar
 
 Para obter instruções sobre como usar o SDK do .NET do HDInsight para executar a ação de script a fim de instalar o Zeppelin, confira [Personalizar os clusters HDInsight usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). Você deve fazer algumas alterações nas instruções deste artigo.
 
-* Você deve usar o script para instalar o Zeppelin. O script a ser usado é **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+* Você deve usar o script para instalar o Zeppelin. O script a ser usado é ****https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
 
 * O script não precisa de parâmetros.
 
@@ -191,7 +191,7 @@ Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para conf
 
 	* **Nome padrão** – **zeppelinnotebook** – apenas um nome amigável para o padrão.
 
-	* **Padrão de URL** – **\*hn0\*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
+	* **Padrão de URL** – ***hn0*** – isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno do ponto de extremidade em que os blocos de anotações do Zeppelin estão hospedados. Como os blocos de anotações do Zeppelin estão disponíveis somente em headnode0 do cluster e o ponto de extremidade normalmente é `http://hn0-<string>.internal.cloudapp.net`, usar o padrão **hn0** garante que a solicitação seja redirecionada para o ponto de extremidade do Zeppelin.
 
 		![padrão do foxyproxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -332,4 +332,4 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

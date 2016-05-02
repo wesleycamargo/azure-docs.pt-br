@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 # Realizando a amostragem, filtrando e pré-processando a telemetria no SDK do Application Insights
@@ -47,6 +47,8 @@ Antes de começar:
 ### Para habilitar a amostragem de ingestão
 
 Na barra Configurações, abra a folha Cotas e Preço. Clique em Amostragem e selecione uma taxa de amostragem.
+
+A ingestão não funcionará se o SDK estiver realizando a amostragem adaptável ou fixa. Enquanto a taxa de amostragem no SDK for menor que 100%, a configuração de amostragem de ingestão será ignorada.
 
 ### Para habilitar a amostragem adaptável
 
@@ -407,4 +409,4 @@ Você pode adicionar quantos inicializadores desejar.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

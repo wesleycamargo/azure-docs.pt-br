@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Como gerenciar perfis e configurações de serviço
@@ -99,7 +99,7 @@ Quando você executa o assistente pela primeira vez, um perfil padrão é criado
 
 1. Na lista **Perfil de destino**, clique no perfil que você acabou de criar. As configurações do Assistente de Publicação são preenchidas com as opções do perfil selecionado.
 
-1. Clique nos botões **Anterior** e **Próximo** para exibir cada página do Assistente de Publicação e, em seguida, personalize as configurações para esse perfil. Confira [Assistente de Publicação de Aplicativo do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
+1. Clique nos botões **Anterior** e **Próximo** para exibir cada página do Assistente de Publicação e, em seguida, personalize as configurações para esse perfil. Consulte [Assistente Publicar aplicativo do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085) para obter mais informações.
 
 1. Depois de você terminar de personalizar as configurações, clique em **Próximo** para voltar para a página de configurações. O perfil é salvo quando você publica o serviço usando essas configurações, ou se você clica em **Salvar** ao lado da lista de perfis.
 
@@ -129,6 +129,6 @@ Quando você executa o assistente pela primeira vez, um perfil padrão é criado
 
 ## Próximas etapas
 
-Para saber mais sobre como configurar outras partes do seu projeto do Azure do Visual Studio, consulte [Como configurar um projeto do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
+Para obter informações sobre como configurar outras partes do seu projeto do Azure do Visual Studio, consulte [Configurando um projeto do Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

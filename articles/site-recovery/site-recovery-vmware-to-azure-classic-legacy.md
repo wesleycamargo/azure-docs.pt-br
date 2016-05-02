@@ -1,4 +1,11 @@
-<properties pageTitle="Replicar as máquinas virtuais VMware e os servidores físicos no Azure com o Azure Site Recovery (herdado) | Microsoft Azure" description="Descreve uma implantação herdada para a configuração do Azure Site Recovery a fim de administrar a replicação, o failover e a recuperação de máquinas virtuais VMware locais e de servidores físicos com o Windows/Linux no Azure." " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
+<properties
+	pageTitle="Replicar máquinas virtuais e servidores físicos do VMware no Azure com o Azure Site Recovery (herdado) | Microsoft Azure" 
+	description="Descreve uma implantação herdada para configurar o Azure Site Recovery para coordenar a replicação, o failover e a recuperação de máquinas virtuais VMware e servidores físicos Windows/Linux locais no Azure." 
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -16,16 +23,16 @@
 - [Herdado](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para obter uma breve visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md).
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para ter uma breve visão geral, leia [O que é Azure Site Recovery?](site-recovery-overview.md).
 
 ## Visão geral
 
 Este artigo descreve como:
 
-- **Replicar máquinas virtuais do VMware no Azure** – Implante a Recuperação de Site para coordenar a replicação, o failover e a recuperação de máquinas virtuais locais do VMware no armazenamento do Azure.
-- **Replicar servidores físicos no Azure** – Implante o Azure Site Recovery para coordenar a replicação, o failover e a recuperação de servidores físicos locais Windows e Linux no Azure.
+- **Replicar máquinas virtuais VMware no Azure**—Implante a Recuperação de Site para coordenar a replicação, failover e recuperação de máquinas virtuais do VMware locais no armazenamento do Azure.
+- **Replicar servidores físicos no Azure**—Implante o Azure Site Recovery para coordenar a replicação, failover e recuperação de servidores do Windows e Linux físicos locais no Azure.
 
->[AZURE.NOTE] O cenário descrito neste artigo inclui **instruções herdadas**. Não siga este artigo para novas implantações. Em vez disso, use as instruções de [implantação avançada](site-recovery-vmware-to-azure-classic.md) para o portal clássico). Se você já tiver implantado usando o método descrito neste artigo, recomendamos que você migre para a nova versão, como descrito abaixo.
+>[AZURE.NOTE] O cenário descrito neste artigo inclui **instruções herdadas**. Não siga este artigo para novas implantações. Em vez disso, use as instruções de [implantação avançada](site-recovery-vmware-to-azure-classic.md) para o portal clássico. Se você já tiver implantado usando o método descrito neste artigo, recomendamos que você migre para a nova versão, como descrito abaixo.
 
 
 ## Migrar para a implantação avançada
@@ -43,29 +50,29 @@ Para migrar a implantação existente, você precisará:
 Antes de começar, observe que:
 
 - Recomendamos o planejamento de uma janela de manutenção para migrar para a implantação avançada.
-- A opção **Migrar Máquinas** só estará disponível se você tiver grupos de proteção existentes criados durante uma implantação herdada.
+- A opção **Migrar Máquinas** só ficará disponível se você tiver grupos de proteção que foram criados durante uma implantação herdada.
 - Depois de concluir as etapas de migração, talvez demore 15 minutos ou mais para atualizar as credenciais e para descobrir e atualizar as máquinas virtuais para que você possa adicioná-las a um grupo de proteção. Você pode atualizar manualmente em vez de esperar. 
 
 Migre da seguinte maneira:
 
-1. Leia sobre os [recursos avançados](site-recovery-vmware-to-azure-classic.md#enhanced-deployment), verifique se você entendeu a nova [arquitetura](site-recovery-vmware-to-azure-classic.md#scenario-architecture) e verifique os [pré-requisitos](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) para a implantação avançada.
+1. Leia sobre os [recursos avançados](site-recovery-vmware-to-azure-classic.md#enhanced-deployment), certifique-se de que você entendeu a nova [arquitetura](site-recovery-vmware-to-azure-classic.md#scenario-architecture) e verifique os [pré-requisitos](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) para a implantação avançada.
 2. Desinstale o serviço de Mobilidade dos computadores que você está protegendo atualmente. Uma nova versão do serviço de Mobilidade será instalada nos computadores quando você adicioná-lo ao novo grupo de proteção
 3. Obtenha uma [chave de registro do cofre](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key) e [execute o assistente de instalação unificada](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server) para instalar o servidor de configuração, o servidor de processo e os componentes do servidor de destino mestre no servidor de gerenciamento. Leia mais sobre o [planejamento de capacidade](site-recovery-vmware-to-azure-classic.md#capacity-planning).
-4. Se você tiver um servidor VMware vCenter, [configure as credenciais](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) para acessá-lo de modo que a Recuperação de Site possa descobrir automaticamente as VMs que ele gerencia. Leia mais sobre as [permissões necessárias](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+4. Se você tiver um VMware vCenter Server, [configure as credenciais](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) para acessá-lo de modo que a Recuperação de Site possa descobrir automaticamente as VMs que ele gerencia. Leia mais sobre as [permissões necessárias](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 5. Adicione os [servidores vCenter ou hosts ESXi](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts). Pode demorar até 15 minutos para que o portal seja atualizado e as credenciais apareçam.
-6. Crie um [novo grupo de proteção](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). Pode demorar até 15 minutos para que o portal seja atualizado e as máquinas virtuais sejam descobertas e exibidas. Se você não quiser esperar, realce o nome do servidor de gerenciamento (não clique nele) > **Atualizar**.
+6. Crie um [novo grupo de proteção](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). Pode demorar até 15 minutos para que o portal seja atualizado e as máquinas virtuais sejam descobertas e exibidas. Se não quiser esperar, realce o nome do servidor de gerenciamento (não clique nele) > **Atualizar**.
 7. No novo grupo de proteção, clique em **Migrar Máquinas**.
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration1.png)
 
-8. Em **Selecionar Máquinas**, selecione o grupo de proteção do qual você deseja migrar e as máquinas que deseja migrar.
+8. Em **Selecionar Máquinas**, selecione o grupo de proteção do qual deseja migrar e as máquinas que deseja migrar.
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration2.png)
-9. Em **Definir Configurações de Destino**, especifique se deseja usar as mesmas configurações para todos os computadores e selecione o servidor de processo e a conta de armazenamento do Azure. Se você tiver configurado um servidor de gerenciamento único, o servidor de processo será o endereço IP desse servidor de gerenciamento.
+9. Em **Especificar Configurações de Destino**, especifique se deseja usar as mesmas configurações para todos os computadores e selecione o servidor de processo e a conta de armazenamento do Azure. Se você tiver configurado um servidor de gerenciamento único, o servidor de processo será o endereço IP desse servidor de gerenciamento.
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
 
-10. Em **Especificar Contas**, selecione a conta criada para automaticamente enviar por push a nova versão do serviço de Mobilidade para os computadores protegidos.
+10. Em **Especificar Contas**, selecione a conta criada para enviar automaticamente por push a nova versão do serviço de Mobilidade para os computadores protegidos.
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration4.png)
 
@@ -73,7 +80,7 @@ Migre da seguinte maneira:
 12. Após a conclusão do trabalho, as máquinas virtuais serão sincronizadas automaticamente. Após a conclusão da sincronização, você poderá excluir as máquinas virtuais do grupo de proteção herdado.
 13. Após a migração de todas as máquinas, você poderá excluir o grupo de proteção herdado.
 14. Lembre-se de especificar as propriedades de failover das máquinas e as configurações de rede do Azure após a conclusão da sincronização.
-15. Se tiver planos de recuperação existentes, você poderá migrá-los para a implantação avançada com a opção **Plano de Recuperação de Migração**. Você só deverá fazer isso após a migração de todas as máquinas protegidas. 
+15. Se tiver planos de recuperação existentes, você poderá migrá-los para a implantação avançada com a opção **Migrar Plano de Recuperação**. Você só deverá fazer isso após a migração de todas as máquinas protegidas. 
 
 	![Adicionar conta](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration5.png)
 
@@ -98,7 +105,7 @@ Você precisará de:
 **Computadores locais** | Em máquinas virtuais locais executadas em um hipervisor VMware ou servidores físicos executando Windows ou Linux. | Defina configurações de replicação que se aplicam a máquinas virtuais e servidores. É possível fazer failover de um computador individual ou, mais frequentemente, como parte de um plano de recuperação que contém várias máquinas virtuais que fazem failover juntas.
 **Serviço de mobilidade** | <p>É instalado em cada máquina virtual ou servidor físico que você deseja proteger</p><p>Pode ser instalado manualmente ou enviado por push e instalado automaticamente pelo servidor de processo quando a proteção está habilitada para o servidor. | O serviço de mobilidade envia dados para o Servidor de processo como parte da replicação inicial (ressincronização.) Depois que o servidor atinge um estado protegido (após a ressincronização ser concluída), o Serviço de Mobilidade executa uma captura na memória de gravações em disco e a envia para o Servidor de processo. A consistência de aplicativos para servidores Windows é obtida com a estrutura VSS.
 **Cofre do Azure Site Recovery** | Configure depois de assinar o serviço Site Recovery. | Registre os servidores em um cofre do Site Recovery. O cofre coordena e administra a replicação de dados, o failover e a recuperação entre o site local e o Azure.
-**Mecanismo de replicação** | <p>**Pela Internet**: comunica e replica dados dos servidores locais protegidos e do Azure usando um canal de comunicação SSL/TLS seguro por uma conexão pública de Internet. Essa é a opção padrão.</p><p>**VPN/Rota Expressa**: comunica e replica dados entre servidores locais e o Azure por uma conexão VPN. Você precisará configurar uma conexão VPN site a site ou de Rota Expressa entre o site local e a rede do Azure.</p><p>Você selecionará como deseja replicar durante a implantação da Recuperação de Site. Não será possível alterar o mecanismo depois que ele tiver sido configurado sem afetar a proteção em servidores já protegidos.| <p>Nenhuma opção exige que você abra portas de rede de entrada em computadores protegidos. Toda a comunicação de rede é iniciada no site local.</p> 
+**Mecanismo de replicação** | <p>**Pela Internet**: comunica e replica dados dos servidores locais protegidos e do Azure usando um canal de comunicação SSL/TLS seguro por uma conexão pública de Internet. Essa é a opção padrão.</p><p>**VPN/Rota Expressa**: comunica e replica dados entre servidores locais e o Azure por uma conexão VPN. Você precisará configurar uma VPN site a site ou uma conexão da Rota Expressa entre o site local e a rede do Azure.</p><p>Você selecionará como deseja replicar durante a implantação da Recuperação de Site. Não será possível alterar o mecanismo depois que ele tiver sido configurado sem afetar a proteção em servidores já protegidos.| <p>Nenhuma opção exige que você abra portas de rede de entrada em computadores protegidos. Toda a comunicação de rede é iniciada no site local.</p> 
 
 ## Planejamento da capacidade
 
@@ -197,7 +204,7 @@ Observe que:
 **Componente** | **Requisitos** | **Detalhes**
 --- | --- | --- 
 **Conta do Azure** | Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Você pode começar com uma [avaliação gratuita](pricing/free-trial/).
-**Armazenamento do Azure** | <p>Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados</p><p>A conta deve ser uma [Conta de Armazenamento com Redundância Geográfica Padrão](../storage/storage-redundancy.md#geo-redundant-storage) ou uma [Conta de Armazenamento Premium](../storage/storage-premium-storage.md).</p><p>Ela deve estar na mesma região que o serviço Azure Site Recovery e associada à mesma assinatura. Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.</p><p>Para saber mais, leia [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md)</p>
+**Armazenamento do Azure** | <p>Você precisará de uma conta de armazenamento do Azure para armazenar dados replicados</p><p>A conta deve ser uma [Conta de Armazenamento com Redundância Geográfica Padrão](../storage/storage-redundancy.md#geo-redundant-storage) ou uma [Conta de Armazenamento Premium](../storage/storage-premium-storage.md).</p><p>Ela deve estar na mesma região que o serviço Azure Site Recovery e associada à mesma assinatura. Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.</p><p>Para saber mais, leia [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md)</p>
 **Rede virtual do Azure** | Você precisará de uma rede virtual do Azure na qual o servidor de configuração e o servidor de destino mestre serão implantados. Ela deve estar na mesma assinatura e na mesma região que o cofre do Azure Site Recovery. Se você quiser replicar dados em uma conexão VPN ou da Rota Expressa, a rede virtual do Azure deve estar conectada à sua rede local através de uma conexão da Rota Expressa ou uma VPN Site a Site.
 **Recursos do Azure** | Verifique se você tem recursos suficientes do Azure para implantar todos os componentes. Leia mais em [Limites de assinatura do Azure](../azure-subscription-service-limits.md).
 **Máquinas virtuais do Azure** | <p>As máquinas virtuais que você deseja proteger devem estar em conformidade com os [pré-requisitos do Azure](site-recovery-best-practices.md).</p><p>**Contagem de discos**—há suporte para um máximo de 31 discos em um único servidor protegido</p><p>**Tamanhos de disco**: a capacidade de disco individual não deve ultrapassar 1023 GB</p><p>**Clustering**: não há suporte para servidores clusterizados</p><p>**Inicialização**—não há suporte para inicialização de UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface)</p><p>**Volumes**—não há suporte para volumes criptografados pelo Bitlocker</p><p> **Nomes de servidor**—os nomes devem conter entre 1 e 63 caracteres (letras, números e hifens). O nome deve começar com uma letra ou número e terminar com uma letra ou número. Depois que um computador é protegido, você pode modificar o nome do Azure.</p>
@@ -219,11 +226,11 @@ O elemento gráfico resume as etapas da implantação.
 
 Você tem duas opções ao configurar a conectividade de rede entre o site local e a rede virtual do Azure no qual os componentes de infraestrutura (servidor de configuração, servidores de destino mestre) são implantados. Você precisará decidir qual opção de conectividade de rede vai usar antes de implantar o servidor de configuração. Você precisará escolher essa configuração no momento da implantação. Ele não pode ser alterado posteriormente.
 
-**Internet Pública:** a comunicação e a replicação de dados entre os servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes da infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorrem em uma conexão SSL/TLS segura dos pontos de extremidade locais para os públicos nos servidores de destino mestre e de configuração. (A única exceção é a conexão entre o servidor de processo e o servidor de destino mestre na porta TCP 9080 que será criptografada. Somente as informações de controle relacionadas ao protocolo de replicação para a configuração de replicação são trocadas nesta conexão.)
+**Internet Pública:** a comunicação e a replicação de dados entre os servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes de infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorrem em uma conexão SSL/TLS segura dos pontos de extremidade locais para os públicos nos servidores de destino mestre e de configuração. (A única exceção é a conexão entre o servidor de processo e o servidor de destino mestre na porta TCP 9080 que será criptografada. Somente as informações de controle relacionadas ao protocolo de replicação para a configuração de replicação são trocadas nesta conexão.)
 
 ![Diagrama de implementação para Internet](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN**: a comunicação e a replicação de dados entre os servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes da infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorrem em uma conexão VPN entre a rede local e a rede virtual do Azure em que o servidor de configuração e os servidores de destino mestre são implantados. Certifique-se de que sua rede local esteja conectada à rede virtual do Azure por uma conexão da Rota Expressa ou uma conexão VPN site a site.
+**VPN**: a comunicação e a replicação de dados entre os servidores locais (servidor de processo, computadores protegidos) e os servidores de componentes de infraestrutura do Azure (servidor de configuração, servidor de destino mestre) ocorrem em uma conexão VPN entre a rede local e a rede virtual do Azure em que o servidor de configuração e os servidores de destino mestre estão implantados. Certifique-se de que sua rede local esteja conectada à rede virtual do Azure por uma conexão da Rota Expressa ou uma conexão VPN site a site.
 
 ![Diagrama de implementação para VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -310,11 +317,11 @@ O servidor de configuração é implantado em um serviço de nuvem do Azure cria
 	- Se você usar um proxy personalizado ou se o seu proxy padrão exigir autenticação, será preciso inserir os detalhes do proxy, incluindo o endereço, a porta e as credenciais.
 	- As URLs a seguir devem poder ser acessadas pelo proxy:
 		- **.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Se você tiver regras de firewall baseadas no endereço IP, verifique se as regras estão definidas para permitir a comunicação do servidor de configuração com os endereços IP descritos em [Intervalos IP do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e o protocolo HTTPS (443). Você terá que colocar os intervalos IP em uma lista de permissões da região do Azure que planeja usar e uma para o Oeste dos EUA.
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Se você tiver regras de firewall baseadas no endereço IP, verifique se as regras estão definidas para permitir a comunicação do servidor de configuração com os endereços IP descritos em [Intervalos IP do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e o protocolo HTTPS (443). Você terá que colocar os intervalos IP em uma lista de permissões da região do Azure que planeja usar e uma para o Oeste dos EUA.
 
 	![Registro do proxy](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
 
@@ -417,9 +424,8 @@ Observe que os quatro primeiros endereços IP em qualquer sub-rede são reservad
 8. Se você estiver executando o Linux:
 	1. Certifique-se de ter os LIS (Linux Integration Services) mais recentes instalados antes de instalar o Software do servidor de destino mestre. Você pode encontrar a versão mais recente dos LIS com instruções sobre como instalá-los [aqui](https://www.microsoft.com/download/details.aspx?id=46842). Reinicie a máquina após instalar os LIS.
 	2. Em **Preparar Recursos de Destino do Azure**, clique em **Baixar e Instalar software adicional (somente para o Servidor de Destino Mestre Linux)** para baixar o pacote do servidor de destino mestre do Linux. Copie o arquivo tar baixado na máquina virtual usando um cliente sftp. Como alternativa, você pode fazer logon no servidor de destino mestre Linux implantado e usar *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* para baixar o arquivo.
-	2. Faça logon no servidor usando um cliente do Secure Shell. Observe que, se você estiver conectado à rede do Azure pela VPN, use o endereço IP interno. Caso contrário, use o endereço IP externo e o ponto de extremidade público do SSH.
-	3. Extraia os arquivos do instalador compactado executando **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***
-	![Servidor de destino mestre Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
+2. Faça logon no servidor usando um cliente do Secure Shell. Observe que, se você estiver conectado à rede do Azure pela VPN, use o endereço IP interno. Caso contrário, use o endereço IP externo e o ponto de extremidade público do SSH.
+	3. Extraia os arquivos do instalador compactado executando **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Servidor de destino mestre Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
 	4. Verifique se você está no diretório no qual extraiu o conteúdo do arquivo tar.
 	5. Copie a senha do servidor de configuração para um arquivo local usando o comando **echo *`<passphrase>`* >passphrase.txt**
 	6. Execute o comando “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”.
@@ -807,4 +813,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

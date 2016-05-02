@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Como atualizar projetos para a versão atual das ferramentas do Azure para Visual Studio
@@ -37,7 +37,7 @@ Se um projeto é atualizado automaticamente ou se você especificar que deseja a
 
 - Se o Caching do Azure está hospedado em uma ou mais funções de seu projeto, algumas propriedades na configuração de serviço (arquivo .csdef) e a definição de serviço (arquivo .cscfg) são alteradas quando um projeto é atualizado. Se o projeto usa o pacote NuGet de Caching do Azure, o projeto é atualizado para a versão mais recente do pacote. Você deve abrir o arquivo web.config e verificar se a configuração do cliente foi mantida corretamente durante o processo de atualização. Se você adicionar as referências aos assemblies de cliente de Caching do Azure sem usar o pacote NuGet, esses assemblies não serão atualizados. Você deve atualizar manualmente essas referências às novas versões.
 
->[AZURE.IMPORTANT]Para projetos F #, você deve atualizar manualmente as referências aos assemblies do Azure para que eles façam referência às versões mais recentes desses assemblies.
+>[AZURE.IMPORTANT] Para projetos F #, você deve atualizar manualmente as referências aos assemblies do Azure para que eles façam referência às versões mais recentes desses assemblies.
 
 ### Como atualizar um projeto do Azure para a versão atual
 
@@ -51,4 +51,4 @@ Se um projeto é atualizado automaticamente ou se você especificar que deseja a
 
 1. Compile o projeto e resolva os erros resultantes das alterações de API. Para obter informações sobre como modificar seu código para a nova versão, consulte a documentação da API específica.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="adsolank;juliako;"/>
 
 
 # Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2
-
 
 ##Visão geral
 
@@ -91,7 +90,7 @@ A Preview do Indexador de Mídia do Azure 2 dá suporte à conversão de fala em
 
 ## Exemplo de código
 
-O seguinte programa mostra como:
+O programa a seguir mostra como:
 
 1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
 1. Criar um trabalho com uma tarefa de indexação baseada em um arquivo de configuração que contém a predefinição de JSON a seguir.
@@ -286,6 +285,8 @@ O seguinte programa mostra como:
 
 ## Links relacionados
 
-[Visão geral da Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md)
+[Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="04/18/2016"
 	ms.author="kgremban"/>
 
 #RBAC: funções internas
 
 ## Funções internas
 
-O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar a definição das funções integradas. Em uma versão futura do RBAC do Azure, você poderá definir funções personalizadas pela composição de um conjunto de ações de uma lista de ações disponíveis que podem ser executadas nos recursos do Azure.
+O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar as definições de funções internas. No entanto, você pode criar [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md) para atender às necessidades específicas de sua organização.
 
-Clique nos links abaixo para ver as propriedades de **ações** e **não ação** de uma definição de função. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade **não-ações** da definição de função especifica as ações que devem ser excluídas das ações permitidas.
+A tabela a seguir fornece breves descrições das funções internas. Clique no nome da função para ver sua lista detalhada de **ações** e **não ações**. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade das **não ações** especifica as ações excluídas das ações permitidas.
 
 
 | Nome da função | Descrição |
@@ -45,9 +45,9 @@ Clique nos links abaixo para ver as propriedades de **ações** e **não ação*
 | [Colaborador de Coleções de Trabalho do Agendador](#scheduler-job-collections-contributor) | Pode gerenciar coleções de trabalhos do agendador |
 | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Pode gerenciar serviços de pesquisa |
 | [Gerenciador de Segurança](#security-manager) | Pode gerenciar componentes de segurança, políticas de segurança e máquinas virtuais |
-| [Colaborador do banco de dados SQL](#sql-db-contributor) | Pode gerenciar bancos de dados SQL, mas não a segurança das políticas relacionadas |
+| [Colaborador do banco de dados SQL](#sql-db-contributor) | Pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas a segurança |
 | [Gerenciador de Segurança do SQL](#sql-security-manager) | Pode gerenciar políticas relacionadas à segurança de servidores e banco de dados SQL |
-| [Colaborador do SQL Server](#sql-server-contributor) | Pode gerenciar servidores e bancos de dados SQL, mas não as políticas relacionadas à segurança |
+| [Colaborador do SQL Server](#sql-server-contributor) | Pode gerenciar bancos de dados e servidores SQL, mas não suas políticas relacionadas à segurança |
 | [Colaborador da conta de armazenamento clássica](#classic-storage-account-contributor) | Pode gerenciar contas de armazenamento clássicas |
 | [Colaborador da Conta de Armazenamento](#storage-account-contributor) | Pode gerenciar contas de armazenamento |
 | [Administrador de Acesso do Usuário](#user-access-administrator) | Pode gerenciar o acesso do usuário aos recursos do Azure |
@@ -134,7 +134,7 @@ Pode gerenciar tudo, exceto o acesso.
 | ------- | ------ |
 | * | Criar e gerenciar recursos de todos os tipos |
 
-| **Não-ações** | |
+| **Não-ações** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/Write | Não é possível criar funções e atribuições de função |
 | Microsoft.Authorization/*/Delete | Não é possível excluir funções e atribuições de função |
@@ -304,7 +304,7 @@ Pode gerenciar bancos de dados SQL, mas não a segurança das políticas relacio
 | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
-| **Não-ações** | |
+| **Não-ações** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Não é possível editar políticas de conexão |
@@ -346,7 +346,7 @@ Pode gerenciar servidores e bancos de dados SQL, mas não as políticas relacion
 | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
-| **Não-ações** | |
+| **Não-ações** ||
 | ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Não é possível editar políticas de auditoria do servidor SQL |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Não é possível editar políticas de auditoria de banco de dados do servidor SQL |
@@ -387,8 +387,7 @@ Pode gerenciar o acesso do usuário aos recursos do Azure
 
 | **Ações** ||
 | ------- | ------ |
-| */read | Ler recursos de todos os tipos, exceto segredos. | 
-| Microsoft.Authorization/* | Ler autorização |
+| */read | Ler recursos de todos os tipos, exceto segredos. | | Microsoft.Authorization/* | Ler autorização |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ### Colaborador de Máquina Virtual Clássica
@@ -486,7 +485,10 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 | Microsoft.Insights/components/* | Criar e gerenciar componentes do Insights |
 
-## Tópicos sobre RBAC
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+## Consulte também
+- [Controle de Acesso Baseado em Função](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
+- [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
+- [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
+- [Solução de problemas de Controle de Acesso Baseado em Função](role-based-access-control-troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

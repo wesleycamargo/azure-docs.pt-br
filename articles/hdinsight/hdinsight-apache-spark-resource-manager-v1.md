@@ -18,9 +18,9 @@
 	ms.author="nitinme"/>
 
 
-# Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight (Windows)
+# Gerenciar recursos do cluster Apache Spark no HDInsight Windows (Preview)
 
-> [AZURE.NOTE] O HDInsight agora fornece clusters do Spark no Linux. Para obter informações sobre como gerenciar recursos de um cluster do Spark no HDInsight no Linux, confira [Gerenciar recursos de cluster do Apache Spark no Azure HDInsight (Linux)](hdinsight-apache-spark-resource-manager.md).
+> [AZURE.NOTE] O HDInsight agora fornece clusters Spark no Linux. Para obter informações sobre como gerenciar recursos de um cluster do Spark no HDInsight no Linux, confira [Gerenciar recursos de cluster do Apache Spark no Azure HDInsight (Linux)](hdinsight-apache-spark-resource-manager.md).
 
 O gerenciador de recursos é um componente do painel de cluster do Spark que permite que você gerencie recursos, como cores e RAM usada por cada aplicativo em execução no cluster.
 
@@ -84,4 +84,4 @@ Especifique a contagem do núcleo de servidor de Thrift e memória de executor d
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

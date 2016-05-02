@@ -28,9 +28,9 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 
 ### /pasta html
 
-- `EngagementNotification.html` : O design do modo de exibição web html do `Notification`.
+- `EngagementNotification.html` : O design HTLM do modo de exibição Web `Notification` para faixas no aplicativo.
 
-- `EngagementAnnouncement.html` : O design do modo de exibição web html do `Announcement`.
+- `EngagementAnnouncement.html` : O design HTLM do modo de exibição Web `Announcement` para exibições intersticiais no aplicativo.
 
 ### /pasta imagens
 
@@ -44,17 +44,7 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 
 ### /pasta sobreposição
 
-- `EngagementBaseOverlay.cs`: o código base usado pelas sobreposições de `Announcement` e `Notification`.
-
-- `EngagementOverlayAnnouncement.xaml` : O design do xaml do `Announcement`.
-
-- `EngagementOverlayAnnouncement.xaml.cs` : O código vinculado `EngagementOverlayAnnouncement.xaml`.
- 
-- `EngagementOverlayNotification.xaml` : O design do xaml do `Notification`.
- 
-- `EngagementOverlayNotification.xaml.cs` : O código vinculado `EngagementOverlayNotification.xaml`.
- 
-- `EngagementPageOverlay.cs` : O código de exibição de anúncio e notificação `Overlay`.
+- `EngagementPageOverlay.cs` : A página de sobreposição responsável por adicionar a interface do usuário no aplicativo de alcance do Engagement ao seu filho.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -123,7 +123,7 @@ Se você adicionou o código de concatenação de cadeia de caracteres deste art
 
 ![][14]
 
-## 5: Fazer alterações e comparar o desempenho
+## 4: Fazer alterações e comparar o desempenho
 
 Você também pode comparar o desempenho antes e depois de uma alteração no código. Interrompa o processo em execução e edite o código para substituir a operação de concatenação de cadeia de caracteres pelo uso de StringBuilder:
 
@@ -186,4 +186,4 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

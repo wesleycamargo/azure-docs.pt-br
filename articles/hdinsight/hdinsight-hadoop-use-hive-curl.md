@@ -116,7 +116,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 4. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blobs do Azure. O parâmetro `statusdir` passado com a consulta contém o local do arquivo de saída; nesse caso, ****wasb:///example/curl**. Esse endereço armazena a saída do trabalho no diretório **example/curl** do contêiner de armazenamento padrão usado pelo cluster HDInsight.
 
-    Você pode listar e baixar esses arquivos usando a [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md). Por exemplo, para listar arquivos em **example/curl**, use o seguinte comando:
+    Você pode listar e baixar esses arquivos usando a [CLI do Azure](../xplat-cli-install.md). Por exemplo, para listar arquivos em **example/curl**, use o seguinte comando:
 
 		azure storage blob list <container-name> example/curl
 
@@ -192,4 +192,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

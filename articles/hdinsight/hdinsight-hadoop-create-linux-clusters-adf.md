@@ -56,6 +56,8 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 - [Assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [CLI do Azure](../xplat-cli-install.md) ou [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater). 
 
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+
 ##Preparar a conta de armazenamento
 
 Você pode usar até três contas de armazenamento neste cenário:
@@ -82,6 +84,8 @@ Para simplificar o tutorial, você usará uma conta de armazenamento para atende
 **Para preparar o armazenamento e copiar os arquivos usando a CLI do Azure**
 
     azure login
+    
+    azure config mode arm
 
     azure group create --name "<Azure Resource Group Name>" --location "East US 2"
 
@@ -95,7 +99,7 @@ Para simplificar o tutorial, você usará uma conta de armazenamento para atende
 
 O nome do contêiner é *adfgetstarted*. Mantenha-o como está. Caso contrário, será necessário atualizar o modelo ARM.
 
-Se você precisar de ajuda com esse script da CLI, confira [Como usar a CLI do Azure com o Armazenamento do Azure](../storage/storage-azure-cli.md).
+Se precisar de ajuda com esse script da CLI, veja [Usando a CLI do Azure com o Armazenamento do Azure](../storage/storage-azure-cli.md).
 
 **Para preparar o armazenamento e copiar os arquivos usando o Azure PowerShell**
 
@@ -171,7 +175,7 @@ Se você precisar de ajuda com esse script da CLI, confira [Como usar a CLI do A
 
     Write-host "`nScript completed" -ForegroundColor Green
 
-Se você precisar de ajuda com esse script do PowerShell, confira [Como usar o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md).
+Se precisar de ajuda com esse script do PowerShell, veja [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md).
 
 **Para examinar a conta de armazenamento e o conteúdo**
 
@@ -185,7 +189,7 @@ Se você precisar de ajuda com esse script do PowerShell, confira [Como usar o A
  
 ## Criar um data factory
 
-Com a conta de armazenamento, os dados de entrada e o script HiveQL preparados, você está pronto para criar um data factory do Azure. Há vários métodos para criar um data factory. Você usará o portal do Azure para chamar um modelo personalizado do ARM neste tutorial. Você também pode chamar o modelo ARM na [CLI do Azure](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) e no [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Para conferir outros métodos de criação de data factory, consulte [Tutorial: compilar seu primeiro data factory](../data-factory/data-factory-build-your-first-pipeline.md).
+Com a conta de armazenamento, os dados de entrada e o script HiveQL preparados, você está pronto para criar um data factory do Azure. Há vários métodos para criar um data factory. Você usará o portal do Azure para chamar um modelo personalizado do ARM neste tutorial. Também é possível chamar o modelo do ARM na [CLI do Azure](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) e no [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Para obter outros métodos de criação de data factory, veja [Tutorial: Criar seu primeiro data factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
 O modelo ARM de nível superior contém:
 
@@ -212,7 +216,7 @@ O modelo ARM de nível superior contém:
         ]
     }
 
-Ele contém um recurso de data factory chamado *hdinsight-hive-on-demand* (o nome não aparece na captura de tela). Atualmente, o data factory só tem suporte na região Oeste dos EUA e na região Europa Setentrional.
+Ele contém um recurso de data factory chamado *hdinsight-hive-on-demand* (o nome não é mostrado na captura de tela). Atualmente, o data factory só tem suporte na região Oeste dos EUA e na região Europa Setentrional.
 
 O recurso *hdinsight-hive-on-demand* contém quatro recursos:
 
@@ -240,7 +244,7 @@ O recurso *hdinsight-hive-on-demand* contém quatro recursos:
 
     Embora isso não seja especificado, o cluster é criado na mesma região que a conta de armazenamento.
     
-    Perceba a configuração *timeToLive*. O data factory exclui o cluster automaticamente após ele ficar ocioso por 30 minutos.
+    Observe a configuração *timeToLive*. O data factory exclui o cluster automaticamente após ele ficar ocioso por 30 minutos.
 - Um conjunto de dados para os dados de entrada. O nome do arquivo e o nome da pasta são definidos aqui:
 
         "fileName": "input.log",
@@ -258,7 +262,7 @@ O recurso *hdinsight-hive-on-demand* contém quatro recursos:
             "style": "EndOfInterval"
         },
 
-    No Azure Data Factory, a disponibilidade do conjunto de dados de saída conduz o pipeline. Isso significa que a fatia é produzida mensalmente no último dia do mês. Para saber mais, confira [Agendamento e execução do Data Factory](../data-factory/data-factory-scheduling-and-execution.md).
+    No Azure Data Factory, a disponibilidade do conjunto de dados de saída conduz o pipeline. Isso significa que a fatia é produzida mensalmente no último dia do mês. Para obter mais informações, veja [Data Factory Scheduling and Execution](../data-factory/data-factory-scheduling-and-execution.md) (Agendamento e execução com o Data Factory).
 
     A definição do pipeline é a seguinte:
     
@@ -278,7 +282,7 @@ O recurso *hdinsight-hive-on-demand* contém quatro recursos:
             }
         }
                 
-    Ele contém uma atividade. Tanto o *início* quanto o *fim* da atividade têm uma data passada, o que significa que haverá apenas uma fatia. Se o valor de fim for uma data futura, o data factory criará outra fatia quando chegar o momento. Para saber mais, confira [Agendamento e execução do Data Factory](../data-factory/data-factory-scheduling-and-execution.md).
+    Ele contém uma atividade. Tanto o *início* quanto o *término* da atividade têm uma data anterior, o que significa que haverá apenas uma fatia. Se o valor de fim for uma data futura, o data factory criará outra fatia quando chegar o momento. Para obter mais informações, veja [Data Factory Scheduling and Execution](../data-factory/data-factory-scheduling-and-execution.md) (Agendamento e execução com o Data Factory).
 
     Veja a seguir a definição da atividade:
     
@@ -320,10 +324,10 @@ O recurso *hdinsight-hive-on-demand* contém quatro recursos:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/pt-BR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. Digite **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** e **STORAGEACCOUNTKEY** da conta que você criou na seção anterior e, em seguida, clique em **OK**. O Nome do Data Factory deve ser globalmente exclusivo.
-3. Em **Grupo de Recursos**, escolha o mesmo grupo de recursos usado na última seção.
+2. Insira **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** e **STORAGEACCOUNTKEY** da conta criada na seção anterior e clique em **OK**. O Nome do Data Factory deve ser globalmente exclusivo.
+3. Em **Grupo de Recursos**, escolha o mesmo grupo de recursos utilizado na última seção.
 4. Clique em **Termos legais** e em **Criar**.
-5. Clique em **Criar**. Você verá um bloco no Painel chamado **Implantação do Modelo de implantação**. Aguarde a mudança do texto do bloco para o nome do grupo de recursos. Normalmente, a criação de um cluster HDInsight demora cerca de 20 minutos.
+5. Clique em **Criar**. Você verá um bloco no Painel chamado **Realizando a implantação do Modelo**. Aguarde a mudança do texto do bloco para o nome do grupo de recursos. Normalmente, a criação de um cluster HDInsight demora cerca de 20 minutos.
 6. Clique no bloco para abrir o grupo de recursos. Agora, você verá um recurso do data factory listado, além do recurso da conta de armazenamento.
 7. Clique em **hdinsight-hive-on-demand**.
 8. Clique no bloco **Diagrama**. O diagrama mostra uma atividade com um conjunto de dados de entrada, e um conjunto de dados de saída:
@@ -332,7 +336,7 @@ O recurso *hdinsight-hive-on-demand* contém quatro recursos:
     
     Os nomes são definidos no modelo ARM.
 9. Clique duas vezes em **AzureBlobOutput**.
-10. Nas **Fatias atualizadas recentemente**, você deverá ver uma fatia. Se o status for **Em andamento**, aguarde até que ele mude para **Pronto**.
+10. Nas **Fatias recém-atualizadas**, você deverá ver uma fatia. Se o status for **Em andamento**, aguarde até que ele seja alterado para **Pronto**.
 
 **Para verificar a saída do data factory**
 
@@ -343,7 +347,7 @@ O recurso *hdinsight-hive-on-demand* contém quatro recursos:
     
     A saída do data factory é armazenada em afgetstarted, conforme configurado no modelo ARM. 
 2. Clique em **adfgetstarted**.
-3. Clique duas vezes em **partitioneddata**. Você verá uma pasta **ano=2014**, porque todos os logs da Web têm data de 2014. 
+3. Clique duas vezes em **partitioneddata**. Você verá uma pasta **ano=2014**, pois todos os blogs têm como data o ano de 2014. 
 
     ![Saída do pipeline de atividade do hive HDInsight sob demanda do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
@@ -434,4 +438,4 @@ Neste artigo, você aprendeu a usar o Azure Data Factory para criar o cluster HD
 - [Documentação do HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Documentação do data factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

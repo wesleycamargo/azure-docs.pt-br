@@ -36,9 +36,9 @@ A API REST do Azure permite executar operações de gerenciamento de serviços h
 
 - __CLI do Azure__. A CLI do Azure é usada para criar uma entidade de serviço, que é usada para gerar tokens de autenticação para solicitações para a API REST do Azure.
 
-    Para obter informações sobre como instalar a CLI, consulte [Instalar a CLI do Azure](../xplat-cli-install.md).
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-- __cURL__. Este utilitário está disponível por meio de seu sistema de gerenciamento de pacotes ou pode ser baixado de [http://curl.haxx.se/](http://curl.haxx.se/).
+- __cURL__. Este utilitário está disponível por meio do sistema de gerenciamento de pacotes ou pode ser baixado em [http://curl.haxx.se/](http://curl.haxx.se/).
 
     > [AZURE.NOTE] Se você estiver usando o PowerShell para executar comandos neste documento, deverá primeiro remover o alias `curl` criado por padrão. Esse alias usa Invoke-WebRequest, um cmdlet do PowerShell, em vez do cURL quando você usa o comando `curl` de um prompt do PowerShell e retornará erros para muitos dos comandos usados neste documento.
     > 
@@ -358,4 +358,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

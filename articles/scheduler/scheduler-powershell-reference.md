@@ -1,6 +1,6 @@
 <properties
  pageTitle="Referência de cmdlets do PowerShell do Agendador"
- description=""
+ description="Referência de cmdlets do PowerShell do Agendador"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -54,4 +54,4 @@ A tabela a seguir descreve a página de referência de cada um dos principais cm
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

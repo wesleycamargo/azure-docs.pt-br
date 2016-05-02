@@ -3,7 +3,7 @@
    description="Saiba mais sobre o suporte a clientes de versão anterior do SQL Data Warehouse para auditoria de dados"
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="twounder"
+   authors="ronortloff"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.date="03/03/2016" 
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL Data Warehouse - Suporte a clientes de versão anterior para auditoria e Mascaramento dinâmico de dados
 
@@ -38,4 +38,4 @@ Uma lista parcial de "Clientes de versão anterior" inclui:
 
 **Comentário:** a modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de Auditoria no Nível do SQL Server sem a necessidade de uma etapa de configuração em cada banco de dados (redução temporária).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

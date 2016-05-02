@@ -1,4 +1,4 @@
-1. Entre no [portal clássico](http://manage.windowsazure.com). Confira a oferta [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) caso você ainda não tenha uma assinatura.
+1. Entre no [portal clássico](http://manage.windowsazure.com). 
 
 2. Na barra de comandos na parte inferior da janela, clique em **Novo**.
 
@@ -11,7 +11,7 @@
 5. A segunda tela permite separar um nome de computador, tamanho e nome e senha do usuário administrativo. Use a camada e o tamanho necessários à execução do aplicativo ou da carga de trabalho. Aqui estão algumas dicas:
 
 	- O **Nome da Máquina Virtual** pode conter apenas letras, números e hifens. Ele também deve começar com uma letra ou número e terminar com uma letra ou número.
-	- **Novo Nome de Usuário** se refere à conta administrativa que você usa para gerenciar o servidor. A senha deve ter entre 8 e 123 caracteres e ter pelo menos 3 dos seguintes: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. **Você precisará do nome do usuário e da senha para fazer logon na máquina virtual**.
+	- **Novo Nome de Usuário** se refere à conta administrativa que você usa para gerenciar o servidor. A senha deve ter entre 8 e 123 caracteres e pelo menos três dos seguintes: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. **Você precisará do nome de usuário e da senha para conectar e fazer logon na máquina virtual**.
 	- O tamanho de uma máquina virtual afeta o custo de usá-la, bem como as opções de configuração, como quantos discos de dados é possível anexar. Para obter detalhes, consulte [Tamanhos para máquinas virtuais](virtual-machines-linux-sizes.md).
 
 6. A terceira tela permite configurar recursos para rede, armazenamento e disponibilidade. Aqui estão algumas dicas:
@@ -20,9 +20,9 @@
 
 	- Para **Região/Grupo de Afinidade/Rede Virtual**, use uma região apropriada ao local. Também é possível optar por especificar uma rede virtual.
 
-	>[AZURE.NOTE] Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual. Você não poderá adicionar a máquina virtual a uma rede virtual depois de criar a VM. Para obter mais informações, consulte [Visão geral da Rede Virtual do Azure](virtual-networks-overview.md).
-	>
-	> Para obter detalhes sobre como configurar pontos de extremidade, consulte [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-windows-classic-setup-endpoints.md).
+	- Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual. Você não poderá adicionar a máquina virtual a uma rede virtual depois de criar a VM. Para obter mais informações, consulte [Visão geral da Rede Virtual do Azure](virtual-networks-overview.md).
+	
+	- Para obter detalhes sobre como configurar pontos de extremidade, consulte [Como instalar pontos de extremidade em uma máquina virtual](virtual-machines-windows-classic-setup-endpoints.md).
 
 7. A quarta tela de configuração permite instalar o Agente de VM e configurar algumas das extensões disponíveis.
 
@@ -32,4 +32,4 @@
 
 	![Configurar Agente de VM e os pontos de extremidade da máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

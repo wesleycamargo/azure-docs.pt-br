@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="milanga;juliako;"/>
-
+ 
 # Detectar movimentos com o Azure Media Analytics
 
 ##Visão geral
@@ -349,4 +349,6 @@ O programa a seguir mostra como:
 
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

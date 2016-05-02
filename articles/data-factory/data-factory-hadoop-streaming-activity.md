@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Atividade de Transmissão do Hadoop
@@ -192,4 +192,11 @@ O cluster HDInsight é preenchido automaticamente com os programas de exemplo (w
 	    }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+## Veja também
+- [Atividade de Hive](data-factory-hive-activity.md)
+- [Atividade Pig](data-factory-pig-activity.md)
+- [Atividade MapReduce](data-factory-map-reduce.md)
+- [Invocar programas Spark](data-factory-spark.md)
+- [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+
+<!---HONumber=AcomDC_0420_2016-->

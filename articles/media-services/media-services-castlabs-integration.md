@@ -3,8 +3,8 @@
 	description="Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine. A licença do PlayReady vem do servidor de licenças do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licenças do castLabs." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Mingfeiy,willzhan,Juliako" 
-	manager="dwrede" 
+	authors="Mingfeiy" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
-	ms.author="juliako"/>
+	ms.date="04/18/2016"    
+	ms.author="Mingfeiy;willzhan;Juliako"/>
 
 
 #Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure
@@ -122,4 +122,4 @@ Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e/ou W
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

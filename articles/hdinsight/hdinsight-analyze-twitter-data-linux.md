@@ -37,8 +37,6 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - __Python__ e [pip](https://pypi.python.org/pypi/pip)
 
-- A __CLI do Azure__. Para obter mais informações, confira [Instalar e configurar a CLI do Azure](../xplat-cli-install.md)
-
 ##Obtenha um feed do Twitter
 
 O Twitter permite que você recupere os [dados de cada tweet](https://dev.twitter.com/docs/platform-objects/tweets) como um documento JSON (JavaScript Object Notation) por meio de uma API REST. O [OAuth](http://oauth.net) é necessário para autenticação na API. Você também deve criar um _Aplicativo do Twitter_ com as configurações usadas para acessar a API.
@@ -319,4 +317,4 @@ Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

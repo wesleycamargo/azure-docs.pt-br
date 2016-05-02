@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/08/2016"   
+	ms.date="04/14/2016"   
 	ms.author="adsolank"/>
 
 
@@ -211,6 +211,8 @@ O método a seguir carrega um arquivo de mídia como um ativo e cria um trabalho
 
 ##Links relacionados
 
-[Visão geral da Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md)
+[Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+[Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!---HONumber=AcomDC_0420_2016-->

@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -20,7 +20,7 @@
 
 # Segurança de banco de dados SQL: gerenciar o acesso ao banco de dados e a segurança de logon  
 
-Saiba mais sobre o gerenciamento de segurança de banco de dados SQL, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor. Entenda algumas diferenças e semelhanças nas opções de segurança de logon entre um banco de dados SQL e um SQL Server local.
+Saiba mais sobre o gerenciamento de segurança de banco de dados SQL, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor. Entenda algumas diferenças e semelhanças nas opções de segurança de logon entre um banco de dados SQL e um SQL Server local. Consulte [Azure SQL Database Tutorial: Get Started with Azure SQL Database Security (Tutorial do Banco de Dados SQL do Azure: introdução à segurança do Banco de Dados SQL do Azure)](sql-database-get-started-security.md) para obter um tutorial rápido.
 
 ## Provisionamento de banco de dados e logon da entidade de segurança no nível do servidor
 
@@ -174,6 +174,6 @@ SELECT * FROM sys.databases;
 
 ## Consulte também
 
-[Limitações e diretrizes de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md) [Conectando-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
+[Azure SQL Database Tutorial: Get Started with Azure SQL Database Security (Tutorial do Banco de Dados SQL do Azure: introdução à segurança do Banco de Dados SQL do Azure)](sql-database-get-started-security.md) [Limitações e diretrizes de segurança de Banco de Dados SQL do Azure](sql-database-security-guidelines.md) [Conectar-se ao Banco de Dados SQL Usando a Autenticação do Azure Active Directory](sql-database-aad-authentication.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->
