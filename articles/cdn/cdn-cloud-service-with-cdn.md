@@ -177,7 +177,7 @@ De modo similar, você pode acessar qualquer URL publicamente acessível em **ht
 -	Qualquer controller/action
 -	Se cadeias de consulta estiverem habilitadas em seu ponto de extremidade da CDN, qualquer URL com cadeias de consulta
 
-De fato, com a configuração acima, você pode hospedar todo o serviço de nuvem **http://*&lt;cdnName>*.azureedge.net/**. Se eu navegar até ****http://camservice.azureedge.net/**, obterei o resultado da ação de Home/Index.
+De fato, com a configuração acima, você pode hospedar todo o serviço de nuvem **http://*&lt;cdnName>*.azureedge.net/**. Se eu navegar até **http://camservice.azureedge.net/**, obterei o resultado da ação de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 

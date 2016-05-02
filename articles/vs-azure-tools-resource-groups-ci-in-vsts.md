@@ -121,7 +121,7 @@ As etapas a seguir o orientarão pelas etapas necessárias para configurar a imp
 
     | Parâmetro | Descrição|
     |---|---|
-    | -ResourceGroupLocation | O valor da localização geográfica na qual o grupo de recursos está localizado, por exemplo, **eastus** ou **”Leste dos EUA”**. (Adicione aspas se houver um espaço no nome). Confira [Regiões do Azure](https://azure.microsoft.com/pt-BR/regions/) para saber mais.| |
+    | -ResourceGroupLocation | O valor da localização geográfica na qual o grupo de recursos está localizado, por exemplo, **eastus** ou **”Leste dos EUA”**. (Adicione aspas se houver um espaço no nome). Confira [Regiões do Azure](https://azure.microsoft.com/regions/) para saber mais.| |
     | -ResourceGroupName | O nome do grupo de recursos usado para essa implantação.| |
     | -UploadArtifacts | Esse parâmetro, quando presente, especifica que os artefatos precisam ser carregados no Azure a partir do sistema local. Você só precisa definir essa opção se a implantação de seu modelo exigir artefatos adicionais que você deseja testar usando o script do PowerShell (como scripts de configuração ou modelos aninhados). |
     | -StorageAccountName | O nome da conta de armazenamento usada para artefatos de preparação para essa implantação. Esse parâmetro será necessário apenas se você estiver copiando artefatos para o Azure. Essa conta de armazenamento não será criada automaticamente pela implantação, ela já deve existir.| |

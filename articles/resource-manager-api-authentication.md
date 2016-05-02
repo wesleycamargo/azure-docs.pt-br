@@ -67,7 +67,7 @@ Comece registrando seu aplicativo Web no Active Directory (AD). O registro do ap
 O tópico [Criar aplicativo do Active Directory e entidade de serviço usando o portal](resource-group-create-service-principal-portal.md) mostra todas as etapas necessárias para configurar o seu aplicativo. Consulte o tópico enquanto cria um aplicativo com as seguintes propriedades:
 
 - Aplicativo Web chamado **CloudSense**
-- URL de entrada e URI de ID do aplicativo no formato ****http://{domain_name_of_your_directory}/{name_of_the_app}**.
+- URL de entrada e URI de ID do aplicativo no formato **http://{domain_name_of_your_directory}/{name_of_the_app}**.
 - Chave de autenticação para entrar no aplicativo
 - Permissão delegada **Acessar o Gerenciamento de Serviços do Azure** para a **API de Gerenciamento de Serviços do Azure**. Deixe o padrão **Habilitar logon único e ler o perfil do usuário** como **Azure Active Directory**.
 - Aplicativos multilocatários

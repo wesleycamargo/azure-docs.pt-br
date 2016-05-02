@@ -354,17 +354,17 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pt-BR/pricing/details/app-service/
+[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Dimensionamento automático]: ../app-service-web/web-sites-scale.md
 [Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
 [Documentação de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
 [Portal clássico do Azure]: https://manage.windowsazure.com
 [Portal do Azure]: https://portal.azure.com
-[região do Azure]: https://azure.microsoft.com/pt-BR/regions/
+[região do Azure]: https://azure.microsoft.com/regions/
 [Planos do Agendador do Azure]: ../scheduler/scheduler-plans-billing.md
 [implantar continuamente]: ../app-service-web/web-sites-publish-source-control.md
-[Converter seus namespaces mistos]: https://azure.microsoft.com/pt-BR/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[Converter seus namespaces mistos]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [nomes de domínio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler

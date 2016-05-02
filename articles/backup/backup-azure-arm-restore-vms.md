@@ -200,7 +200,7 @@ Para recriar completamente as máquinas virtuais após restaurar para o disco, s
 
 2. Crie a configuração da VM necessária para o balanceador de carga/múltiplos NICs, múltiplos IPs reservados usando os cmdlets do PowerShell e use-a para criar a VM com a configuração desejada.
 	- Criar a VM no serviço de nuvem com o [balanceador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
-	- Criar a máquina virtual para se conectar ao [balanceador de carga voltado para a Internet](https://azure.microsoft.com/pt-BR/documentation/articles/load-balancer-internet-getstarted/)
+	- Criar a máquina virtual para se conectar ao [balanceador de carga voltado para a Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)
 	- Criar uma VM [com várias NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
 	- Criar VMs com [vários IPs reservados](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 

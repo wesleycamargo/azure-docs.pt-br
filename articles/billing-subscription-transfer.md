@@ -59,8 +59,9 @@ Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, p
 
     Não há nenhum impacto no serviço. Isso efetivamente cancela a assinatura do atual administrador da conta e cria uma nova na conta do destinatário, mas associa os serviços do Azure subjacentes à nova assinatura. A ID da assinatura permanece a mesma.
 
--   **Como usar esse mecanismo para alterar o diretório para assinatura?**-Uma assinatura do Azure é criada no diretório ao qual o administrador da conta pertence. Portanto, para alterar o diretório, basta transferir a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura avançará automaticamente para o diretório de destino.
-
+-   **Como usar esse mecanismo para alterar o diretório para assinatura?**-   
+    Uma assinatura do Azure é criada no diretório ao qual o administrador da conta pertence. Portanto, para alterar o diretório, basta transferir a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura avançará automaticamente para o diretório de destino.
+   
 -   **Se eu assumir a propriedade de cobrança de uma assinatura de outra organização, eles continuarão a ter acesso aos meus recursos?**
 
     Se a assinatura é transferida para outro locatário, os usuários associados ao locatário anterior perdem o acesso à assinatura. Mesmo que um usuário não seja mais um administrador ou coadministrador de serviços, ele ainda terá acesso à assinatura por meio de outros mecanismos de segurança. Estão incluídos:

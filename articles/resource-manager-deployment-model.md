@@ -38,7 +38,7 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+        Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -85,7 +85,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Ou pelo portal de visualização, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 

@@ -38,22 +38,24 @@ As notas de versão dos Serviços BizTalk do Microsoft Azure contêm os problema
 * A opção de criar modelos para contratos foi descontinuada.  
 * No contrato do lado de envio, agora você pode especificar diferentes conjuntos de delimitadores para cada esquema. Essa configuração é especificada nas configurações de protocolo do contrato do lado de envio. Para saber mais, confira [Criar um contrato X12 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [Criar um contrato EDIFACT nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/dn606267.aspx). Também foram adicionadas duas novas entidades à API TPM OM para a mesma finalidade. Confira [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) e [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Agora há suporte para construtores XSD padrão, incluindo tipos derivados. Confira [Usar construtores XSD padrão em seus mapas](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [Usar tipos derivados nos exemplos e cenários de mapeamento](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* O AS2 dá suporte a novos algoritmos MIC para assinatura de mensagens e a novos algoritmos de criptografia. Veja [Criar um contrato AS2 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).
+* O AS2 dá suporte a novos algoritmos MIC para assinatura de mensagens e a novos algoritmos de criptografia. Veja [Criar um contrato AS2 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
 ## Problemas conhecidos
 
 ### Problemas de conectividade após a atualização do Portal dos Serviços BizTalk
 
-  Se você tiver o Portal dos Serviços BizTalk aberto enquanto os Serviços BizTalk são atualizados para implementar as alterações ao serviço, você poderá enfrentar problemas de conectividade com o Portal dos Serviços BizTalk. Como alternativa, você pode reiniciar o navegador, excluir o cache do navegador ou iniciar o portal no modo privado.
+  Se você tiver o Portal dos Serviços BizTalk aberto enquanto os Serviços BizTalk são atualizados para implementar as alterações ao serviço, você poderá enfrentar problemas de conectividade com o Portal dos Serviços BizTalk.  
+  Como alternativa, você pode reiniciar o navegador, excluir o cache do navegador ou iniciar o portal no modo privado.
 
 ### O IDE do Visual Studio não pode localizar o artefato se você clicar em um erro ou aviso em um projeto dos Serviços BizTalk
 Instale o Visual Studio 2012 Update 3 RC 1 para corrigir o problema.
 
 ### Referência de projeto de associação personalizada
 Considere as seguintes situações com um projeto dos Serviços BizTalk em uma solução do Visual Studio:
-* Na mesma solução do Visual Studio, há um projeto dos Serviços BizTalk e um projeto de associação personalizada. O projeto do Serviço BizTalk tem uma referência a esse arquivo do projeto de associação personalizada.
+* Na mesma solução do Visual Studio, há um projeto dos Serviços BizTalk e um projeto de associação personalizada. O projeto do Serviço BizTalk tem uma referência a esse arquivo do projeto de associação personalizada. 
 * O projeto do Serviço BizTalk tem uma referência a uma DLL de associação/comportamento personalizado.
 
-Você 'Compilou' a solução com êxito no Visual Studio. Em seguida, você 'Recompila' ou 'Limpa' a solução. Depois disso, quando você recompila ou limpa novamente, ocorre o seguinte erro: não é possível copiar o arquivo <Path to DLL> para "bin\\Debug\\FileName.dll". O processo não pode acessar o arquivo 'bin\\Debug\\FileName.dll' porque ele está sendo usado por outro processo.
+Você 'Compilou' a solução com êxito no Visual Studio. Em seguida, você 'Recompila' ou 'Limpa' a solução. Depois disso, quando você recompila ou limpa novamente, ocorre o seguinte erro:  
+  não é possível copiar o arquivo <Path to DLL> para "bin\\Debug\\FileName.dll".O processo não pode acessar o arquivo 'bin\\Debug\\FileName.dll' porque ele está sendo usado por outro processo.
 
 #### Solução alternativa
 * Se o [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) for instalado, você terá as duas opções a seguir:
@@ -74,10 +76,12 @@ Considere este cenário: se você marcar a caixa de seleção **Enviar MDN assí
 ### Os caracteres de espaço em branco além de um intercâmbio válido provocam o envio de uma mensagem vazia ao ponto de extremidade de suspensão  
 Se houver espaços em branco fora de um segmento IEA, o desmontador tratará disso como o fim do intercâmbio atual e examinará o próximo conjunto de espaços em branco como uma próxima mensagem. Como este não é um intercâmbio válido, você pode observar que uma mensagem bem-sucedida é enviada para o destino da rota e uma mensagem vazia é enviada para o ponto de extremidade de suspensão.
 ### Rastreamento no Portal dos Serviços BizTalk  
-Os eventos de rastreamento são capturados até o processamento de mensagens EDI e eventuais correlações. Se uma mensagem falhar fora do estágio de Protocolo, o Rastreamento será mostrado como bem-sucedido. Nessa situação, consulte a seção LOG sob a coluna **Detalhes** em **Controle** para obter os detalhes do erro. As configurações de Recebimento e Envio do X12 ([Criar um Contrato X12 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) fornecem informações sobre o estágio de Protocolo.
+Os eventos de rastreamento são capturados até o processamento de mensagens EDI e eventuais correlações. Se uma mensagem falhar fora do estágio de Protocolo, o Rastreamento será mostrado como bem-sucedido. Nessa situação, consulte a seção LOG sob a coluna **Detalhes** em **Controle** para obter os detalhes do erro. 
+As configurações de Recebimento e Envio do X12 ([Criar um Contrato X12 nos Serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) fornecem informações sobre o estágio de Protocolo.
 
 ### Atualização do contrato  
-O Portal dos Serviços BizTalk permite que você modifique o Qualificador de uma Identidade quando um contrato é configurado. Isso pode resultar em propriedades inconsistentes. Por exemplo, há um contrato usando ZZ:1234567 e ZZ:7654321 como Qualificador. Nas configurações de perfil do Portal dos Serviços BizTalk, você altera ZZ:1234567 para ser 01:ChangedValue. Você abre o contrato e 01:ChangedValue é exibido em vez de ZZ:1234567. Para modificar o Qualificador de uma identidade, exclua o contrato, atualize **Identidades** no perfil do parceiro e recrie o contrato.
+O Portal dos Serviços BizTalk permite que você modifique o Qualificador de uma Identidade quando um contrato é configurado. Isso pode resultar em propriedades inconsistentes. Por exemplo, há um contrato usando ZZ:1234567 e ZZ:7654321 como Qualificador. Nas configurações de perfil do Portal dos Serviços BizTalk, você altera ZZ:1234567 para ser 01:ChangedValue. Você abre o contrato e 01:ChangedValue é exibido em vez de ZZ:1234567. 
+Para modificar o Qualificador de uma identidade, exclua o contrato, atualize **Identidades** no perfil do parceiro e recrie o contrato.
 > AZURE.WARNING Esse comportamento afeta o X12 e o AS2.
 
 ### Anexos AS2  
@@ -85,14 +89,17 @@ Não há suporte para anexos de mensagens AS2 nos envios ou recebimentos. Especi
 ### Recursos: lembrar o caminho  
 Ao adicionar **Recursos**, a janela de diálogo pode não lembrar o caminho usado anteriormente para adicionar um recurso. Para lembrar o caminho usado anteriormente, experimente adicionar o site do Portal dos Serviços BizTalk aos **Sites Confiáveis** no Internet Explorer.
 ### Se você renomear o nome da entidade de uma ponte e fechar o projeto sem salvar as alterações, abrir a entidade novamente resultará em um erro
-Considere um cenário na seguinte ordem:
+Considere um cenário na seguinte ordem:  
 * Adicionar uma ponte (por exemplo, uma ponte unidirecional XML) a um projeto do Serviço BizTalk  
 
 * Renomeie a ponte especificando um valor para a propriedade Nome da Entidade. Isso renomeia o arquivo .bridgeconfig associado ao nome especificado.
 
 * Feche o arquivo .bcs (fechando a guia no Visual Studio) sem salvar as alterações.
 
-* Abra o arquivo .bcs novamente no Gerenciador de Soluções. Você observará que enquanto o arquivo .bridgeconfig associado tem o novo nome especificado, o nome da entidade na superfície de design ainda é o nome antigo. Ao tentar abrir a Configuração da Ponte clicando duas vezes no componente da ponte, você receberá o seguinte erro: '<old name>' O arquivo associado '<old name>.bridgeconfig' não existe. Para evitar este cenário, salve as alterações depois de renomear as entidades em um projeto do Serviço BizTalk.
+* Abra o arquivo .bcs novamente no Gerenciador de Soluções.  
+Você observará que enquanto o arquivo .bridgeconfig associado tem o novo nome especificado, o nome da entidade na superfície de design ainda é o nome antigo. Ao tentar abrir a Configuração da Ponte clicando duas vezes no componente da ponte, você receberá o seguinte erro:  
+  '<old name>' O arquivo associado '<old name>.bridgeconfig' não existe.  
+Para evitar este cenário, salve as alterações depois de renomear as entidades em um projeto do Serviço BizTalk.
 ### O projeto do Serviço BizTalk é compilado com êxito mesmo que um artefato tenha sido excluído de um projeto do Visual Studio
 Considere um cenário onde você adiciona um artefato (por exemplo, um arquivo XSD) a um projeto do Serviço BizTalk, inclui esse artefato na Configuração da Ponte (por exemplo, especificando-o como um tipo de mensagem de Solicitação) e exclui-o do projeto do Visual Studio. Nesse caso, a compilação do projeto não fornecerá nenhum erro desde que o artefato excluído esteja disponível no disco no mesmo local de onde foi incluído no projeto do Visual Studio.
 ### O projeto do Serviço BizTalk não verifica a disponibilidade do esquema ao configurar as pontes
@@ -123,7 +130,7 @@ Se uma Transformação contiver uma Operação de Mapeamento da **Propriedade Ge
 ### A propriedade do mapa de teste não é exibida
 As propriedades do **Mapa de Teste** não são exibidas no Visual Studio. Isso pode ocorrer se a janela **Propriedades** e a janela **Gerenciador de Soluções** não forem encaixadas simultaneamente. Para resolver isso, encaixe as janelas **Propriedades** e **Gerenciador de Soluções**.
 ### O menu suspenso de Reformatação de Data/Hora está esmaecido
-Quando uma Operação de Mapeamento de Reformatação de Data/Hora é adicionada à superfície de design e configurada, a lista suspensa de Formato pode ser esmaecida. Isso pode acontecer se a Exibição do computador estiver definida como **Médio – 125%** ou **Maior – 150%**. Para resolver, defina a tela como **Menor – 100% (padrão)** usando as etapas abaixo:
+Quando uma Operação de Mapeamento de Reformatação de Data/Hora é adicionada à superfície de design e configurada, a lista suspensa de Formato pode ser esmaecida. Isso pode acontecer se a Exibição do computador estiver definida como **Médio – 125%** ou **Maior – 150%**. Para resolver, defina a tela como **Menor – 100% (padrão)** usando as etapas abaixo:  
 1. Abra o **Painel de Controle** e clique em **Aparência e Personalização**.
 2. Clique em **Tela**.
 3. Clique em **Menor – 100% (padrão)** e clique em **Aplicar**.
@@ -141,18 +148,20 @@ Considere este cenário:
 ### As pontes não usam certificados atualizados mesmo depois de um certificado ter sido atualizado no repositório de artefatos
 Considere os seguintes cenários:
 
-**Cenário 1: usar certificados baseados em impressão digital para transferência segura de mensagens de uma ponte para um ponto de extremidade de serviço** Considere um cenário em que você usa certificados baseados em impressão digital no seu projeto do Serviço BizTalk. Você atualiza o certificado no Portal dos Serviços BizTalk com o mesmo nome e com uma impressão digital diferente, mas não atualiza o projeto do Serviço BizTalk de forma correspondente. Nesse cenário, a ponte pode continuar a processar as mensagens porque os dados do certificado antigo ainda podem estar no cache do canal. Após isso, o processamento de mensagens falha.
+**Cenário 1: usar certificados baseados em impressão digital para transferência segura de mensagens de uma ponte para um ponto de extremidade de serviço**  
+Considere um cenário em que você usa certificados baseados em impressão digital no seu projeto do Serviço BizTalk. Você atualiza o certificado no Portal dos Serviços BizTalk com o mesmo nome e com uma impressão digital diferente, mas não atualiza o projeto do Serviço BizTalk de forma correspondente. Nesse cenário, a ponte pode continuar a processar as mensagens porque os dados do certificado antigo ainda podem estar no cache do canal. Após isso, o processamento de mensagens falha.
 
 **Solução**: atualizar o certificado no projeto do Serviço BizTalk e reimplantar o projeto.
 
-**Cenário 2: usar comportamentos baseados em nome para identificar certificados para transferência segura de mensagens de uma ponte para um ponto de extremidade de serviço**
+**Cenário 2: usar comportamentos baseados em nome para identificar certificados para transferência segura de mensagens de uma ponte para um ponto de extremidade de serviço**  
 
 Considere um cenário onde você usa comportamentos baseados em nome para identificar certificados no seu projeto do Serviço BizTalk. Você atualiza o certificado no Portal dos Serviços BizTalk mas não atualiza o projeto do Serviço BizTalk de forma correspondente. Nesse cenário, a ponte pode continuar a processar as mensagens porque os dados do certificado antigo ainda podem estar no cache do canal. Após isso, o processamento de mensagens falha.
 
 **Solução**: atualizar o certificado no projeto do Serviço BizTalk e reimplantar o projeto.
 
 ### As pontes continuam a processar mensagens mesmo quando o banco de dados SQL está offline
-As pontes de Serviços BizTalk continuam a processar mensagens por algum tempo, mesmo se o Banco de Dados SQL do Microsoft Azure (que armazena as informações em execução como pipelines e artefatos implantados) estiver offline. Isso ocorre porque os Serviços BizTalk usam os artefatos de cache e a configuração da ponte. Se não quiser que as pontes processem mensagens quando o Banco de Dados SQL estiver offline, você pode usar os cmdlets do PowerShell dos Serviços BizTalk para interromper ou suspender o Serviço BizTalk. Confira [Exemplo de Gerenciamento do Serviço BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=329019) para ver os cmdlets do Windows PowerShell para gerenciar operações.
+As pontes de Serviços BizTalk continuam a processar mensagens por algum tempo, mesmo se o Banco de Dados SQL do Microsoft Azure (que armazena as informações em execução como pipelines e artefatos implantados) estiver offline. Isso ocorre porque os Serviços BizTalk usam os artefatos de cache e a configuração da ponte.
+Se não quiser que as pontes processem mensagens quando o Banco de Dados SQL estiver offline, você pode usar os cmdlets do PowerShell dos Serviços BizTalk para interromper ou suspender o Serviço BizTalk. Confira [Exemplo de Gerenciamento do Serviço BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=329019) para ver os cmdlets do Windows PowerShell para gerenciar operações.
 ### A leitura da mensagem XML no componente de código personalizado de uma ponte inclui um caractere BOM adicional
 Considere um cenário onde você deseja ler uma mensagem XML no código personalizado de uma ponte. Se você usar a API .NET System.Text.Encoding.UTF8.GetString(bytes), um caractere BOM extra será incluído na saída no início da mensagem. Portanto, se não desejar que a saída inclua o caractere BOM adicional, você deve usar ```System.IO.StreamReader().ReadToEnd()```.
 ### As mensagens enviadas para uma ponte usando WCF não são dimensionadas

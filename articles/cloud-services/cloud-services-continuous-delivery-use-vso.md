@@ -32,7 +32,11 @@ Siga as instruções contidas [aqui](http://go.microsoft.com/fwlink/?LinkId=5129
 
 ## 2: Faça check-in em um projeto para o controle do código-fonte
 
-1. No Visual Studio, abra a solução que você deseja implantar ou crie uma nova. Você pode implantar um aplicativo Web ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo. Se você desejar criar uma nova solução, crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. Verifique se o projeto é direcionado para o .NET Framework 4 ou 4.5 e, se você estiver criando um projeto de serviço de nuvem, adicione uma função web e uma função de trabalho ASP.NET MVC e escolha o aplicativo da Internet para a função web. Quando solicitado, escolha **Aplicativo da Internet**. Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](../app-service-web/web-sites-dotnet-get-started.md).
+1. No Visual Studio, abra a solução que você deseja implantar ou crie uma nova. 
+Você pode implantar um aplicativo Web ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo. 
+Se você desejar criar uma nova solução, crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. 
+Verifique se o projeto é direcionado para o .NET Framework 4 ou 4.5 e, se você estiver criando um projeto de serviço de nuvem, adicione uma função web e uma função de trabalho ASP.NET MVC e escolha o aplicativo da Internet para a função web. Quando solicitado, escolha **Aplicativo da Internet**. 
+Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](../app-service-web/web-sites-dotnet-get-started.md).
 
 	> [AZURE.NOTE] O Visual Studio Team Services só suporta implantações de CI de aplicativos Web do Visual Studio no momento. Projetos de Site estão fora do escopo.
 

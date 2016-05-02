@@ -96,7 +96,7 @@ Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de 
 
 	* **Digite um alias de saída**. Este é um nome exclusivo que você fornece para a saída do trabalho.
 	* **Especificar uma conta do Repositório Data Lake**. Você já deve tê-la criado, conforme mencionado nos pré-requisitos.
-	* **Especificar um padrão de prefixo do caminho**. Isso é necessário para identificar os arquivos de saída que são gravados no Repositório Data Lake pelo trabalho do Stream Analytics. Visto que os títulos das saídas gravados pelo trabalho estão em um formato GUID, a inclusão de um prefixo ajudará a identificar a saída gravada. Se você quiser incluir um carimbo de data e hora como parte do prefixo, certifique-se de incluir `{date}/{time}` no padrão do prefixo. Se você incluí-lo, os campos **Formato de Data ** e **Formato de Hora** serão habilitados e você poderá selecionar o formato escolhido.
+	* **Especificar um padrão de prefixo do caminho**. Isso é necessário para identificar os arquivos de saída que são gravados no Repositório Data Lake pelo trabalho do Stream Analytics. Visto que os títulos das saídas gravados pelo trabalho estão em um formato GUID, a inclusão de um prefixo ajudará a identificar a saída gravada. Se você quiser incluir um carimbo de data e hora como parte do prefixo, certifique-se de incluir `{date}/{time}` no padrão do prefixo. Se você incluí-lo, os campos **Formato de Data** e **Formato de Hora** serão habilitados e você poderá selecionar o formato escolhido.
 
 	Clique na seta para frente.
 
