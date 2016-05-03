@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="04/15/2016"
 	ms.author="larryfr"/>
 
 # Instalar e usar R em clusters Hadoop do HDInsight (visualização)
 
 Você pode instalar R em qualquer tipo de cluster no Hadoop no HDInsight usando a personalização de cluster **Ação de Script**. Isso permite que os analistas e cientistas de dados usem R para implantar a eficiente estrutura de programação MapReduce/YARN para processar grandes quantidades de dados em clusters Hadoop implantados no HDInsight.
 
-A oferta de [tipo premium](https://azure.microsoft.com/pricing/details/hdinsight/) do HDInsight inclui o Servidor R como parte do cluster do HDInsight. Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Para obter mais informações, confira [Introdução ao uso do Servidor R no HDInsight](hdinsight-hadoop-r-server-get-started.md).
+> [AZURE.IMPORTANT] A oferta da [camada premium](https://azure.microsoft.com/pricing/details/hdinsight/) do HDInsight inclui o Servidor R como parte do cluster HDInsight. Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Para obter mais informações, veja [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) (Introdução ao uso do Servidor R no HDInsight).
 
 
 ## O que é R?
@@ -63,7 +63,7 @@ A ação de script a seguir é usada para instalar o R em um cluster HDInsight.h
     
 Esta seção fornece instruções sobre como usar o script ao criar um novo cluster usando o portal do Azure.
 
-> [AZURE.NOTE] Modelos do Azure PowerShell, da CLI do Azure, do SDK do .NET do HDInsight ou do Azure Resource Manager também podem ser usados para aplicar ações de script. Também é possível aplicar ações de script a clusters que já estão em execução. Para obter mais informações, veja [Personalizar clusters HDInsight com a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.NOTE] Modelos do Azure PowerShell, da CLI do Azure, do SDK do .NET do HDInsight ou do Azure Resource Manager também podem ser usados para aplicar ações de script. Também é possível aplicar ações de script a clusters que já estão em execução. Para obter mais informações, veja [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) (Personalizar clusters HDInsight com as Ações de Script).
 
 1. Inicie o provisionamento de um cluster usando as etapas em [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), mas não conclua o provisionamento.
 
@@ -146,4 +146,4 @@ Após a conclusão do provisionamento do cluster, use as seguintes etapas para u
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

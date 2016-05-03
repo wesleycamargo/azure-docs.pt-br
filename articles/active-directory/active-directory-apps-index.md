@@ -197,7 +197,7 @@ O Painel de acesso do AD do Azure é o local onde os usuários finais podem inic
 
 | Guia de artigos | |
 | :---: | --- |
-| Uma comparação das opções diferentes disponíveis para a implantação de aplicativos de logon único aos usuários | [Implantando aplicativos integrados do AD do Azure para usuários](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
+| Uma comparação das opções diferentes disponíveis para a implantação de aplicativos de logon único aos usuários | [Implantando aplicativos integrados do AD do Azure para usuários](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | Uma visão geral do Painel de acesso e seu MyApps equivalentes móveis | [Introdução ao Painel de Acesso e aos MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Como acessar os aplicativos do AD do Azure no site do Office 365 | [Como usar o Iniciador de Aplicativos do Office 365](https://support.office.com/pt-BR/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Como acessar aplicativos do AD do Azure no aplicativo móvel Navegador Gerenciado do Intune | [Navegador Gerenciado do Intune](https://technet.microsoft.com/pt-BR/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
@@ -228,4 +228,4 @@ Para ver quais relatórios estão incluídos em edições diferentes do Active D
 
 [Autenticação Multifator do Azure](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

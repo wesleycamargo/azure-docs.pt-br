@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="04/20/2016"
 	ms.author="billmath"/>
 
 # Perguntas frequentes do Azure AD Connect
@@ -46,6 +46,8 @@
 - [Os nomes de usuário no Office 365, Azure ou Intune não coincidem com o UPN local ou ID de logon alternativo](https://support.microsoft.com/pt-BR/kb/2523192)
 - [As alterações não são sincronizadas pela ferramenta de sincronização do Active Directory do Azure depois que você altera o UPN de uma conta de usuário para usar um domínio diferente](https://support.microsoft.com/pt-BR/kb/2669550)
 
+Você também pode configurar o Azure AD para permitir que o mecanismo de sincronização atualize o userPrincipalName da forma descrita em [Azure AD Connect sync service features (Recursos do serviço de sincronização do Azure AD Connect)](active-directory-aadconnectsyncservice-features.md).
+
 ## Configuração personalizada
 **P: Onde os cmdlets do PowerShell para o Azure AD Connect estão documentados?** Com exceção dos cmdlets documentados neste site, não há suporte para outros cmdlets do PowerShell encontrados no Azure AD Connect para uso do cliente.
 
@@ -66,4 +68,4 @@
 
 - Use este link para obter suporte por meio do Portal do Azure.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

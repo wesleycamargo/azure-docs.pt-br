@@ -31,7 +31,7 @@ Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum
 Cancele o registro de um servidor VMM a partir de um cofre, excluindo o servidor na guia **Servidores** no portal do Azure Site Recovery. Observe que:
 
 -  **Servidor VMM conectado**: recomendamos o cancelamento do registro do servidor VMM quando ele estiver conectado ao Azure. Isso garante que as configurações no servidor VMM local, e os servidores VMM associados a ele (servidores VMM que contêm as nuvens mapeadas para nuvens no servidor que você deseja excluir), sejam apagadas apropriadamente. Recomendamos que você remova um servidor desconectado somente se houver um problema de conectividade permanente.
-- **Servidor VMM desconectado**: se o servidor VMM não estiver conectado quando você o exclui, será necessário executar manualmente um script para realizar a limpeza. O script está disponível na [Galeria da Microsoft](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439). Anote a ID do VMM do servidor para concluir o processo de limpeza manual.
+- **Servidor VMM desconectado**: se o servidor VMM não estiver conectado quando você o exclui, será necessário executar manualmente um script para realizar a limpeza. O script está disponível na [Galeria da Microsoft](http://aka.ms/asr-cleanup-script-vmm). Anote a ID do VMM do servidor para concluir o processo de limpeza manual.
 - **Servidor VMM em cluster**: se você precisar cancelar o registro de um servidor VMM implantado em um cluster, faça o seguinte:
 
 	- Se o servidor estiver conectado, exclua o servidor VMM conectado na guia **Servidores**. Para desinstalar o Provedor no servidor, faça logon em cada nó do cluster e desinstale-o no Painel de Controle. Execute o script de limpeza mencionado na seção anterior em todos os nós passivos no cluster a fim de excluir as entradas do registro.
@@ -220,4 +220,4 @@ Se você quiser interromper a proteção de uma máquina virtual VMware ou de um
 	
 		![Opções de remoção](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

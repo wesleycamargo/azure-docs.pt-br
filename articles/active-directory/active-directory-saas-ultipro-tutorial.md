@@ -106,15 +106,15 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal cl
     b. Clique em **Próximo**.
 
 
-5. Para que o SSO seja configurado em seu aplicativo, entre em contato com a equipe de suporte do Ultipro pelo email [ultiproinfo@ultimatesoftware.com](mailto:ultiproinfo@ultimatesoftware.com) e forneça o seguinte:
+5. Para que o SSO seja configurado para seu aplicativo, entre em contato com o Gerente de Conta do UltiPro e forneça o seguinte:
 
     - O arquivo de certificado baixado
 
     - A **URL do Emissor**
 
-    - A **URL do SSO do SAML**
+    - A **URL de SSO do SAML**
 
-    - A **URL do Serviço de Logon Único**
+    - A **URL do Serviço de Saída Única**
 
 
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
@@ -176,7 +176,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Ultipr
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Ultipro. <br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Ultipro. <br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao Ultipro, execute as seguintes etapas:**
 
@@ -221,4 +221,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_205.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

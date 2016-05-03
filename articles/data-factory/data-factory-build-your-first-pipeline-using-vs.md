@@ -288,12 +288,24 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 23. Na página **Publicar Itens**, verifique se todas as entidades de Data Factories estão selecionadas e clique em **Avançar** para alternar para a página **Resumo**.     
 24. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
 25. Na página **Status da Implantação**, você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado. 
+
+Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente:
+
+- No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory. 
+		
+		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+	Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado.
+	
+		Get-AzureRmResourceProvider
+- Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie uma fábrica de dados no portal do Azure. Isso registra automaticamente o provedor para você.
+
  
 ## Monitorar o pipeline
 
 6. Faça logon no [Portal do Azure](https://portal.azure.com/), faça o seguinte:
 	1. Clique em **Procurar** e selecione **Data factories**.
-		![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	 ![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Escolha **FirstDataFactoryUsingVS** na lista de data factories. 
 7. Na home page do seu data factory, clique em **Diagrama**.
   
@@ -348,7 +360,7 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 ## Usar arquivos de configuração
 Você pode usar arquivos de configuração no Visual Studio para configurar propriedades de serviços/tabelas/pipelines vinculados de forma diferente para cada ambiente.
 
-Considere a definição de JSON a seguir para um serviço de Armazenamento do Azure vinculado. Para especificar **connectionString** com valores diferentes para accountname e accountkey com base no ambiente (Desenvolvimento/Teste/Produção) no qual você está implantando entidades de Data Factory. Você pode fazer isso usando um arquivo de configuração separado para cada ambiente.
+Considere a definição de JSON a seguir para um serviço de Armazenamento do Azure vinculado. Para especificar a **connectionString** com valores diferentes para accountname e accountkey com base no ambiente (Desenvolvimento/Teste/Produção) no qual você está implantando entidades de Data Factory. Você pode fazer isso usando um arquivo de configuração separado para cada ambiente.
 
 	{
 	    "name": "StorageLinkedService",
@@ -435,7 +447,7 @@ Ao publicar entidades do Azure Data Factory no VS, você pode especificar a conf
 Para publicar as entidades em um projeto do Azure Data Factory usando o arquivo de configuração:
 
 1. Clique com o botão direito do mouse no projeto de Data Factory e clique em **Publicar** para ver a caixa de diálogo **Publicar Itens**. 
-2. Selecione um data factory existente ou especifique valores para criar um novo na página **Configurar data factory** e clique em **Avançar**.   
+2. Selecione uma fábrica de dados existente ou especifique valores para criar uma nova na página **Configurar fábrica de dados** e clique em **Avançar**.   
 3. Na página **Publicar Itens**: você verá uma lista suspensa com as configurações disponíveis para o campo **Selecionar Configuração de Implantação**.
 
 	![Selecionar arquivo de configuração](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
@@ -450,4 +462,4 @@ Quando você implantar, os valores do arquivo de configuração serão usados pa
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

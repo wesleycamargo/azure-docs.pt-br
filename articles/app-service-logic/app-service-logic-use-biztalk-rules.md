@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="andalmia"/>
 
 #Regras do BizTalk
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 As Regras de Negócios encapsulam as políticas e as decisões que controlam processos de negócios. Essas políticas podem ser definidas formalmente em manuais de procedimento, contratos ou acordos, ou podem existir sob a forma de conhecimentos ou experiências incorporados pelos funcionários. Essas políticas são dinâmicas e estão sujeitas a sofrer alterações com o passar do tempo, devido a mudanças em planos de negócios, regulamentações ou por outros motivos.
 
@@ -52,18 +52,18 @@ Considere o exemplo a seguir:
 *IF (Se) a quantidade for menor ou igual aos fundos disponíveis*  
 *THEN (Então) realize as transações e imprima o recibo*
 
-Esta regra determina se uma transação deverá ser realizada por meio da aplicação da lógica de negócios, sob a forma de uma comparação de dois valores monetários, na forma de um valor de transação e fundos disponíveis.  
+Esta regra determina se uma transação deverá ser realizada por meio da aplicação da lógica de negócios, sob a forma de uma comparação de dois valores monetários, na forma de um valor de transação e fundos disponíveis.
 Você pode usar a Regra de Negócio para criar, modificar e implantar regras de negócio. Ou você pode realizar as tarefas anteriores de forma programática.
 
 ###Condições
 
-Uma condição é uma expressão (booliana) verdadeira/falsa que consiste em um ou mais predicados. Em nosso exemplo, o predicado “menor ou igual a” é aplicado ao valor e aos fundos disponíveis. Essa condição será sempre avaliada como verdadeira ou falsa.  
+Uma condição é uma expressão (booliana) verdadeira/falsa que consiste em um ou mais predicados. Em nosso exemplo, o predicado “menor ou igual a” é aplicado ao valor e aos fundos disponíveis. Essa condição será sempre avaliada como verdadeira ou falsa.
 Os predicados podem ser combinados com os operadores lógicos AND, OR e NOT para formar uma expressão lógica, que pode ser bastante grande, mas sempre será avaliada como verdadeira ou falsa.
 
 ###Ações
 
-As ações são consequências funcionais da avaliação da condição. Se a condição de uma regra for atendida, uma ou mais ações correspondentes serão iniciadas.  
-Em nosso exemplo, "realizar transação" e “imprimir recibo" são ações executadas quando, e somente quando, a condição (nesse caso, “SE o valor for menor que ou igual aos fundos disponíveis") for verdadeira.  
+As ações são consequências funcionais da avaliação da condição. Se a condição de uma regra for atendida, uma ou mais ações correspondentes serão iniciadas.
+Em nosso exemplo, "realizar transação" e “imprimir recibo" são ações executadas quando, e somente quando, a condição (nesse caso, “SE o valor for menor que ou igual aos fundos disponíveis") for verdadeira.
 As ações são representadas na Estrutura de Regras de Negócios, executando operações de conjunto em documentos XML.
 
 ##Política
@@ -82,7 +82,7 @@ Vamos selecionar um cenário de exemplo e percorrê-lo enquanto compomos sua ló
 
 ![Alt text][1]
 
-Em um cenário de Solicitação de Resgate de Seguro bastante simples, o solicitante envia sua solicitação de resgate (por meio de qualquer cliente, como site, aplicativo para telefone etc). A Solicitação de Resgate de Seguro é encaminhada para a Unidade de Processamento de Solicitações e, com base no resultado do processamento, ela pode ser aprovada, rejeitada ou encaminhada para processamento manual.  
+Em um cenário de Solicitação de Resgate de Seguro bastante simples, o solicitante envia sua solicitação de resgate (por meio de qualquer cliente, como site, aplicativo para telefone etc). A Solicitação de Resgate de Seguro é encaminhada para a Unidade de Processamento de Solicitações e, com base no resultado do processamento, ela pode ser aprovada, rejeitada ou encaminhada para processamento manual.
 Em nosso cenário, a Unidade de Processamento de Solicitação seria a que contém a lógica de negócios do sistema. Examinando esta mais de perto, podemos ver o seguinte:
 
 ![Alt text][2]
@@ -96,7 +96,7 @@ Agora, vamos usar use Regras de Negócio para implementar a lógica de negócios
 1. Fazer logon no Portal do Azure
 2. Selecione Novo -> Marketplace e procure por *Regras do BizTalk*
 3. Selecione Regras do BizTalk na lista de resultados. A folha Regras do BizTalk é aberta
-4. Selecione o botão *Criar*  
+4. Selecione o botão *Criar* 
 ![Alt text][3]
 1. Na nova lâmina que será aberta, insira as seguintes informações:  
 	1. Nome – dê um nome para seu Aplicativo de API de Regras
@@ -115,8 +115,8 @@ Após criar um Aplicativo de API de Regras do BizTalk, a próxima etapa seria cr
 
    ![Alt text][4]
 
-2\. Selecione “Definições de vocabulário”. Isso mostraria a Tela de Criação de Vocabulário  
-3. Selecione “Adicionar” para começar a adicionar novas definições de vocabulário.  
+2.Selecione “Definições de vocabulário”. Isso mostraria a Tela de Criação de Vocabulário.<br/>
+3.Selecione “Adicionar” para começar a adicionar novas definições de vocabulário.
 Dois tipos de definições de vocabulário têm suporte – Literal e XML.
 
 ##Definição literal
@@ -125,20 +125,19 @@ Dois tipos de definições de vocabulário têm suporte – Literal e XML.
   2.	Descrição – campo opcional.
   3.	Tipo de Definição – há suporte para dois tipos. Neste exemplo, escolha Literal
   4.	Tipo de dados – permite aos usuários selecionar o tipo de dados da definição. Atualmente, há suporte para quatro tipos de dados: 
-  i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") 
-  ii. Booliano – pode ser verdadeiro ou falso 
-  iii. Número – pode ser qualquer número decimal 
+  	i. Cadeia de caracteres – esses valores devem ser inseridos entre aspas duplas (“Exemplo de cadeia de caracteres") 
+	ii. Booliano – pode ser verdadeiro ou falso 
+	iii. Número – pode ser qualquer número decimal 
   iv. DateTime – significa que a definição é do tipo data. Os dados devem ser inseridos usando este formato – mm/dd/aaaa hh:mm:ss AM\\PM  
   5. Entrada – é onde você insere o valor da sua definição. Os valores inseridos aqui devem estar de acordo com o tipo de dados escolhido. Você pode digitar um valor único, um conjunto de valores separados por vírgulas ou um intervalo de valores usando a palavra-chave do *to*. Por exemplo, é possível inserir um valor exclusivo 1, um conjunto de 1, 2, 3 ou um intervalo de 1 a 5. É importante lembrar que o intervalo dá suporte apenas para números.
   6. Selecione *OK*.
 
 ![Alt text][5]
-
 ##Definição XML
 Se o tipo de vocabulário escolhido for XML, as entradas a seguir deverão ser especificadas  
-  a.	Esquema – Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema.  
+  a.	Esquema – Clicar abrirá uma nova lâmina que permite que o usuário escolha dentre uma lista de esquemas já carregados ou carregue um novo esquema.   
   b.	XPATH – essa entrada é desbloqueada somente após a seleção de um esquema na etapa anterior. Clicar exibirá o esquema que foi selecionado e permite que o usuário selecione o nó para o qual uma definição de vocabulário precisa ser criada.  
-  c.	FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
+	FACT– esta entrada identifica qual objeto de dados deve ser fornecido ao mecanismo de regras para processamento. Esta é uma propriedade avançada e por padrão é definida como pai do XPATH selecionado. FACT se torna especialmente importante em cenários de coleta e encadeamento.
 
 ![Alt text][6]
 
@@ -150,47 +149,46 @@ Os nomes de várias definições criadas assumirão como padrão o nome do nó s
 ![Alt text][7]
 
 ##Criação de política
-Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure.  
-	1. No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas.  
-	2. Essa página mostrará a lista de políticas contidas neste Aplicativo de Regras específico. O analista pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla Tab duas vezes. Várias políticas podem residir em um único Aplicativo de API de Regras.  
-	3. Selecionar a Política criada levará o usuário à página de detalhes da Política, em que é possível ver as regras contidas na política.  
-	![Alt text][8]  
+Após o desenvolvedor ter criado os vocabulários necessários, a expectativa é de que o Analista de negócios crie as Políticas comerciais por meio do Portal do Azure. 
+	1. No Aplicativo de Regras criado, há uma lente de Política. Clicando nela, o usuário é levado à página de criação de políticas. 
+	2. Essa página mostrará a lista de políticas contidas neste Aplicativo de Regras específico. O analista pode adicionar uma nova Política simplesmente digitando o nome da política e pressionando a tecla Tab duas vezes. Várias políticas podem residir em um único Aplicativo de API de Regras. 
+	3. Selecionar a Política criada levará o usuário à página de detalhes da Política, em que é possível ver as regras contidas na política. 
+	![Alt text][8] 
 	4. Selecione “Adicionar” para adicionar uma nova regra. Isso levará você a uma nova lâmina.
 
 ##Criação de regra
-Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição (IF) pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:  
+Uma regra é um conjunto de condições e instruções de ação. As ações são executadas se a condição for avaliada como verdadeira. Na lâmina Criar Regra, dê um nome de regra exclusivo (para essa política) e uma descrição (opcional). A caixa de Condição (IF) pode ser usada para criar instruções condicionais complexas. A seguir, estão as palavras-chave com suporte:
 1. 	And – operador condicional  
 2. 	Or – operador condicional  
-3. 	does_not_exist  
+3. 	does\_not\_exist  
 4. 	exists  
 5. 	false  
-6. 	is_equal_to  
-7. 	is_greater_than  
-8. 	is_greater_than_equal_to  
-9. 	is_in  
-10. is_less_than  
-11. is_less_than_equal_to  
-12. is_not_in  
-13. is_not_equal_to  
+6. 	is\_equal\_to  
+7. 	is\_greater\_than  
+8. 	is\_greater\_than\_equal\_to  
+9. 	is\_in  
+10. is\_less\_than  
+11. is\_less\_than\_equal\_to  
+12. is\_not\_in  
+13. is\_not\_equal\_to  
 14. mod  
-15. true 
+15. verdadeiro  
 
-A caixa de Ação (THEN) pode conter várias instruções, uma por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte: 
-1.	igual a  
-2.	falso  
+A caixa de Ação (THEN) pode conter várias instruções, uma por linha, para criar as ações que serão executadas. A seguir, estão as palavras-chave com suporte:
+1.	equals  
+2.	false  
 3.	verdadeiro  
-4.	interromper  
+4.	halt  
 5.	mod  
 6.	nulo  
 7.	atualizar  
 
-As caixas de condição e de ação provisionam o IntelliSense para ajudá-lo a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. 
-![Alt text][9]
+As caixas de condição e de ação provisionam o IntelliSense para ajudá-lo a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. ![Alt text][9]
 
 ##Encadeamento de encaminhamento explícito
-As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir estão as palavras-chave com suporte:  
-1. Atualizar <vocabulary definition> – essa palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.  
-2. Halt – esta palavra-chave interrompe todas as execuções de regra
+As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir, estão as palavras-chave com suporte:
+   1.	update <vocabulary definition> – esta palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.  
+   2.	Halt – esta palavra-chave interrompe todas as execuções de regra
 
 ##Habilitar\\desabilitar regras
 Cada regra da política pode ser habilitada ou desabilitada. Por padrão, todas as regras ficam habilitadas. Regras desabilitadas não são executadas durante a execução da política. Você pode habilitar\\desabilitar as regras diretamente na lâmina da regra – os comandos estão disponíveis na barra de comandos na parte superior da lâmina. Além disso, na política, o menu de contexto (clique com o botão direito do mouse em uma regra) tem a opção de habilitar\\desabilitar.
@@ -256,4 +254,4 @@ Uma das principais vantagens do uso de Regras Comerciais é que alterações fei
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,8 +3,8 @@
 	description="Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para Serviços de Mídia do Microsoft Azure. Os Serviços de Mídia do Microsoft Azure fornecem serviço de transmissão ao vivo, que permite aos clientes transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Microsoft Azure como a plataforma de nuvem. Este documento também aborda as práticas recomendadas de criação de mecanismos robustos de ingestão dinâmica e altamente redundantes." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="cenkdin,juliako" 
-	manager="dwrede" 
+	authors="cenkdin" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"    
+	ms.author="cenkdin;juliako"/>
 
 #Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure
 
@@ -221,4 +221,4 @@ Veja abaixo uma implementação recomendada para faixas de áudio redundantes:
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

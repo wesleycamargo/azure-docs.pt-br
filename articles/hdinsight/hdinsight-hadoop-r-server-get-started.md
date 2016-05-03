@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução ao Servidor R no HDInsight | Azure"
-   description="Saiba como criar um Apache Spark no cluster HDInsight (Hadoop) que inclui o Servidor R e, então, enviar um script R no cluster."
+   pageTitle="Introdução ao Servidor R no HDInsight (preview) | Azure"
+   description="Saiba como criar um Apache Spark no cluster HDInsight (preview) que inclui o Servidor R e enviar um script R no cluster em seguida."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -17,9 +17,9 @@
    ms.date="03/25/2016"
    ms.author="jeffstok"/>
 
-# Aprenda a usar o Servidor R no HDInsight
+#Introdução ao uso do Servidor R no HDInsight (preview)
 
-A oferta de camada Premium do HDInsight inclui o Servidor R como parte do cluster do HDInsight. Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Neste documento, você aprenderá como criar um novo Servidor R no HDInsight e, então, executar um script R que demonstre o uso do Spark para cálculos R distribuídos.
+A oferta da camada premium para o HDInsight inclui o Servidor R no HDInsight (preview). Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Neste documento, você aprenderá como criar um novo Servidor R no HDInsight e, então, executar um script R que demonstre o uso do Spark para cálculos R distribuídos.
 
 ![Diagrama de fluxo de trabalho para este documento](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -322,4 +322,4 @@ Ambos os modelos criam um novo cluster HDInsight e uma conta de armazenamento as
 
 Para obter informações genéricas sobre como usar os modelos ARM, confira a seção [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

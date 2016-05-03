@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introdução ao ASP.NET e ao Serviço de Aplicativo do Azure | Microsoft Azure"
-	description="Saiba como criar um projeto Web do ASP.NET no Visual Studio e implantá-lo em um aplicativo Web no Serviço de Aplicativo do Azure."
+	pageTitle="Introdução ao Serviço de Aplicativo do Azure e ASP.NET | Microsoft Azure"
+	description="Saiba como implantar um projeto Web do ASP.NET em um novo aplicativo Web no Serviço de Aplicativo do Azure, usando o Visual Studio."
 	services="app-service\web"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="04/22/2016"
 	ms.author="tdykstra"/>
 
-# Introdução aos aplicativos Web do ASP.NET no Serviço de Aplicativo do Azure usando o Visual Studio
+# Introdução aos aplicativos Web no Serviço de Aplicativo do Azure, usando ASP.NET e Visual Studio
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
@@ -293,4 +293,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 	No Azure, você pode executar aplicativos Web em aplicativos Web do Serviço de Aplicativo, conforme mostrado neste tutorial, em Serviços de Nuvem ou Máquinas Virtuais. Para saber mais, confira [Aplicativos Web do Azure, serviços de nuvem e VMs: qual deles usar e quando](/manage/services/web-sites/choose-web-app-service/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

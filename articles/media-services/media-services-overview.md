@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
- 	ms.date="04/18/2016"
+ 	ms.date="04/26/2016"
 	ms.author="juliako;anilmur"/>
 
 #Visão geral e cenários comuns do Serviços de Mídia do Azure
@@ -70,7 +70,7 @@ Para uma série de instruções que apresenta a todos os componentes principais 
 
 Esta seção descreve cenários comuns e fornece links para tópicos relevantes. O diagrama a seguir mostra as partes principais da plataforma de serviços de mídia que estão envolvidas em fornecer conteúdo sob demanda.
 
-![Fluxo de trabalho VoD][vod-overview]
+![Fluxo de trabalho VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 
 ###Proteja o conteúdo no armazenamento e forneça mídia de streaming sem proteção (não criptografada)
@@ -105,14 +105,19 @@ Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos
 1. Publicar o ativo criando um localizador OnDemand.
 1. Fluxo de conteúdo publicado. 
 
-###Conteúdo do índice
+###Use a Análise de Mídia para obter informações acionáveis de seus vídeos 
 
-1. Carregar um arquivo mezzanine de alta qualidade em um Ativo.
-1. Conteúdo do índice.
+A Análise de Mídia é uma coleção de componentes de fala e de visão que facilitam a obtenção de análises acionáveis dos arquivos de vídeo de organizações e de empresas. Para saber mais, confira [Visão geral a Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md).
 
-	O trabalho de indexação gera arquivos que podem ser usados como CC (legenda oculta) na reprodução de vídeo. Ele também gera arquivos que o habilitam a fazer pesquisa em vídeo e saltar para o local exato do vídeo.
-
-1. Consumir conteúdo indexado.
+1. Carregar um arquivo mezzanine de alta qualidade em um ativo.
+2. Use um dos seguintes serviços da Análise de Mídia para processar seus vídeos:
+	
+	- **Indexador** – [Processe vídeos com o Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
+	- **Hyperlapse** – [Arquivos de mídia do Hyperlapse com o Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+	- **Detecção de movimento** – [Detecção de movimento para a Análise de Mídia do Azure](media-services-motion-detection.md).
+	- **Detecção de face e emoções** – [Detecção de emoção e face para a Análise de Mídia do Azure](media-services-face-and-emotion-detection.md).
+	- **Resumo de vídeo** – [Usar as miniaturas de vídeo de Mídia do Azure para criar um resumo de vídeo](media-services-video-summarization.md)
+3. O processador de mídia da Análise de Mídia produz arquivos MP4 ou arquivos JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do Armazenamento de Blobs do Azure. 
 
 
 ###Entregar o download progressivo 
@@ -133,7 +138,7 @@ Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos
 - [Como obter um processador de mídia](media-services-get-media-processor.md)
 - [Como codificar conteúdo](media-services-manage-content.md#encode)
 - [Como monitorar trabalhos](media-services-portal-check-job-progress.md)
-- [Como indexar conteúdo](media-services-manage-content.md#index)
+- [Como usar a análise](media-services-analytics-overview.md)
 - [Como proteger conteúdo](media-services-manage-content.md#encrypt)
 - [Como proteger publicação](media-services-manage-content.md#publish)
 - [Como dimensionar a codificação](media-services-portal-encoding-units.md)
@@ -210,11 +215,6 @@ Você também pode dimensionar sua conta dos Serviços de Mídia adicionando con
 
 O [Suporte do Azure](https://azure.microsoft.com/support/options/) fornece opções de suporte do Azure, incluindo os Serviços de Mídia.
 
-##Padrões e práticas de orientação
-
-[Orientação sobre padrões e práticas](https://wamsg.codeplex.com/) [Documentação online](https://msdn.microsoft.com/library/dn735912.aspx) [Livro eletrônico para download](https://www.microsoft.com/download/details.aspx?id=42629)
-
-
 ##Fornecer comentários
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
@@ -236,4 +236,4 @@ O [Suporte do Azure](https://azure.microsoft.com/support/options/) fornece opç�
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

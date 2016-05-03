@@ -15,16 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/17/2016"
 	ms.author="genli"/>
 
 # Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido anterior?
-Se você for o Administrador da Conta de sua assinatura do Azure e não tiver feito o pagamento no prazo, você receberá uma notificação por email sobre seu saldo devido anterior ou verá um alerta em http://accounts.windowsazure.com ou http://portal.azure.com.
+Se você for o Administrador da Conta de sua assinatura do Azure e não tiver feito o pagamento no prazo, você receberá uma notificação por email sobre seu saldo devido anterior ou verá um alerta em [https://account.windowsazure.com](https://account.windowsazure.com) ou [https://portal.azure.com](https://portal.azure.com).
 
-### O que acontecerá se você esquecer de fazer o pagamento
+## O que acontecerá se você esquecer de fazer o pagamento
 O serviço será cancelado e os recursos não estarão mais disponíveis. Todos os dados serão excluídos 90 dias após o encerramento do serviço.
 
-### O que você pode fazer para resolver o problema
+## O que você pode fazer para resolver o problema
 
 Pague o saldo pendente na íntegra.
 
@@ -35,4 +35,4 @@ Pague o saldo pendente na íntegra.
 
 **Cenário 3**: se o aviso de fatura não foi recebido porque o Administrador da Conta deixou a empresa ou mudou de função, entre em contato com o [Suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

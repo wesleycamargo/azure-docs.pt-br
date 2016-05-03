@@ -18,7 +18,7 @@
 	ms.author="nitinme"/>
 
 
-# Introdução: criar o Apache Spark no Azure HDInsight e executar consultas interativas usando o Spark SQL
+# Introdução: criar Apache Spark no HDInsight Windows e executar consultas interativas usando o Spark SQL (Preview)
 
 > [AZURE.NOTE] O HDInsight agora fornece clusters Spark no Linux. Para obter informações sobre como começar a usar os clusters Spark no HDInsight Linux, confira [Get started: create Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
@@ -296,4 +296,4 @@ Nesta seção, você pode usar um bloco de anotações do Jupyter para executar 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

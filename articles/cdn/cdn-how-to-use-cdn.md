@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Como usar a CDN | Microsoft Azure"
+	pageTitle="Usando o Azure CDN"
 	description="Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer conteúdo com alta largura de banda armazenando em cache blobs e conteúdo estático."
 	services="cdn"
 	documentationCenter=".net"
@@ -12,12 +12,12 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="03/18/2016"
+	ms.topic="article"
+	ms.date="04/15/2016"
 	ms.author="casoper"/>
 
 
-# Usando a CDN para Azure
+# Usando o Azure CDN
 
 A CDN (Rede de Distribuição de Conteúdo) do Azure é o bloco de construção fundamental para dimensionar qualquer aplicativo HTTP/HTTPS no Azure. Ele oferece aos clientes do Azure uma solução global armazenando em cache e entregando conteúdo próximo aos usuários finais. Como resultado, em vez de acessar a origem em todas as ocasiões, as solicitações de usuário são inteligentemente roteadas para o nó de borda CDN (POP ou Ponto de Presença) que ofereça a eles os melhores tempos de resposta. Isso aumenta significativamente o desempenho e a experiência do usuário. Para obter uma lista atual dos locais de nós CDN, consulte [Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-pop-locations.md).
 
@@ -128,7 +128,6 @@ O acesso a conteúdo da CDN usando HTTPS tem as seguintes restrições:
 - Você deve usar o certificado fornecido pela CDN. Não há suporte a certificados de terceiros.
 - Você deve usar o domínio da CDN para acessar o conteúdo. O suporte a HTTPS não está disponível para CNAMEs (nomes de domínio personalizados), pois a CDN não dá suporte a certificados personalizados no momento.
 
-Para saber mais sobre como habilitar o HTTPS para conteúdo da CDN, consulte [Como habilitar a CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-create-new-endpoint.md).
 
 
 ## Acessando conteúdo armazenado em cache com domínios personalizados
@@ -149,4 +148,4 @@ A CDN do Microsoft Azure pode ser gerenciada de forma programática usando a [AP
 - [Limpar um ponto de extremidade CDN do Azure](cdn-purge-endpoint.md)
 - [API REST do Provedor de Recursos CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

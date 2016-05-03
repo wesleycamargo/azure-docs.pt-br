@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede,cenkdin" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
-	ms.author="juliako"/>
+	ms.date="04/18/2016"
+	ms.author="juliako;cenkdin"/>
 
 
 #Criando filtros com o SDK do .NET dos Serviços de Mídia do Azure
@@ -148,4 +148,4 @@ Os exemplos a seguir mostram como adicionar filtros às URLs de streaming.
 [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

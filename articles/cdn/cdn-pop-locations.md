@@ -40,6 +40,7 @@ Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Micros
 ## América do Sul
 
 - São Paulo
+- Rio de Janeiro
 - Quito
 - Medellin
 - Buenos Aires
@@ -82,6 +83,6 @@ Este tópico lista os locais atuais de POP (ponto de presença) da CDN do Micros
 
 ## Em breve
 
-Você pode ter ouvido falar que a Microsoft fez uma [parceria com a Akamai](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/). Nos meses futuros, usaremos essa parceria para aumentar significativamente o alcance da CDN do Azure em todo o mundo.
+Talvez você tenha ouvido falar que a Microsoft fez uma [parceria com a Akamai](https://azure.microsoft.com/blog/microsoft-and-akamai-bring-cdn-to-azure-customers/). Nos meses futuros, usaremos essa parceria para aumentar significativamente o alcance da CDN do Azure em todo o mundo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

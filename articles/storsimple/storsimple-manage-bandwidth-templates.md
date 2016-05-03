@@ -12,22 +12,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="04/14/2015"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar modelos de largura de banda do StorSimple
 
 ## Visão geral
 
-Os modelos de largura de banda permitem configurar várias agendas com as horas do dia para dispor os dados do dispositivo StorSimple em camadas na nuvem. Você também pode criar, modificar, excluir e salvar essas agendas como modelos. Esses modelos de largura de banda podem então ser aplicados em contêineres de volume para controlar a largura de banda consumida por seu dispositivo StorSimple durante a execução de operações que envolvem a nuvem. Dependendo do seu padrão de uso da largura de banda, você também pode escolher em uma lista de modelos padrão.
+Os modelos de largura de banda permitem configurar a largura de banda de rede em várias agendas do dia para dispor os dados do dispositivo StorSimple em camadas na nuvem.
 
 Com agendas de limitação da largura de banda, você pode:
 
-- Especificar agendas que personalizam o uso da largura de banda dependendo das cargas de trabalho.
+- Especifica as agendas de largura de banda personalizadas dependendo dos usos da rede de carga de trabalho.
 
 - Centralizar o gerenciamento e reutilizar as agendas em vários dispositivos de uma maneira fácil e direta.
 
-Esse recurso está disponível somente para dispositivos físicos do StorSimple, e não para dispositivos virtuais. Todos os modelos de largura de banda para seu serviço são exibidos em um formato de tabela e contêm as seguintes informações:
+> [AZURE.NOTE] Esse recurso está disponível somente para dispositivos físicos do StorSimple, e não para dispositivos virtuais.
+   
+Todos os modelos de largura de banda para seu serviço são exibidos em um formato de tabela e contêm as seguintes informações:
 
 - **Nome**: um nome exclusivo atribuído ao modelo de largura de banda quando ele foi criado.
 
@@ -35,13 +37,7 @@ Esse recurso está disponível somente para dispositivos físicos do StorSimple,
 
 - **Usado por**: o número de volumes usando os modelos de largura de banda.
 
-Use a página **Configurar** do serviço StorSimple Manager no Portal clássico do Azure para gerenciar modelos de largura de banda. As tarefas mais comuns relacionadas aos modelos de largura de manda que podem ser executadas nesta página são:
-
-- Adicionar um modelo de largura de banda
-- Editar um modelo de largura de banda
-- Excluir um modelo de largura de banda
-- Usar um modelo de largura de banda padrão
-- Criar um modelo de largura de banda de dia inteiro que comece em uma hora especificada
+Use a página **Configurar** do serviço StorSimple Manager no Portal clássico do Azure para gerenciar modelos de largura de banda.
 
 Você também pode encontrar informações adicionais que ajudam a configurar modelos de largura de banda em:
 
@@ -68,7 +64,7 @@ Execute as etapas a seguir para criar um novo modelo de largura de banda.
    3. Na lista suspensa, selecione uma **Hora de Início**. Essa é a hora em que a agenda será iniciada.
    4. Na lista suspensa, selecione uma **Hora de Término**. Essa é a hora em que a agenda será encerrada.
    
-         > [AZURE.NOTE] Os agendamentos sobrepostos não são permitidos. Se as horas de início e término resultarem em um agendamento sobreposto, você verá uma mensagem de erro sobre isso.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. Especifique a **Taxa da Largura de Banda**. Essa é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo StorSimple em operações que envolvem a nuvem. Forneça um número entre 1 e 1.000 para esse campo.
    
@@ -94,7 +90,7 @@ Execute as etapas a seguir para editar um modelo de largura de banda.
 
 3. Para salvar as alterações, clique em **Salvar** na parte inferior da página. Clique em **Sim** quando for solicitada a confirmação.
 
-> [AZURE.NOTE]Você não poderá salvar as alterações se a agenda editada sobrepuser uma agenda existente no modelo de largura de banda que você está modificando.
+> [AZURE.NOTE] Você não poderá salvar as alterações se a agenda editada sobrepuser uma agenda existente no modelo de largura de banda que você está modificando.
 
 ## Excluir um modelo de largura de banda
 
@@ -176,4 +172,4 @@ Siga estas práticas recomendadas para seu dispositivo StorSimple:
 
 Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

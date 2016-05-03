@@ -1,6 +1,6 @@
 <properties
    pageTitle="Provedores de computação, rede e armazenamento | Microsoft Azure"
-   description="Visão geral dos CRP, NRP e política SRP (provedores de recursos de computação, rede e armazenamento) para aplicativos do Linux no Azure Resource Manager"
+   description="Visão geral dos CRP, NRP e política SRP (Provedores de Recursos de Computação, Rede e Armazenamento) para aplicativos do Linux no modelo de implantação do Azure Resource Manager"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="mahthi"
@@ -17,10 +17,10 @@
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-# Provedores de computação, rede e armazenamento do Azure para aplicativos do Linux no Azure Resource Manager
+# Provedores de Computação, Rede e Armazenamento do Azure para os aplicativos do Linux no modelo de implantação do Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
+A inclusão dos recursos de computação, rede e armazenamento no Azure Resource Manager simplificará fundamentalmente a implantação e o gerenciamento de aplicativos complexos em execução na IaaS. Muitos aplicativos exigem uma combinação de recursos, incluindo uma Rede Virtual, uma Conta de Armazenamento, uma Máquina Virtual e uma Interface de Rede. O modelo de implantação do Azure Resource Manager oferece a capacidade de construir um modelo JSON para implantar e gerenciar todos esses recursos juntos como um único aplicativo.
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

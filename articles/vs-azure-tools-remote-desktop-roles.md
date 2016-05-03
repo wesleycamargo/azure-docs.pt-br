@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Usando a Área de Trabalho Remota com as funções do Azure
 
 Usando o SDK do Azure e os Serviços de Área de Trabalho Remota, você pode acessar as funções do Azure e máquinas virtuais que são hospedadas pelo Azure. No Visual Studio, você pode configurar os Serviços de Área de Trabalho Remota por meio de um projeto do Azure. Para habilitar os Serviços de Área de Trabalho Remota, você deve criar um projeto de trabalho contendo uma ou mais funções e, em seguida, publicá-lo no Azure.
 
->[AZURE.IMPORTANT]Você deve acessar uma função do Azure apenas para desenvolvimento ou solução de problemas. A finalidade de cada máquina virtual é executar uma função específica em seu aplicativo Azure; a finalidade não é, portanto, executar outros aplicativos cliente. Se desejar usar o Azure para hospedar uma máquina virtual que você possa usar para qualquer finalidade, consulte Acessando máquinas virtuais do Azure por meio do Gerenciador de Servidores.
+>[AZURE.IMPORTANT] Você deve acessar uma função do Azure apenas para desenvolvimento ou solução de problemas. A finalidade de cada máquina virtual é executar uma função específica em seu aplicativo Azure; a finalidade não é, portanto, executar outros aplicativos cliente. Se desejar usar o Azure para hospedar uma máquina virtual que você possa usar para qualquer finalidade, consulte Acessando máquinas virtuais do Azure por meio do Gerenciador de Servidores.
 
 ## Para habilitar e usar a Área de Trabalho Remota para uma Função do Azure
 
@@ -41,7 +41,7 @@ Usando o SDK do Azure e os Serviços de Área de Trabalho Remota, você pode ace
 
     Se você escolher um certificado existente, ignore as etapas a seguir.
 
-    >[AZURE.NOTE]Os certificados necessários para uma conexão de área de trabalho remota são diferentes dos certificados que você usa para outras operações do Azure. O certificado de acesso remoto deve ter uma chave privada.
+    >[AZURE.NOTE] Os certificados necessários para uma conexão de área de trabalho remota são diferentes dos certificados que você usa para outras operações do Azure. O certificado de acesso remoto deve ter uma chave privada.
 
     A caixa de diálogo **Criar Certificado** é exibida.
 
@@ -51,7 +51,7 @@ Usando o SDK do Azure e os Serviços de Área de Trabalho Remota, você pode ace
     
         Você não pode usar uma conta existente. Não especifique Administrador como o nome de usuário para a nova conta.
 
-        >[AZURE.NOTE]Se a senha não atende aos requisitos de complexidade, um ícone vermelho aparece ao lado da caixa de texto de senha. A senha deve incluir letras maiúsculas, letras minúsculas e números ou símbolos.
+        >[AZURE.NOTE] Se a senha não atende aos requisitos de complexidade, um ícone vermelho aparece ao lado da caixa de texto de senha. A senha deve incluir letras maiúsculas, letras minúsculas e números ou símbolos.
 
     1. Escolha uma data em que a conta vai expirar e após a qual conexões de área de trabalho remota serão bloqueadas.
 
@@ -75,4 +75,4 @@ Depois de publicar o serviço de nuvem no Azure, você pode usar o Gerenciador d
 
 1. Insira o nome de usuário e a senha que você criou anteriormente. Agora você está conectado na sessão remota.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0420_2016-->

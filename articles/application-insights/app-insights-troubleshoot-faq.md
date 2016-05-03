@@ -94,12 +94,6 @@ Consulte as [notas de versão](app-insights-release-notes.md) para o SDK adequad
 No Gerenciador de Soluções, clique com o botão direito do mouse em `ApplicationInsights.config` e escolha **Atualizar o Application Insights**. Você pode enviar os dados para um recurso novo ou existente no Azure. O assistente de atualização altera a chave de instrumentação em Applicationinsights. config, que por sua vez determina para onde o SDK do servidor envia seus dados. A menos que você desmarque a opção "Atualizar tudo", a chave onde ele aparece em suas páginas da Web também será alterada.
 
 
-## <a name="q06"></a>Na tela inicial da Visualização do Microsoft Azure, aquele mapa mostra o status do meu aplicativo?
-
-Não! Ele mostra o status de serviço do Azure. Para ver os resultados de seu teste na Web, selecione Navegar > Application Insights > (seu aplicativo) e depois veja os resultados de teste na Web.
-
-
-
 #### <a name="data"></a>Por quanto tempo os dados são mantidos no portal? É seguro?
 
 Faça uma consulta a [Privacidade e Retenção de Dados][data].
@@ -153,4 +147,4 @@ Você pode [gravar scripts do PowerShell](app-insights-powershell.md) para criar
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

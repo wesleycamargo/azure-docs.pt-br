@@ -1,5 +1,13 @@
-<properties pageTitle="Configurar túnel forçado para Gateways de VPN usando o PowerShell | Microsoft Azure" description="Caso tenha uma rede virtual do modelo de implantação clássica com um gateway de VPN entre locais, será possível redirecionar ou “forçar” todo o tráfego da Internet de volta para sua instalação local." services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carmonm" editor="" tags="azure-service-management"/>
-<tags  
+<properties 
+   pageTitle="Configurar o túnel forçado para Gateways de VPN usando o PowerShell | Microsoft Azure"
+   description="Se você tiver uma rede virtual do modelo de implantação clássica com gateway de VPN entre locais, você poderá redirecionar ou “forçar” todo o tráfego direcionado à Internet de volta para seu local."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carmonm"
+   editor=""
+   tags="azure-service-management"/>
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -63,7 +71,7 @@ As conexões de saída dessas duas sub-redes com a Internet serão forçadas ou 
 
 Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
-- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [benefícios para assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou se inscrever para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 - Uma rede virtual configurada.
 
@@ -111,7 +119,7 @@ O procedimento a seguir ajudará você a especificar um túnel forçado em uma r
       </VirtualNetworkSite>
 	</VirtualNetworkSite>
 
-Neste exemplo, a rede virtual “MultiTier-VNet” tem 3 sub-redes: *Front-end*, *Mid-Tier* e *Back-end*, com 4 conexões entre locais: *DefaultSiteHQ* e 3 *Branches*. As etapas do procedimento definem *DefaultSiteHQ* como a conexão de site padrão para o túnel forçado e configuram as sub-redes *Mid-Tier* e *Back-end* para usarem túnel forçado.
+Neste exemplo, a rede virtual “MultiTier-VNet” tem 3 sub-redes: *Front-end*, *Mid-Tier* e *Back-end*, com 4 conexões entre locais: *DefaultSiteHQ* e 3 *Ramificações*. As etapas do procedimento definem *DefaultSiteHQ* como a conexão de site padrão para o túnel forçado e configuram as sub-redes *Mid-Tier* e *Back-end* para usarem túnel forçado.
 
 
 1. Crie uma tabela de roteamento. Use o cmdlet a seguir para criar sua tabela de rotas.
@@ -167,4 +175,4 @@ Abaixo estão alguns cmdlets adicionais do PowerShell que podem ser úteis ao tr
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

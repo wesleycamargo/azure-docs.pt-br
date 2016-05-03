@@ -3,7 +3,7 @@
     description="Explicação dos termos usados para as ferramentas de banco de dados elástico" 
     services="sql-database" 
     documentationCenter="" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     authors="ddove" 
     editor=""/>
 
@@ -34,6 +34,14 @@ Esses termos são usados em [Adicionando um fragmento usando ferramentas de Banc
 **Mapa de fragmentos local**: armazenado em um fragmento, o mapa de fragmentos local contém mapeamentos para os shardlets que residem no fragmento.
 
 **Consulta de vários fragmentos**: a capacidade de executar uma consulta em vários fragmentos; os conjuntos de resultados são retornados usando a semântica UNION ALL (também conhecida como “consulta do tipo fan-out”). Compare com o **roteamento dependente de dados**.
+
+**Multilocatário** e **Locatário único**: mostra um banco de dados com locatário único e um banco de dados multilocatário:
+
+![Bancos de dados de único locatário e multilocatário](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+
+Esta é uma representação de bancos de dados de único locatário e multilocatário **fragmentados**.
+
+![Bancos de dados de único locatário e multilocatário](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
 **Mapa de fragmentos de intervalo**: um mapa de fragmentos em que a estratégia de distribuição de fragmentos é baseada em vários intervalos de valores contíguos.
 
@@ -82,4 +90,4 @@ Esses termos são usados em [Adicionando um fragmento usando ferramentas de Banc
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

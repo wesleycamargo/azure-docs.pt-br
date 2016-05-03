@@ -1,7 +1,7 @@
 ##Portal do Azure e portal de visualização do Azure
 
-> [AZURE.IMPORTANT] As etapas neste documento usam o portal do Azure. A Microsoft recomenda usar o portal de visualização do Azure durante a criação de novos serviços. Para obter uma explicação das vantagens do portal de visualização, consulte [DevOps ficou muito mais impressionante](https://azure.microsoft.com/overview/preview-portal/).
+> [AZURE.IMPORTANT] As etapas neste documento usam o portal Clássico do Azure. A Microsoft não recomenda o uso do portal clássico durante a criação de novos serviços. Para obter uma explicação das vantagens do portal do Azure, veja [Portal do Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 
-Para obter uma versão deste documento que usa o portal de visualização do Azure, consulte o seguinte link:
+Para obter uma versão deste documento que usa o portal do Azure, consulte o seguinte link:
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

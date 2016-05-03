@@ -31,6 +31,8 @@ Também há outras ferramentas disponíveis para administrar o HDInsight além d
 
 - Para obter mais informações sobre como administrar o HDInsight usando a CLI do Azure, consulte [Administrar o HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md).
 
+> [AZURE.WARNING] As versões mais recentes do Azure PowerShell ou a CLI do Azure padrão usando o Azure Resource Manager. Clusters do HDInsight criados usando esse modo não podem ser gerenciados usando o Portal Clássico do Azure.
+
 ##Pré-requisitos
 
 Antes de começar este artigo, você deve ter o seguinte:
@@ -198,4 +200,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal Cl�
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

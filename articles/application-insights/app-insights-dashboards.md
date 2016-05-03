@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="02/25/2016"
+	ms.date="03/13/2016"
 	ms.author="awills"/>
 
 # Painéis e navegação no portal do Application Insights
@@ -21,15 +21,16 @@ Após de ter [Configurado o Application Insights no seu projeto](app-insights-ov
 
 ## O painel
 
-Ao entrar no [Portal do Azure](https://portal.azure.com), você chega primeiro ao painel. Você pode personalizá-lo ou colocá-lo em modo de tela inteira. Este exemplo foi personalizado para mostrar os principais gráficos de interesse dos seus proprietários.
+Ao entrar no [Portal do Azure](https://portal.azure.com), você chega primeiro ao painel. Você pode personalizá-lo ou colocá-lo em modo de tela inteira.
 
+O painel é especialmente útil para monitorar uma solução composta de vários aplicativos, independentemente de onde eles estão hospedados. E se você tiver os componentes do Azure, como o Stream Analytics como parte do seu sistema, poderá adicionar seus gráficos de monitoramento ao painel também.
 
 ![Um painel personalizado.](./media/app-insights-dashboards/30.png)
 
 1. Clique no canto superior a qualquer momento para voltar para o painel.
 2. **+ Novo** cria um novo recurso. Um [recurso do Application Insights](app-insights-create-new-resource.md) é um local para armazenar e analisar a telemetria do seu aplicativo.
 3. A barra de navegação abre seus recursos existentes.
-4. Edite e crie painéis usando a barra de ferramentas do painel.
+4. Edite e crie painéis usando a barra de ferramentas do painel. Você pode [criar painéis diferentes](#dashboards) para diferentes aplicativos.
 
 ## Encontrar sua telemetria
 
@@ -41,38 +42,6 @@ A página de visão geral fornece alguma telemetria básica, além de links para
 
 
 
-## Intervalo de tempo
-
-Você pode alterar o intervalo de tempo coberto pelos gráficos ou grades em qualquer folha.
-
-![Abrir a lâmina de visão geral do seu aplicativo no portal do Azure](./media/app-insights-dashboards/03-range.png)
-
-
-Se você estiver esperando dados que não apareceram ainda, clique em Atualizar. Os gráficos são atualizados em intervalos, mas os intervalos são mais longos para intervalos de tempo maiores. No modo de liberação, pode levar algum tempo para que dados passem pelo pipeline de análise e sejam representados em um gráfico.
-
-Para ampliar uma parte de um gráfico, arraste sobre ele e clique no símbolo de lente de aumento:
-
-![Arraste por parte de um gráfico.](./media/app-insights-dashboards/12-drag.png)
-
-
-
-## Valores de granularidade e ponto
-
-Passe o mouse sobre o gráfico para exibir os valores das métricas nesse determinado ponto.
-
-![Passar o ponteiro do mouse sobre um gráfico](./media/app-insights-dashboards/02-focus.png)
-
-O valor de métrica em um ponto específico é agregado durante o intervalo de amostragem anterior.
-
-O intervalo de amostragem ou "granularidade" é mostrado na parte superior da folha.
-
-![O cabeçalho de uma folha.](./media/app-insights-dashboards/11-grain.png)
-
-Você pode ajustar a granularidade na folha Intervalo de tempo:
-
-![O cabeçalho de uma folha.](./media/app-insights-dashboards/grain.png)
-
-As granularidades disponíveis dependem do intervalo de tempo selecionado. As granularidades explícitas são alternativas à granularidade "automática" para o intervalo de tempo.
 
 ## A folha de visão geral do aplicativo
 
@@ -98,6 +67,10 @@ Escolha o que deseja ver na visão geral. Em Personalizar, você pode inserir t�
 ## Painéis
 
 O painel do Portal do Azure é a home page que você vê quando entra pela primeira vez [no portal](https://portal.azure.com). Nele, você pode reunir gráficos e blocos (grupos de gráficos) de vários recursos.
+
+Se você tiver um sistema composto de vários componentes, por exemplo, um aplicativo Web, um servidor back-end e talvez alguns serviços do Azure, poderá mostrar os indicadores chave de desempenho de todos os componentes em uma única tela.
+
+Se você tiver mais de um aplicativo, poderá criar e alternar entre vários painéis.
 
 ![Clique em Editar. Arraste blocos e gráficos. Adicione blocos da galeria. Em seguida, clique em Concluído.](./media/app-insights-dashboards/30.png)
 
@@ -181,6 +154,40 @@ Se você editar uma folha mas em seguida decidir voltar ao conjunto original sal
 
 ![Nos botões na parte superior do Metrics Explorer](./media/app-insights-dashboards/17-reset.png)
 
+
+## Intervalo de tempo
+
+Você pode alterar o intervalo de tempo coberto pelos gráficos ou grades em qualquer folha.
+
+![Abrir a lâmina de visão geral do seu aplicativo no portal do Azure](./media/app-insights-dashboards/03-range.png)
+
+
+Se você estiver esperando dados que não apareceram ainda, clique em Atualizar. Os gráficos são atualizados em intervalos, mas os intervalos são mais longos para intervalos de tempo maiores. No modo de liberação, pode levar algum tempo para que dados passem pelo pipeline de análise e sejam representados em um gráfico.
+
+Para ampliar uma parte de um gráfico, arraste sobre ele e clique no símbolo de lente de aumento:
+
+![Arraste por parte de um gráfico.](./media/app-insights-dashboards/12-drag.png)
+
+
+
+## Valores de granularidade e ponto
+
+Passe o mouse sobre o gráfico para exibir os valores das métricas nesse determinado ponto.
+
+![Passar o ponteiro do mouse sobre um gráfico](./media/app-insights-dashboards/02-focus.png)
+
+O valor de métrica em um ponto específico é agregado durante o intervalo de amostragem anterior.
+
+O intervalo de amostragem ou "granularidade" é mostrado na parte superior da folha.
+
+![O cabeçalho de uma folha.](./media/app-insights-dashboards/11-grain.png)
+
+Você pode ajustar a granularidade na folha Intervalo de tempo:
+
+![O cabeçalho de uma folha.](./media/app-insights-dashboards/grain.png)
+
+As granularidades disponíveis dependem do intervalo de tempo selecionado. As granularidades explícitas são alternativas à granularidade "automática" para o intervalo de tempo.
+
 ## Pesquisar
 
 A pesquisa exibe eventos individuais, como exibições de página, solicitações, exceções, rastreamentos de log e eventos personalizados. Ela não mostra as métricas agregadas ou instâncias da chamada trackmetric ().
@@ -231,4 +238,12 @@ Para ver a pesquisa novamente, **vá até a folha de visão geral** e abra Favor
 
 Se você os salvou com o intervalo de tempo Relativo, a folha reaberta contém os dados mais recentes. Se você os salvou com o intervalo de tempo Absoluto, consulte os mesmos dados, sempre.
 
-<!---HONumber=AcomDC_0309_2016-->
+## Análise
+
+[Análise](app-insights-analytics.md) é o recurso de pesquisa avançada com a qual você pode diagnosticar e compreender as questões de desempenho sobre seu aplicativo.
+
+![Exemplo de análise](./media/app-insights-dashboards/025.png)
+
+Clique no bloco Análise para vê-lo.
+
+<!---HONumber=AcomDC_0420_2016-->

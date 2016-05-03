@@ -6,7 +6,7 @@
 	authors="crwilcox"
 	manager="wpickett"
 	editor=""
-	tags=“azure-service-management,azure-resource-manager"/>
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-linux"
@@ -195,8 +195,8 @@ Os recursos principais do Jupyter também estão disponíveis no Visual Studio p
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repositório]: https://github.com/ipython/ipython
 [Ferramentas Python para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

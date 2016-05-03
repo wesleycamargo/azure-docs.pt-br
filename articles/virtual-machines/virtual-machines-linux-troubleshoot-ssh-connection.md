@@ -4,7 +4,7 @@
 	keywords="conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
@@ -14,9 +14,9 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="dkshir"/>
+	ms.topic="support-article"
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
 # Solucionar problemas de conexões SSH (Secure Shell) para uma máquina virtual do Azure baseada em Linux
 
@@ -24,9 +24,7 @@ Pode haver várias causas para erros de SSH durante a tentativa de conexão com 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Este artigo aplica-se somente às máquinas virtuais do Azure que executam o Linux. Para máquinas virtuais do Azure que estejam executando o Windows, confira [Solucionar de problemas de conexão de Área de Trabalho Remota para uma VM do Azure](virtual-machines-windows-troubleshoot-rdp-connection.md).
-
-Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](http://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter suporte**. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Se você precisar de mais ajuda em qualquer momento neste artigo, você pode contatar os especialistas do Azure nos [fóruns do Azure MSDN e Excedente de Pilha](http://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site Suporte do Azure](http://azure.microsoft.com/support/options/) e clique em **Obter suporte**. Para obter informações sobre como usar o Suporte do Azure, leia as [Perguntas Frequentes de Suporte do Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
 
 ## Corrigir erros comuns de SSH
@@ -37,7 +35,7 @@ Esta seção lista as etapas de correção rápida para problemas comuns de cone
 
 Tente realizar estas etapas para resolver as falhas mais comuns de conexão SSH:
 
-1. _Redefinir Acesso Remoto_ no [portal do Azure](https://portal.azure.com).<br> Clique em **Procurar** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Linux > **Redefinir Acesso...**.
+1. _Redefinir Acesso Remoto_ no [portal do Azure](https://portal.azure.com).<br> Clique em **Procurar** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Linux > **Redefinir Acesso...**
 
 2. Reiniciar a máquina virtual.<br> No [portal do Azure](https://portal.azure.com), clique em **Procurar** > **Máquinas virtuais (clássicas)** > sua máquina virtual do Linux > **Reiniciar**.<br> No [portal clássico do Azure](https://manage.windowsazure.com), abra as **Máquinas virtuais** > **Instâncias** > **Reiniciar**.
 
@@ -56,19 +54,14 @@ Tente realizar estas etapas para resolver as falhas mais comuns de conexão SSH:
 
 Para resolver os problemas comuns de SSH para máquinas virtuais criadas usando o modelo de implantação do Gerenciador de Recursos, experimente as etapas a seguir.
 
-1. _Redefina a conexão SSH_ da VM do Linux na linha de comando usando a CLI do Azure ou o Azure PowerShell. Verifique se a versão 2.0.5 ou posterior do [Agente Linux do Microsoft Azure](virtual-machines-linux-agent-user-guide.md) está instalada.
+#### Redefinir a conexão SSH
+Usando a CLI do Azure, verifique se a versão 2.0.5 ou posterior do [Agente Linux do Microsoft Azure](virtual-machines-linux-agent-user-guide.md) está instalada.
 
-**Usando a CLI do Azure**:
-
-a. Se você ainda não fez isso, [instale a CLI do Azure e conecte-se à sua assinatura do Azure](../xplat-cli-install.md) usando o comando `azure login`.
-
-b. Verifique se você está no modo Gerenciador de Recursos. Versões mais recentes do CLI do Azure são padronizadas no modo Gerenciador de Recursos.
-
-	```
+Se você ainda não fez isso, [instale a CLI do Azure e conecte-se à sua assinatura do Azure](../xplat-cli-install.md) e entre usando o comando `azure login`. Verifique se você está no modo do Resource Manager: ```
 	azure config mode arm
 	```
 
-c. Redefina a conexão SSH usando um dos métodos a seguir.
+Redefina a conexão SSH usando um dos métodos a seguir:
 
 * Use o comando `vm reset-access` como mostrado no exemplo a seguir.
 
@@ -92,23 +85,7 @@ Em seguida, execute manualmente a extensão `VMAccessForLinux` para redefinir a 
 	azure vm extension set "YourResourceGroupName" "YourVirtualMachineName" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
-**Usando o Azure PowerShell**:
-
-a. Se você ainda não fez isso, [instale o Azure PowerShell e conecte-se à sua assinatura do Azure](../powershell-install-configure.md) usando o método do AD do Azure. Em versões do Azure PowerShell antes da 1.0. x, você precisará alternar explicitamente para o modo do Gerenciador de Recursos usando _Switch-AzureMode_.
-
-b. Execute a extensão `VMAccessForLinux` para redefinir a conexão SSH, como mostrado no exemplo a seguir. Em versões anteriores, o comando seria _Set-AzureVMExtension_.
-
-	```
-	Set-AzureRmVMExtension -ResourceGroupName "yourRG" -VMName "yourVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
-	```
-
-2. Reinicie a VM do Linux no [portal do Azure](https://portal.azure.com).<br> Clique em **Procurar** > **Máquinas virtuais** > sua máquina virtual do Linux > **Reiniciar**.
-
-3. _Redefina a senha ou a chave SSH_ da VM do Linux na linha de comando, usando a CLI do Azure ou o Azure PowerShell. Você também pode criar um novo nome de usuário e senha com a autoridade _sudo_, como mostrado no exemplo a seguir.
-
-**Usando a CLI do Azure**:
-
-Instale e configure a CLI do Azure, conforme mencionado acima. Alterne para o modo Gerenciador de Recursos se necessário e execute a extensão usando um dos métodos a seguir.
+#### Redefinir as credenciais de SSH
 
 * Execute o comando `vm reset-access` para definir qualquer uma das credenciais de SSH.
 
@@ -133,29 +110,6 @@ Em seguida, execute a extensão do Linux usando o arquivo acima.
 	```
 
 Observe que você pode seguir etapas semelhantes a [Como redefinir uma senha ou SSH para máquinas virtuais baseadas em Linux](virtual-machines-linux-classic-reset-access.md) para experimentar outras variações. Lembre-se de modificar as instruções da CLI do Azure para o modo do Gerenciador de Recursos.
-
-
-**Usando o Azure PowerShell**:
-
-Instale e configure o Azure PowerShell, conforme mencionado acima. Alterne para o modo do Gerenciador de Recursos e execute a extensão, como indicado a seguir.
-
-	```
-	$RGName = 'testRG'
-	$VmName = 'testVM'
-	$Location = 'West US'
-
-	$ExtensionName = 'VMAccessForLinux'
-	$Publisher = 'Microsoft.OSTCExtensions'
-	$Version = '1.2'
-
-	$PublicConf = '{}'
-	$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
-
-	Set-AzureRmVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
-	```
-
-Lembre-se de substituir os valores de $RGName, $VmName, $Location e as credenciais de SSH pelos valores específicos de sua instalação.
-
 
 
 ## Solução de problemas detalhada para erros de SSH
@@ -281,4 +235,4 @@ Para máquinas virtuais no modelo de implantação clássica, [Como redefinir um
 
 [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -358,6 +358,14 @@ As informações do aplicativo estão limitadas a **1024** caracteres por chamad
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"birthdate":"1983-12-07","gender":"female"}
+
+##Registro em log
+###Habilitar registro em log
+
+O SDK pode ser configurado para gerar logs de teste no console do IDE. Esses logs não são ativados por padrão. Para personalizar esse recurso, atualize a propriedade `EngagementAgent.Instance.TestLogEnabled` para um dos valores disponíveis na enumeração `EngagementTestLogLevel`, por exemplo:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

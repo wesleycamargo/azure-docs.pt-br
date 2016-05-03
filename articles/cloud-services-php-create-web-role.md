@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 #Como criar funções Web e de trabalho do PHP
@@ -26,7 +26,7 @@ Este guia mostrará como criar funções Web ou de trabalho do PHP em um ambient
 
 O Azure fornece três modelos de computação para a execução de aplicativos: Serviço de Aplicativo do Azure, Máquinas Virtuais do Azure e Serviços de Nuvem do Azure. Todos os três modelos oferecem suporte ao PHP. Os Serviços de Nuvem, que incluem as funções Web e de trabalho, fornecem a *PaaS (plataforma como serviço)*. Dentro de um serviço de nuvem, uma função web fornece um servidor Web de IIS (Serviços de Informações da Internet) dedicado, usado para hospedar aplicativos Web de front-end. Uma função de trabalho pode executar tarefas assíncronas, de execução longa ou perpétuas, independentemente da interação do usuário ou da entrada.
 
-Para obter mais informações sobre essas opções, confira [Opções de hospedagem de computação fornecidas pelo Azure](./cloud-services/fundamentals-application-models.md).
+Para obter mais informações sobre essas opções, confira [Opções de hospedagem de computação fornecidas pelo Azure](./cloud-services/cloud-services-choose-me.md).
 
 ## Baixar o SDK do Azure para PHP
 
@@ -211,4 +211,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 [sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

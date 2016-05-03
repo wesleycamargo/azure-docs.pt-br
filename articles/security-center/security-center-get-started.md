@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introdução ao Centro de Segurança do Azure | Microsoft Azure"
+   pageTitle="Guia de início rápido da Central de Segurança do Azure | Microsoft Azure"
    description="Este documento ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure ao orientá-lo através de componentes de gerenciamento de monitoramento e pela política de segurança e vinculação às próximas etapas."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
-# Introdução à Central de Segurança do Azure
+# Guia de início rápido da Central de Segurança do Azure
 
 Este documento ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure ao orientá-lo através de componentes de gerenciamento de monitoramento e pela política de segurança e vinculação às próximas etapas.
 
@@ -86,15 +86,6 @@ Exibir a integridade de suas **Soluções de parceiros**:
 
 3. Selecione uma solução de parceiro. Neste exemplo, permite selecionar a solução **WAF2 F5**. Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução. ![Detalhes da solução de parceiro][10]
 
-O **STATUS** de uma solução de parceiro pode ser:
-
-- Íntegro (verde) - não há nenhum problema de integridade
-- Não íntegro (vermelho) - há um problema de integridade que requer atenção imediata
-- Parou de relatar (laranja) - a solução interrompeu o envio de relatórios sobre sua integridade
-- Desconhecido (laranja) - a integridade da solução é desconhecida no momento devido a um processo para adicionar um novo recurso à solução existente com falha
-- Não relatado (cinza) - a solução não reportou nada ainda. O status da solução pode não ser relatado se ele foi conectado e ainda está sendo implantado
-
-
 ## Próximas etapas
 Neste documento, você foi apresentado para o monitoramento de segurança e para os componentes de gerenciamento de políticas na Central de Segurança. Para saber mais, consulte os seguintes:
 
@@ -102,6 +93,7 @@ Neste documento, você foi apresentado para o monitoramento de segurança e para
 - [Gerenciamento das recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
+- [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – obtenha as últimas notícias de segurança e as informações do Azure.
 
@@ -117,4 +109,4 @@ Neste documento, você foi apresentado para o monitoramento de segurança e para
 [9]: ./media/security-center-get-started/partner-solutions.png
 [10]: ./media/security-center-get-started/partner-solutions-detail.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/15/2016" 
 	ms.author="sethm"/>
 
 # Ingestão de telemetria e eventos de aplicativo em escala
  
-Os aplicativos modernos criam uma grande quantidade de informações enquanto estão sendo executados. Sejam ações de um usuário em um aplicativo móvel ou sequências de clique em um site, esses dados de telemetria são valiosos para análises de longo prazo e para o monitoramento de integridade em tempo real ou suporte a decisões. Barramento de serviço fornece as ferramentas que necessárias para capturar e processar essas informações.
+Os aplicativos modernos criam uma grande quantidade de informações enquanto estão sendo executados. Sejam ações de um usuário em um aplicativo móvel ou sequências de clique em um site, esses dados de telemetria são valiosos para análises de longo prazo e para o monitoramento de integridade em tempo real ou suporte a decisões. Os Hubs de Eventos do Microsoft Azure fornecem as ferramentas necessárias para capturar e processar essas informações.
 
 
 ## Explorar
@@ -37,4 +37,4 @@ Os aplicativos modernos criam uma grande quantidade de informações enquanto es
 - [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

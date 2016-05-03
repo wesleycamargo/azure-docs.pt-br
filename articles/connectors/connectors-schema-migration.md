@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/25/2016"
+	ms.date="04/20/2016"
 	ms.author="deonhe"/>
 
 # Como migrar aplicativos lógicos para a versão de esquema 2015-08-01-preview
@@ -27,7 +27,7 @@ Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte
 
 >[AZURE.NOTE] Quando você seleciona **Atualizar Esquema**, executamos automaticamente as etapas de migração e lhe fornecemos o código de saída. Você pode usar isso para atualizar sua definição. No entanto, siga as práticas recomendadas de codificação, como as descritas na seção **Práticas recomendadas** abaixo.
 
-##Práticas recomendadas ao migrar aplicativos lógicos para a última versão do esquema:  
+## Práticas recomendadas ao migrar aplicativos lógicos para a última versão do esquema:  
 
 - Copie o script migrado para um novo aplicativo lógico - não substitua o antigo até concluir o teste e confirmar que o aplicativo migrado funciona conforme o esperado.
 - Testar o aplicativo lógico **antes** de colocá-lo em produção
@@ -42,4 +42,4 @@ Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

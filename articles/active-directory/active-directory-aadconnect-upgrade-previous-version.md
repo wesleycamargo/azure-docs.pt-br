@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="02/29/2016"
+   ms.date="04/14/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: atualização de uma versão anterior para a mais recente
@@ -45,26 +45,28 @@ Se você tiver uma implantação complexa ou muitos objetos, talvez seja imposs�
 
 Em vez do método recomendado, use uma migração swing. Para esse método, você precisará de (pelo menos) dois servidores, um ativo e um de preparo. O servidor ativo (linhas azuis sólidas na imagem abaixo) será responsável pela carga ativa. O servidor de preparo (linhas tracejadas roxas na imagem abaixo) será preparado com a nova versão e quando estiver totalmente pronto, ficará ativo. O servidor ativo anterior, agora com a versão antiga instalada, se tornará o servidor de preparo e será atualizado.
 
+Os dois servidores podem usar versões diferentes. Por exemplo, o servidor ativo que você planeja desativar pode usar o Azure AD Sync e o novo servidor de preparo pode usar o Azure AD Connect.
+
 ![Servidor de preparo](./media/active-directory-aadconnect-upgrade-previous-version/stagingserver1.png)
 
-Observação: foi observado que alguns clientes preferem ter três ou quatro servidores para isso. Como o servidor de teste está sendo atualizado, durante esse tempo você não terá um servidor de backup no caso de uma [recuperação de desastre](active-directory-aadconnectsync-operations.md#disaster-recovery). Com um máximo de quatro servidores, pode ser preparado um novo conjunto de servidores principais/em espera com a nova versão, garantindo que sempre haverá um servidor de teste pronto para assumir o controle.
+Observação: foi observado que alguns clientes preferem ter três ou quatro servidores para isso. Como o servidor de preparo está sendo atualizado, durante esse tempo você não terá um servidor de backup no caso de uma [recuperação de desastre](active-directory-aadconnectsync-operations.md#disaster-recovery). Com um máximo de quatro servidores, pode ser preparado um novo conjunto de servidores principais/em espera com a nova versão, garantindo que sempre haverá um servidor de teste pronto para assumir o controle.
 
-Estas etapas também funcionarão para mudar do Azure AD Sync ou de uma solução com o FIM + Azure AD Connector. Estas etapas não funcionarão para o DirSync, mas o mesmo método de migração swing (também chamado de implantação paralela) com as etapas para o DirSync pode ser encontrado em [Atualizar a sincronização do Azure Active Directory (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Estas etapas também funcionarão para mudar do Azure AD Sync ou de uma solução com o FIM + Azure AD Connector. Estas etapas não funcionam para o DirSync, mas o mesmo método de migração swing (também chamado de implantação paralela) com as etapas para o DirSync pode ser encontrado em [Atualizando a sincronização do Azure Active Directory (DirSync) com o Azure AD Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 ### Etapas da migração swing
 
-1. Verifique se o servidor ativo e o servidor de preparo estão usando a mesma versão.
-2. Se você tiver feito alguma configuração personalizada e se o servidor de preparo não a tiver, siga as etapas em [Mover a configuração personalizada do servidor ativo para o de preparo](#move-custom-configuration-from-active-to-staging-server).
-3. Atualize o servidor de preparo para a versão mais recente.
-4. Permita que o mecanismo de sincronização execute a importação completa e a sincronização completa.
+1. Se você usar o Azure AD Connect nos dois servidores, certifique-se de que o servidor ativo e o servidor de preparo estejam usando a mesma versão antes de iniciar a atualização. Assim, será mais fácil comparar as diferenças mais tarde. Se você estiver atualizando do Azure AD Sync, esses servidores terão versões diferentes.
+2. Se você tiver feito alguma configuração personalizada e o servidor de preparo não a tiver, siga as etapas em [Mover a configuração personalizada do servidor ativo para o de preparo](#move-custom-configuration-from-active-to-staging-server).
+3. Se estiver atualizando de uma versão anterior do Azure AD Connect, atualize o servidor de preparo para a versão mais recente. Se estiver movendo do Azure AD Sync, instale o Azure AD Connect em seu servidor de preparo.
+4. Permita que o mecanismo de sincronização execute a importação completa e a sincronização completa em seu servidor de preparo.
 5. Verifique se a nova configuração não causou alterações inesperadas usando as etapas descritas em **Verificar** em [Verificar a configuração de um servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Se algo não estiver como esperado, corrija, execute a importação e a sincronização e verifique até os dados parecerem estar bons. Estas etapas podem ser encontradas no tópico vinculado.
 6. Altere o servidor de preparo para que ele passe a ser o servidor ativo. Esta é a etapa final de **alterar o servidor ativo** em [Verificar a configuração de um servidor](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
-7. Atualize o servidor agora no modo de preparo para a versão mais recente. Siga as mesmas etapas anteriores para atualizar os dados e a configuração.
+7. Se estiver atualizando do Azure AD Connect, atualize o servidor que está no modo de preparo para a versão mais recente. Siga as mesmas etapas anteriores para atualizar os dados e a configuração. Se estiver movendo do Azure AD Sync, agora você poderá desativar e encerrar o servidor antigo.
 
 ### Mover configuração personalizada do servidor ativo para o servidor de preparo
 Se você tiver feito alterações de configuração no servidor ativo, precisará garantir que as mesmas alterações sejam aplicadas ao servidor de preparo.
 
-As regras de sincronização personalizadas criadas por você podem ser movidas com o PowerShell. Outras alterações devem ser aplicadas da mesma maneira em ambos os sistemas.
+As regras de sincronização personalizadas criadas por você podem ser movidas com o PowerShell. Outras alterações devem ser aplicadas da mesma maneira em ambos os sistemas e não podem ser migradas.
 
 O que você deve garantir que seja configurado da mesma maneira em ambos os servidores:
 
@@ -83,4 +85,4 @@ O que você deve garantir que seja configurado da mesma maneira em ambos os serv
 ## Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0420_2016-->

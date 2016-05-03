@@ -13,58 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/17/2016"
+   ms.date="04/15/2016"
    ms.author="kgremban"/>
 
 # O Assistente de Segurança do Privileged Identity Management do Azure AD
 
-Na primeira vez que você executar o PIM (Privileged Identity Management), verá um assistente. O assistente ajuda você a entender os riscos à segurança de identidades com privilégios e a usar o Privileged Identity Management para reduzir esses riscos.
+Se você for a primeira pessoa a executar o Azure PIM (Privileged Identity Management) para sua organização, verá um assistente. O assistente ajuda você a entender os riscos à segurança de identidades com privilégios e como usar o PIM para reduzir esses riscos. Você não precisará fazer nenhuma alteração nas atribuições de função existentes no assistente, se preferir fazer isso posteriormente.
 
-Há três seções a serem examinadas: **SEU ADMINISTRADOR PODE COLOCAR VOCÊ EM RISCO, GERENCIAR A SUPERFÍCIE DE ATAQUE DO ADMINISTRADOR** e **DEFINIR CONFIGURAÇÕES DO ADMINISTRADOR TEMPORÁRIO**. Cada seção apresenta uma visão geral dos conceitos e uma explicação de algumas ações a serem tomadas.
+## O que esperar
 
-A princípio, todos os seus administradores globais serão permanentes. Ao clicar em **SEU ADMINISTRADOR PODE COLOCAR VOCÊ EM RISCO**, você verá uma lista de funções de administrador global e quantas delas você tem.
+Antes de sua organização começar a usar o PIM, todas as atribuições de função são permanentes: os usuários sempre estarão sempre nessas funções, mesmo se não precisarem dos privilégios no momento. A primeira etapa do assistente mostra uma lista de funções com privilégios altos e quantos usuários atualmente estão nessas funções. Você poderá analisar uma função específica para saber mais sobre os usuários se um ou mais não forem familiares.
 
-Clicar em **GERENCIAR A SUPERFÍCIE DE ATAQUE DO ADMINISTRADOR** apresentará a você uma oportunidade de alterar administradores para temporários, deixá-los como permanentes ou removê-los da função.
+A segunda etapa do assistente lhe fornece a oportunidade de alterar as atribuições de função do administrador.
 
-**DEFINIR CONFIGURAÇÕES DE ADMINISTRADOR TEMPORÁRIO** permite que você exija a autenticação multifator, habilite notificações e determine por quanto tempo um administrador temporário terá privilégios.
+> [AZURE.WARNING] É importante que você tenha pelo menos um administrador global e mais de um administrador de segurança com uma conta organizacional (não uma conta da Microsoft). Se houver apenas um administrador de segurança, a organização não poderá gerenciar o PIM se essa conta for excluída. Além disso, não altere as atribuições de função para temporárias se um usuário tiver uma conta da Microsoft. Se você planeja exigir o MFA para ativação para essa função, esse usuário será bloqueado fora da função.
 
-## Alterar funções de administrador global para temporário ou permanente
 
-Você tem três opções para alterar a janela de tempo de um administrador global:
+Depois de ter feito alterações, o assistente não aparecerá mais. Na próxima vez que você ou outro administrador de segurança usar o PIM, você verá o painel PIM.
 
-1.  Clique no botão **Tornar todos temporários** para transformar em temporários todos os administradores globais Só escolha essa opção se todos os administradores tiverem contas organizacionais e tenham se registrado no Azure MFA.
+- Se você desejar adicionar ou remover usuários das funções ou alterar as atribuições de permanentes para temporárias, leia mais em [como adicionar ou remover uma função de usuário](active-directory-privileged-identity-management-how-to-add-role-to-user).
+- Se desejar fornecer aos usuários mais acesso para gerenciar o PIM, leia mais em [como conceder acesso para gerenciar no PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim).
 
-2.  Clique no botão **Tornar todos permanentes** para transformar em permanentes todos os administradores globais
 
-3.  Selecione **Manter Perm**, **Tornar Temp.** ou **Remover da Função** para cada administrador global.
-
-## Altere o período de ativação da função de um administrador global.
-
-Há duas maneiras de definir o período de ativação para um administrador global:
-
-1.  Mova o controle deslizante do **período de ativação** para a esquerda ou para a direita para aumentar ou diminuir o período de ativação. O período de ativação pode ser de até 72 horas.
-
-2.  Insira o número de horas no campo **horas** à direita do controle deslizante.
-
-## Habilitar notificações
-
-Para que os administradores possam receber email quando as funções se tornarem ativas, habilite as notificações clicando no botão **Habilitar**. Você também pode desabilitar esse recurso mais tarde.
-
-## Exigir Multi-Factor Authentication
-
-Se você quiser que os administradores sejam obrigados a usar a MFA para entrarem nas respectivas contas e a solicitar uma extensão da função, habilite a MFA clicando no botão **Habilitar**.
-
-<!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
-
-Selecione as funções às quais essas configurações serão aplicadas. Clique em **OK**.
-
-> [AZURE.WARNING] No momento, é importante que você tenha mais de um administrador de segurança com uma conta organizacional (não uma conta da Microsoft). Se houver apenas um administrador de segurança que não esteja definido como permanente e que não tenha o MFA configurado, o usuário não será capaz de administrar o PIM se a conta for excluída.
-
-Clique no botão **OK** quando tiver terminado.
-
-Depois de ter feito alterações, o assistente não aparecerá mais. No entanto, você poderá acessá-lo novamente clicando no botão **Assistente**, em **Gerenciar identidades**.
 
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

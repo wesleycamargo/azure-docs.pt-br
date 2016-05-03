@@ -1,6 +1,6 @@
 <properties
  pageTitle="Alta disponibilidade e confiabilidade do Agendador"
- description=""
+ description="Alta disponibilidade e confiabilidade do Agendador"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -30,7 +30,7 @@ O Agendador do Azure está disponível por meio da interface do usuário em quas
 
 O Agendador do Azure não é somente disponível na interface inicial para solicitações de gerenciamento, mas seu trabalho é também replicado geograficamente. Quando houver uma interrupção em uma região, o Agendador do Azure faz failover e garante que o trabalho é executado a partir de outro data center na região geográfica emparelhada.
 
-Por exemplo, se você tiver criado um trabalho no Centro Sul dos EUA, o Agendador do Azure replica automaticamente esse trabalho no Centro Norte dos EUA. Quando há uma falha no Centro Sul dos EUA, o Agendador do Azure garante que o trabalho é executado a partir do Centro Norte dos EUA. [Para obter uma explicação detalhada sobre as funcionalidades de replicação geográfica do Azure, consulte este tópico.](../sql-database/sql-database-business-continuity-design.md)
+Por exemplo, se você tiver criado um trabalho no Centro Sul dos EUA, o Agendador do Azure replica automaticamente esse trabalho no Centro Norte dos EUA. Quando há uma falha no Centro Sul dos EUA, o Agendador do Azure garante que o trabalho é executado a partir do Centro Norte dos EUA.
 
 ![][1]
 
@@ -85,4 +85,4 @@ Para saber como configurar um ponto de extremidade alternativo, confira [errorAc
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

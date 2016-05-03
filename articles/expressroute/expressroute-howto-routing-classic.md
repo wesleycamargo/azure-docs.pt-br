@@ -3,8 +3,8 @@
    description="Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de Rota Expressa. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carolz"
+   authors="ganesr"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,23 +13,29 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
-   ms.author="cherylmc"/>
+   ms.date="04/08/2016"
+   ms.author="ganesr"/>
 
-# Criar e modificar o roteamento de um circuito da Rota Expressa usando o PowerShell
+# Criar e modificar o roteamento de um circuito da Rota Expressa
 
 > [AZURE.SELECTOR]
-[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
 
-Este artigo fornece uma orientação pelas etapas de criação e de gerenciamento da configuração de roteamento de um circuito da Rota Expressa usando cmdlets do PowerShell e o modelo de implantação clássico. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito da Rota Expressa.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+
+Este artigo fornece uma orientação pelas etapas de criação e de gerenciamento da configuração de roteamento de um circuito da Rota Expressa usando o PowerShell e o modelo de implantação clássico. As etapas a seguir também mostrarão a você como verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito da Rota Expressa.
+
+
+**Sobre modelos de implantação do Azure**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Pré-requisitos de configuração
 
 - Você precisará da versão mais recente dos módulos do Azure PowerShell. Baixe o módulo mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções na página [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações passo a passo sobre como configurar seu computador para usar os módulos do Azure PowerShell. 
-- Leia as páginas [pré-requisitos](expressroute-prerequisites.md), [requisitos de roteamento](expressroute-routing.md) e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+- Certifique-se de que você leu as páginas de [pré-requisitos](expressroute-prerequisites.md), [requisitos de roteamento](expressroute-routing.md) e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 - Você deve ter um circuito da Rota Expressa ativo. Antes de continuar, siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito da Rota Expressa deve estar em um estado provisionado e habilitado e para que você possa executar os cmdlets descritos abaixo.
 
 >[AZURE.IMPORTANT] Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
@@ -82,7 +88,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 	- Uma sub-rede /30 para o link secundário. Ela não deve fazer parte de qualquer espaço de endereçamento reservado para redes virtuais.
 	- Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
 	- Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes. Você pode usar um número de AS privado para esse emparelhamento. Não use 65515.
-	- Hash MD5, se você optar por usar um. **Isso é opcional**.
+	- Um Hash MD5, se você optar por usar um. **Isso é opcional**.
 	
 	Você pode executar o seguinte cmdlet para configurar o emparelhamento privado do Azure para seu circuito.
 
@@ -94,7 +100,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 	>[AZURE.IMPORTANT] Especifique o número de AS como um ASN de emparelhamento, não um ASN de cliente.
 
-### Obter detalhes sobre o emparelhamento privado do Azure
+### Para exibir detalhes sobre o emparelhamento privado do Azure
 
 Você pode obter detalhes de configuração usando o seguinte cmdlet
 
@@ -144,7 +150,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 2. **Criar um circuito da Rota Expressa**
 	
-	Siga as instruções para criar um [circuito da Rota Expressa](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
+	Siga as instruções para criar um [circuito da Rota Expressa](expressroute-howto-circuit-classic.md) e para que o circuito seja provisionado pelo provedor de conectividade. Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento público do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, siga as instruções abaixo.
 
 3. **Verifique se o circuito da Rota Expressa foi provisionado**
 
@@ -175,10 +181,10 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 	- Uma sub-rede /30 para o link principal. Precisa ser um prefixo IPv4 público válido.
 	- Uma sub-rede /30 para o link secundário. Precisa ser um prefixo IPv4 público válido.
 	- Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
-	- Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes. Você deve usar um número de AS público para esse emparelhamento.
-	- Hash MD5, se você optar por usar um. **Isso é opcional**.
+	- Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes.
+	- Um Hash MD5, se você optar por usar um. **Isso é opcional**.
 	
-	Você pode executar o seguinte cmdlet para configurar o emparelhamento privado do Azure para seu circuito
+	Você pode executar o cmdlet a seguir a fim de configurar o emparelhamento público do Azure para seu circuito.
 
 		New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
 
@@ -188,7 +194,7 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 
 	>[AZURE.IMPORTANT] Especifique o número de AS como um ASN de emparelhamento e não um ASN de cliente.
 
-### Obter detalhes sobre o emparelhamento público do Azure
+### Para exibir detalhes sobre o emparelhamento público do Azure
 
 Você pode obter detalhes de configuração usando o seguinte cmdlet
 
@@ -267,18 +273,18 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
 	- Uma sub-rede /30 para o link principal. Este valor deve ser um prefixo IPv4 público válido próprio e registrado em um RIR/IRR.
 	- Uma sub-rede /30 para o link secundário. Este valor deve ser um prefixo IPv4 público válido próprio e registrado em um RIR/IRR.
 	- Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
-	- Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes. Você deve usar somente números AS públicos. Você deve ser proprietário do número de AS.
+	- Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes.
 	- Prefixos anunciados: forneça uma lista com todos os prefixos que você pretende anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Caso você planeje enviar um conjunto de prefixos, envie uma lista separada por vírgulas. Esses prefixos devem ser registrados em seu nome em um RIR/IRR.
 	- ASN de cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados. **Isso é opcional**.
 	- Nome do registro de roteamento: você pode especificar o RIR/IRR com base no qual o número de AS e os prefixos estão registrados.
-	- Um Hash MD5, se você optar por usar um. **Isso é opcional.**
+	- Um hash MD5, se você optar por usar um. **Isso é opcional.**
 	
 	Execute o cmdlet a seguir para configurar o emparelhamento da Microsoft para seu circuito
 
 		New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 
-### Obter detalhes de emparelhamento da Microsoft
+### Para exibir detalhes de emparelhamento da Microsoft
 
 Você pode obter detalhes de configuração usando o cmdlet a seguir.
 
@@ -318,4 +324,4 @@ Em seguida, [Vincular uma Rede Virtual a um circuito da Rota Expressa](expressro
 -  Para obter mais informações sobre fluxos de trabalho, veja [Fluxos de trabalho da Rota Expressa](expressroute-workflows.md).
 -  Para obter mais informações sobre o emparelhamento de circuito, veja [Circuitos e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

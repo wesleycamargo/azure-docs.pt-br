@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="04/18/2016"
 	ms.author="jeedes"/>
 
 
@@ -84,7 +84,7 @@ Para configurar a integração do Keylight ao Azure AD, você precisará adicion
 
 7. No painel de resultados, selecione **Keylight** e clique em **Concluir** para adicionar o aplicativo.
 
-
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
 
 ##  Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Keylight, com base em uma usuária de teste chamada "Brenda Fernandes".
@@ -93,7 +93,7 @@ Para configurar e testar o logon único do Azure AD com o Keylight, você precis
 
 1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
 2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
-4. **[Criação de um usuário de teste do Keylight](#creating-a-Keylight-test-user)** - para ter um equivalente de Brenda Fernandes no Keylight vinculado à representação dela do Azure AD.
+4. **[Criação de um usuário de teste do Keylight](#creating-a-keylight-test-user)**: para ter um equivalente de Brenda Fernandes no Keylight vinculado à representação dela do Azure AD.
 5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
@@ -118,7 +118,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 	![Configurar o logon único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_04.png)
 
 
-    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon no aplicativo Keylight usando o seguinte padrão: **“https://<nome\_da\_empresa>.keylightgrc.com/Login.aspx?saml=1”**.
+    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon no aplicativo Keylight usando o seguinte padrão: **“https://<nome da empresa>.keylightgrc.com/Login.aspx?saml=1”**.
 
 
 4. Em **Configurar logon único no Keylight**, execute as seguintes etapas:
@@ -156,12 +156,12 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     b. No portal clássico do Azure AD, copie o valor de **URL de SSO SAML** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
 
-    c. No portal clássico do Azure AD, copie o valor de **URL de Serviço de Logoff Único** e cole-o na caixa de texto **URL de Logoff do Provedor de Identidade**.
+    c. No portal clássico do Azure AD, copie o valor de **URL do Serviço de Saída Única** e cole-o na caixa de texto **URL de Logoff do Provedor de Identidade**.
 
     d. Clique em **Escolher Arquivo** para escolher o certificado do Keylight baixado e clique em **Abrir** para carregar o certificado.
 
 
-    e. Defina **Local da Id de Usuário do SAML** como **Elemento NameIdentifier da declaração subject**.
+    e. Defina **Local da ID de Usuário do SAML** como **Elemento NameIdentifier da declaração subject**.
    
     f. Forneça o **Provedor de Serviço do Keylight usando o seguinte padrão: **https://&lt;Company Nome&gt;.keylightgrc.com**.
 
@@ -264,7 +264,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 Nesta seção, você criará uma usuária chamada Brenda Fernandes no Keylight. O Keylight dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
-Não há itens de ação para você nesta seção. Se ainda não existir, um novo usuário será criado quando o Keylight for acessado. [Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on).
+Não há itens de ação para você nesta seção. Se ainda não existir, um novo usuário será criado quando o Keylight for acessado.
 
 > [AZURE.NOTE] Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Keylight.
 
@@ -289,7 +289,7 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
 
 	![Atribuir usuário][203]
 
-1. Na lista Usuários, selecione **Brenda Fernandes**.
+1. Na lista de usuários, selecione **Brenda Fernandes**.
 
 2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
 
@@ -329,4 +329,4 @@ Ao clicar no bloco Keylight no Painel de Acesso, você deverá ser conectado aut
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Introdução ao Gerenciamento de Parceiros Comerciais do BizTalk e à adição dele ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 O serviço de Gerenciamento de Parceiros Comerciais (TPM) do BizTalk permite definir e manter relações entre empresas, como parceiros e contratos, junto com artefatos associados, como esquemas e certificados. Essas relações então podem ser aplicadas por serviços de API relacionados, como X12, EDIFACT e AS2.
 
@@ -41,4 +43,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

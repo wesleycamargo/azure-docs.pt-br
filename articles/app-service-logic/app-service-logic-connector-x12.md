@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Introdução ao aplicativo de API BizTalk X12 e à adição do mesmo ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Use o serviço BizTalk X12 para receber e enviar mensagens através do protocolo X12 nas comunicações comerciais. O X12 também é conhecido como ASC X12 ou Comitê de Normas Certificadas X12 e é amplamente usado em vários setores.
 
@@ -42,25 +44,17 @@ O Conector X12 pode ser usado como um gatilho ou uma ação.
 
 ### Gatilho
 - Iniciar o designer de fluxo de Aplicativos Lógicos do Azure.
-- Clique no Conector do X12 no painel à direita:
-![Configurações do gatilho][3]
-- Clique em ->:
-![Opções do gatilho][4]
-- O Conector do BizTalk X12 expõe um único gatilho. Selecione *Lote da liberação*:
-![Entrada do lote de liberação][5]
-- Esse gatilho não tem entradas. Clique em ->:
-![Lote de liberação configurado][6]
+- Clique no Conector do X12 no painel à direita: ![Configurações do gatilho][3]
+- Clique em ->: ![Opções do gatilho][4]
+- O Conector do BizTalk X12 expõe um único gatilho. Selecione *Lote da liberação*: ![Entrada do lote de liberação][5]
+- Esse gatilho não tem entradas. Clique em ->: ![Lote de liberação configurado][6]
 - Como parte da saída, o conector retorna a carga útil do X12, a id do contrato, bem como informações sobre se a mensagem é feita em lotes ou não.
 
 ### Ação
-- Clique no Conector do X12 no painel à direita:
-![Configurações de ação][7]
-- Clique em ->:
-![Lista de ações][8]
-- O conector X12 dá suporte a várias ações. Selecione *Codificar*:
-![Codificar entrada][9]
-- Fornecer as entradas para a ação e configurá-la:
-![Codificação configurada][10]
+- Clique no Conector do X12 no painel à direita: ![Configurações de ação][7]
+- Clique em ->: ![Lista de ações][8]
+- O conector X12 dá suporte a várias ações. Selecione *Codificar*: ![Codificar entrada][9]
+- Fornecer as entradas para a ação e configurá-la: ![Codificação configurada][10]
 
 Parâmetro|Tipo|Descrição do parâmetro
 ---|---|---
@@ -93,4 +87,4 @@ Exibir a referência da API REST de Swagger em [Conectores e referência de apli
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

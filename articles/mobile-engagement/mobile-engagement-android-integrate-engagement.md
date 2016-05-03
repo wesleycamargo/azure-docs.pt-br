@@ -310,27 +310,31 @@ A API do Engagement permite usar todos os recursos avançados do Engagement e é
 
 ##Configuração avançada (em Androidmanifest.xml)
 
+### Bloqueios de ativação
+
 Se quiser ter certeza de que as estatísticas são enviadas em tempo real ao usar Wifi ou quando a tela estiver desligada, adicione a seguinte permissão opcional:
 
 			<uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+### Relatório de falha
 
 Se você deseja desabilitar relatórios de falha, adicione (entre as marcas `<application>` e `</application>`):
 
 			<meta-data android:name="engagement:reportCrash" android:value="false"/>
 
+### Limite de intermitência
+
 Por padrão, o serviço Engagement reporta logs em tempo real. Se seu aplicativo reporta logs com muita frequência, é melhor armazenar os logs em buffer e relatá-los todos de uma vez em uma base de tempo normal (isso é chamado de "modo de intermitência"). Para fazer isso, adicione (entre as marcas `<application>` e `</application>`):
 
-			<meta-data android:name="engagement:burstThreshold" android:value="<interval between too bursts (in milliseconds)>"/>
+			<meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
 O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem um impacto no Monitor do Engagement: a duração de todas as sessões e trabalhos será arredondada para o limite de intermitência (portanto, as sessões e trabalhos mais curtos do que o limite de intermitência podem não estar visíveis). É recomendável usar um limite de intermitência não maior que 30.000 (30s).
 
-Por padrão, o serviço Engagement estabelece a conexão com nossos servidores assim que a rede está disponível. Se você deseja adiar a conexão, adicione isso (entre as marcas `<application>` e `</application>`):
-
-			<meta-data android:name="engagement:connection:delay" android:value="<delay (in milliseconds)>"/>
+### Tempo limite da sessão
 
 Por padrão, uma sessão é encerrada 10s após o término de sua última atividade (que geralmente ocorre pressionando a tecla Página Inicial ou Voltar, definindo o telefone como ocioso ou indo diretamente para outro aplicativo). Isso é para evitar uma divisão de sessão cada vez que o usuário sair e retornar para o aplicativo rapidamente (o que pode acontecer quando ele pegar uma imagem, verificar uma notificação, etc.). Convém modificar esse parâmetro. Para fazer isso, adicione (entre as marcas `<application>` e `</application>`):
 
-			<meta-data android:name="engagement:sessionTimeout" android:value="<session timeout (in milliseconds)>"/>
+			<meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
 ##Desabilitar o relatório de log
 
@@ -380,4 +384,4 @@ Em seguida, você pode adicionar um `CheckBoxPreference` em seu layout de prefer
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

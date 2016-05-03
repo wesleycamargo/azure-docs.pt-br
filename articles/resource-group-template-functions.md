@@ -439,7 +439,7 @@ Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 | baseUri | Sim | Cadeia de caracteres do URI de base.
 | relativeUri | Sim | Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base.
 
-O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir ****http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base ****http://contoso.com/resources/**.
+O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir **http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base **http://contoso.com/resources/**.
 
 O exemplo a seguir mostra como criar um link para um modelo aninhado com base no valor do modelo pai.
 
@@ -611,7 +611,7 @@ Retorna informações sobre um provedor de recursos e seus tipos de recursos com
 | providerNamespace | Sim | Namespace do provedor
 | resourceType | Não | O tipo de recurso no namespace especificado.
 
-Cada tipo com suporte é retornado no seguinte formato:
+Cada tipo com suporte é retornado no seguinte formato; o ordenamento em matriz não é garantido:
 
     {
         "resourceType": "",
@@ -807,4 +807,4 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,12 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/23/2016"
+   ms.date="04/18/2016"
    ms.author="yuemlu"/>
 
 # Sistema operacional convidado do Azure 
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+
+## SO convidado de abril 
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-037 | [3148531] | Atualização de segurança cumulativa do Internet Explorer | 4\.31, 3.38, 2.50 | 12 de abril de 2016 |  
+| MS16-039 | [3148522] | Atualização de Segurança do Componente Gráfico da Microsoft | 4\.31, 3.38, 2.50 | 12 de abril de 2016 | 
+| MS16-040 | [3148541] | Atualização de Segurança do Microsoft XML Core Services | 4\.31, 3.38, 2.50 | 12 de abril de 2016 | 
+| MS16-044 | [3146706] | Atualização de Segurança do Windows OLE | 4\.31, 3.38, 2.50 | 12 de abril de 2016 | 
+| MS16-045 | [3143118] | Atualização de Segurança do Windows Hyper-V | 4\.31, 3.38 | 12 de abril de 2016 | 
+| MS16-047 | [3148527] | Atualização de Segurança do Protocolo Remoto do Gerenciador de Contas de Segurança | 4\.31, 3.38, 2.50 | 12 de abril de 2016 | 
+| MS16-048 | [3148528] | Atualização de Segurança do CSRSS | 4\.31, 3.38 | 12 de abril de 2016 | 
 
 ## SO convidado de março 
 
@@ -256,6 +269,14 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
+[3148531]: http://support.microsoft.com/kb/3148531
+[3148522]: http://support.microsoft.com/kb/3148522
+[3148541]: http://support.microsoft.com/kb/3148541
+[3146706]: http://support.microsoft.com/kb/3146706
+[3143118]: http://support.microsoft.com/kb/3143118
+[3148527]: http://support.microsoft.com/kb/3148527
+[3148528]: http://support.microsoft.com/kb/3148528
+
 
 [3142015]: http://support.microsoft.com/kb/3142015
 [3143148]: http://support.microsoft.com/kb/3143148
@@ -432,4 +453,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

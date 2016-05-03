@@ -36,12 +36,9 @@ Agora, abra um shell e execute o seguinte comando, em que:
 
 **PORTA** é a porta do ponto de extremidade que você deseja expor. Para o Swarm, é 2375. Para o DC/OS, use a porta 80. **NOME DE USUÁRIO** é o nome de usuário fornecido quando você implantou o cluster. **PREFIXODEDNS** é o prefixo de DNS que você forneceu ao implantar o cluster. **REGIÃO** é a região em que o grupo de recursos está localizado.
 
-> A porta de conexão SSH é 2200, não a porta 22 padrão.
-
 ```bash
 # ssh sample
-
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
+ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 
 ### Túnel DC/OS
@@ -93,8 +90,8 @@ Selecione `SSH` e `Authentication`. Adicione o arquivo de chave privada para aut
 ![Configuração do PuTTY 2](media/putty2.png)
 
 Selecione `Tunnels` e configure as seguintes portas encaminhadas:
-- **Porta de Origem:** sua preferência -- use 80 para DC/OS e 2375 para Swarm.
-- **Destino:** use localhost:80 para o DC/OS ou localhost:2375 para o Swarm
+- **Porta de Origem:** sua preferência -- use 80 para DC/OS e 2375 para o Swarm.
+- **Destino:** use localhost:80 para o DC/OS ou localhost:2375 para o Swarm.
 
 O exemplo a seguir é configurado para o DC/OS, mas seria semelhante para o Docker Swarm.
 
@@ -120,4 +117,4 @@ Implantar e gerenciar contêineres com DC/OS ou Swarm.
 
 [Trabalhar com o Serviço de Contêiner do Azure e o DC/OS](./container-service-mesos-marathon-rest.md) [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](./container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/18/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Extrator de XPath do BizTalk
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+
 
 O conector do Extrator de XPath do BizTalk ajuda seu aplicativo a pesquisar e extrair dados de conteúdo XML com base em determinado XPath.
 
@@ -28,8 +29,7 @@ O conector do Extrator de XPath do BizTalk ajuda seu aplicativo a pesquisar e ex
 	>[AZURE.NOTE] Não há definições de configuração associadas com o BizTalk Xpath Extractor
 2. [Criar um novo aplicativo lógico]. Abra "Gatilhos e Ações" no Aplicativo Lógico para abrir o Designer de Aplicativos Lógicos para configurar seu fluxo.
 3. No designer, o painel direito mostra os Aplicativos de API disponíveis para compilar seu fluxo. Encontre o "Extrator de XPath do BizTalk". Selecionar isso adiciona o Extrator de XPath ao seu fluxo e provisiona uma instância dele.
-4. Depois de configurado, o designer mostra a ação associada ao aplicativo de API do BizTalk do Extrator XPath:
-	![Escolher Ação do Extrator de XPath do BizTalk][1]
+4. Depois de configurado, o designer mostra a ação associada ao aplicativo de API do BizTalk do Extrator XPath: ![Escolher Ação do Extrator de XPath do BizTalk][1]
 
 5. Escolha "Extrair Usando XPath". "Extrair Usando XPath" avalia a expressão xpath de entrada em um determinado XML de entrada: ![Entrada do Extrator de XPath do BizTalk][2]
 
@@ -47,4 +47,4 @@ A ação retorna a saída como uma cadeia de caracteres ‒ Resultado. O resulta
 <!-- Links -->
 [Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

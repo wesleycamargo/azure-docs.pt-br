@@ -1,4 +1,10 @@
-<properties pageTitle="Análise de aplicativos em C++ da Windows Store" description="Analise o uso e o desempenho de seus aplicativos em C++ da Windows Store." services="application-insights" documentationCenter="cpp" authors="alancameronwills" manager="douge""/>
+<properties 
+    pageTitle="Análise de aplicativos em C++ da Windows Store" 
+    description="Analise o uso e o desempenho de seu aplicativo C++ da Windows Store." 
+    services="application-insights" 
+    documentationCenter="cpp"
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
     ms.service="application-insights" 
@@ -11,7 +17,7 @@
 
 # Análise de aplicativos em C++ da Windows Store
 
-A Microsoft fornece duas soluções para devOps de dispositivo: o [HockeyApp](http://hockeyapp.net/) para dispositivos cliente e o [Application Insights](app-insights-overview.md) para as páginas da Web do servidor e do cliente.
+A Microsoft fornece duas soluções para devOps de dispositivo: [HockeyApp](http://hockeyapp.net/) para dispositivos de cliente e [Application Insights](app-insights-overview.md) para as páginas da Web do servidor e do cliente.
 
 O [HockeyApp](http://hockeyapp.net/) é a nossa solução de DevOps Móvel para a criação de aplicativos de dispositivos iOS, OS X, Android ou Windows, bem como aplicativos de plataforma cruzada baseados no Xamarin, no Cordova e no Unity. Com ele, você pode distribuir compilações para testadores beta, coletar dados de falha e obter comentários dos usuários. Ele é integrado ao Visual Studio Team Services, permitindo a compilação fácil de implantações e a integração de itens de trabalho.
 
@@ -19,15 +25,15 @@ Acesse:
 
 * [HockeyApp](http://support.hockeyapp.net/kb)
 * [Blog do HockeyApp](http://hockeyapp.net/blog/)
-* Junte-se à [Hockeyapp Preseason](http://hockeyapp.net/preseason/) para obter versões anteriores.
+* Ingresse em [Hockeyapp Preseason](http://hockeyapp.net/preseason/) para obter versões anteriores.
 
 Se seu aplicativo tiver um lado servidor, use o [Application Insights](app-insights-overview.md) para monitorar o lado do servidor Web de seu aplicativo em [ASP.NET](app-insights-asp-net.md) ou em [J2EE](app-insights-java-get-started.md).
 
-Também é possível usar [aplicativos do Application Insights para a Área de Trabalho do Windows](app-insights-windows-desktop.md).
+Também é possível usar [Application Insights para aplicativos da Área de Trabalho do Windows](app-insights-windows-desktop.md).
 
-> [AZURE.NOTE] Em 15 de junho de 2016, vamos parar de mostrar dados no Application Insights para aplicativos do iOS, Android, Windows Store e Windows Phone.
+> [AZURE.NOTE] Em 15 de junho de 2016, vamos parar de mostrar dados no Application Insights para aplicativos do iOS, do Android, da Windows Store e do Windows Phone.
 
 
-[Mais informações sobre essa alteração](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
+[Mais informações sobre esta alteração](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

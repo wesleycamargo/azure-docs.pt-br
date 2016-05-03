@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/11/2015"
+   ms.date="04/21/2016"
    ms.author="jgao"/>
 
 # Gerenciar a Análise Azure Data Lake usando o SDK do Azure para Node.js
@@ -21,88 +21,126 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-O ADK do Azure para Node.js pode ser usado para gerenciar contas, trabalhos e catálogos da Análise Azure Data Lake. Para ver o tópico de gerenciamento usando outras ferramentas, clique na guia Selecionar acima.
+O SDK do Azure para Node.js pode ser usado para gerenciar contas, trabalhos e catálogos da Análise Azure Data Lake. Para ver o tópico de gerenciamento usando outras ferramentas, clique na guia Selecionar acima.
 
-**Pré-requisitos**
+Agora, ele oferece suporte a:
 
-Antes de começar este tutorial, você deve ter o seguinte:
+  *  **Versão do Node.js: 0.10.0 ou superior**
+  *  **Versão da API REST para Conta: 2015-10-01-preview**
+  *  **Versão da API REST para Catálogo: 2015-10-01-preview**
+  *  **Versão da API REST para Trabalho: 2016-03-20-preview**
 
-- **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Uma conta da Análise Azure Data Lake**. Veja [Introdução à Análise Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md) para criar uma conta.
-- **Uma entidade de serviço com permissões para acessar a conta da Análise Data Lake**. Veja [Autenticando uma entidade de serviço com o Gerenciador de Recursos do Azure](../resource-group-authenticate-service-principal.md).
+## Recursos
 
-## Instalar o SDK
+- Gerenciamento de contas: criar, obter, listar, atualizar e excluir.
+- Gerenciamento de trabalhos: enviar, obter, listar, cancelar.
+- Gerenciamento de catálogos: obter, listar, criar (segredos), atualizar (segredos), excluir (segredos).
 
-Use as seguintes etapas para instalar o SDK:
+## Como instalar
 
-1. Instale o [Node.js](https://nodejs.org/).
-2. Execute os seguintes comandos na janela do Prompt de Comando, Terminal ou Bash:
+```bash
+npm install azure-arm-datalake-analytics
+```
 
-		npm install async
-		npm install adal-node
-		npm install azure-common
-		npm install azure-arm-datalake-analytics
+## Autenticar usando o Azure Active Directory
 
-## Um exemplo do Node.js
+ ```javascript
+ var msrestAzure = require('ms-rest-azure');
+ //user authentication
+ var credentials = new msRestAzure.UserTokenCredentials('your-client-id', 'your-domain', 'your-username', 'your-password', 'your-redirect-uri');
+ //service principal authentication
+ var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
+ ```
 
-O exemplo a seguir obtém a lista de trabalho de uma determinada conta da Análise Azure Data Lake.
+## Criar o cliente da Análise Data Lake
 
-	var async = require('async');
-	var adalNode = require('adal-node');
-	var azureCommon = require('azure-common');
-	var azureDataLakeAnalytics = require('azure-arm-datalake-analytics');
+```javascript
+var adlaManagement = require("azure-arm-datalake-analytics");
+var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
+var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azuredatalakeanalytics.net');
+var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
+```
 
-	var resourceUri = 'https://management.core.windows.net/';
-	var loginUri = 'https://login.windows.net/'
+## Criar uma conta da Análise Data Lake
 
-	var clientId = 'application_id_(guid)';
-	var clientSecret = 'application_password';
+```javascript
+var util = require('util');
+var resourceGroupName = 'testrg';
+var accountName = 'testadlaacct';
+var location = 'eastus2';
 
-	var tenantId = 'aad_tenant_id';
-	var subscriptionId = 'azure_subscription_id';
-	var resourceGroup = 'adla_resourcegroup_name';
+// A Data Lake Store account must already have been created to create
+// a Data Lake Analytics account. See the Data Lake Store readme for
+// information on doing so. For now, we assume one exists already.
+var datalakeStoreAccountName = 'existingadlsaccount';
 
-	var accountName = 'adla_account_name';
+// account object to create
+var accountToCreate = {
+  tags: {
+    testtag1: 'testvalue1',
+    testtag2: 'testvalue2'
+  },
+  name: accountName,
+  location: location,
+  properties: {
+    defaultDataLakeStoreAccount: datalakeStoreAccountName,
+    dataLakeStoreAccounts: [
+      {
+        name: datalakeStoreAccountName
+      }
+    ]
+  }
+};
 
-	var context = new adalNode.AuthenticationContext(loginUri+tenantId);
+client.account.create(resourceGroupName, accountName, accountToCreate, function (err, result, request, response) {
+  if (err) {
+    console.log(err);
+    /*err has reference to the actual request and response, so you can see what was sent and received on the wire.
+      The structure of err looks like this:
+      err: {
+        code: 'Error Code',
+        message: 'Error Message',
+        body: 'The response body if any',
+        request: reference to a stripped version of http request
+        response: reference to a stripped version of the response
+      }
+    */
+  } else {
+    console.log('result is: ' + util.inspect(result, {depth: null}));
+  }
+});
+```
 
-	var client;
-	var response;
+## Obter uma lista de trabalhos
 
-	async.series([
-		function (next) {
-			context.acquireTokenWithClientCredentials(resourceUri, clientId, clientSecret, function(err, result){
-				if (err) throw err;
-				response = result;
-				next();
-			});
-		},
-		function (next) {
-			var credentials = new azureCommon.TokenCloudCredentials({
-				subscriptionId : subscriptionId,
-				authorizationScheme : response.tokenType,
-				token : response.accessToken
-			});
+```javascript
+var util = require('util');
+var accountName = 'testadlaacct';
+jobClient.job.list(accountName, function (err, result, request, response) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('result is: ' + util.inspect(result, {depth: null}));
+  }
+});
+```
 
-			client = azureDataLakeAnalytics.createDataLakeAnalyticsJobManagementClient(credentials, 'azuredatalakeanalytics.net');
+## Obter uma lista de bancos de dados no Catálogo da Análise Data Lake
+```javascript
+var util = require('util');
+var accountName = 'testadlaacct';
+catalogClient.catalog.listDatabases(accountName, function (err, result, request, response) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('result is: ' + util.inspect(result, {depth: null}));
+  }
+});
+```
 
-			next();
-		},
-		function (next) {
-			client.jobs.list(resourceGroup, accountName, function(err, result){
-				if (err) throw err;
-				console.log(result);
-			});
-		}
-	]);
+## Consulte também
 
+- [Microsoft Azure SDK para Node.js](https://github.com/azure/azure-sdk-for-node)
+- [SDK do Microsoft Azure para Node.js - Gerenciamento do Repositório Data Lake](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-##Consulte também
-
-- [SDK do Azure para Node.js](http://azure.github.io/azure-sdk-for-node/)
-- [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-- [Introdução à Análise do Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md)
-- [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md)
-- [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

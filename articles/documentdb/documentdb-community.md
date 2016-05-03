@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="03/18/2016"
+  ms.date="04/16/2016"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -147,7 +147,10 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Nome do evento | Palestrante | Local | Data | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Build 2016](https://build.microsoft.com/) | John Macintyre, Dharma Shukla | San Francisco, CA | 30 de março - 1º de abril de 2016 | [#MicrosoftBuild](https://twitter.com/hashtag/MicrosoftBuild)
+| [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 16 de abril de 2016 | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
+| [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 16 de abril de 2016 | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
+| [Grupo de usuários de integração](http://www.integrationusergroup.com/#) | Howard Edidin | Webinar | 25 de abril de 2016 | n/d |
+| [Meetup: grupo de desenvolvedores de .NET de NYC](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | Cidade de Nova York, NY | 21 de abril de 2016 | n/d |
 | [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Reino Unido | 4 a 7 de maio de 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 | [Meetup: Grupo de usuários do Azure Reino Unido](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | Londres, Reino Unido | 12 de maio de 2016 | n/d |
 
@@ -157,31 +160,40 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Nome do evento | Palestrante | Local | Data | Gravação |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQL Sábado #481 - Israel 2016](http://www.sqlsaturday.com/481/Sessions/Details.aspx?sid=40912) | Leonard Lobel | HaMerkaz, Israel | 04 de abril de 2016 | n/d |
+| [Build 2016](https://build.microsoft.com/) | John Macintyre | San Francisco, CA | 31 de março de 2016 | [Fornecimento de aplicativos em escala com o Banco de Dados de Documentos, Banco de dados de documentos NoSQL do Azure](https://channel9.msdn.com/Events/Build/2016/B840)
+| [SQL Sábado #505 - Bélgica 2016](http://www.sqlsaturday.com/505/Sessions/Details.aspx?sid=44217) | Mihail Mateev | Antuérpia, Bélgica | 19 de março de 2016 | n/d |
 | [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Kirat Pandya | Bellevue, WA | 3 de março de 2016 | n/d |
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 28 de janeiro de 2016 | n/d |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | Montreal, QC, Canadá | 01 de dezembro de 2015 | n/d |
 | [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | Seattle, WA | 12 de novembro de 2015 | n/d |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz, Andrew Hoh, Aravind Ramachandran, John Macintyre | Seattle, WA | 27 a 30 de outubro de 2015 | [Desenvolvendo aplicativos modernos no Azure](https://www.youtube.com/watch?v=k5Z24HX-RyQ) |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | David Makogon, Ryan Crawcour | Columbus, OH | 23 de outubro de 2015 | n/d |
-| [SQL sábado #430 - Sófia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Leonard Lobel | Sófia, Bulgária | 10 de outubro de 2015 | n/d |
-| [SQL sábado #429 - Sofia 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Leonard Lobel | Porto, Portugal | 3 de outubro de 2015 | n/d |
+| [SQL Sábado #454 - Turim 2015](http://www.sqlsaturday.com/454/Sessions/Details.aspx?sid=40130) | Marco De Nittis | Turim, Itália | 10 de outubro de 2015 | n/d |
+| [SQL sábado #430 - Sófia 2015](http://www.sqlsaturday.com/430/Sessions/Details.aspx?sid=36090) | Leonard Lobel | Sófia, Bulgária | 10 de outubro de 2015 | n/d |
+| [SQL Sábado #444 - Kansas City 2015](http://www.sqlsaturday.com/444/Sessions/Details.aspx?sid=38576) | Jeff Renz | Kansas City, MO | 3 de outubro de 2015 | n/d |
+| [SQL sábado #429 - Sofia 2015](http://www.sqlsaturday.com/429/Sessions/Details.aspx?sid=36089) | Leonard Lobel | Porto, Portugal | 3 de outubro de 2015 | n/d |
 | [AzureCon](https://azure.microsoft.com/azurecon/) | David Makogon, Ryan Crawcour, John Macintyre | Evento virtual | 29 de setembro de 2015 | [Plataforma de dados e análise do Aure](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[Trabalhando com os Dados NoSQL no Banco de Dados de Documentos](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
-| [SQL sábado #434 - Holanda 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | Leonard Lobel | Utrecht, Países Baixos | 26 de setembro de 2015 | [Introdução ao Banco de Dados de Documentos do Azure](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
+| [SQL sábado #434 - Holanda 2015](http://www.sqlsaturday.com/434/Sessions/Details.aspx?sid=36413) | Leonard Lobel | Utrecht, Países Baixos | 26 de setembro de 2015 | [Introdução ao Banco de Dados de Documentos do Azure](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
+| [SQL Sábado #441 - Denver 2015](http://www.sqlsaturday.com/441/Sessions/Details.aspx?sid=39191) | Jeff Renz | Denver, CO | 19 de setembro de 2015 | n/d |
 | [Meetup: Desenvolvedores do Azure na Área da Baía de São Francisco](http://www.meetup.com/bayazure/events/223943785/) | Andrew Liu | San Francisco, CA | 15 de setembro de 2015 | n/d |
 | [Reunião do grupo de usuários do Azure em Belarus](https://www.facebook.com/events/786540124800276/) | Alex Zyl | Minsk, Belarus | 9 de setembro de 2015 | [Introdução à visão geral do conceito do Banco de Dados de Documentos, níveis de consistência, estratégias de fragmentação](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
 | [NoSQL agora!](http://nosql2015.dataversity.net/) | David Makogon, Ryan Crawcour | São José, CA | 18 a 20 de agosto de 2015 | n/d |
 | [@Scale Seattle](http://www.atscaleconference.com/) | Dharma Shukla | Seattle, WA | 17 de junho de 2015 | [Indexação agnóstica de esquema com o Banco de Dados de Documentos do Azure](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Atualização técnica 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Bruno Lopes | Lisboa, Portugal | 15 de junho de 2015 | [Banco de Dados de Documentos 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
+| [SQL Sábado #417 - Sri Lanka 2015](http://www.sqlsaturday.com/417/Sessions/Details.aspx?sid=21415) | Mihail Mateev | Colombo, Sri Lanka | 06 de junho de 2015 | n/d |
 | [Meetup:Seattle Scalability Meetup](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/) | Dharma Shukla | Seattle, WA | 27 de maio de 2015 | n/d |
+| [SQL Sábado #377 - Kiev 2015](http://www.sqlsaturday.com/377/Sessions/Details.aspx?sid=20322) | Mihail Mateev | Kiev, Ucrânia | 23 de maio de 2015 | n/d |
 | [Mês do banco de dados](http://www.databasemonth.com/database/azure-documentdb) | Dharma Shukla | Nova Iorque, NY | 19 de maio de 2015 | [Banco de Dados de Documentos do Azure: serviço do Banco de Dados de Documentos multilocatário, massivamente escalonável](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [Meetup: O grupo de usuários London SQL Server](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Allan Mitchell | Londres, Reino Unido | 19 de maio de 2015 | n/d |
 | [DevIntersection](https://devintersection.com/) | Andrew Liu | Scottsdale, AZ | 18 a 21 de maio de 2015 | n/d |
+| [Meetup: Grupo de Desenvolvedores do Aplicativo Web de Seatlle](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Andrew Liu | Seattle, WA | 14 de maio de 2015 | n/d |
 | [Ignite](http://ignite.microsoft.com/) | Andrew Hoh, John Macintyre | Chicago, IL | 4 a 8 de maio de 2015 | [SELECIONAR o último vídeo DO Banco de Dados de Documentos](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[Banco de Dados de Documentos e Azure HDInsight: vídeo Melhor Juntos](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | Ryan Crawcour | San Francisco, CA | 29 de abril a 1 de maio de 2015 | [Criar a próxima grande ideia com o serviço NoSQL do Azure: Banco de Dados de Documentos](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Global Azure Bootcamp 2015 - Espanha](http://azurebootcamp.es/) | Luis Ruiz Pavon, Roberto Gonzalez | Madri, Espanha | 25 de abril de 2015 | [#DEAN Banco de Dados de Documentos + Express + AngularJS + NodeJS em execução no Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
+| [Meetup: Grupo de usuários do Azure Dinamarca](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Christian Holm Diget | Copenhague, Dinamarca | 16 de abril de 2015 | n/d |
 | [Meetup: Nuvem da Microsoft de Charlotte](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Jamie Rance | Charlotte, Carolina do Norte | 8 de abril de 2015 | n/d |
-| [Meetup: Grupo de usuários do Azure Dinamarca](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Christian Holm Diget | Copenhague, Dinamarca | 19 de maio de 2015 | n/d |
-| [Meetup: Grupo de Desenvolvedores do Aplicativo Web de Seatlle](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Andrew Liu | Seattle, WA | 14 de maio de 2015 | n/d |
+| [SQL sábado #375-2015 - Vale do Silício](http://www.sqlsaturday.com/375/Sessions/Details.aspx?sid=15289) | Ike Ellis | Mountain View, CA | 28 de março de 2015 | n/d |
 | [Meetup: Meetup Azure de Istambul](http://www.meetup.com/istanbul-azure-meetup/events/220325538/) | Daron Yondem | Istambul, Turquia | 7 de março de 2015 | n/d |
 | [Meetup: Grupo de Usuário .Net da Área dos Grandes Lagos](http://www.meetup.com/Great-Lakes-Area-NET-User-Group-MIGANG/events/220364576/) | Michael Collier | Southfield, MI | 18 de fevereiro de 2015 | n/d |
 | [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) | Magnus Mårtensson | Estocolmo, Suécia | 28 a 29 de janeiro de 2015 | [Banco de Dados de Documentos no Azure, a nova opção de NoSQL para a nuvem](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
@@ -190,6 +202,7 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Mostrar | Palestrante | Data | Episódio |
 | ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Channel 9: Microsoft + Software Livre | Jose Miguel Parrella | 14 de abril de 2016 | [De MEAN para DEAN no Azure com Bitnami, conjuntos de escalas de VM e Banco de Dados de Documentos](https://channel9.msdn.com/Blogs/Open/From-MEAN-to-DEAN-in-Azure-with-Bitnami-VM-Scale-Sets-and-DocumentDB) |
 | Wired2WinWebinar | Sai Sankar Kunnathukuzhiyil | 9 de março de 2016 | [Developing Solutions with Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs)
 | Grupo de usuários de integração | Han Wong | 17 de fevereiro de 2016 | [Analisar e visualizar dados não relacionais com o Banco de Dados de Documentos e o Power BI](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
 | O Podcast do Azure | Cale Teeter | 14 de janeiro de 2016 | [Episode 110: Using DocumentDB & Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) |
@@ -294,4 +307,4 @@ Os Magos do Banco de Dados de Documentos são líderes de comunidade que demonst
 
 Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->
