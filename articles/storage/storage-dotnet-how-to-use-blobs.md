@@ -89,7 +89,8 @@ Este exemplo mostra como criar um contêiner se ele ainda não existir:
 Por padrão, o novo contêiner é privado, o que significa que você deve especificar sua chave de acesso de armazenamento para baixar blobs desse contêiner. Para disponibilizar arquivos dentro do contêiner a todas as pessoas, você pode definir o contêiner como público usando o seguinte código:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess =
+	    BlobContainerPublicAccessType.Blob });
 
 Qualquer pessoa na Internet pode ver blobs em um contêiner público, mas você só poderá modificá-los ou excluí-los se tiver a chave de acesso ou a assinatura de acesso compartilhado adequada.
 
@@ -179,7 +180,7 @@ Quando você chama **ListBlobs** no contêiner 'photos' (como no exemplo acima),
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-Opcionalmente, você pode definir o parâmetro **UseFlatBlobListing** do método **ListBlobs** como** true**. Nesse caso, cada blob no contêiner é retornado como um objeto **CloudBlockBlob**. A chamada para **ListBlobs** para retornar uma lista simples tem esta aparência:
+Opcionalmente, você pode definir o parâmetro **UseFlatBlobListing** do método **ListBlobs** como **true**. Nesse caso, cada blob no contêiner é retornado como um objeto **CloudBlockBlob**. A chamada para **ListBlobs** para retornar uma lista simples tem esta aparência:
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))

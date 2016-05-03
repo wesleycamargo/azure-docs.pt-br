@@ -146,7 +146,8 @@ Execute as seguintes etapas para criar o dispositivo virtual StorSimple.
 
 Antes de iniciar este procedimento, verifique se você tem uma cópia da chave de criptografia de dados de serviço. A chave de criptografia de dados do serviço foi criada quando você configurou o primeiro dispositivo StorSimple e foi orientado a salvá-la em um local seguro. Se você não tiver uma cópia da chave de criptografia dos dados de serviço, deverá contatar o Suporte da Microsoft para obter assistência.
 
-Execute as seguintes etapas para configurar e registrar o dispositivo virtual StorSimple[AZURE.INCLUDE [Configurar e registrar um dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
+Execute as seguintes etapas para configurar e registrar o dispositivo virtual StorSimple
+[AZURE.INCLUDE [Configurar e registrar um dispositivo virtual](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Etapa 3: (opcional) Modificar as definições de configuração do dispositivo
 
