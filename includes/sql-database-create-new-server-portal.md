@@ -44,4 +44,4 @@ Use as etapas a seguir no portal do Azure para criar um servidor lógico do Banc
 
        ![novo servidor lógico](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

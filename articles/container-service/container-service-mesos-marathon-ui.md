@@ -57,6 +57,18 @@ Protocolo | TCP
 
 ![](media/dcos/dcos6.png)
 
+Se você quiser mapear estaticamente a porta do contêiner para uma porta no agente, use o 'Modo JSON'. Para fazer isso, alterne o assistente de Novo Aplicativo para o Modo JSON usando o botão de alternância e insira o seguinte na seção 'portMappings' da definição do aplicativo. Este exemplo associa a porta 80 do contêiner à porta 80 do agente DC/OS. Esse assistente poderá sair do Modo JSON assim que a alteração for feita.
+
+```none
+“hostPort”: 80,
+```
+
+![](media/dcos/dcos13.png)
+
+O cluster DC/OS é implantado com um conjunto de agentes privados e públicos. Para acessar o aplicativo da Internet, eles devem ser implantados em um agente de público. Para fazer isso, selecione a guia 'opcional' do assistente de Novo Aplicativo e insira 'slave\_public' em Funções de Recurso Aceitas'.
+
+![](media/dcos/dcos14.png)
+
 Novamente na página principal do Marathon, você poderá ver o status da implantação para o contêiner.
 
 ![](media/dcos/dcos7.png)
@@ -85,4 +97,4 @@ Após a conclusão da operação de dimensionamento, você verá várias instân
 
 [Trabalhar com a API do Marathon e DC/OS](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

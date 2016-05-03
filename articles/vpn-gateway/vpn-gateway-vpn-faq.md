@@ -3,8 +3,8 @@
    description="Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de rede virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN"
    services="vpn-gateway"
    documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="yushwang"
+   manager="rossort"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/10/2016"
-   ms.author="cherylmc" />
+   ms.author="yushwang" />
 
 # Perguntas frequentes de gateway de VPN
 
@@ -273,4 +273,4 @@ Você pode exibir mais informações sobre Gateways de VPN na [página de docume
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

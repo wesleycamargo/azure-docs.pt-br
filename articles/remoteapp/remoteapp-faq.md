@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/25/2016" 
+	ms.date="04/08/2016" 
 	ms.author="elizapo"/>
 
 # Perguntas frequentes sobre o RemoteApp do Azure
@@ -37,7 +37,7 @@ Ouvimos as seguintes perguntas sobre o RemoteApp do Azure. Você tem outras? Vis
 
 ## Coleções - para o que há suporte, o que você deve usar e outros
 - **Há suporte para aplicativos personalizados da linha de negócios (LOB)?** Sim. Para usar um aplicativo personalizado no RemoteApp do Azure, crie uma [imagem personalizada de modelo](remoteapp-create-custom-image.md) e, em seguida, carregue-a para a coleção do RemoteApp.
-- **Meu aplicativo de LOB personalizado funcionará no RemoteApp do Azure?** A melhor maneira de avaliar isso é testando-o. Examine os [requisitos de compatibilidade do aplicativo](http://www.microsoft.com/download/details.aspx?id=18704) e verifique o [Centro de compatibilidade de área de trabalho remota](http://www.rdcompatibility.com/compatibility/default.aspx).
+- **Meu aplicativo de LOB personalizado funcionará no RemoteApp do Azure?** A melhor maneira de avaliar isso é testando-o. Confira o [Centro de Compatibilidade de Área de Trabalho Remota](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Qual método de implantação (nuvem ou híbrido) é o melhor para a minha organização?** As coleções híbridas fornecem a experiência mais completa se você deseja integração total com o logon único (SSO) e conectividade segura de rede local. As coleções de nuvem fornecem uma maneira fácil e ágil de isolar a sua implantação usando vários métodos de autenticação. Leia mais sobre as [Opções de implantação](remoteapp-whatis.md).
 - **Temos SQL ou outro banco de dados local ou no Azure. Qual o tipo de implantação que nós usamos?** Isso depende de onde está o seu banco de dados SQL ou back-end. Se o banco de dados estiver em uma rede privada, use a coleção híbrida. Se o banco de dados estiver exposto à Internet e permite ao cliente conexões para se conectar a ele, você pode usar a coleção na nuvem.
 - **E o mapeamento de unidade, USB e porta serial, o compartilhamento de área de transferência e o redirecionamento de impressora?** Todos esses recursos têm suporte no RemoteApp do Azure. O redirecionamento de impressora e o compartilhamento de área de transferência estão habilitados por padrão. Você pode aprender mais sobre redirecionamento [aqui](remoteapp-redirection.md). 
@@ -114,4 +114,4 @@ Você pode encontrar informações de cliente válidas, incluindo etapas para in
 ### Ajude-nos a ajudar você 
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

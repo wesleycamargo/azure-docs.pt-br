@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/12/2016"
+	ms.date="04/22/2016"
 	ms.author="markgal; jimpark"/>
 
 
@@ -23,33 +23,26 @@
 - [Fazer backup das VMs ARM](backup-azure-vms-first-look-arm.md)
 - [Fazer backup das VMs do modo Clássico](backup-azure-vms-first-look.md)
 
-Este tutorial o orienta ao longo das etapas para fazer backup de uma VM (máquina virtual) do Azure. Para concluir este tutorial com êxito, estes pré-requisitos devem existir:
+Este tutorial explica as etapas para fazer backup de uma VM (máquina virtual) do Azure no Azure. Para concluir este tutorial com êxito, estes pré-requisitos devem existir:
 
 - Você criou uma VM em sua assinatura do Azure.
-- O serviço de Backup pode acessar sua VM.
+- A VM tem conectividade com os endereços IP públicos do Azure. Para saber mais, veja [Conectividade de rede](./backup-azure-vms-prepare.md#network-connectivity).
 
-Aqui estão as etapas de alto nível do tutorial.
+Para fazer backup de uma VM, há cinco etapas principais:
+
+![etapa um](./media/backup-azure-vms-first-look/step-one.png) Crie um cofre de backup ou identifique um cofre de backup existente. <br/> ![etapa dois](./media/backup-azure-vms-first-look/step-two.png) Use o portal Clássico do Azure para descobrir e registrar as máquinas virtuais. <br/> ![etapa três](./media/backup-azure-vms-first-look/step-three.png) Instale o Agente de VM. <br/> ![etapa quatro](./media/backup-azure-vms-first-look/step-four.png) Crie a política para proteger as máquinas virtuais. <br/> ![etapa cinco](./media/backup-azure-vms-first-look/step-five.png) Execute o backup.
 
 ![Visão geral do processo de backup de VM](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
-1. Crie um cofre de backup ou identifique um cofre de backup existente *na mesma região que a VM*.
-2. Use o portal do Azure para descobrir e registrar as máquinas virtuais na assinatura.
-3. Instale o Agente de VM na máquina virtual (se você estiver usando uma VM da galeria do Azure, o Agente de VM já estará presente).
-4. Crie a política para proteger as máquinas virtuais.
-5. Execute o backup.
+>[AZURE.NOTE] O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Resource Manager e Clássico](../resource-manager-deployment-model.md). Este tutorial é para uso com as VMs que podem ser criadas no portal Clássico do Azure. O serviço de Backup do Azure dá suporte a VMs baseadas no ARM (Azure Resource Manager), também conhecidas como as VMs IaaS V2. Para obter detalhes sobre como fazer backup de VMs do ARM, veja [Introdução: fazer backup das VMs ARM em um cofre de Serviços de Recuperação](backup-azure-vms-first-look-arm.md).
 
->[AZURE.NOTE] O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). O serviço de Backup do Azure dá suporte a VMs baseadas no ARM (Azure Resource Manager), também conhecidas como as VMs IaaS V2. Este tutorial é para uso com as VMs que podem ser criadas no portal clássico do Azure.
 
 
 ## Etapa 1 - Criar um cofre de backup para uma VM
 
 O cofre de backup é uma entidade que armazena todos os pontos de backups e de recuperação criados ao longo do tempo. O cofre de backup também contém as políticas de backup que serão aplicadas às máquinas virtuais incluídas no backup.
 
-Esta imagem mostra os relacionamentos entre as várias entidades do Backup do Azure: ![Relação e entidades do Backup do Azure](./media/backup-azure-vms-prepare/vault-policy-vm.png)
-
-Para criar um cofre de backup:
-
-1. Entre no [Portal do Azure](http://manage.windowsazure.com/).
+1. Entre no [portal Clássico do Azure](http://manage.windowsazure.com/).
 
 2. No canto inferior esquerdo do portal do Azure, clique em **Novo**
 
@@ -61,13 +54,13 @@ Para criar um cofre de backup:
 
     O assistente solicitará o **Nome** e a **Região**. Se você administrar mais de uma assinatura, será exibida uma caixa de diálogo para que escolha a assinatura.
 
-4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome precisa ser exclusivo para a assinatura do Azure. Digite um nome com 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
+4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome precisa ser exclusivo para a assinatura do Azure.
 
 5. Em **Região**, selecione a região geográfica para o cofre. O cofre **deve** estar na mesma região que as máquinas virtuais a serem protegidas.
 
-    Se não souber ao certo em qual região a VM existe, feche o assistente e clique em Máquinas Virtuais na lista de serviços do Azure. A coluna Local fornece o nome da região. Se você tiver máquinas virtuais em várias regiões, crie um cofre de backup em cada região.
+    Se não souber em qual região a VM existe, feche o assistente e clique em **Máquinas Virtuais** na lista de serviços do Azure. A coluna Local fornece o nome da região. Se você tiver máquinas virtuais em várias regiões, crie um cofre de backup em cada região.
 
-6. Se não houver uma caixa de diálogo de **Assinatura** no assistente, vá para a próxima etapa. Se você trabalha com várias assinaturas, selecione uma Assinatura para associar ao novo cofre de backup.
+6. Se não houver uma caixa de diálogo de **Assinatura** no assistente, vá para a próxima etapa. Se você trabalha com várias assinaturas, selecione uma assinatura para associar ao novo cofre de backup.
 
     ![Criar notificação de cofre](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
 
@@ -75,7 +68,7 @@ Para criar um cofre de backup:
 
     ![Criar notificação de cofre](./media/backup-azure-vms-first-look/create-vault-demo.png)
 
-    Uma mensagem confirma que o cofre foi criado com êxito. Ele é listado na página de **Serviços de recuperação** como **Ativo**.
+    Uma mensagem confirma que o cofre foi criado com êxito. Ele é listado na página **Serviços de recuperação** como **Ativo**.
 
     ![Criar notificação de cofre](./media/backup-azure-vms-first-look/create-vault-demo-success.png)
 
@@ -89,14 +82,14 @@ Para criar um cofre de backup:
 
     ![Lista de cofres de backup](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
 
-    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup principal, será recomendável continuar usando o armazenamento com redundância geográfica. Se você estiver usando o Azure como ponto de extremidade de armazenamento de backup não principal, considere a escolha do armazenamento com redundância local, o que reduz o custo de armazenar dados no Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [com redundância local](../storage/storage-redundancy.md#locally-redundant-storage) nesta [visão geral](../storage/storage-redundancy.md).
+    Por padrão, seu cofre tem armazenamento com redundância geográfica. Escolha o armazenamento com redundância geográfica se esse for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento com redundância geográfica e com redundância local na [visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
 
-Depois de escolher a opção de armazenamento para o cofre, você estará pronto para associar a VM ao cofre. Para iniciar a associação, você deverá descobrir e registrar as máquinas virtuais do Azure.
+Depois de escolher a opção de armazenamento para o cofre, você estará pronto para associar a VM ao cofre. Para iniciar a associação, descubra e registre as máquinas virtuais do Azure.
 
 ## Etapa 2 - Descobrir e registrar máquinas virtuais do Azure
-Antes de registrar a VM em um cofre, execute o processo de descoberta para identificar novas VMs. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região.
+Antes de registrar a VM em um cofre, execute o processo de descoberta para identificar novas VMs. Isso retorna uma lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região.
 
-1. Entre no [portal do Azure](http://manage.windowsazure.com/)
+1. Entrar no [portal Clássico do Azure](http://manage.windowsazure.com/)
 
 2. No portal clássico do Azure, clique em **Serviços de Recuperação** para abrir a lista de cofres dos Serviços de Recuperação. ![Selecionar carga de trabalho](./media/backup-azure-vms-first-look/recovery-services-icon.png)
 
@@ -124,7 +117,7 @@ Antes de registrar a VM em um cofre, execute o processo de descoberta para ident
 
 7. Clique em **REGISTRAR** na parte inferior da página. ![Botão Registrar](./media/backup-azure-vms-first-look/register-icon.png)
 
-8. No menu de atalho **Registrar Itens**, selecione as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para fazer a distinção entre elas.
+8. No menu de atalho **Registrar Itens**, selecione as máquinas virtuais que você deseja registrar.
 
     >[AZURE.TIP] Várias máquinas virtuais podem ser registradas ao mesmo tempo.
 
@@ -144,15 +137,15 @@ Antes de registrar a VM em um cofre, execute o processo de descoberta para ident
 
 ## Etapa 3 - Instalar o agente de VM na máquina virtual.
 
-O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Se sua VM tiver sido criada da galeria do Azure, o agente de VM já estará presente na VM! Você pode pular para [proteção de suas VMs](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
+O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Se sua VM tiver sido criada da galeria do Azure, o agente de VM já estará presente na VM. Você pode pular para [proteção de suas VMs](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines).
 
 Se sua VM tiver migrado de um datacenter local, a VM provavelmente não terá o agente instalado. Você deve instalar o Agente de VM na máquina virtual antes de continuar a proteger a VM. Para obter etapas detalhadas sobre como instalar o Agente de VM, confira a [seção Agente de VM do artigo Backup de VMs](backup-azure-vms-prepare.md#vm-agent).
 
 
-## Etapa 4 - Proteger máquinas virtuais do Azure
-Agora você pode configurar uma política de backup e de retenção para a máquina virtual. Várias máquinas virtuais podem ser protegidas usando uma única ação de proteção. Os cofres do Backup do Azure criados depois de maio de 2015 poderão vir com uma política padrão interna ao cofre. Essa política padrão é fornecida com uma retenção padrão de 30 dias e agendamento de backup de uma vez por dia.
+## Etapa 4 - Criar a política de backup
+Antes de disparar o trabalho de backup inicial, defina a agenda de quando os instantâneos de backup serão feitos. A agenda de quando os instantâneos de backup são criados e por quanto tempo esses instantâneos serão mantido compõem a política de backup. As informações de retenção se baseiam no esquema de rotação de backup Avô-pai-filho.
 
-1. Navegue até o cofre de backup em **Serviços de Recuperação** no portal do Azure e clique em **Itens Registrados**.
+1. Navegue até o cofre de backup, em **Serviços de Recuperação** no portal Clássico do Azure e clique em **Itens Registrados**.
 2. Selecione **Máquina Virtual do Azure** no menu suspenso.
 
     ![Selecionar a carga de trabalho no portal](./media/backup-azure-vms/select-workload.png)
@@ -169,7 +162,7 @@ Agora você pode configurar uma política de backup e de retenção para a máqu
 
 5. No menu **Configurar proteção**, escolha uma política existente ou crie uma nova política para proteger as máquinas virtuais que você identificou.
 
-    Cada política de backup pode ter várias máquinas virtuais associadas a ela. No entanto, a máquina virtual só pode estar associada a apenas uma política de cada vez.
+    Os novos cofres de Backup têm uma política padrão associada ao cofre. Essa política usa um instantâneo diário a cada noite, e o instantâneo diário é mantido por 30 dias. Cada política de backup pode ter várias máquinas virtuais associadas a ela. No entanto, a máquina virtual só pode estar associada a apenas uma política de cada vez.
 
     ![Proteger com nova política](./media/backup-azure-vms/policy-schedule.png)
 
@@ -193,7 +186,7 @@ Após uma máquina virtual ser protegida com uma política, você poderá exibir
 
 ![Backup pendente](./media/backup-azure-vms-first-look/protection-pending-border.png)
 
-Para disparar o backup inicial imediatamente após a configuração de proteção:
+Para começar o backup inicial agora:
 
 1. Na página **Itens Protegidos**, clique em **Fazer Backup Agora** na parte inferior da página. ![Ícone de Fazer Backup Agora](./media/backup-azure-vms-first-look/backup-now-icon.png)
 
@@ -220,4 +213,4 @@ Agora que você já fez um backup de uma VM, há várias etapas subsequentes pod
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

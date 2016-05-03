@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Criar um novo banco de dados SQL do Azure
+## Criar um novo Banco de Dados SQL do Azure
 
 Use as etapas a seguir no portal do Azure para criar um novo banco de dados SQL do Azure em um servidor lógico de Banco de Dados SQL novo ou existente.
 
@@ -47,4 +47,4 @@ Use as etapas a seguir no portal do Azure para criar um novo banco de dados SQL 
 
      ![novo banco de dados](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

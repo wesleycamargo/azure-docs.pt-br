@@ -75,4 +75,6 @@ Para começar a usar a CDN, confira [Uso da CDN do Azure](./cdn-create-new-endpo
 
 Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN por meio do [Portal do Microsoft Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0420_2016-->
+Para ver a CDN em ação, confira o [vídeo da sessão Build 2016](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+
+<!---HONumber=AcomDC_0427_2016-->

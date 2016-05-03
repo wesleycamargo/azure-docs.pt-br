@@ -147,12 +147,16 @@ Configurar o AD FS com o Azure AD Connect é simples, com apenas alguns cliques.
 - Um servidor Windows Server 2012 R2 para o servidor de proxy de aplicativo Web com gerenciamento remoto habilitado
 - Um certificado SSL para o nome do serviço de federação que você pretende usar (por exemplo, sts.contoso.com)
 
+### Pré-requisitos de configuração do AD FS
+
+Para configurar com êxito o farm do AD FS usando o Azure AD Connect, verifique se o WinRM está habilitado nos servidores remotos. Além disso, percorra o requisito de portas listado na [Tabela 3 - Azure AD Connect e Servidores de Federação/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap)
+
 ### Criar um novo farm do AD FS ou usar um farm do AD FS existente
 Você pode usar um farm do AD FS existente ou pode optar por criar um novo farm do AD FS. Se optar por criar um novo, você precisará fornecer o certificado SSL. Se o certificado SSL estiver protegido por senha, você será solicitado a fornecer a senha.
 
 ![Farm do AD FS](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
-**Observação:** se optar por usar um farm existente do AD FS, você ignorará algumas páginas e será levado diretamente para a tela de configuração da relação de confiança entre o AD FS e o AD do Azure.
+**Observação:** se você optar por usar um farm existente do AD FS, irá ignorar algumas páginas e será levado diretamente para a tela de configuração da relação de confiança entre o AD FS e o AD do Azure.
 
 ### Especificar os servidores do AD FS
 Aqui, você digitará os servidores específicos em que deseja instalar o AD FS. Você pode adicionar um ou mais servidores com base em sua necessidades de planejamento de capacidade. Esses servidores devem ser associados a um domínio do Active Directory antes da realização dessa configuração. É recomendável instalar um único servidor do AD FS para implantações de teste e piloto e implantar servidores adicionais abrindo o Azure AD Connect novamente após a instalação inicial e implantando o AD FS para que servidores adicionais atendam às suas necessidades de dimensionamento.
@@ -178,7 +182,7 @@ Você deverá inserir as credenciais para que o servidor de aplicativos Web poss
 ### Especifique a conta de serviço para o serviço AD FS
 O serviço AD FS requer uma conta de serviço de domínio para autenticar usuários e informações de usuário de pesquisa no Active Directory. Ele pode dar suporte a dois tipos de contas de serviço:
 
-- **Conta de Serviço Gerenciado de Grupo** - esse é um tipo de conta de serviço introduzido no Serviço de Domínio do Active Directory com o Windows Server 2012. Esse tipo de conta fornece serviços como o AD FS para usar uma única conta sem a necessidade de atualizar a senha da conta regularmente. Use essa opção se você já tiver controladores de domínio do Windows Server 2012 no domínio ao qual os servidores do AD FS pertencerão.
+- **Conta do Serviço Gerenciado de Grupo** - esse é um tipo de conta de serviço introduzido no Serviço de Domínio do Active Directory com o Windows Server 2012. Esse tipo de conta fornece serviços como o AD FS para usar uma única conta sem a necessidade de atualizar a senha da conta regularmente. Use essa opção se você já tiver controladores de domínio do Windows Server 2012 no domínio ao qual os servidores do AD FS pertencerão.
 - **Conta de usuário de domínio** - esse tipo de conta exigirá que você forneça uma senha e atualize a senha regularmente quando a senha for alterada. Use essa opção somente quando você não tiver controladores de domínio do Windows Server 2012 no domínio ao qual os servidores do AD FS pertencem.
 
 Se você tiver selecionado a Conta de Serviço Gerenciado de Grupo e se esse recurso nunca tiver sido usado no Active Directory, as credenciais de Administrador Corporativo também serão solicitadas. Esses serão usados para iniciar o repositório de chaves e para habilitar o recurso no Active Directory.
@@ -197,17 +201,17 @@ Essa configuração é usada para configurar a relação de federação entre o 
 
 ### Verificar o domínio do Azure AD selecionado para federação
 
-Quando você seleciona o domínio a ser federado com seu diretório local, o Azure AD Connect fornece as informações necessárias para verificar se o domínio já não foi verificado. Esta página fornecerá os registros DNS necessários para criar no registrador de nome de domínio ou onde quer que o DNS seja hospedado, para concluir a verificação do domínio.</br>
+Quando você seleciona o domínio a ser federado com seu diretório local, o Azure AD Connect fornece as informações necessárias para verificar se o domínio já não foi verificado. Esta página fornecerá os registros DNS necessários para criar no registrador de nome de domínio ou onde quer que o DNS esteja hospedado, para concluir a verificação do domínio.</br>
 
 ![Domínio do AD do Azure](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
 
-> [AZURE.NOTE] O AD Connect tenta verificar o domínio durante o estágio de configuração. Se você continuar a configurar sem adicionar os registros DNS necessários onde seu domínio DNS está hospedado, o assistente não poderá concluir a configuração.</br>
+> [AZURE.NOTE] O AD Connect tenta verificar o domínio durante o estágio de configuração. Se você continuar a configurar sem adicionar os registros DNS necessários onde seu domínio DNS está hospedado, o assistente não conseguirá concluir a configuração.</br>
 
 ## Configurar e verificar páginas
 Nesta página, a configuração realmente ocorrerá.
 
 > [AZURE.NOTE]
-Antes de continuar a instalação e se você tiver configurado a federação, verifique se configurou a [Resolução de nomes para servidores de federação](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
+Antes de continuar a instalação e se você configurou a federação, verifique se configurou a [Resolução de nomes para servidores de federação](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
 
 ![Filtragem de sincronização](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -229,9 +233,9 @@ O Azure AD Connect verificará as configurações de DNS para você quando você
 
 Além disso, execute as seguintes etapas de verificação:
 
-- Valide a entrada do navegador de um computador associado ao domínio do Internet Explorer na intranet: conecte-se a https://myapps.microsoft.com e verifique a entrada com sua conta conectada. **Observação:** a conta interna de administrador do AD DS não está sincronizada e não pode ser usada para verificação.
-- Valide a entrada do navegador de qualquer dispositivo da extranet: em um computador doméstico ou em um dispositivo móvel, conecte-se a https://myapps.microsoft.com e forneça sua ID de entrada e sua credencial de senha.
-- Valide a entrada do cliente avançado: conecte-se a https://testconnectivity.microsoft.com, escolha a guia **Office 365** e escolha o **Teste de Logon Único do Office 365**.
+- Valide a entrada do navegador a partir de um computador associado ao Internet Explorer na intranet: conecte a https://myapps.microsoft.com e verifique a entrada com sua conta conectada. **Observação:** a conta interna de administrador do AD DS não está sincronizada e não pode ser usada para a verificação.
+- Valide a entrada do navegador a partir de qualquer dispositivo da extranet: em um computador doméstico ou um dispositivo móvel, conecte https://myapps.microsoft.com e forneça sua ID de entrada e credencial de senha.
+- Valide a entrada do cliente avançado: conecte https://testconnectivity.microsoft.com, escolha a guia **Office 365** e escolha o **Teste de Logon Único do Office 365**.
 
 ## Próximas etapas
 Após a instalação, saia e entre novamente no Windows antes de usar o Gerenciador de Serviços de Sincronização ou o Editor de Regra de Sincronização.
@@ -240,4 +244,4 @@ Agora que você tem o Azure AD Connect instalado, é possível [verificar a inst
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

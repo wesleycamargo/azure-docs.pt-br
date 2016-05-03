@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="04/25/2016"
    ms.author="cherylmc" />
 
 # Sobre dispositivos VPN para conexões de Gateway de VPN Site a Site
@@ -58,6 +58,7 @@ Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à 
 | Juniper | ISG | ScreenOS 6.3 (baseado em política e baseado em rota) | [Exemplos do Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) | [Exemplos do Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
 | Juniper | SSG | ScreenOS 6.2 (baseado em política e baseado em rota) | [Exemplos do Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) | [Exemplos do Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft | Serviço de Roteamento e Acesso Remoto | Windows Server 2012 | Não compatível | [Exemplos da Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
+| AG de sistemas abertos | Gateway de Segurança de Controle de Missão | N/D | [Guia de instalação](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) | [Guia de instalação](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan | Openswan | 2\.6.32 | (Em breve) | Não compatível |
 | Redes Palo Alto | Todos os dispositivos com PAN-OS 5.0 ou superior em execução | PAN-OS 5x ou superior | [Redes Palo Alto](https://support.paloaltonetworks.com/) | Não compatível |
 | Watchguard | Todos | Fireware XTM v11.x | [Instruções de configuração](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | Não compatível |
@@ -117,9 +118,10 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 | Algoritmo de hash | SHA1(SHA128) | SHA1(SHA128) |
 | Tempo de vida (tempo) da SA (associação de segurança) da fase 2 | 3\.600 segundos | 3\.600 segundos |
 | Tempo de vida (Tempo) da SA (Associação de Segurança) da fase 2 | 102.400.000 KB | - |
-| Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Veja *Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota* (abaixo) |
+| Ofertas de Criptografia e Autenticação IPsec SA (em ordem de preferência) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/D | Confira *Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota* (abaixo) |
 | PFS (Perfect Forward Secrecy) | Não | Sim (DH Group1, 2, 5, 14, 24) |
 | Detecção de Par Inativo | Sem suporte | Com suporte |
+
 
 ### Ofertas de SA (Associação de Segurança) de IPsec do gateway baseado em rota
 
@@ -151,4 +153,4 @@ A tabela a seguir lista as ofertas de criptografia e autenticação IPsec SA. Of
 
 - Para a conectividade entre locais através da Internet, use as configurações padrão de gateway de VPN do Azure com criptografia e algoritmos de hash listados nas tabelas acima para garantir a segurança da comunicação crítica.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

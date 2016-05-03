@@ -13,11 +13,13 @@
 
 ### Adicionar ou remover prefixos se você já tiver criado uma conexão de gateway de VPN
 
-Se tiver criado a conexão VPN e desejar adicionar ou remover os prefixos de endereço IP contidos no site local, você precisará executar as etapas a seguir, nessa ordem. Isso resultará em algum tempo de inatividade para a conexão VPN, pois você precisará remover e recompilar o gateway. No entanto, já que você solicitou um endereço IP para a conexão, você não precisará reconfigurar seu roteador VPN local novamente, a menos que você decida alterar os valores usados anteriormente.
+Se tiver criado a conexão VPN e desejar adicionar ou remover os prefixos de endereço IP contidos no site local, você precisará executar as etapas a seguir, nessa ordem. Isso resultará em algum tempo de inatividade para a conexão VPN.
+
+>[AZURE.IMPORTANT] Não exclua o gateway de VPN. Se fizer isso, você precisará refazer as etapas para recriá-lo, bem como reconfigurar seu roteador local com as novas configurações.
  
-1. Remova a conexão de gateway. 
+1. Remova a conexão IPsec. 
 2. Modifique os prefixos para o gateway de rede local. 
-3. Crie uma nova conexão de gateway. 
+3. Crie uma nova conexão IPsec. 
 
 Você pode usar o exemplo a seguir como uma diretriz.
 
@@ -31,4 +33,4 @@ Você pode usar o exemplo a seguir como uma diretriz.
 	
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

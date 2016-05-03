@@ -14,13 +14,10 @@
 	ms.workload="search" 
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/10/2016" 
+	ms.date="04/22/2016" 
 	ms.author="heidist"/>
 
 # Introdução à Pesquisa do Azure no portal
-> [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-howto-dotnet-sdk.md)
 
 Esta introdução sem código ajuda você a começar a usar a Pesquisa do Microsoft Azure com recursos incorporados ao portal.
 
@@ -42,7 +39,7 @@ Muitos clientes começam com o serviço gratuito. Essa versão é limitada a tr�
 
 ## Criar um índice e carregar dados
 
-As consultas de pesquisa são iteradas em um *índice* que contém dados pesquisáveis, metadados e constructos usados para otimizar certos comportamentos de pesquisa. Como primeira etapa, você precisará definir e popular um índice.
+Consultas de pesquisa são iteradas em um *índice* que contém dados pesquisáveis, metadados e constructos usados para otimizar certos comportamentos de pesquisa. Como primeira etapa, você precisará definir e popular um índice.
 
 Há várias maneiras de criar um índice. Se os dados estiverem em um repositório de dados que a Pesquisa do Azure pode rastrear (como o Banco de Dados SQL do Azure, o SQL Server em uma VM do Azure ou o Banco de Dados de Documentos), você poderá criar e popular um índice muito facilmente usando um *indexador*.
 
@@ -53,7 +50,7 @@ Antes de continuar, crie um [banco de dados de documentos do Banco de Dados de D
 <a id="defineDS"></a>
 #### Etapa 1: definir a fonte de dados
 
-1. No painel do serviço de Pesquisa do Azure, clique em **Importar dados** na barra de comandos para iniciar um assistente que cria e popula um índice.
+1. No painel de serviço de Pesquisa do Azure, clique em **Importar dados** na barra de comandos para iniciar um assistente que cria e popula um índice.
 
   ![][7]
 
@@ -83,7 +80,7 @@ Antes de você sair dessa página, marque os campos no índice para usar as opç
 	
 Campo | Tipo | Opções |
 ------|------|---------|
-chave | Edm.String | |
+ID | Edm.String | |
 albumTitle | Edm.String | Recuperável, Pesquisável |
 albumUrl | Edm.String | Recuperável, Pesquisável |
 gênero | Edm.String | Recuperável, Pesquisável, Filtrável, Classificável, Com faceta |
@@ -159,20 +156,22 @@ As instruções a seguir oferecem orientação geral, mas não abrangem tudo. Se
 
 1. [Clique aqui](https://github.com/HeidiSteen/azure-search-get-started-sample-data) para baixar um arquivo ZIP com os arquivos de dados JSON de repositório de música. Fornecemos 246 documentos JSON para este conjunto de dados.
 2. Adicione o Banco de Dados de Documentos à sua assinatura e abra o painel de serviço.
-2. Clique em **Adicionar Banco de Dados** para criar um novo banco de dados com uma ID `musicstoredb`. Ele aparecerá em uma lista de banco de dados mais abaixo na página, após sua criação.
+2. Clique em **Adicionar Banco de Dados** para criar um novo banco de dados com uma ID `musicstoredb`. Ele aparecerá em um bloco de banco de dados mais abaixo na página, após sua criação.
 2. Clique no nome do banco de dados para abrir a folha de banco de dados.
 3. Clique em **Adicionar Coleção** para criar uma coleção com a ID `musicstorecoll`.
 3. Clique em **Gerenciador de Documentos**.
-4. Clique em **Adicionar Documentos**.
-5. Em **Adicionar Documento**, carregue os arquivos JSON em lotes de 100 ou menos.
+4. Clique em **Carregar**.
+5. Em **Carregar Documento**, navegue até a pasta local que contém os arquivos JSON baixados anteriormente. Selecione os arquivos JSON em lotes de 100 ou menos.
 	- 386\.json
 	- 387\.json
 	- . . .
-6. Clique em **Gerenciador de Consultas** para verificar se os dados são carregados para atender aos requisitos de upload do Gerenciador de Documentos.
+	- 486\.json
+6. Repita para obter o próximo lote de arquivos até que você tenha carregado o último, 669.json.
+7. Clique em **Gerenciador de Consultas** para verificar se os dados são carregados para atender aos requisitos de upload do Gerenciador de Documentos.
 
-Uma maneira fácil de fazer isso é modificar a consulta padrão para que ela selecione os primeiros 300 (há menos de 300 itens nesse conjunto de dados), ou você pode escrever `select * from musicstorecoll` e clicar em **Executar Consulta**.
+Uma maneira fácil de fazer isso é usar a consulta padrão, mas você pode modificar a consulta padrão para que ela selecione os primeiros 300 (há menos de 300 itens nesse conjunto de dados).
 
-Você deve obter a saída JSON, começando pelo documento número 386 e terminando com o documento 669. Depois que os dados forem carregados, você poderá [voltar para as etapas neste passo a passo](#defineDS) para criar um índice usando o **Assistente de importação**.
+Você deve obter a saída JSON, começando pelo documento número 386 e terminando com o documento 669. Depois que os dados forem carregados, você poderá [voltar para as etapas neste passo a passo](#defineDS) para criar um índice usando o **Assistente de importação de dados**.
 
 
 <!--Image references-->
@@ -184,4 +183,4 @@ Você deve obter a saída JSON, começando pelo documento número 386 e terminan
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

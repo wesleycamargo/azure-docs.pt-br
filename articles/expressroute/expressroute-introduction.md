@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc"/>
 
 # Visão Geral Técnica da Rota Expressa
@@ -33,21 +33,31 @@ A Rota Expressa do Microsoft Azure permite que você estenda suas redes locais a
 
 Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
 
-## Como posso conectar minha rede à Microsoft usando a Rota Expressa?
+## <a name="howtoconnect"></a>Como posso conectar minha rede à Microsoft usando a Rota Expressa?
 
-Há três maneiras diferentes para você criar uma conexão entre sua rede local e a nuvem da Microsoft
+Há três maneiras diferentes para você criar uma conexão entre sua rede local e a nuvem da Microsoft:
 
-1. **Colocalizada em uma troca de nuvem.** Se você estiver colocalizado em uma instalação que possua uma troca de nuvem, poderá solicitar conexões cruzadas virtuais para a nuvem da Microsoft por meio da troca Ethernet do provedor da colocalização. Os provedores da colocalização podem oferecer conexões cruzadas de Camada 2 ou conexões cruzadas gerenciadas de Camada 3 entre sua infraestrutura na instalação de colocalização e a nuvem da Microsoft.
-2.	**Conexões Ethernet ponto a ponto.** Você pode conectar seus data centers/escritórios locais à nuvem da Microsoft por meio de links de Ethernet ponto a ponto. Os provedores de Ethernet ponto a ponto podem oferecer conexões de Camada 2 ou conexões gerenciadas de Camada 3 entre seu site e a nuvem da Microsoft.
-3.	**Redes “qualquer para qualquer” (IPVPN).** É possível integrar sua WAN à nuvem da Microsoft. Os Provedores de IPVPN (normalmente, VPN MPLS) oferecem conectividade “qualquer para qualquer” entre suas filiais e datacenters. A nuvem da Microsoft pode ser interconectada à sua WAN para que ela fique exatamente igual a qualquer outra filial. Normalmente, os provedores de rede WAN oferecem conectividade gerenciada de Camada 3.
+### Colocalizada em uma troca de nuvem
+
+Se você estiver colocalizado em uma instalação que possua uma troca de nuvem, poderá solicitar conexões cruzadas virtuais para a nuvem da Microsoft por meio da troca Ethernet do provedor da colocalização. Os provedores da colocalização podem oferecer conexões cruzadas de Camada 2 ou conexões cruzadas gerenciadas de Camada 3 entre sua infraestrutura na instalação de colocalização e a nuvem da Microsoft.
+
+### Conexões Ethernet ponto a ponto 
+
+Você pode conectar seus data centers/escritórios locais à nuvem da Microsoft por meio de links de Ethernet ponto a ponto. Os provedores de Ethernet ponto a ponto podem oferecer conexões de Camada 2 ou conexões gerenciadas de Camada 3 entre seu site e a nuvem da Microsoft.
+
+### Redes qualquer para qualquer (IPVPN)
+
+É possível integrar sua WAN à nuvem da Microsoft. Os Provedores de IPVPN (normalmente, VPN MPLS) oferecem conectividade “qualquer para qualquer” entre suas filiais e datacenters. A nuvem da Microsoft pode ser interconectada à sua WAN para que ela fique exatamente igual a qualquer outra filial. Normalmente, os provedores de rede WAN oferecem conectividade gerenciada de Camada 3. Os recursos da Rota Expressa são idênticos em todos os modelos de conectividade mencionados acima.
+
+Os provedores de conectividade podem oferecer um ou mais modelos de conectividade. Converse com seu provedor de conectividade a fim de escolher o modelo mais adequado a você.
 
 ![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
 
-Os recursos da Rota Expressa são idênticos em todos os modelos de conectividade mencionados acima. Os provedores de conectividade podem oferecer um ou mais modelos de conectividade encontrados na lista acima. Converse com seu provedor de conectividade a fim de escolher o modelo mais adequado a você.
+
 
 ## Recursos da Rota Expressa
 
-A Rota Expressa dá suporte aos recursos a seguir.
+A Rota Expressa dá suporte aos recursos a seguir:
 
 ### Conectividade de Camada 3
 
@@ -59,7 +69,7 @@ Cada circuito da Rota Expressa é formado por duas conexões com dois roteadores
 
 ### Conectividade com serviços de nuvem da Microsoft
 
-As conexões da Rota Expressa permitem o acesso aos seguintes serviços.
+As conexões da Rota Expressa permitem o acesso aos seguintes serviços:
 
 - Serviços do Microsoft Azure
 - Serviços do Microsoft Office 365
@@ -124,4 +134,4 @@ Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos mod
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

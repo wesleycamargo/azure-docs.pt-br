@@ -3,7 +3,7 @@
    description="Saiba como usar o Portal do Azure para criar uma conta da Análise do Data Lake, criar um trabalho da Análise do Data Lake usando o U-SQL e enviar o trabalho." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
-   ms.author="jgao"/>
+   ms.date="04/21/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: introdução à Análise do Azure Data Lake usando o Portal do Azure
 
@@ -24,16 +24,9 @@ Saiba como usar o Portal do Azure para criar contas da Análise do Azure Data La
 
 Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores separados por tabulação) e o converte em um arquivo CSV (valores separados por vírgulas). Para acompanhar o mesmo tutorial usando outras ferramentas compatíveis, clique nas guias na parte superior desta seção. Após a conclusão bem-sucedida de seu primeiro trabalho, você pode começar a escrever transformações de dados mais complexas com U-SQL.
 
-**O processo básico da Análise Data Lake:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Diagrama de fluxo do processo da Análise Data Lake do Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Crie uma conta da Análise Data Lake.
-2. Prepare os dados de origem. Os trabalhos da Análise Data Lake podem ler dados de contas do Repositório Azure Data Lake ou de contas de armazenamento de Blob do Azure. Neste exemplo, leremos do Repositório Azure Data Lake.  
-3. Desenvolva um script U-SQL.
-4. Envie um trabalho (script U-SQL) para a conta da Análise Data Lake. O trabalho faz a leitura dos dados de origem, processa os dados conforme as instruções no script U-SQL e salva a saída em uma conta do Repositório Azure Data Lake ou em uma conta de armazenamento de Blob.
-
-###Pré-requisitos
+##Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
@@ -51,7 +44,7 @@ Cada conta da Análise Data Lake tem uma dependência da conta do [Repositório 
 2. Clique em **Novo**, em **Dados + Análise** e clique em **Análise Data Lake**.
 6. Digite ou selecione o seguinte:
 
-    ![Folha do portal de Análise Data Lake do Azure](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
+    ![Folha do portal da Análise Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
 	- **Nome**: nomeie a conta da Análise.
 	- **Repositório Data Lake**: cada conta da Análise Data Lake tem uma conta dependente do Repositório Data Lake. A conta da Análise Data Lake e a conta dependente do Repositório Data Lake devem ser colocadas no mesmo data center do Azure. Siga as instruções para criar uma nova conta do Repositório Data Lake ou selecione uma existente.
@@ -162,4 +155,4 @@ Depois de preparar os dados de origem, você pode começar a desenvolver um scri
 - Para obter uma visão geral da Análise Data Lake, consulte [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
 - Para ver o mesmo tutorial usando outras ferramentas, clique nos seletores de guias na parte superior da página.
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0427_2016-->

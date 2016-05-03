@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/11/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
 
 #Monitoramento de integridade de segurança na Central de segurança do Azure
@@ -69,11 +69,11 @@ A folha **Atualizações de sistema ausentes** mostrará uma tabela com as segui
 - **MÁQUINA VIRTUAL**: o nome da máquina virtual com atualizações ausentes.
 - **ATUALIZAÇÕES DO SISTEMA**: o número de atualizações do sistema que estão ausentes.
 - **HORA DA ÚLTIMA VERIFICAÇÃO**: a hora em que a Central de Segurança verificou pela última vez se a VM tinha atualizações.
-- **ESTADO**: o estado atual da recomendação: 
+- **ESTADO**: o estado atual da recomendação:
 	- **Aberta**: a recomendação ainda não foi resolvida
 	- **Em andamento**: a recomendação atualmente está sendo aplicada aos recursos; não é exigido que você realize nenhuma ação
 	- **Resolvida**: A recomendação já foi concluída (quando o problema for resolvido, a entrada será esmaecida).
-- **GRAVIDADE**: descreve a gravidade dessa recomendação específica: 
+- **GRAVIDADE**: descreve a gravidade dessa recomendação específica:
 	- **Alta**: existe uma vulnerabilidade em um recurso significativo (aplicativo, VM, grupo de segurança de rede) e ela requer atenção
 	- **Média**: são necessárias etapas adicionais ou não críticas para concluir um processo ou eliminar a vulnerabilidade
 	- **Baixa**: uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
@@ -105,7 +105,7 @@ A seção de status de prevenção de rede lista as redes virtuais que são moni
 Depois de abrir essa folha, você verá duas seções:
 - Recomendações de rede
 - Rede
- 
+
 Em cada seção, você pode selecionar uma opção individual para obter mais detalhes sobre a recomendação. As seções abaixo abordarão essas áreas em mais detalhes.
 
 ####Recomendações de rede
@@ -118,8 +118,8 @@ A seção de divisão de status de rede lista os problemas de segurança potenci
 
 - [ACLs em pontos de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) não habilitados
 - [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md) não habilitados
-- Sub-redes íntegras e acesso no NSG não restringido são listados. 
- 
+- Sub-redes íntegras e acesso no NSG não restringido são listados.
+
 Quando você clica em uma dessas recomendações, uma nova folha é aberta com mais detalhes relacionados à recomendação, conforme mostrado no exemplo abaixo.
 
 ![Restringir ponto de extremidade](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
@@ -185,7 +185,8 @@ Neste documento, você aprendeu como usar os recursos de monitoramento na Centra
 
 - [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança na Central de Segurança do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
+- [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

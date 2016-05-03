@@ -47,7 +47,7 @@ curl localhost/marathon/v2/apps
 
 ## Implantar um contêiner formatado pelo Docker
 
-Você implanta os contêineres formatados pelo Docker por meio do Marathon usando um arquivo JSON que descreve a implementação planejada. O exemplo a seguir implantará o contêiner Nginx, associando a porta 80 do agente DC/OS à porta 80 do contêiner.
+Você implanta os contêineres formatados pelo Docker por meio do Marathon usando um arquivo JSON que descreve a implementação planejada. O exemplo a seguir implantará o contêiner Nginx, associando a porta 80 do agente DC/OS à porta 80 do contêiner. Observe também que a propriedade 'acceptedResourceRoles' está definida como 'slave\_public'. Isso implantará o contêiner em um agente no conjunto de escalas de agentes voltados para o público.
 
 ```json
 {
@@ -55,6 +55,9 @@ Você implanta os contêineres formatados pelo Docker por meio do Marathon usand
   "cpus": 0.1,
   "mem": 16.0,
   "instances": 1,
+    "acceptedResourceRoles": [
+    "slave_public"
+  ],
   "container": {
     "type": "DOCKER",
     "docker": {
@@ -171,4 +174,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 [Leia mais sobre os pontos de extremidade HTTP Meso](http://mesos.apache.org/documentation/latest/endpoints/). [Leia mais sobre a API REST do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

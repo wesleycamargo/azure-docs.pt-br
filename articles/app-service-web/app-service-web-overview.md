@@ -50,7 +50,7 @@ Os Aplicativos Web do Serviço de Aplicativo do Azure são uma plataforma totalm
 - **Conexões híbridas** - - Acesse dados locais usando [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
 
 ## Introdução ##
-Para começar a usar aplicativos Web, siga o tutorial [Criar um aplicativo Web ASP.NET][create].
+Para começar com os Aplicativos Web, siga o tutorial [Introdução aos aplicativos Web no Serviço de Aplicativo do Azure][create].
 
 Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][appservice].
 
@@ -60,10 +60,10 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [appservice]: ../app-service/app-service-value-prop-what-is.md
-[create]: web-sites-dotnet-get-started.md
+[create]: app-service-web-get-started.md
 [Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
 [Slots]: web-sites-staged-publishing.md
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->
