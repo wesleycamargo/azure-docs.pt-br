@@ -44,7 +44,7 @@ O Azure AD Connect Health para AD FS dá suporte ao AD FS 2.0 no Windows Server 
 
 O vídeo a seguir fornecerá uma visão geral do Azure AD Connect Health para AD FS
 
-[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+>[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 O Azure AD Connect Health for Sync monitora e fornece informações sobre as sincronizações que ocorrem entre seu Active Directory local e o Active Directory do Azure. O Azure AD Connect Health for Sync fornece o seguinte conjunto de recursos principais:
@@ -64,7 +64,7 @@ O vídeo a seguir fornecerá uma visão geral do Azure AD Connect Health para si
 
 1. [Obter o Azure AD Premium](active-directory-get-started-premium) ou [iniciar uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/)
 
-2. [Baixe e instale os agentes do Azure AD Connect Health](#download-and-install-azure-ad-connect-health-agent) nos seus servidores de identidade.
+2. [Baixe e Instale os agentes do Azure AD Connect Health](#download-and-install-azure-ad-connect-health-agent) nos seus servidores de identidade.
 
 3. Exibir o painel do Azure AD Connect Health em [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)
 
@@ -72,15 +72,15 @@ O vídeo a seguir fornecerá uma visão geral do Azure AD Connect Health para si
 
 ## Baixar e instalar o agente do Azure AD Connect Health
 
-- Ver os [requisitos](active-directory-aadconnect-health-agent-install.md#Requirements) do Azure AD Connect Health
+- Consultar os [Requisitos](active-directory-aadconnect-health-agent-install.md#Requirements) do Azure AD Connect Health
 
-- Para começar a usar o Azure AD Connect Health para AD FS, você poderá baixar a versão mais recente do agente aqui: [Baixar o agente do Azure AD Connect Health para AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973) [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+- Para começar a usar o Azure AD Connect Health para AD FS, você pode baixar a versão mais recente do agente aqui: [Baixar o Agente do Azure AD Connect Health para AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973) [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
 - Para começar a usar o Azure AD Connect Health para sincronizar, baixe e instale a [versão mais recente do Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). O agente de integridade será instalado como parte da instalação do Azure AD Connect (versão 1.0.9125.0 ou superior). O Azure AD Connect oferece suporte a uma atualização in-loco de versões anteriores.
 
 
 ## Portal do Azure AD Connect Health
-O portal de Azure AD Connect Health permite a visualização de alertas, monitoramento de desempenho e análise de uso. O https://aka.ms/aadconnecthealth leva você à folha principal do Azure AD Connect Health. Você pode pensar uma folha como uma janela. Na folha principal, você vê o Início Rápido, os Serviços no Azure AD Connect Health e opções de configuração adicionais. Abaixo a captura de tela é uma breve explicação de cada um deles. Depois que você tiver implantado os agentes, os identificadores dos serviços do Azure AD Connect Health estarão monitorando.
+O portal do Azure AD Connect Health permite exibir alertas, o monitoramento do desempenho e a análise de uso. O https://aka.ms/aadconnecthealth leva você à folha principal do Azure AD Connect Health. Você pode pensar uma folha como uma janela. Na folha principal, você vê o Início Rápido, os Serviços no Azure AD Connect Health e opções de configuração adicionais. Abaixo a captura de tela é uma breve explicação de cada um deles. Depois que você tiver implantado os agentes, os identificadores dos serviços do Azure AD Connect Health estarão monitorando.
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
@@ -106,4 +106,4 @@ O portal de Azure AD Connect Health permite a visualização de alertas, monitor
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

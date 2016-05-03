@@ -70,7 +70,7 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
 
 5. Clique com o botão direito no nó **Serviços Vinculados** no **Gerenciador de Soluções** novamente, aponte para **Adicionar** e clique em **Novo Item**. 
 6. Desta vez, selecione **Serviço Vinculado SQL do Azure** e clique em **Adicionar**. 
-7. No **arquivo AzureSqlLinkedService1.json**, substitua **servername**, **databasename**, **username@servername** e **password** pelos nomes do seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
+7. No **arquivo AzureSqlLinkedService1.json**, substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes do seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
 8.  Salve o arquivo **AzureSqlLinkedService1.json**. 
 
 
@@ -220,14 +220,23 @@ Você criou tabelas e serviços vinculados de entrada/saída até o momento. Ago
 24. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
 25. Na página **Status da Implantação**, você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado. 
 
+Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente:
+
+- No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory. 
+		
+		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	
+	Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado.
+	
+		Get-AzureRmResourceProvider
+- Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie uma fábrica de dados no portal do Azure. Isso registra automaticamente o provedor para você.
+
 
 ## Usar o Gerenciador de Servidores para exibir os data factories
 
 1. No **Visual Studio**, clique em **Exibir** no menu e em **Gerenciador de Servidores**.
-2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, insira a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Insira a **senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.  
-![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente.  
-![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. Na janela Gerenciador de Servidores, expanda **Azure** e expanda **Data Factory**. Se **Entrar no Visual Studio** for exibido, insira a **conta** associada à sua assinatura do Azure e clique em **Continuar**. Insira a **senha** e clique em **Entrar**. O Visual Studio tenta obter informações sobre todas as data factories do Azure em sua assinatura. Você verá o status da operação na janela **Lista de Tarefas de Data Factory**.![Gerenciador de Servidores](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. Clique com o botão direito em uma data factory e selecione Exportar Data Factory para Novo Projeto para criar um projeto do Visual Studio com base em uma data factory existente.![Exportar data factory para um projeto VS](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Atualizar ferramentas de data factory para o Visual Studio
 Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça o seguinte:
@@ -241,4 +250,4 @@ Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-get-started-
 ## Consulte também
 Confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter informações detalhadas sobre a **Atividade de Cópia** no Azure Data Factory.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

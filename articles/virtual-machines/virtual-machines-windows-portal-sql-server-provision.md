@@ -3,22 +3,24 @@
 	description="Criar uma máquina virtual do SQL Server no modo de Gerenciador de Recursos do Azure. Este tutorial usa principalmente a interface do usuário e ferramentas em vez de scripts."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="MikeRayMSFT"
-    editor=""
-	manager="jeffreyg"
+	authors="rothja"
+	editor=""
+	manager="jhubbard"
 	tags="azure-resource-manager" />
-
-
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="03/24/2016"
-	ms.author="mikeray" />
+	ms.date="04/22/2016"
+	ms.author="jroth" />
 
 # Provisionar uma máquina virtual do SQL Server no Portal do Azure
+
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-windows-portal-sql-server-provision.md)
+- [PowerShell](virtual-machines-windows-ps-sql-create.md)
 
 ## Visão geral
 
@@ -42,7 +44,7 @@ Neste tutorial, você irá:
 
 Este tutorial presume que você já tenha uma conta do Azure. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a id="Provision">Provisionar uma imagem de VM SQL da galeria com o modelo de implantação do Gerenciador de Recursos
+## <a id="Provision">Provisionar uma imagem de VM SQL da galeria com o modelo de implantação do gerenciador de recursos
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) usando sua conta.
 1. No Portal do Azure, clique em **+Novo**. O portal abrirá a folha **Novo**. Os modelos de VM do SQL Server estão no grupo **Computação** do Marketplace.
@@ -51,7 +53,7 @@ Este tutorial presume que você já tenha uma conta do Azure. Se você não tive
 1. Para ver todos os tipos de recursos na folha **Computação**, clique em **Ver todos**. <br/> ![Folha de Computação do Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png) <br/>
 1. Em **Servidores de banco de dados**, clique em **SQL Server** para ver todos os modelos disponíveis para SQL Server. Talvez você precise rolar a tela para baixo para localizar **Servidores de banco de dados**.
 1. 	Cada modelo identifica uma versão do SQL Server e um sistema operacional. Selecione uma dessas imagens da lista para exibir uma folha contendo seus detalhes.
-1.	A folha de detalhes fornece uma descrição da imagem dessa máquina virtual e permite a seleção de um modelo de implantação. Em **Selecionar um modelo de implantação**, selecione **Gerenciador de Recursos** e clique em **Criar**. <br/> ![Folha de Computação do Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png) <br/>
+1.	A folha de detalhes fornece uma descrição da imagem dessa máquina virtual e permite a seleção de um modelo de implantação. Em **Selecionar um modelo de implantação**, selecione **Resource Manager** e clique em **Criar**. <br/> ![Folha de Computação do Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png) <br/>
 
 ## <a id="ConfigureVM"> Configurar a VM
 No Portal do Azure, há cinco folhas para configuração de uma máquina virtual do SQL Server.
@@ -86,7 +88,7 @@ Na folha **Criar Máquina Virtual**, em **Configurações**, configure o armazen
 
 - Em **Conta de armazenamento**, você pode aceitar o nome da conta de armazenamento provisionado automaticamente ou clicar em **Conta de armazenamento** para escolher uma conta existente e configurar o tipo de conta de armazenamento. Por padrão, o Azure cria uma nova conta de armazenamento com o armazenamento com redundância local.
 
-- Em **Rede**, você pode aceitar os valores preenchidos automaticamente para os recursos ou clicar em cada recurso para configurar a **Rede virtual**, a **Sub-rede**, o **Endereço IP público** e o **Grupo de Segurança de Rede**. Por padrão, o Azure configura automaticamente esses valores.
+- Em **Rede**, você pode aceitar os valores populados automaticamente para os recursos ou clicar em cada recurso para configurar a **Rede virtual**, a **Sub-rede**, o **Endereço IP público** e o **Grupo de Segurança de Rede**. Por padrão, o Azure configura automaticamente esses valores.
 
 - O Azure habilita o **Monitoramento** por padrão com a mesma conta de armazenamento designada para a VM. Você pode alterar essas configurações aqui.
 
@@ -107,14 +109,14 @@ Em **Conectividade SQL**, especifique **Pública (Internet)** para permitir cone
 
 Para conectar-se ao SQL Server pela Internet, também será necessário habilitar a Autenticação do SQL Server.
 
->[AZURE.NOTE]Para garantir a segurança, restrinja a porta de origem usando o Grupo de Segurança de Rede. Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md)
+>[AZURE.NOTE]Para garantir a segurança, restrinja a porta de origem usando o Grupo de Segurança de Rede. Para saber mais, confira [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md).
 
 Se você preferir não permitir conexões com o Mecanismo de Banco de Dados pela internet automaticamente, escolha uma das seguintes opções:
 - **Local (apenas dentro da VM)** para permitir conexões com o SQL Server somente de dentro da VM.
 - **Privada (dentro da Rede Virtual)** para permitir conexões com o SQL Server de computadores ou serviços na mesma rede virtual.
 
 
-A **porta** é padronizada para 1433. Você pode especificar um número de porta diferente. Para saber mais, confira [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure (Conectar-se a uma máquina virtual do SQL Server [Resource Manager] | Microsoft Azure)](virtual-machines-windows-sql-connect.md).
+A **porta** usada por padrão é 1433. Você pode especificar um número de porta diferente. Para saber mais, confira [Conectar-se a uma máquina virtual do SQL Server (Gerenciador de Recursos) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
 
 
@@ -124,7 +126,7 @@ Se você precisar de Autenticação do SQL Server, clique em **Habilitar** em **
 <br/>![Autenticação do SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png) <br/>
 
 
-Se você habilitar a Autenticação do SQL Server, especifique um **Nome de logon** e **Senha**. Esse nome de usuário será um logon de Autenticação do SQL Server e membro da função de servidor fixa sysadmin. Confira [Escolher um modo de autenticação](http://msdn.microsoft.com/library/ms144284.aspx) para saber mais sobre os Modos de Autenticação. Por padrão, o SQL Server não permite a Autenticação do SQL Server. Nesse cenário, os administradores locais na máquina virtual podem se conectar à instância do SQL Server.
+Se você habilitar a Autenticação do SQL Server, especifique um **Nome de logon** e uma **Senha**. Esse nome de usuário será um logon de Autenticação do SQL Server e membro da função de servidor fixa sysadmin. Confira [Escolher um modo de autenticação](http://msdn.microsoft.com/library/ms144284.aspx) para saber mais sobre os Modos de Autenticação. Por padrão, o SQL Server não permite a Autenticação do SQL Server. Nesse cenário, os administradores locais na máquina virtual podem se conectar à instância do SQL Server.
 
 >[AZURE.NOTE] Se você pretende acessar o SQL Server pela Internet (ou seja, a opção de conectividade Pública), habilite a autenticação do SQL aqui. O acesso público ao SQL Server exige o uso da Autenticação do SQL.
 
@@ -133,16 +135,16 @@ Clique em **Configuração de armazenamento** para especificar os requisitos de 
 
 Por padrão, o Azure otimiza o armazenamento para 5000 IOPs, 200 MB e 1 TB de espaço de armazenamento. Você pode alterar essas configurações de armazenamento com base na carga de trabalho. Em **Armazenamento otimizado para**, escolha uma das seguintes opções
 
-- **Geral** é a configuração padrão e dá suporte para a maioria das cargas de trabalho.
+- **Geral** é a configuração padrão e dá suporte à maioria das cargas de trabalho.
 - O processamento **Transacional** otimiza o armazenamento para cargas de trabalho OLTP tradicionais de banco de dados.
-- O **data warehouse** otimiza o armazenamento para cargas de trabalho de análise e emissão de relatórios.
+- O **Data warehouse** otimiza o armazenamento para cargas de trabalho de análise e emissão de relatórios.
 
 A imagem a seguir mostra a folha Configuração de armazenamento. <br/>![Armazenamento do SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png) <br/>
 
->[AZURE.NOTE] Os limites de configuração do armazenamento dependem do tamanho da máquina virtual. Para saber mais, confira [Tamanhos para máquinas virtuais](virtual-machines-linux-sizes.md).
+>[AZURE.NOTE] Os limites de configuração do armazenamento dependem do tamanho da máquina virtual. Para saber mais, confira [Tamanhos de máquinas virtuais](virtual-machines-linux-sizes.md)
 
 ### Aplicação de patch
-A **Aplicação de patch automatizada do SQL** está habilitada por padrão. A aplicação de patch automatizada permite que o Azure aplique patches automaticamente no SQL Server e no sistema operacional. Especifique um dia da semana, hora e duração de um período de manutenção. O Azure executará a aplicação do patch no período de manutenção. O agendamento do período de manutenção usa a localidade da VM para a hora. Se você não quiser que o Azure aplique automaticamente o patch no SQL Server e no sistema operacional, clique em **Desabilitar**.
+A **Aplicação de patch automatizada do SQL** é habilitada por padrão. A aplicação de patch automatizada permite que o Azure aplique patches automaticamente no SQL Server e no sistema operacional. Especifique um dia da semana, hora e duração de um período de manutenção. O Azure executará a aplicação do patch no período de manutenção. O agendamento do período de manutenção usa a localidade da VM para a hora. Se você não quiser que o Azure aplique automaticamente o patch no SQL Server e no sistema operacional, clique em **Desabilitar**.
 
 <br/>![Aplicação de Patch do SQL ARM](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png) <br/>
 
@@ -176,7 +178,7 @@ A tabela a seguir lista os parâmetros necessários para configurar a integraç�
 Para saber mais, confira [Configurar a integração do Cofre de Chaves do Azure para o SQL em VMs do Azure](virtual-machines-windows-classic-ps-sql-keyvault.md).
 
 ## 5\. Examinar o resumo
-Examine o resumo e clique em **OK** para criar o SQL Server, o grupo de recursos e os recursos especificados para esta VM. Você pode monitorar a implantação do Portal do Azure. O botão **Notificações** na parte superior da tela mostra o status básico da implantação.
+Examine o resumo e clique em **OK** para criar o SQL Server, o grupo de recursos e os recursos especificados para a VM. Você pode monitorar a implantação do Portal do Azure. O botão **Notificações** na parte superior da tela mostra o status básico da implantação.
 
 ##<a id="Open"> Abrir a máquina virtual usando a Área de Trabalho Remota e concluir a instalação
 Execute estas etapas para usar a Área de Trabalho Remota para abrir a máquina virtual:
@@ -184,7 +186,7 @@ Execute estas etapas para usar a Área de Trabalho Remota para abrir a máquina 
 1.	Após a compilação da VM do Azure, um ícone para a VM será exibido no painel do Azure. Clique no ícone para ver informações sobre a VM.
 1.	Na parte superior da folha da VM, clique em **Conectar**. O navegador baixará um arquivo .rdp para a VM. Abra o arquivo .rdp.
 1.	A Conexão de Área de Trabalho Remota mostrará uma notificação de que o publicador dessa conexão remota não pode ser identificado e perguntará se você deseja se conectar mesmo assim. Clique em **Conectar**.
-1.	Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**. Em **Nome de usuário**, digite o <machine name><nome de usuário> especificado ao configurar a VM.
+1.	Na caixa de diálogo **Segurança do Windows**, clique em **Usar outra conta**. Em **Nome de usuário**, digite o <machine name><nome de usuário> que você especificou ao configurar a VM.
 
 Depois de se conectar à máquina virtual do SQL Server, você pode iniciar o SQL Server Management Studio e conectar-se à Autenticação do Windows usando suas credenciais de administrador local. Isso também permite que você altere as configurações do firewall ou definições de configuração do SQL Server pós-provisionamento, caso necessário.
 
@@ -192,7 +194,7 @@ Depois de se conectar à máquina virtual do SQL Server, você pode iniciar o SQ
 
 Se você quiser se conectar ao seu mecanismo de banco de dados do SQL Server a partir da Internet, várias etapas deverão ser executadas, por exemplo, configurar o firewall, habilitar a autenticação do SQL Server e configurar o grupo de segurança de rede. Você deve ter uma regra de Grupo de Segurança de Rede para permitir o tráfego TCP na porta 1433.
 
-Se você utiliza o portal para provisionar uma imagem de máquina virtual do SQL Server com o gerenciador de recursos, estas etapas foram realizadas quando você escolheu **Pública** como a opção de conectividade do SQL e habilitou a autenticação do SQL Server. No entanto, é necessário concluir algumas etapas restantes para acessar a instância do SQL Server pela Internet.
+Se você usa o portal para provisionar uma imagem de máquina virtual do SQL Server com o gerenciador de recursos, essas etapas foram realizadas quando você escolheu **Pública** como a opção de conectividade do SQL e habilitou a autenticação do SQL Server. No entanto, é necessário concluir algumas etapas restantes para acessar a instância do SQL Server pela Internet.
 
 >[AZURE.NOTE] Se você não selecionou Pública durante o provisionamento, será necessário executar etapas adicionais para acessar a instância do SQL Server pela Internet. Para saber mais, confira [Conectar-se a uma máquina virtual do SQL Server (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
 
@@ -203,4 +205,4 @@ As etapas a seguir não serão necessárias se você só precisar acessar a Máq
 ##<a id="Next">Próximas etapas
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

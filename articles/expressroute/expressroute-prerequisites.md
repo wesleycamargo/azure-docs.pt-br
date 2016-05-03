@@ -12,63 +12,55 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc"/>
 
 
-# Pré-requisitos da Rota Expressa   
+# Pré-requisitos e lista de verificação da Rota Expressa  
 
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, será necessário verificar se os requisitos listados nas seções abaixo foram atendidos.
 
-## Requisitos de conta
+## Conta do Azure
 
 - Uma conta válida e ativa do Microsoft Azure. Isso é necessário para configurar o circuito da Rota Expressa. Os circuitos da Rota Expressa são recursos das assinaturas do Azure. Uma assinatura do Azure será um requisito mesmo se a conectividade estiver limitada a serviços de nuvem da Microsoft que não sejam do Azure, como os serviços do Office 365 e o CRM online.
 - Uma assinatura ativa do Office 365 (se estiver usando os serviços do Office 365). Consulte a seção [Requisitos específicos do Office 365](#office-365-specific-requirements) deste artigo para saber mais.
 
-## Relação do provedor de conectividade
+## Provedor de conectividade
+- Você pode trabalhar com um [parceiro de conectividade de Rota Expressa](expressroute-locations.md#partners) para se conecta à nuvem da Microsoft. Você pode configurar uma conexão entre sua rede local e a Microsoft de [três maneiras](expressroute-introduction.md#howtoconnect). 
+- Se seu provedor não for um parceiro de conectividade da Rota Expressa, você ainda poderá se conectar à nuvem da Microsoft por meio de um [provedor de troca de nuvem](expressroute-locations.md#nonpartners).
 
-- Uma relação com um provedor de conectividade da lista de provedores com suporte através do qual a conectividade precisa ser facilitada. Você deve ter uma relação comercial existente com seu provedor de conectividade. Será necessário ter certeza de que o serviço que você tem com o provedor de conectividade é compatível com a Rota Expressa.
-- Se você quiser usar um provedor de conectividade que não esteja na lista de provedores com suporte, ainda poderá criar uma conexão com os serviços de nuvem da Microsoft por meio de uma troca.
-	- Verifique com seu provedor de conectividade se ele está presente em algum dos locais de troca que aparecem na lista de provedores com suporte.
-	- Faça com que seu provedor de conectividade estenda sua rede para o local de troca à sua escolha.
-	- Solicite um circuito da Rota Expressa com a troca como o provedor de conectividade.
+## Requisitos de rede
+- **Conectividade redundante**: não há nenhum requisito de redundância de conectividade física entre você e seu provedor. A Microsoft não exige que sessões BGP redundantes sejam configuradas entre os roteadores da Microsoft e os roteadores emparelhados, mesmo quando você tiver apenas [uma conexão física com uma troca de nuvem](expressroute-faqs.md#onep2plink). 
+- **Roteamento**: dependendo de como você se conecta ao Microsoft Cloud, você ou seu provedor precisarão configurar e gerenciar as sessões BGP para [domínios de roteamento](expressroute-circuit-peerings.md). Algum provedor de conectividade Ethernet ou o provedor de troca de nuvem pode oferecer gerenciamento BGP como um serviço de valor agregado.
+- **NAT**: a Microsoft só aceita endereços IP públicos por meio de emparelhamento da Microsoft. Se você estiver usando endereços IP privados em sua rede local, você ou seu provedor precisará converter os endereços IP privados em endereços IP públicos [usando NAT](expressroute-nat.md).
+- **QOS**: o Skype for Business tem várias cargas de trabalho (por exemplo, voz, vídeo, texto) que exigem tratamento diferenciado de QoS. Você e seu provedor devem seguir os [requisitos de QoS](expressroute-qos.md).
+- **Rede de Segurança**: considere a [segurança de rede](../best-practices-network-security.md) ao se conectar ao Microsoft Cloud por meio da Rota Expressa.
+ 
+## Office 365
 
-## Conectividade física entre sua rede e o provedor de conectividade
+Se você planeja habilitar o Office 365 na Rota Expressa, consulte os documentos a seguir para saber mais sobre os requisitos do Office 365.
 
-Consulte a seção de modelos de conectividade para obter detalhes sobre os modelos de conectividade. Os clientes devem garantir que sua infraestrutura local esteja conectada fisicamente à infraestrutura do provedor de serviços por meio de um dos modelos descritos.
 
-## Requisitos de redundância para a conectividade
+- [Visão geral da Rota Expressa para o Office 365](https://support.office.com/pt-BR/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+- [Roteamento com a Rota Expressa para o Office 365](https://support.office.com/pt-BR/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
+- [URLs e intervalos de endereços IP do Office 365](https://support.office.com/pt-BR/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
+- [Planejamento de rede e ajuste de desempenho para o Office 365](https://support.office.com/pt-BR/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
+- [Ferramentas e calculadoras de largura de banda de rede](https://support.office.com/pt-BR/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
+- [Integração do Office 365 com ambientes locais](https://support.office.com/pt-BR/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 
-Não há qualquer requisito de redundância de conectividade física entre a infraestrutura do cliente e a infraestrutura do provedor de serviços. A Microsoft exige redundância na Camada 3. A Microsoft exige a configuração do roteamento redundante entre a borda da Microsoft e a rede do cliente por meio do provedor de serviços para que cada um dos emparelhamentos seja habilitado. Se as sessões de roteamento não forem configuradas de maneira redundante, o SLA de disponibilidade de serviço será anulado.
+## CRM Online 
+Se você planeja habilitar o CRM Online na Rota Expressa, consulte os documentos a seguir para saber mais sobre os requisitos do CRM Online.
 
-## Considerações sobre endereços IP e roteamento
-
-Os Provedores de Clientes/Conectividade são responsáveis pela configuração de sessões BGP redundantes com a infraestrutura de borda da Microsoft. Os clientes que optarem por se conectar por meio de provedores de VPN IP normalmente dependerão dos provedores de conectividade para gerenciar as configurações de roteamento. Os clientes colocalizados em um Exchange ou conectando-se à Microsoft por meio de um provedor de Ethernet ponto a ponto terão que configurar sessões BGP redundantes por emparelhamento a fim de atenderem aos requisitos de disponibilidade do SLA. Os provedores de conectividade podem oferecer isso como um serviço de valor agregado. Consulte a tabela de domínios de roteamento no artigo [Circuitos e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md) para saber mais sobre os limites.
-
-## Segurança e firewall
-
-Consulte o documento [Serviços de Nuvem da Microsoft e segurança de rede ](../best-practices-network-security.md) para saber mais sobre segurança e firewall.
-
-## Configuração de NAT para emparelhamentos públicos do Azure e da Microsoft
-
-Consulte [Requisitos de NAT da Rota Expressa](expressroute-nat.md) para obter orientações detalhadas sobre requisitos e configurações. Verifique se seu provedor de conectividade gerenciará a configuração e o gerenciamento de NAT para você. Normalmente, os provedores de conectividade de Camada 3 gerenciarão a NAT para você.
-
-## Requisitos específicos do Office 365
-
-Examine os recursos a seguir para saber mais sobre os requisitos do Office 365.
-
-- [Planejamento de rede e ajuste de desempenho para o Office 365](http://aka.ms/tune)
-- [Gerenciamento de tráfego de rede do Office 365](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
-- Consulte o artigo [Requisitos de Qualidade do Serviço (QoS) da Rota Expressa](expressroute-qos.md) para obter orientações detalhadas sobre os requisitos e configurações de QoS. Verifique se seu provedor de conectividade oferece várias classes de serviço para sua VPN. 
+- [URLs do CRM Online](https://support.microsoft.com/kb/2655102) e [Intervalos de endereços IP](https://support.microsoft.com/kb/2728473)
 
 ## Próximas etapas
 
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
-- Encontrar um provedor de serviços. Consulte [Parceiros e locais de emparelhamento da Rota Expressa](expressroute-locations.md).
+- Localize um provedor de conectividade da Rota Expressa. Consulte [Parceiros e locais de emparelhamento da Rota Expressa](expressroute-locations.md).
 - Consulte requisitos de [Roteamento](expressroute-routing.md), de [NAT](expressroute-nat.md) e de [QoS](expressroute-qos.md).
 - Configurar sua conexão da Rota Expressa.
 	- [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

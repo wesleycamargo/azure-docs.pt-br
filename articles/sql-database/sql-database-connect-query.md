@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="02/05/2016"
-	ms.author="genemi"/>
+	ms.date="04/25/2016"
+	ms.author="annemill"/>
 
 
 # Escreva um programa em C&#x23; para consultar um Banco de Dados SQL e se conectar a ele
@@ -358,4 +358,4 @@ Para saber mais, consulte <br/>[Como definir as configurações de firewall no B
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->
