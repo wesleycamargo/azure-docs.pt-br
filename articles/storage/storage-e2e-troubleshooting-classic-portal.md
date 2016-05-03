@@ -347,7 +347,7 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Para Investigar... | Use a Expressão do Filtro... | A expressão se Aplica ao Log (Cliente, Servidor, Rede, Todos) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Atrasos inesperados na entrega de mensagens em uma fila | AzureStorageClientDotNetV4.Description contém "Repetindo a operação que falhou". | Cliente |
-| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Rede |
+| Aumento de HTTP no PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Rede |
 | Aumento em PercentTimeoutError | HTTP.Response.StatusCode == 500 | Rede |
 | Aumento em PercentTimeoutError (todos) |    *StatusCode == 500 |Todos | 
 | Aumentar PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | 
@@ -375,4 +375,4 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
  
  
 
-<!----HONumber=AcomDC_0413_2016-->
+<!-----HONumber=AcomDC_0413_2016-->
