@@ -75,7 +75,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] Confira [Design da tabela][] ou [CREATE TABLE syntax][] (sintaxe CREATE TABLE) para saber mais sobre como criar uma tabela no SQL Data Warehouse e as opções disponíveis com a cláusula WITH.
+>[AZURE.NOTE] Confira [Design da tabela][] ou [CREATE TABLE syntax][] \(sintaxe CREATE TABLE) para saber mais sobre como criar uma tabela no SQL Data Warehouse e as opções disponíveis com a cláusula WITH.
 
 ### Etapa 2: Criar um arquivo de dados de origem
 
