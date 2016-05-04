@@ -14,7 +14,7 @@ Obrigado por seu interesse na documentação do Azure.
 * [Usar o GitHub, o Git e este repositório](#use-github-git-and-this-repository)
 * [Como usar a redução para formatar seu tópico](#how-to-use-markdown-to-format-your-topic)
 * [Mais recursos](#more-resources)
-* [Índice de todos os artigos do guia do colaborador](./contributor-guide/contributor-guide-index.md) (abre uma nova página)
+* [Índice de todos os artigos do guia do colaborador](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) (abre uma nova página)
 
 ## Maneiras de contribuir
 
@@ -48,7 +48,7 @@ A pasta *\articles* contém os artigos de documentação formatados como arquivo
 
 Os artigos no diretório raiz são publicados no Azure.Microsoft.com no caminho *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
 
-* **Nomes de arquivo do artigo:** confira [nossas diretrizes de nomenclatura de arquivo](./contributor-guide/file-names-and-locations.md).
+* **Nomes de arquivo do artigo:** confira [nossas diretrizes de nomenclatura de arquivo](https://github.com/Azure/azure-content/blob/master/contributor-guide/file-names-and-locations.md).
 
 Os artigos nas próprias pastas de serviço são publicados no Azure.Microsoft.com no caminho 
 *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
@@ -57,7 +57,7 @@ Os artigos nas próprias pastas de serviço são publicados no Azure.Microsoft.c
 
 ### \includes
 
-Você pode criar seções de conteúdo reutilizável a ser incluído em um ou mais artigos. Confira [Extensões personalizadas usadas em nosso conteúdo técnico](./contributor-guide/custom-markdown-extensions.md).
+Você pode criar seções de conteúdo reutilizável a ser incluído em um ou mais artigos. Confira [Extensões personalizadas usadas em nosso conteúdo técnico](https://github.com/Azure/azure-content/blob/master/contributor-guide/custom-markdown-extensions.md).
 
 ### \markdown templates
 
@@ -69,9 +69,9 @@ Essa pasta contém artigos que fazem parte do nosso guia do colaborador.
 
 ## Usar o GitHub, o Git e este repositório
 
-Para saber mais sobre como contribuir, como usar a IU do GitHub para contribuir com pequenas alterações e como bifurcar e clonar o repositório para contribuições mais significativas, confira [Instalar e configurar as ferramentas de criação no GitHub](./contributor-guide/tools-and-setup.md).
+Para saber mais sobre como contribuir, como usar a IU do GitHub para contribuir com pequenas alterações e como bifurcar e clonar o repositório para contribuições mais significativas, confira [Instalar e configurar as ferramentas de criação no GitHub](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md).
 
-Se você instalar o GitBash e optar por trabalhar localmente, as etapas para criar uma nova ramificação de trabalho local, para fazer alterações e para enviar as alterações de volta à ramificação principal serão listadas em [Comandos do Git para a criação de um novo artigo ou para a atualização de um artigo existente](./contributor-guide/git-commands-for-master.md)
+Se você instalar o GitBash e optar por trabalhar localmente, as etapas para criar uma nova ramificação de trabalho local, para fazer alterações e para enviar as alterações de volta à ramificação principal serão listadas em [Comandos do Git para a criação de um novo artigo ou para a atualização de um artigo existente](https://github.com/Azure/azure-content/blob/master/contributor-guide/git-commands-for-master.md)
 
 ### Ramificações
 
@@ -87,16 +87,16 @@ Todos os artigos desse repositório usam a redução do GitHub. Veja uma lista d
 
 - [Noções básicas de redução](https://help.github.com/articles/markdown-basics/)
 
-- [Folha de referência de reduções imprimível](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+- [Folha de referência de reduções imprimível](https://github.com/Azure/azure-content/blob/master/contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-- Para obter nossa lista de editores de redução, confira o [tópico sobre ferramentas e instalação](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
+- Para obter nossa lista de editores de redução, confira o [tópico sobre ferramentas e instalação](https://github.com/Azure/azure-content/blob/master/contributor-guide/tools-and-setup.md#install-a-markdown-editor).
 
 ## Metadados do artigo
 
-Os metadados do artigo habilitam determinadas funcionalidades do site azure.microsoft.com, como a atribuição de autor, a atribuição de colaborador, as trilhas, as descrições do artigo e as otimizações de SEO, bem como os relatórios usados pela Microsoft para a avaliação do desempenho do conteúdo. Portanto, os metadados são importantes! [Veja as diretrizes para garantir que seus metadados estejam corretos](./contributor-guide/article-metadata.md).
+Os metadados do artigo habilitam determinadas funcionalidades do site azure.microsoft.com, como a atribuição de autor, a atribuição de colaborador, as trilhas, as descrições do artigo e as otimizações de SEO, bem como os relatórios usados pela Microsoft para a avaliação do desempenho do conteúdo. Portanto, os metadados são importantes! [Veja as diretrizes para garantir que seus metadados estejam corretos](https://github.com/Azure/azure-content/blob/master/contributor-guide/article-metadata.md).
 
 ## Mais recursos
 
-Confira o [índice do nosso guia do colaborador](./contributor-guide/contributor-guide-index.md) para obter todos os tópicos de orientação.
+Confira o [índice do nosso guia do colaborador](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) para obter todos os tópicos de orientação.
 
 <!---HONumber=AcomDC_0307_2016-->
