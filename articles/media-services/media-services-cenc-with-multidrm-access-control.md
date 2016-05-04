@@ -242,7 +242,7 @@ A implementação incluirá as seguintes etapas:
 **Widevine**|Chrome no Windows 10|Êxito|Reprovado
 **FairPlay** |TBD||
 
-George Trifonov, da equipe de Serviços de Mídia do Azure, escreveu um blog fornecendo as etapas detalhadas de configuração do Active Directory do Azure para um aplicativo de player MVC do ASP.NET: [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+George Trifonov, da equipe de Serviços de Mídia do Azure, escreveu um blog fornecendo as etapas detalhadas de configuração do Active Directory do Azure para um aplicativo de player MVC do ASP.NET: [Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT.](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 George também escreveu um blog sobre [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). E aqui está seu [exemplo de integração do AD do Azure à distribuição de chaves dos Serviços de Mídia do Azure](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
 
@@ -522,4 +522,4 @@ Neste documento, vimos CENC com vários DRM nativos e controle de acesso por mei
 
 William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->
