@@ -186,7 +186,7 @@ A caixa de Ação (THEN) pode conter várias instruções, uma por linha, para c
 As caixas de condição e de ação provisionam o IntelliSense para ajudá-lo a criar uma regra rapidamente. Isso pode ser disparado pressionando ctrl+espaço ou simplesmente começando a digitar. Palavras-chave correspondentes aos caracteres digitados serão filtradas e mostradas automaticamente. A janela de IntelliSense exibirá todas as palavras-chave e definições de vocabulário. ![Alt text][9]
 
 ##Encadeamento de encaminhamento explícito
-As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir, estão as palavras-chave com suporte:
+As Regras do BizTalk dão suporte ao encadeamento de encaminhamento explícito, para que, se os usuários desejarem avaliar novamente as regras em resposta a determinadas ações, eles possam disparar isso usando palavras-chave específicas. A seguir, estão as palavras-chave com suporte:  
    1.	update <vocabulary definition> – esta palavra-chave reavalia todas as regras que usam a definição de vocabulário especificada em sua condição.  
    2.	Halt – esta palavra-chave interrompe todas as execuções de regra
 
