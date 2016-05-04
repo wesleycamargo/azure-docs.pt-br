@@ -188,7 +188,22 @@ Essas **operações** são permitidas nos tipos listados acima.
 
 | Operação | Operadores com suporte | Tipo de resultado |
 | ------------------------------------- | --------------------- | ------------- |
-| double *operator* double | +, -, *, / | double | | double *operator* timeinterval | * | timeinterval | | doubleVec *operator* double | +, -, *, / | doubleVec | | doubleVec *operator* doubleVec | +, -, *, / | doubleVec | | timeinterval *operator* double | *, / | timeinterval | | timeinterval *operator* timeinterval | +, - | timeinterval | | timeinterval *operator* timestamp | + | timestamp | | timestamp *operator* timeinterval | + | timestamp | | timestamp *operator* timestamp | - | timeinterval | | *operator*double | -, ! | double | | *operator*timeinterval | - | timeinterval | | double *operator* double | <, <=, ==, >=, >, != | double | | string *operator* string | <, <=, ==, >=, >, != | double | | timestamp *operator* timestamp | <, <=, ==, >=, >, != | double | | timeinterval *operator* timeinterval | <, <=, ==, >=, >, != | double | | double *operator* double | &&, || | double |
+| double *operator* double 				| +, -, *, /            | double		    |
+| double *operator* timeinterval 		| *                     | timeinterval	    |
+| doubleVec *operator* double 			| +, -, *, /            | doubleVec		    |
+| doubleVec *operator* doubleVec 		| +, -, *, /            | doubleVec		    |
+| timeinterval *operator* double 		| *, /                  | timeinterval	    |
+| timeinterval *operator* timeinterval 	| +, -                  | timeinterval	    |
+| timeinterval *operator* timestamp 	| +                     | timestamp		    |
+| timestamp *operator* timeinterval 	| +                     | timestamp		    |
+| timestamp *operator* timestamp 		| -                     | timeinterval	    |
+| *operator*double 						| -, !                  | double		    |
+| *operator*timeinterval 				| -                     | timeinterval	    |
+| double *operator* double 				| <, <=, ==, >=, >, !=  | double		    |
+| string *operator* string 				| <, <=, ==, >=, >, !=  | double		    |
+| timestamp *operator* timestamp 		| <, <=, ==, >=, >, !=  | double		    |
+| timeinterval *operator* timeinterval 	| <, <=, ==, >=, >, !=  | double		    |
+| double *operator* double 				| &&, &#124;&#124;      | double		    |
 
 Ao testar um duplo com um operador ternário (`double ? statement1 : statement2`), um item que não seja zero é **true** e zero é **false**.
 
@@ -592,4 +607,4 @@ A fórmula no trecho de código acima:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/pt-BR/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->
