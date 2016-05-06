@@ -79,4 +79,4 @@ Agora que você criou uma VM Linux rapidamente a ser usada para fins de teste ou
 
 Esses artigos o ajudarão a criar uma infraestrutura do Azure, bem como quaisquer ferramentas de implantação da infraestrutura patenteadas e de fonte aberta, de configuração e orquestração.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->
