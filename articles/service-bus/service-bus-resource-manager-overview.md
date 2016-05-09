@@ -251,6 +251,6 @@ Agora você já viu o fluxo de trabalho básico e os comandos para implantar um 
 
 [Visão geral do Gerenciador de Recursos do Azure]: ../resource-group-overview.md
 [Implantar recursos com modelos do Azure Resource Manager]: ../resource-group-template-deploy.md
-[Galeria de Modelos de Início Rápido do Azure]: https://azure.microsoft.com/pt-BR/documentation/templates/?term=service+bus
+[Galeria de Modelos de Início Rápido do Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
 <!---HONumber=AcomDC_0427_2016-->

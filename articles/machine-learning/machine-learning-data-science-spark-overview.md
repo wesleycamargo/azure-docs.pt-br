@@ -112,7 +112,7 @@ Você pode iniciar o bloco de anotações Jupyter no portal do Azure: encontre s
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-Você também pode navegar até ******https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar os blocos de anotações Jupyter. Você precisará da senha de sua conta de administrador para acessar os blocos de anotações.
+Você também pode navegar até ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar os blocos de anotações Jupyter. Você precisará da senha de sua conta de administrador para acessar os blocos de anotações.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 

@@ -105,7 +105,7 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 	3.	Se você estiver usando **autenticação SQL**
 		1.	Especifique **<username>** e **<password>** na **connectionString**.
 		2.	Remova as duas últimas linhas (as propriedades **username** e **password** do JSON são necessárias apenas se você estiver usando Autenticação do Windows). 
-		3.	Remova **, (vírgula) ** no final da linha **gatewayName**.
+		3.	Remova **(vírgula)** no final da linha **gatewayName**.
 
 		**Se estiver usando a Autenticação do Windows:**
 		1. Defina o valor de **Segurança Integrada** para **True** na **connectionString**. Remova "**User ID=<username>;Password=<password>;**" da connectionString. 

@@ -278,7 +278,7 @@ A resposta agora incluirá um valor de cabeçalho, como se segue, em que `operat
 
 **Versão 2 (GET)**
 
-Como antes, **sonde a saída periodicamente ** (o período sugerido é a cada minuto) até que a saída seja retornada.
+Como antes, **sonde a saída periodicamente** (o período sugerido é a cada minuto) até que a saída seja retornada.
 
 Quando a API de tópicos for concluída, um status apresentando `succeeded` será retornado. Isso incluirá os resultados da saída no formato mostrado abaixo:
 

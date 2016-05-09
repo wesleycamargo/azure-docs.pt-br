@@ -35,7 +35,7 @@ Dependendo de suas seleções de **Exibição**, o painel **Resultados** mostra 
 | Versão | A versão do software instalado no dispositivo |
 | Status | Se o dispositivo está disponível |
 | Sincronizado pela última vez | Data e hora em que o dispositivo foi sincronizado pela última vez |
-| N° de série | O número de série do dispositivo |
+| # de série | O número de série do dispositivo |
  
 Se clicar com o botão direito no nó **Dispositivos** no painel **Escopo**, você pode selecionar as seguintes ações:
 

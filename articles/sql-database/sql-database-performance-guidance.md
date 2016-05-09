@@ -173,7 +173,7 @@ Há dois modos de exibição que permitem o monitoramento do uso de recursos par
 ### Usando sys.dm\_db\_resource\_stats
 A exibição [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) existe em cada banco de dados SQL e fornece dados sobre a utilização recente de recursos com relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por uma hora.
 
-Como esse modo de exibição oferece uma análise mais granular da utilização de recursos, use primeiro **sys.dm\_db\_resource\_stats ** para qualquer análise do estado atual ou para solução de problemas. Por exemplo, a consulta a seguir mostra a utilização de recursos média e máxima do banco de dados atual durante a última hora:
+Como esse modo de exibição oferece uma análise mais granular da utilização de recursos, use primeiro **sys.dm\_db\_resource\_stats** para qualquer análise do estado atual ou para solução de problemas. Por exemplo, a consulta a seguir mostra a utilização de recursos média e máxima do banco de dados atual durante a última hora:
 
 	SELECT  
 	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent',

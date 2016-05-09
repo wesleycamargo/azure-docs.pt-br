@@ -47,7 +47,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar** no diretório atual. Como entrada, ele usa o ****wasb://example/data/gutenberg/davinci.txt**documento, e a saída é armazenada em: ****wasb:///example/data/WordCountOutput**.
+	Isso inicia a classe **wordcount**, contida no arquivo **hadoop-mapreduce-examples.jar** no diretório atual. Como entrada, ele usa o **wasb://example/data/gutenberg/davinci.txt** documento, e a saída é armazenada em: **wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Para obter mais informações sobre esse trabalho MapReduce e os dados de exemplo, consulte <a href="hdinsight-use-mapreduce.md">Usar o MapReduce no HDInsight Hadoop</a>.
 
@@ -58,7 +58,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 		File Output Format Counters
         Bytes Written=337623
 
-3. Quando o trabalho for concluído, use o seguinte comando para listar os arquivos de saída armazenados em ****wasb://example/data/WordCountOutput**:
+3. Quando o trabalho for concluído, use o seguinte comando para listar os arquivos de saída armazenados em **wasb://example/data/WordCountOutput**:
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
@@ -70,7 +70,7 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Isso exibe uma lista das palavras contidas no arquivo ****wasb://example/data/gutenberg/davinci.txt**, juntamente com o número de ocorrências de cada palavra. A seguir, um exemplo dos dados que estarão contidos no arquivo:
+	Isso exibe uma lista das palavras contidas no arquivo **wasb://example/data/gutenberg/davinci.txt**, juntamente com o número de ocorrências de cada palavra. A seguir, um exemplo dos dados que estarão contidos no arquivo:
 
 		wreathed        3
 		wreathing       1

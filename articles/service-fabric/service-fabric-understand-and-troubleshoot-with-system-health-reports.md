@@ -34,7 +34,7 @@ Os relatórios de componentes do sistema são identificados por origem, que come
 A entidade de integridade do cluster é criada automaticamente no repositório de integridade, de modo que se tudo estiver funcionando corretamente, ela não terá um relatório do sistema.
 
 ### Perda de ambiente
-**System.Federation ** relata um erro quando detecta uma perda de ambiente. O relatório tem origem em nós individuais e a ID do nó é incluída no nome da propriedade. Se houver uma perda de ambiente em todo o anel do Service Fabric, geralmente podemos esperar dois eventos (ambos os lados da lacuna serão relatados). Se houver mais perdas de ambiente, haverá mais eventos.
+**System.Federation** relata um erro quando detecta uma perda de ambiente. O relatório tem origem em nós individuais e a ID do nó é incluída no nome da propriedade. Se houver uma perda de ambiente em todo o anel do Service Fabric, geralmente podemos esperar dois eventos (ambos os lados da lacuna serão relatados). Se houver mais perdas de ambiente, haverá mais eventos.
 
 O relatório especifica o tempo limite de concessão global como o tempo de vida útil. O relatório é enviado novamente a cada metade da duração do tempo de vida útil, desde que a condição permaneça ativa. O evento é removido automaticamente quando expira, de modo que se o modo de relatório for desativado, ele ainda será removido do repositório de integridade corretamente.
 

@@ -79,7 +79,7 @@ A API de Recomendações aprenderá com seu catálogo e suas transações para f
 
  Você pode baixá-los [aqui](http://aka.ms/RecoSampleData). Copie e descompacte MsStoreData.Zip em uma pasta no computador local.
 
- > ** Observação: ** o código de exemplo que você vai baixar e executar na Tarefa 3 já contém dados de exemplo incorporados nele, de modo que esta tarefa é opcional. Dito isso, esta Tarefa permitirá que você baixe conjuntos de dados mais realistas e compreenda melhor as entradas da API de Recomendações.
+ > **Observação:** o código de exemplo que você vai baixar e executar na Tarefa 3 já contém dados de exemplo incorporados nele, de modo que esta tarefa é opcional. Dito isso, esta Tarefa permitirá que você baixe conjuntos de dados mais realistas e compreenda melhor as entradas da API de Recomendações.
 
 1.	Agora, vamos dar uma olhada no arquivo de catálogo. Navegue até o local no qual você copiou os dados. Abra o arquivo de catálogo no **bloco de notas**.
 
