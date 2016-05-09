@@ -3,7 +3,7 @@
 	description="Este tópico usa recursos criados com o modelo de implantação clássica e descreve os recursos de Business Intelligence (BI) disponíveis para o SQL Server em execução em máquinas virtuais do Azure (VMs)."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # Business Intelligence do SQL Server em máquinas virtuais do Azure
 
@@ -388,8 +388,8 @@ Esta seção resume os pontos de extremidade de máquina virtual do Microsoft Az
 
 	|Port|Tipo|Descrição|
 |---|---|---|
-|**80**|TCP|Acesso remoto ao servidor de relatório (*).|
-|**1433**|TCP|SQL Server Management Studio (*).|
+|**80**|TCP|Acesso remoto ao servidor de relatório (*).| 
+|**1433**|TCP|SQL Server Management Studio (*).| 
 |**1434**|UDP|SQL Server Browser. Necessário quando a VM ingressa em um domínio.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instância padrão do SQL Server Analysis Services e instâncias nomeadas em cluster.|
@@ -433,4 +433,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

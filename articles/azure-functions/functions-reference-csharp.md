@@ -180,7 +180,7 @@ Os aplicativos de função baseiam-se no Serviço de Aplicativo, portanto, todas
 
 #### Para carregar o project.json usando o ponto de extremidade SCM (Kudu) do aplicativo de função
 
-1. Navegue para: *https://<function_app_name>.scm.azurewebsites.net*.
+1. Navegue para: `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Clique em **Console de Depuração > CMD**.
 
@@ -219,7 +219,7 @@ Após o arquivo *project.json* ser carregado, você verá a saída como o exempl
 
 Você pode usar classes e métodos definidos em outros arquivos *.csx* no seu arquivo *run.csx*. Para fazer isso, use as diretivas `#load` no seu arquivo *run.csx*, conforme mostrado no exemplo a seguir.
 
-*run.csx* de exemplo:
+Exemplo de *run.csx*:
 
 ```csharp
 #load "mylogger.csx"
@@ -231,7 +231,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 ```
 
-Exemplo *mylogger.csx*:
+Exemplo de *mylogger.csx*:
 
 ```csharp
 public static void MyLogger(TraceWriter log, string logtext)
@@ -248,7 +248,7 @@ Você pode usar um caminho relativo com a diretiva `#load`:
 
 * `#load "..\shared\mylogger.csx"` carrega um arquivo localizado em uma pasta no mesmo nível que a pasta de função, ou seja, diretamente em *wwwroot*.
  
-A diretiva `#load` só funciona com arquivos *.csx* (scritp C#), não com arquivos *.cs* arquivos.
+A diretiva `#load` só funciona com arquivos *.csx* (script C#), não com arquivos *.cs*.
 
 ## Próximas etapas
 
@@ -258,4 +258,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

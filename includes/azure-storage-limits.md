@@ -28,7 +28,7 @@ Saída máxima<sup>2</sup> por conta de armazenamento (regiões dos EUA)|20 Gbps
 Entrada máxima<sup>2</sup> por conta de armazenamento (regiões da Ásia e Europa)|5 Gbps se o GRS/ZRS<sup>3</sup> estiver habilitado, 10 Gbps para o LRS
 Saída máxima<sup>2</sup> por conta de armazenamento (regiões da Ásia e Europa)|10 Gbps se o RA-GRS/GRS/ZRS<sup>3</sup> estiver habilitado, 15 Gbps para o LRS
 
-<sup>1</sup>Se você precisar de mais de 100 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe do Armazenamento do Azure examinará seu caso de negócios. Se aprovarem, eles permitirão que você tenha até 250 contas de armazenamento.
+<sup>1</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 100 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
 
 <sup>2</sup>*Entrada* refere-se a todos os dados (solicitações) que estão sendo enviados a uma conta de armazenamento. *Saída* refere-se a todos os dados (respostas) que estão sendo recebidos de uma conta de armazenamento.
 
@@ -39,4 +39,4 @@ Saída máxima<sup>2</sup> por conta de armazenamento (regiões da Ásia e Europ
 - **ZRS**: armazenamento com redundância de zona. Disponível apenas para blobs de blocos. 
 - **LRS**: armazenamento com redundância local. 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

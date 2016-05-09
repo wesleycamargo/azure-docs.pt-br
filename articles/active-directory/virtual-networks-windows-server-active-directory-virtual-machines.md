@@ -34,7 +34,7 @@ Este tópico de navegação contém links para outros tópicos sobre como implan
 
 - [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](active-directory-new-forest-virtual-machine.md)
 - [Instalar um controlador de domínio de réplica do Active Directory em Redes Virtuais do Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) 
-- [Configurar um ambiente de nuvem híbrida para teste](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
+- [Configurar um ambiente de nuvem híbrida para teste](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
 
 
 ## Recursos adicionais
@@ -47,4 +47,4 @@ Este tópico de navegação contém links para outros tópicos sobre como implan
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

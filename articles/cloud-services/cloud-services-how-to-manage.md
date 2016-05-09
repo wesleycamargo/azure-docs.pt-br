@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016"
+	ms.date="04/26/2016"
 	ms.author="adegeo"/>
 
 
@@ -23,8 +23,8 @@
 # Como gerenciar serviços de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-manage.md)
-- [Azure portal](cloud-services-how-to-manage-portal.md)
+- [Portal do Azure](cloud-services-how-to-manage-portal.md)
+- [Portal clássico do Azure](cloud-services-how-to-manage.md)
 
 Na área **Serviços de Nuvem** do portal clássico do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
 
@@ -164,4 +164,4 @@ Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o A
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

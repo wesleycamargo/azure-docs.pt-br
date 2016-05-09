@@ -16,6 +16,6 @@ Regras de alerta por assinatura|250|250
 
 <sup>1</sup>Instâncias muito pequenas contam como um núcleo para o limite de núcleos, apesar de utilizarem um núcleo parcial.
 
-<sup>2</sup>Se você precisar de mais de 100 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe do Armazenamento do Azure examinará seu caso de negócios. Se aprovarem, eles permitirão que você tenha até 250 contas de armazenamento.
+<sup>2</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 100 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

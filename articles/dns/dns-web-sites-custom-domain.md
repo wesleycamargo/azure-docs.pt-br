@@ -3,7 +3,7 @@
    description="Como criar registros DNS de domínio personalizado para o aplicativo Web usando o DNS do Azure. Passo a passo para verificar sua propriedade de domínio usando o registro CNAME ou A" 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmonm" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="03/03/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Criar registros DNS para o aplicativo Web em um domínio personalizado
 
@@ -165,4 +165,4 @@ Agora você pode continuar a seguir as etapas em [Configurando um nome de domín
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

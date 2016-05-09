@@ -5,7 +5,7 @@
    services="app-service\web" 
    documentationCenter=".net" 
    authors="Juliako" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -14,9 +14,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/31/2016"
+   ms.date="04/25/2016"
    ms.author="juliako"/>
-
+ 
 # SDK do Azure para .NET 2.8, 2.8.1 e 2.8.2
 
 ##Visão geral
@@ -103,4 +103,4 @@ Para obter outras atualizações, confira a [postagem de comunicado do SDK do Az
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

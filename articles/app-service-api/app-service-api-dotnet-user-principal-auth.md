@@ -74,11 +74,17 @@ Para fazer chamadas de API autenticadas, o chamador inclui o token de portador O
 
 Se você estiver seguindo a série de introdução do Node.js ou do Java para aplicativos de API, vá para o próximo artigo, [Autenticação de entidade de serviço para aplicativos de API](app-service-api-dotnet-service-principal-auth.md).
 
-Se você estiver seguindo a série de introdução do .NET para aplicativos de API e já tiver implantado o aplicativo de exemplo, conforme indicado no [primeiro](app-service-api-dotnet-get-started.md) e no [segundo](app-service-api-cors-consume-javascript.md) tutoriais, vá para a seção [Configurar a autenticação](#azureauth).
+Se você estiver seguindo a série de introdução do .NET para aplicativos de API e já tiver implantado o aplicativo de exemplo, conforme indicado no [primeiro](app-service-api-dotnet-get-started.md) e no [segundo](app-service-api-cors-consume-javascript.md) tutoriais, pule para a seção [Configurar a autenticação no Serviço de Aplicativo e Azure AD](#azureauth).
 
-Se você ainda não concluiu o primeiro e o segundo tutoriais e deseja seguir este, confira os pré-requisitos listados no [primeiro tutorial](app-service-api-dotnet-get-started.md) e use o botão **Implantar no Azure** do [arquivo Leiame do repositório de exemplo de Lista de Tarefas Pendentes](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) para implantar os aplicativos de API e o aplicativo Web.
+Se você desejar acompanhar este tutorial sem passar pelo primeiro e segundo tutorial, execute as seguintes etapas:
 
-Quando a implantação for concluída, será mostrado um link HTTP para o aplicativo Web. Para executar o aplicativo e verificar se ele está funcionando, altere essa URL para HTTPS.
+1. Verifique se você tem todos os pré-requisitos listados no [primeiro tutorial](app-service-api-dotnet-get-started.md). Além dos pré-requisitos listados, esses tutoriais de autenticação pressupõem que você tenha trabalhado com aplicativos Web do Serviço de Aplicativo, aplicativos de API no Visual Studio e com o Portal do Azure.
+
+2. Clique no botão **Implantar no Azure** no [arquivo Leiame do repositório de exemplo da Lista de tarefas pendentes](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) para implantar aplicativos de API e o aplicativo Web. Anote o grupo de recursos do Azure que é criado, pois você pode usar isso posteriormente para procurar o aplicativo Web e nomes de aplicativos de API.
+ 
+3. Baixe ou clone o [repositório de exemplo da Lista de tarefas pendentes](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) para obter o código com o qual você trabalhará localmente no Visual Studio.
+
+Essas etapas levarão você ao mesmo ponto de partida em que você estaria se tivesse concluído os dois primeiros tutoriais, com uma exceção: o Visual Studio não saberá qual aplicativo Web ou de API em que cada projeto é implantado. Quando você implantar um projeto, precisará selecionar o aplicativo Web do Azure ou aplicativo de API para implantar. Para obter os nomes do aplicativo Web e de API, abra o Portal do Azure e navegue até a folha do grupo de recursos para o grupo de recursos que você criou quando clicou no botão **Implantar no Azure**.
 
 ## <a id="azureauth"></a> Configurar a autenticação no Serviço de Aplicativo e no Azure AD
 
@@ -88,7 +94,7 @@ Agora você tem o aplicativo em execução no Serviço de Aplicativo do Azure se
 * Criar um aplicativo Azure AD.
 * Configurar o aplicativo Azure AD para enviar o token de portador após o logon para o front-end do AngularJS. 
 
-Se você enfrenta problemas ao seguir as instruções do tutorial, confira a seção [Solução de problemas](#troubleshooting) no final do tutorial.
+Se você enfrenta problemas ao seguir as instruções do tutorial, consulte a seção [Solução de problemas](#troubleshooting) no final do tutorial.
  
 ### Configurar a autenticação para o aplicativo de API de camada intermediária
 
@@ -114,7 +120,7 @@ Se você enfrenta problemas ao seguir as instruções do tutorial, confira a se�
 
 	Você não precisa criar um locatário, pois cada conta do Azure tem um automaticamente.
 
-7. Em **Modo de gerenciamento**, clique em **Criar novo aplicativo do AD** se ainda não estiver selecionado e observe o valor que está na caixa de texto **Criar Aplicativo**. você irá procurar esse aplicativo AAD no portal clássico do Azure posteriormente.
+7. Em **Modo de gerenciamento**, clique em **Criar novo aplicativo do AD** se ainda não estiver selecionado e observe o valor que está na caixa de texto **Criar Aplicativo**. Você vai procurar esse aplicativo AAD no portal clássico do Azure posteriormente.
 
 	![Configurações do Azure AD no portal do Azure](./media/app-service-api-dotnet-user-principal-auth/aadsettings2.png)
 
@@ -196,7 +202,7 @@ Quando você configurou a autenticação do Azure AD, o Serviço de Aplicativo c
 
 	![Carregar manifesto](./media/app-service-api-dotnet-user-principal-auth/uploadmanifest.png)
 
-17. Copie o valor de **ID do cliente** e salve-o em algum local em que você possa obtê-lo posteriormente.
+17. Copie o valor de **ID do cliente** e salve-o em algum local de onde você possa obtê-lo posteriormente.
 
 ## Configure o projeto ToDoListAngular para usar a autenticação
 
@@ -274,7 +280,7 @@ Faça as alterações a seguir no projeto ToDoListAPI.
 
 		owner = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value;
 
-	**Importante**: não remova o comentário do código no método `ToDoListDataAPI`; você vai fazer isso mais tarde no tutorial de autenticação da entidade de serviço.
+	**Importante**: não remova a marca de comentário do código no método `ToDoListDataAPI`; você vai fazer isso mais tarde no tutorial de autenticação da entidade de serviço.
 
 ### Implantar o projeto ToDoListAPI no Azure
 
@@ -315,7 +321,7 @@ Faça as alterações a seguir no projeto ToDoListAPI.
 
 Os dois projetos de API Web foram criados usando o modelo de projeto **Aplicativo de API do Azure** e substituindo o controlador de Valores padrão por um controlador ToDoList.
 
-Para obter informações sobre como criar um aplicativo de página única do AngularJS com um back-end de API Web 2, consulte [Laboratório prático: criar um SPA (aplicativo de página única) com a API Web do ASP.NET e Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). Para obter informações sobre como adicionar código de autenticação do Azure AD, confira os seguintes recursos:
+Para obter informações sobre como criar um aplicativo de página única do AngularJS com um back-end de API Web 2, consulte [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs) (Laboratório prático: criar um SPA [aplicativo de página única] com a API Web ASP.NET e Angular.js). Para obter informações sobre como adicionar código de autenticação do Azure AD, confira os seguintes recursos:
 
 * [Como proteger aplicativos de página única AngularJS com o Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
 * [Apresentação da ADAL JS v1](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/)
@@ -331,4 +337,4 @@ Para obter informações sobre como criar um aplicativo de página única do Ang
 
 Neste tutorial, você aprendeu como usar a autenticação do Serviço de Aplicativo para um aplicativo de API e como chamar o aplicativo de API usando a biblioteca ADAL JS. No próximo tutorial, você aprenderá a [proteger o acesso ao aplicativo de API para cenários entre serviços](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

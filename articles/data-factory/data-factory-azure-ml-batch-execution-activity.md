@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Criar pipelines preditivos usando as atividades do Aprendizado de Máquina do Azure   
@@ -38,7 +38,7 @@ Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM
   
 Depois de concluir o treinamento, você deseja atualizar o serviço Web de pontuação (experimento preditivo exposto como um serviço Web) com o modelo recém-treinado. Você faz isso seguindo as etapas abaixo:
 
-1. Adicione um ponto de extremidade não padrão ao serviço Web de pontuação. O ponto de extremidade padrão do serviço Web não pode ser atualizado e, portanto, será necessário criar um novo ponto de extremidade não padrão usando o Portal Clássico do Azure. Consulte o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para obter informações conceituais e de procedimentos.
+1. Adicione um ponto de extremidade não padrão ao serviço Web de pontuação. O ponto de extremidade padrão do serviço Web não pode ser atualizado e, portanto, será necessário criar um novo ponto de extremidade não padrão usando o Portal do Azure. Consulte o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para obter informações conceituais e de procedimentos.
 2. Atualize os serviços vinculados do AM do Azure existentes para pontuação para usar o ponto de extremidade não padrão. Você deve começar a usar o novo ponto de extremidade para usar o serviço Web atualizado.
 3. Use a **Atividade de Recurso de Atualização de AM do Azure** para atualizar o serviço Web com o modelo recém-treinado.  
 
@@ -455,7 +455,7 @@ A tabela a seguir descreve os serviços Web usados neste exemplo. Confira [Reada
 | Tipo de serviço Web | description 
 | :------------------ | :---------- 
 | **Serviço Web de treinamento** | Recebe dados de treinamento e produz modelos treinados. A saída do treinamento é um arquivo .ilearner em um armazenamento de Blob do Azure. O **ponto de extremidade padrão** é criado automaticamente para você quando o experimento de treinamento é publicado como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidade padrão |
-| **Serviço Web de pontuação** | Recebe exemplos de dados sem rótulo de e faz previsões. A saída de previsão pode ter diversas formas, como um arquivo .csv ou linhas em um banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. Você precisará criar o segundo **ponto de extremidade não padrão e atualizável** usando o [Portal Clássico do Azure](https://manage.windowsazure.com). Você pode criar mais pontos de extremidade, mas este exemplo usa apenas o ponto de extremidade atualizável não padrão. Confira o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas.       
+| **Serviço Web de pontuação** | Recebe exemplos de dados sem rótulo de e faz previsões. A saída de previsão pode ter diversas formas, como um arquivo .csv ou linhas em um banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. Você precisará criar o segundo **ponto de extremidade não padrão e atualizável** usando o [Portal do Azure](https://manage.windowsazure.com). Você pode criar mais pontos de extremidade, mas este exemplo usa apenas o ponto de extremidade atualizável não padrão. Confira o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas.       
  
 A figura a seguir descreve o relacionamento entre os pontos de extremidade de treinamento e de pontuação no AM do Azure.
 
@@ -772,5 +772,4 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
-<!---Line 64, delete "space", line 298, add "slash"-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Caso de uso - Criação de perfil de cliente
 
-O Azure Data Factory é um dos muitos serviços usados para implementar o Pacote de Análise do Cortana de aceleradores de solução. Para obter mais informações sobre Análise do Cortana, visite [Pacote de Análise do Cortana](http://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como o Azure Data Factory pode resolver problemas comuns de análise.
+O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução. Para obter mais informações sobre o Cortana Intelligence, visite [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como o Azure Data Factory pode resolver problemas comuns de análise.
 
 Tudo o que você precisa para acessar e testar este caso de uso simples é uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/). Você pode implantar um exemplo que implementa esse caso de uso, seguindo as etapas descritas no artigo [Exemplos](data-factory-samples.md).
 
@@ -36,7 +36,7 @@ Existem muitos desafios enfrentados por empresas de jogos ao tentar implementar 
 
 Este caso de uso simples pode ser usado como um exemplo de como você pode usar o Azure Data Factory para ingestão, preparação, transformação, análise e publicação dos dados.
 
-![Fluxos de trabalho completos](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) A figura acima mostra como os pipelines de dados são exibidos na interface do usuário do portal clássico do Azure após terem sido implantados.
+![Fluxos de trabalho completos](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png) A figura acima mostra como os pipelines de dados são exibidos na interface do usuário do Portal do Azure após terem sido implantados.
 
 1.	O **PartitionGameLogsPipeline** lê os eventos brutos de jogos de um armazenamento de blob e cria partições com base no ano, mês e dia.
 2.	O **EnrichGameLogsPipeline** junta eventos de jogos particionados com dados de referência de código geográfico e enriquece os dados pelo mapeamento de endereços IP para os locais geográficos correspondentes.
@@ -48,4 +48,4 @@ Neste caso de uso de exemplo, o Azure Data Factory é usado para coordenar as at
 
 Ao otimizar suas análises de perfil do usuário e o alinhamento com as metas de negócios, a empresa de jogos é capaz coletar rapidamente os padrões de uso e analisar a eficácia de suas campanhas de marketing para todos os seus produtos de jogos diferentes.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="04/04/2016" 
 	ms.author="spelluru"/>
 
 # Monitorar e gerenciar os pipelines do Azure Data Factory usando novo Aplicativo de Monitoramento e Gerenciamento
@@ -21,9 +21,11 @@
 - [Usando o Portal do Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 - [Usando o aplicativo de monitoramento e gerenciamento](data-factory-monitor-manage-app.md)
 
-Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o **Aplicativo de Monitoramento e Gerenciamento**. Ele também fornece informações sobre como criar alertas e como obter notificações sobre falhas usando o aplicativo.
+Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o **Aplicativo de Monitoramento e Gerenciamento**. Você também pode assistir ao vídeo a seguir para saber mais sobre como usar o aplicativo de gerenciamento e monitoramento.
+   
+> [AZURE.VIDEO how-to-monitor--manage-big-data-pipelines-with-azure-data-factory]
       
-## Iniciando o Aplicativo de Monitoramento e Gerenciamento 
+## Iniciando o Aplicativo de Monitoramento e Gerenciamento a
 Para iniciar o Aplicativo de Monitoramento e Gerenciamento, clique no bloco **Monitoramento e Gerenciamento** na folha **DATA FACTORY** do seu data factory.
 
 ![Bloco Monitoramento na home page do Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
@@ -32,7 +34,11 @@ Você verá que o Aplicativo de Monitoramento e Gerenciamento foi iniciado em um
 
 ![Aplicativo de Monitoramento e Gerenciamento](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
-> [AZURE.NOTE] Se não ver janelas de atividade na lista na parte inferior, clique no botão **Atualizar** na barra de ferramentas para atualizar a lista. Além disso, defina os valores corretos para os filtros **Hora de início** e **Hora de término**.
+> [AZURE.NOTE] Se você vir que o navegador da Web está bloqueado em "Autorizando...", desabilite/desmarque a configuração **Bloquear cookies de terceiros e dados de site** (ou) mantenha-a habilitada, crie uma exceção para **login.microsoftonline.com** e tente iniciar o aplicativo novamente.
+
+
+Se não vir janelas de atividade na lista na parte inferior, clique no botão **Atualizar** na barra de ferramentas para atualizar a lista. Além disso, defina os valores corretos para os filtros **Hora de início** e **Hora de término**.
+
 
 ## Noções básicas sobre o Aplicativo de Monitoramento e Gerenciamento
 Há três guias (**Gerenciador de Recursos**, **Exibições de Monitoramento** e **Alertas**) à esquerda e a primeira guia (Gerenciador de Recursos) é selecionada por padrão.
@@ -49,7 +55,7 @@ Você pode ver todos os recursos (pipelines, conjuntos de dados, serviços vincu
 
 ![Gerenciador de Recursos](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-Confira o artigo [Agendamento e Execução](data-factory-scheduling-and-execution.md) para obter informações conceituais detalhadas sobre a janela de atividades.
+Consulte o artigo [Agendamento e Execução](data-factory-scheduling-and-execution.md) para obter informações conceituais detalhadas sobre a janela de atividades.
 
 ### Exibição de diagrama
 O Modo de exibição de diagrama de uma data factory fornece um único painel onde você pode monitorar e gerenciar a data factory e seus ativos. Ao selecionar uma entidade Data Factory (conjunto de dados/pipeline) na exibição de diagrama, você observará o seguinte:
@@ -277,9 +283,6 @@ A página Alertas permite criar um novo alerta e exibir/editar/excluir alertas e
 
 	![Criar Alertas - página Filtros](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
 
-	Você também pode **agregar** eventos de alerta, como mostrado abaixo:
-
-	![Agregar alertas](./media/data-factory-monitor-manage-app/AggregateAlerts.png)
 2. Escolha o **evento**, o **status** e o **substatus** (opcional) sobre o qual deseja que o serviço Data Factory alerte você e clique em **Avançar**. Você verá a página **Destinatários**.
 
 	![Criar Alertas - página Destinatários](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
@@ -310,4 +313,4 @@ Cluster HDI sob Demanda Excluído | Bem-sucedido | &nbsp; |
     
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

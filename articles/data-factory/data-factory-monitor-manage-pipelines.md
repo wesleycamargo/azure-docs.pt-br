@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitorar e gerenciar pipelines do Azure Data Factory" 
-	description="Saiba como usar o Portal Clássico do Azure e o Azure PowerShell para monitorar e gerenciar as data factories e os pipelines do Azure que você criou." 
+	description="Saiba como usar o Portal do Azure e o Azure PowerShell para monitorar e gerenciar as data factories e os pipelines do Azure que você criou." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="03/28/2016" 
 	ms.author="spelluru"/>
 
 
@@ -187,14 +187,14 @@ Por exemplo:
 
 
 ## Depurar pipelines
-O Azure Data Factory fornece recursos avançados por meio do Portal Clássico do Azure e do Azure PowerShell para depurar e solucionar problemas com pipelines.
+O Azure Data Factory fornece recursos avançados por meio do Portal do Azure e do Azure PowerShell para depurar e solucionar problemas com pipelines.
 
 ### Localizar erros em um pipeline
 Se a execução da atividade falhar em um pipeline, o conjunto de dados produzido pelo pipeline ficará em um estado de erro devido à falha. Você pode depurar e solucionar e erros no Azure Data Factory usando os seguintes mecanismos.
 
-#### Use o Portal Clássico do Azure para depurar um erro:
+#### Use o Portal do Azure para depurar um erro:
 
-1.	Clique em **Com erros** no bloco **Conjuntos de Dados** na home page do data factory.
+1.	Clique em **Com erros** no bloco **Conjuntos de Dados** na home page da data factory.
 	
 	![Bloco de conjuntos de dados com erro](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	Na folha **Conjuntos de dados com erros**, clique na tabela em que você está interessado.
@@ -265,9 +265,9 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 
 ## Executar novamente as falhas em um pipeline
 
-### Usando o Portal Clássico do Azure
+### Usando o Portal do Azure
 
-Depois de solucionar problemas e depurar falhas em um pipeline, é possível executar as falhas novamente navegando até a fatia com erro e clicando no botão **Executar** na barra de comandos.
+Depois de solucionar problemas e depurar falhas em um pipeline, você pode executar as falhas novamente navegando até a fatia com erro e clicando no botão **Executar** na barra de comandos.
 
 ![Executar novamente uma fatia com falha](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
@@ -585,4 +585,4 @@ Você também pode mover todos os recursos relacionados (como alertas associados
 
 ![Mover a caixa de diálogo Recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

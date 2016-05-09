@@ -3,7 +3,7 @@
 	description="Saiba como personalizar a data de vencimento para seus certificados de federação e como renovar certificados que vencerão em breve."
 	services="active-directory"
 	documentationCenter=""
-	authors="liviodlc"
+	authors="asmalser-msft"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/09/2016"
-	ms.author="liviodlc"/>
+	ms.author="asmalser-msft"/>
 
 #Gerenciamento de certificados para logon único federado no Active Directory do Azure
 
@@ -82,4 +82,4 @@ As etapas de renovação mostradas abaixo idealmente não devem resultar em nenh
 - [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
 - [Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

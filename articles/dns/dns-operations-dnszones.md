@@ -3,7 +3,7 @@
    description="Você pode gerenciar zonas DNS usando o Azure Powershell. Como atualizar, excluir e criar zonas DNS no DNS do Azure" 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
+   authors="cherylmc" 
    manager="carmonm" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="03/17/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Como gerenciar as zonas DNS usando o PowerShell
 
@@ -113,4 +113,4 @@ O objeto de zona também pode ser redirecionado em vez de ser passado como um pa
 
 [Automatizar operações usando o SDK do .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->
