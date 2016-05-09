@@ -10,7 +10,7 @@
 <tags
 	ms.service="app-service-web"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
 	ms.date="02/26/2016"
@@ -89,4 +89,4 @@ Siga as instruções disponíveis em [Como Implantar um Aplicativo Web do Azure]
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

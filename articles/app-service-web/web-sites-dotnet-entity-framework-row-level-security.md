@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="04/25/2016"
 	ms.author="thmullan"/>
 
 # Tutorial: Aplicativo Web com um banco de dados multilocatário usando o Entity Framework e a Segurança em Nível de Linha
@@ -250,4 +250,4 @@ Este tutorial forneceu apenas uma pequena amostra do que é possível fazer com 
 
 Além dessas possibilidades, também estamos trabalhando para melhorar ainda mais o RLS. Se você tiver alguma dúvida, ideias ou coisas que gostaria de ver, envie nos comentários. Agradecemos por seus comentários!
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

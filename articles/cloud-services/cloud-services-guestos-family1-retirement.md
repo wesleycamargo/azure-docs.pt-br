@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="12/07/2015"
+   ms.date="04/19/2015"
    ms.author="yuemlu"/>
 
 
@@ -81,4 +81,4 @@ Não há mais suporte para serviços de nuvem na família 1 dos sistemas operaci
 ## Próximas etapas
 Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

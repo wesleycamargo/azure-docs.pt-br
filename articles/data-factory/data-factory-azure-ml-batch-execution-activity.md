@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Criar pipelines preditivos usando as atividades do Aprendizado de Máquina do Azure   
@@ -38,7 +38,7 @@ Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM
   
 Depois de concluir o treinamento, você deseja atualizar o serviço Web de pontuação (experimento preditivo exposto como um serviço Web) com o modelo recém-treinado. Você faz isso seguindo as etapas abaixo:
 
-1. Adicione um ponto de extremidade não padrão ao serviço Web de pontuação. O ponto de extremidade padrão do serviço Web não pode ser atualizado e, portanto, será necessário criar um novo ponto de extremidade não padrão usando o Portal Clássico do Azure. Consulte o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para obter informações conceituais e de procedimentos.
+1. Adicione um ponto de extremidade não padrão ao serviço Web de pontuação. O ponto de extremidade padrão do serviço Web não pode ser atualizado e, portanto, será necessário criar um novo ponto de extremidade não padrão usando o Portal do Azure. Consulte o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para obter informações conceituais e de procedimentos.
 2. Atualize os serviços vinculados do AM do Azure existentes para pontuação para usar o ponto de extremidade não padrão. Você deve começar a usar o novo ponto de extremidade para usar o serviço Web atualizado.
 3. Use a **Atividade de Recurso de Atualização de AM do Azure** para atualizar o serviço Web com o modelo recém-treinado.  
 
@@ -61,7 +61,7 @@ Você usa o Azure Data Factory para orquestrar o processamento e movimentação 
 ### Cenário: Experimentos usando entradas/saídas de serviço Web que se referem aos dados no armazenamento de Blob do Azure
 Nesse cenário, o serviço Web de aprendizado de máquina do Azure faz previsões usando dados de um arquivo em um armazenamento de blob do Azure e armazena os resultados de previsão no armazenamento de blob. O JSON a seguir define um pipeline do Azure Data Factory com uma atividade AzureMLBatchExecution. A atividade contém o conjunto de dados **DecisionTreeInputBlob** como entrada e **DecisionTreeResultBlob** como a saída. O **DecisionTreeInputBlob** é transmitido como uma entrada para o serviço Web usando a propriedade JSON **webServiceInput** e o **DecisionTreeResultBlob** como uma saída para o serviço Web usando a propriedade JSON **webServiceOutputs**.
 
-> [AZURE.NOTE] Conjuntos de dados que são referenciados pelas propriedades **webServiceInput** e **webServiceOutputs** (em **typeProperties**) também devem ser incluídos nas **entradas** e **saídas** da atividade.
+> [AZURE.NOTE] Conjuntos de dados que são referenciados pelas propriedades **webServiceInput** e **webServiceOutputs ** (em **typeProperties**) também devem ser incluídos nas **entradas** e **saídas** da atividade.
 
 
 	{
@@ -295,7 +295,7 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 ### Uso de um módulo Leitor para ler dados de vários arquivos no Blob do Azure
 Os pipelines de big data (Pig, Hive, etc...) podem gerar um ou mais arquivos de saída sem extensões. Por exemplo, quando você especifica uma tabela externa do Hive, os dados para a tabela externa do Hive podem ser armazenados no armazenamento de blob do Azure com o seguinte nome 000000\_0. É possível usar o módulo leitor em um experimento para ler vários arquivos e usá-los para previsões.
 
-Ao usar o módulo de leitor em uma experiência de Aprendizado de Máquina do Azure, é possível especificar o Blob do Azure como uma entrada. Os arquivos no armazenamento de blob do Azure podem ser os arquivos de saída (por exemplo, 000000\_0) que são produzidos por um script de Pig e Hive em execução no HDInsight. O módulo leitor permite que você leia arquivos (sem extensões) configurando a propriedade **Caminho para o contêiner, diretório ou blob** do módulo do leitor para apontar para o contêiner/pasta que contém os arquivos conforme mostrado abaixo. Observação: o asterisco (ou seja, \*) **especifica que todos os arquivos na pasta/contêiner (ou seja, data/aggregateddata/year=2014/month-6/\*)** serão lidos como parte do teste.
+Ao usar o módulo de leitor em uma experiência de Aprendizado de Máquina do Azure, é possível especificar o Blob do Azure como uma entrada. Os arquivos no armazenamento de blob do Azure podem ser os arquivos de saída (por exemplo, 000000\_0) que são produzidos por um script de Pig e Hive em execução no HDInsight. O módulo leitor permite que você leia arquivos (sem extensões) configurando a propriedade **Caminho para o contêiner, diretório ou blob** do módulo do leitor para apontar para o contêiner/pasta que contém os arquivos conforme mostrado abaixo. Observação: o asterisco (ou seja, *) **especifica que todos os arquivos na pasta/contêiner (ou seja, data/aggregateddata/year=2014/month-6/*)** serão lidos como parte do teste.
 
 ![Propriedades de Blob do Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -455,7 +455,7 @@ A tabela a seguir descreve os serviços Web usados neste exemplo. Confira [Reada
 | Tipo de serviço Web | description 
 | :------------------ | :---------- 
 | **Serviço Web de treinamento** | Recebe dados de treinamento e produz modelos treinados. A saída do treinamento é um arquivo .ilearner em um armazenamento de Blob do Azure. O **ponto de extremidade padrão** é criado automaticamente para você quando o experimento de treinamento é publicado como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidade padrão |
-| **Serviço Web de pontuação** | Recebe exemplos de dados sem rótulo de e faz previsões. A saída de previsão pode ter diversas formas, como um arquivo .csv ou linhas em um banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. Você precisará criar o segundo **ponto de extremidade não padrão e atualizável** usando o [Portal Clássico do Azure](https://manage.windowsazure.com). Você pode criar mais pontos de extremidade, mas este exemplo usa apenas o ponto de extremidade atualizável não padrão. Confira o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas.       
+| **Serviço Web de pontuação** | Recebe exemplos de dados sem rótulo de e faz previsões. A saída de previsão pode ter diversas formas, como um arquivo .csv ou linhas em um banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. Você precisará criar o segundo **ponto de extremidade não padrão e atualizável** usando o [Portal do Azure](https://manage.windowsazure.com). Você pode criar mais pontos de extremidade, mas este exemplo usa apenas o ponto de extremidade atualizável não padrão. Confira o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas.       
  
 A figura a seguir descreve o relacionamento entre os pontos de extremidade de treinamento e de pontuação no AM do Azure.
 
@@ -772,5 +772,4 @@ Você também pode usar [Funções do Data Factory](https://msdn.microsoft.com/l
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
-<!---Line 64, delete "space", line 298, add "slash"-->
+<!---HONumber=AcomDC_0427_2016-->

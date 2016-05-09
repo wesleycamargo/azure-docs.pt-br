@@ -3,8 +3,8 @@
    description="Este artigo explica passo a passo como conectar múltiplos sites locais a uma rede virtual usando um Gateway de VPN para o modelo de implantação clássica."
    services="vpn-gateway"
    documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
+   authors="yushwang"
+   manager="rossort"
    editor=""
    tags="azure-service-management"/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/17/2015"
-   ms.author="cherylmc" />
+   ms.author="yushwang" />
 
 # Conectar vários sites locais a uma rede virtual
 
@@ -177,4 +177,4 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 
 Para saber mais sobre Gateways de VPN, confira [Sobre gateways de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

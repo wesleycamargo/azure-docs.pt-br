@@ -38,7 +38,7 @@ Conceitualmente, uma função de trabalho representa uma carga de trabalho sem e
 
 Semelhante à função de trabalho, uma função Web também representa uma carga de trabalho sem estado e, assim, conceitualmente, ele também pode ser mapeado para um serviço sem estado do Service Fabric. No entanto, diferentemente das funções Web, o Service Fabric não dá suporte a IIS. A migração de um aplicativo Web de uma função Web para um serviço sem estado requer primeiro a mudança para uma estrutura Web que pode ser auto-hospedada e não depende de IIS ou System.Web, como o ASP.NET Core 1.
 
-**Aplicativo** | **Com Suporte** | **Caminho de migração**
+****Aplicativo ** | **Com Suporte** | **Caminho de migração**
 --- | --- | ---
 Web Forms do ASP.NET | Não | Converter em MVC do ASP.NET Core 1
 ASP.NET MVC | Com migração | Atualizar para o ASP.NET Core 1
@@ -152,7 +152,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 ```
 
-#### ServiceFabric
+#### Service Fabric
 
 Cada serviço tem seu próprio pacote de configuração individual. Não há nenhum mecanismo interno para as configurações globais que possa ser acessado por todos os aplicativos em um cluster. Ao usar o arquivo de configuração especial Settings.xml do Service Fabric em um pacote de configuração, os valores em Settings.xml podem ser substituídos no nível do aplicativo, possibilitando definições de configuração no nível do aplicativo.
 
@@ -196,7 +196,7 @@ foreach (var settingChange in settingChanges)
 
 ```
 
-#### ServiceFabric
+#### Service Fabric
 
 Cada um dos três tipos de pacote em um serviço, Código, Configuração e Dados, tem eventos que notificam uma instância de serviço quando um pacote é atualizado, adicionado ou removido. Um serviço pode conter vários pacotes de cada tipo. Por exemplo, um serviço pode ter vários pacotes de configuração, cada um deles com controle de versão e atualização individuais.
 
@@ -277,4 +277,4 @@ Leia mais sobre os Reliable Services do Service Fabric e as diferenças fundamen
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

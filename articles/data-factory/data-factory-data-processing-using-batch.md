@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/05/2016"
     ms.author="spelluru"/>
 # HPC e orquestração de dados usando o Lote do Azure e o Data Factory
 
@@ -761,11 +761,11 @@ Nesta etapa, você criará um pipeline com uma atividade, a atividade personaliz
 
 	-   **AssemblyName** é definido para o nome da DLL: **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente \<namespace\>.\<classname\> em seu código.
+	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente <namespace>.<classname> em seu código.
 
 	-   **PackageLinkedService** é definido como **StorageLinkedService**, que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, terá de criar outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
 
-	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: \<contêinerdozip\>/\<nomedozip.zip\>.
+	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: <contêinerdozip>/<nomedozip.zip>.
 
 	-   A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
 
@@ -901,13 +901,13 @@ Você pode estender este exemplo para saber mais sobre os recursos de Data Facto
 
 Depois de processar dados, é possível consumi-lo com ferramentas online como o **Microsoft Power BI**. Aqui estão links para ajudá-lo a entender o Power BI e como usá-lo no Azure:
 
--   [Explorar um conjunto de dados no Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Explorar um conjunto de dados no Power BI](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-service-get-data/)
 
--   [Introdução ao Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-desktop-getting-started/)
 
--   [Atualizar dados no Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Atualizar dados no Power BI](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-refresh-data/)
 
--   [Azure e Power BI - visão geral básica](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure e Power BI - visão geral básica](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-azure-and-power-bi/)
 
 ## Referências
 
@@ -929,4 +929,4 @@ Depois de processar dados, é possível consumi-lo com ferramentas online como o
 
     -   [Introdução ao .NET da Biblioteca de Lote do Azure](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

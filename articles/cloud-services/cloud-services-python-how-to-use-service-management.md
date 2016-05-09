@@ -39,11 +39,11 @@ Para conectar-se ao ponto de extremidade do Gerenciamento de Serviços, você pr
 ### Certificados de gerenciamento no Windows/Mac/Linux (OpenSSL)
 Você também pode usar o [OpenSSL](http://www.openssl.org/) para criar o certificado de gerenciamento. Na verdade, você precisa criar dois certificados, um para o servidor (um arquivo `.cer`) e um para o cliente (um arquivo `.pem`). Para criar o arquivo `.pem`, execute isto:
 
-	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
 Para criar o certificado `.cer`, execute isto:
 
-	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 Para saber mais sobre certificados do Azure, confira [Visão geral dos Certificados de Serviços de Nuvem do Azure](./cloud-services-certs-create.md). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
@@ -435,4 +435,4 @@ Para obter mais informações, consulte o [Centro de Desenvolvedores do Python](
 
 [serviço de nuvem]: https://azure.microsoft.com/pt-BR/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

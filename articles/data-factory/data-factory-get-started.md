@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="03/07/2016"
+	ms.date="04/01/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure
@@ -91,14 +91,14 @@ Agora, prepare seu armazenamento de blob do Azure e o banco de dados SQL do Azur
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Se você tiver o SQL Server 2012/2014 instalado no computador:** siga as instruções da [Etapa 2: conectar-se ao banco de dados SQL do artigo Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio][sql-management-studio] para se conectar ao seu SQL server do Azure e executar o script SQL. Observe que este artigo usa o [Portal Clássico do Azure](http://manage.windowsazure.com), e não o [Portal do Azure](https://portal.azure.com), para configurar o firewall para um servidor SQL do Azure.
+	**Se você tiver o SQL Server 2012/2014 instalado no computador:** siga as instruções da [Etapa 2: conectar-se ao banco de dados SQL do artigo Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio][sql-management-studio] para se conectar ao seu SQL server do Azure e executar o script SQL. Observe que este artigo usa o [Portal Clássico do Azure](http://manage.windowsazure.com), e não o [Portal do Azure](https://portal.azure.com), para configurar o firewall para um SQL Server do Azure.
 
 	**Se você tiver o Visual Studio 2013 instalado no seu computador:** no [Portal do Azure](https://portal.azure.com), clique no hub **PROCURAR** à esquerda, clique em **Servidores SQL**, selecione seu banco de dados e clique no botão **Abrir no Visual Studio** na barra de ferramentas para se conectar ao servidor SQL do Azure e executar o script. Se o cliente não tiver permissão para acessar o servidor SQL do Azure, você precisará configurar o firewall para o servidor SQL do Azure permitir o acesso no seu computador (endereço IP). Consulte o artigo acima para obter as etapas para configurar o firewall para o SQL Server do Azure.
 
 
 Faça o seguinte:
 
-- Clique no link [Usando o Data Factory Editor](data-factory-get-started-using-editor.md) na parte superior para executar o tutorial usando o Data Factory Editor, que faz parte do Portal Clássico do Azure.
+- Clique no link [Usando o Editor Data Factory](data-factory-get-started-using-editor.md) na parte superior para executar o tutorial usando o Editor Data Factory, que faz parte do Portal do Azure.
 - Clique no link [Usando o PowerShell](data-factory-monitor-manage-using-powershell.md) na parte superior para executar o tutorial usando o PowerShell do Azure.
 - Clique no link [Usando o Visual Studio](data-factory-get-started-using-vs.md) link na parte superior para executar o tutorial usando o Visual Studio 2013.
 
@@ -116,4 +116,4 @@ Confira o artigo [Atividades de movimentação de dados](data-factory-data-movem
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

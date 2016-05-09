@@ -31,7 +31,7 @@ O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop,
 * [jq](https://stedolan.github.io/jq/): o jq é um utilitário de linha de comando de plataforma cruzada para trabalhar com documentos JSON. Neste documento, ele é usado para analisar os documentos JSON retornados da API REST do Ambari.
 * [CLI do Azure](../xplat-cli-install.md): um utilitário de linha de comando de plataforma cruzada usado para trabalhar com serviços do Azure.
 
-    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##<a id="whatis"></a>O que é o Ambari?
 
@@ -257,4 +257,4 @@ Para obter uma referência completa da API REST, consulte [Referência de API do
 
 > [AZURE.NOTE] Algumas funcionalidades do Ambari estão desabilitadas, já que ele é gerenciado pelo serviço de nuvem HDInsight; por exemplo, adicionar ou remover hosts do cluster ou adicionar novos serviços.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

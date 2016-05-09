@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Notas de versão do Data Factory do Azure
@@ -270,10 +270,10 @@ Você verá as listas **Fatias atualizadas recentemente** e **Fatias com falha r
 
 Clique no título das listas ou em **... (reticências)** para ver a lista maior de fatias. Clique em **Filtrar** na barra de ferramentas para filtrar as fatias.
  
-Você ainda poderá exibir fatias classificadas segundo os horários da fatia clicando no bloco **Fatias de dados (por horário da fatia)**. As fatias nessas coleções são ordenadas segundo o horário da fatia. Por exemplo, se for um agendamento por hora, as fatias serão:
-- 4/4/2015 às 17h em andamento
-- 4/4/2015 às 16h Bem-sucedida
-- 4/4/2015 15h Falhou
+Você ainda poderá exibir fatias classificadas segundo os horários da fatia clicando no bloco **Fatias de dados (por horário da fatia)**. As fatias nessas coleções são ordenadas segundo o horário da fatia. Por exemplo, se ele tiver um agendamento horário, as frações serão:
+- 4/4/2015 às 17h Em andamento 
+- 4/4/2015 às 16h Bem-sucedido
+- 4/4/2015 às 15h Falhou
 
 Porém, se uma fatia mais antiga for executada novamente, ela não aparecerá na parte superior desta lista mesmo que provavelmente seja nisso que o usuário esteja mais interessado.
 
@@ -356,4 +356,4 @@ Consulte a postagem de blog: [Atualização da Azure Data Factory - novos armaze
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

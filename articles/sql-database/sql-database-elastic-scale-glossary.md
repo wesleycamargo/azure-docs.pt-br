@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/01/2016" 
+    ms.date="04/25/2016" 
     ms.author="ddove;sidneyh"/>
 
 # Glossário de ferramentas do banco de dados elástico
@@ -90,4 +90,4 @@ Esta é uma representação de bancos de dados de único locatário e multilocat
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

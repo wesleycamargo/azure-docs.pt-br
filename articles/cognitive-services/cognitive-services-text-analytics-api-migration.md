@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
+	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -26,7 +26,7 @@ Se você nunca tiver usado a API e deseja saber mais, **[saiba mais sobre a API 
 
 Primeiro, você precisará obter uma nova chave de API no **Portal do Azure**:
 
-1. Navegue até o serviço Análise de Texto usando a [Galeria Cortana Analytics](//gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2). Aqui, você também encontrará links para a documentação e os exemplos de código.
+1. Navegue até o serviço Análise de Texto usando a [Galeria do Cortana Intelligence](//gallery.cortanaintelligence.com/MachineLearningAPI/Text-Analytics-2). Aqui, você também encontrará links para a documentação e os exemplos de código.
 
 1. Clique em **Inscreva-se**. Esse link levará você ao Portal de gerenciamento do Azure, onde é possível se inscrever para o serviço.
 
@@ -308,4 +308,4 @@ Quando a API de tópicos for concluída, um status apresentando `succeeded` ser�
 
 Agora você está pronto para seguir adiante! Teste seu código com um pequeno exemplo para garantir que você possa processar seus dados com êxito.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

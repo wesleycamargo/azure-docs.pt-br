@@ -77,11 +77,11 @@ Esse recurso tem suporte apenas para contas do Armazenamento do Azure recém-cri
 
 -   Para se registrar para o recurso, você pode usar o cmdlet do PowerShell Register-AzureRmProviderFeature.
 
-    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
-        
+    `Register-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
+
 -   Para consultar o estado de seu registro a fim de ver se a assinatura foi aprovada, use o cmdlet Get-AzureRmProviderFeature do PowerShell.
 
-    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage“`
+    `Get-AzureRmProviderFeature -FeatureName "EncryptionAtRest" -ProviderNamespace "Microsoft.Storage"`
 
 Quando o status do registro retornar como "Registrado", sua assinatura terá sido aprovada. Visite também nosso grupo de Visualização da Criptografia do Serviço de Armazenamento do Azure no Yammer.
 
@@ -225,4 +225,4 @@ R: Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@mic
 
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, visite o [Guia de segurança do armazenamento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->
