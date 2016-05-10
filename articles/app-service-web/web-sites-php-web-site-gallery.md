@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="02/08/2016"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 # Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure
+
+[AZURE.INCLUDE [guias](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Este tutorial mostra como implantar um site de blog do WordPress no Azure Marketplace.
 
@@ -32,7 +34,7 @@ O que você aprenderá:
 
 O Azure Marketplace disponibiliza uma ampla gama de aplicativos Web populares desenvolvidos pela Microsoft, por outras empresas e por iniciativas de software livre. Os aplicativos Web são criados em uma grande variedade de estruturas populares, como [PHP](/develop/nodejs/) neste exemplo do WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) e [Python](/develop/python/), para citar alguns exemplos. Para criar um aplicativo Web do Azure Marketplace, o único software necessário será o navegador que você usa para o [Portal do Azure](https://portal.azure.com/).
 
-O site do WordPress implantado neste tutorial usa o MySQL para o banco de dados. Se, em vez disso, você desejar usar o Banco de Dados SQL para o banco de dados, consulte [Project Nami](http://projectnami.org/). O **Project Nami** também está disponível por meio do Marketplace.
+O site do WordPress implantado neste tutorial usa o MySQL para o banco de dados. Se, em vez disso, você quiser usar o Banco de Dados SQL para o banco de dados, consulte [Project Nami](http://projectnami.org/). O **Project Nami** também está disponível por meio do Marketplace.
 
 > [AZURE.NOTE]
 Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](/pt-BR/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -126,4 +128,4 @@ Para obter mais informações sobre como trabalhar com aplicativos Web do Servi�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

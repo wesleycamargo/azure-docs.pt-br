@@ -19,7 +19,7 @@ Para saber mais sobre como trabalhar com redes virtuais, confira a [Visão geral
 
 5. Verifique se a **Assinatura** é a correta. Você pode alterar as assinaturas usando o menu suspenso.
 
-6. Clique em **Grupo de recursos** e selecione um grupo de recursos existente, ou crie um novo digitando um nome para seu novo grupo de recursos. Se você estiver criando um novo grupo, dê o nome do grupo de recursos de acordo com seus valores de configuração planejados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md/#resource-groups).
+6. Clique em **Grupo de recursos** e selecione um grupo de recursos existente, ou crie um novo digitando um nome para seu novo grupo de recursos. Se você estiver criando um novo grupo, dê o nome do grupo de recursos de acordo com seus valores de configuração planejados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md#resource-groups).
 
 7. Em seguida, selecione as configurações de **Local** para sua rede virtual. Observe que o local determinará onde ficarão os recursos que você implanta para essa rede virtual. Você não pode alterar isso posteriormente sem reimplantar seus recursos.
 
@@ -32,4 +32,4 @@ Para saber mais sobre como trabalhar com redes virtuais, confira a [Visão geral
 
 	![Criar bloco de rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

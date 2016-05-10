@@ -12,18 +12,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="04/29/2016"
    ms.author="alkohli" />
 
-# Implantar e gerenciar um dispositivo virtual do StorSimple no Azure (Atualização 2)
+# Implantar e gerenciar um dispositivo virtual StorSimple no Azure
 
-> [AZURE.SELECTOR]
-- [Atualização 2](../articles/storsimple/storsimple-virtual-device-u2.md)
-- [Atualização 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [Versão de GA](../articles/storsimple/storsimple-virtual-device.md)
 
 ##Visão geral
-O dispositivo virtual StorSimple é um recurso adicional que acompanha a sua solução Microsoft Azure StorSimple. O dispositivo virtual StorSimple é executado em uma máquina virtual em uma rede virtual do Microsoft Azure e você pode usá-lo para fazer backup e clonar dados de seus hosts.
+O dispositivo virtual StorSimple série 8000 é um recurso adicional que acompanha a sua solução Microsoft Azure StorSimple. O dispositivo virtual StorSimple é executado em uma máquina virtual em uma rede virtual do Microsoft Azure e você pode usá-lo para fazer backup e clonar dados de seus hosts. Este tutorial descreve como implantar e gerenciar um dispositivo virtual no Azure e é aplicável a todos os dispositivos virtuais executando a versão do software Update 2 e inferior.
 
 
 #### Comparação do modelo de dispositivo virtual
@@ -34,13 +30,15 @@ O dispositivo virtual StorSimple está disponível em dois modelos, um padrão 8
 | Modelo do dispositivo | 8010<sup>1</sup> | 8020 |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Capacidade máxima** | 30 TB | 64 TB |
-| **VM do Azure** | Standard\_A3 (4 núcleos, 7 GB de memória) | Standard\_DS3 (4 núcleos, 14 GB de memória) |
+| **VM do Azure** | Standard_A3 (4 núcleos, 7 GB de memória) | Standard_DS3 (4 núcleos, 14 GB de memória) |
 | **Compatibilidade de versão** | Versões com pré-Atualização 2 ou posterior | Versões com Atualização 2 ou posterior |
 | **Disponibilidade de região** | Todas as regiões do Azure | Regiões do Azure que dão suporte ao Armazenamento Premium<br></br>Para obter uma lista de regiões, veja [regiões com suporte para 8020](#supported-regions-for-8020) |
-| **Tipo de armazenamento** | Usa o Armazenamento do Azure Standard<br></br> Saiba como [criar uma conta de Armazenamento Standard]() | Usa o Armazenamento do Azure Premium<br></br>Saiba como [criar uma conta de Armazenamento Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
-| **Diretrizes sobre carga de trabalho** | Recuperação no nível de item de arquivos de backups | Cenários de desenvolvimento e teste na nuvem, baixa latência, cargas de trabalho de maior desempenho <br></br>Dispositivo secundário para recuperação de desastre |
+| **Tipo de armazenamento** | Usa o Armazenamento Standard do Azure para discos locais<br></br> Saiba como [criar uma conta de Armazenamento Standard]() | Usa o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br>Saiba como [criar uma conta de Armazenamento Premium](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Diretrizes sobre carga de trabalho** | Recuperação no nível de item de arquivos de backups | Cenários de desenvolvimento e teste na nuvem, baixa latência, cargas de trabalho de desempenho mais altas <br></br>Dispositivo secundário para recuperação de desastre |
  
 <sup>1</sup> *Conhecido anteriormente como 1100*.
+
+<sup>2</sup> *O 8010 e o 8020 usam o Armazenamento Standard do Azure para a camada de nuvem. A diferença existe apenas na camada de local do dispositivo*.
 
 #### Regiões com suporte para 8020
 
@@ -100,7 +98,7 @@ As seções a seguir explicam os pré-requisitos de configuração para o dispos
 
 Antes de provisionar o dispositivo virtual, você precisará fazer as seguintes preparações no seu ambiente do Azure:
 
-- Para o dispositivo virtual, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se usar o Armazenamento Premium, você deve criar uma rede virtual em uma região do Azure que dá suporte ao Armazenamento Premium. Para obter mais informações sobre [regiões que atualmente têm suporte para 8020](#supported-regions-for-8020).
+- Para o dispositivo virtual, [configure uma rede virtual no Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Se usar o Armazenamento Premium, você deve criar uma rede virtual em uma região do Azure que dá suporte ao Armazenamento Premium. Para saber mais sobre [regiões que atualmente têm suporte para 8020](#supported-regions-for-8020).
 - É aconselhável utilizar o servidor DNS padrão fornecido pelo Azure em vez de especificar o nome do seu próprio servidor DNS. Se o nome do servidor DNS não for válido ou se o servidor DNS não conseguir resolver endereços IP corretamente, a criação do dispositivo virtual falhará.
 - Ponto a site e site a site são opcionais, mas não obrigatórios. Se desejar, você pode configurar essas opções para cenários mais avançados. 
 - É possível criar [Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-linux-about.md) (servidores de host) na rede virtual que podem usar os volumes expostos pelo dispositivo virtual. Esses servidores devem atender aos seguintes requisitos: 							
@@ -268,7 +266,7 @@ Para obter um procedimento passo a passo, vá para [executar failover para um di
 
 Se você configurou previamente e usou um dispositivo virtual StorSimple, mas agora deseja parar de acumular encargos de computação para seu uso, poderá desligar o dispositivo virtual. Desligar o dispositivo virtual não exclui seu sistema operacional ou os discos de dados do armazenamento. Isso para o acúmulo de encargos em sua assinatura, mas os encargos de armazenamento para os discos de sistema operacional e de dados continuarão.
 
-Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativar ou excluir o dispositivo se também desejar excluir os backups criados pelo dispositivo virtual. Para obter mais informações, veja [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativar ou excluir o dispositivo se também desejar excluir os backups criados pelo dispositivo virtual. Para saber mais, confira [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 [AZURE.INCLUDE [Desligar um dispositivo virtual](../../includes/storsimple-shutdown-virtual-device.md)]
 
@@ -282,4 +280,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
  
 - Entenda como [restaurar um volume do StorSimple de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

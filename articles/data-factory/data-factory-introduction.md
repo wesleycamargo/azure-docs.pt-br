@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/09/2016" 
+	ms.date="04/26/2016" 
 	ms.author="spelluru"/>
 
 # Introdução ao serviço de Fábrica de Dados do Azure
@@ -69,4 +69,4 @@ Por exemplo, digamos que seu(s) ambiente(s) de computação, como o cluster Azur
 No futuro, pretendemos ter o Azure Data Factory em todas as regiões com suporte do Azure.
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

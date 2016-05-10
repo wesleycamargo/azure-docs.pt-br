@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-e-iot](../../includes/iot-azure-and-iot.md)]
@@ -24,6 +24,7 @@ O Hub IoT do Azure é um serviço do Azure que permite comunicações bidirecion
 
 - [O que é o Hub IoT?][lnk-iot-hub]
 - [Introdução ao Hub IoT][lnk-getstarted]
+- [Visão geral do gerenciamento de dispositivos do Hub IoT do Azure][lnk-device-management]
 
 Para implementar aplicativos cliente em uma grande variedade de sistemas operacionais e plataformas de hardware do dispositivo, você pode usar os SDKs do dispositivo IoT. Os SDKs do dispositivo IoT incluem bibliotecas que facilitam o envio de telemetria para um hub IoT e o recebimento de comandos da nuvem para o dispositivo. Ao usar os SDKs, você poderá escolher entre vários protocolos de rede para comunicar-se com o Hub IoT. Para saber mais, confira as [informações sobre SDKs de dispositivo][lnk-device-sdks].
 
@@ -34,5 +35,6 @@ Você também pode se interessar pelo [Azure IoT Suite][lnk-iot-suite], que é u
 [lnk-iot-hub]: iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
+[lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/19/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Visão Geral Técnica da Rota Expressa
@@ -134,4 +134,4 @@ Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos mod
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->
