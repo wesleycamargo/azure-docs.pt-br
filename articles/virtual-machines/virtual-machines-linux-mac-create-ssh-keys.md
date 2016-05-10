@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/12/2016"
+	ms.date="05/02/2016"
 	ms.author="v-livech"/>
 
 # Criar chaves SSH no Linux e Mac para VMs do Linux no Azure
@@ -26,27 +26,40 @@ Para criar uma chave SSH pública e privada protegida por senha, você precisa d
 Nos exemplos de comandos a seguir, substitua os valores entre &lt; e &gt; pelos valores de seu próprio ambiente.
 
 ```bash
-[ahmet@fedora ~]$ ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
+ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
+```
 
-#Enter the name of the file that will be saved in the `~/.ssh/` directory.
+Insira o nome do arquivo que será salvo no diretório `~/.ssh/`:
+
+```bash
 <azure_fedora_id_rsa>
+```
 
-#Enter passphrase for azure_fedora_id_rsa:
+Insira a senha para azure\_fedora\_id\_rsa:
+
+```bash
 <correct horse battery staple>
+```
 
-#Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
-[ahmet@fedora ~]$ eval "$(ssh-agent -s)"
-[ahmet@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
+Adicione a chave recém-criada para `ssh-agent` no Linux e Mac (também é adicionada ao Conjunto de chaves OSX):
 
-#Copy the SSH public key to your Linux Server.
-[ahmet@fedora ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/azure_fedora_id_rsa
+```
 
-#Test the login using keys instead of a password.
-[ahmet@fedora ~]$ ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+Copie a chave pública SSH em seu Servidor Linux:
 
+```bash
+ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+```
+
+Teste o logon usando chaves em vez de uma senha:
+
+```bash
+ssh -o PreferredAuthentications=publickey -o PubkeyAuthentication=yes -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
 Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
-[ahmet@fedora ~]$
-
+$
 ```
 
 ## Introdução
@@ -61,28 +74,30 @@ Este artigo cria arquivos de chave com o formato *ssh-rsa*, pois são recomendad
 
 O Azure requer chaves públicas e privadas de pelo menos 2048 bits em formato ssh-rsa. Para criar o par, usaremos `ssh-keygen`, que faz uma série de perguntas, em seguida, grava uma chave privada e uma chave pública correspondente. Ao criar a VM do Azure, você passa o conteúdo de chave pública, que é copiado para a VM do Linux e é usado com sua chave privada local e armazenado com segurança para autenticá-lo quando você faz logon.
 
-### Usando `ssh-keygen`
+## Usando ssh-keygen
 
 Esse comando cria um par de chaves SSH protegido por senha usando o RSA de 2048 bits e será comentado para identificá-lo facilmente.
 
-```
-ahmet@fedora$ ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
+```bash
+ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
 ```
 
-##### Comando explicado
+_Comando explicado_
 
 `ssh-keygen` = programa usado para criar as chaves
 
-`-t rsa` = tipo de chave a ser criada, que é o [formato RSA] (https://en.wikipedia.org/wiki/RSA_(cryptosystem))
+`-t rsa` = tipo de chave a ser criada, que é o [formato RSA] (https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 
 `-b 2048` = bits da chave
 
 `-C "ahmet@fedoraVMAzure"` = um comentário acrescentado ao fim do arquivo de chave pública para identificá-lo facilmente. Normalmente, um email é usado como o comentário, mas você pode usar o que funcionar melhor para sua infraestrutura.
 
-#### Guia passo a passo do `ssh-keygen`
+## Instruções passo a passo para o ssh-keygen
+
+Cada etapa é explicada com detalhes. Comece executando `ssh-keygen`.
 
 ```bash
-ahmet@fedora$ ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
+ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa
 Enter passphrase (empty for no passphrase):
@@ -103,17 +118,26 @@ The key's randomart image is:
 |       o +       |
 |        .        |
 +-----------------+
+```
 
+Arquivos de chave salvos:
+
+`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`
+
+O nome do par de chaves para este artigo. Ter um par de chaves denominado **id\_rsa** é o padrão e algumas ferramentas podem esperar o nome de arquivo da chave privada **id\_rsa**, portanto, ter um é uma boa ideia. (`~/.ssh/` é o local padrão típico para todos os pares de chaves SSH e o arquivo de configuração do SSH.)
+
+```bash
 ahmet@fedora$ ls -al ~/.ssh
 -rw------- 1 ahmet staff  1675 Aug 25 18:04 azure_fedora_id_rsa
 -rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
+Isso mostra os novos pares de chave e suas permissões. O `ssh-keygen` criará o diretório `~/.ssh`, se ele não existir e também definirá os modos de propriedade e arquivo corretos.
 
-`Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa` O nome do par de chaves para este artigo. Ter um par de chaves denominado **id\_rsa** é o padrão e algumas ferramentas podem esperar o nome de arquivo da chave privada **id\_rsa**, portanto, ter um é uma boa ideia. (`~/.ssh/` é o local padrão típico para todos os pares de chaves SSH e o arquivo de configuração do SSH.)
+Senha da chave:
 
-`Enter passphrase (empty for no passphrase):` Recomenda-se adicionar uma senha (o `ssh-keygen` chama isso de "frase-chave") a seus pares de chave. Sem uma senha para proteger o par de chaves, qualquer pessoa com uma cópia do arquivo da chave privada pode usá-lo para fazer logon em qualquer servidor (ou em seus servidores) com a chave pública correspondente. Portanto, adicionar uma senha oferece muito mais proteção no caso de alguém obter acesso a seu arquivo de chave privada, dando-lhe tempo para alterar as chaves usadas para autenticá-lo.
+`Enter passphrase (empty for no passphrase):`
 
-`ahmet@fedora$ ls -al ~/.ssh` Isso mostra os novos pares de chave e suas permissões. O `ssh-keygen` criará o diretório `~/.ssh`, se ele não existir e também definirá os modos de propriedade e arquivo corretos.
+Recomendamos adicionar uma senha (o `ssh-keygen` chama isso de "passphrase") a seus pares de chave. Sem uma senha para proteger o par de chaves, qualquer pessoa com uma cópia do arquivo da chave privada pode usá-lo para fazer logon em qualquer servidor (ou em seus servidores) com a chave pública correspondente. Portanto, adicionar uma senha oferece muito mais proteção no caso de alguém obter acesso a seu arquivo de chave privada, dando-lhe tempo para alterar as chaves usadas para autenticá-lo.
 
 ## Usando ssh-agent para armazenar sua senha de chave privada
 
@@ -121,11 +145,15 @@ Para evitar a digitação da senha do arquivo de chave privada em cada logon do 
 
 Primeiro, verifique se `ssh-agent` está em execução
 
-`[ahmet@fedora ~]$ eval "$(ssh-agent -s)"`
+```bash
+eval "$(ssh-agent -s)"
+```
 
 Agora, adicione a chave privada a `ssh-agent` usando o comando `ssh-add`, novamente no OSX isso iniciará o conjunto de chaves que armazenará as credenciais.
 
-`[ahmet@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa`
+```bash
+ssh-add ~/.ssh/azure_fedora_id_rsa
+```
 
 A senha da chave privada agora é armazenada para que você não precise digitar a senha da chave a cada logon do SSH.
 
@@ -138,33 +166,25 @@ O exemplo a seguir mostra uma configuração padrão.
 ### Criar o arquivo
 
 ```bash
-ahmet@fedora$ touch ~/.ssh/config
+touch ~/.ssh/config
 ```
 
-### Editar o arquivo para adicionar a nova configuração de SSH
+### Edite o arquivo a fim de adicionar a nova configuração de SSH:
 
 ```bash
-ahmet@fedora$ vim ~/.ssh/config
+vim ~/.ssh/config
+```
 
-#Azure Keys
+### Exemplo de arquivo `~/.ssh/config`:
+
+```bash
+# Azure Keys
 Host fedora22
   Hostname 102.160.203.241
   User ahmet
   PubkeyAuthentication yes
   IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa
 # ./Azure Keys
-# GitHub keys
-Host github.com
-  Hostname github.com
-  User git
-  PubKeyAuthentication yes
-  IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa
-Host github.private
-  Hostname github.com
-  User git
-  PubKeyAuthentication yes
-  IdentityFile /home/ahmet/.ssh/private_repo_azure_fedora_id_rsa
-# ./Github Keys
 # Default Settings
 Host *
   PubkeyAuthentication=no
@@ -179,10 +199,10 @@ Host *
   UseRoaming=no
 ```
 
-Essa configuração de SSH fornece seções para cada serviço para habilitar cada um deles com seu próprio par de chaves dedicado. As configurações padrão são para os hosts nos quais você estiver conectado e que não corresponderem a nenhum dos grupos acima. A configuração do SSH também permite ter dois logons separados do [GitHub](https://github.com), um para o trabalho público e outro para os repositórios privados que podem ser comuns em seu trabalho.
+Essa configuração de SSH fornece seções para cada serviço para habilitar cada um deles com seu próprio par de chaves dedicado. As configurações padrão são para os hosts nos quais você estiver conectado e que não corresponderem a nenhum dos grupos acima.
 
 
-##### Arquivo de configuração explicado
+### Arquivo de configuração explicado
 
 `Host` = o nome do host sendo chamado no terminal. `ssh fedora22` instrui `SSH` para usar os valores no bloco de configurações rotulado como `Host fedora22` OBSERVAÇÃO: pode ser qualquer rótulo lógico para o uso e não representa o nome de host real de qualquer servidor.
 
@@ -195,22 +215,24 @@ Essa configuração de SSH fornece seções para cada serviço para habilitar ca
 `IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa` = informa ao SSH qual par de chaves deve ser apresentado ao servidor para autenticar o logon.
 
 
-## SSH em uma VM do Linux sem uma senha
+## SSH no Linux sem uma senha
 
 Agora que tem um par de chaves SSH e um arquivo de configuração do SSH configurado, você pode fazer logon na VM do Linux de forma rápida e segura. Na primeira vez que você fizer logon em um servidor usando uma chave SSH, o comando solicitará a senha para esse arquivo de chave.
 
-`ahmet@fedora$ ssh fedora22`
+```bash
+ssh fedora22
+```
 
-##### Comando explicado
+### Comando explicado
 
-Quando `ahmet@fedora$ ssh fedora22` é executado, primeiro o SSH localiza e carrega todas as configurações do bloco `Host fedora22`, em seguida, carrega todas as configurações restantes a partir do último bloco, `Host *`.
+Quando `ssh fedora22` é executado, primeiro o SSH localiza e carrega todas as configurações do bloco `Host fedora22`, em seguida, carrega todas as configurações restantes a partir do último bloco, `Host *`.
 
 ## Próximas etapas
 
-Agora, você pode usar os arquivos de chave SSH para:
+A próxima etapa é criar VMs do Linux do Azure usando a nova chave pública SSH. As VMs do Azure criadas com uma chave pública SSH como o logon estão mais protegidas do que aqueles criadas com as senhas do método de logon padrão. As VMs do Azure que usam chaves SSH para logon são, por padrão, configuradas para desabilitar os logons com senha, evitando a quebra de força bruta nas tentativas.
 
 - [Criar uma VM Linux segura usando um modelo do Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Criar uma VM Linux segura usando o Portal do Azure](virtual-machines-linux-quick-create-portal.md)
 - [Criar uma VM Linux segura usando a CLI do Azure](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/13/2016"
+	ms.date="05/03/2016"
 	ms.author="carlrab"/>
 
 # Tutorial do Banco de Dados SQL: criar contas de usuário do Banco de Dados SQL para acessar e gerenciar um banco de dados usando o Portal do Azure
@@ -29,15 +29,20 @@ Neste tutorial, você aprenderá a usar o portal do Azure para:
 
 [AZURE.INCLUDE [Logon](../../includes/azure-getting-started-portal-login.md)]
 
+
 [AZURE.INCLUDE [Criar um servidor lógico do Banco de Dados SQL](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
+
 
 [AZURE.INCLUDE [Criar Banco de Dados SQL](../../includes/sql-database-create-new-database-user.md)]
 
+
 [AZURE.INCLUDE [Criar Banco de Dados SQL](../../includes/sql-database-grant-database-user-dbo-permissions.md)]
 
+
 [AZURE.INCLUDE [Criar Banco de Dados SQL](../../includes/sql-database-sql-server-management-studio-connect-user.md)]
+
 
 ## Próximas etapas
 Agora que você concluiu este tutorial do Banco de Dados SQL, criou uma conta de usuário e atribuiu permissões de dbo à conta do usuário, você está pronto para saber mais sobre [Segurança do Banco de Dados SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

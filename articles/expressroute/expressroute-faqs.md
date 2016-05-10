@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/12/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # Perguntas Frequentes sobre Rota Expressa
@@ -86,7 +86,7 @@ Sim. Cada circuito da Rota Expressa tem um par redundante de conexões cruzadas 
 ### Eu perderei a conectividade se um dos meus links de Rota Expressa falhar?
 Você não perderá conectividade se uma das conexões cruzadas falhar. Uma conexão redundante estará disponível para dar suporte à carga de sua rede. Além disso, você pode criar vários circuitos em um local de emparelhamento diferente para obter resiliência a falhas.
 
-### Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft? 
+### <a name="onep2plink"></a>Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft? 
 Não, você só precisará de uma conexão física se seu provedor de serviços puder estabelecer dois circuitos virtuais de Ethernet por meio da conexão física. A conexão física (por exemplo, uma fibra óptica) será encerrada em um dispositivo de camada 1 (L1) (confira a imagem abaixo). Os dois circuitos virtuais de Ethernet estão marcados com IDs de VLAN diferentes, uma para o circuito primário e outra para o secundário. As IDs de VLAN estão no cabeçalho de Ethernet 802.1Q exterior. O cabeçalho de Ethernet 802.1Q interior (não mostrado) é mapeado para um [domínio de roteamento de Rota Expressa](expressroute-circuit-peerings.md) específico.
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
@@ -149,9 +149,7 @@ Você deve estabelecer um circuito de Rota Expressa e configurar rotas para empa
 Sim. Aceitamos até 4.000 prefixos de rota para emparelhamento privado e 200 para cada emparelhamento público e da Microsoft. Você poderá aumentar esse limite para 10.000 rotas para emparelhamento privado se habilitar o recurso premium da Rota Expressa.
 
 ### Há restrições de intervalos de endereços IP que posso anunciar durante a sessão BGP?
-Prefixos anunciados via BGP devem ser /29 ou maiores (/28 a /8).
-
-Filtraremos prefixos privados (RFC1918) na sessão BGP de emparelhamento público.
+Não aceitamos prefixos privados (RFC1918) na sessão BGP de emparelhamento público.
 
 ### O que acontece se eu exceder os limites de BGP?
 As sessões BGP serão interrompidas. Elas serão redefinidas quando a contagem de prefixos voltar a ficar abaixo do limite.
@@ -247,4 +245,4 @@ Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para o
 ### Posso acessar o Office 365 pela Internet mesmo se a Rota Expressa foi configurada para minha organização?
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

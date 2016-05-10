@@ -325,4 +325,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0406_2016--->
+<!----HONumber=AcomDC_0406_2016--->

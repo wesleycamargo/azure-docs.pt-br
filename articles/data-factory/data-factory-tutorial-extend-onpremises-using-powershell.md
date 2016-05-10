@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 
@@ -38,7 +38,7 @@ Neste tutorial, você realizará as seguintes etapas:
 2. [Criar um serviço vinculado do SQL Server](#create-sql-server-linked-service). Nesta etapa, você primeiro cria um banco de dados e uma tabela no computador local do SQL Server e, em seguida, cria o serviço vinculado: **OnPremSqlLinkedService**.
 3. [Criar um conjunto de dados e um pipeline](#create-dataset-and-pipeline). Nesta etapa, você criará uma tabela **MarketingCampaignEffectivenessOnPremSQLTable** e um pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Monitorar o pipeline](#monitor-pipeline). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal Clássico do Azure.
+4. [Monitorar o pipeline](#monitor-pipeline). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal do Azure.
 
 
 ## Criar um Gateway de Gerenciamento de Dados
@@ -170,4 +170,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

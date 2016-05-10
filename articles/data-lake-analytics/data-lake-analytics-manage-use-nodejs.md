@@ -3,7 +3,7 @@
    description="Saiba como gerenciar contas, fontes de dados, trabalhos e usuários da Análise Data Lake usando o SDK do Azure para Node.js"
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/21/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Gerenciar a Análise Azure Data Lake usando o SDK do Azure para Node.js
 
@@ -143,4 +143,4 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 - [Microsoft Azure SDK para Node.js](https://github.com/azure/azure-sdk-for-node)
 - [SDK do Microsoft Azure para Node.js - Gerenciamento do Repositório Data Lake](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

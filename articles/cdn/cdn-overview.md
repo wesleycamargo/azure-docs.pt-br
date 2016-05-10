@@ -48,7 +48,7 @@ Os benefícios do uso da CDN para armazenar em cache dados do Azure incluem:
 
 A camada CDN Standard inclui os seguintes recursos:
 
-- Fácil integração com serviços do Azure como [Armazenamento](cdn-create-a-storage-account-with-cdn.md), [Serviços de Nuvem](cdn-cloud-service-with-cdn.md), Aplicativos Web e [Serviços de Mídia](../media-services/media-services-manage-origins.md#enable_cdn)
+- Fácil integração com os serviços do Azure, como [Armazenamento](cdn-create-a-storage-account-with-cdn.md), [Serviços de Nuvem](cdn-cloud-service-with-cdn.md), [Aplicativos Web](../app-service-web/cdn-websites-with-cdn.md) e [Serviços de Mídia](../media-services/media-services-manage-origins.md#enable_cdn)
 - Suporte para HTTPS
 - Balanceamento de carga
 - Proteção DDOS
@@ -71,10 +71,10 @@ A camada CDN Premium inclui todos os recursos da camada Standard, além desses r
 
 ## Próximas etapas
 
-Para começar a usar a CDN, confira [Uso da CDN do Azure](./cdn-create-new-endpoint.md).
+Para começar a usar a CDN, consulte [Usando a CDN do Azure](./cdn-create-new-endpoint.md).
 
 Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN por meio do [Portal do Microsoft Azure](https://portal.azure.com).
 
-Para ver a CDN em ação, confira o [vídeo da sessão Build 2016](../../videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Para ver a CDN em ação, confira o [vídeo da sessão Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

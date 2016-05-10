@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="05/03/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
@@ -154,11 +154,11 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba mais sobre a [ca
 
 <!--Article references-->
 [carga de trabalho do data warehouse]: ./sql-data-warehouse-overview-workload.md
-[dados de exemplo]: ./sql-data-warehouse-get-started-load-samples.md
+[dados de exemplo]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [provisionar]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

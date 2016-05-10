@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="04/20/2016" 
 	ms.author="sdanie"/>
 
 # Perguntas frequentes sobre Cache Redis do Azure
@@ -233,7 +233,7 @@ Não há nenhum emulador local para o Cache Redis do Azure, mas é possível exe
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
 		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
-	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	    return ConnectionMultiplexer.Connect("127.0.0.1:6379");
 	});
 	
 	public static ConnectionMultiplexer Connection
@@ -285,4 +285,4 @@ Para saber mais sobre como começar a usar o Cache Redis do Azure, confira [Como
 
 [configuração "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

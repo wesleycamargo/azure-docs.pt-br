@@ -92,7 +92,7 @@ Use o [portal clássico do Azure](https://manage.windowsazure.com) para realizar
 
 - Criar uma conta de armazenamento do Azure
 
-	>[AZURE.NOTE]Anote também sua ID de assinatura do Azure, que será necessária posteriormente. Encontre-a nas informações sobre sua conta do Azure [](https://account.windowsazure.com/Subscriptions).
+	>[AZURE.NOTE]Anote também sua ID de assinatura do Azure, que será necessária posteriormente. Encontre-a nas [informações sobre sua conta do Azure](https://account.windowsazure.com/Subscriptions).
 
 ### Carregue o certificado de gerenciamento padrão
 O HPC Pack instala um certificado autoassinado no nó de cabeça, chamado de Certificado de gerenciamento padrão de HPC no Azure da Microsoft, que pode ser carregado como um certificado de gerenciamento do Azure. Este certificado é fornecido para implantações de prova de conceito e fins de teste.
@@ -349,4 +349,4 @@ Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças d
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->

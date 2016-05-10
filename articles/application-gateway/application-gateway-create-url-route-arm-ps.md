@@ -173,7 +173,7 @@ O exemplo a seguir cria duas regras: uma para o tráfego do caminho de roteament
     
 	$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
 
-	$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting01
+	$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
 
 A configuração de mapa do caminho de regra também configura um pool de endereços de back-end padrão se o caminho não corresponder a nenhuma das regras de caminho predefinidas.
 
@@ -196,4 +196,4 @@ Crie um gateway de aplicativo com todos os objetos de configuração das etapas 
 ## Obter um Application Gateway
 	$getgw =  Get-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

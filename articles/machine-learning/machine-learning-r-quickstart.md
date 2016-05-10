@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/22/2016"
 	ms.author="larryfr"/>
 
 # Tutorial de início rápido para a linguagem de programação R para o Aprendizado de Máquina do Azure
@@ -198,7 +198,7 @@ Agora seu teste deve ser similar a Figura 3.
 
 ####Verificar os dados
 
-Vamos dar uma olhada nos dados que carregou em nosso teste. No teste, clique duas vezes na saída do **conjunto de dados cadairydata.csv ** e selecione **visualizar**. Você deve ver algo semelhante à Figura 4.
+Vamos dar uma olhada nos dados que carregou em nosso teste. No teste, clique duas vezes na saída do **conjunto de dados cadairydata.csv** e selecione **visualizar**. Você deve ver algo semelhante à Figura 4.
 
 ![Resumo do conjunto de dados cadairydata.csv][4]
 
@@ -655,7 +655,7 @@ O código R completo para esta seção está disponível no arquivo zip baixado 
 
 Como já mencionado, as série de tempo são uma série de valores de dados indexados por tempo. Objetos de série de tempo R são usados para criar e gerenciar o índice de tempo. Há diversas vantagens em usar objetos de série de tempo. Os objetos de série temporal evitam que você tenha que lidar com os vários detalhes do gerenciamento dos valores de índice da série temporal que são encapsulados no objeto. Além disso, os objetos de série de tempo permitem que você use vários métodos de série de tempo para plotar, imprimir, modelar etc.
 
-A classe de série de tempo POSIXct é comumente usada e é relativamente simples. Essa classe de série de tempo mede o tempo a partir do início da época, 1º de janeiro de 1970. Vamos usar objetos de série de tempo POSIXct neste exemplo. Outras classes de objeto de série temporal de R amplamente utilizados incluem zoo e xts, série temporal extensível. 
+A classe de série de tempo POSIXct é comumente usada e é relativamente simples. Essa classe de série de tempo mede o tempo a partir do início da época, 1º de janeiro de 1970. Vamos usar objetos de série de tempo POSIXct neste exemplo. Outras classes de objeto de série de tempo amplamente utilizados em R incluem zoo e xts, série temporal extensível.
 <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Exemplo de objeto de série temporal
@@ -900,7 +900,7 @@ O código a seguir extrai os valores de intervalo da lista de objetos ccf, que t
 
 	df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
 
-	c.names <- c("-1 lag", "0 lag", "+1 lag")
+	c.names <- c("correlation pair", "-1 lag", "0 lag", "+1 lag")
 	r.names  <- c("Corr Cot Cheese - Ice Cream",
 	              "Corr Cot Cheese - Milk Prod",
 	              "Corr Cot Cheese - Fat Price",
@@ -1358,4 +1358,4 @@ Alguns ótimos recursos na Internet:
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -14,23 +14,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/01/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 # Análise de log para o Balanceador de Carga do Azure (Preview)
 Você pode usar diferentes tipos de log no Azure para gerenciar e solucionar problemas de balanceadores de carga. Alguns desses logs podem ser acessados por meio do portal, e todos os logs podem ser extraídos de um armazenamento de blob do Azure e exibidos em diferentes ferramentas, como o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
 
 
-- **Logs de auditoria:** você pode usar os [Logs de Auditoria do Azure](insights-debugging-with-events.md) (anteriormente conhecidos como Logs Operacionais) para exibir todas as operações que estão sendo enviadas à(s) sua(s) assinatura(s) do Azure, bem como seu status. Os logs de auditoria são habilitados por padrão e podem ser exibidos no portal do Azure.
+- **Logs de auditoria:** você pode usar os [Logs de Auditoria do Azure](../../articles/azure-portal/insights-debugging-with-events.md) (anteriormente conhecidos como Logs Operacionais) para exibir todas as operações que estão sendo enviadas à(s) sua(s) assinatura(s) do Azure, bem como seu status. Os logs de auditoria são habilitados por padrão e podem ser exibidos no portal do Azure.
 - **Logs de eventos de alerta:** você pode usar esse log para ver quais alertas foram gerados para o balanceador de carga. O status do balanceador de carga é coletado a cada cinco minutos. Esse log será gravado somente se um evento de alerta do balanceador de carga for gerado.  
 - **Logs de investigação de integridade:** você pode usar esse log para verificar o status da verificação da integridade de investigação, quantas instâncias estão online no back-end do balanceador de carga e a porcentagem de máquinas virtuais que está recebendo tráfego da rede do balanceador de carga. Esse log é gravado na alteração do evento de status da investigação.
 
->[AZURE.WARNING] Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para obter uma melhor compreensão dos dois modelos, consulte o artigo [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md). <BR> Atualmente, a análise de log funciona somente para balanceadores de carga voltados para a Internet. Essa limitação é temporária e pode mudar a qualquer momento. Certifique-se de visitar novamente esta página para verificar as alterações futuras.
+>[AZURE.WARNING] Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para obter uma melhor compreensão dos dois modelos, consulte o artigo [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../../articles/resource-manager-deployment-model.md). <BR> Atualmente, a análise de log funciona somente para balanceadores de carga voltados para a Internet. Essa limitação é temporária e pode mudar a qualquer momento. Certifique-se de visitar novamente esta página para verificar as alterações futuras.
 
 ## Habilitar o registro em log
 O log de auditoria é sempre habilitado automaticamente para todos os recursos do Gerenciador de Recursos. Você precisa habilitar o registro em log da investigação de integridade e de eventos para começar a coletar os dados disponíveis por meio desses logs. Para habilitar os logs, siga as etapas abaixo.
 
-Entre no [portal do Azure](http://portal.azure.com). Se você ainda não tiver um balanceador de carga [crie um](load-balancer-internet-arm-ps.md) antes de continuar.
+Entre no [portal do Azure](http://portal.azure.com). Se você ainda não tiver um balanceador de carga, [crie um](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
 
 No portal, clique em **Procurar** >> **Balanceadores de Carga**.
 
@@ -49,7 +49,7 @@ Na lista suspensa, logo abaixo de **Conta de Armazenamento**, escolha se deseja 
 >[AZURE.INFORMATION] Os logs de auditoria não exigem uma conta de armazenamento separada. O uso do armazenamento para registro em log de eventos e da investigação de integridade incorrerá em cobranças de serviço.
 
 ## Log de auditoria
-Por padrão, esse log (anteriormente conhecido como "log operacional") é gerado pelo Azure. Os logs são preservados por 90 dias no repositório de Logs de Eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir logs de eventos e de auditoria](insights-debugging-with-events.md).
+Por padrão, esse log (anteriormente conhecido como "log operacional") é gerado pelo Azure. Os logs são preservados por 90 dias no repositório de Logs de Eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir logs de eventos e de auditoria](../../articles/azure-portal/insights-debugging-with-events.md).
 
 ## Log de eventos de alerta
 Esse log só será gerado se você o tiver habilitado para cada balanceador de carga, conforme detalhado acima. Os dados são armazenados na conta de armazenamento especificada quando você habilitou o registro em log. As informações são registradas no formato JSON, conforme pode ser visto abaixo.
@@ -115,8 +115,8 @@ A saída JSON mostra no campo de propriedades as informações básicas do statu
 ## Exibir e analisar o log de auditoria
 Você pode exibir e analisar dados do log de auditoria usando qualquer um dos seguintes métodos:
 
-- **Ferramentas do azure:** recupere informações dos logs de auditoria por meio do Azure PowerShell, a CLI (Interface de Linha de Comando) do Azure, a API REST do Azure ou o portal de visualização do Azure. Instruções passo a passo para cada método são detalhadas no artigo [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
-- **Power BI:** se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), você poderá testá-lo gratuitamente. Usando o [Pacote de conteúdo dos Logs de Auditoria do Azure para Power BI](https://support.powerbi.com/knowledgebase/articles/742695), você pode analisar seus dados com painéis pré-configurados que você pode usar como estão ou personalizar.
+- **Ferramentas do azure:** recupere informações dos logs de auditoria por meio do Azure PowerShell, a CLI (Interface de Linha de Comando) do Azure, a API REST do Azure ou o portal de visualização do Azure. Instruções passo a passo para cada método são detalhadas no artigo [Operações de auditoria com o Gerenciador de Recursos](../../articles/resource-group-audit.md).
+- **Power BI:** se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), você poderá testá-lo gratuitamente. Usando o [Pacote de conteúdo dos Logs de Auditoria do Azure para Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), você pode analisar seus dados com painéis pré-configurados que você pode usar como estão ou personalizar.
 
 ## Exibir e analisar o log de eventos de investigação de integridade 
 Você precisa se conectar à sua conta de armazenamento e recuperar as entradas de log JSON para logs de eventos e investigação de integridade. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-lo no Excel, no PowerBI ou em qualquer outra ferramenta de visualização de dados.
@@ -128,4 +128,4 @@ Você precisa se conectar à sua conta de armazenamento e recuperar as entradas 
 - Postagem de blog [Visualizar os logs de auditoria do Azure com o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Postagem de blog [Exibir e analisar logs de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0427_2016-->

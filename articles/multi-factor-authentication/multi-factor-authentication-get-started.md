@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/07/2016" 
+	ms.date="05/02/2016" 
 	ms.author="billmath"/>
 
 #Escolha a solução de segurança multifator para você
@@ -73,7 +73,7 @@ Desvio único | | ●
 Saudações personalizadas para chamadas telefônicas | ● | ● 
 ID do chamador personalizável para chamadas telefônicas | ● | ● 
 IPs confiáveis | ● | ● 
-Lembrar MFA para dispositivos confiáveis (Preview Pública) | ● |  
+Lembrar MFA para dispositivos confiáveis | ● |  
 Acesso condicional | ● | ● 
 Cache | | ● 
 
@@ -81,4 +81,4 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

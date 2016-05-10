@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="shontnew"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -56,7 +56,7 @@ Agora que você leu uma introdução ao Banco de Dados SQL e respondeu à pergun
 - Saiba mais sobre [pools elásticos](sql-database-elastic-pool.md).
 - Comece pela [criação do seu primeiro banco de dados](sql-database-get-started.md).
 - [Conectar e consultar com SSMS](sql-database-connect-query-ssms.md)
-- Compile seu primeiro aplicativo em [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) ou [Ruby](sql-database-develop-ruby-simple-linux).
-- Consulte um índice de títulos e descrições de [Todos os tópicos para o serviço de banco de dados SQL do Azure](sql-database-index-all-articles.md).
+- Crie seu primeiro aplicativo em C#, Java, Node.js, PHP, Python ou Ruby: [bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
+- Confira um índice de títulos e descrições de [Todos os tópicos do serviço Banco de Dados SQL do Azure](sql-database-index-all-articles.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

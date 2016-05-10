@@ -11,8 +11,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="04/15/2016"
+	ms.topic="article"
+	ms.date="04/26/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -56,13 +56,13 @@ Na primeira vez que você habilitar o recurso de sincronização de senha, ele e
 
 Quando você altera uma senha local, a senha atualizada é sincronizada, geralmente em questão de minutos. O recurso de sincronização de senha repete automaticamente sincronizações de senha de usuário com falha. Se ocorrer um erro durante uma tentativa de sincronização de senha, um erro é registrado no seu visualizador de eventos.
 
-A sincronização de uma senha não afeta um usuário conectado atualmente. Se uma alteração de senha for sincronizada enquanto você estiver conectado em um serviço de nuvem, sua sessão de serviço de nuvem não será afetada imediatamente. No entanto, assim que o serviço de nuvem exigir que você se autentique novamente, será necessário fornecer a nova senha.
+A sincronização de uma senha não afeta um usuário conectado atualmente. Sua sessão de serviço de nuvem não será afetada imediatamente por uma alteração de senha sincronizada que ocorre enquanto você está logado em um serviço de nuvem. No entanto, quando o serviço de nuvem exigir que você se autentique novamente, será necessário fornecer a nova senha.
 
 > [AZURE.NOTE] Somente há suporte para a sincronização de senha para o usuário do tipo de objeto no Active Directory. Não há suporte para o tipo de objeto iNetOrgPerson.
 
 ### Como a sincronização de senha funciona com os Serviços de Domínio do AD do Azure
 
-Se você habilitar esse serviço no AD do Azure, a opção de sincronização de senha será necessária para obter uma experiência de logon único. Com esse serviço habilitado, o comportamento de sincronização de senha é alterado e os hashes de senha também são sincronizados como estão no seu Active Directory local com os Serviços de Domínio do AD do Azure. A funcionalidade é semelhante à da Ferramenta de Migração do Active Directory (ADMT) e permite que os Serviços de Domínio do AD do Azure sejam capazes de autenticar o usuário com todos os métodos disponíveis no AD local.
+Se você habilitar esse serviço no AD do Azure, a opção de sincronização de senha será necessária para obter uma experiência de logon único. Com esse serviço habilitado, o comportamento de sincronização de senha muda. Os hashes de senha também são sincronizados no estado em que se encontram no seu Active Directory local para os Serviços de Domínio do Azure AD. A funcionalidade é semelhante àquela da ADMT (Ferramenta de Migração do Active Directory). Ela permite que os Serviços de Domínio do Azure AD sejam capazes de autenticar o usuário com todos os métodos disponíveis no AD local.
 
 ### Considerações de segurança
 
@@ -79,13 +79,21 @@ Há dois tipos de políticas de senha que são afetadas ao habilitar a sincroniz
 
 **Política de complexidade de senha**
 
-Quando você habilita a sincronização de senha, as políticas de complexidade de senha configuradas no Active Directory local substituem qualquer política de complexidade que possa estar definida na nuvem para usuários sincronizados. Isso significa que qualquer senha válida no ambiente de Active Directory local do cliente pode ser usada para acessar os serviços do AD do Azure.
+Quando habilitar a sincronização de senha:
+
+- As políticas de complexidade de senha no Active Directory local substituem as políticas de complexidade na nuvem para usuários sincronizados. 
+
+- Você pode usar todas as senhas válidas do seu Active Directory local para acessar os serviços do Azure AD.
 
 > [AZURE.NOTE] Senhas de usuários criadas diretamente na nuvem ainda estão sujeitas a políticas de senha, conforme definido na nuvem.
 
 **Política de expiração de senha**
 
-Se um usuário estiver no escopo de sincronização de senha, a senha da conta de nuvem será definida como "*Nunca Expirar*". Isso significa que você pode continuar a fazer logon nos serviços de nuvem usando uma senha sincronizada que expirou no seu ambiente local.
+Se um usuário estiver no escopo de sincronização de senha:
+
+- A senha da conta de nuvem é definida como "*Nunca Expirar*". 
+
+- Você pode continuar a fazer logon nos serviços de nuvem usando uma senha sincronizada que expirou no seu ambiente local.
 
 A senha de nuvem será atualizada na próxima vez que você alterar a senha no ambiente local.
 
@@ -106,13 +114,15 @@ Para habilitar a sincronização de senha, você tem duas opções:
 
 - Se você usar configurações personalizadas quando instalar o Azure AD Connect, poderá habilitar a sincronização de senha na página de entrada do usuário.
 
-<br> ![Habilitando a sincronização de senha](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png) <br>
 
-Se você optar por usar **Federação com o AD FS**, é possível opcionalmente habilitar a sincronização de senha como um backup em caso de falha na infraestrutura do AD FS. Você também poderá habilitá-la se planejar usar os Serviços de Domínio do AD do Azure.
+![Habilitando a sincronização de senha](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
+
+
+Se você optar por usar **Federação com o AD FS**, será possível opcionalmente habilitar a sincronização de senha como um backup em caso de falha na infraestrutura do AD FS. Se você planeja usar os Serviços de Domínio do Azure AD, também pode habilitá-los.
 
 ### Sincronização de senha e FIPS
 
-Se o servidor foi bloqueado de acordo com o FIPS (Federal Information Processing Standard), o MD5 foi desabilitado. Para habilitá-lo para sincronização de senha, adicione a chave enforceFIPSPolicy em miiserver.exe.config em C:\\Program Files\\Azure AD Sync\\Bin.
+Se o servidor foi bloqueado de acordo com o FIPS (Federal Information Processing Standard), o MD5 foi desabilitado. Para habilitar o MD5 para sincronização de senha, adicione a chave enforceFIPSPolicy em miiserver.exe.config em C:\\Arquivos de Programas\\Azure AD Sync\\Bin.
 
 ```
 <configuration>
@@ -149,7 +159,7 @@ Para obter informações sobre segurança e FIPS, veja [Sincronização de senha
 
     ![Propriedades de espaço do conector de um usuário](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
 
-8. Para ver os detalhes da sincronização de senha do objeto, clique no botão **Log...**.<br> Isso cria uma página com uma exibição do histórico de status de sincronização de senha do usuário na última semana.
+8. Para ver os detalhes da sincronização de senha do objeto da última semana, clique em **Log...**.
 
     ![Detalhes de log do objeto](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
@@ -167,7 +177,7 @@ A coluna de status pode ter os seguintes valores:
 
 ## Disparar uma sincronização completa de todas as senhas
 
-Normalmente, não é necessário forçar uma sincronização completa de todas as senhas.<br> No entanto, se necessário, você pode disparar uma sincronização completa de todas as senhas usando o seguinte script:
+Normalmente, não é necessário forçar uma sincronização completa de todas as senhas. No entanto, se necessário, você pode disparar uma sincronização completa de todas as senhas usando o seguinte script:
 
     $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
     $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
@@ -189,4 +199,4 @@ Normalmente, não é necessário forçar uma sincronização completa de todas a
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

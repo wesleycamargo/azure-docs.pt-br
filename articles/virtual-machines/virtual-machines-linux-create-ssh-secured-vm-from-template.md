@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/04/2016"
+	ms.date="04/27/2016"
 	ms.author="v-livech"/>
 
 # Criar uma VM Linux protegida usando um modelo do Azure
@@ -66,4 +66,4 @@ Você pode criar um novo grupo de recursos e implantar uma VM usando o parâmetr
 
 Depois de criar VMs Linux com modelos, você desejará ver que outras estruturas de aplicativos estão disponíveis para uso com modelos. Pesquise a [galeria de modelos](https://azure.microsoft.com/documentation/templates/) para descobrir quais estruturas de aplicativos implantar em seguida.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -139,4 +139,4 @@ Ou localize mais conteúdo sobre os tipos de aplicativos que você pode criar no
 - [Criar aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/)
 - [Criar aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!----HONumber=AcomDC_0420_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 # Introdução à criação de um balanceador de carga para a Internet no Gerenciador de Recursos usando o PowerShell
@@ -308,4 +308,4 @@ Use o comando `Remove-AzureLoadBalancer` para excluir um balanceador de carga cr
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

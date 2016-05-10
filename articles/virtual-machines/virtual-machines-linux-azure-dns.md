@@ -136,6 +136,6 @@ Se o encaminhamento de consultas para o Azure não atender às suas necessidades
 -  Ser acessível (TCP e UDP na porta 53) dos clientes a que ela serve e ser capaz de acessar a Internet.
 -  Ter proteção contra acesso da Internet, para atenuar as ameaças impostas por agentes externos.
 
-> [AZURE.NOTE] Para obter um melhor desempenho, ao usar as VMs do Azure como servidores DNS, o IPv6 deve ser desabilitado e um [IP Público em Nível de Instância](virtual-networks-instance-level-public-ip.mp) deve ser atribuído a cada VM do servidor DNS.
+> [AZURE.NOTE] Para obter um melhor desempenho, ao usar as VMs do Azure como servidores DNS, o IPv6 deve ser desabilitado e um [IP Público em Nível de Instância](../virtual-network/virtual-networks-instance-level-public-ip.md) deve ser atribuído a cada VM do servidor DNS.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

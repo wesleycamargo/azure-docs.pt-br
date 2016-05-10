@@ -8,13 +8,13 @@ Valores padrão para o protocolo IP e as portas TCP ou UDP para protocolos conhe
 
 Depois de criar um ponto de extremidade, você pode usar uma lista de controle de acesso (ACL) para definir regras que permitam ou neguem o tráfego de entrada na porta pública do ponto de extremidade com base em seu endereço IP de origem. No entanto, se a máquina virtual estiver em uma rede virtual do Azure, você deverá usar grupos de segurança de rede. Para obter detalhes, veja [Sobre os grupos de segurança de rede](../articles/virtual-network/virtual-networks-nsg.md).
 
-> [AZURE.NOTE]A configuração do firewall para máquinas virtuais do Azure é feita automaticamente para as portas associadas com a Área de Trabalho Remota e SSH (Secure Shell), e, na maioria dos casos, para Comunicação Remota do Windows PowerShell. Para portas especificadas para todos os outros pontos de extremidade, nenhuma configuração é feita automaticamente para o firewall da máquina virtual. Ao criar um ponto de extremidade para a máquina virtual, você precisará garantir que o firewall da máquina virtual também permita tráfego para o protocolo e a porta privada correspondente à configuração do ponto de extremidade.
+> [AZURE.NOTE]A configuração de firewall para máquinas virtuais do Azure é feita automaticamente para as portas associadas com pontos de extremidade de conectividade remota que o Azure configura automaticamente. Para portas especificadas para todos os outros pontos de extremidade, nenhuma configuração é feita automaticamente para o firewall da máquina virtual. Ao criar um ponto de extremidade para a máquina virtual, você precisará garantir que o firewall da máquina virtual também permita tráfego para o protocolo e a porta privada correspondente à configuração do ponto de extremidade. Para configurar o firewall, consulte a documentação ou a Ajuda online para o sistema operacional em execução na máquina virtual.
 
 ## Criar um ponto de extremidade
 
 1.	Se você ainda não fez isso, entre no portal clássico do Azure.
 2.	Clique em **Máquinas Virtuais** e, em seguida, clique no nome da máquina virtual que você deseja configurar.
-3.	Clique em **Pontos de Extremidade**. A página **Pontos de Extremidade** lista todos os pontos de extremidade atuais para a máquina virtual.
+3.	Clique em **Pontos de Extremidade**. A página **Pontos de Extremidade** lista todos os pontos de extremidade atuais para a máquina virtual. (Este exemplo é uma VM do Windows. Uma VM do Linux por padrão mostrará um ponto de extremidade para SSH.)
 
 	![Pontos de extremidade](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 
@@ -60,4 +60,4 @@ Você pode usar regras para permitir somente o tráfego de computadores específ
 
 As regras são avaliadas em ordem, começando com a primeira regra e terminando com a última regra. Isto significa que as regras devem ser ordenadas das menos restritivas para as mais restritivas. Para obter exemplos e saber mais, consulte [O que é uma Lista de Controle de Acesso de rede?](../articles/virtual-network/virtual-networks-acl.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

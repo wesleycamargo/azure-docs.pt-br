@@ -18,15 +18,9 @@
 
 # Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [guias](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) simples e implantá-lo em um [aplicativo Web](app-service-web-overview.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) em uma linha de comando como cmd.exe ou bash. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o Node.js.
+Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) simples e implantá-lo em um [aplicativo Web](app-service-web-overview.md) no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) a partir uma linha de comando, como cmd.exe ou bash. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que seja capaz de executar o Node.js.
 
 <a name="prereq"/>
 ## Pré-requisitos
@@ -35,11 +29,11 @@ Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) simpl
 - Yoeman. As instruções de instalação estão [aqui](http://yeoman.io/).
 - Git. Os binários de instalação estão [aqui](http://www.git-scm.com/downloads).
 - CLI do Azure. As instruções de instalação estão [aqui](../xplat-cli-install.md).
-- Uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- Uma conta do Microsoft Azure. Se você não tiver uma conta, poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 ## Criar e implantar um aplicativo web simples do Node.js
 
-1. Abra o terminal de linha de comando de sua escolha e instale o [gerador do Express para Yoeman](https://github.com/petecoop/generator-express).
+1. Abra o terminal da linha de comando de sua escolha e instale o [gerador do Express para Yoeman](https://github.com/petecoop/generator-express).
 
         npm install -g generator-express
 
@@ -49,9 +43,9 @@ Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) simpl
         
     Escolha as seguintes opções quando solicitado:
 
-    `? Would you like to create a new directory for your project?` **Sim** `? Enter directory name` **&lt;nome\_do\_aplicativo>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **Nenhum** `? Select a database to use:` **Nenhum** `? Select a build tool to use:` **Grunt**
+    `? Would you like to create a new directory for your project?` **Sim** `? Enter directory name` **&lt;nome\_aplicativo>** `? Select a version to install:` **MVC** `? Select a view engine to use:` **Jade** `? Select a css preprocessor to use (Sass Requires Ruby):` **Nenhum** `? Select a database to use:` **Nenhum** `? Select a build tool to use:` **Grunt**
 
-3. `CD` para o diretório raiz do novo aplicativo e inicie-o para verificar se ele é executado no ambiente de desenvolvimento:
+3. `CD` para o diretório-raiz do novo aplicativo e inicie-o para verificar se ele é executado no ambiente de desenvolvimento:
 
         npm start
 
@@ -63,7 +57,7 @@ Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) simpl
 
     Siga o prompt para continuar o logon em um navegador com uma conta da Microsoft que tenha sua assinatura do Azure.
 
-2. Verifique se você ainda está no diretório raiz do aplicativo. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando. A URL do aplicativo Web será http://&lt;appname>.azurewebsites.net.
+2. Verifique se você ainda está no diretório raiz do aplicativo. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando. A URL do aplicativo Web é http://&lt;appname>.azurewebsites.net.
 
         azure site create --git <appname>
 
@@ -99,13 +93,13 @@ Este tutorial mostra como criar um aplicativo [Node.js](http://nodejs.org) simpl
 
 ## Atualizar o aplicativo Web do Node.js
 
-Para fazer atualizações no aplicativo Web do Node.js em execução no Serviço de Aplicativo, basta executar `git add`, `git commit` e `git push` como você fez ao implantá-lo pela primeira vez.
+Para fazer atualizações no aplicativo Web Node.js em execução no Serviço de Aplicativo, basta executar `git add`, `git commit` e `git push`, como você fez ao implantá-lo pela primeira vez.
      
 ## Como o Serviço de Aplicativo implanta o aplicativo Node.js
 
-O Serviço de Aplicativo do Azure usa [iisnode](https://github.com/tjanczuk/iisnode/wiki) para executar aplicativos do Node.js. A CLI do Azure e o mecanismo do Kudu (implantação do Git) trabalham juntos para proporcionar uma experiência simplificada quando você desenvolve e implanta aplicativos do Node.js por meio da linha de comando.
+O Serviço de Aplicativo do Azure usa [iisnode](https://github.com/tjanczuk/iisnode/wiki) para executar os aplicativos Node.js. A CLI do Azure e o mecanismo do Kudu (implantação do Git) trabalham juntos para proporcionar uma experiência simplificada quando você desenvolve e implanta aplicativos do Node.js por meio da linha de comando.
 
-- `azure site create --git` reconhece o padrão comum do Node.js do server.js ou app.js e cria um iisnode.yml no diretório raiz. Você pode usar esse arquivo para personalizar o iisnode.
+- `azure site create --git` reconhece o padrão comum do Node.js do server.js ou app.js e cria um iisnode.yml no diretório-raiz. Você pode usar esse arquivo para personalizar o iisnode.
 - Em `git push azure master`, o Kudu automatiza as seguintes tarefas de implantação:
 
     - Se package.json estiver na raiz do repositório, execute `npm install --production`.
@@ -114,7 +108,7 @@ O Serviço de Aplicativo do Azure usa [iisnode](https://github.com/tjanczuk/iisn
     
 ## Usar uma estrutura de Node.js
 
-Se usa uma estrutura popular do Node.js, como [Sails.js](http://sailsjs.org/) ou [MEAN.js](http://meanjs.org/) para desenvolver aplicativos, você pode implantá-los no Serviço de Aplicativo. Estruturas populares do Node.js têm suas peculiaridades específicas, e suas dependências de pacotes são atualizadas continuamente. No entanto, o Serviço de Aplicativo disponibiliza os logs stdout e stderr para você, para que possa saber exatamente o que está acontecendo com o aplicativo e fazer as alterações adequadas. Para obter mais informações, confira [Obter os logs de stdout e stderr do iisnode](#iisnodelog).
+Se você usa uma estrutura Node.js popular, como [Sails.js](http://sailsjs.org/) ou [MEAN.js](http://meanjs.org/) para desenvolver os aplicativos, pode implantá-los no Serviço de Aplicativo. Estruturas populares do Node.js têm suas peculiaridades específicas, e suas dependências de pacotes são atualizadas continuamente. No entanto, o Serviço de Aplicativo disponibiliza os logs stdout e stderr para você, para que possa saber exatamente o que está acontecendo com o aplicativo e fazer as alterações adequadas. Para obter mais informações, consulte [Obter os logs stdout e stderr do iisnode](#iisnodelog).
 
 Conferir os tutoriais que mostram como trabalhar com uma estrutura específica no Serviço de Aplicativo
 
@@ -209,4 +203,4 @@ Para habilitar o Node-Inspector, siga estas etapas:
 - [Centro de Desenvolvedores do Node.js](/develop/nodejs/)
 - [Introdução a aplicativos Web no Serviço de Aplicativo do Azure](app-service-web-get-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -73,7 +73,7 @@ O exemplo de aplicativo que vamos explorar cria um novo índice chamado "hotéis
         // service name is myservice.
         string searchServiceName = "myservice";
 
-        string apiKey = "Put your API admin key here."
+        string apiKey = "Put your API admin key here.";
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
@@ -105,7 +105,7 @@ Vamos examinar isso passo a passo. Primeiro, é necessário criar um novo `Searc
         // service name is myservice.
         string searchServiceName = "myservice";
 
-        string apiKey = "Put your API admin key here."
+        string apiKey = "Put your API admin key here.";
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
@@ -643,4 +643,4 @@ Hotel.cs:
         }
     }
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

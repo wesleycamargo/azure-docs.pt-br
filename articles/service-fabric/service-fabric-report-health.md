@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/25/2016"
    ms.author="oanapl"/>
 
 # Adicionar relatórios de integridade personalizados do Service Fabric
@@ -297,4 +297,4 @@ Com base nos dados de integridade, os criadores de serviço e administradores de
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

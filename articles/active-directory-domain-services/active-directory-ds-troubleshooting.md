@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/25/2016"
 	ms.author="maheshu"/>
 
 # Serviços de Domínio do AD do Azure *(Visualização)* - Guia de solução de problemas
@@ -41,14 +41,19 @@ Se você encontrar uma situação em que um ou mais usuários em seu locatário 
 
 - Verifique se você [habilitou a sincronização de senhas](active-directory-ds-getting-started-password-sync.md) de acordo com as etapas descritas no Guia de Introdução.
 
-- Verifique se a conta de usuário afetada não é uma conta externa no locatário do AD do Azure. Os exemplos de contas externas incluem as contas da Microsoft (por exemplo, 'joão@live.com') ou as contas de usuário de um diretório externo do AD do Azure. Como os Serviços de Domínio do AD do Azure não têm credenciais para tais contas de usuário, esses usuários não podem entrar no domínio gerenciado.
+- **Contas externas** Verifique se a conta de usuário afetada não é uma conta externa no locatário do Azure AD. Os exemplos de contas externas incluem as contas da Microsoft (por exemplo, 'joão@live.com') ou as contas de usuário de um diretório externo do AD do Azure. Como os Serviços de Domínio do AD do Azure não têm credenciais para tais contas de usuário, esses usuários não podem entrar no domínio gerenciado.
 
-- Certifique-se de que o prefixo do UPN (ou seja, a primeira parte do UPN) da conta do usuário afetado em seu locatário do Azure AD tem menos de 20 caracteres. Por exemplo, para o UPN 'joaocomnomeusuáriorealmentelongo@contoso.com', o prefixo ('joaocomnomeusuáriorealmentelongo') excede 20 caracteres e essa conta não estará disponível no domínio gerenciado dos Serviços de Domínio do Azure AD.
+- **Prefixo UPN excessivamente longo** Verifique se o prefixo do UPN (ou seja, a primeira parte do UPN) da conta do usuário afetado em seu locatário do Azure AD tem menos de 20 caracteres. Por exemplo, para o UPN 'joaocomnomeusuáriorealmentelongo@contoso.com', o prefixo ('joaocomnomeusuáriorealmentelongo') excede 20 caracteres e essa conta não estará disponível no domínio gerenciado dos Serviços de Domínio do Azure AD.
+
+- **Prefixo UPN duplicado** Verifique se você não tem outras contas de usuário no seu locatário do Azure AD com o mesmo prefixo de UPN (ou seja, a primeira parte do UPN) que a conta de usuário afetada. Por exemplo, se você tiver duas contas de usuário “joeuser@finance.contoso.com” e “joeuser@engineering.contoso.com”, ambos os usuários encontrarão problemas ao se conectar ao domínio gerenciado. Isso também poderá ocorrer se uma das contas de usuário for uma conta externa (por exemplo, “joeuser@live.com”). Estamos trabalhando para corrigir esse problema.
 
 - **Contas sincronizadas:** se as contas de usuário afetadas forem sincronizadas de um diretório local, verifique o seguinte:
     - Você implantou ou atualizou para a [versão recomendada mais recente do Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
+
     - Você configurou o Azure AD Connect para [executar uma sincronização completa](active-directory-ds-getting-started-password-sync.md).
+
     - Dependendo do tamanho do diretório, pode levar algum tempo para as contas de usuário e os hashes de credenciais ficarem disponíveis nos Serviços de Domínio do AD do Azure. Aguarde o tempo suficiente antes de tentar novamente a autenticação (dependendo do tamanho do seu diretório, de algumas horas a um dia ou dois para diretórios grandes).
+
     - Se o problema persistir depois de verificar as etapas acima, tente reiniciar o serviço de sincronização do Microsoft Azure AD. Em seu computador de sincronização, inicie um prompt de comando e execute os seguintes comandos:
       1. net stop 'Microsoft Azure AD Sync'
       2. net start 'Microsoft Azure AD Sync'
@@ -57,9 +62,6 @@ Se você encontrar uma situação em que um ou mais usuários em seu locatário 
 
 
 ### Entre em contato
-Se você tiver problemas com seu domínio gerenciado, verifique se as etapas descritas neste guia de solução de problemas resolverem o problema. Se você ainda tiver problemas, fique à vontade para falar conosco em:
+Entre em contato com a equipe de produto do Serviços de Domínio do Azure Active Directory para [compartilhar comentários ou obter suporte](active-directory-ds-contact-us.md).
 
-- **Email:** você também pode nos enviar um email para [Comentários sobre os Serviços de Domínio do AD do Azure](mailto:aaddsfb@microsoft.com) Inclua a ID do locatário para o diretório do AD do Azure e o nome de domínio que você configurou para os Serviços de Domínio do AAD, para que possamos investigar o problema.
-- **[Canal do Azure Active Directory no User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/): **Coloque as palavras **"AADDS"** antes de sua pergunta para falar conosco.
-
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->

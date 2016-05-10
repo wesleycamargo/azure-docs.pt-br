@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
+	ms.date="04/11/2016" 
 	ms.author="spelluru"/>
 
 # Agendamento e execução com o Data Factory
@@ -621,6 +621,51 @@ Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias
 	} 
 
 
+## Pipeline Onetime
+Você pode criar e agendar um pipeline para ser executado periodicamente (horário, diariamente, etc.) dentro dos horários inicial e final que você especificar na definição do pipeline. Consulte [Agendando atividades](#scheduling-and-execution) para obter detalhes. Você também pode criar um pipeline que executa apenas uma vez. Para fazer isso, defina a propriedade **pipelineMode** na definição do pipeline para **onetime** conforme mostrado no exemplo de JSON abaixo. O valor padrão dessa propriedade é **scheduled**.
+
+	{
+	    "name": "CopyPipeline",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "Copy",
+	                "typeProperties": {
+	                    "source": {
+	                        "type": "BlobSource",
+	                        "recursive": false
+	                    },
+	                    "sink": {
+	                        "type": "BlobSink",
+	                        "writeBatchSize": 0,
+	                        "writeBatchTimeout": "00:00:00"
+	                    }
+	                },
+	                "inputs": [
+	                    {
+	                        "name": "InputDataset"
+	                    }
+	                ],
+	                "outputs": [
+	                    {
+	                        "name": "OutputDataset"
+	                    }
+	                ]
+	                "name": "CopyActivity-0"
+	            }
+	        ]
+	        "pipelineMode": "OneTime"
+	    }
+	}
+
+Observe o seguinte:
+ 
+- Não é necessário especificar os horários **inicial** e **final** para o pipeline. 
+- Você precisa especificar a disponibilidade de conjuntos de dados de entrada e saídas (frequência e intervalo) neste momento, embora os valores não sejam usados pelo Data Factory.  
+- A exibição de diagrama não mostra pipelines únicos. Esse comportamento é intencional. 
+- Pipelines únicos não podem ser atualizados. É possível clonar um pipeline único, renomeá-lo, atualizar suas propriedades e implantá-lo para criar outro. 
+
+  
 
 
 
@@ -653,4 +698,4 @@ Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias
 
   
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0427_2016-->
