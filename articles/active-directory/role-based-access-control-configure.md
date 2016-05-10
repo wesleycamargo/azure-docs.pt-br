@@ -23,9 +23,11 @@ O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento
 ## Exibir o acesso
 Você pode ver quem tem acesso a um recurso, grupo de recursos ou assinatura em sua folha principal no [portal do Azure](https://portal.azure.com). Por exemplo, queremos ver quem tem acesso a um dos nossos grupos de recursos:
 
-1. Selecione o ícone **Grupo de recursos** na barra de navegação à esquerda. ![Grupos de recursos - ícone](./media/role-based-access-control-configure/resourcegroups_icon.png)
+1. Selecione o ícone **Grupo de recursos** na barra de navegação à esquerda. 
+![Grupos de recursos - ícone](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. Na folha **Grupos de recursos**, selecione o nome do grupo de recursos.
-3. Selecione **Usuários** no canto superior direito da folha do grupo de recursos. ![Usuários - ícone](./media/role-based-access-control-configure/users_icon.png)
+3. Selecione **Usuários** no canto superior direito da folha do grupo de recursos.
+![Usuários - ícone](./media/role-based-access-control-configure/users_icon.png)
 4. A folha **Usuários** lista todos os usuários, grupos e aplicativos que receberam acesso ao grupo de recursos.  
 
 	![Folha Usuários - acesso herdado versus atribuído - captura de tela](./media/role-based-access-control-configure/view-access.png)
@@ -38,21 +40,25 @@ Observe que alguns usuários tiveram o acesso **Atribuído**, ao passo que outro
 ## Adicionar acesso
 Conceda acesso de dentro do recurso, do grupo de recursos ou da assinatura que é o escopo da atribuição de função.
 
-1. Selecione **Adicionar** na folha **Usuários**. ![Adicionar - ícone](./media/role-based-access-control-configure/add_icon.png)  
+1. Selecione **Adicionar** na folha **Usuários**. 
+![Adicionar - ícone](./media/role-based-access-control-configure/add_icon.png)  
 2. Selecione a função que você deseja atribuir na folha **Selecionar uma função**.
 3. Selecione o usuário, o grupo ou o aplicativo ao qual você deseja conceder acesso. Você pode pesquisar o diretório por nomes para exibição, endereços de email e identificadores de objeto.  
 
 	![Folha Adicionar usuários - pesquisar - captura de tela](./media/role-based-access-control-configure/grant-access2.png)
 
-4. Selecione **OK** para criar a atribuição. O pop-up **Adicionando usuário** rastreia o progresso. ![Adicionando barra de progresso do usuário - captura de tela](./media/role-based-access-control-configure/addinguser_popup.png)
+4. Selecione **OK** para criar a atribuição. O pop-up **Adicionando usuário** rastreia o progresso. 
+![Adicionando barra de progresso do usuário - captura de tela](./media/role-based-access-control-configure/addinguser_popup.png)
 
 Após a adição de uma atribuição de função com êxito, ela será exibida na folha **Usuários**.
 
 ## Remover acesso
 
 1. Selecione a atribuição de função na folha **Usuários**.
-2. Selecione **Remover** na folha detalhes de atribuição. ![Remover - ícone](./media/role-based-access-control-configure/remove_icon.png)
-3. Clique em **sim** para confirmar a remoção. ![Folha Usuários - remover da função - captura de tela](./media/role-based-access-control-configure/remove-access1.png)
+2. Selecione **Remover** na folha detalhes de atribuição. 
+![Remover - ícone](./media/role-based-access-control-configure/remove_icon.png)
+3. Clique em **sim** para confirmar a remoção. 
+![Folha Usuários - remover da função - captura de tela](./media/role-based-access-control-configure/remove-access1.png)
 
 Atribuições herdadas não podem ser removidas. Na imagem abaixo, observe que o botão Remover fica esmaecido. Em vez disso, examine o detalhe **Atribuído Em**. Vá para o recurso listado ali a fim de remover a atribuição de função.
 

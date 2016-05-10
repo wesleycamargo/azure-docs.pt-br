@@ -132,7 +132,8 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 
     - **Expandir * colunas**
 
-        Clique à direita de * e você deverá ver um sublinhado azul abaixo de *. Passe o cursor do mouse no sublinhado azul e clique na seta para baixo. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Clique à direita de * e você deverá ver um sublinhado azul abaixo de *. Passe o cursor do mouse no sublinhado azul e clique na seta para baixo. 
+![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Clique em **Expandir Colunas**, a ferramenta substituirá o * pelos nomes de coluna.
 
@@ -215,7 +216,7 @@ Usando a experiência de execução local do U-SQL no Visual Studio, você pode:
 - Depure os assemblies do C# localmente.
 - Criar/excluir/exibir bancos de dados locais, assemblies, esquemas e tabelas no Gerenciador de Servidores assim como faz no serviço Análise Data Lake do Azure.
 
-Você verá uma conta *Local* no Visual Studio e o instalador cria uma pasta *DataRoot* localizada em *C:\\LocalRunRoot*. A pasta DataRoot será usada:
+Você verá uma conta *Local* no Visual Studio e o instalador cria uma pasta *DataRoot* localizada em *C:\LocalRunRoot*. A pasta DataRoot será usada:
 
 - Armazenar metadados, incluindo tabelas, bancos de dados, TVFs, etc.
 - Para um determinado script: se um caminho relativo for referenciado nos caminhos de entrada/saída, pesquisaremos o DataRoot (bem como caminho do script se a entrada)

@@ -229,9 +229,9 @@ Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe es
 
 ### Configurar os modos de exibição
 
-1. No **Gerenciador de Soluções**, expanda a pasta **Exibições** e, em seguida, a pasta **Compartilhado** e clique duas vezes em **\_Layout.cshtml**.
+1. No **Gerenciador de Soluções**, expanda a pasta **Exibições** e, em seguida, a pasta **Compartilhado** e clique duas vezes em **_Layout.cshtml**.
 
-    ![\_Layout.cshtml][cache-layout-cshtml]
+    ![_Layout.cshtml][cache-layout-cshtml]
 
 2. Altere o conteúdo do elemento `title` e substitua `My ASP.NET Application` por `Contoso Team Stats`, conforme é mostrado no exemplo a seguir.
 

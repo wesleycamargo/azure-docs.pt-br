@@ -55,7 +55,10 @@ Há dois tipos de gatilhos:
 Os conectores também podem ser usados como ações em seus aplicativos. Ações são úteis para pesquisar dados no que podem então ser usados na execução do seu aplicativo. Por exemplo, talvez seja necessário pesquisar dados de um cliente de um banco de dados SQL durante o processamento de um pedido. Ou então, talvez seja necessário escrever, atualizar ou excluir dados em uma tabela de destino. Você pode fazer isso usando as ações fornecidas pelos conectores. As ações são mapeadas para as operações que são definidas nos metadados do Swagger.
 
 
-[Novidades](../app-service-logic/app-service-logic-schema-2015-08-01.md) [Compilar um aplicativo lógico agora](../app-service-logic/app-service-logic-create-a-logic-app.md) [Introdução aos PowerApps agora](../power-apps/powerapps-get-started-azure-portal.md) [Migrar Aplicativos lógicos para a versão mais recente do esquema](connectors-schema-migration.md)
+[Novidades](../app-service-logic/app-service-logic-schema-2015-08-01.md) 
+[Compilar um aplicativo lógico agora](../app-service-logic/app-service-logic-create-a-logic-app.md) 
+[Introdução aos PowerApps agora](../power-apps/powerapps-get-started-azure-portal.md) 
+[Migrar Aplicativos lógicos para a versão mais recente do esquema](connectors-schema-migration.md)
 
 <!--API Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Conecte-se ao Blob do Azure para gerenciar arquivos no seu contêiner de blob."

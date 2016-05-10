@@ -91,7 +91,7 @@ Para criar os exemplos e provisionar dispositivos no Hub IoT, siga as etapas aba
 
 Esse script faz o seguinte:
 
-1.  Executa **cmake** para criar uma solução do Visual Studio 2015 para o dispositivo simulado. Esse arquivo de projeto é **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Observe que os arquivos de origem estão na pasta ****azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Executa **cmake** para criar uma solução do Visual Studio 2015 para o dispositivo simulado. Esse arquivo de projeto é **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Observe que os arquivos de origem estão na pasta **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Compila o projeto de dispositivo simulado **iotdm\_simple\_sample.vcxproj**.
 
