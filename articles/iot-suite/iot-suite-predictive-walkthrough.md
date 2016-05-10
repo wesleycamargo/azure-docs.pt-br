@@ -109,6 +109,8 @@ Você pode parar a simulação a qualquer momento, mas clicar em **Iniciar Simul
 
 Agora que você executou a solução pré-configurada de manutenção preditiva, convém modificá-la. Confira a [Orientação sobre como personalizar soluções pré-configuradas][lnk-customize].
 
+A postagem de blog [IoT Suite - Under the Hood - Predictive Maintenance (Manutenção preditiva)](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) do TechNet fornece detalhes adicionais sobre a solução pré-configurada de manutenção preditiva.
+
   
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
@@ -124,4 +126,4 @@ Agora que você executou a solução pré-configurada de manutenção preditiva,
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

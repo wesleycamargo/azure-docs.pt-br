@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/08/2016" 
 	ms.author="spelluru"/>
 
 # Notas de versão para o Gateway de Gerenciamento de Dados
@@ -22,11 +22,21 @@ Um dos desafios da integração de dados moderna é mover dados continuamente pa
 
 Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) para obter mais informações.
 
-## Versão atual (1.10.5892.1)
+## Versão atual (1.11.5918.1)
 
-• Melhorias de desempenho • Correções de bug
+- O tamanho máximo do log de eventos do gateway foi aumentado de 1 MB para 40 MB.
+- Uma caixa de diálogo de aviso é exibida caso uma reinicialização seja necessária durante a atualização automática do gateway. Você pode optar por reiniciar logo em seguida ou mais tarde. 
+- Em caso de falha da atualização automática, instalador do gateway tentará novamente executar a atualização automática 3 vezes no máximo.
+- Aprimoramentos de desempenho
+	- Melhora no desempenho do carregamento de grandes tabelas de servidor local no cenário de cópia sem código.
+- Correções de bug
 
 ## Versões anteriores
+
+## 1\.10.5892.1
+
+- Aprimoramentos de desempenho
+- Correções de bug
 
 ## 1\.9.5865.2
 
@@ -34,7 +44,8 @@ Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data F
 - Novo ícone de bandeja com indicadores de status do gateway
 - Capacidade de "Atualizar agora" do cliente
 - Capacidade de definir o horário da agenda de atualização
-- Script do PowerShell para ativar/desativar a atualização automática 
+- Script do PowerShell para ativar/desativar a atualização automática
+- Suporte para o formato JSON  
 - Aprimoramentos de desempenho
 - Correções de bug
 
@@ -134,4 +145,4 @@ Confira o artigo [Como mover dados entre o local e a nuvem usando o Azure Data F
 ### Por que o Gerenciador de Fonte de Dados está tentando se conectar a um gateway?
 Esse é um design de segurança em que você só pode configurar fontes de dados locais para acesso à nuvem na rede corporativa, e suas credenciais não fluirão para fora do firewall corporativo. Verifique se o seu computador pode acessar o computador em que o gateway está instalado.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

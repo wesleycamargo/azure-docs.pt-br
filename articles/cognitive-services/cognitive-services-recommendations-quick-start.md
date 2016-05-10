@@ -79,7 +79,7 @@ A API de Recomendações aprenderá com seu catálogo e suas transações para f
 
  Você pode baixá-los [aqui](http://aka.ms/RecoSampleData). Copie e descompacte MsStoreData.Zip em uma pasta no computador local.
 
- > ** Observação: ** o código de exemplo que você vai baixar e executar na Tarefa 3 já contém dados de exemplo incorporados nele, de modo que esta tarefa é opcional. Dito isso, esta Tarefa permitirá que você baixe conjuntos de dados mais realistas e compreenda melhor as entradas da API de Recomendações.
+ > **Observação:** o código de exemplo que você vai baixar e executar na Tarefa 3 já contém dados de exemplo incorporados nele, de modo que esta tarefa é opcional. Dito isso, esta Tarefa permitirá que você baixe conjuntos de dados mais realistas e compreenda melhor as entradas da API de Recomendações.
 
 1.	Agora, vamos dar uma olhada no arquivo de catálogo. Navegue até o local no qual você copiou os dados. Abra o arquivo de catálogo no **bloco de notas**.
 
@@ -89,11 +89,11 @@ A API de Recomendações aprenderá com seu catálogo e suas transações para f
 
  Devemos destacar que um arquivo de catálogo pode ser muito mais sofisticado. Por exemplo, você pode adicionar metadados sobre os produtos (nós os chamamos de *recursos de item*). Consulte a seção sobre o [formato de catálogo](http://go.microsoft.com/fwlink/?LinkID=760716) na Referência da API para obter mais detalhes sobre esse formato.
 
-1. Vamos fazer o mesmo com os dados de uso. Você observará que os dados de uso têm o formato `<User Id>,<Item Id>`.
+1. Vamos fazer o mesmo com os dados de uso. Você observará que a data de uso tem o formato `<User Id>,<Item Id>,<Time Stamp>,<Event>`.
 
-  > 00030000A11B024B,GZA-00202<br> 0003BFFD93B934B7,P2W-00004<br> 000300009C01C881,W6F-00121<br> 00060000AF0D2B04,QR2-00011<br>
+  > 00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase 0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase 0003BFFDD4C2118D,297833300,2015/08/04T11:02:40,Purchase 00030000D16C4237,297833300,2015/08/04T11:02:37,Purchase 0003BFFDD4C20B63,297833400,2015/08/04T11:02:12,Purchase 00037FFEC8567FB8,297833400,2015/08/04T11:02:04,Purchase
 
- Esses são os dados mínimos necessários para um arquivo válido de uso de dados. Um arquivo de uso mais complexo pode conter informações adicionais para cada transação, incluindo um carimbo de data/hora para a transação e o tipo de evento que ocorreu (um clique, compra etc.). Confira [formato de uso](http://go.microsoft.com/fwlink/?LinkID=760712) para obter mais informações sobre o tópico.
+Observe que os três primeiros elementos são obrigatórios. O tipo de evento é opcional. Confira o [formato de uso](http://go.microsoft.com/fwlink/?LinkID=760712) para obter mais informações sobre este tópico.
 
  > **Qual é a quantidade de dados de que você precisa?**
  <p>
@@ -121,7 +121,7 @@ Nesta tarefa, você usará o aplicativo de exemplo para criar seu primeiro model
  + Obter uma recomendação com base em um par de itens
 <p></p>
 
-1. Substitua os valores dos campos **accountEmail** e **accountKey** por seu email e a chave da Tarefa 1.
+1. Substitua o valor para o campo **AccountKey** com a chave da Tarefa 1.
 
 1. Percorra a solução e você verá como um modelo é criado.
 
@@ -166,4 +166,4 @@ Confira a [Documentação sobre a obtenção de recomendações de item](http://
 ### O que vem a seguir?
 Parabéns por ter chegado até aqui! Para saber mais, você pode visitar a [Referência da API de Recomendações](http://go.microsoft.com/fwlink/?LinkId=759348) completa. Se tiver dúvidas, não hesite em entrar em contato conosco em mlapi@microsoft.com
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

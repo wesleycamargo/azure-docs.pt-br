@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/12/2016"
+    ms.date="04/29/2016"
     ms.author="v-livech"
 />
 
@@ -66,7 +66,7 @@ Este artigo mostra como usar o [Portal do Azure](https://portal.azure.com/) para
 9. SSH para o IP público usando sua chave pública SSH
 
 ```
-ahmetL@fedora$ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
+ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 ```
 
 ## Próximas etapas
@@ -79,4 +79,4 @@ Agora que você criou uma VM Linux rapidamente a ser usada para fins de teste ou
 
 Esses artigos o ajudarão a criar uma infraestrutura do Azure, bem como quaisquer ferramentas de implantação da infraestrutura patenteadas e de fonte aberta, de configuração e orquestração.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

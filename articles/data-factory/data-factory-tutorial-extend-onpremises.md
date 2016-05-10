@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Passo a passo: copiar dados de saída para um banco de dados do SQL Server (Portal clássico do Azure)" 
-	description="Este passo a passo estende o tutorial sobre como usar o Editor do Data Factory no Portal Clássico do Azure, de modo que o pipeline copie dados de saída para um banco de dados SQL Server."
+	pageTitle="Passo a passo: copiar dados de saída para um banco de dados do SQL Server (Portal do Azure)" 
+	description="Este passo a passo estende o tutorial sobre como usar o Data Factory Editor, de modo que o pipeline copie dados de saída para um banco de dados do SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 
-# Passo a passo: copiar dados de saída para um banco de dados local do SQL Server (Portal clássico do Azure) 
+# Passo a passo: copiar dados de saída para um banco de dados local do SQL Server (Portal do Azure) 
 Neste passo a passo, você aprenderá a configurar o ambiente para habilitar o pipeline para trabalhar com dados locais.
  
 Na última etapa do cenário de processamento de log do primeiro passo a passo com Partição -> Enriquecer -> Analisar fluxo de trabalho, a saída de eficácia de campanha marketing foi copiada para um banco de dados SQL do Azure. Você também pode mover esses dados para o SQL Server local para análise dentro da sua organização.
@@ -105,7 +105,7 @@ Para começar, você precisa criar o banco de dados SQL Server, a tabela, os tip
 	3.	Se você estiver usando **autenticação SQL**
 		1.	Especifique **<username>** e **<password>** na **connectionString**.
 		2.	Remova as duas últimas linhas (as propriedades **username** e **password** do JSON são necessárias apenas se você estiver usando Autenticação do Windows). 
-		3.	Remova **, (vírgula) ** no final da linha **gatewayName**.
+		3.	Remova **(vírgula)** no final da linha **gatewayName**.
 
 		**Se estiver usando a Autenticação do Windows:**
 		1. Defina o valor de **Segurança Integrada** para **True** na **connectionString**. Remova "**User ID=<username>;Password=<password>;**" da connectionString. 
@@ -171,4 +171,4 @@ Parabéns! Você verificou com êxito o passo a passo para usar sua fonte de dad
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -12,18 +12,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure
 
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
+[AZURE.INCLUDE [guias](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Este tutorial mostra como criar um [Aplicativo Web Java no Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando o [Portal do Azure](https://portal.azure.com/). O Portal do Azure é uma interface da Web que você pode usar para gerenciar recursos do Azure.
 
@@ -178,4 +172,4 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o
 [inscrever-se em uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

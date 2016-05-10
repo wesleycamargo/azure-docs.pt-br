@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
-	ms.author="genemi"/>
+	ms.date="04/25/2016" 
+	ms.author="annemill"/>
 
 
 # Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12
@@ -120,4 +120,4 @@ As diferenças de conexão do cliente entre o Banco de Dados SQL V11 e V12 são 
 
 - [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

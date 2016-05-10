@@ -3,7 +3,7 @@
    description="A Análise Data Lake é um serviço de computação de Big Data do Azure que permite usar dados para impulsionar seus negócios com as informações obtidas de seus dados na nuvem, independentemente de onde eles estiverem e de seu tamanho. A Análise Data Lake possibilita isso da maneira mais simples, mais escalonável e mais econômica possível." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/06/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Visão geral da Análise Microsoft Azure Data Lake
 
@@ -77,4 +77,4 @@ A Análise Azure Data Lake é um serviço novo, criado para facilitar a análise
     - [Enviar uma solicitação de recurso](http://aka.ms/adlafeedback)
     - [Obter ajuda nos fóruns](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

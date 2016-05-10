@@ -2,7 +2,7 @@
 	pageTitle="Como instalar e configurar o PowerShell do Azure"
 	description="Saiba como instalar e configurar o PowerShell do Azure."
 	editor="tysonn"
-	manager="stevenka"
+	manager="dongill"
 	documentationCenter=""
 	services=""
 	authors="coreyp-at-msft"/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/22/2016"
 	ms.author="coreyp"/>
 
 # Como instalar e configurar o PowerShell do Azure
@@ -175,4 +175,4 @@ Para obter informações de referência sobre os cmdlets, consulte [Referência 
 
 Para exemplos de scripts e instruções para ajudá-lo a aprender como usar scripts para gerenciar o Azure, consulte o [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=321940).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

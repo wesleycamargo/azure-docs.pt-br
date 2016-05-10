@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET da Data Factory
@@ -263,7 +263,7 @@ A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e 
 
 	
 
-12. Adicione o método auxiliar a seguir usado pelo método **Principal** na classe **Programa**. Esse método exibe uma caixa de diálogo que permite que você forneça o **nome de usuário** e a **senha** que você usa para fazer logon no Portal Clássico do Azure. 
+12. Adicione o método auxiliar a seguir usado pelo método **Principal** na classe **Programa**. Esse método exibe uma caixa de diálogo que permite que você forneça o **nome de usuário** e a **senha** que você usa para fazer logon no Portal do Azure. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -394,4 +394,4 @@ A Atividade de Cópia executa a movimentação de dados no Azure Data Factory e 
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

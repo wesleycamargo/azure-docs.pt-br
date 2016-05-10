@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="04/22/2016"
    ms.author="larryfr"/>
 
 # Desenvolver topologias C# para Apache Storm no HDInsight usando ferramentas do Hadoop para Visual Studio
@@ -658,4 +658,4 @@ Para obter outras maneiras de trabalhar com o HDInsight e mais amostras do Storm
 
 -	[Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

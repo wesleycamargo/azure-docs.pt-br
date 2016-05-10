@@ -97,12 +97,4 @@ Para criar uma nova máquina virtual baseada no Windows no Azure, use as instru�
 - Como membro de um conjunto de balanceamento de carga existente.
 - Com um endereço IP estático.
 
-## Criar uma VM baseada em Linux
-
-Use as instruções em [Criar e pré-configurar uma máquina virtual Linux usando o Azure PowerShell](virtual-machines-linux-classic-createpowershell.md) para criar uma nova máquina virtual baseada em Linux no Azure que seja pré-configurada:
-
-- Com discos adicionais.
-- Como membro de um conjunto de balanceamento de carga existente.
-- Com um endereço IP estático.
-
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

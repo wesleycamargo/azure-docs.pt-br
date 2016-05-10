@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="05/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -48,8 +48,8 @@ a.b.c.d/29 será dividida em a.b.c.d/30 e a.b.c.d+4/30 e passada à Microsoft po
 
 Considere um caso em que você seleciona 192.168.100.128/29 para configurar o emparelhamento privado. 192.168.100.128/29 inclui os endereços de 192.168.100.128 a 192.168.100.135, entre os quais:
 
-- 192\.168.100.128/30 será atribuído ao link1, com o provedor usando 192.168.100.129 e a Microsoft usando 192.168.100.130.
-- 192\.168.100.132/30 será atribuído ao link2, com o provedor usando 192.168.100.133 e a Microsoft usando 192.168.100.134.
+- 192.168.100.128/30 será atribuído ao link1, com o provedor usando 192.168.100.129 e a Microsoft usando 192.168.100.130.
+- 192.168.100.132/30 será atribuído ao link2, com o provedor usando 192.168.100.133 e a Microsoft usando 192.168.100.134.
 
 ### Endereços IP para o emparelhamento público do Azure e o emparelhamento da Microsoft
 
@@ -78,7 +78,7 @@ O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP 
 
 ## Números de sistema autônomos
 
-A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Reservamos AS 65515 para uso interno. Há suporte para números AS de 16 e 32 bits.
+A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Reservamos os ASNs de 65515 a 65520 para o uso interno. Há suporte para números AS de 16 e 32 bits.
 
 Não há requisitos de simetria de transferência de dados. Os caminhos de encaminhamento e retorno podem atravessar pares de roteadores diferentes. Rotas idênticas devem ser anunciadas de qualquer um dos lados entre vários pares de circuitos que pertencem a você. As métricas de rotas não precisam ser idênticas.
 
@@ -134,8 +134,6 @@ A Microsoft marcará prefixos anunciados por meio do emparelhamento público e d
 | **Europa** | | |
 | | Norte da Europa | 12076:51003 |
 | | Europa Ocidental | 12076:51002 |
-| | Norte do Reino Unido | 12076:51022 |
-| | Sul do Reino Unido 2 | 12076:51023 |
 | **Pacífico Asiático** | | |
 | | Ásia Oriental | 12076:51010 |
 | | Sudeste Asiático | 12076:51011 |
@@ -176,6 +174,6 @@ A Microsoft não adota valores de comunidade BGP que você define. É necessári
 
 	- [Criar um circuito da Rota Expressa para o modelo de implantação clássico](expressroute-howto-circuit-classic.md) ou [Criar e modificar um circuito da Rota Expressa usando o Azure Resource Manager](expressroute-howto-circuit-arm.md)
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
-	- [Vincular uma rede virtual clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
+	- [Vincular uma VNet clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

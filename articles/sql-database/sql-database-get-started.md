@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Tutorial do Banco de Dados SQL: Criar um banco de dados SQL | Microsoft Azure"
 	description="Saiba como configurar um servidor lógico do Banco de Dados SQL, uma regra de firewall de servidor, um banco de dados SQL, dados de exemplo, conectar-se com ferramentas de cliente, configurar usuários e regras de firewall de banco de dados."
-	keywords="tutorial do banco de dados sql, criar um banco de dados sql"
+	keywords="tutorial do banco de dados SQL, criar um banco de dados SQL"
 	services="sql-database"
 	documentationCenter=""
 	authors="carlrabeler"
@@ -50,7 +50,7 @@ Agora que você concluiu este tutorial do Banco de Dados SQL e que criou um banc
 
 - Se você está familiarizado com o Excel, saiba como [Conectar-se ao banco de dados SQL com o Excel](sql-database-connect-excel.md).
 
-- Se você estiver pronto para começar a codificação, consulte [Conectar e consultar o banco de dados SQL com o C#](sql-database-connect-query.md) e [Usando o banco de dados SQL por meio do .NET (C#)](sql-database-develop-dotnet-simple.md). Veja os [Exemplos de código de início rápido para o banco de dados SQL](sql-database-develop-quick-start-client-code-samples.md) para obter exemplos do Node.js, Python, Ruby, Java, PHP e C++ e instruções adicionais para o C#.
+- Se você estiver pronto para começar a codificar, escolha a linguagem de programação em [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
 - Se deseja mover seus bancos de dados SQL Server local para o Azure, consulte [Migrando um banco de dados para o Banco de dados SQL do Azure](sql-database-cloud-migrate.md) para obter mais informações.
 
@@ -59,4 +59,4 @@ Agora que você concluiu este tutorial do Banco de Dados SQL e que criou um banc
 
 [Visão geral do Banco de Dados SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

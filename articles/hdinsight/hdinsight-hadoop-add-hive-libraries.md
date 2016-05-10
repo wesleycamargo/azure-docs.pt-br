@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/16/2016"
+ms.date="04/20/2016"
 ms.author="larryfr"/>
 
 #Adicionar bibliotecas do Hive durante a criação do cluster HDInsight
@@ -88,4 +88,4 @@ Assim que a criação do cluster for concluída, você poderá usar os jars adic
 
 Neste documento, você aprendeu a adicionar bibliotecas Hive contidas nos arquivos jar a um cluster HDInsight durante a criação do cluster. Para saber mais sobre como trabalhar com o Hive, confira [Usar o Hive com o HDInsight](hdinsight-use-hive.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/22/2016"
 	ms.author="larryfr"/>
 
 #Utilizar o Maven para criar aplicativos Java que usam o HBase com o HDInsight (Hadoop)
@@ -367,4 +367,4 @@ Após ter terminado o exemplo, use o comando a seguir na sessão do Azure PowerS
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

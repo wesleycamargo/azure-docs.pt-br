@@ -544,7 +544,7 @@ A saída do console aparecerá no painel somente se o programa estiver em execu�
 Desabilite o log de painel para cenários de alta taxa de transferência. Por padrão, o SDK grava logs no armazenamento e essa atividade pode degradar o desempenho durante o processamento de várias mensagens. Para desabilitar o log, defina a cadeia de conexão do painel de controle como nula, como mostrado no exemplo a seguir.
 
 		JobHostConfiguration config = new JobHostConfiguration();       
-		config.DashboardConnectionString = “”;        
+		config.DashboardConnectionString = "";        
 		JobHost host = new JobHost(config);
 		host.RunAndBlock();
 
@@ -611,4 +611,4 @@ Você também pode desabilitar e habilitar de modo dinâmico funções para cont
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0427_2016-->

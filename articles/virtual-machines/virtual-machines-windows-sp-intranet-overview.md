@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure
@@ -92,7 +92,7 @@ Lembre-se:
 - Se você já tiver uma implantação de nuvem híbrida do Azure, fique à vontade para adaptar ou ignorar as instruções das Fases 1 e 2 para hospedar o novo farm do SharePoint na sub-rede apropriada.
 - Todos os servidores estão localizados em uma só sub-rede da rede virtual do Azure. Se você quiser fornecer segurança adicional equivalente ao isolamento de sub-rede, use os [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
-Para criar um ambiente de desenvolvimento/teste ou uma verificação de conceito dessa configuração, consulte [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
+Para criar um ambiente de desenvolvimento/teste ou uma verificação de conceito dessa configuração, consulte [Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md).
 
 Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server, consulte [Configurar Grupos de Disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
@@ -100,4 +100,4 @@ Para saber mais sobre o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL
 
 - Inicie a configuração desta carga de trabalho com [Fase 1](virtual-machines-windows-ps-sp-intranet-ph1.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -187,7 +187,7 @@ As definições de fluxos de trabalho do Oozie são escritas em hPDL (uma Lingua
 
 	- **RunSqoopExport**: exporta os dados criados por meio do script Hive para o banco de dados SQL usando o Sqoop. Isso será executado apenas se a ação **RunHiveScript** tiver sido bem-sucedida.
 
-		> [AZURE.NOTE] Para saber mais sobre o fluxo de trabalho do Oozie e sobre como usar ações de fluxo de trabalho, confira a [documentação do Apache Oozie 4.0][apache-oozie-400] (para a versão 3.0 do cluster HDInsight) ou a [documentação do Oozie Apache 3.3.2][apache-oozie-332] (para a versão 2.1 do cluster HDInsight).
+		> [AZURE.NOTE] Para saber mais sobre o fluxo de trabalho do Oozie e sobre como usar ações de fluxo de trabalho, confira a [documentação do Apache Oozie 4.0][apache-oozie-400] (para a versão 3.0 do cluster HDInsight) ou a [documentação do Oozie Apache 3.3.2][apache-oozie-332] \(para a versão 2.1 do cluster HDInsight).
 
 	Observe que o fluxo de trabalho tem várias entradas, como `${jobTracker}`, que serão substituídas por valores usados na definição de tarefa neste documento.
 
@@ -681,7 +681,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 
 
-[azure-data-factory-pig-hive]: data-factory-pig-hive-activities.md
+[azure-data-factory-pig-hive]: ../data-factory/data-factory-data-transformation-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
@@ -722,4 +722,4 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0427_2016-->

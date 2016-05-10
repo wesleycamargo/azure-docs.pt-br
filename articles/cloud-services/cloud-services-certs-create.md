@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="04/19/2016"
 	ms.author="adegeo"/>
 
 # Visão geral sobre certificados para os Serviços de Nuvem do Azure
@@ -80,4 +80,4 @@ Carregue um [certificado de API de gerenciamento](../azure-api-management-certs.
 
 >[AZURE.NOTE] O portal do Azure não usa certificados de gerenciamento para acessar a API, ele usa contas de usuário.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/15/2016"
+	ms.date="04/25/2016"
 	ms.author="anhoh"/>
 
 # Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos
@@ -61,12 +61,15 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tem uma cont
 
 1. Abra o **Visual Studio 2015** em seu computador.
 2. No menu **Arquivo**, selecione **Novo** e depois **Projeto**.
-3. Na caixa de diálogo **Novo Projeto**, selecione **Modelos**/**Visual C#**/**Aplicativo de Console**, nomeie o projeto e clique em **OK**. ![Captura de tela da janela Novo Projeto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+3. Na caixa de diálogo **Novo Projeto**, selecione **Modelos**/**Visual C#**/**Aplicativo de Console**, nomeie o projeto e clique em **OK**. 
+![Captura de tela da janela Novo Projeto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu novo aplicativo de console, que está em sua solução do Visual Studio.
-5. Sem sair do menu, clique em **Gerenciar Pacotes NuGet...** ![Captura de tela do menu exibido pelo clique com o botão direito do mouse para o projeto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-6. No canto esquerdo do painel, na janela **Gerenciar Pacotes NuGet**, clique em **Online** / **nuget.org**.
-7. Na caixa de entrada **Pesquisar Online**, procure **Banco de Dados de Documentos**.
-8. Nos resultados, encontre **Biblioteca do cliente do Banco de Dados de Documentos do Microsoft Azure** e clique em **Instalar**. A ID do pacote da Biblioteca de cliente do Banco de Dados de Documentos é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) ![Captura de tela do menu Nuget para localizar documentos do SDK do cliente do Banco de Dados de Documentos](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+5. Sem sair do menu, clique em **Gerenciar Pacotes NuGet...** 
+![Captura de tela do menu exibido pelo clique com o botão direito do mouse para o projeto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+6. Na guia **Nuget**, clique em **Procurar** e digite **banco de dados de documentos do azure** na caixa de pesquisa.
+7. Nos resultados, encontre **Microsoft.Azure.DocumentDB** e clique em **Instalar**. 
+A ID do pacote para a Biblioteca de Clientes do Banco de Dados de Documentos é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) 
+![Captura de tela do menu Nuget para localizar documentos do SDK do cliente do Banco de Dados de Documentos](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 Ótimo! Agora que a instalação está concluída, vamos começar a escrever algum código. Você pode encontrar um projeto de código completo deste tutorial no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
@@ -74,10 +77,11 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tem uma cont
 
 Primeiro, adicione essas referências para o início de seu aplicativo C#, no arquivo Program.cs:
 
-		// ADD THIS PART TO YOUR CODE
-		using System;
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
+
+    // ADD THIS PART TO YOUR CODE
     using System.Net;
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -94,7 +98,7 @@ Agora, adicione essas duas constantes e sua variável *client* sob sua classe p�
 		private const string PrimaryKey = "<your key>";
 		private DocumentClient client;
 
-Em seguida, vá para o [Portal do Azure](https://portal.azure.com) a fim de recuperar o URI e a chave primária. O URI do Banco de Dados de Documentos e a chave primária são necessárias para que seu aplicativo entenda onde deve se conectar e para que o Banco de Dados de Documentos confie na conexão do seu aplicativo.
+Em seguida, vá para o [Portal do Azure](https://portal.azure.com) para recuperar o URI e a chave primária. O URI do Banco de Dados de Documentos e a chave primária são necessárias para que seu aplicativo entenda onde deve se conectar e para que o Banco de Dados de Documentos confie na conexão do seu aplicativo.
 
 No Portal do Azure, navegue até sua conta do Banco de Dados de Documentos da Etapa 1.
 
@@ -102,9 +106,9 @@ Clique ícone **chaves** na barra **Essentials**. Copie o URI e substitua *<your
 
 ![Captura de tela do Portal do Azure usado pelo tutorial do NoSQL para criar um aplicativo de console em C#. Mostra uma conta do Banco de Dados de Documentos com o hub ATIVO realçado, o botão CHAVES realçado na folha da conta do Banco de Dados de Documentos e os valores de URI, de CHAVE PRIMÁRIA e de CHAVE SECUNDÁRIA realçados na folha Chaves][keys]
 
-Iniciaremos o aplicativo de introdução criando uma nova instância do **DocumentClient**.
+Iniciaremos o aplicativo de introdução criando uma nova instância de **DocumentClient**.
 
-Abaixo do método **principal**, adicione essa nova tarefa assíncrona chamada **GetStartedDemo**, que criará uma instância do nosso novo **DocumentClient**.
+Abaixo do método **Main**, adicione esta nova tarefa assíncrona denominada **GetStartedDemo**, que criará uma instância do nosso novo **DocumentClient**.
 
 	static void Main(string[] args)
 	{
@@ -116,7 +120,7 @@ Abaixo do método **principal**, adicione essa nova tarefa assíncrona chamada *
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 	}
 
-Adicione o código a seguir para executar a tarefa assíncrona do seu método **principal**. O método **principal** capturará exceções e as gravará no console.
+Adicione o código a seguir para executar a tarefa assíncrona a partir do seu método **Main**. O método **Main** irá capturar as exceções e escrevê-las no console.
 
 	static void Main(string[] args)
 	{
@@ -141,7 +145,6 @@ Adicione o código a seguir para executar a tarefa assíncrona do seu método **
 					Console.WriteLine("End of demo, press any key to exit.");
 					Console.ReadKey();
 			}
-	}
 
 Pressione **F5** para executar seu aplicativo.
 
@@ -162,7 +165,7 @@ Copie e cole o método **WriteToConsoleAndPromptToContinue** sob o método **Get
 
 Seu [banco de dados](documentdb-resources.md#databases) do Banco de Dados de Documentos pode ser criado usando o método [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) da classe **DocumentClient**. Um banco de dados é o contêiner lógico de armazenamento de documentos JSON particionado em coleções.
 
-Copie e cole o método **CreateDatabaseIfNotExists** embaixo do método **GetStartedDemo**.
+Copie e cole o método **CreateDatabaseIfNotExists** sob o método **WriteToConsoleAndPromptToContinue**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateDatabaseIfNotExists(string databaseName)
@@ -203,7 +206,7 @@ Parabéns! Você criou um Banco de Dados de Documentos com sucesso!
 
 ##<a id="CreateColl"></a>Etapa 5: Criar uma coleção  
 
-> [AZURE.WARNING] **CreateDocumentCollectionAsync** criará uma nova coleção com taxa de transferência reservada, que tem implicações de preço. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** criará uma nova coleção com uma taxa de transferência reservada, que tem implicações de preço. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
 
 É possível criar uma [coleção](documentdb-resources.md#collections) usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada.
 
@@ -243,7 +246,7 @@ Copie e cole o método **CreateDocumentCollectionIfNotExists** embaixo do métod
 		}
 	}
 
-Copie e cole o código a seguir no seu método **GetStartedDemo** sob a criação do banco de dados. Isso criará um conjunto de documentos denominado *FamilyCollection*.
+Copie e cole o código a seguir no seu método **GetStartedDemo** sob a criação do banco de dados. Isso criará uma coleção de documentos denominada *FamilyCollection*.
 
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
@@ -259,9 +262,9 @@ Parabéns! Você criou uma coleção de documentos do Banco de Dados de Document
 ##<a id="CreateDoc"></a>Etapa 6: Criar documentos JSON
 Um [documento](documentdb-resources.md#documents) pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. Agora podemos inserir um ou mais documentos. Se já tiver dados que gostaria de armazenar em seu banco de dados, você pode usar a[ferramenta de Migração de Dados](documentdb-import-data.md) do Banco de Dados de Documentos.
 
-Primeiro, precisamos criar uma classe **Family** que representará objetos armazenados no Banco de Dados de Documentos neste exemplo. Também criaremos subclasses **Parent**, **Child**, **Pet** e **Address** que são usadas em **Family**. Observe que os documentos devem ter uma propriedade **Id** serializada como **id** em JSON. Crie essas classes, adicionando as seguintes subclasses internas após o método **GetStartedDemo**.
+Primeiro, precisamos criar uma classe **Family** que representará os objetos armazenados no Banco de Dados de Documentos neste exemplo. Também criaremos as subclasses **Parent**, **Child**, **Pet** e **Address** que são usadas em **Family**. Observe que os documentos devem ter uma propriedade **Id** serializada como **id** em JSON. Crie essas classes, adicionando as seguintes subclasses internas após o método **GetStartedDemo**.
 
-Copie e cole as classes **Family**, **Parent**, **Child**, **Pet** e **Address** sob o método **WriteToConsoleAndPromptToContinue**.
+Copie e cole as classes **Family**, **Parent**, **Child**, **Pet** e **Address** embaixo do método **WriteToConsoleAndPromptToContinue**.
 
 	private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
 	{
@@ -313,7 +316,7 @@ Copie e cole as classes **Family**, **Parent**, **Child**, **Pet** e **Address**
 		public string City { get; set; }
 	}
 
-Copie e cole o método **CreateFamilyDocumentIfNotExists** sob o método **CreateDocumentCollectionIfNotExists**.
+Copie e cole o método **CreateFamilyDocumentIfNotExists** embaixo do método **CreateDocumentCollectionIfNotExists**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
@@ -339,7 +342,7 @@ Copie e cole o método **CreateFamilyDocumentIfNotExists** sob o método **Creat
 
 Insira dois documentos, um para a Família Martins e um para a Família Barros.
 
-Copie e cole o código a seguir no seu método **GetStartedDemo** sob a criação do conjunto de documentos.
+Copie e cole o código a seguir no seu método **GetStartedDemo** embaixo da criação da coleção de documentos.
 
 	await this.CreateDatabaseIfNotExists("FamilyDB");
 
@@ -421,7 +424,7 @@ Parabéns! Você criou dois documentos do Banco de Dados de Documentos com suces
 
 O Banco de Dados de Documentos tem suporte para [consultas](documentdb-sql-query.md) avançadas de documentos JSON armazenados em cada coleção. O exemplo de código a seguir mostra diversas consultas - usando a sintaxe SQL do Banco de Dados de Documentos bem como o LINQ - que podem ser realizadas nos documentos que inserimos na etapa anterior.
 
-Copie e cole o método **ExecuteSimpleQuery** sob seu método **CreateFamilyDocumentIfNotExists**.
+Copie e cole o método **ExecuteSimpleQuery** embaixo de seu método **CreateFamilyDocumentIfNotExists**.
 
 	// ADD THIS PART TO YOUR CODE
 	private void ExecuteSimpleQuery(string databaseName, string collectionName)
@@ -457,7 +460,7 @@ Copie e cole o método **ExecuteSimpleQuery** sob seu método **CreateFamilyDocu
 			Console.ReadKey();
 	}
 
-Copie e cole o código a seguir no seu método **GetStartedDemo** sob a segunda criação de documento.
+Copie e cole o código a seguir no seu método **GetStartedDemo** embaixo da segunda criação de documento.
 
 	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
@@ -474,11 +477,11 @@ O diagrama a seguir ilustra como a sintaxe de consulta do SQL do Banco de Dados 
 
 A palavra-chave [FROM](documentdb-sql-query.md#from-clause) é opcional na consulta, pois as consultas do Banco de Dados de Documentos já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Banco de Dados de Documentos fará com que Families, root ou o nome de variável escolhido por você faça referência à coleção atual, por padrão.
 
-##<a id="ReplaceDocument"></a>Etapa 8: substituir documento JSON
+##<a id="ReplaceDocument"></a>Etapa 8: substituir o documento JSON
 
 O Banco de Dados de Documentos dá suporte à substituição documentos JSON.
 
-Copie e cole o método **ReplaceFamilyDocument** sob seu método **ExecuteSimpleQuery**.
+Copie e cole o método **ReplaceFamilyDocument** embaixo de seu método **ExecuteSimpleQuery**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
@@ -494,7 +497,7 @@ Copie e cole o método **ReplaceFamilyDocument** sob seu método **ExecuteSimple
 			}
 	}
 
-Copie e cole o código a seguir no seu método **GetStartedDemo** sob a execução da consulta. Depois de substituir o documento, isso executará a mesma consulta novamente para exibir o documento alterado.
+Copie e cole o código a seguir de seu método **GetStartedDemo** embaixo da execução da consulta. Depois de substituir o documento, isso executará a mesma consulta novamente para exibir o documento alterado.
 
 	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
@@ -512,11 +515,11 @@ Pressione **F5** para executar seu aplicativo.
 
 Parabéns! Você substituiu um documento do Banco de Dados de Documentos com sucesso!
 
-##<a id="DeleteDocument"></a>Etapa 9: excluir documento JSON
+##<a id="DeleteDocument"></a>Etapa 9: excluir o documento JSON
 
 O Banco de Dados de Documentos dá suporte à exclusão de documentos JSON.
 
-Copie e cole o método **DeleteFamilyDocument** sob seu método **ReplaceFamilyDocument**.
+Copie e cole o método **DeleteFamilyDocument** embaixo de seu método **ReplaceFamilyDocument**.
 
 	// ADD THIS PART TO YOUR CODE
 	private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
@@ -532,7 +535,7 @@ Copie e cole o método **DeleteFamilyDocument** sob seu método **ReplaceFamilyD
 			}
 	}
 
-Copie e cole o código a seguir no seu método **GetStartedDemo** sob a segunda execução da consulta.
+Copie e cole o código a seguir de seu método **GetStartedDemo** embaixo da segunda execução da consulta.
 
 	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
 
@@ -549,7 +552,7 @@ Parabéns! Você excluiu um documento do Banco de Dados de Documentos com sucess
 
 Excluir o banco de dados criado removerá o banco de dados e todos os recursos filhos (coleções, documentos, etc.).
 
-Copie e cole o código a seguir no seu método **GetStartedDemo** sob a exclusão de documento para excluir o banco de dados inteiro e todos os recursos filhos.
+Copie e cole o código a seguir de seu método **GetStartedDemo** embaixo da exclusão de documento para excluir o banco de dados inteiro e todos os recursos-filhos.
 
 	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
 
@@ -611,4 +614,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -41,11 +41,11 @@ Os conceitos de alto nível a seguir descrevem o que você pode fazer com o Serv
 ### Tipos de aplicativo
 O Serviço de Aplicativo permite que você crie os seguintes tipos de aplicativo de uma experiência de desenvolvimento único:
 
-- [**Aplicativos Web**](../app-service-web-overview) - crie e implante rapidamente aplicativos Web críticos dimensionados de acordo com sua empresa.
-- [**Aplicativos Móveis**](../app-service-mobile-value-prop-preview) - envolva funcionários, parceiros e clientes em qualquer dispositivo a qualquer momento.
-- [**Aplicativos de API**](../app-service-api-apps-why-best-platform) - Compile e consuma as APIs de nuvem com facilidade.
-- [**Aplicativos de Função**](../functions-overview) - Crie funções simples que respondem a eventos no Azure, no local e nos provedores SaaS.
-- [**Aplicativos Lógicos**](../app-service-logic-what-are-logic-apps) - automatize o acesso e o uso de dados entre nuvens sem escrever código.
+- [**Aplicativos Web**](../app-service-web/app-service-web-overview.md) - crie e implante rapidamente aplicativos Web críticos dimensionados de acordo com sua empresa.
+- [**Aplicativos Móveis**](../app-service-mobile/app-service-mobile-value-prop.md) - envolva funcionários, parceiros e clientes em qualquer dispositivo a qualquer momento.
+- [**Aplicativos de API**](../app-service-api/app-service-api-apps-why-best-platform.md) - Compile e consuma as APIs de nuvem com facilidade.
+- [**Aplicativos de Função**](../azure-functions/functions-overview.md) - Crie funções simples que respondem a eventos no Azure, no local e nos provedores SaaS.
+- [**Aplicativos Lógicos**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - automatize o acesso e o uso de dados entre nuvens sem escrever código.
 
 Como um único serviço integrado, o Serviço de Aplicativo facilita a composição dos tipos de aplicativo acima em uma única solução, permitindo que você compile facilmente os aplicativos Web e os clientes móveis usando o mesmo back-end e integre nos sistemas locais, bem como os serviços populares, como o Office 365 e o salesforce.com.
 
@@ -60,4 +60,4 @@ Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um 
 [Crie um novo aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo e gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

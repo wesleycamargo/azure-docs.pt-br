@@ -3,7 +3,7 @@
     description="Saiba como usar o Google Apps com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!"
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/17/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Tutorial: Como integrar o Google Apps ao Active Directory do Azure
 
@@ -313,4 +313,4 @@ Se você preferir configurar manualmente o logon único, conclua as seguintes et
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->
