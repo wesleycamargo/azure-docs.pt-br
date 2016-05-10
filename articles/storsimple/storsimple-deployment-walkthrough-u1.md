@@ -285,9 +285,9 @@ Para obter instruções de instalação do MPIO para um dispositivo do StorSimpl
 
 ## Próximas etapas
 
-- Configurar um [dispositivo virtual](storsimple-virtual-device.md).
+- Configurar um [dispositivo virtual](storsimple-virtual-device-u2.md).
 
 - Use o [Serviço StorSimple Manager](storsimple-manager-service-administration.md) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

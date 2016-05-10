@@ -1,3 +1,3 @@
-É importante saber que atualmente o Azure funciona com dois modelos de implantação: Gerenciador de Recursos e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Você precisará saber em qual modelo deseja trabalhar. Nem todos os recursos de rede já têm suporte para ambos os modelos. Para saber mais sobre esses modelos de implantação, confira [Compreender a implantação do Gerenciador de Recursos e a implantação clássica](../articles/resource-manager-deployment-model.md).
+É importante saber que atualmente o Azure funciona com dois modelos de implantação: Resource Manager e clássico. Antes de começar a configuração, entenda as ferramentas e os modelos de implantação. Você precisará saber em qual modelo deseja trabalhar. Nem todos os recursos de rede já têm suporte para ambos os modelos. Para saber mais sobre esses modelos de implantação, confira [Compreender a implantação do Gerenciador de Recursos e a implantação clássica](../articles/resource-manager-deployment-model.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

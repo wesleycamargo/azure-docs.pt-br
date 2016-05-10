@@ -42,7 +42,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 3. Selecione um **Tipo de preço** ou use o padrão.
 
-4. Selecione ou crie um **Grupo de Recursos**. Para obter mais informações sobre Grupos de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview/#resource-groups).
+4. Selecione ou crie um **Grupo de Recursos**. Para obter mais informações sobre Grupos de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md#resource-groups).
 
 5. Selecione a **Assinatura** para este perfil CDN.
 
@@ -52,7 +52,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 ## Criar um novo ponto de extremidade CDN
 
-**Para criar um novo ponto de extremidade CDN para sua conta de armazenamento**
+**Para criar um novo ponto de extremidade CDN**
 
 1. No [Portal do Azure](https://portal.azure.com), navegue até seu perfil CDN. Você pode ter fixado ao painel na etapa anterior. Se não, você poderá encontrá-lo clicando em **Procurar**, em **perfis CDN** e clicando no perfil ao qual você pretende adicionar o ponto de extremidade.
 
@@ -80,11 +80,13 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 7. No **Cabeçalho de host de origem**, digite o cabeçalho de host que você deseja que o CDN envie com cada solicitação ou deixe o padrão.
 
-8. Para **Protocolo** e **Porta de origem**, especifique os protocolos e as portas usadas para acessar os recursos na origem. Seus clientes continuarão usando esses mesmos protocolos e portas ao acessar recursos na CDN. É necessário selecionar pelo menos um protocolo (HTTP ou HTTPS).
+8. Para **Protocolo** e **Porta de origem**, especifique os protocolos e as portas usadas para acessar os recursos na origem. É necessário selecionar pelo menos um protocolo (HTTP ou HTTPS).
 	
-	> [AZURE.TIP] O acesso a conteúdo da CDN usando HTTPS tem as seguintes restrições:
+	> [AZURE.NOTE] A **Porta de origem** afeta somente qual porta o ponto de extremidade usa para recuperar as informações na origem. O ponto de extremidade em si só estará disponível para os clientes finais nas portas HTTP e HTTPS (80 e 443) padrão, independentemente da **Porta de origem**.
+	>
+	>O acesso a conteúdo da CDN usando HTTPS tem as seguintes restrições:
 	> 
-	> - Você deve usar SSL para o certificado fornecido pela CDN. Não há suporte a certificados de terceiros.
+	> - Você deve usar o certificado SSL fornecido pela CDN. Não há suporte a certificados de terceiros.
 	> - Você deve usar o domínio fornecido pela CDN (`<endpointname>.azureedge.net`) para acessar o conteúdo HTTPS. O suporte a HTTPS não está disponível para CNAMEs (nomes de domínio personalizados), pois a CDN não dá suporte a certificados personalizados no momento.
 
 9. Clique no botão **Adicionar** para criar um novo ponto de extremidade.
@@ -93,9 +95,9 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
     ![Ponto de extremidade CDN][cdn-endpoint-success]
 
-    > [AZURE.IMPORTANT] O ponto de extremidade não estará imediatamente disponível, pois o registro demora um pouco para se propagar pela rede CDN. Ele geralmente estará disponível dentro de 90 minutos, mas em alguns casos pode levar mais tempo.
+    > [AZURE.IMPORTANT] O ponto de extremidade não estará imediatamente disponível para o uso, pois o registro demora um pouco para se propagar pela CDN. Ele geralmente estará disponível dentro de 90 minutos, mas em alguns casos pode levar mais tempo.
 	>	 
-	> Os usuários que tentarem usar o nome de domínio CDN antes que a configuração do ponto de extremidade seja propagada para os POPs receberão códigos de resposta HTTP 404.
+	> Os usuários que tentarem usar o nome de domínio CDN antes que a configuração do ponto de extremidade seja propagada para os POPs receberão códigos de resposta HTTP 404. Se passaram várias horas desde que você criou o ponto de extremidade e ainda está recebendo respostas 404, consulte [Solucionando problemas dos pontos de extremidade CDN retornando status 404](cdn-troubleshoot-endpoint.md).
 
 
 ##Consulte também
@@ -103,6 +105,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 - [Como mapear o conteúdo da CDN para um domínio personalizado](cdn-map-content-to-custom-domain.md)
 - [Pré-carregar ativos em um ponto de extremidade da CDN do Azure](cdn-preload-endpoint.md)
 - [Limpar um ponto de extremidade CDN do Azure](cdn-purge-endpoint.md)
+- [Solucionando problemas dos pontos de extremidade CDN retornando status 404](cdn-troubleshoot-endpoint.md)
 
 [new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
 [cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
@@ -110,4 +113,4 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

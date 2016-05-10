@@ -225,4 +225,12 @@ Você pode desabilitar um dispositivo e depois que ele for desabilitado, poderá
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+## Próximas etapas
+
+As postagens de blog do TechNet abaixo fornecem detalhes adicionais sobre a solução pré-configurada de monitoramento remoto:
+
+- [IoT Suite - Under the Hood - Remote Monitoring (Monitoramento remoto)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+- [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (Adicionando dispositivos ativos e simulados)](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+
+<!---HONumber=AcomDC_0504_2016-->
