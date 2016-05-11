@@ -561,4 +561,4 @@ Se você quiser manter seu grupo de recursos, pode excluir somente o conjunto de
 
 	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
 
-<!---HONumber=AcomDC_0427_2016-->
+<!-----HONumber=AcomDC_0427_2016-->
