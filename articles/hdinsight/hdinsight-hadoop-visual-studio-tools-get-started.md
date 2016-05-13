@@ -275,4 +275,4 @@ Neste artigo, você aprendeu como se conectar a clusters HDInsight no Visual Stu
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
