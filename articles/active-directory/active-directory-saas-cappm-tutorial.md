@@ -120,7 +120,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
     a. Na caixa de texto **Identificador**, digite a URL usada pelos usuários para entrar em seu aplicativo do CA PPM usando o seguinte padrão: **https://ca.ondemand.saml.20.post.\<nome da empresa>**.
 	
-	b. Na caixa de texto **URL de Resposta**, digite ****https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
+	b. Na caixa de texto **URL de Resposta**, digite **https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer**
 
 	c. Clique em **Avançar**
  

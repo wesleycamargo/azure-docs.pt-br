@@ -115,7 +115,7 @@ Depois de salvar as alterações no **server.js**, use as seguintes etapas para 
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  Abra o navegador da Web e acesse ****http://127.0.0.1**.
+2.  Abra o navegador da Web e acesse **http://127.0.0.1**.
 
 3.  Quando a janela do navegador for aberta, digite um apelido e, em seguida, pressione enter. Isso permitirá que você poste mensagens como um apelido específico. Para testar a funcionalidade de vários usuários, abra janelas adicionais do navegador usando a mesma URL e digite apelidos diferentes.
 

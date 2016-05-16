@@ -151,7 +151,7 @@ Em seguida, repita as etapas anteriores para criar outra rede virtual. Neste exe
 
 - **VNet2**
 - **Espaço de endereço**: 10.2.0.0/16
-- **Região ** = Leste do Japão
+- **Região** = Leste do Japão
 
 ## Etapa 4: Adicionar redes locais
 

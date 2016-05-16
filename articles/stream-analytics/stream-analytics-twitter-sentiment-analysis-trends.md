@@ -94,7 +94,7 @@ Agora que temos eventos de Tweets, podemos configurar, em tempo real, um trabalh
 
 	* **ALIAS DE ENTRADA**: insira um nome amigável para a entrada do trabalho, como TwitterStream. Observe que você usará esse nome na consulta posteriormente. **HUB DE EVENTOS**: se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho de Stream Analytics, selecione o namespace em que o hub de eventos está.
 
-		Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para ** NAMESPACE DO SERVICE BUSs**, **NOME DO HUB DE EVENTOS**, **NOME DA POLÍTICA DO HUB DE EVENTOS**, **CHAVE DE POLÍTICA DO HUB DE EVENTOS** e **CONTAGEM DE PARTIÇÕES DO HUB DE EVENTOS**.
+		Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente informações para **NAMESPACE DO SERVICE BUSs**, **NOME DO HUB DE EVENTOS**, **NOME DA POLÍTICA DO HUB DE EVENTOS**, **CHAVE DE POLÍTICA DO HUB DE EVENTOS** e **CONTAGEM DE PARTIÇÕES DO HUB DE EVENTOS**.
 
 	* **NOME DO HUB DE EVENTOS**: selecione o nome do Hub de Eventos
 	* **NOME DE POLÍTICA DO HUB DE EVENTOS**: selecione a política de hub de eventos criada anteriormente neste tutorial.

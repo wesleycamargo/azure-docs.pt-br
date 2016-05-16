@@ -107,7 +107,7 @@ O diagrama abaixo mostra os diferentes componentes necessários no agente client
 
 ![][img-client]
 
-É possível saber mais sobre a implementação no dispositivo físico em [Introducing the Azure IoT Hub device management client library][lnk-library-c] (Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
+É possível saber mais sobre a implementação no dispositivo físico em [Introducing the Azure IoT Hub device management client library][lnk-library-c] \(Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
 
 ## Próximas etapas
 

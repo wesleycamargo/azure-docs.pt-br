@@ -20,7 +20,7 @@
 
 O Banco de Dados SQL do Azure fornece ferramentas de desempenho para ajudá-lo a identificar e melhorar o desempenho dos bancos de dados, fornecendo recomendações e ações de ajuste inteligentes.
 
-1. Navegue até seu banco de dados no [Portal do Azure](http://portal.azure.com) e clique em **Todas as configurações** > ** Desempenho ** > **Visão geral** para abrir a página **Desempenho**.
+1. Navegue até seu banco de dados no [Portal do Azure](http://portal.azure.com) e clique em **Todas as configurações** > **Desempenho** > **Visão geral** para abrir a página **Desempenho**.
 
 
 2. Clique em **Recomendações** para abrir o [Advisor do Banco de Dados SQL](#sql-database-advisor), então clique em **Consultas** para abrir [Análise de Desempenho de Consultas](#query-performance-insight).

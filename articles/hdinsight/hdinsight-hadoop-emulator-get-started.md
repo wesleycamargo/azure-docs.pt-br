@@ -494,7 +494,7 @@ Esta é uma amostra para o envio de um trabalho do Hadoop:
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Um prompt será exibido quando você chamar Get-Credential. Você deve usar **hadoop** como nome de usuário. A senha pode ser qualquer cadeia de caracteres. O nome do cluster sempre será ****http://localhost:50111**.
+Um prompt será exibido quando você chamar Get-Credential. Você deve usar **hadoop** como nome de usuário. A senha pode ser qualquer cadeia de caracteres. O nome do cluster sempre será **http://localhost:50111**.
 
 Para obter mais informações sobre o envio de trabalhos do Hadoop, consulte [Enviar trabalhos do Hadoop programaticamente](hdinsight-submit-hadoop-jobs-programmatically.md). Para obter mais informações sobre os cmdlets do PowerShell do Azure para HDInsight, consulte [Referência de cmdlets do HDInsight][hdinsight-powershell-reference].
 

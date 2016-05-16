@@ -103,7 +103,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 |Nome| Obrigatório/repetição | Tipo | Observações |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obrigatório | Cadeia de caracteres | Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-| ****source1 … sourceN ** | Obrigatório, número de vezes variável| Cadeia de caracteres | Valores da cadeia de caracteres a serem unidos. |
+| **source1 … sourceN** | Obrigatório, número de vezes variável| Cadeia de caracteres | Valores da cadeia de caracteres a serem unidos. |
 
 
 

@@ -42,7 +42,7 @@ O [Portal do Azure][] é um portal com base na Web no qual você pode criar, atu
 Para começar a usar o portal do Azure, consulte [Criar um SQL Data Warehouse (Portal do Azure)][].
 
 ### SQL Server Data Tools no Visual Studio
-O [SSDT][] (SQL Server Data Tools) no Visual Studio permite que você se conecte, gerencie e desenvolva seus bancos de dados. Se você for um desenvolvedor de aplicativos familiarizado com o Visual Studio ou com outros ambientes de desenvolvimento integrados (IDEs), tente usar o SSDT no Visual Studio.
+O [SSDT][] \(SQL Server Data Tools) no Visual Studio permite que você se conecte, gerencie e desenvolva seus bancos de dados. Se você for um desenvolvedor de aplicativos familiarizado com o Visual Studio ou com outros ambientes de desenvolvimento integrados (IDEs), tente usar o SSDT no Visual Studio.
 
 O SSDT inclui o Pesquisador de Objetos do SQL Server, que permite a visualização, conexão e execução de scripts em bancos de dados do SQL Data Warehouse. Para conectar-se rapidamente ao SQL Data Warehouse, você pode simplesmente clicar no botão **Abrir no Visual Studio** na barra de comandos ao exibir os detalhes do banco de dados no Portal Clássico do Azure.
 

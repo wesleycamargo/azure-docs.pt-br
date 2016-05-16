@@ -131,7 +131,7 @@ Use os procedimentos a seguir para registrar o seu grupo de gerenciamento do Ope
 
 2. Expanda o nó **Insights Operacionais** e selecione **Conexão dos Insights Operacionais**. ![Operations Manager OMS Conexão](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. Na exibição Conexão do OMS, clique em **Configurar Servidor Proxy**. ![Operations Manager Conexão do OMS Configurar Servidor Proxy](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. No Assistente de Configurações dos Insights Operacionais: Servidor Proxy, selecione **Usar um servidor proxy para acessar o Serviço Web dos Insights Operacionais** e, em seguida, digite a URL com o número da porta, como por exemplo, ****http://myproxy:80**. ![Operations Manager OMS endereço de proxy](./media/log-analytics-proxy-firewall/proxy-om03.png)
+4. No Assistente de Configurações dos Insights Operacionais: Servidor Proxy, selecione **Usar um servidor proxy para acessar o Serviço Web dos Insights Operacionais** e, em seguida, digite a URL com o número da porta, como por exemplo, **http://myproxy:80**. ![Operations Manager OMS endereço de proxy](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
 ### Para especificar credenciais caso o servidor proxy exija autenticação

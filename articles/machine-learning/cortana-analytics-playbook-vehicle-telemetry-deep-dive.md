@@ -336,7 +336,7 @@ Nesta seção, você verá como usamos a combinação do Azure Stream Analytics,
 
 Nosso objetivo aqui é prever os veículos que exigem manutenção ou recall com base em determinadas estatísticas de integridade. Podemos fazer as seguintes suposições
 
-- Os veículos exigirão ** manutenção** se uma das três condições a seguir for verdadeira:
+- Os veículos exigirão **manutenção** se uma das três condições a seguir for verdadeira:
 	- A pressão do pneu está baixa
 	- O nível de óleo do motor está baixo
 	- A temperatura do motor está alta
