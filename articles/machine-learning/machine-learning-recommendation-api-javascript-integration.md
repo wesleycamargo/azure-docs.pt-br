@@ -133,7 +133,8 @@ Ou com dados opcionais:
 
 
 ####3\.2.3. Evento Adicionar ao Carrinho de Compras
-Esse evento deve ser usado quando o usuário adiciona um item ao carrinho de compras. Parâmetros:
+Esse evento deve ser usado quando o usuário adiciona um item ao carrinho de compras. 
+Parâmetros:
 * evento (cadeia de caracteres, obrigatória) – “addshopcart”
 * item (cadeia de caracteres, obrigatória) – Identificador exclusivo do item
 * itemName (cadeia de caracteres, opcional) – o nome do item
@@ -165,7 +166,8 @@ Esse evento deve ser usado quando o usuário comprou o carrinho de compras.
 
 Parâmetros:
 * evento (cadeia de caracteres) – “adquirir”
-* itens (adquiridos) – A matriz que contém uma entrada para cada item adquirido.<br><br> Formato adquirido:
+* itens (adquiridos[] ) – A matriz que contém uma entrada para cada item adquirido.<br><br>
+Formato adquirido:
 	* item (cadeia de caracteres) - Identificador exclusivo do item.
 	* contagem (int ou cadeia de caracteres) – número de itens que foram adquiridos.
 	* preço (flutuante ou cadeia de caracteres) – campo opcional – o preço do item.
@@ -184,7 +186,11 @@ Esse evento deve ser usado após o logon do usuário em seu site.
 
 Parâmetros:
 * evento (cadeia de caracteres) – “userlogin”
-* usuário (cadeia de caracteres) – identificação exclusiva do usuário. <script> se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+* usuário (cadeia de caracteres) – identificação exclusiva do usuário.
+		<script>
+			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		</script>
 
 ##4\. Usar Recomendações via JavaScript
 O código que usa a recomendação é inicializado por um evento JavaScript pela página da Web do cliente. A resposta de recomendação inclui as Ids dos itens recomendados, seus nomes e suas classificações. É melhor usar essa opção apenas para exibir uma lista dos itens recomendados – uma manipulação mais complexa (como adicionar os metadados do item) deve ser feita na integração no lado do servidor.
