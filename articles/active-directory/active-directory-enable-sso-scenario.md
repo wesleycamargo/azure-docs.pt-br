@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/16/2016"
+      ms.date="05/03/2016"
       ms.author="markvi"/>
 
 # Gerenciamento de aplicativos com o Active Directory do Azure
@@ -24,7 +24,7 @@ Além do fluxo de trabalho ou do conteúdo real, as empresas têm dois requisito
 
 2. Para habilitar a segurança e governança, a organização precisa controlar e supervisionar quem pode e, na verdade, está acessando cada aplicativo
 
-No mundo dos aplicativos em nuvem, a melhor maneira de alcançar isso é usando a identidade para controlar “*QUEM tem permissão para fazer O QUE*”.
+No mundo dos aplicativos na nuvem, a melhor maneira de obter isso é usar uma identidade para controlar “*QUEM tem permissão para fazer O QUE*”.
 
 Na terminologia de computação:
 
@@ -135,4 +135,4 @@ Para começar a integrar aplicativos com o AD do Azure, confira o [Guia de intro
 
 [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

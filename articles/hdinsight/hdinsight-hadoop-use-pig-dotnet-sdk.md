@@ -40,7 +40,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 Cada assinatura do Azure é identificada por um valor GUID, conhecido como a ID da assinatura. Use as etapas a seguir para encontrar esse valor.
 
-1. Visite o [Portal do Azure](portal de visualização).
+1. Visite o [Portal do Azure][preview-portal].
 
 2. Na barra à esquerda do portal, selecione __PROCURAR TUDO__ e selecione __Assinaturas__ na folha __Procurar__.
 
@@ -51,8 +51,6 @@ Salve a ID da assinatura, que será usada mais tarde.
 ## Criar o aplicativo
 
 O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET.
-
-O exemplo a seguir utiliza a autenticação interativa do usuário. Para usar a autenticação não interativa, confira [Criar aplicativos .NET HDInsight de autenticação não interativa](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 
 1. Abrir o Visual Studio 2012 ou 2013
@@ -207,6 +205,6 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
-[portal de visualização]: https://portal.azure.com/
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

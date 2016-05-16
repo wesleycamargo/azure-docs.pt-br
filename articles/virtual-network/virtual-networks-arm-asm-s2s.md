@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Como conectar redes virtuais clássica a redes virtuais ARM no Azure - Guia de solução"
    description="Saiba como criar uma conexão VPN entre redes virtuais clássicas e novas redes virtuais"
-   services="virtual-network"
+   services="vpn-gateway"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="cherylmc"
    manager="carmonm"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="cherylmc" />
 
 # Conectando redes virtuais clássicas a novas redes virtuais
 
@@ -350,4 +350,4 @@ Agora que as duas redes virtuais estão conectadas, é hora de testar a conectiv
 - Saiba mais sobre [o Provedor de recursos de rede (NRP) para ARM](resource-groups-networking.md).
 - Exiba as diretrizes gerais sobre como [criar uma conexão VPN S2S entre uma rede virtual clássica e uma rede virtual do ARM](virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

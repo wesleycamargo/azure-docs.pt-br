@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/29/2016"
 	ms.author="renash"/>
 
 
@@ -239,13 +239,13 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - As regiões dos EUA e Europa só dão suporte ao serviço [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Todos os pacotes serão retornados via FedEx Ground ou Fedex International Economy.
 
-- As regiões na Ásia só dão suporte ao serviço [DHL](http://www.dhl.com/). Todos os pacotes serão retornados via DHL Express Worldwide.
+- Para Leste do Pacífico Asiático, Sudeste do Pacífico Asiático, Leste da Austrália, Sudeste da Austrália e Oeste do Japão, apenas [DHL](http://www.dhl.com/) tem suporte. Todos os pacotes serão retornados via DHL Express Worldwide.
 
 	> [AZURE.IMPORTANT] Você deve fornecer seu número de controle ao serviço de Importação/Exportação do Azure; caso contrário, seu trabalho não poderá ser processado.
 
 **Existe algum custo associado à remessa de retorno?**
 
-- A Microsoft utiliza o número da conta da transportadora fornecida no momento da criação do trabalho para enviar as unidades para seu endereço de devolução do data center. Certifique-se de fornecer um número de conta de transportadora válido para a transportadora com suporte na região do data center. Você pode criar uma conta de transportadora da [FedEx](http://www.fedex.com/us/oadr/) (para os EUA e a Europa) ou da [DHL](http://www.dhl.com/) (Ásia) se não tiver uma.
+- A Microsoft utiliza o número da conta da transportadora fornecida no momento da criação do trabalho para enviar as unidades para seu endereço de devolução do data center. Certifique-se de fornecer um número de conta de transportadora válido para a transportadora com suporte na região do data center. Você poderá criar uma conta de transportadora da [FedEx](http://www.fedex.com/us/oadr/) (para os EUA e a Europa) ou da [DHL](http://www.dhl.com/) (Ásia e Austrália) se não tiver uma.
 
 - A taxa de remessa de retorno é cobrada na conta da sua transportadora e depende da transportadora.
 
@@ -254,12 +254,17 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 - O serviço Importar/Exportar dá suporte à importação e exportação de dados para/de contas de armazenamento nas seguintes regiões:
 	- Leste dos EUA
 	- Oeste dos EUA
+	- Leste dos EUA 2
+	- Centro dos EUA
 	- Centro-Norte dos EUA
 	- Centro-Sul dos Estados Unidos
 	- Norte da Europa
 	- Europa Ocidental
 	- Ásia Oriental
 	- Sudeste Asiático
+	- Leste da Austrália
+	- Sudeste da Austrália
+	- Oeste do Japão
 
 - Você receberá um endereço de remessa na região onde sua conta de armazenamento está localizada. Por exemplo, se morar nos EUA e sua conta de armazenamento estiver no data center da Europa Ocidental, você receberá um endereço de remessa na Europa para envio das unidades.
 
@@ -275,7 +280,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - Envie somente seus discos rígidos. Não inclua itens como cabos de alimentação ou cabos USB.
 
-**Por que o status do meu trabalho no Portal Clássico é mostrado como *Enviando* quando o site da Operadora mostra que meu pacote foi entregue?**
+**Por que o status do meu trabalho no Portal Clássico é mostrado como *Enviando* quando o site da Transportadora mostra que meu pacote foi entregue?**
 
 - O status do Portal muda de *Enviando* para *Transferindo* quando o processamento da unidade é iniciado. Se a unidade tiver alcançado a instalação, porém, ainda não tiver iniciado o processamento, o status do trabalho será exibido como *Enviando*.
 
@@ -288,4 +293,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

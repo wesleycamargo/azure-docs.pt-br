@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure
@@ -43,7 +43,7 @@ Para a versão anterior, consulte as [notas de versão completas](mobile-engagem
 
 Se você já tiver integrado uma versão anterior do SDK no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
 
-Você precisará seguir vários procedimentos se perdeu várias versões do SDK. Ver todos os [Procedimentos de atualização](mobile-engagement-windows-phone-upgrade-procedure/). Por exemplo, se você migrar do 0.10.1 para 0.11.0 você tem que primeiro seguir o procedimento "de 0.9.0 a 0.10.1” e depois o procedimento "de 0.10.1 a 0.11.0".
+Você precisará seguir vários procedimentos se perdeu várias versões do SDK. Ver todos os [Procedimentos de atualização](mobile-engagement-windows-phone-upgrade-procedure.md). Por exemplo, se você migrar do 0.10.1 para 0.11.0 você tem que primeiro seguir o procedimento "de 0.9.0 a 0.10.1” e depois o procedimento "de 0.10.1 a 0.11.0".
 
 ###De 2.0.0 a 3.3.0
 
@@ -59,4 +59,4 @@ Agora, os logs do console produzidos pelo SDK podem ser habilitados/desabilitado
 Consulte [Procedimentos de atualização](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

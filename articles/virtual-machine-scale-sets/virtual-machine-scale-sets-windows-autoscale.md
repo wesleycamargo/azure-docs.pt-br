@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="04/26/2016"
 	ms.author="davidmu"/>
 
 # Dimensionar automaticamente máquinas em um conjunto de escalas de máquina virtual
@@ -39,17 +39,17 @@ Para obter mais informações sobre os recursos do Gerenciador de recursos, conf
 
 O modelo que você cria neste tutorial é semelhante a um modelo que pode ser encontrado na Galeria de modelos. Para obter mais informações, confira [Implantar um simples Conjunto de Dimensionamento de VM com VMs do Windows e um Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+## Etapa 1: instalar o PowerShell do Azure
 
-## Etapa 1: Criar um grupo de recursos e uma conta de armazenamento
+Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure.
 
-1. **Entrar no Microsoft Azure**. Abra a janela do Microsoft Azure PowerShell e execute **Login-AzureRmAccount**.
+## Etapa 2: Criar um grupo de recursos e uma conta de armazenamento
 
-2. **Criar um grupo de recursos** – Todos os recursos devem ser implantados em um grupo de recursos. Para este tutorial, nomeie o grupo de recursos como **vmsstestrg1**. Confira [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Criar um grupo de recursos** – Todos os recursos devem ser implantados em um grupo de recursos. Para este tutorial, nomeie o grupo de recursos **vmsstestrg1**. Confira [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-3. **Implantar uma conta de armazenamento para o novo grupo de recursos** – Este tutorial usa várias contas de armazenamento para facilitar o conjunto de dimensionamento de máquina virtual. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para criar uma conta de armazenamento chamada **vmsstestsa**. Mantenha a janela do Microsoft Azure PowerShell aberta para etapas posteriormente neste tutorial.
+2. **Implantar uma conta de armazenamento para o novo grupo de recursos** – Este tutorial usa várias contas de armazenamento para facilitar o conjunto de dimensionamento de máquina virtual. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) para criar uma conta de armazenamento chamada **vmsstestsa**. Mantenha a janela do Microsoft Azure PowerShell aberta para etapas posteriormente neste tutorial.
 
-## Etapa 2: Criar o modelo
+## Etapa 3: Criar o modelo
 Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recursos do Azure juntos usando uma descrição JSON dos recursos e parâmetros de implantação associados.
 
 1. Em seu editor favorito, crie o arquivo C:\\VMSSTemplate.json e adicione a estrutura inicial do JSON para dar suporte ao modelo.
@@ -472,7 +472,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
     Para este tutorial, estes são os valores importantes:
 
     - **metricName** - Esse é o mesmo que o contador de desempenho que definimos na variável wadperfcounter. Usando essa variável, a extensão de Diagnóstico coleta o contador **Processor(\_Total)\\% Processor Time**.
-	- **metricResourceUri** - Este é o identificador de recurso do conjunto de dimensionamento de máquina virtual.
+- **metricResourceUri** - Este é o identificador de recurso do conjunto de dimensionamento de máquina virtual.
     - **timeGrain** – Esta é a granularidade das métricas que são coletadas. Neste modelo, ele é definido como 1 minuto.
     - **statistic** – Isso determina como as métricas são combinadas para acomodar a ação de dimensionamento automático. Os valores possíveis são: Média, Mín, Máx. Neste modelo estamos procurando o uso médio de CPU total entre as máquinas virtuais no conjunto de dimensionamento.
     - **timeWindow** – Esta, se o intervalo de tempo em que os dados de instância são coletados. Deve estar entre 5 minutos e 12 horas.
@@ -486,7 +486,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
 
 12.	Salvar o arquivo de modelo.
 
-## Etapa 3: Carregar o modelo para armazenamento
+## Etapa 4: Carregar o modelo para armazenamento
 
 O modelo pode ser carregado na janela do Microsoft Azure PowerShell, desde que você saiba o nome da conta e a chave primária da conta de armazenamento que você criou na etapa 1.
 
@@ -515,15 +515,15 @@ O modelo pode ser carregado na janela do Microsoft Azure PowerShell, desde que v
             $fileName = "C:" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
 
-## Etapa 4: Implantar o modelo
+## Etapa 5: Implantar o modelo
 
 Agora que você criou o modelo, pode começar a implantar os recursos. Use este comando para iniciar o processo:
 
-        New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
+    New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 Quando você pressiona a tecla enter, é solicitado a fornecer valores para as variáveis que você atribuiu. Forneça esses valores:
 
-	vmName: vmsstestvm1
+    vmName: vmsstestvm1
 	vmSSName: vmsstest1
 	instanceCount: 5
 	adminUserName: vmadmin1
@@ -532,26 +532,30 @@ Quando você pressiona a tecla enter, é solicitado a fornecer valores para as v
 
 Deve levar cerca de 15 minutos para todos os recursos serem implantados com êxito.
 
->[AZURE.NOTE]Você também pode fazer uso da capacidade do portal para implantar os recursos. Para fazer isso, use este link: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+>[AZURE.NOTE] Você também pode fazer uso da capacidade do portal para implantar os recursos. Para fazer isso, use este link: "https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>"
 
-## Etapa 5: monitorar recursos
+## Etapa 6: Monitorar recursos
 
 Você pode obter informações sobre os conjuntos de dimensionamento de máquina virtual usando estes métodos:
 
  - O portal do Azure - Atualmente você pode obter uma quantidade limitada de informações usando o portal.
  - O [Azure Resource Explorer](https://resources.azure.com/) - Esta é a melhor ferramenta para explorar o estado atual de seu conjunto de dimensionamento. Siga este caminho e você deverá ver a exibição da instância do conjunto de dimensionamento que você criou:
 
-		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+        subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell- Use este comando para obter algumas informações:
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
+        
+        Or
+        
+        Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
 
  - Conecte-se à máquina virtual de jumpbox exatamente como faria com qualquer outra máquina e, em seguida, você pode acessar remotamente as máquinas virtuais no conjunto de dimensionamento para monitorar os processos individuais.
 
->[AZURE.NOTE]Uma API REST completa para obter informações sobre conjuntos de dimensionamento podem ser encontradas nos [Conjuntos de Dimensionamento de Máquina Virtual](https://msdn.microsoft.com/library/mt589023.aspx)
+>[AZURE.NOTE] Uma API REST completa para obter informações sobre conjuntos de dimensionamento podem ser encontradas nos [Conjuntos de Dimensionamento de Máquina Virtual](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Etapa 6: remover os recursos
+## Etapa 7: Remover os recursos
 
 Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática excluir os recursos que não são mais necessários. Você não precisa excluir cada recurso separadamente de um grupo de recursos. Você pode excluir o grupo de recursos, e todos os seus recursos serão excluídos automaticamente.
 
@@ -559,6 +563,11 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 Se você quiser manter seu grupo de recursos, pode excluir somente o conjunto de dimensionamento.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    
+## Próximas etapas
 
-<!-----HONumber=AcomDC_0427_2016-->
+- Gerencie o conjunto de escala que você acabou de criar usando as informações fornecidas em [Manage virtual machines in a Virtual Machine Scale Set (Gerenciar máquinas virtuais em um conjunto de escala de máquina virtual)](virtual-machine-scale-sets-windows-manage.md).
+- Saiba mais sobre a escala vertical revisando [Vertical autoscale with Virtual Machine Scale sets (Dimensionamento automático vertical com conjuntos de escala de máquina virtual)](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+
+<!---HONumber=AcomDC_0504_2016-->

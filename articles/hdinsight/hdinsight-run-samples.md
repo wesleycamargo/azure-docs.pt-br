@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/04/2016"
 	ms.author="jgao"/>
 
 #Executar exemplos do MapReduce do Hadoop no HDInsight baseado em Windows
@@ -45,11 +45,13 @@ Hoje em dia, muitas pessoas escolhem o Hive e o Pig em vez do MapReduce. Para ob
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **um cluster do HDInsight**. Para obter instruções sobre as várias maneiras pelas quais esses clusters podem ser criados, consulte [Criar clusters do Hadoop no HDInsight](hdinsight-provision-clusters.md).
-- **Uma estação de trabalho com o PowerShell do Azure**. Veja [Instalar o Azure PowerShell 1.0 e superior](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Uma estação de trabalho com o PowerShell do Azure**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="hdinsight-sample-wordcount"></a>Contagem de palavras - Java 
 
-Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é **wasb:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos. O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem que será usado para contar palavras e o local para a saída.
+Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é ****wasb:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos. O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem que será usado para contar palavras e o local para a saída.
 
 O código-fonte pode ser encontrado no [Apêndice A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -121,11 +123,11 @@ O Hadoop fornece uma API de streaming para o MapReduce que permite que você esc
 
 No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] (linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr]. O programa conta todas as palavras do texto.
 
-Quando um executável é especificado para **mappers**, cada tarefa do mapeador inicia o executável como um processo separado quando o mapeador é inicializado. À medida que a tarefa do mapeador é executada, ele converte suas entradas em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo.
+Quando um executável é especificado para **mappers**, cada tarefa do mapeador inicia o executável como um processo separado quando o mapeador é inicializado. À medida que a tarefa do mapeador é executada, converte suas entradas em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo.
 
 Enquanto isso, o mapeador coleta a saída orientada a linha do stdout do processo. Ele converte cada linha em um par chave/valor, que é coletado como a saída do mapeador. Por padrão, o prefixo de uma linha até o primeiro caractere de tabulação é a chave, e o restante da linha (exceto o caractere de tabulação) é o valor. Se não houver nenhum caractere de tabulação na linha, toda a linha será considerada como chave e o valor será nulo.
 
-Quando um executável é especificado para **reducers**, cada tarefa do redutor inicia o executável como um processo separado quando o redutor é inicializado. À medida que a tarefa do redutor é executada, ele converte seus pares de chave/valor de entrada em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo.
+Quando um executável é especificado para **reducers**, cada tarefa do redutor inicia o executável como um processo separado quando o redutor é inicializado. À medida que a tarefa do redutor é executada, converte seus pares de chave/valor de entrada em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo.
 
 Enquanto isso, o redutor coleta a saída orientada a linha de [stdout][stdin-stdout-stderr] do processo. Ele converte cada linha em um par chave/valor, que é coletado como a saída do redutor. Por padrão, o prefixo de uma linha até o primeiro caractere de tabulação é a chave, e o restante da linha (exceto o caractere de tabulação) é o valor.
 
@@ -981,7 +983,7 @@ O código do programa MapReduce TeraSort é apresentado para inspeção nesta se
 [hdinsight-introduction]: hdinsight-hadoop-introduction.md
 
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: ../powershell-install-configure.md
 
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
@@ -996,5 +998,6 @@ O código do programa MapReduce TeraSort é apresentado para inspeção nesta se
 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

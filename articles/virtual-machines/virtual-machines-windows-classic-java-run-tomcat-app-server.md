@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/04/2016"
 	ms.author="robmcm"/>
 
 # Como executar um servidor de aplicativos do Java em uma máquina virtual criada com o modelo de implantação clássico
@@ -146,4 +146,4 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 [NewRuleName]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,10 +1,10 @@
 <properties 
    pageTitle="O que é o StorSimple? | Microsoft Azure" 
-   description="Descreve o processo de camadas do StorSimple, o gerenciamento de dispositivos, de dispositivos virtuais, de serviços e de armazenamento, e também apresenta os principais termos usados no Azure Storsimple." 
+   description="Descreve o processo de camadas do StorSimple, o gerenciamento de dispositivos, de dispositivos virtuais, de serviços e de armazenamento, e também apresenta os principais termos usados no StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/15/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida
@@ -26,7 +26,7 @@ O StorSimple usa [armazenamento em camadas](#automatic-storage-tiering) para ger
 
 Com a Atualização 2 do StorSimple, é possível identificar volumes apropriados como *fixados localmente*, para garantir que os dados principais permaneçam locais para o dispositivo e não em camadas para a nuvem. Isso permite executar cargas de trabalho que são sensíveis à latência da nuvem, como cargas de trabalho SQL e de máquina virtual, em volumes fixados localmente, ao mesmo tempo que continua usando a nuvem para o backup. Para obter mais informações sobre volumes fixados localmente, veja [Usar o serviço do StorSimple Manager para gerenciar volumes](storsimple-manage-volumes-u2.md).
 
-A Atualização 2 também permite que você crie dispositivos virtuais do StorSimple que aproveitam as baixas latências e o alto desempenho fornecidos pelo armazenamento premium do Azure. Para obter mais informações sobre os dispositivos virtuais premium do StorSimple, veja [Implantar e gerenciar um dispositivo virtual do StorSimple no Azure](storsimple-virtual-device-u1.md). Para saber mais sobre o armazenamento premium do Azure, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage.md).
+A Atualização 2 também permite que você crie dispositivos virtuais do StorSimple que aproveitam as baixas latências e o alto desempenho fornecidos pelo armazenamento premium do Azure. Para obter mais informações sobre os dispositivos virtuais premium do StorSimple, veja [Implantar e gerenciar um dispositivo virtual do StorSimple no Azure](storsimple-virtual-device-u2.md). Para saber mais sobre o armazenamento premium do Azure, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage.md).
 
 Além do gerenciamento de armazenamento, os recursos de proteção de dados do StorSimple permitem que você crie backups agendados e sob demanda e os armazene localmente ou na nuvem. Os backups são realizados na forma de instantâneos incrementais, o que significa que eles podem ser criados e restaurados rapidamente. Os instantâneos em nuvem podem ser extremamente importantes em cenários de recuperação de desastres, pois substituem os sistemas de armazenamento secundário (como backup em fita) e permitem restaurar dados para o data center ou para locais alternativos, se necessário.
 
@@ -99,9 +99,9 @@ O dispositivo virtual tem os seguintes recursos:
 - Você pode criar uma quantidade ilimitada de dispositivos virtuais na nuvem e ativá-los ou desativá-los como o necessário. 
 - Ele pode ajudar a simular ambientes locais em cenários de recuperação de desastre, de desenvolvimento ou teste, e pode ajudar na recuperação no nível do item de backups. 
 
-Com a Atualização 2 e posterior, o dispositivo virtual do StorSimple está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo 1100) e o 8020. O dispositivo 8010 tem uma capacidade máxima de 30 TB. O dispositivo 8020, que usa o armazenamento premium do Azure, tem uma capacidade máxima de 64 TB. (O armazenamento premium do Azure armazena dados em SSDs, enquanto o armazenamento padrão armazena dados em HDDs.) Observe que você deve ter uma conta de armazenamento premium do Azure para usar o armazenamento premium. Para saber mais sobre o armazenamento premium, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage.md).
+Com a Atualização 2 e posterior, o dispositivo virtual do StorSimple está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo 1100) e o 8020. O dispositivo 8010 tem uma capacidade máxima de 30 TB. O dispositivo 8020, que usa o armazenamento premium do Azure, tem uma capacidade máxima de 64 TB. (Em camadas locais, o armazenamento premium do Azure armazena dados em SSDs, enquanto o armazenamento padrão armazena dados em HDDs.) Observe que você deve ter uma conta de armazenamento premium do Azure para usar o armazenamento premium. Para saber mais sobre o armazenamento premium, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage.md).
 
-Para obter mais informações sobre o dispositivo virtual do StorSimple, vá para [Implantar e gerenciar um dispositivo virtual do StorSimple no Azure](storsimple-virtual-device-u1.md).
+Para obter mais informações sobre o dispositivo virtual do StorSimple, vá para [Implantar e gerenciar um dispositivo virtual do StorSimple no Azure](storsimple-virtual-device-u2.md).
 
 ## Serviço StorSimple Manager
 
@@ -278,4 +278,4 @@ Saiba mais sobre a [Segurança do StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="04/29/2016"
 	ms.author="jahogg"/>
 
 # Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
@@ -28,7 +28,7 @@ Para gerenciar esses aplicativos com êxito, monitore-os de forma proativa e ent
 
 > [AZURE.NOTE] As contas de armazenamento com um tipo de replicação de ZRS (armazenamento com redundância de zona) não têm métricas ou funcionalidade de log habilitadas no momento.
 
-Para obter um guia prático para solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte [Solução de problemas de ponta a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e Message Analyzer](../storage-e2e-troubleshooting/).
+Para obter um guia prático para solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte [Solução de problemas de ponta a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e Message Analyzer](storage-e2e-troubleshooting.md).
 
 + [Introdução]
 	+ [Como esse guia está organizado]
@@ -409,7 +409,7 @@ No caso de alta **AverageServerLatency** para as solicitações de download de b
 
 Valores altos de **AverageServerLatency** podem também ser um sintoma de tabelas ou consultas mal desenhadas que resultam em operações de digitalização ou que seguem a anti-sequência acrescentar/preceder. Consulte "[As métricas mostram um aumento em PercentThrottlingError]" para obter mais informações.
 
-> [AZURE.NOTE] Você pode encontrar uma lista de verificação detalhada incluindo outros problemas a se conhecer aqui: "[Projetando um armazenamento escalonável e eficaz com base na lista de verificação dos aplicativos](storage-performance-checklist.md)".
+> [AZURE.NOTE] É possível encontrar uma lista de verificação de desempenho abrangente aqui: [Lista de verificação de escalabilidade e desempenho do Armazenamento do Microsoft Azure](storage-performance-checklist.md).
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Você está sofrendo atrasos inesperados na entrega de mensagens em uma fila
 
@@ -487,7 +487,8 @@ Nesse cenário, você deve investigar porque o token de SAS está expirando ante
 
 - Normalmente, você não deveria definir um tempo de início quando você cria uma SAS para um cliente para usar imediatamente. Se houver pequenas diferenças entre os relógios do hospedeiro que gera o SAS usando o horário atual e o serviço de armazenamento, então é possível que o serviço de armazenamento receba uma SAS que não seja válida.
 - Não defina um tempo de expiração muito curto na SAS. Novamente, pequenas diferenças entre os relógios do hospedeiro gerando a SAS e o serviço de armazenamento pode levar a uma SAS aparentemente expirando mais cedo do que esperado.
-- Os parâmetros da versão na chave de SAS (por exemplo **sv=2012-02-12**) correspondem à versão da biblioteca do cliente de armazenamento que você está usando? Use sempre a versão mais recente da biblioteca do cliente de armazenamento. Para saber mais sobre o controle de versão do token de SAS e as dependências na versão da biblioteca do cliente, consulte <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">Novidades sobre o Armazenamento do Microsoft Azure</a>.
+- Os parâmetros da versão na chave de SAS (por exemplo **sv=2012-02-12**) correspondem à versão da biblioteca do cliente de armazenamento que você está usando? Use sempre a versão mais recente da biblioteca do cliente de armazenamento. Para obter mais informações sobre controle de versão token SAS, consulte [Novidades para o Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
+- 
 - Se você gerar suas chaves de acesso de armazenamento (clique em **Gerencie as Chaves de Acesso** em qualquer página na sua conta de armazenamento no Portal Clássico do Azure) isso pode invalidar quaisquer token de SAS existentes. Isso pode ser um problema se você token de SAS com um tempo de expiração longo para aplicativos de cliente para o cache.
 
 Se você estiver usando a biblioteca do cliente de armazenamento para gerar tokens de SAS, então será fácil compilar um token válido. Entretanto, se você estiver usando a API REST de armazenamento e compilando tokens de SAS manualmente, leia cuidadosamente o tópico <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delegando acesso com uma assinatura de acesso compartilhado</a> no MSDN.
@@ -923,4 +924,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

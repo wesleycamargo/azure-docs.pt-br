@@ -14,11 +14,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/03/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
+
+## Notas da versão de 11/04/2016 do HDInsight
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight (Windows) 2.1.10.889.2191206 (HDP 1.3.12.0-01795 - inalterado)
+* HDInsight (Windows) 3.0.6.889.2191206 (HDP 2.0.13.0-2117 - inalterado)
+* HDInsight (Windows) 3.1.4.889.2191206 (HDP 2.1.15.0-2374 - inalterado)
+* HDInsight (Windows) 3.2.7.889.2191206 (HDP 2.2.9.1-10)
+* HDInsight (Windows) 3.3.0.889.2191206 (HDP 2.3.3.1-16 - inalterado)
+* HDInsight (Linux) 3.2.1000.0.7339916 (HDP 2.2.9.1-10)
+* HDInsight (Linux) 3.3.1000.0.7339916 (HDP 2.3.3.1-16)
+* HDInsight (Linux) 3.3.1000.0.7338911 (HDP 2.4.1.1-3)
+* SDK 1.5.8
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Problemas de atualização de metastore personalizado do HDI 3.4 | A criação de cluster falhará se você tiver usado um metastore personalizado, que foi usado anteriormente em uma versão inferior de outro cluster HDInsight. Isso ocorreu devido a um erro de script de atualização que agora foi corrigido| Criação do cluster | Todos | N/D
+| Recuperação de pane do Livy | Fornece resiliência de status do trabalho para qualquer trabalho enviado por meio do Livy | Confiabilidade | Spark no Linux| N/D
+| HA de conteúdo do Jupyter | Fornece a capacidade de salvar o conteúdo do Jupyter Notebook na conta de armazenamento associada ao cluster e carregar esse conteúdo da conta. Para obter mais informações, confira [Kernels disponíveis para notebooks Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Blocos de anotações | Spark no Linux| N/D
+| Remoção de hiveContext de Jupyter Notebooks | Use a mágica `%%sql` em vez da mágica `%%hive`. SqlContext é equivalente a hiveContext. Para obter mais informações, confira [Kernels disponíveis para notebooks Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)| Blocos de anotações | Clusters do Spark no Linux| N/D
+| Substituição de versões mais antigas do Spark | A versão mais antiga Spark 1.3.1 será removida do serviço em 31/5 | O Barramento de | Clusters do Spark no Linux | N/D
 
 ## Notas da versão de 29/03/2016 do HDInsight
 
@@ -38,8 +62,8 @@ Esta versão contém as atualizações a seguir.
 
 | Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versão do HDInsight 3.4 adicionada e versões atualizadas do HDP para todos os clusters do HDInsight | Com esta versão, adicionamos o HDInsight v3.4 (baseado no HDP 2.4) e também atualizamos outras versões do HDP. As notas de versão do HDP 2.4 estão disponíveis [aqui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) e mais informações sobre as versões do HDInsight podem ser encontradas [aqui](hdinsight-component-versioning.md).| O Barramento de | Todos os clusters do Linux| N/D
-| HDInsight Premium | O HDInsight agora está disponível em duas categorias - Standard e Premium. O HDInsight Premium está atualmente em Preview e disponível apenas para os clusters Hadoop e Spark no Linux. Para obter mais informações, veja [aqui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| O Barramento de | Hadoop e Spark no Linux| N/D
+| Versão do HDInsight 3.4 adicionada e versões atualizadas do HDP para todos os clusters do HDInsight | Com esta versão, adicionamos o HDInsight v3.4 (baseado no HDP 2.4) e também atualizamos outras versões do HDP. As notas de versão do HDP 2.4 estão disponíveis [aqui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) e mais informações sobre versões do HDInsight podem ser encontradas [aqui](hdinsight-component-versioning.md).| O Barramento de | Todos os clusters do Linux| N/D
+| HDInsight Premium | O HDInsight agora está disponível em duas categorias - Standard e Premium. O HDInsight Premium está atualmente em Preview e disponível apenas para os clusters Hadoop e Spark no Linux. Para obter mais informações, clique [aqui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| O Barramento de | Hadoop e Spark no Linux| N/D
 | Servidor R da Microsoft | O HDInsight Premium fornece o Servidor R da Microsoft, que pode ser incluído nos clusters Hadoop e Spark no Linux. Para obter mais informações, confira [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md) (Visão geral do Servidor R no HDInsight).| O Barramento de | Hadoop e Spark no Linux| N/D
 | Spark 1.6.0 | Os clusters do HDInsight 3.4 agora incluem o Spark 1.6.0| O Barramento de | Clusters do Spark no Linux| N/D
 | Aprimoramentos do Bloco de notas Jupyter | Os blocos de notas Jupyter disponíveis com os clusters do Spark agora fornecem kernels adicionais do Spark. Eles também incluem aprimoramentos, como o uso de %%magic, a visualização automática e a integração com bibliotecas de visualização do Python (como matplotlib). Para obter mais informações, confira [Kernels disponíveis para notebooks Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). | O Barramento de | Clusters do Spark no Linux | N/D
@@ -1541,4 +1565,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

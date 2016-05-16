@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/31/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Restaurar um volume do StorSimple de um conjunto de backup (Atualização 2)
@@ -23,7 +23,7 @@
 
 A página **Catálogo de Backup** exibe todos os conjuntos de backup criados após a realização de backups manuais ou automatizados. Você pode usar esta página para listar todos os backups para uma política de backup ou volume, selecionar ou excluir os backups, ou usar um backup para restaurar ou clonar um volume.
 
- ![Página Catálogo de Backup](./media/storsimple-restore-from-backup-set-u2/HCS_BackupCatalog.png)
+ ![Página Catálogo de Backup](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 Este tutorial explica como usar a página **Catálogo de Backup** para restaurar seu dispositivo a partir de um conjunto de backup.
 
@@ -73,7 +73,7 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
 
 1. Na página do serviço Gerenciador do StorSimple, clique na guia **Catálogo de backup**.
 
-    ![Catálogo de backup](./media/storsimple-restore-from-backup-set-u2/HCS_Restore.png)
+    ![Catálogo de backup](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
 2. Selecione um conjunto de backup desta maneira:
   1. Selecione o dispositivo adequado.
@@ -115,4 +115,4 @@ Para concluir a operação de restauração, coloque o volume offline no host e 
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -50,7 +50,7 @@ Use o [Media Player do Azure](http://amsplayer.azurewebsites.net/azuremediaplaye
 
 ####Criptografado com AES com token 
 
-[http://aestoken.azurewebsites.net]("http://aestoken.azurewebsites.net)
+[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ###Players Silverlight
 
@@ -93,4 +93,4 @@ Para obter informações sobre como desenvolver seus próprios players, consulte
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

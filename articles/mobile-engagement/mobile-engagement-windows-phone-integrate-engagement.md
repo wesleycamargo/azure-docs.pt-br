@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Integração do SDK do Windows Phone Silverlight para o Engagement
@@ -207,7 +207,7 @@ Se você não pode ou não quer sobrecarregar as classes `PhoneApplicationPage`,
 
 Opcionalmente, convém relatar eventos específicos do aplicativo, erros e trabalhos, para fazer isso, use os outros métodos encontrados na classe `EngagementAgent`. A API do Engagement permite usar todos os recursos avançados do Engagement.
 
-Para obter mais informações, consulte [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo da Windows Phone Silverlight](../mobile-engagement-windows-phone-use-engagement-api/).
+Para obter mais informações, consulte [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo da Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
 
 ##Configuração avançada
 
@@ -247,4 +247,4 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 > [AZURE.WARNING] O limite de intermitência não pode ser configurado para um período menor que um segundo. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, que é de, zero segundo. Isso irá disparar o SDK para relatar os logs em tempo real.
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

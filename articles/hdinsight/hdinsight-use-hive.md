@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/16/2016"
+	ms.date="05/03/2016"
 	ms.author="larryfr"/>
 
 # Usar o Hive e o HiveQL com o Hadoop no HDInsight para analisar um arquivo log4j do Apache de exemplo
@@ -70,11 +70,11 @@ Os dados de exemplo ficam no armazenamento de blob do Azure, que é usado pelo H
 
 Como o armazenamento de blob do Azure é o armazenamento padrão para HDInsight, você também pode acessar o arquivo usando **/example/data/sample.log** do HiveQL.
 
-> [AZURE.NOTE] A sintaxe acima, **wasb:///**, é usada para acessar arquivos armazenados no contêiner de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento, por exemplo, **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] A sintaxe acima, ****wasb:///**, é usada para acessar arquivos armazenados no contêiner de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento, por exemplo, ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Trabalho de exemplo: projetar colunas em dados delimitados
 
-As seguintes instruções HiveQL vão projetar colunas em dados delimitados armazenados no diretório **wasb:///example/data**:
+As seguintes instruções HiveQL vão projetar colunas em dados delimitados armazenados no diretório ****wasb:///example/data**:
 
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -206,4 +206,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

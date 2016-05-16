@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="03/23/2016"
+	ms.date="04/28/2016"
 	ms.author="kgremban"/>
 
 # Criar relatório de histórico de alterações de acesso
@@ -67,4 +67,4 @@ Para salvar o relatório ou manipular os dados, exporte as alterações de acess
 - Introdução ao [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md)
 - Trabalhe com [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/10/2016"
+	ms.date="04/28/2016"
 	ms.author="brohrer;garye" />
 
 # Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure
@@ -77,11 +77,11 @@ Muitos algoritmos de aprendizado de máquina usam a linearidade. Os algoritmos d
 
 ![Limite de classe não linear][1]
 
-***Limite de classe não linear*** *- contar com um algoritmo de classificação linear resultaria em baixa precisão*
+***Limite de classe não linear**** - contar com um algoritmo de classificação linear resultaria em baixa precisão*
 
 ![Dados com uma tendência não linear][2]
 
-***Dados com uma tendência não linear*** *- usar um método de regressão linear geraria erros muito maiores do que o necessário*
+***Dados com uma tendência não linear**** - usar um método de regressão linear geraria erros muito maiores do que o necessário*
 
 Apesar de seus riscos, os algoritmos lineares são muito populares como uma primeira linha de ataque. Eles tendem a ser algoritmicamente simples e rápidos de treinar.
 
@@ -118,20 +118,7 @@ Alguns algoritmos de aprendizado fazem suposições específicas sobre a estrutu
 |[floresta de decisão](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[selva de decisão ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Volume de memória insuficiente|
 |[rede neural](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[um contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Consulte as propriedades do método de duas classes selecionadas| 
-|**Regressão**| | | | | |
-|[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
-|[Linear Bayesiano](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
-|[floresta de decisão](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
-|[árvore de decisão aumentada](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Grande volume de memória|
-|[quantil rápido de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuições em vez de previsões de ponto|
-|[rede neural](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente linear em log. Para previsão de contagem|
-|[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Para previsão de ordem de classificação|
-|**Detecção de anomalias**| | | | | |
-|[computador de vetor de suporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especialmente bom para conjuntos de recursos grandes|
-|[Detecção de anomalias baseada em PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
-|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Um algoritmo de clustering|
+|[um contra todos](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|Consulte as propriedades do método de duas classes selecionadas| |**Regressão**| | | | | | |[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | |[Linear Bayesiano](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | |[floresta de decisão](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | |[árvore de decisão aumentada](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Grande volume de memória| |[quantil rápido de floresta](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distribuições em vez de previsões de ponto| |[rede neural](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[A personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867)| |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Tecnicamente linear em log. Para previsão de contagem| |[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|Para previsão de ordem de classificação| |**Detecção de anomalias**| | | | | | |[computador de vetor de suporte](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especialmente bom para conjuntos de recursos grandes| |[Detecção de anomalias baseada em PCA ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| | |[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|Um algoritmo de clustering|
 
 
 **Propriedades do algoritmo:**
@@ -156,7 +143,7 @@ Embora inclua erroneamente ‘regressão’ no nome, a regressão logística é,
 
 ![Regressão logística para dados de duas classes com apenas um recurso][4]
 
-***Uma regressão logística para dados de duas classes com apenas um recurso*** - *o limite de classe é o ponto no qual a curva logística é mais próxima de ambas as classes*
+***Uma regressão logística para dados de duas classes com apenas um recurso**** - o limite de classe é o ponto no qual a curva logística é mais próxima de ambas as classes*
 
 ### Árvores, florestas e selvas
 
@@ -209,7 +196,7 @@ Se você tiver um objetivo muito específico, este talvez seja o seu dia de sort
 
 ![Detecção de anomalias baseada em PCA][8]
 
-***Detecção de anomalias baseada em PCA*** - *a grande maioria dos dados se encaixa em uma distribuição estereotipada; os pontos que desviarem drasticamente dessa distribuição são suspeitos*
+***Detecção de anomalias baseada em PCA**** - a grande maioria dos dados se encaixa em uma distribuição estereotipada; os pontos que desviarem drasticamente dessa distribuição são suspeitos*
 
 ![Conjunto de dados agrupados usando K-means][9]
 
@@ -237,4 +224,4 @@ O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutur
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

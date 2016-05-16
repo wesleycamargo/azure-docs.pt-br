@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 # Constrói um aplicativo de bate-papo Node.js com Socket.IO em um serviço de nuvem do Azure
@@ -170,4 +170,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
   
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

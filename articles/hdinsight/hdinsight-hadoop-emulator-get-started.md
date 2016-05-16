@@ -41,7 +41,9 @@ Antes de começar este tutorial, você deve ter o seguinte:
 	- Windows 8
 	- Windows Server 2012
 
-- **PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **PowerShell do Azure**
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="install"></a>Instalar o Emulador do HDInsight
@@ -506,7 +508,6 @@ Neste tutorial do MapReduce, você instalou o Emulador do HDInsight (uma área r
 
 - [Introdução ao uso do Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Desenvolver programas MapReduce em Java para HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Desenvolver programas MapReduce de streaming do Hadoop em C# para o HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [Fórum do MSDN para discussão do HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
 
@@ -524,7 +525,6 @@ Neste tutorial do MapReduce, você instalou o Emulador do HDInsight (uma área r
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
 [Powershell-install-configure]: powershell-install-configure.md
@@ -534,4 +534,4 @@ Neste tutorial do MapReduce, você instalou o Emulador do HDInsight (uma área r
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/11/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure
@@ -29,7 +29,9 @@ Aprenda a usar o Portal do Azure para criar um cluster HDInsight (Hadoop, HBase 
 
 * **Para clusters Storm (Windows e Linux)**, o Repositório Data Lake pode ser usado para gravar dados de uma topologia do Storm. O Repositório Data Lake também pode ser usado para armazenar dados de referência que podem ser lidos por uma topologia do Storm. Para saber mais, confira [Usar o Repositório Data Lake em uma topologia do Storm](#use-data-lake-store-in-a-storm-topology).
 
-* **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional. A opção para criar clusters do HBase com acesso ao repositório Data Lake está disponível apenas se você usar versões HDI 3.1 ou 3.2 (para Windows) ou a versão do HDI 3.2 (para Linux). Para saber mais, confira [Usar Repositório Data Lake com clusters HBase](#use-data-lake-store-with-hbase-clusters).
+* **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional. Para saber mais, confira [Usar Repositório Data Lake com clusters HBase](#use-data-lake-store-with-hbase-clusters).
+
+> [AZURE.NOTE] A opção de criar clusters HDInsight com acesso ao Repositório Data Lake está disponível apenas para o HDInsight versão 3.2 (para Windows, bem como Linux).
 
 
 ## Pré-requisitos
@@ -38,10 +40,10 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-- **Conta do Repositório do Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md). Depois de criar a conta, execute as seguintes tarefas para carregar alguns dados de exemplo. Você precisará desses dados posteriormente no tutorial para executar trabalhos de um cluster HDInsight que acessa dados no repositório Data Lake.
+- **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md). Depois de criar a conta, execute as seguintes tarefas para carregar alguns dados de exemplo. Você precisará desses dados posteriormente no tutorial para executar trabalhos de um cluster HDInsight que acessa dados no repositório Data Lake.
 
 	* [Criar uma pasta no seu Repositório Data Lake](data-lake-store-get-started-portal.md#createfolder).
-	* [Carregar um arquivo no seu Repositório Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+	* [Carregar um arquivo em seu Repositório Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 
 ## Criar um cluster HDInsight com acesso ao repositório Azure Data Lake
@@ -64,7 +66,7 @@ Nesta seção, você cria um cluster HDInsight Hadoop que usa o Repositório Dat
 
 			![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Adicionar entidade de serviço no cluster HDInsight")
 
-		* Na folha **Identidade do AAD do Cluster**, clique em **Gerenciar Acesso de ADLS**. O painel mostra as contas do repositório Data Lake associadas à assinatura. No entanto, você pode definir as permissões somente para a conta que você criou. Selecione as permissões READ/WRITE/EXECUTE para a conta que você deseja associar ao cluster HDInsight e clique em **Salvar Permissões**.
+		* Na folha **Identidade AAD do Cluster**, clique em **Gerenciar Acesso de ADLS**. O painel mostra as contas do repositório Data Lake associadas à assinatura. No entanto, você pode definir as permissões somente para a conta que você criou. Selecione as permissões READ/WRITE/EXECUTE para a conta que você deseja associar ao cluster HDInsight e clique em **Salvar Permissões**.
 
 			![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Adicionar entidade de serviço no cluster HDInsight")
 
@@ -79,7 +81,7 @@ Nesta seção, você cria um cluster HDInsight Hadoop que usa o Repositório Dat
 
 			![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Adicionar entidade de serviço no cluster HDInsight")
 
-		* Na folha **Identidade AAD do Cluster**, carregue o certificado (.pfx) associado à entidade de serviço escolhida e forneça a senha do certificado.
+		* Na folha **Identidade AAD do Cluster**, carregue o certificado (.pfx) associado à entidade de serviço selecionada e forneça a senha do certificado.
 
 		* Clique em **Gerenciar Acesso de ADLS**. O painel mostra as contas do repositório Data Lake associadas à assinatura. No entanto, você pode definir as permissões somente para a conta que você criou. Selecione as permissões READ/WRITE/EXECUTE para a conta que você deseja associar ao cluster HDInsight e clique em **Salvar Permissões**.
 
@@ -103,9 +105,9 @@ Após a configuração de um cluster HDInsight, você poderá executar trabalhos
 
 	![Iniciar painel do cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Iniciar painel do cluster")
 
-	Você também pode navegar diretamente até o Ambari indo para https://CLUSTERNAME.azurehdinsight.net em um navegador da Web (onde **CLUSTERNAME** é o nome do seu cluster HDInsight).
+	Também é possível navegar diretamente até o Ambari indo para https://CLUSTERNAME.azurehdinsight.net em um navegador da Web (em que **CLUSTERNAME** é o nome de seu cluster HDInsight).
 
-2. Abra o modo de exibição do Hive Selecione o conjunto de quadrados no menu da página (ao lado do link e do botão **Administrador** à direita da página) para listar os modos de exibição disponíveis. Escolha a exibição **Hive**.
+2. Abra o modo de exibição do Hive Selecione o conjunto de quadrados no menu da página (ao lado do link e do botão **Administrador** à direita da página) para listar os modos de exibição disponíveis. Selecione o modo de exibição **Hive**.
 
 	![Escolhendo modos de exibição do Ambari](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
 
@@ -117,7 +119,7 @@ Após a configuração de um cluster HDInsight, você poderá executar trabalhos
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-5. Clique no botão **Executar** na parte inferior do **Editor de Consultas** para iniciar a consulta. Uma seção **Resultados do Processo de Consulta** deve aparecer abaixo do **Editor de Consultas** e exibir informações sobre o trabalho.
+5. Clique no botão **Executar** na parte inferior do **Editor de Consultas** para iniciar a consulta. Uma seção **Resultados do Processo de Consulta** deverá aparecer abaixo do **Editor de Consultas** e exibir informações sobre o trabalho.
 
 6. Depois que a consulta for concluída, a seção **Resultados do Processo de Consulta** exibirá os resultados da operação. A guia **Resultados** deve conter as seguintes informações:
 
@@ -125,14 +127,14 @@ Após a configuração de um cluster HDInsight, você poderá executar trabalhos
 
 		SHOW TABLES;
 
-	A guia **Resultados** deve mostrar o seguinte:
+	A guia **Resultados** deverá mostrar o seguinte:
 
 		hivesampletable
 		vehicles
 
 	**veículos** é a tabela que você criou anteriormente. **hivesampletable** é uma tabela de exemplo disponível em todos os clusters de HDInsight por padrão.
 
-8. Você também pode executar uma consulta para recuperar dados da tabela **vehicles**.
+8. Também é possível executar uma consulta para recuperar dados da tabela **vehicles**.
 
 		SELECT * FROM vehicles LIMIT 5;
 
@@ -169,7 +171,7 @@ Após a configuração de um cluster HDInsight, você poderá executar trabalhos
 
 	**veículos** é a tabela que você criou anteriormente. **hivesampletable** é uma tabela de exemplo disponível em todos os clusters de HDInsight por padrão.
 
-5. Você também pode executar uma consulta para recuperar dados da tabela **vehicles**.
+5. Também é possível executar uma consulta para recuperar dados da tabela **vehicles**.
 
 		SELECT * FROM vehicles LIMIT 5;
 
@@ -182,7 +184,7 @@ Após a configuração do cluster HDInsight para usar o Repositório Data Lake, 
 
 Nesta seção, você acessará o cluster por SSH e executará os comandos HDFS. O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para saber mais sobre o uso de PuTTY, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Para obter mais informações sobre como usar o PuTTY, confira [Usar o SSH com Hadoop baseado em Linux no HDInsight por meio do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Uma vez conectado, use o comando do sistema de arquivos HDFS a seguir para listar os arquivos no Repositório Data Lake.
 
@@ -230,7 +232,7 @@ Você pode usar o Repositório Data Lake para gravar os dados de uma topologia d
 
 Com clusters HBase, você pode usar o Repositório Data Lake como um armazenamento padrão, bem como um armazenamento adicional. Para fazer isso:
 
-1.  Na folha **Fonte de Dados**, para o **Local dos Dados do HBase**, escolha **Repositório Data Lake**.
+1.  Na folha **Fonte de Dados**, para **Local dos Dados do HBase**, escolha **Repositório Data Lake**.
 2.  Escolha o nome do Repositório Data Lake que deseja usar ou crie um novo.
 3.  Por fim, especifique a **Pasta Raiz do HBase** no Repositório Data Lake. Se a conta do Repositório Data Lake não tiver uma pasta raiz, crie uma.
 
@@ -238,7 +240,7 @@ Com clusters HBase, você pode usar o Repositório Data Lake como um armazenamen
 
 ### Considerações ao usar o Repositório Data Lake como armazenamento padrão para clusters HBase
 
-* Você pode usar a mesma conta do Repositório Data Lake para obter mais de um cluster HBase. No entanto, a **Pasta Raiz do HBase** que você fornece para o cluster (etapa nº 4 na captura de tela acima) deve ser exclusiva. Você **não deve** usar a mesma pasta raiz em dois clusters HBase diferentes.
+* Você pode usar a mesma conta do Repositório Data Lake para obter mais de um cluster HBase. No entanto, a **Pasta Raiz do HBase** fornecida para o cluster (etapa nº 4 na captura de tela acima) deve ser exclusiva. Você **não deverá** usar a mesma pasta raiz em dois clusters HBase diferentes.
 * Mesmo que você use a conta do Repositório Data Lake como armazenamento padrão, os arquivos de log do cluster HBase ainda são armazenados no WASB (Blobs de Armazenamento do Azure) associado ao cluster. Isso é destacado na caixa azul na captura de tela cima.
 
 
@@ -250,4 +252,4 @@ Com clusters HBase, você pode usar o Repositório Data Lake como um armazenamen
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

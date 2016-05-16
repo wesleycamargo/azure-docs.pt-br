@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/27/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos
@@ -38,7 +38,7 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -85,7 +85,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Ou pelo portal de visualização, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -131,29 +131,23 @@ Para saber mais sobre como usar marcas no Gerenciador de Recursos, veja a seçã
 
 ## Operações com suporte para os modelos de implantação
 
-Os recursos que você criou no modelo de implantação clássica não oferecem suporte a operações do Gerenciador de Recursos. Em alguns casos, um comando do Gerenciador de Recursos pode recuperar informações sobre um recurso criado por meio da implantação clássica ou pode executar tarefas administrativas, como mover um recurso clássico para outro grupo de recursos, mas esses casos não devem dar a impressão de que o tipo oferece suporte às operações do Gerenciador de Recursos. Por exemplo, suponha que você tenha um grupo de recursos que contenha máquinas virtuais que foram criadas com o Gerenciador de Recursos e o modelo clássico. Se você executar o seguinte comando do PowerShell:
+Os recursos que você criou no modelo de implantação clássica não oferecem suporte a operações do Gerenciador de Recursos. Em alguns casos, um comando do Gerenciador de Recursos pode recuperar informações sobre um recurso criado por meio da implantação clássica ou pode executar tarefas administrativas, como mover um recurso clássico para outro grupo de recursos, mas esses casos não devem dar a impressão de que o tipo oferece suporte às operações do Gerenciador de Recursos. Por exemplo, suponhamos que você tenha um grupo de recursos que contenha uma Máquina Virtual que foi criada com implantação clássica. Se você executar o seguinte comando do PowerShell:
 
-    Get-AzureRmResourceGroup -Name ExampleGroup
+    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 
-Ele retornará todas as máquinas virtuais:
+Ele retornará todas a Máquina Virtual:
+    
+    Name              : ExampleClassicVM
+    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+    ResourceName      : ExampleClassicVM
+    ResourceType      : Microsoft.ClassicCompute/virtualMachines
+    ResourceGroupName : ExampleGroup
+    Location          : westus
+    SubscriptionId    : {guid}
 
-    Resources :
-     Name                 Type                                          Location
-     ================     ============================================  ========
-     ExampleClassicVM     Microsoft.ClassicCompute/domainNames          eastus
-     ExampleClassicVM     Microsoft.ClassicCompute/virtualMachines      eastus
-     ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
-    ...
-
-No entanto, se você executar o comando **Get-AzureRmVM**:
+No entanto, o cmdlet **Get-AzureRmVM** retorna apenas as Máquinas Virtuais implantadas por meio do Gerenciador de Recursos. O comando a seguir não retorna a Máquina Virtual criada por meio da implantação clássica.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
-
-Você receberá somente as máquinas virtuais que foram criadas com o Gerenciador de Recursos.
-
-    Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
-    Name     : ExampleResourceVM
-    ...
 
 De modo geral, você não deve esperar que os recursos criados por meio da implantação clássica funcione com os comandos do Gerenciador de Recursos.
 
@@ -175,8 +169,8 @@ Para saber como conectar redes virtuais de diferentes modelos de implantação, 
 
 ## Próximas etapas
 
-- Para ver um passo a passo da criação do modelo que define uma máquina virtual, uma conta de armazenamento e uma rede virtual, confira [Passo a passo do Modelo do Gerenciador de Recursos](resource-manager-template-walkthrough.md).
+- Para ver um passo a passo da criação do modelo que define uma máquina virtual, uma conta de armazenamento e uma rede virtual, confira [Passo a passo do modelo do Resource Manager](resource-manager-template-walkthrough.md).
 - Para saber mais sobre a estrutura de modelos do Gerenciador de Recursos, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,12 +14,12 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/04/2016"
+   ms.date="04/27/2016"
    ms.author="jgao"/>
 
 # Saiba mais sobre o Hadoop usando a Galeria de Introdução do HDInsight do Azure
 
-A Galeria de Introdução do HDInsight fornece uma maneira fácil e rápida de aprender a trabalhar com o Hadoop, executando aplicativos de exemplo no HDInsight. Alguns dos exemplos vêm com dados de exemplo. Você pode fornecer seus próprios dados para o restante dos exemplos. Atualmente, há os seguintes exemplos seis exemplos (com mais a caminho):
+A Galeria de Introdução só está disponível para clusters HDInsight baseados em Windows. A galeria fornece uma maneira fácil e rápida de aprender a trabalhar com o Hadoop, executando aplicativos de exemplo no HDInsight. Alguns dos exemplos vêm com dados de exemplo. Você pode fornecer seus próprios dados para o restante dos exemplos. Atualmente, há os seguintes exemplos seis exemplos (com mais a caminho):
 
 - Soluções com os dados do Azure
 	- Análise de log de site do Microsoft Azure
@@ -60,8 +60,8 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learn.map]: hdinsight-learn-map.md
+[hdinsight.learn.map]: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -57,7 +57,7 @@ Para máquinas virtuais em uma configuração de instância única, as máquinas
 
 Esse evento de manutenção planejada afetará a disponibilidade do aplicativo para esse tipo de configuração de máquina virtual. O Azure oferece notificações de manutenção planejada de máquinas virtuais com uma semana de antecedência na configuração de instância única.
 
-### Notificação por email
+## Notificação por email
 
 Somente para configurações de máquina virtual de única instância ou várias instâncias, o Azure envia um comunicado prévio por email para alertar você sobre a próxima manutenção planejada (com 1 semana de antecedência). Este email será enviado para o administrador da conta e para as contas de email de coadministradores fornecidas na assinatura. Veja um exemplo desse tipo de email:
 
@@ -95,4 +95,3 @@ Gov. dos EUA – Iowa | Gov. dos EUA – Virgínia
 
 [Understand planned versus unplanned maintenance]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!-----------HONumber=AcomDC_0330_2016-->

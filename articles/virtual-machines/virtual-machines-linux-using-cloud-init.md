@@ -15,13 +15,13 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/22/2016"
+    ms.date="04/29/2016"
     ms.author="v-livech"
 />
 
 # Uso de cloud-init para personalizar uma VM do Linux durante a criação
 
-Neste artigo, criaremos scripts cloud-init para definir o nome do host, atualizar os pacotes instalados e gerenciar contas de usuário. Em seguida, iniciaremos esses scripts cloud-init durante a criação da VM do Linux usando [a CLI do Azure](../xplat-cli-install.md).
+Este artigo mostra como criar um script cloud-init para definir o nome do host, atualizar os pacotes instalados e gerenciar contas de usuário. Os scripts cloud-init serão, então, usados durante a criação da VM [da CLI do Azure](../xplat-cli-install.md).
 
 ## Pré-requisitos
 
@@ -45,16 +45,23 @@ OBSERVAÇÃO: embora uma [CustomScriptExtention](virtual-machines-linux-extensio
 
 ## Comandos rápidos
 
+Criar um script cloud-init do nome do host
+
 ```bash
-# Create a hostname cloud-init script
 #cloud-config
 hostname: exampleServerName
+```
 
-# Create an update Linux on first boot cloud-init script for Debian Family
+Criar um script cloud-init de atualização do Linux na primeira inicialização para a família Debian
+
+```bash
 #cloud-config
 apt_upgrade: true
+```
 
-# Create an add a user cloud-init script
+Criar um script cloud-init de adição de usuário
+
+```bash
 #cloud-config
 users:
   - name: exampleUser
@@ -62,9 +69,7 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa
-AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@slackwarelaptop
-
+      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
 ## Passo a passo detalhado
@@ -76,7 +81,7 @@ Para iniciar um script cloud-init ao criar uma VM no Azure, especifique o arquiv
 OBSERVAÇÃO: embora este artigo discuta o uso da opção `--custom-data` para arquivos cloud-init, você também pode passar um código arbitrário ou arquivos usando essa opção. Se a VM do Linux já souber o que fazer com esses arquivos, eles serão automaticamente executados.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -101,7 +106,7 @@ hostname: exampleServerName
 Durante a inicialização da VM, esse script cloud-init define o nome do host como `exampleServerName`.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -115,9 +120,9 @@ bill@slackware$ azure vm create \
 Faça logon e verifique o nome do host das novas VMs.
 
 ```bash
-bill@slackware$ ssh exampleVM
-bill@ubuntu$ hostname
-bill@ubuntu$ exampleServerName
+ssh exampleVM
+hostname
+exampleServerName
 ```
 
 ### Criação de um script cloud-init para atualizar o Linux
@@ -134,7 +139,7 @@ apt_upgrade: true
 Depois que a nova VM do Linux tiver sido inicializada, ela atualizará imediatamente todos os pacotes instalados via `apt-get`.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -148,8 +153,8 @@ bill@slackware$ azure vm create \
 Faça logon e verifique se todos os pacotes foram atualizados.
 
 ```bash
-bill@slackware$ ssh exampleVM
-bill@ubuntu$ sudo apt-get upgrade
+ssh exampleVM
+sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -161,7 +166,7 @@ The following packages have been kept back:
 
 ### Criação de um script cloud-init para adicionar um usuário ao Linux
 
-Uma das primeiras tarefas em qualquer VM do Linux nova é adicionar um usuário para você ou para evitar o uso de `root`. Isso será ótimo por motivos de segurança e de usabilidade depois que você adicionar sua chave pública SSH ao arquivo `~/.ssh/authorized_keys` do usuário para logons SSH seguros e sem senha.
+Uma das primeiras tarefas em qualquer nova VM do Linux é adicionar um usuário para você ou para evitar o uso de `root`. Isso será ótimo por motivos de segurança e de usabilidade depois que você adicionar sua chave pública SSH ao arquivo `~/.ssh/authorized_keys` do usuário para logons SSH seguros e sem senha.
 
 #### Script cloud-init de exemplo `cloud_config_add_users.txt` para família Debian
 
@@ -173,14 +178,13 @@ users:
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa
-AAAAB3NzaC1yc2EAAAADAQABAAABAQDf0q4PyG0doiBQYV7OlOxbRjle<snip />== exampleuser@slackwarelaptop
+      - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
 Depois que a nova VM do Linux tiver sido inicializada, criará o novo usuário e o adicionará ao grupo sudo.
 
 ```bash
-bill@slackware$ azure vm create \
+azure vm create \
 --resource-group exampleRG \
 --name exampleVM \
 --location westus \
@@ -194,7 +198,12 @@ bill@slackware$ azure vm create \
 Faça logon e verifique o usuário recém-criado.
 
 ```bash
-bill@slackware$ cat /etc/group
+cat /etc/group
+```
+
+Saída
+
+```bash
 root:x:0:
 <snip />
 sudo:x:27:exampleUser
@@ -202,4 +211,4 @@ sudo:x:27:exampleUser
 exampleUser:x:1000:
 ```
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

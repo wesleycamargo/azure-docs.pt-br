@@ -17,7 +17,7 @@
 
 # Configurar o registro em log do Diagnóstico do Azure no Application Insights
 
-Quando você configura um projeto de Serviços de Nuvem ou uma máquina virtual no Microsoft Azure, [o Azure pode gerar um log de diagnóstico](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md/). Você pode enviar esse log ao Application Insights para que possa analisá-lo junto com a telemetria de diagnóstico e de uso enviada do aplicativo pelo SDK do Application Insights. O log do Azure inclui eventos do gerenciamento do aplicativo, por exemplo, iniciar, parar, falhas e contadores de desempenho. O log também inclui chamadas no aplicativo para System.Diagnostics.Trace.
+Quando você configura um projeto de Serviços de Nuvem ou uma máquina virtual no Microsoft Azure, [o Azure pode gerar um log de diagnóstico](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Você pode enviar esse log ao Application Insights para que possa analisá-lo junto com a telemetria de diagnóstico e de uso enviada do aplicativo pelo SDK do Application Insights. O log do Azure inclui eventos do gerenciamento do aplicativo, por exemplo, iniciar, parar, falhas e contadores de desempenho. O log também inclui chamadas no aplicativo para System.Diagnostics.Trace.
 
 Este artigo descreve detalhadamente a configuração da captura do diagnóstico.
 
@@ -146,4 +146,4 @@ Este é um exemplo completo do arquivo de configuração pública que envia todo
 * [Usando o PowerShell para enviar diagnósticos do Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Arquivo de configuração de Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

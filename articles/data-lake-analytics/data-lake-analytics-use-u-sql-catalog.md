@@ -3,7 +3,7 @@
    description="Introdução ao catálogo do U-SQL da Análise Azure Data Lake"
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Usar o catálogo do U-SQL
 
@@ -84,4 +84,4 @@ Você pode usar as Ferramentas do Data Lake para Visual Studio para gerenciar o 
     - [Usar tutoriais interativos da Análise Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
     - [Analisar logs de site usando a Análise Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="adrianha"/>
+	ms.date="05/03/2016"
+	ms.author="adrianha;ricksal"/>
 
 # Como usar a biblioteca de cliente JavaScript para os Aplicativos Móveis do Azure
 
@@ -103,7 +103,7 @@ Use o SDK dos Hubs de Notificação para enviar notificações por push do servi
 <!-- URLs. -->
 [Início Rápido dos Aplicativos Móveis do Azure]: app-service-mobile-cordova-get-started.md
 [Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
-[Adicionar autenticação ao seu aplicativo]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [your first Apache Cordova app]: http://cordova.apache.org/#getstarted
@@ -111,6 +111,6 @@ Use o SDK dos Hubs de Notificação para enviar notificações por push do servi
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[documentação do objeto Query]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/pt-BR/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

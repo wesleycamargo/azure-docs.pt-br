@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/29/2016"
 	ms.author="robinsh"/>
 
 # Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
@@ -149,7 +149,7 @@ Normalmente, o navegador não permite o uso de JavaScript em páginas hospedadas
 As duas tecnologias podem ajudar você a evitar cargas e gargalos desnecessários no seu aplicativo Web.
 
 ####Recursos úteis
-Para obter mais informações sobre SAS, consulte [Assinaturas de acesso compartilhado, parte 1: entendendo o modelo SAS](../storage-dotnet-shared-access-signature-part-1/).
+Para obter mais informações sobre SAS, consulte [Assinaturas de acesso compartilhado, parte 1: entendendo o modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
 
 Para saber mais sobre o CORS, consulte [Suporte a CORS (Compartilhamento de Recursos entre Origens) para os serviços de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -393,7 +393,7 @@ Para obter informações atualizadas sobre custos, confira [Preços do Armazenam
 ###<a name=subheading44"></a>UpdateMessage
 Você pode usar **UpdateMessage** para aumentar o tempo limite da invisibilidade ou atualizar as informações de estado de uma mensagem. Embora isso seja útil, lembre-se de que a operação **UpdateMessage** é computada na meta de escalabilidade. No entanto, essa abordagem pode ser muito mais eficiente do que ter um fluxo de trabalho que transmite uma tarefa de uma fila para a outra, pois cada etapa da tarefa é concluída. O uso da operação **UpdateMessage** permite que o aplicativo salve o estado da tarefa na mensagem e continue trabalhando, em vez de colocar a mensagem na fila novamente para a próxima etapa a cada etapa concluída.
 
-Para obter mais informações, consulte o artigo [Como alterar o conteúdo de uma mensagem em fila](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message).
+Para obter mais informações, consulte o artigo [Como alterar o conteúdo de uma mensagem em fila](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).
 
 ###<a name=subheading45"></a>Arquitetura do aplicativo
 Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A seguir temos algumas maneiras de usar filas para que seu aplicativo seja mais escalonável:
@@ -404,4 +404,4 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 ##Conclusão
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

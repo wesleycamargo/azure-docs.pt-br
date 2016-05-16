@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/02/2016"
 	ms.author="jodebrui"/>
 
 
@@ -68,7 +68,9 @@ Importe o bacpac para um novo banco de dados Premium.
 
 O SSMS inclui um relatório **Visão Geral da Análise do Desempenho da Transação** que pode ser executado em um banco de dados com uma carga de trabalho ativa. O relatório identifica as tabelas e os procedimentos armazenados candidatos à migração para OLTP Na Memória.
 
-No SSMS, para gerar o relatório: - no **Pesquisador de Objetos**, clique com o botão direito do mouse no nó do seu banco de dados. - Clique em **Relatórios** > **Relatórios Padrão** > **Visão Geral da Análise do Desempenho da Transação**.
+No SSMS, para gerar o relatório:
+- No **Pesquisador de Objetos**, clique com o botão direito do mouse no nó do banco de dados.
+- Clique em **Relatórios** > **Relatórios Padrão** > **Visão Geral de Análise de Desempenho de Transação**.
 
 Para saber mais, confira [Determinando se uma tabela ou um procedimento armazenado deve ser transportado para o OLTP Na Memória](http://msdn.microsoft.com/library/dn205133.aspx).
 
@@ -83,7 +85,8 @@ Para facilitar o teste, ajuste seu banco de dados de teste da seguinte maneira:
 
 1. Conecte-se ao banco de dados de teste usando o SSMS.
 
-2. Para evitar a necessidade da opção WITH (SNAPSHOT) em consultas, defina a opção de banco de dados como mostrado na seguinte instrução T-SQL: ```
+2. Para evitar a necessidade da opção WITH (SNAPSHOT) em consultas, defina a opção de banco de dados como mostrado na seguinte instrução T-SQL:
+```
 ALTER DATABASE CURRENT
 	SET
 		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
@@ -234,4 +237,4 @@ Considere monitorar os efeitos de desempenho de suas implementações de Na Mem�
 
 - [Supervisor de Otimização de Memória](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

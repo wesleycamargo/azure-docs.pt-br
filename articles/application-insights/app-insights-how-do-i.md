@@ -79,12 +79,12 @@ Considere o seguinte:
 
 ### Configurar alertas automaticamente
 
-[Usar o PowerShell para criar novos alertas](app-insights-alerts/#set-alerts-by-using-powershell)
+[Usar o PowerShell para criar novos alertas](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Usar o PowerShell para gerenciar o Application Insights
 
 * [Criar novos recursos](app-insights-powershell-script-create-resource.md)
-* [Criar novos alertas](app-insights-alerts/#set-alerts-by-using-powershell)
+* [Criar novos alertas](app-insights-alerts.md#set-alerts-by-using-powershell)
 
 ## Carimbos e versões de aplicativos
 
@@ -241,4 +241,4 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 * Primeiro, [adicione um novo gráfico](app-insights-metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.
 * Caso contrário, [adicione o contador ao conjunto coletado pelo módulo do contador de desempenho](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

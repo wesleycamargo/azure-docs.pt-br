@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Usar o CDN do Azure no Serviço de Aplicativo do Azure" 
 	description="Um tutorial que ensina como implantar um aplicativo Web para o Serviço de Aplicativo do Azure que fornece conteúdo de um ponto de extremidade CDN do Azure integrado" 
-	services="app-service\web" 
+	services="app-service\web,cdn" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -533,11 +533,11 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 	...
 	```
 
-	Observe que o script injetado para o grupo CSS ainda contém o excedente errante da propriedade “CdnFallbackExpression” na linha:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Mas como a primeira parte da expressão || sempre retornará o valor verdadeiro (na linha diretamente acima), a função document.write() nunca será executada.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Para testar se o script de fallback está funcionando, volte à folha do ponto de extremidade da CDN e clique em **Parar**.
 
@@ -547,13 +547,12 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 ## Mais informações 
 - [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](../cdn/cdn-overview.md)
-- [Fornecer conteúdo da CDN do Azure em seu aplicativo Web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Usando o Azure CDN](../cdn/cdn-create-new-endpoint.md)
 - [Integrar um serviço de nuvem à CDN do Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Usando o Azure CDN](../cdn/cdn-create-new-endpoint.md)
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

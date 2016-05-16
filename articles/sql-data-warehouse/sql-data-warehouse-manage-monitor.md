@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/14/2016"
+   ms.date="05/03/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitore sua carga de trabalho usando DMVs
@@ -39,7 +39,7 @@ No cenário em que você deseja investigar a execução da consulta para uma con
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the 10 longest running queries
+-- Find 10 queries which ran the longest
 SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
@@ -143,15 +143,15 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
 ## Próximas etapas
-Para obter mais informações sobre o Transact-SQL e DMVs (Exibições de Gerenciamento Dinâmico), consulte a [visão geral de referência][]. Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte a [visão geral de gerenciamento][].
+Para obter mais informações sobre DMVs (exibições de gerenciamento dinâmico), consulte [Exibições do sistema][]. Para obter dicas sobre como gerenciar o SQL Data Warehouse, consulte [visão geral de gerenciamento][]. Para práticas recomendadas, consulte [Práticas recomendadas do SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[visão geral de gerenciamento]: sql-data-warehouse-overview-manage.md
-[table design]: sql-data-warehouse-develop-table-design.md
-[visão geral de referência]: sql-data-warehouse-overview-reference.md
 [manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
+[visão geral de gerenciamento]: sql-data-warehouse-overview-manage.md
+[Práticas recomendadas do SQL Data Warehouse]: sql-data-warehouse-best-practices.md
+[Exibições do sistema]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -162,4 +162,4 @@ Para obter mais informações sobre o Transact-SQL e DMVs (Exibições de Gerenc
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

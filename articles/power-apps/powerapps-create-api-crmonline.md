@@ -14,98 +14,102 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="sameerch"/>
 
 # Criar uma nova API do Dynamics CRM Online no PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/connectors-create-api-crmonline.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
+> [AZURE.IMPORTANT] Esse tópico foi arquivado e será removido em breve. Venha ver as novidades do [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Para saber mais sobre PowerApps e para começar, vá para [PowerApps](https://powerapps.microsoft.com).  
+> - Para saber mais sobre conexões disponíveis no PowerApps, vá para [Conexões Disponíveis](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Adicione a API do Dynamics CRM Online ao ambiente de serviço de aplicativo (locatário) da sua organização.
+<!--Archived
+Add the Dynamics CRM Online API to your organization's (tenant) app service environment. 
 
-## Crie a API no portal do Azure
+## Create the API in the Azure portal
 
-1. No [Portal do Azure](https://portal.azure.com), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@*SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
+1. In the [Azure portal](https://portal.azure.com), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
 
-2. Selecione **Procurar** na barra de tarefas:  
+2. Select **Browse** in the task bar:  
 ![][1]
 
-3. Na lista, você pode rolar a tela para localizar PowerApps ou digite *powerapps*:  
-![][2]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][2]  
 
-4. Em **PowerApps**, selecione **Gerenciar APIs**:  
-![Navegue até as APIs registradas][3]
+4. In **PowerApps**, select **Manage APIs**:  
+![Browse to registered apis][3]
 
-5. Em **Gerenciar APIs**, selecione **Adicionar** para adicionar a nova API:  
-![Adicionar API][4]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][4]
 
-6. Insira um **nome** descritivo para sua API.
+6. Enter a descriptive **name** for your API.  
 
-7. Em **Fonte**, selecione as **APIs disponíveis** para selecionar as APIs criadas previamente e selecione **Dynamics CRM Online**:  
-![Selecione a API online do Dynamics CRM][5]
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Dynamics CRM Online**:  
+![Select Dynamics CRM Online API][5]
 
-8. Selecione **Configurações - definir as configurações necessárias**:  
-![Defina as configurações de API online do Dynamics CRM][6]
+8. Select **Settings - Configure required settings**:  
+![Configure Dynamics CRM Online API settings][6]
 
-9. Digite a **ID do cliente** e a **chave do aplicativo** do seu aplicativo do Dynamics CRM Online do Active Directory do Azure (AAD). Se você não tiver uma, consulte a seção “Registrar um aplicativo do AAD para uso com o PowerApps” neste tópico para criar a ID e os valores secretos necessários.
+9. Enter **Client Id** and **App Key** of your Dynamics CRM Online Azure Active Directory (AAD) application.  If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
 
-	> [AZURE.IMPORTANT] Copie a **URL de Redirecionamento**. Talvez esse valor seja necessário neste tópico posteriormente.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Selecione **OK** para concluir as etapas.
+10. Select **OK** to complete the steps.
 
-Quando terminar, uma nova API do Dynamics CRM Online será adicionada ao seu ambiente de serviço de aplicativo.
+When finished, a new Dynamics CRM Online API is added to your app service environment.
 
-## Registre um aplicativo do AAD para uso com a API online do PowerApps Dynamics CRM
+## Register an AAD app for use with PowerApps Dynamics CRM Online API
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Open the [Azure Portal](https://portal.azure.com).
 
-2. Selecione **Navegar** e, em seguida, selecione **Active Directory**:
+2. Select **Browse** and then select **Active Directory**:  
 
-	> [AZURE.NOTE] Isso abre o Active Directory no portal clássico do Azure.
+	> [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
-3. Selecione o nome do locatário da sua instituição:  
-![Iniciar o Active Directory do Azure][7]
+3. Select your organization's tenant name:  
+![Launch Azure Active Directory][7]
 
-4. Selecione a guia **Aplicativos** e selecione **Adicionar**:  
-![Aplicativos de locatário do AAD][8]
+4. Select the **Applications** tab, and select **Add**:  
+![AAD tenant applications][8]
 
-5. Em **Adicionar aplicativo**:
+5. In **Add application**:  
 
-	1. Insira um **Nome** para seu aplicativo.  
-	2. Deixe o tipo de aplicativo como **Web**.  
-	3. Selecione **Avançar**.
+	1. Enter a **Name** for your application.  
+	2. Leave the application type as **Web**.  
+	3. Select **Next**.
 
-	![Adicionar aplicativo do AAD - informações do aplicativo][9]
+	![Add AAD application - app info][9]
 
-6. Em **Propriedades do aplicativo**:
+6. In **App Properties**:  
 
-	1. Insira a **URL DE ENTRADA** do seu aplicativo. Uma vez que você se autenticará com o AAD para PowerApps, defina a URL de entrada para \__https://login.windows.net_.
-	2. Insira um **URI DA ID DO APLICATIVO** válido para seu aplicativo.  
-	3. Selecione **OK**.  
+	1. Enter the **SIGN-ON URL** of your application.  Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+	2. Enter a valid **APP ID URI** for your app.  
+	3. Select **OK**.  
 
-	![Adicionar aplicativo do AAD - propriedades do aplicativo][10]
+	![Add AAD application - app properties][10]
 
-7. Após a conclusão bem-sucedida, você será redirecionado para o novo aplicativo do AAD. Selecione **Configurar**:  
-![Aplicativo Contoso do AAD][11]
+7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
+![Contoso AAD app][11]
 
-8. Defina a **URL de resposta** na seção _OAuth 2_ para a URL de redirecionamento que você recebeu quando adicionou a nova API do Dynamics CRM Online no Portal do Azure (neste tópico):  
-![Configure o aplicativo Contoso do AAD][12]
+8. Set the **Reply URL** under _OAuth 2_ section to the redirect URL you received when you added the new Dynamics CRM Online API in the Azure Portal (in this topic):  
+![Configure Contoso AAD app][12]
 
-9. Selecione **Salvar**.
+9. Select **Save**.
 
-Um novo aplicativo do Active Directory do Azure é criado. Você pode usar esse aplicativo em sua configuração da API do Dynamics CRM Online no portal do Azure.
+A new Azure Active Directory app is created. You can use this app in your Dynamics CRM Online API configuration in the Azure portal.
 
-## Consulte as APIs REST
+## See the REST APIs
 
-Referência da [API REST do Dynamics CRM Online](../connectors/connectors-create-api-crmonline.md).
+[Dynamics CRM Online REST API](../connectors/connectors-create-api-crmonline.md) reference.
 
 
-## Resumo e próximas etapas
-Neste tópico, você adicionou a API do Dynamics CRM Online para a sua empresa PowersApps. Em seguida, forneça aos usuários acesso à API para que ela possa ser adicionada aos seus aplicativos:
+## Summary and next steps
+In this topic, you added the Dynamics CRM Online API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps:
 
-[Adicione uma conexão e forneça acesso aos usuários](powerapps-manage-api-connection-user-access.md)
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
+
 
 <!-- References -->
 
@@ -122,4 +126,4 @@ Neste tópico, você adicionou a API do Dynamics CRM Online para a sua empresa P
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

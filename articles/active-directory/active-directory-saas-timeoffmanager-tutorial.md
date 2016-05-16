@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure ao TimeOffManager | Microsoft Azure" 
     description="Saiba como usar o TimeOffManager com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="05/03/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao TimeOffManager
   
@@ -38,7 +38,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ###Para habilitar a integração de aplicativos para o TimeOffManager, execute as seguintes etapas:
 
-1.  No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
+1.  No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-timeoffmanager-tutorial/IC700993.png "Active Directory")
 
@@ -58,7 +58,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 6.  Na **caixa de pesquisa**, digite **TimeOffManager**.
 
-    ![Galeria de aplicativos](./media/active-directory-saas-timeoffmanager-tutorial/IC795910.png "Galeria de aplicativos")
+    ![Galeria de Aplicativos](./media/active-directory-saas-timeoffmanager-tutorial/IC795910.png "Galeria de aplicativos")
 
 7.  No painel de resultados, selecione **TimeOffManager** e clique em **Concluir** para adicionar o aplicativo.
 
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **TimeOffManager**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal clássico do Azure, na página de integração de aplicativos do **TimeOffManager**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar o logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795912.png "Configurar o logon único")
 
@@ -92,7 +92,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 5.  Em outra janela do navegador da Web, faça logon em seu site de empresa TimeOffManager como um administrador.
 
-6.  Vá para **Conta > Opções da conta > Configurações de logon único**.
+6.  Vá para **Conta > Opções da Conta > Configurações de Logon Único**.
 
     ![Configurações de logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795917.png "Configurações de logon único")
 
@@ -100,19 +100,26 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurações de logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795918.png "Configurações de logon único")
 
-    1.  Crie um arquivo **codificado em Base 64** por meio do certificado baixado.  
+    a. Crie um arquivo **codificado em base 64** usando o certificado baixado.
 
-        >[AZURE.TIP]Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    2.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole todo o Certificado na caixa de texto **Certificado X.509**.
-    3.  No portal do Azure, na página do diálogo **Configurar logon único no TimeOffManager**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor Idp**.
-    4.  No portal do Azure, na página do diálogo **Configurar logon único no TimeOffManager**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do Ponto de Extremidade do IdP**.
-    5.  Para **Impor SAML**, selecione **Não**.
-    6.  Para **Criação Automática de Usuários**, selecione **Sim**.
-    7.  No portal do Azure, na página do diálogo **Configurar logon único no TimeOffManager**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
-    8.  Clique em **Salvar Alterações**.
+    b. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole todo o Certificado na caixa de texto **Certificado X.509**.
+    
+    c. No portal clássico do Azure, na página do diálogo **Configurar logon único no TimeOffManager**, copie o valor da **URL do Emissor** e cole-o na caixa de texto **Emissor Idp**.
+    
+    d. No portal clássico do Azure, na página do diálogo **Configurar logon único no TimeOffManager**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL do Ponto de Extremidade do IdP**.
+    
+    e. Para **Impor SAML**, selecione **Não**.
+    
 
-8.  No portal do Azure, na página **Configurar logon único no TimeOffManager**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
+    f. Para **Criação Automática de Usuários**, selecione **Sim**.
+    
+    g. No portal clássico do Azure, na página do diálogo **Configurar logon único no TimeOffManager**, copie o valor da **URL de Logoff Remoto** e cole-o na caixa de texto **URL de Logoff**.
+    
+    h. Clique em **Salvar Alterações**.
+
+8.  No portal clássico do Azure, na página **Configurar logon único no TimeOffManager**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
 
     ![Configurar o logon único](./media/active-directory-saas-timeoffmanager-tutorial/IC795919.png "Configurar o logon único")
 
@@ -122,17 +129,21 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 10. Para adicionar os mapeamentos de atributo necessários, execute as seguintes etapas:
 
-    ![atributos de token saml](./media/active-directory-saas-timeoffmanager-tutorial/IC795921.png "atributos de token saml")
+    ![atributos de token saml](./media/active-directory-saas-timeoffmanager-tutorial/123.png "atributos de token saml")
 
     |Nome do atributo|Valor do atributo|
 	|---|---|
+    |Email|User.mail|
     |Firstname|User.givenname|
 	|Sobrenome|User.surname|
 
-    1.  Para cada linha de dados na tabela acima, clique em **adicionar atributo do usuário**.
-    2.  Na caixa de texto **Nome do Atributo**, digite o nome do atributo mostrado para essa linha.
-    3.  Na caixa de texto **Valor do Atributo**, selecione o valor do atributo mostrado para essa linha.
-    4.  Clique em **Concluído**.
+    a. Para cada linha de dados na tabela acima, clique em **adicionar atributo do usuário**.
+
+    b. Na caixa de texto **Nome do Atributo**, digite o nome do atributo mostrado para a linha.
+
+    c. Na caixa de texto **Valor do Atributo**, selecione o valor do atributo mostrado para essa linha.
+
+    d. Clique em **Concluído**.
 
 11. Clique em **Aplicar alterações**.
 
@@ -140,7 +151,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
   
 Para permitir que os usuários do AD do Azure façam logon no TimeOffManager, eles deverão ser provisionados no TimeOffManager. O TimeOffManager dá suporte ao provisionamento de usuário just in time. Não há nenhum item de ação para você. Os usuários são adicionados automaticamente durante o primeiro logon usando o logon único.
 
->[AZURE.NOTE]É possível usar qualquer outra ferramenta de criação da conta de usuário do TimeOffManager ou as APIs fornecidas pelo TimeOffManager para provisionar as contas de usuário do AAD.
+>[AZURE.NOTE] É possível usar qualquer outra ferramenta de criação da conta de usuário do TimeOffManager ou as APIs fornecidas pelo TimeOffManager para provisionar as contas de usuário do AAD.
 
 ##Atribuindo usuários
   
@@ -148,7 +159,7 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 ###Para atribuir usuários ao TimeOffManager, execute as seguintes etapas:
 
-1.  No portal do AD do Azure, crie uma conta de teste.
+1.  No Portal clássico do Azure, crie uma conta de teste.
 
 2.  Na página de integração de aplicativos do **TimeOffManager**, clique em **Atribuir usuários**.
 
@@ -160,4 +171,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

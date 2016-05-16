@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="javascript"
 	authors="adrianhall"
-	manager="ggailey777"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="adrianha"/>
+	ms.date="05/02/2016"
+	ms.author="glenga"/>
 
 # Adicionar autenticação ao aplicativo Apache Cordova
 
@@ -32,9 +32,7 @@ Neste tutorial, você adiciona a autenticação ao projeto de início rápido to
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ No Visual Studio, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Aplicativos Móveis], execute o aplicativo no **Emulador do Google Android** e verifique se uma Falha Inesperada de Conexão é exibida após o aplicativo ser iniciado.
-
-    Isso acontece porque o aplicativo tenta acessar o back-end como um usuário não autenticado. O back-end redireciona o usuário para uma página de autenticação usando o OAuth. No entanto, o aplicativo não confia no ponto de extremidade OAuth.
+Agora, é possível verificar se o acesso anônimo para o back-end foi desabilitado. No Visual Studio, abra o projeto que você criou quando concluiu o tutorial [Introdução aos Aplicativos Móveis], execute o aplicativo no **Emulador do Google Android** e verifique se uma Falha Inesperada de Conexão é exibida após a inicialização do aplicativo.
 
 Em seguida, você atualiza o aplicativo para autenticar os usuários antes de solicitar recursos do back-end do Aplicativo Móvel.
 
@@ -94,7 +92,7 @@ Em seguida, você atualiza o aplicativo para autenticar os usuários antes de so
 ##<a name="next-steps"></a>Próximas etapas
 
 * Saiba mais [Sobre autenticação] com o Serviço de Aplicativo do Azure.
-* Continue o tutorial adicionando [Notificações por push] a seu aplicativo do Apache Cordova.
+* Continue o tutorial adicionando [Notificações por push] a seu aplicativo Apache Cordova.
 
 Saiba como usar os SDKs.
 
@@ -111,4 +109,4 @@ Saiba como usar os SDKs.
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

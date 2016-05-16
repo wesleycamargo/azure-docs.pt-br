@@ -27,7 +27,7 @@ Normalmente, você usará collectd se já tiver [instrumentado seu serviço Web 
 
 ## Obter a chave de instrumentação
 
-No [portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Application Insights](start) onde você deseja que os dados sejam exibidos. (Ou [crie um novo recurso](app-insights-create-new-resource.md).)
+No [portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Application Insights](app-insights-overview.md) onde você deseja que os dados sejam exibidos. (Ou [crie um novo recurso](app-insights-create-new-resource.md).)
 
 Faça uma cópia da chave de instrumentação que identifica o recurso.
 
@@ -143,4 +143,4 @@ Diretivas separadas por uma nova linha.
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

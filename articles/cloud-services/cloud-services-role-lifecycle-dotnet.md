@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="05/02/2016" 
 ms.author="adegeo"/>
 
 # Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
@@ -35,7 +35,7 @@ Ao estender **RoleEntryPoint**, você deverá estar ciente dos seguintes comport
 
 Se a sua função não for iniciada, ou se estiver reciclando os estados de inicialização, ocupado e de parada, seu código pode estar lançando uma exceção sem tratamento em um dos eventos do ciclo de vida sempre que a função é reiniciada. Nesse caso, use o evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) para determinar a causa da exceção e tratá-la adequadamente. Sua função também pode estar retornando do método [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), que faz com que a função reinicie. Para obter mais informações sobre os estados de implantação, confira [Problemas comuns que causam a reciclagem de funções](https://msdn.microsoft.com/library/azure/gg465402.aspx).
 
-> [AZURE.NOTE]Se você estiver usando as [Ferramentas do Azure para o Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) para desenvolver seu aplicativo, os modelos de projeto de função estenderão automaticamente a classe **RoleEntryPoint** para você nos arquivos WebRole.cs e WorkerRole.cs.
+> [AZURE.NOTE] Se você estiver usando as [Ferramentas do Azure para o Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) para desenvolver seu aplicativo, os modelos de projeto de função estenderão automaticamente a classe **RoleEntryPoint** para você nos arquivos WebRole.cs e WorkerRole.cs.
 
 ## Método OnStart
 
@@ -63,7 +63,7 @@ public override bool OnStart()
 
 O método **OnStop** será chamado depois que uma instância de função tiver sido colocada offline pelo Azure e antes que o processo tenha sido encerrado. Você pode substituir esse método para chamar o código necessário para que a instância de função seja desligada corretamente.
 
-> [AZURE.IMPORTANT]A execução do código no método **OnStop** tem um tempo limitado para ser encerrado quando chamado por motivos diferentes de um desligamento iniciado pelo usuário. Depois de decorrido esse tempo, o processo é encerrado e você deve garantir que o código do método **OnStop** possa ser executado rapidamente ou tolere não ser executado para ser concluído. O método **OnStop** é chamado depois que o evento **Stopping** é acionado.
+> [AZURE.IMPORTANT] A execução do código no método **OnStop** tem um tempo limitado para ser encerrado quando chamado por motivos diferentes de um desligamento iniciado pelo usuário. Depois de decorrido esse tempo, o processo é encerrado e você deve garantir que o código do método **OnStop** possa ser executado rapidamente ou tolere não ser executado para ser concluído. O método **OnStop** é chamado depois que o evento **Stopping** é acionado.
 
 
 ## Método Run
@@ -80,4 +80,4 @@ Você pode usar os métodos de ciclo de vida do ASP.NET além daqueles fornecido
 ## Próximas etapas
 Saiba como [criar um pacote de serviços de nuvem](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0504_2016-->

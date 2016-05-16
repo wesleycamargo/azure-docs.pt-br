@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/28/2016"
+   ms.date="04/28/2016"
    ms.author="jgao"/>
 
 #Provisionar clusters do Hadoop no HDInsight
 
 Aprenda a planejar para provisionar clusters do HDInsight.
 
-> [AZURE.WARNING] As etapas neste documento usam o portal clássico do Azure, juntamente com versões mais antigas do Azure PowerShell e a CLI do Azure. A Microsoft não recomenda o uso destas etapas. Em vez disso, é necessário usar o portal do Azure e as versões mais recentes do Azure PowerShell e a CLI do Azure. Para obter uma versão deste documento que usa o Portal do Azure e as versões mais recentes do Azure PowerShell e a CLI do Azure, veja [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) (Provisionar clusters Hadoop no HDInsight)
+> [AZURE.IMPORTANT] As etapas descritas neste documento usam o Portal Clássico do Azure. A Microsoft não recomenda o uso do portal clássico durante a criação de novos serviços. Para obter uma explicação das vantagens do Portal do Azure, veja [Portal do Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
 >
-> Para obter uma explicação das vantagens do portal do Azure, veja [Portal do Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+> Este documento também inclui informações sobre como usar o Azure PowerShell e a CLI do Azure. Os trechos de código fornecidos baseiam-se em comandos que usam o ASM (Gerenciamento de Serviço do Azure) para funcionar com o HDInsight e foram __preteridos__. Estes comandos serão removidos até 1º de janeiro de 2017.
+>
+>Para obter uma versão deste documento que usa o portal do Azure, juntamente com os trechos de código do PowerShell e da CLI do Azure que usam o ARM (Azure Resource Manager), veja [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) (Provisionar clusters Hadoop no HDInsight).
 
 **Pré-requisitos:**
 
@@ -231,7 +233,7 @@ A [Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/vir
 
 	![diagrama da configuração ponto a site](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, veja [Estender os recursos do HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
+Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, veja [Estender as funcionalidades do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Ferramentas de provisionamento
 
@@ -532,7 +534,7 @@ A CLI do Azure pode ser instalada usando o NPM ou o Instalador do Windows. A Mic
 
 **Para instalar a CLI do Azure usando o Windows Installer**
 
-1.	Navegue até **http://azure.microsoft.com/downloads/**.
+1.	Navegue até ****http://azure.microsoft.com/downloads/**.
 2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando do Azure** e siga o assistente do Web Platform Installer.
 
 **Para baixar e importar as configurações de publicação**
@@ -709,7 +711,6 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -723,7 +724,7 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
 		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
 		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
 		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
 		        private const OSType NewClusterOSType = OSType.Windows;
 		        private const string NewClusterVersion = "3.2";
 
@@ -814,4 +815,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

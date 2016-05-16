@@ -18,7 +18,7 @@
 
 # Restaurar um aplicativo no Serviço de Aplicativo do Azure
 
-Este artigo mostra como restaurar um aplicativo do Serviço de Aplicativo do qual você fez backup anteriormente usando o recurso de Backup do [Serviço de Aplicativo](app-service-value-prop-what-is). Para obter mais informações, veja [Backups do Serviço de Aplicativo](web-sites-backup.md).
+Este artigo mostra como restaurar um aplicativo do Serviço de Aplicativo do qual você fez backup anteriormente usando o recurso de Backup do [Serviço de Aplicativo](../app-service/app-service-value-prop-what-is.md). Para obter mais informações, veja [Backups do Serviço de Aplicativo](web-sites-backup.md).
 
 O recurso de Restauração do Serviço de Aplicativo permite restaurar seu aplicativo com seus bancos de dados vinculados (Banco de Dados SQL ou MySQL) sob demanda para um estado anterior ou criar um novo aplicativo com base em um backup de seu aplicativo original. A criação de um novo aplicativo que é executado em paralelo à versão mais recente pode ser útil para testes A/B.
 
@@ -106,4 +106,4 @@ Você também pode usar a API REST para fazer backup e restaurar aplicativos do 
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

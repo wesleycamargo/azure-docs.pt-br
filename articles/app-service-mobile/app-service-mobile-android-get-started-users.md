@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Adicionar autenticação no Android com Aplicativos Móveis| Serviço de Aplicativo do Azure"
+	pageTitle="Adicionar autenticação no Android com os Aplicativos Móveis| Serviço de Aplicativo do Azure"
 	description="Aprenda a usar os Aplicativos Móveis no Serviço de Aplicativo do Azure para autenticar usuários de seu aplicativo Android usando uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="android"
-	authors="ggailey777"
-	manager="dwrede"
+	authors="RickSaling"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
-	ms.author="glenga"/>
+	ms.date="05/03/2016"
+	ms.author="ricksal"/>
 
 # Adicionar autenticação ao aplicativo do Android
 
@@ -68,4 +68,4 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 <!-- URLs. -->
 [Introdução aos Aplicativos Móveis]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

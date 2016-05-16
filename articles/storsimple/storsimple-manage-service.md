@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="04/04/2016"
    ms.author="v-sharos" />
 
 # Implantar o serviço StorSimple Manager
@@ -50,7 +50,7 @@ Use a opção **Criação Rápida** para criar um serviço StorSimple Manager se
 
 Também é possível optar por gerar uma conta de armazenamento padrão ao criar o serviço.
 
-Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias do serviço para trabalhar com diferentes assinaturas, organizações ou até mesmo locais de implantação.
+Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias do serviço para trabalhar com diferentes assinaturas, organizações ou até mesmo locais de implantação. Observe que você precisa de instâncias separadas do serviço StorSimple Manager para gerenciar as Matrizes Virtuais e os dispositivos da série 8000 do StorSimple.
 
 Execute as etapas a seguir para criar um serviço.
 
@@ -60,7 +60,7 @@ Execute as etapas a seguir para criar um serviço.
 
 Antes de excluir um serviço, verifique se nenhum dispositivo conectado está usando ele. Se o serviço estiver em uso, desative os dispositivos conectados. A operação de desativação desfaz a conexão entre o dispositivo e o serviço, mas preserva os dados do dispositivo na nuvem.
 
-[AZURE.IMPORTANT]Depois que um serviço é excluído, a operação não pode ser revertida. Qualquer dispositivo que estava usando o serviço precisará ser redefinida para as configurações de fábrica para que possa ser usado com outro serviço. Nesse cenário, os dados locais no dispositivo, bem como a configuração, serão perdidos.
+[AZURE.IMPORTANT] Depois que um serviço é excluído, a operação não pode ser revertida. Qualquer dispositivo que estava usando o serviço precisará ser redefinida para as configurações de fábrica para que possa ser usado com outro serviço. Nesse cenário, os dados locais no dispositivo, bem como a configuração, serão perdidos.
 
 Execute as etapas a seguir para excluir um serviço.
 
@@ -115,4 +115,4 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0504_2016-->

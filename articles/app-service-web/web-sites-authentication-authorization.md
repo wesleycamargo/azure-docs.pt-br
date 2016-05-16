@@ -39,7 +39,7 @@ Em muitos cenários, convém personalizar o comportamento de autenticação e au
 	-	O AD do Azure delega o gerenciamento de aplicativos de [terceira parte confiável](http://en.wikipedia.org/wiki/Relying_party) para funções de não administrador, enquanto o acesso do aplicativo a dados de diretório confidenciais ainda deve ser configurado pelos administradores globais.
 	-	Envia um conjunto de finalidade geral de tipos de declaração para todos os aplicativos de terceira parte confiável. Para a lista de tipos de declaração, consulte [Token com suporte e tipos de declaração](http://msdn.microsoft.com/library/azure/dn195587.aspx). Declarações não são personalizáveis.
 	-	A [Graph API do AD do Azure](http://msdn.microsoft.com/library/azure/hh974476.aspx) habilita acesso do aplicativo aos dados de diretório no AD do Azure.
--	[STS (serviço seguro de token) local, como o AD FS](../web-sites-dotnet-lob-application-adfs/) — você pode implementar autenticação e autorização para o aplicativo Web com um STS local como o AD FS. O uso do AD FS local tem as seguintes características:
+-	[STS (serviço seguro de token) local, como o AD FS](web-sites-dotnet-lob-application-adfs.md) — você pode implementar autenticação e autorização para o aplicativo Web com um STS local como o AD FS. O uso do AD FS local tem as seguintes características:
 	-	A topologia do AD FS deve ser implantada no local, com sobrecarga de gerenciamento e de custo.
 	-	É melhor quando a política da empresa exige que os dados do AD sejam armazenados localmente.
 	-	Apenas administradores do AD FS podem configurar [regras de declaração e relações de confiança de terceiras partes confiáveis](http://technet.microsoft.com/library/dd807108.aspx).
@@ -52,4 +52,4 @@ Em muitos cenários, convém personalizar o comportamento de autenticação e au
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

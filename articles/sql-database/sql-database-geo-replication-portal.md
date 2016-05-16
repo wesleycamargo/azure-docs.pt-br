@@ -4,7 +4,7 @@
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor=""/>
 
 <tags
@@ -13,26 +13,25 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="02/23/2016"
+    ms.date="04/27/2016"
     ms.author="sstein"/>
 
 # Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o portal do Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-portal.md)
+- [Portal do Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
 Este artigo mostra como configurar a replicação geográfica para o Banco de Dados SQL usando o [portal do Azure](http://portal.azure.com).
 
-A replicação geográfica permite criar até quatro bancos de dados de réplica (secundários) em diferentes locais do datacenter (regiões). Os bancos de dados secundários estão disponíveis no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário.
+Para iniciar o failover, consulte [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure](sql-database-geo-replication-failover-portal.md).
 
-A replicação geográfica só está disponível para os bancos de dados Standard e Premium.
+>[AZURE.NOTE] Replicação Geográfica Ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis.
 
-Os bancos de dados Standard podem ter um secundário não legível e devem usar a região recomendada. Os bancos de dados Premium podem ter até quatro secundários legíveis em qualquer uma das regiões disponíveis.
-
+Você pode configurar até 4 bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário.
 
 Para configurar a replicação geográfica, você precisará do seguinte:
 
@@ -47,7 +46,7 @@ As etapas a seguir criam um novo banco de dados secundário em uma parceria de r
 
 Para adicionar um secundário, você deverá ser o proprietário ou o co-proprietário da assinatura.
 
-O banco de dados secundário terá o mesmo nome do banco de dados primário e, por padrão, terá o mesmo nível de serviço. O banco de dados secundário pode ser legível (somente a camada Premium) ou não legível, e pode ser um banco de dados individual ou um banco de dados elástico. Para saber mais, confira [Camadas de Serviço](sql-database-service-tiers.md). Depois do banco de dados secundário ser criado e propagado, os dados começarão a ser replicados desde o banco de dados primário até o novo banco de dados secundário.
+O banco de dados secundário terá o mesmo nome do banco de dados primário e, por padrão, terá o mesmo nível de serviço. O banco de dados secundário pode ser legível ou não legível, e pode ser um único banco de dados ou um banco de dados elástico. Para saber mais, confira [Camadas de Serviço](sql-database-service-tiers.md). Depois do banco de dados secundário ser criado e propagado, os dados começarão a ser replicados desde o banco de dados primário até o novo banco de dados secundário.
 
 > [AZURE.NOTE] O comando falhará se o banco de dados parceiro já existir (como, por exemplo, como resultado do encerramento de um relacionamento de replicação geográfica anterior).
 
@@ -58,13 +57,13 @@ O banco de dados secundário terá o mesmo nome do banco de dados primário e, p
 
 1. No [Portal do Azure](http://portal.azure.com), procure o banco de dados que você deseja configurar para a replicação geográfica.
 2. Na folha Banco de Dados SQL, selecione **Todas as configurações** > **Replicação Geográfica**.
-3. Selecione a região para criar o banco de dados secundário. Os bancos de dados Premium podem usar qualquer região para um secundário; os bancos de dados Standard devem usar a região recomendada:
+3. Selecione a região para criar o banco de dados secundário.
 
 
     ![Adicionar secundário][1]
 
 
-4. Configure o **Tipo secundário** (**Legível**, ou **Não Legível**); somente os bancos de dados Premium podem ter secundários legíveis, os bancos de dados secundários do Standard só podem ser definidos como **Não Legíveis**.
+4. Configure o **Tipo de secundário** (**Legível** ou **Não legível**).
 5. Selecione ou configure o servidor do banco de dados secundário.
 
     ![Criar Secundário][3]
@@ -104,39 +103,24 @@ A operação encerra permanentemente a replicação para o banco de dados secund
 
 
 
-## Iniciar um failover
-
-O banco de dados secundário pode ser alternado para se tornar primário.
-
-1. No [Portal do Azure](http://portal.azure.com), procure o banco de dados primário na parceria de replicação geográfica.
-2. Na folha Banco de Dados SQL, selecione **Todas as configurações** > **Replicação Geográfica**.
-3. Na lista **SECUNDÁRIOS**, selecione o banco de dados que deverá se tornar o novo primário.
-4. Clique em **Failover**.
-
-    ![failover][10]
-
-O comando executa o seguinte fluxo de trabalho:
-
-1. Alterne temporariamente a replicação para o modo síncrono. Isso fará com que todas as transações pendentes sejam liberadas para o secundário. 
-
-2. Alterne as funções primária e secundária dos dois bancos de dados na parceria de replicação geográfica.
-
-Para o failover planejado, esta sequência garante que não ocorrerá nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais.
-
    
 
 ## Próximas etapas
 
+- [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure](sql-database-geo-replication-failover-portal.md)
 - [Projetando aplicativos de nuvem para a continuidade de negócios usando a replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 
 
 ## Recursos adicionais
 
+- [Configuração de segurança para a Replicação Geográfica](sql-database-geo-replication-security-config.md)
 - [Destacar os novos recursos de replicação geográfica](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Projetando aplicativos de nuvem para a continuidade de negócios usando a replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
 - [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-- [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
 
 
 <!--Image references-->
@@ -151,4 +135,4 @@ Para o failover planejado, esta sequência garante que não ocorrerá nenhuma pe
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

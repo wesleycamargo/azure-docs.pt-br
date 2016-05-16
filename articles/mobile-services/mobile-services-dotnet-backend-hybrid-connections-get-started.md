@@ -125,7 +125,7 @@ Agora que você verificou a conexão de banco de dados, é necessário adicionar
 
 ##Consulte também##
 
-+ [Site de Conexões Híbridas](../../services/biztalk-services/)
++ [Site de Conexões Híbridas](https://azure.microsoft.com/services/biztalk-services/)
 + [Visão geral de Conexões Híbridas](../biztalk-services/integration-hybrid-connection-overview.md)
 + [Serviços BizTalk: guias Painel, Monitor, Escala, Configurar e Conexão Híbrida](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [Como fazer alterações no modelo de dados para um serviço móvel de back-end do .NET](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
@@ -137,4 +137,4 @@ Agora que você verificou a conexão de banco de dados, é necessário adicionar
 [portal clássico do Azure]: http://manage.windowsazure.com
 [Introdução aos Serviços Móveis]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

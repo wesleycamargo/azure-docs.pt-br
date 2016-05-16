@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Como conectar redes virtuais clássicas a redes virtuais ARM no Azure"
    description="Saiba como criar uma conexão VPN entre redes virtuais clássicas e novas redes virtuais"
-   services="virtual-network"
+   services="vpn-gateway"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="cherylmc"
    manager="carmonm"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="cherylmc" />
 
 # Conectando redes virtuais clássicas a novas redes virtuais
 
@@ -44,7 +44,7 @@ Para criar o gateway de VPN para a rede virtual clássica, siga as instruções 
 4. Na lista suspensa **CIDR (CONTAGEM DE ENDEREÇO)**, selecione o número de bits usados para a parte de rede do bloco CIDR usado pela rede virtual ARM a qual você deseja se conectar.
 5. Em **ENDEREÇO IP DO DISPOSITIVO VPN (OPCIONAL)**, digite qualquer endereço IP público válido. Alteraremos esse endereço IP mais tarde. Em seguida, clique no botão de marca de seleção no canto inferior direito da tela. A figura a seguir mostra exemplos de definições para essa página.
 
-	![Configurações de rede local](..\virtual-network\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
+	![Configurações de rede local](.\media\virtual-networks-arm-asm-s2s-howto\figurex1.png)
 
 5. Na página **redes**, clique em **REDES VIRTUAIS**, clique em sua rede virtual clássica e, em seguida, clique em **CONFIGURAR**.
 6. Em **conectividade site a site**, marque a caixa de seleção **conectar-se à rede local**.
@@ -71,7 +71,7 @@ Para criar um gateway de VPN para rede virtual ARM, siga as instruções abaixo.
 4. Recupere a sub-rede usada para o gateway, executando o comando a seguir.
 
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
-			-VirtualNetwork (Get-AzureVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
+			-VirtualNetwork (Get-AzureRMVirtualNetwork -Name VNetARM -ResourceGroupName RG1) 
 
 	>[AZURE.IMPORTANT] A sub-rede do gateway já deve existir e deve ter o nome GatewaySubnet.
 
@@ -118,4 +118,4 @@ Para criar um gateway de VPN para rede virtual ARM, siga as instruções abaixo.
 - Saiba mais sobre [o Provedor de recursos de rede (NRP) para ARM](resource-groups-networking.md).
 - Crie uma [solução completa conectando uma rede virtual clássica a uma rede virtual de ARM usando uma VPN S2S](virtual-networks-arm-asm-s2s.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

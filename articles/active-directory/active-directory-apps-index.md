@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/03/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
@@ -228,4 +228,4 @@ Para ver quais relatórios estão incluídos em edições diferentes do Active D
 
 [Autenticação Multifator do Azure](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

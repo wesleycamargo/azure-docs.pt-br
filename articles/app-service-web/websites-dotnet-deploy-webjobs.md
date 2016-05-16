@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="na" 
-	ms.date="01/08/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Implantar Trabalhos Web usando o Visual Studio
@@ -39,16 +39,12 @@ Um projeto habilitado para Trabalhos Web tem os seguintes itens adicionados:
 É possível implantar um projeto como um Trabalho Web propriamente dito ou vinculá-lo a um projeto Web de forma que ele seja implantado automaticamente sempre que você implanta o projeto Web. Para vincular projetos, o Visual Studio inclui o nome do projeto habilitado para Trabalhos Web em um arquivo [webjobs-list.json](#webjobslist) no projeto Web.
 
 ![Diagrama que mostra o projeto de Trabalho Web sendo vinculado ao projeto Web](./media/websites-dotnet-deploy-webjobs/link.png)
- 
-
 
 ## Pré-requisitos
 
-Os recursos de implantação de Trabalhos Web estão disponíveis no Visual Studio 2013 ao instalar o SDK do Azure versão 2.4 ou posterior:
+Os recursos de implantação do WebJobs estão disponíveis no Visual Studio 2015 quando você instala o SDK do Azure para .NET:
 
-* [SDK do Azure para o Visual Studio 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
-
-Os recursos de implantação de Trabalhos Web também estão incluídos no [Visual Studio 2013 Atualização 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) e atualizações posteriores.
+* [SDK do Azure para .NET (Visual Studio 2015)](http://go.microsoft.com/fwlink/?linkid=518003).
 
 ## <a id="convert"></a>Habilitar a implantação de Trabalhos Web para um projeto do Aplicativo de Console existente
 
@@ -100,7 +96,7 @@ Para criar um projeto habilitado para Trabalhos Web, é possível usar o modelo 
 
 	Crie um projeto que seja configurado para ser implantado automaticamente como um Trabalho Web quando um projeto Web na mesma solução for implantado. Use esta opção quando quiser executar o Trabalho Web no mesmo aplicativo Web em que você executa o aplicativo Web relacionado.
 
-> [AZURE.NOTE]O modelo new-project do WebJobs instala automaticamente pacotes NuGet e inclui o código em *Program.cs* para o [SDK WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se você não quiser usar o SDK WebJobs, ou quiser usar um WebJob agendado em vez de contínuo, remova ou altere a instrução `host.RunAndBlock` em *Program.cs*.
+> [AZURE.NOTE] O modelo new-project do WebJobs instala automaticamente pacotes NuGet e inclui o código em *Program.cs* para o [SDK do WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se você não quiser usar o SDK do WebJobs ou quiser usar um WebJob agendado em vez de contínuo, remova ou altere a instrução `host.RunAndBlock` em *Program.cs*.
 
 ### <a id="createnolink"></a> Usar o novo modelo de projeto de Trabalhos Web para um Trabalho Web independente
   
@@ -188,13 +184,8 @@ Para implantar um projeto de Trabalhos Web propriamente dito, clique com o botã
 	
 Para um Trabalho Web independente, o mesmo assistente **Publicar Web** usado em projetos Web é exibido, mas com menos configurações disponíveis para serem alteradas.
 
->[AZURE.NOTE]Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-
 ## <a id="nextsteps"></a>Próximas etapas
 
-Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter informações sobre como implantar o Azure WebJobs desde o Visual Studio usando um processo de entrega contínuo, consulte [Azure WebJobs — Recursos recomendados — Implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter mais informações sobre como implantar o Azure WebJobs, consulte [Azure WebJobs – Recursos recomendados - Implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0504_2016-->

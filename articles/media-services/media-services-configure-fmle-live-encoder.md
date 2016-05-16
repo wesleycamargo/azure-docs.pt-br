@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/03/2016" 
 	ms.author="juliako;cenkdin;anilmur"/>
 
 #Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única
@@ -26,7 +26,7 @@
 
 Este tópico mostra como configurar o codificador [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) para enviar um único fluxo de taxa de bits para os canais AMS que são habilitados para codificação ativa. Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver usando um Mac ou Linux, use o Portal Clássico do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
+Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver usando um Mac ou Linux, use o Portal Clássico do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
 Observe que este tutorial descreve como usar o AAC. No entanto, por padrão, o FMLE dá suporte ao AAC. Você precisa comprar um plug-in para codificação do AAC como MainConcept: [AAC plug-in](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
@@ -170,4 +170,4 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

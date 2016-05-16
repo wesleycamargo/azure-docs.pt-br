@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="terrylan"/>
 
 # Gerenciando recomendações de segurança na Central de Segurança do Azure
@@ -82,6 +82,7 @@ Use a tabela a seguir como referência para ajudá-lo a entender as recomendaç�
 |Habilitar Transparent Data Encryption em bancos de dados SQL|Recomenda que você habilite a criptografia para bancos de dados SQL (apenas serviço do Azure SQL).|
 |Implantar o Agente de VM|Permite que você veja quais máquinas virtuais exigem o Agente de VM. O Agente de VM deve ser instalado em VMs para provisionar verificação de linha de base, verificação de patch e programas antimalware. O agente de VM está instalado por padrão nas VMs implantadas do Azure Marketplace. O artigo [Agente de VM e extensões – parte 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornece informações sobre como instalar o Agente de VM.|
 | [Aplicar a criptografia de disco](security-center-apply-disk-encryption.md) |Recomenda de que você criptografe os discos de VM usando o Azure Disk Encryption (VMs do Windows e do Linux). A criptografia é recomendada para volumes de dados e do sistema operacional em sua VM.|
+|Fornecer detalhes de contato de segurança | Recomenda que você forneça informações de contato de segurança para cada uma das suas assinaturas. Informações de contato são um número de telefone e um endereço de email. As informações serão usadas para contatá-lo se nossa equipe de segurança acreditar que os recursos estão comprometidos. |
 
 Você pode filtrar e ignorar as recomendações.
 
@@ -109,11 +110,12 @@ O [Antimalware da Microsoft](../azure-security-antimalware.md) agora está ativo
 ## Próximas etapas
 Neste documento, você foi apresentado às recomendações de segurança da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciamento e resposta a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) -- encontre perguntas frequentes sobre como usar o serviço.
-- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) -- encontre postagens no blog sobre conformidade e segurança do Azure.
+- [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorar a integridade dos recursos do Azure.
+- [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Aprenda a gerenciar e a responder a alertas de segurança.
+- [Monitorando soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorar o status de integridade de suas soluções de parceiro.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – Encontre perguntas frequentes sobre como usar o serviço.
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – Encontre postagens no blog sobre conformidade e segurança do Azure.
 
 <!--Image references-->
 [2]: ./media/security-center-recommendations/recommendations-tile.png
@@ -122,4 +124,4 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

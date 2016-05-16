@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/16/2016"
+ms.date="05/03/2016"
 ms.author="larryfr"/>
 
 # Usar a interface de usuário do Tez para depurar trabalhos no HDInsight baseado no Windows
@@ -147,4 +147,4 @@ Agora que você aprendeu a usar o modo de exibição do Tez, saiba mais sobre [C
 
 Para obter informações técnicas mais detalhadas sobre o Tez, confira a [página sobre o Tez em Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

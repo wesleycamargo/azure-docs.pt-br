@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="04/28/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurar uma máquina virtual SQL Server do Azure como um servidor do IPython Notebook para análises avançadas
@@ -81,6 +81,7 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
     -   Executando (Provisionamento)
     -   Executando
 
+
 ##<a name="RemoteDesktop"></a>Abrir a máquina virtual usando a Área de Trabalho Remota e concluir a instalação
 
 1.  Quando o provisionamento for concluído, clique no nome da sua máquina virtual para ir para a página PAINEL. Na parte inferior da página, clique em **Conectar**.
@@ -93,11 +94,12 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
 
 Quando você está conectado à máquina virtual com a Área de Trabalho Remota do Windows, a máquina virtual funciona de maneira muito semelhante à qualquer outro computador. Conecte-se à instância padrão do SQL Server com o SQL Server Management Studio (em execução na máquina virtual) da maneira normal.
 
+
 ##<a name="InstallIPython"></a>Instalar o IPython Notebook e outras ferramentas de suporte
 
 Para configurar a nova VM do SQL Server para servir como um servidor do IPython Notebook e instalar as ferramentas de suporte adicionais, como AzCopy, Azure Storage Explorer, pacotes de Python de ciência de dados úteis e outros, um script de personalização especial é fornecido para você. Para instalar:
 
-- Clique com o botão direito do mouse no ícone Iniciar do Windows e clique em **Prompt de comando (Admin)**
+- Clique com o botão direito do mouse no ícone **Iniciar do Windows** e clique em **Prompt de comando (Admin)**
 - Copie os seguintes comandos e cole no prompt de comando.
 
     	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
@@ -154,7 +156,7 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 
 	Para alterar o modo de autenticação usando o SQL Server Management Studio:
 
-3.  No SQL Server Management Studio Object Explorer, clique com o botão direito do mouse no nome da instância do SQL Server (o nome da máquina virtual) e, em seguida, clique em **Propriedades**.
+3.  No **Pesquisador de Objetos do SQL Server Management Studio**, clique com o botão direito do mouse no nome da instância do SQL Server (o nome da máquina virtual) e, em seguida, clique em **Propriedades**.
 
     ![Propriedades do servidor][7]
 
@@ -162,19 +164,20 @@ O Mecanismo de Banco de Dados do SQL Server não pode usar a Autenticação do W
 
     ![Selecionar modo de autenticação][8]
 
-5.  Na caixa de diálogo do SQL Server Management Studio, clique em **OK** para confirmar a necessidade de reiniciar o SQL Server.
+5.  Na caixa de diálogo do **SQL Server Management Studio**, clique em **OK** para confirmar a necessidade de reiniciar o SQL Server.
 
-6.  No Object Explorer, clique com o botão direito do mouse no seu servidor, e em seguida, clique em **Reiniciar**. (Se o SQL Server Agent estiver em execução, ele também deverá ser reinicializado.)
+6.  No **Pesquisador de Objetos**, clique com o botão direito do mouse no seu servidor, e em seguida, clique em **Reiniciar**. (Se o SQL Server Agent estiver em execução, ele também deverá ser reinicializado.)
 
     ![Reiniciar][9]
 
-7.  Na caixa de diálogo do SQL Server Management Studio, clique em **Sim** para concordar que você quer reiniciar o SQL Server.
+7.  Na caixa de diálogo do **SQL Server Management Studio**, clique em **Sim** para concordar que você quer reiniciar o SQL Server.
 
 ##<a name="Logins"></a>Criar logons de autenticação do SQL Server
 
 Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve criar pelo menos um logon de autenticação do SQL Server.
 
-> [AZURE.TIP] Você pode criar novos logons do SQL Server programaticamente ou usando o SQL Server Management Studio. Para criar um novo usuário sysadmin com autenticação do SQL de forma programática, inicie uma **Nova consulta** e execute o script a seguir. Substitua <new user name> e <new password> pelo nome de usuário e senha de sua escolha. Ajuste a política de senha conforme necessário (o código de amostra desativa a expiração de senha e a verificação de política). Para saber mais sobre logons do SQL Server, consulte [Criar um logon ](http://msdn.microsoft.com/library/aa337562.aspx).
+Você pode criar novos logons do SQL Server programaticamente ou usando o SQL Server Management Studio. Para criar um novo usuário sysadmin com autenticação do SQL de forma programática, inicie uma **Nova consulta** e execute o script a seguir. Substitua <new user name> e <new password> pelo *nome de usuário* e pela *senha* de sua escolha.
+
 
     USE master
     go
@@ -185,9 +188,12 @@ Para conectar-se ao Mecanismo de Banco de Dados de outro computador, você deve 
 
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
 
+
+Ajuste a política de senha conforme necessário (o código de amostra desativa a expiração de senha e a verificação de política). Para obter mais informações sobre logons do SQL Server, consulte [Criar um logon (a página pode estar em inglês)](http://msdn.microsoft.com/library/aa337562.aspx).
+
 Para criar novos logons do SQL Server usando o SQL Server Management Studio:
 
-1.  No SQL Server Management Studio Object Explorer, expanda a pasta da instância do servidor na qual você deseja criar o novo logon.
+1.  No **Pesquisador de Objetos do SQL Server Management Studio**, expanda a pasta da instância do servidor na qual você deseja criar o novo logon.
 
 2.  Clique com o botão direito do mouse na pasta **Segurança**, aponte para **Novo** e selecione **Logon...**.
 
@@ -221,11 +227,13 @@ Para criar novos logons do SQL Server usando o SQL Server Management Studio:
 
 ##<a name="DNS"></a>Determinar o nome DNS da máquina virtual
 
-Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computador, você deve saber o nome DNS (Sistema de Nome de Domínio) da máquina virtual. (Esse é o nome que a Internet usa para identificar a máquina virtual. Você pode usar o endereço IP, mas o endereço IP pode ser alterado quando o Azure mover os recursos para redundância ou manutenção. O nome DNS será estável porque pode ser redirecionado para um novo endereço IP.)
+Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computador, você deve saber o nome DNS (Sistema de Nome de Domínio) da máquina virtual.
+
+(Esse é o nome que a Internet usa para identificar a máquina virtual. Você pode usar o endereço IP, mas o endereço IP pode ser alterado quando o Azure mover os recursos para redundância ou manutenção. O nome DNS será estável porque pode ser redirecionado para um novo endereço IP.)
 
 1.  No Portal Clássico do Azure (ou na etapa anterior), selecione **MÁQUINAS VIRTUAIS**.
 
-2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por **http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
+2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por ****http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
 
 ##<a name="cde"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
 
@@ -243,7 +251,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 ##<a name="amlconnect"></a>Conectar-se ao mecanismo de banco de dados de Aprendizado de Máquina do Azure
 
-Nos estágios posteriores do Processo e tecnologia avançada de análise, você usará o [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para compilar e implantar modelos de aprendizado de máquina. Para incluir dados de seus bancos de dados do SQL Server VM diretamente no Aprendizado de máquina do Azure para treinamento ou pontuação, use o módulo de Leitor em um novo experimento do [Estúdio de Aprendizado de Máquina](https://studio.azureml.net) do Azure. Clique nos links do guia Processo e tecnologia avançada de análise e obtenha mais detalhes sobre esse tópico. Para obter uma introdução, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md).
+Nos estágios posteriores do Processo da Cortana Analytics, você usará o [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net) para compilar e implantar modelos de aprendizado de máquina. Para incluir dados dos bancos de dados da VM do SQL Server diretamente no Aprendizado de Máquina do Azure para treinamento ou pontuação, use o módulo de **Leitor** em um novo experimento do [Estúdio de Aprendizado de Máquina](https://studio.azureml.net) do Azure. Este tópico é abordado em mais detalhes por meio dos links de guia do Processo da Cortana Analytics. Para obter uma introdução, consulte [O que é o Estúdio de Aprendizado de Máquina do Azure?](machine-learning-what-is-ml-studio.md).
 
 2.	No painel **Propriedades** do [módulo de Leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx), selecione **Banco de Dados SQL do Azure** na lista suspensa **Fonte de Dados**.
 
@@ -298,4 +306,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->
