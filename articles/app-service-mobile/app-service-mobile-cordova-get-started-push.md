@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="adrianha"/>
+	ms.date="05/02/2016"
+	ms.author="glenga"/>
 
-# Adicionar Notificações por push ao seu aplicativo Apache Cordova
+# Adicionar notificações por push ao seu aplicativo Apache Cordova
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Embora as notificações por push recebam suporte em emuladores Android, percebemos que eles são instáveis, e não recomendamos que você teste as notificações por push em emuladores.
 
-##<a name="create-hub"></a>Criar um Hub de notificação
+##<a name="create-hub"></a>Criar um hub de notificação
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
@@ -61,20 +61,17 @@ Como nosso alvo é a plataforma Google Android, você deve habilitar o Google Cl
 
 Antes de implantar seu aplicativo em seu dispositivo Android, você precisa habilitar a Depuração USB. Execute as etapas a seguir em seu telefone com Android:
 
-1. Acesse **Configurações** > **Sobre o telefone**
-2. Toque no **Número da compilação** até que o modo de desenvolvedor esteja habilitado
-3. Retorne às **Configurações**
-4. Selecione **Opções do Desenvolvedor**
-5. Ative a **Depuração USB**
-6. Conecte seu telefone Android ao seu PC desenvolvimento com um cabo USB.
+1. Vá para **Configurações** > **Sobre o telefone**, toque no **Número de build** até que o modo de desenvolvedor seja habilitado (cerca de 7 vezes).
+ 
+2. Novamente em **Configurações** > **Opções do Desenvolvedor**, habilite a **depuração USB** e conecte seu telefone Android ao computador de desenvolvimento com um Cabo USB.
 
-Ao testar este tutorial, usamos o Google Nexus 5X executando a versão Android 6.0 (Marshmallow). No entanto, as técnicas são comuns em qualquer versão moderna do Android.
+Testamos isso usando um dispositivo Google Nexus 5X que executa o Android 6.0 (Marshmallow). No entanto, as técnicas são comuns em qualquer versão moderna do Android.
 
 ##<a name="add-push-to-app"></a>Adicionar notificações de push para seu aplicativo
 
-Você deve certificar-se de que seu projeto de aplicativo do Apache Cordova esteja pronto para lidar com notificações por push.
+Você deve certificar-se de que seu projeto de aplicativo do Apache Cordova esteja pronto para lidar com notificações por push. É necessário instalar o plug-in de push do Cordova, além de todos os serviços de push específicos da plataforma.
 
-### Instalar o plug-in de Push do Apache Cordova
+### Instalar o plug-in de push
 
 Os aplicativos Apache Cordova não manipulam recursos de rede ou do dispositivo de forma nativa. Essas funcionalidades são fornecidas por plug-ins publicados no [npm](https://www.npmjs.com/) ou no GitHub. O plug-in `phonegap-plugin-push` é usado para manipular notificações por push de rede.
 
@@ -82,36 +79,35 @@ Os aplicativos Apache Cordova não manipulam recursos de rede ou do dispositivo 
 
 **No prompt de comando:**
 
+Execute o seguinte comando:
+
     cordova plugin add phonegap-plugin-push
 
 **No Visual Studio:**
 
-1.  Abra o arquivo `config.xml` no Gerenciador de Soluções.
-2.  Clique em **Plug-ins** > **Personalizado**, selecione **Git** como a origem da instalação e insira `https://github.com/phonegap/phonegap-plugin-push` como a origem.
+1.  No Gerenciador de Soluções, abra o arquivo `config.xml`, clique em **Plug-ins** > **Personalizado**, selecione **Git** como a fonte de instalação e insira `https://github.com/phonegap/phonegap-plugin-push` como a fonte.
 
 	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 
-4.  Clique na seta ao lado da origem da instalação e clique em **Adicionar**
+2.  Clique na seta ao lado da fonte de instalação e clique em **Adicionar**
 
 O plug-in de push agora está instalado.
 
-### Instalar os Serviços do Google Play para Android
+### Instalar os Serviços do Google Play
 
-O Plug-in de Push do PhoneGap depende dos Serviços do Google Play para enviar notificações por push. Para instalar:
+O plug-in de push depende dos Serviços do Google Play no Android para enviar notificações por push.
 
-1.  Abra o **Visual Studio**
-2.  Clique em **Ferramentas** > **Android** > **Gerenciador de SDK do Android**
-3.  Na pasta Extras, marque a caixa ao lado de cada SDK necessário que não esteja instalado. Os seguintes pacotes são necessários:
+1.  Em **Visual Studio**, clique em **Ferramentas** > **Android** > **Gerenciador de SDK do Android**, expanda a pasta **Extras** e marque a caixa para certificar-se de que cada um dos seguintes SDKs está instalado.    
     * Biblioteca de Suporte do Android versão 23 ou mais recente
     * Repositório de Suporte do Android versão 20 ou mais recente
     * Serviços do Google Play versão 27 ou mais recente
     * Repositório do Google versão 22 ou mais recente
-4.  Clique em **Instalar Pacotes**.
-5.  Aguarde a conclusão da instalação.
+     
+2.  Clique em **Instalar Pacotes** e aguarde a conclusão da instalação.
 
 As bibliotecas exigidas atualmente estão listadas na [documentação de instalação do phonegap-plugin-push].
 
-### Registrar seu dispositivo para envio por push na inicialização
+### Registrar seu dispositivo para push na inicialização
 
 1. Adicione uma chamada para **registerForPushNotifications** durante o retorno de chamada para o processo de logon, ou na parte inferior do método **onDeviceReady**:
 
@@ -169,18 +165,18 @@ As bibliotecas exigidas atualmente estão listadas na [documentação de instala
 
 3. No código acima, substitua `Your_Project_ID` pela ID numérica do projeto de seu aplicativo no [Console do Desenvolvedor do Google].
 
-## Testar o aplicativo no serviço móvel publicado
+## Testar notificações por push no aplicativo 
 
-Você pode testar o aplicativo conectando um telefone Android diretamente com um cabo USB. Em vez de **Emulador do Google Android**, selecione **Dispositivo**. O Visual Studio baixará e executará o aplicativo no dispositivo. Em seguida, você interagirá com o aplicativo no dispositivo.
+Agora é possível testar notificações por push executando o aplicativo e inserindo itens na tabela TodoItem. Você pode fazer isso no mesmo dispositivo ou em um segundo dispositivo, desde que esteja usando o mesmo back-end. Teste seu aplicativo Cordova na plataforma Android usando uma das seguintes maneiras:
 
-Melhore a experiência de desenvolvimento. Aplicativos de compartilhamento de tela, como o [Mobizen], podem ajudá-lo a desenvolver um aplicativo do Android projetando sua tela do Android em um navegador da Web no computador.
+- **Em um dispositivo físico:** anexe seu dispositivo Android ao computador de desenvolvimento com um cabo USB. Em vez de **Emulador do Google Android**, selecione **Dispositivo**. O Visual Studio implantará o aplicativo no dispositivo e o executará. Em seguida, você poderá interagir com o aplicativo no dispositivo. Melhore a experiência de desenvolvimento. Aplicativos de compartilhamento de tela, como o [Mobizen], podem ajudá-lo a desenvolver um aplicativo Android projetando sua tela do Android em um navegador da Web no computador.
 
-Também é possível testar o aplicativo do Android no emulador do Android. Lembre-se de primeiro adicionar uma conta do Google no emulador.
+- **Em um emulador do Android:** antes de receber notificações por push, é necessário adicionar uma conta do Google no emulador.
 
 ##<a name="next-steps"></a>Próximas etapas
 
-* Leia sobre [Hubs de Notificação] para saber mais sobre as notificações por push.
-* Se você ainda não fez isso, continue o tutorial [Adicionando autenticação] ao seu aplicativo do Apache Cordova.
+* Leia sobre os [Hubs de Notificação] para saber mais sobre notificações por push.
+* Se você ainda não fez isso, continue o tutorial [Adicionando autenticação] ao seu aplicativo Apache Cordova.
 
 Saiba como usar os SDKs.
 
@@ -204,4 +200,4 @@ Saiba como usar os SDKs.
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

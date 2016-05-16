@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="elfish"/>
 
 # Perguntas frequentes sobre continuidade dos negócios
@@ -50,14 +50,8 @@ Para recuperação de uma interrupção — use [Get Recoverable Database](https
 
 Não há nenhuma funcionalidade interna para restauração em massa. O [banco de dados SQL do Azure: o script recuperação de servidor completa](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) é um exemplo de uma maneira de realizar essa tarefa.
 
-## 8\. Qual é a diferença entre replicação geográfica padrão e replicação geográfica ativa?
-
-Para replicação geográfica padrão, o banco de dados secundário não é legível. Ele está disponível apenas para failover durante interrupções.
-
-Para replicação geográfica ativa, todos os bancos de dados secundários são legíveis (até 4 secundários).
-
-## 9\. Qual é o atraso da replicação ao usar a replicação geográfica padrão ou replicação geográfica ativa?
+## 8\. Qual é o atraso da replicação ao usar a replicação geográfica ativa?
 
 Use a exibição de gerenciamento dinâmico (DMVs) [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) para obter o último horário de replicação, último atraso de replicação e outras informações sobre o link de replicação.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

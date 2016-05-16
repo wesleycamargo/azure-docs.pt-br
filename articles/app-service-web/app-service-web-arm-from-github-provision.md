@@ -3,9 +3,9 @@
 	description="Use um modelo do Gerenciador de Recursos do Azure para implantar um aplicativo Web que contém um projeto de um repositório GitHub." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="cephalin" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="cephalin"/>
 
 # Implantar um aplicativo Web vinculado a um repositório GitHub
 
@@ -69,31 +69,32 @@ Especifique o nome do aplicativo Web por meio do parâmetro **siteName** e o loc
 O aplicativo Web também tem um recurso filho que é definido na seção de **recursos** a seguir. Esse recurso filho define o controle do código-fonte para o projeto implantado com o aplicativo Web. Nesse modelo, o controle do código-fonte está vinculado a um repositório GitHub específico. O repositório GitHub é definido com o código **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** Você poderá embutir a URL do repositório quando quiser criar um modelo que implanta repetidamente um único projeto, exigindo o número mínimo de parâmetros. Em vez de embutir a URL do repositório, você pode adicionar um parâmetro para a URL do repositório e usar esse valor para a propriedade **RepoUrl**.
 
     {
-      "apiVersion":"2015-04-01",
-      "name":"[parameters('siteName')]",
-      "type":"Microsoft.Web/sites",
-      "location":"[parameters('siteLocation')]",
-      "dependsOn":[
-         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+      "apiVersion": "2015-08-01",
+      "name": "[parameters('siteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
-      "properties":{
-        "serverFarmId":"[parameters('hostingPlanName')]"
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
-       "resources":[
-         {
-           "apiVersion":"2015-04-01",
-           "name":"web",
-           "type":"sourcecontrols",
-           "dependsOn":[
-             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
-           ],
-           "properties":{
-             "RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git",
-             "branch":"master"
-           }
-         }
-       ]
-     }
+      "resources": [
+        {
+          "apiVersion": "2015-08-01",
+          "name": "web",
+          "type": "sourcecontrols",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+          ],
+          "properties": {
+            "RepoUrl": "[parameters('repoURL')]",
+            "branch": "[parameters('branch')]",
+            "IsManualIntegration": true
+          }
+        }
+      ]
+    }
 
 ## Comandos para executar a implantação
 
@@ -110,4 +111,4 @@ O aplicativo Web também tem um recurso filho que é definido na seção de **re
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

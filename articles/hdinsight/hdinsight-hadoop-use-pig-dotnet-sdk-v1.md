@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/04/2016"
    ms.author="larryfr"/>
 
 #Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight
@@ -24,9 +24,11 @@ Este documento fornece um exemplo de uso do SDK do .NET para Hadoop para enviar 
 
 O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight no .NET. O Pig permite que você crie operações MapReduce ao modelar uma série de transformações de dados. Você aprenderá como usar um aplicativo C# básico para enviar um trabalho do Pig para um cluster HDInsight.
 
-[AZURE.INCLUDE [azure-preview-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+> [AZURE.IMPORTANT] As etapas descritas neste documento usam o Portal Clássico do Azure. A Microsoft não recomenda o uso do portal clássico durante a criação de novos serviços. Para obter uma explicação das vantagens do Portal do Azure, veja [Portal do Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> Este documento também inclui informações sobre como usar o SDK do .NET do HDInsight. Os trechos de código fornecidos baseiam-se em comandos que usam o ASM (Gerenciamento de Serviço do Azure) para funcionar com o HDInsight e foram __preteridos__. Estes comandos serão removidos até 1º de janeiro de 2017.
+>
+>Para obter uma versão deste documento que usa o portal do Azure, juntamente com os trechos de código do SDK do .NET do HDInsight que usam o ARM (Azure Resource Manager), veja [Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk.md).
 
 ##<a id="prereq"></a>Pré-requisitos
 
@@ -160,4 +162,4 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

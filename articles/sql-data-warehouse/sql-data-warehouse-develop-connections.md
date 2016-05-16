@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Conectar ao SQL Data Warehouse
-Para se conectar ao SQL Data Warehouse, você precisará inserir credenciais de segurança para fins de autenticação. Após estabelecer uma conexão, você também descobrirá que determinadas configurações de conexão são definidas como parte do estabelecimento de sua sessão de consulta.
+Para se conectar ao SQL Data Warehouse, você precisará inserir credenciais de segurança para fins de autenticação. Após estabelecer uma conexão, você também descobrirá que determinadas configurações de conexão são definidas como parte do estabelecimento de sua sessão de consulta. Também convém examinar o artigo [Proteger um banco de dados no SQL Data Warehouse][] para obter mais informações sobre segurança e como habilitar conexões ao SQL Data Warehouse.
 
-Este artigo detalha os seguintes aspectos da conexão do SQL Data warehouse:
+Este artigo detalha os seguintes aspectos da conexão ao SQL Data Warehouse:
 
 - Autenticação
 - Configurações de conexão
@@ -52,7 +52,9 @@ Você pode conectar ao SQL Data Warehouse usando qualquer um dos seguintes proto
 - ADO.NET
 - ODBC
 - PHP
-- JDBC
+- JDBC 
+
+A seguir estão alguns exemplos de cadeias de conexão para cada protocolo. Você também pode usar o Portal do Azure para ajudá-lo a configurar sua cadeia de conexão. Basta navegar para o banco de dados no Portal do Azure. Em *Dados essenciais*, clique em *Mostrar cadeias de conexão de banco de dados*.
 
 ### Exemplo de cadeia de conexão ADO.NET
 
@@ -95,7 +97,7 @@ Quando uma conexão é criada e uma sessão foi estabelecida, você está pronto
 
 Cada consulta será representada por um ou mais identificadores de solicitação. Todas as consultas enviadas nessa conexão fazem parte de uma única sessão, sendo portanto representadas por uma única ID da sessão.
 
-No entanto, como o SQL Data Warehouse é um sistema distribuído do MPP, identificadores de sessão e solicitação são expostos de maneira ligeiramente diferente quando comparados ao SQL Server.
+No entanto, como o SQL Data Warehouse é um sistema distribuído do MPP (Processamento Paralelo Maciço), identificadores de sessão e solicitação são expostos de maneira ligeiramente diferente quando comparados ao SQL Server.
 
 Sessões e solicitações são representadas logicamente por seus respectivos identificadores.
 
@@ -153,9 +155,10 @@ Uma vez conectado, você pode começar a criar suas tabelas. Consulte o artigo [
 <!--Azure.com references-->
 [conexão e consulta]: ./sql-data-warehouse-get-started-connect.md
 [design de tabelas]: ./sql-data-warehouse-develop-table-design.md
+[Proteger um banco de dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-security.md
 
 <!--MSDN references-->
 
 <!--Other references-->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

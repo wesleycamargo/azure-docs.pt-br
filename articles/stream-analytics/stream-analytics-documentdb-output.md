@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Direcionamento do Banco de Dados de Documentos do Azure para saída em JSON a partir do Stream Analytics
@@ -62,4 +62,4 @@ A criação de Banco de Dados de Documentos como uma saída no Stream Analytics 
 -   **Chave de Partição**: o nome do campo nos eventos de saída usado para especificar a chave para a saída do particionamento em várias coleções. Para uma saída de coleção única, nenhuma coluna de saída arbitrária pode ser usada, por exemplo, PartitionId.  
 -   **ID do Documento**: opcional. O nome do campo em eventos de saída usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/18/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"
 />
 
@@ -95,7 +95,7 @@ Veja abaixo uma tabela sobre a produtividade do trabalho do Stream Analytics par
 
 Agora, você já deve ter uma boa compreensão de como as funções do Aprendizado de Máquina funcionam no Stream Analytics. Provavelmente você também compreende que os trabalhos do Stream Analytics "obtêm" dados de fontes de dados, e que cada "obtenção" retorna um lote de eventos para o trabalho do Stream Analytics processar. Como esse modelo de obtenção afeta as solicitações de serviço Web do Aprendizado de Máquina?
 
-Normalmente, o tamanho do lote que definimos para as funções do Aprendizado de Máquina não pode ser dividido exatamente pelo número de eventos retornados por cada “obtenção” do trabalho do Stream Analytics. Quando isso ocorrer, o serviço Web do Aprendizado de Máquina será chamado com lotes "parciais". Isso é feito para não causar sobrecarga adicional de latência de trabalho em eventos acumulados em cada obtenção.
+Normalmente, o tamanho do lote que definimos para as funções do Aprendizado de Máquina não pode ser dividido exatamente pelo número de eventos retornados por cada “obtenção” do trabalho do Stream Analytics. Quando isso ocorrer, o serviço Web do Aprendizado de Máquina será chamado com lotes "parciais". Isso é feito para não causar sobrecarga adicional de latência de trabalho em eventos acumulados a cada pull.
 
 ## Novas métricas de monitoramentos relacionadas à função
 
@@ -130,4 +130,4 @@ Para saber mais sobre o Stream Analytics, confira:
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

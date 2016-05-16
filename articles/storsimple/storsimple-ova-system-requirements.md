@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="04/28/2016"
    ms.author="alkohli"/>
 
 # Requisitos do sistema da StorSimple Virtual Array
@@ -87,15 +87,37 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 | TCP 443 (HTTPS) | Saída | WAN | Sim | A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
 | UDP 53 (DNS) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> **Observação**: se estiver implantando um servidor de arquivos, recomendamos usar o servidor DNS local.|
 | UDP 123 (NTP) | Saída | WAN | Em alguns casos; consulte as observações. | Esta porta é necessária apenas se estiver usando um servidor NTP baseado na Internet.<br></br> **Observação:** se estiver implantando um servidor de arquivos, recomendamos sincronizar a hora com os controladores de Domínio do Active Directory. |
-|TCP 9354 | Saída | WAN | Sim | A porta de saída é usada pelo dispositivo StorSimple para se comunicar com o serviço StorSimple Manager.|
-| TCP 80 (HTTP) | No | LAN | Sim | Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> **Observação**: o acesso à interface do usuário local em HTTP será automaticamente redirecionado para HTTPS.|
+| TCP 80 (HTTP) | No | LAN | Sim | Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> **Observação**: o acesso à interface do usuário local em HTTP será redirecionado automaticamente para HTTPS.|
 | TCP 443 (HTTPS) | No | LAN | Sim | Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local.|
 | TCP 3260 (iSCSI) | No | LAN | Não | Esta porta é usada para acessar dados em iSCSI.|
 
 <sup>1</sup> Nenhuma porta de entrada precisa estar aberta na Internet pública.
 
+### Padrões de URL para regras de firewall 
+
+Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Sua matriz virtual e o serviço StorSimple Manager dependem de outros aplicativos da Microsoft, como o Barramento de Serviço do Azure, o Controle de Acesso do Azure Active Directory, contas de armazenamento e servidores do Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Isso, por sua vez, exigirá que o administrador de rede monitore e atualize as regras de firewall para o StorSimple como e quando necessário.
+
+É recomendável que você defina suas regras de firewall para tráfego de saída, com base nos endereços IP fixos do StorSimple e, na maioria dos casos, de modo flexível. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
+
+> [AZURE.NOTE] 
+> 
+> - Os IPs do dispositivo (de origem) sempre devem estar configurados para todas as interfaces de rede habilitadas para a nuvem. 
+> - Os IPs de destino devem estar configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/pt-BR/download/confirmation.aspx?id=41653).
+
+
+| Padrão de URL | Componente/funcionalidade |
+|------------------------------------------------------------------|---------------------------------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Serviço StorSimple Manager<br>Serviço de Controle de Acesso<br>Barramento de Serviço do Azure|
+|`http://*.backup.windowsazure.com`|Registro de dispositivos|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Revogação de certificado |
+| `https://*.core.windows.net/*` | Contas de armazenamento e monitoramento do Azure |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Servidores do Microsoft Update<br> |
+| `http://*.deploy.akamaitechnologies.com` |CDN do Akamai |
+| `https://*.partners.extranet.microsoft.com/*` | Pacote de suporte |
+| `http://*.data.microsoft.com ` | Serviço de telemetria no Windows, consulte a [atualização para a experiência do cliente e a telemetria de diagnóstico](https://support.microsoft.com/pt-BR/kb/3068708) |
+
 ## Próxima etapa
 
 -   [Preparar o portal para implantar sua StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="04/06/2016"
    ms.author="iainfour;memccror"/>
 
 # Como marcar uma máquina virtual do Linux no Azure
@@ -29,15 +29,15 @@ A marcação também tem suporte de recursos que já foram criados por meio da C
 
 É possível exibir todas as propriedades de uma determinada Máquina Virtual, incluindo as marcas, usando este comando:
 
-        azure vm show -g MyResourceGroup -n MyVM
+        azure vm show -g MyResourceGroup -n MyTestVM
 
 Para adicionar uma nova marca de VM usando a CLI do Azure, use o comando `azure vm set` juntamente com o parâmetro de marca **-t**:
 
-        azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
+        azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
 Para remover todas as marcas, use o parâmetro **–T** no comando `azure vm set`.
 
-        azure vm set – g MyResourceGroup –n MyVM -T
+        azure vm set – g MyResourceGroup –n MyTestVM -T
 
 
 Agora que aplicamos marcas aos nossos recursos por meio do CLI do Azure e do Portal, vamos examinar os detalhes de uso para ver as marcas no portal de cobrança.
@@ -60,4 +60,4 @@ Agora que aplicamos marcas aos nossos recursos por meio do CLI do Azure e do Por
 [Noções básicas de sua fatura do Azure]: ../billing-understand-your-bill.md
 [Obter informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

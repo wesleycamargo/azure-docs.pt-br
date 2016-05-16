@@ -76,15 +76,15 @@ As opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
 | ---- | ----- | ----- |
-| /q | Instalação silenciosa | - |
-| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Inscreva no Microsoft Update | - |
-| /nu | Não verificar se há atualizações após a conclusão da instalação | - |
-| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - |
-| /Ph | Endereço de Host do Proxy | - |
-| /po | Número da porta do Host do Proxy | - |
-| /pu | Nome de usuário do Host do Host | - |
+| /q | Instalação silenciosa | - | 
+| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
+| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
+| /m | Inscreva no Microsoft Update | - | 
+| /nu | Não verificar se há atualizações após a conclusão da instalação | - | 
+| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - | 
+| /Ph | Endereço de Host do Proxy | - | 
+| /po | Número da porta do Host do Proxy | - | 
+| /pu | Nome de usuário do Host do Host | - | 
 | /pw | Senha do Proxy | - |
 
 
@@ -592,7 +592,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Próximas etapas
 Para obter mais informações sobre o Backup do Azure para Windows Server/Client, consulte
 
-- [Introdução ao Backup do Azure](backup-configure-vault.md)
-- [Fazer backup de servidores Windows](backup-azure-backup-windows-server.md)
+- [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
+- [Fazer backup de servidores Windows](backup-configure-vault.md)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

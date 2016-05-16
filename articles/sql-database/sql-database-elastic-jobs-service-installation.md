@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2016" 
+	ms.date="05/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Visão geral de Instalando trabalhos de Banco de Dados Elástico
@@ -50,7 +50,7 @@ Se você já tiver instalado **trabalhos de Banco de Dados Elástico** por meio 
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
-2.	Execute o script do PowerShell .\\InstallElasticDatabaseJobs.ps1 e forneça valores para as variáveis solicitadas. Esse script cria os componentes descritos em [Preços e componentes de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview/#components-and-pricing), juntamente com a configuração do Serviço de Nuvem do Azure para usar os componentes dependentes.
+2.	Execute o script do PowerShell .\\InstallElasticDatabaseJobs.ps1 e forneça valores para as variáveis solicitadas. Esse script cria os componentes descritos em [Preços e componentes de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md#components-and-pricing), juntamente com a configuração do Serviço de Nuvem do Azure para usar os componentes dependentes.
 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
@@ -187,4 +187,4 @@ Certifique-se de que uma credencial com os direitos apropriados para a execuçã
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

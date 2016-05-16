@@ -25,6 +25,8 @@ As informações contidas neste artigo são específicas aos clusters HDInsight 
 
 Clusters HDInsight também podem ser personalizados de várias outras formas, como incluir contas adicionais do Armazenamento do Azure, alterar os arquivos de configuração do Hadoop (core-site.xml, hive-site.xml, etc.) ou adicionar bibliotecas compartilhadas (p.ex., Hive, Oozie) em locais comuns no cluster. Essas personalizações podem ser feitas por meio do Azure PowerShell, SDK do .NET do Azure HDInsight ou Portal do Azure. Para obter mais informações, veja [Criar clusters Hadoop no HDInsight][hdinsight-provision-cluster].
 
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
+
 ## Ação de Script no processo de criação do cluster
 
 A Ação de Script só é usada enquanto um cluster está sendo criado. O diagrama a seguir ilustra quando a Ação de Script é executada durante o processo de criação:
@@ -47,7 +49,7 @@ Nome | Script
 **Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalar e usar o R em clusters HDInsight][hdinsight-install-r].
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Consulte [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md).
 - **Instalar o Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Consulte [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md).
-| **Pré-carregar bibliotecas Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Consulte [Adicionar bibliotecas Hive em clusters HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
+| **Pré-carregar bibliotecas Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Consulte [Adicionar bibliotecas em clusters do HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
 
 
 ## Chamar scripts usando o Portal do Azure
@@ -175,7 +177,6 @@ A amostra a seguir demonstra como instalar o Spark no cluster HDInsight baseado 
 
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
-		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 2. Use as seguintes instruções using no arquivo Program.cs:
 
@@ -203,7 +204,7 @@ A amostra a seguir demonstra como instalar o Spark no cluster HDInsight baseado 
         private const string ExistingStorageName = "<ExistingAzureStorageAccountName>";
         private const string ExistingStorageKey = "<ExistingAzureStorageAccountKey>";
         private const string ExistingContainer = "<ExistingAzureBlobStorageContainer>";
-        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+        private const string NewClusterType = "Hadoop";
         private const OSType NewClusterOSType = OSType.Windows;
         private const string NewClusterUsername = "<HttpUserName>";
         private const string NewClusterPassword = "<HttpUserPassword>";
@@ -321,4 +322,4 @@ Confira [Desenvolver scripts da Ação de Script para o HDInsight][hdinsight-wri
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

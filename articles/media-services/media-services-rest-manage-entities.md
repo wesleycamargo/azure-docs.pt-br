@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/11/2016"  
+ 	ms.date="05/03/2016" 
 	ms.author="juliako"/>
 
 #Gerenciamento de entidades de serviços de mídia com API REST
@@ -35,7 +35,7 @@ O Serviço de mídia do Microsoft Azure é um serviço baseado em REST integrado
 >
 >Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
->Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect_programmatically.md).
+>Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md).
 
 
 ##Adicionando entidades
@@ -117,9 +117,9 @@ O exemplo a seguir retorna todos os JobTemplates com o nome "SampleTemplate".
 
 ##Enumerar através de grandes coleções de entidades
 
-Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Use **Ignorar** e **superior** enumerar a grande coleção de entidades.
+Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Use as opções **Ignorar** e **Superior** para enumerar a grande coleção de entidades.
 
-O exemplo a seguir mostra como usar **Ignorar** e **superior** para ignorar os primeiros 2.000 trabalhos e os 1.000 trabalhos seguintes.
+O exemplo a seguir mostra como usar as opções **Ignorar** e **Superior** para ignorar os primeiros 2.000 trabalhos e os 1.000 trabalhos seguintes.
 
 	GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -175,4 +175,4 @@ O exemplo a seguir mostra como excluir um localizador que foi usado para carrega
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

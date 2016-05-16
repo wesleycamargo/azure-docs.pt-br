@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/03/2016"
 	ms.author="billmath"/>
 
 
@@ -99,6 +99,6 @@ Se a configuração AutocertificateRollover for Verdadeira, mas os metadados de 
 4.	Se você estiver executando esses comandos em um computador que não seja o servidor de federação primário do AD FS, execute Set-MSOLAdfscontext -Computer <AD FS primary server>, em que <AD FS primary server> é o nome FQDN interno do servidor primário do AD FS. Esse cmdlet cria um contexto que conecta você ao AD FS.
 5.	Execute Update-MSOLFederatedDomain –DomainName <domain>. Esse cmdlet atualiza as configurações do AD FS no serviço de nuvem e configura a relação de confiança entre os dois.
 
->[AZURE.NOTE] Se você precisar oferecer suporte a vários domínios de nível superior, como contoso.com e fabrikam.com, deve usar a opção SupportMultipleDomain com todos os cmdlets. Para obter mais informações, consulte Suporte para vários domínios de nível superior. Por fim, certifique-se de que todos os servidores Proxy do aplicativo Web sejam atualizados com o rollup [Windows Server de maio de 2014](http://support.microsoft.com/kb/2955164), caso contrário, os proxies poderão não atualizar a si mesmos com o novo certificado, resultando em interrupção.
+>[AZURE.NOTE] Se você precisar oferecer suporte a vários domínios de nível superior, como contoso.com e fabrikam.com, deve usar a opção SupportMultipleDomain com todos os cmdlets. Para obter mais informações, veja [Suporte para vários domínios de nível superior](active-directory-aadconnect-multiple-domains.md). Por fim, certifique-se de que todos os servidores Proxy do aplicativo Web sejam atualizados com o rollup [Windows Server de maio de 2014](http://support.microsoft.com/kb/2955164), caso contrário, os proxies poderão não atualizar a si mesmos com o novo certificado, resultando em interrupção.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

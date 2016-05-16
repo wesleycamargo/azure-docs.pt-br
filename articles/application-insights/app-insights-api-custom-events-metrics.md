@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/18/2016" 
 	ms.author="awills"/>
 
 # API do Application Insights para métricas e eventos personalizados 
@@ -339,7 +339,7 @@ Normalmente o SDK envia dados em momentos escolhidos para minimizar o impacto so
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-É importante lembrar que a função é assíncrona para os canais na memória, mas síncrona se você optar por usar o [canal persistente](app-insights-windows-desktop.md#persistence-channel).
+É importante lembrar que a função é assíncrona para os canais na memória, mas síncrona se você optar por usar o [canal persistente](app-insights-windows-services.md#persistence-channel).
 
 
 ## Usuários autenticados
@@ -567,16 +567,16 @@ Chamadas de telemetria individuais podem substituir os valores padrão em seus d
 
 **Para clientes Web JavaScript**, [use inicializadores de telemetria JavaScript](#js-initializer).
 
-**Para adicionar propriedades a toda a telemetria**, incluindo os dados de módulos de coleta padrão, [crie um inicializador de telemetria](app-insights-api-filtering-sampling.md#add-properties).
+**Para adicionar propriedades a toda a telemetria**, incluindo os dados de módulos de coleta padrão, [implemente `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## Realizando a amostragem, filtrando e processando a telemetria 
 
 É possível escrever códigos para processar a telemetria antes que ela seja enviada do SDK. O processamento inclui dados enviados dos módulos de telemetria padrão, como a coleção de solicitação HTTP e a coleção de dependência.
 
-* [Adicionar propriedades](app-insights-api-filtering-sampling.md#add-properties) à telemetria - por exemplo, números de versão ou valores calculados de outras propriedades.
-* A [amostragem](app-insights-api-filtering-sampling.md#sampling) reduz o volume de dados enviados do seu aplicativo ao portal, sem afetar as métricas exibidas, e sem afetar sua capacidade de diagnosticar problemas navegando entre itens relacionados, como exceções, solicitações e exibições de página.
-* A [filtragem](app-insights-api-filtering-sampling.md#filtering) também reduz o volume. Você controla o que é enviado ou descartado, mas você precisa levar em conta o efeito em suas métricas. Dependendo de como você descartar os itens, você poderá perder a capacidade de navegar entre itens relacionados.
+* [Adicionar propriedades](app-insights-api-filtering-sampling.md#add-properties) à telemetria implementando `ITelemetryInitializer` - por exemplo, para adicionar números de versão ou valores calculados de outras propriedades. 
+* A [filtragem](app-insights-api-filtering-sampling.md#filtering) pode modificar ou descartar a telemetria antes que seja enviada do SDK com a implementação de `ITelemetryProcesor`. Você controla o que é enviado ou descartado, mas você precisa levar em conta o efeito em suas métricas. Dependendo de como você descartar os itens, você poderá perder a capacidade de navegar entre itens relacionados.
+* A [amostragem](app-insights-api-filtering-sampling.md#sampling) é uma solução empacotada para reduzir o volume de dados enviados de seu aplicativo ao portal. Ela faz isso sem afetar as métricas exibidas, e sem afetar sua capacidade de diagnosticar problemas navegando entre itens relacionados, como exceções, solicitações e exibições de página.
 
 [Saiba mais](app-insights-api-filtering-sampling.md)
 
@@ -676,24 +676,14 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 * **Sessão** identifica a sessão do usuário. A ID é definida como um valor gerado, que é alterado quando o usuário não foi ativo por um tempo.
 * **Usuário** Informações do usuário. 
 
-
-
 ## Limites
 
-Há alguns limites no número de métricas e eventos por aplicativo (isto é, por chave de instrumentação).
 
-1. Uma taxa máxima por segundo que se aplica separadamente a cada chave de instrumentação. Acima do limite, alguns dados serão descartados.
- * Até 500 pontos de dados por segundo para chamadas TrackTrace e dados de log capturados. (100 por segundo para o tipo de preço livre).
- * Até 50 pontos de dados por segundo para exceções capturadas por nossos módulos ou chamadas TrackException. 
- * Até 500 pontos de dados por segundo para todos os outros dados, incluindo a telemetria padrão enviada pelos módulos SDK e eventos personalizados, métricas e outra telemetria enviada pelo seu código. (100 por segundo para o tipo de preço livre).
-1. Volume total mensal de dados, dependendo de seu [tipo de preço](app-insights-pricing.md).
-1.	Máximo de 200 nomes exclusivos de métrica e 200 nomes de propriedade exclusivo para seu aplicativo. As métricas incluem o envio de dados por meio de TrackMetric, bem como as medidas em outros tipos de dados como eventos. Os nomes de propriedades e métricas são globais por chave de instrumentação, não no escopo do tipo de dados.
-2.	As propriedades podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa, mas não para filtros.
-3.	As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 *Como evitar atingir o limite de taxa de dados?*
 
-* Instalar o SDK mais recente para usar [amostragem](app-insights-sampling.md).
+* Use a [amostragem](app-insights-sampling.md).
 
 *Por quanto tempo são mantidos os dados?*
 
@@ -758,4 +748,4 @@ Há alguns limites no número de métricas e eventos por aplicativo (isto é, po
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

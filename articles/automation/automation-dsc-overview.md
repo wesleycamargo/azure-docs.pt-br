@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="03/02/2016"
+   ms.date="04/29/2016"
    ms.author="coreyp"/>
 
 # Visão geral do DSC da Automação do Azure #
@@ -98,8 +98,6 @@ A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de
 
 ##Problemas gerais conhecidos:##
 
-- Ao atualizar para WMF 5 RTM, se a máquina já estiver registrada como um nó no DSC de Automação do Azure, cancele o registro do DSC de Automação do Azure e registre-a novamente após a atualização para WMF 5 RTM.
-
 - No momento, o DSC de Automação do Azure não dá suporte a configurações do DSC parciais ou compostas. No entanto, os recursos de composição da DSC podem ser importados e usados como no PowerShell local, permitindo a reutilização da configuração.
 
 - A última versão do WMF 5 deve ser instalada para que o agente da DSC do PowerShell para Windows possa se comunicar com a Automação do Azure. A versão mais recente do agente DSC do PowerShell para Linux deve ser instalada para que o Linux possa se comunicar com a Automação do Azure.
@@ -114,9 +112,11 @@ A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de
 
 - Após o registro, cada nó negocia automaticamente um certificado exclusivo para autenticação, que expira depois de um ano. Neste momento, o protocolo de registro DSC do PowerShell não pode renovar automaticamente certificados quando eles estão prestes a expirar, então você precisa registrar novamente os nós após o período de um ano. Antes de registrar novamente, certifique-se de que cada nó está executando o Windows Management Framework 5.0 RTM. Se o certificado de autenticação de um nó expirar e o nó não estiver registrado, o nó não será capaz de se comunicar com a Automação do Azure e será marcado como "Sem resposta". O novo registro é feito da mesma maneira como você registrou o nó inicialmente. A realização de um novo registro a 90 dias ou menos do tempo de expiração do certificado, ou a qualquer momento após o tempo de expiração do certificado, vai resultar na geração e uso de um novo certificado.
 
-- Ao atualizar para WMF 5 RTM, se a máquina já estiver registrada como um nó no DSC de Automação do Azure, cancele o registro do DSC de Automação do Azure e registre-a novamente após a atualização para WMF 5 RTM. Antes de registrar novamente, exclua o arquivo $env:windir\\system32\\configuration\\DSCEngineCache.mof.
+- Ao atualizar para WMF 5 RTM, se a máquina já estiver registrada como um nó no DSC de Automação do Azure, cancele o registro do DSC de Automação do Azure e registre-a novamente após a atualização para WMF 5 RTM. Antes de registrar novamente, exclua o arquivo `$env:windir\system32\configuration\DSCEngineCache.mof`.
 
 - Cmdlets do DSC do PowerShell podem não funcionar se o WMF 5 RTM estiver instalado no WMF 5 Production Preview. Para corrigir esse problema, execute o seguinte comando em uma sessão do PowerShell com privilégios elevados (execute como administrador): `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
+
+- Se você usava as funcionalidades do DSC do PowerShell do WMF 4 em um computador, a extração de informações de configuração do DSC de Automação do Azure para esse computador poderá falhar com a exceção: “Falha na descriptografia”. Para corrigir esse problema, exclua os seguintes arquivos e registre novamente o computador no DSC de Automação do Azure: `$env:windir\system32\configuration\Current.mof`, `$env:windir\system32\configuration\DSCEngineCache.mof` e `$env:windir\system32\configuration\DSCStatusHistory.mof`
  
 
 ##Artigos relacionados##
@@ -127,4 +127,4 @@ A imagem a seguir ilustra o processo passo a passo detalhado no ciclo de vida de
 - [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 - [Implantação contínua em VMs de IaaS usando o DSC de Automação do Azure e o Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

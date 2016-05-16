@@ -14,89 +14,92 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/29/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 # Criar uma nova API do Dropbox no PowerApps Enterprise
 
-> [AZURE.SELECTOR]
-- [Aplicativos lógicos](../articles/connectors/connectors-create-api-dropbox.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
+> [AZURE.IMPORTANT] Esse tópico foi arquivado e será removido em breve. Venha ver as novidades do [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Para saber mais sobre PowerApps e para começar, vá para [PowerApps](https://powerapps.microsoft.com).  
+> - Para saber mais sobre conexões disponíveis no PowerApps, vá para [Conexões Disponíveis](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Adicione a API do Dropbox ao ambiente de serviço de aplicativo (locatário) da sua organização.
+<!--Archived
+Add the Dropbox API to your organization's (tenant) app service environment. 
 
-## Crie a API no portal do Azure
+## Create the API in the Azure portal
 
-1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@*SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. Selecione **Procurar** na barra de tarefas:  
+2. Select **Browse** in the task bar:  
 ![][12]
 
-3. Na lista, você pode rolar a tela para localizar PowerApps ou digite *powerapps*:  
-![][13]
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][13]  
 
-4. Em **PowerApps**, selecione **Gerenciar APIs**:  
-![Navegue até as APIs registradas][4]
+4. In **PowerApps**, select **Manage APIs**:  
+![Browse to registered apis][4]
 
-5. Em **Gerenciar APIs**, selecione **Adicionar** para adicionar a nova API:  
-![Adicionar API][5]
+5. In **Manage APIs**, select **Add** to add the new API:  
+![Add API][5]
 
-6. Insira um **nome** descritivo para sua API.
+6. Enter a descriptive **name** for your API.  
 	
-7. Em **Fonte**, selecione **as APIs disponíveis** para selecionar as APIs criadas previamente e, em seguida, selecione **Dropbox**:  
-![selecione api do dropbox][6]
+7. In **Source**, select **Available APIs** to see the pre-built APIs, and then select **Dropbox**:  
+![select dropbox api][6]
 
-8. Selecione **Configurações - Definir as configurações necessárias**:  
-![defina as configurações do API do dropbox][7]
+8. Select **Settings - Configure required settings**:  
+![configure dropbox API settings][7]
 
-9. Insira os valores da **Chave do Aplicativo** e do **Segredo do Aplicativo** do seu aplicativo Dropbox. Se você não tiver um, consulte a seção "Registrar um aplicativo do Dropbox para uso com o PowerApps" neste tópico para criar a chave e os valores secretos necessários.
+9. Enter the **App Key** and **App Secret** values of your Dropbox application. If you don't already have one, see the "Register a Dropbox app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] Copie a **URL de Redirecionamento**. Talvez esse valor seja necessário neste tópico posteriormente.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Selecione **OK** para concluir as etapas.
-
-
-Quando terminar, uma nova API do Dropbox será adicionada ao seu ambiente de serviço de aplicativo.
+10. Select **OK** to complete the steps.
 
 
-## Opcional: registre um aplicativo do Dropbox para uso com PowerApps
-
-Se não tiver um aplicativo do Dropbox existente com a chave e valores do segredo, então use as seguintes etapas para criar o aplicativo e obter os valores necessários.
-
-1. Vá para [Dropbox][1] e entre com sua conta.
-
-2. Vá para o site do desenvolvedor do Dropbox e selecione **Meus aplicativos**:  
-![Site de desenvolvedor do Dropbox][8]
-
-3. Selecione **Criar**:  
-![aplicativo de criação de Dropbox][9]
-
-4. Em **Criar um novo aplicativo na plataforma Dropbox**:
-
-	1. Em **Escolher API**, selecione **API do Dropbox**.  
-	2. Em **Escolher o tipo de acesso necessário**, escolha **Dropbox Completo...**.  
-	3. Digite um nome para seu aplicativo  
-
-	![aplicativo de criação de Dropbox página 1][10]
-
-5. Na página de configurações do aplicativo:
-
-	1. Em **OAuth 2**, defina a **URL de Redirecionamento** para a URL de redirecionamento que você recebeu ao adicionar a nova API do Dropbox no Portal do Azure (neste tópico). Selecione **Adicionar**.  
-	2. Selecione o link **Mostrar** para revelar o **segredo do aplicativo**:  
-
-	![aplicativo de criação de Dropbox página 2][11]
-
-É criado um novo aplicativo Dropbox. Você pode usar esse aplicativo em sua configuração da API do Dropbox no portal do Azure.
-
-## Consulte as APIs REST
-
-Referência da [API REST do Dropbox](../connectors/connectors-create-api-dropbox.md).
+When finished, a new Dropbox API is added to your app service environment.
 
 
-## Resumo e próximas etapas
-Neste tópico, você adicionou a API do Dropbox ao seu PowersApps Enterprise. Em seguida, disponibilize aos usuários acesso à API para que ela possa ser adicionada aos seus aplicativos:
+## Optional: Register a Dropbox app for use with PowerApps
 
-[Adicione uma conexão e forneça acesso aos usuários](powerapps-manage-api-connection-user-access.md)
+If you don't have an existing Dropbox app with the key and secret values, then use the following steps to create the application, and get the values you need. 
+
+1. Go to [Dropbox][1] and sign in with your account.
+
+2. Go to the Dropbox developer site and select **My Apps**:  
+![Dropbox developer site][8]
+
+3. Select **Create app**:  
+![Dropbox create app][9]
+
+4. In **Create a new app on the Dropbox platform**:  
+
+	1. In **Choose API**, select **Dropbox API**.  
+	2. In **Choose the type of access you need**, select **Full Dropbox...**.  
+	3. Enter a name for your app.  
+
+	![Dropbox create app page 1][10]  
+
+5. In the app settings page:  
+
+	1. In **OAuth 2**, set the **Redirect URL** to the redirect URL you received when you added the new Dropbox API in the Azure Portal (in this topic). Select **Add**.  
+	2. Select **Show** link to reveal the **app secret**:  
+
+	![Dropbox create app page 2][11]
+
+A new Dropbox app is created. You can use this app in your Dropbox API configuration in the Azure portal. 
+
+## See the REST APIs
+
+[Dropbox REST API](../connectors/connectors-create-api-dropbox.md) reference.
+
+
+## Summary and next steps
+In this topic, you added the Dropbox API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
+
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
+-->
 
 <!--References-->
 [1]: https://www.dropbox.com/login
@@ -115,4 +118,4 @@ Neste tópico, você adicionou a API do Dropbox ao seu PowersApps Enterprise. Em
 [12]: ./media/powerapps-create-api-dropbox/browseall.png
 [13]: ./media/powerapps-create-api-dropbox/allresources.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

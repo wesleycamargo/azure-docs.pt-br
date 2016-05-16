@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Gerenciar o Barramento de Serviço com PowerShell | Microsoft Azure"
-	description="Gerenciar o Barramento de Serviço com scripts do PowerShell em vez do .NET"
+	description="Gerenciar o Barramento de Serviço com scripts do PowerShell"
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/02/2016"
 	ms.author="sethm"/>
 
 # Gerenciar o Barramento de Serviço com o PowerShell
@@ -156,16 +156,32 @@ Essa parte do script cria mais quatro variáveis locais. Essas variáveis serão
 	Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
 	```
 
+## Migrar um namespace para outra assinatura do Azure
+
+A sequência de comandos a seguir move um namespace de uma assinatura do Azure para outra. Para executar essa operação, o namespace já deve estar ativo e o usuário que está executando os comandos do PowerShell deve ser um administrador em assinaturas de origem e de destino.
+
+```
+# Create a new resource group in target subscription
+Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzureRmResourceGroup -Name 'targetRP' -Location 'East US'
+
+# Move namespace from source subscription to target subscription
+Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzureRmResource -DestinationResourceGroupName 'targetRP' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+```
+
 ## Próximas etapas
 
 Este artigo fornece uma estrutura de tópicos para o provisionamento de entidades do Barramento de Serviço usando o PowerShell. Tudo o que você pode fazer usando as bibliotecas de cliente .NET, você também pode fazer em um script do PowerShell.
 
-Os exemplos mais detalhados estão disponíveis nessas postagens de blogs:
+Os exemplos mais detalhados estão disponíveis nessas postagens de blog:
 
 - [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Como criar um namespace do Barramento de Serviço e um Hub de Eventos usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Alguns scripts prontos também estão disponíveis para download:- [Scripts do PowerShell do Barramento de Serviço](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
+Alguns scripts prontos também estão disponíveis para download:
+- [Scripts do PowerShell do Barramento de Serviço](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
 [Opções de compra]: http://azure.microsoft.com/pricing/purchase-options/
@@ -179,4 +195,4 @@ Alguns scripts prontos também estão disponíveis para download:- [Scripts do P
 [API do .NET para o Barramento de Serviço]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

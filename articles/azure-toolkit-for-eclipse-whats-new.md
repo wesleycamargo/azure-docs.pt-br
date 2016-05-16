@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/04/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
@@ -24,21 +24,29 @@
 
 Este artigo contém informações sobre as várias versões e atualizações mais recentes do Kit de Ferramentas do Azure para Eclipse.
 
+### 12 de abril de 2016
+
+O Kit de Ferramentas do Azure para Eclipse, versão de abril de 2016, inclui as seguintes melhorias:
+
+* **Suporte para o SDK do Azure v2.9.0**. A versão mais recente do SDK do Azure agora é o pré-requisito mínimo para o Kit de Ferramentas do Azure para Eclipse.
+* **Diversas melhorias de usabilidade, capacidade de resposta e desempenho relacionadas ao suporte do Aplicativo Web do Azure**. Uma série de otimizações de desempenho na forma como o Kit de Ferramentas se comunica com o Azure resulta em uma interface do usuário mais dinâmica.
+* **Capacidade de excluir um contêiner do Aplicativo Web existente no Azure por meio do Eclipse**. O Kit de Ferramentas do Azure para Eclipse agora permite a exclusão de um contêiner da Web existente do Azure sem a necessidade de sair do Eclipse.
+
 ### 7 de março de 2016
 
 O Kit de Ferramentas do Azure para Eclipse, versão de março de 2016, inclui os seguintes aprimoramentos:
 
 * **Suporte para implantação rápida de aplicativos Java leves**. O Kit de Ferramentas do Azure para Eclipse agora dá suporte à implantação rápida de aplicativos Java leves em contêineres de aplicativos Web do Azure, por isso, implantar aplicativos Java agora leva apenas segundos em vez de minutos.
-* **Suporte para gerenciamento de aplicativos Web usando a visualização do Azure Explorer**. A exibição do Azure Explorer no Kit de Ferramentas agora dá suporte para listar, iniciar e interromper aplicativos Web do Azure.
-* **Distribuições atualizadas Zulu OpenJDK, Tomcat e Jetty**. O Kit de Ferramentas do Azure para Eclipse dá suporte para versões atualizadas do Tomcat, Jetty e Zulu OpenJDK para implantações de Java em serviços de nuvem do Azure.
+* **Suporte para gerenciamento de Aplicativos Web usando a exibição do Azure Explorer**. A exibição do Azure Explorer no Kit de Ferramentas agora dá suporte para listar, iniciar e interromper aplicativos Web do Azure.
+* **Distribuições atualizadas Tomcat, Jetty e Zulu OpenJDK**. O Kit de Ferramentas do Azure para Eclipse dá suporte para versões atualizadas do Tomcat, Jetty e Zulu OpenJDK para implantações de Java em serviços de nuvem do Azure.
 
-### 4 de janeiro de 2015
+### 4 de janeiro de 2016
 
 O Kit de Ferramentas do Azure para Eclipse, versão de janeiro de 2016, inclui os seguintes aprimoramentos:
 
 * **Suporte para as atualizações do Zulu OpenJDK**. Para saber mais, consulte a [página da Web do Azul Systems para o Zulu OpenJDK].
 * **Distribuições do Tomcat e Jetty atualizadas**. As distribuições do Jetty e Tomcat, disponíveis no Microsoft Azure para uso com o Kit de Ferramentas do Azure para Eclipse, foram atualizadas.
-* **Recurso de Paridade entre os Kits de Ferramentas Eclipse e IntelliJ para o Azure**. O Kit de ferramentas do Azure para Eclipse e o [Kit de Ferramentas do Azure para IntelliJ] agora dão suporte ao mesmo conjunto de recursos.
+* **Paridade de Recursos entre os Kits de Ferramentas para Eclipse e para IntelliJ do Azure**. O Kit de Ferramentas do Azure para Eclipse e o [Kit de Ferramentas do Azure para IntelliJ] agora dão suporte ao mesmo conjunto de recursos.
 
 ### 1º de setembro de 2015
 
@@ -335,4 +343,4 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

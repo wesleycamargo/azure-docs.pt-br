@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Introdução às consultas entre bancos de dados (particionamento vertical) ! Microsoft Azure"	
+	pageTitle="Introdução às consultas entre bancos de dados (particionamento vertical) | Microsoft Azure"	
 	description="como usar a consulta de banco de dados elástico com bancos de dados particionados verticalmente"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/26/2016"
 	ms.author="torsteng" />
 
-# Introdução às consultas entre bancos de dados (particionamento vertical) 
+# Introdução às consultas entre bancos de dados (particionamento vertical) (preview)
 
 A consulta de banco de dados elástico (visualização) para o Banco de Dados SQL do Azure permite executar consultas T-SQL que abrangem vários bancos de dados usando um único ponto de conexão. Este tópico se aplica a [bancos de dados particionados verticalmente](sql-database-elastic-query-vertical-partitioning.md).
 
@@ -39,7 +39,7 @@ Execute as consultas a seguir no banco de dados **Orders** para criar a tabela *
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Agora, execute a consulta a seguir no banco de dados Customers para criar a tabela CustomerInformation e inserir os dados de exemplo.
+Agora, execute a consulta a seguir no banco de dados **Customers** para criar a tabela **CustomerInformation** e inserir os dados de exemplo.
 
 	CREATE TABLE [dbo].[CustomerInformation]( 
 		[CustomerID] [int] NOT NULL, 
@@ -53,9 +53,6 @@ Agora, execute a consulta a seguir no banco de dados Customers para criar a tabe
 
 ## Criar objetos de banco de dados
 ### Chave mestra e credenciais do escopo do banco de dados
-
-
-Eles são usados para conectar ao gerenciador de mapa de fragmentos e aos fragmentos:
 
 1. Abra o SQL Server Management Studio ou o SQL Server Data Tools no Visual Studio.
 2. Conecte-se ao banco de dados Orders e execute os seguintes comandos T-SQL:
@@ -109,4 +106,4 @@ Para saber mais sobre preços, consulte [Preços do Banco de Dados SQL](/pricing
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -3,7 +3,7 @@
 	description="Saiba como habilitar o diagnóstico nos serviços de nuvem usando o PowerShell"
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="sbtron"
+	authors="Thraka"
 	manager=""
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="02/09/2016"
-	ms.author="saurabh"/>
+	ms.author="adegeo"/>
 
 
 # Habilitar o diagnóstico nos Serviços de Nuvem do Azure usando o PowerShell
@@ -127,4 +127,4 @@ Para remover a extensão de diagnóstico de cada função individual:
 - O [Esquema de Configuração de Diagnóstico](https://msdn.microsoft.com/library/azure/dn782207.aspx) explica as várias opções de configurações de XML para a extensão de diagnóstico.
 - Para saber como habilitar a extensão de diagnóstico para Máquinas Virtuais, consulte [Criar uma Máquina Virtual do Windows com monitoramento e diagnóstico usando o Modelo do Gerenciador de Recursos do Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

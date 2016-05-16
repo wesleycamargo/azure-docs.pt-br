@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/12/2016"
+	ms.date="04/28/2016"
 	ms.author="yuridio"/>
 
 #Planejar para aumentar a segurança de dados usando solução de identidade forte
@@ -81,4 +81,4 @@ Faça anotações de cada resposta e entenda o raciocínio por trás da resposta
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

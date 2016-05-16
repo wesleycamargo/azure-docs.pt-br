@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
@@ -71,14 +71,12 @@ Especifique o corpo da solicitação usando o modelo a seguir.
       "credentials" : {
         "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
-        },
-        "isBuffered": "true | false"
+        }
     }
 
 -	`type` deve ser definido como `AzureEventHub`.
 -	`description` fornece uma descrição opcional do agente e pode ser uma cadeia de caracteres de comprimento zero, se desejado.
 -	`credentials` contém `name` e `connectionString` do seu Hub de Eventos do Azure.
--	`isBuffered` determina se os registros no agente são armazenados em buffer antes da publicação. Essa propriedade é opcional e o valor padrão é `true`. Quando registros são armazenados em buffer, eles são enviados ao hub de eventos a cada 15 segundos, ou sempre que o buffer recebe 256 kb de mensagens.
 
 Quando você fizer a solicitação, se o agente for criado, um código de status `201 Created` será retornado
 
@@ -135,4 +133,4 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="02/16/2016"
+ms.date="05/03/2016"
 ms.author="larryfr"/>
 
 # Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight
@@ -36,7 +36,7 @@ Quando o trabalho é enviado ao Tez, ele cria um DAG (Gráfico Acíclico Dirigid
 
 ###Noções básicas do layout da interface de usuário do Tez
 
-O modo de exibição do Tez fornece informações sobre processos em execução, ou que foram executados anteriormente com o Tez. Ele permite exibir o DAG gerado pelo Tez, como ele é distribuído entre os clusters, contadores, como a memória usada por tarefas e vértices, além de informações de erro. Ele pode oferecer informações úteis nos seguintes cenários:
+O modo de exibição do Tez fornece informações sobre processos em execução, ou que foram executados anteriormente com o Tez. Ele permite exibir o DAG gerado pelo Tez, como ele é distribuído entre os clusters, contadores, como a memória usada por tarefas e vértices, além de informações de erro. Ela pode oferecer informações úteis nos seguintes cenários:
 
 * Monitoramento de processos de longa execução, exibindo o andamento de tarefas map e reduce.
 
@@ -141,4 +141,4 @@ Para obter informações técnicas mais detalhadas sobre o Tez, confira a [pági
 
 Para saber mais sobre como usar o Ambari com o HDInsight, confira [Gerenciar clusters HDInsight usando a interface de usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

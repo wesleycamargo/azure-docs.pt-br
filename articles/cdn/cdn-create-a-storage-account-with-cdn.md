@@ -49,9 +49,9 @@ Para criar uma conta de armazenamento, você deve ser o administrador de serviç
 
 	Esse valor também é usado como o nome dessa conta de armazenamento no portal ou ao acessar essa conta programaticamente.
 
-5.  Selecione um **Tipo de preço** ou use o padrão. Para obter mais informações sobre tipos de preço, veja [Preços do Armazenamento do Azure](../../pricing/details/storage).
+5.  Selecione um **Tipo de preço** ou use o padrão. Para obter mais informações sobre tipos de preço, veja [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-6.  Selecione ou crie um **Grupo de Recursos**. Para obter mais informações sobre Grupos de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview/#resource-groups).
+6.  Selecione ou crie um **Grupo de Recursos**. Para obter mais informações sobre Grupos de Recursos, confira [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md#resource-groups).
 
 7. Selecione a **assinatura** que será usada com a conta de armazenamento.
 
@@ -104,7 +104,7 @@ Um perfil CDN é uma coleção de pontos de extremidade CDN. Cada perfil contém
 
     ![Adicionar folha de ponto de extremidade][cdn-add-endpoint]
 
-3. Insira um **Nome** para esse ponto de extremidade CDN. Esse nome será usado para acessar os recursos armazenados em cache no domínio `<EndpointName>.azureedge.net`.
+3. Insira um **Nome** para esse ponto de extremidade CDN. Esse nome será usado para acessar os recursos armazenados em cache no domínio `<endpointname>.azureedge.net`.
 
 4. No menu suspenso **Tipo de origem**, selecione *Armazenamento*.
 
@@ -135,7 +135,7 @@ http://<*NomePontoExtremidade*>.azureedge.net/<*meuContêinerPúblico*>/<*NomeBl
 
 Se não desejar mais armazenar em cache um objeto na CDN (Rede de Distribuição de Conteúdo) do Azure, você poderá executar uma das seguintes etapas:
 
--   Você pode tornar o contêiner particular em vez de público. Veja [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../storage-manage-access-to-resources/) para obter mais informações.
+-   Você pode tornar o contêiner particular em vez de público. Veja [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../storage/storage-manage-access-to-resources.md) para obter mais informações.
 -   Você pode desabilitar ou excluir o ponto de extremidade CDN usando o Portal de Gerenciamento.
 -   Você pode modificar seu serviço hospedado para não responder a solicitações do objeto.
 
@@ -154,4 +154,4 @@ Um objeto que já está armazenado em cache na CDN permanecerá em cache até qu
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

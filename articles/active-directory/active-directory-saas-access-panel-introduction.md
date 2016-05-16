@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -46,9 +46,9 @@ O painel de acesso permite aos usuários editar algumas de suas configurações 
 ## Acessando o painel de acesso
 
 
-Os usuários acessam o painel de acesso visitando a seguinte URL em um navegador da Web: <br>****http://myapps.microsoft.com**
+Os usuários acessam o painel de acesso visitando a seguinte URL em um navegador da Web: <br>**http://myapps.microsoft.com**
 
-Se tiver a identidade visual personalizada configurada para sua página de entrada, vocë poderá carregar essa identidade visual por padrão, anexando o domínio da sua organização ao final da URL: <br>****http://myapps.microsoft.com/contosobuild.com**
+Se tiver a identidade visual personalizada configurada para sua página de entrada, vocë poderá carregar essa identidade visual por padrão, anexando o domínio da sua organização ao final da URL: <br>**http://myapps.microsoft.com/contosobuild.com**
 
 Nesse caso, qualquer nome de domínio ativo ou verificado que tenha sido configurado na guia Domínios do diretório no portal de gerenciamento do Azure pode ser usado, conforme ilustrado na captura de tela abaixo.
 
@@ -130,7 +130,7 @@ Se você for um administrador do Azure e estiver conectado ao Portal de Gerencia
 
 1. Clique no menu de usuário no canto superior direito do portal do Azure ou no painel de acesso e selecione “**Sair**”. Isso o desconectará do AD do Azure.
 
-2. Vá para o painel de acesso em ****http://myapps.microsoft.com**.
+2. Vá para o painel de acesso em **http://myapps.microsoft.com**.
 
 3. Na página de entrada, digite o nome de usuário e a senha da conta no diretório que você quer testar.
  
@@ -185,4 +185,4 @@ Ao configurar o logon único para um aplicativo, o portal de gerenciamento do Az
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="elfish"/>
 
 #Projeto para continuidade dos negócios
@@ -45,11 +45,6 @@ Você deve usar a replicação geográfica caso seu aplicativo atenda aos seguin
 2. A taxa de alteração de dados é alta (por exemplo, transações por minuto ou segundos). O RPO de 1 h associado à proteção padrão provavelmente resultará em perda de dados inaceitável.
 3. O custo associado ao uso da replicação geográfica é significativamente menor do que a responsabilidade financeira potencial e as perdas associadas do negócio.
 
-> [AZURE.NOTE] Se seu aplicativo usa bancos de dados de camada básica, não há suporte para replicação geográfica
-
-##Quando escolher replicação geográfica Padrão versus Ativa
-
-Os bancos de dados de camada padrão não têm a opção de usar a replicação geográfica ativa, de forma que, se seu aplicativo usa bancos de dados padrão e atende aos critérios acima, ele deve habilitar a replicação geográfica padrão. Por outro lado, os bancos de dados Premium podem escolher qualquer uma das opções. A replicação geográfica padrão foi projetada como uma solução de recuperação de desastres mais simples e econômica, especialmente adequada a aplicativos que a utilizam somente para se protegerem contra eventos não planejados, como interrupções. Com a replicação geográfica padrão, é possível usar somente a região pareada de DR para a recuperação e pode criar apenas um secundário para cada primário. Um secundário adicional pode ser necessário para o cenário de atualização de aplicativo. Portanto, se esse cenário for essencial para seu aplicativo você deve habilitar a replicação geográfica ativa em vez disso. Consulte [Atualização de aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) para obter detalhes adicionais.
 
 > [AZURE.NOTE] A replicação geográfica também oferece suporte a acesso somente leitura ao banco de dados secundário, proporcionando capacidade adicional para as cargas de trabalho somente leitura.
 
@@ -69,19 +64,19 @@ Você pode habilitar replicação geográfica usando o Portal clássico do Azure
 6. Selecione o tipo de secundário (*Legível* ou *Não legível*)
 7. Clique em **Criar** para concluir a configuração
 
-> [AZURE.NOTE] A região pareada de DR na folha de replicação geográfica será marcada como *recomendada*. Se você usar um banco de dados de camada Premium, pode escolher uma região diferente. Se você estiver usando um banco de dados padrão, não pode alterá-lo. O banco de dados Premium terá uma opção do tipo secundário (*Legível* ou *Não legível*). O banco de dados padrão só pode selecionar um secundário *não legível*.
+> [AZURE.NOTE] A região pareada de DR na folha de replicação geográfica será marcada como *recomendada*, mas você pode escolher uma região diferente.
 
 
 ###PowerShell
 
 Use o cmdlet [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) do PowerShell para automatizar a configuração de replicação geográfica. Este comando é síncrono um retorna quando os bancos de dados primários e secundários estiverem sincronizados.
 
-Para configurar a replicação geográfica com um secundário não legível para um banco de dados premium ou Standard:
+Para configurar a replicação geográfica com um secundário não legível:
 		
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
 
-Para criar a replicação geográfica com um secundário legível de um banco de dados Premium:
+Para criar a replicação geográfica com um secundário legível:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
@@ -98,4 +93,4 @@ Esse API é assíncrono. Depois de retornar, use o API [Obter replicação do li
 
 Ao projetar seu aplicativo para continuidade dos negócios, você deve considerar várias opções de configuração. A escolha dependerá da topologia de implantação do aplicativo e quais partes de seus aplicativos são mais vulneráveis a uma interrupção. Para diretrizes, consulte [Criando soluções de nuvem para recuperação de desastres usando replicação geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

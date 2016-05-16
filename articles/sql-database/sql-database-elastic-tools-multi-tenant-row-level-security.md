@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/02/2016" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha 
@@ -58,7 +58,7 @@ Depois de se conectar a um banco de dados de fragmentos usando dados da bibliote
 
 ### Entity Framework
 
-Para os aplicativos que usam o Entity Framework, a abordagem mais fácil é definir SESSION\_CONTEXT na substituição ElasticScaleContext descrita em [Roteamento Dependente de Dados usando o EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Antes de retornar a conexão negociada por meio do roteamento dependente de dados, simplesmente crie e execute um SqlCommand que define 'TenantId' em SESSION\_CONTEXT para o shardingKey especificado para essa conexão. Dessa maneira, só é preciso gravar o código uma vez para definir SESSION\_CONTEXT.
+Para os aplicativos que usam o Entity Framework, a abordagem mais fácil é definir SESSION\_CONTEXT na substituição ElasticScaleContext descrita em [Roteamento Dependente de Dados usando o EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Antes de retornar a conexão negociada por meio do roteamento dependente de dados, simplesmente crie e execute um SqlCommand que define 'TenantId' em SESSION\_CONTEXT para o shardingKey especificado para essa conexão. Dessa maneira, só é preciso gravar o código uma vez para definir SESSION\_CONTEXT.
 
 ```
 // ElasticScaleContext.cs 
@@ -312,4 +312,4 @@ Ferramentas de banco de dados elástico e segurança em nível de linha podem se
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

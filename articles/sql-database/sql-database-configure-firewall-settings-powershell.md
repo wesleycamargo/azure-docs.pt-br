@@ -3,7 +3,7 @@
 	description="Saiba como configurar o firewall para endereços IP que acessam bancos de dados SQL do Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="BYHAM"
+	authors="stevestein"
 	manager="jhubbard"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="02/04/2016"
-	ms.author="rickbyh"/>
+	ms.date="05/03/2016"
+	ms.author="stevestein"/>
 
 
 # Como configurar um firewall do Banco de Dados SQL do Azure usando o PowerShell
@@ -68,4 +68,4 @@ Para ver um tutorial sobre como criar um banco de dados, confira [Criar seu prim
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

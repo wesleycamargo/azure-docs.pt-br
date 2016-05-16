@@ -67,7 +67,7 @@ Também é recomendável que todos os servidores DNS personalizados na rede virt
 ## Criando um grupo de segurança de rede ##
 Para obter detalhes completos sobre como funcionam os grupos de segurança de rede, consulte as seguintes [informações][NetworkSecurityGroups]. Os detalhes abaixo tocam em pontos de destaque dos grupos de segurança de rede, com foco em como configurar e aplicar um grupo de segurança de rede a uma sub-rede que contém um ambiente de serviço de aplicativo.
 
-**Observação**: os grupos de segurança de rede podem ser configurados somente usando o cmdlets do Powershell descritos abaixo. Os grupos de segurança de rede não podem ser configurados graficamente usando o [Portal do Azure](portal.azure.com) porque esse portal permite apenas a configuração gráfica de NSGs associados às redes virtuais "v2". No entanto, os Ambientes de Serviços de Aplicativo atualmente funcionam apenas com redes virtuais clássicas "v1". Consequentemente, apenas os cmdlets do Powershell podem ser usados para configurar grupos de segurança de rede associados às redes virtuais "v1".
+**Observação**: os grupos de segurança de rede podem ser configurados somente usando o cmdlets do Powershell descritos abaixo. Os grupos de segurança de rede não podem ser configurados graficamente usando o [Portal do Azure](https://portal.azure.com) porque esse portal permite apenas a configuração gráfica de NSGs associados às redes virtuais "v2". No entanto, os Ambientes de Serviços de Aplicativo atualmente funcionam apenas com redes virtuais clássicas "v1". Consequentemente, apenas os cmdlets do Powershell podem ser usados para configurar grupos de segurança de rede associados às redes virtuais "v1".
 
 Grupos de segurança de rede são criados pela primeira vez como uma entidade autônoma associada a uma assinatura. Como os grupos de segurança de rede são criados em uma região do Azure, certifique-se de que o grupo de segurança de rede é criado na mesma região que o ambiente de serviço de aplicativo.
 
@@ -149,4 +149,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

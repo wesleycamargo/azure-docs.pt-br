@@ -251,6 +251,8 @@ A menos que um conjunto de dados seja produzido pelo Azure Data Factory, ele dev
 ## Conjuntos de dados com escopo
 Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a propriedade **datasets**. Esses conjuntos de dados podem ser apenas usado por atividades dentro deste pipeline, não por atividades em outros pipelines. O exemplo a seguir define um pipeline com dois conjuntos de dados - InputDataset-rdc and OutputDataset-rdc - a serem usados dentro do pipeline.
 
+> [AZURE.IMPORTANT] Apenas há suporte para conjuntos de dados com escopo com pipelines avulsos (**pipelineMode** definido como **OneTime**). Veja [Pipeline avulso](data-factory-scheduling-and-execution.md#onetime-pipeline) para obter detalhes.
+
 	{
 	    "name": "CopyPipeline-rdc",
 	    "properties": {
@@ -340,4 +342,4 @@ Você pode criar conjuntos de dados que estão no escopo de um pipeline usando a
 	    }
 	}
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

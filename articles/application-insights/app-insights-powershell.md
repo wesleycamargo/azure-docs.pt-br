@@ -181,7 +181,7 @@ O Azure deve configurar os recursos na ordem explícita. Para certificar-se de q
 
 ## Definir alertas de métrica
 
-Há um [método do PowerShell para definição de alertas](app-insights-alerts.md/#set-alerts-by-using-powershell).
+Há um [método do PowerShell para definição de alertas](app-insights-alerts.md#set-alerts-by-using-powershell).
 
 
 ## Um exemplo
@@ -321,4 +321,4 @@ Outros artigos sobre automação:
 * [Enviar o Diagnóstico do Azure para o Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Criar anotações de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

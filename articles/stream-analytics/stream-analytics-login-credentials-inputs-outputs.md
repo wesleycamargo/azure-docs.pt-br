@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="jeffstok"/>
 
 #Fazer a rotação de credenciais de logon para entradas e saídas em trabalhos do Stream Analytics
@@ -121,7 +121,11 @@ Para outras entradas/saídas, prossiga para a Parte 2.
 4.	Prossiga para a Parte 5.  
 
 ##Parte 5: Removendo o conjunto de credenciais antigo
-Esta parte é aplicável para as seguintes entradas/saídas: * Armazenamento de Blob * Hubs de Eventos * Banco de Dados SQL * Armazenamento de Tabela
+Essa parte é aplicável às seguintes entradas/saídas:
+* Armazenamento de Blob
+* Hubs de Evento
+* Banco de dados SQL
+* Armazenamento de tabela
 
 ###Armazenamento de blob/Armazenamento de tabela
 Repita a Parte 1 da Chave de Acesso usada anteriormente por seu trabalho para renovar a Chave de Acesso agora não utilizada.
@@ -194,4 +198,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/05/2016"
+	ms.date="04/28/2016"
 	ms.author="mikeray" />
 
 # Configurar um ouvinte externo para grupos de disponibilidade do AlwaysOn no Azure
@@ -22,7 +22,7 @@
 - [Ouvinte interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [Ouvinte externo](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade do AlwaysOn está acessível externamente na Internet. Isso se tornou possível associando o endereço do serviço de nuvem **IP Virtual público (VIP)** ao ouvinte.
+Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade do AlwaysOn está acessível externamente na Internet. Isso se tornou possível associando o endereço **VIP (IP virtual público)** do serviço de nuvem ao ouvinte.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
@@ -130,4 +130,4 @@ Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes dever
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

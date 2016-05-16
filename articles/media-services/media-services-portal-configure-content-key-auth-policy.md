@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/07/2016"  
+ 	ms.date="05/03/2016"   
 	ms.author="juliako"/>
 
 
@@ -97,7 +97,7 @@ Você pode clicar no botão **Importar a política XML** e fornecer um XML difer
 
 
 ##Próximas etapas
-Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como: usar o Portal Clássico do Azure para habilitar a criptografia](../media-services-manage-content#encrypt/).
+Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como: usar o Portal Clássico do Azure para habilitar a criptografia](media-services-manage-content.md#encrypt).
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -105,4 +105,4 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

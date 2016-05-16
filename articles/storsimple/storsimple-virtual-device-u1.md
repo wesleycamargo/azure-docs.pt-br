@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,12 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/01/2015"
+   ms.date="04/29/2016"
    ms.author="alkohli" />
 
 # Implantar e gerenciar um dispositivo virtual StorSimple no Azure
-
-[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ##Visão geral
 O dispositivo virtual StorSimple é um recurso adicional que acompanha a sua solução Microsoft Azure StorSimple. O dispositivo virtual StorSimple é executado em uma máquina virtual em uma rede virtual do Microsoft Azure e você pode usá-lo para fazer backup e clonar dados de seus hosts. Os tópicos a seguir o ajudarão a conhecer, a configurar e a usar o dispositivo virtual StorSimple.
@@ -370,7 +368,7 @@ O processo de failover começará. Quando o failover estiver concluído, vá par
 
 Se você configurou previamente e usou um dispositivo virtual StorSimple, mas agora deseja parar de acumular encargos de computação para seu uso, poderá desligar o dispositivo virtual. Desligar o dispositivo virtual não exclui seu sistema operacional ou os discos de dados do armazenamento. Isso para o acúmulo de encargos em sua assinatura, mas os encargos de armazenamento para os discos de sistema operacional e de dados continuarão.
 
-Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativá-lo ou por excluí-lo como um dispositivo e se também desejar excluir os backups criados pelo dispositivo virtual. Para obter mais informações, consulte [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
+Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Offline** na página Dispositivos do serviço Gerenciador do StorSimple. Você pode optar por desativá-lo ou por excluí-lo como um dispositivo e se também desejar excluir os backups criados pelo dispositivo virtual. Para saber mais, confira [Desativar e excluir um dispositivo StorSimple](storsimple-deactivate-and-delete-device.md).
 
 ### Para desligar o dispositivo virtual StorSimple
 
@@ -392,4 +390,4 @@ Se você excluir ou desligar o dispositivo virtual, ele será exibido como **Off
 
 Saiba como [Restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

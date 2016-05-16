@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/16/2016"
+   ms.date="04/27/2016"
    ms.author="larryfr"/>
 
 #Usar o Hive com o Hadoop no HDInsight com Beeline
@@ -65,17 +65,19 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
 
         beeline
 
-2. No prompt `beeline>`, use o seguinte para se conectar ao serviço HiveServer2. Substitua __HOSTNAME__ pelo nome do host retornado para o nó de cabeçalho anteriormente:
+2. No prompt `beeline>`, use o seguinte para se conectar ao serviço HiveServer2. Substitua __HOSTNAME__ pelo nome do host retornado anteriormente para o nó de cabeçalho:
 
         !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
+        
+    Isso instrui o Beeline a se conectar à porta __10001__ no __HOSTNAME__ especificado, e que __HTTP__ é o método de transporte. A conta __admin__ é usada para autenticar a conexão.
 
     Quando solicitado, insira a senha da conta do administrador (admin) para o cluster HDInsight. Quando a conexão for estabelecida, o prompt será alterado para o seguinte:
     
         jdbc:hive2://HOSTNAME:10001/>
 
-3. Os comandos Beeline normalmente começam com um caractere `!`, por exemplo `!help` exibe a ajuda. No entanto, com frequência o `!` pode ser omitido. Por exemplo, `help` também funcionará.
+3. Os comandos Beeline normalmente começam com um caractere `!`, por exemplo `!help` exibe a ajuda. No entanto, geralmente, o `!` pode ser omitido. Por exemplo, `help` também funcionará.
 
-    Se você exibir a ajuda, observará `!sql`, que é usado para executar instruções HiveQL. No entanto, o HiveQL é tão comumente usado que você pode omitir o `!sql` anterior. As duas instruções a seguir têm exatamente os mesmos resultados; a exibição das tabelas atualmente disponíveis por meio do Hive:
+    Se você exibir a ajuda, observará `!sql`, que é usado para executar instruções HiveQL. No entanto, o HiveQL é tão usado que é possível omitir o `!sql` anterior. As duas instruções a seguir têm exatamente os mesmos resultados; a exibição das tabelas atualmente disponíveis por meio do Hive:
     
         !sql show tables;
         show tables;
@@ -243,4 +245,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

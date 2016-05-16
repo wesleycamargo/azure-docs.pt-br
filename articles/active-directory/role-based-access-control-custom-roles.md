@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/18/2016"
+	ms.date="04/28/2016"
 	ms.author="kgremban"/>
 
 
@@ -99,4 +99,4 @@ A propriedade **AssignableScopes** da função personalizada também controla qu
 	- [API REST](role-based-access-control-manage-access-rest.md)
 - [Funções internas](role-based-access-built-in-roles.md): obter detalhes sobre as funções que estão incluídas por padrão no RBAC.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

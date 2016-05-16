@@ -23,7 +23,7 @@ Bancos de dados fragmentados distribuem linhas em uma camada de dados expandida.
 
 Para um início rápido, confira [Relatórios entre bancos de dados em nuvem expandidos](sql-database-elastic-query-getting-started.md).
 
-Para bancos de dados não fragmentados, confira [Consultas entre bancos de dados em nuvem fragmentados (particionados verticalmente)](sql-database-elastic-query-vertical-partitioning.md).
+Para bancos de dados não fragmentados, consulte [Query across cloud databases with different schemas (Consulta entre bancos de dados na nuvem com esquemas diferentes)](sql-database-elastic-query-vertical-partitioning.md).
 
  
 ## Pré-requisitos
@@ -173,7 +173,7 @@ A consulta a seguir executa uma junção de três vias entre depósitos, pedidos
  
 ## Procedimento armazenado para a execução remota de T-SQL: sp\_execute\_remote
 
-A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado **sp\_execute\_remote** e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL em bancos de dados remotos. Ele usa os seguintes parâmetros:
+A consulta elástica também apresenta um procedimento armazenado que fornece acesso direto aos fragmentos. O procedimento armazenado é chamado [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos armazenados remotos ou código T-SQL em bancos de dados remotos. Ele usa os seguintes parâmetros:
 
 * Nome da fonte de dados (nvarchar): o nome da fonte de dados externa do tipo RDBMS. 
 * Consulta (nvarchar): a consulta T-SQL a ser executada em cada fragmento. 
@@ -208,4 +208,4 @@ Use cadeias de conexão regulares do SQL Server para conectar seu aplicativo e s
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->
