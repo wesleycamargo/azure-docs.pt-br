@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="05/03/2016"
 	ms.author="juliako"/>
 
 #Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
@@ -456,8 +456,8 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [SDK .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
@@ -480,4 +480,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

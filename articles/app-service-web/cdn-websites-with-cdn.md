@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Usar o CDN do Azure no Serviço de Aplicativo do Azure" 
 	description="Um tutorial que ensina como implantar um aplicativo Web para o Serviço de Aplicativo do Azure que fornece conteúdo de um ponto de extremidade CDN do Azure integrado" 
-	services="app-service\web" 
+	services="app-service\web,cdn" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -547,13 +547,12 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 ## Mais informações 
 - [Visão geral da Rede de Distribuição de Conteúdo (CDN) do Azure](../cdn/cdn-overview.md)
-- [Fornecer conteúdo da CDN do Azure em seu aplicativo Web](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Usando o Azure CDN](../cdn/cdn-create-new-endpoint.md)
 - [Integrar um serviço de nuvem à CDN do Azure](../cdn/cdn-cloud-service-with-cdn.md)
 - [Agrupamento e minificação ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Usando o Azure CDN](../cdn/cdn-create-new-endpoint.md)
 
 ## O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="05/03/2016"
-	ms.author="adrianha"/>
+	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Eu uso os serviços móveis, como o serviço de aplicativo ajuda?
 
@@ -61,4 +61,4 @@ Com o *Serviço de Aplicativo do Azure*, agora você pode criar vários ambiente
 
 Você pode começar aproveitando o *Serviço de Aplicativo* de seu Serviço Móvel existente seguindo este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

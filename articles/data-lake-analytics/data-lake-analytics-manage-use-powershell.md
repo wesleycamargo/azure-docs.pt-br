@@ -3,7 +3,7 @@
    description="Saiba como gerenciar trabalhos, fontes de dados e usuários da Análise Data Lake." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/26/2016"
-   ms.author="jgao"/>
+   ms.author="edmaca"/>
 
 # Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
 
@@ -392,4 +392,4 @@ O modelo ARM a seguir pode ser usado para implantar uma conta da Análise Data L
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

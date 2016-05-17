@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="05/02/2016"
 	ms.author="billmath"/>
 
 # Determinar requisitos de identidade para sua solução de identidade híbrida
@@ -44,7 +44,10 @@ Agora que você tem uma ideia sobre os requisitos de negócios da empresa, preci
 - Sua empresa possui atualmente algum serviço de sincronização local?
 - Sua empresa usa qualquer IdP (provedor de identidade de terceiros)?
 
-Você também precisa estar ciente dos serviços de nuvem que sua empresa pode ter. É muito importante executar uma avaliação para entender a integração atual com os modelos SaaS, IaaS ou PaaS em seu ambiente. Não deixe de responder às seguintes perguntas durante essa avaliação: - Sua empresa tem alguma integração com um provedor de serviço de nuvem? - Em caso afirmativo, quais serviços estão sendo usados? - A integração está atualmente em produção ou é um piloto?
+Você também precisa estar ciente dos serviços de nuvem que sua empresa pode ter. É muito importante executar uma avaliação para entender a integração atual com os modelos SaaS, IaaS ou PaaS em seu ambiente. Certifique-se de responder às seguintes perguntas durante essa avaliação:
+- Sua empresa tem alguma integração com um provedor de serviços de nuvem?
+- Em caso afirmativo, quais serviços estão sendo usados?
+- Atualmente, essa integração está em produção ou é um piloto?
 
 
 >[AZURE.NOTE]
@@ -89,7 +92,8 @@ Você também precisa avaliar os requisitos do usuário. Essa avaliação é imp
 - Como os usuários normalmente entram em seu ambiente local?
 - Como os usuários entrarão na nuvem?
 
->[Observação] Faça anotações de cada resposta e entenda a lógica por trás da resposta. [Determinar os requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) apresentará as opções disponíveis e os prós e contras de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
+>[AZURE.NOTE]
+Faça anotações de cada resposta e entenda o raciocínio por trás da resposta. [Determinar os requisitos de resposta a incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) apresentará as opções disponíveis e os prós e contras de cada opção. Depois de responder a essas perguntas, você selecionará a opção que melhor se ajusta às necessidades da sua empresa.
 
 ## Próximas etapas
 [Determinar os requisitos de sincronização de diretório](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -97,4 +101,4 @@ Você também precisa avaliar os requisitos do usuário. Essa avaliação é imp
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

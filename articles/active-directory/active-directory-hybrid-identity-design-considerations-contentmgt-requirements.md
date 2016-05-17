@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/12/2016"
+	ms.date="04/28/2016"
 	ms.author="yuridio"/>
 
 # Determinar os requisitos de gerenciamento de conteúdo para sua solução de identidade híbrida
@@ -61,4 +61,4 @@ Certifique-se de fazer anotações de cada resposta e entender o raciocínio por
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

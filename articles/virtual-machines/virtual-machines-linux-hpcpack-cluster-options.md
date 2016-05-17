@@ -13,14 +13,14 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="02/04/2016"
+ ms.date="04/29/2016"
  ms.author="danlep"/>
 
-# Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) do Linux no Azure com o Microsoft HPC Pack
+# Opções para criar e gerenciar um cluster HPC (computação de alto desempenho) no Azure com o Microsoft HPC Pack
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-Se você quiser executar cargas de trabalho de HPC do Windows com o HPC Pack, confira [Opções para criar e gerenciar um cluster HPC do Windows no Azure com o Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
+Este artigo se concentra nas opções de uso do HPC Pack para executar cargas de trabalho do Linux. Também há opções para executar [cargas de trabalho de HPC do Windows com o HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -52,12 +52,11 @@ Se você quiser executar cargas de trabalho de HPC do Windows com o HPC Pack, co
 
 * [Tutorial: Executar OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
-
+* [Tutorial: Executar o STAR-CCM+ com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-classic-hpcpack-cluster-starccm.md)
 
 ### Gerenciamento de clusters
 
 * [Enviar trabalhos para um cluster HPC Pack no Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
-
 
 
 ## Criar clusters de RDMA para cargas de trabalho MPI
@@ -66,4 +65,4 @@ Se você quiser executar cargas de trabalho de HPC do Windows com o HPC Pack, co
 
 * [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](virtual-machines-linux-classic-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

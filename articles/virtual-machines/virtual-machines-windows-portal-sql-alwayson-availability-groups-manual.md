@@ -13,16 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/22/2015"
+	ms.date="04/22/2016"
 	ms.author="MikeRayMSFT" />
 
 # Configurar os Grupos de Disponibilidade AlwaysOn na VM do Azure (GUI)
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager - Modelo ](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal - Resource Manager - Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-- [Portal - Clássico - Manual](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell - clássico](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 
 <br/>
 
@@ -30,7 +28,7 @@
 
 Este tutorial ponta a ponta mostra como implementar os grupos de disponibilidade usando o SQL Server AlwaysOn em execução nas máquinas virtuais do Azure Resource Manager.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modelo do Gerenciador de Recursos.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modelo do Gerenciador de Recursos.
 
 Ao final do tutorial, sua solução SQL Server AlwaysOn no Azure consistirá nos seguintes elementos:
 
@@ -64,13 +62,13 @@ Este tutorial pressupõe o seguinte:
 
 >[AZURE.NOTE] Se você estiver interessado em usar os Grupos de Disponibilidade AlwaysOn com o SharePoint, consulte também [Configurar Grupos de Disponibilidade AlwaysOn do SQL Server 2012 para o SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
-## Criar grupo de recursos, redes e controladores de domínio
+## Criar conjuntos de disponibilidade, rede e grupo de recursos
 
 ### Conecte-se à sua assinatura do Azure e crie um grupo de recursos
 
 1. Entre no [Portal do Azure](http://portal.azure.com). 
 
-1. Clique em **+Novo** e, em seguida, digite **Grupo de recursos** na janela de pesquisa **Marketplace**.
+1. Clique em **+Novo** e digite **Grupo de recursos** na janela de pesquisa **Marketplace**.
 
  ![Grupo de recursos](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
 
@@ -157,7 +155,7 @@ Neste ponto, sua rede virtual conterá uma sub-rede chamada Subnet-1. Os control
 
 1. Crie uma segunda sub-rede. Clique em **+ Sub-rede**. 
 
- Na folha **Adicionar sub-rede**, configure a sub-rede digitando **subnet-2** em **Nome**. O Azure especificará automaticamente um **intervalo de endereços** válido. Verifique se este intervalo de endereços tem pelo menos 10 endereços nele. Em um ambiente de produção, você poderá exigir mais endereços.
+ Na folha **Adicionar sub-rede**, configure a sub-rede digitando **subnet-2** em **Nome**. O Azure especificará automaticamente um **Intervalo de endereços** válido. Verifique se este intervalo de endereços tem pelo menos 10 endereços nele. Em um ambiente de produção, você poderá exigir mais endereços.
 
 Clique em **OK**.
 
@@ -243,7 +241,7 @@ O Azure criará as máquinas virtuais.
 
 Depois que as máquinas virtuais forem criadas, configure o controlador de domínio.
 
-## Configurar o controlador de domínio
+### Configurar o controlador de domínio
 
 Nas etapas a seguir, configure o computador **ad-primary-dc** como um controlador de domínio para corp.contoso.com.
 
@@ -362,7 +360,7 @@ As próximas etapas configuram as contas do AD (Active Directory) para uso poste
 
 1. Clique em **OK** para criar o usuário **Instalação**. Essa conta será usada para configurar o cluster de failover e o grupo de disponibilidade.
 
-1. Crie dois usuários adicionais com as mesmas etapas: **CORP\\SQLSvc1** e **CORP\\SQLSvc2**. Essas contas serão usadas para instâncias do SQL Server. Em seguida, você precisa conceder as permissões necessárias ao **CORP\\Install** para configurar o WSFC (Clustering de Failover do Windows Service).
+1. Crie dois usuários adicionais com as mesmas etapas: **CORP\\SQLSvc1** e **CORP\\SQLSvc2**. Essas contas serão usadas para instâncias do SQL Server. Em seguida, você precisa conceder as permissões necessárias ao **CORP\\Install** para configurar o WSFC (Clustering de Failover do Serviço Windows).
 
 1. No **Centro Administrativo do Active Directory**, selecione **corp (local)** no painel esquerdo. Em seguida, no painel **Tarefas** à direita, clique em **Propriedades**.
 
@@ -847,7 +845,7 @@ A próxima etapa é configurar um ouvinte do grupo de disponibilidade AlwaysOn n
 
 1. Em **Gerenciador de Cluster de Failover**, clique com o botão direito do mouse no recurso do grupo de disponibilidade e, então, clique em **Propriedades**. Na guia **Dependências**, defina o grupo de recursos como dependente do nome de rede do ouvinte.
 
-1. Defina a propriedade de porta do ouvinte para 1433. Para fazer isso, abra o SQL Server Management Studio, clique com o botão direito do mouse no ouvinte do grupo de disponibilidade e selecione Propriedades. Definir a **Porta** para 1433.
+1. Defina a propriedade de porta do ouvinte para 1433. Para fazer isso, abra o SQL Server Management Studio, clique com o botão direito do mouse no ouvinte do grupo de disponibilidade e selecione Propriedades. Defina a **Porta** para 1433.
 
 1. Neste ponto, você pode [colocar o ouvinte online](virtual-machines-windows-portal-sql-alwayson-int-listener.md#2-bring-the-listener-online).
 
@@ -867,4 +865,4 @@ Para testar a conexão:
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

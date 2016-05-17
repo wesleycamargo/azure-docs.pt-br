@@ -5,8 +5,7 @@
 | **Externo** | Usa o **Endereço de IP virtual público** do serviço de nuvem que hospeda as Máquinas Virtuais. | Você precisa acessar ao ouvinte de fora da rede virtual, inclusive da internet. |
 | **Interna** | Usa **Balanceamento de carga interno (ILB)** com um endereço privado para o ouvinte. | Você só pode acessar ao ouvinte de dentro da mesma rede virtual. Isso inclui VPN site a site em cenários híbridos. |
 
->[AZURE.IMPORTANT]Para um ouvinte usando o VIP público do serviço de nuvem (balanceador de carga externo), qualquer dado retornado através do ouvinte é considerado um egresso e será cobrado em taxas de transferência de dados normais no Azure. Isso é verdadeiro mesmo se o cliente está localizado na mesma rede virtual e no centro de dados que o ouvinte e bancos de dados. Este não é o caso com um ouvinte que usa ILB.
+>[AZURE.IMPORTANT] Para um ouvinte que está usando o VIP público (balanceador externo de carga) do serviço de nuvem, desde que o cliente, o ouvinte e os bancos de dados estejam na mesma região do Azure, você não incorrerá em encargos de saída. Caso contrário, os dados retornados através do ouvinte são considerados dados de saída e serão cobradas as taxas de transferência de dados normais.
 
 ILB só pode ser configurado em redes virtuais com um escopo regional. Redes virtuais existentes configuradas para um grupo de afinidade não podem usar o ILB. Para obter mais informações, consulte [Balanceador de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
 
-<!---HONumber=Oct15_HO3-->

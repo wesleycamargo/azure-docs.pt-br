@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="05/02/2016"
 	ms.author="jodebrui"/>
 
 
 # Monitorar o armazenamento OLTP na memória
 
-Ao usar o [In-Memory OLTP](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP na memória. Cada camada de serviço Premium tem um tamanho máximo de armazenamento na memória, que está documentado no [artigo Camadas de serviço do banco de Dados SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Quando esse limite for excedido, as operações insert e update poderão começar a falhar (com o erro 41823). Nesse ponto, você precisará excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
+Ao usar o [In-Memory OLTP](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP in-memory. Cada camada de serviço Premium tem um tamanho máximo de armazenamento OLTP in-memory, que está documentado no [artigo Camadas de serviço do Banco de Dados SQL](sql-database-service-tiers.md#service-tiers-for-single-databases). Quando esse limite for excedido, as operações insert e update poderão começar a falhar (com o erro 41823). Nesse ponto, você precisará excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
 
 ## Determinar se os dados se ajustarão ao limite de armazenamento na memória
 
@@ -35,12 +35,12 @@ Observe que a tabela e as linhas de variável de tabela, bem como índices, cont
 Você pode monitorar o uso de armazenamento na memória como uma porcentagem do [limite de armazenamento para sua camada de desempenho](sql-database-service-tiers.md#service-tiers-for-single-databases) no [portal](https://portal.azure.com/) do Azure:
 
 - Na folha Banco de Dados, localize a caixa de utilização Recurso e clique em Editar.
-- Em seguida, selecione a métrica percentual de Armazenamento OLTP na Memória.
+- Em seguida, selecione a métrica `In-Memory OLTP Storage percentage`.
 - Para adicionar um alerta, clique na caixa Utilização de Recursos para abrir a folha Métrica e clique em Adicionar alerta.
 
 Ou use a consulta a seguir para mostrar a utilização de armazenamento na memória:
 
-    select xtp_storage_percent from sys.dm_db_resource_stats
+    SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
 
 ## Corrigir situações de memória insuficiente - Erro 41823
@@ -58,4 +58,4 @@ Para resolver esse erro:
 ## Próximas etapas
 Saiba mais sobre [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

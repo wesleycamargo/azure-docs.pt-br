@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/14/2016"
+    ms.date="05/02/2016"
     ms.author="micurd"/>
 
 # Usando a CLI do Azure com o Armazenamento do Azure
@@ -221,4 +221,4 @@ Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Arm
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -3,7 +3,7 @@
    description="Este artigo descreve como instalar o .NET Framework manualmente em funções de trabalho ou Web do serviço de nuvem."
    services="cloud-services"
    documentationCenter=".net"
-   authors="sbtron"
+   authors="thraka"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/17/2016"
-   ms.author="saurabh"/>
+   ms.author="adegeo"/>
 
 # Instalar o .NET em uma Função do Serviço de Nuvem 
 
@@ -183,4 +183,4 @@ Quando você implantar o serviço, as tarefas de inicialização serão executad
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

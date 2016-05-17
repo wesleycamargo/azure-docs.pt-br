@@ -64,7 +64,7 @@ Solicitações de recursos e outros comentários podem ser enviados no [Fórum d
 
 ## P.: Como faço para começar a utilizar o Catálogo de Dados do Azure?
 
-O melhor lugar para começar é seguindo as instruções no guia de [Introdução ao Catálogo de Dados](../data-catalog-get-started/). Este artigo é uma visão geral de ponta a ponta dos recursos no serviço.
+O melhor lugar para começar é seguindo as instruções no guia de [Introdução ao Catálogo de Dados](data-catalog-get-started.md). Este artigo é uma visão geral de ponta a ponta dos recursos no serviço.
 
 ## P.: Como posso registrar meus dados?
 
@@ -140,4 +140,4 @@ R.: Para atualizar os metadados de ativos de dados que já estão registrados no
 
 Vá diretamente para o [fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

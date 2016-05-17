@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016" 
+	ms.date="04/28/2016" 
 	ms.author="casoper"/>
     
 # Solucionando problemas de compactação de arquivo CDN
@@ -36,12 +36,14 @@ Há várias causas possíveis, incluindo:
 
 ## Etapas para solucionar problemas
 
+> [AZURE.TIP] Assim como ocorre com a implantação de novos pontos de extremidade, alterações na configuração da CDN demoram um pouco para serem propagadas pela rede. Na maioria dos casos, você verá as alterações aplicadas em até 90 minutos. Se esta for a primeira vez que você configura a compactação do ponto de extremidade CDN, será necessário considerar uma espera de 1 a 2 horas para garantir que as configurações de compactação são propagadas para os POPs.
+
 ### Verificar a solicitação
 
-Primeiro, devemos fazer uma verificação de integridade rápida na solicitação. Você pode usar as [ferramentas de desenvolvedor](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) do navegador para exibir as solicitações sendo feitas.
+Primeiro, devemos fazer uma verificação de integridade rápida na solicitação. É possível usar as [ferramentas de desenvolvedor](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) do navegador para exibir as solicitações feitas no momento.
 
-- Verifique se a solicitação está sendo enviada para a URL do ponto de extremidade, `<endpointname>.azureedge.net`, e não sua origem.
-- Verifique se a solicitação contém um cabeçalho **Accept-Encoding** cabeçalho e se o valor para esse cabeçalho contém **gzip**, **defalte** ou **bzip2**.
+- Verifique se a solicitação está sendo enviada para a URL do ponto de extremidade, `<endpointname>.azureedge.net`, e não para sua origem.
+- Verifique se a solicitação contém um cabeçalho **Accept-Encoding** e se o valor desse cabeçalho contém **gzip**, **deflate** ou **bzip2**.
 
 ![Cabeçalhos da solicitação CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
@@ -58,23 +60,22 @@ Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.
 
 ### Verificar as configurações de compactação (perfil CDN Premium)
 
-> [AZURE.NOTE] Esta etapa se aplica apenas se seu perfil CDN estiver no tipo de preço **Premium**.
+> [AZURE.NOTE] Esta etapa se aplicará apenas se seu perfil CDN estiver no tipo de preço **Premium**.
 
 Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.com) e clique no botão **Gerenciar**. O portal suplementar será aberto. Passe o ponteiro do mouse sobre a guia **HTTP Grande** e passe o ponteiro do mouse sobre o submenu **Configurações de Cache**. Clique em **Compactação**.
 
 - Verifique se a compactação está habilitada.
-- Verifique se a lista **Tipos de Arquivo** contém uma lista separada por vírgulas de tipos MIME.
+- Verifique se a lista **Tipos de Arquivo** contém uma lista separada por vírgula (sem espaços) de tipos MIME.
 - Verifique se o tipo MIME do conteúdo a ser compactado está incluído na lista de formatos compactados.
 
 ![Configurações de compactação premium CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
-
 
 ### Verificar se que o conteúdo está armazenado em cache
 
 Usando as ferramentas de desenvolvedor do navegador, verifique os cabeçalhos de resposta para garantir que o arquivo está armazenado em cache na região em que está sendo solicitado.
 
-- Verifique o cabeçalho de resposta **Server**. O cabeçalho deve ter o formato **Plataforma (POP/ID do servidor)**, como mostrado no exemplo a seguir.
-- Verifique o cabeçalho de resposta **X-Cache**. O cabeçalho deve ler **HIT**.  
+- Verifique o cabeçalho de resposta **Server**. O cabeçalho deve ter o formato **Plataforma (POP/ID do Servidor)**, como mostrado no exemplo abaixo.
+- Verifique o cabeçalho de resposta **X-Cache**. No cabeçalho, deve-se ler **HIT**.  
 
 ![Cabeçalhos de resposta CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
@@ -85,4 +86,4 @@ Para ser elegível para compactação, um arquivo deve atender aos seguintes req
 - Maior que 128 bytes.
 - Menor que 1 MB.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

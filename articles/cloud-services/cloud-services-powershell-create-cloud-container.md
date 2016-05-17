@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Como usar o comando do Azure PowerShell para criar um contêiner de serviço de nuvem vazio | Microsoft Azure"
-   description="Este artigo explica como criar o contêiner de serviço de nuvem e executar o serviço de nuvem relacionado a operações de gerenciamento usando um script do PowerShell"
+   pageTitle="Criar um contêiner do serviço de nuvem com o PowerShell | Microsoft Azure"
+   description="Este artigo explica como criar um contêiner do serviço de nuvem com o PowerShell. O contêiner hospeda funções da Web e de trabalho."
    services="cloud-services"
    documentationCenter=".net"
    authors="cawaMS"
-   manager="paulyuk"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="04/25/2016"
    ms.author="cawa"/>
 
 # Usar um comando do Azure PowerShell para criar um contêiner de serviço de nuvem vazio
@@ -32,11 +32,13 @@ Este artigo explica como criar rapidamente um contêiner de Serviços de Nuvem u
     New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
 ```
 
-5. Siga este exemplo para invocar o cmdlet: ```
-New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
+5. Siga este exemplo para invocar o cmdlet:
+```
+New-AzureService -ServiceName "mytestcloudservice" -Location "Central US" -Label "mytestcloudservice"
 ```
 
-Para saber mais sobre como criar o Serviço de Nuvem do Azure, execute: ```
+Para obter mais informações sobre como criar o serviço de nuvem do Azure, execute:
+```
 Get-help New-AzureService
 ```
 
@@ -46,4 +48,4 @@ Get-help New-AzureService
 
  * Para publicar seu projeto de serviço de nuvem no Azure, consulte o exemplo de código **PublishCloudService.ps1** em [Fornecimento contínuo de serviço de nuvem no Azure](cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -278,7 +278,7 @@ Neste exemplo, ambos os gateways estão na mesma assinatura. Você pode concluir
 Certifique-se de fazer logon e se conectar à Assinatura 1.
 
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
+	$vnet2gw = Get-AzureRmLocalNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 	
 #### 2\. Criar ambas as conexões
 
@@ -300,4 +300,4 @@ Se você tiver concluído todas as três partes deste exercício, será estabele
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para obter as etapas.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

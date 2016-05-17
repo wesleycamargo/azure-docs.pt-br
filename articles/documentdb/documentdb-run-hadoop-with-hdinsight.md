@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="04/26/2016" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Executar um trabalho do Hadoop usando o Banco de Dados de Documentos e o HDInsight
@@ -40,20 +40,16 @@ Não tem tempo para fazer o tutorial e quer apenas a amostra completa de scripts
 
 <table border='1'>
 	<tr><th>Versão do Conector para Hadoop</th>
-		<td>1.1.0</td></tr>
+		<td>1.2.0</td></tr>
 	<tr><th>URI do script</th>
-		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
+		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
 	<tr><th>Data da Modificação</th>
-		<td>07/20/2015</td></tr>
+		<td>04/26/2015</td></tr>
 	<tr><th>Versões do HDInsight para as quais há suporte</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Log de alterações</th>
-		<td>SDK Java do Banco de Dados de Documentos atualizado para 1.1.0</br>
-			Removido o parâmetro de saída adicional para caminhos de indexação personalizados</br>
-			Adicionado parâmetro opcional para precisão de cadeia de caracteres personalizada (-1 por padrão)</br>
-			6/11/2015</br>
-			Corrigida a compatibilidade do conector com o <a href="https://www.microsoft.com/download/details.aspx?id=40886">driver ODBC do Microsoft Hive</a></br>
-			Adicionada a capacidade de alterar o tipo de oferta de coleção de saída (por padrão, oferta S3)</br>
+		<td>SDK do Java do Banco de Dados de Documentos atualizado para 1.6.0</br>
+			Suporte adicionado para coleções particionadas como uma fonte e coletor</br>
 		</td></tr>
 </table>
 
@@ -103,18 +99,18 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 	![Fornecer detalhes do cluster HDInsight inicial do Hadoop][image-customprovision-page1]
 
 	<table border='1'>
-	<tr><th>Propriedade</th><th>Valor</th></tr>
-	<tr><td>Nome do cluster</td><td>Nome do cluster.<br/>
-		O nome DNS deve começar e terminar com um número alfanumérico e pode conter traços.<br/>
-		O campo deve ser uma cadeia com 3 a 63 caracteres.</td></tr>
-	<tr><td>Nome da assinatura</td>
-		<td>Se você tiver mais de uma assinatura do Azure, selecione a assinatura correspondente à conta de armazenamento da <strong>Etapa 1</strong>. </td></tr>
-	<tr><td>Tipo de cluster</td>
-		<td>Para o tipo de cluster, selecione <strong>Hadoop</strong>.</td></tr>
-	<tr><td>Sistema operacional</td>
-		<td>Para sistema operacional, selecione <strong>Windows Server 2012 R2 Datacenter</strong>.</td></tr>
-	<tr><td>Versão do HDInsight</td>
-		<td>Escolha a versão. </br>Selecione <Strong>HDInsight versão 3.1</Strong>.</td></tr>
+		<tr><th>Propriedade</th><th>Valor</th></tr>
+		<tr><td>Nome do cluster</td><td>Nome do cluster.<br/>
+			O nome DNS deve começar e terminar com um número alfanumérico e pode conter traços.<br/>
+			O campo deve ser uma cadeia com 3 a 63 caracteres.</td></tr>
+		<tr><td>Nome da assinatura</td>
+			<td>Se você tiver mais de uma assinatura do Azure, selecione a assinatura correspondente à conta de armazenamento da <strong>Etapa 1</strong>. </td></tr>
+		<tr><td>Tipo de cluster</td>
+			<td>Para o tipo de cluster, selecione <strong>Hadoop</strong>.</td></tr>
+		<tr><td>Sistema operacional</td>
+			<td>Para sistema operacional, selecione <strong>Windows Server 2012 R2 Datacenter</strong>.</td></tr>
+		<tr><td>Versão do HDInsight</td>
+			<td>Escolha a versão. </br>Selecione <Strong>HDInsight versão 3.1</Strong>.</td></tr>
 		</table>
 
 	<p>Insira ou selecione os valores, conforme mostrado na tabela, e clique na seta para a direita.</p>
@@ -122,23 +118,23 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 4. Na página **Configurar Cluster**, digite ou selecione os valores a seguir:
 
 	<table border="1">
-<tr><th>Nome</th><th>Valor</th></tr>
-<tr><td>Nós de dados</td><td>Número de nós de dados que você deseja implantar. </br>Observe que os nós de dados do HDInsight estão associados ao desempenho e ao preço.</td></tr>
-<tr><td>Região/Rede virtual</td><td>Escolha a mesma região da <strong>Conta de armazenamento</strong> recém-criada e da <strong>Conta do Banco de Dados de Documentos</strong>. </br> O HDInsight requer que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região especificada aqui.</td></tr>
+	<tr><th>Nome</th><th>Valor</th></tr>
+	<tr><td>Nós de dados</td><td>Número de nós de dados que você deseja implantar. </br>Observe que os nós de dados do HDInsight estão associados ao desempenho e ao preço.</td></tr>
+	<tr><td>Região/Rede virtual</td><td>Escolha a mesma região da <strong>Conta de armazenamento</strong> recém-criada e da <strong>Conta do Banco de Dados de Documentos</strong>. </br> O HDInsight requer que a conta de armazenamento esteja localizada na mesma região. Mais adiante na configuração, você poderá escolher somente uma conta de armazenamento que esteja na mesma região especificada aqui.</td></tr>
 	</table>
-
+	
     Clique na seta à direita.
 
 5. Na página **Configurar Usuário de Cluster**, forneça os seguintes valores:
 
     <table border='1'>
-	<tr><th>Propriedade</th><th>Valor</th></tr>
-	<tr><td>Nome de usuário</td>
-		<td>Especifique o nome do usuário do cluster HDInsight.</td></tr>
-	<tr><td>Senha/Confirmar senha</td>
-		<td>Especifique a senha do usuário do cluster HDInsight.</td></tr>
+		<tr><th>Propriedade</th><th>Valor</th></tr>
+		<tr><td>Nome de usuário</td>
+			<td>Especifique o nome do usuário do cluster HDInsight.</td></tr>
+		<tr><td>Senha/Confirmar senha</td>
+			<td>Especifique a senha do usuário do cluster HDInsight.</td></tr>
 	</table>
-
+	
     Clique na seta à direita.
     
 6. Na página **Conta de Armazenamento**, forneça os seguintes valores:
@@ -146,21 +142,21 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 	![Fornecer conta de armazenamento para o cluster Hadoop do HDInsight][image-customprovision-page4]
 
 	<table border='1'>
-	<tr><th>Propriedade</th><th>Valor</th></tr>
-	<tr><td>Conta de armazenamento</td>
-		<td>Especifique a conta de armazenamento do Azure que será usada como o sistema de arquivos padrão para o cluster HDInsight. Você pode escolher uma das três opções a seguir: Usar Armazenamento Existente, Criar Novo Armazenamento ou Usar Armazenamento de Outra Assinatura</br></br>
-		Selecione <strong>Usar Armazenamento Existente</strong>.
-		</td>
-		</td></tr>
-	<tr><td>Nome da conta</td>
-		<td>
-		Para <strong>Nome da conta</strong>, selecione a conta criada na <strong>Etapa 1</strong>. A lista suspensa mostra somente as contas de armazenamento da mesma assinatura do Azure que estão localizadas no mesmo data center onde você optar por provisionar o cluster.
-		</td></tr>
-	<tr><td>Contêiner padrão</td>
-		<td>Especifica o contêiner padrão na conta de armazenamento usado como o sistema de arquivos padrão para o cluster HDInsight. Se você escolher <strong>Usar Armazenamento Existente</strong> para o campo <strong>Conta de Armazenamento</strong> e não houver contêineres na conta, o contêiner será criado por padrão com o mesmo nome do cluster. Se um contêiner com o nome do cluster já existir, será acrescentado um número de sequência ao nome do contêiner.
-    </td></tr>
-	<tr><td>Contas de armazenamento adicionais</td>
-		<td>O HDInsight dá suporte a várias contas de armazenamento. Não há limites de contas de armazenamento adicionais que podem ser usadas por um cluster. No entanto, se você criar um cluster usando o Portal Clássico do Azure, você terá um limite de sete, devido às restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de Conta de Armazenamento ao assistente, onde você pode especificar as informações da conta.</td></tr>
+		<tr><th>Propriedade</th><th>Valor</th></tr>
+		<tr><td>Conta de armazenamento</td>
+			<td>Especifique a conta de armazenamento do Azure que será usada como o sistema de arquivos padrão para o cluster HDInsight. Você pode escolher uma das três opções a seguir: Usar Armazenamento Existente, Criar Novo Armazenamento ou Usar Armazenamento de Outra Assinatura</br></br>
+			Selecione <strong>Usar Armazenamento Existente</strong>.
+			</td>
+			</td></tr>
+		<tr><td>Nome da conta</td>
+			<td>
+			Para <strong>Nome da conta</strong>, selecione a conta criada na <strong>Etapa 1</strong>. A lista suspensa mostra somente as contas de armazenamento da mesma assinatura do Azure que estão localizadas no mesmo data center onde você optar por provisionar o cluster.
+			</td></tr>
+		<tr><td>Contêiner padrão</td>
+			<td>Especifica o contêiner padrão na conta de armazenamento usado como o sistema de arquivos padrão para o cluster HDInsight. Se você escolher <strong>Usar Armazenamento Existente</strong> para o campo <strong>Conta de Armazenamento</strong> e não houver contêineres na conta, o contêiner será criado por padrão com o mesmo nome do cluster. Se um contêiner com o nome do cluster já existir, será acrescentado um número de sequência ao nome do contêiner.
+	    </td></tr>
+		<tr><td>Contas de armazenamento adicionais</td>
+			<td>O HDInsight dá suporte a várias contas de armazenamento. Não há limites de contas de armazenamento adicionais que podem ser usadas por um cluster. No entanto, se você criar um cluster usando o Portal Clássico do Azure, você terá um limite de sete, devido às restrições da interface do usuário. Cada conta de armazenamento adicional que você especificar adiciona uma página extra de Conta de Armazenamento ao assistente, onde você pode especificar as informações da conta.</td></tr>
 	</table>
 
 	Clique na seta à direita.
@@ -170,18 +166,18 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 	![Configurar a Ação de Script para personalizar um cluster do HDInsight][image-customprovision-page5]
 
 	<table border='1'>
-	<tr><th>Propriedade</th><th>Valor</th></tr>
-	<tr><td>Nome</td>
-		<td>Especifique um nome para a ação de script.</td></tr>
-	<tr><td>URI do script</td>
-		<td>Especifique o URI para o script que é chamado para personalizar o cluster.</br></br>
-		Insira: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</strong>.</td></tr>
-	<tr><td>Tipo de nó</td>
-		<td>Especifica os nós em que o script de personalização é executado. Você pode escolher <b>Todos os nós</b>, <b>Somente nós principais</b> ou somente <b>Nós de trabalho</b>.</br></br>
-		Selecione <strong>Todos os Nós</strong>.</td></tr>
-	<tr><td>Parâmetros</td>
-		<td>Especifique os parâmetros, se exigido pelo script.</br></br>
-		<strong>Nenhum parâmetro necessário</strong>.</td></tr>
+		<tr><th>Propriedade</th><th>Valor</th></tr>
+		<tr><td>Nome</td>
+			<td>Especifique um nome para a ação de script.</td></tr>
+		<tr><td>URI do script</td>
+			<td>Especifique o URI para o script que é chamado para personalizar o cluster.</br></br>
+			Insira: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</strong>.</td></tr>
+		<tr><td>Tipo de nó</td>
+			<td>Especifica os nós em que o script de personalização é executado. Você pode escolher <b>Todos os nós</b>, <b>Somente nós principais</b> ou somente <b>Nós de trabalho</b>.</br></br>
+			Selecione <strong>Todos os Nós</strong>.</td></tr>
+		<tr><td>Parâmetros</td>
+			<td>Especifique os parâmetros, se exigido pelo script.</br></br>
+			<strong>Nenhum parâmetro necessário</strong>.</td></tr>
 	</table>
 
 	Clique na marca de seleção para concluir a criação do cluster.
@@ -223,7 +219,7 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 2. 
 	<p>Vamos começar pela cadeia de caracteres de consulta. Vamos escrever uma consulta do Hive que usa todas as IDs exclusivas (_rid) e os carimbos de data/hora (_ts) gerados pelo sistema de documentos de uma coleção do Banco de Dados de Documentos, registra todos os documentos por minuto e armazena os resultados em uma nova coleção do Banco de Dados de Documentos. </p>
 
-	<p>Primeiro, vamos criar uma tabela Hive por meio da coleção do Banco de Dados de Documentos. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Inclua o parâmetro opcional DocumentDB.query para limitar os documentos a somente _ts e _rid. </p>
+    <p>Primeiro, vamos criar uma tabela Hive por meio da coleção do Banco de Dados de Documentos. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Inclua o parâmetro opcional DocumentDB.query para limitar os documentos a somente _ts e _rid. </p>
 
 	> [AZURE.NOTE] **Ter nomeado DocumentDB.inputCollections não foi um erro.** Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
 	'*DocumentDB.inputCollections*' = '*\<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos\>*,*\<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos\>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.
@@ -321,7 +317,7 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 
 2. <p>Vamos começar pela cadeia de caracteres de consulta. Vamos escrever uma consulta Pig que usa todas as IDs exclusivas (_rid) e os carimbos de data/hora (_ts) gerados pelo sistema de documentos de uma coleção do Banco de Dados de Documentos, registra todos os documentos por minuto e armazena os resultados em uma nova coleção do Banco de Dados de Documentos.</p>
     <p>Primeiro, carregue documentos do Banco de Dados de Documentos no HDInsight. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Adicione uma consulta do Banco de Dados de Documentos ao parâmetro de consulta opcional do Banco de Dados de Documentos para limitar os documentos a somente _ts e _rid.</p>
-    
+
     > [AZURE.NOTE] Sim, podemos permitir a adição de várias coleções como uma entrada: </br> 
     '*\<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos\>*,*\<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos\>*'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </b>
 
@@ -491,4 +487,4 @@ Para saber mais, consulte os seguintes artigos:
 [powershell-install-configure]: ../powershell-install-configure.md
  
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="04/29/2016"
 	ms.author="cynthn"/>
 
 # Instalar MySQL em uma máquina virtual com o OpenSUSE Linux no Azure
@@ -41,4 +41,4 @@ Para obter detalhes sobre o MySQL, consulte a [Documentação do MySQL][MySQLDoc
 [MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

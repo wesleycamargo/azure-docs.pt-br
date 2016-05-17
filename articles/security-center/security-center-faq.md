@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/22/2016"
+   ms.date="05/02/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -96,6 +96,11 @@ A Central de segurança do Azure automaticamente coleta, analisa e funde os dado
 - Ataques por força bruta contra máquinas virtuais
 - Alertas de segurança das soluções de segurança de parceiro integradas, como antimalware ou Firewalls de aplicativo Web
 
+### Qual é a diferença entre ameaças detectadas e alertadas pelo Microsoft Security Response Center versus pela Central de Segurança do Azure?
+O MSRC (Microsoft Security Response Center) executa determinado monitoramento de segurança da rede e da infraestrutura do Azure e recebe reclamações de inteligência e abuso de ameaça de terceiros. Quando o MSRC fica ciente de que os dados do cliente foram acessados por uma pessoa não autorizada ou ilegal ou que o uso do cliente do Azure não está de acordo com os termos de Uso Aceitável, um gerente de incidentes de segurança notifica o cliente. A notificação ocorrerá normalmente ao enviar um email para os contatos de segurança especificados na Central de Segurança do Azure ou o proprietário da assinatura do Azure, se um contato de segurança não for especificado.
+
+A Central de Segurança é um serviço do Azure que monitora o ambiente do cliente do Azure continuamente e aplica a análise para detectar automaticamente uma ampla gama de atividades potencialmente mal-intencionadas. Essas detecções são exibidas como alertas de segurança no painel da Central de Segurança. No futuro, uma notificação por email de alertas de segurança também será enviada para o contato de segurança.
+
 ### Como as permissões são tratadas na Central de segurança do Azure?
 A Central de segurança do Azure oferece suporte ao acesso baseado em função. Para saber mais sobre o controle de acesso baseado em função (RBAC) no Azure, consulte o [Controle de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md).
 
@@ -111,4 +116,4 @@ As recomendações da Lista de Controle de Acesso no momento se aplicam às máq
 ### Há suporte para as máquinas virtuais do Linux?
 A linha de base Central de Segurança do Azure oferece monitoramento para as máquinas virtuais do Linux (somente o Ubuntu versões 12.04, 14.04, 14.10 e 15.04). No futuro, o monitoramento de integridade de segurança adicional e a coleta/análise de dados estarão disponíveis, bem como o suporte adicional para distribuições do Linux.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

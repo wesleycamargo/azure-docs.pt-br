@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 #Análise de logs para NSGs (grupos de segurança de rede)
@@ -30,7 +30,7 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 ##Habilitar o registro em log
 O log de auditoria é sempre habilitado automaticamente para todos os recursos do Gerenciador de Recursos. Você precisa habilitar os logs de eventos e de contador para começar a coletar os dados disponíveis por meio desses logs. Para habilitar os logs, siga as etapas abaixo.
 
-1.  Entre no [portal de visualização do Azure](https://portal.azure.com). Se você ainda não tiver um grupo de segurança de rede existente, [crie um NSG](virtual-networks-create-nsg-arm-ps.md) antes de continuar.
+1.  Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver um grupo de segurança de rede existente, [crie um NSG](virtual-networks-create-nsg-arm-ps.md) antes de continuar.
 
 2.  No portal de visualização, clique em **Navegar** >> **Grupos de segurança de rede**.
 
@@ -114,4 +114,4 @@ Você precisa se conectar à sua conta de armazenamento e recuperar as entradas 
 - Postagem de blog [Visualizar os logs de auditoria do Azure com o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Postagem de blog [Exibir e analisar logs de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

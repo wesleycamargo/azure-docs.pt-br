@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="04/30/2016"
 	ms.author="markusvi"/>
 
 
@@ -103,7 +103,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 |Nome| Obrigatório/repetição | Tipo | Observações |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obrigatório | Cadeia de caracteres | Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-| ****source1 … sourceN ** | Obrigatório, número de vezes variável| Cadeia de caracteres | Valores da cadeia de caracteres a serem unidos. |
+| **source1 … sourceN** | Obrigatório, número de vezes variável| Cadeia de caracteres | Valores da cadeia de caracteres a serem unidos. |
 
 
 
@@ -315,4 +315,4 @@ Você precisa definir o fuso horário do usuário com base no código de estado 
 - [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
 - [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

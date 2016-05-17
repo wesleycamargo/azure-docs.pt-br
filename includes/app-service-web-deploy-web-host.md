@@ -1,18 +1,18 @@
 ### Plano do Serviço de Aplicativo
 
-Cria o plano de serviço para hospedar o aplicativo Web. Forneça o nome do plano por meio do parâmetro **hostingPlanName**. O local do plano é o mesmo usado para o aplicativo Web. A camada de preços e o tamanho do trabalhador são especificados nos parâmetros **sku** e **workerSize**
+Cria o plano de serviço para hospedar o aplicativo Web. Forneça o nome do plano por meio do parâmetro **hostingPlanName**. O local do plano é o mesmo usado para o grupo de recursos. A camada de preços e o tamanho do trabalhador são especificados nos parâmetros **sku** e **workerSize**
 
     {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2015-08-01",
       "name": "[parameters('hostingPlanName')]",
       "type": "Microsoft.Web/serverfarms",
-      "location": "[parameters('siteLocation')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "[parameters('sku')]",
+        "capacity": "[parameters('workerSize')]"
+      },
       "properties": {
-        "name": "[parameters('hostingPlanName')]",
-        "sku": "[parameters('sku')]",
-        "workerSize": "[parameters('workerSize')]",
-        "numberOfWorkers": 1
+        "name": "[parameters('hostingPlanName')]"
       }
     },
 
-<!---HONumber=AcomDC_1203_2015-->

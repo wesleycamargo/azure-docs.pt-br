@@ -3,8 +3,8 @@
 	description="Um tutorial que ensina a usar o conteúdo de uma CDN para melhorar o desempenho do seu aplicativo Web." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="erikre" 
 	editor="jimbe"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="cephalin"/>
+	ms.date="04/29/2016" 
+	ms.author="casoper"/>
 
 # Fornecer conteúdo da CDN do Azure em seu aplicativo Web #
 
@@ -277,4 +277,4 @@ Sem integração aos Aplicativos Web do Serviço de Aplicativo ou aos Serviços 
 - [Usando o Azure CDN](cdn-create-new-endpoint.md)
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

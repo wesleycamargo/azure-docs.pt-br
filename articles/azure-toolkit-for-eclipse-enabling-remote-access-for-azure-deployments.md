@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="02/26/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
@@ -85,7 +85,7 @@ Quando a sua instância de função estiver pronta, você poderá fazer logon re
 * Outra maneira de fazer logon remotamente é por meio do <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Portal de Gerenciamento do Azure</a>:
     * Dentro do modo de exibição dos **Serviços de Nuvem** do portal de Gerenciamento do Azure, clique em seu serviço de nuvem, clique em **Instâncias**, clique em uma instância específica e, em seguida, clique no botão **Conectar**. O botão **Conectar** aparece da seguinte forma na barra de comandos: 
     ![][ic659273]  
-    >[AZURE.NOTE] Se você estiver em um sistema operacional que não seja o Windows, será necessário usar um cliente de Área de Trabalho Remota compatível com o sistema operacional e executar as etapas para definir esse cliente com as configurações no arquivo RDP baixado.
+    >[AZURE.NOTE]Se você estiver em um sistema operacional que não seja o Windows, será necessário usar um cliente de Área de Trabalho Remota compatível com o sistema operacional e executar as etapas para definir esse cliente com as configurações no arquivo RDP baixado.
     * Depois de clicar no botão **Conectar**, você receberá uma solicitação para abrir um arquivo RDP. Abra o arquivo e siga os prompts. (Você pode também salvar esse arquivo em seu computador local e depois executar o arquivo clicando duas vezes nele para fazer logon remoto em sua máquina virtual sem a necessidade de acessar primeiro o portal de gerenciamento).
     * Quando receber a solicitação de nome de usuário e senha, insira os valores que você especificou para o usuário remoto e assim conseguirá fazer logon.
 
@@ -114,4 +114,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

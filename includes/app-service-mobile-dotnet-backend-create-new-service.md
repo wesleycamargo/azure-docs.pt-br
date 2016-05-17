@@ -4,7 +4,12 @@
 
 3. Para o **Grupo de Recursos**, selecione um grupo de recursos existente ou crie um novo (usando o mesmo nome que o aplicativo).
  
-4. Para o **Plano de Serviço de Aplicativo**. selecione um plano de Serviço de Aplicativo ou [crie um novo plano](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Clique em **Criar**. Isso cria o back-end de Aplicativo Móvel. As configurações de plano de Serviço de Aplicativo determinam o [local, os recursos, o custo e os recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados ao seu aplicativo.
+
+ Você pode selecionar outro plano de Serviço de Aplicativo ou criar um novo. Para saber mais sobre planos de Serviços de Aplicativos e como criar um novo plano em um tipo de preço e em seu local desejado, confira [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+
+4. Para o **plano de Serviço de Aplicativo**, o plano padrão (no [camada Standard](https://azure.microsoft.com/pricing/details/app-service/)) está selecionado. Você também pode selecionar um plano diferente ou [criar um novo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). As configurações de plano de Serviço de Aplicativo determinam o [local, os recursos, o custo e os recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados ao seu aplicativo. 
+
+	Depois de decidir o plano, clique em **Criar**. Isso cria o back-end de Aplicativo Móvel.
 	
 6. Na folha **Configurações** do novo back-end do Aplicativo Móvel, clique em **Início rápido** > sua plataforma de aplicativo cliente > **Conectar um banco de dados**.
 
@@ -20,5 +25,3 @@
 
 <!-- URLs. -->
 [Portal do Azure]: https://portal.azure.com/
-
-<!---HONumber=AcomDC_0504_2016-->

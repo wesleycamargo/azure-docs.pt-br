@@ -14,146 +14,164 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/02/2016"
+   ms.date="05/02/2016"
    ms.author="litran"/>
 
 
 # Gerenciar e proteger seus PowerApps
-Você cria seu ambiente do serviço de aplicativo e adiciona APIs e suas conexões. Agora, os usuários em sua organização podem começar a consumir essas APIs e conexões. Você também pode gerenciar todos os aplicativos criados em sua organização. Estas opções incluem:
 
-- Conferir os diferentes aplicativos em seu ambiente do serviço de aplicativo, incluindo PowerApps, aplicativos Web, aplicativos lógicos, aplicativos móveis e muito mais.
-- Conferir todas as APIs usadas por aplicativos específicos.
-- Exibir e gerenciar o acesso do usuário aos aplicativos no ambiente do serviço de aplicativo. 
-- Exibir e gerenciar o acesso do usuário às APIs e suas conexões. 
+> [AZURE.IMPORTANT] Esse tópico foi arquivado e será removido em breve. Venha ver as novidades do [PowerApps](https://powerapps.microsoft.com).
+> 
+> - Para saber mais sobre PowerApps e para começar, vá para [PowerApps](https://powerapps.microsoft.com).  
+> - Para saber mais sobre conexões disponíveis no PowerApps, vá para [Conexões Disponíveis](https://powerapps.microsoft.com/tutorials/connections-list/). 
 
-Lembre-se, o ambiente do serviço de aplicativo é seu e, por isso, você pode adicionar outros aplicativos, incluindo aplicativos Web e aplicativos lógicos. Você pode abrir o PowerApps Enterprise para ver e gerenciar esses aplicativos.
+<!--Archived
+You create your app service environment, and add APIs and their connections. Now users in your organization can start consuming these APIs and connections. You can also manage all apps created in your organization. These options include:
 
+- See the different apps within your app service environment, including PowerApps, web apps, logic apps, mobile apps, and more.
+- See all the APIs used by specific apps.
+- View and manage user access to the apps within the app service environment. 
+- View and manage user access to the APIs and their connections. 
 
-## Adicionar administradores do PowerApps
-Quando o PowerApps Enterprise estiver habilitado e pronto para uso, você poderá adicionar administradores e monitorar outros aplicativos em seu ambiente do serviço de aplicativo.
-
-1. No [portal do Azure](https://portal.azure.com/), abra **PowerApps**.
-2. Escolha a opção **Configurações**.
-3. Em **configurações**, escolha **Admin**: ![][1]  
-4. Em **Usuários**, escolha **Adicionar**.
-5. Escolha a função **Proprietário**: ![][2]  
-
-	> [AZURE.IMPORTANT] Lembre-se de escolher a função **Proprietário** se você estiver definindo alguém como Administrador do PowerApps As outras funções listadas não darão aos usuários acesso total para gerenciar os PowerApps.
-
-6. Escolha seus usuários ou grupos.
-7. Escolha **OK** para concluir as etapas.
-
-Quando você adiciona Administradores ao PowerApps Enterprise, os usuários e grupos adicionados como administradores podem:
-
-- Adicionar outros usuários como administradores do PowerApps.
-- Gerenciar todos os aplicativos e o acesso do usuário.
-- Não podem alterar a cobrança.
-
-> [AZURE.IMPORTANT] Os Administradores do PowerApps não podem fazer alterações no Ambiente do Serviço de Aplicativo até que recebam a função de Proprietário no grupo de recursos do ambiente do serviço de aplicativo. Para fazer isso, consulte [Introdução ao PowerApps Enterprise](powerapps-get-started-azure-portal.md).
-
-Depois de receberem a função de Proprietário no grupo de recursos do ambiente do serviço de aplicativo, os administradores do PowerApps também poderão:
-
-- Criar e configurar APIs e suas conexões.
-- Alterar as configurações do PowerApps, incluindo o ambiente do serviço de aplicativo.
-- Adicionar outros usuários e grupos e dar a eles funções e permissões para as APIs, suas conexões e para o ambiente do serviço de aplicativo. 
+Remember, your app service environment is yours to add other apps, including web apps and logic apps. You can then open PowerApps Enterprise to see and manage these apps.
 
 
-## Gerenciar seu PowerApps e outros tipos de aplicativos
-Depois de habilitar o PowerApps e seu ambiente do serviço de aplicativo, você poderá adicionar outros aplicativos, por exemplo, aplicativos Web e aplicativos lógicos ao mesmo ambiente do serviço de aplicativo. Ao fazer isso, os aplicativos ficarão listados em *Todos os aplicativos*, juntamente com os aplicativos criados no PowerApps. Você pode clicar em cada tipo de aplicativo para navegar por eles.
+## Add PowerApps administrators
+After PowerApps Enterprise is enabled and ready to be used, you can add administrators, and monitor other apps within your app service environment.
 
-### Exibir e gerenciar seu PowerApps
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. Select **Settings**.
+3. In **Settings**, select **Admin**:  
+![][1]  
+4. In **Users**, select **Add**.
+5. Select the **Owner** role:  
+![][2]  
 
-1. No [portal do Azure](https://portal.azure.com/), abra **PowerApps**.
-2. Do bloco **Todos os aplicativos**, escolha **PowerApps**: ![][3]  
-3. Escolha um aplicativo para exibir os detalhes dele, incluindo:  
-	- As APIs que ele utiliza
-	- Os usuários e grupos que têm acesso ao aplicativo 
-	- As análises do aplicativo (em breve)
+	> [AZURE.IMPORTANT] Make sure that you select **Owner** role if you are assigning someone as a PowerApps Admin. Other roles listed won't give users full access to manage PowerApps. 
 
-#### Adicionar um aplicativo
+6. Select your users or groups.
+7. Select **OK** to complete the steps.
 
-Você não pode adicionar um aplicativo no portal do Azure. Para isso, acesse o [portal do PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715583).
+When you add Administrators to PowerApps Enterprise, the users and groups you add as administrators can:
 
-#### Excluir os aplicativos criados no PowerApps
-Como Administrador do PowerApps, você pode excluir qualquer aplicativo, incluindo aplicativos criados no PowerApps e outros tipos de aplicativos em seu ambiente do serviço de aplicativo. Para excluir seu aplicativo, escolha o bloco **Todos os aplicativos**, selecione seu aplicativo e escolha **Excluir**: ![][4]
+- Add other users as PowerApps administrators.
+- Manage all apps as well as their user access.
+- Cannot change the billing.
 
+> [AZURE.IMPORTANT] PowerApps Administrators cannot make changes to the App Service Environment until they are given the Owner role on the app service environment's resource group. To do this, see [Get started with PowerApps Enterprise](powerapps-get-started-azure-portal.md).
 
-#### Conceder aos usuários ou grupos acesso para uso de um aplicativo
-Como Administrador do PowerApps, você pode adicionar ou remover usuários e grupos no PowerApps.
+Once given the Owner role on the app service environment's resource group, the PowerApps administrators can also: 
 
-1. No [portal do Azure](https://portal.azure.com/), abra **PowerApps**.
-2. No bloco **Todos os aplicativos**, escolha **PowerApps**: ![][3]  
-3. Escolha um aplicativo, por exemplo, **Central de Serviços**. 
-4. Em **Configurações**, escolha **Acesso de usuário ao aplicativo**: ![][5]  
-5. Escolha **Adicionar** para adicionar um novo usuário ou grupo. 
-6. Escolha uma função:  
-	- Pode Editar
-	- Pode Exibir
-7. Escolha os usuários ou os grupos.
-8. Escolha **OK** para concluir as etapas.
-
-### Exibir e gerenciar seus aplicativos lógicos
-
-1. No [portal do Azure](https://portal.azure.com/), abra **PowerApps**.
-2. No bloco **Todos os aplicativos**, escolha **Aplicativos lógicos**: ![][8]  
-3. Escolha um aplicativo lógico para exibir os detalhes dele. Escolha a assinatura correta para que o PowerApps liste os aplicativos lógicos correto: ![][7]  
-
-	> [AZURE.IMPORTANT] Talvez você perceba alguma inconsistência na contagem de aplicativos lógicos entre a folha de navegação da visualização pública e a contagem exibida na folha principal do PowerApps. Isso é esperado. O portal está exibindo todos os aplicativos lógicos de todos os planos de hospedagem, e não a filtragem de aplicativos lógicos no ambiente do serviço de aplicativo implantado para o PowerApps. Esse comportamento será corrigido em atualizações futuras.
-
-	**Para saber mais sobre os aplicativos lógicos e como gerenciá-los, confira [estas instruções](https://azure.microsoft.com/documentation/services/app-service/logic/).**
-
-### Exibir e gerenciar seu aplicativos Web
-
-1. No [portal do Azure](https://portal.azure.com/), abra **PowerApps**.
-2. No bloco **Todos os aplicativos**, escolha **Aplicativos Web**: ![][9]  
-
-	**Para saber mais sobre aplicativos Web e como gerenciá-los, confira [estas instruções](https://azure.microsoft.com/documentation/services/app-service/web/).**
-
-### Exibir e gerenciar seus Aplicativos Móveis
-
-1. No [portal do Azure](https://portal.azure.com/), abra **PowerApps**.
-2. No bloco **Todos os aplicativos**, escolha **Aplicativos móveis**: ![][10]  
-
-	**Para saber mais sobre aplicativos móveis e como gerenciá-los, confira [estas instruções](https://azure.microsoft.com/documentation/services/app-service/mobile/).**
+- Create and configure APIs and their connections.
+- Make changes to the PowerApps settings, including the app service environment.
+- Add other users and groups and give them roles and permissions to the APIs,  thier connections, and the app service environment. 
 
 
-## Revisar as opções de segurança
-Vários métodos de segurança são usados, dependendo do que você está fazendo. Você precisa saber do seguinte:
+## Manage your PowerApps and other types of apps
+Once you enable PowerApps and your app service environment, you can add other apps, like web apps and logic apps to the same app service environment. After you do this, the apps are listed under *All apps* along with apps created in PowerApps. You can click on each type of app to browse through the apps. 
 
-- **Administrador de assinatura**: esses administradores controlam a cobrança e são responsáveis por inscrever sua empresa no PowerApps Enterprise. Somente os Administradores de assinatura podem solicitar a habilitação do PowerApps na assinatura do Azure de sua empresa. 
+### View and manage your PowerApps
 
-- **Acesso de usuário em tempo de execução**: há três tipos diferentes de acesso de usuário em tempo de execução:
-	- **Acesso de usuário ao aplicativo**: essa permissão controla se o usuário do aplicativo *Pode editar* o aplicativo ou *Pode exibir* o aplicativo.
-	- **Acesso de usuário à API**: estas permissões controlam o acesso de tempo de execução. Se os usuários tiverem essa permissão, poderão usar a API em seus aplicativos. Os usuários têm ou não têm permissão para usar a API em tempo de execução. 
-	- **Acesso de usuário à conexão**: *Pode exibir* e *Pode editar* são as permissões de usuário em tempo de execução disponíveis para uma conexão. Ao adicionar uma API (ou perfil de conexão) e cria a conexão, você concede aos usuários e grupos essas permissões específicas: ![][6]  
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. From the **All apps** tile, select **PowerApps**:  
+![][3]  
+3. Select an app to view details of the app, including:  
+	- The APIs the app uses
+	- Users and groups who have access to the app 
+	- The app's analytics (coming soon)
 
-		Por exemplo, você pode conceder ao grupo de Vendas da empresa a permissão *Pode editar* para uma conexão de uma API de conector do SQL. O usuário com a permissão *Pode editar* será capaz de usar a conexão em seus aplicativos, bem como editar a configuração da conexão. O usuário com a permissão *Pode exibir* será capaz de usar a conexão em seus aplicativos, mas não poderá modificar a configuração da conexão, como a cadeia de conexão.
+#### Add an app
 
-- **Controle de acesso baseado em função** (RBAC): muitas ofertas do Azure usam o controle de acesso baseado em função para determinar quem pode fazer o que. No PowerApps, o RBAC é usado em dois lugares:
-	- Ao entrar no portal do PowerApps pela primeira vez, você pode adicionar e gerenciar usuários que devem ser os administradores do PowerApps. 
-	- Ao criar o ambiente do serviço de aplicativo, você adiciona usuários ou grupos ao PowerApps, e pode remover usuários ou grupos do PowerApps. Por exemplo, você pode conceder a grupos específicos de administradores dentro da empresa a função de *Proprietários*, o que permitirá a eles criar conexões e APIs. Essas APIs e as conexões são adicionadas aos aplicativos criados no PowerApps.
-	- Ao adicionar usuários à aplicativos como aplicativos Web, aplicativos lógicos ou aplicativos móveis. Você pode escolher a função para esses usuários.  
+You cannot add an app through the Azure portal. Currently, go to the [PowerApps portal](http://go.microsoft.com/fwlink/p/?LinkId=715583).
+
+#### Delete your apps created in PowerApps
+As a PowerApps Admin, you can delete any app, including apps created in PowerApps and other types of apps in your app service environment. To delete your app, select the **All apps** tile, select your app, and then select **Delete**:  
+![][4]
+
+
+#### Give users or groups access to use an app
+As a PowerApps admin, you can add or remove users and groups to PowerApps.
+
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. In the **All apps** tile, select **PowerApps**:  
+![][3]  
+3. Select an app, such as **Service Desk**. 
+4. In **Settings**, select **App user access**:  
+![][5]  
+5. Select **Add** to add a new user or group. 
+6. Select a role:  
+	- Can Edit
+	- Can View
+7. Select the users or groups.
+8. Select **OK** to complete the steps.
+
+### View and manage your Logic apps
+
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. In the **All apps** tile, select **Logic apps**:  
+![][8]  
+3. Select a logic app to view details of the app. Make sure you select the correction subscription for PowerApps to  list the correct logic apps:  
+![][7]  
+
+	> [AZURE.IMPORTANT] At public preview, you may see some inconsistency in the count of logic apps in the browsing blade vs. the count displayed on the main PowerApps blade. This is expected. The portal is displaying all logic apps across all hosting plans and not filtering the logic apps under the app service environment deployed for PowerApps. This behavior will be fixed in a future updates.
+
+	**To learn more about Logic apps and how to manage them, see [these instructions](https://azure.microsoft.com/documentation/services/app-service/logic/).**
+
+### View and manage your Web Apps
+
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. In the **All apps** tile, select **Web apps**:  
+![][9]  
+
+	**To learn more about web apps and how to manage them, see [these instructions](https://azure.microsoft.com/documentation/services/app-service/web/).**
+
+### View and manage your Mobile Apps
+
+1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
+2. In the **All apps** tile, select **Mobile apps**:  
+![][10]  
+
+	**To learn more about mobile apps and how to manage them, see [these instructions](https://azure.microsoft.com/documentation/services/app-service/mobile/).**
+
+
+## Review the security options
+Different security methods are used, depending on what you're doing. Here's what you need to know:
+
+- **Subscription administrator**: These administrators control billing and are responsible for signing up your company for PowerApps Enterprise. Only Subscription Administrators can request to enable PowerApps within your company's Azure subscription. 
+
+- **Runtime user access**: There are three different types of runtime user access: 
+	- **App user access**: This permission controls if the user of the app *Can edit* the app or *Can view* the app.
+	- **API user access**: This permissions controls the runtime access. If users have this permission, he or she can use the API in their app. Users either have permission or don't have permission to use the API at runtime. 
+	- **Connection user access**: *Can view* and *Can edit* are the runtime user permissions available for a connection. When you add an API (or connection profile) and create its connection, you grant users and groups these specific permissions:  
+		![][6]  
+
+		For example, you can give the Sales group within your company *Can edit* permission to a connection of a SQL connector API. User with *Can edit* permission will be able to use the connection in their apps as well as edit the connection configuration. User with *Can view* permission will be able to use the connection in their apps but can't modify the connection configuration such as connection string. 
+
+- **Role-based access control** (RBAC): Many Azure offerings use role-based access control to determine who can do what. In PowerApps, RBAC is used in a couple of places:  
+	- When you first enter the PowerApps portal, you can add and manage users who should be administrators of the PowerApps. 
+	- When you create the app service environment, you add users or groups to PowerApps, and you can remove users or groups from PowerApps. For example, you can add specific Administrator groups within your company to the *Owners* role; which allows them to create APIs and connections. These APIs and connections are then added to apps created in PowerApps.
+	- When you add users to apps like Web apps, Logic apps, Mobile apps or Logic apps. You can choose the role for these users.  
 		
-		Adicionar usuários e atribuir funções é como usar o [Controle de acesso baseado em função](../role-based-access-control-configure.md) do Azure. As funções incluem:
+		Adding users and assigning roles is just like using [Role-based access control](../role-based-access-control-configure.md) within Azure. Some roles include:   
 
-		Função | Descrição
+		Role | Description
 		--- | ---
-		Colaborador | Gerencia tudo, exceto a concessão de acesso aos usuários.
-		Leitor | Pode ver tudo, mas não pode fazer alterações
-		Proprietário | Pode gerenciar tudo e conceder acesso a usuários.
+		Contributor | Manages everything except grant access to users.
+		Reader | Can view everything, but can't make any changes.
+		Owner | Can manage everything and grant users access.
 
-Com essas funções, você pode conceder ao usuárioA a permissão **Pode Exibir** para um aplicativo diário do Twitter, e ao usuárioB a permissão **Pode Editar** para o aplicativo ShuttleBus. Você pode conceder acesso ao usuárioB para todas as APIs. Você pode detalhar bastante esses direitos ou adicionar todos a uma função específica. Isso realmente depende de suas necessidades comerciais.
+Using these roles, you can grant userA **Can View** permission to a Twitter daily app and userB **Can Edit** permission to ShuttleBus app. You can grant userB access on all APIs. You can really get granular with these rights or add everyone with a specific role. It really depends on your business needs. 
 
 
-## Resumo e próximas etapas
-Neste tópico, você leu sobre as diferentes opções de gerenciamento de seu PowerApps e os métodos de segurança implementados no PowerApps.
+## Summary and next steps
+In this topic, you read about the different options to manage your PowerApps and the security methods implemented within PowerApps. 
 
-Agora que sua experiência no portal do Azure está configurada, vamos começar a criar seus aplicativos. Estes são bons pontos de partida:
+Now that your Azure portal experience is configured, let's start creating your apps. These are good starters:
 
-- [Criar um aplicativo a partir de um modelo no PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715536) 
-- [Criar um aplicativo a partir de dados no PowerApps](http://go.microsoft.com/fwlink/?LinkId=715539) 
-- [Criar um aplicativo do zero no PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715538)
-
+- [Create an app from a template in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715536) 
+- [Create an app from data in PowerApps](http://go.microsoft.com/fwlink/?LinkId=715539) 
+- [Create an app from scratch in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715538)
+-->
 
 [1]: ./media/powerapps-manage-monitor-usage/addadmin.png
 [2]: ./media/powerapps-manage-monitor-usage/selectrole.png
@@ -166,4 +184,4 @@ Agora que sua experiência no portal do Azure está configurada, vamos começar 
 [9]: ./media/powerapps-manage-monitor-usage/webapps.png
 [10]: ./media/powerapps-manage-monitor-usage/mobileapps.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

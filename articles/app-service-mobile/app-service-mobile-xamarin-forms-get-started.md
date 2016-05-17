@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.topic="hero-article"
+	ms.date="05/06/2016"
 	ms.author="glenga"/>
 
 #Criar um aplicativo Xamarin.Forms
@@ -63,7 +63,7 @@ Se você tiver escolhido uma configuração de back-end .NET acima, também pode
 
 ##Baixar e executar a solução de Xamarin.Forms
 
-Aqui, você tem algumas opções. Você pode baixar a solução em um Mac e abri-la no Xamarin Studio, ou pode baixar a solução para um computador com Windows e abri-la no Visual Studio usando um Mac em rede para compilar o aplicativo para iOS. Novamente, confira [Configuração e instalação para Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx).
+Aqui, você tem algumas opções. Você pode baixar a solução em um Mac e abri-la no Xamarin Studio, ou pode baixar a solução para um computador com Windows e abri-la no Visual Studio usando um Mac em rede para compilar o aplicativo para iOS. Confira [Configuração e instalação do Visual Studio e do Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) se você precisa de instruções mais detalhadas sobre os cenários de instalação do Xamarin.
 
 Vamos continuar:
 
@@ -77,6 +77,7 @@ Vamos continuar:
 	![][9]
 
 	![][8]
+
 
 ##(Opcional) Executar o projeto do iOS
 
@@ -93,13 +94,15 @@ Esta seção trata da execução do projeto do iOS Xamarin para dispositivos iOS
 3. Na caixa de diálogo **Gerenciador de Configurações**, marque as caixas de seleção **Criar** e **Implantar** do projeto do iOS.
 4. Pressione a tecla **F5** para compilar o projeto e iniciar o aplicativo no emulador do iPhone.
 
+	>[AZURE.NOTE] Se você está com dificuldades na criação, execute o gerenciador de pacote NuGet e atualize para a versão mais recente dos pacotes de suporte a Xamarin. Às vezes, os projetos de Início Rápido podem atrasar sua atualização para a versão mais recente.
+
 No aplicativo, digite um texto significativo, como _Saiba mais sobre o Xamarin_ e clique no botão **+**.
 
 ![][10]
 
 Isso envia uma solicitação de POST para o novo back-end de aplicativo móvel hospedado no Azure. Os dados da solicitação são inseridos na tabela TodoItem. Os itens armazenados na tabela são retornados pelo back-end de aplicativo móvel, e os dados são exibidos na lista.
 
-> [AZURE.NOTE]
+>[AZURE.NOTE]
 Você encontrará o código que acessa o back-end do aplicativo móvel no arquivo C# TodoItemManager.cs do projeto de biblioteca de classes móvel da sua solução.
 
 ##(Opcional) Executar o projeto do Android
@@ -112,10 +115,13 @@ Esta seção trata da execução do projeto droid Xamarin para Android. Você po
 2. No menu **Executar**, clique em **Iniciar Depuração** para compilar o projeto e iniciar o aplicativo no emulador do Android.
 
 ####No Visual Studio
-1. Clique com o botão direito do mouse no projeto do Android e clique em **Definir como Projeto de Inicialização**.
+1. Clique com o botão direito do mouse no projeto do Android (Droid) e clique em **Definir como Projeto de Inicialização**.
 4. No menu **Compilar**, clique em **Gerenciador de Configurações**.
 5. Na caixa de diálogo **Gerenciador de Configurações**, marque as caixas de seleção **Criar** e **Implantar** do projeto do Android.
 6. Pressione a tecla **F5** para compilar o projeto e iniciar o aplicativo no emulador do Android.
+
+	>[AZURE.NOTE] Se você está com dificuldades na criação, execute o gerenciador de pacote NuGet e atualize para a versão mais recente dos pacotes de suporte a Xamarin. Às vezes, os projetos de Início Rápido podem atrasar sua atualização para a versão mais recente.
+
 
 No aplicativo, digite um texto significativo, como _Saiba mais sobre o Xamarin_ e clique no botão **+**.
 
@@ -138,6 +144,9 @@ Esta seção trata da execução do projeto WinApp Xamarin para dispositivos Win
 4. No menu **Compilar**, clique em **Gerenciador de Configurações**.
 5. Na caixa de diálogo **Gerenciador de Configurações**, marque as caixas de seleção **Criar** e **Implantar** do projeto do Windows que você escolheu.
 6. Pressione a tecla **F5** para compilar o projeto e iniciar o aplicativo no emulador do Windows.
+
+	>[AZURE.NOTE] Se você está com dificuldades na criação, execute o gerenciador de pacote NuGet e atualize para a versão mais recente dos pacotes de suporte a Xamarin. Às vezes, os projetos de Início Rápido podem atrasar sua atualização para a versão mais recente.
+
 
 No aplicativo, digite um texto significativo, como _Saiba mais sobre o Xamarin_ e clique no botão **+**.
 
@@ -175,4 +184,4 @@ Você encontrará o código que acessa o back-end do aplicativo móvel no arquiv
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

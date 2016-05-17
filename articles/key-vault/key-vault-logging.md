@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/08/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 
 # Logs do Cofre da Chave do Azure #
-O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](../../../../pricing/details/key-vault/).
+O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Introdução  
 Depois de criar um ou mais cofres de chaves, provavelmente você desejará monitorar como e quando os cofres da chave serão acessados e por quem. Você pode fazer isso ao habilitar o log para o Cofre da Chave, que salva as informações em uma conta de armazenamento do Azure fornecida por você. Um novo contêiner chamado **insights-logs-auditevent** é automaticamente criado para a conta de armazenamento especificada e você poderá usar essa mesma conta de armazenamento para a coleta de logs de vários cofres da chave.
@@ -30,7 +30,7 @@ Você pode acessar suas informações de log em até 10 minutos após a operaç�
 Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do Azure, para criar sua conta de armazenamento, para habilitar o log e para interpretar as informações de log coletadas.
 
 
->[AZURE.NOTE]Este tutorial não inclui instruções sobre como criar cofres da chave, chaves ou segredos. Para obter essas informações, confira [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md). Ou, para obter instruções de Interface de linha de comando entre diferentes plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
+>[AZURE.NOTE]  Este tutorial não inclui instruções sobre como criar cofres da chave, chaves ou segredos. Para obter essas informações, confira [Introdução ao Cofre da Chave do Azure](key-vault-get-started.md). Ou, para obter instruções de Interface de linha de comando entre diferentes plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 >
 >No momento, não é possível configurar o Cofre da Chave do Azure no portal do Azure. Em vez disso, use estas instruções do PowerShell do Azure.
 
@@ -73,7 +73,7 @@ Para facilidade de gerenciamento, também usaremos o mesmo grupo de recursos que
 	$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
 
 
->[AZURE.NOTE]Se você decidir usar uma conta de armazenamento existente, ela deverá usar a mesma assinatura do cofre da chave e deverá usar o modelo de implantação do Gerenciador de Recursos em vez do modelo de implantação Clássico.
+>[AZURE.NOTE]  Se você decidir usar uma conta de armazenamento existente, ela deverá usar a mesma assinatura do cofre da chave e deverá usar o modelo de implantação do Gerenciador de Recursos em vez do modelo de implantação Clássico.
 
 ## <a id="identify"></a>Identificar o cofre da chave para seus logs ##
 
@@ -105,8 +105,8 @@ O que é registrado em log:
 - Todas as solicitações de API REST autenticadas são registradas, o que inclui as solicitações que falharam devido a permissões de acesso, erros do sistema ou solicitações inválidas.
 - As operações do próprio cofre da chave, o que inclui a criação, a exclusão, a configuração de políticas de acesso ao cofre da chave e a atualização dos atributos do cofre da chave, como as marcas.
 - As operações em chaves e segredos no cofre da chave, o que inclui criar, modificar ou excluir essas chaves ou segredos; as operações como assinar, verificar, criptografar, descriptografar, encapsular e desencapsular chaves, obter segredos, listar chaves e segredos e suas versões.
+- Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador, estão malformadas ou expiradas ou têm um token inválido.  
 
-As solicitações não autenticadas não são registradas em log.
 
 ## <a id="access"></a>Acessar seus logs ##
 
@@ -271,4 +271,4 @@ Para referências de programação, consulte [Guia do desenvolvedor do Cofre da 
 Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre da Chave do Azure, confira [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0511_2016-->

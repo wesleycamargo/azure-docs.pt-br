@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/28/2016"
+   ms.date="04/20/2016"
    ms.author="cherylmc"/>
 
 # Planejamento e design para o Gateway de VPN
 
-Planejar e projetar suas conexões VNet a VNet e entre locais pode ser muito simples ou complicado, dependendo das suas necessidades de rede.
+Planejar e projetar suas conexões entre redes virtuais e entre locais pode ser muito simples ou bastante complicado, dependendo das suas necessidades de rede. Este artigo traz considerações básicas de design e planejamento.
 
 ## Planejamento
 
@@ -164,4 +164,4 @@ Esta tabela lista o modelo de implantação para o qual o túnel forçado está 
 
 Consulte [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) e [Sobre Gateways de VPN](vpn-gateway-about-vpngateways.md) para obter mais informações para ajudá-lo com seu design. Para obter mais informações sobre topologias de conexão, consulte [Topologias de conexão](vpn-gateway-topology.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

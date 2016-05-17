@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes
@@ -42,6 +42,8 @@ Um volume consiste em uma série de atributos:
 - **Status** – Pode ser online ou offline. Se um volume estiver offline, não é visível para os iniciadores (servidores) que têm permissão de acesso para usar o volume.
 
 - **Capacidade** – Especifica quão grande é o volume, como visto pelo iniciador (servidor). Capacidade especifica a quantidade total de dados que podem ser armazenados pelo iniciador (servidor). Os volumes são provisionados de forma dinâmica e ocorre a eliminação de duplicação de dados. Isso implica que o seu dispositivo não aloca previamente capacidade de armazenamento físico internamente ou em nuvem de acordo com a capacidade de volume configurada. A capacidade de volume é alocada e consumida por demanda.
+
+- **Tipo** – o tipo de volume pode ser em camadas ou de arquivamento (um subtipo do tipo em camadas)
 
 - **Acesso** – Especifica os iniciadores (servidores) que podem acessar este volume. Os iniciadores que não são membros do registro de controle de acesso (ACR) que está associado com o volume não verão o volume.
 
@@ -73,7 +75,7 @@ Você [criou um volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-
 
   1. Digite um **Nome** para o seu volume.
   2. Especifique a **Capacidade Provisionada** para o seu volume em GB ou TB. A capacidade deve ser entre 1 GB e 64 TB para um dispositivo físico. A capacidade máxima que pode ser provisionada para um volume em um dispositivo virtual StorSimple é de 30 TB.
-  3. Na lista suspensa, selecione o **Tipo de Uso** para o seu volume. Se você estiver usando esse volume de dados de arquivamento, marque a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência**. Para todos os outros casos de uso, selecione **Volume em Camadas**. (Volumes em camadas eram chamados anteriormente de volumes primários).
+  3. Selecione o **Tipo de Uso** para o seu volume. Se você estiver usando o volume em camadas para dados de arquivamento, marcar a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** alterará o tamanho do bloco de eliminação de duplicação para o volume para 512 KB. Se você não selecionar esta opção, o volume em camadas correspondente usará um tamanho de bloco de 64 KB. Um tamanho maior de bloco de eliminação de duplicação permite que o dispositivo acelere a transferência de dados de arquivos grandes para a nuvem (volumes em camadas eram chamados de volumes primários).
   5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)para ir para a página **Configurações Adicionais**.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
@@ -105,7 +107,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
 
 4. No assistente Adicionar um volume, em **Configurações Básicas**, você pode fazer o seguinte:
 
-  - Editar o **Nome** e o **Tipo de Aplicativo**.
+  - Edite o **Nome** e o **Tipo** se você quiser modificar um volume em camadas para um volume de arquivamento marcando a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** para alterar o tamanho do bloco de eliminação de duplicação para o volume para 512 KB.
   - Aumentar a **Capacidade Provisionada**. A **Capacidade Provisionada** só pode ser aumentada. Não é possível reduzir um volume depois que ele é criado.
 
     > [AZURE.NOTE] Você não pode alterar o contêiner de volume depois que ele é atribuído a um volume.
@@ -198,4 +200,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

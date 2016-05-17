@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/04/2016" 
+    ms.date="05/04/2016" 
     ms.author="robmcm" />
 
 # Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
@@ -115,8 +115,8 @@ Nesta tarefa, você configura o ACS para reconhecer seu aplicativo web Java como
 3.  Na página **Adicionar aplicativos de terceiras partes confiáveis**, faça o seguinte:
     1.  Em **Nome**, digite o nome do RP. Para fins desse tutorial, digite **Aplicativo Web do Azure**.
     2.  Em **Modo**, selecione **Inserir as configurações manualmente**.
-    3.  Em **Realm**, digite o URI ao qual o token de segurança emitido pelo ACS se aplica. Para essa tarefa, digite * ***http://localhost:8080/**. ![Realm de terceira parte confiável para uso no emulador de computação][relying_party_realm_emulator]
-4.  Em **URL de Retorno,** digite a URL para a qual o ACS retorna o token de segurança. Para essa tarefa, digite ****http://localhost:8080/MyACSHelloWorld/index.jsp** ![A terceira parte confiável retorna a URL para uso no emulador de computação][relying_party_return_url_emulator]
+    3.  Em **Realm**, digite o URI ao qual o token de segurança emitido pelo ACS se aplica. Para essa tarefa, digite * **http://localhost:8080/**. ![Realm de terceira parte confiável para uso no emulador de computação][relying_party_realm_emulator]
+4.  Em **URL de Retorno,** digite a URL para a qual o ACS retorna o token de segurança. Para essa tarefa, digite **http://localhost:8080/MyACSHelloWorld/index.jsp** ![A terceira parte confiável retorna a URL para uso no emulador de computação][relying_party_return_url_emulator]
 5.  Aceite os valores padrão no restante dos campos.
 
 4.  Clique em **Salvar**.
@@ -311,4 +311,4 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

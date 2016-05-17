@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok" />
 
 
@@ -28,7 +28,9 @@ O Stream Analytics é um serviço completamente gerenciado que oferece baixa lat
 
 ## Cenário: detecção de fraudes de telecomunicações e SIM em tempo real
 
-Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa precisa do seguinte de seus dados: *fazer um corte nesses dados para um valor gerenciável e obter informações sobre o uso do cliente ao longo do tempo e por regiões geográficas. *Detectar fraudes SIM (várias chamadas vindas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes) em tempo real para que ela possa responder facilmente, notificando os clientes ou desligando o serviço.
+Uma empresa de telecomunicações tem um grande volume de dados para as chamadas de entrada. A empresa precisa do seguinte de seus dados:
+* Reduzir esses dados a um valor gerenciável e obter informações sobre o uso do cliente ao longo do tempo e as regiões geográficas.
+* Detectar fraudes de SIM (várias chamadas vindas da mesma identidade ao mesmo tempo, mas em locais geograficamente diferentes) em tempo real para que possam responder facilmente notificando os clientes ou desligando o serviço.
 
 Nos cenários da Internet das Coisas (IoT) canônica onde há uma tonelada de telemetria ou dados de sensor que estão sendo gerados – e os clientes desejam agregá-los ou alertar sobre anomalias em tempo real.
 
@@ -127,7 +129,7 @@ Agora que temos um fluxo de eventos de telecomunicações, podemos configurar um
 O Stream Analytics oferece suporte a um modelo de consulta simples e declarativo para descrever as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial o ajudará a criar e testar várias consultas sobre o fluxo de dados em tempo real de chamada.
 
 #### Opcional: Dados de entrada de exemplo
-Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso e também fornecemos um arquivo [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) de exemplo para teste.
+Para validar sua consulta em relação aos dados do trabalho real, você pode usar o recurso de **Dados de Exemplo** para extrair eventos de seu fluxo e criar um arquivo .JSON dos eventos para teste. As etapas a seguir mostram como fazer isso, e também fornecemos um arquivo [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) de exemplo para teste.
 
 1.	Selecione a entrada do seu Hub de Eventos e clique em **Dados de exemplo** na parte inferior da página.
 2.	Na caixa de diálogo que será exibida, especifique uma **Hora de Início** para iniciar a coleta de dados e uma **Duração** para indicar quantos dados extras devem ser consumidos.
@@ -147,7 +149,7 @@ Se deseja arquivar todos os eventos, você pode usar uma consulta de passagem pa
 	> Certifique-se de que o nome da fonte de entrada corresponde ao nome da entrada que você especificou anteriormente.
 
 3.	Clique em **Teste** no editor de consultas.
-4.	Forneça um arquivo de teste, que poderá ser o criado nas etapas anteriores, ou use [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Forneça um arquivo de teste, que poderá ser o criado nas etapas anteriores, ou use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Clique no botão verificar e veja o resultado exibido abaixo da definição de consulta.
 
 	![Resultados da definição de consulta](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -257,4 +259,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="05/03/2016" 
 	ms.author="luisca"/>
 
 # Recomendações do Aprendizado da Máquina do Azure - Integração do JavaScript
@@ -22,7 +22,7 @@ Este documento descreve como integrar seu site usando o JavaScript. O JavaScript
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##1. Visão geral
+##1\. Visão geral
 Integrando seu site com o AM do Azure As recomendações consistem em duas fases:
 
 1.	Enviar Eventos para as Recomendações do AM do Azure. Isso permitirá criar um modelo de recomendação.
@@ -39,21 +39,21 @@ Na primeira fase, você insere em suas páginas html uma pequena biblioteca Java
 
 Na segunda fase, quando você quiser mostrar as recomendações na página, selecione uma das opções a seguir:
 
-1. Seu servidor (na fase de renderização da página) chama o Servidor de Recomendações do AM do Azure (via Data Market) para obter recomendações. Os resultados incluem uma lista de id de itens. Seu servidor precisa enriquecer os resultados com os Metadados dos itens (por exemplo, imagens, descrição) e enviar a página criada para o navegador.
+1\. Seu servidor (na fase de renderização da página) chama o Servidor de Recomendações do AM do Azure (via Data Market) para obter recomendações. Os resultados incluem uma lista de id de itens. Seu servidor precisa enriquecer os resultados com os Metadados dos itens (por exemplo, imagens, descrição) e enviar a página criada para o navegador.
 
 ![Desenho2][2]
 
-2. A outra opção é usar o pequeno arquivo JavaScript da fase 1 para obter uma lista simples de itens recomendados. Os dados recebidos aqui serão mais enxutos que na primeira opção.
+2\. A outra opção é usar o pequeno arquivo JavaScript da fase 1 para obter uma lista simples de itens recomendados. Os dados recebidos aqui serão mais enxutos que na primeira opção.
 
 ![Desenho3][3]
 
-##2. Pré-requisitos
+##2\. Pré-requisitos
 
 1. Crie um novo modelo usando as APIs. Consulte o Guia de início rápido sobre como fazer isso.
 2. Codifique o & lt; dataMarketUser & gt;: & lt; dataMarketKey & gt; com a base64. (Isso será usado para a autenticação básica para ativar o código JS para chamar as APIs).
 
 
-##3. Enviar eventos de Aquisição de Dados usando o JavaScript
+##3\. Enviar eventos de Aquisição de Dados usando o JavaScript
 As etapas a seguir facilitam o envio de eventos:
 
 1.	Inclua a biblioteca JQuery em seu código. Você pode baixá-la do nuget na URL a seguir.
@@ -78,20 +78,20 @@ As etapas a seguir facilitam o envio de eventos:
 		</script>
 
 
-###3.1. Limitações e Suporte ao Navegador
+###3\.1. Limitações e Suporte ao Navegador
 Isso é uma implementação de referência e é fornecida como está. Deve oferecer suporte a todos os principais navegadores.
 
-###3.2. Tipo de Eventos
+###3\.2. Tipo de Eventos
 Há cinco tipos de evento que a biblioteca suporta: Clicar, Clique de Recomendação, Adicionar ao Carrinho de Compras, Remover do Carrinho de Compras e Comprar. Há um outro evento que é usado para definir o contexto do usuário chamado Logon.
 
-####3.2.1. Evento Clicar
+####3\.2.1. Evento Clicar
 Esse evento deve ser usado sempre que um usuário clicou em um item. Normalmente, quando o usuário clica em um item, uma nova página é aberta com os detalhes do item; nessa página, o evento deve ser inicializado.
 
-Parâmetros: 
-- evento (cadeia de caracteres, obrigatório) – "click" 
-- item (cadeia de caracteres, obrigatório) – Identificador exclusivo do item 
-- itemName (cadeia de caracteres, opcional) – o nome do item 
-- itemDescription (cadeia de caracteres, opcional) – a descrição do item 
+Parâmetros:
+- evento (cadeia de caracteres, obrigatória) – “clique”
+- item (cadeia de caracteres, obrigatória) – Identificador exclusivo do item
+- itemName (cadeia de caracteres, opcional) – o nome do item
+- itemDescription (cadeia de caracteres, opcional) – a descrição do item
 - itemCategory (cadeia de caracteres, opcional) – a categoria do item
 		
 		<script>
@@ -107,17 +107,17 @@ Ou com dados opcionais:
 		</script>
 
 
-####3.2.2. Evento do Clique de Recomendação
+####3\.2.2. Evento do Clique de Recomendação
 Esse evento deve ser usado sempre que um usuário clicou em um item que foi recebido das Recomendações do AM do Azure como um item recomendado. Normalmente, quando o usuário clica em um item, uma nova página é aberta com os detalhes do item; nessa página, o evento deve ser inicializado.
 
 Parâmetros:
-- evento (cadeia de caracteres, obrigatório) – "recommendationclick"
-- item (cadeia de caracteres, obrigatório) – Identificador exclusivo do item
+- evento (cadeia de caracteres, obrigatória) – “recommendationclick”
+- item (cadeia de caracteres, obrigatória) – Identificador exclusivo do item
 - itemName (cadeia de caracteres, opcional) – o nome do item
 - itemDescription (cadeia de caracteres, opcional) – a descrição do item
 - itemCategory (cadeia de caracteres, opcional) – a categoria do item
-- propaga (matriz da cadeia de caracteres, opcional) – as propagações que geraram a consulta de recomendação.
-- recoList (matriz da cadeia de caracteres. opcional) – o resultado da solicitação de recomendação que gerou o item clicado.
+- sementes (matriz de cadeia de caracteres, opcional) – as sementes que geraram a consulta de recomendação.
+- recoList (matriz de cadeia de caracteres, opcional) – o resultado da solicitação da recomendação que gerou o item que foi clicado.
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -132,13 +132,13 @@ Ou com dados opcionais:
 		</script>
 
 
-####3.2.3. Evento Adicionar ao Carrinho de Compras
+####3\.2.3. Evento Adicionar ao Carrinho de Compras
 Esse evento deve ser usado quando o usuário adiciona um item ao carrinho de compras. 
-Parâmetros: 
-* evento (cadeia de caracteres, obrigatório) – "addshopcart" 
-* item (cadeia de caracteres, obrigatório) – Identificador exclusivo do item 
-* itemName (cadeia de caracteres, opcional) – o nome do item 
-* itemDescription (cadeia de caracteres, opcional) – a descrição do item 
+Parâmetros:
+* evento (cadeia de caracteres, obrigatória) – “addshopcart”
+* item (cadeia de caracteres, obrigatória) – Identificador exclusivo do item
+* itemName (cadeia de caracteres, opcional) – o nome do item
+* itemDescription (cadeia de caracteres, opcional) – a descrição do item
 * itemCategory (cadeia de caracteres, opcional) – a categoria do item
 		
 		<script>
@@ -146,14 +146,14 @@ Parâmetros:
 			AzureMLRecommendationsEvent.push({event: "addshopcart", item: "13221118" });
 		</script>
 
-####3.2.4. Evento Remover do Carrinho de Compras
+####3\.2.4. Evento Remover do Carrinho de Compras
 Esse evento deve ser usado quando o usuário remove um item do carrinho de compras.
 
-Parâmetros: 
-* evento (cadeia de caracteres, obrigatório) – "removeshopcart" 
-* item (cadeia de caracteres, obrigatório) – Identificador exclusivo do item 
-* itemName (cadeia de caracteres, opcional) – o nome do item 
-* itemDescription (cadeia de caracteres, opcional) – a descrição do item 
+Parâmetros:
+* evento (cadeia de caracteres, obrigatória) – “removeshopcart”
+* item (cadeia de caracteres, obrigatória) – Identificador exclusivo do item
+* itemName (cadeia de caracteres, opcional) – o nome do item
+* itemDescription (cadeia de caracteres, opcional) – a descrição do item
 * itemCategory (cadeia de caracteres, opcional) – a categoria do item
 		
 		<script>
@@ -161,16 +161,16 @@ Parâmetros:
 			AzureMLRecommendationsEvent.push({ event: "removeshopcart", item: "111118" });
 		</script>
 
-####3.2.5. Evento Comprar
+####3\.2.5. Evento Comprar
 Esse evento deve ser usado quando o usuário comprou o carrinho de compras.
 
 Parâmetros:
-* evento (cadeia de caracteres) – "purchase"
-* itens ( Comprado) – A matriz contém uma entrada para cada item comprado.<br><br>
-Formato da compra:
+* evento (cadeia de caracteres) – “adquirir”
+* itens (adquiridos[] ) – A matriz que contém uma entrada para cada item adquirido.<br><br>
+Formato adquirido:
 	* item (cadeia de caracteres) - Identificador exclusivo do item.
-	* count (int ou cadeia de caracteres) – o número de itens comprados.
-	* preço (float ou cadeia de caracteres) – campo opcional – o preço do item.
+	* contagem (int ou cadeia de caracteres) – número de itens que foram adquiridos.
+	* preço (flutuante ou cadeia de caracteres) – campo opcional – o preço do item.
 
 O exemplo abaixo mostra a compra de três itens (33, 34, 35), dois com todos os campos preenchidos (item, contagem, preço) e outro (item 34) sem um preço.
 
@@ -179,35 +179,35 @@ O exemplo abaixo mostra a compra de três itens (33, 34, 35), dois com todos os 
 			AzureMLRecommendationsEvent.push({ event: "purchase", items: [{ item: "33", count: "1", price: "10" }, { item: "34", count: "2" }, { item: "35", count: "1", price: "210" }] });
 		</script>
 
-####3.2.6. Evento Logon do Usuário
+####3\.2.6. Evento Logon do Usuário
 A biblioteca Evento de Recomendações do AM do Azure cria e usa um cookie para identificar os eventos que vieram do mesmo navegador. Para melhorar os resultados do modelo, as Recomendações do AM do Azure permitem definir uma identificação exclusiva do usuário que substituirá o uso do cookie.
 
 Esse evento deve ser usado após o logon do usuário em seu site.
 
 Parâmetros:
-* evento (cadeia de caracteres) – "userlogin" 
-* usuário (cadeia de caracteres) – a identificação exclusiva do usuário.
+* evento (cadeia de caracteres) – “userlogin”
+* usuário (cadeia de caracteres) – identificação exclusiva do usuário.
 		<script>
 			se (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
 			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
 		</script>
 
-##4. Usar Recomendações via JavaScript
+##4\. Usar Recomendações via JavaScript
 O código que usa a recomendação é inicializado por um evento JavaScript pela página da Web do cliente. A resposta de recomendação inclui as Ids dos itens recomendados, seus nomes e suas classificações. É melhor usar essa opção apenas para exibir uma lista dos itens recomendados – uma manipulação mais complexa (como adicionar os metadados do item) deve ser feita na integração no lado do servidor.
 
-###4.1 Usar as Recomendações
+###4\.1 Usar as Recomendações
 Para usar recomendações, você precisa incluir as bibliotecas JavaScript necessárias em sua página e chamar AzureMLRecommendationsStart. Consulte a seção 2.
 
 Para usar as recomendações para um ou mais itens, você precisa chamar um método denominado: AzureMLRecommendationsGetI2IRecommendation.
 
 Parâmetros:
-* itens (matriz de cadeias de caracteres) – um ou mais itens para os quais obter recomendações. Se você usar uma compilação Fbt, então, você pode definir aqui somente um item.
-* numberOfResults (int) – o número de resultados necessários.
-* includeMetadata (booleano, opcional) – se definido para 'true', indica que o campo dos metadados deve ser preenchido no resultado.
-* Função de processamento – uma função que lidará com as recomendações retornadas. Os dados são retornados como uma matriz de:
-	* Item – a id exclusivo do item
-	* nome – o nome de item (se existir no catálogo)
-	* classificação – a classificação da recomendação
+* itens (matriz de cadeias de caracteres) – Um ou mais itens para os quais obter recomendações. Se você consumir um build Fbt, você poderá, então, definir somente um item aqui.
+* numberOfResults (int) – número de resultados necessários.
+* includeMetadata (booliano, opcional) – se estiver definido como ‘true’, indicará que o campo de metadados deverá ser preenchido no resultado.
+* Função de processamento – uma função que manipulará as recomendações retornadas. Os dados são retornados como uma matriz de:
+	* Item – ID exclusiva do item
+	* nome – nome de item (se existir no catálogo)
+	* classificação – classificação da recomendação
 	* metadados – uma cadeia de caracteres que representa os metadados do item
 
 Exemplo: O código a seguir solicita oito recomendações para o item "64f6eb0d-947a-4c18-a16c-888da9e228ba" (e não especificando includeMetadata – informa implicitamente que nenhum metadado é necessário), então, concatena os resultados em um buffer.
@@ -228,4 +228,4 @@ Exemplo: O código a seguir solicita oito recomendações para o item "64f6eb0d-
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

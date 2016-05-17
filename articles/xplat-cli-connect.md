@@ -31,7 +31,7 @@ Há duas formas de se conectar à sua assinatura da CLI do Azure:
 
 Para obter informações sobre identidades de outra conta e sobre as assinaturas do Azure, confira [Como as assinaturas do Azure como são associadas ao Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
-## Usar o logon do Azure para autenticar interativamente por meio de um portal da Web
+## Usar o logon do Azure para autenticar interativamente
 
 Use o comando `azure login` – sem nenhum argumento – para autenticar de modo interativo com:
 
@@ -54,7 +54,7 @@ Copie o código oferecido, acima, e abra um navegador em http://aka.ms/devicelog
 	+
 	info:    login command OK
 
-## Usar o logon do Azure com o nome de usuário e senha de uma conta organizacional
+## Usar o logon do Azure com um nome de usuário e senha
 
 
 Use o comando `azure login` com um parâmetro de nome de usuário ou com um nome de usuário e uma senha para autenticação quando você deseja usar uma conta corporativa ou de estudante que não exija autenticação multifator. O exemplo a seguir passa o nome de usuário de uma conta organizacional:
@@ -76,7 +76,7 @@ Se essa for a primeira vez fazendo logon com essas credenciais, você será soli
 
 Se você criou uma entidade de serviço para um aplicativo do Active Directory e a entidade de serviço tem permissões em sua assinatura, você pode usar o comando `azure login` para autenticar a entidade de serviço. Dependendo do cenário, você pode fornecer as credenciais da entidade de serviço como parâmetros explícitos do comando `azure login` ou por meio de um script CLI ou código de aplicativo. Você também pode usar um certificado para autenticar a entidade de serviço não interativa para cenários de automação. Para obter detalhes e exemplos, confira [Autenticar uma entidade de serviço com o Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
-## Usar o método do arquivo de configurações de publicação
+## Usar um arquivo de configurações de publicação
 
 Se você precisa apenas usar os comandos CLI do modo Gerenciamento de Serviços do Azure, é possível conectar usando um arquivo de configurações de publicação.
 
@@ -122,13 +122,13 @@ Uma vez conectado à sua assinatura do Azure, você pode começar a usar os coma
 
 A CLI do Azure fornece dois modos de comando para trabalhar com recursos do Azure, com vários conjuntos de comandos:
 
-* **Modo Azure Resource Manager** - para trabalhar com recursos do Azure no modelo de implantação do Resource Manager. Para definir esse modo, execute `azure config mode arm`.
+* **Modo do Gerenciador de Recursos** - para trabalhar com recursos do Azure no modelo de implantação do Gerenciador de Recursos. Para definir esse modo, execute `azure config mode arm`.
 
-* **Modo Gerenciamento de Serviços do Azure** - para trabalhar com recursos do Azure no modelo de implantação clássico. Para definir esse modo, execute `azure config mode asm`.
+* **Modo Gerenciamento de Serviços** - para trabalhar com recursos do Azure no modelo de implantação clássico. Para definir esse modo, execute `azure config mode asm`.
 
 Quando instalada inicialmente, a CLI estará no modo Gerenciamento de Serviços.
 
->[AZURE.NOTE]O modo do Gerenciador de Recursos do Azure e o modo do Gerenciamento de Serviços do Azure são mutuamente exclusivos. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
+>[AZURE.NOTE]O modo do Gerenciador de Recursos e o modo do Gerenciamento de Serviços são mutuamente excludentes. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
 
 ## Armazenamento de configurações da CLI
 
@@ -147,10 +147,10 @@ Para fazer logoff, use o seguinte comando:
 Se as assinaturas associadas à conta forem autenticadas apenas com o Active Directory, o logoff excluirá as informações da assinatura do perfil local. No entanto, se um arquivo de configurações de publicação também tiver sido importado para as assinaturas, o logoff excluirá apenas as informações relacionadas ao Active Directory do perfil local.
 ## Próximas etapas
 
-* Para usar os comandos da CLI do Azure, confira [Comandos da CLI do Azure no modo Azure Resource Manager](./virtual-machines/azure-cli-arm-commands.md) e [comandos de CLI do Azure no modo Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md).
+* Para usar os comandos da CLI do Azure, confira [Comandos da CLI do Azure no modo do Gerenciador de Recursos](./virtual-machines/azure-cli-arm-commands.md) e [comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md).
 
 * Para saber mais sobre a CLI do Azure, baixar o código-fonte, relatar problemas ou colaborar com o projeto, visite o [Repositório GitHub para a CLI do Azure](https://github.com/azure/azure-xplat-cli).
 
 * Se tiver problemas ao usar a CLI do Azure ou o Azure, visite os [Fóruns do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

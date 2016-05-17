@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # Gerenciar Cofre da Chave usando a CLI #
@@ -31,7 +31,6 @@ Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure par
 Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 
 ## Pré-requisitos
-
 Para concluir este tutorial, você precisará do seguinte:
 
 - Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](../../../pricing/free-trial).
@@ -106,6 +105,12 @@ Ao usar o Gerenciador de Recursos do Azure, todos os recursos relacionados são 
 
 O primeiro parâmetro é o nome do grupo de recursos e o segundo parâmetro é o local. Para o local, use o comando `azure location list` para identificar como especificar um local alternativo ao deste exemplo. Se precisar de mais informações, digite: `azure help location`
 
+## Registrar o provedor de recursos do Cofre de Chaves
+Verifique se o provedor de recursos do Cofre de Chaves está registrado em sua assinatura:
+
+`azure provider register Microsoft.KeyVault`
+
+Isso só precisa ser feito uma vez por assinatura.
 
 
 ## Criar um cofre de chave
@@ -187,6 +192,8 @@ Por exemplo, se o nome do cofre for ContosoKeyVault e o aplicativo que você que
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
+>[AZURE.NOTE] Se você estiver executando no prompt de comando do Windows, será necessário substituir aspas por aspas duplas e também inserir escape nas aspas duplas internas. Por exemplo: “["decrypt","sign"]”.
+
 Se você deseja autorizar que o mesmo aplicativo leia segredos em seu cofre, execute o seguinte:
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
@@ -256,4 +263,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

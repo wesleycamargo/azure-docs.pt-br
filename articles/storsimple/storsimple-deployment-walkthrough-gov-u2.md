@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Implantar seu dispositivo StorSimple local no Portal do governo (Atualização 2)
@@ -234,13 +234,13 @@ Multipath I/O (MPIO) é um recurso opcional e não é instalado no Windows Serve
 
 Para obter instruções de instalação do MPIO para um dispositivo do StorSimple conectado a um host do Linux, vá para [Configurar o MPIO para seu host do Linux](storsimple-configure-mpio-on-linux.md).
 
-> [AZURE.NOTE] Não há suporte para MPIO em um dispositivo virtual StorSimple.
+> [AZURE.NOTE] Não há suporte para MPIO em um dispositivo virtual StorSimple no Azure.
 
 ## Próximas etapas
 
-- Configurar um [dispositivo virtual](storsimple-virtual-device.md).
+- Configurar um [dispositivo virtual](storsimple-virtual-device-u2.md).
 
 - Use o [Serviço StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) para gerenciar o seu dispositivo StorSimple.
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

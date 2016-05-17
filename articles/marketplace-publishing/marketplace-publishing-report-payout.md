@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/03/2016"
    ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Entenda os relatórios de pagamento do Azure Marketplace
@@ -22,9 +22,13 @@
 
 Enquanto fazemos a transição para o Centro de Desenvolvimento, é possível que alguns dos seus relatórios de pagamento estejam disponíveis no Centro de Desenvolvimento em https://dev.windows.com/pt-BR; já outros ainda podem ser acessados no Portal de Publicação em https://publish.windowsazure.com.
 
-O relatório de pagamento agora estará disponível no **Centro de Desenvolvimento** para todas as ofertas do Marketplace associadas a pagamentos modernos. Isso inclui: - VMs - ofertas B + C - Serviços de dados e de desenvolvimento oferecidos no EA
+O relatório de pagamento estará disponível no **Centro de Desenvolvimento** para qualquer oferta do Marketplace que estiver associada a pagamentos modernos. Atualmente, isso inclui:
+- VMs
+- Ofertas de B + C
+- Dados e desenvolvimento de serviços oferecidos em EA
 
-O relatório de pagamento ainda estará no **Portal de Publicação** para: - Serviços oferecidos no Web Direct (que ainda usa o sistema de pagamento herdado).
+O relatório de pagamento ainda estará no **Portal de publicação** para:
+- Dados e desenvolvimento de serviços oferecidos no Web Direct (que ainda usa o sistema de pagamento herdado).
 
 Os relatórios estarão disponíveis 45 dias após o encerramento do trimestre e serão calculados após quaisquer reembolsos.
 
@@ -72,7 +76,7 @@ O relatório de pagamento para cada trimestre registra todas as transações que
 O relatório de pagamento para cada trimestre registra todas as transações que ocorreram dentro desse trimestre.
 
 - Se você estiver procurando por entradas do razão relacionadas a um trimestre específico, selecione o relatório de pagamento por trimestre na lista suspensa. Por exemplo, se você estiver interessado em entradas de razão de abril a junho de 2015, selecione o intervalo de datas na lista suspensa.
-- Se você estiver procurando por detalhes de pagamentos relacionados a um trimestre específico, selecione o relatório de pagamento para o trimestre subsequente. Por exemplo, se você estiver interessado nos pagamentos de abril a junho de 2015, esses valores aparecerão no relatório de pagamento depois de julho a setembro de 2015. ![readingpayoutreport][6]
+- Se você estiver procurando por detalhes de pagamentos relacionados a um trimestre específico, selecione o relatório de pagamento para o trimestre subsequente. Por exemplo, se você estiver interessado nos pagamentos de abril a junho de 2015, esses valores aparecerão no relatório de pagamento subsequente de julho a setembro de 2015. ![readingpayoutreport][6]
 
 - O painel de resumo financeiro mostra saldos, débitos e créditos por categoria.
 - Entradas da razão mostram transações individuais.
@@ -112,4 +116,4 @@ Para outras consultas de suporte, registre um problema em <https://portal.azure.
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

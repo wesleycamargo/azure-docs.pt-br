@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="05/06/2016"
 	ms.author="sethm"/>
 
 
@@ -25,7 +25,7 @@ Este artigo descreve como usar o serviço de Retransmissão do Barramento de Ser
 
 ## O que é a Retransmissão de Service Bus?
 
-O serviço de [*retransmissão* do Barramento de Serviço](service-bus-relay-overview.md) permite a compilação de aplicativos híbridos que executem tanto no datacenter do Azure quanto em seu próprio ambiente corporativo local. A retransmissão do Barramento de Serviço facilita isso permitindo que você exiba com segurança os serviços da Windows Communication Foundation (WCF) que residem em uma rede corporativa para a nuvem pública, sem precisar abrir uma conexão de firewall ou exigir mudanças intrusivas em uma infraestrutura de rede corporativa.
+O serviço de [*retransmissão* do Barramento de Serviço](service-bus-relay-overview.md) permite a compilação de aplicativos híbridos que executem tanto no datacenter do Azure quanto em seu próprio ambiente corporativo local. A retransmissão do Barramento de Serviço facilita isso permitindo que você exponha com segurança os serviços do Windows Communication Foundation (WCF) que residem em uma rede corporativa para a nuvem pública, sem precisar abrir uma conexão de firewall ou exigir mudanças intrusivas em uma infraestrutura da rede corporativa.
 
 ![Conceitos de retransmissão](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
@@ -35,7 +35,7 @@ Este artigo demonstra como usar a retransmissão do Barramento de Serviço para 
 
 ## Criar um namespace de serviço
 
-Para começar a usar a retransmissão de Barramento de serviço do Azure, você deve primeiro criar um namespace do serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
+Para começar a usar a retransmissão do Barramento de Serviço, primeiro você deve criar um namespace. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
 Para criar um namespace de serviço:
 
@@ -75,9 +75,7 @@ Para realizar operações de gerenciamento, como a criação de uma conexão de 
 
 ## Obtenha o pacote do NuGet do Barramento de Serviço
 
-O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
-
-Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
+O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 
 1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
 2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo a seguir.
@@ -265,8 +263,8 @@ As definições de ponto de extremidade são movidas para o arquivo App.config. 
 
 Agora que você já aprendeu os conceitos básicos do serviço de retransmissão do Barramento de Serviço, siga estes links para saber mais.
 
+- [Visão geral do sistema de mensagens de retransmissão](service-bus-relay-overview.md)
 - [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
-- [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 - Baixe exemplos de Barramento de Serviço dos [exemplos do Azure][] ou consulte a [visão geral dos exemplos de Barramento de Serviço][].
 
   [portal clássico do Azure]: http://manage.windowsazure.com
@@ -274,4 +272,4 @@ Agora que você já aprendeu os conceitos básicos do serviço de retransmissão
   [exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [visão geral dos exemplos de Barramento de Serviço]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

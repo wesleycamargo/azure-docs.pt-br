@@ -14,11 +14,35 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/03/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
+
+## Notas da versão de 11/04/2016 do HDInsight
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight (Windows) 2.1.10.889.2191206 (HDP 1.3.12.0-01795 - inalterado)
+* HDInsight (Windows) 3.0.6.889.2191206 (HDP 2.0.13.0-2117 - inalterado)
+* HDInsight (Windows) 3.1.4.889.2191206 (HDP 2.1.15.0-2374 - inalterado)
+* HDInsight (Windows) 3.2.7.889.2191206 (HDP 2.2.9.1-10)
+* HDInsight (Windows) 3.3.0.889.2191206 (HDP 2.3.3.1-16 - inalterado)
+* HDInsight (Linux) 3.2.1000.0.7339916 (HDP 2.2.9.1-10)
+* HDInsight (Linux) 3.3.1000.0.7339916 (HDP 2.3.3.1-16)
+* HDInsight (Linux) 3.3.1000.0.7338911 (HDP 2.4.1.1-3)
+* SDK 1.5.8
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Problemas de atualização de metastore personalizado do HDI 3.4 | A criação de cluster falhará se você tiver usado um metastore personalizado, que foi usado anteriormente em uma versão inferior de outro cluster HDInsight. Isso ocorreu devido a um erro de script de atualização que agora foi corrigido| Criação do cluster | Todos | N/D
+| Recuperação de pane do Livy | Fornece resiliência de status do trabalho para qualquer trabalho enviado por meio do Livy | Confiabilidade | Spark no Linux| N/D
+| HA de conteúdo do Jupyter | Fornece a capacidade de salvar o conteúdo do Jupyter Notebook na conta de armazenamento associada ao cluster e carregar esse conteúdo da conta. Para obter mais informações, confira [Kernels disponíveis para notebooks Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md).| Blocos de anotações | Spark no Linux| N/D
+| Remoção de hiveContext de Jupyter Notebooks | Use a mágica `%%sql` em vez da mágica `%%hive`. SqlContext é equivalente a hiveContext. Para obter mais informações, confira [Kernels disponíveis para notebooks Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md)| Blocos de anotações | Clusters do Spark no Linux| N/D
+| Substituição de versões mais antigas do Spark | A versão mais antiga Spark 1.3.1 será removida do serviço em 31/5 | O Barramento de | Clusters do Spark no Linux | N/D
 
 ## Notas da versão de 29/03/2016 do HDInsight
 
@@ -38,8 +62,8 @@ Esta versão contém as atualizações a seguir.
 
 | Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Versão do HDInsight 3.4 adicionada e versões atualizadas do HDP para todos os clusters do HDInsight | Com esta versão, adicionamos o HDInsight v3.4 (baseado no HDP 2.4) e também atualizamos outras versões do HDP. As notas de versão do HDP 2.4 estão disponíveis [aqui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) e mais informações sobre as versões do HDInsight podem ser encontradas [aqui](hdinsight-component-versioning.md).| O Barramento de | Todos os clusters do Linux| N/D
-| HDInsight Premium | O HDInsight agora está disponível em duas categorias - Standard e Premium. O HDInsight Premium está atualmente em Preview e disponível apenas para os clusters Hadoop e Spark no Linux. Para obter mais informações, veja [aqui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| O Barramento de | Hadoop e Spark no Linux| N/D
+| Versão do HDInsight 3.4 adicionada e versões atualizadas do HDP para todos os clusters do HDInsight | Com esta versão, adicionamos o HDInsight v3.4 (baseado no HDP 2.4) e também atualizamos outras versões do HDP. As notas de versão do HDP 2.4 estão disponíveis [aqui](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html) e mais informações sobre versões do HDInsight podem ser encontradas [aqui](hdinsight-component-versioning.md).| O Barramento de | Todos os clusters do Linux| N/D
+| HDInsight Premium | O HDInsight agora está disponível em duas categorias - Standard e Premium. O HDInsight Premium está atualmente em Preview e disponível apenas para os clusters Hadoop e Spark no Linux. Para obter mais informações, clique [aqui](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).| O Barramento de | Hadoop e Spark no Linux| N/D
 | Servidor R da Microsoft | O HDInsight Premium fornece o Servidor R da Microsoft, que pode ser incluído nos clusters Hadoop e Spark no Linux. Para obter mais informações, confira [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md) (Visão geral do Servidor R no HDInsight).| O Barramento de | Hadoop e Spark no Linux| N/D
 | Spark 1.6.0 | Os clusters do HDInsight 3.4 agora incluem o Spark 1.6.0| O Barramento de | Clusters do Spark no Linux| N/D
 | Aprimoramentos do Bloco de notas Jupyter | Os blocos de notas Jupyter disponíveis com os clusters do Spark agora fornecem kernels adicionais do Spark. Eles também incluem aprimoramentos, como o uso de %%magic, a visualização automática e a integração com bibliotecas de visualização do Python (como matplotlib). Para obter mais informações, confira [Kernels disponíveis para notebooks Jupyter](hdinsight-apache-spark-jupyter-notebook-kernels.md). | O Barramento de | Clusters do Spark no Linux | N/D
@@ -174,7 +198,7 @@ Esta versão contém as atualizações a seguir.
 | Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
 | Versão do HDP padrão alterado para HDP 2.2 | A versão padrão para clusters HDInsight do Windows foi alterada para HDP 2.2. O HDInsight versão 3.2 (HDP 2.2) está disponível desde fevereiro de 2015. Essa alteração só inverte a versão padrão do cluster quando uma seleção explícita não é feita durante o provisionamento de cluster usando o portal do Azure, cmdlets do PowerShell ou o SDK. | O Barramento de | Todos| N/D |
-|Alterações no formato de nome de VM para a implantação de vários HDInsight em clusters Linux em uma única rede virtual | O suporte para a implantação de vários clusters HDInsight Linux em uma única rede virtual está sendo adicionado nesta versão. Como parte disso, o formato de nomes de máquina virtual do cluster foi alterado de headnode * workernode * e zookeepernode para * hn * *wn e zk *, respectivamente. Não é uma prática recomendada formar uma dependência direta do formato de nomes de máquina virtual, já que isso está sujeito a alterações. Use "hostname -f" no computador local ou nas APIs Ambari para determinar a lista de hosts e o mapeamento de componentes para hosts. Você pode encontrar mais informações em [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) and [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | O Barramento de | Clusters HDInsight no Linux | N/D |
+|Alterações no formato de nome de VM para a implantação de vários HDInsight em clusters Linux em uma única rede virtual | O suporte para a implantação de vários clusters HDInsight Linux em uma única rede virtual está sendo adicionado nesta versão. Como parte disso, o formato de nomes de máquina virtual do cluster foi alterado de headnode\* workernode\* e zookeepernode\* para hn\* wn\* e zk\*, respectivamente. Não é uma prática recomendada formar uma dependência direta do formato de nomes de máquina virtual, já que isso está sujeito a alterações. Use "hostname -f" no computador local ou nas APIs Ambari para determinar a lista de hosts e o mapeamento de componentes para hosts. Você pode encontrar mais informações em [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) and [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | O Barramento de | Clusters HDInsight no Linux | N/D |
 | Alterações de configuração | Para clusters HDInsight 3.1, agora as configurações a seguir estão habilitadas: <ul><li>tez.yarn.ats.enabled e yarn.log.server.url. Isso permite que o Servidor de Linha do Tempo do Aplicativo e o servidor de Log possam servir logs.</li></ul>Para clusters HDInsight 3.2, as seguintes configurações foram modificadas: <ul><li>mapreduce.fileoutputcommitter.algorithm.version foi definida como 2. Isso permite o uso da versão V2 do FileOutputCommitter.</li></ul> | O Barramento de | Todos | N/D |
 
 
@@ -1499,7 +1523,7 @@ As mudanças de versão a seguir foram feitas entre o HDInsight 2.x (HDP1.x) e o
 
 
 ### Drivers
-O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](hdinsight-connect-excel-hive-odbc-driver.md).
+O driver JDBC (conectividade de banco de dados Java) do SQL Server é usado internamente pelo HDInsight e não é usado para operações externas. Se você desejar se conectar ao HDInsight usando o ODBC (conectividade aberta de banco de dados), use o driver ODBC do Microsoft Hive. Para obter mais informações, consulte [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Correções de bug
@@ -1541,4 +1565,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/16/2016" 
+	ms.date="05/10/2016" 
 	ms.author="billmath"/>
 
 # Introdução ao Servidor Azure Multi-Factor Authentication
@@ -71,7 +71,7 @@ Agora que já baixou o servidor, você pode instalá-lo e configurá-lo. Certifi
 Requisitos do Servidor Azure Multi-Factor Authentication|Descrição|
 :------------- | :------------- | 
 Hardware|<li>200 MB de espaço em disco</li><li>processador com capacidade de x32 ou x64</li><li> 1 GB de RAM ou mais</li>
-Software|<li>Windows Server 2003 ou posterior, se o host for um sistema operacional de servidor</li><li>Windows Vista ou posterior, se o host for um sistema operacional cliente</li><li>Microsoft .NET 2.0 Framework</li><li>IIS 6.0 ou superior se estiver instalando o portal do usuário ou o SDK de serviço Web</li>
+Software|<li>Windows Server 2008 ou superior se o host for um SO do servidor</li><li>Windows 7 ou superior se o host for um SO do cliente</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 ou superior se estiver instalando o portal do usuário ou o SDK do serviço da Web</li>
 
 ### Requisitos de firewall do Servidor Azure Multi-Factor Authentication
 --------------------------------------------------------------------------------
@@ -186,4 +186,4 @@ Método|Descrição
 [Sincronizar com o Active Directory do Windows Server](multi-factor-authentication-get-started-server-dirint.md)|Informações sobre instalação e como configurar a sincronização entre o Active Directory e o Servidor Azure MFA.
 [Implantando o Serviço Web do aplicativo móvel do Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Informações sobre instalação e como configurar o serviço Web do Servidor Azure MFA.
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

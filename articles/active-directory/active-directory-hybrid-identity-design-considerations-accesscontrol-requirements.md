@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="12/07/2015"
+	ms.date="04/28/2016"
 	ms.author="yuridio"/>
 
 # Determina os requisitos de controle de acesso para sua solução de identidade híbrida
@@ -73,4 +73,4 @@ Faça anotações de cada resposta e entenda o raciocínio por trás da resposta
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

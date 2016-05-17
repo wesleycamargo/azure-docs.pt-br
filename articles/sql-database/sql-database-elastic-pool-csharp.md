@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="02/23/2016"
+    ms.date="05/03/2016"
     ms.author="sstein"/>
 
 # C&#x23; desenvolvimento de banco de dados: criar e configurar um pool de banco de dados elástico para o banco de dados SQL
@@ -317,7 +317,7 @@ O exemplo a seguir move um Banco de Dados SQL do Azure existente para um pool:
 
 ## Criar um novo banco de dados em um pool de banco de dados elástico
 
-*Depois de criar um pool, você pode também usar o Transact-SQL para criar novos bancos de dados elásticos no pool. Para saber mais, confira [Referência do Pool de Banco de Dados Elástico – Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Depois de criar um pool, você pode também usar o Transact-SQL para criar novos bancos de dados elásticos no pool. Para obter detalhes, veja [Monitorar, gerenciar e dimensionar um pool de banco de dados elástico com o Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 O exemplo a seguir cria um novo banco de dados diretamente em um pool:
 
@@ -562,9 +562,6 @@ O exemplo a seguir descreve todos os bancos de dados em um pool:
 
 [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Referência do Pool de Banco de Dados Elástico](sql-database-elastic-pool-reference.md).
-
-
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool-csharp/aad.png
 [2]: ./media/sql-database-elastic-pool-csharp/permissions.png
@@ -576,4 +573,4 @@ O exemplo a seguir descreve todos os bancos de dados em um pool:
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

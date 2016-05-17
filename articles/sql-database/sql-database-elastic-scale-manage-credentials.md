@@ -3,7 +3,7 @@
 	description="Como definir o nível certo de credenciais de administrador para somente leitura em aplicativos de banco de dados elástico." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Credenciais usadas para acessar a biblioteca de cliente do Banco de Dados Elástico
@@ -77,4 +77,4 @@ Assim como acontece com as credenciais de administrador, não use valores no for
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Provedor de estado de sessão ASP.NET de cache"
-   description="Saiba como armazenar o Estado da sessão ASP.NET usando o Cache Redis do Azure"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="erikre"
-   editor="tysonn" />
+	pageTitle="Armazenar em cache o Provedor de Estado de Sessão do ASP.NET | Microsoft Azure"
+	description="Saiba como armazenar o Estado da sessão ASP.NET usando o Cache Redis do Azure"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="douge"
+	editor="tysonn" />
 <tags
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="03/04/2016"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="04/27/2016"
+	ms.author="sdanie" />
 
 # Provedor de estado de sessão ASP.NET para Cache Redis do Azure
 
@@ -25,19 +25,19 @@ Geralmente, não é prático em uma aplicativo em nuvem real evitar o armazename
 
 Para configurar um aplicativo de cliente no Visual Studio utilizando o pacote NuGet de estado de sessão de cache Redis, clique com o botão direito em projeto no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**.
 
-![Gerenciamento de pacotes NuGet pelo Cache Redis do Azure](./media/cache-asp.net-session-state-provider/IC729541.png)
+![Gerenciamento de pacotes NuGet pelo Cache Redis do Azure](./media/cache-aspnet-session-state-provider/redis-cache-manage-nuget-menu.png)
 
-Digite **RedisSessionStateProvider** na caixa de texto Pesquisar Online, selecione-o nos resultados e clique em Instalar.
+Digite **RedisSessionStateProvider** na caixa de texto de pesquisa, selecione-o nos resultados e clique em **Instalar**.
 
 >[AZURE.IMPORTANT] Se você estiver usando o recurso de cluster a partir da camada premium, use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 ou superior, caso contrário uma exceção será emitida. Isso é uma alteração significativa; para saber mais, confira [Detalhes de alteração significativa da v2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
-![Provedor de estado de sessão do Cache Redis do Azure](./media/cache-asp.net-session-state-provider/IC751730.png)
+![Provedor de estado de sessão do Cache Redis do Azure](./media/cache-aspnet-session-state-provider/redis-cache-session-state-provider.png)
 
 O pacote NuGet do Provedor de estado de sessão Redis tem uma dependência do pacote StackExchange.Redis.StrongName. Se o pacote StackExchange.Redis.StrongName não estiver presente em seu projeto, ele será instalado. Observe que além do pacote StackExchange.Redis.StrongName de nome forte, também há a versão do StackExchange.Redis sem nome forte. Se o seu projeto estiver usando a versão do StackExchange.Redis sem nome forte, será necessário desinstalá-la, antes ou depois de instalar o pacote NuGet de Provedor de estado de sessão Redis, caso contrário, você receberá conflitos de nomenclatura em seu projeto. Para saber mais sobre esses pacotes, consulte [Configurar clientes de cache .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 Os downloads de pacote NuGet acrescentam as referências de assembly necessárias e adicionam a seguinte seção dentro de seu arquivo web.config que contém a configuração solicitada para seu aplicativo ASP.NET a fim de usar o provedor de estado de sessão de cache Redis do Azure.
 
-    <sessionStatemode="Custom" customProvider="MySessionStateStore">
+    <sessionState mode="Custom" customProvider="MySessionStateStore">
         <providers>
         <!--
 		<add name="MySessionStateStore"
@@ -106,4 +106,4 @@ Para saber mais sobre o estado da sessão e outras práticas recomendadas, consu
 
 Confira o [Provedor de cache de saída ASP.NET para o Cache Redis do Azure](cache-aspnet-output-cache-provider.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0504_2016-->

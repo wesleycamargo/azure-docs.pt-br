@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Conectar uma VM do Windows Server | Microsoft Azure"
-	description="Saiba como se conectar e fazer logon em uma VM do Windows Server usando o portal do Azure e o modelo de implantação do Gerenciador de Recursos."
+	description="Saiba como se conectar e fazer logon em uma VM do Windows usando o portal do Azure e o modelo de implantação do Gerenciador de Recursos."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/28/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
-# Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows Server 
+# Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows 
 
 
 Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP). Primeiro, conecte-se à máquina virtual, em seguida, faça logon.
@@ -43,4 +43,4 @@ Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão d
 
 Se você tiver problemas ao tentar se conectar, consulte [Solucionar Problemas de conexões da Área de Trabalho Remota para uma Máquina Virtual do Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

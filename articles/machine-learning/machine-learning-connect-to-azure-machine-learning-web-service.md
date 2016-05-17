@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="05/02/2016" 
 	ms.author="garye" />
 
 
@@ -24,10 +24,9 @@ A experiência do desenvolvedor de Aprendizado de Máquina do Azure é uma API d
 
 Para saber como criar e implantar um serviço Web do Aprendizado de Máquina usando o Estúdio de Aprendizado de Máquina:
 
-- [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md)
-- [Introdução ao Estúdio de Aprendizado de Máquina](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
-- [Visualização de Aprendizado de Máquina do Azure](https://studio.azureml.net/)
-- [Centro de Documentação do Aprendizado de Máquina](https://azure.microsoft.com/documentation/services/machine-learning/)
+- Para obter um tutorial sobre como criar um teste no Estúdio de Aprendizado de Máquina, confira a seção [Crie seu primeiro experimento](machine-learning-create-experiment.md).
+- Para obter detalhes sobre como implantar um serviço Web, confira a seção [Implantar um serviço Web de Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md).
+- Para obter mais informações sobre o Aprendizado de Máquina em geral, visite o [Centro de Documentação do Aprendizado de Máquina do Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 ## Serviço Web de Aprendizado de Máquina do Azure ##
 
@@ -38,7 +37,7 @@ O Aprendizado de Máquina do Azure tem dois tipos de serviços:
 - Serviço de Solicitação-Resposta (RRS) – Um serviço de baixa latência e altamente escalonável que fornece uma interface para os modelos sem monitoração de estado criados e implantados no Estúdio de Aprendizado de Máquina.
 - Serviço de Execução de Lote (BES) – Um serviço assíncrono que pontua um lote de registros de dados.
 
-Para saber mais sobre os serviços Web de Aprendizado de Máquina, confira [Implantar um serviço Web do Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md).
+Para obter mais informações sobre os serviços Web de Aprendizado de Máquina, confira a seção [Implantar um serviço Web de Aprendizado de Máquina](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtenha uma chave de autorização de Aprendizado de Máquina do Azure ##
 Você pode obter uma chave de API do serviço Web de um serviço Web de Aprendizado de Máquina. Você pode obtê-la no Estúdio de Aprendizado de Máquina no Portal do Azure.
@@ -54,7 +53,7 @@ Você pode obter uma chave de API do serviço Web de um serviço Web de Aprendiz
 4. Clique em um serviço Web.
 5. Clique em um ponto de extremidade. A “CHAVE DE API” está mais abaixo na parte inferior direita.
 
-## <a id="connect"></a>Conectar-se a um serviço Web do Aprendizado de Máquina
+## <a id="connect"></a>Conectar-se a um serviço Web de Aprendizado de Máquina
 
 Você pode se conectar a um serviço Web de Aprendizado de Máquina usando qualquer linguagem de programação que dá suporte à resposta e solicitação HTTP. Você pode exibir exemplos em C#, Python e R de uma página de Ajuda do serviço Web de Aprendizado de Máquina.
 
@@ -62,22 +61,22 @@ Você pode se conectar a um serviço Web de Aprendizado de Máquina usando qualq
 Uma página de ajuda de API do Aprendizado de Máquina é criada quando você implanta um serviço Web. Confira [Passo a passo do Aprendizado de Máquina do Azure – Implantar serviço Web](machine-learning-walkthrough-5-publish-web-service.md).
 
 
-**Para exibir uma página de Ajuda de API do Aprendizado de Máquina** no Estúdio de Aprendizado de Máquina:
+**Para exibir uma página de ajuda da API de Aprendizado de Máquina** no Estúdio de Aprendizado de Máquina:
 
 1. Escolha **SERVIÇOS WEB**.
 2. Escolha um serviço Web.
 3. Escolha a **página de Ajuda da API** - **SOLICITAÇÃO/RESPOSTA** ou **EXECUÇÃO EM LOTES**.
 
 
-**Página de ajuda de API do Aprendizado de Máquina** A página de ajuda da API do Aprendizado de Máquina contém detalhes sobre um serviço Web de previsão.
+**Página de ajuda da API de Aprendizado de Máquina** A página de ajuda da API de Aprendizado de Máquina contém detalhes sobre um serviço Web de previsão.
 
 
 
 ### Exemplo de C# ###
 
-Para se conectar a um serviço Web do Aprendizado de Máquina, use um **HttpClient** passando ScoreData. ScoreData contém um FeatureVector, um vetor com n dimensões de recursos numéricos que representa o ScoreData. Autentique no serviço de Aprendizado de Máquina com uma chave de API.
+Para se conectar a um serviço Web de Aprendizado de Máquina, use um **HttpClient** passando ScoreData. ScoreData contém um FeatureVector, um vetor com n dimensões de recursos numéricos que representa o ScoreData. Autentique no serviço de Aprendizado de Máquina com uma chave de API.
 
-Para se conectar a um serviço Web de Aprendizado de Máquina, o pacote de Nuget **Microsoft.AspNet.WebApi.Client** deve ser instalado.
+Para se conectar a um serviço Web de Aprendizado de Máquina, o pacote Nuget **Microsoft.AspNet.WebApi.Client** deve ser instalado.
 
 **Instalar o Nuget Microsoft.AspNet.WebApi.Client no Visual Studio**
 
@@ -88,7 +87,7 @@ Para se conectar a um serviço Web de Aprendizado de Máquina, o pacote de Nuget
 **Para executar o exemplo de código**
 
 1. Publique o experimento “Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2”, parte da coleção de exemplos de Aprendizado de Máquina.
-2. Atribua apiKey com a chave de um serviço Web. Confira **Obter uma chave de autorização de Aprendizado de Máquina do Azure** acima.
+2. Atribua apiKey com a chave de um serviço Web. Confira a seção **Get an Azure Machine Learning authorization key** (Obter uma chave de autorização de Aprendizado de Máquina do Azure) acima.
 3. Atribua serviceUri com o URI de solicitação.
 
 
@@ -100,7 +99,7 @@ Para se conectar a um serviço Web de Aprendizado de Máquina, use a biblioteca 
 **Para executar o exemplo de código**
 
 1. Publique o experimento “Exemplo 1: Baixe o conjunto de dados de UCI: conjunto de dados da classe Adulto 2”, parte da coleção de exemplos de Aprendizado de Máquina.
-2. Atribua apiKey com a chave de um serviço Web. Confira **Obter uma chave de autorização de Aprendizado de Máquina do Azure** acima.
+2. Atribua apiKey com a chave de um serviço Web. Confira a seção **Get an Azure Machine Learning authorization key** (Obter uma chave de autorização de Aprendizado de Máquina do Azure) acima.
 3. Atribua serviceUri com o URI de solicitação. Veja como obter um URI de solicitação.
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

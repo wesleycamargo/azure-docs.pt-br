@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Use o serviço StorSimple Manager para exibir e gerenciar trabalhos do StorSimple (Atualização 2)
@@ -21,9 +21,9 @@
 
 ## Visão geral
 
-A página **Trabalhos** oferece um portal central único para visualização e gerenciamento de trabalhos que foram iniciados em dispositivos conectados ao serviço StorSimple Manager. É possível exibir os trabalhos agendados, em execução, concluídos e com falha para vários dispositivos. Os resultados são apresentados em um formato tabular.
+A página **Trabalhos** oferece um portal central único para visualização e gerenciamento de trabalhos que foram iniciados em dispositivos conectados ao serviço StorSimple Manager. É possível exibir os trabalhos agendados, em execução, concluídos, cancelados e com falha para vários dispositivos. Os resultados são apresentados em um formato tabular.
 
-![Página Trabalhos](./media/storsimple-manage-jobs-u2/HCS_JobsPage.png)
+![Página Trabalhos](./media/storsimple-manage-jobs-u2/jobs.png)
 
 Você pode localizar rapidamente os trabalhos nos quais está interessado filtrando os campos, como:
 
@@ -73,7 +73,7 @@ Execute as etapas a seguir para exibir os detalhes de qualquer trabalho.
 
 Realize as etapas a seguir para cancelar um trabalho em execução.
 
->[AZURE.NOTE]Alguns trabalhos, como modificar um volume para alterar o tipo de volume ou expandir um volume, não podem ser cancelados.
+>[AZURE.NOTE] Alguns trabalhos, como modificar um volume para alterar o tipo de volume ou expandir um volume, não podem ser cancelados.
 
 ### Para cancelar um trabalho
 
@@ -93,4 +93,4 @@ Este trabalho agora está cancelado.
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0504_2016-->

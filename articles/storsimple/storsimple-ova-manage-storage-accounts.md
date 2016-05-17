@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/02/2016"
+   ms.date="04/18/2016"
    ms.author="alkohli" />
 
-# Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento
+# Use o serviço StorSimple Manager para gerenciar contas de armazenamento para a StorSimple Virtual Array
 
 ## Visão geral
 
@@ -56,7 +56,9 @@ Você pode adicionar uma conta de armazenamento à configuração de serviço do
 
 Você pode criar várias contas para um provedor de serviços de nuvem específico. Enquanto a conta de armazenamento está sendo salvo, o serviço tenta se comunicar com o seu provedor de serviços de nuvem. As credenciais e o material de acesso que você forneceu serão autenticados neste momento. Uma conta de armazenamento será criada somente se a autenticação for bem-sucedida. Se a autenticação falhar, será exibida uma mensagem de erro apropriada.
 
-O procedimento para adicionar uma conta de armazenamento é detalhado abaixo.
+Contas de armazenamento do Gerenciador de Recursos criadas no portal do Azure também são compatíveis com o StorSimple. As contas de armazenamento do Gerenciador de Recursos não aparecerão na lista suspensa para seleção, apenas as contas de armazenamento criadas no portal clássico do Azure serão exibidas. Contas de armazenamento do Gerenciador de Recursos precisarão ser adicionados usando o procedimento para adicionar uma conta de armazenamento, conforme descrito abaixo.
+
+O procedimento para adicionar uma conta de armazenamento clássica do Azure é detalhado abaixo.
 
 [AZURE.INCLUDE [add-a-storage-account](../../includes/storsimple-ova-configure-new-storage-account.md)]
 
@@ -101,4 +103,4 @@ Você pode editar uma conta de armazenamento usada pelo seu dispositivo. Se voc�
 
 - Aprenda como [administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

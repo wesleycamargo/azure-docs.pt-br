@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="fluxo de trabalho do powershell, exemplos de fluxo de trabalho do powershell, fluxos de trabalho do powershell" />
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/21/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
 
 # Meu primeiro runbook de Fluxo de Trabalho do PowerShell
@@ -116,4 +116,4 @@ No momento, nosso runbook inicia a máquina virtual que codificamos no runbook, 
 -	[O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 -	[Meu primeiro runbook do PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

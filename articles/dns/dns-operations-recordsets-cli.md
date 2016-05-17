@@ -50,7 +50,8 @@ O DNS do Azure dá suporte aos seguintes tipos de registros: A, AAAA, CNAME, MX,
 
 ### Registros curinga
 
-O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*", ou um nome cujo primeiro rótulo seja "*", por exemplo, "*.foo".
+O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga).
+ Para criar um conjunto de registros curinga, use o nome do conjunto de registros "\*", ou um nome cujo primeiro rótulo seja "\*", por exemplo, "\*.foo".
 
 Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
 
@@ -245,4 +246,4 @@ Depois de criar a zona DNS e os registros, você poderá [delegar seu domínio a
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!-----HONumber=AcomDC_0427_2016-->

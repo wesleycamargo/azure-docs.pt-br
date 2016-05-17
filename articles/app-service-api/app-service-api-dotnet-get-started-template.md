@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="04/13/2016"
 	ms.author="tdykstra"/>
 
@@ -263,4 +263,4 @@ Quando seu aplicativo de API ASP.NET estiver em execução no Serviço de Aplica
 
 Neste tutorial, você viu como criar uma API Web simples e como implantá-la em um aplicativo de API no Serviço de Aplicativo do Azure. Para obter uma introdução aos recursos do Serviço de Aplicativo que facilitam o desenvolvimento e o consumo de APIs Web, veja a série de tutoriais que começa com [Introdução aos aplicativos de API e ao ASP.NET](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,19 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/04/2015"
+	ms.date="04/22/2016"
 	ms.author="mikeray" />
 
 # Configurar Grupos de Disponibilidade AlwaysOn na VM do Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Portal - Gerenciador de Recursos](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-- [Portal – Clássico](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-- [PowerShell - clássico](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+- [Portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+- [PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
 VMs (Máquinas Virtuais) do Azure podem ajudar os administradores de banco de dados a reduzir o custo de implantação de um sistema do SQL Server de alta disponibilidade. Este tutorial mostra como implementar um grupo de disponibilidade usando o SQL Server AlwaysOn ponta a ponta dentro de um ambiente do Azure. Ao final do tutorial, sua solução SQL Server AlwaysOn no Azure consistirá nos seguintes elementos:
@@ -630,4 +629,4 @@ Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de dis
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->
