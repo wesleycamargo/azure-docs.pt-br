@@ -472,7 +472,7 @@ Um modelo do Gerenciador de Recursos do Azure permite implantar e gerenciar recu
     Para este tutorial, estes são os valores importantes:
 
     - **metricName** - Esse é o mesmo que o contador de desempenho que definimos na variável wadperfcounter. Usando essa variável, a extensão de Diagnóstico coleta o contador **Processor(\_Total)\\% Processor Time**.
-- **metricResourceUri** - Este é o identificador de recurso do conjunto de dimensionamento de máquina virtual.
+    - **metricResourceUri** - Este é o identificador de recurso do conjunto de dimensionamento de máquina virtual.
     - **timeGrain** – Esta é a granularidade das métricas que são coletadas. Neste modelo, ele é definido como 1 minuto.
     - **statistic** – Isso determina como as métricas são combinadas para acomodar a ação de dimensionamento automático. Os valores possíveis são: Média, Mín, Máx. Neste modelo estamos procurando o uso médio de CPU total entre as máquinas virtuais no conjunto de dimensionamento.
     - **timeWindow** – Esta, se o intervalo de tempo em que os dados de instância são coletados. Deve estar entre 5 minutos e 12 horas.
