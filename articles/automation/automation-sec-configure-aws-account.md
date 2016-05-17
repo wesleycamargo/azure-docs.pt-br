@@ -5,21 +5,22 @@
    documentationCenter=""
    authors="mgoedtel"
    manager="jwhit"
-   editor="tysonn"/>
+   editor="tysonn"
+   keywords="autenticação aws, configurar aws"/>
 <tags
    ms.service="automation"
    ms.workload="tbd"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="04/08/2016"
+   ms.date="05/10/2016"
    ms.author="magoedte"/>
 
 # Autenticar runbooks com o Amazon Web Services
 A automação de tarefas comuns com recursos do AWS (Amazon Web Services) pode ser realizada com runbooks de Automação no Azure. Você pode automatizar muitas tarefas no AWS usando runbooks de Automação, assim como faz com recursos no Azure. Bastam duas coisas:
 
-* Uma assinatura do AWS e um conjunto de credenciais. Especificamente, sua Chave Secreta e sua Chave de Acesso do AWS. Para obter mais informações, leia o artigo [Uso de credenciais do AWS](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html).
-* Uma assinatura do Azure e uma conta de Automação. Para obter mais informações sobre como configurar uma conta de Automação do Azure, leia o artigo [Configurar uma conta Executar como do Azure](../automation/automation-sec-configure-azure-runas-account.md).  
+* Uma assinatura do AWS e um conjunto de credenciais. Especificamente, sua Chave Secreta e sua Chave de Acesso do AWS. Para saber mais, leia o artigo [Usando credenciais do AWS](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html).
+* Uma assinatura do Azure e uma conta de Automação. Para saber mais sobre como configurar uma conta de Automação do Azure, leia o artigo [Configurar uma conta Executar como do Azure](../automation/automation-sec-configure-azure-runas-account.md).  
 
 Para a autenticação com o AWS, você deve especificar um conjunto de credenciais do AWS para autenticar seus runbooks em execução da Automação do Azure. Se já tiver criado uma conta de Automação e quiser usá-la para a autenticação com o AWS, você poderá executar as etapas na seção a seguir. Se quiser dedicar uma conta para runbooks voltados para recursos do AWS, primeiro você deverá criar uma nova [conta Executar como de Automação](../automation/automation-sec-configure-azure-runas-account) (ignore a opção para criar uma entidade de serviço) e seguir as etapas abaixo.
 
@@ -35,4 +36,4 @@ Após criar e copiar as chaves de segurança do AWS, você precisará criar um a
 
 - Examine o artigo sobre solução [Automatização da implantação de uma VM no Amazon Web Services](../automation/automation-scenario-aws-deployment.md) para saber como criar runbooks para automatizar tarefas no AWS.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

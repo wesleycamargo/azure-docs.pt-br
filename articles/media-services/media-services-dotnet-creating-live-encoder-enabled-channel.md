@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Crie canais que realizam codificação ativa de um fluxo com taxa de bits única para um fluxo com múltiplas taxas de bits usando o SDK do .NET" 
+	pageTitle="Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o .NET" 
 	description="Este tutorial orienta você pelas etapas de criação de um Canal que recebe um fluxo em tempo real de taxa de bits única e o codifica em um fluxo de múltiplas taxas de bits usando o SDK do .NET." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="03/08/2016"
+	ms.date="05/05/2016"
 	ms.author="juliako"/>
 
 
-#Crie canais que realizam codificação ativa de um fluxo com taxa de bits única para um fluxo com múltiplas taxas de bits usando o SDK do .NET
+#Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o .NET
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -31,7 +31,7 @@ Para concluir este tutorial, você precisa de uma conta do Azure. Para obter det
 
 Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits.
 
-Para obter mais informações conceituais relacionadas aos canais habilitados para codificação ao vivo, consulte [Trabalhando com canais que executam codificação ao vivo de um fluxo de taxa de bits única para fluxo de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+Para obter mais informações conceituais relacionadas aos Canais habilitados para a codificação ao vivo, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Cenário comum de streaming ao vivo
@@ -530,4 +530,4 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

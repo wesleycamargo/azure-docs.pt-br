@@ -29,8 +29,8 @@ Se você optar por instalar o Visual Studio, poderá usar o Visual Studio 2013 o
 
 Para instalar o Visual Studio 2015:
 
-1. [Baixar o Visual Studio 2015](https://www.visualstudio.com/downloads) do Visual Studio Team Services.
-2. Instale seguindo o guia [Instalando o Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) do MSDN e escolha as configurações padrão.
+1. [Baixar o Visual Studio 2015][] do Visual Studio Team Services.
+2. Instale seguindo o guia [Instalando o Visual Studio][] do MSDN e escolha as configurações padrão.
 
 ## Etapa 2: Baixar e instalar o SSDT (SQL Server Data Tools) mais recente
 
@@ -38,15 +38,23 @@ Tendo o Visual Studio instalado ou não, ainda será necessário ter a versão m
 
 Para instalar a versão mais recente do SSDT:
 
-1. [Baixe a Visualização do SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) para Visual Studio 2013 ou 2015.
+1. [Baixe a Visualização do SQL Server Data Tools][] para Visual Studio 2013 ou 2015.
 2. Instale seguindo as instruções de instalação no site de download.
 
 ## Próximas etapas
 
-Agora que você tem a versão mais recente do SSDT, está pronto para [conectar-se](./sql-data-warehouse-get-started-connect.md) ao banco de dados.
+Agora que você tem a versão mais recente do SSDT, está pronto para [conectar-se][] ao banco de dados.
 
 <!--Anchors-->
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!--Arcticles-->
+[conectar-se]: ./sql-data-warehouse-get-started-connect.md
+
+<!--Other-->
+[Baixar o Visual Studio 2015]: https://www.visualstudio.com/downloads/
+[Instalando o Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
+[Baixe a Visualização do SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
+
+<!---HONumber=AcomDC_0511_2016-->

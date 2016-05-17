@@ -77,7 +77,7 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 [carregar dados de amostra]: sql-data-warehouse-get-started-manually-load-samples.md
 [Cmdlets do Powershell e APIs REST]: sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: sql-database-configure-firewall-settings.md
-[Como instalar e configurar o Azure PowerShell]: powershell-install-configure.md
+[Como instalar e configurar o Azure PowerShell]: ../powershell/powershell-install-configure.md
 [Como criar um SQL Data Warehouse do Portal do Azure]: sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references--> 
@@ -90,4 +90,4 @@ Se você estiver interessado em saber mais sobre como gerenciar o SQL Data Wareh
 [Preços do SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

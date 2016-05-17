@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Criar canais que realizam a codificação ativa de uma transmissão com taxa de bits única para uma transmissão com múltiplas taxas de bits usando o Portal Clássico do Azure" 
+	pageTitle="Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o Portal Clássico do Azure" 
 	description="Este tutorial explica as etapas de criação de um Canal que recebe uma transmissão ao vivo de taxa de bits única e a codifica em uma transmissão de múltiplas taxas de bits usando o Portal Clássico do Azure." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="05/03/2016" 
+ 	ms.date="05/05/2016" 
 	ms.author="juliako"/>
 
 
-#Criar canais que realizam a codificação ativa de uma transmissão com taxa de bits única para uma transmissão com múltiplas taxas de bits usando o Portal Clássico do Azure
+#Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o Portal Clássico do Azure
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -26,7 +26,7 @@
 
 Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits.
 
->[AZURE.NOTE]Para obter mais informações conceituais relacionadas aos canais habilitados para codificação ao vivo, consulte [Trabalhando com canais que executam codificação ao vivo de um fluxo de taxa de bits única para fluxo de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+>[AZURE.NOTE]Para obter mais informações conceituais relacionadas aos Canais habilitados para a codificação ao vivo, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 
 ##Cenário comum de streaming ao vivo
 
@@ -109,7 +109,7 @@ Para alterar o número de unidades de streaming reservadas, faça o seguinte:
 2.	Selecione a página CANAIS.
 3.	Selecione Adicionar+ para adicionar um novo canal.
 
-Escolha tipos de codificação **Padrão**. Esse tipo especifica que você deseja criar um canal que esteja habilitado para codificação ao vivo. Isso significa que a entrada fluxo com taxa de bits única é enviado para o canal e codificado em um fluxo com múltiplas taxas de bits usando configurações do codificador ao vivo especificado. Para obter mais informações, consulte [Trabalhando com canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+Escolha tipos de codificação **Padrão**. Esse tipo especifica que você deseja criar um canal que esteja habilitado para codificação ao vivo. Isso significa que a entrada fluxo com taxa de bits única é enviado para o canal e codificado em um fluxo com múltiplas taxas de bits usando configurações do codificador ao vivo especificado. Para obter mais informações, consulte [Transmissão ao Vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard0][standard0]
 
@@ -119,7 +119,7 @@ Para o tipo de codificação **Padrão**, as opções de protocolo de ingestão 
 - RTMP de taxa de bits única
 - RTP (MPEG-TS): fluxo de transporte de MPEG-2 por RTP.
 
-Para obter explicações detalhadas sobre cada protocolo, consulte [Trabalhando com canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+Para obter explicações detalhadas sobre cada protocolo, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard1][standard1]
 
@@ -127,7 +127,7 @@ Você não pode alterar o protocolo de entrada enquanto o canal ou seus programa
 
 Na página **Configuração de publicidade**, você pode especificar a origem para sinais de marcadores de anúncio. Ao usar o Portal você pode selecionar apenas API, que indica que o codificador ao vivo no canal deve escutar buscando um API de marcador de anúncio assíncrono. Ao usar o Portal, você só pode selecionar API.
 
-Para obter mais informações, consulte [Trabalhando com canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+Para obter mais informações, consulte [Transmissão ao Vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 
 ![standard2][standard2]
 
@@ -148,7 +148,7 @@ Uma vez criado o canal, você pode selecionar a guia **CODIFICADOR**, onde você
 
 ![standard5][standard5]
 
-Para obter mais informações, consulte [Trabalhando com canais que realizam codificação ao vivo por meio de um fluxo com taxa de bits única para fluxo com múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
+Para obter mais informações, consulte [Transmissão ao Vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ##Obter URLs de ingestão
@@ -276,4 +276,4 @@ Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisio
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

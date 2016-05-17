@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="04/22/2016"
+  ms.date="05/09/2016"
   ms.author="araguila"/>
    
 # Perguntas frequentes sobre o IoT Suite
@@ -51,6 +51,8 @@ Duas. Você pode criar apenas duas APIs do Bing Mapas Gratuitas em uma assinatur
    
   `<setting name="MapApiQueryKey" value="" />`
 
+### Posso criar uma solução pré-configurada se possuo o Microsoft Azure para DreamSpark?
+Neste momento, você não pode criar uma solução pré-configurada com uma conta do [Microsoft Azure para DreamSpark][lnk-dreamspark]. No entanto, você pode criar uma [conta de avaliação gratuita do Azure][lnk-30daytrial] em apenas alguns minutos que permitirá a você criar uma solução pré-configurada.
 
 ### Como posso excluir um locatário do AAD?
 
@@ -61,6 +63,8 @@ Consulte a postagem do blog de Eric Golpe, [Passo a passo da exclusão de um loc
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99
+[lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

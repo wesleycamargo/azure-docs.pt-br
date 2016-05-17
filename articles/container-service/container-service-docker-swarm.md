@@ -20,17 +20,17 @@
 
 # Gerenciamento de contêiner com Docker Swarm
 
-O Docker Swarm fornece um ambiente para implantação de cargas de trabalho em contêineres de em um conjunto de pool de hosts do Docker. O Docker Swarm usa a API nativa do Docker, e o fluxo de trabalho para gerenciar contêineres em um Docker Swarm é quase idêntico ao que seria usado em um host de contêiner único. Este documento fornecerá exemplos simples de implantação de cargas de trabalho em contêineres, em uma instância do Serviço de Contêiner do Azure do Docker Swarm. Para obter documentação mais detalhada sobre o Docker Swarm, confira [Docker Swarm em Docker.com](https://docs.docker.com/swarm/).
+O Docker Swarm fornece um ambiente para implantação de cargas de trabalho em contêineres de em um conjunto de pool de hosts do Docker. Docker Swarm usa a API nativa do Docker. O fluxo de trabalho para gerenciar contêineres em um Docker Swarm é quase idêntico ao que seria usado em um host de contêiner único. Este documento fornece exemplos simples de implantação de cargas de trabalho em contêineres em uma instância do Serviço de Contêiner do Azure do Docker Swarm. Para obter documentação mais detalhada sobre o Docker Swarm, confira [Docker Swarm em Docker.com](https://docs.docker.com/swarm/).
 
 Pré-requisitos para os exercícios deste documento:
 
 [Criar um Cluster Swarm no Serviço de Contêiner do Azure](./container-service-deployment.md)
 
-[Conectar-se ao Cluster Swarm no Serviço de Contêiner do Azure](./container-service-connect.md)
+[Conectar-se ao cluster Swarm no Serviço de Contêiner do Azure](./container-service-connect.md)
 
 ## Implantar um novo contêiner
 
-Para criar um novo contêiner no Docker Swarm, use o comando `docker run`. Este exemplo cria um contêiner por meio da imagem `yeasy/simple-web`.
+Para criar um novo contêiner no Docker Swarm, use o comando `docker run`. Este exemplo cria um contêiner da imagem `yeasy/simple-web`:
 
 
 ```bash
@@ -39,7 +39,7 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 4298d397b9ab6f37e2d1978ef3c8c1537c938e98a8bf096ff00def2eab04bf72
 ```
 
-Depois que o contêiner tiver sido criado, use `docker ps` para retornar informações sobre o contêiner. Observe aqui que é listado o agente de Swarm que hospeda o contêiner.
+Depois que o contêiner tiver sido criado, use `docker ps` para retornar informações sobre o contêiner. Observe aqui que o agente de Swarm que hospeda o contêiner é listado:
 
 
 ```bash
@@ -49,14 +49,14 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   31 seconds ago      Up 9 seconds        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-O aplicativo em execução nesse contêiner agora pode ser acessado por meio do nome DNS público do balanceador de carga do agente de Swarm. Essas informações podem ser encontradas no Portal do Azure.
+Agora você pode acessar o aplicativo em execução nesse contêiner por meio do nome DNS público do balanceador de carga do agente de Swarm. Você pode encontrar essas informações no portal do Azure:
 
 
-![](media/real-visit.jpg)
+![Resultados da visita real](media/real-visit.jpg)
 
 ## Implantar vários contêineres
 
-Como vários contêineres são iniciados no cluster do Docker Swarm, o comando `docker ps` pode ser usado para ver em quais hosts os contêineres estão em execução. Neste exemplo, três contêineres são espalhados uniformemente entre os três agentes de Swarm.
+Como vários contêineres são iniciados no cluster do Docker Swarm, você pode usar o comando `docker ps` para ver em quais hosts os contêineres estão em execução. Neste exemplo, três contêineres são espalhados uniformemente entre os três agentes de Swarm:
 
 
 ```bash
@@ -70,9 +70,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Implantar contêineres usando Docker Compose
 
-O recurso Docker Compose pode ser usada para automatizar a implantação e a configuração de vários contêineres. Para isso, verifique se um túnel SSH foi criado e se a variável DOCKER\_HOST foi definida.
+O recurso Docker Compose pode ser usado para automatizar a implantação e a configuração de vários contêineres. Para isso, verifique se um túnel SSH (Secure Shell) foi criado e se a variável DOCKER\_HOST foi definida.
 
-Crie um arquivo docker-compose.yml em seu sistema local. Um exemplo pode ser encontrado [aqui](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+Crie um arquivo docker-compose.yml em seu sistema local. Para fazer isso, use este [exemplo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
 ```bash
 web:
@@ -88,7 +88,7 @@ rest:
 
 ```
 
-Execute `docker-compose up -d` para iniciar as implantações de contêineres.
+Execute `docker-compose up -d` para iniciar as implantações de contêineres:
 
 
 ```bash
@@ -105,7 +105,7 @@ swarm-agent-3B7093B8-2: Pulling adtd/web:0.1... : downloaded
 Creating compose_web_1
 ```
 
-Por fim, a lista de contêineres de execução pode ser retornada, refletindo os que foram implantados com Docker Compose.
+Por fim, a lista de contêineres de execução será retornada. Essa lista mostra os contêineres que foram implantados usando o Docker Compose:
 
 
 ```bash
@@ -115,8 +115,8 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
-## Próximas etapas:
+## Próximas etapas
 
-[Leia mais sobre o Docker Swarm](https://docs.docker.com/swarm/).
+[Saiba mais sobre o Docker Swarm](https://docs.docker.com/swarm/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

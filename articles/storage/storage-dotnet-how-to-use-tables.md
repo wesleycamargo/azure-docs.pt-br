@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introdução ao armazenamento de Tabelas do Azure usando o .NET | Microsoft Azure"
-	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, o repositório de dados NoSQL da Microsoft. Obtenha uma introdução a operações de armazenamento de Tabelas simples, como a criação e a exclusão de tabelas e a inserção, a atualização, a exclusão e a consulta de dados."
+	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/07/2016"
+	ms.date="04/29/2016"
 	ms.author="tamram"/>
 
 
@@ -463,4 +463,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

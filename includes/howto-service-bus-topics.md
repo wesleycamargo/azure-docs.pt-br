@@ -6,15 +6,15 @@ Os tópicos e assinaturas do Barramento de Serviço dão suporte a um modelo de 
 
 Em contraste com as filas do Barramento de Serviço, em que cada mensagem é processada por um único consumidor, tópicos e assinaturas fornecem uma forma de comunicação de um para muitos usando um padrão de publicação/assinatura. É possível registrar várias assinaturas para um tópico. Quando uma mensagem é enviada a um tópico, é disponibilizada para cada assinatura para ser manipulada/processada de forma independente.
 
-Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. Outra opção é registrar regras de filtro para um tópico por assinatura, o que permite que você filtre/restrinja quais mensagens para um tópico são recebidas por quais assinaturas de tópico.
+Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. Outra opção é registrar regras de filtro para um tópico por assinatura, o que permite que você filtre ou restrinja quais mensagens para um tópico são recebidas por quais assinaturas de tópico.
 
-As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionamento e o processamento de um grande número de mensagens em muitos usuários e aplicativos.
+As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionamento e o processamento de vários usuários e aplicativos.
 
-## Criar um namespace de serviço
+## Criar um namespace
 
-Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
+Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no Azure, primeiro crie um *namespace de serviço*. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
-Para criar um namespace de serviço:
+Para criar um namespace:
 
 1.  Faça logon no [portal clássico do Azure][].
 
@@ -28,13 +28,13 @@ Para criar um namespace de serviço:
 
 	> [AZURE.IMPORTANT] Selecione a **mesma região** que você pretende escolher paraimplantar seu aplicativo. Isso lhe dará o melhor desempenho.
 
-6. 	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção. Agora, o sistema cria o seu namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
+6. 	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção OK. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
 
 	![][6]
 
 ## Obter as credenciais de gerenciamento padrão do namespace
 
-A fim de executar operações de gerenciamento, como a criação de um tópico ou assinatura no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal do Azure.
+A fim de executar operações de gerenciamento, como a criação de um tópico ou assinatura no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal.
 
 ### Obter as credenciais de gerenciamento do portal
 
@@ -55,4 +55,3 @@ A fim de executar operações de gerenciamento, como a criação de um tópico o
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
 
-<!---HONumber=AcomDC_0128_2016-->
