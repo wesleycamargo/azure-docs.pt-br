@@ -9,16 +9,16 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Criar um novo firewall de nível de servidor do Banco de Dados SQL do Azure
+## Criar um novo firewall de nível de servidor do SQL do Azure
 
-Use as seguintes etapas no portal do Azure para criar uma regra de firewall de nível de servidor que permite conexões de um endereço IP individual (seu computador cliente) ou um intervalo inteiro de endereços IP para um servidor lógico do Banco de Dados SQL.
+Use as seguintes etapas no portal do Azure para criar uma regra de firewall de nível de servidor que permite conexões de um endereço IP individual (seu computador cliente) ou um intervalo inteiro de endereços IP para um servidor lógico SQL.
 
 1. Se não estiver conectado, conecte-se ao [Portal do Azure](http://portal.azure.com).
 2. Na folha padrão, clique em **SQL Server**.
 
   	![firewall do novo servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 
-2. Na folha SQL Server, clique no servidor de Banco de Dados SQL no qual a regra de firewall deve ser criada.
+2. Na folha SQL Server, clique no SQL Server no qual a regra de firewall deve ser criada.
 
  	![firewall do novo servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
            
@@ -43,5 +43,3 @@ Use as seguintes etapas no portal do Azure para criar uma regra de firewall de n
      ![firewall do novo servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
 
 	>[AZURE.IMPORTANT] Seu endereço IP de cliente pode mudar periodicamente, e talvez você não possa acessar seu servidor até que crie uma nova regra de firewall. Você pode verificar seu endereço IP usando o [Bing](http://www.bing.com/search?q=my%20ip%20address) e depois adicionar um único endereço IP ou um intervalo de endereços IP. Confira [Gerenciar configurações de firewall](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) para obter detalhes.
-
-<!---HONumber=AcomDC_0427_2016-->

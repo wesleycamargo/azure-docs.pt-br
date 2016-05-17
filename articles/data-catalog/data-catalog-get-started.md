@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Catálogo de Dados do Azure introduzido com o catálogo de dados | Microsoft Azure"
+   pageTitle="Catálogo de Dados do Azure – introdução ao Catálogo de Dados | Microsoft Azure"
    description="Tutorial completo apresentando os cenários e os recursos do Catálogo de Dados do Azure."
    documentationCenter=""
    services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/15/2016"
-   ms.author="derrickv"/>
+   ms.date="05/06/2016"
+   ms.author="maroche"/>
 
 # Introdução ao Catálogo de Dados do Azure
 
@@ -184,6 +184,8 @@ Neste exercício, você usa o portal do **Catálogo de Dados do Azure** para ano
 
 Neste exercício, você adicionou informações descritivas aos ativos de dados registrados para que os usuários do catálogo possam descobrir a fonte de dados usando termos que eles entendem.
 
+> [AZURE.NOTE] A edição Standard do catálogo de dados inclui um glossário de negócios que permite que os administradores de catálogo definam uma taxonomia de negócios central. Os usuários do catálogo podem anotar os ativos de dados com os termos do glossário. Para saber mais, confira [Como configurar o glossário de negócios para Marcação Governada](data-catalog-how-to-business-glossary.md)
+
 ## Exercício 5: metadados de Crowdsourcing
 
 Neste exercício, você trabalha com outro usuário adicionar metadados a ativos de dados no catálogo. A abordagem de crowdsourcing do **Catálogo de Dados do Azure** quanto a anotações permite que qualquer usuário adicione marcas, descrições e outros metadados, para que qualquer usuário com conhecimento sobre um ativo de dados e seu uso possa capturá-lo e disponibilizá-lo para os demais usuários.
@@ -260,4 +262,4 @@ Neste exercício, você explorou os recursos de gerenciamento do **Catálogo de 
 
 Neste tutorial, você explorou recursos essenciais do **Catálogo de Dados do Azure**, incluindo o registro, a anotação, a descoberta e o gerenciamento de fontes de dados corporativas. Agora que você concluiu o tutorial, é hora de começar. Você pode começar hoje mesmo registrando as fontes de dados que você e sua equipe precisam e convidando colegas para usar o catálogo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

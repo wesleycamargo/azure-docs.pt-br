@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="04/25/2016"
+	ms.date="05/11/2016"
 	ms.author="anhoh"/>
 
 # Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos
@@ -61,15 +61,11 @@ Vamos criar uma conta de Banco de Dados de Documentos. Se você já tem uma cont
 
 1. Abra o **Visual Studio 2015** em seu computador.
 2. No menu **Arquivo**, selecione **Novo** e depois **Projeto**.
-3. Na caixa de diálogo **Novo Projeto**, selecione **Modelos**/**Visual C#**/**Aplicativo de Console**, nomeie o projeto e clique em **OK**. 
-![Captura de tela da janela Novo Projeto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+3. Na caixa de diálogo **Novo Projeto**, selecione **Modelos**/**Visual C#**/**Aplicativo de Console**, nomeie o projeto e clique em **OK**. ![Captura de tela da janela Novo Projeto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
 4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no seu novo aplicativo de console, que está em sua solução do Visual Studio.
-5. Sem sair do menu, clique em **Gerenciar Pacotes NuGet...** 
-![Captura de tela do menu exibido pelo clique com o botão direito do mouse para o projeto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+5. Sem sair do menu, clique em **Gerenciar Pacotes NuGet...** ![Captura de tela do menu exibido pelo clique com o botão direito do mouse para o projeto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. Na guia **Nuget**, clique em **Procurar** e digite **banco de dados de documentos do azure** na caixa de pesquisa.
-7. Nos resultados, encontre **Microsoft.Azure.DocumentDB** e clique em **Instalar**. 
-A ID do pacote para a Biblioteca de Clientes do Banco de Dados de Documentos é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) 
-![Captura de tela do menu Nuget para localizar documentos do SDK do cliente do Banco de Dados de Documentos](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+7. Nos resultados, encontre **Microsoft.Azure.DocumentDB** e clique em **Instalar**. A ID do pacote para a Biblioteca de Clientes do Banco de Dados de Documentos é [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) ![Captura de tela do menu Nuget para localizar documentos do SDK do cliente do Banco de Dados de Documentos](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
 Ótimo! Agora que a instalação está concluída, vamos começar a escrever algum código. Você pode encontrar um projeto de código completo deste tutorial no [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
@@ -451,7 +447,7 @@ Copie e cole o método **ExecuteSimpleQuery** embaixo de seu método **CreateFam
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
-			foreach (Family family in familyQuery)
+			foreach (Family family in familyQueryInSql)
 			{
 					Console.WriteLine("\tRead {0}", family);
 			}
@@ -614,4 +610,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -167,9 +167,12 @@ Neste ponto, você tem um servidor de aplicativos Java em execução em seu apli
 
 Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o [Centro de Desenvolvedores do Java](/develop/java/).
 
-<!-- External Links -->
+<!-- URL List -->
+
 [ativar os benefícios de assinante do Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [inscrever-se em uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-- IMG List -->
+
+<!---HONumber=AcomDC_0511_2016-->

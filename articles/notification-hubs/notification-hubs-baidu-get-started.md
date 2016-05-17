@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="11/25/2015"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Introdução aos Hubs de Notificação usando o Baidu
@@ -504,4 +504,4 @@ Para enviar uma notificação de teste, você poderá usar a guia de depuração
 [Portal Clássico do Azure]: https://manage.windowsazure.com/
 [portal do Baidu]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

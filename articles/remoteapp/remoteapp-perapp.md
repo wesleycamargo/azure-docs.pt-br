@@ -88,7 +88,7 @@ Execute o cmdlet a seguir:
 
 		Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-Agora o usuário verá o aplicativo no cliente do Azure RemoteApp e poderá se conectar a ele.
+Agora, o usuário verá o aplicativo no cliente RemoteApp do Azure e poderá conectar-se a ele.
 
 ## Como remover um aplicativo de um usuário
 
@@ -102,4 +102,4 @@ Agradecemos seus comentários e sugestões sobre este recurso de visualização.
 ## Ainda não teve a oportunidade de experimentar o recurso de visualização?
 Se você ainda não participou da visualização, use esta [pesquisa](http://www.instant.ly/s/AY83p) para solicitar acesso.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Create a lab in DevTest Labs | Microsoft Azure"
-	description="Create a new lab in DevTest Labs for virtual machines"
+<properties
+	pageTitle="Criar um laboratório no DevTest Labs | Microsoft Azure"
+	description="Crie um novo laboratório no DevTest Labs para máquinas virtuais"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Criar Laboratórios de Desenvolvimento/Teste do Azure
@@ -27,7 +27,7 @@ Para criar um laboratório, você precisará de:
 
 ## Criar um laboratório
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toque em **Procurar**.
 
@@ -50,7 +50,7 @@ Para criar um laboratório, você precisará de:
 
 Depois de criar seu laboratório, aqui estão algumas das próximas etapas a serem consideradas:
 
-- [Acesso seguro a um Laboratório de Desenvolvimento/Teste](devtest-lab-add-devtest-user.md).
+- [Proteger o acesso a um laboratório](devtest-lab-add-devtest-user.md).
 
 - [Definir políticas de laboratório](devtest-lab-set-lab-policy.md).
 
@@ -58,6 +58,6 @@ Depois de criar seu laboratório, aqui estão algumas das próximas etapas a ser
 
 - [Criar artefatos personalizados para suas VMs](devtest-lab-artifact-author.md).
 
-- [Adicionar uma VM com artefatos a um Laboratório de Desenvolvimento/Teste do Azure](devtest-lab-add-vm-with-artifacts.md).
+- [Adicionar uma VM com artefatos a um laboratório](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -76,4 +76,4 @@ Após o provisionamento do SQL Data Warehouse, você pode [carregar dados de amo
 [Preços do SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Downloads do Visual Studio]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

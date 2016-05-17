@@ -240,4 +240,4 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 [Portal do Azure]: https://portal.azure.com
 [Baixe os dados de exemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

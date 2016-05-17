@@ -15,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/21/2016"
+   ms.date="05/05/2016"
    ms.author="glenga"/>
 
 # Criar sua primeira Função do Azure
@@ -29,7 +29,7 @@ Este tópico mostra como usar o início rápido do Azure Functions no portal do 
 
 O vídeo a seguir mostra como executar as etapas básicas deste tutorial.
 
-[AZURE.VIDEO create-your-first-azure-function]
+[AZURE.VIDEO create-your-first-azure-function-simple]
 
 ##Criar uma função do início rápido
 
@@ -64,4 +64,4 @@ Este início rápido demonstra uma execução muito simples de uma função bás
 
 [AZURE.INCLUDE [Observação de introdução](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

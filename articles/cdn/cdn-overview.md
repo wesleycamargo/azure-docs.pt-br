@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/15/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure
 
-A CDN (Rede de Distribuição de Conteúdo) do Azure armazena em cache conteúdo estático e blobs do Azure usados por sites em locais estrategicamente posicionados para fornecer taxa de transferência máxima para o fornecimento de conteúdo aos usuários. A CDN oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda armazenando em cache o conteúdo em nós físicos em todo o mundo. Para obter uma lista atual de locais de nó CDN, consulte [Locais POP da CDN do Azure](cdn-pop-locations.md).
+A CDN (Rede de Distribuição de Conteúdo) do Azure armazena em cache conteúdo Web estático em locais estrategicamente posicionados para fornecer taxa de transferência máxima para o fornecimento de conteúdo aos usuários. A CDN oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda armazenando em cache o conteúdo em nós físicos em todo o mundo. Para obter uma lista de locais de nó CDN atuais, confira [Locais POP da Azure CDN](cdn-pop-locations.md).
 
-Os benefícios do uso da CDN para armazenar em cache dados do Azure incluem:
+As vantagens do uso da CDN para armazenar ativos de site da Web em cache incluem:
 
 - Melhor desempenho e experiência de usuário para usuários finais, especialmente ao se usar aplicativos em que várias viagens de ida e volta são necessárias para carregar o conteúdo.
 - Grande dimensionamento para lidar melhor com alta carga instantânea, como no início de um evento de lançamento de produto.
@@ -44,30 +44,27 @@ Os benefícios do uso da CDN para armazenar em cache dados do Azure incluem:
 6. Se a TTL do arquivo ainda não tiver expirado, o servidor de borda retornará os arquivos do cache. Isso resulta em uma experiência de usuário mais rápida e responsiva.
 
 
-## Recursos Standard
+## Recursos da Azure CDN
 
-A camada CDN Standard inclui os seguintes recursos:
+Há três produtos Azure CDN: **Azure CDN Standard do Akamai**, **Azure CDN Standard da Verizon** e **Azure CDN Premium da Verizon**. A tabela a seguir lista os recursos disponíveis para cada produto.
 
-- Fácil integração com os serviços do Azure, como [Armazenamento](cdn-create-a-storage-account-with-cdn.md), [Serviços de Nuvem](cdn-cloud-service-with-cdn.md), [Aplicativos Web](../app-service-web/cdn-websites-with-cdn.md) e [Serviços de Mídia](../media-services/media-services-manage-origins.md#enable_cdn)
-- Suporte para HTTPS
-- Balanceamento de carga
-- Proteção DDOS
-- [Cache de cadeia de caracteres de consulta](cdn-query-string.md)
-- [Suporte a nome de domínio personalizado](cdn-map-content-to-custom-domain.md)
-- [Filtragem de país](cdn-restrict-access-by-country.md)
-- [Análise principal](cdn-analyze-usage-patterns.md)
-- [Limpeza rápida](cdn-purge-endpoint.md)
-- [Pré-carregamento de ativos](cdn-preload-endpoint.md)
-- [Gerenciamento por meio da API REST](https://msdn.microsoft.com/library/mt634456.aspx)
+| | Akamai Standard | Verizon Standard | Verizon Premium |
+|-------|-----------------|------------------|-----------------|
+| Fácil integração com os serviços do Azure, como [Armazenamento](cdn-create-a-storage-account-with-cdn.md), [Serviços de Nuvem](cdn-cloud-service-with-cdn.md), [Aplicativos Web](../app-service-web/cdn-websites-with-cdn.md) e [Serviços de Mídia](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Suporte para HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Balanceamento de carga | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Proteção DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Suporte a nome de domínio personalizado](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Cache de cadeia de caracteres de consulta](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Filtragem de país](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
+| [Limpeza rápida](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Pré-carregamento de ativos](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
+| [Análise principal](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
+| [Gerenciamento por meio da API REST](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Mecanismo de distribuição de conteúdo personalizável e baseado em regras](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Relatórios avançados de HTTP](cdn-advanced-http-reports.md) | | | **&#x2713;** |
+| [Estatísticas em tempo real](cdn-real-time-stats.md) | | | **&#x2713;** |
 
-
-## Recursos Premium
-
-A camada CDN Premium inclui todos os recursos da camada Standard, além desses recursos adicionais:
-
-- [Mecanismo de distribuição de conteúdo personalizável e baseado em regras](cdn-rules-engine.md)
-- [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
-- [Estatísticas em tempo real](cdn-real-time-stats.md)
 
 ## Próximas etapas
 
@@ -77,4 +74,6 @@ Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN
 
 Para ver a CDN em ação, confira o [vídeo da sessão Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-<!---HONumber=AcomDC_0504_2016-->
+Para obter informações sobre os preços, confira [Detalhes de preços](https://azure.microsoft.com/pricing/details/cdn/).
+
+<!---HONumber=AcomDC_0511_2016-->

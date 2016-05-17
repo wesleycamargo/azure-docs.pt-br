@@ -5,14 +5,15 @@
    documentationCenter=""
    authors="MGoedtel"
    manager="jwhit"
-   editor="tysonn" />
+   editor="tysonn"
+   keywords="usuário do azure active directory, gerenciamento de serviço do azure, conta de usuário do azure ad" />
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/08/2016"
+   ms.date="05/10/2016"
    ms.author="magoedte" />
 
 # Autenticar Runbooks com o Gerenciador de Recursos e o Gerenciamento de Serviços do Azure
@@ -22,7 +23,7 @@ Este artigo descreve as etapas que você deve executar para configurar uma conta
 ## Criar um novo usuário do Azure Active Directory
 
 1. Faça logon no Portal Clássico do Azure como administrador de serviço para a assinatura do Azure que você deseja gerenciar.
-2. Selecione **Active Directory** e selecione o nome do diretório de sua organização.
+2. Selecione **Active Directory** e selecione o nome do diretório da sua organização.
 3. Selecione a guia **Usuários** e, na área de comando, selecione **Adicionar Usuário**.
 4. Na página **Conte-nos sobre este usuário**, em **Tipo de usuário**, selecione **Novo usuário na sua organização**.
 5. Insira um nome de usuário.  
@@ -62,16 +63,16 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
 2. Selecione **Contas de Automação**.
 3. Na folha Contas de Automação, clique em **Adicionar**.<br>![Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties.png)
 2. Na folha **Adicionar Conta de Automação**, na caixa **Nome**, digite um nome para a nova conta de Automação.
-5. Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova conta, bem como um **Grupo de recursos** novo ou existente e um **Local** de datacenter do Azure.
+5. Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova conta, bem como um **Grupo de recursos** novo ou existente e um **Local** de data center do Azure.
 3. Selecione o valor **Não** para a opção **Criar conta Executar como do Azure** e clique no botão **Criar**.  
 
-    >[AZURE.NOTE] Se optar por não criar a conta Executar como selecionando a opção **Não**, você verá uma mensagem de aviso na folha **Adicionar Conta de Automação**. Embora a conta seja criada e atribuída à função **Colaborador** na assinatura, ela não terá uma identidade de autenticação correspondente em seu serviço de diretório de assinaturas e, assim, não haverá recursos de acesso em sua assinatura. Isso impedirá qualquer runbook que faça referência a essa conta seja capaz de se autenticar e de executar tarefas nos recursos do ARM.
+    >[AZURE.NOTE] Se você optar por não criar a conta Executar como ao selecionar a opção **Não**, verá uma mensagem de aviso na folha **Adicionar Conta de Automação**. Embora a conta seja criada e atribuída à função **Colaborador** na assinatura, ela não terá uma identidade de autenticação correspondente em seu serviço de diretório de assinaturas e, portanto, não haverá recursos de acesso em sua assinatura. Isso impedirá qualquer runbook que faça referência a essa conta seja capaz de se autenticar e de executar tarefas nos recursos do ARM.
 
     ![Aviso Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 
 4. Enquanto o Azure cria a conta de Automação, você poderá acompanhar o andamento em **Notificações** no menu.
 
-Quando a criação da credencial for concluída, você precisará criar um Ativo de Credencial para associar a Conta de Automação à conta de Usuário do AD criada anteriormente. Lembre-se de que apenas criamos a conta de Automação e ela não está associada a uma identidade de autenticação. Execute as etapas descritas no [artigo sobre ativos de credencial na Automação do Azure](../automation/automation-credentials.md#creating-a-new-credential) e insira o valor para **nome de usuário** no formato **domínio\\nome\_de\_usuário**.
+Quando a criação da credencial for concluída, você precisará criar um Ativo de Credencial para associar a Conta de Automação à conta de Usuário do AD criada anteriormente. Lembre-se de que apenas criamos a conta de Automação e ela não está associada a uma identidade de autenticação. Execute as etapas descritas no [artigo sobre ativos de credencial na Automação do Azure](../automation/automation-credentials.md#creating-a-new-credential) e insira o valor para **nome de usuário** no formato **domínio\\usuário**.
 
 ## Usar uma credencial em um runbook
 
@@ -86,4 +87,4 @@ Repita essas linhas após qualquer [ponto de verificação](http://technet.micro
 ## Próximas etapas
 * Examine os diferentes tipos de runbook e as etapas para criar seus próprios runbooks no artigo [Tipos de runbook da Automação do Azure](../automation/automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

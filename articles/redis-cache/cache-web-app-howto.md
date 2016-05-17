@@ -12,8 +12,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/28/2016" 
+	ms.topic="hero-article" 
+	ms.date="05/05/2016" 
 	ms.author="sdanie"/>
 
 # Como criar um aplicativo Web com o Cache Redis
@@ -24,7 +24,7 @@ O que você aprenderá:
 
 -	Como criar um aplicativo MVC 5 ASP.NET no Visual Studio.
 -	Como acessar dados de um banco de dados usando o Entity Framework.
--	Como melhorar inteiramente os dados e reduzir a carga do banco de dados armazenando e recuperando dados com o Cache Redis do Azure.
+-	Como melhorar a taxa de transferência de dados e reduzir a carga do banco de dados armazenando e recuperando dados com o Cache Redis do Azure.
 -	Como usar um conjunto classificado do Redis para recuperar as cinco equipes principais.
 -	Como provisionar os recursos do Azure para o aplicativo usando um modelo de ARM.
 -	Como publicar o aplicativo no Azure usando o Visual Studio.
@@ -229,9 +229,9 @@ Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe es
 
 ### Configurar os modos de exibição
 
-1. No **Gerenciador de Soluções**, expanda a pasta **Exibições** e, em seguida, a pasta **Compartilhado** e clique duas vezes em **_Layout.cshtml**.
+1. No **Gerenciador de Soluções**, expanda a pasta **Exibições** e, em seguida, a pasta **Compartilhado** e clique duas vezes em **\_Layout.cshtml**.
 
-    ![_Layout.cshtml][cache-layout-cshtml]
+    ![\_Layout.cshtml][cache-layout-cshtml]
 
 2. Altere o conteúdo do elemento `title` e substitua `My ASP.NET Application` por `Contoso Team Stats`, conforme é mostrado no exemplo a seguir.
 
@@ -838,4 +838,4 @@ Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

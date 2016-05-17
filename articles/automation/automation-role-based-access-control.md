@@ -5,15 +5,16 @@
    documentationCenter=""
    authors="SnehaGunda"
    manager="stevenka"
-   editor="tysonn" />
+   editor="tysonn"
+   keywords="rbac de automação, controle de acesso baseado em função, rbac azure" />
 <tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/11/2016"
-   ms.author="sngun"/>
+   ms.date="05/10/2016"
+   ms.author="magoedte;sngun"/>
 
 # Controle de acesso com base em função na Automação do Azure
 
@@ -81,7 +82,7 @@ Você pode remover a permissão de acesso de um usuário que não está gerencia
 
 2.	Clique no botão **Remover** na folha de detalhes de atribuição.
 
-3.	Clique em **Sim** para confirmar a remoção.
+3.	Clique em **sim** para confirmar a remoção.
 
     ![Remover usuários](media/automation-role-based-access-control/automation-08-remove-users.png)
 
@@ -113,7 +114,7 @@ Esse usuário não tem acesso para exibir os Webhooks associados a um runbook
 
 O acesso baseado em função também pode ser configurado para uma Conta de Automação usando os seguintes [cmdlets do Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 
-• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lista todas as funções que estão disponíveis no RBAC do Active Directory do Azure. Você pode usar esse comando juntamente com a propriedade **Nome** para listar todos os usuários com uma função específica. **Exemplo:** ![Obter a definição da função](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)
+• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lista todas as funções que estão disponíveis no Azure Active Directory RBAC. Você pode usar esse comando juntamente com a propriedade **Nome** para listar todos os usuários com uma função específica. **Exemplo:** ![Obter a definição da função](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)
 
 • [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) lista as atribuições de função do RBAC do Azure no escopo especificado. Sem parâmetros, esse comando retorna todas as atribuições de função realizadas na assinatura. Use o parâmetro **ExpandPrincipalGroups** para listar as atribuições de acesso para o usuário especificado, bem como para os grupos dos quais o usuário é membro. **Exemplo:** use o comando a seguir para listar todos os usuários e suas funções em uma Conta de Automação.
 
@@ -139,4 +140,4 @@ Nos cmdlets acima, substitua o nome de login, ID de assinatura, nome do grupo de
 - Para obter detalhes sobre diferentes maneiras de iniciar um runbook, confira [Iniciando um runbook](automation-starting-a-runbook.md)
 - Para obter informações sobre os diferentes tipos, consulte [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

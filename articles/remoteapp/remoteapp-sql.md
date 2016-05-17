@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/02/2016"
+   ms.date="05/02/2016"
    ms.author="elizapo"/>
 
 # SQL Azure com o Azure RemoteApp
@@ -50,4 +50,4 @@ Se a experiência de usar um aplicativo cliente hospedado no Azure RemoteApp que
 - O aplicativo cliente hospedado no Azure RemoteApp está sob carga excessiva. Escolher um plano de cobrança diferente, como a cobrança Premium, melhorará o desempenho. Outro truque é monitorar os recursos que o aplicativo está consumindo: durante uma sessão ativa, execute uma sequência de teclas ctrl-alt-end para iniciar a tela SAS, selecione o Gerenciador de Tarefas e observe a utilização de recursos para seu aplicativo.
 - O servidor SQL está sob carga excessiva ou não está otimizado. Siga as diretrizes do SQL para solução de problemas. 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

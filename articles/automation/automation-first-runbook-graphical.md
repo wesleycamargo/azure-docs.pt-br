@@ -5,15 +5,15 @@
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
-    editor=""/>
-
+    editor=""
+	keywords="runbook, modelo de runbook, automação de runbook, runbook do azure"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/21/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
 
 # O meu primeiro runbook gráfico
@@ -60,9 +60,9 @@ O controle Biblioteca no lado esquerdo do editor permite que você selecione as 
 
 Antes que publicamos o runbook para disponibilizá-lo na produção, queremos testá-lo para garantir que ele funciona corretamente. Quando você testa um runbook, executa sua versão de **Rascunho** e vê sua saída interativamente.
 
-1.	Clique em **Painel de teste** para abrir a folha Teste. <br> ![Painel de teste](media/automation-first-runbook-graphical/runbook-toolbar-test.png)
+1.	Clique em **Painel de teste** para abrir a folha Teste. <br>![Painel de teste](media/automation-first-runbook-graphical/runbook-toolbar-test.png)
 2.	Clique em **Iniciar** para iniciar o teste. Essa deve ser a única opção habilitada.
-3.	Um [trabalho de runbook](automation-runbook-execution.md) é criado e seu status é exibido no painel. O status do trabalho iniciará como *Na fila*, indicando que ele está aguardando um runbook worker ficar disponível na nuvem. Ele mudará para *Iniciando* quando um runbook worker reivindicar o trabalho e para *Executando* quando o runbook realmente começar a ser executado.  
+3.	Um [trabalho de runbook](automation-runbook-execution.md) é criado e seu status é exibido no painel. O status do trabalho será iniciado como *Na fila*, indicando que ele está aguardando um runbook worker ficar disponível na nuvem. Ele mudará para *Iniciando* quando um runbook worker reivindicar o trabalho e para *Executando* quando o runbook realmente começar a ser executado.  
 4.	Quando o trabalho do runbook é concluído, sua saída é exibida. Em nosso caso, deveremos ver *Olá mundo*.<br> ![Olá mundo](media/automation-first-runbook-graphical/runbook-test-results.png)
 5.	Feche a folha Teste para retornar à tela.
 
@@ -106,7 +106,7 @@ Agora que temos uma variável para conter a ID de assinatura, podemos configurar
 6.	Na tela, selecione **Get-AutomationVariable** e no painel de controle da Configuração, digite **Obter ID de Assinatura** na caixa de texto **Rótulo**.  
 7.	No controle Biblioteca, digite **Get-AutomationPS** na caixa de texto de pesquisa.
 8.	Adicione **Get-AutomationPSCredential** à tela.<br>![Pesquisar cmdlet Get-AutomationPSCred](media/automation-first-runbook-graphical/search-get-automationpscredential-cmdlet.png)
-9.	Na tela, selecione **Get-AutomationPSCredential** e no painel de controle da Configuração, digite **Obter Credencial do Azure** na caixa de texto **Rótulo**.
+9.	Na tela, selecione **Get-AutomationPSCredential** e, no painel de controle da Configuração, digite **Obter Credencial do Azure** na caixa de texto **Rótulo**.
 10.	Clique em **Parâmetros** e a folha Configuração do Parâmetro da Atividade aparecerá. 
 11. Na folha Configuração do Parâmetro da Atividade, clique em **Nome** e a folha Valor do Parâmetro aparecerá.  
 12.	 Na folha Valor do Parâmetro, selecione **Entrada do Runbook** para a **Fonte de dados**, selecione **AzureCredentialAssetName** na lista e clique em **OK** duas vezes.   
@@ -130,7 +130,7 @@ Agora, adicionaremos uma atividade **Start-AzureRmVM** para iniciar uma máquina
 1. No controle Biblioteca, digite **Start-AzureRm** na caixa de texto de pesquisa.
 2. Adicione **Start-AzureRmVM** à tela, então, clique e arraste-a para baixo de **Conectar ao Azure**.
 3. Passe o mouse sobre **Conectar ao Azure** até que um círculo apareça na parte inferior da forma. Clique no círculo e arraste a seta para **Start-AzureRmVM**. 
-4.	Selecione **Start-AzureRmVM**. Clique em **Parâmetros** e **Conjunto de Parâmetros** para exibir os conjuntos de **Start-AzureRmVM**. Selecione o conjunto de parâmetros **ResourceGroupNameParameterSetName**. Observe que **ResourceGroupName** e **Name** têm pontos de exclamação ao lado. Isso indica que são os parâmetros obrigatórios. Observe também que ambos esperam valores da cadeia de caracteres.
+4.	Selecione **Start-AzureRmVM**. Clique em **Parâmetros** e **Conjunto de Parâmetros** para exibir os conjuntos de **Start-AzureRmVM**. Selecione o conjunto de parâmetros **ResourceGroupNameParameterSetName**. Observe **queResourceGroupName** e **Name** têm pontos de exclamação ao lado. Isso indica que são os parâmetros obrigatórios. Observe também que ambos esperam valores da cadeia de caracteres.
 5.	Selecione **Name**. Selecione a **Expressão do PowerShell** para a **Fonte de dados** e digite o nome da máquina virtual entre aspas duplas com a qual iniciaremos este runbook. Clique em **OK**.<br>![Valor do Parâmetro Name do Start-AzureRmVM](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
 6.	Selecione **ResourceGroupName**. Use a **Expressão do PowerShell** para a **Fonte de dados** e digite o nome do grupo de recursos entre aspas duplas. Clique em **OK**.<br> ![Parâmetros do Start-AzureRmVM](media/automation-first-runbook-graphical/startazurermvm-params.png)
 8.	Clique em Painel de teste para que possamos testar o runbook.
@@ -161,10 +161,10 @@ Nosso runbook inicia atualmente a máquina virtual no grupo de recursos que espe
 Agora, modificaremos o runbook para que ele tente iniciar a máquina virtual apenas se ela ainda não tiver iniciado. Faremos isso adicionando um cmdlet **Get-AzureRmVM** ao runbook que obterá o status do nível da instância da máquina virtual. Em seguida, adicionaremos um módulo de código do Fluxo de Trabalho do PowerShell denominado **Obter Status** com um trecho de código do PowerShell para determinar se o estado da máquina virtual está em execução ou parado. Um link condicional do módulo **Obter Status** apenas executará **Start-AzureRmVM** se o estado de execução atual for interrompido. Por fim, enviaremos uma mensagem para informar se a VM foi iniciada com êxito ou não usando o cmdlet Write-Output do PowerShell.
 
 1. Abra o **MyFirstRunbook** no editor gráfico.
-2. Remova o link entre **Conectar ao Azure** e **Start-AzureRmVM** clicando nele, em seguida, pressionando a tecla *Delete*.
+2. Remova o link entre **Conectar ao Azure** e **Start-AzureRmVM** clicando nele e pressionando a tecla *Delete*.
 3. No controle Biblioteca, digite **Get-AzureRm** na caixa de texto de pesquisa.
 4. Adicione **Get-AzureRmVM** à tela.
-5. Selecione **Get-AzureRmVM** e **Conjunto de Parâmetros** para exibir os conjuntos de **Get-AzureRmVM**. Selecione o conjunto de parâmetros **GetVirtualMachineInResourceGroupNameParamSet**. Observe que**ResourceGroupName** e **Name** têm pontos de exclamação ao lado. Isso indica que são os parâmetros obrigatórios. Observe também que ambos esperam valores da cadeia de caracteres.
+5. Selecione **Get-AzureRmVM** e **Conjunto de Parâmetros** para exibir os conjuntos de **Get-AzureRmVM**. Selecione o conjunto de parâmetros **GetVirtualMachineInResourceGroupNameParamSet**. Observe que**ResourceGroupName** e **Name** têm pontos de exclamação ao lado deles. Isso indica que são os parâmetros obrigatórios. Observe também que ambos esperam valores da cadeia de caracteres.
 6. Em **Fonte de dados** para **Name**, selecione **Entrada do runbook**, em seguida, selecione **VMName**. Clique em **OK**.
 7. Em **Fonte de dados** para **ResourceGroupName**, selecione **Entrada do runbook**, em seguida, selecione **ResourceGroupName**. Clique em **OK**.
 8. Em **Fonte de dados** para **Status**, selecione **Valor constante**, em seguida, clique em **True**. Clique em **OK**.  
@@ -209,4 +209,4 @@ Agora, modificaremos o runbook para que ele tente iniciar a máquina virtual ape
 -	Para começar a usar os runbooks do fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook do Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 -	Para começar a usar os runbooks do fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->
