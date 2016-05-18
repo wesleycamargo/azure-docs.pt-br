@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/18/2016"   
+	ms.date="04/08/2016"   
 	ms.author="adsolank;juliako;johndeu"/>
 
 
@@ -69,7 +69,7 @@ Observe que, se nenhum arquivo de configuração for especificado, o arquivo de 
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 
 	    // Get a reference to the Azure Media Indexer.
-	    string MediaProcessorName = "Azure Media Indexer",
+	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
 	    // Read configuration from file if specified.
@@ -290,15 +290,12 @@ Atualmente, há suporte para os idiomas inglês e espanhol. Para saber mais, con
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-
 ## Links relacionados
+
+[Visão geral da Análise dos Serviços de Mídia do Azure](media-services-analytics-overview.md)
 
 [Usando arquivos AIB com o indexador de mídia do Azure e SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
-<!-- Anchors. -->
+[Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
 
-<!-- Images. -->
-
-<!-- URLs. -->
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

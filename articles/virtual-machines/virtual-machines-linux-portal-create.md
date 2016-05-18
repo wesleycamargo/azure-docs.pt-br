@@ -25,8 +25,6 @@
 É fácil criar uma VM (Virtual Machine - Máquina Virtual) que executa o Linux. Este tutorial mostra como usar o portal do Azure para criar uma VM rapidamente e usa o `~/.ssh/id_rsa.pub`arquivo de chave pública para proteger a sua conexão **SSH** com a VM. Você também pode criar VMs do Linux usando [suas próprias imagens como modelos](virtual-machines-linux-classic-create-upload-vhd.md).
 
 
-[AZURE.NOTE] Este tutorial cria uma máquina virtual do Azure gerenciada pela API do grupo de recursos do Azure. Para obter detalhes, consulte [Visão geral do grupo de recursos do Azure](../resource-group-overview.md).
-
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Selecionar a imagem
@@ -128,4 +126,4 @@ Para saber mais sobre o Linux no Azure, confira:
 
 - [A extensão de máquina virtual Docker para Linux no Azure](virtual-machines-linux-dockerextension.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -176,11 +176,6 @@ Para a oferta de "Windows Server":
 
 Nesta lista, copie o nome da SKU escolhida e você terá todas as informações para o cmdlet **Set-AzureVMSourceImage** do PowerShell ou para um arquivo de modelo de grupo de recursos que exige que você especifique o editor, a oferta e a SKU para uma imagem.
 
-### Passo a passo em vídeo
-
-Este vídeo demonstra as etapas acima usando o PowerShell.
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-posh]
 
 
 <!--Image references-->
@@ -194,4 +189,4 @@ Este vídeo demonstra as etapas acima usando o PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

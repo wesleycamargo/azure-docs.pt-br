@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Guia de programação para Hubs de Eventos do Azure | Microsoft Azure"
-   description="Descreve a programação com Hubs de Eventos do Azure usando o SDK do Azure .NET."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Guia de programação para Hubs de Eventos do Azure | Microsoft Azure"
+    description="Descreve a programação com Hubs de Eventos do Azure usando o SDK do Azure .NET."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="tbd"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Guia de programação dos Hubs de Eventos
 
@@ -33,7 +33,7 @@ As classes do .NET que são compatíveis com Hubs de Eventos são fornecidos no 
 Install-Package WindowsAzure.ServiceBus
 ```
 
-## Criar um Hub de Eventos
+## Criar um Hub de Evento
 
 Você pode usar a classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para criar Hubs de Eventos. Por exemplo:
 
@@ -50,7 +50,7 @@ var description = manager.CreateEventHubIfNotExists("MyEventHub");
 
 Todas as operações de criação de Hubs de Eventos, inclusive [CreateEventHubIfNotExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createeventhubifnotexists.aspx), exigem permissões **Gerenciar** no namespace em questão. Se você quiser limitar as permissões de seus aplicativos de consumidor ou publicador, pode evitar essas chamadas de criação de operação no código de produção, ao usar credenciais com permissões limitadas.
 
-A classe [EventHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubdescription.aspx) contém detalhes sobre um Hub de Eventos, incluindo regras de autorização, intervalo de retenção de mensagem, IDs de partição, status e caminho. Você pode usar essa classe para atualizar os metadados em um Hub de Eventos.
+A classe [EventHubDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubdescription.aspx) contém detalhes sobre um Hub de Eventos, incluindo regras de autorização, intervalo de retenção de mensagem, ID de partição, status e caminho. Você pode usar essa classe para atualizar os metadados em um Hub de Eventos.
 
 ## Criar um cliente de Hubs de Eventos
 
@@ -83,9 +83,9 @@ var client = factory.CreateEventHubClient("MyEventHub");
 
 É importante observar que outros objetos [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) criados em uma instância de fábrica de mensagens vão reutilizar a mesma conexão TCP subjacente. Portanto, esses objetos têm um limite, no lado do cliente, na taxa de transferência. O método [Criar](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.create.aspx) reutiliza uma única fábrica de mensagens única. Se você precisa de uma taxa de transferência muito alta de um único remetente, é possível criar diversas fábricas de mensagens e um objeto [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) de cada fábrica de mensagens.
 
-## Enviar eventos a um Hub de Eventos
+## Enviar eventos para um Hub de Eventos
 
-Você envia eventos a um Hub de Eventos criando uma instância [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) e enviando-a pelo método [Send](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.send.aspx). Esse método usa um único parâmetro [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) da instância e o envia de forma síncrona para um Hub de Eventos.
+Você envia eventos para um Hub de Eventos criando uma instância [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) e enviando-a pelo método [Enviar](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.send.aspx). Esse método usa um único parâmetro [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) da instância e o envia de forma síncrona para um Hub de Eventos.
 
 ## Serialização de evento
 
@@ -93,7 +93,7 @@ A classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.serviceb
 
 ## Chave de partição
 
-A classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) tem uma propriedade [PartitionKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.partitionkey.aspx) que permite que o remetente especifique um valor de hash para produzir uma atribuição de partição. Usar uma chave de partição garante que todos os eventos com a mesma chave sejam enviados para a mesma partição no Hub de Eventos. Chaves de partição comuns incluem IDs de sessão de usuário e IDs de remetente exclusivo. A propriedade [PartitionKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.partitionkey.aspx) é opcional e pode ser fornecida ao usar os métodos [Microsoft.ServiceBus.Messaging.EventHubClient.Send(Microsoft.ServiceBus.Messaging.EventData)](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) ou [Microsoft.ServiceBus.Messaging.EventHubClient.SendAsync(Microsoft.ServiceBus.Messaging.EventData)](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Se você não fornecer um valor para [PartitionKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.partitionkey.aspx), os eventos enviados serão distribuídos para partições que usam um modelo round-robin.
+A classe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) tem uma propriedade [PartitionKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.partitionkey.aspx) que permite que o remetente especifique um valor de hash para produzir uma atribuição de partição. Usar uma chave de partição garante que todos os eventos com a mesma chave sejam enviados para a mesma partição de Hub de Eventos. Chaves de partição comuns incluem IDs de sessão de usuário e IDs de remetente exclusivo. A propriedade [PartitionKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.partitionkey.aspx) é opcional e pode ser fornecida ao usar os métodos [Microsoft.ServiceBus.Messaging.EventHubClient.Send(Microsoft.ServiceBus.Messaging.EventData)](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) ou [Microsoft.ServiceBus.Messaging.EventHubClient.SendAsync(Microsoft.ServiceBus.Messaging.EventData)](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx). Se você não fornecer um valor para [PartitionKey](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.partitionkey.aspx), os eventos enviados serão distribuídos para partições que usam um modelo round-robin.
 
 ## Operações de envio de eventos em lote
 
@@ -111,7 +111,7 @@ Você também pode enviar eventos para um Hub de Eventos de forma assíncrona. O
 
 ## Criar um remetente de partição
 
-Embora seja mais comum enviar eventos a um Hub de Eventos com uma chave de partição, em alguns casos, é conveniente enviar eventos diretamente a uma determinada partição. Por exemplo:
+Embora seja mais comum enviar eventos para um Hub de Eventos com uma chave de partição, em alguns casos você pode enviar eventos diretamente para determinada partição. Por exemplo:
 
 ```
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -146,7 +146,7 @@ while(receive)
 }
 ```
 
-Em relação a uma partição específica, as mensagens são recebidas na ordem em que foram enviadas ao Hub de Eventos. O deslocamento é um token de cadeia de caracteres usado para identificar uma mensagem em uma partição.
+Em relação a uma partição específica, as mensagens são recebidas na ordem em que foram enviadas para o Hub de Eventos. O deslocamento é um token de cadeia de caracteres usado para identificar uma mensagem em uma partição.
 
 Observe que uma única partição em um grupo de consumidores não pode ter mais de 5 leitores simultâneos conectados em algum momento. Conforme os leitores são conectados ou desconectados, suas sessões podem permanecer ativas por vários minutos antes que o serviço reconheça que foram desconectados. Durante esse tempo, a reconexão a uma partição pode falhar. Para obter um exemplo completo de como gravar um destinatário direto para Hubs de Eventos, consulte o exemplo [Receptores diretos de Hubs de Eventos no Barramento de Serviço](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6).
 
@@ -162,7 +162,7 @@ Para usar a classe [EventProcessorHost](https://msdn.microsoft.com/library/azure
 
 - [ProcessEventsAsync](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.processeventsasync.aspx)
 
-Para iniciar o processamento de eventos, crie uma instância de [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) fornecendo os parâmetros adequados para seu Hub de Eventos. Em seguida, chame [RegisterEventProcessorAsync](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.registereventprocessorasync.aspx) para registrar sua implementação de [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) no tempo de execução. Nesse ponto, o host tentará adquirir uma concessão em todas as partições do Hub de Eventos usando um algoritmo "ávido". Essas concessões vão durar por determinado período e, em seguida, devem ser renovadas. Como novos nós, as instâncias de trabalho, nesse caso, ficam online, colocam reservas de concessão e com o tempo, a carga é trocada entre os nós, à medida que cada uma tenta adquirir mais concessões.
+Para iniciar o processamento de eventos, crie uma instância do [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) fornecendo os parâmetros adequados para seu Hub de Eventos. Em seguida, chame [RegisterEventProcessorAsync](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.registereventprocessorasync.aspx) para registrar sua implementação de [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) no tempo de execução. Neste ponto, o host tenta adquirir uma concessão em todas as partições do Hub de Eventos usando um algoritmo de "greedy". Essas concessões vão durar por determinado período e, em seguida, devem ser renovadas. Como novos nós, as instâncias de trabalho, nesse caso, ficam online, colocam reservas de concessão e com o tempo, a carga é trocada entre os nós, à medida que cada uma tenta adquirir mais concessões.
 
 ![Host do processador de eventos](./media/event-hubs-programming-guide/IC759863.png)
 
@@ -172,7 +172,7 @@ A classe [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft
 
 ## Revogação do publicador
 
-Além dos recursos avançados de tempo de execução do [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), os Hubs de Eventos permitem a revogação do editor para impedir que editores específicos enviem eventos a um Hub de Eventos. Esses recursos serão especialmente úteis se o token do editor tiver sido comprometido ou uma atualização de software estiver causando um comportamento inadequado. Nessas situações, a identidade do editor, que faz parte do token SAS, pode ser impedida de publicar eventos.
+Além dos recursos avançados de tempo de execução do [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx), os Hubs de Eventos permitem a revogação do editor para impedir que publicadores específicos enviem eventos para um Hub de Eventos. Esses recursos serão especialmente úteis se o token do editor tiver sido comprometido ou uma atualização de software estiver causando um comportamento inadequado. Nessas situações, a identidade do editor, que faz parte do token SAS, pode ser impedida de publicar eventos.
 
 Para obter mais informações sobre revogação de publicador e como enviar para Hubs de Eventos como um publicador, consulte [Publicação segura em larga escala de Hubs de Eventos no Barramento de Serviço](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
@@ -185,4 +185,4 @@ Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 - [Exemplos de código de Hubs de Eventos](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Referência de API do host de processador de eventos](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

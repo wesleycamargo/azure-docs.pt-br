@@ -1,11 +1,13 @@
 <properties
 	pageTitle="Configurar alertas de cobrança de suas assinaturas do Microsoft Azure | Microsoft Azure"
 	description="Descreve como você pode configurar alertas na sua conta do Azure para que possa evitar surpresas na cobrança."
-	services=""
+	services="billing"
 	documentationCenter=""
 	authors="vikdesai"
 	manager="msmbaldwin"
-	editor=""/>
+	editor=""
+	tags="billing"
+	/>
 
 <tags
 	ms.service="multiple"
@@ -13,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015" 
+	ms.date="04/17/2016"
 	ms.author="vikdesai"/>
 
 # Configurar alertas de cobrança de suas assinaturas do Microsoft Azure
@@ -46,4 +48,4 @@ Depois de configurar os alertas, o Centro de Contas lista e mostra quantos mais 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

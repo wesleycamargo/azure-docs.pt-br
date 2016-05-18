@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
+   ms.date="05/02/2016"
    ms.author="cherylmc"/>
 
 # Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Azure Resource Manager
@@ -95,7 +95,7 @@ Para obter as etapas de configuração, a principal diferença entre os dois é 
 - [Redes virtuais que residem em assinaturas diferentes](#difsub)
 
 
-## <a name ="samesub"/>Como conectar redes virtuais que estão na mesma assinatura
+## <a name="samesub"></a>Como conectar redes virtuais que estão na mesma assinatura
 
 Esta configuração aplica-se a redes virtuais que estão na mesma assinatura, conforme mostrado no diagrama a seguir:
 
@@ -103,11 +103,11 @@ Esta configuração aplica-se a redes virtuais que estão na mesma assinatura, c
 
 ### Antes de começar
 
-- Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou se inscrever para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Você precisará instalar os cmdlets do Azure Resource Manager PowerShell. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações sobre como instalar os cmdlets do PowerShell.
+- Você precisará instalar os cmdlets do Azure Resource Manager PowerShell. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
 
-### <a name ="Step1"/>Etapa 1: planejar seus intervalos de endereços IP
+### <a name="Step1"></a>Etapa 1: Planejar seus intervalos de endereços IP
 
 
 É importante determinar os intervalos que você usará para definir o arquivo de configuração de rede. Lembre-se de que você deve garantir que nenhum de seus intervalos de VNet ou intervalos de rede local se sobreponham de forma alguma.
@@ -152,7 +152,7 @@ Para este exercício, use os seguintes valores para as redes virtuais:
 
 
 
-### <a name ="Step2"/>Etapa 2: criar e configurar TestVNet1
+### <a name="Step2"></a>Etapa 2: Criar e configurar TestVNet1
 
 1. Declare as variáveis
 
@@ -312,7 +312,7 @@ Depois de ter configurado TestVNet1, você irá repetir as etapas para criar Tes
 
 	Depois de alguns minutos, a conexão deve ser estabelecida.
 
-## <a name ="Verify"/>Como verificar uma conexão de rede virtual a rede virtual
+## <a name="Verify"></a>Como verificar uma conexão de rede virtual a rede virtual
 
 Os exemplos a seguir irão mostrar como verificar a conexão. Não se esqueça de alterar os valores de acordo com seu ambiente.
 
@@ -355,7 +355,7 @@ Após o cmdlet ter sido concluído, role pelos valores para exibi-los. Na saída
 	Name                       : VNet1toVNet4
 	Id                         : /subscriptions/<SubscriptionID>/resourceGroups/TestRG1/providers/Micr osoft.Network/connections/VNet1toVNet4
 
-## <a name ="difsub"/>Como conectar redes virtuais que estão em assinaturas diferentes
+## <a name="difsub"></a>Como conectar redes virtuais que estão em assinaturas diferentes
 
 As etapas de configuração abaixo adicionam uma conexão de rede virtual com rede virtual adicional para conectar TestVNet1 a TestVNet5, que reside em uma assinatura diferente. A diferença aqui é que parte das etapas de configuração precisa ser executada em uma sessão separada do PowerShell no contexto da segunda assinatura, especialmente quando as duas assinaturas pertencem a organizações diferentes. Depois de concluir as etapas abaixo, a configuração resultante é mostrada no diagrama a seguir:
 
@@ -453,7 +453,7 @@ Esta etapa deve ser feita no contexto da nova assinatura. Esta parte pode ser ex
 
 		$vnet5     = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
 		$subnet5   = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
-		$gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig 
+		$gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
 
 8. Criar o gateway TestVNet5
 
@@ -528,6 +528,7 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 
 ## Próximas etapas
 
-Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para obter as etapas.
+- Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para obter as etapas.
+- Para obter informações sobre BGP, consulte a [Visão geral de BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md). 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -124,7 +124,7 @@ Este procedimento orientará você na criação de uma Rede Virtual, bem como na
 
 		New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
 
-6. Em seguida, crie seu gateway de VPN Site a Site. O GatewaySKU deve ser especificado como *Standard* ou *HighPerformance*, enquanto o GatewayType deve ser especificado como *DynamicRouting*.
+6. <a name="vpngw"></a>Em seguida, crie seu gateway de VPN Site a Site. O GatewaySKU deve ser especificado como *Standard* ou *HighPerformance*, enquanto o GatewayType deve ser especificado como *DynamicRouting*.
 
 		New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
 
@@ -157,7 +157,7 @@ Este procedimento orientará você na criação de uma Rede Virtual, bem como na
 
 	Use o exemplo a seguir, substituindo os valores existentes pelos seus.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
+		New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>
 
 	> [AZURE.NOTE] Se sua rede local tiver várias rotas, você poderá passá-las como uma matriz. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
@@ -182,25 +182,28 @@ Este procedimento orientará você na criação de uma Rede Virtual, bem como na
 	Neste exemplo, connectedEntityId é a ID de gateway local, que você pode encontrar executando `Get-AzureLocalNetworkGateway`. Você pode encontrar virtualNetworkGatewayId usando o cmdlet `Get-AzureVirtualNetworkGateway`. Após essa etapa, é estabelecida a conexão entre sua rede local e o Azure, por meio da conexão VPN Site a Site.
 
 
-	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
+		New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
 ## <a name="add"></a>Para configurar conexões coexistentes para uma VNet já existente
 
-Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Expressa ou Site a Site, será necessário primeiro excluir o gateway existente para que as conexões possam conectar-se à rede virtual existente. Isso significa que suas instalações locais perderão a conexão à sua rede virtual por meio do gateway enquanto você estiver trabalhando nessa configuração.
+Se você tiver uma rede virtual existente, verifique o tamanho da sub-rede do gateway. Se a sub-rede do gateway é /28 ou /29, você deve primeiro excluir o gateway da rede virtual e aumentar o tamanho de sub-rede do gateway. As etapas nesta seção mostram como fazer isso.
 
-**Antes de começar a configuração:** verifique se você tem um número suficiente de endereços IP restantes em sua rede virtual, para que você pode aumentar o tamanho da sub-rede de gateway. Observe que você precisará excluir o gateway e recriá-lo, mesmo se você tiver endereços IP suficientes. Isso ocorre porque o gateway deve ser recriado para acomodar as conexões coexistentes.
+Se a sub-rede do gateway é /27 ou maior e a rede virtual está conectada via Rota Expressa, você pode ignorar as etapas abaixo e ir para a ["Etapa 6: criar um gateway de VPN Site a Site"](#vpngw) na seção anterior.
 
-1. Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell. Observe que os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções. 
+>[AZURE.NOTE] Quando você exclui o gateway existente, suas instalações locais perdem a conexão à sua rede virtual enquanto você está trabalhando nessa configuração.
+
+1. Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Gerenciador de Recursos do Azure. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell. Observe que os cmdlets que você usará para essa configuração podem ser ligeiramente diferentes daqueles com os quais você talvez esteja familiarizado. Certifique-se de usar os cmdlets especificados nestas instruções. 
 
 2. Exclua o gateway de Rota Expressa ou gateway de VPN Site a Site existente. Use o cmdlet a seguir, substituindo os valores existentes pelos seus.
 
-	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
+		Remove-AzureVNetGateway –VnetName MyAzureVNET
 
 3. Exporte o esquema da rede virtual. Use o cmdlet do PowerShell a seguir, substituindo os valores existentes pelos seus.
 
-	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
+		Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”
 
-4. Edite o esquema do arquivo de configuração de rede para que a sub-rede de gateway seja /27 ou um prefixo menor (como /26 ou /25). Veja os exemplos a seguir. Para saber mais sobre o esquema de configuração, confira [Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+4. Edite o esquema do arquivo de configuração de rede para que a sub-rede de gateway seja /27 ou um prefixo menor (como /26 ou /25). Veja os exemplos a seguir.
+>[AZURE.NOTE] Se você não tiver endereços IP suficientes restantes em sua rede virtual para aumentar o tamanho da sub-rede do gateway, precisará adicionar mais espaço de endereço IP. Para saber mais sobre o esquema de configuração, confira [Esquema de configuração de Rede Virtual do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -222,4 +225,4 @@ Se você tiver uma rede virtual existente conectada via conexão VPN de Rota Exp
 
 Para saber mais sobre a Rota Expressa, confira [Perguntas frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/23/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 
 # Introdução ao Cofre da Chave do Azure #
-O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](../../../../pricing/details/key-vault/).
+O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Introdução  
 Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure para criar um contêiner de proteção avançado (um cofre) no Azure, para armazenar e gerenciar chaves de criptografia e segredos no Azure. Ele percorre o processo de uso do Azure PowerShell para criar um cofre que contém uma chave ou senha que você pode usar com um aplicativo do Azure. Em seguida, ele mostra como um aplicativo pode usar essa chave ou senha.
@@ -34,7 +34,7 @@ Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que
 
 Para concluir este tutorial, você precisará do seguinte:
 
-- Uma assinatura do Microsoft Azure. Se você não tiver uma, poderá se inscrever em uma [conta gratuita](../../../../pricing/free-trial).
+- Uma assinatura do Microsoft Azure. Se você não tiver uma, poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Azure PowerShell, **versão mínima: 1.1.0**. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, digite `(Get-Module azure -ListAvailable).Version`. Quando você tiver o Azure PowerShell versão 0.9.1 até 0.9.8 instalado, ainda poderá usar este tutorial com algumas pequenas alterações. Por exemplo, você deverá usar o comando `Switch-AzureMode AzureResourceManager`; alguns dos comandos do Cofre da Chave do Azure foram alterados. Para obter uma lista dos cmdlets do Cofre da Chave para as versões 0.9.1 a 0.9.8, confira [Cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx). 
 - Um aplicativo que será configurado para usar a chave ou senha que você criará neste tutorial. Um aplicativo de exemplo está disponível na [Centro de Download da Microsoft](http://www.microsoft.com/pt-BR/download/details.aspx?id=45343). Para obter instruções, consulte o arquivo Leiame.
 
@@ -187,7 +187,7 @@ Se você deseja autorizar que o mesmo aplicativo leia segredos em seu cofre, exe
 
 Para garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. Os HSMs têm certificação FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete).
 
-Para criar essas chaves protegidas por HSM, você deve ter uma [assinatura de cofre que dê suporte a chaves protegidas por HSM](../../../pricing/free-trial). Além disso, essa funcionalidade não está disponível para o Azure China.
+Para criar essas chaves protegidas por HSM, você deve ter uma [assinatura de cofre que dê suporte a chaves protegidas por HSM](https://azure.microsoft.com/pricing/free-trial/). Além disso, essa funcionalidade não está disponível para o Azure China.
 
 
 Quando criar o cofre, adicione o parâmetro **-SKU**:
@@ -245,4 +245,4 @@ Para obter uma lista dos últimos cmdlets do Azure PowerShell para o Cofre de Ch
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

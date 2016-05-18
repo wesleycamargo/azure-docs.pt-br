@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="05/10/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Java
@@ -35,23 +35,33 @@ Saiba como usar o SDK do Java do Repositório Azure Data Lake para criar uma con
 * IntelliJ ou outro ambiente de desenvolvimento Java adequado. Isto é opcional, mas recomendado. As instruções abaixo usam o IntelliJ.
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-* Crie um aplicativo do AAD (Azure Active Directory) e recupere a **ID do Cliente**, o **URI de Resposta** e a **Chave**. Para obter mais informações sobre os aplicativos do AAD e instruções sobre como obter uma ID do cliente, veja [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md). O URI de Resposta e a Chave também estarão disponíveis no portal depois do aplicativo ser criado e a chave ser gerada.
+* **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de autenticar usando o Azure Active Directory: **interativa** e **não interativa**. Existem pré-requisitos diferentes com base na forma como você deseja autenticar.
+	* **Para a autenticação interativa** (usada neste artigo) - no Azure Active Directory, você precisa criar um **aplicativo Cliente Nativo**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
+		- Obter a **ID do cliente** e o **URI de redirecionamento** do aplicativo
+		- Definir permissões delegadas
+
+	* **Para a autenticação não interativa** (usada neste artigo) - no Azure Active Directory, você precisa criar um **aplicativo Web**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
+		- Obter a **ID do cliente**, o **segredo do cliente** e o **URI de redirecionamento** do aplicativo
+		- Definir permissões delegadas
+		- Atribua o aplicativo do Azure Active Directory a uma função. A função pode estar no nível do escopo no qual você deseja conceder permissão ao aplicativo do Azure Active Directory. Por exemplo, você pode atribuir o aplicativo no nível da assinatura ou no nível de um grupo de recursos. 
+
+	Confira [Criar aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md) para obter instruções sobre como recuperar esses valores, definir as permissões e atribuir funções.
 
 ## Como faço para me autenticar usando o Azure Active Directory?
 
 O trecho de código a seguir fornece o código para a autenticação **não interativa**, onde o aplicativo fornece suas próprias credenciais.
 
-Você precisará conceder permissão ao seu aplicativo para criar recursos no Azure para este tutorial funcionar. É **altamente recomendável** que você apenas forneça a esse aplicativo permissões de Colaborador para um grupo de recursos novo, não usado e vazio em sua assinatura do Azure para este tutorial.
+Você precisará conceder permissão ao seu aplicativo para criar recursos no Azure para este tutorial funcionar. É **altamente recomendável** que você forneça a esse aplicativo somente permissões de Colaborador para um grupo de recursos novo, não usado e vazio em sua assinatura do Azure para este tutorial.
 
 ## Criar um aplicativo Java
 
-1. Abra o IntelliJ e crie um novo projeto Java usando o modelo **Aplicativo da Linha de Comando**.
+1. Abra o IntelliJ e crie um novo projeto Java usando o modelo **Aplicativo da Linha de Comando**. Conclua o Assistente para criar o projeto.
 
 2. Clique com o botão direito do mouse no projeto no lado esquerdo da tela e clique em **Adicionar Suporte da Estrutura**. Escolha **Maven** e clique em **OK**.
 
-3. Abra o arquivo **"pom. xml"** recém-criado e adicione o seguinte trecho de texto entre as marcas **</version>** e **</project>**:
+3. Abra o arquivo **"pom.xml"** recém-criado e adicione o seguinte trecho de texto entre as marcas **</version>** e **</project>**:
 
-    OBSERVAÇÃO: esta etapa é temporária até que o SDK do Repositório Azure Data Lake esteja disponível no Maven. Este artigo será atualizado quando o SDK estiver disponível no Maven. Todas as futuras atualizações para esse SDK estarão disponíveis por meio do Maven.
+    >[AZURE.NOTE] Esta etapa é temporária até que o SDK do Repositório Azure Data Lake esteja disponível no Maven. Este artigo será atualizado quando o SDK estiver disponível no Maven. Todas as futuras atualizações para esse SDK estarão disponíveis por meio do Maven.
 
         <repositories>
         	<repository>
@@ -88,9 +98,9 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
     	</dependencies>
 
 
-4. Vá para **Arquivo**, em seguida, **Configurações**, **Compilação**, **Execução**, **Implantação**. Selecione **Ferramentas de Compilação**, **Maven**, **Importando**. Então, marque **Importar projetos Maven automaticamente**.
+4. Vá para **Arquivo**, **Configurações** e **Compilação, Execução e Implantação**. Expanda as **Ferramentas de Compilação**, **Maven** e expanda **Importação**. Marque a caixa de seleção **Importar projetos Maven automaticamente**. Clique em **Aplicar** e clique em **OK**.
 
-5. Abra **Main.java** e substitua o bloco de código existente pelo seguinte código. Além disso, forneça os valores para os parâmetros chamados no trecho de código, como **localFolderPath**, **\_adlsAccountName**, **\_resourceGroupName** e substitua os espaços reservados por **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
+5. No painel esquerdo, navegue até **src**, **principal**, **java**, **< nome do pacote >**, abra **Main.java** e substitua o bloco de código existente pelo código a seguir. Além disso, forneça os valores para os parâmetros chamados no trecho de código, como **localFolderPath**, **\_adlsAccountName**, **\_resourceGroupName** e substitua os espaços reservados por** CLIENT-ID**,** CLIENT-SECRET**, **TENANT-ID** e **SUBSCRIPTION-ID**.
 
     Esse código explica o processo para criar uma conta do Repositório Data Lake, criar pastas no repositório, concatenar arquivos, baixar um arquivo e, por fim, excluir a conta.
 
@@ -181,7 +191,6 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
                 _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClientImpl(creds);
         
                 _adlsClient.setSubscriptionId(_subId);
-                _adlsFileSystemClient.setSubscriptionId(_subId);
             }
         
             // Helper function to show status and wait for user input
@@ -214,46 +223,46 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
         
             // Create file
             public static void CreateFile(String path) throws IOException, CloudException {
-                _adlsFileSystemClient.getFileSystemOperations().create(path, _adlsAccountName);
+                _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, path);
             }
         
             // Create file with contents
             public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException {
                 byte[] bytesContents = contents.getBytes();
         
-                _adlsFileSystemClient.getFileSystemOperations().create(path, _adlsAccountName, bytesContents, force);
+                _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, path, bytesContents, force);
             }
         
             // Append to file
             public static void AppendToFile(String path, String contents) throws IOException, CloudException {
                 byte[] bytesContents = contents.getBytes();
         
-                _adlsFileSystemClient.getFileSystemOperations().append(path, _adlsAccountName, bytesContents);
+                _adlsFileSystemClient.getFileSystemOperations().append(_adlsAccountName, path, bytesContents);
             }
         
             // Concatenate files
             public static void ConcatenateFiles(List<String> srcFilePaths, String destFilePath) throws IOException, CloudException {
-                _adlsFileSystemClient.getFileSystemOperations().concat(destFilePath, _adlsAccountName, srcFilePaths);
+                _adlsFileSystemClient.getFileSystemOperations().concat(_adlsAccountName, destFilePath, srcFilePaths);
             }
         
             // Delete concatenated file
             public static void DeleteFile(String filePath) throws IOException, CloudException {
-                _adlsFileSystemClient.getFileSystemOperations().delete(filePath, _adlsAccountName);
+                _adlsFileSystemClient.getFileSystemOperations().delete(_adlsAccountName, filePath);
             }
         
             // Get file or directory info
             public static FileStatusProperties GetItemInfo(String path) throws IOException, CloudException {
-                return _adlsFileSystemClient.getFileSystemOperations().getFileStatus(path, _adlsAccountName).getBody().getFileStatus();
+                return _adlsFileSystemClient.getFileSystemOperations().getFileStatus(_adlsAccountName, path).getBody().getFileStatus();
             }
         
             // List files and directories
             public static List<FileStatusProperties> ListItems(String directoryPath) throws IOException, CloudException {
-                return _adlsFileSystemClient.getFileSystemOperations().listFileStatus(directoryPath, _adlsAccountName).getBody().getFileStatuses().getFileStatus();
+                return _adlsFileSystemClient.getFileSystemOperations().listFileStatus(_adlsAccountName, directoryPath).getBody().getFileStatuses().getFileStatus();
             }
         
             // Download file
             public static void DownloadFile(String srcPath, String destPath) throws IOException, CloudException {
-                InputStream stream = _adlsFileSystemClient.getFileSystemOperations().open(srcPath, _adlsAccountName).getBody();
+                InputStream stream = _adlsFileSystemClient.getFileSystemOperations().open(_adlsAccountName, srcPath).getBody();
         
                 PrintWriter pWriter = new PrintWriter(destPath, Charset.defaultCharset().name());
         
@@ -294,4 +303,4 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

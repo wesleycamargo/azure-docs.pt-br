@@ -1,6 +1,6 @@
 <properties
  pageTitle="Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure"
- description=""
+ description="Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -197,4 +197,4 @@ Todos os agendamentos abaixo pressupõem que o _intervalo_ é definido como 1. A
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

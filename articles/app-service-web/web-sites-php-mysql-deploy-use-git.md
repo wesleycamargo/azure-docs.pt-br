@@ -13,19 +13,11 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.topic="article"
+	ms.date="04/08/2016"
 	ms.author="robmcm"/>
 
 #Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git
-
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
 
 Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) usando o Git. Você usará o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), e [Git][install-git] instalados em seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
 
@@ -268,19 +260,19 @@ Para publicar alterações em seu aplicativo, siga essas etapas:
 <a name="composer">
 ## Habilitar a automação do Compositor com a extensão do Compositor
 
-Por padrão, o processo de implantação do git no Serviço de Aplicativo não faz nada com o composer.json, se você tiver um em seu projeto PHP. Você pode habilitar o processamento composer.json durante o `git push` habilitando a extensão do Compositor.
+Por padrão, o processo de implantação do git no Serviço de Aplicativo não faz nada com o composer.json, se você tiver um em seu projeto PHP. Você pode habilitar o processamento de composer.json durante o `git push` habilitando a extensão do Compositor.
 
-1. Em sua folha de aplicativo Web PHP no [Portal do Azure](https://portal.azure.com), clique em **Ferramentas** > **Extensões**.
+1. Em sua folha do aplicativo Web PHP no [Portal do Azure](https://portal.azure.com), clique em **Ferramentas** > **Extensões**.
 
     ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
 
-2. Clique em **Adicionar**, em seguida, clique em **Compositor**.
+2. Clique em **Adicionar** e clique em **Compositor**.
 
     ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
     
 3. Clique em **OK** para aceitar os termos legais. Clique em **OK** novamente para adicionar a extensão.
 
-    Agora, a folha **Extensões instaladas** mostrará a extensão do compositor. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    Agora, a folha **Extensões instaladas** mostrará a extensão do Compositor. ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
     
 4. Agora, execute `git add`, `git commit` e `git push` como na seção anterior. Agora, você verá que o Compositor está instalando dependências definidas no composer.json.
 
@@ -325,4 +317,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0406_2016--->
+<!---HONumber=AcomDC_0504_2016-->

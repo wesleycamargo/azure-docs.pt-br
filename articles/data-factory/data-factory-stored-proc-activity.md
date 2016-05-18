@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="04/05/2016" 
 	ms.author="spelluru"/>
 
 # Atividade de procedimento armazenado do SQL Server
@@ -208,4 +208,4 @@ Para fazer isso, passe o parâmetro Cenário e o valor da atividade de procedime
 		}
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

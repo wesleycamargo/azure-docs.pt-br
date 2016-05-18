@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="04/19/2016" 
 	ms.author="larryfr"/>
 
 #Analisar dados de atraso de voo usando o Hadoop no HDInsight
@@ -34,6 +34,8 @@ Antes de começar este tutorial, você deve ter o seguinte:
 - __Banco de dados SQL do Azure__. Você usará um banco de dados SQL do Azure como um repositório de dados de destino. Se você ainda não tem um Banco de Dados SQL, confira [Tutorial do Banco de Dados SQL: Criar um banco de dados SQL em minutos](../sql-database/sql-database-get-started.md).
 
 - __CLI do Azure__ Se você não tiver instalado a CLI do Azure, confira [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para obter mais etapas.
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 
 ##Baixar os dados de voos
@@ -304,4 +306,4 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

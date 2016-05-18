@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
- 	ms.date="02/03/2016"  
+ 	ms.date="04/18/2016"  
 	ms.author="juliako"/>
 
 # Configure seu ambiente
@@ -21,8 +21,7 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
-<a id="create_account"></a>
+- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx) <a id="create_account"></a>
 
 As etapas a seguir descrevem os pré-requisitos necessários para o desenvolvimento com os Serviços de Mídia do Azure.
 
@@ -53,4 +52,4 @@ Escolha .NET ou a API REST para conectar-se aos serviços de mídia do Azure por
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

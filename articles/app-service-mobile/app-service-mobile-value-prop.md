@@ -3,7 +3,7 @@
 	description="Saiba quais são as vantagens que o Serviço de Aplicativo traz para seus aplicativos móveis corporativos."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="kirillg"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
-	ms.author="kirillg"/>
+	ms.date="05/03/2016"
+	ms.author="krisagh"/>
 
 # <a name="getting-started"> </a>O que são os Aplicativos Móveis?
 
@@ -102,4 +102,4 @@ Para saber mais sobre aplicativos móveis do Azure, examine o nosso [mapa de apr
 [Ambientes do Serviço de Aplicativo]: ../app-service-web/app-service-app-service-environment-intro.md
 [mapa de aprendizagem]: https://azure.microsoft.com/pt-BR/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

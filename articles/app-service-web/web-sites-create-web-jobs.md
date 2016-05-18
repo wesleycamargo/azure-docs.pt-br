@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
+	ms.date="04/27/2016" 
 	ms.author="tdykstra"/>
 
 # Executar tarefas em segundo plano com Trabalhos Web
@@ -25,6 +25,8 @@ Você pode executar programas ou scripts em Trabalhos Web em seu aplicativo Web 
 Este artigo mostra como implantar Trabalhos Web utilizando o [Portal do Azure](https://portal.azure.com). Para obter informações sobre como implantar utilizando o Visual Studio ou um processo de entrega contínua, consulte [Como implantar Trabalhos Web do Azure em Aplicativos Web](websites-dotnet-deploy-webjobs.md).
 
 O SDK de Trabalhos Web do Azure simplifica muitas tarefas de programação de Trabalhos Web. Para obter mais informações, consulte [O que é o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md).
+
+ O Azure Functions (atualmente em preview) é outra forma de executar programas e serviços no Serviço de Aplicativo do Azure. Para saber mais, consulte [Visão geral do Azure Functions](../azure-functions/functions-overview.md).
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -76,7 +78,7 @@ Os seguintes tipos de arquivo são aceitos:
 
 ## <a name="CreateScheduledCRON"></a>Criar um WebJob agendado usando uma expressão CRON
 
-Essa técnica está disponível para aplicativos Web em execução no modo Basic, Standard ou Premium e exige que a configuração **Sempre Ativado** esteja habilitada no aplicativo.
+Essa técnica está disponível para aplicativos Web em execução no modo Básico, Standard ou Premium e exige que a configuração **Sempre Ativado** esteja habilitada no aplicativo.
 
 Para transformar um Trabalho Web Sob Demanda em um Trabalho Web agendado, basta incluir um arquivo `settings.job` na raiz do arquivo .zip do Trabalho Web. Esse arquivo JSON deve incluir uma propriedade `schedule` com uma [expressão CRON](https://en.wikipedia.org/wiki/Cron), como mostrado no exemplo abaixo.
 
@@ -201,14 +203,9 @@ Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas d
 - Os modos Básico e Padrão oferecem o recurso Sempre Ativo que, quando habilitado, evita que os aplicativos Web fiquem ociosos.
 - Só é possível depurar continuamente os Trabalhos Web em execução. Não há suporte para a depuração Trabalhos Web agendados ou sob demanda.
 
->[AZURE.NOTE] Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
-
 ## <a name="NextSteps"></a>Próximas etapas
  
 Para obter mais informações, consulte [Recursos Recomendados para Trabalhos Web do Azure][WebJobsRecommendedResources].
-
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]: http://go.microsoft.com/fwlink/?LinkId=390226
@@ -238,4 +235,4 @@ Para obter mais informações, consulte [Recursos Recomendados para Trabalhos We
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="awills"/>
  
 # Explorar métricas no Application Insights
@@ -97,13 +97,14 @@ O método padrão para cada métrica é mostrado quando você cria um novo gráf
 ![Desmarque a seleção de todas as métricas para ver os padrões](./media/app-insights-metrics-explorer/06-total.png)
 
 
+
 ## Edição de gráficos e grades
 
 Para adicionar um novo gráfico à folha:
 
 ![No Metrics Explorer, escolher Adicionar Gráfico](./media/app-insights-metrics-explorer/04-add.png)
 
-Selecione um gráfico novo ou existente para editar o que ele mostra:
+Escolha **Editar** em um gráfico novo ou existente para editar o conteúdo exibido por ele:
 
 ![Selecionar uma ou mais métricas](./media/app-insights-metrics-explorer/08-select.png)
 
@@ -135,21 +136,25 @@ Se você não selecionar nenhum valor para uma determinada propriedade, será o 
 
 Observe as contagens de eventos junto a cada valor da propriedade. Quando você seleciona valores de uma propriedade, as contagens junto a outros valores de propriedade são ajustadas.
 
+Os filtros se aplicam a todos os gráficos em uma folha. Se você quiser filtros diferentes aplicados a gráficos diferentes, crie e salve folhas de métricas diferentes. Se desejar, você pode fixar gráficos de diferentes folhas ao painel para vê-los lado a lado.
+
+
+### Remover o tráfego de testes da Web e de bot
+
+Use o filtro **Tráfego real ou sintético** e marque **Real**.
+
+Você também pode filtrar por **Origem do tráfego sintético**.
+
 ### Para adicionar propriedades à lista de filtros
 
 Você deseja filtrar a telemetria em uma categoria de sua escolha? Por exemplo, talvez você divida seus usuários em categorias diferentes e queira segmentar os dados segundo essas categorias.
 
 [Crie sua própria propriedade](app-insights-api-custom-events-metrics.md#properties). Defina-a em um [Inicializador de Telemetria](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que ela apareça em toda a telemetria, incluindo a telemetria padrão enviada por diferentes módulos do SDK.
 
-## Remover o tráfego de testes da Web e de bot
-
-Use o filtro **Tráfego real ou sintético** e marque **Real**.
-
-Você também pode filtrar por **Origem do tráfego sintético**.
 
 ## Editar o tipo de gráfico
 
-Em particular, observe que você pode alternar entre gráficos e grades:
+Observe que você pode alternar entre gráficos e grades:
 
 ![Selecionar uma grade ou um gráfico e escolher um tipo de gráfico](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
@@ -200,6 +205,23 @@ Se desejar que os dados sejam exportados de forma contínua para que você possa
 
 Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá [exportar para o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
+## Análise
+
+A [Análise](app-insights-analytics.md) é uma maneira mais versátil de analisar a telemetria usando uma linguagem de consulta eficiente. Use-a se quiser combinar ou calcular resultados de métricas ou executar uma exploração detalhada do desempenho recente de seu aplicativo. Por outro lado, use o Metrics Explorer se desejar a atualização automática, gráficos no painel e alertas.
+
+## Solucionar problemas
+
+*Não vejo dados no gráfico.*
+
+* Os filtros se aplicam a todos os gráficos da folha. Verifique se, ao se concentrar em um gráfico, não definiu um filtro que excluía todos os dados em outro. 
+
+    Se quiser definir filtros diferentes em gráficos diferentes, crie-os em folhas diferentes e os salve como favoritos separados. Se desejar, você poderá fixá-los ao painel para que eles sejam exibidos lado a lado.
+
+* Se você agrupar um gráfico por uma propriedade que não esteja definida na métrica, o gráfico ficará vazio. Tente limpar “agrupar por” ou escolha uma propriedade de agrupamento diferente.
+* Haverá dados de desempenho (CPU, taxa de E/S etc) disponíveis para serviços Web Java, aplicativos da área de trabalho do Windows, [aplicativos Web e serviços do IIS se você instalar o monitor de status](app-insights-monitor-performance-live-website-now.md) e [Serviços de Nuvem do Azur](app-insights-azure.md)e. Esses dados não estão disponíveis para sites do Azure.
+
+
+
 ## Próximas etapas
 
 * [Monitorando o uso com o Application Insights](app-insights-overview-usage.md)
@@ -214,4 +236,4 @@ Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

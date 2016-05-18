@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/29/2016"
+	ms.date="04/28/2016"
 	ms.author="jgao"/>
 
 
@@ -64,7 +64,7 @@ Além dessa conta de armazenamento, você pode adicionar mais contas de armazena
 - **Contêineres privados nas contas de armazenamento que NÃO estão conectadas a um cluster:** não é possível acessar os blobs nos contêineres, a menos que você defina a conta de armazenamento ao enviar os trabalhos do WebHCat. Isso será explicado mais adiante neste artigo.
 
 
-As contas de armazenamento definidas no processo de criação e suas chaves são armazenadas em %HADOOP\_HOME%/conf/core-site.xml nos nós do cluster. O comportamento padrão do HDInsight é usar as contas de armazenamento definidas no arquivo core-site.xml. Não é recomendável editar o arquivo core-site.xml porque o nó principal do cluster (mestre) poderá ter outra imagem criada ou ser migrado a qualquer hora, sendo que as alterações realizadas a esses arquivos serão perdidas.
+As contas de armazenamento definidas no processo de criação e suas chaves são armazenadas em %HADOOP_HOME%/conf/core-site.xml nos nós do cluster. O comportamento padrão do HDInsight é usar as contas de armazenamento definidas no arquivo core-site.xml. Não é recomendável editar o arquivo core-site.xml porque o nó principal do cluster (mestre) poderá ter outra imagem criada ou ser migrado a qualquer hora, sendo que as alterações realizadas a esses arquivos serão perdidas.
 
 Vários trabalhos do WebHCat, incluindo Hive, MapReduce, streaming de Hadoop e Pig, podem conter uma descrição de contas de armazenamento e metadados (normalmente funciona para Pig com contas de armazenamento, mas não para metadados). (Isso funciona atualmente com o Pig para contas de armazenamento, mas não para metadados.) Na seção [Acessar blobs usando o PowerShell do Azure](#powershell) deste artigo, há um exemplo desse recurso. Para obter mais informações, consulte [Usando um Cluster HDInsight com metastores e contas de armazenamento alternativas](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
@@ -103,6 +103,8 @@ Ao criar um cluster HDInsight no Portal, você tem as opções de usar uma conta
 
 ###Usando a CLI do Azure
 
+[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
 Se você tiver [instalado e configurado a CLI do Azure](../xplat-cli-install.md), o comando a seguir pode ser usado para uma conta de armazenamento e o contêiner.
 
 	azure storage account create <storageaccountname> --type LRS
@@ -122,6 +124,8 @@ Para criar um novo contêiner, use o seguinte comando:
 ### Usando o PowerShell do Azure
 
 Se você [instalou e configurou o Azure PowerShell][powershell-install], pode usar o seguinte no prompt do Azure PowerShell para criar uma conta de armazenamento e o contêiner:
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 	$SubscriptionID = "<Your Azure Subscription ID>"
 	$ResourceGroupName = "<New Azure Resource Group Name>"
@@ -155,7 +159,7 @@ O esquema de URI para acessar arquivos no armazenamento de blob do HDInsight é:
 
 
 
-O esquema de URI fornece acesso sem criptografia (com o prefixo *wasb:*) e acesso criptografado SSL (com *wasbs*). É recomendável usar *wasbs* sempre que possível, mesmo ao acessar dados que residem dentro da mesma região do Azure.
+O esquema de URI fornece acesso sem criptografia (com o prefixo *wasb:*) e acesso criptografado SSL (com *wasbs*). Recomendamos usar *wasbs* sempre que possível, mesmo ao acessar dados que residem dentro da mesma região do Azure.
 
 O &lt;BlobStorageContainerName&gt; identifica o nome do contêiner de armazenamento de blob do Azure. O &lt;StorageAccountName&gt; identifica o nome da conta de armazenamento do Azure. Um FQDN (nome de domínio totalmente qualificado) é necessário.
 
@@ -286,7 +290,7 @@ Para obter mais informações, consulte:
 * [Usar assinaturas de acesso compartilhado do Armazenamento do Azure para restringir o acesso a dados com o HDInsight][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: ../powershell-install-configure.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -294,10 +298,10 @@ Para obter mais informações, consulte:
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: ../storage-create-storage-account.md
+[azure-storage-create]: ../storage/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0504_2016-->

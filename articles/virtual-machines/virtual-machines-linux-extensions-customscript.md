@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="11/01/2015"
+   ms.date="03/29/2016"
    ms.author="kundanap"/>
 
 # Usando a extensão do Script Personalizado para VMs do Linux com modelos do Azure Resource Manager
@@ -47,7 +47,7 @@ Defina o recurso de extensão a seguir na seção de Recursos do modelo
       }
     }
     }
-    
+
 No exemplo acima, substitua a URL e o nome do arquivo por suas próprias configurações.
 
 Depois de criar o modelo, é possível implantá-lo usando a CLI do Azure.
@@ -56,4 +56,4 @@ Consulte o exemplo abaixo para ver uma amostra completa da configuração de apl
 
 * [Extensão do Script personalizado em uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/06/2016" 
 	ms.author="sdanie"/>
 
 # Com usar o Serviço de Cache Gerenciado do Azure
 
 Este guia mostra como começar a usar o **Serviço de Cache Gerenciado do Azure**. Os exemplos são escritos em código C# e utilizam a API .NET. Os cenários abordados incluem **criação e configuração de um cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado da sessão ASP.NET no cache** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache do Azure, consulte a seção [Próximas etapas][].
 
->[AZURE.IMPORTANT]Estamos anunciando a desativação de 30 de novembro de 2016, para o Serviço de Cache Gerenciado do Azure e o Cache na Função do Azure. É recomendável que você migre para o Cache Redis do Azure em preparação para essa desativação. Para obter mais informações sobre datas e diretrizes sobre migração, consulte [Qual oferta de Cache do Azure é adequada para mim?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+>[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. Nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](../redis-cache/cache-migrate-to-redis.md).
 
 <a name="what-is"></a>
 ## O que é o Serviço de Cache Gerenciado do Azure?
@@ -486,4 +486,4 @@ Agora que você aprendeu o básico do Serviço de Cache gerenciado, siga os link
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

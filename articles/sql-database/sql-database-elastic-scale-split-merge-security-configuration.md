@@ -2,7 +2,8 @@
     pageTitle="Configurações de segurança da Escala Elástica | Microsoft Azure" 
     description="Configurar certificados x409 para criptografia" 
     metaKeywords="Elastic Database certificates security" 
-    services="sql-database" documentationCenter="" 
+    services="sql-database" 
+    documentationCenter="" 
     manager="jhubbard" 
     authors="torsteng"/>
 
@@ -206,7 +207,9 @@ Execute:
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-Digite a senha e exporte o certificado com as seguintes opções: * Sim, exportar a chave privada * Exportar todas as propriedades estendidas
+Digite a senha e, em seguida, exporte o certificado com as seguintes opções:
+* Sim, exportar a chave privada
+* Exportar todas as propriedades estendidas
 
 ## Exportar o certificado SSL do repositório de certificados
 
@@ -347,7 +350,14 @@ Cada pessoa para quem um certificado cliente tiver sido emitido deve importar o 
     * Incluir todas as propriedades estendidas marcadas
 
 ## Copie as impressões digitais de certificados de cliente
-Cada pessoa para quem um certificado de cliente tiver sido emitido deve seguir estas etapas para obter a impressão digital do certificado que será adicionado ao arquivo de configuração de serviço: * Execute certmgr.exe * Selecione a guia Pessoal * Clique duas vezes no certificado de cliente a ser usado para autenticação * Na caixa de diálogo Certificado que é aberta, selecione a guia Detalhes * Certifique-se que Mostrar esteja exibindo Todos * Selecione o campo denominado Impressão Digital na lista * Copie o valor da impressão digital * * Exclua os caracteres Unicode não visíveis da frente do primeiro dígito * * Exclua todos os espaços
+Cada pessoa para quem um certificado cliente tiver sido emitido deve seguir estas etapas para obter a impressão digital do seu certificado que será adicionado ao arquivo de configuração de serviço:
+* Executar certmgr.exe
+* Selecione a guia pessoal
+* Clique duas vezes no certificado do cliente para ser usado para autenticação
+* Na caixa de diálogo certificado é aberta, selecione a guia Detalhes
+* Certifique-se de que mostrar está exibindo todos
+* Selecione o campo denominado impressão digital na lista
+* Copie o valor da impressão digital **Exclua caracteres Unicode não visíveis na frente do primeiro dígito** Exclua todos os espaços
 
 ## Configurar clientes Permitidos no arquivo de configuração de serviço
 
@@ -371,7 +381,10 @@ Personalizando:
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-Digite a senha e exporte o certificado com as seguintes opções: * Sim, exportar a chave privada * Exportar todas as propriedades estendidas * Você precisará da senha para carregar o certificado para o serviço de nuvem.
+Digite a senha e, em seguida, exporte o certificado com as seguintes opções:
+*    Sim, exportar a chave privada
+*    Exportar todas as propriedades estendidas
+*    Você precisará da senha ao carregar o certificado para o serviço de nuvem.
 
 ## Exportar o certificado de criptografia do repositório de certificados
 
@@ -454,7 +467,7 @@ No Assistente para importação de certificados:
 
 ## Carregar um certificado
 
-No [portal do Azure](https://portal.azure.com/)
+No [Portal do Azure](https://portal.azure.com/)
 
 1. Selecione os **Serviços de nuvem**.
 2. Selecione o serviço de nuvem.
@@ -474,4 +487,4 @@ As credenciais armazenadas neste banco de dados são criptografadas. No entanto,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

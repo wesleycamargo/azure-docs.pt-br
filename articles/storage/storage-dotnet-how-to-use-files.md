@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-	  ms.date="04/07/2016"
+	  ms.date="04/11/2016"
       ms.author="minet" />
 
 # Introdução ao Armazenamento de Arquivos do Azure no Windows
@@ -200,7 +200,7 @@ Com suporte para SMB 3.0, o armazenamento de arquivos agora dá suporte a cripto
 Quando um cliente acessa o armazenamento de arquivos, a versão SMB usada depende da versão SMB com suporte do sistema operacional. A tabela a seguir fornece um resumo de suporte para Windows Clients. Consulte este blog para obter mais detalhes sobre [versões do SMB](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
 | Windows Client | Com suporte à versão do SMB |
-|------------------------|----------------------|
+|------------------------|-----------------------|
 | Windows 7 | SMB 2.1 |
 | Windows Server 2008 R2 | SMB 2.1 |
 | Windows 8 | SMB 3.0 |
@@ -214,7 +214,7 @@ Para demonstrar como montar um compartilhamento de arquivos do Azure, criaremos 
 
 
 1. Primeiro, crie uma nova máquina virtual do Azure seguindo as instruções em [Criar uma máquina virtual do Windows no Portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Em seguida, acesse remotamente a máquina virtual seguindo as instruções em [Fazer logon em uma máquina virtual do Windows usando o Portal do Azure](../virtual-machines/virtual-machines-windows-log-on.md).
+2. Em seguida, acesse remotamente a máquina virtual seguindo as instruções em [Fazer logon em uma máquina virtual do Windows usando o Portal do Azure](../virtual-machines/virtual-machines-windows-connect-logon.md).
 3. Abra uma janela do PowerShell na máquina virtual.
 
 ### Persistir as credenciais da sua conta de armazenamento para a máquina virtual
@@ -642,4 +642,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

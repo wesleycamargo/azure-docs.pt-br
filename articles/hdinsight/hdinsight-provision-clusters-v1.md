@@ -13,16 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/28/2016"
+   ms.date="04/28/2016"
    ms.author="jgao"/>
 
 #Provisionar clusters do Hadoop no HDInsight
 
 Aprenda a planejar para provisionar clusters do HDInsight.
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Provisionar clusters do Hadoop no HDInsight](hdinsight-provision-clusters.md) 
+> [AZURE.IMPORTANT] As etapas descritas neste documento usam o Portal Clássico do Azure. A Microsoft não recomenda o uso do portal clássico durante a criação de novos serviços. Para obter uma explicação das vantagens do Portal do Azure, veja [Portal do Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> Este documento também inclui informações sobre como usar o Azure PowerShell e a CLI do Azure. Os trechos de código fornecidos baseiam-se em comandos que usam o ASM (Gerenciamento de Serviço do Azure) para funcionar com o HDInsight e foram __preteridos__. Estes comandos serão removidos até 1º de janeiro de 2017.
+>
+>Para obter uma versão deste documento que usa o portal do Azure, juntamente com os trechos de código do PowerShell e da CLI do Azure que usam o ARM (Azure Resource Manager), veja [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) (Provisionar clusters Hadoop no HDInsight).
 
 **Pré-requisitos:**
 
@@ -231,7 +233,7 @@ A [Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/vir
 
 	![diagrama da configuração ponto a site](./media/hdinsight-provision-clusters-v1/hdinsight-vnet-point-to-site.png)
 
-Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, veja [Estender funcionalidades do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
+Para obter informações sobre como usar o HDInsight com uma Rede Virtual, incluindo requisitos de configuração específicos para a Rede Virtual, veja [Estender as funcionalidades do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Ferramentas de provisionamento
 
@@ -442,12 +444,9 @@ Enquanto provisiona um cluster, você pode usar as outras opções de configura�
 
 > [AZURE.NOTE] A partir de 29/8/2014, a CLI do Azure não pode ser usada para associar um cluster a uma rede virtual do Azure.
 
-Outra opção para o provisionamento de um cluster HDInsight é a CLI do Azure. A CLI do Azure é implementada em Node.js. Ela pode ser usada em qualquer plataforma que dá suporte a Node. js, incluindo Windows, Mac e Linux. Você pode instalar a CLI nos seguintes locais:
+Outra opção para o provisionamento de um cluster HDInsight é a CLI do Azure. A CLI do Azure é implementada em Node.js. Ela pode ser usada em qualquer plataforma que dá suporte a Node. js, incluindo Windows, Mac e Linux.
 
-- **SDK do Node.js** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **CLI do Azure** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
-
-Para ver um guia geral sobre como usar a CLI do Azure, consulte [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md).
+Para obter um guia geral sobre como usar a CLI do Azure, veja [CLI do Azure](../xplat-cli-install.md).
 
 As instruções a seguir orientam sobre como instalar a CLI do Azure no Linux e no Windows e como usar a linha de comando para provisionar um cluster.
 
@@ -535,7 +534,7 @@ A CLI do Azure pode ser instalada usando o NPM ou o Instalador do Windows. A Mic
 
 **Para instalar a CLI do Azure usando o Windows Installer**
 
-1.	Navegue até ****http://azure.microsoft.com/downloads/**.
+1.	Navegue até **http://azure.microsoft.com/downloads/**.
 2.	Role para baixo até a seção **Ferramentas de linha de comando** e, em seguida, clique em **Interface de Linha de Comando do Azure** e siga o assistente do Web Platform Installer.
 
 **Para baixar e importar as configurações de publicação**
@@ -712,7 +711,6 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Microsoft.Azure.Management.Resources;
 
 		namespace CreateHDICluster
 		{
@@ -726,7 +724,7 @@ Crie um certificado autoassinado, instale-o em sua estação de trabalho e o car
 		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
 		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
 		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
 		        private const OSType NewClusterOSType = OSType.Windows;
 		        private const string NewClusterVersion = "3.2";
 
@@ -817,4 +815,4 @@ Neste artigo, você aprendeu várias maneiras de provisionar um cluster HDInsigh
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

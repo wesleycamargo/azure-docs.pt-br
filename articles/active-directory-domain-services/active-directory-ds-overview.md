@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="04/11/2016"
 	ms.author="maheshu"/>
 
 # Serviços de domínio do AD do Azure *(visualização)*
@@ -81,4 +81,4 @@ Com os serviços de domínio do AD do Azure, você pode aproveitar os seguintes 
 
 -	**Econômicos** – Com os Serviços de Domínio do Azure AD, você pode evitar a sobrecarga de gerenciamento e infraestrutura associada ao gerenciamento de infraestrutura de identidade para dar suporte a aplicativos tradicionais com reconhecimento de diretório. Você pode mover esses aplicativos para os Serviços de Infraestrutura do Azure e aproveitar economias ainda maiores em despesas operacionais.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

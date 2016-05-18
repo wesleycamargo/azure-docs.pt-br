@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="04/07/2016"
    ms.author="alkohli" />
 
 # Usar a interface do usuário da Web para administrar o StorSimple Virtual Array
@@ -39,12 +39,12 @@ Se você esqueceu sua chave de criptografia de dados de serviço e precisa recup
 #### Para obter a chave de criptografia de dados do serviço
 
 1. Conecte-se à interface do usuário da Web local. Vá para **Configuração** > **Configurações de Nuvem**.
-
-    ![obter chave de criptografia de dados do serviço 1](./media/storsimple-ova-web-ui-admin/image27.png)
+  
 
 2. Na parte inferior da página, clique em **Obter chave de criptografia de dados de serviço**. Uma chave será exibida. Copie e salve essa chave.
-
-    ![obter chave de criptografia de dados do serviço 2](./media/storsimple-ova-web-ui-admin/image28.png)
+  	
+	![obter chave de criptografia de dados do serviço 1](./media/storsimple-ova-web-ui-admin/image27.png)
+   
 
 
 ## Solucionar problemas de erros de instalação de interface do usuário da Web
@@ -131,4 +131,4 @@ Você pode desligar ou reiniciar seu dispositivo virtual usando a interface do u
 
 Saiba como [usar o serviço StorSimple Manager para gerenciar seu dispositivo](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0413_2016-->

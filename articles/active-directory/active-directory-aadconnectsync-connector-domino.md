@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="04/20/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do conector Lotus Domino
@@ -112,7 +112,7 @@ Na página de recursos, instale apenas os recursos do Lotus Notes necessários e
 
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-**Observação:** você deve iniciar o Lotus Notes uma vez com um usuário que esteja localizado no mesmo servidor da conta que será usada como a conta de serviço do conector.
+**Observação:** você deve iniciar o Lotus Notes uma vez com um usuário que esteja localizado no mesmo servidor da conta que será usada como a conta de serviço do conector. Além disso, certifique-se de fechar o cliente do Lotus Notes no servidor. Ele não pode estar em execução ao mesmo tempo em que o Conector tenta se conectar ao servidor do Domino.
 
 ### Criar o conector
 
@@ -539,4 +539,4 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parecerá 
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -214,10 +214,10 @@ Outra coisa que fizemos para ajudar as pessoas a gerenciar a capacidade total do
 ClusterManifest.xml
 
 ```xml
-        <Section Name=" NodeBufferPercentage">
-            <Parameter Name="DiskSpace" Value="10" />
-            <Parameter Name="Memory" Value="15" />
-            <Parameter Name="SomeOtherMetric" Value="20" />
+        <Section Name="NodeBufferPercentage">
+            <Parameter Name="DiskSpace" Value="0.10" />
+            <Parameter Name="Memory" Value="0.15" />
+            <Parameter Name="SomeOtherMetric" Value="0.20" />
         </Section>
 ```
 Chamadas de criação que resultam em novos serviços falham quando o cluster está sem capacidade em buffer, garantindo que o cluster retenha sobrecarga sobressalente suficiente, de modo que as atualizações e falhas não resultem em nós realmente acima da capacidade. O Gerenciador de Recursos expõe muitas dessas informações por meio do PowerShell e das APIs de Consulta, permitindo que você veja as configurações de capacidade em buffer, a capacidade total e o consumo atual para cada métrica. Aqui, vemos um exemplo dessa saída:
@@ -262,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

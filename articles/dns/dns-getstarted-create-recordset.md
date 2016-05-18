@@ -3,7 +3,7 @@
    description="Como criar registros de host para o DNS do Azure. Configuração dos conjuntos de registros e registros usando o PowerShell"
    services="dns"
    documentationCenter="na"
-   authors="joaoma"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/03/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 
 # Criar registros DNS
@@ -126,4 +126,4 @@ Você também pode usar nslookup ou outras ferramentas DNS para consultar o novo
 [Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

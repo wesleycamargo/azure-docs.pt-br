@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="02/04/2016"
+  ms.date="04/29/2016"
   ms.author="hascipio; v-divte"/>
 
 # Pré-requisitos técnicos para criar uma imagem de máquina virtual para o Azure Marketplace
@@ -48,9 +48,9 @@ Agora você revisou os pré-requisitos e concluiu a tarefa necessária, pode pro
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial/)
+- [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines-windows-hero-tutorial/)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

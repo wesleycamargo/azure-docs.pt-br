@@ -25,14 +25,14 @@ A API do SQL Azure pode ser usada em:
 
 - Aplicativos lógicos 
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do SQL](../app-service-logic/app-service-logic-connector-sql.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o SQL Azure, é possível:
 
 - Compile seu fluxo de negócios baseado nos dados obtidos do SQL Azure. 
 - Use as ações para obter uma linha, insira uma linha e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter uma linha de dados do SQL Azure e, em seguida, adicionar esses dados ao Excel. 
 
-Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
 ## Gatilhos e ações
@@ -51,7 +51,7 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 | ---|---|---|
 |Cadeia de Conexão SQL|Sim|Insira a cadeia de conexão do SQL Azure|
 
-Depois de criar a conexão, insira as propriedades do SQL, como o nome da tabela. A **referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do SQL, como o nome da tabela. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
 
@@ -227,4 +227,4 @@ Atualiza uma linha existente em uma tabela SQL.```PATCH: /datasets/default/table
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

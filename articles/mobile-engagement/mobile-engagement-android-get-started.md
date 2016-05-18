@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="04/08/2016"
+	ms.date="05/10/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Introdução ao Mobile Engagement do Azure para Aplicativos Android
@@ -36,7 +36,7 @@ Também é necessário baixar o [SDK do Mobile Engagement Android](https://aka.m
 
 ## Conectar o aplicativo ao back-end do Mobile Engagement
 
-Este tutorial apresenta uma "integração básica" que é o conjunto mínimo exigido para coletar dados e enviar uma notificação por push. A documentação de integração completa pode ser encontrada na [Integração do SDK do Mobile Engagement Android](../mobile-engagement-android-sdk-overview/).
+Este tutorial apresenta uma "integração básica" que é o conjunto mínimo exigido para coletar dados e enviar uma notificação por push. A documentação de integração completa pode ser encontrada na [Integração do SDK do Mobile Engagement Android](mobile-engagement-android-sdk-overview.md).
 
 Vamos criar um aplicativo básico com o Android Studio para demonstrar a integração.
 
@@ -132,11 +132,14 @@ Vá para **MainActivity.java** e adicione o seguinte para substituir a classe ba
 
 	public class MainActivity extends EngagementActivity {
 
+> [AZURE.NOTE] Se sua classe base não for *Activity*, consulte [Relatório Android Avançado](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) para saber como herdar de classes diferentes.
+
+
 Você deve comentar (excluir) a linha a seguir para este cenário de exemplo simples:
 
     // setSupportActionBar(toolbar);
 
-Se você quiser manter este quadro, consulte o cenário "Relatórios básicos" no nosso [Integração avançada do Android](mobile-engagement-android-integrate-engagement.md/#basic-reporting)
+Se você quiser manter esse quadro, verifique [Relatório Android Avançado](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
 ## Conectar o aplicativo com monitoramento em tempo real
 
@@ -162,6 +165,10 @@ O Mobile Engagement permite a você interagir e entrar em contato com seus usuá
 
 [AZURE.INCLUDE [Enviar notificações do portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
+## Mais recursos
+
+Vá para [SDK do Android](mobile-engagement-android-sdk-overview.md) para ter um conhecimento detalhado sobre a integração do SDK.
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -175,4 +182,4 @@ O Mobile Engagement permite a você interagir e entrar em contato com seus usuá
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

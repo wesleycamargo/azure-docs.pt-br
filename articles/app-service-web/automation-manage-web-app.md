@@ -40,7 +40,6 @@ O Aplicativo Web pode ser gerenciado na Automação do Azure usando os cmdlets d
 
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Aplicativo Web do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
-* Confira o [Guia de introdução](../automation-intro.md) da Automação do Azure.
- 
+* Confira o [Guia de introdução](../automation/automation-intro.md) da Automação do Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0413_2016-->

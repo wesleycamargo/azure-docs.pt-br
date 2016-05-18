@@ -13,15 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="04/11/2016"
+    ms.date="04/28/2016"
     ms.author="sidneyh"/>
 
 # Monitorar e gerenciar um pool de banco de dados elástico com Transact-SQL  
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-elastic-pool-manage-portal.md)
-- [C#](sql-database-elastic-pool-manage-csharp.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+- [C#](sql-database-elastic-pool-manage-csharp.md)
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
 Use os comandos [Create Database (Banco de dados Azure SQL)](https://msdn.microsoft.com/library/dn268335.aspx) e [Alter Database(Banco de dados Azure SQL)](https://msdn.microsoft.com/library/mt574871.aspx) para criar e mover bancos de dados dentro e fora de pools elásticos. O pool elástico deve existir antes que você possa usar esses comandos. Esses comandos afetam somente bancos de dados. A criação de novos pools e a configuração de propriedades de pool (como eDTUs mínimos e máximos) não podem ser alteradas com comandos T-SQL.
@@ -31,7 +31,7 @@ Use os comandos [Create Database (Banco de dados Azure SQL)](https://msdn.micros
 
 
 ## Criar um novo banco de dados em um pool elástico
-Use o comando CREATE DATABASE com a opção SERVICE\_OBJECTIVE.
+Use o comando CREATE DATABASE com a opção SERVICE_OBJECTIVE.
 
 	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
 	-- Create a database named db1 in a pool named S3M100.
@@ -45,15 +45,14 @@ Use o comando ALTER DATABASE com MODIFY e defina a opção SERVICE\_OBJECTIVE co
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [PM125] ));
 	-- Move the database named db1 to a pool named P1M125  
 
-
 ## Mover um banco de dados para um pool elástico 
-Use o comando ALTER DATABASE com MODIFY e defina a opção SERVICE\_OBJECTIVE como ELASTIC\_POOL. Defina o nome como o nome do pool de destino.
+Use o comando ALTER DATABASE com MODIFY e defina a opção SERVICE\_OBJECTIVE como ELASTIC_POOL. Defina o nome como o nome do pool de destino.
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
 	-- Move the database named db1 to a pool named S3100.
 
 ## Remover um banco de dados de um pool elástico
-Use o comando ALTER DATABASE e defina o SERVICE\_OBJECTIVE com um dos níveis de desempenho (S0, S1, etc.).
+Use o comando ALTER DATABASE e defina o SERVICE_OBJECTIVE com um dos níveis de desempenho (S0, S1, etc.).
 
 	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
 	-- Changes the database into a stand-alone database with the service objective S1.
@@ -61,16 +60,13 @@ Use o comando ALTER DATABASE e defina o SERVICE\_OBJECTIVE com um dos níveis de
 ## Listar bancos de dados em um pool elástico
 Use a [exibição sys.database\_service \_objectives](https://msdn.microsoft.com/library/mt712619) para listar todos os bancos de dados em um pool elástico. Entre no banco de dados mestre para consultar o modo de exibição.
 
->[AZURE.NOTE] Atualmente, a service\_objective\_column para bancos de dados em pools elásticos retorna um token interno da cadeia de caracteres de objetivo de serviço. Ela será substituída pela cadeia de caracteres "ElasticPool".
->
-
 	SELECT d.name, slo.*  
 	FROM sys.databases d 
 	JOIN sys.database_service_objectives slo  
 	ON d.database_id = slo.database_id
 	WHERE elastic_pool_name = 'MyElasticPool'; 
 
-## Monitorar o uso de recursos dos pools elásticos
+## Obter dados de uso de recursos para um pool
 
 Use o [sys.elastic\_pool \_resource \_stats exibir](https://msdn.microsoft.com/library/mt280062.aspx) para examinar as estatísticas de uso de recursos de um pool elástico em um servidor lógico. Entre no banco de dados mestre para consultar o modo de exibição.
 
@@ -78,16 +74,14 @@ Use o [sys.elastic\_pool \_resource \_stats exibir](https://msdn.microsoft.com/l
 	WHERE elastic_pool_name = 'MyElasticPool'
 	ORDER BY end_time DESC;
 
-## Monitorar o uso de recursos do banco de dados em um pool elástico
+## Obter o uso de recursos para um Banco de Dados Elástico
+
 Use o [sys.dm \_resource\_stats exibição](https://msdn.microsoft.com/library/dn800981.aspx) ou o [sys.resource \_stats exibição](https://msdn.microsoft.com/library/dn269979.aspx) para examinar as estatísticas de uso de recursos do banco de dados em um pool elástico. Esse processo é semelhante à consulta do uso de recursos de qualquer banco de dados individual.
-
-## Latência de operações do pool elástico
-
-- Geralmente, a alteração das eDTUs garantidas por banco de dados ou do máximo de eDTUs por banco de dados é um processo concluído em cinco minutos ou menos.
-- A alteração do limite de armazenamento depende da quantidade total de espaço usado por todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar o limite de eDTUs/armazenamento do pool é de 3 horas ou menos.
 
 ## Próximas etapas
 
 Depois de criar um pool de banco de dados elástico, você pode gerenciar os bancos de dados elásticos no pool criando trabalhos elásticos. Trabalhos elásticos facilitam a execução de scripts T-SQL em qualquer quantidade de bancos de dados no pool. Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de dados](sql-database-elastic-jobs-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+Confira [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): usar ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados, consultar ou criar transações.
+
+<!---HONumber=AcomDC_0504_2016-->

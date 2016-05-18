@@ -17,7 +17,7 @@
     ms.date="12/08/2015"
     ms.author="nitinme"/>
 
-# Criar clusters do Apache Spark no HDInsight usando opções personalizadas (Windows)
+# Criar clusters do Apache Spark no HDInsight Windows usando opções personalizadas (Preview)
 
 > [AZURE.NOTE] O HDInsight agora fornece clusters Spark no Linux. Para obter informações sobre a criação personalizada de um cluster Spark no HDInsight Linux, confira [Criar clusters baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -32,7 +32,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter uma assi
 
 ##<a id="configuration"></a>Quais são as opções de configuração diferentes?
 
-###Armazenamento adicional
+### Armazenamento adicional
 
 Durante a configuração, você deve especificar uma conta de Armazenamento do Blobs do Azure e um contêiner padrão. Eles são usados como o local de armazenamento padrão pelo cluster. Opcionalmente, você pode especificar uma conta de armazenamento do Azure adicional que também será associada ao cluster.
 
@@ -40,18 +40,18 @@ Durante a configuração, você deve especificar uma conta de Armazenamento do B
 
 Para obter mais informações sobre o uso de repositórios de blob secundários, consulte [Usando o Armazenamento de Blob do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-###Metastore
+### Metastore
 
 O Spark permite definir esquema e tabelas do Hive em dados brutos. Você pode salvar esses esquemas e metadados da tabela em metastores externos. Usar o metastore ajuda a manter seus metadados do Hive para que você não precise recriar tabelas do Hive ao criar um novo cluster. Por padrão, o Hive usa um banco de dados integrado para armazenar essas informações. O banco de dados integrado não é capaz de preservar os metadados quando o cluster é excluído.
 
-Para obter instruções sobre como criar um banco de dados SQL do Azure, confira [Criar seu primeiro banco de dados SQL do Azure](../sql-database/sql-database-get-started.md).
+Para obter instruções sobre como criar um banco de dados SQL do Azure, confira [Create your first Azure SQL Database](../sql-database/sql-database-get-started.md).
 
 ### Personalização do cluster
 
 Você pode instalar componentes adicionais ou personalizar a configuração de cluster por meio de scripts durante a criação. Tais scripts são chamados usando a **Ação de Script**, que é uma opção de configuração que pode ser usada no portal do Azure, cmdlets do Windows PowerShell do HDInsight ou SDK do .NET do HDInsight. Para obter mais informações, consulte [Personalizar cluster HDInsight usando a Ação de Script][hdinsight-customize-cluster].
 
 
-###Rede Virtual
+### Rede Virtual
 
 A [Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/virtual-network/) permite que você crie uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
 
@@ -242,4 +242,4 @@ Especifique o tipo de cluster Spark:
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use o Sqoop com o HDInsight"
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

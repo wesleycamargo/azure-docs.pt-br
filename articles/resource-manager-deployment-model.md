@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/27/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos
@@ -36,11 +36,11 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
   - O [portal do Azure](https://portal.azure.com/)
 
-   ![Portal do Azure](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-   Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
+        Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
 
-   ![Implantação do Gerenciador de Recursos](./media/resource-manager-deployment-model/select-resource-manager.png)
+        ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
   - Para o Azure PowerShell, use a versão de comandos do Gerenciador de Recursos. Esses comandos têm o formato *Verb-AzureRmNoun*, conforme mostrado abaixo.
 
@@ -53,7 +53,7 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
 - O tipo de recurso não inclui **(classic)** no nome. A imagem abaixo mostra o tipo como **Conta de armazenamento**.
 
-   ![aplicativo web](./media/resource-manager-deployment-model/resource-manager-type.png)
+    ![aplicativo web](./media/resource-manager-deployment-model/resource-manager-type.png)
 
 O aplicativo exibido no diagrama a seguir mostra como os recursos implantados por meio do Gerenciador de Recursos estão contidos em um único grupo de recursos.
 
@@ -83,11 +83,11 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
   - [Portal clássico](https://manage.windowsazure.com)
 
-   ![Portal clássico](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-   Ou pelo portal do Azure, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
+        Ou pelo portal de visualização, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
 
-   ![Implantação Clássica](./media/resource-manager-deployment-model/select-classic.png)
+        ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
   - Para o Azure PowerShell, use a versão de comandos do Gerenciamento de Serviço. Esses nomes de comandos têm o formato *Verb-AzureNoun*, conforme mostrado abaixo.
 
@@ -97,7 +97,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
   - Comandos CLI do Azure executados no modo **asm** ou padrão.
 - O tipo de recurso inclui **(classic)** no nome. A imagem abaixo mostra o tipo como **Conta de armazenamento (classic)**.
 
-   ![tipo clássico](./media/resource-manager-deployment-model/classic-type.png)
+    ![tipo clássico](./media/resource-manager-deployment-model/classic-type.png)
 
 Você ainda pode usar o portal do Azure para gerenciar recursos que foram criados por meio da implantação clássica.
 
@@ -131,29 +131,23 @@ Para saber mais sobre como usar marcas no Gerenciador de Recursos, veja a seçã
 
 ## Operações com suporte para os modelos de implantação
 
-Os recursos que você criou no modelo de implantação clássica não oferecem suporte a operações do Gerenciador de Recursos. Em alguns casos, um comando do Gerenciador de Recursos pode recuperar informações sobre um recurso criado por meio da implantação clássica ou pode executar tarefas administrativas, como mover um recurso clássico para outro grupo de recursos, mas esses casos não devem dar a impressão de que o tipo oferece suporte às operações do Gerenciador de Recursos. Por exemplo, suponha que você tenha um grupo de recursos que contenha máquinas virtuais que foram criadas com o Gerenciador de Recursos e o modelo clássico. Se você executar o seguinte comando do PowerShell:
+Os recursos que você criou no modelo de implantação clássica não oferecem suporte a operações do Gerenciador de Recursos. Em alguns casos, um comando do Gerenciador de Recursos pode recuperar informações sobre um recurso criado por meio da implantação clássica ou pode executar tarefas administrativas, como mover um recurso clássico para outro grupo de recursos, mas esses casos não devem dar a impressão de que o tipo oferece suporte às operações do Gerenciador de Recursos. Por exemplo, suponhamos que você tenha um grupo de recursos que contenha uma Máquina Virtual que foi criada com implantação clássica. Se você executar o seguinte comando do PowerShell:
 
-    Get-AzureRmResourceGroup -Name ExampleGroup
+    Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 
-Ele retornará todas as máquinas virtuais:
+Ele retornará todas a Máquina Virtual:
+    
+    Name              : ExampleClassicVM
+    ResourceId        : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.ClassicCompute/virtualMachines/ExampleClassicVM
+    ResourceName      : ExampleClassicVM
+    ResourceType      : Microsoft.ClassicCompute/virtualMachines
+    ResourceGroupName : ExampleGroup
+    Location          : westus
+    SubscriptionId    : {guid}
 
-    Resources :
-     Name                 Type                                          Location
-     ================     ============================================  ========
-     ExampleClassicVM     Microsoft.ClassicCompute/domainNames          eastus
-     ExampleClassicVM     Microsoft.ClassicCompute/virtualMachines      eastus
-     ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
-    ...
-
-No entanto, se você executar o comando **Get-AzureRmVM**:
+No entanto, o cmdlet **Get-AzureRmVM** retorna apenas as Máquinas Virtuais implantadas por meio do Gerenciador de Recursos. O comando a seguir não retorna a Máquina Virtual criada por meio da implantação clássica.
 
     Get-AzureRmVM -ResourceGroupName ExampleGroup
-
-Você receberá somente as máquinas virtuais que foram criadas com o Gerenciador de Recursos.
-
-    Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
-    Name     : ExampleResourceVM
-    ...
 
 De modo geral, você não deve esperar que os recursos criados por meio da implantação clássica funcione com os comandos do Gerenciador de Recursos.
 
@@ -169,16 +163,14 @@ Há algumas considerações importantes ao trabalhar com máquinas virtuais.
 
 Se você puder se dar ao luxo de ter um tempo de inatividade para as suas Máquinas Virtuais, é possível fazer sua transição da implantação clássica para o Gerenciador de Recursos com os [scripts ASM2ARM do PowerShell](https://github.com/fullscale180/asm2arm).
 
-Para obter uma lista de comandos equivalentes da CLI do Azure durante a transição da implantação clássica para o Gerenciador de Recursos, veja a seção [Comandos equivalentes do Gerenciador de Recursos e do Gerenciamento de Serviços para operações de VM](./virtual-machines/virtual-machines-linux-cli-manage.md).
-
 Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
 Para saber como conectar redes virtuais de diferentes modelos de implantação, veja [Conectando Redes Virtuais clássicas a Redes Virtuais novas](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Próximas etapas
 
-- Para fazer um acompanhamento da criação do modelo que define uma máquina virtual, da conta de armazenamento e da rede virtual, confira [Passo a passo do Modelo do Gerenciador de Recursos](resource-manager-template-walkthrough.md).
+- Para ver um passo a passo da criação do modelo que define uma máquina virtual, uma conta de armazenamento e uma rede virtual, confira [Passo a passo do modelo do Resource Manager](resource-manager-template-walkthrough.md).
 - Para saber mais sobre a estrutura de modelos do Gerenciador de Recursos, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

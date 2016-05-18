@@ -49,7 +49,7 @@ Você pode enviar notificações para marcas usando os métodos de notificaçõe
 	// Windows 8.1 / Windows Phone 8.1
 	var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
 	"You requested a Beatles notification</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles);
+	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
 
 	// Windows 10
 	toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
@@ -112,4 +112,4 @@ Aqui está um exemplo de envio de notificações com expressões de marca usando
 	"You want info on the Red Socks</text></binding></visual></toast>";
 	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,18 +14,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="04/20/2016" 
 	ms.author="nitinme"/>
 
 
-# Usar as ferramentas de BI com o Apache Spark no Azure HDInsight (Linux)
+# Usar as ferramentas de BI com o Apache Spark no HDInsight Linux (Preview)
 
 Saiba como usar o Apache Spark no Azure HDInsight para fazer o seguinte:
 
 * Pegar os dados brutos de exemplo e salvá-los como uma tabela Hive
 * Usar ferramentas de BI como Power BI e Tableau para analisar e visualizar os dados.
 
-> [AZURE.TIP] Este tutorial também está disponível como um bloco de anotações do Jupyter em um cluster Spark (Linux) que você cria no HDInsight. A experiência de bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para executar o tutorial em um bloco de anotações, crie um cluster Spark, inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o bloco de anotações **Usar ferramentas de BI com Apache Spark no HDInsight.ipynb** na pasta **Python**.
+> [AZURE.NOTE] Este tutorial é aplicável somente para clusters do Spark 1.5.2 criados no Azure HDInsight.
+
+Este tutorial também está disponível como um bloco de anotações do Jupyter em um cluster Spark (Linux) que você cria no HDInsight. A experiência de bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para executar o tutorial em um bloco de anotações, crie um cluster Spark, inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o bloco de anotações **Usar ferramentas de BI com Apache Spark no HDInsight.ipynb** na pasta **Python**.
 
 **Pré-requisitos:**
 
@@ -58,7 +60,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 
 	![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "Fornecer um nome para o bloco de anotações")
 
-4. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark, SQL e Hive serão criados automaticamente para você ao executar a primeira célula de código. Você pode começar importando os tipos obrigatórios para este cenário. Para fazer isso, coloque o cursor na célula e pressione **SHIFT + ENTER**.
+4. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos obrigatórios para este cenário. Para fazer isso, coloque o cursor na célula e pressione **SHIFT + ENTER**.
 
 		from pyspark.sql import *
 		
@@ -79,32 +81,32 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 		hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
 		
 		# Infer the schema and create a table       
-		hvacTable = hiveContext.createDataFrame(hvac)
+		hvacTable = sqlContext.createDataFrame(hvac)
 		hvacTable.registerTempTable('hvactemptable')
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. Verifique se a tabela foi criada com êxito. Você pode usar a mágica do `%%hive` para executar as consultas do Hive diretamente. Para obter mais informações sobre a mágica do `%%hive`, bem como outras mágicas disponíveis com o kernel PySpark, consulte [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+5. Verifique se a tabela foi criada com êxito. Você pode usar a mágica do `%%sql` para executar as consultas do Hive diretamente. Para obter mais informações sobre a mágica de `%%sql`, bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
-		%%hive
+		%%sql
 		SHOW TABLES
 
 	Você verá algo semelhante ao mostrado a seguir:
 
-		+---------------+-----------+
-		|      tableName|isTemporary|
-		+---------------+-----------+
-		|  hvactemptable|       true|
-		|hivesampletable|      false|
-		|           hvac|      false|
-		+---------------+-----------+
+		+-----------+---------------+
+		|isTemporary|tableName		| 
+		+-----------+---------------+
+		|       true|hvactemptable  |
+		|      false|hivesampletable|
+		|      false|hvac			|
+		+-----------+---------------+
 
 
 	Somente as tabelas que têm falso sob a coluna **isTemporary** são tabelas hive que serão armazenadas no metastore e podem ser acessadas por meio das ferramentas de BI. Neste tutorial, vamos nos conectar à tabela **hvac** recém-criada.
 
 6. Verifique se a tabela contém os dados pretendidos. Em uma célula vazia no bloco de anotações, copie o seguinte trecho e pressione **SHIFT+ENTER**.
 
-		%%hive
+		%%sql
 		SELECT * FROM hvac LIMIT 10
 	
 7. Agora você pode encerrar o bloco de anotações para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
@@ -231,4 +233,4 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

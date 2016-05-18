@@ -9,7 +9,7 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
+	ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
 	ms.date="11/17/2015"
@@ -17,7 +17,7 @@
 
 # Configurar o registro em log do Diagnóstico do Azure no Application Insights
 
-Quando você configura um projeto de Serviços de Nuvem ou uma máquina virtual no Microsoft Azure, [o Azure pode gerar um log de diagnóstico](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Você pode enviar esse log ao Application Insights para que possa analisá-lo junto com a telemetria de diagnóstico e de uso enviada do aplicativo pelo SDK do Application Insights. O log do Azure inclui eventos do gerenciamento do aplicativo, por exemplo, iniciar, parar, falhas e contadores de desempenho. O log também inclui chamadas no aplicativo para System.Diagnostics.Trace.
+Quando você configura um projeto de Serviços de Nuvem ou uma máquina virtual no Microsoft Azure, [o Azure pode gerar um log de diagnóstico](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). Você pode enviar esse log ao Application Insights para que possa analisá-lo junto com a telemetria de diagnóstico e de uso enviada do aplicativo pelo SDK do Application Insights. O log do Azure inclui eventos do gerenciamento do aplicativo, por exemplo, iniciar, parar, falhas e contadores de desempenho. O log também inclui chamadas no aplicativo para System.Diagnostics.Trace.
 
 Este artigo descreve detalhadamente a configuração da captura do diagnóstico.
 
@@ -62,7 +62,7 @@ Quando você usa as propriedades de função para definir "Enviar dados ao Appli
         <Channel logLevel="Verbose" name="MyLogData"  />
       </Channels>
      </Sink>
-    </SinksConfig> 
+    </SinksConfig>
 
 ```
 
@@ -116,7 +116,7 @@ Este é um exemplo completo do arquivo de configuração pública que envia todo
         <DataSource name="Application!*" />
       </WindowsEventLog>
       <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose"
-            sinks="ApplicationInsights.MyLogData"/> 
+            sinks="ApplicationInsights.MyLogData"/>
        <!-- This specific info sent to this channel -->
      </DiagnosticMonitorConfiguration>
 
@@ -136,9 +136,9 @@ Este é um exemplo completo do arquivo de configuração pública que envia todo
 
 É preciso ter atenção a algumas limitações dessa funcionalidade
 
-* Os canais devem funcionar somente com o tipo de log, e não com os contadores de desempenho. Se você especificar um canal com um elemento contador de desempenho, ele será ignorado. 
-* O nível de log para um canal não pode exceder o nível de log do que está sendo coletado pelo Diagnóstico do Azure. Por exemplo: você não pode coletar erros no log de aplicativo no elemento Logs e tentar enviar logs detalhados para a sincronização do Application Insights. O atributo scheduledTransferLogLevelFilter sempre deve coletar uma quantidade igual ou maior de logs que a quantidade de logs que você está tentando enviar para um coletor. 
-* Você não pode enviar dados de blob coletados pela extensão do Diagnóstico do Azure ao Application Insights. Por exemplo, nada especificado sob o nó Directories. No caso de despejos de memória, o despejo de memória real ainda será enviado para o armazenamento de blobs e somente uma notificação da geração do despejo será enviada ao Application Insights. 
+* Os canais devem funcionar somente com o tipo de log, e não com os contadores de desempenho. Se você especificar um canal com um elemento contador de desempenho, ele será ignorado.
+* O nível de log para um canal não pode exceder o nível de log do que está sendo coletado pelo Diagnóstico do Azure. Por exemplo: você não pode coletar erros no log de aplicativo no elemento Logs e tentar enviar logs detalhados para a sincronização do Application Insights. O atributo scheduledTransferLogLevelFilter sempre deve coletar uma quantidade igual ou maior de logs que a quantidade de logs que você está tentando enviar para um coletor.
+* Você não pode enviar dados de blob coletados pela extensão do Diagnóstico do Azure ao Application Insights. Por exemplo, nada especificado sob o nó Directories. No caso de despejos de memória, o despejo de memória real ainda será enviado para o armazenamento de blobs e somente uma notificação da geração do despejo será enviada ao Application Insights.
 
 ## Tópicos relacionados
 
@@ -146,4 +146,4 @@ Este é um exemplo completo do arquivo de configuração pública que envia todo
 * [Usando o PowerShell para enviar diagnósticos do Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Arquivo de configuração de Diagnóstico do Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0504_2016-->

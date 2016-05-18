@@ -3,7 +3,7 @@
 	description="Este tópico usa recursos criados com o modelo de implantação clássica e descreve os recursos de Business Intelligence (BI) disponíveis para o SQL Server em execução em máquinas virtuais do Azure (VMs)."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # Business Intelligence do SQL Server em máquinas virtuais do Azure
 
@@ -388,8 +388,8 @@ Esta seção resume os pontos de extremidade de máquina virtual do Microsoft Az
 
 	|Port|Tipo|Descrição|
 |---|---|---|
-|**80**|TCP|Acesso remoto ao servidor de relatório (*).|
-|**1433**|TCP|SQL Server Management Studio (*).|
+|**80**|TCP|Acesso remoto ao servidor de relatório (*).| 
+|**1433**|TCP|SQL Server Management Studio (*).| 
 |**1434**|UDP|SQL Server Browser. Necessário quando a VM ingressa em um domínio.|
 |**2382**|TCP|SQL Server Browser.|
 |**2383**|TCP|Instância padrão do SQL Server Analysis Services e instâncias nomeadas em cluster.|
@@ -409,7 +409,7 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - Leia a política de suporte para softwares de servidores da Microsoft usado no ambiente de máquina virtual do Azure. O tópico a seguir resume o suporte a recursos como BitLocker, Clustering de Failover e Balanceamento de Carga de Rede. [Suporte de software a servidores da Microsoft para máquinas virtuais do Azure](http://support.microsoft.com/kb/2721672)
 
-- [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-sql-overview.md)
+- [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
 - [Máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -417,7 +417,7 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Como anexar um disco de dados à máquina virtual](virtual-machines-windows-classic-attach-disk.md)
 
-- [Migração de um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-windows-classic-migrate-sql.md)
+- [Migração de um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-windows-migrate-sql.md)
 
 - [Determinar o modo de servidor de uma instância do Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 
@@ -433,5 +433,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 - [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!----HONumber=AcomDC_0330_2016-->
-
+<!---HONumber=AcomDC_0427_2016-->

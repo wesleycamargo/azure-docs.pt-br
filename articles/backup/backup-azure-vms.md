@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="04/08/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -34,21 +34,39 @@ Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 ## Etapa 1 - Descobrir máquinas virtuais do Azure
 Para garantir que qualquer VM (máquina virtual) nova adicionada à assinatura seja identificada antes do registro, execute o processo de descoberta. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região.
 
-1. Navegue até o cofre de backup, em **Serviços de Recuperação** no portal do Azure e clique em **Itens Registrados**.
+1. Entre no [portal clássico](http://manage.windowsazure.com/).
 
-2. Selecione **Máquina Virtual do Azure** no menu suspenso.
+2. Na lista de serviços do Azure, clique em **Serviços de Recuperação** para abrir a lista de cofres de Backup e Recuperação de Site.
+![Abrir listas de cofres](./media/backup-azure-vms/choose-vault-list.png)
+
+3. Na lista de cofres de Backup, escolha o cofre para fazer backup de uma VM.
+
+    Se for um novo cofre, o portal abrirá na página **Início Rápido**.
+
+    ![Abrir o menu Itens registrados](./media/backup-azure-vms/vault-quick-start.png)
+
+    Se o cofre tiver sido configurado anteriormente, o portal abrirá no menu usado mais recentemente.
+
+4. No menu do cofre (na parte superior da página), clique em **Itens Registrados**.
+
+    ![Abrir o menu Itens registrados](./media/backup-azure-vms/vault-menu.png)
+
+5. No menu **Tipo**, selecione **Máquina Virtual do Azure**.
 
     ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique em **DESCOBRIR** na parte inferior da página. ![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
+6. Clique em **DESCOBRIR** na parte inferior da página.
+![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
 
     O processo de descoberta pode ser executado por alguns minutos, enquanto as máquinas virtuais estão sendo tabuladas. Há uma notificação na parte inferior da tela que informa você de que o processo está sendo executado.
 
     ![Descobrir VMs](./media/backup-azure-vms/discovering-vms.png)
 
-    As alterações de notificação quando o processo é concluído.
+    As alterações de notificação quando o processo é concluído. Se o processo de descoberta não tiver localizado as máquinas virtuais, primeiro verifique se as VMs existem mesmo. Se existirem, garanta que as VMs estejam na mesma região que o cofre de backup. Se existirem e estiverem na mesma região, verifique se as VMs já não estão registradas em um cofre de backup. Se uma VM estiver atribuída a um cofre de backup, ela não estará disponível para ser atribuída a outros cofres de backup.
 
     ![Descoberta concluída](./media/backup-azure-vms/discovery-complete.png)
+
+    Depois de descobrir os novos itens, vá para a Etapa 2 e registre suas VMs.
 
 ##  Etapa 2 - Registrar as máquinas virtuais do Azure
 Você registra uma máquina virtual do Azure para associá-la ao serviço Backup do Azure. Normalmente, é uma atividade realizada uma única vez.
@@ -59,7 +77,8 @@ Você registra uma máquina virtual do Azure para associá-la ao serviço Backup
 
     ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique em **REGISTRAR** na parte inferior da página. ![Botão Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Clique em **REGISTRAR** na parte inferior da página.
+![Botão Registrar](./media/backup-azure-vms/register-button-only.png)
 
 4. No menu de atalho **Registrar Itens**, selecione as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para fazer a distinção entre elas.
 
@@ -118,13 +137,13 @@ Os cofres do Backup do Azure criados depois de maio de 2015 poderão vir com uma
     Nesta imagem de exemplo:
 
     - **Política de retenção diária**: os backups diários são armazenados por 30 dias.
-    - **Política de retenção semanal**: os backups semanais realizados aos domingos serão armazenados por 104 semanas.
-    - **Política de retenção mensal**: os backups mensais realizados no último domingo do mês serão armazenados por 120 meses.
-    - **Política de retenção anual**: os backups realizados no primeiro domingo de cada mês de janeiro serão armazenados por 99 anos.
+    - **Política de retenção semanal**: os backups feitos todas as semanas aos domingos serão preservados por 104 semanas.
+    - **Política de retenção mensal**: os backups feitos no último domingo de cada mês serão preservados por 120 meses.
+    - **Política de retenção anual**: os backups feitos no primeiro domingo de cada janeiro serão preservados por 99 anos.
 
     Um trabalho é criado para configurar a política de proteção e associar as máquinas virtuais a essa política para cada máquina virtual selecionada.
 
-6. Para ver a lista de trabalhos do tipo **Configurar Proteção**, no menu dos cofres, clique em **Trabalhos** e selecione **Configurar Proteção** no filtro **Operação**.
+6. Para exibir a lista de trabalhos de **Configurar Proteção**, no menu dos cofres, clique em **Trabalhos** e selecione **Configurar Proteção** no filtro **Operação**.
 
     ![Configurar o trabalho de proteção](./media/backup-azure-vms/protect-configureprotection.png)
 
@@ -143,23 +162,23 @@ Para disparar o backup inicial imediatamente após a configuração de proteçã
 
 >[AZURE.NOTE] Durante a operação de backup, o serviço de Backup do Azure emite um comando para a extensão de backup em cada máquina virtual a fim de limpar todos os trabalhos de gravação e capturar um instantâneo consistente.
 
-Após a conclusão do backup inicial, o status da máquina virtual na guia **Itens Protegidos** será *Protegida*.
+Quando o backup inicial terminar, o status da máquina virtual na guia **Itens Protegidos** será *Protegido*.
 
 ![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## Exibindo detalhes e status do backup
-Depois de protegido, a contagem de máquina virtual também aumenta no resumo da página **Painel**. A página **Painel** também mostra o número de trabalhos das últimas 24 horas que obtiveram *êxito*, que *falharam* e que estão *em andamento*. Na página **Trabalhos**, use os menus **Status**, **Operação** ou **De** e **Para** a fim de filtrar os trabalhos.
+Depois de protegido, a contagem de máquina virtual também aumenta no resumo da página **Painel**. A página **Painel** também mostra o número de trabalhos das últimas 24 horas que foram *bem-sucedidos*, que *falharam* e que estão *em andamento*. Na página **Trabalhos**, use os menus **Status**, **Operação** ou **De** e **Para** para filtrar os trabalhos.
 
 ![Status do backup na página Painel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 Os valores no painel são atualizados a cada 24 horas.
 
 ## Solucionar erros
-Se você tiver problemas durante o backup de sua máquina virtual, confira o [artigo sobre solução de problemas de VM](backup-azure-vms-troubleshoot.md) para obter ajuda.
+Se você enfrentar problemas durante o backup da sua máquina virtual, examine o [artigo sobre solução de problemas de VM](backup-azure-vms-troubleshoot.md) para obter ajuda.
 
 ## Próximas etapas
 
 - [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

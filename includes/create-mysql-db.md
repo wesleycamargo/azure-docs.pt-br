@@ -1,6 +1,6 @@
 Este guia mostrará como usar o [ClearDB] para criar um banco de dados MySQL na [Azure Store] e como criar um banco de dados MySQL como um recurso vinculado, quando você cria um [Site do Azure][waws]. O [ClearDB] é um provedor de banco de dados como serviço tolerante a falhas que permite que você execute e gerencie bancos de dados MySQL em datacenters do Azure e conecte-os de qualquer aplicativo.
 
-> [AZURE.NOTE]Quando você cria um banco de dados MySQL como parte do processo de criação de Sites, você pode criar somente um banco de dados gratuito. Criar um banco de dados MySQL na Azure Store permite que você crie um banco de dados gratuito ou escolha uma das opções pagas.
+> [AZURE.NOTE] Quando você cria um banco de dados MySQL como parte do processo de criação de Sites, você pode criar somente um banco de dados gratuito. Criar um banco de dados MySQL na Azure Store permite que você crie um banco de dados gratuito ou escolha uma das opções pagas.
 
 ## Como criar um banco de dados MySQL na Azure Store
 
@@ -65,12 +65,11 @@ Para criar um banco de dados MySQL como um recurso vinculado ao criar um [Site d
 
 	![Cadeia de conexão exibida](./media/create-mysql-db/shown-conn-string.png)
 
-> [AZURE.NOTE]As cadeias de conexão são acessíveis para o aplicativo do seu site pelo nome da cadeia de conexão. Em aplicativos .NET, cadeias de conexão estão disponíveis no objeto **connectionStrings**. Em outras linguagens de programação, cadeias de conexão são acessíveis como variáveis de ambiente. Para obter mais informações, consulte [Como configurar sites][configure].
+> [AZURE.NOTE] As cadeias de conexão são acessíveis para o aplicativo do seu site pelo nome da cadeia de conexão. Em aplicativos .NET, cadeias de conexão estão disponíveis no objeto **connectionStrings**. Em outras linguagens de programação, cadeias de conexão são acessíveis como variáveis de ambiente. Para obter mais informações, consulte [Como configurar sites][configure].
 
 [ClearDB]: http://www.cleardb.com/
 [waws]: /documentation/services/web-sites/
 [Azure Store]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../article/app-service-web/web-sites-configure.md
+[configure]: ../articles/app-service-web/web-sites-configure.md
 
-<!---HONumber=Oct15_HO3-->

@@ -12,14 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/06/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
 
 As tabelas neste artigo fornecem informações sobre provedores de conectividade da Rota Expressa, a cobertura geográfica da Rota Expressa, serviços em nuvem da Microsoft com suporte ao longo da Rota Expressa e SIs (Integradores de Serviço) da Rota Expressa.
 
-## Provedores de conectividade da Rota Expressa
+## <a name="partners"></a>Provedores de conectividade da Rota Expressa
 
 Há suporte para Rota Expressa em todos os locais e regiões do Azure. O mapa a seguir fornece uma lista de locais de Rota Expressa e regiões do Azure. Os locais de Rota Expressa são aqueles onde a Microsoft emparelha-se a vários provedores de serviços.
 
@@ -64,7 +64,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 |**China Telecom Global** | Com suporte | Sem suporte | Hong Kong |
 |**Cologix** | Com suporte | Em breve | Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Suportado | Amsterdã, Dublin, Londres |
-| **Comcast** | Suportado | Sem suporte | Vale do Silício, Washington, D.C. |
+| **Comcast** | Suportado | Suportado | Vale do Silício, Washington, D.C. |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Suportado | Suportado | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Com suporte | Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova York, Osaka, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.C. |
 | **euNetworks** | Suportado | Suportado | Amsterdã |
@@ -77,7 +77,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **MTN** | Com suporte | Com suporte | Londres |
 | **NEXTDC** | Suportado | Suportado | Melbourne, Sydney |
 | **NTT Communications** | Suportado | Com suporte | Londres, Osaka, Tóquio |
-| **[Orange](http://www.orange-business.com/)** | Com suporte | Com suporte | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Washington, D.C. |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Com suporte | Com suporte | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Washington, D.C. |
 | **PCCW Global Limited** | Suportado | Suportado | Hong Kong |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Sem suporte | Cingapura |
 | **Softbank** | Suportado | Suportado | Osaka, Tóquio | 
@@ -118,7 +118,7 @@ Para saber mais, confira [Rota Expressa na China](http://www.windowsazure.cn/hom
 | **e-shelter** | Em breve | Sem suporte | Berlim+|
 | **Interxion** | Suportado | Sem suporte | Frankfurt|
 
-## Conectividade por meio de provedores de serviços não listados
+## <a name="nonpartners"></a>Conectividade por meio de provedores de serviços não listados
 
 Se seu provedor de conectividade não estiver listado em seções anteriores, você ainda pode criar uma conexão.
 
@@ -150,11 +150,11 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 |**[Nimbo](http://www.nimbo.com/)**|EUA||
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Ásia |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | EUA |
-|**[Liderança de Projeto](http://www.projectleadership.net/azure)** | EUA |
+|**[Project Leadership](http://www.projectleadership.net/azure)** | EUA |
 
 ## Próximas etapas
 
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 - Certifique-se que todos os pré-requisitos foram atendidos. Confira [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

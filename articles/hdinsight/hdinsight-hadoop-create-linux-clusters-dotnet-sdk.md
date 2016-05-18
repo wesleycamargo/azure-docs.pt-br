@@ -32,7 +32,6 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
 - __Visual Studio 2013 ou 2015__
 
 ## Criar clusters
@@ -52,7 +51,6 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
-        Install-Package Microsoft.Azure.Management.Resources -Pre
 
     Esses comandos adicionam bibliotecas .NET e referências a elas no projeto atual do Visual Studio.
 
@@ -83,7 +81,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
                 private const int NewClusterNumNodes = 1;
                 private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
                 private const OSType NewClusterOSType = OSType.Linux;
-                private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+                private const string NewClusterType = "Hadoop";
                 private const string NewClusterVersion = "3.2";
                 private const string NewClusterUsername = "admin";
                 private const string NewClusterPassword = "<Enter HTTP User Password>";
@@ -365,4 +363,11 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+### Executar trabalhos
+
+- [Executar trabalhos do Hive no HDInsight usando o SDK do .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+- [Executar trabalhos do Pig no HDInsight usando o SDK do .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+- [Executar trabalhos do Sqoop no HDInsight usando o SDK do .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+- [Executar trabalhos do Oozie no HDInsight](hdinsight-use-oozie.md)
+
+<!---HONumber=AcomDC_0504_2016-->

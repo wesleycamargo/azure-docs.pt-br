@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="04/08/2016"
 	ms.author="micurd"/>
 
 
@@ -325,4 +325,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
   [Blog da equipe do Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Compilar e implantar um aplicativo Web do Node.js no Azure usando o Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

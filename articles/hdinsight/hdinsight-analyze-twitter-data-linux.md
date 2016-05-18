@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="04/22/2016"
 	ms.author="larryfr"/>
 
 # Analisar dados do Twitter usando o Hive no HDInsight
@@ -36,8 +36,6 @@ Antes de começar este tutorial, você deve ter o seguinte:
 	* [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 - __Python__ e [pip](https://pypi.python.org/pypi/pip)
-
-- A __CLI do Azure__. Para obter mais informações, confira [Instalar e configurar a CLI do Azure](../xplat-cli-install.md)
 
 ##Obtenha um feed do Twitter
 
@@ -319,4 +317,4 @@ Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

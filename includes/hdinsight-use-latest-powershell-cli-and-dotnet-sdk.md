@@ -1,0 +1,3 @@
+> [AZURE.IMPORTANT] As etapas neste documento foram testadas com a versão mais recente do Azure PowerShell, Azure CLI e SDK do .NET HDInsight. Se você estiver usando uma versão mais antiga, as etapas poderão não funcionar ou retornar erros. Para instalar a versão mais recente, siga as etapas nos documentos [Instalar e configurar a CLI do Azure](../articles/xplat-cli-install.md) ou [Instalar e configurar o Azure PowerShell](../articles/powershell-install-configure.md). Para instalar a versão mais recente do SDK do .NET HDInsight, use as informações fornecidas na pagina do NuGet [SDK do .NET do Microsoft Azure HDInsight](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.HDInsight/).
+
+<!---HONumber=AcomDC_0427_2016-->

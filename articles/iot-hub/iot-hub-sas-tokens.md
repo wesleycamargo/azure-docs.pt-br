@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="03/02/2016"
+ ms.date="04/29/2016"
  ms.author="elioda"/>
 
 # Como usar os tokens de segurança do Hub IoT
@@ -67,7 +67,7 @@ Essa é uma função de Nó que calcula o token a partir das entradas `resourceU
 
         // construct autorization string
         var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
-        * base64UriEncoded + "&se=" + expires;
+        + base64UriEncoded + "&se=" + expires;
         if (policyName) token += "&skn="+policyName;
         // console.log("signature:" + token);
         return token;
@@ -181,4 +181,4 @@ O resultado, que concederia acesso de leitura em todas as identidades de disposi
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0504_2016-->

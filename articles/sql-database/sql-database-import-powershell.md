@@ -4,7 +4,7 @@
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
-    manager="jeffreyg" 
+    manager="jhubbard" 
     editor=""/>
 
 <tags
@@ -21,7 +21,7 @@
 **Banco de dados individual**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-import.md)
+- [Portal do Azure](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
@@ -38,7 +38,7 @@ O banco de dados é criado de um BACPAC importado de um contêiner de blob de ar
 Para importar um banco de dados SQL, você precisará de:
 
 - Uma assinatura do Azure. Se você precisar de uma assinatura do Azure basta clicar em **AVALIAÇÃO GRATUITA** na parte superior desta página e, em seguida, voltar para concluir este artigo.
-- Um arquivo .bacpac (BACPAC) do banco de dados que deseja importar. O BACPAC deve estar em um contêiner de blob da [conta de armazenamento do Azure (clássico)](storage-create-storage-account.md).
+- Um arquivo .bacpac (BACPAC) do banco de dados que deseja importar. O BACPAC deve estar em um contêiner de blob da [conta de armazenamento do Azure (clássico)](../storage/storage-create-storage-account.md).
 
 
 > [AZURE.IMPORTANT] Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. É possível verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**.
@@ -153,4 +153,4 @@ A execução desse comando solicitará uma senha. Insira o logon e a senha de ad
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

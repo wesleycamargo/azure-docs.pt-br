@@ -1,17 +1,15 @@
-Este artigo mostra os comandos equivalentes do Azure CLI (interface de linha de comando do Microsoft Azure) para criar e gerenciar VMs do Azure no Gerenciamento de Serviços do Azure e Gerenciador de Recursos do Azure. Use-o como um guia útil para migrar scripts de um modo de comando para outro.
-
-* Se você ainda não tiver instalado a CLI do Azure e se conectado à sua assinatura, consulte [Instalar a CLI do Azure](../articles/xplat-cli-install.md) e [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../articles/xplat-cli-connect.md). Quando você quiser usar os comandos do modo do Gerenciador de Recursos, conecte-se com o método de logon.
+* Se você ainda não tiver instalado a CLI do Azure e se conectado à sua assinatura, consulte [Instalar a CLI do Azure](../articles/xplat-cli-install.md) e [Conectar-se a uma assinatura do Azure a partir da CLI do Azure](../articles/xplat-cli-connect.md). Quando você quiser usar os comandos do modo do Resource Manager, conecte-se com o comando `azure login`.
 
 * Para começar a usar o modo do Gerenciador de Recursos na CLI do Azure, talvez seja necessário alternar os modos de comando. Por padrão, a CLI do Azure é iniciada no modo de Gerenciamento de Serviços. Para mudar para o modo do Gerenciador de Recursos, execute `azure config mode arm`. Para retornar ao modo de Gerenciamento de Serviços, execute `azure config mode asm`.
 
 * Para obter ajuda e opções de comandos online, digite `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
 
 ## Tarefas da VM
-A tabela a seguir compara as tarefas comuns de VM, que você pode executar com comandos do CLI do Azure no Gerenciador de Recursos e no Gerenciamento de Serviços. Com muitos comandos do Gerenciador de Recursos, você precisa passar o nome de um grupo de recursos existente.
+A tabela a seguir compara as tarefas comuns de VM, que você pode executar com comandos da CLI do Azure no modo do Resource Manager e no modo do Service Management. Com muitos comandos do Gerenciador de Recursos, você precisa passar o nome de um grupo de recursos existente.
 
 > [AZURE.NOTE] Esses exemplos não incluem operações baseadas em modelo que geralmente são recomendadas para implantações de VM no Gerenciador de Recursos. Para saber mais, confira [Usar a CLI do Azure com o Gerenciador de Recursos do Azure](../articles/xplat-cli-azure-resource-manager.md) [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
-Tarefa | Gerenciamento de serviços | Gerenciador de Recursos
+Tarefa | Modo do Service Management | modelo do Gerenciador de Recursos
 -------------- | ----------- | -------------------------
 Criar a VM mais básica | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenha o `image-urn` com o comando `azure vm image list`. Confira [este artigo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) para obter exemplos.)
 Criar uma VM do Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
@@ -25,7 +23,7 @@ Reiniciar uma VM | `azure vm restart [options] <vname>` | `azure vm restart [opt
 Excluir uma VM | `azure vm delete [options] <name>` | `azure vm delete [options] <resource_group> <name>`
 Capturar uma VM | `azure vm capture [options] <name>` | `azure vm capture [options] <resource_group> <name>`
 Criar uma VM por meio de uma imagem do usuário | `azure  vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>`
-Criar uma VM por meio de um disco especializado | `azure  vm create [options]-d <custom-data-file> <dns-name> [userName] [password]` | `azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>`
+Criar uma VM por meio de um disco especializado | `azure  vm create [options]-d <custom-data-file> <dns-name> [userName] [password]` | `azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>`
 Adicionar um disco de dados a uma VM | `azure  vm disk attach [options] <vm-name> <disk-image-name>` -OU- <br/> `vm disk attach-new [options] <vm-name> <size-in-gb> [blob-url]` | `azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]`
 Remover um disco de dados de uma VM | `azure  vm disk detach [options] <vm-name> <lun>` | `azure  vm disk detach [options] <resource-group> <vm-name> <lun>`
 Adicionar uma extensão genérica a uma VM | `azure  vm extension set [options] <vm-name> <extension-name> <publisher-name> <version>` | `azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>`
@@ -42,6 +40,6 @@ Conferir todos os tamanhos de VM disponíveis | Não disponível | `azure vm siz
 
 ## Próximas etapas
 
-* Para obter outros exemplos dos comandos de CLI, consulte [Usando a Interface de Linha de Comando do Azure com o Gerenciamento de Serviços do Azure](../articles/virtual-machines-command-line-tools.md) e [Usando a CLI do Azure com o Gerenciador de Recursos do Azure](../articles/azure-cli-arm-commands.md).
+* Para ver exemplos adicionais de comandos CLI, consulte [Comandos da CLI do Azure no modo do Azure Service Management](../articles/virtual-machines-command-line-tools.md) e [comandos da CLI do Azure no modo do Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

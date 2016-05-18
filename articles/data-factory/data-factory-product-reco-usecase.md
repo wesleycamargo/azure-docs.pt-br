@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Caso de uso - recomendações de produtos 
 
-O Azure Data Factory é um dos muitos serviços usados para implementar o Pacote de Análise do Cortana de aceleradores de solução. Consulte a página [Pacote de Análise do Cortana](http://www.microsoft.com/cortanaanalytics) para obter detalhes sobre este pacote. Neste documento, descrevemos um caso de uso comum que usuários do Azure já resolveram e implementaram usando o Azure Data Factory e outros serviços de componente da Análise do Cortana.
+O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução. Consulte a página [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) para obter detalhes sobre este pacote. Neste documento, descrevemos um caso de uso comum que usuários do Azure já resolveram e implementaram usando o Azure Data Factory e outros serviços de componente do Cortana Intelligence.
 
 ## Cenário
 
@@ -36,7 +36,7 @@ Em terceiro lugar, as recomendações devem poder ser entregues imediatamente ao
 
 ## Visão geral da solução
 
-Esse exemplo de caso de uso foi resolvido e implementado por usuários reais do Azure com o Azure Data Factory e outros serviços de componente de Análise do Cortana, inclusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/), para incluir, preparar, transformar, analisar e publicar os dados finais.
+Esse exemplo de caso de uso foi resolvido e implementado por usuários reais do Azure com o Azure Data Factory e outros serviços de componente de Cortana Intelligence, inclusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/), para incluir, preparar, transformar, analisar e publicar os dados finais.
 
 O revendedor online usa um Armazenamento de Blob do Azure, um SQL Server local, um Banco de Dados SQL do Azure e um data mart para dados relacionais como suas opções de armazenamento de dados durante o fluxo de trabalho. O armazenamento de blob contém dados de informações de produto, dados de comportamento do cliente e informações do produto. Os dados de informações de produto incluem informações sobre a marca do produto e um catálogo de produtos armazenados localmente em um SQL data warehouse.
 
@@ -52,7 +52,7 @@ Por fim, o conjunto de resultados de recomendações de produtos personalizadas 
 
 ## Benefícios
 
-Ao otimizar sua estratégia de recomendação de produtos e alinhá-la com as metas de negócios, a solução atendeu aos objetivos de marketing e gerenciamento de mercadorias do revendedor online. Além disso, ele foi capaz de operacionalizar e gerenciar o fluxo de trabalho de recomendação de produtos de maneira eficiente, confiável e econômica, tornando mais fácil para eles atualizar seus modelos e ajustar sua eficácia com base em medidas de vendas bem-sucedidas de conversão de clique. Usando o Azure Data Factory, eles conseguiram abandonar seu gerenciamento de recursos de nuvem manual dispendioso e demorado e passar a usar o gerenciamento de recursos de nuvem sob demanda, poupando tempo, dinheiro e reduzindo o tempo que eles precisam para implantação de soluções. Ficou fácil visualizar e solucionar problemas nos modos de exibição de linhagem de dados e na integridade do serviço operacional com a interface do usuário intuitiva de monitoramento e gerenciamento do Data Factory, disponível no Portal Clássico do Azure. Sua solução agora pode ser agendada e gerenciada de modo que os dados concluídos sejam produzidos e entregues aos usuários de maneira confiável e que os dados em dependências de processamento sejam gerenciados automaticamente, sem intervenção humana.
+Ao otimizar sua estratégia de recomendação de produtos e alinhá-la com as metas de negócios, a solução atendeu aos objetivos de marketing e gerenciamento de mercadorias do revendedor online. Além disso, ele foi capaz de operacionalizar e gerenciar o fluxo de trabalho de recomendação de produtos de maneira eficiente, confiável e econômica, tornando mais fácil para eles atualizar seus modelos e ajustar sua eficácia com base em medidas de vendas bem-sucedidas de conversão de clique. Usando o Azure Data Factory, eles conseguiram abandonar seu gerenciamento de recursos de nuvem manual dispendioso e demorado e passar a usar o gerenciamento de recursos de nuvem sob demanda, poupando tempo, dinheiro e reduzindo o tempo que eles precisam para implantação de soluções. Tornou-se fácil visualizar e solucionar problemas nas exibições de linhagem de dados e integridade do serviço operacional com a interface do usuário intuitiva de monitoramento e gerenciamento do Data Factory, disponível no Portal do Azure. Sua solução agora pode ser agendada e gerenciada de modo que os dados concluídos sejam produzidos e entregues aos usuários de maneira confiável e que os dados em dependências de processamento sejam gerenciados automaticamente, sem intervenção humana.
 
 Ao fornecer essa experiência personalizada de compra, o revendedor online criou uma experiência de cliente mais competitiva, atraente e, consequentemente, haverá aumento da satisfação geral e das vendas.
 
@@ -60,4 +60,4 @@ Ao fornecer essa experiência personalizada de compra, o revendedor online criou
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

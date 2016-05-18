@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="04/26/2016" 
 	ms.author="casoper"/>
 
 # Melhorar o desempenho ao compactar arquivos
@@ -65,28 +65,69 @@ Há duas maneiras de a CDN poder oferecer suporte à compactação:
 
 	![Compactação de arquivos](./media/cdn-file-compression/cdn-compress-files.png)
 
-3. Depois de modificar a lista de tipos de arquivo, clique no botão **Atualizar**.
+3. Habilite a compactação clicando no botão de opção **Compactação Habilitada**. Insira os tipos MIME que você deseja compactar como uma lista delimitada por vírgula (sem espaços) na caixa de texto **Tipos de Arquivo**.
+
+4. Depois de fazer as alterações, clique no botão **Atualizar**.
 
 
-## Regras e processo de compactação
+## Processo de compactação
+
+### Visão geral
 
 1. O solicitante envia uma solicitação de conteúdo.
+
 2. Um servidor de borda verifica se há um cabeçalho **Accept-Encoding**.
 	1. Se tiver sido incluído, esse cabeçalho identificará o método de compactação solicitado.
-	1. Se estiver ausente, esse tipo de solicitação será servido em um formato não compactado.
+		> [AZURE.NOTE] Os métodos de compactação com suporte são **gzip**, **deflate** e **bzip2**.
+	2. Se estiver ausente, esse tipo de solicitação será servido em um formato não compactado.
+	
 3.	O POP de borda mais próximo verifica o status do cache, o método de compactação e se ele ainda tem uma vida útil válida.
-	1.	Erro de Cache: se a versão solicitada não for armazenada em cache, a solicitação será encaminhada para a origem.
-	2.	Acerto de Cache com o mesmo método de compactação: o servidor de borda entregará o conteúdo compactado para o cliente imediatamente.
-	3.	Acertos de cache com métodos de compactação diferentes: o servidor de borda transcodificará o ativo para o método de compactação solicitado.
-	4.	Acertos de cache e não compactados: se a solicitação inicial fez com que o ativo fosse armazenado em cache em um formato não compactado, será executada uma verificação para ver se a solicitação está qualificada para a compactação no servidor de borda (com base nos critérios da seção de definição/requisito acima).
-		1.	Se estiver qualificado, o servidor de borda compactará o arquivo e o servirá ao cliente.
-		2.	Se não estiver qualificado: o servidor de borda fornecerá o conteúdo não compactado para o cliente imediatamente.
+	1.	**Perda** no Cache: se a versão solicitada não for armazenada em cache, a solicitação será encaminhada para a origem.
+	2.	**Ocorrência** no Cache: se a versão solicitada for armazenada em cache com o método de compactação solicitado, o servidor de borda imediatamente fornecerá o conteúdo compactado ao cliente.
+	3.	**Ocorrência** no Cache: se o arquivo for armazenado em cache com métodos de compactação diferentes, o servidor de borda transcodificará o ativo para o método de compactação solicitado.
+	4.	**Ocorrência** no Cache: se o arquivo for armazenado em cache em um formato descompactado, será executada uma verificação para determinar se a solicitação é qualificada para a compactação no servidor de borda (veja a observação abaixo). Se estiver qualificado, o servidor de borda compactará o arquivo e o servirá ao cliente. Caso contrário, ela retornará o conteúdo não compactado.
+		
+> [AZURE.IMPORTANT] Para se qualificar para a compactação, um arquivo deve:
+>
+> - Ser maior que 128 bytes.
+> - Ser menor que 1 MB.
+> - Ser um tipo MIME que foi [configurado para compactação](#enabling-compression).
+
+### Tabelas
+
+As tabelas abaixo descrevem o comportamento de compactação da CDN para cada cenário.
+
+#### Compactação desabilitada ou arquivo não qualificado para compactação
+
+|Formato solicitado|Arquivo armazenado em cache|Resposta da CDN|Observações|
+|----------------|-----------|------------|-----|
+|Compactado|Compactado|Compactado|CDN transcodifica entre os formatos com suporte|
+|Compactado|Não compactado|Não compactada| |	
+|Compactado|Não armazenado em cache|Compactada ou descompactada|Depende da resposta de origem|
+|Não compactado|Compactado|Não compactada|CDN voltará até a origem para a versão não compactada|
+|Não compactado|Não compactado|Não compactada| |	
+|Não compactado|Não armazenado em cache|Não compactada| |
+
+#### Compactação habilitada ou arquivo qualificado para compactação
+
+|Formato solicitado|Arquivo armazenado em cache|Resposta da CDN|Observações|
+|----------------|-----------|------------|-----|
+|Compactado|Compactado|Compactado|CDN transcodifica entre os formatos com suporte|
+|Compactado|Não compactado|Compactado|CDN executa compactação|
+|Compactado|Não armazenado em cache|Compactado|CDN executará compactação se a origem for retornada descompactada|
+|Não compactado|Compactado|Não compactada|CDN executa descompactação|
+|Não compactado|Não compactado|Não compactada| |	
+|Não compactado|Não armazenado em cache|Não compactada| |	
 
 
+## Observações
 
-## Considerações
+1. Assim como ocorre com a implantação de novos pontos de extremidade, alterações na configuração da CDN demoram um pouco para serem propagadas pela rede. Na maioria dos casos, você verá as alterações aplicadas em até 90 minutos. Se esta for a primeira vez que você configura a compactação do ponto de extremidade CDN, será necessário considerar uma espera de 1 a 2 horas para garantir que as configurações de compactação são propagadas para os POPs antes de solucionar problemas.
+2. Somente uma versão de arquivo (compactado ou não compactado) será armazenada em cache no servidor de borda. Uma solicitação para uma versão diferente resultará na transcodificação do conteúdo no servidor de borda.
+3. Para pontos de extremidade de streaming habilitado para a CDN de Serviços de Mídia, a compactação está habilitada por padrão para os seguintes tipos de conteúdo: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Você não pode habilitar/desabilitar a compactação para os tipos mencionados usando o portal do Azure.  
+4. Embora seja possível, não é recomendável aplicar a compactação a formatos compactados, como ZIP, MP3, MP4, JPG, etc.
 
-1. Para pontos de extremidade de streaming habilitado para a CDN de Serviços de Mídia, a compactação está habilitada por padrão para os seguintes tipos de conteúdo: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Você não pode habilitar/desabilitar a compactação para os tipos mencionados usando o portal do Azure.  
-2. Somente uma versão de arquivo (compactado ou não compactado) será armazenada em cache no servidor de borda. Uma solicitação para uma versão diferente resultará na transcodificação do conteúdo no servidor de borda.  
+## Consulte também
+- [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)    
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -1,6 +1,6 @@
 ## Enviar mensagens interativas por meio do dispositivo simulado
 
-Nessa seção, você modificará o aplicativo do dispositivo simulado que você criou no tutorial [Introdução ao Hub IoT] para enviar mensagens interativas do dispositivo para a nuvem ao Hub IoT.
+Nesta seção, você modificará o aplicativo do dispositivo simulado que você criou no tutorial [Introdução ao Hub IoT] para enviar mensagens interativas do dispositivo para a nuvem ao Hub IoT.
 
 1. No Visual Studio, no projeto **SimulatedDevice**, adicione o método a seguir à classe **Program**.
 
@@ -17,7 +17,7 @@ Nessa seção, você modificará o aplicativo do dispositivo simulado que você 
         await deviceClient.SendEventAsync(interactiveMessage);
         Console.WriteLine("{0} > Sending interactive message: {1}", DateTime.Now, interactiveMessageString);
 
-        Thread.Sleep(10000);
+        Task.Delay(10000).Wait();
       }
     }
     ```
@@ -36,6 +36,6 @@ Nessa seção, você modificará o aplicativo do dispositivo simulado que você 
 
 <!-- Links -->
 [Tratamento de falhas transitórias]: https://msdn.microsoft.com/library/hh675232.aspx
-[Introdução ao Hub IoT]: iot-hub-csharp-csharp-getstarted.md
+[Introdução ao Hub IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: limitações e restrições
@@ -92,4 +92,4 @@ Você não poderá excluir um locatário do AD B2C do Azure no Portal Clássico 
 
 Atualmente, você não pode verificar um domínio com êxito no [Portal Clássico do Azure](https://manage.windowsazure.com/). Estamos trabalhando em uma correção.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0427_2016-->

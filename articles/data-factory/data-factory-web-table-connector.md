@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/02/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados de uma fonte de tabela da Web usando o Azure Data Factory
@@ -27,7 +27,7 @@ O exemplo a seguir mostra:
 
 1.	Um serviço vinculado do tipo [Web](#web-linked-service-properties).
 2.	Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [WebTabe](#WebTable-dataset-properties).
+3.	Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [WebTable](#WebTable-dataset-properties).
 4.	Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	O [pipeline](data-factory-create-pipelines.md) com a Atividade de Cópia que usa [WebSource](#websource-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
@@ -283,4 +283,7 @@ Se você estiver usando o Excel 2013, use [Microsoft Power Query para Excel](htt
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+## Desempenho e Ajuste  
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+
+<!---HONumber=AcomDC_0504_2016-->

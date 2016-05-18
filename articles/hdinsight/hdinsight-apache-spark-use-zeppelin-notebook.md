@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Usar blocos de anotações do Zeppelin com cluster Spark no HDInsight (Linux)
+# Usar notebooks do Zeppelin com cluster Spark no HDInsight Linux (Preview)
 
 Saiba como instalar blocos de anotações do Zeppelin em clusters Spark e como usar esses blocos de anotações.
 
@@ -332,4 +332,4 @@ Depois de configurar o túnel SSH, você poderá acessar o bloco de anotações 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

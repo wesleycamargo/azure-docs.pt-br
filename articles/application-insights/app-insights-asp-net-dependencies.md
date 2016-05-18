@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="04/13/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,7 @@ Você pode escrever suas próprias chamadas SDK para monitorar outras dependênc
 
 ### Se seu aplicativo for executado em seu servidor IIS
 
-Se seu aplicativo web for executado no .NET 4.6 ou posterior, você obterá o acompanhamento de dependência automaticamente se [instalar o SDK do Application Insights](app-insights-asp-net.md) no seu aplicativo. Você não precisa mais nada.
+Se seu aplicativo Web for executado no .NET 4.6 ou posterior, você poderá [instalar o SDK do Application Insights](app-insights-asp-net.md) em seu aplicativo ou instalar o Application Insights Status Monitor. Você não precisará de ambos.
 
 Caso contrário, instale o Application Insights Status Monitor em seu servidor:
 
@@ -170,11 +170,17 @@ Por exemplo, se você criar seu código com um assembly que não escreveu, poder
 
 Se desejar desativar o módulo padrão de acompanhamento de dependência, remova a referência para DependencyTrackingTelemetryModule em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
+## Solucionar problemas
+
+*O sinalizador de êxito da dependência sempre mostra true ou false.*
+
+* Atualize para a versão mais recente do SDK. Se sua versão do .NET for inferior à 4.6, instale o [Status Monitor](app-insights-monitor-performance-live-website-now.md).
+
 ## Próximas etapas
 
-- [Exceções](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
-- [Dados do usuário e da página](../article/application-insights/app-insights-asp-net-client.md#selector1)
-- [Disponibilidade](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [Exceções](app-insights-asp-net-exception-mvc.md#selector1)
+- [Dados do usuário e da página](app-insights-asp-net-client.md#selector1)
+- [Disponibilidade](app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -196,4 +202,4 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

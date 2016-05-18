@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Implantar uma VM com um IP público estático usando um modelo no Gerenciador de Recursos | Microsoft Azure"
    description="Saiba como implantar VMs com um IP público estático usando um modelo no Gerenciador de Recursos"
    services="virtual-network"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="04/27/2016"
    ms.author="telmos" />
 
 # Implantar uma VM com um IP público estático usando um modelo
@@ -46,9 +46,9 @@ A seção a seguir mostra a definição de recurso de IP público, com base no c
         }
       },
 
-Observe a propriedade **publicIPAllocationMethod**, que está definida como *Estática*. Essa propriedade pode ser *Dinâmica* (valor padrão) ou *Estática*. Defini-la como estática assegura que o endereço IP para esse IP Público nunca será alterado.
+Observe a propriedade **publicIPAllocationMethod**, que está definida como *Estática*. Essa propriedade pode ser *Dinâmica* (valor padrão) ou *Estática*. Defini-la como estática assegura que o endereço IP público atribuído nunca será alterado.
 
-A seção a seguir mostra a associação do IP Público acima com uma NIC.
+A seção a seguir mostra a associação do endereço IP público com uma interface de rede.
 
       {
         "apiVersion": "2015-06-15",
@@ -83,7 +83,7 @@ A seção a seguir mostra a associação do IP Público acima com uma NIC.
 
 Observe a propriedade **publicIPAddress** que aponta para a **Id** de um recurso chamado **variables('webVMSetting').pipName**. Esse é o nome do recurso de IP público mostrado acima.
 
-Por fim, a NIC acima está listada na propriedade **networkProfile** da VM que está sendo criada.
+Por fim, a interface de rede acima está listada na propriedade **networkProfile** da VM que está sendo criada.
 
       "networkProfile": {
         "networkInterfaces": [
@@ -95,24 +95,24 @@ Por fim, a NIC acima está listada na propriedade **networkProfile** da VM que e
 
 ## Implantar o modelo usando o clique para implantar
 
-O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a opção de clique para implantar, acesse [este link](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
+O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a implantação com um clique, clique em **Implantar no Azure** no arquivo Readme.md para o modelo [VM com PIP estático](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/03-Static-public-IP). Substitua os valores do parâmetro padrão, se desejado, e insira valores para os parâmetros em branco. Siga as instruções no portal para criar uma máquina virtual com um endereço IP público estático.
 
 ## Implantar o modelo usando o PowerShell
 
 Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](powershell-install-configure.md) e siga as instruções nas etapas 1 a 3.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções nas etapas 1 a 3.
 
 2. Em um console do PowerShell, execute o cmdlet **New-AzureRmResourceGroup** para criar um novo grupo de recursos, se necessário. Se você já tiver criado um grupo de recursos, vá para a etapa 3.
 
-		New-AzureRmResourceGroup -Name StaticPublicIP -Location westus
+		New-AzureRmResourceGroup -Name PIPTEST -Location westus
 
 	Saída esperada:
 
-		ResourceGroupName : StaticPublicIP
+		ResourceGroupName : PIPTEST
 		Location          : westus
 		ProvisioningState : Succeeded
-		Tags              : 
+		Tags              :
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
 
 3. Em um console do PowerShell, execute o cmdlet **New-AzureRmResourceGroupDeployment** para implantar o modelo.
@@ -126,33 +126,33 @@ Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 		DeploymentName    : DeployVM
 		ResourceGroupName : PIPTEST
 		ProvisioningState : Succeeded
-		Timestamp         : 1/8/2016 7:04:44 PM
+		Timestamp         : <Deployment date> <Deployment time>
 		Mode              : Incremental
-		TemplateLink      : 
+		TemplateLink      :
 		                    Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
 		                    ter/IaaS-Story/03-Static-public-IP/azuredeploy.json
 		                    ContentVersion : 1.0.0.0
-		                    
-		Parameters        : 
+
+		Parameters        :
 		                    Name                      Type                       Value     
 		                    ========================  =========================  ==========
-		                    vnetName                  String                     WTestVNet 
+		                    vnetName                  String                     WTestVNet
 		                    vnetPrefix                String                     192.168.0.0/16
 		                    frontEndSubnetName        String                     FrontEnd  
 		                    frontEndSubnetPrefix      String                     192.168.1.0/24
 		                    storageAccountNamePrefix  String                     iaasestd  
 		                    stdStorageType            String                     Standard_LRS
 		                    osType                    String                     Windows   
-		                    adminUsername             String                     adminUser 
+		                    adminUsername             String                     adminUser
 		                    adminPassword             SecureString                         
-		                    
-		Outputs           : 
+
+		Outputs           :
 
 ## Implantar o modelo usando a CLI do Microsoft Azure
 
 Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
-1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](xplat-cli.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, siga as etapas no artigo [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e, em seguida, as etapas para conectar a CLI à sua assinatura na seção "Usar o logon do Azure para autenticar interativamente" do artigo [Conectar-se a uma assinatura do Azure a partir da interface de linha de comando do Azure (CLI do Azure)](../xplat-cli-connect.md).
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
 
 		azure config mode arm
@@ -161,13 +161,13 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
 		info:    New mode is arm
 
-3. Abra o [arquivo de parâmetro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), selecione o seu conteúdo e salve-o em um arquivo em seu computador. Para este exemplo, salvamos o arquivo de parâmetros em *parameters.json*.
+3. Abra o [arquivo de parâmetro](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), selecione o seu conteúdo e salve-o em um arquivo em seu computador. Neste exemplo, os parâmetros são salvos em um arquivo chamado *parameters.json*. Altere os valores de parâmetro dentro do arquivo, se desejado. No mínimo, é recomendável que você altere o valor do parâmetro adminPassword para uma senha exclusiva e complexa.
 
-4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando os arquivos de modelo e parâmetro que você baixou e modificou acima. A lista exibida após a saída explicar os parâmetros usados.
+4. Execute o cmdlet **azure group deployment create** para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou acima. No comando a seguir, substitua <path> pelo caminho no qual você salvou o arquivo.
 
-		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e parameters.json
+		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
 
-	Saída esperada:
+	Saída esperada (lista os valores de parâmetro usados):
 
 		info:    Executing command group create
 		+ Getting resource group PIPTEST2
@@ -176,7 +176,7 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 		+ Initializing template configurations and parameters
 		+ Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/PIPTEST2
+		data:    Id:                  /subscriptions/<Subscription ID>/resourceGroups/PIPTEST2
 		data:    Name:                PIPTEST2
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded
@@ -184,4 +184,4 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

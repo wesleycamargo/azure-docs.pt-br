@@ -21,13 +21,13 @@ ms.author="deonhe"/>
 
 O Slack é uma ferramenta de comunicação da equipe que reúne todas as comunicações de equipe em um só lugar, que pode ser pesquisado instantaneamente e está disponível onde você estiver.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Slack](../app-service-logic/app-service-logic-connector-Slack.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o conector do Slack, você pode:
 
 * Usá-lo para criar aplicativos lógicos
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação aos Aplicativos Lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Vamos conversar sobre gatilhos e ações
 
@@ -55,9 +55,11 @@ Siga estas etapas para entrar na Margem de atraso e concluir a configuração da
 3. Selecione **Adicionar uma ação** ![Configurar a Margem de atraso][1]  
 4. Insira Margem de atraso na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Margem de atraso no nome
 5. Selecione **Margem de atraso – Postar mensagem**
-6. Selecione **Entrar na Margem de atraso**: ![Configurar a Margem de atraso][2]
+6. Selecione **Entrar na Margem de atraso**:
+![Configurar a Margem de atraso][2]
 7. Forneça suas credenciais da Margem de atraso para entrar e autorizar o aplicativo ![Configurar a Margem de atraso][3]  
-8. Você será redirecionado à página de logon de sua organização. **Autorize** a Margem de atraso a interagir com seu aplicativo lógico: ![Configurar a Margem de atraso][5] 
+8. Você será redirecionado à página de logon de sua organização. **Autorize** a Margem de atraso a interagir com seu aplicativo lógico:
+![Configurar a Margem de atraso][5] 
 9. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração da seção **Margem de atraso - Obter todas as mensagens**. Adicione outros gatilhos e outras ações necessárias.![Configurar a Margem de atraso][6]
 10. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
 
@@ -76,10 +78,10 @@ Siga estas etapas para entrar na Margem de atraso e concluir a configuração da
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
 |canal|string|sim|query|nenhum|Canal, grupo privado ou canal de IM para envio de mensagem. Pode ser um nome (ex: #geral) ou uma ID codificada.|
-|texto|string|sim|query|nenhum|Texto da mensagem a ser enviada. Para obter opções de formatação, veja https://api.slack.com/docs/formatting.|
+|texto|string|sim|query|nenhum|Texto da mensagem a ser enviada. Para obter opções de formatação, confira https://api.slack.com/docs/formatting.|
 |Nome de Usuário|string|não|query|nenhum|Nome do bot|
 |as\_user|booleano|não|query|nenhum|Passa true para postar a mensagem como o usuário autenticado em vez de um bot|
-|analisar|string|não|query|nenhum|Altera como as mensagens são tratadas. Para obter detalhes, veja https://api.slack.com/docs/formatting.|
+|analisar|string|não|query|nenhum|Altera como as mensagens são tratadas. Para obter detalhes, confira https://api.slack.com/docs/formatting.|
 |link\_names|inteiro|não|query|nenhum|Localiza e vincula os nomes de canal e nomes de usuário.|
 |unfurl\_links|booleano|não|query|nenhum|Passe true para habilitar o desdobramento do conteúdo basicamente baseado em texto.|
 |unfurl\_media|booleano|não|query|nenhum|Passe false para desabilitar o conteúdo de mídia.|
@@ -105,7 +107,7 @@ Siga estas etapas para entrar na Margem de atraso e concluir a configuração da
 
 ## Definições de objeto: 
 
- **Message**: mensagem do Yammer
+ **Mensagem**: mensagem do Yammer
 
 Propriedades necessárias para a mensagem:
 
@@ -142,7 +144,7 @@ Nenhuma das propriedades é obrigatória.
 
 
 
- **PostOperationRequest**: representa uma solicitação de postagem para que o Conector do Yammer poste no Yammer
+ **PostOperationRequest**: representa uma solicitação POST para o conector do Yammer postar no Yammer
 
 Propriedades obrigatórias para PostOperationRequest:
 
@@ -343,7 +345,7 @@ Nenhuma das propriedades é obrigatória.
 
 
 
- **NewsResultModel**: resultados da pesquisa de notícias do Bing
+ **NewsResultModel**: resultados da pesquisa do Bing Notícias
 
 Propriedades obrigatórias para NewsResultModel:
 
@@ -430,7 +432,7 @@ Nenhuma das propriedades é obrigatória.
 
 ## Definições de objeto: 
 
- **PostOperationResponse**: representa a resposta da operação de postagem do Conector da Margem de atraso para postar no Margem de atraso
+ **PostOperationResponse**: representa a resposta da operação de postagem do Conector da Margem de atraso para postar na Margem de atraso
 
 Propriedades obrigatórias para PostOperationResponse:
 
@@ -481,4 +483,4 @@ Nenhuma das propriedades é obrigatória.
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

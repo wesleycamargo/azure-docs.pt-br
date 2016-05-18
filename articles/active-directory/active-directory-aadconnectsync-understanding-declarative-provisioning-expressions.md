@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="04/14/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -112,13 +112,13 @@ Há duas constantes diferentes a usar para Regras de Sincronização de saída: 
 
 ### ImportedValue
 
-A função ImportedValues é diferente de todas as outras funções, já que o nome de atributo deve ser colocado entre aspas, em vez de colchetes: ImportedValue("proxyAddresses").
+A função ImportedValue é diferente de todas as outras funções, pois o nome de atributo deve ser colocado entre aspas, em vez de colchetes: ImportedValue("proxyAddresses").
 
 Geralmente, durante a sincronização, um atributo usará o valor esperado, mesmo que ele ainda não tenha sido exportado ou que um erro tenha sido recebido durante a exportação ("topo da torre"). Uma sincronização de entrada presumirá que um atributo que ainda não atingiu um diretório conectado eventualmente o atingirá. Em alguns casos, é importante sincronizar apenas um valor que tenha sido confirmado pelo diretório conectado e, nesse caso, a função ImportedValue será usada ("holograma e torre de importação delta").
 
 Um exemplo disso pode ser encontrado na Regra de Sincronização de Entrada integrada no AD – Usuário Comum do Exchange no qual, no Exchange Híbrido, o valor adicionado pelo Exchange online só deverá ser sincronizado caso tenha sido confirmado que o valor foi exportado com êxito:
 
-`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 Para obter uma lista completa de funções, consulte [Sincronização do Azure AD Connect: referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
@@ -130,4 +130,4 @@ Para obter uma lista completa de funções, consulte [Sincronização do Azure A
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

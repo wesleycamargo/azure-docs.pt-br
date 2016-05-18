@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # Projetar sua solução
@@ -42,33 +42,20 @@ As [APIs do registro de identidade do Hub IoT][lnk-devguide-identityregistry] pe
 
 ## Gateways de campo
 
-Em uma solução IoT, um *gateway de campo* fica entre os dispositivos e o hub IoT. Normalmente, ele se localiza perto dos dispositivos. Os dispositivos se comunicam diretamente com o gateway de campo usando um protocolo com suporte dos dispositivos. O gateway de campo se comunica com o IoT Hub usando um protocolo que tem suporte do Hub IoT. Um gateway de campo pode ser um dispositivo autônomo especializado ou um software executado em um hardware existente.
+Em uma solução IoT, um *gateway de campo* fica entre os dispositivos e o hub IoT. Normalmente, ele se localiza perto dos dispositivos. Os dispositivos se comunicam diretamente com o gateway de campo usando um protocolo com suporte dos dispositivos. O gateway de campo se comunica com o IoT Hub usando um protocolo que tem suporte do Hub IoT. Um gateway de campo pode ser um hardware altamente especializado ou um computador com baixo consumo de energia que executa um software que realiza o cenário de ponta a ponta ao qual o gateway se destina.
 
 Um gateway de campo é diferente de um dispositivo de roteamento de tráfego simples (como um dispositivo NAT [conversão de endereços de rede] ou firewall), pois geralmente ele executa uma função ativa no gerenciamento de acesso e no fluxo de informações da solução. Por exemplo, um gateway de campo pode:
 
-- Gerencie dispositivos locais. Por exemplo, um gateway de campo poderia executar o processamento da regra de evento e enviar comandos para dispositivos em resposta a dados de telemetria específicos.
-- Filtre ou agregue dados de telemetria antes de encaminhá-los ao Hub IoT. Isso pode reduzir a quantidade de dados enviados ao Hub IoT, e possivelmente reduzir os custos em sua solução.
-- Ajude a provisionar os dispositivos.
-- Transforme dados de telemetria para facilitar o processamento em sua solução back-end.
-- Execute a conversão de protocolo para permitir que os dispositivos se comuniquem com o Hub IoT, mesmo quando não usam os protocolos de transporte que têm suporte do Hub IoT.
-
-> [AZURE.NOTE] Embora você normalmente implante um gateway de campo local para seus dispositivos, em alguns cenários, é possível implantar um [gateway de protocolo][lnk-gateway] na nuvem.
-
-### Tipos de gateways de campo
-
-Um gateway de campo pode ser *transparente* ou *opaco*:
-
-| &nbsp; | Gateway transparente | Gateway opaco|
-|--------|-------------|--------|
-| Identidades armazenadas no registro de identidades do Hub IoT | Identidades de todos os dispositivos conectados | Apenas a identidade do gateway de campo |
-| O Hub IoT pode fornecer [antifalsificação de identidade de dispositivo][lnk-devguide-antispoofing] | Sim | Não |
-| [Cotas e limitações][lnk-throttles-quotas] | Aplicar a cada dispositivo | Aplicar ao gateway de campo |
-
-> [AZURE.IMPORTANT]  Ao usar um padrão de gateway opaco, todos os dispositivos que se conectam por meio desse gateway compartilham a mesma fila de nuvem para o dispositivo, que pode conter no máximo 50 mensagens. Consequentemente, o padrão de gateway opaco deve ser usado apenas quando muito poucos dispositivos estiverem se conectando por meio de cada gateway de campo e o respectivo tráfego da nuvem para o dispositivo for baixo.
+- **Adicionar suporte para dispositivos novos e herdados**: há milhões de sensores e atuadores novos e herdados que não podem enviar dados diretamente para a nuvem. Esses dispositivos usam um protocolo que não é adequado para a Internet, não implementam a criptografia ou não podem armazenar certificados de identidade. O uso de um gateway reduz a carga e o custo de conexão desses dispositivos.
+- **Executar análise de borda**: há várias operações que podem ser feitas localmente para reduzir a quantidade de dados trocados com a nuvem. Entre os exemplos estão a filtragem de dados, o envio em lote e a compactação. Talvez também seja conveniente executar alguns cálculos, tais como limpeza de dados ou pontuação de um modelo de aprendizado de máquina com dados em tempo real localmente.
+- **Minimizar a latência**: até os milissegundos são importantes quando você está tentando prevenir desligamentos na linha de fabricação ou restaurar um serviço elétrico. A análise dos dados próximo ao dispositivo que coletou esses dados pode fazer a diferença entre prevenir um desastre e uma falha em cascata do sistema.
+- **Conservar largura de banda de rede**: uma plataforma de petróleo offshore típica gera entre 1 e 2 TB de dados por dia. Um Boeing 787 cria metade de um terabyte de dados por voo. Não é prático transportar grandes quantidades de dados de milhares ou centenas de milhares de dispositivos de borda para a nuvem. E isso nem é necessário, pois muitas análises críticas não exigem um processamento e armazenamento em escala de nuvem.
+- **Operar de forma confiável**: cada vez mais, os dados do IoT são usados para decisões que afetam a segurança dos cidadãos e a infraestrutura crítica. A integridade e a disponibilidade da infraestrutura e dos dados não poderão ser comprometidas por conexões intermitentes de nuvem. O uso de funcionalidades, tais como armazenar e encaminhar para coletar e agir sobre os dados localmente e, em seguida, enviá-los para a nuvem quando apropriado, o ajudam criar soluções confiáveis.
+- **Abordar as preocupações de segurança e privacidade**: os dispositivos IoT e os dados gerados por eles precisam ser protegidos. Os gateways podem fornecer serviços como isolar dispositivos da Internet aberta, fornecendo serviços de identidade e criptografia para dispositivos que não podem fornecer esses serviços por conta própria, protegendo os dados armazenados em buffer localmente ou armazenados e removendo informações de identificação pessoal antes de enviá-las pela Internet.
 
 ### Outras considerações
 
-Você pode usar os [SDKs de dispositivo do IoT do Azure][lnk-device-sdks] para implementar um gateway de campo. Alguns SDKs de dispositivo oferecem uma funcionalidade específica que ajuda você a implementar um gateway de campo, como a capacidade de multiplexar a comunicação de vários dispositivos para a mesma conexão com o Hub IoT. Como explicado no [Guia do desenvolvedor do Hub IoT - Escolhendo seu protocolo de comunicação][lnk-devguide-protocol], você deve evitar usar HTTP/1 como protocolo de transporte para um gateway de campo.
+É possível usar os [SDKs do Gateway IoT do Azure][lnk-gateway-sdk] para implementar um gateway de campo. Estes SDKs oferecem uma funcionalidade específica, tal como a capacidade de multiplexar a comunicação de vários dispositivos na mesma conexão para o Hub IoT.
 
 ## Autenticação personalizada de dispositivo
 
@@ -97,13 +84,13 @@ O padrão de serviço do token é a maneira recomendada de implementar um esquem
 
 ## Pulsação do dispositivo <a id="heartbeat"></a>
 
-O [registro de identidade do Hub IoT][lnk-devguide-identityregistry] contém um campo chamado **connectionState**. Você deve usar o campo **connectionState** somente durante o desenvolvimento e a depuração. As soluções de IoT não devem consultar o campo no tempo de execução (por exemplo, para verificar se um dispositivo está conectado, a fim de decidir se deve ser enviada uma mensagem da nuvem para o dispositivo ou um SMS). Se a solução de IoT precisar saber se um dispositivo está conectado (em tempo de execução ou com mais precisão do que a fornecida pela propriedade **connectionState**), a solução deverá implementar o *padrão de pulsação*.
+O [registro de identidade do Hub IoT][lnk-devguide-identityregistry] contém um campo chamado **connectionState**. É necessário usar o campo **connectionState** somente durante o desenvolvimento e a depuração. As soluções de IoT não devem consultar o campo no tempo de execução (por exemplo, para verificar se um dispositivo está conectado, a fim de decidir se uma mensagem da nuvem para o dispositivo ou um SMS deve ser enviada). Se a solução de IoT precisar saber se um dispositivo está conectado (em tempo de execução ou com mais precisão do que a fornecida pela propriedade **connectionState**), a solução deverá implementar o *padrão de pulsação*.
 
 No padrão de pulsação, o dispositivo envia mensagens do dispositivo para a nuvem pelo menos uma vez a cada período de tempo fixo (por exemplo, pelo menos uma vez a cada hora). Isso significa que mesmo quando um dispositivo não tiver dados para enviar, ele enviará uma mensagem vazia do dispositivo para a nuvem (geralmente com uma propriedade que a identifique como uma pulsação). No lado do serviço, a solução mantém um mapa com a última pulsação recebida para cada dispositivo e supõe que haja um problema com um dispositivo se ela não receber uma mensagem de pulsação dentro do tempo esperado.
 
-Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falham. Ao implementar o padrão de pulsação, verifique as [cotas e restrições do Hub IoT][].
+Uma implementação mais complexa pode incluir as informações do [monitoramento de operações][lnk-devguide-opmon] para identificar dispositivos que estão tentando se conectar ou se comunicar, mas falham. Ao implementar o padrão de pulsação, verifique as [Cotas e restrições do Hub IoT][].
 
-> [AZURE.NOTE] Se uma solução IoT precisar do estado de conexão do dispositivo apenas para determinar se deve enviar mensagens da nuvem para o dispositivo, e as mensagens não forem transmitidas para conjuntos grandes de dispositivos, um padrão muito mais simples a ser considerado será usar um tempo de validade mais curto. Isso proporciona o mesmo resultado que a manutenção de um registro de estado de conexão do dispositivo usando o padrão de pulsação, embora seja significativamente mais eficiente. Também é possível, por meio da solicitação de confirmações de mensagens, receber uma notificação pelo Hub IoT de quais dispositivos são capazes de receber mensagens e quais não estão online ou apresentam falha. Confira o [Guia do Desenvolvedor do Hub IoT][lnk-devguide-messaging] para saber mais sobre mensagens C2D.
+> [AZURE.NOTE] Se uma solução IoT precisar do estado de conexão do dispositivo apenas para determinar se deve enviar mensagens da nuvem para o dispositivo, e as mensagens não forem transmitidas para conjuntos grandes de dispositivos, um padrão muito mais simples a ser considerado será usar um tempo de validade mais curto. Isso proporciona o mesmo resultado que a manutenção de um registro de estado de conexão do dispositivo usando o padrão de pulsação, embora seja significativamente mais eficiente. Também é possível, por meio da solicitação de confirmações de mensagens, receber uma notificação pelo Hub IoT de quais dispositivos são capazes de receber mensagens e quais não estão online ou apresentam falha. Consulte o [Guia do Desenvolvedor do Hub IoT][lnk-devguide-messaging] para obter mais informações sobre mensagens C2D.
 
 ## Próximas etapas
 
@@ -131,6 +118,7 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 [lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
-[cotas e restrições do Hub IoT]: iot-hub-devguide.md#throttling
+[Cotas e restrições do Hub IoT]: iot-hub-devguide.md#throttling
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

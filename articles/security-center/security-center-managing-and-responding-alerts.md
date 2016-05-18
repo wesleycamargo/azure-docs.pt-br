@@ -9,13 +9,13 @@
 
 <tags
    ms.service="security-center"
-   ms.topic="hero-article" 
+   ms.topic="hero-article"
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/22/2016"
    ms.author="yurid"/>
- 
+
 # Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure
 Este documento ajuda você a usar recursos da Central de Segurança do Azure para gerenciar e responder a alertas de segurança.
 
@@ -26,7 +26,7 @@ Este documento ajuda você a usar recursos da Central de Segurança do Azure par
 
 ## O que são alertas de segurança?
 A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e de antimalware e firewalls integrados para detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança, incluindo alertas de soluções de parceiro integradas, é mostrada na Central de Segurança, junto com as informações que você precisa investigar rapidamente e recomendações sobre como corrigir um ataque.
- 
+
 Os pesquisadores de segurança da Microsoft estão constantemente analisando ameaças emergentes em todo o mundo, incluindo novos padrões de ataque e tendências vistos em seus produtos de consumidor e empresariais e serviços online. Como resultado, a Central de Segurança pode atualizar seus algoritmos de detecção à medida que novas vulnerabilidades e explorações são descobertas, ajudando os clientes a acompanhar o ritmo das ameaças em constante evolução. Os exemplos de alguns dos tipos de ameaças que pode detectar a Central de Segurança incluem:
 
 - **Detecção de força bruta em dados de rede**: usa modelos de aprendizado de máquina que entendem os padrões de tráfego de rede típica para seus aplicativos e habilita a detecção mais eficaz de tentativas de acesso que estão sendo executadas por indivíduos mal-intencionados, em vez de usuários legítimos.
@@ -34,7 +34,7 @@ Os pesquisadores de segurança da Microsoft estão constantemente analisando ame
 - **VMs se comunicando com IPs mal-intencionados**: compara o tráfego de rede às informações da Microsoft sobre ameaças globais, descobre máquinas que estão comprometidas e se comunicando com servidores de C&C (Comando e Controle) e vice-versa.
 - **VMs comprometidas**: com base na análise de comportamento de logs de máquina e na correlação com outros sinais, identifica eventos irregulares que provavelmente são resultado de comprometimento e exploração de máquinas.
 
-## Configurando alertas de segurança 
+## Configurando alertas de segurança
 
 Você pode examinar os alertas atuais observando o bloco **Alertas de segurança**. Siga as etapas abaixo para ver mais detalhes sobre cada alerta:
 
@@ -86,7 +86,8 @@ No campo **Alerta** dessa folha, você encontrará mais detalhes sobre esse even
 Neste documento, você aprendeu a configurar políticas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
-- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
-- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.
+- [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
+- [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
+- [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

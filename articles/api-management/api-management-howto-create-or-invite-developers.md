@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Como gerenciar contas de usuário no Gerenciamento de API do Azure" 
+	pageTitle="Como gerenciar contas de usuário no Gerenciamento de API do Azure | Microsoft Azure" 
 	description="Saiba como criar ou convidar usuários no Gerenciamento de API do Azure" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/12/2016" 
 	ms.author="sdanie"/>
 
 # Como gerenciar contas de usuário no Gerenciamento de API do Azure
 
-No Gerenciamento de API, os desenvolvedores são os usuários das APIs que você expõe utilizando o Gerenciamento d API. Este guia mostra como criar e convidar desenvolvedores a utilizarem as APIs e os produtos que você disponibilizar para eles com sua instância do Gerenciamento da API.
+No Gerenciamento de API, os desenvolvedores são os usuários das APIs que você expõe utilizando o Gerenciamento d API. Este guia mostra como criar e convidar desenvolvedores a utilizarem as APIs e os produtos que você disponibilizar para eles com sua instância do Gerenciamento da API. Para saber mais sobre como gerenciar contas de usuário por meio de programação, confira a documentação sobre [Entidade Usuário](https://msdn.microsoft.com/library/azure/dn776330.aspx) na referência [REST de Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 
 ## <a name="create-developer"> </a>Criar um novo desenvolvedor
 
@@ -60,9 +60,25 @@ Após o convite ser aceito, a conta se torna ativa.
 
 ## <a name="block-developer"> </a>Desativar ou reativar uma conta de desenvolvedor
 
-Por padrão, as contas de desenvolvedor criadas ou convidadas recentemente têm o estado **Ativa**. Para desativar uma conta de desenvolvedor, clique em **Bloquear**. Para reativar uma conta de desenvolvedor bloqueada, clique em **Ativar**. Uma conta de desenvolvedor bloqueada não pode acessar o portal do desenvolvedor ou chamar quaisquer APIs.
+Por padrão, as contas de desenvolvedor criadas ou convidadas recentemente têm o estado **Ativa**. Para desativar uma conta de desenvolvedor, clique em **Bloquear**. Para reativar uma conta de desenvolvedor bloqueada, clique em **Ativar**. Uma conta de desenvolvedor bloqueada não pode acessar o portal do desenvolvedor ou chamar quaisquer APIs. Para excluir uma conta de usuário, clique em **Excluir**.
 
 ![Bloquear desenvolvedor][api-management-new-developer]
+
+## Redefinir a senha de um usuário
+
+Para redefinir a senha de uma conta de usuário, clique no nome da conta.
+
+![Redefinir senha][api-management-view-developer]
+
+Clique em **Redefinir senha** para enviar um link para o usuário a fim de redefinir sua senha.
+
+![Redefinir senha][api-management-reset-password]
+
+Para trabalhar de forma programática com contas de usuário, confira a documentação sobre [Entidade Usuário](https://msdn.microsoft.com/library/azure/dn776330.aspx) na referência [REST de Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx). Para redefinir uma senha de conta de usuário para um valor específico, você pode usar a operação [Atualizar um usuário](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) e especificar a senha desejada.
+
+## Verificação pendente
+
+![Verificação pendente][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Próximas etapas
 
@@ -76,7 +92,10 @@ Após criar uma conta de desenvolvedor, você pode associá-la a funções e ins
 [api-management-new-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-new-developer.png
 [api-management-invite-developer-window]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-window.png
 [api-management-invite-developer-confirmation]: ./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-confirmation.png
-[api-management-]: ./media/api-management-howto-create-or-invite-developers/api-management-.png
+[api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
+[api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
+[api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
+: ./media/api-management-howto-create-or-invite-developers/.png
 
 
 
@@ -91,4 +110,4 @@ Após criar uma conta de desenvolvedor, você pode associá-la a funções e ins
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Configurar modelos de email]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

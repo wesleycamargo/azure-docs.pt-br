@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="04/18/2016"
 	ms.author="tarcher"/>
 
 # Adicionar proprietários e usuários a um Laboratório de Desenvolvimento/Teste
@@ -24,11 +24,9 @@
 
 O acesso a um Laboratório de Desenvolvimento/Teste é controlado pelo Controle de Acesso Baseado em Função do Azure (RBAC). Procure [Controle de Acesso Baseado em Função(RBAC)](https://azure.microsoft.com/searchresults?query=Role%20Based%20Access%20Control%20%28RBAC%29) no Portal de visualização do Azure para saber mais.
 
-Você concede acesso ao seu Laboratório de Desenvolvimento/Teste por meio de duas funções:
+Você permite acesso ao seu laboratório por meio de duas funções:
 
- - **Proprietário**: os usuários atribuídos à função **proprietário** no nível de assinatura do Azure têm acesso completo ao laboratório, incluindo às funções de gerenciamento e monitoramento.
-
-     > [AZURE.NOTE] As funções de **Proprietário** atribuídas em níveis RBAC diferente do nível de assinatura não têm suporte no Laboratório de Desenvolvimento/Teste. Não há suporte para a atribuição de um usuário à função **Proprietário** no Laboratório de Desenvolvimento/Teste.
+ - **Proprietário**: os usuários atribuídos à função **Proprietário** no nível de laboratório têm acesso completo ao laboratório, incluindo às funções de gerenciamento e monitoramento. A função **Proprietário** atribuída ao nível de laboratório não concede aos usuários permissões para acessar recursos na assinatura fora do escopo do laboratório. Os usuários atribuídos à função **Proprietário** no nível de assinatura do Azure automaticamente têm direitos de **Proprietário** sobre quaisquer laboratórios criados nessa assinatura.
 
  -  **Usuário do Laboratório de Desenvolvimento/Teste**: usuários atribuídos à função **Usuário do Laboratório de Desenvolvimento/Teste** pode criar, atualizar e excluir VMs no laboratório especificado. Os usuários podem ser *internos* (um membro do Active Directory do Azure para a assinatura) ou *externos* (um usuário que não é membro do AD do Azure, como um membro de uma organização parceira).
 	-  Uma função **Usuário do Laboratório de Desenvolvimento/Teste** deve ser atribuída por meio dos blocos **Adicionar Usuários** do laboratório.
@@ -103,4 +101,4 @@ Para adicionar um usuário do Laboratório de Desenvolvimento/Teste ao seu labor
 
 	1. A folha **Usuários** exibe as funções e usuários adicionados.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

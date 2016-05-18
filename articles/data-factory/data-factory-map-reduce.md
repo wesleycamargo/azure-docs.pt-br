@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Chamar Programas MapReduce da Data Factory
@@ -208,6 +208,9 @@ linkedServiceName | refere-se ao serviço vinculado do HDInsight criado anterior
 	    }
 	}
 
+## Executar programas Spark
+Você pode usar a atividade MapReduce para executar programas Spark no cluster HDInsight Spark. Consulte [Invoke Spark programs from Azure Data Factory (Invocar programas Spark da Azure Data Factory)](data-factory-spark.md) para obter detalhes.
+
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -217,7 +220,13 @@ linkedServiceName | refere-se ao serviço vinculado do HDInsight criado anterior
 [adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Classic Portal]: http://portal.azure.com
+[Azure Portal]: http://portal.azure.com
  
+## Consulte também
+- [Atividade de Hive](data-factory-hive-activity.md)
+- [Atividade Pig](data-factory-pig-activity.md)
+- [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+- [Invocar programas Spark](data-factory-spark.md)
+- [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

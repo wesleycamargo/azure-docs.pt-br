@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="04/26/2016"
    ms.author="cherylmc"/>
 
 # Redefinir um Gateway de VPN do Azure usando o PowerShell
@@ -40,14 +40,14 @@ O cmdlet do PowerShell para redefinir o gateway de VPN do Azure é *Reset-AzureV
 
 O exemplo a seguir redefine o gateway de VPN do Azure para a rede virtual chamada "ContosoVNet".
  
-			D:\PS> Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+		Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
-	 		Error          :
-	 		HttpStatusCode : OK
-	 		Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
-	 		Status         : Successful
-			RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
-			StatusCode     : OK
+	 	Error          :
+	 	HttpStatusCode : OK
+	 	Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
+	 	Status         : Successful
+		RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
+		StatusCode     : OK
 
 
 Se a conexão não é restaurada após a primeira reinicialização, execute o mesmo comando novamente para reiniciar a segunda instância VM (o novo gateway ativo). Se as duas reinicializações são solicitadas back-to-back, haverá um período um pouco mais longo durante o qual as duas instâncias VM (ativas e em espera) estão sendo reinicializadas. Essa situação causará um intervalo maior na conectividade VPN, exigindo até 2 a 4 minutos para que as VMs concluam as reinicializações.
@@ -58,4 +58,4 @@ Após duas reinicializações, se você ainda estiver tendo problemas de conecti
 	
 Consulte a [Referência do PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) para obter mais informações sobre esse cmdlet.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/20/2016"
+    ms.date="04/26/2016"
     ms.author="spelluru"/>
 # HPC e orquestração de dados usando o Lote do Azure e o Data Factory
 
-No passado, a computação de alto desempenho (HPC) foi o domínio de data centers locais: um supercomputador trabalhando em dados, mas limitado pelo número de computadores físicos disponíveis. O serviço do Lote do Azure revoluciona isso fornecendo HPC como um serviço. Você pode configurar quantos computadores forem necessários. O Lote também manipula o trabalho de agendamento e coordena o trabalho, permitindo que você se concentre nos algoritmos a serem executados. O Azure Data Factory é um complemento perfeito para o Lote; ele simplifica a orquestração de movimentação de dados. Usando o Data Factory, você pode especificar os movimentos regulares de dados para ETL, processar os dados e então mover os resultados para um armazenamento permanente. Por exemplo, os dados coletados dos sensores são movidos (pelo Data Factory) para um local temporário onde o Lote (sob o controle do Data Factory) processa os dados e gera um novo conjunto de resultados. Em seguida, o Data Factory move os resultados para um repositório final. Com esses dois serviços trabalhando juntos, você pode usar com eficiência a HPC para processar grandes quantidades de dados regularmente.
+Essa é uma solução de exemplo que move e processa conjuntos de dados em grande escala automaticamente. A solução é de ponta a ponta e inclui a arquitetura e o código. Ela se baseia em dois serviços do Azure. O Lote do Azure fornece o HPC como um serviço para configurar quantos computadores forem necessários e para agendar e coordenar o trabalho. O Azure Data Factory complementa o Lote, simplificando a orquestração de movimentação de dados. É possível especificar movimentações regulares de dados para ETL, processar os dados e, em seguida, mover os resultados para um armazenamento permanente.
 
-Aqui, fornecemos um exemplo de solução ponta a ponta que move e processa os conjuntos de dados em grande escala automaticamente. A arquitetura é relevante para muitos cenários, como a modelagem de risco de serviços financeiros, o processamento de imagens e a renderização e a análise de genoma. Arquitetos e tomadores de decisões de TI obterão uma visão geral do diagrama e das etapas básicas. Os desenvolvedores podem usar o código como um ponto de partida para a própria implementação. Este artigo contém toda a solução.
+A arquitetura é relevante para muitos cenários, como a modelagem de risco de serviços financeiros, o processamento de imagens e a renderização e a análise de genoma.
 
 Confira a documentação do [Lote do Azure](../batch/batch-api-basics.md) e do [Data Factory](data-factory-introduction.md) se não estiver familiarizado com esses serviços antes de seguir a solução de exemplo.
 
@@ -51,7 +51,7 @@ A solução conta o número de ocorrências de um termo de pesquisa ("Microsoft"
 
 **Tempo**: se você estiver familiarizado com o Lote e Azure Data Factory e tiver atendido aos pré-requisitos, estimamos que essa solução leve de 1 a 2 horas para ser concluída.
 
-### Pré-requisitos
+## Pré-requisitos
 
 1.  **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Veja [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -101,7 +101,7 @@ A solução conta o número de ocorrências de um termo de pesquisa ("Microsoft"
 
 6.  **Microsoft Visual Studio 2012 ou posterior** (para criar a atividade personalizada do Lote a ser usada na solução de Data Factory).
 
-### Etapas de alto nível para criar a solução
+## Etapas de alto nível para criar a solução
 
 1.  Crie uma atividade personalizada para usar na solução Data Factory. A atividade personalizada contém a lógica de processamento de dados.
 
@@ -893,21 +893,30 @@ Você pode estender este exemplo para saber mais sobre os recursos de Data Facto
 
 3.  Crie um pool com **Máximo de tarefas por VM** maior/menor. Atualize o serviço vinculado de Lote do Azure na solução de Data Factory para usar o novo pool criado. (Consulte a etapa 4: criar e executar o pipeline para obter mais informações sobre a configuração **Máximo de tarefas por VM**.)
 
-4.  Crie um pool do Lote do Azure com o recurso **dimensionar automaticamente**. O dimensionamento automático de nós de computação em um pool do Lote do Azure é o ajuste dinâmico da potência de processamento usada pelo seu aplicativo. Consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](../batch/batch-automatic-scaling.md).
+4.  Crie um pool do Lote do Azure com o recurso **dimensionar automaticamente**. O dimensionamento automático de nós de computação em um pool do Lote do Azure é o ajuste dinâmico da potência de processamento usada pelo seu aplicativo. Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes:
+ 
+		pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
 
-    Na solução de exemplo, o método **Execute** invoca o método **Calculate**, que processa uma fatia de dados de entrada para produzir uma fatia de dados de saída. Você pode escrever seu próprio método para processar dados de entrada e substituir a chamada do método Calculate no método Execute por uma chamada para o seu método.
+	Veja [Escalar automaticamente nós de computação em um pool do Lote do Azure](../batch/batch-automatic-scaling.md) para obter detalhes.
+
+	O serviço do Lote do Azure poderá levar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada nela.
+	 
+5. Na solução de exemplo, o método **Execute** invoca o método **Calculate**, que processa uma fatia de dados de entrada para produzir uma fatia de dados de saída. Você pode escrever seu próprio método para processar dados de entrada e substituir a chamada do método Calculate no método Execute por uma chamada para o seu método.
+
+ 
+
 
 ## Próximas etapas: consumir os dados
 
 Depois de processar dados, é possível consumi-lo com ferramentas online como o **Microsoft Power BI**. Aqui estão links para ajudá-lo a entender o Power BI e como usá-lo no Azure:
 
--   [Explorar um conjunto de dados no Power BI](https://support.powerbi.com/knowledgebase/articles/475159)
+-   [Explorar um conjunto de dados no Power BI](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-service-get-data/)
 
--   [Introdução ao Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/471664)
+-   [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-desktop-getting-started/)
 
--   [Atualizar dados no Power BI](https://support.powerbi.com/knowledgebase/articles/474669)
+-   [Atualizar dados no Power BI](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-refresh-data/)
 
--   [Azure e Power BI - visão geral básica](https://support.powerbi.com/knowledgebase/articles/568614)
+-   [Azure e Power BI - visão geral básica](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-azure-and-power-bi/)
 
 ## Referências
 
@@ -929,4 +938,4 @@ Depois de processar dados, é possível consumi-lo com ferramentas online como o
 
     -   [Introdução ao .NET da Biblioteca de Lote do Azure](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

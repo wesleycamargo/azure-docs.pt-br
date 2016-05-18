@@ -100,7 +100,7 @@ Neste tutorial, você realizará as seguintes etapas:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Monitorar pipelines](#monitor-pipelines). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal Clássico do Azure.
+6. [Monitorar pipelines](#monitor-pipelines). Nesta etapa, você monitorará as fatias de dados, tabelas e pipelines usando o Portal do Azure.
 
 ## Carregar dados de exemplo e scripts
 Nesta etapa, você carregará todos os dados de exemplo (incluindo todos os logs e dados de referência) e scripts do Hive/Pig que são executadas pelos fluxos de trabalho. Os scripts que você executa também criam um banco de dados SQL do Azure chamado **MarketingCampaigns**, tabelas, tipos definidos pelo usuário e procedimentos armazenados.
@@ -121,7 +121,7 @@ As tabelas, os tipos definidos pelo usuário e procedimentos armazenados são us
 	
 	Alternativamente, você pode usar os arquivos na pasta: C:\\ADFWalkthrough\\Scripts para carregar scripts do hive/pig e arquivos de exemplo no contêiner adfwalkthrough no armazenamento de blob e criar a tabela MarketingCampaignEffectiveness no banco de dados SQL do Azure MarketingCamapaigns.
    
-2. Confirme que seu computador local tem permissão para acessar o Banco de Dados SQL do Azure. Para habilitar o acesso, use o [Portal Clássico do Azure](http://manage.windowsazure.com) ou **sp\_set\_firewall\_rule** no banco de dados mestre para criar uma regra de firewall para o endereço IP do seu computador. Pode levar até cinco minutos para que essa alteração tenha efeito. Consulte [Configurando regras de firewall para Azure SQL][azure-sql-firewall].
+2. Confirme que seu computador local tem permissão para acessar o Banco de Dados SQL do Azure. Para habilitar o acesso, use o [Portal do Azure](http://manage.windowsazure.com) ou **sp\_set\_firewall\_rule** no banco de dados mestre para criar uma regra de firewall para o endereço IP do seu computador. Pode levar até cinco minutos para que essa alteração tenha efeito. Consulte [Configurando regras de firewall para Azure SQL][azure-sql-firewall].
 4. No PowerShell do Azure, navegue até o local onde você extraiu os exemplos (por exemplo: **C:\\ADFWalkthrough**)
 5. Execute **uploadSampleDataAndScripts.ps1** 
 6. Depois que o script for executado com êxito, você verá o seguinte:
@@ -193,7 +193,7 @@ Nesta etapa, você criará uma data factory do Azure chamada **LogProcessingFact
  
 ## Criar serviços vinculados
 
-> [AZURE.NOTE] Este artigo usa o Portal Clássico do Azure, especificamente o Editor do Data Factory, para criar pipelines, tabelas e serviços vinculados. Consulte [Tutorial usando o PowerShell do Azure][adftutorial-using-powershell] para executar este tutorial usando o PowerShell do Azure.
+> [AZURE.NOTE] Este artigo usa o Portal do Azure, especificamente o Editor Data Factory, para criar pipelines, tabelas e serviços vinculados. Consulte [Tutorial usando o PowerShell do Azure][adftutorial-using-powershell] para executar este tutorial usando o PowerShell do Azure.
 
 Nesta etapa, você criará os seguintes serviços vinculados:
 
@@ -484,4 +484,4 @@ Pratique o [Guia passo a passo: usando a fonte de dados local][tutorial-onpremis
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

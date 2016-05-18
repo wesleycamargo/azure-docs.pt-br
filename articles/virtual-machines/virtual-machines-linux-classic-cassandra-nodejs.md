@@ -1,4 +1,12 @@
-<properties pageTitle="Executar o Cassandra com o Linux no Azure | Microsoft Azure" description="Como executar um cluster do Cassandra no Linux em Máquinas Virtuais do Azure por meio de um aplicativo Node.js" services="virtual-machines-linux" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor="" azure-service-management"/>
+<properties 
+	pageTitle="Executar Cassandra com Linux no Azure | Microsoft Azure" 
+	description="Como executar um cluster Cassandra no Linux em máquinas virtuais do Azure de um aplicativo Node.js" 
+	services="virtual-machines-linux" 
+	documentationCenter="nodejs" 
+	authors="hanuk" 
+	manager="wpickett" 
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -6,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
-	ms.author="robmcm"/>
+	ms.date="04/12/2016" 
+	ms.author="hanuk;robmcm"/>
 
 # Executando Cassandra com Linux no Azure e acessando-a do Node.js 
 
@@ -457,7 +465,7 @@ Observe que o keyspace criado na etapa 4 usa SimpleStrategy com um replication\_
 Utilizará a implantação de região única concluída e repetirá o mesmo processo para instalar a segunda região. A principal diferença entre a implantação de região única e a de várias regiões é a configuração de túnel VPN para comunicação entre regiões; começaremos com a instalação de rede, provisionamento de VMs e configuração de Cassandra.
 
 ###Etapa 1: criar uma rede virtual na 2ª região
-Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal clássico do Azure](../virtual-network/virtual-networks-create-vnet.md) para obter as etapas detalhadas do processo.
+Faça logon no portal clássico do Azure e crie uma Rede Virtual com os atributos mostrados na tabela. Confira [Configurar uma rede virtual somente na nuvem no portal clássico do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para obter as etapas detalhadas do processo.
 
 <table>
 <tr><th>Nome do atributo    </th><th>Valor	</th><th>Comentários</th></tr>
@@ -697,4 +705,4 @@ O Microsoft Azure é uma plataforma flexível que permite a execução tanto de 
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

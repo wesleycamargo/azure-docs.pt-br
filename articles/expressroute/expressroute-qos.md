@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Requisitos de QoS para Rota Expressa
@@ -21,7 +21,7 @@ Skype for Business tem várias cargas de trabalho que exigem tratamento de QoS d
 
 ![](./media/expressroute-qos/expressroute-qos.png)
 
-**Observação:** os requisitos de QoS aplicam-se somente ao emparelhamento Microsoft.
+>[AZURE.NOTE] Os requisitos de QoS aplicam-se somente ao emparelhamento Microsoft.
 
 A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Skype for Business. Para obter mais informações, consulte [Gerenciamento de QoS para Skype for Business](https://technet.microsoft.com/library/gg405409.aspx).
 
@@ -50,4 +50,4 @@ A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Skype for Bu
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->

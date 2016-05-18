@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="04/15/2016"
 	ms.author="danlep"/>
 
 
@@ -23,11 +23,11 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-classic-capture-image.md).
 
 
-Este artigo mostra como usar a Interface da Linha de Comando (CLI) do Azure para capturar uma máquina virtual do Azure executando o Linux para usá-lo como um modelo do Gerenciador de Recursos do Azure para criar outras máquinas virtuais. Esse modelo especifica o disco do SO e os discos de dados anexados à máquina virtual. Ele não inclui os recursos da rede virtual que você precisará para criar uma VM do Gerenciador de Recursos do Azure, portanto, na maioria dos casos você precisará defini-los separadamente antes de criar outra máquina virtual que usa o modelo.
+Este artigo mostra como usar a CLI do Azure (Interface de Linha de Comando) do Azure para capturar uma máquina virtual do Azure que executa o Linux para poder usá-la como um modelo do Azure Resource Manager para criar outras máquinas virtuais. Esse modelo especifica o disco do SO e os discos de dados anexados à máquina virtual. Ele não inclui os recursos da rede virtual que você precisará para criar uma VM do Gerenciador de Recursos do Azure, portanto, na maioria dos casos você precisará defini-los separadamente antes de criar outra máquina virtual que usa o modelo.
 
 ## Antes de começar
 
-Estas etapas pressupõem que você já criou uma máquina virtual do Azure no modelo de implantação do Gerenciador de Recursos do Azure e configurou o sistema operacional, inclusive anexou quaisquer discos de dados e fez outras personalizações, como a instalação de aplicativos. Se você ainda não fez isso, confira estas instruções para usar a CLI do Azure no modo do Gerenciador de Recursos do Azure:
+Estas etapas pressupõem que você já criou uma máquina virtual do Azure no modelo de implantação do Gerenciador de Recursos do Azure e configurou o sistema operacional, inclusive anexou quaisquer discos de dados e fez outras personalizações, como a instalação de aplicativos. Você pode fazer isso de diversas maneiras, inclusive por meio da CLI do Azure. Se você ainda não fez isso, confira estas instruções para usar a CLI do Azure no modo do Gerenciador de Recursos do Azure:
 
 - [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-linux-cli-deploy-templates.md)
 
@@ -35,7 +35,7 @@ Por exemplo, você pode criar um grupo de recursos denominado *MyResourceGroup* 
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "centralus" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:latest -u <your-user-name> -p <your-password>
 
-Depois da VM ser provisionada e estar em execução, você poderá anexar e montar um disco de dados. Consulte as instruções [aqui](virtual-machines-linux-add-disk).
+Depois da VM ser provisionada e estar em execução, você poderá anexar e montar um disco de dados. Consulte as instruções [aqui](virtual-machines-linux-add-disk.md).
 
 
 ## Capturar a VM
@@ -83,7 +83,7 @@ Depois da VM ser provisionada e estar em execução, você poderá anexar e mont
 
 	Este comando cria uma imagem generalizada do sistema operacional usando o prefixo do nome do VHD especificado para os discos da VM. Os arquivos de imagem VHD são criados por padrão na mesma conta de armazenamento da VM original usada. A opção **-t** cria um modelo de arquivo JSON local você pode usar para criar uma nova VM a partir da imagem.
 
->[AZURE.TIP] Para encontrar o local de uma imagem, abra o modelo de arquivo JSON. Em **storageProfile**, encontre o **uri** da **imagem** localizado no contêiner do **sistema**. Por exemplo, o uri da imagem de disco do sistema operacional é semelhante a `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+>[AZURE.TIP] Para encontrar o local de uma imagem, abra o modelo de arquivo JSON. Em **storageProfile**, encontre o **uri** da **imagem** localizado no contêiner do **sistema**. Por exemplo, o uri da imagem de disco do sistema operacional é semelhante a `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
 ## Implantar uma nova VM a partir da imagem capturada
 Agora, use a imagem com um modelo para criar uma nova VM do Linux. Essas etapas mostram como usar a CLI do Azure e o modelo de arquivo JSON criado com o comando `azure vm capture` para criar a VM em uma nova rede virtual.
@@ -178,7 +178,7 @@ Se você quiser a rede configurada automaticamente ao criar uma VM a partir da i
 
 ## Usar o comando azure vm create
 
-Geralmente, você desejará usar um modelo do Gerenciador de Recursos para criar uma VM a partir da imagem. No entanto, você pode criar a VM _de modo forçado_ usando o comando**azure vm create** com o parâmetro **--os-disk-vhd** (**-d**).
+Geralmente, você desejará usar um modelo do Gerenciador de Recursos para criar uma VM a partir da imagem. No entanto, você pode criar a VM _de modo forçado_ usando o comando **azure vm create** com o parâmetro**-Q** (**--image-urn**). Você também passará o parâmetro **-d** (**--os-disk-vhd**) para especificar o local do arquivo. vhd do SO para a nova VM. Ele deve estar no contêiner de vhds da conta de armazenamento na qual o arquivo VHD da imagem está armazenado. O comando copiará o VHD para a nova VM automaticamente para o contêiner de vhds.
 
 Faça o seguinte antes de executar o **azure vm create** com a imagem:
 
@@ -186,11 +186,10 @@ Faça o seguinte antes de executar o **azure vm create** com a imagem:
 
 2.	Crie um recurso do endereço IP público e um recurso NIC para a nova VM. Para obter as etapas para criar uma rede virtual, endereço IP público e NIC usando a CLI, consulte anteriormente neste artigo. (o **azure vm create** também pode criar uma nova NIC, mas você precisará passar parâmetros adicionais para uma rede virtual e sub-rede.)
 
-3.	Verifique se você copiou o VHD da imagem para um local de contêiner de blob que não tem pastas (diretórios virtuais). Por padrão, a imagem capturada é armazenada nas pastas aninhadas em um contêiner de armazenamento de blob (URI semelhante a `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. O comando **azure vm create** atualmente pode criar uma VM somente a partir de um VHD do disco do sistema operacional armazenado no nível superior de um contêiner de blob. Por exemplo, você pode copiar o VHD da imagem para `https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd`.
 
-Então, execute um comando semelhante ao seguinte.
+Em seguida, execute um comando semelhante ao seguinte, passando URIs para o novo arquivo de VHD do sistema operacional e a imagem existente.
 
-	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -o <your-storage-account-name> -d "https://yourstorage.blob.core.windows.net/vhds/your-prefix-OsDisk.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
+	azure vm create <your-resource-group-name> <your-new-vm-name> eastus Linux -d "https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/<your-new-VM-prefix>.vhd" -Q "https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/<your-image-prefix>-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd" -z Standard_A1 -u <your-admin-name> -p <your-admin-password> -f <your-nic-name>
 
 Para obter opções adicionais de comando, execute `azure help vm create`.
 
@@ -198,4 +197,4 @@ Para obter opções adicionais de comando, execute `azure help vm create`.
 
 Para gerenciar suas VMs com a CLI, consulte as tarefas em [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

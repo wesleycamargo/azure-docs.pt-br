@@ -3,7 +3,7 @@
    description="Saiba o que é o bcp e como usá-lo em cenários de data warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="TwoUnder"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/21/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -27,7 +27,7 @@
 
 O **[bcp][]** é um utilitário de carregamento em massa de linha de comando que permite copiar dados entre o SQL Server, arquivos de dados e o SQL Data Warehouse. Use o bcp para importar grandes quantidades de linhas nas tabelas do SQL Data Warehouse ou para exportar dados das tabelas do SQL Server em arquivos de dados. Exceto quando usado com a opção queryout, o bcp não exige conhecimento em Transact-SQL.
 
-O bcp é uma maneira rápida e fácil de mover conjuntos de dados menores para dentro e fora de um banco de dados do SQL Data Warehouse. O volume exato de dados que é recomendado para carregamento/extração por meio do bcp dependerá da sua conexão de rede com o datacenter do Azure. Geralmente, as tabelas de dimensão podem ser carregadas e extraídas, mas as tabelas de fatos razoavelmente grandes podem demorar bastante para serem carregadas ou extraídas.
+O bcp é uma maneira rápida e fácil de mover conjuntos de dados menores para dentro e fora de um banco de dados do SQL Data Warehouse. O volume exato de dados que é recomendado para carregamento/extração por meio do bcp dependerá da sua conexão de rede com o datacenter do Azure. Geralmente, as tabelas de dimensão podem ser carregadas e extraídas prontamente com bcp, no entanto, não recomendamos bcp para carregar ou extrair grandes volumes de dados. Polybase é a ferramenta recomendada para carregar e extrair grandes volumes de dados, pois aproveita melhor a arquitetura de processamento extremamente paralelo do SQL Data Warehouse.
 
 Com o bcp, você pode:
 
@@ -57,32 +57,29 @@ Neste tutorial, você criará uma tabela no SQL Data Warehouse e importará dado
 
 ### Etapa 1: Criar uma tabela no SQL Data Warehouse do Azure
 
-Em um prompt de comando, conecte-se à sua instância usando o comando a seguir, substituindo os valores conforme apropriado:
+Em um prompt de comando, use sqlcmd para executar a consulta a seguir e criar uma tabela em sua instância:
 
 ```sql
-sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    CREATE TABLE DimDate2
+    (
+        DateId INT NOT NULL,
+        CalendarQuarter TINYINT NOT NULL,
+        FiscalQuarter TINYINT NOT NULL
+    )
+    WITH
+    (
+        CLUSTERED COLUMNSTORE INDEX,
+        DISTRIBUTION = ROUND_ROBIN
+    );
+"
 ```
-Depois de conectado, copie o script de tabela a seguir no prompt do sqlcmd e pressione a tecla Enter:
 
-```sql
-CREATE TABLE DimDate2
-(
-    DateId INT NOT NULL,
-    CalendarQuarter TINYINT NOT NULL,
-    FiscalQuarter TINYINT NOT NULL
-)
-WITH
-(
-    CLUSTERED COLUMNSTORE INDEX,
-    DISTRIBUTION = ROUND_ROBIN
-);
-GO
-```
->[AZURE.NOTE] Veja o tópico [Design de tabela][] no grupo de tópicos Desenvolver para obter mais informações sobre as opções disponíveis na cláusula WITH.
+>[AZURE.NOTE] Confira [Design da tabela][] ou [CREATE TABLE syntax][] \(sintaxe CREATE TABLE) para saber mais sobre como criar uma tabela no SQL Data Warehouse e as opções disponíveis com a cláusula WITH.
 
 ### Etapa 2: Criar um arquivo de dados de origem
 
-Abra o Bloco de Notas e copie as linhas de dados a seguir em um novo arquivo.
+Abra o Bloco de Notas e copie as seguintes linhas de dados em um novo arquivo de texto. Em seguida, salve esse arquivo em seu diretório temporário local, c:\\Temp\\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -99,9 +96,7 @@ Abra o Bloco de Notas e copie as linhas de dados a seguir em um novo arquivo.
 20150101,1,3
 ```
 
-Salve-o no diretório temporário local, C:\\Temp\\DimDate2.txt.
-
-> [AZURE.NOTE] É importante lembrar que o bcp.exe não oferece suporte a codificação do arquivo UTF-8. Use arquivos codificados ASCII ou a codificação UTF-16 para os seus arquivos ao usar o bcp.exe.
+> [AZURE.NOTE] É importante lembrar que o bcp.exe não oferece suporte a codificação do arquivo UTF-8. Use arquivos ASCII ou arquivos codificados em UTF-16 ao usar o bcp.exe.
 
 ### Etapa 3: Conectar e importar os dados
 Usando o bcp, você pode conectar e importar os dados usando o comando a seguir, substituindo os valores conforme apropriado:
@@ -110,11 +105,10 @@ Usando o bcp, você pode conectar e importar os dados usando o comando a seguir,
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
-Você pode verificar se os dados foram carregados conectando-se ao sqlcmd como antes e executando o seguinte comando TSQL:
+Você pode verificar se os dados foram carregados executando a consulta a seguir usando o sqlcmd:
 
 ```sql
-SELECT * FROM DimDate2 ORDER BY 1;
-GO
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
 Isso deve retornar os seguintes resultados:
@@ -141,10 +135,11 @@ O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criaçã
 Execute as seguintes instruções CREATE STATISTICS em um prompt de sqlcmd:
 
 ```sql
-create statistics [DateId] on [DimDate2] ([DateId]);
-create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
-create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
-GO
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    create statistics [DateId] on [DimDate2] ([DateId]);
+    create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+    create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+"
 ```
 
 ## Exportar dados do SQL Data Warehouse
@@ -174,7 +169,7 @@ Você pode verificar se os dados foram exportados corretamente abrindo o novo ar
 20150101,1,3
 ```
 
->[AZURE.NOTE] Devido à natureza dos sistemas distribuídos, a ordem dos dados pode não ser a mesma entre os bancos de dados do SQL Data Warehouse. Como opção, você pode usar o parâmetro queryout para especificar qual consulta Transact-SQL executar.
+>[AZURE.NOTE] Devido à natureza dos sistemas distribuídos, a ordem dos dados pode não ser a mesma entre os bancos de dados do SQL Data Warehouse. Outra opção é usar a função **queryout** do bcp para escrever uma extração de consulta, em vez de exportar a tabela inteira.
 
 ## Próximas etapas
 Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Data Warehouse][]. Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][].
@@ -183,17 +178,16 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 
 <!--Article references-->
 
-[Carregar dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Design de tabela]: ./sql-data-warehouse-develop-table-design.md
-[Estatísticas]: ./sql-data-warehouse-develop-statistics.md
-
+[Carregar dados no SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[Visão geral de desenvolvimento do SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
+[Design da tabela]: sql-data-warehouse-develop-table-design.md
+[Estatísticas]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Centro de Download da Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
+[Centro de Download da Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

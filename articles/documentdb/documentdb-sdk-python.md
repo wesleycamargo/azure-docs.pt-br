@@ -3,7 +3,7 @@
 	description="Saiba tudo sobre o SDK do Python, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Python para o Banco de Dados de Documentos." 
 	services="documentdb" 
 	documentationCenter="python" 
-	authors="ryancrawcour" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
-	ms.author="ryancraw"/>
+	ms.date="04/18/2016" 
+	ms.author="rnagpal"/>
 
 # SDK do Banco de Dados de Documentos
 
@@ -35,6 +35,9 @@
 </table></br>
 
 ## Notas de versão
+
+### <a name="1.6.1"/>[1\.6.1](https://pypi.python.org/pypi/pydocumentdb/1.6.1)
+- Correções de bugs relacionadas ao particionamento no lado do servidor a fim de permitir caracteres especiais no caminho de partitionkey.
 
 ### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
 - [Coleções particionadas](documentdb-partition-data.md) implementadas e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md). 
@@ -74,16 +77,17 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Python an
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
+| [1\.6.1](#1.6.1) | 08 de abril de 2016 |--- 
 | [1\.6.0](#1.6.0) | 29 de março de 2016 |--- 
-| [1\.5.0](#1.5.0) | 3 de janeiro de 2016 |--- 
-| [1\.4.2](#1.4.2) | 6 de outubro de 2015 |--- 
-| [1\.4.1](#1.4.1) | 6 de outubro de 2015 |--- 
-| [1\.2.0](#1.2.0) | 6 de agosto de 2015 |--- 
-| [1\.1.0](#1.1.0) | 9 de julho de 2015 |--- 
-| [1\.0.1](#1.0.1) | 25 de maio de 2015 |--- 
-| [1\.0.0](#1.0.0) |7 de abril de 2015 |--- 
+| [1\.5.0](#1.5.0) | 03 de janeiro de 2016 |--- 
+| [1\.4.2](#1.4.2) | 06 de outubro de 2015 |--- 
+| [1\.4.1](#1.4.1) | 06 de outubro de 2015 |--- 
+| [1\.2.0](#1.2.0) | 06 de agosto de 2015 |--- 
+| [1\.1.0](#1.1.0) | 09 de julho de 2015 |--- 
+| [1\.0.1](#1.0.1) |25 de maio de 2015 |--- 
+| [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- 
 | 0.9.4-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016 
-| 0.9.3-prelease | 9 de dezembro de 2014 | 29 de fevereiro de 2016 
+| 0.9.3-prelease | 09 de dezembro de 2014 | 29 de fevereiro de 2016 
 | 0.9.2-prelease | 25 de novembro de 2014 | 29 de fevereiro de 2016 
 | 0.9.1-prelease | 23 de setembro de 2014 | 29 de fevereiro de 2016 
 | 0.9.0-prelease | 21 de agosto de 2014 | 29 de fevereiro de 2016
@@ -95,4 +99,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Python an
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

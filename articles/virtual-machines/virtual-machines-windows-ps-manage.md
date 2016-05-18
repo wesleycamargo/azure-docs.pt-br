@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gerenciar as VMs do Gerenciador de Recursos do Azure | Microsoft Azure"
-	description="Gerenciar máquinas virtuais usando o PowerShell, modelos e o Gerenciador de Recursos do Azure."
+	pageTitle="Gerenciar VMs usando o Resource Manager e o PowerShell | Microsoft Azure"
+	description="Gerenciar máquinas virtuais usando o Azure Resource Manager e o PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="davidmu1"
@@ -10,210 +10,187 @@
 
 <tags
 	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="04/18/2016"
 	ms.author="davidmu"/>
 
-# Gerenciar máquinas virtuais usando o PowerShell e o Gerenciador de Recursos do Azure
+# Gerenciar Máquinas Virtuais do Azure usando o Resource Manager e o PowerShell
 
-> [AZURE.SELECTOR]
-- [PowerShell](virtual-machines-windows-ps-manage.md)
-- [CLI](virtual-machines-linux-cli-deploy-templates.md)
+## Instale o Azure PowerShell
+ 
+Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter informações sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure.
 
-<br>
+## Definir variáveis
 
+Todos os comandos no artigo requerem o nome do grupo de recursos no qual se encontra a máquina virtual e o nome da máquina virtual a ser gerenciada. Substitua o valor **$rgName** pelo nome do grupo de recursos que contém a máquina virtual. Substitua o valor **$vmName** pelo nome da VM. Crie as variáveis.
 
-Usar modelos do Azure PowerShell e do Gerenciador de Recursos fornece muita eficiência e flexibilidade ao gerenciar recursos no Microsoft Azure. Você pode usar as tarefas neste artigo para gerenciar recursos de máquina virtual.
+        $rgName = "resource group name"
+        $vmName = "VM name"
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
+## Exibir informações sobre uma máquina virtual
 
-Essas tarefas usam somente o PowerShell:
-
-- [Exibir informações sobre uma máquina virtual](#displayvm)
-- [Iniciar uma máquina virtual](#start)
-- [Parar uma máquina virtual](#stop)
-- [Reiniciar uma máquina virtual](#restart)
-- [Excluir uma máquina virtual](#delete)
-
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
-
-## <a id="displayvm"></a>Exibir informações sobre uma máquina virtual
-
-No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
-
-	Get-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
+Obter as informações da máquina virtual.
+  
+        Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 Ele retorna algo semelhante a:
 
+        ResourceGroupName        : rg1
+        Id                       : /subscriptions/{subscription-id}/resourceGroups/
+                                    rg1/providers/Microsoft.Compute/virtualMachines/vm1
+        Name                     : vm1
+        Type                     : Microsoft.Compute/virtualMachines
+        Location                 : centralus
+        Tags                     : {}
+        AvailabilitySetReference : {
+                                     "id": "/subscriptions/{subscription-id}/resourceGroups/
+                                       rg1/providers/Microsoft.Compute/availabilitySets/av1"
+                                   }
+        Extensions               : []
+        HardwareProfile          : {
+                                     "vmSize": "Standard_A0"
+                                   }
+        InstanceView             : null
+        NetworkProfile           : {
+                                     "networkInterfaces": [
+                                       {
+                                         "properties.primary": null,
+                                         "id": "/subscriptions/{subscription-id}/resourceGroups/
+                                           rg1/providers/Microsoft.Network/networkInterfaces/nc1"
+                                       }
+                                     ]
+                                   }
+        OSProfile                : {
+                                     "computerName": "vm1",
+                                     "adminUsername": "myaccount1",
+                                     "adminPassword": null,
+                                     "customData": null,
+                                     "windowsConfiguration": {
+                                       "provisionVMAgent": true,
+                                       "enableAutomaticUpdates": true,
+                                       "timeZone": null,
+                                       "additionalUnattendContents": [],
+                                       "winRM": null
+                                     },
+                                     "linuxConfiguration": null,
+                                     "secrets": []
+                                   }
+        Plan                     : null
+        ProvisioningState        : Succeeded
+        StorageProfile           : {
+                                     "imageReference": {
+                                       "publisher": "MicrosoftWindowsServer",
+                                       "offer": "WindowsServer",
+                                       "sku": "2012-R2-Datacenter",
+                                       "version": "latest"
+                                     },
+                                     "osDisk": {
+                                       "osType": "Windows",
+                                       "encryptionSettings": null,
+                                       "name": "osdisk",
+                                       "vhd": {
+                                         "Uri": "http://sa1.blob.core.windows.net/vhds/osdisk1.vhd"
+                                       }
+                                       "image": null,
+                                       "caching": "ReadWrite",
+                                       "createOption": "FromImage"
+                                     }
+                                     "dataDisks": [],
+                                   }
+        DataDiskNames            : {}
+        NetworkInterfaceIDs      : {/subscriptions/{subscription-id}/resourceGroups/
+                                     rg1/providers/Microsoft.Network/networkInterfaces/nc1}
 
-	ResourceGroupName        : rg1
-	Id                       : /subscriptions/{subscription-id}/resourceGroups/
-															rg1/providers/Microsoft.Compute/virtualMachines/vm1
-	Name                     : vm1
-	Type                     : Microsoft.Azure.Management.Compute.Models.VirtualMachineGetResponse
-	Location                 : westus
-	Tags                     : {}
-	AvailabilitySetReference : null
-	Extensions               : []
-	HardwareProfile          :  {
-																"VirtualMachineSize": "Standard_D1"
-															}
-	InstanceView             : null
-	Location                 : westus
-	Name                     : vm1
-	NetworkProfile           :  {
-																"NetworkInterfaces": [
-																	{
-																		"Primary": null,
-																		"ReferenceUri": "/subscriptions/{subscription-id}/resourceGroups/
-																		rg1/providers/Microsoft.Network/networkInterfaces/nc1"
-																	}
-																]
-															}
-	OSProfile                :  {
-																"AdminPassword": null,
-																"AdminUsername": "WinAdmin1",
-																"ComputerName": "vm1",
-																"CustomData": null,
-																"LinuxConfiguration": null,
-																"Secrets": [],
-																"WindowsConfiguration": {
-																	"AdditionalUnattendContents": [],
-																	"EnableAutomaticUpdates": true,
-																	"ProvisionVMAgent": true,
-																	"TimeZone": null,
-																	"WinRMConfiguration": null
-																}
-															}
-	Plan                     : null
-	ProvisioningState        : Succeeded
-	StorageProfile           : 	{
-																"DataDisks": [],
-																"ImageReference": {
-																	"Offer": "WindowsServer",
-																	"Publisher": "MicrosoftWindowsServer",
-																	"Sku": "2012-R2-Datacenter",
-																	"Version": "latest"
-																},
-																"OSDisk": {
-																	"OperatingSystemType": "Windows",
-																	"Caching": "ReadWrite",
-																	"CreateOption": "FromImage",
-																	"Name": "osdisk",
-																	"SourceImage": null,
-																	"VirtualHardDisk": {
-																		"Uri": "http://sa1.blob.core.windows.net/vhds/osdisk1.vhd"
-																	}
-																}
-															}
-	DataDiskNames            :  {}
-	NetworkInterfaceIDs      : { /subscriptions/{subscription-id}/resourceGroups/
-																rg1/providers/Microsoft.Network/networkInterfaces/nc1}
+## Iniciar uma máquina virtual
 
-Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
+Iniciar a máquina virtual.
 
-[AZURE.VIDEO displaying-information-about-a-virtual-machine-in-microsoft-azure-with-powershell]
+        Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
-## <a id="start"></a>Iniciar uma máquina virtual
+Após alguns minutos, ele retorna algo semelhante a:
 
-No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
+        RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
+        ---------  -------------------  ----------  ------------
+                                  True          OK  OK
 
-	Start-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
+## Parar uma máquina virtual
 
-Ele retorna algo semelhante a:
+Parar a máquina virtual.
 
-	Status              : Succeeded
-	StatusCode          : OK
-	RequestId           : 06935ddf-6e89-48d2-b46a-229493e3e9d1
-	Output              :
-	Error               :
-	StartTime           : 4/28/2015 11:10:35 AM -07:00
-	EndTime             : 4/28/2015 11:11:41 AM -07:00
-	TrackingOperationId : c1aa0a70-4f4f-4d6c-a8ac-7ea35c004ce0
-
-Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
-
-[AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
-
-## <a id="stop"></a>Parar uma máquina virtual
-
-No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
-
-	Stop-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
+	    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 É solicitado que você faça a confirmação:
 
-	Virtual machine stopping operation
-	This cmdlet will stop the specified virtual machine. Do you want to continue?
-	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+        Virtual machine stopping operation
+        This cmdlet will stop the specified virtual machine. Do you want to continue?
+        [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+        
+Digite **Y** para parar a máquina virtual.
+
+Após alguns minutos, ele retorna algo semelhante a:
+
+        RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
+        ---------  -------------------  ----------  ------------
+                                  True          OK  OK
+
+## Reiniciar uma máquina virtual
+
+Reinicie a máquina virtual.
+
+        $rgName = "resource group name"
+        $vmName = "VM name"
+        Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 Ele retorna algo semelhante a:
 
-	Status              : Succeeded
-	StatusCode          : OK
-	RequestId           : aac41de1-b85d-4429-9a3d-040b922d2e6d
-	Output              :
-	Error               :
-	StartTime           : 4/28/2015 11:10:35 AM -07:00
-	EndTime             : 4/28/2015 11:11:41 AM -07:00
-	TrackingOperationId : e1705973-d266-467e-8655-920016145347
+        RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
+        ---------  -------------------  ----------  ------------
+                                  True          OK  OK
 
-Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
+## Excluir uma máquina virtual
 
-[AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
+Excluir a máquina virtual.
 
-## <a id="restart"></a>Reiniciar uma máquina virtual
-
-No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
-
-	Restart-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
-
-Ele retorna algo semelhante a:
-
-	Status              : Succeeded
-	StatusCode          : OK
-	RequestId           : 4b05891c-fdff-4c9a-89ca-e4f1d7691aed
-	Output              :
-	Error               :
-	StartTime           : 1/5/2016 12:06:53 PM -08:00
-	EndTime             : 1/5/2016 12:06:54 PM -08:00
-	TrackingOperationId : 5aeeab89-45ab-41b9-84ef-9e9a7e732207
-
-
-Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
-
-[AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
-
-## <a id="delete"></a>Excluir uma máquina virtual
-
-No comando a seguir, substitua *nome do grupo de recursos* pelo nome do grupo de recursos que contém a máquina virtual e *nome da VM* pelo nome da máquina e execute-o:
-
-	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
+        $rgName = "resource group name"
+        $vmName = "VM name"
+	    Remove-AzureRmVM -ResourceGroupName $rgName –Name $vmName
 
 > [AZURE.NOTE] Use o parâmetro **-Force** para ignorar o prompt de confirmação.
 
 É solicitado que você confirme se você usou ou não o parâmetro -Force:
 
-	Virtual machine removal operation
-	This cmdlet will remove the specified virtual machine. Do you want to continue?
-	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+	    Virtual machine removal operation
+	    This cmdlet will remove the specified virtual machine. Do you want to continue?
+	    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
 Ele retorna algo semelhante a:
 
-	Status              : Succeeded
-	StatusCode          : OK
-	RequestId           : 2d723b40-ce1f-4b11-a603-dc659a13b6f0
-	Output              :
-	Error               :
-	StartTime           : 1/5/2016 12:10:28 PM -08:00
-	EndTime             : 1/5/2016 12:12:12 PM -08:00
-	TrackingOperationId : d138ab29-83bf-4948-9d13-dab87db1a639
+        RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
+        ---------  -------------------  ----------  ------------
+                                  True          OK  OK
 
-Se você gostaria de ver um vídeo desta tarefa sendo realizada, dê uma olhada nisso:
+## Atualizar uma máquina virtual
 
-[AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
+Este exemplo mostra como atualizar o tamanho da máquina virtual.
+        
+        $vmSize = "Standard_A1"
+        $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+        $vm.HardwareProfile.vmSize = $vmSize
+        Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
+    
+    See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md) for a list of available sizes for a virtual machine.
 
-<!---HONumber=AcomDC_0323_2016-->
+Ele retorna algo semelhante a:
+
+        RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
+        ---------  -------------------  ----------  ------------
+                                  True          OK  OK
+
+## Próximas etapas
+
+Se houver problemas com a implantação, a próxima etapa será examinar [Solucionando os problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
+
+<!---HONumber=AcomDC_0420_2016-->

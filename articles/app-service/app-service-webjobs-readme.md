@@ -18,7 +18,7 @@
 
 # Usando WebJobs no Serviço de Aplicativo do Azure
 
-Este tópico fornece links para recursos de documentação sobre como usar WebJobs do Azure e o SDK de WebJobs do Azure. Trabalhos Web do Azure fornece uma maneira fácil de executar scripts ou programas como processos em segundo plano em [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Você pode carregar e executar um arquivo executável, como cmd, bat, exe (.NET), ps1, sh, php, py, js e jar. Esses programas são executados como WebJobs em uma agenda (cron) ou continuamente.
+Este tópico fornece links para recursos de documentação sobre como usar o Azure WebJobs e o SDK do Azure WebJobs. Trabalhos Web do Azure fornece uma maneira fácil de executar scripts ou programas como processos em segundo plano em [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714). Você pode carregar e executar um arquivo executável, como cmd, bat, exe (.NET), ps1, sh, php, py, js e jar. Esses programas são executados como WebJobs em uma agenda (cron) ou continuamente.
 
 O SDK de WebJobs torna mais fácil de usar o armazenamento do Azure. O SDK de WebJobs tem uma um sistema de disparo e associação que funciona com o os blobs de armazenamento do Microsoft Azure, filas e tabelas, bem como filas do barramento de serviço.
 
@@ -28,4 +28,4 @@ O painel de Trabalhos Web no portal de gerenciamento do Azure fornece recursos d
 
 [AZURE.INCLUDE [app-service-blueprint-webjobs](../../includes/app-service-blueprint-webjobs.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -53,4 +53,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

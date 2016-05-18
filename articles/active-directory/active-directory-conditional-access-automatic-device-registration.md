@@ -38,7 +38,7 @@ Implantar o AD FS e conectar ao Active Directory do Azure usando o Azure Active 
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
-    
+
 8. Clique em **OK** duas vezes para concluir a caixa de diálogo.
 
 Configurar uma Referência de Classe de Autenticação de objeto de confiança de terceira parte confiável do Active Directory do Azure
@@ -47,7 +47,7 @@ No servidor de federação, abra uma janela de comando do Windows PowerShell e d
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
-   
+
 Em que <RPObjectName> é o nome do objeto de terceira parte confiável para seu objeto de confiança de terceira parte confiável do Active Directory do Azure. Esse objeto é tipicamente nomeado Plataforma de Identidade do Microsoft Office 365.
 
 Política de Autenticação Global do AD FS
@@ -83,7 +83,7 @@ Por exemplo, se você usar dois sufixos UPN na sua organização chamada @contos
 
 Configure o registro automático de dispositivo para os dispositivos ingressados no domínio com Windows 7 e Windows 8.1 usando os links abaixo. Certifique-se de que você concluiu os pré-requisitos acima antes de continuar.
 
-* [Configurar o Registro Automático de Dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+* [Configurar o Registro Automático de Dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 
 * [Configurar o Registro Automático de Dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
@@ -102,7 +102,7 @@ Você pode saber mais sobre como implantar o registro de dispositivos com o AD F
 
 - [Visão geral do registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md)
 - [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-- [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

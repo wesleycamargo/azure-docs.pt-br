@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="04/05/2016"
    ms.author="joaoma" />
 
 
@@ -93,4 +93,4 @@ As investigações de TCP e HTTP são consideradas íntegras e marcam a instânc
 
 Você pode usar a [análise de logs para o Balanceador de Carga](load-balancer-monitor-log.md) para verificar o status da integridade da investigação e a contagem da investigação. O registro em log pode ser usado com o Power BI ou com o Azure Operational Insights para fornecer estatísticas sobre o status da integridade do Balanceador de Carga.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

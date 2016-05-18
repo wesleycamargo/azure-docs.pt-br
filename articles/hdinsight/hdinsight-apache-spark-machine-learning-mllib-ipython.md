@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="04/14/2016" 
 	ms.author="nitinme"/>
 
 
-# Aprendizado de máquina: análise de previsão nos dados de inspeção de alimentos usando MLlib com Spark no HDInsight (Linux)
+# Aprendizado de máquina: análise preditiva nos dados de inspeção de alimentos usando MLlib com Spark no HDInsight Linux (Preview)
 
-> [AZURE.TIP] Este tutorial também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência do notebook permite executar os trechos de código Python no próprio notebook. Para executar o tutorial de dentro de um notebook, crie um cluster do Spark, inicie um notebook do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o notebook **Aprendizado de máquina do Spark - análise de previsão em dados de inspeção de alimentos usando MLLib.ipynb** na pasta **Python**.
+> [AZURE.TIP] Este tutorial também está disponível como um bloco de anotações do Jupyter em um cluster Spark (Linux) que você cria no HDInsight. A experiência do notebook permite executar os trechos de código Python no próprio notebook. Para executar o tutorial de dentro de um notebook, crie um cluster do Spark, inicie um notebook do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e execute o notebook **Aprendizado de máquina do Spark - análise de previsão em dados de inspeção de alimentos usando MLLib.ipynb** na pasta **Python**.
 
 
 Este artigo demonstra como usar **MLLib**, as bibliotecas de aprendizado de máquina internas do Spark, para executar uma análise de previsão simples em um conjunto de dados aberto. MLLib é uma biblioteca Spark principal que fornece vários utilitários úteis para tarefas de aprendizado de máquina, incluindo utilitários adequados para:
@@ -49,7 +49,7 @@ Em resumo, o processo de regressão logística produz uma *função logística* 
 
 ## O que estamos tentando fazer neste artigo?
 
-Você usará o Spark para executar alguma análise de previsão em dados de inspeção de alimentos (**Food\_Inspections1.csv**) adquiridos por meio do [portal de dados da cidade de Chicago](https://data.cityofchicago.org/). Esse conjunto de dados contém informações sobre inspeções de alimentos realizadas em Chicago, incluindo informações sobre cada estabelecimento de alimentos inspecionado, as violações encontradas (se houver) e os resultados da inspeção.
+Você usará o Spark para executar alguma análise de previsão em dados de inspeção de alimentos (**Food\_Inspections1.csv**) adquiridos por meio do [portal de dados da cidade de Chicago](https://data.cityofchicago.org/). Esse conjunto de dados contém informações sobre inspeções de alimentos realizadas em Chicago, incluindo informações sobre cada estabelecimento de alimentos inspecionado, as violações encontradas (se houver) e os resultados da inspeção. O arquivo de dados CSV já está disponível na conta de armazenamento associada ao cluster em **/HdiSamples/HdiSamples/FoodInspectionData/Food\_Inspections1.csv**.
 
 Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário para ser aprovado ou reprovado em uma inspeção de alimentos.
 
@@ -71,7 +71,7 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 
 	![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Fornecer um nome para o bloco de anotações")
 
-3. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark, SQL e Hive serão criados automaticamente para você ao executar a primeira célula de código. Você pode começar a criar seu aplicativo de aprendizado de máquina importando os tipos necessários para este cenário. Para fazer isso, coloque o cursor na célula e pressione **SHIFT + ENTER**.
+3. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar a criar seu aplicativo de aprendizado de máquina importando os tipos necessários para este cenário. Para fazer isso, coloque o cursor na célula e pressione **SHIFT + ENTER**.
 
 
 		from pyspark.ml import Pipeline
@@ -83,7 +83,7 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 
 ## Construir um dataframe de entrada
 
-Já temos um SQLContext que podemos usar para realizar transformações em dados estruturados. A primeira tarefa é carregar os dados de exemplo ((**Food\_Inspections1.csv**)) em um *dataframe* SQL do Spark. Os trechos de código a seguir pressupõem que os dados já estejam carregados no contêiner de armazenamento padrão associado ao cluster do Spark.
+Podemos usar `sqlContext` para executar transformações de dados estruturados. A primeira tarefa é carregar os dados de exemplo ((**Food\_Inspections1.csv**)) em um *dataframe* SQL do Spark.
 
 1. Como os dados brutos estão em um formato CSV, precisamos usar o contexto do Spark para efetuar pull de cada linha do arquivo na memória como texto não estruturado; em seguida, use a biblioteca CSV do Python para analisar cada linha individualmente. 
 
@@ -194,13 +194,13 @@ Já temos um SQLContext que podemos usar para realizar transformações em dados
 		%%sql -o countResultsdf
 		SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
 
-	A mágica do `%%sql` seguido pelo `-o countResultsdf` assegura que a saída da consulta sejam mantida localmente no servidor Jupyter (normalmente o nó principal do cluster). A saída é mantida como uma estrutura de dados [Pandas](http://pandas.pydata.org/) com o nome especificado **countResultsdf**.
+	A mágica do `%%sql` seguido pelo `-o countResultsdf` assegura que a saída da consulta seja mantida localmente no servidor Jupyter (normalmente o nó principal do cluster). A saída é mantida como uma estrutura de dados [Pandas](http://pandas.pydata.org/) com o nome especificado **countResultsdf**.
 	
 	Você verá algo semelhante ao mostrado a seguir:
 	
 	![Saída da consulta SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Saída da consulta SQL")
 
-	Para obter mais informações sobre a mágica do `%%sql`, bem como outras mágicas disponíveis com o kernel PySpark, consulte [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
+	Para obter mais informações sobre a mágica de `%%sql`, bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis para notebooks Jupyter com clusters do Spark no HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels).
 
 3. Você também pode usar Matplotlib, uma biblioteca usada para construir a visualização de dados para criar um gráfico. Como o gráfico deve ser criado da estrutura de dados **countResultsdf** mantida localmente, o trecho de código deve começar com a mágica `%%local`. Isso garante que o código seja executado localmente no servidor do Jupyter.
 
@@ -339,39 +339,32 @@ Podemos usar o modelo criado anteriormente para *prever* quais serão os resulta
 
 ## Criar uma representação visual da previsão
 
-Podemos construir uma visualização final para ajudar a justificar os resultados do teste.
+Agora podemos construir uma visualização final para ajudar a justificar os resultados deste teste.
 
-1. Vamos começar extraindo o diferentes previsões e os resultados da tabela temporária **Predictions** criada anteriormente.
+1. Vamos começar extraindo as diferentes previsões e os resultados da tabela temporária **Predictions** criada anteriormente. As consultas a seguir separam a saída como *true\_positive*, *false\_positive*, *true\_negative* e *false\_negative*. Nas consultas a seguir, vamos desligar as visualização usando `-q` e também salvar a saída (usando `-o`) como quadros de dados que podem ser usados com a mágica `%%local`. 
 
-		%%sql -o predictionstable
-		SELECT prediction, results FROM Predictions
+		%%sql -q -o true_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
 
-2. No trecho de código **predictionstable** acima está a estrutura de dados local do servidor do Jupyter que mantém a saída da consulta SQL. Agora você pode usar a mágica do `%%local` para executar os snippets de código posteriores na estrutura de dados mantida localmente.
+		%%sql -q -o false_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
 
-		%%local
-		failSuccess = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failFailure = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passSuccess = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passFailure = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failSuccess,failFailure,passSuccess,passFailure
+		%%sql -q -o true_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
 
-	A saída se parece com o seguinte:
-	
-		# -----------------
-		# THIS IS AN OUTPUT
-		# -----------------
-	
-		(276, 46, 1917, 261)
+		%%sql -q -o false_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions') 
 
-3. Por fim, use o trecho de código a seguir para gerar a plotagem.
+2. Por fim, use o trecho de código a seguir para gerar a plotagem usando o **Matplotlib**.
 
 		%%local
 		%matplotlib inline
 		import matplotlib.pyplot as plt
 		
 		labels = ['True positive', 'False positive', 'True negative', 'False negative']
-		sizes = [failSuccess, failFailure, passSuccess, passFailure]
-		plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+		sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
+		colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
 		plt.axis('equal')
 	
 	Você deve ver a saída a seguir.
@@ -419,4 +412,4 @@ Depois de concluir a execução do aplicativo, você deve encerrar o notebook pa
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

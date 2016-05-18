@@ -3,9 +3,9 @@
 	description="Este tutorial explica as etapas de criação de um ouvinte de grupo de disponibilidade do AlwaysOn no Azure que é acessível externamente usando o endereço IP Virtual público do serviço de nuvem associado."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="jroth" />
+	ms.date="04/28/2016"
+	ms.author="mikeray" />
 
 # Configurar um ouvinte externo para grupos de disponibilidade do AlwaysOn no Azure
 
@@ -22,12 +22,12 @@
 - [Ouvinte interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
 - [Ouvinte externo](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 
-Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade do AlwaysOn está acessível externamente na Internet. Isso se tornou possível associando o endereço do serviço de nuvem **IP Virtual público (VIP)** ao ouvinte.
+Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade do AlwaysOn está acessível externamente na Internet. Isso se tornou possível associando o endereço **VIP (IP virtual público)** do serviço de nuvem ao ouvinte.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
-O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](virtual-machines-windows-classic-portal-sql-availability.md), mas não configurou um ouvinte.
+O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), mas não configurou um ouvinte.
 
 ## Diretrizes e limitações para ouvintes externos
 
@@ -37,7 +37,7 @@ Observe as seguintes limitações sobre o ouvinte do grupo de disponibilidade no
 
 - O aplicativo cliente deve residir em um serviço de nuvem diferente daquele que contém as VMs do grupo de disponibilidade. O Azure não dá suporte a retorno de servidor direto com cliente e servidor no mesmo serviço de nuvem.
 
-- Por padrão, as etapas neste artigo mostram como configurar um ouvinte para usar o endereço de IP Virtual (VIP) do serviço de nuvem. No entanto, é possível reservar e criar vários endereços VIP para seu serviço de nuvem. Isso permite que você use as etapas neste artigo para criar vários ouvintes associados a cada VIP diferente. Para obter informações sobre como criar vários endereços VIP, consulte [VIPs múltiplos por serviço de nuvem](load-balancer-multivip.md).
+- Por padrão, as etapas neste artigo mostram como configurar um ouvinte para usar o endereço de IP Virtual (VIP) do serviço de nuvem. No entanto, é possível reservar e criar vários endereços VIP para seu serviço de nuvem. Isso permite que você use as etapas neste artigo para criar vários ouvintes associados a cada VIP diferente. Para obter informações sobre como criar vários endereços VIP, consulte [VIPs múltiplos por serviço de nuvem](../load-balancer/load-balancer-multivip.md).
 
 - Se você estiver criando um ouvinte para um ambiente híbrido, a rede local deve ter conectividade com a Internet pública além da VPN site a site com a rede virtual do Azure. Quando estiver na sub-rede do Azure, o ouvinte do grupo de disponibilidade será alcançável somente pelo endereço IP público do respectivo serviço de nuvem.
 
@@ -130,4 +130,4 @@ Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes dever
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

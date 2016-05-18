@@ -21,7 +21,7 @@ Create table as select ou `CTAS` é um dos recursos do T-SQL mais importantes di
 
 ## Usando o CTAS para copiar uma tabela
 
-Talvez um dos usos mais comuns do `CTAS` seja criar uma cópia de uma tabela para que você possa alterar a DDL. Caso, por exemplo, você tenha criado originalmente sua tabela como `ROUND_ROBIN` e agora deseje alterá-la para uma tabela distribuída em uma coluna, `CTAS` é como você alteraria a coluna de distribuição. `CTAS` também pode ser usado para alterar os tipos de particionamento, indexação ou coluna.
+Talvez um dos usos mais comuns do `CTAS` seja criar uma cópia de uma tabela para que você possa alterar a DDL. Caso, por exemplo, você tenha criado sua tabela originalmente como `ROUND_ROBIN` e agora deseje alterá-la para uma tabela distribuída em uma coluna, `CTAS` é como você alteraria a coluna de distribuição. `CTAS` também pode ser usado para alterar os tipos de particionamento, indexação ou coluna.
 
 Digamos que você tenha criado esta tabela usando o tipo de distribuição padrão do `ROUND_ROBIN`, já que nenhuma coluna de distribuição foi especificada em `CREATE TABLE`.
 
@@ -433,4 +433,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

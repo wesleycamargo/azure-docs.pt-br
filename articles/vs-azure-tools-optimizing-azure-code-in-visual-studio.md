@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Otimizando o código do Azure
@@ -530,6 +530,6 @@ public class BlogsController : Controller
 
 ## Próximas etapas
 
-Para saber mais sobre como otimizar e solucionar problemas de aplicativos do Azure, consulte [Solucionar problemas de um aplicativo Web no serviço de aplicativo do Azure usando o Visual Studio](/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
+Para saber mais sobre como otimizar e solucionar problemas de aplicativos do Azure, consulte [Solucionar problemas de um aplicativo Web no serviço de aplicativo do Azure usando o Visual Studio](./app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

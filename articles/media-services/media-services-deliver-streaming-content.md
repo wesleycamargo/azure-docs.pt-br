@@ -2,7 +2,7 @@
 	pageTitle="Como fornecer conteúdo de streaming dos Serviços de Mídia" 
 	description="Saiba como criar um localizador que é usado para construir um URL de transmissão. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET." 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+	ms.date="04/18/2016"
 	ms.author="juliako"/>
 
 
@@ -171,4 +171,4 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 
 [Baixar ativos](media-services-deliver-asset-download.md) [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

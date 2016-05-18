@@ -66,13 +66,13 @@ Os dados de exemplo ficam no armazenamento de Blob do Azure, que é usado pelo H
 
 Como o armazenamento de blob do Azure é o armazenamento padrão para HDInsight, você também pode acessar o arquivo usando **/example/data/gutenberg/davinci.txt**.
 
-> [AZURE.NOTE] A sintaxe acima, ****wasb:///**, é usada para acessar arquivos armazenados no contêiner de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster, e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento. Por exemplo, ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
+> [AZURE.NOTE] A sintaxe acima, **wasb:///**, é usada para acessar arquivos armazenados no contêiner de armazenamento padrão do cluster HDInsight. Se você tiver especificado contas de armazenamento adicionais ao provisionar o cluster, e quiser acessar arquivos armazenados nessas contas, você pode acessar os dados especificando o nome do contêiner e endereço da conta de armazenamento. Por exemplo, **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
 
 ##<a id="job"></a>Sobre o MapReduce de exemplo
 
-O trabalho do MapReduce usado neste exemplo está localizado em ****wasb://example/jars/hadoop-mapreduce-examples.jar** e vem com o cluster HDInsight. Ele contém um exemplo de contagem de palavras que você executará em **davinci.txt**.
+O trabalho do MapReduce usado neste exemplo está localizado em **wasb://example/jars/hadoop-mapreduce-examples.jar** e vem com o cluster HDInsight. Ele contém um exemplo de contagem de palavras que você executará em **davinci.txt**.
 
-> [AZURE.NOTE] Em clusters HDInsight 2.1, o local do arquivo é ****wasb:///example/jars/hadoop-examples.jar**.
+> [AZURE.NOTE] Em clusters HDInsight 2.1, o local do arquivo é **wasb:///example/jars/hadoop-examples.jar**.
 
 Para referência, este é o código Java para o trabalho do MapReduce de contagem de palavras:
 
@@ -179,7 +179,6 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-samples]: hdinsight-run-samples.md
@@ -189,4 +188,4 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

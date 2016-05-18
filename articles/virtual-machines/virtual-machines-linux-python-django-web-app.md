@@ -6,7 +6,7 @@
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""
-	tags=“azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines-linux" 
@@ -129,4 +129,4 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
 
 Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtual recém-criada do Azure para liberar recursos para outros tutoriais e evitar a incidência de encargos de uso do Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

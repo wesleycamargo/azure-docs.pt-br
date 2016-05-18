@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="04/29/2016"
 	ms.author="jahogg"/>
 
 # Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
@@ -26,7 +26,9 @@ Questões de diagnóstico e de solução de problemas em um aplicativo distribu�
 
 Para gerenciar esses aplicativos com êxito, monitore-os de forma proativa e entenda todos os aspectos de como se faz o diagnóstico e a solução de problemas deles e de suas tecnologias dependentes. Como usuário dos serviços de Armazenamento do Azure, monitore continuamente o serviços de Armazenamento que o seu aplicativo utiliza para qualquer mudança inesperada em comportamento (como um tempo maior de resposta do que o normal) e faça o login para coletar mais dados detalhados para analisar o problema em profundidade. As informações de diagnósticos que você obtiver tanto do monitoramento como do registro em log irão ajudá-lo a determinar a raiz do problema que o seu aplicativo encontrou. Você poderá solucionar o problema e determinar as etapas apropriadas que você pode tomar para corrigi-lo. O Armazenamento do Azure é um serviço básico do Azure e é parte importante da maioria das soluções que os clientes implantam para a infraestrutura Azure. O Armazenamento do Azure inclui capacidades de simplificar questões de monitoramento, diagnóstico e de soluções de problemas de armazenamento em seus aplicativos em nuvem.
 
-Para obter um guia prático para solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte [Solução de problemas de ponta a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e Message Analyzer](../storage-e2e-troubleshooting/).
+> [AZURE.NOTE] As contas de armazenamento com um tipo de replicação de ZRS (armazenamento com redundância de zona) não têm métricas ou funcionalidade de log habilitadas no momento.
+
+Para obter um guia prático para solução de problemas de ponta a ponta em aplicativos de armazenamento do Azure, consulte [Solução de problemas de ponta a ponta usando métricas de armazenamento do Azure e registro em log, AzCopy e Message Analyzer](storage-e2e-troubleshooting.md).
 
 + [Introdução]
 	+ [Como esse guia está organizado]
@@ -409,7 +411,7 @@ No caso de alta **AverageServerLatency** para as solicitações de download de b
 
 Valores altos de **AverageServerLatency** podem também ser um sintoma de tabelas ou consultas mal desenhadas que resultam em operações de digitalização ou que seguem a anti-sequência acrescentar/preceder. Consulte "[As métricas mostram um aumento em PercentThrottlingError]" para obter mais informações.
 
-> [AZURE.NOTE] É possível encontrar uma lista de verificação abrangente, bem como outros problemas que devem ser conhecidos, aqui: [Lista de verificação de escalabilidade e desempenho do Armazenamento do Microsoft Azure](storage-performance-checklist.md).
+> [AZURE.NOTE] É possível encontrar uma lista de verificação de desempenho abrangente aqui: [Lista de verificação de escalabilidade e desempenho do Armazenamento do Microsoft Azure](storage-performance-checklist.md).
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Você está enfrentando atrasos inesperados na entrega de mensagens em uma fila
 
@@ -487,7 +489,7 @@ Nesse cenário, você deve investigar porque o token de SAS está expirando ante
 
 - Normalmente, você não deveria definir um tempo de início quando você cria uma SAS para um cliente para usar imediatamente. Se houver pequenas diferenças entre os relógios do hospedeiro que gera o SAS usando o horário atual e o serviço de armazenamento, então é possível que o serviço de armazenamento receba uma SAS que não seja válida.
 - Não defina um tempo de expiração muito curto na SAS. Novamente, pequenas diferenças entre os relógios do hospedeiro gerando a SAS e o serviço de armazenamento pode levar a uma SAS aparentemente expirando mais cedo do que esperado.
-- Os parâmetros da versão na chave SAS (por exemplo **sv=2015-04-05**) correspondem à versão da Biblioteca do Cliente de Armazenamento usada? Recomendamos usar sempre a versão mais recente da [Biblioteca de Cliente de Armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/). Para saber mais sobre o controle de versão do token SAS e as dependências na versão da biblioteca do cliente, veja [Novidades do Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
+- Os parâmetros da versão na chave SAS (por exemplo **sv=2015-04-05**) correspondem à versão da Biblioteca do Cliente de Armazenamento usada? Recomendamos usar sempre a versão mais recente da [Biblioteca de Cliente de Armazenamento](https://www.nuget.org/packages/WindowsAzure.Storage/). Para obter mais informações sobre controle de versão token SAS, consulte [Novidades para o Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
 - Se você gerar suas chaves de acesso de armazenamento, isso pode invalidar quaisquer tokens de SAS existentes. Isso pode ser um problema se você token de SAS com um tempo de expiração longo para aplicativos de cliente para o cache.
 
 Se você estiver usando a biblioteca do cliente de armazenamento para gerar tokens de SAS, então será fácil compilar um token válido. Entretanto, se você estiver usando a API REST de armazenamento e compilando tokens de SAS manualmente, leia cuidadosamente o tópico <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delegando acesso com uma assinatura de acesso compartilhado</a> no MSDN.
@@ -668,7 +670,10 @@ O aplicativo do cliente deve usar nomes de contêiner exclusivos sempre que cria
 
 As métricas de **PercentSuccess** capturam a porcentagem das operações que tiveram êxito com base nos códigos de status HTTP. As operações com códigos de status 2XX contam como bem sucedidas, enquanto as operações com código de status de intervalos 3XX, 4XX e 5XX são contadas como sem sucesso e inferiores aos valores de métricas **PercentSucess**. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**.
 
-É importante observar que essas operações foram concluídas com sucesso e por isso não afetam as outras métricas como a de disponibilidade. Alguns exemplos de operações que são executadas com sucesso, mas que podem resultar em códigos de status HTTP sem êxito incluem: - **ResourceNotFound** (Não encontrado 404), por exemplo, de uma solicitação GET para o blob que não existe. - **ResouceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe. - **ConditionNotMet** (Não Modificado 304), por exemplo, de uma operação condicional tal como quando o cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se ela tiver sido atualizada desde a última operação.
+É importante observar que essas operações foram concluídas com sucesso e por isso não afetam as outras métricas como a de disponibilidade. Alguns exemplos de operações que executam com sucesso, mas que podem resultar em códigos de status HTTP sem sucesso incluem:
+- **ResourceNotFound** (Não encontrado 404), por exemplo, de uma solicitação GET para o blob que não existe.
+- **ResouceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe.
+- **ConditionNotMet** (Não Modificado 304), por exemplo, de uma operação condicional tal como quando o cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se ela tiver sido carregada a partir da última operação.
 
 Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página <a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">Códigos de erro comuns da API REST</a>.
 
@@ -919,4 +924,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

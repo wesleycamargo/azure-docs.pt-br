@@ -21,14 +21,14 @@ ms.author="mandia"/>
 
 Conecte-se a Twilio para enviar e receber mensagens SMS, MMS e de IP globais.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [Twilio](../app-service-logic/app-service-logic-connector-twilio.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o Twilio, você pode:
 
 - Compile seu fluxo de negócios baseado nos dados obtidos do Twilio. 
 - Use ações para obter uma mensagem, listar mensagens e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando você recebe uma nova mensagem do Twilio, você pode obtê-la e usá-la como um fluxo de trabalho do Barramento de Serviço. 
 
-Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 A API do Twilio inclui as ações a seguir. Não há nenhum gatilho.
@@ -47,7 +47,7 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 |ID da Conta|Sim|Insira seu ID de conta do Twilio|
 |Token de Acesso|Sim|Insira seu token de acesso do Twilio|
 
-Consulte [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) para criar um token de acesso.
+Confira o [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) para criar um token de acesso.
 
 Depois de criar a conexão, insira as propriedades do Twilio. A **Referência da API REST** neste tópico descreve essas propriedades.
 
@@ -247,4 +247,4 @@ Enviar uma nova mensagem para um número de celular. ```POST: /Messages.json```
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

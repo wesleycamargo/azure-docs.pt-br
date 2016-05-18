@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="04/26/2016"
    ms.author="hascipio"/>
 
 # Concluir a criação de oferta com conteúdo de marketing
@@ -26,34 +26,64 @@ Nesta etapa do processo de publicação, você precisará de fornecer determinad
   2. No menu à esquerda, clique na guia **Marketing**.
   3. No painel principal, clique no botão **Inglês (EUA)**.
 
+  > [AZURE.IMPORTANT] Todos os campos devem ter entradas, incluindo as imagens, a fim de poder mover para o preparo.
+
 ### Detalhes
-1. Insira o resumo, o resumo longo e uma descrição da oferta.
-2.	Carregue imagens das especificações necessárias (mencionadas no portal de publicação) em formato PNG, uma para cada tamanho.
+1. Insira o título da oferta (máximo de 50 caracteres), resumo da oferta (máximo de 100 caracteres), resumo longo da oferta (máximo de 256 caracteres), descrição da oferta (máximo de 1300 caracteres) e logotipos na guia **Detalhes**
+2. Insira o título da SKU (máximo de 50 caracteres), resumo da SKU (máximo de 100 caracteres) e descrição da SKU (máximo de 2000 caracteres) na guia **Planos**
+3. Não insira texto duplicado nas descrições da oferta e da SKU.
+4. Não insira texto duplicado no título da SKU e resumo longo da oferta.
+5. Não insira texto duplicado no título da SKU e resumo da oferta.
+6. Carregue imagens com as especificações necessárias (mencionadas no Portal de Publicação) no formato PNG e uma para cada tamanho.
+7. Verifique se os logotipos seguem as diretrizes de logotipo do Azure Marketplace mencionadas a seguir.
 
-  ![desenho](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+  ![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
-  *Título, descrição e logotipos da oferta*
+**Diretrizes de Logotipo do Azure Marketplace**
+
+Todos os logotipos carregados no Portal de Publicação devem seguir as diretrizes abaixo:
+
+- O design do Azure tem uma paleta de cores simples. Mantenha um baixo número de cores principais e secundárias em logotipos.
+- Logotipos não devem ser colocados em uma tela de fundo branca. Recomendamos usar cores primárias simples ou planos de fundo transparentes.
+- Não use uma tela de fundo gradiente no logotipo.
+- Evite colocar texto, até mesmo o nome ou marca da sua empresa, no logotipo.
+- A aparência do seu logotipo deve ser “simples” e deve evitar usar gradientes.
+- O logotipo não deve ser estendido.
+- O logotipo pequeno deve ter o tamanho de 40 X 40 px
+- O logotipo médio deve ter o tamanho de 90 X 90 px
+- O logotipo grande deve ter o tamanho de 115 X 115 px
+- O logotipo largo deve ter o tamanho de 255 X 115 px
+- O logotipo Hero deve ter o tamanho de 815 X 290 px
+
+  ![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
+
+**Diretrizes adicionais para a faixa de logotipo Hero:**
+
+- O logotipo Hero é opcional. Você pode optar por não carregar um logotipo Hero.
+- O nome de exibição do editor, título da SKU, resumo longo da oferta e o botão de criação são inseridos automaticamente no logotipo Hero depois que a oferta fica ativa. Por isso não é necessário inseri-los ao desenhar o logotipo Hero.
+- Como o Nome de Exibição do Editor, título da SKU e o resumo longo da oferta são exibidos na cor branca, você deve evitar manter a tela de fundo do ícone Hero em branco ou qualquer cor clara.
+- Você deve deixar espaço para o texto acima na parte superior do ícone Hero. O espaço para o texto é 415 x 100 e ele é desviado em 370 px da esquerda.
+
+  ![desenho](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
 ### Links
 Na guia de **Links** à esquerda da barra, insira quaisquer links com informações que possam ajudar os clientes. Insira um nome e uma URL para cada link.
 
-![desenho](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### Imagens de exemplo (opcionais)
 > [AZURE.NOTE] Incluir uma imagem de exemplo é uma etapa opcional. É possível preencher o conteúdo de marketing para atender aos requisitos de envio por push para o preparo.
 
 Na guia **Imagens de Exemplo** no menu à esquerda, carregue uma nova imagem clicando em **Carregar uma nova imagem**. Se você tiver uma imagem existente e deseja substituí-la, clique em **Substituir imagem**.
 
-![desenho](media/marketplace-publishing-push-to-staging/pubportal-03.png)
-
-### Planos
-![desenho](media/marketplace-publishing-push-to-staging/pubportal-02.png)
+![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-sampleimg-01.png)
 
 ### Legal
-Na guia **Legal**, forneça um link para as políticas/termos de uso. Insira ou cole os termos na caixa grande **Termos de Uso**.
+Na guia **Legal**, forneça um link para as políticas/termos de uso. Insira ou cole os termos na caixa grande **Termos de Uso**. O limite de caracteres para os termos legais de uso é 1.000.000 caracteres.
 
-> [AZURE.IMPORTANT] Todos os campos devem ter entradas, incluindo as imagens, a fim de poder mover para o preparo.
+![desenho](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
+> [AZURE.NOTE] Para máquinas virtuais, não é possível alterar o seguinte após um SKU ser preparado ou ficar ativo: **Identificador da oferta**, **Identificador de editor** e **Identificador de SKU**.
 
 ## Etapa 2: Definir seus preços
 ### Modelos de preços
@@ -83,10 +113,12 @@ Na guia **Legal**, forneça um link para as políticas/termos de uso. Insira ou 
 3.	Se a SKU é BYOL, marque a caixa de seleção para a disponibilidade SKU licenciada externamente (BYOL).
 4.	Se a SKU for por hora, insira o preço do seu software. As SKUs sem preços não estarão disponíveis para compra ou uso.
 
-  >[AZURE.NOTE] Se você tiver BYOL e SKUs por hora, então certifique-se de que os seguintes requisitos sejam atendidos: caixa de seleção marcada como BYOL e valores de preços selecionados como por hora.
+  > [AZURE.NOTE] Se você tiver BYOL e SKUs por hora, então certifique-se de que os seguintes requisitos sejam atendidos: caixa de seleção marcada como BYOL e valores de preços selecionados como por hora.
 
 5.	Será aberto um assistente de preço. Continue para preencher os preços, incluindo preços de outros países, se você optar por permitir compras de fora do seu mercado específico.
 6.	Alguns países são países de remessa de ISV. Para vender em um país de remessa de ISV, você deve ser capaz de cobrar e recolher imposto sobre suas SKUs, e calcular e pagar imposto ao governo do país. A Microsoft não está em posição de prestar orientação jurídica ou fiscal. Consulte a seção "Países de destino de venda da oferta" na introdução deste documento para obter mais informações sobre os países de destino de venda.
+
+  > [AZURE.NOTE] Para as máquinas virtuais, não é possível alterar o seguinte após um SKU ficar ativo, pois isso afeta a cobrança de clientes existentes: **Mudança de preço**, **Mudança no modelo de cobrança** e **Remoção de regiões de cobrança**.
 
 ### 2\.2. Definir seus Preços de serviço do desenvolvedor
 Os planos podem ser qualquer combinação de base + consumo, em que a base é o preço mensal e o excedente é o preço de pagamento por uso. (Consulte a seguir para obter mais detalhes.)
@@ -104,7 +136,7 @@ Os planos podem ser qualquer combinação de base + consumo, em que a base é o 
 |Gold|US $ 1.000/mês|Cota de 10.000 de recurso X, 1.000 do recurso Y e ilimitada do recurso Z.|Pode migrar para todos os planos exceto livre|
 
 ## Etapa 3: Fornecer informações de suporte
-Algumas dessas informações já estarão preenchidas durante a etapa de certificação. Você pode adicionar ou editar informações usando as etapas abaixo. Os detalhes de contato são usados apenas para comunicações internas entre o parceiro e Microsoft. O URL de suporte estará disponível para os clientes finais.
+Os detalhes de contato são usados apenas para comunicações internas entre o parceiro e Microsoft. O URL de suporte estará disponível para os clientes finais.
 
 1.	Vá para o cabeçalho de **Suporte** no lado esquerdo do portal de publicação.
 2.	Insira as informações em **Contato de Engenharia**.
@@ -115,7 +147,7 @@ Algumas dessas informações já estarão preenchidas durante a etapa de certifi
 A guia **Categorias** fornece uma matriz de seleções. Sua oferta pode estar entre elas e você pode selecionar até cinco categorias.
 
 ## Como seu marketing aparecerá
-Abaixo está uma visão detalhada de como a oferta de informações de marketing é usada no [site do Azure Marketplace](https://azure.microsoft.com/marketplace/) e no [portal de visualização do Azure](https://ms.portal.azure.com).
+Abaixo está uma exibição detalhada de como a oferta de informações de marketing é usada no [site do Azure Marketplace](https://azure.microsoft.com/marketplace/) e no [Portal do Azure](https://portal.azure.com).
 
 ### Site do Azure Marketplace
 ![desenho](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
@@ -132,21 +164,21 @@ Abaixo está uma visão detalhada de como a oferta de informações de marketing
 
 *Detalhes de preços da descrição da oferta no site Azure Marketplace*
 
-### Portal de Visualização do Azure
-![desenho](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
+### Portal do Azure
+![desenho](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
-*Listagem de ofertas na galeria do portal de visualização do Azure*
+*Listagem de ofertas no Portal do Azure*
 
-![desenho](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
+![desenho](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
-*Detalhes da descrição de ofertas na galeria do portal de visualização do Azure*
+*Detalhes da descrição da oferta no Portal do Azure*
 
 ## Próximas etapas
 Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar sua oferta no preparo. No entanto, você deve selecionar o tipo de oferta apropriado na lista abaixo já que as etapas variam por tipo de oferta.
 
-|Imagem de máquina virtual |Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
+||Imagem de máquina virtual |Serviço do desenvolvedor | Serviço de dados | Modelo de solução |
 |----|----|----|----|----|
-| **Etapa 3. Enviar por push sua oferta para preparo** | [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md) | Testar sua oferta de serviço de desenvolvedor em preparo | [Testar sua oferta de serviço de dados em preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar o modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Etapa 3. Enviar por push sua oferta para preparo** | [Testar sua oferta de VM em preparo](marketplace-publishing-vm-image-test-in-staging.md) | Visualização particular | [Testar sua oferta de serviço de dados em preparo](marketplace-publishing-data-service-test-in-staging.md) | [Testar o modelo de solução em preparo](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Consulte também
 - [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -160,4 +192,4 @@ Agora que o conteúdo do Marketplace está carregado, seguiremos para a testar s
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0504_2016-->

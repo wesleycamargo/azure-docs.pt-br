@@ -3,7 +3,7 @@
     description="Saiba como usar o Salesforce com o Active Directory do Azure para habilitar logon único, provisionamento automatizado e muito mais!"
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="asmalser-msft"/>
 
 #Tutorial: Como integrar o Salesforce ao Active Directory do Azure
 
@@ -256,4 +256,4 @@ Você pode acompanhar este tutorial usando os vídeos abaixo.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0427_2016-->

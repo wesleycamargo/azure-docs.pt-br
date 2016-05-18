@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Usar tabelas de pesquisa e dados de referência no Stream Analytics | Microsoft Azure" 
-	description="Usar dados de referência em uma consulta do Stream Analytics" 
+<properties
+	pageTitle="Usar tabelas de pesquisa e dados de referência no Stream Analytics | Microsoft Azure"
+	description="Usar dados de referência em uma consulta do Stream Analytics"
 	keywords="tabela de pesquisa, dados de referência"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Usando dados de referência e tabelas de pesquisa em um fluxo de entrada do Stream Analytics
 
-Dados de referência (também conhecidos como tabela de pesquisa) são um conjunto finito de dados estáticos ou com alteração lenta por natureza, usados para executar uma pesquisa ou para correlacionar com seu fluxo de dados. Para usar dados de referência no seu trabalho do Stream Analytics do Azure geralmente é preciso usar uma [União de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) em sua consulta. O Stream Analytics usa o armazenamento de Blob do Azure como a camada de armazenamento para dados de referência e com os dados de referência da fábrica de dados do Azure podem ser transformados e/ou copiados para o armazenamento de Blob do Azure, para uso como dados de referência de [qualquer número armazenamentos de dados de nuvem e locais](./articles/data-factory-data-movement-activities.md). Dados de referência são modelados como uma sequência de blobs (definidos na configuração de entrada) em ordem crescente segundo a data/hora especificada no nome do blob. Ele **somente** dá suporte à adição ao final da sequência usando um valor de data/hora **maior** que aquele especificado pelo último blob na sequência.
+Dados de referência (também conhecidos como tabela de pesquisa) são um conjunto finito de dados estáticos ou com alteração lenta por natureza, usados para executar uma pesquisa ou para correlacionar com seu fluxo de dados. Para usar dados de referência no seu trabalho do Stream Analytics do Azure geralmente é preciso usar uma [União de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) em sua consulta. O Stream Analytics usa o armazenamento de Blob do Azure como a camada de armazenamento para dados de referência e com os dados de referência da fábrica de dados do Azure podem ser transformados e/ou copiados para o armazenamento de Blob do Azure, para uso como dados de referência de [qualquer número armazenamentos de dados de nuvem e locais](../data-factory/data-factory-data-movement-activities.md). Dados de referência são modelados como uma sequência de blobs (definidos na configuração de entrada) em ordem crescente segundo a data/hora especificada no nome do blob. Ele **somente** dá suporte à adição ao final da sequência usando um valor de data/hora **maior** que aquele especificado pelo último blob na sequência.
 
 ## Configurando os dados de referência
 
@@ -76,7 +76,7 @@ Se os seus dados de referência são um conjunto de dados de alteração lenta, 
 
 > [AZURE.NOTE] Atualmente os trabalhos do Stream Analytics procuram pela atualização de blob somente quando a hora do computador coincide com a hora codificada no nome do blob. Por exemplo o trabalho procurará /sample/2015-04-16/17:30/products.csv entre 17:30 hora e 17:30:59.9 em 16 de abril de 2015 no fuso horário UTC. Quando o relógio chega em 17:31, ele para de procurar por /sample/2015-04-16/17:30/products.csv e começa a procurar por /sample/2015-04-16/17:31/products.csv. Uma exceção a isso é iniciada quando o trabalho precisa reprocessar dados de volta no tempo ou quando o trabalho é o primeiro a iniciar. Na hora de início, o trabalho está procurando o blob mais recente produzido antes da hora especificada de início do trabalho. Isso é feito para garantir que haja um conjunto de dados de referência não vazio quando o trabalho é iniciado. Se um não for encontrado, o trabalho falhará e exibirá um aviso de diagnóstico para o usuário:
 
-A [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser utilizada para orquestrar a tarefa de criar os blobs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. O Data Factory dá suporte [à conexão de um grande número de armazenamentos de dados local baseados em nuvem](./articles/data-factory-data-movement-activities.md) e mover dados facilmente em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para o Stream Analytics que é atualizado em um cronograma predefinido, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+A [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser utilizada para orquestrar a tarefa de criar os blobs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. O Data Factory dá suporte [à conexão de um grande número de armazenamentos de dados local baseados em nuvem](../data-factory/data-factory-data-movement-activities.md) e mover dados facilmente em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para o Stream Analytics que é atualizado em um cronograma predefinido, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## Dicas sobre como atualizar seus dados de referência ##
 
@@ -103,4 +103,4 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

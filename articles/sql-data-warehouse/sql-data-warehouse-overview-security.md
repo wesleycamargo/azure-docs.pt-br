@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="04/30/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # Proteger um banco de dados no SQL Data Warehouse
@@ -24,12 +24,14 @@ Este artigo apresenta os conceitos básicos da proteção do banco de dados do S
 
 A Segurança da Conexão refere-se a como você restringe e protege as conexões com o banco de dados usando regras de firewall e criptografia de conexão.
 
-As regras de firewall são usadas pelo servidor e pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não foram incluídos explicitamente na lista de permissões. Para permitir que seu aplicativo ou o endereço IP público do computador cliente tente se conectar a um novo banco de dados, primeiramente você deve criar uma regra de firewall no nível de servidor usando o Portal Clássico do Azure, a API REST ou o PowerShell. Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure][].
+As regras de firewall são usadas pelo servidor e pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não foram incluídos explicitamente na lista de permissões. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o Portal Clássico do Azure, a API REST ou o PowerShell. Como prática recomendada, você deve restringir ao máximo os intervalos de endereços IP permitidos por meio do firewall de servidor. Para acessar o SQL Data Warehouse do Azure de seu computador local, verifique se o firewall em sua rede e computador local permite a comunicação de saída na porta TCP 1433. Para obter mais informações, consulte [Firewall do Banco de Dados SQL do Azure][].
+
+Conexões com o SQL Data Warehouse podem ser criptografadas, definindo o modo de criptografia na sua cadeia de conexão. A sintaxe para ativar a criptografia para a conexão varia de acordo com o protocolo. Para ajudá-lo a configurar sua cadeia de conexão, navegue até o banco de dados no Portal do Azure. Em *Dados essenciais*, clique em *Mostrar cadeias de conexão de banco de dados*.
 
 
 ## Autenticação
 
-A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. Atualmente, o SQL Data Warehouse oferece suporte à Autenticação SQL com um nome de usuário e uma senha.
+A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. Atualmente, o SQL Data Warehouse dá suporte à Autenticação do SQL Server com um nome de usuário e uma senha.
 
 Quando você criou o servidor lógico do banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo".
 
@@ -67,15 +69,15 @@ A conta de administrador do servidor com a qual você está se conectando é um 
 
 Existem maneiras de limitar ainda mais o que um usuário pode fazer com o Banco de Dados SQL do Azure:
 
-- [Funções de banco de dados][] diferentes de db\_datareader e db\_datawriter podem ser usadas para criar contas de usuário de aplicativo mais potentes ou contas de gerenciamento menos potentes.
-- [Permissões][] granulares permitem controlar quais operações você pode fazer em colunas, tabelas, exibições, procedimentos e outros objetos individuais no banco de dados.
+- [Permissões][] granulares permitem controlar quais operações você pode fazer em colunas, tabelas, exibições, procedimentos e outros objetos individuais no banco de dados. Use permissões granulares para ter maior controle e conceder as permissões mínimas necessárias. O sistema de permissão granular é um pouco complicado e exige estudo para ser usado com eficiência.
+- [Funções de banco de dados][] diferentes de db\_datareader e db\_datawriter podem ser usadas para criar contas de usuário de aplicativo mais potentes ou contas de gerenciamento menos potentes. As funções internas de banco de dados fixo fornecem uma maneira fácil para conceder permissões, mas podem resultar na concessão de mais permissões do que o necessário.
 - [Procedimentos armazenados][] podem ser usados para limitar as ações que podem ser executadas no banco de dados.
 
 O gerenciamento de bancos de dados e servidores lógicos pelo Portal Clássico do Azure ou usando a API do Gerenciador de Recursos do Azure é controlado pelas atribuições de função da sua conta de usuário. Para saber mais sobre esse tópico, confira [Controle de acesso baseado em função no portal do Azure][].
 
 ## Criptografia
 
-O SQL Data Warehouse do Azure pode ajudar a proteger seus dados criptografando-os quando estiverem “em repouso” ou armazenados em arquivos e backups de banco de dados usando a [Transparent Data Encryption][]. Para criptografar o banco de dados, conecte-se ao banco de dados mestre em seu servidor e execute:
+O SQL Data Warehouse do Azure pode ajudar a proteger seus dados criptografando-os quando estiverem “em repouso” ou armazenados em arquivos e backups de banco de dados usando a [Transparent Data Encryption][]. Você deve ser um administrador ou um membro da função dbmanager no banco de dados mestre para habilitar a TDE. Para criptografar o banco de dados, conecte-se ao banco de dados mestre em seu servidor e execute:
 
 
 ```sql
@@ -84,20 +86,20 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-Você também pode habilitar a Transparent Data Encryption por meio das configurações de banco de dados no [Portal Clássico do Azure][].
+Você também pode habilitar a Transparent Data Encryption por meio das configurações de banco de dados no [Portal Clássico do Azure][]. Para obter mais informações, consulte [Introdução ao TDE (Transparent Data Encryption)](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Auditoria
 
 A Auditoria e o rastreamento dos eventos de banco de dados podem ajudar você a manter a conformidade normativa e a identificar atividades suspeitas. A Auditoria do SQL Data Warehouse permite registrar eventos no banco de dados em um log de auditoria na sua conta de armazenamento do Azure. A Auditoria do SQL Data Warehouse também se integra ao Microsoft Power BI para facilitar análises e relatórios detalhados. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL][].
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
+Para obter detalhes e exemplos sobre como se conectar ao SQL Data Warehouse com protocolos diferentes, consulte [Conectar-se ao SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
-
+[Conectar-se ao SQL Data Warehouse]: sql-data-warehouse-develop-connections.md
+[Introdução à Auditoria do Banco de Dados SQL]: sql-database-auditing-get-started.md
 
 <!--MSDN references-->
 [Firewall do Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -106,10 +108,9 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 [Permissões]: https://msdn.microsoft.com/library/ms191291.aspx
 [Procedimentos armazenados]: https://msdn.microsoft.com/library/ms190782.aspx
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
-[Introdução à Auditoria do Banco de Dados SQL]: sql-database-auditing-get-started.md
 [Portal Clássico do Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Controle de acesso baseado em função no portal do Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

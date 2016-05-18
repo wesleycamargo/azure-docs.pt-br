@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Introdução ao aplicativo de API BizTalk X12 e à adição do mesmo ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Use o serviço BizTalk X12 para receber e enviar mensagens através do protocolo X12 nas comunicações comerciais. O X12 também é conhecido como ASC X12 ou Comitê de Normas Certificadas X12 e é amplamente usado em vários setores.
 
@@ -69,7 +71,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial us
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 
 <!--References -->
@@ -85,4 +87,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

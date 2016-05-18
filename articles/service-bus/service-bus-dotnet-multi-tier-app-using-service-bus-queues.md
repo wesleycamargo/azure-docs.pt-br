@@ -37,7 +37,7 @@ A captura de tela a seguir mostra o aplicativo concluído.
 
 ![][0]
 
-> [AZURE.NOTE]O Azure também oferece a funcionalidade da fila de armazenamento. Para obter mais informações sobre filas de armazenamento do Azure e o Barramento de Serviço, consulte [Filas do Azure e filas do Barramento de Serviço do Azure - comparadas e contrastadas][sbqueuecomparison].
+> [AZURE.NOTE] O Azure também oferece a funcionalidade da fila de armazenamento. Para obter mais informações sobre filas de armazenamento do Azure e o Barramento de Serviço, consulte [Filas do Azure e filas do Barramento de Serviço do Azure - comparadas e contrastadas][sbqueuecomparison].
 
 ## Visão geral de cenário: comunicação interfunções
 
@@ -53,7 +53,7 @@ Esse mecanismo de comunicação oferece diversas vantagens sobre mensagens diret
 
 -   **Desacoplamento temporal.** Com o padrão de mensagens assíncrono, os produtores e consumidores não precisam estar online ao mesmo tempo. O ServiceBus armazena de forma confiável as mensagens até que a parte de consumo esteja prontapara recebê-las. Isso permite que os componentes do aplicativo distribuído sejam desconectados voluntariamente, por exemplo, para manutenção ou devido a uma falha de componente, sem afetar o sistema como um todo. Além disso, o aplicativo de consumo só precisa ser colocado online durante determinadas horas do dia.
 
--   **Nivelamento de carga**. Em muitos aplicativos, a carga do sistema varia ao longo do tempo enquanto o tempo de processamento necessário para cada unidade de trabalho for normalmente constante. Intermediar produtores de mensagem e consumidorescom uma fila significa que o aplicativo de consumo (o função de trabalho) sóprecisa ser configurado para acomodar a carga média em vez de pico decarga. A profundidade da fila aumentará e diminuirá conforme a carga de entrada variar. Isso economiza dinheiro diretamente em termos da quantidade deinfraestrutura necessária para atender à carga do aplicativo.
+-   **Nivelamento de carga.** Em muitos aplicativos, a carga do sistema varia ao longo do tempo enquanto o tempo de processamento necessário para cada unidade de trabalho for normalmente constante. Intermediar produtores de mensagem e consumidorescom uma fila significa que o aplicativo de consumo (o função de trabalho) sóprecisa ser configurado para acomodar a carga média em vez de pico decarga. A profundidade da fila aumentará e diminuirá conforme a carga de entrada variar. Isso economiza dinheiro diretamente em termos da quantidade deinfraestrutura necessária para atender à carga do aplicativo.
 
 -   **Balanceamento de carga.** Conforme a carga aumenta, mais processos de função de trabalho podem seradicionados à leitura da fila. Cada mensagem é processada por apenas umdos processos de trabalho. Além disso, esse balanceamento de carga com base em recepção permite uma utilização ideal das máquinas de trabalho mesmo se as máquinas de trabalho diferem em termos de capacidade de processamento, pois elas irão receber mensagens em sua própria taxa máxima. Esse padrão geralmente é chamado de *padrão de consumidor concorrente*.
 
@@ -103,7 +103,7 @@ A próxima etapa é para criar um namespace de serviço e obter uma chave de Ass
 
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação). Além disso, certifique-se de selecionar **Sistema de mensagens** no campo do namespace **Tipo** e **Padrão** no campo **Camada de mensagens**.
 
-    > [AZURE.IMPORTANT]Selecione a **mesma região** que pretende escolher para implantar o aplicativo. Isso lhe dará o melhor desempenho.
+    > [AZURE.IMPORTANT] Selecione a **mesma região** que pretende escolher para implantar o aplicativo. Isso lhe dará o melhor desempenho.
 
 6.  Clique na marca de seleção OK. Agora, o sistema cria o namespace de serviço e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
@@ -479,7 +479,7 @@ Para obter mais informações sobre cenários de várias camadas ou para saber c
 
 * [Aplicativo de várias camadas .NET usando tabelas de armazenamento, filas e blobs][mutitierstorage]  
 
-Convém implementar o front-end de um aplicativo multicamadas em um site do Azure, em vez de em um serviço de nuvem do Azure. Para saber mais sobre a diferença entre sites e serviços de nuvem, consulte [Modelos de execução do Azure][executionmodels].
+Convém implementar o front-end de um aplicativo multicamadas em um site do Azure, em vez de em um serviço de nuvem do Azure.
 
 Para implementar o aplicativo criado neste tutorial como um projeto Web padrão, em vez de uma função web do serviço de nuvem, siga as etapas neste tutorial com as seguintes diferenças:
 
@@ -542,6 +542,6 @@ Para saber como implantar o front-end em um site do Azure, consulte [Crie um apl
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-  [executionmodels]: ../cloud-services/fundamentals-application-models.md
+  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Adicionar notificações por push a seu aplicativo Xamarin.Android com o Serviço de Aplicativo do Azure"
+	pageTitle="Adicionar notificações por push a seu aplicativo Xamarin.Android | Serviço de Aplicativo do Azure"
 	description="Saiba como usar o Serviço de Aplicativo do Azure e os Hubs de notificação do Azure para enviar notificações por push para seu aplicativo Android.Xamarin"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga"/>
 
 # Adicionar notificações por push ao aplicativo Xamarin.Android
@@ -22,7 +22,7 @@
 
 ##Visão geral
 
-Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Xamarin.iOS] para que sempre que um registro for inserido, uma notificação por push seja enviada. Este tutorial tem base no tutorial de [início rápido do Xamarin.Android] que você deve concluir primeiro. Se você não usar o projeto baixado do início rápido do servidor, você deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Neste tutorial, você adicionará notificações por push ao projeto [Criar um Aplicativo Xamarin.Android] para que sempre que um registro seja inserido, uma notificação por push seja enviada. Este tutorial é baseado no tutorial [Criar um Aplicativo Xamarin.Android], que você precisa concluir primeiro. Se você não usar o projeto baixado do início rápido do servidor, você deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ##Pré-requisitos
 
@@ -31,9 +31,6 @@ Este tutorial exige o seguinte:
 + Uma conta ativa do Google. Você pode se inscrever em uma conta do Google em [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 + [Componente do cliente Google Cloud Messaging](http://components.xamarin.com/view/GCMClient/). Você adicionará esse componente durante o tutorial.
-
-+ Tutorial de [início rápido do Xamarin.Android] concluído.
-
 
 ##<a name="create-hub"></a>Criar um Hub de notificação
 
@@ -77,11 +74,9 @@ Você pode testar o aplicativo usando um dispositivo virtual no emulador. Há et
 
 
 <!-- URLs. -->
-[início rápido do Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
-[início rápido do Xamarin.iOS]: app-service-mobile-xamarin-android-get-started.md
-
+[Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
+[Criar um Aplicativo Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

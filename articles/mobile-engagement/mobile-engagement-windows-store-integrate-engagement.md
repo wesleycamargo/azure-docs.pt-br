@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 # Integração do SDK do Engagement do Windows Universal
@@ -82,7 +82,7 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
           /* Engagement configuration. */
           EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 
-          /* Connection string for my Windows Store App. */
+          /* Set the Engagement connection string. */
           engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
 
           /* Initialize Engagement angent with above configuration. */
@@ -238,7 +238,7 @@ Se você não pode ou não quer sobrecarregar as classes `Page`, em vez disso, v
 
 Opcionalmente, convém relatar eventos específicos do aplicativo, erros e trabalhos, para fazer isso, use os outros métodos encontrados na classe `EngagementAgent`. A API do Engagement permite usar todos os recursos avançados do Engagement.
 
-Para obter mais informações, consulte [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo do Windows Universal](../mobile-engagement-windows-store-use-engagement-api/).
+Para obter mais informações, consulte [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo do Windows Universal](mobile-engagement-windows-store-use-engagement-api.md).
 
 ##Configuração avançada
 
@@ -283,4 +283,4 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -3,7 +3,7 @@
 	description="Redefina a senha de administrador ou os serviços de Área de Trabalho Remota em uma VM do Windows criada com o modelo de implantação do Gerenciador de Recursos."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,70 +14,70 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
-	ms.author="dkshir"/>
+	ms.date="04/12/2016"
+	ms.author="iainfou"/>
 
-# Como redefinir o serviço Área de Trabalho Remota ou sua senha de logon em uma VM do Azure baseada no Windows
+# Como redefinir o serviço Área de Trabalho Remota ou sua senha de logon em uma VM do Windows
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)].
 
 
-Se não for possível se conectar a uma máquina virtual do Windows porque você esqueceu a senha ou devido a um problema com a configuração do serviço Área de Trabalho Remota, este artigo descreve como redefinir a senha do administrador local ou a configuração do serviço Área de Trabalho Remota.
+Se não puder se conectar a uma máquina virtual do Windows porque você esqueceu a senha ou devido a um problema com a configuração do serviço Área de Trabalho Remota, poderá redefinir a senha do administrador local ou a configuração do serviço Área de Trabalho Remota.
 
-Dependendo do modelo de implantação de sua máquina virtual, você pode usar o portal ou a extensão de acesso da VM no Azure PowerShell. Se estiver usando o Azure PowerShell, verifique se você tem o módulo do Azure PowerShell mais recente instalado no computador de trabalho e se está conectado à sua assinatura do Azure. Para ver etapas detalhadas, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
-
-
-> [AZURE.TIP] Você pode verificar a versão do Azure PowerShell que tem instalada com o comando `Get-Module azure | format-table version`.
+Dependendo do modelo de implantação de sua máquina virtual, você pode usar o portal do Azure ou a extensão de Acesso à VM no Azure PowerShell. Se estiver usando o PowerShell, verifique se você tem o módulo do PowerShell mais recente instalado no computador de trabalho e se está conectado à sua assinatura do Azure. Para ver etapas detalhadas, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
 
-## VMs do Windows no modelo de implantação clássica
+> [AZURE.TIP] Você pode verificar a versão do PowerShell instalada usando `Import-Module Azure; Get-Module Azure | Format-Table Version`.
+
+
+## VMs do Windows no modelo de implantação clássico
 
 ### Portal do Azure
 
-Para as máquinas virtuais criadas usando o modelo de implantação clássica, você pode usar o [portal do Azure](https://portal.azure.com) para redefinir o serviço Área de Trabalho Remota. Clique em **Procurar** > **Máquinas virtuais (clássicas)** > *sua máquina virtual do Windows* > **Redefinir Acesso**.... A página a seguir será exibida.
+Para as máquinas virtuais criadas usando o modelo de implantação clássico, você pode usar o [portal do Azure](https://portal.azure.com) para redefinir o serviço de Área de Trabalho Remota. Clique em **Procurar** > **Máquinas virtuais (clássico)** > *sua máquina virtual do Windows* > **Redefinir Acesso...** A página a seguir será exibida.
 
 
-![](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
+![Página Redefinir configuração de RDP](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
 
-Você também pode tentar redefinir o nome e a senha da conta do administrador local. Clique em **Procurar** > **Máquinas virtuais (clássicas)** > *sua máquina virtual do Windows* > **Todas as configurações** > **Redefinir senha**. A página a seguir será exibida.
+Você também pode tentar redefinir o nome e a senha da conta do administrador local. Clique em **Procurar** > **Máquinas virtuais (clássico)** > *sua máquina virtual do Windows* > **Todas as configurações** > **Redefinir senha**. A página a seguir será exibida.
 
-![](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
+![Página Redefinir senha](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 
-Clique em **Salvar** depois de inserir o novo nome de usuário e senha.
+Depois de inserir o novo nome de usuário e a senha, clique em **Salvar**.
 
 ### Extensão VMAccess e PowerShell
 
-Verifique se o Agente da VM está instalado na máquina virtual. A extensão VMAccess não precisa ser instalada para que você possa usá-la, desde que o Agente da VM esteja disponível. Verifique se o Agente da VM já está instalado usando o comando a seguir. Substitua "myCloudService" e "myVM" pelos nomes do seu serviço de nuvem e da sua VM, respectivamente. É possível encontrá-los executando `Get-AzureVM` sem qualquer parâmetro.
+Verifique se o Agente da VM está instalado na máquina virtual. A extensão VMAccess não precisa ser instalada para que você possa usá-la, desde que o Agente da VM esteja disponível. Verifique se o Agente da VM já está instalado usando o comando a seguir. (Substitua "myCloudService" e "myVM" pelos nomes do seu serviço de nuvem e da sua VM, respectivamente. É possível encontrá-los executando `Get-AzureVM` sem nenhum parâmetro.)
 
 	$vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 	write-host $vm.VM.ProvisionGuestAgent
 
 Se o comando **write-host** exibir **True**, o agente de VM está instalado. Se ele exibir **False**, confira as instruções e um link para download na postagem do blog do Azure [Agente de VM e extensões - parte 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409).
 
-Se você criou a máquina virtual com o portal, verifique se `$vm.GetInstance().ProvisionGuestAgent` retorna **True**. Caso contrário, defina-o usando este comando:
+Se você criou a máquina virtual pelo uso do portal, verifique se `$vm.GetInstance().ProvisionGuestAgent` retorna **True**. Caso contrário, você pode defini-lo usando esse comando:
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
-Este comando impedirá que o erro "O Agente Convidado de Provisionamento deve ser habilitado no objeto de VM antes de configurar a Extensão de Acesso de IaaS VM" ao executar o comando **Set-AzureVMExtension** nas seções a seguir.
+Este comando impedirá o erro a seguir ao executar o comando **Set-AzureVMExtension** nas etapas a seguir: “O Agente Convidado de Provisionamento deve estar habilitado no objeto da VM antes de configurar a Extensão de Acesso à VM IaaS.”
 
 #### **Redefinir a senha da conta de administrador local**
 
-Crie uma credencial de logon com o nome da conta de administrador local atual e uma nova senha, em seguida, execute `Set-AzureVMAccessExtension` como se segue.
+Crie uma credencial de entrada com o nome da conta de administrador local atual e uma nova senha, em seguida, execute `Set-AzureVMAccessExtension` como a seguir.
 
 	$cred=Get-Credential
 	Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password  | Update-AzureVM
 
-Se você digitar um nome diferente daquele da conta atual, a extensão VMAccess renomeará a conta de administrador local, atribuirá a senha a essa conta e emitirá um logoff da Área de Trabalho Remota. Se a conta de administrador local estiver desabilitada, a extensão VMAccess a habilita.
+Se você digitar um nome diferente daquele da conta atual, a extensão VMAccess renomeará a conta de administrador local, atribuirá a senha a essa conta e emitirá uma saída da Área de Trabalho Remota. Se a conta de administrador local estiver desabilitada, a extensão VMAccess a habilita.
 
 Esses comandos também redefinem a configuração do serviço da Área de Trabalho Remota.
 
 #### **Redefinir a configuração dos serviços de Área de Trabalho Remota**
 
-Para redefinir a configuração de serviço da Área de Trabalho Remota, execute o comando a seguir.
+Para redefinir a configuração de serviço da Área de Trabalho Remota, execute o comando a seguir:
 
 	Set-AzureVMAccessExtension –vm $vm | Update-AzureVM
 
-A extensão VMAccess executa estes dois comandos na máquina virtual:
+A extensão VMAccess executa dois comandos na máquina virtual:
 
 a. `netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes`
 
@@ -90,23 +90,23 @@ Este comando define o valor de Registro fDenyTSConnections como 0, habilitando a
 
 ## VMs do Windows no modelo de implantação Resource Manager
 
-Atualmente, o portal do Azure não permite a redefinição do acesso remoto ou das credenciais de logon para máquinas virtuais criadas usando o Resource Manager.
+Atualmente, o portal do Azure não permite a redefinição do acesso remoto ou das credenciais de logon para máquinas virtuais criadas usando o Azure Resource Manager.
 
 
 ### Extensão VMAccess e PowerShell
 
-Verifique se você tem o Azure PowerShell 1.0 ou superior instalado e se conectou-se à sua conta usando o cmdlet `Login-AzureRmAccount`.
+Verifique se você tem o Azure PowerShell 1.0 ou superior instalado e se entrou na sua conta usando o cmdlet `Login-AzureRmAccount`.
 
 #### **Redefinir a senha da conta de administrador local**
 
 É possível redefinir a senha e/ou o nome de usuário do administrador usando o comando [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) do PowerShell.
 
-Crie as credenciais da conta de administrador local usando o seguinte comando:
+Crie as credenciais de sua conta de administrador local usando o seguinte comando:
 
 	$cred=Get-Credential
 
-Se você digitar um nome diferente daquele da conta atual, o comando de extensão VMAccess abaixo renomeará a conta de administrador local, atribuirá a senha a essa conta e emitirá um logoff da Área de Trabalho Remota. Se a conta de administrador local estiver desabilitada, a extensão VMAccess a habilitará.
-	
+Se você digitar um nome diferente daquele da conta atual, a extensão VMAccess renomeará a conta de administrador local, atribuirá a senha a essa conta e emitirá um logoff da Área de Trabalho Remota. Se a conta de administrador local estiver desabilitada, a extensão VMAccess a habilita.
+
 Use a extensão de acesso da VM para definir as novas credenciais da seguinte maneira:
 
 	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus -UserName $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
@@ -117,19 +117,19 @@ Substitua `myRG`, `myVM`, `myVMAccess` e o local por valores relevantes à sua i
 
 #### **Redefinir a configuração dos serviços de Área de Trabalho Remota**
 
-É possível redefinir o acesso remoto para sua VM usando [Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx) ou Set-AzureRmVMAccessExtension, como se segue. Substitua `myRG`, `myVM`, `myVMAccess` e o local pelos seus próprios valores.
+É possível redefinir o acesso remoto para sua VM usando [Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx) ou Set-AzureRmVMAccessExtension, conforme demonstrado a seguir. (Substitua `myRG`, `myVM`, `myVMAccess` e o local pelos seus próprios valores.)
 
 	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 
-OR<br>
+Ou: <br>
 
 	Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
 
-	
-> [AZURE.TIP] Tanto `Set-AzureRmVMAccessExtension`, quanto `Set-AzureRmVMExtension` adicionam um novo agente de acesso de VM nomeado à máquina virtual. A qualquer momento, uma VM pode ter apenas um único agente de acesso de VM. Para definir as propriedades do agente de acesso de VM sucessivamente, remova o agente de acesso definido anteriormente usando `Remove-AzureRmVMAccessExtension` ou `Remove-AzureRmVMExtension`. A partir da versão 1.2.2 do Azure PowerShell, você pode evitar essa etapa ao usar `Set-AzureRmVMExtension` com um opção `-ForceRerun`. Garanta o uso do mesmo nome para o agente de acesso de VM, conforme definido pelo comando anterior ao usar a opção `-ForceRerun`.
+
+> [AZURE.TIP] Ambos os comandos adicionam um novo agente de acesso de VM nomeado à máquina virtual. A qualquer momento, uma VM pode ter apenas um único agente de acesso de VM. Para definir as propriedades do agente de acesso de VM com êxito, remova o agente de acesso definido anteriormente usando `Remove-AzureRmVMAccessExtension` ou `Remove-AzureRmVMExtension`. Da versão 1.2.2 do Azure PowerShell em diante, você pode evitar essa etapa ao usar `Set-AzureRmVMExtension` com uma opção `-ForceRerun`. Ao usar a opção `-ForceRerun`, garanta o uso do mesmo nome para o agente de acesso de VM, conforme definido pelo comando anterior.
 
 
-Se você ainda não consegue se conectar remotamente à máquina virtual, veja mais etapas a serem testadas em [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine (Solucionar problemas de conexões da Área de trabalho Remota com uma máquina virtual do Azure baseada no Windows)](virtual-machines-windows-troubleshoot-rdp-connection.md).
+Se você ainda não consegue se conectar remotamente à máquina virtual, veja mais etapas a serem testadas em [Solucionar problemas de conexões da Área de Trabalho Remota com uma máquina virtual do Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
 
 ## Recursos adicionais
@@ -140,4 +140,4 @@ Se você ainda não consegue se conectar remotamente à máquina virtual, veja m
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

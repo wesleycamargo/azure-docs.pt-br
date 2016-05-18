@@ -2,7 +2,7 @@
 	pageTitle="Criar e gerenciar trabalhos do Banco de Dados Elástico usando o PowerShell" 
 	description="PowerShell usado para gerenciar pools do Banco de Dados SQL do Azure" 
 	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -11,13 +11,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="05/03/2016" 
 	ms.author="ddove;sidneyh" />
 
 # Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](sql-database-elastic-jobs-create-and-manage.md)
+- [Portal Clássico do Azure](sql-database-elastic-jobs-create-and-manage.md)
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
@@ -694,4 +694,4 @@ Após um DACPAC ter sido criado no recurso trabalhos de Banco de Dados Elástico
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="04/27/2016"
 	ms.author="jgao"/>
 
 
-#Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
+#Disponibilidade e confiabilidade dos clusters Hadoop baseados em Windows no HDInsight
 
+
+>[AZURE.NOTE] As etapas usadas neste documento são específicas aos clusters HDInsight baseados em Windows. Se você estiver usando um cluster baseado em Linux, veja [Disponibilidade e confiabilidade dos clusters Hadoop baseados em Linux no HDInsight](hdinsight-high-availability-linux.md) para obter informações específicas do Linux.
 
 O HDInsight permite que os clientes implantem uma variedade de tipos de cluster, para diferentes cargas de trabalho de análise de dados. Os tipos de cluster oferecidos atualmente são clusters Hadoop para consulta e cargas de trabalho de análise, clusters HBase para cargas de trabalho NoSQL e clusters Storm para cargas de trabalho de processamento de eventos em tempo real. Dentro de um determinado tipo de cluster, há funções diferentes para vários nós. Por exemplo:
 
@@ -106,4 +108,4 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 - [Conectar ao clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Usando o SDK .NET do HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

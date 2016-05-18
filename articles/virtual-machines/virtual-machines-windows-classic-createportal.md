@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="04/29/2016"
 	ms.author="cynthn"/>
 
 # Criar uma máquina virtual personalizada executando Windows
@@ -26,4 +26,8 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+## Próximas etapas
+
+Você também pode [criar uma máquina virtual personalizada executando o Linux](virtual-machines-linux-classic-createportal.md) usando o portal clássico.
+
+<!---HONumber=AcomDC_0504_2016-->

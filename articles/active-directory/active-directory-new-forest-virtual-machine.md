@@ -14,7 +14,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="01/25/2016" 
+	ms.date="04/07/2016" 
 	ms.author="markusvi"/>
 
 
@@ -25,7 +25,7 @@ Este tópico mostra como criar um novo ambiente do Active Directory do Windows S
 Você também pode estar interessado nestes tópicos relacionados:
 
 - Para um vídeo que mostra essas etapas, consulte [Como instalar uma nova floresta do Active Directory em uma rede virtual do Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-- Você também pode [configurar uma VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md) e então instalar uma nova floresta ou então estender uma floresta local para uma rede virtual do Azure. Para essas etapas, consulte [Instalar um controlador de domínio do Active Directory de réplica em uma rede virtual do Azure](../virtual-networks-install-replica-active-directory-domain-controller.md).
+- Você também pode [configurar uma VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md) e então instalar uma nova floresta ou então estender uma floresta local para uma rede virtual do Azure. Para essas etapas, consulte [Instalar um controlador de domínio do Active Directory de réplica em uma rede virtual do Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md).
 -  Para obter diretrizes conceituais sobre como instalar os Serviços de Domínio Active Directory (AD DS) em uma rede virtual do Azure, consulte [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Diagrama do cenário
@@ -119,9 +119,9 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 -  [Como instalar uma nova floresta do Active Directory em uma rede virtual do Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [Criar uma rede virtual somente na nuvem](../virtual-network/virtual-networks-create-vnet.md)
+
 -  [Configurar uma VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md)
--  [Instalar uma Réplica do Controlador de Domínio do Active Directory em uma rede virtual do Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
+-  [Instalar uma Réplica do Controlador de Domínio do Active Directory em uma rede virtual do Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IaaS para profissionais de TI: (01) conceitos básicos de máquina virtual](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
@@ -138,4 +138,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

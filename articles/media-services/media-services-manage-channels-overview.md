@@ -3,7 +3,7 @@
 	description="Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com múltiplas taxas de bits de um codificador local. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="cenkdin,Juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+	ms.date="04/18/2016"
+	ms.author="cenkdin;juliako"/>
 
 #Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais
 
@@ -269,4 +269,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Configurar recursos de armazenamento local nos Serviços de Nuvem do Azure"
-description=""
+pageTitle="Configurar Recursos de Armazenamento Local nos Serviços de Nuvem do Azure | Microsoft Azure"
+description="Aprender sobre como configurar recursos de armazenamento local nos Serviços de Nuvem do Azure"
 services="cloud-services"
 documentationCenter=""
 authors="cristy"
@@ -56,7 +56,7 @@ O arquivo de definição de serviço a seguir mostra dois recursos de armazename
 
 Para obter mais informações sobre o arquivo de definição de serviço, consulte [Esquema de definição de serviço do Azure (arquivo .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
 
-> [AZURE.NOTE]Se estiver usando as Ferramentas do Azure para Microsoft Visual Studio, você poderá definir um recurso de armazenamento local nas páginas **Propriedades** da função. Para obter mais informações, consulte [Configuring the Azure Application with Visual Studio (Configurando o aplicativo do Azure com o Visual Studio)](https://msdn.microsoft.com/library/ee405486.aspx).
+> [AZURE.NOTE] Se estiver usando as Ferramentas do Azure para Microsoft Visual Studio, você poderá definir um recurso de armazenamento local nas páginas **Propriedades** da função. Para obter mais informações, consulte [Configuring the Azure Application with Visual Studio (Configurando o aplicativo do Azure com o Visual Studio)](https://msdn.microsoft.com/library/ee405486.aspx).
 
 ## Acessando um recurso de armazenamento local de forma programática
 
@@ -104,4 +104,4 @@ O código em execução em uma instância de função pode acessar um recurso de
 
 - [Configurar um serviço de nuvem para o Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0420_2016-->

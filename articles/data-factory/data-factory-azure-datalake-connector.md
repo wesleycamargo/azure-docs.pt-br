@@ -152,7 +152,7 @@ O exemplo copia dados para um repositório do Azure Data Lake. Os novos dados s�
 		"name": "AzureDataLakeStoreOutput",
 	  	"properties": {
 			"type": "AzureDataLakeStore",
-		    "linkedServiceName": " AzureDataLakeStoreLinkedService",
+		    "linkedServiceName": "AzureDataLakeStoreLinkedService",
 		    "typeProperties": {
 				"folderPath": "datalake/output/"
 		    },
@@ -412,13 +412,16 @@ Você pode vincular uma conta de armazenamento do Azure a uma Azure Data Factory
 | subscriptionId | ID de assinatura do Azure. | Não (se não for especificado, a assinatura da data factory será usada). |
 | resourceGroupName | Nome do grupo de recursos do Azure | Não (se não for especificado, o grupo de recursos do Data Factory é usado). |
 
-O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Talvez você veja a mensagem de erro a seguir quando o **token de autenticação expirar**: "Erro na operação da credencial: invalid\_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21-09-31Z".
+## Expiração do token 
+O código de autorização gerado usando o botão **Autorizar** expira após algum tempo. Confira a tabela a seguir para ver os tempos de expiração para os diferentes tipos de contas de usuário. Talvez você veja a mensagem de erro a seguir quando o **token de autenticação expirar**: erro na operação da credencial: invalid\_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID da correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21-09-31Z".
 
 
 | Tipo de usuário | Expira após |
 | :-------- | :----------- | 
 | Contas de usuários NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
 | Contas de usuários gerenciadas pelo AAD (Azure Active Directory) | 14 dias após a última execução da fatia. <br/><br/>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias. |
+
+Observe que, se você alterar sua senha antes do momento de expiração do token, o token expirará imediatamente e você verá o erro mencionado acima.
 
 Para evitar/resolver este erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código na seção a seguir.
 
@@ -459,10 +462,10 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | Propriedade | Descrição | Obrigatório |
 | :-------- | :----------- | :-------- |
 | folderPath | Caminho para o contêiner e a pasta no repositório do Azure Data Lake. | Sim |
-| fileName | O nome do arquivo no repositório Azure Data Lake. fileName é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funciona no arquivo específico.<br/><br/>Quando fileName não for especificado, a cópia incluirá todos os arquivos em folderPath no conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estará no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | Não |
+| fileName | O nome do arquivo no repositório Azure Data Lake. fileName é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funcionará no arquivo específico.<br/><br/>Quando fileName não for especificado, a cópia incluirá todos os arquivos em folderPath no conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estará no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | Não |
 | partitionedBy | partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. Consulte Utilizando a seção da propriedade partitionedBy abaixo para obter detalhes e exemplos. | Não |
-| formato | Há suporte para três tipos de formatos: **TextFormat**, **AvroFormat** e **JsonFormat**. Você precisa definir a propriedade de tipo em formato para qualquer um desses valores. Quando o formato for TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção [Especificando TextFormat](#specifying-textformat) abaixo para obter mais detalhes. Consulte a seção [Especificando JsonFormat](#specifying-jsonformat) se estiver usando JsonFormat. | Não
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2**. Os níveis com suporte são: **Ideal** e **Mais rápido**. Observe que, no momento, não há suporte para configurações de compactação de dados no **AvroFormat**. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
+| formato | Há suporte para três tipos de formatos: **TextFormat**, **AvroFormat** e **JsonFormat**. Você precisa definir a propriedade de tipo em formato para qualquer um desses valores. Quando o formato for TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção [Especificando TextFormat](#specifying-textformat) abaixo para obter mais detalhes. Consulte a seção [Especificando AvroFormat](#specifying-avroformat) se estiver usando AvroFormat. Consulte a seção [Especificando JsonFormat](#specifying-jsonformat) se estiver usando JsonFormat. | Não
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2** e os níveis com suporte são: **Melhor** e **Mais rápido**. Observe que, no momento, não há suporte para configurações de compactação de dados no **AvroFormat**. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
 ### Utilizando a propriedade partitionedBy
 Conforme mencionado acima, você pode especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal com a seção **partitionedBy**, macros de Data Factory e variáveis do sistema: SliceStart e SliceEnd, que indicam as horas de início e término para uma fatia de dados determinada.
@@ -501,7 +504,7 @@ Se o formato é definido como **TextFormat**você pode especificar as seguintes 
 | -------- | ----------- | -------- |
 | columnDelimiter | O caractere usado como um separador de coluna em um arquivo. Somente um caractere é permitido nesse momento. Essa marca é opcional. O valor padrão é vírgula (,). | Não |
 | rowDelimiter | O caractere usado como um separador bruto no arquivo. Somente um caractere é permitido nesse momento. Essa marca é opcional. O valor padrão é qualquer um dos seguintes: ["\\r\\n", "\\r"," \\n"]. | Não |
-| escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<br/><br/>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), poderá definir '$' como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na origem.<br/><br/>Observe que não é possível especificar escapeChar e quoteChar para uma tabela. | Não | 
+| escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<br/><br/>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), poderá definir “$” como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na origem.<br/><br/>Observe que não é possível especificar escapeChar e quoteChar para uma tabela. | Não | 
 | quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<br/><br/>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte. Essa propriedade é aplicável às tabelas de entrada e de saída.<br/><br/>Observe que não é possível especificar escapeChar e quoteChar para uma tabela. | Não |
 | nullValue | Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. Essa marca é opcional. O valor padrão é "\\N".<br/><br/>Por exemplo, com base no exemplo acima, "NaN" no blob será convertido em valor nulo quando copiado para o SQL Server, por exemplo. | Não |
 | encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, confira: [Propriedade Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8. | Não | 
@@ -608,4 +611,7 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+## Desempenho e Ajuste  
+Confira o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho e o movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+
+<!---HONumber=AcomDC_0427_2016-->

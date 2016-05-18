@@ -1,30 +1,31 @@
 <properties 
-   pageTitle="Vinculando redes virtuais a circuitos da Rota Expressa | Microsoft Azure"
-   description="Este documento apresenta uma visão geral de como vincular redes virtuais (VNets) a circuitos da Rota Expressa."
+   pageTitle="Vincular uma rede virtual a um circuito de Rota Expressa usando o PowerShell | Microsoft Azure"
+   description="Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de Rota Expressa usando o modelo de implantação do Gerenciador de Recursos e do PowerShell."
    services="expressroute"
    documentationCenter="na"
    authors="ganesr"
-   manager="carolz"
+   manager="carmonm"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/14/2016"
    ms.author="ganesr" />
 
-# Vinculando Redes Virtuais a circuitos da Rota Expressa
+# Vincular uma rede virtual a um circuito de Rota Expressa
 
 > [AZURE.SELECTOR]
-- [PowerShell - clássico](expressroute-howto-linkvnet-classic.md)
+- [Portal do Azure - Gerenciador de Recursos](expressroute-howto-linkvnet-portal-resource-manager.md)
 - [PowerShell – Resource Manager](expressroute-howto-linkvnet-arm.md)
-- [Modelo - Gerenciador de Recursos](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
+- [PowerShell - clássico](expressroute-howto-linkvnet-classic.md)
 
-Este artigo apresenta uma visão geral de como vincular redes virtuais a circuitos da Rota Expressa. As redes virtuais podem estar na mesma assinatura ou fazerem parte de outra assinatura. Este artigo aplica-se a Redes Virtuais implantadas com o modelo de implantação do Gerenciador de Recursos. Se você quiser vincular uma rede virtual que foi implantada usando o modelo de implantação clássico, consulte [Vincular uma rede virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md).
 
+
+Este artigo ajudará você a vincular as redes virtuais (VNets) aos circuitos de Rota Expressa usando o modelo de implantação do Gerenciador de Recursos e do PowerShell. As redes virtuais podem estar na mesma assinatura ou fazerem parte de outra assinatura.
 
 **Sobre modelos de implantação do Azure**
 
@@ -32,17 +33,17 @@ Este artigo apresenta uma visão geral de como vincular redes virtuais a circuit
 
 ## Pré-requisitos de configuração
 
-- Você precisará da versão mais recente dos módulos do Azure PowerShell, versão 1.0 ou posterior. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações sobre como instalar os cmdlets do PowerShell. 
-- Assegure-se de que você leu a página de [pré-requisitos](expressroute-prerequisites.md), a página de [requisitos de roteamento](expressroute-routing.md) e a página de [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+- Você precisará da versão mais recente dos módulos do Azure PowerShell, versão 1.0 ou posterior. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell. 
+- Certifique-se de que você leu as páginas de [pré-requisitos](expressroute-prerequisites.md), [requisitos de roteamento](expressroute-routing.md) e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 - Você deve ter um circuito da Rota Expressa ativo. 
 	- Siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja habilitado pelo provedor de conectividade. 
 	- Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Veja o artigo [Configurar roteamento](expressroute-howto-routing-arm.md) para obter instruções sobre roteamento. 
 	- O emparelhamento privado do Azure deve estar configurado e o emparelhamento BGP entre a rede e a Microsoft deve estar em atividade para que você habilite a conectividade de ponta a ponta.
-	- É necessário ter uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para criar um [Gateway de VPN](../articles/vpn-gateway-create-site-to-site-rm-powershell.md), mas lembre-se de usar `-GatewayType ExpressRoute`.
+	- É necessário ter uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para criar um [Gateway de VPN](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), mas lembre-se de usar `-GatewayType ExpressRoute`.
 
-Você pode vincular até 10 redes virtuais a um circuito da Rota Expressa. Todos os circuitos da Rota Expressa devem estar na mesma região geopolítica. É possível vincular um grande número de redes virtuais ao circuito da Rota Expressa se você tiver habilitado o complemento premium da Rota Expressa. Confira as [Perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
+Você pode vincular até 10 redes virtuais a um circuito da Rota Expressa. Todos os circuitos da Rota Expressa devem estar na mesma região geopolítica. É possível vincular um grande número de redes virtuais ao circuito da Rota Expressa se você tiver habilitado o complemento premium da Rota Expressa. Confira as [Perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento Premium.
 
-## Conectando uma rede virtual na mesma assinatura do Azure a um circuito da Rota Expressa
+## Conectar uma VNet na mesma assinatura a um circuito
 
 Você pode vincular um gateway de rede virtual a um circuito da Rota Expressa usando o cmdlet a seguir. Verifique se o gateway de rede virtual foi criado e se está pronto para vinculação antes de executar o cmdlet.
 
@@ -50,9 +51,11 @@ Você pode vincular um gateway de rede virtual a um circuito da Rota Expressa us
 	$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 
-## Conectando uma rede virtual em uma assinatura diferente do Azure a um circuito da Rota Expressa
+## Conectar uma VNet em uma assinatura diferente ao circuito
 
-Um circuito da Rota Expressa pode ser compartilhado entre várias assinaturas. A figura abaixo mostra um esquema simples de como funciona o compartilhamento de circuitos da Rota Expressa entre várias assinaturas. Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito da Rota Expressa para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito da Rota Expressa. Outras assinaturas dentro da organização podem usar o circuito de Rota Expressa.
+Um circuito da Rota Expressa pode ser compartilhado entre várias assinaturas. A figura abaixo mostra um esquema simples de como funciona o compartilhamento de circuitos da Rota Expressa entre várias assinaturas.
+
+Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito da Rota Expressa para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito da Rota Expressa. Outras assinaturas dentro da organização podem usar o circuito de Rota Expressa.
 
 >[AZURE.NOTE] As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito da Rota Expressa. Todas as redes virtuais compartilham a mesma largura de banda.
 
@@ -72,21 +75,21 @@ O proprietário do circuito cria uma autorização. Isso resulta na criação de
 
 O trecho de cmdlet abaixo mostra como criar uma autorização.
 
-		Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
-		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
-		$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
+	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
+	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
-		$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
 		
 
 A resposta para isso conterá a chave de autorização e o status
 
-		Name                   : MyAuthorization1
-		Id                     : /subscriptions/&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/CrossSubTest/authorizations/MyAuthorization1
-		Etag                   : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
-		AuthorizationKey       : ####################################
-		AuthorizationUseStatus : Available
-		ProvisioningState      : Succeeded
+	Name                   : MyAuthorization1
+	Id                     : /subscriptions/&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/CrossSubTest/authorizations/MyAuthorization1
+	Etag                   : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
+	AuthorizationKey       : ####################################
+	AuthorizationUseStatus : Available
+	ProvisioningState      : Succeeded
 
 		
 
@@ -103,7 +106,7 @@ O proprietário do circuito pode examinar todas as autorizações emitidas em um
 O proprietário do circuito pode adicionar autorizações usando o cmdlet a seguir.
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	Add-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization2"
+	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization2"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 	
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
@@ -114,7 +117,7 @@ O proprietário do circuito pode adicionar autorizações usando o cmdlet a segu
 
 O proprietário do circuito pode revogar/excluir autorizações usando o cmdlet a seguir.
 
-	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -Circuit $circuit
+	Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit	
 
 ### Operações do usuário do circuito
@@ -139,4 +142,4 @@ O usuário de circuito pode executar o cmdlet a seguir para resgatar uma autoriz
 
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

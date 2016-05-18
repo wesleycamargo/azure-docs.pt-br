@@ -30,7 +30,7 @@ A documentação de referência para o SDK do cliente está localizada aqui: [Re
 
 ##<a name="setup"></a>Configuração e Pré-requisitos
 
-Supomos que você já criou e publicou o projeto de back-end do Aplicativo Móvel, que inclui uma tabela. No código usado neste tópico, a tabela é denominada `TodoItem` e terá as seguintes colunas: `Id`, `Text` e `Complete`. Essa é a mesma tabela criada quando você conclui o [Tutorial de início rápido dos Aplicativos Móveis do Azure]
+Supomos que você já criou e publicou o projeto de back-end do Aplicativo Móvel, que inclui pelo menos uma tabela. No código usado neste tópico, a tabela é denominada `TodoItem` e terá as seguintes colunas: `Id`, `Text` e `Complete`. Essa é a mesma tabela criada quando você conclui o [Tutorial de início rápido dos Aplicativos Móveis do Azure]
 
 O tipo em C# do lado do cliente tipado correspondente é o seguinte:
 
@@ -57,8 +57,7 @@ Os símbolos para o namespace Microsoft.Azure.Mobile estão disponíveis em [Sym
 
 O código a seguir cria o objeto [MobileServiceClient] que é usado para acessar o back-end do seu serviço móvel.
 
-	MobileServiceClient client = new MobileServiceClient
-		("MOBILE_APP_URL");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 No código acima, substitua `MOBILE_APP_URL` pela URL do back-end do Aplicativo Móvel, que está localizada na folha de back-end de seu Aplicativo Móvel no [portal do Azure]. É normal e recomendável que a instância do cliente seja Singleton.
 
@@ -84,8 +83,7 @@ A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e
 
 Todos os códigos que acessam e modificam dados em uma tabela de back-end chamam funções no objeto `MobileServiceTable`. Você obtém uma referência à tabela chamando o método [GetTable] em uma instância do `MobileServiceClient`, da seguinte forma:
 
-    IMobileServiceTable<TodoItem> todoTable =
-    		client.GetTable<TodoItem>();
+    IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 
 Esse é o modelo de serialização tipado. Também há suporte para um modelo de serialização não tipado. O link [ abaixo cria uma referência a uma tabela sem tipo]\:
 
@@ -442,7 +440,7 @@ Dois fluxos de autenticação têm suporte: um _fluxo de servidor_ e um _fluxo d
 De qualquer forma, você deve registrar seu aplicativo com seu provedor de identidade. O provedor de identidade fornece uma ID do cliente e um segredo do cliente. Você deve configurar a Autenticação/Autorização do Serviço de Aplicativo do Azure com o segredo do cliente e a ID do cliente fornecidos pelo provedor de identidade. Para saber mais, siga as instruções detalhadas no tutorial [Adicionar autenticação ao seu aplicativo].
 
 ###<a name="serverflow"></a>Fluxo de servidor
-Depois de registrar o provedor de identidade, chame o método MobileServiceClient.[LoginAsync] com o valor [MobileServiceAuthenticationProvider] de seu provedor. Por exemplo, o código a seguir inicia uma entrada de fluxo do servidor usando o Facebook.
+Depois de registrar o provedor de identidade, chame o método MobileServiceClient.\[LoginAsync] com o valor [MobileServiceAuthenticationProvider] de seu provedor. Por exemplo, o código a seguir inicia uma entrada de fluxo do servidor usando o Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -912,4 +910,4 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 [SymbolSource]: http://www.symbolsource.org/
 [instruções do SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

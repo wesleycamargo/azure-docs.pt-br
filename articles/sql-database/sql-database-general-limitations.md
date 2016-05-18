@@ -3,8 +3,8 @@
    description="Esta página descreve algumas limitações gerais para o Banco de Dados SQL do Azure, bem como áreas de interoperabilidade e suporte."
    services="sql-database"
    documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
+   authors="carlrabeler"
+   manager="jhubbard"
    editor="monicar" />
 <tags
    ms.service="sql-database"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/15/2016"
-   ms.author="jroth" />
+   ms.date="04/11/2016"
+   ms.author="carlrab" />
 
 # Diretrizes e limitações gerais do Banco de Dados SQL do Azure
 
@@ -59,8 +59,8 @@ Além disso, os nomes de usuário e logon não podem conter o caractere \\ (não
 
 - Para ver diretrizes relacionadas à segurança, veja [Diretrizes e limitações de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md).
 
-- Outra área relacionada envolve a compatibilidade do Banco de Dados SQL do Azure com versões locais do SQL Server, como o SQL Server 2014. A versão mais recente V12 do Banco de Dados SQL do Azure tem muitas melhorias nessa área. Para obter mais detalhes, veja [Novidades no Banco de Dados SQL V12](sql-database-v12-whats-new.md).
+- Outra área relacionada envolve a compatibilidade do Banco de Dados SQL do Azure com versões locais do SQL Server, como o SQL Server 2014 e o SQL Server 2016. A versão mais recente V12 do Banco de Dados SQL do Azure tem muitas melhorias nessa área. Para obter mais detalhes, veja [Novidades no Banco de Dados SQL V12](sql-database-v12-whats-new.md).
 
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

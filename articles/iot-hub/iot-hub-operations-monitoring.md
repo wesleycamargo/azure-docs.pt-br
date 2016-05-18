@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/18/2016"
  ms.author="nberdy"/>
 
 # Introdução ao monitoramento de operações
@@ -35,7 +35,7 @@ O Hub IoT monitora quatro categorias de evento:
 
     ![][1]
 
-3. Selecione as categorias de monitoramento que deseja monitorar e clique em **Salvar**. Os eventos estão disponíveis para leitura no ponto de extremidade compatível com o Hub do Evento listado em **Configurações de monitoramento**.
+3. Selecione as categorias de monitoramento que deseja monitorar e clique em **Salvar**. Os eventos estão disponíveis para leitura no ponto de extremidade compatível com o Hub do Evento listado em **Configurações de monitoramento**. O ponto de extremidade do Hub IoT é chamado de `messages/operationsmonitoringevents`.
 
     ![][2]
 
@@ -139,4 +139,4 @@ Depois dessa visão geral do monitoramento de operações, siga estes links para
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

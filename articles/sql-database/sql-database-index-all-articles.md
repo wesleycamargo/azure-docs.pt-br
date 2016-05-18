@@ -64,7 +64,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 | 19 | [Conectar ao Banco de Dados SQL usando o Ruby no Mac OS X (Yosemite)](sql-database-develop-ruby-simple-mac-osx.md) | Dê um exemplo de código Ruby que você pode executar no Mac OS X (Yosemite) para se conectar ao Banco de Dados SQL do Azure. |
 | 20 | [Conectar-se ao Banco de Dados SQL usando Ruby no Ubuntu Linux](sql-database-develop-ruby-simple-linux.md) | Dê um exemplo de código Ruby que você pode executar como um cliente no Ubuntu Linux para se conectar ao Banco de Dados SQL do Azure. |
 | 21 | [Conectar-se ao Banco de Dados SQL usando Ruby no Windows](sql-database-develop-ruby-simple-windows.md) | Dê um exemplo de código Ruby que você pode executar no Windows para se conectar ao Banco de Dados SQL do Azure. |
-| 22 | [Criar e gerenciar Banco de Dados SQL com C#](sql-database-client-library.md) | Este artigo mostra como criar e gerenciar um Banco de Dados SQL do Azure com C# usando a Biblioteca de Banco de Dados SQL do Azure para .NET. |
+| 22 | [Criar e gerenciar Banco de Dados SQL com C#](sql-database-get-started-csharp.md) | Este artigo mostra como criar e gerenciar um Banco de Dados SQL do Azure com C# usando a Biblioteca de Banco de Dados SQL do Azure para .NET. |
 | 23 | [Portas além da 1433 para ADO.NET 4.5 e Banco de Dados SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md) | Às vezes, as conexões de cliente do ADO.NET para o Banco de Dados SQL do Azure V12 ignoram o proxy e interagem diretamente com o banco de dados. Outras portas diferentes da 1433 se tornam importantes. |
 | 24 | [Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md) | Saiba mais sobre os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, como erros comuns de conexão de banco de dados, problemas de cópia de banco de dados e erros gerais. |
 | 25 | [Solucionar problemas de “O banco de dados no servidor não está disponível atualmente. Tente a conexão novamente mais tarde” e outros erros de conexão](sql-database-troubleshoot-connection.md) | Etapas para identificar e resolver erros de conexão do Banco de Dados SQL do Azure. |
@@ -327,7 +327,7 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 | 163 | [Limites de recursos do Banco de Dados SQL do Azure](sql-database-resource-limits.md) | Esta página descreve alguns limites de recurso comuns para o Banco de Dados SQL do Azure. |
 | 164 | [Diferenças de Transact-SQL de Banco de Dados SQL do Azure](sql-database-transact-sql-information.md) | Instruções Transact-SQL que têm suporte menor que o total pelo Banco de Dados SQL |
 | 165 | [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md) | Lista o número de versão mínimo para cada driver que os programas clientes podem usar para se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server. Foi fornecido um link para obtenção de informações de versão sobre drivers lançados pela comunidade, e não pela Microsoft. |
-| 166 | [Pesquisar com filtros](https://azure.microsoft.com/pt-BR/documentation/articles/?service=sql-database) | Pesquise com filtros artigos de documentação sobre o Banco de Dados SQL do Azure. |
+| 166 | [Pesquisar com filtros](https://azure.microsoft.com/documentation/articles/?service=sql-database) | Pesquise com filtros artigos de documentação sobre o Banco de Dados SQL do Azure. |
 
 
 ## Diversos
@@ -354,4 +354,4 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do B
 
 - Elemento gráfico do Roteiro de Aprendizagem: [sql-database-elastic-scale](http://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

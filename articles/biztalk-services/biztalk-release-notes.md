@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Notas de versão dos Serviços BizTalk do Azure | Serviços BizTalk do Microsoft Azure" 
-	description="" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="msftman" 
-	manager="erikre" 
+<properties
+	pageTitle="Notas de versão dos Serviços BizTalk do Azure | Serviços BizTalk do Microsoft Azure"
+	description="Lista os problemas conhecidos dos Serviços BizTalk do Azure" 
+	services="biztalk-services"
+	documentationCenter=""
+	authors="msftman"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="deonhe"/>
 
 # Notas de versão dos Serviços BizTalk do Azure
@@ -195,6 +195,4 @@ Ao longo deste documento, os termos 'pipelines' e 'pontes' são usados de forma 
 
 [Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

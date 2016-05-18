@@ -35,7 +35,9 @@ O [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite execu
 
 OU
 
-* [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md).
+* [CLI do Azure](../xplat-cli-install.md)
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ##O que é o SSH?
 
@@ -123,7 +125,7 @@ Para obter mais informações sobre como usar esse comando, consulte [Provisiona
 
 3. Em **Categoria**, selecione **Sessão**. Na tela **Opções básicas para sua sessão PuTTY**, insira o endereço SSH do seu servidor HDInsight no campo **Nome de host (ou endereço IP)**. Há dois possíveis endereços SSH que você pode usar ao se conectar a um cluster:
 
-    * __Endereço do nó principal__: para conectar-se ao nó principal do cluster, use o nome do cluster e, em seguida, **-ssh.azurehdinsight.net**. Por exemplo, **mycluster-ssh.azurehdinsight.net**.
+    * __Endereço do nó principal__: para conectar-se ao nó principal do cluster, use o nome do cluster e **-ssh.azurehdinsight.net**. Por exemplo, **mycluster-ssh.azurehdinsight.net**.
     
     * __Endereço do nó de borda__: se estiver se conectando a um Servidor R no cluster HDInsight, você poderá se conectar ao nó de borda do Servidor R usando o endereço __RServer.CLUSTERNAME.ssh.azurehdinsight.net__, em que CLUSTERNAME é o nome do cluster. Por exemplo, __RServer.mycluster.ssh.azurehdinsight.net__.
 
@@ -233,4 +235,4 @@ Agora que você entende como autenticar usando uma chave SSH, aprenda a usar Map
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0427_2016-->

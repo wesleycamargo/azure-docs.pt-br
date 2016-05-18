@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="04/06/2016"
 	ms.author="robinsh"/>
 
 # Monitorar uma conta de armazenamento no Portal do Azure
@@ -25,6 +25,8 @@
 > [AZURE.NOTE] Há custos adicionais associados ao exame de dados de monitoramento no [Portal do Azure](https://portal.azure.com). Para obter mais informações, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Análise de armazenamento e cobrança</a>. <br />
 
 > O Armazenamento de arquivos do Azure atualmente dá suporte às métricas de Análise de Armazenamento, mas ainda não dá suporte ao registro em log. É possível habilitar métricas para o Armazenamento de arquivos do Azure por meio de [Portal do Azure](https://portal.azure.com).
+
+> As contas de armazenamento com um tipo de replicação de ZRS (armazenamento com redundância de zona) não têm métricas ou funcionalidade de log habilitadas no momento.
 
 > Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -157,4 +159,4 @@ Para cada um dos serviços de armazenamento disponíveis com sua conta de armaze
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado $logs em sua conta de armazenamento. Para obter informações sobre como acessar o contêiner $logs, consulte [Sobre o Log de Analítica do Armazenamento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

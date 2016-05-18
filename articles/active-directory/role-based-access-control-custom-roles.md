@@ -10,17 +10,17 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="03/25/2016"
+	ms.date="04/28/2016"
 	ms.author="kgremban"/>
 
 
 # Funções personalizadas no RBAC do Azure
 
 
-Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. Funções personalizadas podem ser criadas usando o Azure PowerShell, a CLI (Interface de linha de comando) do Azure e a API REST. Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso.
+Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. Funções personalizadas podem ser criadas usando o [Azure PowerShell](role-based-access-control-manage-access-powershell.md), a [CLI](role-based-access-control-manage-access-azure-cli.md) (Interface de linha de comando) do Azure e a [API REST](role-based-access-control-manage-access-rest.md). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso.
 
 Este é um exemplo de uma função personalizada para monitorar e reiniciar as máquinas virtuais:
 
@@ -92,11 +92,11 @@ A propriedade **AssignableScopes** da função personalizada também controla qu
 - Quem pode exibir funções personalizadas? Todas as funções internas no RBAC do Azure permitem a visualização de funções disponíveis para atribuição. Os usuários que podem executar a operação `Microsoft.Authorization/roleDefinition/read` em um escopo podem exibir as funções de RBAC disponíveis para atribuição nesse escopo.
 
 ## Consulte também
-- Introdução ao [Controle de Acesso Baseado em Função](role-based-access-control-configure.md) no Portal do Azure.
+- [Controle de Acesso Baseado em Função](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
 - Saiba como gerenciar o acesso com:
 	- [PowerShell](role-based-access-control-manage-access-powershell.md)
 	- [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 	- [API REST](role-based-access-control-manage-access-rest.md)
-- [Criar relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md)
+- [Funções internas](role-based-access-built-in-roles.md): obter detalhes sobre as funções que estão incluídas por padrão no RBAC.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

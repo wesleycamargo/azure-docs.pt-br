@@ -149,4 +149,4 @@ Veja algumas das próximas etapas para continuar sua aprendizagem e exploração
 * Aprenda a compilar sistematicamente soluções completas de análise usando o [Processo de ciência de dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite a [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu Iniciar e na área de trabalho na máquina virtual para facilitar o acesso 
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -162,4 +162,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 Para fazer uma comparação entre o Serviço Fila do Azure discutido neste artigo e as ilas do Barramento de Serviço do Azure discutidas no artigo [Como usar o Barramento de Serviço](/develop/ruby/how-to-guides/service-bus-queues/), consulte [Filas do Azure e Filas do Barramento de Serviço do Azure - semelhanças e diferenças](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

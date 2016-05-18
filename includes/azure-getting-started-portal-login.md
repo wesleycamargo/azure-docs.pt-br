@@ -23,13 +23,13 @@ Se você não tiver uma conta existente do Microsoft Azure, siga um dos links ab
 
 Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), siga as etapas abaixo para se conectar ao portal do Azure.
 
-1. Abra seu navegador preferido e conecte-se ao [Portal do Azure](https://portal.azure.com/) em http://portal.azure.com/.
+1. Abra seu navegador preferido e conecte-se ao [portal do Azure](https://portal.azure.com/).
 
-1. Entre no [portal do Azure](https://portal.azure.com/) em http://portal.azure.com/.
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-1. Quando a página de entrada aparecer, forneça as credenciais da sua assinatura
+1. Quando a página de entrada aparecer, forneça as credenciais de sua assinatura
 
    ![entrar](./media/azure-getting-started-portal-login/login.png)
    
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0420_2016-->

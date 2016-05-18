@@ -3,8 +3,8 @@
    description="Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de rede virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN"
    services="vpn-gateway"
    documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="yushwang"
+   manager="rossort"
    editor="" />
 <tags 
    ms.service="vpn-gateway"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/10/2016"
-   ms.author="cherylmc" />
+   ms.author="yushwang" />
 
 # Perguntas frequentes de gateway de VPN
 
@@ -250,6 +250,12 @@ Para o tráfego entre diferentes redes virtuais do Azure, o Azure cobra somente 
 
 Sim, isso é suportado. Para obter mais informações, consulte [Configurar conexões de VPN Site a Site e de Rota Expressa que coexistam](../expressroute/expressroute-howto-coexist-classic.md).
 
+## BGP
+
+[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+
+
+
 ## Conectividade entre locais e VMs
 
 ### Se minha máquina virtual estiver em uma rede virtual e eu tiver uma conexão entre locais, como devo me conectar à VM?
@@ -273,4 +279,4 @@ Você pode exibir mais informações sobre Gateways de VPN na [página de docume
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,52 +13,67 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure
 
-A CDN (Rede de Distribuição de Conteúdo) do Azure armazena em cache conteúdo estático e blobs do Azure usados por serviços de nuvem em locais estrategicamente posicionados para fornecer largura de banda máxima para o fornecimento de conteúdo aos usuários.
+A CDN (Rede de Distribuição de Conteúdo) do Azure armazena em cache conteúdo Web estático em locais estrategicamente posicionados para fornecer taxa de transferência máxima para o fornecimento de conteúdo aos usuários. A CDN oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda armazenando em cache o conteúdo em nós físicos em todo o mundo. Para obter uma lista de locais de nó CDN atuais, confira [Locais POP da Azure CDN](cdn-pop-locations.md).
+
+As vantagens do uso da CDN para armazenar ativos de site da Web em cache incluem:
+
+- Melhor desempenho e experiência de usuário para usuários finais, especialmente ao se usar aplicativos em que várias viagens de ida e volta são necessárias para carregar o conteúdo.
+- Grande dimensionamento para lidar melhor com alta carga instantânea, como no início de um evento de lançamento de produto.
+- Distribuindo-se solicitações de usuário e fornecendo-se conteúdo de servidores de borda, menos tráfego é enviado à origem.
+
+
+## Como ele funciona
+
+![Visão geral da CDN](./media/cdn-overview/cdn-overview.png)
+
+1. Uma usuária (Brenda) solicita um arquivo (também chamado de ativo) usando uma URL com um nome de domínio especial, como `<endpointname>.azureedge.net`. O DNS roteia a solicitação para o local POP (Ponto de Presença) de melhor desempenho . Normalmente, esse é o POP geograficamente mais próximo ao usuário.
+
+2. Se os servidores de borda no POP não tiverem o arquivo em seu cache, o servidor de borda solicitará o arquivo da origem. A origem pode ser um Aplicativo Web do Azure, o Serviço de Nuvem do Azure, a conta de Armazenamento do Azure ou qualquer servidor Web acessível publicamente.
+
+3. A origem retorna o arquivo ao servidor de borda, incluindo os cabeçalhos HTTP opcionais que descrevem a TTL (Vida Útil) do arquivo.
+
+4. O servidor de borda armazena o arquivo em cache e o retorna à solicitante original (Brenda). O arquivo permanecerá em cache no servidor de borda até que a TTL expire. Se a origem não especificar uma TTL, a TTL padrão será de sete dias.
+
+5. Usuários adicionais (como Pedro) podem solicitar o mesmo arquivo usando essa mesma URL e também podem ser direcionados para esse mesmo POP.
+
+6. Se a TTL do arquivo ainda não tiver expirado, o servidor de borda retornará os arquivos do cache. Isso resulta em uma experiência de usuário mais rápida e responsiva.
+
+
+## Recursos da Azure CDN
+
+Há três produtos Azure CDN: **Azure CDN Standard do Akamai**, **Azure CDN Standard da Verizon** e **Azure CDN Premium da Verizon**. A tabela a seguir lista os recursos disponíveis para cada produto.
+
+| | Akamai Standard | Verizon Standard | Verizon Premium |
+|-------|-----------------|------------------|-----------------|
+| Fácil integração com os serviços do Azure, como [Armazenamento](cdn-create-a-storage-account-with-cdn.md), [Serviços de Nuvem](cdn-cloud-service-with-cdn.md), [Aplicativos Web](../app-service-web/cdn-websites-with-cdn.md) e [Serviços de Mídia](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Suporte para HTTPS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Balanceamento de carga | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Proteção DDOS | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Suporte a nome de domínio personalizado](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Cache de cadeia de caracteres de consulta](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Filtragem de país](cdn-restrict-access-by-country.md) | | **&#x2713;** | **&#x2713;** |
+| [Limpeza rápida](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Pré-carregamento de ativos](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
+| [Análise principal](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
+| [Gerenciamento por meio da API REST](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [Mecanismo de distribuição de conteúdo personalizável e baseado em regras](cdn-rules-engine.md) | | | **&#x2713;** |
+| [Relatórios avançados de HTTP](cdn-advanced-http-reports.md) | | | **&#x2713;** |
+| [Estatísticas em tempo real](cdn-real-time-stats.md) | | | **&#x2713;** |
+
+
+## Próximas etapas
+
+Para começar a usar a CDN, consulte [Usando a CDN do Azure](./cdn-create-new-endpoint.md).
 
 Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN por meio do [Portal do Microsoft Azure](https://portal.azure.com).
 
+Para ver a CDN em ação, confira o [vídeo da sessão Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-A CDN oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda armazenando em cache o conteúdo em nós físicos em todo o mundo. Para obter uma lista atual dos locais de nós CDN, consulte [Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-pop-locations.md).
+Para obter informações sobre os preços, confira [Detalhes de preços](https://azure.microsoft.com/pricing/details/cdn/).
 
-Os benefícios do uso da CDN para armazenar em cache dados do Azure incluem:
-
-- Melhor desempenho e experiência de usuário para usuários finais que estão longe de uma fonte de conteúdo e estão usando aplicativos em que muitas "viagens à Internet" são necessárias para carregar conteúdo
-- Grande escala distribuída para lidar melhor com alta carga instantânea, como no início de um evento de lançamento de produto.
-
-
->[AZURE.IMPORTANT] Quando você cria ou habilita um ponto de extremidade da CDN, pode levar até 90 minutos para que a propagação seja feita no mundo inteiro.
-
-Quando uma solicitação de um objeto é feita pela primeira vez à CDN, o objeto é recuperado diretamente do local de origem do objeto. Essa origem pode ser uma conta de armazenamento do Azure, um aplicativo Web, um serviço de nuvem ou qualquer origem personalizada que aceite solicitações da Web públicas. Quando uma solicitação é feita usando a sintaxe da CDN, a solicitação é redirecionada para o ponto de extremidade da CDN mais próximo do local em que a solicitação foi feita para fornecer acesso ao objeto. Se o objeto não for encontrado nesse ponto de extremidade, ele será recuperado do serviço e armazenado em cache no ponto de extremidade, em que uma configuração de TTL (vida útil) será mantida para o objeto armazenado em cache.
-
-## Recursos Standard
-
-A camada CDN Standard inclui os seguintes recursos:
-
-- Fácil integração com serviços do Azure, como [Armazenamento](cdn-create-a-storage-account-with-cdn.md), Aplicativos Web e Serviços de Mídia
-- [Cache de cadeia de caracteres de consulta](cdn-query-string.md)
-- [Suporte a nome de domínio personalizado](cdn-map-content-to-custom-domain.md)
-- [Filtragem de país](cdn-restrict-access-by-country.md)
-- [Análise principal](cdn-analyze-usage-patterns.md)
-- [Origens de conteúdo personalizado](cdn-how-to-use-cdn.md#caching-content-from-custom-origins)
-- [Suporte para HTTPS](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
-- Balanceamento de carga
-- Proteção DDOS
-- [Limpeza rápida](cdn-purge-endpoint.md)
-- [Pré-carregamento de ativos](cdn-preload-endpoint.md)
-- [Gerenciamento por meio da API REST](https://msdn.microsoft.com/library/mt634456.aspx)
-
-
-## Recursos Premium
-
-A camada CDN Premium inclui todos os recursos da camada Standard, além desses recursos adicionais:
-
-- [Mecanismo de distribuição de conteúdo personalizável e baseado em regras](cdn-rules-engine.md)
-- [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
-- [Estatísticas em tempo real](cdn-real-time-stats.md)
-
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

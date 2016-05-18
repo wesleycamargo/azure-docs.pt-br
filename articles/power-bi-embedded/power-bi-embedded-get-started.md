@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introdução ao Microsoft Power BI Embedded Preview"
-   description="Introdução ao Microsoft Power BI Embedded Preview"
+   description="Power BI Embedded, adicione relatórios interativos do Power BI a seu aplicativo de business intelligence"
    services="power-bi-embedded"
    documentationCenter=""
    authors="dvana"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="04/24/2016"
    ms.author="derrickv"/>
 
 # Introdução ao Microsoft Power BI Embedded Preview
@@ -58,7 +58,7 @@ A próxima seção descreve como as **Chaves de acesso** são usadas para gerar 
 <a name="view-access-keys"/>
 ## Exibir chaves de acesso da API do Power BI
 
-Uma das informações mais importantes necessárias para chamar as APIs REST do Power BI são as **Chaves de Acesso**. Elas são usadas para gerar os **tokens do aplicativo** que são usados na autenticação das solicitações de API. Para exibir suas **Chaves de Acesso**, clique em **Chaves de Acesso** na **Folha de Configurações**. Para saber mais sobre **tokens do aplicativo**, confira [Como funciona o fluxo de tokens de aplicativo](power-bi-embedded-get-started-sample.md#key-flow).
+Uma das informações mais importantes necessárias para chamar as APIs REST do Power BI são as **Chaves de Acesso**. Elas são usadas para gerar os **tokens do aplicativo** que são usados na autenticação das solicitações de API. Para exibir suas **Chaves de Acesso**, clique em **Chaves de Acesso** na **Folha de Configurações**. Para saber mais sobre **tokens do aplicativo**, confira [Como funciona o fluxo de tokens de aplicativo](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -74,7 +74,7 @@ Agora que você tem uma instância do Power BI para seu aplicativo e as **Chaves
 
 ## Criar relatórios e conjuntos de dados do Power BI para inserir em um aplicativo
 
-Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisa criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, para começar rapidamente, você pode baixar o [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) (PBIX de exemplo de análise de varejo). Para saber mais sobre como usar o **Power BI Desktop**, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisa criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Ou, para começar rapidamente, você pode baixar o [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547) (PBIX de exemplo de análise de varejo). Para saber mais sobre como usar o **Power BI Desktop**, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/pt-BR/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Com o **Power BI Desktop**, você se conecta à fonte de dados importando uma cópia dos dados para o **Power BI Desktop** ou se conectando diretamente à fonte de dados usando o **DirectQuery**.
 
@@ -107,4 +107,4 @@ Nas etapas anteriores, você criou uma coleção de espaços de trabalho, o prim
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 - [Preço do Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0427_2016-->

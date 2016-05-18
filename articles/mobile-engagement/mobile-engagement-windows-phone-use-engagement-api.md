@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/03/2016" 
 	ms.author="piyushjo" />
 
 #Como usar o API do Engagement no Windows Phone Silverlight
 
-Este documento é um complemento para o documento [Como integrar o Mobile Engagement em seu aplicativo do Windows Phone Silverlight](../mobile-engagement-windows-phone-integrate-engagement/). Ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
+Este documento é um complemento para o documento [Como integrar o Mobile Engagement em seu aplicativo do Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md). Ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
 
 Se você desejar apenas relatar as sessões, atividades, falhas e informações técnicas do seu aplicativo, então a maneira mais simples é fazer todas as suas subclasses `PhoneApplicationPage` herdarem da classe `EngagementPage`.
 
@@ -378,5 +378,12 @@ No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"subscription":"2013-12-07","premium":"true"}
  
+##Registro em log
+###Habilitar registro em log
 
-<!---HONumber=AcomDC_0302_2016-->
+O SDK pode ser configurado para gerar logs de teste no console do IDE. Esses logs não são ativados por padrão. Para personalizar esse recurso, atualize a propriedade `EngagementAgent.Instance.TestLogEnabled` para um dos valores disponíveis na enumeração `EngagementTestLogLevel`, por exemplo:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
+
+<!---HONumber=AcomDC_0504_2016-->

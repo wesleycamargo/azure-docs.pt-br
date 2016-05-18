@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="03/04/2016"
+ ms.date="04/20/2016"
  ms.author="larryfr"/>
 
 #Conectar-se ao Hive no Azure HDInsight usando o driver JDBC do Hive
@@ -151,6 +151,28 @@ O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente a
 
 Um exemplo de como usar um cliente Java para consultar o Hive no HDInsight está disponível em [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Siga as instruções no repositório para compilar e executar o exemplo.
 
+##Solucionar problemas
+
+### Ocorreu um erro inesperado ao tentar abrir uma conexão SQL.
+
+__Sintomas__: ao se conectar a um cluster HDInsight versão 3.3 ou 3.4, você poderá receber uma mensagem indicando que ocorreu um erro inesperado. O rastreamento de pilha para esse erro começará com as seguintes linhas:
+
+    java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
+    at java.util.concurrent.FutureTas...(FutureTask.java:122)
+    at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+
+__Causa__: este erro é causado por uma incompatibilidade na versão do arquivo common-codec.jar usada pelo SQuirreL e aquela exigida pelos componentes JDBC do Hive baixada por meio do cluster HDInsight.
+
+__Resolução__: para corrigir esse erro, use as etapas a seguir.
+
+1. Baixe o arquivo common-codec.jar por meio do cluster HDInsight.
+
+        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/common-codec*.jar ./common-codec.jar
+
+2. Saia do SQuirreL e vá para o diretório em que o SQuirreL está instalado em seu sistema. No diretório do SquirreL, sob o diretório `lib`, substitua o common-codec.jar existente pelo baixado por meio do cluster HDInsight.
+
+3. Reinicie o SQuirreL. O erro não deverá ocorrer mais nas próximas conexões ao Hive no HDInsight.
+
 ##Próximas etapas
 
 Agora que você aprendeu a usar o JDBC para trabalhar com Hive, use os links abaixo para explorar outras maneiras de trabalhar com o Azure HDInsight.
@@ -160,4 +182,4 @@ Agora que você aprendeu a usar o JDBC para trabalhar com Hive, use os links aba
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0420_2016-->

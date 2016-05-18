@@ -19,13 +19,11 @@ As tarefas mais comuns são:
 
 ##Localizar extensões disponíveis
 
-Extensões de VM do Azure (para obter uma lista completa das extensões de acordo com os recursos aos quais elas dão suporte, consulte [Extensões e recursos de VM do Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).) Você pode localizar a extensão e as informações estendidas usando:
+Você pode localizar a extensão e as informações estendidas usando:
 
 -   PowerShell
 -   Interface de Plataforma Cruzada do Azure (CLI do Azure)
 -   API REST de gerenciamento de serviço
-
-quaisquer cmdlets [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) ou [APIs REST do Gerenciamento de Serviço](https://msdn.microsoft.com/library/ee460799.aspx) para localizar informações sobre extensões disponíveis.
 
 ###PowerShell do Azure
 
@@ -121,4 +119,4 @@ Você pode usar as APIs REST a seguir para saber se uma extensão requer uma con
 
 >[AZURE.NOTE]As extensões também podem usar as configurações que são definidas com JSON. Quando esses tipos de extensões são usados, apenas o elemento **SampleConfig** é usado.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

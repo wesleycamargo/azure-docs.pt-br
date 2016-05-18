@@ -3,8 +3,8 @@
 	description="Esse tutorial ajudará você a começar a Sincronização de Dados do SQL do Azure (visualização)."
 	services="sql-database"
 	documentationCenter=""
-	authors="spelluru"
-	manager="JennieHubbard"
+	authors="jennieHubbard"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="04/26/2016"
 	ms.author="jhubbard"/>
 
 
@@ -202,4 +202,4 @@ Para obter informações adicionais sobre banco de dados SQL e Sincronização d
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

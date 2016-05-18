@@ -3,7 +3,7 @@
    description="Saiba como instalar ferramentas do Data Lake para o Visual Studio, como desenvolver e testar scripts U-SQL."
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/15/2016"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio
 
@@ -28,7 +28,7 @@ U-SQL é uma linguagem altamente extensível e hiperescalonável para preparaç�
 
 ###Pré-requisitos
 
-- **Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012. As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte; não há suporte para a edição Express. O Visual Studio "15" não é suportado atualmente e estamos trabalhando nisso.** 
+- **Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012. As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte; não há suporte para a edição Express. O Visual Studio "15" não é suportado atualmente e estamos trabalhando nisso.**
 - **SDK do Microsoft Azure para .NET versão 2.7.1 ou posterior**. Instale-o usando o [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Ferramentas do Data Lake para Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -132,7 +132,8 @@ Os trabalhos de Análise Data Lake são escritos na linguagem U-SQL. Para saber 
 
     - **Expandir * colunas**
 
-        Clique à direita de * e você deverá ver um sublinhado azul abaixo de *. Passe o cursor do mouse no sublinhado azul e clique na seta para baixo. ![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+        Clique à direita de * e você deverá ver um sublinhado azul abaixo de *. Passe o cursor do mouse no sublinhado azul e clique na seta para baixo. 
+![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
         Clique em **Expandir Colunas**, a ferramenta substituirá o * pelos nomes de coluna.
 
@@ -215,7 +216,7 @@ Usando a experiência de execução local do U-SQL no Visual Studio, você pode:
 - Depure os assemblies do C# localmente.
 - Criar/excluir/exibir bancos de dados locais, assemblies, esquemas e tabelas no Gerenciador de Servidores assim como faz no serviço Análise Data Lake do Azure.
 
-Você verá uma conta *Local* no Visual Studio e o instalador cria uma pasta *DataRoot* localizada em *C:\\LocalRunRoot*. A pasta DataRoot será usada:
+Você verá uma conta *Local* no Visual Studio e o instalador cria uma pasta *DataRoot* localizada em *C:\LocalRunRoot*. A pasta DataRoot será usada:
 
 - Armazenar metadados, incluindo tabelas, bancos de dados, TVFs, etc.
 - Para um determinado script: se um caminho relativo for referenciado nos caminhos de entrada/saída, pesquisaremos o DataRoot (bem como caminho do script se a entrada)
@@ -361,4 +362,4 @@ O script do PowerShell a seguir prepara uma conta da Análise Data Lake do Azure
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

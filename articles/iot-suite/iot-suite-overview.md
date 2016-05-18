@@ -17,7 +17,7 @@
      ms.date="02/19/2016"
      ms.author="dobett"/>
 
-# Visão geral do Azure IoT Suite
+# O que é o Azure IoT Suite?
 
 Os serviços de IoT (Internet das coisas) do Azure oferecem uma ampla variedade de recursos. Esses serviços de nível corporativo permitem que você:
 
@@ -74,4 +74,4 @@ Agora que tem uma visão geral do que o IoT Suite pode fazer e quais são seus p
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

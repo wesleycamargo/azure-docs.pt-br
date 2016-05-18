@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Como: definir configurações de firewall | Microsoft Azure"
+	pageTitle="Como configurar um firewall do Banco de Dados SQL | Microsoft Azure"
 	description="Saiba como configurar o firewall para endereços IP que acessam bancos de dados SQL do Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -18,14 +18,14 @@
 	ms.author="rickbyh"/>
 
 
-# Como definir as configurações de firewall no Banco de Dados SQL usando o TSQL
+# Como configurar um firewall do Banco de Dados SQL do Azure usando TSQL
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-configure-firewall-settings.md)
+- [Portal do Azure](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-- [REST API](sql-database-configure-firewall-settings-rest.md)
+- [API REST](sql-database-configure-firewall-settings-rest.md)
 
 
 O Banco de Dados SQL do Microsoft Azure usa regras de firewall para permitir conexões com servidores e bancos de dados. Você pode definir configurações de firewall nos níveis de banco de dados e de servidor para o banco de dados de usuário ou mestre no seu servidor do Banco de Dados SQL do Azure a fim de permitir seletivamente o acesso ao banco de dados.
@@ -70,4 +70,4 @@ O Banco de Dados SQL do Microsoft Azure usa regras de firewall para permitir con
 
 Para ver um tutorial sobre como criar um banco de dados, confira [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md). Para obter ajuda com a conexão a um banco de dados SQL do Azure por meio de aplicativos de software livre ou de terceiros, confira [Diretrizes para a conexão com o Banco de Dados SQL do Azure de forma programática](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para saber como navegar para os bancos de dados, confira [Gerenciando bancos de dados e logons em um Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

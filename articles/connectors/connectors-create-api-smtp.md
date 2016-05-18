@@ -22,14 +22,14 @@ Conecte-se a um servidor SMTP para enviar email. A API do SMTP pode ser usada em
 
 - Aplicativos lógicos
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do SMTP](../app-service-logic/app-service-logic-connector-smtp.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o SMTP, você pode:
 
 - Compile seu fluxo de negócios incluindo o envio de emails usando SMTP. 
 - Use uma ação para enviar email. Essa ação obtêm uma resposta e disponibiliza a saída para outras ações. Por exemplo, quando há um novo arquivo no servidor FTP, você pode obtê-lo e enviá-lo anexado em um email usando o SMTP. 
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 A API de SMTP tem a seguinte ação disponível. Não há nenhum gatilho.
@@ -49,7 +49,7 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 | Nome de usuário |Sim |Insira o nome de usuário para se conectar ao Servidor SMTP. |
 | Senha | Sim|Insira a senha do nome de usuário. |
 
-Depois de criar a conexão, insira as propriedades do SMTP, como os valores de Destinatário e Cópia Oculta. A **referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do SMTP, como os valores de Destinatário e Cópia Oculta. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do SMTP em outros aplicativos lógicos.
 
@@ -94,4 +94,4 @@ Envia um email para um ou mais destinatários.```POST: /SendEmail```
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

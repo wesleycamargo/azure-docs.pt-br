@@ -23,9 +23,9 @@ O Azure Service Fabric permite a criação de clusters do Service Fabric em quai
 
 Este artigo explica as etapas necessárias para criar um cluster usando o pacote autônomo do Service Fabric local, mas ele pode ser adaptada facilmente a qualquer outro ambiente, como na nuvem.
 
-## Pacote autônomo do Service Fabric
+## Baixar o pacote autônomo do Service Fabric
 
-O pacote autônomo do Service Fabric para implantações do Windows Server 2012 R2 se chama *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip* e pode ser baixado [aqui](http://go.microsoft.com/fwlink/?LinkId=730690).
+[Baixe o pacote autônomo do Service Fabric para Windows Server 2012 R2](http://go.microsoft.com/fwlink/?LinkId=730690), que se chama *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
 
 No pacote de download, você encontrará os seguintes arquivos:
 
@@ -52,7 +52,6 @@ Pré-requisitos para cada computador que você deseja adicionar ao cluster:
 - Windows Server 2012 R2 ou Windows Server 2012 (para isso, você precisa ter o KB2858668 instalado).
 - .NET Framework 4.5.1 ou superior, instalação completa
 - Windows PowerShell 3.0
-- Pacote redistribuível do Visual C++ 2012 (VC + + 11.0)
 - O administrador do cluster que estiver implantando e configurando o cluster precisa ter privilégios de administrador em cada um dos computadores.
 
 ### Etapa 3: Determinar o tamanho inicial do cluster
@@ -100,7 +99,7 @@ Depois de ter modificado a configuração do cluster no documento JSON e adicion
 Esse script pode ser executado em qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no arquivo de configuração do cluster. O computador no qual esse script é executado pode ou não fazer parte do cluster.
 
 ```
-C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\Microsoft.Azure.ServiceFabric.WindowsServer.5.0.135.9590\MicrosoftAzureServiceFabric.cab
 ```
 
 ## Próximas etapas
@@ -115,4 +114,4 @@ Leia os artigos a seguir para começar com o desenvolvimento e a implantação d
 Leia mais sobre clusters do Azure e clusters autônomos:
 - [Visão geral do recurso de criação de cluster autônomo e uma comparação com clusters gerenciados pelo Azure](service-fabric-deploy-anywhere.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

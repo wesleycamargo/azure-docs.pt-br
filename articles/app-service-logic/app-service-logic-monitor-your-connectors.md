@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Gerenciar e monitorar conectores e aplicativos de API no Serviço de Aplicativo | Microsoft Azure" 
-	description="Visualizar o desempenho de conectores e aplicativos de API no Serviço de Aplicativo do Azure; arquitetura de microsserviços" 
-	services="app-service\logic" 
+<properties
+	pageTitle="Gerenciar e monitorar conectores e aplicativos de API no Serviço de Aplicativo | Microsoft Azure"
+	description="Visualizar o desempenho de conectores e aplicativos de API no Serviço de Aplicativo do Azure; arquitetura de microsserviços"
+	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/18/2016" 
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/18/2016"
 	ms.author="mandia"/>
 
 # Gerenciar e monitorar aplicativos de API e conectores internos
@@ -40,9 +40,9 @@ Você pode:
 
 - **Configurações** mostra informações específicas sobre o aplicativo de API, incluindo detalhes da sua assinatura, e lista os usuários que têm acesso ao aplicativo de API. Você também pode aumentar ou diminuir o número de instâncias do aplicativo de API usando o recurso de escala, entre outros recursos.
 - Use os botões **Iniciar** e **Parar** para controlar o aplicativo de API.
-- Quando são feitas atualizações de produto para os arquivos subjacentes usados pelo aplicativo de API, você pode clicar em **Atualizar** para obter as versões mais recentes. Por exemplo, se houver uma correção ou uma atualização de segurança lançada pela Microsoft, clique em **Atualizar** para atualizar automaticamente o aplicativo de API de modo a incluir a correção. 
+- Quando são feitas atualizações de produto para os arquivos subjacentes usados pelo aplicativo de API, você pode clicar em **Atualizar** para obter as versões mais recentes. Por exemplo, se houver uma correção ou uma atualização de segurança lançada pela Microsoft, clique em **Atualizar** para atualizar automaticamente o aplicativo de API de modo a incluir a correção.
 - Selecione **Alterar Plano** para atualizar ou fazer downgrade com base no uso de dados do aplicativo de API. Você também pode usar esse recurso para ver o uso de dados.
-- Ao criar um conector com tabelas, como o conector SQL, você pode digitar o nome de uma tabela para se conectar a ela. Um esquema com base na tabela é criado automaticamente e é disponibilizado quando você clica em **Baixar esquemas**. Em seguida, você pode usar o esquema baixado para criar uma transformação ou um mapa. 
+- Ao criar um conector com tabelas, como o conector SQL, você pode digitar o nome de uma tabela para se conectar a ela. Um esquema com base na tabela é criado automaticamente e é disponibilizado quando você clica em **Baixar esquemas**. Em seguida, você pode usar o esquema baixado para criar uma transformação ou um mapa.
 
 ## Alterar valores de configuração de API ou conector inseridos
 
@@ -56,7 +56,7 @@ As etapas são as seguintes:
 	![][apiapphost]
 
 3. Na folha Host do aplicativo de API, selecione **Configurações**. Na folha Configurações, clique em **Configurações do aplicativo**. Os valores de configuração estão listados em **Configurações do aplicativo**:
-	
+
 	![][hostsettings]
 
 4. Clique na configuração que deseja alterar, digite o novo valor e **salve** suas alterações.
@@ -79,7 +79,7 @@ Métricas de desempenho são recursos internos incluídos em cada aplicativo de 
 
 Você pode:
 
-- Selecione **Solicitações e erros** para adicionar diferentes métricas de desempenho, incluindo códigos de erro HTTP comumente conhecidos, como códigos de status HTTP 200, 400 ou 500. Também é possível consultar os tempos de resposta, quantas solicitações são feitas ao aplicativo de API, a quantidade de dados em entrada e a quantidade de dados em saída. Com base nas métricas de desempenho, você pode criar alertas de email quando uma métrica excede um limite de sua escolha. 
+- Selecione **Solicitações e erros** para adicionar diferentes métricas de desempenho, incluindo códigos de erro HTTP comumente conhecidos, como códigos de status HTTP 200, 400 ou 500. Também é possível consultar os tempos de resposta, quantas solicitações são feitas ao aplicativo de API, a quantidade de dados em entrada e a quantidade de dados em saída. Com base nas métricas de desempenho, você pode criar alertas de email quando uma métrica excede um limite de sua escolha.
 - Em **Uso**, veja a quantidade de **CPU** usada pelo aplicativo de API, examine a **cota de uso** atual em MB e consulte a utilização máxima de dados com base na faixa de custo. **Despesa estimada** pode ajudá-lo a determinar os custos potenciais da execução do aplicativo de API.
 - Selecione **Processos** para abrir o Gerenciador de Processos. Isso mostra as instâncias da Web e suas propriedades, incluindo o uso de memória e contagem de threads.
 
@@ -103,21 +103,21 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 ![][access]
 
 - Selecione **Usuários** para adicionar um usuário, atribuir uma função e remover um usuário.
-- Selecione **Funções** para ver todos os usuários em uma função específica, adicionar um usuário a uma função e remover um usuário de uma função. 
+- Selecione **Funções** para ver todos os usuários em uma função específica, adicionar um usuário a uma função e remover um usuário de uma função.
 
 
 ## Mais coisas boas
 - Selecione **Definição de API** para abrir o arquivo de Swagger criado automaticamente para o seu aplicativo de API específico.
-- Selecione **Dependências** para exibir os arquivos exigidos pelo aplicativo de API. Por exemplo: ao usar o conector SAP, você instala alguns arquivos adicionais no Gerenciador de Conexão Híbrida local. Essas dependências são mostradas na folha do aplicativo de API. 
+- Selecione **Dependências** para exibir os arquivos exigidos pelo aplicativo de API. Por exemplo: ao usar o conector SAP, você instala alguns arquivos adicionais no Gerenciador de Conexão Híbrida local. Essas dependências são mostradas na folha do aplicativo de API.
 
 > [AZURE.IMPORTANT] Quando você abre as propriedades do aplicativo de API e visualiza **Fundamentos**, há links de **Host** e **Gateway** que abrem novas folhas:
-> 
+>
 > ![][host]
-> 
-> Essas propriedades são específicas ao site que hospeda o aplicativo de API. Ao usar um aplicativo de API ou um conector interno, a maioria dessas propriedades não se aplica, e é recomendável que você não as atualize. Se tiver criado seu aplicativo de API no Visual Studio e implantado-o em sua assinatura do Azure, você poderá usar as folhas Host e Gateway. [Gerenciar aplicativos de API](../app-service-api/app-service-api-manage-in-portal.md) fornece mais informações sobre o que você pode fazer nessas folhas com o aplicativo de API personalizado criado.
+>
+> Essas propriedades são específicas ao site que hospeda o aplicativo de API. Ao usar um aplicativo de API ou um conector interno, a maioria dessas propriedades não se aplica, e é recomendável que você não as atualize. Se tiver criado seu aplicativo de API no Visual Studio e implantado-o em sua assinatura do Azure, você poderá usar as folhas Host e Gateway.
 
 
->[AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
+>[AZURE.NOTE] Se quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Criar seu aplicativo do Serviço de Aplicativo Azure](https://tryappservice.azure.com/?appservice=logic). Você pode criar um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
 
 ## Leia mais
 
@@ -137,4 +137,4 @@ Você pode adicionar usuários e atribuir funções específicas ao aplicativo d
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

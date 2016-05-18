@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure" 
+	pageTitle="Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure | Microsoft Azure" 
 	description="Saiba como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
@@ -133,4 +133,4 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -111,7 +111,7 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 -  [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Como carregar controladores de domínio locais de Hyper-V existentes no Azure usando o Azure PowerShell](http://support.microsoft.com/kb/2904015)
--  [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](../active-directory-new-forest-virtual-machine.md)
+-  [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 -  [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md)
 -  [Microsoft Azure IaaS para profissionais de TI: (01) conceitos básicos de máquina virtual](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
@@ -121,4 +121,4 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

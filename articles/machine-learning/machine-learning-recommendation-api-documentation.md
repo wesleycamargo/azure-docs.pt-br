@@ -93,9 +93,9 @@ Cria uma solicitação "criar modelo".
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | 
-| apiVersion | 1.0 | 
-||| 
+|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 |
+| apiVersion | 1.0 |
+|||
 | Corpo da Solicitação | NENHUM |
 
 
@@ -989,10 +989,10 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 
 | Nome | Obrigatório | Tipo | Descrição |
 |:---|:---|:---|:---|
-| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador único de um item. | 
-| Nome do item| Sim | Quaisquer caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item | 
-| Categoria do item | Sim | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual esse item pertence (por exemplo, Livros de culinária, drama…); pode estar vazio. | 
-| Descrição | Não, a menos que haja recursos presentes (mas pode estar vazio) | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000; Número máx. de recursos: 20 | Descrição desse item. | 
+| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador único de um item. |
+| Nome do item| Sim | Quaisquer caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item |
+|Categoria do item | Sim | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual esse item pertence (por exemplo, Livros de culinária, drama…); pode estar vazio. |
+| Descrição | Não, a menos que haja recursos presentes (mas pode estar vazio) | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000; Número máx. de recursos: 20 | Descrição desse item. |
 | Lista de recursos | Não | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000 | Lista separada por vírgulas do valor de recurso name=feature pode ser usado para otimizar a recomendação do modelo; veja a seção [Tópicos avançados](#2-advanced-topics). |
 
 
@@ -1005,8 +1005,8 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
 | nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 |
-| apiVersion | 1.0 | 
-||| 
+| apiVersion | 1.0 |
+|||
 |
 |||
 | Corpo da solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
@@ -1044,7 +1044,7 @@ XML de OData
 	</feed>
 
 ###8\.2. Obter catálogo
-Recupera todos os itens de catálogo.
+Recupera todos os itens de catálogo. O catálogo será recuperado uma página por vez. Se você quiser obter itens em um índice específico, use o parâmetro odata $skip. Por exemplo, se você quiser obter itens a partir da posição 100, adicione o parâmetro $skip=100 à solicitação.
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -1214,7 +1214,7 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |	modelId |	Identificador exclusivo do modelo |
 | nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_).<br>Comprimento máximo: 50 |
 | apiVersion | 1.0 |
-||| 
+|||
 | Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do usuário</td><td>Sim</td><td>[A-z], [a-z], [0-9], [_] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 255 </td><td>Identificador exclusivo de um usuário.</td></tr><tr><td>Id do Item</td><td>Sim</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 50</td><td>Identificador exclusivo de um item.</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo 2013/06/20T10:00:00)</td><td>Hora dos dados.</td></tr><tr><td>Evento</td><td>Não; caso seja fornecido também precisará da data</td><td>Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
@@ -1364,10 +1364,10 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 		</Event>
 
 **Response**:
-código de status HTTP: 200
+ código de status HTTP: 200
 
 ###9\.2. Lista dos arquivos de modelo de uso
-Recupera os metadados de todos os arquivos de uso do modelo.
+Recupera os metadados de todos os arquivos de uso do modelo. Os arquivos de uso serão recuperados uma página por vez. Cada página contém 100 itens. Se você quiser obter itens em um índice específico, use o parâmetro odata $skip. Por exemplo, se você quiser obter itens a partir da posição 100, adicione o parâmetro $skip=100 à solicitação.
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -3107,4 +3107,4 @@ Este documento não fornece a você nenhum direito legal a qualquer propriedade 
 © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0413_2016-->

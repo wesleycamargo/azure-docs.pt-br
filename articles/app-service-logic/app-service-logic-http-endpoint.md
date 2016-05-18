@@ -1,10 +1,10 @@
 <properties
    pageTitle="Aplicativos lógicos como pontos de extremidade escaláveis"
-   description="Como criar e configurar o Ouvinte HTTP e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+   description="Como criar e configurar pontos de extremidade de gatilho e usá-los em um Aplicativo Lógico no Serviço de Aplicativo do Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
+   authors="jeffhollan"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,46 +13,67 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/17/2016"
-   ms.author="stepsic"/>
+   ms.date="04/25/2016"
+   ms.author="jehollan"/>
 
 
 # Aplicativos lógicos como pontos de extremidade escaláveis
 
-A versão anterior do esquema de Aplicativos lógicos (*2014-12-01-preview*) exigia um aplicativo de API chamado **Ouvinte de HTTP** para expor um ponto de extremidade HTTP que pode ser chamado de forma síncrona. Com o esquema mais recente (*2015-08-01-preview*), os aplicativos lógicos podem expor de forma nativa um ponto de extremidade HTTP síncrono.
+A versão anterior do esquema de Aplicativos lógicos (*2014-12-01-preview*) exigia um aplicativo de API chamado **Ouvinte de HTTP** para expor um ponto de extremidade HTTP que podia ser chamado de forma síncrona. Com o esquema mais recente (*2015-08-01-preview*), os aplicativos lógicos podem expor de forma nativa um ponto de extremidade HTTP síncrono. Também é possível usar o padrão de pontos de extremidade que podem ser chamados para invocar os Aplicativos Lógicos como um fluxo de trabalho aninhado por meio da ação “fluxo de trabalho” em um Aplicativo Lógico.
+
+Existem três tipos de gatilhos que podem receber solicitações:
+
+* manual
+* apiConnectionWebhook
+* httpWebhook
+
+Para o restante do artigo, usaremos **manual** como exemplo, mas todos os princípios são aplicados de forma idêntica aos outros dois tipos de gatilhos.
 
 ## Adição de um gatilho para sua definição
-A primeira etapa é adicionar um gatilho à sua definição de Aplicativo lógico que pode receber solicitações de entrada. Há três tipos de gatilhos que podem receber solicitações: * manual * apiConnectionWebhook * httpWebhook
+A primeira etapa é adicionar um gatilho à sua definição de Aplicativo lógico que pode receber solicitações de entrada. É possível pesquisar “Solicitação HTTP” no designer para adicionar o cartão de gatilho. É possível definir um Esquema JSON de corpo de solicitação e o designer gerará tokens para ajudá-lo a analisar e transmitir dados do gatilho manual por meio do fluxo de trabalho. É recomendável usar uma ferramenta como [jsonschema.net](http://jsonschema.net) para gerar um esquema JSON por meio de uma carga de corpo de exemplo.
 
-Para o restante do artigo, usaremos **manual** como exemplo, mas todas os princípios são aplicados de forma idêntica aos outros dois tipos de gatilhos. A adição do gatilho à sua definição de fluxo de trabalho a deixará parecida com o seguinte:
+![][2]
 
-```
-{
-    "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-    "triggers" : {
-        "myendpointtrigger" : {
-            "type" : "manual"
-        }
-    }
-}
-```
-
-Isso criará um ponto de extremidade que pode ser chamado em uma URL como esta:
+Depois de salvar a definição de Aplicativo Lógico, uma URL de retorno de chamada semelhante a esta será gerada:
  
 ```
-https://prod-03.brazilsouth.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
+https://prod-03.eastus.logic.azure.com:443/workflows/080cb66c52ea4e9cabe0abf4e197deff/triggers/myendpointtrigger?...
 ```
 
-Você pode obter esse ponto de extremidade na interface do usuário, ou, chamando:
+Também é possível obter esse ponto de extremidade no portal do Azure:
+
+![][1]
+
+Ou chamando:
 
 ```
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
 
 ## Chamar o ponto de extremidade do gatilho do Aplicativo lógico
-Depois de obter o ponto de extremidade de seu gatilho, você pode salvá-lo em seu sistema back-end e chamá-lo por meio de um `POST` para a URL completa. Você pode incluir outros parâmetros de consulta, cabeçalhos e qualquer conteúdo em seu corpo.
+Depois de criar o ponto de extremidade de seu gatilho, é possível salvá-lo em seu sistema back-end e chamá-lo por meio de um `POST` para a URL completa. Você pode incluir outros parâmetros de consulta, cabeçalhos e qualquer conteúdo no corpo.
 
-Se o content-type for `application/json`, você poderá fazer referência a propriedades de dentro da solicitação. Caso contrário, ele será tratado como uma única Unidade binária que pode ser passada para outras APIs, mas que não pode ser referenciada dentro.
+Se content-type for `application/json`, você poderá fazer referência a propriedades na solicitação. Caso contrário, ele será tratado como uma única unidade binária que pode ser transmitida para outras APIs, mas que não pode ser referenciada dentro do fluxo de trabalho sem a conversão do conteúdo. Por exemplo, se você transmitir o conteúdo de `application/xml`, poderá usar `@xpath()` para fazer uma extração de xpath ou `@json()` para converter de XML para JSON ([documentação completa aqui](http://aka.ms/logicappsdocs)).
+
+Além disso, é possível especificar um esquema JSON na definição. Isso faz com que o designer gere tokens que poderão, mais tarde, ser transmitidos em etapas. Por exemplo, o conteúdo a seguir disponibilizará um token `title` e `name` no designer:
+
+```
+{
+    "properties":{
+        "title": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "title",
+        "name"
+    ],
+    "type": "object"
+}
+```
 
 ## Como fazer referência ao conteúdo da solicitação de entrada
 A função `@triggerOutputs()` produzirá o conteúdo da solicitação de entrada. Por exemplo, ele teria a seguinte aparência:
@@ -68,32 +89,33 @@ A função `@triggerOutputs()` produzirá o conteúdo da solicitação de entrad
 }
 ```
 
-Você pode usar o atalho `@triggerBody()` para acessar a propriedade `body` de forma específica.
+É possível usar o atalho `@triggerBody()` para acessar a propriedade `body` de forma específica.
 
-Essa é uma pequena diferença em relação à versão *2014-12-01-preview*, onde você acessaria o corpo de um Ouvinte HTTP por meio de uma função como: `@triggerOutputs().body.Content`.
+Essa é uma pequena diferença em relação à versão *2014-12-01-preview*, em que você acessaria o corpo de um Ouvinte HTTP por meio de uma função como: `@triggerOutputs().body.Content`.
 
 ## Como responder à solicitação
-Para algumas solicitações que iniciam um Aplicativo lógico, convém responder com algum conteúdo para o chamador. Há um novo tipo de ação chamado **response** que pode ser usado para construir o código de status, o corpo e os cabeçalhos de resposta. Observe que se não houver uma forma **response**, o ponto de extremidade do Aplicativo lógico responderá *imediatamente* com **202 Aceito** (isso é equivalente a *Enviar resposta automaticamente* no Ouvinte HTTP).
+Para algumas solicitações que iniciam um Aplicativo lógico, convém responder com algum conteúdo ao chamador. Há um novo tipo de ação chamado **response** que pode ser usado para construir o código de status, o corpo e os cabeçalhos da resposta. Observe que, se não houver uma forma **response** presente, o ponto de extremidade do Aplicativo Lógico responderá *imediatamente* com **202 Aceito** (isso é equivalente a *Enviar resposta automaticamente* no Ouvinte HTTP).
+
+![][3]
 
 ```
-"myresponse" : {
-    "type" : "response",
-    "inputs" : {
-        "statusCode" : 200,
-        "body" : {
-            "contentFieldOne" : "value100",
-            "anotherField" : 10.001
-        },
-        "headers" : {
-            "x-ms-date" : "@utcnow()",
-            "Content-type" : "application/json"
+"Response": {
+            "conditions": [],
+            "inputs": {
+                "body": {
+                    "name": "@{triggerBody()['name']}",
+                    "title": "@{triggerBody()['title']}"
+                },
+                "headers": {
+                    "content-type": "application/json"
+                },
+                "statusCode": 200
+            },
+            "type": "Response"
         }
-    },
-    "conditions" : []
-}
 ```
 
-As respostas têm o seguinte:
+As respostas contêm:
 
 | propriedade | Descrição |
 | -------- | ----------- |
@@ -101,23 +123,32 @@ As respostas têm o seguinte:
 | body | Um objeto body pode ser uma cadeia de caracteres, um objeto JSON ou até mesmo um conteúdo binário referenciado em uma etapa anterior. | 
 | headers | Você pode definir qualquer quantidade de cabeçalhos para inclusão na resposta | 
 
-Todas as etapas no Aplicativo lógico que são necessárias para a resposta devem ser concluídas em até *60 segundos* para que a solicitação original receba a solicitação. Se nenhuma ação de resposta for atingida dentro de 60 segundos, a solicitação de entrada atingirá o tempo limite e receberá uma resposta HTTP **408 Tempo limite do cliente**.
+Todas as etapas no Aplicativo Lógico necessárias para a resposta deverão ser concluídas em até *60 segundos* para que a solicitação original receba a resposta, **a menos que o fluxo de trabalho esteja sendo chamado como um Aplicativo Lógico aninhado**. Se nenhuma ação de resposta for atingida em até 60 segundos, a solicitação de entrada atingirá o tempo limite e receberá uma resposta HTTP **408 Tempo limite do cliente**. Para Aplicativos Lógicos aninhados, o Aplicativo Lógico pai continuará esperando uma resposta até a conclusão, independentemente da quantidade de tempo necessário.
 
 ## Configuração avançada do ponto de extremidade
-Aplicativos lógicos têm suporte interno para o ponto de extremidade de acesso direto e sempre usam o método `POST` para iniciar a execução. O aplicativo de API **Ouvinte HTTP** também oferecia suporte à alteração de segmentos de URL e do método HTTP. Você podia até mesmo configurar a segurança adicional ou um domínio personalizado por meio da adição ao host de aplicativo de API (o aplicativo Web que hospedava o aplicativo de API).
+Os Aplicativos Lógicos têm suporte interno para o ponto de extremidade de acesso direto e sempre usam o método `POST` para iniciar uma execução do Aplicativo Lógico. O aplicativo de API **Ouvinte HTTP** também dava suporte à alteração de segmentos de URL e do método HTTP. Você podia até mesmo configurar a segurança adicional ou um domínio personalizado por meio da adição ao host de aplicativo da API (o aplicativo Web que hospedava o aplicativo da API).
 
-Essa funcionalidade está disponível por meio do **gerenciamento de API**: * [Alterar o método da solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) * [Alterar os segmentos da URL da solicitação](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL) * Configure seus domínios de gerenciamento de API na guia **Configurar** no Portal Clássico do Azure * Configure a política para verificar a autenticação básica (**link necessário**)
+Essa funcionalidade está disponível por meio do **Gerenciamento de API**:
+* [Alterar o método de solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod)
+* [Alterar os segmentos de URL da solicitação](https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL)
+* Configurar seus domínios de gerenciamento de API na guia **Configurar** no portal clássico do Azure
+* Configurar a política para verificar a autenticação Básica (**link necessário**)
 
-## Resumo de migração da 2014-12-01-preview
+## Resumo da migração da versão 2014-12-01-preview
 
 | 2014-12-01-preview | 2015-08-01-preview |
 |---------------------|--------------------|
-| Clique em aplicativo de API **Ouvinte HTTP** | Clique em **Gatilho manual** (nenhum aplicativo de API é necessário) |
-| Configuração do Ouvinte HTTP "*Envia a resposta automaticamente*" | Inclui ou não uma ação de **resposta** na definição do fluxo de trabalho |
+| Clicar no aplicativo de API **Ouvinte HTTP** | Clicar em **Gatilho manual** (nenhum aplicativo de API é necessário) |
+| Configuração “*Envia a resposta automaticamente*” do Ouvinte HTTP | Inclui ou não uma ação **response** na definição do fluxo de trabalho |
 | Configurar a autenticação básica ou OAuth | por meio do gerenciamento de API |
 | Configurar o método HTTP | por meio do gerenciamento de API |
 | Configurar o caminho relativo | por meio do gerenciamento de API |
-| Referenciar o corpo de entrada por meio de `@triggerOutputs().body.Content` | Referenciar por meio de `@triggerOutputs().body` |
-| Ação **Enviar resposta HTTP** no Ouvinte HTTP | Clique em **Responder à solicitação HTTP** (nenhum aplicativo de API é necessário)
+| Fazer referência ao corpo de entrada por meio de `@triggerOutputs().body.Content` | Fazer referência por meio de `@triggerOutputs().body` |
+| Ação **Enviar resposta HTTP** no Ouvinte HTTP | Clicar em **Responder à solicitação HTTP** (nenhum aplicativo de API é necessário)
 
-<!---HONumber=AcomDC_0224_2016-->
+
+[1]: ./media/app-service-logic-http-endpoint/manualtriggerurl.png
+[2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
+[3]: ./media/app-service-logic-http-endpoint/response.png
+
+<!---HONumber=AcomDC_0504_2016-->

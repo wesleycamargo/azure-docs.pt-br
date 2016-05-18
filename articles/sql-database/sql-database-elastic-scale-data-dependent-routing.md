@@ -3,7 +3,7 @@
 	description="Como usar a classe ShardMapManager em aplicativos .NET para o roteamento dependente de dados, um recurso dos bancos de dados elásticos para o Banco de Dados SQL do Azure" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="torsteng" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="05/03/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 #Roteamento dependente de dados
@@ -133,4 +133,4 @@ Para desanexar um fragmento ou anexar um fragmento novamente, consulte [Usando a
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0504_2016-->

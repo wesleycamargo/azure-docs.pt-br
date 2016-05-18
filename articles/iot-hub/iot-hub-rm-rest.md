@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/12/2016"
+     ms.date="05/03/2016"
      ms.author="dobett"/>
 
 # Tutorial: criar um Hub IoT usando um programa em C# e a API REST
@@ -61,7 +61,7 @@ Para concluir este tutorial, você precisará do seguinte:
     using Newtonsoft.Json;
     ```
     
-7. Em Program.cs, adicione as variáveis estáticas a seguir, substituindo os valores de espaço reservado. Você fez uma anotação de **ApplicationId**, **SubscriptionId**, **TenantId**, e **Password** anteriormente neste tutorial. **Nome do grupo de recursos** é o nome do grupo de recursos que você usará ao criar o hub IoT; ele pode ser um grupo de recursos pré-existente ou um novo. **Nome do Hub IoT** é o nome do Hub IoT que você criará, como **MyIoTHub**. **Nome de implantação** é um nome para a implantação, como **Deployment\_01**.
+7. Em Program.cs, adicione as variáveis estáticas a seguir, substituindo os valores de espaço reservado. Você fez uma anotação de **ApplicationId**, **SubscriptionId**, **TenantId**, e **Password** anteriormente neste tutorial. **Nome do grupo de recursos** é o nome do grupo de recursos que você usará ao criar o hub IoT; ele pode ser um grupo de recursos pré-existente ou um novo. **Nome do Hub IoT** é o nome do Hub IoT que você criará, por exemplo **MyIoTHub** (observe que esse nome precisa ser globalmente exclusivo e, por isso, deve incluir seu nome e suas iniciais). **Nome de implantação** é um nome para a implantação, como **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -70,7 +70,7 @@ Para concluir este tutorial, você precisará do seguinte:
     static string password = "{Your application Password}";
     
     static string rgName = "{Resource group name}";
-    static string iotHubName = "{IoT Hub name}";
+    static string iotHubName = "{IoT Hub name including your initials}";
     ```
 
 [AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
@@ -183,4 +183,4 @@ Agora que você implantou um Hub IoT usando a API REST, convém explorar ainda m
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0504_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="04/01/2016" 
 	ms.author="spelluru"/>
 
 # Referência do desenvolvedor da Azure Data Factory
 
-Você pode criar, monitorar e gerenciar as factories usando o Portal Clássico do Azure, o Azure PowerShell, a Biblioteca de Classes do .NET ou a API REST.
+Você pode criar, monitorar e gerenciar as fábricas usando o Portal do Azure, Azure PowerShell, Biblioteca de Classes .NET ou API REST.
 
 Método | Local do recurso | Referências para o desenvolvedor
 ---------------------------------------------------- | ------------------------------ | -----------
@@ -30,4 +30,4 @@ API REST | Você pode usar a API REST do Data Factory para criar, monitorar e ge
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

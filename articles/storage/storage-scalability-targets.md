@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="03/07/2016"
+   ms.date="04/11/2016"
    ms.author="robinsh" />
 
 # Metas de desempenho e escalabilidade do Armazenamento do Azure
@@ -57,27 +57,27 @@ Consulte [Tamanhos de máquina virtual](../virtual-machines/virtual-machines-lin
 
 ## Partições no Armazenamento do Azure
 
-Cada objeto com dados armazenado no Armazenamento do Azure (blobs, mensagens, entidades e arquivos) pertence a uma partição e é identificado por uma chave de partição. A partição determina como o Armazenamento do Azure equilibra as cargas de blobs, mensagens, entidades e arquivos em servidores a fim de atender às necessidades de tráfego desses objetos. A chave de partição é exclusiva dentro da conta de armazenamento e é usada para localizar um blob, mensagem ou entidade.
+Cada objeto com dados armazenado no Armazenamento do Azure (blobs, mensagens, entidades e arquivos) pertence a uma partição e é identificado por uma chave de partição. A partição determina como o Armazenamento do Azure equilibra as cargas de blobs, mensagens, entidades e arquivos em servidores a fim de atender às necessidades de tráfego desses objetos. A chave de partição é exclusiva e é usada para localizar um blob, mensagem ou entidade.
 
 A tabela acima em [Metas de escalabilidade para contas de armazenamento padrão](#standard-storage-accounts) lista as metas de desempenho para uma única partição para cada serviço.
 
 As partições afetam o balanceamento de carga e a escalabilidade de cada um dos serviços de armazenamento das seguintes formas:
 
-- **Blobs**: a chave de partição de um blob é o nome do contêiner + nome do blob. Isso significa que cada blob possui sua própria partição. Blobs podem, portanto, ser distribuídos em vários servidores a fim de expandir o acesso a eles. Embora os blobs possam ser agrupados logicamente em contêineres de blob, o particionamento não é afetado de forma alguma por esse agrupamento.
+- **Blobs**: a chave de partição de um blob é o nome da conta + nome do contêiner + nome do blob. Isso significa que cada blob poderá ter sua própria partição se a carga no blob exigir isso. BLOBs podem ser distribuídos em vários servidores para escalar horizontalmente o acesso a eles, mas um único blob só pode ser atendido por um único servidor. Embora os blobs possam ser agrupados logicamente em contêineres de blob, o particionamento não é afetado de forma alguma por esse agrupamento.
 
 - **Arquivos**: A chave de partição para um arquivo é o nome da conta + nome do compartilhamento do arquivos. Isso significa que todos os arquivos em um compartilhamento de arquivos também estão em uma única partição.
 
-- **Mensagens**: a chave de partição de uma mensagem é o nome da fila, portanto, todas mensagens em uma fila são agrupadas em uma única partição e são atendidas por um único servidor. Filas diferentes podem ser processadas por servidores diferentes a fim de equilibrar a carga, não importa a quantidade de filas que uma conta de armazenamento tenha.
+- **Mensagens**: a chave de partição de uma mensagem é o nome da conta + nome da fila, portanto, todas mensagens em uma fila são agrupadas em uma única partição e são atendidas por um único servidor. Filas diferentes podem ser processadas por servidores diferentes a fim de equilibrar a carga, não importa a quantidade de filas que uma conta de armazenamento tenha.
 
-- **Entidades**:aA chave de partição de uma entidade é nome da tabela + chave de partição, sendo que a chave de partição é o valor da propriedade obrigatória **PartitionKey** definida pelo usuário para a entidade.
+- **Entidades**: a chave de partição de uma entidade é nome da conta + nome da tabela + chave de partição, sendo que a chave de partição é o valor da propriedade obrigatória **PartitionKey** definida pelo usuário para a entidade. Todas as entidades com o mesmo valor de chave de partição são agrupadas na mesma partição e são atendidas pelo mesmo servidor de partição. É importante entender isso ao projetar seu aplicativo. Seu aplicativo deve equilibrar os benefícios de escalabilidade da propagação de entidades por várias partições com as vantagens de acesso de dados do agrupamento de entidades em uma única partição.
 
-	Todas as entidades com o mesmo valor de chave de partição são agrupadas na mesma partição e são armazenadas no mesmo servidor de partição. É importante entender isso ao projetar seu aplicativo. Seu aplicativo deve equilibrar os benefícios de escalabilidade da propagação de entidades por várias partições com as vantagens de acesso de dados do agrupamento de entidades em uma única partição.
+Uma vantagem importante de agrupar em uma única partição um conjunto de entidades contidas em uma tabela é a possibilidade de executar operações de lote atômicas nas entidades da mesma partição, já que uma partição existe em um único servidor. Portanto, se você quiser executar operações em lote em um grupo de entidades, considere agrupar essas entidades com a mesma chave de partição.
 
-	Uma vantagem importante de agrupar em uma única partição um conjunto de entidades contidas em uma tabela é a possibilidade de executar operações de lote atômicas nas entidades da mesma partição, já que uma partição existe em um único servidor. Portanto, se você quiser executar operações em lote, considere agrupar entidades com a mesma chave de partição.
+Por outro lado, entidades que estão na mesma tabela mas têm chaves de partição diferentes podem ter seu balanceamento de carga realizado em servidores diferentes, possibilitando maior escalabilidade.
 
-	Por outro lado, entidades que estão na mesma tabela, mas que pertencem a partições diferentes podem ter suas cargas equilibradas em servidores diferentes, possibilitando uma tabela maior com escalabilidade superior.
+Recomendações detalhadas para a criação de estratégias de particionamento de tabelas podem ser encontradas [aqui](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
-## Consulte também
+## Veja também
 
 - [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/)
 - [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
@@ -86,4 +86,4 @@ As partições afetam o balanceamento de carga e a escalabilidade de cada um dos
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 - [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

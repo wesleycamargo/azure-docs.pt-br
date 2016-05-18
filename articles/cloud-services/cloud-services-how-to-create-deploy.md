@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="04/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,8 +22,8 @@
 # Como criar e implantar um serviço de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Portal do Azure](cloud-services-how-to-create-deploy-portal.md)
+- [Portal clássico do Azure](cloud-services-how-to-create-deploy.md)
 
 O portal clássico do Azure oferece duas maneiras de criar e de implantar um serviço de nuvem: **Criação Rápida** e **Criação Personalizada**.
 
@@ -150,4 +150,4 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

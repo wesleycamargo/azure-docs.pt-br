@@ -30,7 +30,7 @@ Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e 
 
 &nbsp;
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para a versão do esquema 2014-12-01-preview, clique em [API do Office 365](../app-service-logic/app-service-logic-connector-office365.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 
 Com os Usuários do Office 365, você pode:
@@ -39,9 +39,9 @@ Com os Usuários do Office 365, você pode:
 - Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure. 
 - Adicione a API dos Usuários do Office 365 ao PowerApps Enterprise. Assim, seus usuários poderão usar essa API em seus próprios aplicativos. 
 
-Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para obter mais informações sobre como adicionar uma API no PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
-Para adicionar uma operação aos aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação aos Aplicativos Lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 
@@ -192,9 +192,9 @@ Recupera os resultados da pesquisa dos perfis do usuário.```GET: /users```
 
 ## Próximas etapas
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Volte para a [Lista de APIs](apis-list.md).
+Voltar para a [Lista de APIs](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -204,4 +204,4 @@ Volte para a [Lista de APIs](apis-list.md).
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

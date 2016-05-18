@@ -3,8 +3,8 @@
 	description="Introdução ao banco de dados SQL. Saiba como criar uma instância do banco de dados SQL e conectá-la usando o ADO.NET, ODBC e provedor EntityClient." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="04/14/2016" 
+	ms.author="annemill"/>
 
 
 # Como usar um Banco de Dados SQL do Azure em aplicativos .NET.
@@ -121,7 +121,7 @@ Agora, você tem uma instância de banco de dados, um servidor lógico, uma regr
 Esta seção mostra como se conectar à instância do Banco de Dados SQL usando diferentes provedores de dados .NET Framework. Para obter recomendações centrais sobre a conexão com um servidor de banco de dados SQL e o banco de dados, consulte:
 
 
-- [Conexões de banco de dados SQL: recomendações centrais](../sql-database-connect-central-recommendations.md).
+- [Conexões de banco de dados SQL: recomendações centrais](sql-database-connect-central-recommendations.md).
 
 
 Se você optar por usar o Visual Studio e sua configuração não incluir um aplicativo web do Azure como um front-end, não haverá nenhuma ferramenta adicional ou SDK necessário para ser instalado no computador de desenvolvimento. Você poderá simplesmente iniciar o desenvolvimento do seu aplicativo.
@@ -211,4 +211,4 @@ Para obter mais informações, consulte [EntityClient Provider para o Entity Fra
 Agora que você aprendeu as noções básicas de conexão ao banco de dados SQL, consulte [Desenvolvimento: tópicos de instruções (banco de dados SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Introdução à camada Premium do Cache Redis do Azure
@@ -54,4 +54,4 @@ Crie um cache e explore os novos recursos da camada premium.
 -	[Como configurar o clustering para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

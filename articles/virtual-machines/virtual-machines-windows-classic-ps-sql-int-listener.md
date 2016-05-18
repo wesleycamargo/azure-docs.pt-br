@@ -3,9 +3,9 @@
 	description="Este tutorial usa os recursos criados com o modelo de implantação clássica e cria um Ouvinte para Grupo de Disponibilidade AlwaysOn no Azure usando um ILB (Balanceador de Carga Interno)."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
+	authors="MikeRayMSFT"
+	manager="jhubbard"
+	editor=""
 	tags="azure-service-management"/>
 <tags
 	ms.service="virtual-machines-windows"
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
-	ms.author="jroth" />
+	ms.date="04/19/2016"
+	ms.author="mikeray" />
 
 # Configurar um ouvinte de ILB para grupos de disponibilidade do AlwaysOn no Azure
 
@@ -29,7 +29,7 @@ Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
-O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](virtual-machines-windows-classic-portal-sql-availability.md), mas não configurou um ouvinte.
+O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), mas não configurou um ouvinte.
 
 ## Diretrizes e limitações para ouvintes internos
 Observe as seguintes diretrizes no ouvinte do grupo de disponibilidade no Azure usando o ILB:
@@ -138,4 +138,4 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

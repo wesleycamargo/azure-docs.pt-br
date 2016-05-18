@@ -102,8 +102,8 @@ Nome|Parte SAS|Descrição
 ---|---|---
 URI do blob|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |O endereço do blob. Observe que o uso de HTTPS é altamente recomendável.
 Versão dos serviços de armazenamento|sv=2015-04-05|Para os serviços de armazenamento de versão 12-02-2012 e posterior, este parâmetro indica a versão a ser usada.
-Hora de início|st=2015-04-29T22%3A18%3A26Z|Especificada em um formato ISO 8601. Se você quiser que a SAS seja imediatamente válida, omita a hora de início.
-Hora de expiração|se=2015-04-30T02%3A23%3A26Z|Especificada em um formato ISO 8601.
+Hora de início|st=2015-04-29T22%3A18%3A26Z|Especificado no horário UTC. Se você quiser que a SAS seja imediatamente válida, omita a hora de início.
+Hora de expiração|se=2015-04-30T02%3A23%3A26Z|Especificado no horário UTC.
 Recurso|sr=b|O recurso é um blob.
 Permissões|sp=rw|As permissões concedidas pelas SAS incluem Ler (r) e Gravar (w).
 Intervalo IP|sip=168.1.5.60-168.1.5.70|O intervalo de endereços IP do qual uma solicitação será aceita.
@@ -251,10 +251,7 @@ O exemplo de código a seguir cria uma política de acesso armazenada em um cont
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write |
-       SharedAccessBlobPermissions.Read |
-       SharedAccessBlobPermissions.Create |
-       SharedAccessBlobPermissions.Add
+       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
 
     // The public access setting explicitly specifies that
@@ -317,8 +314,8 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 - [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 - [Gerenciar o acesso de leitura anônimo aos contêineres e blobs](storage-manage-access-to-resources.md)
 - [Delegando acesso com uma assinatura de acesso compartilhado](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Introdução ao SAS de Fila e Tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+- [Introdução à Tabela e à Fila SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0413_2016-->

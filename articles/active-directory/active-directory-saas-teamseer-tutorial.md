@@ -2,16 +2,17 @@
     pageTitle="Tutorial: Integração do Active Directory do Azure com o TeamSeer | Microsoft Azure" 
     description="Saiba como usar o TeamSeer com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!" 
     services="active-directory" 
-    authors="markusvi"  
-    documentationCenter="na" manager="stevenpo"/>
+    authors="jeevansd"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="04/06/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integração do Active Directory do Azure ao TeamSeer
   
@@ -77,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurar o logon único](./media/active-directory-saas-teamseer-tutorial/IC789628.png "Configurar o logon único")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do TeamSeer**, digite a URL usando o padrão "**http://www.teamseer.com/companyid*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do TeamSeer**, digite a URL usando o padrão "**http://www.teamseer.com/companyid**" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-teamseer-tutorial/IC789629.png "Configurar a URL do Aplicativo")
 
@@ -106,7 +107,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     1.  No portal do Azure, na página do diálogo **Configurar logon único no TeamSeer**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL**.
     2.  Crie um arquivo **codificado em base 64** usando o certificado baixado.  
 
-        >[AZURE.TIP]Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Para obter mais detalhes, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado Público do IdP**.
 
@@ -146,7 +147,7 @@ Para permitir que os usuários do AD do Azure façam logon no TeamSeer, eles dev
 
 4.  Siga as instruções na tela para adicionar um novo usuário e clique em **Concluir**.
 
->[AZURE.NOTE]Você pode usar qualquer outra ferramenta de criação da conta de usuário do TeamSeer ou APIs fornecidas pelo TeamSeer para provisionar as contas de usuário do AD do Azure.
+>[AZURE.NOTE] Você pode usar qualquer outra ferramenta de criação da conta de usuário do TeamSeer ou APIs fornecidas pelo TeamSeer para provisionar as contas de usuário do AD do Azure.
 
 ##Atribuindo usuários
   
@@ -166,4 +167,4 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0413_2016-->

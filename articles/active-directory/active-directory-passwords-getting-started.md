@@ -50,7 +50,7 @@ Antes de habilitar e usar a redefinição de senha por autoatendimento, você de
 - Associe o seu locatário do AAD com a sua assinatura do Azure. Para saber mais sobre as assinaturas do Azure, consulte [Como as assinaturas do Azure são associadas ao Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
 - Atualize para o AD do Azure Premium, Básico ou use uma licença paga do O365. Para saber mais, consulte [Edições do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/).
 
-  >[AZURE.NOTE] Para habilitar a redefinição de senha de autoatendimento, atualize para o AD do Azure Premium, para o AD do Azure Básico ou para uma licença paga do O365. Para habilitar a redefinição de senha de autoatendimento para seus usuários locais, atualize para o AD do Azure Premium. Para saber mais, consulte Edições do Active Directory do Azure. Estas informações incluem instruções detalhadas sobre como se inscrever para o Azure AD Premium ou Basic, como ativar o seu plano de licença e ativar o acesso ao Azure AD e como atribuir acesso a contas de administrador e usuário.
+  >[AZURE.NOTE] Para habilitar a redefinição de senha de autoatendimento, atualize para o AD do Azure Premium, para o AD do Azure Básico ou para uma licença paga do O365. Para habilitar a redefinição de senha de autoatendimento para seus usuários locais, atualize para o AD do Azure Premium. Para saber mais, consulte [Edições do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). Estas informações incluem instruções detalhadas sobre como se inscrever para o Azure AD Premium ou Basic, como ativar o seu plano de licença e ativar o acesso ao Azure AD e como atribuir acesso a contas de administrador e usuário.
 
 - Crie pelo menos uma conta de administrador e uma conta de usuário no diretório do AAD.
 - Atribua uma licença do AAD Premium ou Básico ou uma licença paga do O365 às contas de administrador e de usuário que você criou.
@@ -77,7 +77,7 @@ Para configurar a política de redefinição de senha de usuário, conclua as se
 
     ![][004]
 
-6.	Para configurar a política de redefinição de senha do usuário, deslize o botão de alternância **usuários habilitados para redefinição de senha** para a definição **Sim**. Isso revela vários outros controles que permitem que você configure o modo como esse recurso funciona no seu diretório. Fique à vontade para personalizar como achar melhor a redefinição de senha. Se desejar saber mais sobre o que cada controle de política de redefinição de senha faz, consulte [Personalizar: Gerenciamento de Senhas do Azure AD](active-directory-passwords-customize).
+6.	Para configurar a política de redefinição de senha do usuário, deslize o botão de alternância **usuários habilitados para redefinição de senha** para a definição **Sim**. Isso revela vários outros controles que permitem que você configure o modo como esse recurso funciona no seu diretório. Fique à vontade para personalizar como achar melhor a redefinição de senha. Se desejar saber mais sobre o que cada controle de política de redefinição de senha faz, consulte [Personalizar: Gerenciamento de Senhas do Azure AD](active-directory-passwords-customize.md).
 
     ![][005]
 
@@ -247,7 +247,7 @@ Depois de habilitar o Write-back de Senha na ferramenta Azure AD Connect, você 
 1.	Depois que a instalação estiver concluída, se você estiver bloqueando as conexões de saída desconhecidas no seu ambiente, você também precisará adicionar as seguintes regras ao firewall. Não deixe de reiniciar o computador do AAD Connect após fazer estas alterações:
    - Permitir conexões de saída pela porta TCP 443
    - Permitir conexões de saída para https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   - Ao usar um proxy ou ter problemas gerais de conectividade, permitir conexões de saída pelas portas TCP 9350-9354
+   - Ao usar um proxy ou ter problemas gerais de conectividade, permitir conexões de saída pelas portas TCP 9350-9354 e 5671
 
 ### Etapa 4: configurar as permissões apropriadas do Active Directory
 Para cada floresta que contenha os usuários cujas senhas serão redefinidas, se X for a conta que foi especificada para essa floresta no assistente de configuração (durante a configuração inicial), X deverá receber os direitos estendidos **Redefinir Senha**, **Alterar Senha**, **Permissões de Gravação** no `lockoutTime`, e **Permissões de Gravação** na `pwdLastSet` no objeto raiz de cada domínio da floresta. A direita deve ser marcada como herdada por todos os objetos de usuário.
@@ -351,4 +351,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0427_2016-->

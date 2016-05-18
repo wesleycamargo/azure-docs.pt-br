@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introdução ao Servidor Azure Multi-Factor Authentication na nuvem" 
-	description="Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA na nuvem." 
+	pageTitle="Introdução à Microsoft Azure Multi-Factor Authentication na nuvem" 
+	description="Esta é a página da Microsoft Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA na nuvem." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,148 +13,81 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/06/2016" 
+	ms.date="05/10/2016" 
 	ms.author="billmath"/>
 
 # Introdução ao Servidor Azure Multi-Factor Authentication na nuvem
+No seguinte artigo, você aprenderá como começar a usar o Azure Multi-Factor Authentication na nuvem.
+
+> [AZURE.NOTE]  A documentação a seguir fornece informações sobre como habilitar os usuários usando o **Portal Clássico do Azure**. Se você estiver procurando informações sobre como configurar a Autenticação Multifator do Azure para os usuários O365, confira [Configurar a autenticação multifator para o Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=pt-BR&rs=pt-BR&ad=US)
+
+![MFA na Nuvem](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
+
+## Pré-requisitos
+Os seguintes pré-requisitos são necessários antes de habilitar a Autenticação Multifator do Azure para seus usuários.
 
 
 
-<center>![MFA in the Cloud](./media/multi-factor-authentication-get-started-cloud/cloud2.png)</center>
 
-Agora que definimos que estamos usando a autenticação multifator na nuvem, vamos começar! Começar a usar o Servidor Azure Multi-Factor Authentication está a apenas alguns cliques. Observe que, se estiver usando o Multi-Factor Authentication para Office 365 ou Multi-Factor Authentication para Administradores do Azure, você poderá pular para a etapa 3.
+- [Inscreva-se para ter uma assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) - se você ainda não tiver uma assinatura do Azure, precisará inscrever-se para ter uma. Se você estiver apenas começando a usar o Azure MFA, use uma assinatura de avaliação.
+2. [Crie um Provedor de Autenticação Multifator](multi-factor-authentication-get-started-auth-provider.md) e atribua-o a seu diretório ou [atribua licenças aos usuários](multi-factor-authentication-get-started-assign-licenses.md) 
 
-
-1. [Fazer uma assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/)
-	- Se você ainda não tiver uma assinatura do Azure, será necessário fazer uma. Se você estiver apenas começando a usar o Azure MFA, use uma assinatura de avaliação.
-2. [Criar um Provedor do Multi-Factor Auth](#creating-an-azure-multi-factor-auth-provider) ou [atribuir licenças a usuários](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-to-users)
-	- Em seguida, será necessário fazer o seguinte: Crie um Provedor do Azure Multi-Factor Auth e o atribua a seu diretório ou atribua licenças a seus usuários. As licenças estão disponíveis para os usuários que tenham o Azure MFA, o Azure AD Premium ou o EMS. O Azure Multi-Factor Authentication está incluído no Azure Active Directory Premium. Também está incluído no Enterprise Mobility Suite. Se você possui licenças suficientes, não precisa criar um provedor de autenticação. 
-3. [Ativar o Multi-Factor Authentication para seus usuários](#turn-on-multi-factor-authentication-for-users)
-	- Habilite o Azure MFA para seus usuários por meio do Office 365 ou portal do Azure. 
-4. [Enviar um email aos usuários finais para notificá-los sobre o MFA](#send-email-to-end-users)
-	- Depois que um usuário tiver ativado a autenticação multifator para a conta, é recomendável enviar a ele um email notificando-o sobre isso. O usuário será solicitado a concluir o processo na próxima vez que se conectar, de modo que o email permita que ele saiba o que esperar. 
-
-
-
-## Criando um Provedor do Azure Multi-Factor Auth
-A autenticação multifator está disponível por padrão para administradores globais que tenham usuários do Azure Active Directory e do Office 365. No entanto, se desejar aproveitar os recursos avançados, você deverá adquirir a versão completa do Azure MFA.
-
-Um Provedor do Azure Multi-Factor Auth é usado para aproveitar as vantagens dos recursos fornecidos pela versão completa do Azure MFA. Ele é para usuários que não tenham licenças por meio do Azure MFA, do Azure AD Premium ou do EMS. O Azure MFA, o Azure AD Premium e o EMS incluem a versão completa do Azure MFA por padrão. Se você tiver licenças, não precisará de um Provedor do Azure Multi-Factor Auth. As etapas a seguir mostram como criar um Provedor do Azure Multi-Factor Auth.
-
-### Para criar um Provedor do Multi-Factor Auth
---------------------------------------------------------------------------------
-
-1. Faça logon no portal do Azure como um Administrador.
-2. À esquerda, selecione Active Directory.
-3. Na parte superior da página Active Directory, selecione Provedores do Multi-Factor Authentication. Na parte inferior, clique em **Novo**.
-4. Em Serviços de Aplicativos, selecione Provedores de Autenticação Multifator e selecione Criação Rápida.
-5. Preencha os campos a seguir e clique em Criar.
-	1. Nome – o nome do Provedor de Autenticação Multifator.
-	2. Modelo de uso: o modelo de uso do Provedor do Multi-Factor Authentication.
-		- Por Autenticação: modelo de compra que cobra por autenticação. Normalmente usado para cenários que usam o Azure Multi-Factor Authentication em um aplicativo voltado para o consumidor.
-		- Por Usuário Habilitado: o modelo de compra que cobra por usuário habilitado. Normalmente usado para acesso de funcionários a aplicativos como o Office 365.
-	2. Diretório: o locatário do Active Directory do Azure ao qual o Provedor do Multi-Factor Authentication está associado. Esteja ciente do seguinte:
-		- Não é necessário um diretório do AD do Azure para criar um Provedor do Multi-Factor Auth. Caso planeje usar somente o SDK ou o Servidor Azure Multi-Factor Authentication, basta deixar a caixa desmarcada.
-		- O Provedor do Multi-Factor Auth precisa estar associado a um diretório do Azure AD para aproveitar os recursos avançados.
-		- O Azure AD Connect, o AAD Sync ou o DirSync são apenas um requisito se você estiver sincronizando o ambiente do Active Directory local com um diretório do AD do Azure. Se você usar apenas um diretório do AD do Azure que não esteja sincronizado, a sincronização não será necessária.
+> [AZURE.NOTE]  As licenças estão disponíveis para os usuários que têm o Azure MFA, Azure AD Premium ou EMS (Enterprise Mobility Suite). O MFA está incluído no Azure AD Premium e no EMS. Se você possui licenças suficientes, não precisa criar um provedor de autenticação.
 		
 
-
-
-5. Depois de clicar em Criar, o Provedor do Multi-Factor Authentication será criado e você verá uma mensagem que informa: Provedor do Multi-Factor Authentication criado com êxito. Clique em OK.
-
-![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-cloud/provider.png)
-	 
-## Atribuindo uma licença do Azure MFA, do Azure AD Premium ou do Enterprise Mobility aos usuários
-
-Se você tiver comprado licenças do Azure MFA, do Azure AD Premium ou do Enterprise Mobility Suite, não precisará criar um provedor Multi-Factor Auth. Você precisa simplesmente atribuir as licenças para seus usuários e então poderá começar a ativá-las para o MFA.
-
-### Para atribuir uma licença do Azure MFA, do Azure AD Premium ou do Enterprise Mobility Suite
---------------------------------------------------------------------------------
-
-1. Entre no Portal do Azure como Administrador.
-2. Selecione **Active Directory** à esquerda.
-3. Na página do Active Directory, clique duas vezes no diretório que tenha os usuários que você deseja habilitar.
-4. Na parte superior da página do diretório, selecione **Licenças**.
-5. Na página de licenças, selecione Azure Multi-Factor Authentication, Active Directory Premium ou Enterprise Mobility Suite e clique em Atribuir. ![Atribuir licenças](./media/multi-factor-authentication-get-started-cloud/license2.png)
-6. Na caixa de diálogo, selecione os usuários ou os grupos para os quais você deseja atribuir licenças e clique no ícone de marca de seleção para salvar as alterações.
-
-
-
-
-
-
-## Ativar o Multi-Factor Authentication para os usuários
-
-As contas de usuário no Azure Multi-Factor Authentication apresentam os três estados distintos a seguir:
-
-Estado | Descrição |Aplicativos que não usam navegador afetados| Observações 
-:-------------: | :-------------: |:-------------: |:-------------: |
-Desabilitado | O estado padrão para um novo usuário não inscrito no Multi-Factor Authentication.|Não|O usuário não está usando a autenticação multifator.
-Habilitado |O usuário foi inscrito no Multi-Factor Authentication.|Não. Eles continuarão a trabalhar até o processo ser concluído.|O usuário está habilitado, mas não concluiu o processo de registro. Eles serão solicitados a concluir o processo na próxima vez que se conectarem.
-Imposto|O usuário foi inscrito e concluiu o processo de registro para usar o Multi-Factor Authentication.|Sim. Os aplicativos exigem senhas de aplicativo. | O usuário pode ou não ter concluído o registro. Se tiver concluído o processo de registro, significa que ele está usando a autenticação multifator. Caso contrário, o usuário será solicitado a concluir o processo na próxima vez que se conectar
+## Ativar a autenticação multifator para os usuários
+Para ativar a autenticação multifator para um usuário, simplesmente altere o estado do usuário de desabilitado para habilitado. Para obter mais informações sobre os estados do usuário, confira [Estados do Usuário no Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 Use o procedimento a seguir para habilitar o MFA para os usuários.
 
 ### Para ativar o Multi-Factor Authentication
 --------------------------------------------------------------------------------
-1.  Entre no Portal do Azure como Administrador.
-2.  À esquerda, clique no Active Directory.
-3.  Em Diretório, clique no diretório do usuário que deseja habilitar.
-4.  Na parte superior, clique em Usuários.
-5.  Na parte inferior da página, clique em Gerenciar Multi-Factor Auth.
-6.  Localize o usuário que deseja habilitar para o Multi-Factor Authentication. Talvez seja necessário alterar o modo de exibição na parte superior. Verifique se o status é desabilitado e marque a caixa ao lado de seu nome.
-7.  À direita, clique em Habilitar. Clique em Habilitar o Multi-Factor Auth.
-8.  Após habilitar seus usuários, recomendamos a notificação por email. Ele também deve informá-los de como eles podem usar seus aplicativos sem navegador para evitar o bloqueio.
+1.  Entre no **portal clássico do Azure** como Administrador.
+2.  À esquerda, clique em **Active Directory**.
+3.  Em, **Diretório**, clique no diretório do usuário que você deseja habilitar. ![Clicar no Diretório](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+4.  Na parte superior, clique em **Usuários**.
+5.  Na parte inferior da página, clique em **Gerenciar Autenticação Multifator**. ![Clicar no Diretório](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+6.  Isso abrirá uma nova guia do navegador. Localize o usuário que deseja habilitar para o Multi-Factor Authentication. Talvez seja necessário alterar o modo de exibição na parte superior. Verifique se o status é **desabilitado.** ![Habilitar o usuário](./media/multi-factor-authentication-get-started-cloud/enable1.png)
+7.  Coloque uma **marca** na caixa ao lado do nome.
+7.  À direita, clique em **Habilitar**. ![Habilitar o usuário](./media/multi-factor-authentication-get-started-cloud/user1.png)
+8.  Clique em **Habilitar autenticação multifator**. ![Habilitar o usuário](./media/multi-factor-authentication-get-started-cloud/enable2.png)
+9.  Você deve observar se o estado do usuário foi alterado de **desabilitado** para **habilitado**. ![Habilitar os Usuários](./media/multi-factor-authentication-get-started-cloud/user.png)
+10.  Após habilitar seus usuários, recomendamos a notificação por email. Ele também deve informá-los de como eles podem usar seus aplicativos sem navegador para evitar o bloqueio.
 
-<center>![Enable Users](./media/multi-factor-authentication-get-started-cloud/user.png)</center>
 
-Para alterar o estado usando o Windows PowerShell, você pode usar o que se segue. É possível alterar `$st.State` para ser igual a um dos estados mencionados.
+## Ativação automática da autenticação multifator usando o PowerShell
 
+Para alterar o [estado](multi-factor-authentication-whats-next.md) usando o [PowerShell do Azure AD](powershell-install-configuremd), você pode usar o seguinte. É possível alterar `$st.State` para ser igual a um dos estados a seguir:
+
+
+- Habilitado
+- Imposto
+- Desabilitado  
+
+> [AZURE.IMPORTANT]  Saiba que se você for diretamente do estado Desabilitar para o estado Imposto, os clientes de autenticação não modernos irão parar de funcionar porque o usuário não passou pelo registro MFA e obteve uma [senha do aplicativo](multi-factor-authentication-whats-next.md#app-passwords). Se você tiver clientes de autenticação não modernos e exigir senhas do aplicativo, então, será recomendável que vá de um estado Desabilitado para Habilitado. Isso permitirá que os usuários se registrem e obtenham suas senhas do aplicativo.
+		
 		$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
 		$st.RelyingParty = "*"
 		$st.State = “Enabled”
 		$sta = @($st)
 		Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-
-## Enviar email aos usuários finais
-
-Depois de habilitar seus usuários, envie um email informando que eles precisam fornecer suas informações de contato. A seguir, um modelo de email que pode ser usado. Ele inclui um link para um vídeo que os usuários podem assistir.
-
-		Subject: ACTION REQUIRED: Your password for Outlook and other apps needs updated
-
-		Body:
-
-		For added security, we have enabled multi-factor authentication for your account. 
-
-		Action Required: You will need to complete the enrollment steps below to make your account secure with multi-factor authentication.  
-
-		What to expect once MFA is enabled:
-
-		Multi-factor authentication requires a password that you know and a phone that you have in order to sign into browser applications and to access Office 365, Azure portals.
-
-		For Office 365 non-browser applications such as outlook, lync, a mail client on your mobile device etc, a special password called an app password is required instead of your account password to sign in. App passwords are different than your account password, and are generated during the multi-factor authentication set up process. 
-
-		Please follow these enrollment steps to avoid interruption of your Office 365 service:
-
-			1.  Sign in to the Office 365 Portal at http://portal.microsoftonline.com.
-			2.  Follow the instructions to set up your preferred multi-factor authentication method when signing into Office 365 using a web browser. 
-			3.  Create one app password for each device.
-			4.  Enter the same app password in all applicable apps on that device e.g. Outlook, Mail client, Lync, Word, Powerpoint, Excel, CRM etc. 
-			5.  Update your Office client applications or other mobile applications to use an app password.
-
-		You can visit http://aka.ms/mfasetup to create app passwords or change your MFA Setting.  Please bookmark this.
-
-		NOTE: Before entering an app password, you will need to clear the sign-in information (delete sign-in info), restart the application, and sign in with the username and app password. Follow the steps documented: http://technet.microsoft.com/library/dn270518.aspx#apppassword.
+Usar o PowerShell seria uma opção para habilitar os usuários em massa. Atualmente, não há nenhum recurso de habilitação em massa no portal do Azure e você precisa selecionar cada usuário individualmente. Se você tiver muitos usuários, poderá ser uma grande tarefa. Criando um script do PowerShell usando o método acima, você poderá percorrer uma lista de usuários e habilitá-los. Aqui está um exemplo:
+    
+    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+    foreach ($user in $users)
+    {
+    	$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+    	$st.RelyingParty = "*"
+    	$st.State = “Enabled”
+    	$sta = @($st)
+    	Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+    }
 
 
-		Watch a video showing these steps at http://g.microsoftonline.com/1AX00en/175.
-
-		Best Regards,
-		Your Administrator
+Para obter mais informações sobre os estados do usuário, confira [Estados do Usuário no Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
 
 ## Próximas etapas
-Agora que você tem de configurar a autenticação multifator na nuvem, poderá configurar e instalar sua implantação. Veja [Configuração do Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md)
+Agora que você tem de configurar a autenticação multifator na nuvem, poderá configurar e instalar sua implantação. Consulte [Configurando a Autenticação Multifator do Azure.]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

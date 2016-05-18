@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Comece a usar o Conector do BizTalk Edifact e adicione-o a seu Aplicativo Lógico  
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Use o serviço do Edifact para receber e enviar mensagens através do protocolo Edifact nas comunicações comerciais. O Edifact também é conhecido como ASC Edifact ou Accredited Standards Committee Edifact e é amplamente usado em vários setores.
 
@@ -52,7 +53,7 @@ O Conector do Edifact pode ser usado como um gatilho ou uma ação.
 - Como parte da saída, o conector retorna a carga útil do Edifact, o id do contrato, bem como informações sobre se a mensagem é feita em lotes ou não.
 
 ### Ação
-- Clique no Conector do Edifact no painel à direita:  
+- Clique no conector do Edifact no painel à direita:  
 ![Configurações de ação][7]
 - Clique em ->:  
 ![Lista de ações][8]
@@ -84,7 +85,7 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial us
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 
 <!--References -->
@@ -99,4 +100,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -23,7 +23,7 @@
 - [Comprar certificado SSL para aplicativos Web](web-sites-purchase-ssl-web-site.md)
 - [Habilitar SSL para seu domínio personalizado](web-sites-configure-ssl-certificate.md)  
 
-Por padrão, o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** já habilita o HTTPS para seu aplicativo Web com um certificado curinga para o domínio *.azurewebsites.net. Se não planeja configurar um domínio personalizado, você pode aproveitar o certificado HTTPS padrão. No entanto, como acontece com todos os *[domínios curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), ele não é tão seguro quanto usar um domínio personalizado com seu próprio certificado. Agora, o Serviço de Aplicativo do Azure fornece uma maneira realmente simplificada de comprar e gerenciar um certificado SSL diretamente do Portal do Azure, sem precisar sair do portal. Este artigo explica como comprar e configurar um certificado SSL para o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** em três etapas simples.
+Por padrão, o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** já habilita o HTTPS para seu aplicativo Web com um certificado curinga para o domínio *.azurewebsites.net. Se não planeja configurar um domínio personalizado, você pode aproveitar o certificado HTTPS padrão. No entanto, como acontece com todos os* [domínios curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), ele não é tão seguro quanto usar um domínio personalizado com seu próprio certificado. Agora, o Serviço de Aplicativo do Azure fornece uma maneira realmente simplificada de comprar e gerenciar um certificado SSL diretamente do Portal do Azure, sem precisar sair do portal. Este artigo explica como comprar e configurar um certificado SSL para o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** em três etapas simples.
 
 > [AZURE.NOTE]
 Os certificados SSL para nomes de domínio personalizados não podem ser usados com um aplicativo Web Gratuito e Compartilhado. É preciso que você configure seu aplicativo Web para o modo Basic, Standard ou Premium, o que pode alterar o quanto você é cobrado por sua assinatura. Consulte **[Detalhes de preços dos aplicativos Web](https://azure.microsoft.com/pricing/details/web-sites/)** para saber mais.
@@ -103,29 +103,29 @@ Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domí
 
     * **Verificação do Serviço de Aplicativo** 
     
-        1. Este será o processo mais conveniente se o **seu domínio personalizado já estiver atribuído aos Aplicativos do Serviço de Aplicativo.** Este método listará todos os Aplicativos do Serviço de Aplicativo que atendem a esse critério. Por exemplo, neste caso, **contosocertdemo.com** é um domínio personalizado atribuído ao Aplicativo do Serviço de Aplicativo chamado **"ContosoCertDemo"** e, portanto, é o único Aplicativo do Serviço de Aplicativo listado aqui. Se houvesse uma implantação em várias regiões, todos os aplicativos de todas as regiões seriam listados.
-            > [AZURE.NOTE]
-            O método de verificação SÓ está disponível para compras de certificado Standard (Básico). Para os Certificados Curinga, ignore e vá para a opção B, C ou D abaixo. 
-        2. Clique no botão **"Verificar"** para concluir esta etapa.
-        3. Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
+        * Este será o processo mais conveniente se o **seu domínio personalizado já estiver atribuído aos Aplicativos do Serviço de Aplicativo.** Este método listará todos os Aplicativos do Serviço de Aplicativo que atendem a esse critério. Por exemplo, neste caso, **contosocertdemo.com** é um domínio personalizado atribuído ao Aplicativo do Serviço de Aplicativo chamado **"ContosoCertDemo"** e, portanto, é o único Aplicativo do Serviço de Aplicativo listado aqui. Se houvesse uma implantação em várias regiões, todos os aplicativos de todas as regiões seriam listados.
         
-            ![inserir imagem de Verificação de Serviço de Aplicativo](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
+           O método de verificação SÓ está disponível para compras de certificado Standard (Básico). Para os Certificados Curinga, ignore e vá para a opção B, C ou D abaixo.
+        * Clique no botão **"Verificar"** para concluir esta etapa.
+        * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação ser concluída. Pode demorar alguns minutos até a verificação ser concluída.
+        
+        ![inserir imagem de Verificação de Serviço de Aplicativo](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)
 
     * **Verificação de domínio**
 
-        1. Este será o processo mais conveniente **SOMENTE SE** você tiver **[adquirido seu domínio personalizado no Serviço de Aplicativo do Azure.](custom-dns-web-site-buydomains-web-app.md)**
+        * Este será o processo mais conveniente **SOMENTE SE** você tiver **[comprado seu domínio personalizado no Serviço de Aplicativo do Azure.](custom-dns-web-site-buydomains-web-app.md)**
         
-        2. Clique no botão **"Verificar"** para concluir esta etapa.
+        * Clique no botão **"Verificar"** para concluir esta etapa.
         
-        3. Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
+        * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação ser concluída. Pode demorar alguns minutos até a verificação ser concluída.
 
     * **Verificação por email**
         
-        1. Um email de verificação já foi enviado para os endereços de email associados a esse domínio personalizado.
+        * Um email de verificação já foi enviado para os endereços de email associados a esse domínio personalizado.
          
-        2. Abra o email e clique no link de verificação para concluir a etapa Verificação por email.
+        * Abra o email e clique no link de verificação para concluir a etapa Verificação por email.
         
-        3. Se você precisar reenviar o email de verificação, clique no botão **"Reenviar Email"**.
+        * Se você precisar reenviar o email de verificação, clique no botão **"Reenviar Email"**.
          
     * **Verificação manual**
                  
@@ -137,14 +137,14 @@ Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domí
             
             * Carregue esse arquivo na raiz do servidor Web que hospeda seu domínio.
             
-            * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
+            * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação ser concluída. Pode demorar alguns minutos até a verificação ser concluída.
             
-            Por exemplo, se você estiver comprando um certificado padrão para contosocertdemo.com com o Token de Verificação de Domínio **'cAGgQrKc'**, uma solicitação da Web feita para **'http://contosocertdemo.com/cAGgQrKc.html'** deverá retornar **cAGgQrKc.**
+            Por exemplo, se você estiver comprando um certificado padrão para contosocertdemo.com com o Token de Verificação de Domínio **'cAGgQrKc'**, uma solicitação da Web feita para **‘http://contosocertdemo.com/cAGgQrKc.html’** deverá retornar **cAGgQrKc.**
         2. **Verificação de registro TXT do DNS**
 
-            * Usando o Gerenciador de DNS, crie um registro TXT no subdomínio **'DZC'** com um valor igual ao **Token de Verificação do Domínio.**
+            * Usando o Gerenciador DNS, crie um registro TXT no subdomínio **'DZC'** com um valor igual ao **Token de Verificação do Domínio.**
             
-            * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
+            * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação ser concluída. Pode demorar alguns minutos até a verificação ser concluída.
                               
             Por exemplo, para executar a validação de um certificado curinga com o nome de host ***.contosocertdemo.com** ou ***.subdomain.contosocertdemo.com** e o Token de Verificação do Domínio **cAGgQrKc**, você precisa criar um registro TXT em dzc.contosocertdemo.com com o valor **cAGgQrKc.**
 
@@ -156,19 +156,19 @@ Nesta Etapa, você aprenderá a atribuir esse certificado recém-adquirido para 
 > [AZURE.NOTE]
 Antes de executar as etapas nesta seção, você precisa ter associado um nome de domínio personalizado ao seu aplicativo. Para saber mais, confira **[Configurando um nome de domínio personalizado para um aplicativo Web.](web-sites-custom-domain-name.md)**
 
-1.	Em seu navegador, abra o **[Portal do Azure.](https://portal.azure.com/)**
+1.	No seu navegador, abra o **[Portal do Azure.](https://portal.azure.com/)**
 2.	Clique na opção **Serviço de Aplicativo** no lado esquerdo da página.
 3.	Clique no nome do aplicativo ao qual você deseja atribuir a esse certificado. 
 4.	Em **Configurações**, clique em **Domínios personalizados e SSL.**
-5.	Na **seção de certificados**, clique em **Importar Certificado** e selecione o Certificado que você acabou de adquirir
+5.	Na **seção de certificados**, clique em **Importar Certificado** e selecione o Certificado que você acabou de comprar
 
     ![inserir imagem de Importar Certificado](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
 
-6. Na seção **Associações SSL** da guia **Configurações de SLL**, use os menus suspensos para selecionar o nome de domínio a ser protegido com o SSL e o certificado a usar. Você também pode selecionar se deseja usar **[Indicação de Nome de Servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou SSL baseado em IP.
+6. Na seção **Associações SSL** da guia **Configurações de SLL**, use os menus suspensos para selecionar o nome de domínio a ser protegido com o SSL e o certificado a usar. Você também pode selecionar se deseja usar **[SNI (Indicação de Nome de Servidor)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou SSL baseado em IP.
 
     ![inserir imagem de Associações SSL](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
 
-       • O SSL baseado em IP associa um certificado a um nome de domínio mapeando um endereço IP público dedicado do servidor ao nome de domínio. Isso exige que cada nome de domínio (contoso.com, fabricam.com etc.), associado ao seu serviço tenha um endereço IP dedicado. Esse é o método tradicional de associação do certificado SSL a um servidor Web. • O SSL baseado em SNI é uma extensão para SSL e **[o protocolo TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security)** que permite que vários domínios compartilhem o mesmo endereço IP, com certificados de segurança separados para cada domínio. Os navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) oferecem suporte ao SNI. No entanto, navegadores mais antigos podem não oferecer esse suporte. Para saber mais sobre SNI, confira o artigo **[Indicação de Nome de Servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** no Wikipédia.
+       • O SSL baseado em IP associa um certificado a um nome de domínio mapeando um endereço IP público dedicado do servidor ao nome de domínio. Isso exige que cada nome de domínio (contoso.com, fabricam.com etc.), associado ao seu serviço tenha um endereço IP dedicado. Esse é o método tradicional de associação do certificado SSL a um servidor Web. • O SSL baseado em SNI é uma extensão para SSL e **[o protocolo TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security)**, que permite que vários domínios compartilhem o mesmo endereço IP, com certificados de segurança separados para cada domínio. Os navegadores mais modernos (incluindo Internet Explorer, Chrome, Firefox e Opera) oferecem suporte ao SNI. No entanto, navegadores mais antigos podem não oferecer esse suporte. Para saber mais sobre SNI, confira o artigo **[Indicação de Nome de Servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** na Wikipédia.
        
 7. Clique em *Salvar* para salvar as alterações e habilitar SSL.
 
@@ -185,7 +185,7 @@ Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi confi
 2. Usando as ferramentas fornecidas pelo registro de nomes de domínio, modifique o registro A de seu nome de domínio personalizado para redirecionar para o endereço IP da etapa anterior. Nesse momento, você poderá visitar o seu aplicativo usando HTTPS:// em vez de HTTP:// para verificar se o certificado foi configurado corretamente.
 
 
-##<a name="bkmk_Rekey"></a>Criar novas chaves e sincronizar o certificado
+##<a name="bkmk_Rekey"></a>Criar Nova Chave e Sincronizar o Certificado
 
 1. Por motivos de segurança, se você precisar criar uma nova chave para seu certificado, basta selecionar a opção **"Criar Nova Chave e Sincronizar"** na folha **"Propriedades do Certificado"**. 
 
@@ -208,4 +208,4 @@ Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi confi
 
 >[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0413_2016-->

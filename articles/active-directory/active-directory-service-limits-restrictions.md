@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="02/01/2016"
+	ms.date="04/26/2016"
 	ms.author="curtand"/>
 
 # Restrições e limites de serviço do AD do Azure
@@ -26,4 +26,4 @@ Se você estiver procurando o conjunto completo de limites de serviço do Micros
 - [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 - [Como as assinaturas do Azure estão associadas ao AD do Azure](active-directory-how-subscriptions-associated-directory.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0427_2016-->

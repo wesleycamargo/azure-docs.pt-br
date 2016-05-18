@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="04/19/2016"
    ms.author="prkumar"/>
 
 
 # Introdução ao ouvinte HTTP e à ação de HTTP e à adição deles ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+> [AZURE.NOTE] Estamos encerrando o suporte para esse conector porque sua funcionalidade agora está incluída por padrão como o **gatilho manual** quando você cria novos Aplicativos Lógicos. É recomendável que você atualize todos os seus Aplicativos Lógicos que estão usando esse conector. Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
 Conecte-se diretamente a recursos HTTP para ouvir solicitações HTTP e para configurar solicitações da Web HTTP. Existem alguns cenários em que você pode precisar trabalhar com conexões HTTP diretas, incluindo:
 
@@ -74,7 +75,7 @@ Exibir a referência da API REST de Swagger em [Conectores e referência de apli
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
-> [AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> [AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic) (Experimentar os Aplicativos Lógicos). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
@@ -88,4 +89,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

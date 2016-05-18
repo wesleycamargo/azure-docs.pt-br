@@ -3,8 +3,8 @@
 	description="Um tópico de ponto de partida que reúne links e recomendações de práticas recomendadas para programas cliente que se conectam ao Banco de Dados SQL do Azure a partir de tecnologias como ADO.NET e PHP." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	authors="annemill" 
+	manager="jhubbard" 
 	editor=""/>
 
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/07/2016" 
-	ms.author="genemi"/>
+	ms.author="annemill"/>
 
 
 # Conectando-se ao Banco de Dados SQL: práticas recomendadas e diretrizes de design
@@ -177,4 +177,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 
 - [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0420_2016-->

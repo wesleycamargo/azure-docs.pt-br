@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/06/2016"
+	ms.date="05/10/2016"
 	ms.author="jimpark; trinadhk"/>
 
 # O que é o Backup do Azure?
@@ -69,7 +69,7 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (mais o agente do Backup do Azure),</p> <p>[Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md) (inclui o agente de Backup do Azure)</p> |
-| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) | 
+| VMs de IaaS do Azure (Windows) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
 | VMs de IaaS do Azure (Linux) | - | [Backup do Azure (extensão de VM)](backup-azure-vms-introduction.md) |
 
 ## Suporte para ARM e para Linux
@@ -82,6 +82,23 @@ Como o Backup é uma solução de backup híbrida, é formado por vários compon
 | Backup de VM IaaS do Azure | Em visualização pública | Em visualização pública - VMs do Linux no modelo de implantação do Gerenciador de Recursos <br>(consistência no nível do sistema de arquivos)<br><br>Sim para VMs do Linux no modelo de implantação clássico |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
+
+## Backup e restauração de VMs de Armazenamento Premium
+
+O serviço de Backup do Azure agora protege VMs de Armazenamento Premium.
+
+### Backup de VMs de Armazenamento Premium
+
+Ao fazer backup de VMs de Armazenamento Premium, o serviço de Backup cria um local de preparo temporário na conta de Armazenamento Premium. O local de preparo, chamado de "AzureBackup-" é igual ao tamanho total dos dados dos discos premium conectados à VM.
+
+>[AZURE.NOTE] Não modifique nem edite o local de preparo.
+
+Quando o trabalho de backup for concluído, o local de preparo será excluído. O preço do armazenamento usada para o local de preparo é consistente com todos os [preços de armazenamento Premium](../storage/storage-premium-storage.md#pricing-and-billing).
+
+### Restaurar VMs de Armazenamento Premium
+
+A restauração de um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Premium é o processo típico de restauração. No entanto, pode ser econômico para restaurar um ponto de recuperação de VM de Armazenamento Premium para o armazenamento padrão. Esse tipo de restauração poderá ser usado se você precisar de um subconjunto de arquivos da VM.
 
 ## Funcionalidade
 Estas cinco tabelas resumem como a funcionalidade de backup é tratada em cada componente:
@@ -211,4 +228,4 @@ Como esses tutoriais ajudam a fazer backup rapidamente, eles mostram somente o c
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

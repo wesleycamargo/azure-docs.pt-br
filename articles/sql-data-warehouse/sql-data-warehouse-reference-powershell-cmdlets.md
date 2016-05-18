@@ -3,7 +3,7 @@
    description="Encontre os principais cmdlets do PowerShell para SQL Data Warehouse do Azure, inclusive sobre como pausar e retomar um banco de dados."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="04/02/2016"
-   ms.author="barbkess;mausher;sonyama"/>
+   ms.author="sonyama;barbkess;mausher"/>
 
 # Cmdlets do PowerShell e as APIs REST para SQL Data Warehouse
 
@@ -120,4 +120,4 @@ Para obter mais informações de referência, consulte [Visão geral de referên
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -12,20 +12,12 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
-	ms.topic="get-started-article" 
-	ms.date="01/12/2016" 
+	ms.topic="article" 
+	ms.date="04/08/2016" 
 	ms.author="robmcm"/>
 
 
 #Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando FTP
-
-> [AZURE.SELECTOR]
-- [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Java](web-sites-java-get-started.md)
-- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
-- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
 
 Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo usando FTP. Este tutorial presume que você tenha [PHP][install-php], [MySQL][install-mysql], um servidor Web e um cliente de FTP instalado no seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo o Windows, o Mac e o Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
  
@@ -66,7 +58,7 @@ Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 7. Quando o aplicativo Web tiver sido criado, você verá a nova folha do serviço de aplicativo.
 
 
-6. Clique em **Configurações** > **Credenciais de implantação**.
+6. Clique em **Configurações** > **Credenciais da implantação**.
 
 	![Definir credenciais de implantação][set-deployment-credentials]
 
@@ -228,7 +220,7 @@ Para conectar-se ao Banco de Dados MySQL que está em execução nos Aplicativos
 
 	![Selecionar um banco de dados][select-database]
 
-2. No resumo de banco de dados, escolha **Configurações** > **Propriedades**.
+2. No resumo do banco de dados, escolha **Configurações** > **Propriedades**.
 
     ![Selecionar propriedades][select-properties]
 	
@@ -303,4 +295,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do PHP](/de
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!----HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

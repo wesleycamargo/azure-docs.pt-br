@@ -104,8 +104,8 @@ O caminho de conexão é resumido pelo diagrama a seguir:
 
 Se pretende usar os Grupos de Disponibilidade AlwaysOn para alta disponibilidade e recuperação de desastres, você deve considerar implementar um ouvinte. Clientes do banco de dados se conectam ao ouvinte e não diretamente a uma das instâncias do SQL Server. O ouvinte direciona os clientes para a réplica primária do grupo de disponibilidade. Para obter mais informações, consulte [Configurar um ouvinte de ILB para Grupos de Disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
-É importante reler todas as práticas recomendadas de segurança para o SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-security.md).
+É importante reler todas as práticas recomendadas de segurança para o SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [Considerações sobre segurança para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-security.md).
 
-Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-overview.md).
+Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

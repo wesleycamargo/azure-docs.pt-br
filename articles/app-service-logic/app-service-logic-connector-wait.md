@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/19/2016"
    ms.author="rajram"/>
 
 # Comece a usar o Conector de Espera e adicione-o ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+>[AZURE.NOTE] Estamos encerrando o suporte para esse conector porque sua funcionalidade agora está incluída por padrão como a **ação de atraso** quando você cria novos Aplicativos Lógicos. É recomendável que você atualize todos os seus Aplicativos Lógicos que estão usando esse conector. Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
 O conector de espera permite que um aplicativo atrase a execução por um período especificado ou até um horário especificado. Você pode adicionar o Conector de Espera ao seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico. Quando usado em um Aplicativo Lógico, ele pode ser usado para atrasar a execução.
 
@@ -48,11 +49,11 @@ Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial us
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 [1]: ./media/app-service-logic-wait/ListOfActions.PNG
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

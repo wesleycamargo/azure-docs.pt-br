@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 
@@ -160,14 +160,14 @@ Podemos usar a mesma técnica para reduzir intervalos de cadeias de caracteres:
 
 Observe que você pode usar `name=` para definir o nome de uma coluna de resultado, seja nas expressões de agregação, seja na cláusula by.
 
-### Contagem de pontos de dados
+## Contando dados de amostra
 
 `sum(itemCount)` é a agregação recomendada para contar eventos. Em muitos casos, itemCount==1, de modo que a função simplesmente conta até o número de linhas no grupo. Mas quando a [amostragem](app-insights-sampling.md) estiver em operação, apenas uma fração dos eventos originais será retida como um ponto de dados no Application Insights, de modo que para cada ponto de dados que você visualizar, haverá `itemCount` eventos. Portanto, a soma de itemCount dá uma boa estimativa do número original de eventos.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-Também há uma agregação `count()`, para casos em que você realmente quer contar o número de linhas em um grupo.
+Também há uma agregação `count()` (e uma operação de contagem), para casos em que você realmente queira contar o número de linhas em um grupo.
 
 
 Há uma série de [funções de agregação](app-insights-analytics-aggregations.md).
@@ -423,4 +423,4 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) para separar as par
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

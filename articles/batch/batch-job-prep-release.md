@@ -6,7 +6,7 @@
 	authors="mmacy"
 	manager="timlt"
 	editor="" />
-	
+
 <tags
 	ms.service="batch"
 	ms.devlang="multiple"
@@ -15,7 +15,7 @@
 	ms.workload="big-compute"
 	ms.date="01/22/2016"
 	ms.author="marsma" />
-	
+
 # Executar tarefas de preparação e conclusão do trabalho em nós de computação em lotes do Azure
 
 Os trabalhos do Lote do Azure geralmente exigem algum tipo de instalação antes da execução e, da mesma forma, algum tipo de manutenção pós-trabalho após a conclusão das tarefas do trabalho. O lote fornece mecanismos para essa preparação e manutenção na forma de tarefas opcionais de *preparação do trabalho* e *liberação de trabalho*.
@@ -78,7 +78,7 @@ Neste trecho de código, `myBatchClient` é uma instância completamente inicial
 
 		await myJob.CommitAsync();
 
-Conforme mencionado acima, a tarefa de liberação é executada quando um trabalho é encerrado ou excluído. O encerramento de um trabalho com a API .NET do Lote é realizado chamando [PoolOperations.TerminateJobAsync][net_job_terminate]. A exclusão do trabalho é realizada com [PoolOperations.DeleteJobAsync][net_job_delete]. Ambas as ações geralmente são executadas quando as tarefas de um trabalho são concluídas ou quando um tempo limite que você definiu é atingido.
+Conforme mencionado acima, a tarefa de liberação é executada quando um trabalho é encerrado ou excluído. O encerramento de um trabalho com a API .NET do Lote é realizado ao chamar [JobOperations.TerminateJobAsync][net_job_terminate]. A exclusão do trabalho é realizada com [JobOperations.DeleteJobAsync][net_job_delete]. Ambas as ações geralmente são executadas quando as tarefas de um trabalho são concluídas ou quando um tempo limite que você definiu é atingido.
 
 		// Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
 		// that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
@@ -187,4 +187,4 @@ A captura de tela abaixo destaca as propriedades das tarefas de preparação e l
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

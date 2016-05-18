@@ -1,40 +1,43 @@
-<properties 
-	pageTitle="Criar aplicativos scala autônomos para execução em clusters do HDInsight Spark | Microsoft Azure" 
-	description="Saiba como criar um aplicativo Spark autônomos para executar em clusters do HDInsight Spark." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Criar aplicativos scala autônomos para execução em clusters do HDInsight Spark | Microsoft Azure"
+	description="Saiba como criar um aplicativo Spark autônomos para executar em clusters do HDInsight Spark."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/05/2016" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/14/2016"
 	ms.author="nitinme"/>
 
 
-# Criar um aplicativo Scala autônomo e executar no cluster HDInsight Spark (Linux)
+# Criar um aplicativo Scala autônomo e executar em clusters HDInsight Spark Linux (Preview)
 
-Esse artigo fornece orientação passo a passo sobre como desenvolver aplicativos Spark autônomos escritos em Scala usando IntelliJ IDEA. O artigo usa o Apache Maven como o sistema de compilação e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA. Em um alto nível, criar um aplicativo Scala no IntelliJ IDEA envolverá as seguintes etapas:
+Esse artigo fornece orientação passo a passo sobre como desenvolver aplicativos Spark autônomos escritos em Scala usando o Maven com IntelliJ IDEA. O artigo usa o Apache Maven como o sistema de build e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA. Em um alto nível, criar um aplicativo Scala no IntelliJ IDEA envolverá as seguintes etapas:
 
 
 * Usar o Maven como o sistema de compilação.
-* Atualizar o arquivo de modelo de objeto do projeto (POM) para resolver as dependências do módulo Spark
+* Atualize o arquivo do POM (Modelo de Objeto do Projeto) para resolver as dependências do módulo Spark.
 * Escreva seu aplicativo em Scala.
 * Gere um arquivo jar que pode ser enviado aos clusters HDInsight Spark.
-* Execute o aplicativo no cluster Spark usando spark-submit.
+* Executar os aplicativos em um cluster do Spark usando Livy.
+
+>[AZURE.NOTE] O HDInsight também fornece uma ferramenta de plug-in do IntelliJ IDEA para facilitar o processo de criação e envio de aplicativos para um cluster HDInsight Spark no Linux. Para obter mais informações, consulte [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md).
+
 
 **Pré-requisitos**
 
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Um cluster do Apache Spark no HDInsight no Linux. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Kit de desenvolvimento Oracle Java. Você pode instalá-lo clicando [aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Um Java IDE. Este artigo usa IntelliJ IDEA 15.0.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/). 
+* Um Java IDE. Este artigo usa IntelliJ IDEA 15.0.1. Você pode instalá-lo clicando [aqui](https://www.jetbrains.com/idea/download/).
 
 
 ## Instalar o plug-in Scala para IntelliJ IDEA
@@ -81,7 +84,7 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
 	1. No menu **Arquivo**, clique em **Configurações**.
 	2. Na caixa de diálogo **Configurações**, navegue até **Compilação, Execução, Implantação** > **Ferramentas de Compilação** > **Maven** > **Importando**.
 	3. Selecione a opção para **Importar projetos Maven automaticamente**.
-	4. Clique em **Aplicar** e, em seguida, clique em **OK**. 
+	4. Clique em **Aplicar** e, em seguida, clique em **OK**.
 
 
 8. Atualize o arquivo de origem Scala para incluir o código do aplicativo. Abra e substitua o código de exemplo existente pelo código a seguir e salve as alterações. Esse código lê os dados no HVAC.csv (disponível em todos os clusters Spark HDInsight), recupera as linhas com apenas um dígito na sexta coluna e grava a saída em **/HVACOut** no contêiner padrão de armazenamento do cluster.
@@ -90,7 +93,7 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
 
 		import org.apache.spark.SparkConf
 		import org.apache.spark.SparkContext
-		
+
 		/**
 		  * Test IO to wasb
 		  */
@@ -98,12 +101,12 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
 		  def main (arg: Array[String]): Unit = {
 		    val conf = new SparkConf().setAppName("WASBIOTest")
 		    val sc = new SparkContext(conf)
-		
+
 		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-		
+
 		    //find the rows which have only one digit in the 7th column in the CSV
 		    val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
-		
+
 		    rdd1.saveAsTextFile("wasb:///HVACout")
 		  }
 		}
@@ -158,7 +161,7 @@ Se a instalação do IntelliJ IDEA não solicitar para habilitar o plug-in Scala
 
 Para executar o aplicativo no cluster, faça o seguinte:
 
-* **Copie o jar do aplicativo para o blob de armazenamento do Azure** associado ao cluster. Você pode usar [**AzCopy**](storage/storage-use-azcopy.md), um utilitário de linha de comando, para fazer isso. Há muitos outros clientes também que você pode usar para carregar dados. É possível saber mais sobre eles em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
+* **Copie o jar do aplicativo para o blob de armazenamento do Azure** associado ao cluster. Você pode usar [**AzCopy**](../storage/storage-use-azcopy.md), um utilitário de linha de comando, para fazer isso. Há muitos outros clientes também que você pode usar para carregar dados. É possível saber mais sobre eles em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
 
 * **Use Livy para enviar um trabalho de aplicativo remotamente** para o cluster Spark. Os clusters Spark no HDInsight incluem Livy, que expõe pontos de extremidade REST para enviar remotamente trabalhos do Spark. Para obter mais informações, consulte [Enviar trabalhos do Spark remotamente usando Livy com clusters Spark no HDInsight](hdinsight-apache-spark-livy-rest-interface.md).
 
@@ -196,4 +199,4 @@ Para executar o aplicativo no cluster, faça o seguinte:
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

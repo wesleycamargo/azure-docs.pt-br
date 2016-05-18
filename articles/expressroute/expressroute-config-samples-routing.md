@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="expressroute"
@@ -12,14 +12,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/19/2016"
    ms.author="cherylmc"/>
 
 # Exemplos de configuração do roteador para configurar e gerenciar o roteamento
 
 Esta página fornece interface e modelos de configuração de roteamento para roteadores da série Cisco IOS-XE e Juniper MX. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede.
 
->[AZURE.IMPORTANT]Exemplos nesta página devem ser exclusivamente para obter orientação. Trabalhe com a equipe de vendas / equipe técnica e sua equipe de rede para exibir as configurações adequadas para atendar às suas necessidades. A Microsoft não oferecerá suporte a problemas relacionados a configurações listadas nesta página. Você deve entrar em contato com o fornecedor do dispositivo para problemas de suporte.
+>[AZURE.IMPORTANT] Exemplos nesta página devem ser exclusivamente para obter orientação. Trabalhe com a equipe de vendas / equipe técnica e sua equipe de rede para exibir as configurações adequadas para atendar às suas necessidades. A Microsoft não oferecerá suporte a problemas relacionados a configurações listadas nesta página. Você deve entrar em contato com o fornecedor do dispositivo para problemas de suporte.
 
 Os modelos de configuração abaixo se aplicam a todos os emparelhamentos. Examine [emparelhamentos Rota Expressa](expressroute-circuit-peerings.md) e [requisitos de roteamento Rota Expressa](expressroute-routing.md) para obter mais detalhes.
 
@@ -210,4 +210,4 @@ Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propa
 
 Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0427_2016-->

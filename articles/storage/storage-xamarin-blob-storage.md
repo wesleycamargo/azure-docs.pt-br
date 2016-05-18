@@ -55,8 +55,7 @@ Para obter mais informações sobre assinaturas de acesso compartilhado, consult
 
 Para este tutorial, criaremos nosso aplicativo Xamarin no Visual Studio. Siga estas etapas para criar o aplicativo:
 
-1. Baixe e instale o [Visual Studio](https://www.visualstudio.com/).
-2. Baixe e instale o [Xamarin](http://xamarin.com/platform).
+1. Execute o [instalador do Visual Studio 2015](https://www.visualstudio.com/), selecionando uma instalação **Personalizada** e marcando a caixa sob **Desenvolvimento Móvel de Plataforma Cruzada > C# / .NET (Xamarin)**. Se você já tiver o Visual Studio instalado, baixe e instale [Xamarin](http://xamarin.com/platform) diretamente. Para obter instruções completas para Visual Studio e Xamarin, consulte [Instalar e configurar](https://msdn.microsoft.com/library/mt613162.aspx) no MSDN.
 3. Abra o Visual Studio e selecione **Arquivo -> Novo -> Projeto > Android > Aplicativo em branco (Android)**.
 4. Clique com o botão direito no seu projeto no painel do Gerenciador de Soluções e selecione **Gerenciar Pacotes NuGet**. Em seguida, procure **armazenamento do Azure** e instale **Azure Storage 4.4.0-preview**.
 
@@ -180,4 +179,4 @@ Saiba mais sobre blobs, tabelas e filas consultando os links a seguir:
 - [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 - [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

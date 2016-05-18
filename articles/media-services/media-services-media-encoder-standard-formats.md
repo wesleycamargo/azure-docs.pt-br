@@ -3,8 +3,8 @@
 	description="Este tópico oferece uma visão geral dos codecs e dos formatos do Codificador de Mídia Padrão." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
-	ms.author="juliako"/>
+	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 #Codecs e formatos padrão do codificador de mídia
 
@@ -121,4 +121,4 @@ MPEG2-TS |H.264 (Perfis Alto, Principal e Linha de base)|AAC-LC, HE-AAC v1, HE-A
 
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

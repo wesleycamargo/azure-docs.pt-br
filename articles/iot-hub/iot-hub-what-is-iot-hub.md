@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="04/29/2016"
  ms.author="dobett"/>
 
 # O que é o Hub IoT do Azure?
@@ -57,7 +57,10 @@ O Hub IoT do Azure enfrenta os desafios de conectividade do dispositivo das segu
 
 -   **Um amplo conjunto de bibliotecas de dispositivos**. [Os SDKs do dispositivo IoT do Azure][lnk-device-sdks] estão disponíveis e têm suporte para várias linguagens e plataformas: C para muitas distribuições Linux, Windows e sistemas operacionais em tempo real. Os SDKs de dispositivo IoT do Azure também oferecem suporte a linguagens gerenciadas, como C#, Java e JavaScript.
 
--   **Protocolos e extensibilidade do IoT**. Se sua solução não puder usar as bibliotecas de dispositivos, o Hub IoT exporá um protocolo público para permitir que os dispositivos usem os protocolos MQTT v3.1.1, HTTP 1.1 ou AMQP 1.0 nativamente. Você também pode estender o Hub IoT para fornecer suporte ao protocolo personalizado personalizando o componente de fonte aberta do [gateway de protocolo IoT do Azure][protocol-gateway]. Você pode executar o gateway de protocolo IoT do Azure na nuvem ou no local.
+-   **Protocolos e extensibilidade do IoT**. Se sua solução não puder usar as bibliotecas de dispositivos, o Hub IoT exporá um protocolo público para permitir que os dispositivos usem os protocolos MQTT v3.1.1, HTTP 1.1 ou AMQP 1.0 nativamente. Você também pode estender o Hub IoT para dar suporte a protocolos personalizados por meio da:
+
+    - Criação de um gateway de campo com o [SDK do Gateway IoT do Azure][lnk-gateway-sdk] que converte seu protocolo personalizado em um dos três protocolos compreendidos pelo Hub IoT. 
+    - Personalização do [gateway de protocolo IoT do Azure][protocol-gateway], um componente de código aberto que é executado na nuvem.
 
 -   **Escala**. O Hub IoT do Azure pode ser dimensionado para milhões de dispositivos conectados simultaneamente, além de milhões de eventos por segundo.
 
@@ -71,7 +74,7 @@ Também é possível implementar outros padrões comuns, como carregamento e dow
 
 ## Gateways
 
-Um gateway em uma solução IoT geralmente é um [gateway de protocolo][lnk-gateway] que é implantado na nuvem ou um [gateway de campo][lnk-field-gateway] que é implantado localmente com seus dispositivos. Um gateway de protocolo executa a conversão do protocolo, por exemplo, de MQTT para AMQP. Um gateway de campo fornece serviços de gerenciamento local para dispositivos. Trata-se de um dispositivo especializado ou software em execução em uma parte existente do hardware. Ambos os tipos de gateway atuam como intermediários entre os seus dispositivos e o Hub IoT.
+Um gateway em uma solução IoT geralmente é um [gateway de protocolo][lnk-gateway] que é implantado na nuvem ou um [gateway de campo][lnk-field-gateway] que é implantado localmente com seus dispositivos. Um gateway de protocolo executa a conversão do protocolo, por exemplo, de MQTT para AMQP. Um gateway de campo pode executar análises na borda, tomar decisões baseadas em tempo que podem reduzir a latência, fornecer serviços de gerenciamento de dispositivo, impor restrições de privacidade e segurança e também executar a conversão de protocolo. Ambos os tipos de gateway atuam como intermediários entre os seus dispositivos e o Hub IoT.
 
 Um gateway de campo é diferente de um dispositivo de roteamento de tráfego simples (como um dispositivo NAT [conversão de endereços de rede] ou firewall), pois geralmente ele executa uma função ativa no gerenciamento de acesso e no fluxo de informações da solução.
 
@@ -116,5 +119,6 @@ Para saber mais sobre o Hub IoT do Azure, consulte estes links:
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0504_2016-->

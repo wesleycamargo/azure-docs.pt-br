@@ -192,7 +192,7 @@ Se um trabalho do Agendador falhar, é possível especificar uma política de re
 
 Para definir uma política de nova tentativa, configurações adicionais de dois valores podem ser especificadas: um intervalo de nova tentativa (**retryInterval**) e o número de tentativas (**retryCount**).
 
-Intervalo de nova tentativa, especificado com o objeto **retryInterval**, que é o intervalo entre as tentativas. O valor padrão é 1 minuto, seu valor mínimo é 1 minuto e o máximo é 18 meses. Ele é definido no formato ISO 8601. Da mesma forma, o valor do número de tentativas é especificado com o objeto **retryCount**; esse é o número de vezes que uma nova tentativa será feita. O valor padrão é 5 e o valor máximo é 20. Ambos **retryInterval** e **retryCount** são opcionais. Eles recebem seus valores padrão se **retryType** for definido como **fixo** e nenhum valor for especificado explicitamente.
+Intervalo de nova tentativa, especificado com o objeto **retryInterval**, que é o intervalo entre as tentativas. O valor padrão é de 30 segundos, seu valor configurável mínimo é de 15 segundos e o valor máximo é de 18 meses. Os trabalhos em coleções de trabalhos gratuitas têm um valor mínimo configurável de 1 hora. Ele é definido no formato ISO 8601. Da mesma forma, o valor do número de tentativas é especificado com o objeto **retryCount**; esse é o número de vezes que uma nova tentativa será feita. O valor padrão é 4 e o valor máximo é 20. Ambos **retryInterval** e **retryCount** são opcionais. Eles recebem seus valores padrão se **retryType** for definido como **fixo** e nenhum valor for especificado explicitamente.
 
 ## Consulte também
 
@@ -214,4 +214,4 @@ Intervalo de nova tentativa, especificado com o objeto **retryInterval**, que é
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="jeffstok"/>
 
 # Direcionamento do Banco de Dados de Documentos do Azure para saída em JSON a partir do Stream Analytics
@@ -30,11 +30,11 @@ Algumas das opções de coleção de Banco de Dados de Documentos estão detalha
 
 ## Ajustar a consistência, a disponibilidade e a latência
 
-Para atender aos seus requisitos de aplicativo, o Banco de Dados de Documentos permite o ajuste do Banco de dados e das Coleções, e compensações entre consistência, disponibilidade e latência. Dependendo dos níveis de consistência de leitura exigidos pelo seu cenário em relação à latência de leitura e de gravação, você poderá escolher um nível de consistência em sua conta de banco de dados. Também por padrão, o Banco de Dados de Documentos permite a indexação síncrona em cada operação CRUD para sua coleção. Essa é outra opção útil para controlar o desempenho de leitura/gravação no Banco de Dados de Documentos. Para saber mais sobre esse tópico, confira o artigo [Alterar os níveis de consistência do banco de dados e de consulta](../articles/documentdb-consistency-levels.md).
+Para atender aos seus requisitos de aplicativo, o Banco de Dados de Documentos permite o ajuste do Banco de dados e das Coleções, e compensações entre consistência, disponibilidade e latência. Dependendo dos níveis de consistência de leitura exigidos pelo seu cenário em relação à latência de leitura e de gravação, você poderá escolher um nível de consistência em sua conta de banco de dados. Também por padrão, o Banco de Dados de Documentos permite a indexação síncrona em cada operação CRUD para sua coleção. Essa é outra opção útil para controlar o desempenho de leitura/gravação no Banco de Dados de Documentos. Para saber mais sobre esse tópico, confira o artigo [Alterar os níveis de consistência do banco de dados e de consulta](../documentdb/documentdb-consistency-levels.md).
 
 ## Escolher um nível de desempenho
 
-As coleções do Banco de Dados de Documentos podem ser criadas em três níveis de desempenho diferentes (S1, S2 ou S3), e isso determinará a taxa de transferência disponível para CRUDs dessa coleção. Além disso, o desempenho é afetado pelos níveis de indexação/consistência em sua coleção. Confira [este artigo](../articles/documentdb-performance-levels.md) para entender esses níveis de desempenho com mais detalhes.
+As coleções do Banco de Dados de Documentos podem ser criadas em três níveis de desempenho diferentes (S1, S2 ou S3), e isso determinará a taxa de transferência disponível para CRUDs dessa coleção. Além disso, o desempenho é afetado pelos níveis de indexação/consistência em sua coleção. Confira [este artigo](../documentdb/documentdb-performance-levels.md) para entender esses níveis de desempenho com mais detalhes.
 
 ## Inserções e atualizações a partir do Stream Analytics
 
@@ -62,4 +62,4 @@ A criação de Banco de Dados de Documentos como uma saída no Stream Analytics 
 -   **Chave de Partição**: o nome do campo nos eventos de saída usado para especificar a chave para a saída do particionamento em várias coleções. Para uma saída de coleção única, nenhuma coluna de saída arbitrária pode ser usada, por exemplo, PartitionId.  
 -   **ID do Documento**: opcional. O nome do campo em eventos de saída usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

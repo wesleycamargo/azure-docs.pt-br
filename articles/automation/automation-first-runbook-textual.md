@@ -4,16 +4,16 @@
     services="automation"
     documentationCenter=""
     authors="mgoedtel"
-    manager="stevenka"
-    editor=""/>
-
+    manager="jwhit"
+    editor=""
+	keywords="fluxo de trabalho do powershell, exemplos de fluxo de trabalho do powershell, fluxos de trabalho do powershell" />
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/23/2016"
+    ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
 
 # Meu primeiro runbook de Fluxo de Trabalho do PowerShell
@@ -26,10 +26,9 @@ Este tutorial orienta você durante a criação de um [runbook de Fluxo de Traba
 
 Para concluir este tutorial, você precisará do seguinte.
 
--	do Microsoft Azure. Se ainda não tiver uma, você poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-trial/" target="_blank">[inscrever-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
--	[Conta de Automação](automation-configuring.md) para manter o runbook.
+-	do Microsoft Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[inscrever-se em uma conta gratuita](https://azure.microsoft.com/free/).
+-	[Conta de automação](automation-security-overview.md) para manter o runbook e se autenticar nos recursos do Azure. Esta conta deve ter permissão para iniciar e parar a máquina virtual.
 -	Uma máquina virtual do Azure. Vamos parar e iniciar esse computador, portanto ele não deve ser de produção.
--	[Usuário e ativo de credencial de automação do Active Directory do Azure](automation-configuring.md) para autenticar nos recursos do Azure. Esse usuário deve ter permissão para iniciar e parar a máquina virtual.
 
 ## Etapa 1: criar o novo runbook
 
@@ -117,4 +116,4 @@ No momento, nosso runbook inicia a máquina virtual que codificamos no runbook, 
 -	[O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 -	[Meu primeiro runbook do PowerShell](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

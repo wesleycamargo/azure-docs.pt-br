@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Carregar imagens no armazenamento de blob do Azure de um aplicativo universal do Windows | Microsoft Azure" 
-	description="Saiba como usar um serviço móvel de back-end do JavaScript para carregar imagens no armazenamento de blob do Azure e acessar imagens em seu aplicativo Windows universal." 
-	services="mobile-services,storage" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Carregar imagens no armazenamento de blob do Azure de um aplicativo universal do Windows | Microsoft Azure"
+	description="Saiba como usar um serviço móvel de back-end do JavaScript para carregar imagens no armazenamento de blob do Azure e acessar imagens em seu aplicativo Windows universal."
+	services="mobile-services,storage"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/16/2015"
 	ms.author="glenga"/>
 
 # Fazer upload de imagens no armazenamento de blob do Azure usando Serviços Móveis
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
-##Visão geral 
+##Visão geral
 
 Este tópico mostra como usar os Serviços Móveis do Azure para habilitar seu aplicativo para carregar e armazenar as imagens geradas pelo usuário no Armazenamento do Azure. Os Serviços Móveis usam um banco de dados SQL para armazenar dados. No entanto, os dados de BLOB (objeto binário grande) são armazenados com mais eficiência no serviço de armazenamento de Blob do Azure.
 
@@ -33,7 +33,7 @@ Neste tutorial, você adicionará funcionalidade ao aplicativo quickstart de Ser
 Este tutorial exige o seguinte:
 
 + Microsoft Visual Studio 2013 Atualização 3 ou uma versão posterior
-+ [Conta de Armazenamento do Azure](../storage-create-storage-account.md)
++ [Conta de Armazenamento do Azure](../storage/storage-create-storage-account.md)
 + Uma câmera ou outro dispositivo de captura de imagem conectado ao seu computador.
 
 Este tutorial baseia-se no quickstart dos Serviços Móveis. Antes de iniciar este tutorial, você deve primeiro concluir a [Introdução aos Serviços Móveis].
@@ -55,12 +55,12 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 + [Referência de script de servidor dos Serviços Móveis]
 
     Tópicos de referência para o uso de scripts de servidor para executar tarefas no lado do servidor e integração com outros componentes do Azure e recursos externos.
- 
+
 + [Referência conceitual do tutorial do .NET de Serviços Móveis]
 
     Saiba mais sobre como usar os Serviços Móveis com o .NET
-  
- 
+
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -83,6 +83,5 @@ Agora que você conseguiu carregar as imagens com segurança, integrando seu ser
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Referência conceitual do tutorial do .NET de Serviços Móveis]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0413_2016-->

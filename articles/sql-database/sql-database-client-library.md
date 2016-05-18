@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="03/23/2016"
+   ms.date="05/03/2016"
    ms.author="sstein"/>
 
 # Criar e gerenciar Banco de Dados SQL com C&#x23;
@@ -335,7 +335,7 @@ Para criar um novo pool em um servidor:
 
 ## Mover um banco de dados existente para um pool de banco de dados elástico
 
-*Depois de criar um pool, você pode também usar o Transact-SQL para mover bancos de dados existentes dentro e fora de um pool. Para saber mais detalhes, consulte [Referência de pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Depois de criar um pool, você pode também usar o Transact-SQL para mover bancos de dados existentes dentro e fora de um pool. Para obter detalhes, veja [Monitorar, gerenciar e dimensionar um pool de banco de dados elástico com o Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 Para mover um banco de dados existente para um pool:
 
@@ -367,7 +367,7 @@ Para mover um banco de dados existente para um pool:
 
 ## Criar um novo banco de dados em um pool de banco de dados elástico
 
-*Depois de criar um pool, você pode também usar o Transact-SQL para criar novos bancos de dados elásticos no pool. Para saber mais detalhes, consulte [Referência de pool de banco de dados elástico - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Depois de criar um pool, você pode também usar o Transact-SQL para criar novos bancos de dados elásticos no pool. Para obter detalhes, veja [Monitorar, gerenciar e dimensionar um pool de banco de dados elástico com o Transact-SQL](sql-database-elastic-pool-manage-tsql.md).*
 
 Para criar um novo banco de dados diretamente em um pool:
 
@@ -784,9 +784,6 @@ Para excluir um grupo de recursos:
 
 [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-[Referência do Pool de Banco de Dados Elástico](sql-database-elastic-pool-reference.md).
-
-
 <!--Image references-->
 [1]: ./media/sql-database-client-library/aad.png
 [2]: ./media/sql-database-client-library/permissions.png
@@ -798,4 +795,4 @@ Para excluir um grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

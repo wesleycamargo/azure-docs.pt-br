@@ -38,7 +38,9 @@ Para usar o aplicativo de API de JavaScript, você precisa primeiro criar uma in
 ###Gatilho
 Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algum conteúdo, o aplicativo lógico será executado; caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
 
-As entradas para o gatilho são: -**Expressão JavaScript** - Uma expressão que será avaliada. Ele é invocado dentro de uma função e deverá retornar `false` quando você não quiser que o Aplicativo Lógico seja executado, podendo retornar qualquer outra coisa quando quiser que o aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do Aplicativo Lógico. -**Objeto de contexto** - Um objeto opcional que pode ser transmitido para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
+As entradas para o gatilho são:
+- **Expressão JavaScript** - uma expressão que será avaliada. Ela é invocada dentro de uma função e deve retornar `false` quando você não quiser que o Aplicativo lógico seja executado, podendo retornar qualquer outra coisa quando você quiser que o Aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do aplicativo lógico.
+- **Objeto de contexto** - um objeto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
 
 Você pode ter um gatilho simples que somente executa seu aplicativo lógico entre os minutos 15 e 30 da hora:
 
@@ -50,9 +52,12 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 
 Da mesma forma, você pode fornecer uma ação a ser executada.
 
-As entradas para a ação são: - **Expressão JavaScript** - Uma expressão que será avaliada. Você deve incluir a instrução `return` para obter qualquer conteúdo. - **Objeto de contexto** - um objeto opcional que pode ser transmitido ao gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
+As entradas para a ação são:
+- **Expressão JavaScript** - uma expressão que será avaliada. Você precisa incluir a instrução `return` para obter qualquer conteúdo. 
+- **Objeto de contexto** - um objeto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
 
-Por exemplo, imagine que você está usando o gatilho do Office 365 **Novo Email**. Isso retorna o seguinte objeto: ```
+Por exemplo, imagine que você está usando o gatilho do Office 365 **Novo Email**. Isso retorna o seguinte objeto:
+```
 {
 	...
 	"Attachments" : [
@@ -87,11 +92,11 @@ A ação retorna o JSON retornado da sua função. Portanto, no aplicativo de AP
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e Monitorar aplicativos de API e conector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0413_2016-->

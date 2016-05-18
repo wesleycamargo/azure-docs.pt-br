@@ -20,56 +20,81 @@
 
 # Gerenciamento de contêiner por meio da interface do usuário da Web
 
-O Mesos fornece um ambiente de implantação e dimensionamento de cargas de trabalho clusterizadas e, ao mesmo tempo, abstrai o hardware subjacente. Sobre o Mesos, há uma estrutura que gerencia o agendamento e a execução das cargas de trabalho de computação.
+O DC/OS fornece um ambiente de implantação e dimensionamento de cargas de trabalho clusterizadas e, ao mesmo tempo, abstrai o hardware subjacente. Sobre o DC/OS, há uma estrutura que gerencia o agendamento e a execução das cargas de trabalho de computação.
 
-Embora haja estruturas disponíveis para várias cargas de trabalho populares, este documento descreverá como você pode criar e dimensionar implantações de contêiner com o Marathon. Antes de trabalhar nos exemplos, você precisará de um cluster Mesos configurado no Serviço de Contêiner do Azure. Você também precisa ter conectividade remota com esse cluster. Para saber mais sobre esses itens, confira os artigos a seguir.
+Embora haja estruturas disponíveis para várias cargas de trabalho populares, este documento descreverá como você pode criar e dimensionar implantações de contêiner com o Marathon. Antes de trabalhar nos exemplos, você precisará de um cluster DC/OS configurado no Serviço de Contêiner do Azure. Você também precisa ter conectividade remota com esse cluster. Para saber mais sobre esses itens, confira os artigos a seguir.
 
 - [Como implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md)
 - [Conexão a um cluster do Serviço de Contêiner do Azure](./container-service-connect.md)
 
-## Explorar a interface do usuário do Mesos
+## Explorar a interface do usuário do DC/OS
 
-Com um túnel SSH estabelecido, navegue até http://localhost/Mesos. Isso carregará a interface do usuário da Web do Mesos. Na página, você pode obter informações sobre cluster Mesos, como os agentes ativados, o status das tarefas e a disponibilidade dos recursos.
+Com um túnel SSH (Secure Shell) estabelecido, navegue até http://localhost/. Isso carregará a interface do usuário da Web do DC/OS e mostrará informações sobre o cluster, como recursos usados, agentes ativos e serviços em execução.
 
-![Criar interface do usuário de implantação 1](media/ui1.png)
+![](media/dcos/dcos2.png)
 
 ## Explorar a interface do usuário do Marathon
 
-Para ver a interface do usuário do Marathon, navegue até http://localhost/Marathon. Nessa tela, você pode iniciar um novo contêiner ou outro aplicativo no cluster Mesos do Serviço de Contêiner do Azure. Você também pode ver informações sobre a execução de aplicativos e de contêineres.
+Para ver a interface do usuário do Marathon, navegue até http://localhost/Marathon. Nessa tela, você pode iniciar um novo contêiner ou outro aplicativo no cluster DC/OS do Serviço de Contêiner do Azure. Você também pode ver informações sobre a execução de aplicativos e de contêineres.
 
-![Criar interface do usuário de implantação 2](media/ui2.png)
+![](media/dcos/dcos3.png)
 
 ## Implantar um contêiner formatado pelo Docker
 
-Para usar o Marathon para iniciar um novo contêiner no cluster Mesos, clique no botão **Criar Aplicativo**. Você usa o formulário **Novo Aplicativo** para definir os parâmetros de aplicativo ou contêiner. Neste exemplo, você implantará um único contêiner Nginx. Insira as seguintes informações. Clique em **Criar** quando terminar.
+Para implantar um novo contêiner usando o Marathon, clique no botão **Criar Aplicativo** e insira as informações a seguir no formulário. Clique em **Criar Aplicativo** quando estiver pronto.
 
 Campo | Valor
 ----------------|-----------
 ID | nginx
 Imagem | nginx
 Rede | Com ponte
-Porta de contêiner | 80
 Porta de host | 80
 Protocolo | TCP
 
-![Criar interface do usuário de implantação 3](media/ui3.png)
+![](media/dcos/dcos4.png)
+
+![](media/dcos/dcos5.png)
+
+![](media/dcos/dcos6.png)
+
+Se você quiser mapear estaticamente a porta do contêiner para uma porta no agente, use o 'Modo JSON'. Para fazer isso, alterne o assistente de Novo Aplicativo para o Modo JSON usando o botão de alternância e insira o seguinte na seção 'portMappings' da definição do aplicativo. Este exemplo associa a porta 80 do contêiner à porta 80 do agente DC/OS. Esse assistente poderá sair do Modo JSON assim que a alteração for feita.
+
+```none
+“hostPort”: 80,
+```
+
+![](media/dcos/dcos13.png)
+
+O cluster DC/OS é implantado com um conjunto de agentes privados e públicos. Para acessar o aplicativo da Internet, eles devem ser implantados em um agente de público. Para fazer isso, selecione a guia 'opcional' do assistente de Novo Aplicativo e insira 'slave\_public' em Funções de Recurso Aceitas'.
+
+![](media/dcos/dcos14.png)
 
 Novamente na página principal do Marathon, você poderá ver o status da implantação para o contêiner.
 
-![Criar interface do usuário de implantação 4](media/ui4.png)
+![](media/dcos/dcos7.png)
 
-Se alternar de volta para o aplicativo Mesos (http://localhost/Mesos), agora você verá que uma tarefa, neste caso, um contêiner formatado do Docker, está em execução no cluster Mesos. Você também pode ver o nó de cluster no qual a tarefa está em execução.
+Se alternar de volta para o aplicativo DC/OS (http://localhost/), agora você verá que uma tarefa, neste caso, um contêiner formatado do Docker, está em execução no cluster DC/OS.
 
-![Criar interface do usuário de implantação 5](media/ui5.png)
+![](media/dcos/dcos8.png)
+
+Você também pode ver o nó de cluster no qual a tarefa está em execução.
+
+![](media/dcos/dcos9.png)
 
 ## Dimensionar seus contêineres
 
-Você também pode usar a interface do usuário da Web do Marathon para dimensionar a contagem de instâncias de um contêiner. Para fazer isso, navegue até a página do Marathon, selecione o contêiner que deseja dimensionar e clique no botão **Dimensionar**. Na caixa de diálogo **Dimensionar Aplicativo**, insira o número da instância de contêiner desejado e selecione **Dimensionar Aplicativo**.
+A interface do usuário do Marathon pode ser usada para dimensionar a contagem de instâncias de um contêiner. Para fazer isso, navegue até a página do Marathon, selecione o contêiner que deseja dimensionar e clique no botão **Dimensionar**. Na caixa de diálogo **Dimensionar Aplicativo**, insira o número da instância de contêiner desejado e selecione **Dimensionar Aplicativo**.
 
-![Criar interface do usuário de implantação 6](media/ui6.png)
+![](media/dcos/dcos10.png)
 
-Após a conclusão da operação de dimensionamento, você verá várias instâncias da mesma tarefa espalhados pelos agentes Mesos.
+Após a conclusão da operação de dimensionamento, você verá várias instâncias da mesma tarefa espalhados pelos agentes DC/OS.
 
-![Criar interface do usuário de implantação 7](media/ui8.png)
+![](media/dcos/dcos11.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+![](media/dcos/dcos12.png)
+
+## Próximas etapas
+
+[Trabalhar com a API do Marathon e DC/OS](./container-service-mesos-marathon-rest.md)
+
+<!---HONumber=AcomDC_0427_2016-->

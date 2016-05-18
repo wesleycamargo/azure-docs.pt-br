@@ -107,4 +107,4 @@ Os planos de Serviço de Aplicativo representam um conjunto de recursos e capaci
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

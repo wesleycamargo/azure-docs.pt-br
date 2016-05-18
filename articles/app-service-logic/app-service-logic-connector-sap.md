@@ -18,7 +18,8 @@
 
 
 # Comece a usar o Conector SAP e adicione-o a seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+
+>[AZURE.NOTE] Com base nos comentários dos clientes, estamos atualizando esse conector. Atualizaremos esta página quando estiver pronto. Não recomendamos usar o conector do SAP antes que a nova versão esteja disponível. Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
 Conecte-se ao SAP local para chamar RFC ou obter metadados. Há situações em que talvez você precise trabalhar com o SAP, que é instalado localmente e protegido pelo firewall. Utilizando o Conector do SAP em seu fluxo, você pode chegar a diversos resultados. Alguns exemplos:
 
@@ -98,4 +99,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,22 +1,21 @@
 
 ## Recursos
 
-* [O que é o SDK de Trabalhos Web do Azure](../app-service-web/websites-dotnet-webjobs-sdk.md)
-* [Lista de Recursos do WebJobs Completa](../app-service-web/websites-webjobs-resources.md)
-* [Introdução ao SDK de Trabalhos Web do Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-* [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
-* [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-* [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
-* [Como usar o barramento de serviço do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md)
+* [Lista de Recursos do WebJobs Completa](../articles/app-service-web/websites-webjobs-resources.md)
+* [Introdução ao SDK de Trabalhos Web do Azure](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+* [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+* [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+* [Como usar o barramento de serviço do Azure com o SDK de Trabalhos Web](../articles/app-service-web/websites-dotnet-webjobs-sdk-service-bus.md)
 * [Documentação de configurações do WebJobs no GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs)
-* [Como implantar Trabalhos Web do Azure usando o Visual Studio.](../app-service-web/websites-dotnet-deploy-webjobs.md)
-* [Como implantar Trabalhos Web usando o Portal de Gerenciamento do Azure](../app-service-web/web-sites-create-web-jobs.md)
-* [A caixa de diálogo Adicionar Trabalho Web do Azure](../app-service-web/websites-dotnet-deploy-webjobs.md#configure)
-* [Criar um Trabalho Web agendado no Portal de Gerenciamento do Azure](../app-service-web/web-sites-create-web-jobs.md#CreateScheduled)
+* [Como implantar Trabalhos Web do Azure usando o Visual Studio.](../articles/app-service-web/websites-dotnet-deploy-webjobs.md)
+* [Como implantar Trabalhos Web usando o Portal de Gerenciamento do Azure](../articles/app-service-web/web-sites-create-web-jobs.md)
+* [A caixa de diálogo Adicionar Trabalho Web do Azure](../articles/app-service-web/websites-dotnet-deploy-webjobs.md#configure)
+* [Criar um Trabalho Web agendado no Portal de Gerenciamento do Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduled)
 * [Agendando Azure WebJobs com expressões cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
-* [Exibir o painel Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
-* [Como gravar logs usando o SDK de Trabalhos Web e exibi-los no painel](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
-* [Depuração remota de Trabalhos Web](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
+* [Exibir o painel Trabalhos Web](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
+* [Como gravar logs usando o SDK de Trabalhos Web e exibi-los no painel](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
+* [Depuração remota de Trabalhos Web](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 
 ## Vídeos
 
@@ -32,4 +31,4 @@
 * [Série de vídeos de Trabalhos Web do Azure no Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 * [Série de vídeos de Trabalhos Web do Azure no Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0413_2016-->

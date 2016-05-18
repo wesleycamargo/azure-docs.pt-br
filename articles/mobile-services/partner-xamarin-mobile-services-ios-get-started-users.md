@@ -36,7 +36,7 @@ Este tutorial apresenta e explica as etapas básicas para habilitar a autentica�
 
 Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve primeiro concluir o tutorial [Introdução aos Serviços Móveis].
 
-Para concluir este tutorial, é necessário ter o [Xamarin.iOS], XCode 6.0 e iOS 7.0 ou versões posteriores.
+Para concluir este tutorial, é necessário ter o [Xamarin Studio], XCode 6.0 e iOS 7.0 ou versões posteriores.
 
 ##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
 
@@ -153,6 +153,6 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Get started with push notifications]: /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
 [Autorizar usuários com scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [o projeto de exemplo concluído]: http://go.microsoft.com/fwlink/p/?LinkId=331328
-[Xamarin.iOS]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

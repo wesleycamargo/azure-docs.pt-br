@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/17/2015"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Gerenciando recursos do Azure com o Cloud Explorer
@@ -95,4 +95,4 @@ Para localizar recursos com um nome específico em assinaturas de sua conta do A
 
 Conforme você insere caracteres na caixa de Pesquisa, apenas os recursos que correspondem a esses caracteres são exibidos na árvore de recursos.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0420_2016-->

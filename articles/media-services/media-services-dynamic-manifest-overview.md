@@ -3,8 +3,8 @@
 	description="Este tópico descreve como criar filtros para que seu cliente possa usá-los na transmissão de seções específicas de um fluxo. Os Serviços de Mídia criam manifestos dinâmicos para arquivar esse streaming seletivo." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="cenkdin,Juliako" 
-	manager="dwrede" 
+	authors="cenkdin" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
-	ms.author="juliako"/>
+ 	ms.date="05/03/2016" 
+	ms.author="cenkdin;juliako"/>
 
 #Filtros e manifestos dinâmicos
 
@@ -87,7 +87,7 @@ URL de Smooth Streaming com filtro
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
-Para obter mais informações sobre como fornecer seu conteúdo e criar URLs de streaming, consulte [Visão geral do fornecimento de conteúdo](media-services-deliver-content-overview/).
+Para obter mais informações sobre como fornecer seu conteúdo e criar URLs de streaming, consulte [Visão geral do fornecimento de conteúdo](media-services-deliver-content-overview.md).
 
 
 >[AZURE.NOTE]Observe que os Manifestos dinâmicos não alteram o ativo e nem o manifesto padrão para esse ativo. O cliente pode optar por solicitar um fluxo com ou sem filtros.
@@ -236,4 +236,4 @@ Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-medi
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

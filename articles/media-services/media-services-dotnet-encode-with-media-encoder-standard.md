@@ -3,8 +3,8 @@
 	description="Este tópico mostra como usar o .NET para codificar um ativo com o Media Encoder Standard." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
-	ms.author="juliako"/>
+ 	ms.date="04/18/2016"
+	ms.author="juliako;anilmur"/>
 
 
 #Como codificar um ativo usando o Media Encoder Standard
@@ -147,4 +147,4 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 [Como gerar miniatura usando o codificador de mídia padrão com o .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Visão geral de codificação dos Serviços de Mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0420_2016-->

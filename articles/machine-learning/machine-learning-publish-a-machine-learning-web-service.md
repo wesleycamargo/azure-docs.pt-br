@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/02/2016"
 	ms.author="garye"/>
 
 # Implantar um serviço Web de Aprendizado de Máquina do Azure
@@ -76,7 +76,7 @@ Para testar o serviço Web, clique no link **Teste** no painel de serviço Web. 
 
 ![Teste do serviço Web](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-Na guia **CONFIGURAÇÃO**, você pode alterar o nome de exibição do serviço e fornecer uma descrição. O nome e a descrição são exibidos no Portal Clássico do Azure, em que você gerencia seus serviços Web. Você pode fornecer uma descrição dos dados de entrada, dados de saída e parâmetros de serviço Web inserindo uma cadeia de caracteres para cada coluna em **INPUT SCHEMA**, **OUTPUT SCHEMA** e **WEB SERVICE PARAMETER**. Essas descrições são usadas na documentação do código de exemplo fornecida para o serviço Web. Você também pode habilitar o log para diagnosticar quaisquer falhas que esteja vendo quando o serviço Web for acessado.
+Na guia **CONFIGURAÇÃO**, você pode alterar o nome de exibição do serviço e fornecer uma descrição. O nome e a descrição são exibidos no [Portal Clássico do Azure](http://manage.windowsazure.com/), no qual você gerencia seus serviços Web. Você pode fornecer uma descrição dos dados de entrada, dados de saída e parâmetros de serviço Web inserindo uma cadeia de caracteres para cada coluna em **INPUT SCHEMA**, **OUTPUT SCHEMA** e **WEB SERVICE PARAMETER**. Essas descrições são usadas na documentação do código de exemplo fornecida para o serviço Web. Você também pode habilitar o log para diagnosticar quaisquer falhas que esteja vendo quando o serviço Web for acessado.
 
 Para obter mais informações, consulte [Habilitar o log de serviços Web de Aprendizado de Máquina](machine-learning-web-services-logging.md).
 
@@ -94,9 +94,9 @@ Para obter mais informações sobre como acessar um serviço Web do Aprendizado 
 
 ## Gerenciar o serviço Web no Portal Clássico do Azure
 
-No Portal Clássico do Azure, você pode gerenciar seus serviços Web clicando no serviço **Aprendizado de Máquina**, abrindo o espaço de trabalho do Aprendizado de Máquina e abrindo o serviço Web na guia **SERVIÇOS WEB**. Nesta página, você pode monitorar o serviço Web, atualizá-lo e excluí-lo. Você também pode adicionar um segundo ponto de extremidade ao serviço Web, além do ponto de extremidade padrão que é criado durante sua implantação.
+No [Portal Clássico do Azure](http://manage.windowsazure.com/), você pode gerenciar seus serviços Web clicando no serviço **Aprendizado de Máquina**, abrindo o espaço de trabalho do Aprendizado de Máquina e, então, o serviço Web na guia **SERVIÇOS WEB**. Nesta página, você pode monitorar o serviço Web, atualizá-lo e excluí-lo. Você também pode adicionar um segundo ponto de extremidade ao serviço Web, além do ponto de extremidade padrão que é criado durante sua implantação.
 
-Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md). 
+Para obter mais informações, consulte [Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
@@ -112,4 +112,4 @@ Para atualizar o serviço Web, abra o teste preditivo original que você usou pa
 
 Uma opção para atualizar seu serviço Web é treinar novamente o modelo de forma programática. Para obter mais informações, consulte [Treinar novamente os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0504_2016-->

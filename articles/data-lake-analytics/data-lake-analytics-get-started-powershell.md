@@ -3,7 +3,7 @@
    description="Saiba como usar o Azure PowerShell para criar uma conta do Repositório Data Lake, criar um trabalho da Análise Data Lake usando o U-SQL e enviar o trabalho." 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/01/2015"
-   ms.author="jgao"/>
+   ms.date="04/26/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: introdução à Análise Azure Data Lake usando o Azure PowerShell
 
@@ -24,22 +24,14 @@ Saiba como usar o Azure PowerShell para criar contas da Análise Azure Data Lake
 
 Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores separados por tabulação) e o converte em um arquivo CSV (valores separados por vírgulas). Para acompanhar o mesmo tutorial usando outras ferramentas compatíveis, clique nas guias na parte superior desta seção.
 
-**O processo básico da Análise Data Lake:**
+[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-![Diagrama de fluxo do processo da Análise Azure Data Lake](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
-
-1. Crie uma conta da Análise Data Lake.
-2. Prepare os dados de origem. Os trabalhos da Análise do Data Lake podem ler dados de contas do Repositório Azure Data Lake ou de contas de armazenamento de Blob do Azure.   
-3. Desenvolva um script U-SQL.
-4. Envie um trabalho (script U-SQL) para a conta da Análise Data Lake. O trabalho faz a leitura dos dados de origem, processa os dados conforme as instruções no script U-SQL e salva a saída em uma conta do Repositório Data Lake ou em uma conta de armazenamento de Blob.
-
-
-**Pré-requisitos**
+##Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte a seção de pré-requisitos em [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](powershell-azure-resource-manager.md#prerequisites).
+- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 	
 ##Criar conta da Análise Data Lake
 
@@ -194,7 +186,7 @@ Os trabalhos da Análise do Data Lake são escritos na linguagem U-SQL. Para sab
 		
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
-	No script, o arquivo de script U-SQL é armazenado em c:\\tutorials\\data-lake-analytics\\copyFile.usql. Atualize o caminho do arquivo de acordo.
+	No script, o arquivo de script U-SQL é armazenado em c:\tutorials\data-lake-analytics\copyFile.usql. Atualize o caminho do arquivo de acordo.
  
 Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets para listar o arquivo e baixá-lo:
 	
@@ -217,4 +209,4 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 - Para obter as tarefas de gerenciamento, veja [Gerenciar a Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-manage-use-portal.md).
 - Para obter uma visão geral da Análise do Data Lake, veja [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0504_2016-->

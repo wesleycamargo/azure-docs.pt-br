@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -36,8 +36,8 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | Service Fabric (visualização) | Sim | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Máquinas Virtuais | Sim | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
 | Máquinas virtuais (clássico) | Limitado | - | - |
-| Aplicativo Remoto | Não | - | - |
-| Serviços de Nuvem (clássico) | Limitado (veja abaixo) | - | - | - |
+ Aplicativo Remoto | Não | - | - |
+ | Serviços de Nuvem (clássico) | Limitado (veja abaixo) | - | - | - |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -163,7 +163,7 @@ Para obter todos os provedores de recursos disponíveis, incluindo seus tipos, l
 
 O exemplo a seguir mostra como obter todos os provedores de recursos disponíveis.
 
-    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    Get-AzureRmResourceProvider -ListAvailable
     
 A saída será semelhante a:
 
@@ -175,7 +175,7 @@ A saída será semelhante a:
 
 O exemplo a seguir mostra como obter os tipos de recursos para um provedor de recursos específico.
 
-    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
     
 A saída será semelhante a:
 
@@ -187,7 +187,7 @@ A saída será semelhante a:
     
 Para registrar um provedor de recursos, forneça o namespace:
 
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
 
 ### CLI do Azure
 
@@ -228,7 +228,7 @@ Para descobrir quais regiões estão disponíveis para um tipo de recurso espec�
 
 O exemplo a seguir mostra como obter as regiões com suporte para sites da web.
 
-    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
 A saída será semelhante a:
 
@@ -304,4 +304,4 @@ Você pode abrir o arquivo e localizar o elemento **apiVersions**
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

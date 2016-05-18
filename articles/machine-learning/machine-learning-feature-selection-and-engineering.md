@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Engenharia e seleção de recursos no Aprendizado de Máquina do Azure | Microsoft Azure" 
+	pageTitle="Engenharia e seleção de recursos no Aprendizado de Máquina do Azure | Microsoft Azure"
 	description="Explica a finalidade da seleção de recursos e da engenharia de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina."
 	services="machine-learning"
 	documentationCenter=""
@@ -51,7 +51,7 @@ Que tipos de recursos devem ser criados para aperfeiçoar o conjunto de dados ao
 
 Ao começar a usar o Aprendizado de Máquina do Azure, é mais fácil entender esse processo concretamente usando exemplos fornecidos no Studio. Dois exemplos são apresentados aqui:
 
-* Um exemplo de regressão, [Previsão do número de locações de bicicletas](../machine-learning-sample-prediction-of-number-of-bike-rentals.md), em um experimento supervisionado em que os valores de destino são conhecidos
+* Um exemplo de regressão, [Previsão do número de locações de bicicletas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4), em um experimento supervisionado em que os valores de destino são conhecidos
 * Um exemplo de classificação de mineração de texto usando [Hash de recursos][feature-hashing]
 
 ### Exemplo 1: adicionando recursos temporais para o modelo de regressão ###
@@ -133,6 +133,5 @@ Observe que nem sempre é necessário realizar a engenharia ou a seleção de re
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
- 
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0413_2016-->

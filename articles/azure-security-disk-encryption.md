@@ -13,13 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/22/2016"
+   ms.date="04/15/2016"
    ms.author="devtiw"/>
 
 
-#Criptografia de Disco do Azure para Visualização de VMs de IaaS do Windows e Linux
-
-> [AZURE.NOTE] As informações contidas neste documento aplicam-se à versão de visualização da Criptografia de Disco do Azure.
+#Criptografia de Disco do Azure para VMs IaaS Windows e Linux
 
 O Microsoft Azure tem o compromisso sério de garantir a privacidade e a soberania dos seus dados e permite que você controle os dados hospedados no Azure usando uma variedade de tecnologias para criptografar, controlar e gerenciar chaves de criptografia, bem como auditar e controlar o acesso aos dados. Isso permite que os clientes do Azure tenham a flexibilidade de escolher a solução que melhor atenda às necessidades de negócios. Neste artigo, apresentaremos a você uma nova solução de tecnologia, "Criptografia de Disco do Azure para VMs IaaS Windows e Linux" para ajudá-lo a proteger seus dados e atender às obrigações de conformidade e segurança da organização. O documento fornece orientações detalhadas sobre como usar os recursos de criptografia de disco do Azure, incluindo os cenários com suporte e as experiências de usuário.
 
@@ -29,40 +27,46 @@ O Microsoft Azure tem o compromisso sério de garantir a privacidade e a soberan
 
 A Criptografia de Disco do Azure é um novo recurso que lhe permite criptografar os discos de suas máquinas virtuais IaaS Windows e Linux. A Criptografia de Disco do Azure aproveita o recurso padrão da indústria [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) do Windows e o recurso [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o SO e os discos de dados. A solução é integrada ao [Cofre da Chave do Azure](https://azure.microsoft.com/documentation/services/key-vault/) para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre da chave, garantindo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
 
+O Azure Disk Encryption para VMs IaaS do Windows agora está em [Disponibilidade geral](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/15/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) na região da Austrália. A disponibilidade geral para VMs IaaS do Windows para outras regiões ocorrerá em breve.
+
 ### Cenários de criptografia
 
-A solução de Criptografia de Disco do Azure dá suporte aos seguintes três cenários de criptografia do cliente:
+A solução Azure Disk Encryption dá suporte aos seguintes cenários do cliente:
 
-- Habilite a criptografia na nova VM IaaS criada usando VHD criptografado pelo cliente e chaves de criptografia
+- Habilitar a criptografia na nova VM IaaS criada usando chaves de criptografia e VHD previamente criptografado
+- Habilitar a criptografia na nova VM IaaS criada das imagens da Galeria do Azure 
+- Ativar a criptografia em VMs IaaS existentes já em execução no Azure 
+- Desabilitar a criptografia em VMs IaaS do Windows  
 
-- Habilite a criptografia na nova VM IaaS criada da galeria do Azure
-
-- Ativar a criptografia em VMs IaaS existentes já em execução no Azure
-
-A solução dá suporte aos seguintes itens para VMs IaaS para lançamento de visualização pública habilitada no Microsoft Azure:
+A solução dá suporte aos seguintes itens para VMs IaaS quando habilitada no Microsoft Azure:
 
 - Integração com o Cofre da Chave do Azure
 
 - [VMs de IaaS das séries Standard A, D e G](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
-- Habilitar a criptografia em VMs de IaaS criadas usando o modelo do [Gerenciador de Recursos do Azure](resource-group-overview.md)
+- Habilitar a criptografia em VMs IaaS Windows e Linux
 
-- Todas as [regiões](https://azure.microsoft.com/regions/) públicas do Azure
+- Desabilitar a criptografia em VMs IaaS do Windows
 
+- Habilitar a criptografia em VMs IaaS executando o sistema operacional Windows Client
 
-A solução não dá suporte aos seguintes cenários, recursos e tecnologia na versão de visualização pública:
+- Habilitar a criptografia em volumes com caminhos de montagem
+
+- Todas as regiões públicas do Azure tem suporte na preview pública e a região da Austrália do Azure tem suporte em GA para VMs de IaaS do Windows
+
+A solução não dá suporte aos seguintes cenários, recursos e tecnologia na versão:
 
 - VMs IaaS Basic e Standard DS (Armazenamento Premium)
 
 - VMs IaaS criadas usando o método de criação de VM clássico
 
-- Capacidade de desabilitar a criptografia em VM IaaS, habilitada por meio da criptografia de disco do Azure
+- Habilitar a criptografia de disco do sistema operacional em VMs IaaS Linux já em execução no Azure
+
+- Desabilitar a criptografia em VM IaaS Linux, habilitada por meio do Azure Disk Encryption
 
 - Integração com o Serviço de Gerenciamento de Chaves no local
 
-- Windows Server Technical Preview 3
-
-- Red Hat Enterprise Linux
+- Windows Server 2016 Technical Preview 3 e acima
 
 - Arquivos do Azure (compartilhamento de arquivos do Azure), NFS (Network File System), Volumes dinâmicos, Sistemas RAID com base em software
 
@@ -73,7 +77,11 @@ Quando você habilita e a implanta a criptografia de disco do Azure para VMs Iaa
 
 - Criptografia do volume do sistema operacional para proteger o volume de inicialização em repouso no armazenamento cliente
 
+	- A criptografia do volume do sistema operacional VM IaaS do Linux já em execução no Azure não tem suporte no momento. A criptografia do volume do sistema operacional para VM IaaS do Linux tem suporte somente para o cenário VHD previamente criptografado
+	
 - Criptografia de volume de dados/s para proteger os volumes de dados em repouso no armazenamento cliente
+
+- Desabilitar a criptografia em VMs IaaS do Windows
 
 - Proteção das chaves de criptografia e segredos na assinatura do cofre da chave do Azure cliente
 
@@ -83,7 +91,7 @@ Quando você habilita e a implanta a criptografia de disco do Azure para VMs Iaa
 
 A criptografia de disco do Azure para VMs IaaS para solução Windows e Linux inclui a extensão de criptografia de disco para Windows, a extensão de criptografia de disco para Linux, os cmdlets de criptografia de disco do PowerShell, os cmdlets CLI de criptografia de disco e os modelos de Gerenciador de Recursos do Azure de criptografia de disco. Há suporte para a solução de criptografia de disco do Azure em VMs IaaS executando o Windows ou o sistema operacional Linux. Para obter mais detalhes sobre os sistemas operacionais com suporte, consulte a seção de pré-requisitos abaixo.
 
-Não há nenhuma taxa para criptografar discos de VM com Criptografia de Disco do Azure durante a visualização pública. Também esperamos que isso continue assim depois que a criptografia de disco estiver disponível para o público em geral. No entanto, o preço está sujeito a alterações baseado no mercado e no panorama competitivo.
+****Nota:** não há nenhuma taxa para criptografar discos de VM com o Azure Disk Encryption.
 
 ### Proposta de valor
 
@@ -113,31 +121,47 @@ As etapas de alto nível necessárias para habilitar a criptografia de disco de 
 
 ![Microsoft Antimalware no Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.JPG)
 
+### Fluxo de trabalho de descriptografia
+
+As etapas de alto nível necessárias para desabilitar a criptografia de disco de VMs IaaS do Windows são:
+
+1. O cliente opta por desabilitar a criptografia (descriptografia) em uma VM IaaS do Windows em execução no Azure por meio do modelo ARM do Azure Disk Encryption ou cmdlets PS e especifica a configuração de descriptografia.
+
+2. A etapa de desabilitar a criptografia tem suporte apenas em VM IaaS do Windows e não tem suporte em VM IaaS do Linux.
+
+3. A etapa de desabilitar a criptografia desabilita a criptografia do sistema operacional ou volume de dados na VM IaaS do Windows em execução.
+
+4. O gerenciamento de serviços do Azure atualiza o modelo de serviço da VM e a VM IaaS do Windows é marcada como descriptografada. Os conteúdos da VM não estão mais criptografados no rest.
+
+5. A desabilitação da criptografia não exclui o cofre de chaves do cliente e o material de chave de criptografia, que são as Chaves de Criptografia BitLocker para Windows e a Senha para Linux.
+
 ## Pré-requisitos
 
 Abaixo estão os pré-requisitos para habilitar a Criptografia de Disco do Azure nas VMs IaaS do Azure para os cenários com suporte destacados na seção Visão geral
 
 - O usuário deve ter uma assinatura ativa válida do Azure para criar recursos no Azure nas regiões com suporte
 
-- A Criptografia de Disco do Azure tem suporte nas seguintes SKUs do Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. A solução não tem suporte no sistema operacional Windows Server 2008. O Windows Server Technical Preview não tem suporte na versão de visualização pública.
+- A Criptografia de Disco do Azure tem suporte nas seguintes SKUs do Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. A solução não tem suporte no sistema operacional Windows Server 2008. Não há suporte para o Windows Server 2016 Technical Preview 3 nesta versão.
+
+O Azure Disk Encryption tem suporte nos seguintes SKUs de cliente Windows: cliente Windows 8 e cliente Windows 10.
 
 **Observação**: no caso do Windows Server 2008 R2, o .NET Framework 4.5 deve ser instalado antes de habilitar a criptografia no Azure. Você pode instalá-lo com o Windows Update, instalando a atualização opcional “Microsoft .NET Framework 4.5.2 para sistemas Windows Server 2008 R2 baseados em x64 ([KB2901983](https://support.microsoft.com/kb/2901983))”
 
-- A Criptografia de Disco do Azure tem suporte nas seguintes SKUs de servidor Linux: Ubuntu, CentOS, SUSE e SUSE Linux Enterprise Server (SLES). Não há suporte para o Red Hat Enterprise Linux na versão de visualização pública.
+- O Azure Disk Encryption tem suporte nos seguintes SKUs de servidor Linux: Ubuntu, CentOS, SUSE e SLES (SUSE Linux Enterprise Server) e Red Hat Enterprise Linux.
 
 - Todos os recursos (por exemplo, Cofre da Chave, Conta de armazenamento, VM, Rede Virtual, etc.) devem pertencer à mesma região do Azure e assinatura.
 
 **Observação** - A criptografia de disco do Azure exige que o Cofre da Chave e as VMs residam na mesma região do Azure. Configurá-los na região separada causará uma falha na habilitação do recurso de criptografia de disco do Azure.
 
-- Para instalar e configurar o Cofre da Chave do Azure para uso da criptografia de disco do Azure, veja a seção **Como definir e configurar o Cofre da Chave do Azure para uso da criptografia de disco do Azure** na seção de *Pré-requisitos* deste artigo.
+- Para instalar e configurar o Cofre de Chaves do Azure para uso do Azure Disk Encryption, veja a seção **Configurando Cofre da Chave do Azure para uso de criptografia de disco do Azure** na seção de *Pré-requisitos* deste artigo.
 
-- Para instalar e configurar o aplicativo do Azure AD no Active Directory do Azure para uso da criptografia de disco do Azure, veja a seção **Como instalar o aplicativo do Azure AD no Active Directory do Azure** na seção de *Pré-requisitos* deste artigo.
+- Para instalar e configurar o aplicativo do Azure AD no Azure Active Directory para uso do Azure Disk Encryption, veja a seção **Configurar o aplicativo Azure AD no Azure Active Directory** na seção de *Pré-requisitos* deste artigo.
 
-- Para instalar e configurar a política de Acesso do Cofre da Chave para o aplicativo do Azure AD, veja a seção **Como configurar a política de Acesso do Cofre da Chave para o Aplicativo do Azure AD** na seção de *Pré-requisitos* deste artigo.
+- Para instalar e configurar a política de Acesso do Cofre de Chaves para o aplicativo do Azure AD, veja a seção **Configurando a política de acesso ao Cofre da Chave para o aplicativo Azure AD** na seção de *Pré-requisitos* deste artigo.
 
 - Para preparar um VHD do Windows pré-criptografado, veja a seção **Preparando um VHD do Windows pré-criptografado** no Apêndice deste artigo.
 
-- Para preparar um VHD do Linux pré-criptografado, veja a seção **Como preparar um VHD do Linux pré-criptografado** no Apêndice deste artigo.
+- Para preparar um VHD do Linux pré-criptografado, veja a seção **Preparando um VHD do Linux previamente criptografado** no Apêndice deste artigo.
 
 - A plataforma Azure precisa acessar as chaves de criptografia ou segredos no Cofre da Chave do Azure do cliente para disponibilizá-los para a VM a fim de que ela possa inicializar e descriptografar o volume do sistema operacional da máquina virtual. Para conceder permissões à plataforma Azure para acessar o Cofre da Chave, a propriedade **enabledForDiskEncryption** deve ser definida no Cofre da Chave para esse requisito. Veja a seção **Configurando Cofre da Chave do Azure para uso de criptografia de disco do Azure** no Apêndice deste artigo para obter mais detalhes.
 
@@ -171,13 +195,9 @@ Abaixo estão os pré-requisitos para habilitar a Criptografia de Disco do Azure
 
 **Observação:** se a sua política de segurança limitar o acesso das VMs do Azure à Internet, você poderá resolver o URI acima ao qual você precisa de conectividade e configurar uma regra específica para permitir a conectividade de saída para o IPs.
 
-- Para executar um dos cmdlets PowerShell de criptografia de disco do Azure, instale o [Azure PowerShell versão 1.0.2](https://github.com/Azure/azure-powershell/releases/tag/v1.0.2-December2015):
+- Use a versão mais recente do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a versão mais recente do [Azure PowerShell versão 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) e acima
 
-	- Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, veja [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md)
-
-	- Este documento pressupõe que você conheça os conceitos básicos, como módulos, cmdlets e sessões. Para obter mais informações, veja Introdução ao [Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
-
-**Observação:**não há suporte para a Azure Disk Encryption no [SDK do Azure PowerShell versão 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016).
+**Observação:**não há suporte para o Azure Disk Encryption no [SDK do Azure PowerShell versão 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). Se você estiver recebendo um erro relacionado ao uso do PowerShell 1.1.0, consulte o artigo [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Erro do Azure Disk Encryption relacionado ao Azure PowerShell 1.1.0).
 
 - Para executar qualquer um dos comandos do Azure CLI e associá-lo a sua assinatura do Azure, você primeiro deve instalar a versão do Azure CLI:
 
@@ -186,7 +206,8 @@ Abaixo estão os pré-requisitos para habilitar a Criptografia de Disco do Azure
 	- Com a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure, clique [aqui](azure-cli-arm-commands.md)
 
 - A solução de criptografia de disco do Azure usa protetor de chave externa BitLocker para VMs IaaS do Windows. Se suas VMs estão ingressadas no mesmo domínio, não use políticas de grupo que imponham protetores TPM. Veja [este artigo](https://technet.microsoft.com/library/ee706521) para obter detalhes sobre a política de grupo “Permitir BitLocker sem um TPM compatível”.
-- O script do PowerShell de pré-requisito de criptografia de disco do Azure para criar o aplicativo do Azure AD, criar o novo cofre da chave ou instalar o cofre da chave existente e habilitar a criptografia está localizado [aqui](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+
+- O script do PowerShell de pré-requisito do Azure Disk Encryption para criar o aplicativo do Azure AD, criar o novo cofre de chaves ou instalar o cofre de chaves existente e habilitar a criptografia está localizado [aqui](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 
 ### Configurando Cofre da Chave do Azure para uso de criptografia de disco do Azure
 
@@ -527,11 +548,11 @@ A criptografia de disco pode ser habilitada no VHD criptografado pelo cliente us
 
 ### Obter status da criptografia de uma VM IaaS criptografada
 
-É possível obter o status de criptografia usando o portal de Gerenciamento do Azure, os [cmdlets do PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) ou os comandos da CLI. As seções abaixo explicarão como usar o portal do Azure e os comandos da CLI e para obter o status de criptografia.
+É possível obter o status de criptografia usando o Portal de Gerenciamento do Azure, os [cmdlets do PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) ou os comandos da CLI. As seções abaixo explicarão como usar o portal do Azure e os comandos da CLI e para obter o status de criptografia.
 
 #### Obter status da criptografia de uma VM IaaS criptografada usando o Portal de Gerenciamento do Azure
 
-Você pode obter o status da criptografia da VM IaaS no portal de gerenciamento do Azure. Faça logon no portal do Azure em https://portal.azure.com/ e clique no link Máquinas Virtuais no menu à esquerda para ver uma exibição resumida das máquinas virtuais em sua assinatura. Você pode filtrar a exibição de máquinas virtuais selecionando o nome da assinatura no menu suspenso de assinatura. Clique em colunas na parte superior do menu da página Máquinas virtuais. Selecione a coluna de Criptografia de Disco da folha Escolher coluna e clique em Atualizar. Você deve ver a coluna de criptografia de disco mostrando o estado de criptografia "Habilitado" ou "Desabilitado" para cada VM conforme mostrado na figura abaixo.
+Você pode obter o status da criptografia da VM IaaS no portal de gerenciamento do Azure. Faça logon no portal do Azure em https://portal.azure.com/ e clique no link de máquinas virtuais no menu à esquerda para ver uma exibição resumida das máquinas virtuais em sua assinatura. Você pode filtrar a exibição de máquinas virtuais selecionando o nome da assinatura no menu suspenso de assinatura. Clique em colunas na parte superior do menu da página Máquinas virtuais. Selecione a coluna de Criptografia de Disco da folha Escolher coluna e clique em Atualizar. Você deve ver a coluna de criptografia de disco mostrando o estado de criptografia "Habilitado" ou "Desabilitado" para cada VM conforme mostrado na figura abaixo.
 
 ![Microsoft Antimalware no Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.JPG)
 
@@ -560,6 +581,26 @@ Você pode obter o status da criptografia da VM de IaaS usando o comando da CLI 
 
     azure vm show-disk-encryption-status --resource-group <yourResourceGroupName> --name <yourVMName> --json  
 
+#### Desabilitar a criptografia em VMs IaaS do Windows em execução
+
+Você pode desabilitar a criptografia em uma VM IaaS do Windows em execução por meio do modelo ARM do Azure Disk Encryption ou cmdlets PS e especifica a configuração de descriptografia. A etapa de desabilitar a criptografia tem suporte apenas em VM IaaS do Windows e não tem suporte em VM IaaS do Linux. A etapa de desabilitar a criptografia desabilita a criptografia do sistema operacional ou volume de dados na VM IaaS do Windows em execução. Você não pode desabilitar o volume do sistema operacional e deixar o volume de dados criptografado. Quando a etapa de desabilitar a criptografia é executada, o gerenciamento de serviços do Azure atualiza o modelo de serviço da VM e a VM IaaS do Windows é marcada como descriptografada. Os conteúdos da VM não estão mais criptografados no rest. A desabilitação da criptografia não exclui o cofre de chaves do cliente e o material de chave de criptografia, que são as Chaves de Criptografia BitLocker para Windows e a Senha para Linux.
+
+##### Desabilitar a criptografia em IaaS do Windows existente/em execução no Azure usando o modelo ARM
+
+A criptografia de disco pode ser desabilitada na VM IaaS do Windows usando o modelo ARM publicado [aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Clique no botão "Implantar no Azure" no modelo de início rápido do Azure, insira a configuração de descriptografia na folha de parâmetros e clique em OK. Selecione a assinatura, o grupo de recursos, o local do grupo de recursos, os termos legais e o contrato e clique no botão Criar para habilitar a criptografia na VM IaaS nova.
+
+Detalhes de parâmetros do modelo ARM para desabilitar a criptografia na VM IaaS do Windows em execução:
+
+| ​vmName | ​Nome da VM em que a operação de criptografia deve ser realizada |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ​volumeType | ​Tipo de volume em que a operação de descriptografia é executada. Os valores válidos são "OS", "Data", "All". **Observação:** não é possível desabilitar a criptografia no volume de inicialização/sistema operacional da VM IaaS do Windows em execução sem desabilitar a criptografia no volume “Data”. |
+| sequenceVersion | Versão de sequência da operação de BitLocker. Aumente esse número de versão cada vez que uma operação de descriptografia de disco for executada na mesma VM |
+
+##### Desabilitar a criptografia em IaaS do Windows existente/em execução no Azure usando o cmdlet do PS
+
+Para desabilitar usando o cmdlet do PS, o cmdlet [Disable-AzureRmVMDiskEncryption](https://msdn.microsoft.com/library/azure/mt715776.aspx) desabilita a criptografia em uma máquina virtual IaaS (infraestrutura como serviço). Esse cmdlet tem suporte apenas em máquinas virtuais do Windows e não as máquinas virtuais do Linux. Esse cmdlet instala uma extensão na máquina virtual para desabilitar a criptografia. Se o parâmetro Name não for especificado, será criada uma extensão com o nome padrão "AzureDiskEncryption for Windows VMs".
+
+**Observação**: este cmdlet reinicia a máquina virtual.
 
 ## Apêndice
 
@@ -804,4 +845,4 @@ Você pode baixar este guia na [Galeria do TechNet](https://gallery.technet.micr
 
 [Explorar a Criptografia de Disco do Azure com o Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

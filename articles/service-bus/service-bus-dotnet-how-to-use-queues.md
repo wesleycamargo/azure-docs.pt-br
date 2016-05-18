@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/26/2016"
+    ms.date="05/09/2016"
     ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
@@ -28,9 +28,7 @@ Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos s
 
 ## Adicionar o pacote NuGet do Barramento de Serviço
 
-O [pacote **NuGet** de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express. O pacote NuGet de Barramento de serviço é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço.
-
-Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
+O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de Serviço e configurar seu aplicativo com todas as dependências do Barramento de Serviço. Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 
 1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
 2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
@@ -48,9 +46,9 @@ O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de ext
 
 Nos dois casos, você pode recuperar sua cadeia de conexão usando o método [CloudConfigurationManager.GetSetting][GetSetting], como mostrado neste artigo.
 
-### Configure sua cadeia de conexão ao usar Serviços de Nuvem
+### Configurar a cadeia de conexão
 
-O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (.csdef), como mostrado no próximo exemplo.
+O mecanismo de configuração do serviço permite que você altere dinamicamente as definições de configuração a partir do [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (.csdef), como mostrado no próximo exemplo.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -179,7 +177,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-As filas do Barramento de Serviço são compatíveis com um [tamanho máximo de mensagem de 256 Kb](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo, podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, consulte [Entidades de mensagens particionadas](service-bus-partitioning.md).
+As filas do Barramento de Serviço são compatíveis com um [tamanho máximo de mensagem de 256 Kb](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo, podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, confira [Entidades de mensagens particionadas](service-bus-partitioning.md).
 
 ## Como receber mensagens de uma fila
 
@@ -255,4 +253,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

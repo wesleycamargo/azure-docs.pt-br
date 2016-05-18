@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/18/2016" 
+	ms.date="05/03/2016" 
 	ms.author="jeffstok"/>
 
 #Notas de versão do Stream Analytics
+
+## Notas de versão de 15/04/2016 do Stream Analytics ##
+
+Esta versão contém a seguinte atualização.
+
+Title | Descrição
+---|---
+Disponibilidade geral para saídas do Power BI | [Saídas do Power BI](stream-analytics-power-bi-dashboard.md) agora estão em disponibilidade geral. A expiração de autorização de 90 dias para o Power BI foi removida. Para obter mais informações sobre os cenários em que a autorização precisa ser renovada, consulte a seção [Renovar autorização](stream-analytics-power-bi-dashboard.md#Renew-authorization) do painel Criar um Power BI.
 
 ## Notas de versão de 03/03/2016 do Stream Analytics ##
 
@@ -24,7 +32,7 @@ Esta versão contém a seguinte atualização.
 
 Title | Descrição
 ---|---
-Novos itens de linguagem de consulta de Stream Analytics | Agora tem SAQL [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Página do MSDN GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Página do MSDN TRY_CAST") e [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Página do MSDN REGEXMATCH").
+Novos itens de linguagem de consulta de Stream Analytics | O SAQL agora tem [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "Página do MSDN GetType"), [TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "Página do MSDN TRY_CAST") e [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "Página do MSDN REGEXMATCH").
 
 ## Notas de versão de 10/12/2015 do Stream Analytics ##
 
@@ -33,7 +41,7 @@ Esta versão contém a seguinte atualização.
 Title | Descrição
 ---|---
 Atualização de versão da API REST | A versão da API REST foi atualizada para 2015-10-01. Detalhes podem ser encontrados no MSDN em [Referência de API REST do gerenciamento de análise de fluxo](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integração de aprendizado de máquina no Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
-Integração de Aprendizado de Máquina do Azure | Com essa versão, é fornecido suporte para funções definidas pelo usuário do Aprendizado de Máquina do Azure. Consulte o [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para obter mais informações, bem como o [comunicado do blog geral](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
+Integração de Aprendizado de Máquina do Azure | Com essa versão, é fornecido suporte para funções definidas pelo usuário do Aprendizado de Máquina do Azure. Consulte o [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para obter mais informações, bem como o [comunicado geral do blog](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Notas de versão de 12/11/2015 do Stream Analytics ##
 
@@ -62,7 +70,7 @@ Esta versão contém as atualizações a seguir.
 Title | Descrição
 ---|---
 Visualização Pública do Azure IoT Suite | O Stream Analytics está incluído na Visualização Pública do Azure IoT Suite.
-Integração no Portal do Azure | Além da presença contínua no portal de Gerenciamento do Azure, o Stream Analytics agora está integrado no [Portal do Azure](https://azure.microsoft.com/overview/preview-portal/). Lembre-se de que a funcionalidade do Stream Analytics no portal de Visualização é atualmente um subconjunto da funcionalidade oferecida no portal de Gerenciamento do Azure, sem suporte para o teste de consulta no navegador, configuração de saída do Power BI e navegação ou criação de novos recursos de entrada e saída nas assinaturas às quais você tem acesso.
+Integração no Portal do Azure | Além da presença contínua no Portal de Gerenciamento do Azure, o Stream Analytics agora está integrado ao [Portal do Azure](https://azure.microsoft.com/overview/preview-portal/). Lembre-se de que a funcionalidade do Stream Analytics no portal de Visualização é atualmente um subconjunto da funcionalidade oferecida no portal de Gerenciamento do Azure, sem suporte para o teste de consulta no navegador, configuração de saída do Power BI e navegação ou criação de novos recursos de entrada e saída nas assinaturas às quais você tem acesso.
 Suporte para a saída do Banco de Dados de Documentos | Os trabalhos do Stream Analytics agora podem ser importados para o [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/).
 Suporte para a entrada do Hub IoT | Os trabalhos do Stream Analytics agora podem ingerir dados dos Hubs IoT.
 TIMESTAMP BY para eventos heterogêneos | Quando uma transmissão de dados única contém vários tipos de evento com carimbos de data/hora em diferentes campos, agora você pode usar o [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) com expressões para especificar diferentes campos de carimbo de data/hora para cada caso.
@@ -141,4 +149,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

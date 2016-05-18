@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016" 
+	ms.date="04/27/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium
@@ -119,4 +119,4 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0504_2016-->

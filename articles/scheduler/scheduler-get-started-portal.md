@@ -1,6 +1,6 @@
 <properties
  pageTitle="Introdução ao Agendador do Azure no portal do Azure | Microsoft Azure"
- description=""
+ description="Introdução ao Agendador do Azure no Portal do Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="krisragh"
@@ -182,4 +182,4 @@ O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0420_2016-->

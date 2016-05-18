@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="04/29/2016"
 	ms.author="bruceper"/>
 
 # Gerenciar Cofre da Chave usando a CLI #
@@ -31,7 +31,6 @@ Use este tutorial para ajudá-lo a começar a usar o Cofre da Chave do Azure par
 Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 
 ## Pré-requisitos
-
 Para concluir este tutorial, você precisará do seguinte:
 
 - Uma assinatura do Microsoft Azure. Se não tiver uma assinatura, você pode se inscrever para uma [avaliação gratuita](../../../pricing/free-trial).
@@ -79,7 +78,7 @@ Se não tiver uma conta institucional e estiver usando uma conta da Microsoft pa
 4.	No portal, selecione Configurações e Administradores. Selecione Adicionar e adicione o novo usuário como um coadministrador. Isso permite que a conta institucional gerencie a assinatura do Azure.
 5.	Por fim, faça logoff do portal do Azure e refaça logon usando a nova conta institucional. Se este for o primeiro logon usando essa conta, você deverá alterar a senha.
 
-Para obter mais informações sobre como usar contas institucionais no Microsoft Azure, consulte [Inscrever-se no Microsoft Azure como uma organização](sign-up-organization.md).
+Para obter mais informações sobre como usar contas institucionais no Microsoft Azure, consulte [Inscrever-se no Microsoft Azure como uma organização](../active-directory/sign-up-organization.md).
 
 Se você tiver várias assinaturas e quiser especificar uma a ser usada para o Cofre da Chave do Azure, digite o seguinte para ver as assinaturas da sua conta:
 
@@ -106,6 +105,12 @@ Ao usar o Gerenciador de Recursos do Azure, todos os recursos relacionados são 
 
 O primeiro parâmetro é o nome do grupo de recursos e o segundo parâmetro é o local. Para o local, use o comando `azure location list` para identificar como especificar um local alternativo ao deste exemplo. Se precisar de mais informações, digite: `azure help location`
 
+## Registrar o provedor de recursos do Cofre de Chaves
+Verifique se o provedor de recursos do Cofre de Chaves está registrado em sua assinatura:
+
+`azure provider register Microsoft.KeyVault`
+
+Isso só precisa ser feito uma vez por assinatura.
 
 
 ## Criar um cofre de chave
@@ -134,13 +139,13 @@ No entanto, se você tiver uma chave existente em um arquivo PEM salvo como arqu
 
     azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
-Agora você pode fazer referência à chave que criada ou carregada no Cofre da Chave do Azure, usando o URI. Use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obter sempre a versão atual e use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.
+Agora você pode fazer referência à chave que criada ou carregada no Cofre da Chave do Azure, usando o URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obter sempre a versão atual e use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obter esta versão específica.
 
 Para adicionar um segredo ao cofre, que é uma senha chamada SQLPassword e que tem o valor Pa$$w0rd no Cofre da Chave do Azure, digite o seguinte:
 
     azure keyvault secret set --vault-name 'ContosoKeyVault' --secret-name 'SQLPassword' --value 'Pa$$w0rd'
 
-Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da Chave do Azure usando seu URI. Use ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão atual e use ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
+Agora, você pode fazer referência a essa senha que foi adicionada ao Cofre da Chave do Azure usando seu URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obter sempre a versão atual e use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obter esta versão específica.
 
 Vamos exibir a chave ou o segredo que você acabou de criar:
 
@@ -186,6 +191,8 @@ Para autorizar o aplicativo a acessar a chave ou o segredo no cofre, use o coman
 Por exemplo, se o nome do cofre for ContosoKeyVault e o aplicativo que você quer autorizar tiver a ID de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, e você quiser autorizar o aplicativo a descriptografar e assinar com chaves em seu cofre. Em seguida, execute o seguinte:
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
+
+>[AZURE.NOTE] Se você estiver executando no prompt de comando do Windows, será necessário substituir aspas por aspas duplas e também inserir escape nas aspas duplas internas. Por exemplo: “["decrypt","sign"]”.
 
 Se você deseja autorizar que o mesmo aplicativo leia segredos em seu cofre, execute o seguinte:
 
@@ -256,4 +263,4 @@ Aqui está um exemplo de como remover um segredo específica:
 
 Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

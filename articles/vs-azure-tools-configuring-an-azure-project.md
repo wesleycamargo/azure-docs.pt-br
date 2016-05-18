@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/05/2016"
+   ms.date="04/18/2016"
    ms.author="tarcher" />
 
 # Configure um projeto de serviço de nuvem do Azure com o Visual Studio
@@ -47,7 +47,7 @@ A ilustração a seguir mostra como selecionar uma configuração a ser usada qu
 
 1. Para selecionar a configuração de serviço que você deseja usar quando executa ou depura seu serviço de nuvem localmente, na lista **Configuração do Serviço**, escolha a configuração do serviço.
 
-  >[AZURE.NOTE]Se você deseja criar uma configuração de serviço para usar, consulte como: gerenciar configurações de serviço e perfis. Se você quiser modificar uma configuração de serviço para uma função, consulte [como configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+  >[AZURE.NOTE] Se você deseja criar uma configuração de serviço para usar, consulte como: gerenciar configurações de serviço e perfis. Se você quiser modificar uma configuração de serviço para uma função, consulte [como configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
 1. Para iniciar o emulador de armazenamento do Azure, quando você executa ou depura seu serviço de nuvem localmente, no **Emulador de Armazenamento do Azure**, escolha **Verdadeiro**.
 
@@ -61,4 +61,4 @@ A ilustração a seguir mostra como selecionar uma configuração a ser usada qu
 
 Para saber mais sobre como configurar projetos de serviço de nuvem do Azure no Visual Studio, consulte [Configurando seu projeto do Azure usando várias configurações de serviço](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -3,7 +3,7 @@
    description="Introdução ao SQL Data Warehouse e execução de algumas consultas."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="05/10/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Conectar-se ao SQL Data Warehouse com o Visual Studio
 
@@ -53,7 +53,7 @@ Para obter a melhor experiência, use o Visual Studio 2015 com a [Atualização 
 
     ![Adicionar o SQL Server][3]
 
-1. Preencha os campos na janela Conectar ao Servidor.
+4. Preencha os campos na janela Conectar ao Servidor.
 
     ![Conectar-se ao servidor][4]
 
@@ -63,10 +63,11 @@ Para obter a melhor experiência, use o Visual Studio 2015 com a [Atualização 
     - **Nome do Banco de Dados** Insira o nome do banco de dados para o banco de dados SQL DW.
     - Clique em **Conectar**.
 
-1. Para explorar, expanda seu servidor do SQL Azure. Você pode exibir os bancos de dados associados ao servidor. Expanda o AdventureWorksDW para ver as tabelas no banco de dados de exemplo.
+5. Para explorar, expanda seu servidor do SQL Azure. Você pode exibir os bancos de dados associados ao servidor. Expanda o AdventureWorksDW para ver as tabelas no banco de dados de exemplo.
 
     ![Explorar o AdventureWorksWeb][5]
 
+> [AZURE.NOTE] Especificar o banco de dados do SQL Data Warehouse no campo **Nome do Banco de Dados** no momento da conexão (etapa 4) é importante para que a árvore de objetos funcione corretamente. Deixar essa opção em branco e conectar-se ao banco de dados padrão **mestre**, pode não funcionar se alguns dos bancos de dados em seu servidor lógico estiverem em pausa. Essa limitação será resolvida eventualmente, mas enquanto isso, conectar-se ao banco de dados do SQL Data Warehouse garantirá o funcionamento adequado da árvore do Gerenciador de objetos, conforme mostrado acima.
 
 ## Etapa 3: Executar uma consulta de exemplo
 
@@ -88,7 +89,7 @@ Agora que uma conexão foi estabelecida para o banco de dados, vamos prosseguir 
 
     ![Executar consulta][7]
 
-1. Examine os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.
+5. Examine os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.
 
     ![Resultados da consulta][8]
 
@@ -110,4 +111,4 @@ Agora que você pode se conectar e consultar, tente [visualizar os dados com o P
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

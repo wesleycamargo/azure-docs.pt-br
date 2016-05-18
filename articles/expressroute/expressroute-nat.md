@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="04/18/2016"
    ms.author="cherylmc"/>
 
 # Requisitos de NAT da Rota Expressa
@@ -33,7 +33,7 @@ Você deve garantir que o tráfego esteja entrando no caminho de emparelhamento 
  
 Não há restrições com relação ao tamanho do prefixo IP de NAT anunciado por meio desse emparelhamento. Você deve monitorar o pool de NAT e não ficar sem sessões NAT.
 
->[AZURE.IMPORTANT]O pool de IPs de NAT anunciado à Microsoft não deve ser anunciado na Internet. Isso interromperá a conectividade com outros serviços da Microsoft.
+>[AZURE.IMPORTANT] O pool de IPs de NAT anunciado à Microsoft não deve ser anunciado na Internet. Isso interromperá a conectividade com outros serviços da Microsoft.
 
 ## Requisitos de NAT para emparelhamento da Microsoft
 
@@ -48,7 +48,7 @@ O caminho de emparelhamento da Microsoft permite que você se conecte a serviço
 
 - Os endereços IP usados para a configuração do emparelhamento público do Azure e de outros circuitos de Rota Expressa não devem ser anunciados à Microsoft por meio da sessão BGP. Não há restrições com relação ao tamanho do prefixo IP NAT anunciado por meio desse emparelhamento.
 
-	>[AZURE.IMPORTANT]O pool de IPs de NAT anunciado à Microsoft não deve ser anunciado na Internet. Isso interromperá a conectividade com outros serviços da Microsoft.
+	>[AZURE.IMPORTANT] O pool de IPs de NAT anunciado à Microsoft não deve ser anunciado na Internet. Isso interromperá a conectividade com outros serviços da Microsoft.
 
 #### Tráfego com origem na Microsoft e destinado à sua rede
 
@@ -66,4 +66,4 @@ O caminho de emparelhamento da Microsoft permite que você se conecte a serviço
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0420_2016-->

@@ -1,20 +1,20 @@
 
-<properties 
-  pageTitle="Replicação do Armazenamento do Azure | Microsoft Azure" 
-  description="Os dados na sua conta de Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura)." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram" 
-  manager="carmonm" 
+<properties
+  pageTitle="Replicação do Armazenamento do Azure | Microsoft Azure"
+  description="Os dados na sua conta de Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura)."
+  services="storage"
+  documentationCenter=""
+  authors="tamram"
+  manager="carmonm"
   editor="tysonn"/>
 
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="02/17/2016" 
+<tags
+  ms.service="storage"
+  ms.workload="storage"
+  ms.tgt_pltfrm="na"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="02/17/2016"
   ms.author="tamram"/>
 
 # Replicação de Armazenamento do Azure
@@ -108,4 +108,4 @@ Quando você habilita o acesso somente leitura aos dados na região secundária,
 - [Emulador de Armazenamento do Microsoft Azure 3.1 com RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [SOSP Paper - Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

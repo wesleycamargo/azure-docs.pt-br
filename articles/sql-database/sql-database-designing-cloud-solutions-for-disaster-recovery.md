@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Soluções de recuperação de desastre em nuvem - replicação geográfica do banco de dados SQL | Microsoft Azure"
+   pageTitle="Soluções de recuperação de desastre na nuvem - Replicação geográfica ativa do Banco de Dados SQL | Microsoft Azure"
    description="Aprenda a criar soluções de recuperação de desastre em nuvem para planejamento de continuidade de negócios usando a replicação geográfica para backup de dados de aplicativo com o banco de dados SQL."
    keywords="recuperação de desastre em nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios"
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="monicar"/>
 
 <tags
@@ -14,14 +14,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/23/2016"
+   ms.date="04/25/2016"
    ms.author="sashan"/>
 
-# Desenvolver um aplicativo em nuvem para recuperação de desastre usando replicação geográfica no banco de dados SQL
+# Criar um aplicativo para recuperação de desastre na nuvem usando a Replicação geográfica ativa no Banco de Dados SQL
 
-Saiba como usar a replicação geográfica no banco de dados SQL para desenvolver aplicativos para incluir uma solução de recuperação de desastre em nuvem. Para o planejamento de continuidade de negócios, você levará em consideração a topologia de implantação do aplicativo, o SLA que você está buscando, a latência de tráfego e os custos. Neste artigo, examinamos os padrões comuns de aplicativos e abordamos as vantagens e as desvantagens de cada opção.
 
-## Padrão de design 1: implantação ativa-passiva para recuperação de desastre em nuvem com banco de dados colocalizado
+> [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas.
+
+
+
+Saiba como usar a [replicação geográfica](sql-database-geo-replication-overview.md) no Banco de Dados SQL para criar aplicativos de banco de dados resilientes a falhas regionais e interrupções catastróficas. Para o planejamento de continuidade de negócios, você levará em consideração a topologia de implantação do aplicativo, o SLA que você está buscando, a latência de tráfego e os custos. Neste artigo, examinamos os padrões comuns de aplicativos e abordamos as vantagens e as desvantagens de cada opção.
+
+## Padrão de design 1: Implantação ativa-passiva para recuperação de desastre em nuvem com banco de dados colocalizado
 
 Essa opção é mais adequada para aplicativos com as seguintes características:
 
@@ -35,7 +40,7 @@ Nesse caso, a topologia de implantação do aplicativo é otimizada para lidar c
 
 Além das instâncias do aplicativo principal, você deve considerar a implantação de um pequeno [aplicativo de função de trabalho](cloud-services-choose-me.md#tellmecs) que monitora o banco de dados primário ao emitir comandos RO (somente leitura) periódicos do T-SQL. Você pode usá-lo para disparar automaticamente o failover, para gerar um alerta no console de administração do aplicativo ou ambos. Para garantir que a monitoração não seja afetada por paralisações em toda a região, você deve implantar as instâncias do aplicativo de monitoramento para cada região e conectá-las ao banco de dados em outra região, mas apenas a instância na região secundária precisa estar ativa.
 
-> [AZURE.NOTE] Se estiver usando a [replicação geográfica](https://msdn.microsoft.com/library/azure/dn741339.aspx), você poderá ter aplicativos de monitoramento ativos e sondar bancos de dados primários e secundários. Essa última opção pode ser usada para detectar uma falha na região secundária e alertar quando o aplicativo não estiver protegido.
+> [AZURE.NOTE] Ambos os aplicativos de monitoramento devem estar ativos e investigar bancos de dados primários e secundários. Essa última opção pode ser usada para detectar uma falha na região secundária e alertar quando o aplicativo não estiver protegido.
 
 O diagrama a seguir mostra essa configuração antes de uma interrupção.
 
@@ -44,7 +49,7 @@ O diagrama a seguir mostra essa configuração antes de uma interrupção.
 Após uma interrupção na região primária, o aplicativo de monitoramento detecta que o banco de dados primário não está acessível e registra um alerta. Dependendo do SLA do aplicativo, você pode decidir quantas sondagens de monitoramento consecutivas devem falhar antes de ser declarada uma interrupção do banco de dados. Para obter um failover coordenado do ponto de extremidade do aplicativo e do banco de dados, o aplicativo de monitoramento deve executar as seguintes etapas:
 
 1. [Atualizar o status de ponto de extremidade primário](https://msdn.microsoft.com/library/hh758250.aspx) para disparar o failover do ponto de extremidade.
-2. Chamar o banco de dados secundário [iniciar o failover de banco de dados](https://msdn.microsoft.com/library/azure/dn509573.aspx).
+2. Chamar o banco de dados secundário para [iniciar o failover de banco de dados](sql-database-geo-replication-portal.md).
 
 Após o failover, o aplicativo processará as solicitações do usuário na região secundária, mas permanecerá colocalizado com o banco de dados porque o banco de dados primário agora estará na região secundária. Isso é ilustrado pelo diagrama a seguir. Em todos os diagramas, linhas sólidas indicam conexões ativas, linhas pontilhadas indicam conexões suspensas e pontos indicam gatilhos de ação.
 
@@ -79,14 +84,14 @@ Se seus aplicativos tiverem essas características, o balanceamento de carga de 
 
 Como no padrão 1, considere a implantação de um aplicativo de monitoramento semelhante. Porém, diferentemente do padrão 1, ele não será responsável por disparar o failover de ponto de extremidade.
 
-> [AZURE.NOTE] Embora esse padrão use mais de um banco de dados secundário, apenas um dos secundários seria usado para failover, pelos motivos observados anteriormente. Como esse padrão requer acesso somente leitura ao secundário, ele requer a [Replicação geográfica ativa](https://msdn.microsoft.com/library/azure/dn741339.aspx).
+> [AZURE.NOTE] Embora esse padrão use mais de um banco de dados secundário, apenas um dos secundários seria usado para failover, pelos motivos observados anteriormente. Como esse padrão requer acesso somente leitura ao secundário, ele requer a Replicação geográfica ativa.
 
 O gerenciador de tráfego deve ser configurado para roteamento de desempenho para direcionar as conexões de usuário à instância do aplicativo mais próxima da localização geográfica do usuário. O diagrama a seguir ilustra essa configuração antes de uma interrupção. ![Nenhuma interrupção: roteamento de desempenho para o aplicativo mais próximo. Replicação Geográfica.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
 
 Se for detectada uma falha de banco de dados na região primária, você iniciará o failover do banco de dados primário para uma das regiões secundárias, que alterará o local do banco de dados primário. O gerenciador de tráfego excluirá automaticamente o ponto de extremidade offline da tabela de roteamento, mas continuará a rotear o tráfego de usuário final para as instâncias online restantes. Como o banco de dados primário está em uma região diferente, todas as instâncias online devem alterar sua cadeia de conexão SQL de leitura/gravação para se conectar ao novo primário. É importante que você faça essa alteração antes de iniciar o failover de banco de dados. As cadeias de conexão SQL somente leitura devem permanecer inalteradas, pois sempre apontam para o banco de dados na mesma região. As etapas de failover são:
 
 1. Alterar as cadeias de conexão SQL de leitura/gravação para apontar para o novo primário.
-2. Chamar o banco de dados secundário designado para [iniciar o failover de banco de dados](https://msdn.microsoft.com/library/azure/dn509573.aspx).
+2. Chamar o banco de dados secundário designado para [iniciar o failover de banco de dados](sql-database-geo-replication-portal.md).
 
 O diagrama a seguir ilustra a nova configuração após o failover. ![Configuração após o failover. Recuperação de desastre em nuvem.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
@@ -118,7 +123,7 @@ Quando o gerenciador de tráfego detecta uma falha de conectividade para a regi�
 
 Depois que a interrupção na região primária for atenuada, o gerenciador de tráfego detectará a restauração da conectividade na região primária e alternará o tráfego do usuário de volta para a instância do aplicativo na região primária. Essa instância de aplicativo será retomada e operará no modo de leitura/gravação usando o banco de dados primário.
 
-> [AZURE.NOTE] Como esse padrão requer acesso somente leitura ao secundário, ele requer a [Replicação geográfica ativa](https://msdn.microsoft.com/library/azure/dn741339.aspx).
+> [AZURE.NOTE] Como esse padrão requer acesso somente leitura ao secundário, ele requer a Replicação geográfica ativa.
 
 No caso de uma interrupção na região secundária, o gerenciador de tráfego marcará o ponto de extremidade do aplicativo na região primária como degradado, e o canal de replicação será suspenso. No entanto, isso não afetará o desempenho do aplicativo durante a interrupção. Depois que a interrupção for atenuada, o banco de dados secundário será sincronizado imediatamente com o primário. Durante a sincronização, o desempenho do primário poderá ser ligeiramente afetado, dependendo da quantidade de dados que precisam ser sincronizados.
 
@@ -144,8 +149,18 @@ A estratégia específica de recuperação de desastre em nuvem pode combinar ou
 
 | Padrão | RPO | ERT
 | :--- |:--- | :---
-| Implantação ativa-passiva para recuperação de desastre com acesso de banco de dados colocalizado | Acesso de leitura/gravação < 5 s | Tempo de detecção de falha + chamada à API de failover + teste de verificação de aplicativo
+| Implantação ativa-passiva para recuperação de desastres com acesso de banco de dados colocalizado | Acesso de leitura/gravação < 5 s | Tempo de detecção de falha + chamada à API de failover + teste de verificação de aplicativo
 | Implantação ativa-ativa para balanceamento de carga de aplicativo | Acesso de leitura/gravação < 5 s | Tempo de detecção de falha + chamada à API de failover + alteração da cadeia de conexão SQL + teste de verificação de aplicativo
 | Implantação ativa-passiva para preservação de dados | Acesso somente leitura < 5 s Acesso de leitura/gravação = zero | Acesso somente leitura = tempo de detecção de falha de conectividade + teste de verificação de aplicativo <br>Acesso de leitura/gravação = tempo para atenuar a interrupção
 
-<!---HONumber=AcomDC_0309_2016-->
+
+## Recursos adicionais
+
+
+- [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
+- [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+- [Criando aplicativos para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
+- [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
+
+<!---HONumber=AcomDC_0504_2016-->

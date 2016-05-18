@@ -3,8 +3,8 @@
    description="Visão geral dos serviços de hospedagem do DNS do Azure no Microsoft Azure e comece a hospedar seu domínio no Microsoft Azure" 
    services="dns" 
    documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
+   authors="cherylmc" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="02/09/2016"
-   ms.author="joaoma"/>
+   ms.author="cherylmc"/>
 
 # Visão geral do DNS do Azure
 
@@ -44,4 +44,4 @@ O DNS do Azure não dá suporte a compra de nomes de domínio. Para adquirir dom
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0427_2016-->

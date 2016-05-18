@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/30/2016"
+   ms.date="04/19/2016"
    ms.author="tarcher" />
 
 # Como manter um endereço IP virtual constante para um serviço de nuvem
 
-Quando você atualiza um serviço de nuvem que é hospedado no Azure, você precisará garantir que o VIP (endereço IP virtual) do serviço não mude. Muitos serviços de gerenciamento de domínio usam o DNS (sistema de nome de domínio) para o registro de nomes de domínio. O DNS só funciona se o VIP permanece o mesmo. Você pode usar o **Assistente de Publicação** nas Ferramentas do Azure para garantir que o VIP do seu serviço de nuvem não seja alterado quando você atualizá-lo. Para obter mais informações sobre como usar o gerenciamento de domínio DNS para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](/cloud-services/cloud-services-custom-domain-name.md).
+Quando você atualiza um serviço de nuvem que é hospedado no Azure, você precisará garantir que o VIP (endereço IP virtual) do serviço não mude. Muitos serviços de gerenciamento de domínio usam o DNS (sistema de nome de domínio) para o registro de nomes de domínio. O DNS só funciona se o VIP permanece o mesmo. Você pode usar o **Assistente de Publicação** nas Ferramentas do Azure para garantir que o VIP do seu serviço de nuvem não seja alterado quando você atualizá-lo. Para obter mais informações sobre como usar o gerenciamento de domínio DNS para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](./cloud-services/cloud-services-custom-domain-name.md).
 
 ## Publicando um serviço de nuvem sem alterar seu VIP
 
@@ -45,4 +45,4 @@ O VIP de um serviço de nuvem é alocado ao implantá-lo pela primeira vez no Az
 
 Para saber mais sobre a publicação do Azure por meio do Visual Studio, consulte o [assistente Publicar aplicativo do Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

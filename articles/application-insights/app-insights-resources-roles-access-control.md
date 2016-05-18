@@ -1,32 +1,32 @@
-<properties 
-	pageTitle="Recursos, funções e controle de acesso no Application Insights" 
-	description="Proprietários, colaboradores e leitores de percepções de sua organização." 
-	services="application-insights" 
+<properties
+	pageTitle="Recursos, funções e controle de acesso no Application Insights"
+	description="Proprietários, colaboradores e leitores de percepções de sua organização."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/05/2016"
 	ms.author="awills"/>
- 
+
 # Recursos, funções e controle de acesso no Application Insights
 
-Você pode controlar quem tem acesso de leitura e atualização a seus dados no [Application Insights][start] do Visual Studio usando o [Controle de acesso baseado em função no Microsoft Azure](../role-based-access-control-configure.md).
+Você pode controlar quem tem acesso de leitura e atualização a seus dados no [Application Insights][start] do Visual Studio usando o [Controle de acesso baseado em função no Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
-> [AZURE.IMPORTANT]Atribua acesso aos usuários no **grupo de recursos ou assinatura** ao qual o recurso do aplicativo pertence, não no próprio recurso. Atribua a função **Colaborador de componente do Application Insights**. Isso garante o controle uniforme de acesso a testes na Web e alertas, juntamente com o recurso do aplicativo. [Saiba mais](#access).
+> [AZURE.IMPORTANT] Atribua acesso aos usuários no **grupo de recursos ou assinatura** ao qual o recurso do aplicativo pertence, não no próprio recurso. Atribua a função **Colaborador de componente do Application Insights**. Isso garante o controle uniforme de acesso a testes na Web e alertas, juntamente com o recurso do aplicativo. [Saiba mais](#access).
 
 
 ## Recursos, grupos e assinaturas
 
 Primeiro, algumas definições:
 
-* **Recurso** ‒ uma instância de um serviço do Microsoft Azure. O recurso do Application Insights coleta, analisa e exibe os dados de telemetria enviados de seu aplicativo. Outros tipos de recursos do Azure incluem aplicativos Web, bancos de dados e VMs. 
+* **Recurso** ‒ uma instância de um serviço do Microsoft Azure. O recurso do Application Insights coleta, analisa e exibe os dados de telemetria enviados de seu aplicativo. Outros tipos de recursos do Azure incluem aplicativos Web, bancos de dados e VMs.
 
     Para ver todos os seus recursos, vá para o [Portal do Azure][portal], entre e clique em Procurar.
 
@@ -36,7 +36,7 @@ Primeiro, algumas definições:
 
 * [**Grupo de recursos**][group] ‒ cada recurso pertence a um grupo. Um grupo é uma maneira conveniente de gerenciar recursos relacionados, particularmente para controle de acesso. Por exemplo, em um grupo de recursos, você pode colocar um aplicativo Web, um recurso do Application Insights para monitorar o aplicativo e um Recurso de armazenamento para manter os dados exportados.
 
-    
+
     ![Escolha Procurar e Grupos de recursos e, em seguida, escolha um grupo](./media/app-insights-resources-roles-access-control/11-group.png)
 
 * [**Assinatura**](https://manage.windowsazure.com) ‒ para usar o Application Insights ou outros recursos do Azure, você entra em uma assinatura do Azure. Cada grupo de recursos pertence a uma assinatura do Azure, em que você escolhe o pacote de preços e, se for uma assinatura de organização, escolhe os membros e suas permissões de acesso.
@@ -52,7 +52,7 @@ Primeiro, algumas definições:
 Portanto, para controlar o acesso a esses recursos, é recomendável:
 
 * Controlar o acesso no nível de **grupo de recursos ou assinatura**.
-* Atribuir a função **Colaborador de componente do Application Insights** aos usuários. Isso permite editar testes na Web, alertas e recursos do Application Insights, sem fornecer acesso a qualquer outro serviço no grupo. 
+* Atribuir a função **Colaborador de componente do Application Insights** aos usuários. Isso permite editar testes na Web, alertas e recursos do Application Insights, sem fornecer acesso a qualquer outro serviço no grupo.
 
 ## Para fornecer acesso a outro usuário
 
@@ -97,7 +97,7 @@ Se o usuário desejado não estiver no diretório, você poderá convidar qualqu
 
 ## Usuários e funções
 
-* [Controle de acesso baseado em função no Azure](../role-based-access-control-configure.md)
+* [Controle de acesso baseado em função no Azure](../active-directory/role-based-access-control-configure.md)
 
 
 
@@ -108,6 +108,4 @@ Se o usuário desejado não estiver no diretório, você poderá convidar qualqu
 [portal]: http://portal.azure.com/
 [start]: app-insights-overview.md
 
- 
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0413_2016-->

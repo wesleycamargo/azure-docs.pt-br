@@ -274,6 +274,8 @@ Para testar totalmente a replicação e a implantação da rede, você precisar�
 
 Execute o failover de teste da seguinte maneira:
 
+>[AZURE.NOTE] Para obter o melhor desempenho ao fazer um failover para o Azure, não deixe de instalar o agente do Azure no computador protegido. Isso ajuda na inicialização mais rápida e também no diagnóstico em caso de problemas. O agente do Linux pode ser encontrado [aqui](https://github.com/Azure/WALinuxAgent) e o agente do Windows pode ser encontrado [aqui](http://go.microsoft.com/fwlink/?LinkID=394789)
+
 1. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
 2. Na página **Confirmar Failover de Teste**, selecione **Nenhum** ou uma rede específica do Azure. Observe que, se você selecionar **Nenhum**, o failover de teste verificará se a máquina virtual foi replicada corretamente para o Azure, mas não verificará sua configuração de rede de replicação.
 
@@ -302,4 +304,4 @@ Execute o failover de teste da seguinte maneira:
 
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0413_2016-->

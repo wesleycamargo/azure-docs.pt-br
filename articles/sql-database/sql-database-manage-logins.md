@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -20,7 +20,7 @@
 
 # Segurança de banco de dados SQL: gerenciar o acesso ao banco de dados e a segurança de logon  
 
-Saiba mais sobre o gerenciamento de segurança de banco de dados SQL, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor. Entenda algumas diferenças e semelhanças nas opções de segurança de logon entre um banco de dados SQL e um SQL Server local.
+Saiba mais sobre o gerenciamento de segurança de banco de dados SQL, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor. Entenda algumas diferenças e semelhanças nas opções de segurança de logon entre um banco de dados SQL e um SQL Server local. Consulte [Azure SQL Database Tutorial: Get Started with Azure SQL Database Security (Tutorial do Banco de Dados SQL do Azure: introdução à segurança do Banco de Dados SQL do Azure)](sql-database-get-started-security.md) para obter um tutorial rápido.
 
 ## Provisionamento de banco de dados e logon da entidade de segurança no nível do servidor
 
@@ -88,7 +88,7 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 Para se conectar ao Banco de dados SQL do Microsoft Azure usando os logons que você criou, primeiro será necessário conceder permissões no nível de banco de dados a cada logon usando o comando ``CREATE USER``. Para obter mais informações, consulte a seção **Concedendo acesso de banco de dados para um logon** abaixo.
 
-Como algumas ferramentas implementam o protocolo TDS (TDS) de forma diferente, talvez seja necessário acrescentar o nome do servidor do Banco de Dados SQL do Azure ao logon na cadeia de conexão usando a notação ``<login>@<server>``. Nesses casos, separe o logon e o nome do servidor do Banco de Dados SQL do Azure com o símbolo ``@``. Por exemplo, se o nome de logon for **logon1** e o nome totalmente qualificado do seu servidor do Banco de Dados SQL do Azure for **nomedoservidor.database.windows.net**, o parâmetro de nome de usuário da cadeia de conexão deverá ser: ****login1@servername**. Essa restrição impõe limitações no texto que você pode escolher para o nome de logon. Para saber mais, confira [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
+Como algumas ferramentas implementam o protocolo TDS (TDS) de forma diferente, talvez seja necessário acrescentar o nome do servidor do Banco de Dados SQL do Azure ao logon na cadeia de conexão usando a notação ``<login>@<server>``. Nesses casos, separe o logon e o nome do servidor do Banco de Dados SQL do Azure com o símbolo ``@``. Por exemplo, se o nome de logon for **logon1** e o nome totalmente qualificado do seu servidor do Banco de Dados SQL do Azure for **nomedoservidor.database.windows.net**, o parâmetro de nome de usuário da cadeia de conexão deverá ser: **login1@servername**. Essa restrição impõe limitações no texto que você pode escolher para o nome de logon. Para saber mais, confira [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
 
 ## Concessão de permissões no nível de servidor para um logon
 
@@ -174,6 +174,6 @@ SELECT * FROM sys.databases;
 
 ## Consulte também
 
-[Limitações e diretrizes de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md) [Conectando-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
+[Azure SQL Database Tutorial: Get Started with Azure SQL Database Security (Tutorial do Banco de Dados SQL do Azure: introdução à segurança do Banco de Dados SQL do Azure)](sql-database-get-started-security.md) [Limitações e diretrizes de segurança de Banco de Dados SQL do Azure](sql-database-security-guidelines.md) [Conectar-se ao Banco de Dados SQL Usando a Autenticação do Azure Active Directory](sql-database-aad-authentication.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0420_2016-->

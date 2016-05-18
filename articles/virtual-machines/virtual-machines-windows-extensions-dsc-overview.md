@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="04/18/2016"
    ms.author="zachal"/>
 
 # Introdução ao manipulador de extensão de configuração do estado desejado do Azure #
@@ -144,4 +144,4 @@ Para encontrar a funcionalidade adicional que você pode gerenciar com a DSC do 
 
 Para obter detalhes sobre como passar parâmetros confidenciais em configurações, consulte [Gerenciar credenciais com segurança com o manipulador de extensão de DSC](virtual-machines-windows-extensions-dsc-credentials.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

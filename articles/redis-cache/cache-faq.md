@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Perguntas frequentes sobre Cache Redis do Azure" 
+	pageTitle="Perguntas Frequentes Sobre o Cache Redis do Azure | Microsoft Azure" 
 	description="Conheça as respostas a perguntas, padrões e práticas recomendadas comuns do Cache Redis do Azure" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2016" 
+	ms.date="04/20/2016" 
 	ms.author="sdanie"/>
 
 # Perguntas frequentes sobre Cache Redis do Azure
@@ -49,19 +49,19 @@ Podemos tirar as seguintes conclusões desta tabela.
 
 | Camada de preços | Tamanho | Largura de banda disponível | Tamanho de chave de 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Tamanhos de cache padrão** | &nbsp; |**Megabits por segundo (Mbps)** | **RPS (solicitações por segundo)** |
-| C0 | 250 MB | 5 | 600 |
-| C1 | 1 GB | 100 | 12\.200 |
-| C2 | 2,5 GB | 200 | 24\.000 |
-| C3 | 6 GB | 400 | 49\.000 |
-| C4 | 13 GB | 500 | 61\.000 |
-| C5 | 26 GB | 1000 | 115\.000 |
-| C6 | 53 GB | 2000 | 150\.000 |
+| **Tamanhos de cache padrão** | &nbsp; |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** | **RPS (solicitações por segundo)** |
+| C0 | 250 MB | 5 / 0,625 | 600 |
+| C1 | 1 GB | 100 / 12,5 | 12\.200 |
+| C2 | 2,5 GB | 200 / 25 | 24\.000 |
+| C3 | 6 GB | 400 / 50 | 49\.000 |
+| C4 | 13 GB | 500 / 62,5 | 61\.000 |
+| C5 | 26 GB | 1000 / 125 | 115\.000 |
+| C6 | 53 GB | 2000 / 250 | 150\.000 |
 | **Tamanhos de cache Premium** | &nbsp; | &nbsp; | **RPS (solicitações por segundo) por fragmento** |
-| P1 | 6 GB | 1000 | 140\.000 |
-| P2 | 13 GB | 2000 | 220\.000 |
-| P3 | 26 GB | 2000 | 220\.000 |
-| P4 | 53 GB | 4000 | 250\.000 |
+| P1 | 6 GB | 1000 / 125 | 140\.000 |
+| P2 | 13 GB | 2000 / 250 | 220\.000 |
+| P3 | 26 GB | 2000 / 250 | 220\.000 |
+| P4 | 53 GB | 4000 / 500 | 250\.000 |
 
 
 Para obter instruções sobre como baixar as ferramentas do Redis como `redis-benchmark.exe`, consulte a seção [Como posso executar comandos do Redis?](#cache-commands)
@@ -233,7 +233,7 @@ Não há nenhum emulador local para o Cache Redis do Azure, mas é possível exe
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
 		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
-	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	    return ConnectionMultiplexer.Connect("127.0.0.1:6379");
 	});
 	
 	public static ConnectionMultiplexer Connection
@@ -264,25 +264,7 @@ Como cada cliente é diferente, não há não uma referência de classe centrali
 
 ## Qual oferta de Cache do Azure é a correta para mim?
 
->[AZURE.IMPORTANT] A Microsoft recomenda que todos os novos desenvolvimentos usem o Cache Redis do Azure.
-
-Atualmente, o cache do Azure tem três ofertas:
-
--	Cache Redis do Azure
--	Serviço de Cache gerenciado do Azure
--	Cache na função do Azure
-
->[AZURE.IMPORTANT]Estamos anunciando a baixa do Serviço de Cache Gerenciado do Azure e do Cache na função do Azure em 30 de novembro de 2016. Recomendamos que você migre para o Cache Redis do Azure antes da baixa.
->
->O Cache Redis do Azure tem sido a solução de caching recomendada no Azure desde que o serviço foi disponibilizado e agora está disponível em todas as regiões do Azure, incluindo China e governo dos EUA. Devido a essa disponibilidade, anunciamos a futura baixa do Serviço de Cache Gerenciado e do serviço Cache na Função.
->
->O Serviço de Cache Gerenciado e o serviço Cache na Função permanecem disponíveis aos clientes existentes por até 12 meses a partir da data do comunicado em 30 de novembro de 2015; a data de encerramento do serviço para ambos será 30 de novembro de 2016. Após essa data, o Serviço de Cache Gerenciado será desligado e o serviço Cache na Função não terá mais suporte.
->
->Vamos remover o suporte para criar novos caches na função na primeira versão do SDK do Azure que for lançada depois de 1º de fevereiro de 2016. Os clientes poderão abrir projetos existentes que tenham caches na função.
->
->Durante esse período, incentivamos todos os clientes do Serviço de Cache Gerenciado e do serviço Cache na Função a migrar para o Cache Redis do Azure. O Cache Redis do Azure oferece mais recursos e tem mais qualidade, de forma geral. Para saber mais sobre a migração, visite a página de documentação [Migrar do Serviço de Cache Gerenciado para o Cache Redis do Azure](cache-migrate-to-redis.md).
->
->Se você tem alguma dúvida, [fale conosco](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933).
+>[AZURE.IMPORTANT]De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço de Cache na Função do Azure serão desativados em 30 de novembro de 2016. Nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](cache-migrate-to-redis.md).
 
 ### Cache Redis do Azure
 O Cache Redis do Azure está disponível em tamanhos de 53 GB e tem SLA de disponibilidade de 99,9%. A nova [camada premium](cache-premium-tier-intro.md) oferece tamanhos de até 530 GB e suporte para clustering, VNET e persistência, com um SLA de 99,9%.
@@ -296,11 +278,11 @@ Outro aspecto fundamental do sucesso do Redis é o ecossistema de software livre
 Para saber mais sobre como começar a usar o Cache Redis do Azure, confira [Como usar o Cache Redis do Azure](cache-dotnet-how-to-use-azure-redis-cache.md) e a [documentação do Cache Redis do Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 ### Serviço de Cache gerenciado
-O serviço de Cache Gerenciado está programado para desativação em 30 de novembro de 2016.
+[O serviço de Cache Gerenciado está programado para desativação em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 ### Cache em Função
-O Cache na Função está programado para desativação em 30 de novembro de 2016.
+[O Cache na Função está programado para desativação em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
 [configuração "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

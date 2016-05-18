@@ -1,9 +1,9 @@
 <properties
-    pageTitle="Gerenciar um pool de banco de dados elástico (c#) | Microsoft Azure"
+    pageTitle="Monitorar e gerenciar um pool de banco de dados elástico com C# | Microsoft Azure"
     description="Use técnicas de desenvolvimento de banco de dados C# para gerenciar um pool de banco de dados elástico do Banco de Dados SQL do Azure."
     services="sql-database"
     documentationCenter=""
-    authors="stevestein"
+    authors="sidneyh"
     manager="jhubbard"
     editor=""/>
 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="04/01/2016"
-    ms.author="sstein"/>
+    ms.date="04/28/2016"
+    ms.author="sidneyh"/>
 
-# Gerenciar e dimensionar um pool de banco de dados elástico com C&#x23;
+# Monitorar e gerenciar um pool de banco de dados elástico com C&#x23; 
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-elastic-pool-manage-portal.md)
@@ -29,18 +29,54 @@ Saiba como gerenciar um [pool de banco de dados elástico](sql-database-elastic-
 
 Para ver os códigos de erro comuns, confira [Códigos de erro de SQL para aplicativos clientes do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server-portal.md) em uma única etapa.
+No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL. Se você tiver um servidor de Banco de Dados SQL V11, poderá [usar o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server-portal.md) em uma única etapa.
 
-Os exemplos usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) e, por isso, é necessário instalar a biblioteca. É possível instalar pela execução do seguinte comando no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
+Os exemplos usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx). Instale a biblioteca executando o seguinte comando no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
 
+## Mover um banco de dados para um pool elástico
 
-## Atualizar um pool
+Você pode mover um banco de dados autônomo para dentro ou para fora de um pool.
 
+    // Retrieve current database properties.
 
-    // Retrieve existing pool properties
+    currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
+
+    // Configure create or update parameters with existing property values, override those to be changed.
+    DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
+    {
+        Location = currentDatabase.Location,
+        Properties = new DatabaseCreateOrUpdateProperties()
+        {
+            Edition = "Standard",
+            RequestedServiceObjectiveName = "ElasticPool",
+            ElasticPoolName = "ElasticPool1",
+            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
+            Collation = currentDatabase.Properties.Collation,
+        }
+    };
+
+    // Update the database.
+    var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
+
+## Listar bancos de dados em um pool elástico
+
+Para recuperar todos os bancos de dados em um pool, chame o método [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases).
+
+    //List databases in the elastic pool
+    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
+    Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
+    foreach (Database db in dbListInPool)
+    {
+        Console.WriteLine("  Database {0}", db.Name);
+    }
+
+## Alterar as configurações de desempenho de um pool
+
+Recuperar as propriedades do pool existente. Modifique os valores e execute o método CreateOrUpdate.
+
     var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
 
     // Configure create or update parameters with existing property values, override those to be changed.
@@ -60,82 +96,21 @@ Os exemplos usam a [Biblioteca do Banco de Dados SQL para .NET](https://msdn.mic
     newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
 
+## Latência de operações do pool elástico
 
-## Mover um banco de dados existente para um pool
-
-
-    // Update database service objective to add the database to a pool
-
-    // Retrieve current database properties
-    currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
-
-    // Configure create or update parameters with existing property values, override those to be changed.
-    DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentDatabase.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = currentDatabase.Properties.MaxSizeBytes,
-            Collation = currentDatabase.Properties.Collation,
-        }
-    };
-
-    // Update the database
-    var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
-
-
-
-
-## Criar um novo servidor de banco de dados em um pool
-
-
-    // Create a new database in the pool
-
-    // Create a database: configure create or update parameters and properties explicitly
-    DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
-    {
-        Location = currentServer.Location,
-        Properties = new DatabaseCreateOrUpdateProperties()
-        {
-            Edition = "Standard",
-            RequestedServiceObjectiveName = "ElasticPool",
-            ElasticPoolName = "ElasticPool1",
-            MaxSizeBytes = 268435456000, // 250 GB,
-            Collation = "SQL_Latin1_General_CP1_CI_AS"
-        }
-    };
-
-    var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
-
-
-
-## Listar todos os bancos de dados em um pool
-
-O exemplo a seguir descreve todos os bancos de dados em um pool:
-
-    //List databases in the elastic pool
-    DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
-    Console.WriteLine("Databases in Elastic Pool {0}", "server-name.ElasticPool1");
-    foreach (Database db in dbListInPool)
-    {
-        Console.WriteLine("  Database {0}", db.Name);
-    }
-
-
+- Normalmente, a alteração das eDTUs mínimas ou das eDTUs máximas por banco de dados é um processo concluído em cinco minutos ou menos.
+- A alteração do limite de eDTUs por pool depende da quantidade total de espaço usado por todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar os eDTUs do pool será de 3 horas por pool ou menos.
 
 
 ## Gerenciar um exemplo de pool C&#x23;
 
-As seguintes bibliotecas são necessárias para executar este exemplo. É possível instalar pela execução do seguinte comando no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**)
+As seguintes bibliotecas são necessárias para executar este exemplo. Você pode instalar executando os comandos a seguir no [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**)
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente necessária e os valores relacionados, veja [Registrar seu aplicativo e obter os valores de cliente necessários para conectar seu aplicativo ao Banco de Dados SQL](sql-database-client-id-keys.md).
+Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguinte. Para obter a ID do cliente necessária e os valores relacionados, consulte [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md) (Registrar seu aplicativo e obter os valores de cliente necessários para conectar seu aplicativo ao Banco de Dados SQL).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -449,13 +424,12 @@ Crie um aplicativo de console e substitua o conteúdo de Program.cs pelo seguint
     }
     }
 
-
-
 ## Recursos adicionais
-
 
 - [Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-- [Referência do Pool de Banco de Dados Elástico](sql-database-elastic-pool-reference.md)
+- [Criar um pool de banco de dados elástico com C#](sql-database-elastic-pool-create-csharp.md)
+- [Quando um Pool de Banco de Dados Elástico deve ser usado?](sql-database-elastic-pool-guidance.md)
+- Confira [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados, consultar ou criar transações.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0504_2016-->

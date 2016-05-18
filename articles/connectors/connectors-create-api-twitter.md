@@ -30,7 +30,7 @@ Entre no Twitter para postar um tweet, obter a linha do tempo do usuário e muit
 
 &nbsp;
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do Twitter](../app-service-logic/app-service-logic-connector-twitter.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o Twitter, você pode:
 
@@ -59,9 +59,9 @@ Todas as APIs dão suporte a dados nos formatos JSON e XML.
 Quando você adiciona essa API a seus aplicativos lógicos, deve autorizar a conexão destes à sua conta do Twitter.
 
 1. Entre em sua conta do Twitter.
-2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem sua conta do Twitter. 
+2. Selecione **Autorizar** e permita que seus Aplicativos Lógicos se conectem e usem sua conta do Twitter. 
 
-Depois de criar a conexão, insira as propriedades do Twitter, como o texto do tweet. A **referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do Twitter, como o texto do tweet. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do Twitter em outros aplicativos lógicos.
 
@@ -70,7 +70,7 @@ Depois de criar a conexão, insira as propriedades do Twitter, como o texto do t
 Aplica-se à versão: 1.0.
 
 ### Postar um novo tweet 
-Tweet.```POST: /posttweet```
+Tweet. ```POST: /posttweet```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -188,7 +188,7 @@ Recupera uma coleção de tweets relevantes que correspondem a uma consulta espe
 
 
 ### Obter seguidores 
-Recupera os usuários que seguem o usuário especificado.```GET: /followers```
+Recupera os usuários que seguem o usuário especificado. ```GET: /followers```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -208,7 +208,7 @@ Recupera os usuários que seguem o usuário especificado.```GET: /followers```
 
 
 ### Obter meus seguidores 
-Recupera os usuários que estão me seguindo.```GET: /myfollowers```
+Recupera os usuários que estão me seguindo. ```GET: /myfollowers```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -227,7 +227,7 @@ Recupera os usuários que estão me seguindo.```GET: /myfollowers```
 
 
 ### Obtenha seguidos 
-Recupera os usuários que o usuário especificado está seguindo.```GET: /friends```
+Recupera os usuários que o usuário especificado está seguindo. ```GET: /friends```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -247,7 +247,7 @@ Recupera os usuários que o usuário especificado está seguindo.```GET: /friend
 
 
 ### Obter meus seguidos 
-Recupera os usuários que estou seguindo.```GET: /myfriends```
+Recupera os usuários que estou seguindo. ```GET: /myfriends```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -306,13 +306,13 @@ Recupera os usuários que estou seguindo.```GET: /myfriends```
 
 ## Próximas etapas
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Volte para a [Lista de APIs](apis-list.md).
+Voltar para a [Lista de APIs](apis-list.md).
 
 <!--References-->
 
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

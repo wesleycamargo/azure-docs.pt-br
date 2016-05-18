@@ -1,32 +1,30 @@
 <properties
-	pageTitle="Pool de banco de dados elásticos para bancos de dados SQL | Microsoft Azure"
-	description="Descubra como você pode controlar o crescimento explosivo em bancos de dados SQL com pools de banco de dados elásticos, uma maneira de compartilhar recursos disponíveis em muitos bancos de dados."
+	pageTitle="O que é um pool de banco de dados elástico do Azure? | Microsoft Azure"
+	description="Gerencie centenas ou milhares de bancos de dados usando um pool. Um preço para um conjunto de unidades de desempenho pode ser distribuído pelo pool. Mova bancos de dados para dentro ou para fora à vontade."
 	keywords="banco de dados elásticos, bancos de dados sql"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/24/2016"
+	ms.date="04/28/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Controlar crescimento explosivo nos bancos de dados SQL usando pools de banco de dados elástico para compartilhar recursos
+# O que é um Pool de Banco de Dados Elástico do Azure?
 
-Um desenvolvedor de SaaS cria e gerencia dezenas, centenas ou até milhares de bancos de dados SQL. Pools Elásticos simplificam o gerenciamento de criação, manutenção e desempenho entre esses bancos de dados dentro de um orçamento que você controla. Adicionar ou subtrair bancos de dados do pool à vontade. Veja [Criar um pool de banco de dados elástico escalonável para bancos de dados SQL no portal do Azure](sql-database-elastic-pool-create-portal.md), [usando o PowerShell](sql-database-elastic-pool-powershell.md) ou [C#](sql-database-elastic-pool-csharp.md).
-
-Para obter detalhes de APIs e erros, consulte [Referência do Pool de Banco de Dados Elástico](sql-database-elastic-pool-reference.md).
+Pools elásticos fornecem uma solução simples e econômica para gerenciar as metas de desempenho para vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis.
 
 ## Como ele funciona
 
-É um padrão comum de aplicativo SaaS para cada cliente a ser atribuído a um banco de dados. Cada cliente (banco de dados) tem requisitos de recursos imprevisíveis para memória, E/S e CPU. Com esses picos e quedas de demanda, como você aloca recursos? Tradicionalmente, havia duas opções: provisionar em excesso os recursos com base no uso de pico e pagar a mais ou provisionar de forma insuficiente para economizar, em detrimento do desempenho e satisfação do cliente durante picos. Os pools de banco de dados elástico resolvem esse problema, garantindo que os bancos de dados obtenham os recursos de desempenho que necessitam, quando necessário, fornecendo um mecanismo de alocação de recurso simples dentro de um orçamento previsível.
+Um padrão de aplicativo de SaaS comum é o modelo de banco de dados de locatário único: cada cliente recebe um banco de dados. Cada cliente (banco de dados) tem requisitos de recursos imprevisíveis para memória, E/S e CPU. Com esses picos e quedas de demanda, como você aloca recursos? Tradicionalmente, havia duas opções: (1) provisionar em excesso os recursos com base no uso de pico e pagar a mais ou (2) provisionar de forma insuficiente para economizar, em detrimento do desempenho e satisfação do cliente durante picos. Os pools de banco de dados elástico resolvem esse problema, garantindo que os bancos de dados obtenham os recursos de desempenho que necessitam, quando necessário, fornecendo um mecanismo de alocação de recurso simples dentro de um orçamento previsível.
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
@@ -49,41 +47,59 @@ Bancos de dados que são ótimos candidatos a pools de banco de dados elástico 
 
 > [AZURE.NOTE] No momento, os pools de banco de dados elástico estão em visualização e disponíveis apenas com Servidores V12 do Banco de Dados SQL.
 
+## Limites de eDTU e armazenamento para pools elásticos e bancos de dados elásticos
+
+[AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para bancos de dados elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+
+## Propriedades do pool de bancos de dados elásticos
+
+### Limites para pools elásticos
+
+| Propriedade | Descrição |
+| :-- | :-- |
+| Camada de serviço | Básica, Standard ou Premium. A camada de serviço determina o intervalo em limites de desempenho e armazenamento que podem ser configurados, bem como opções de continuidade dos negócios. Cada banco de dados dentro de um pool tem a mesma camada de serviço que o pool. A "camada de serviço" também é conhecida como "edição". |
+| eDTUs por pool | O número máximo de eDTUs que podem ser compartilhados por bancos de dados no pool. Os eDTUs totais usados pelos bancos de dados no pool não podem exceder esse limite no mesmo momento. |
+| Armazenamento máx. por pool (GB) | A quantidade máxima de armazenamento em GBs que pode ser compartilhada por bancos de dados no pool. O armazenamento total usado pelos bancos de dados no pool não pode exceder esse limite. Esse limite é determinado pelos eDTUs por pool. Se esse limite for excedido, todos os bancos de dados se tornarão somente leitura. |
+| Número máximo de bancos de dados por pool | O número máximo de bancos de dados permitidos por pool. |
+| Máximo de trabalhos simultâneos por pool | O número máximo de trabalhos (solicitações) simultâneos disponíveis para todos os bancos de dados no pool. |
+| Máximo de logons simultâneos por pool | O número máximo de logons simultâneos para todos os bancos de dados no pool. |
+| Máximo de sessões simultâneas por pool | O número máximo de sessões disponíveis para todos os bancos de dados no pool. |
+
+
+### Limites para bancos de dados elásticos
+
+| Propriedade | Descrição |
+| :-- | :-- |
+| Máximo de eDTUs por banco de dados | O número máximo de eDTUs que qualquer banco de dados no pool pode usar, se disponível, com base na utilização por outros bancos de dados no pool. O máximo de eDTUs por banco de dados não é uma garantia de recursos para um banco de dados. Essa é uma configuração global que se aplica a todos os bancos de dados no pool. Defina um valor para o máximo de eDTUs por banco de dados que seja alto o suficiente para lidar com picos de utilização do banco de dados. Espera-se um grau de sobrecarga, uma vez que o pool normalmente assume padrões de uso dos bancos de dados com altos e baixos, em que todos os bancos de dados não atingem um pico simultaneamente. Por exemplo, suponha que o pico de utilização por banco de dados seja de 20 eDTUs e apenas 20% dos 100 bancos de dados no pool atinjam o pico simultaneamente. Se o máximo de eDTUs por banco de dados for definido para 20 eDTUs, será razoável sobrecarregar o pool em 5 vezes e definir os eDTUs por pool como 400. |
+| Mínimo de eDTUs por banco de dados | O número mínimo de eDTUs garantido para qualquer banco de dados no pool. Essa é uma configuração global que se aplica a todos os bancos de dados no pool. O mínimo de eDTUs por banco de dados pode ser definido como 0 e também é o valor padrão. Essa propriedade normalmente é definida entre 0 e a utilização média de eDTUs por banco de dados. Observe que o produto do número de bancos de dados no pool e o mínimo de eDTUs por banco de dados não pode exceder os eDTUs por pool. Por exemplo, se um pool tiver 20 bancos de dados e o mínimo de eDTUs por banco de dados for definido como 10 eDTUs, os eDTUs por pool deverão ser de pelo menos 200 eDTUs. |
+| Armazenamento máximo por banco de dados (GB) | O armazenamento máximo para um banco de dados em um pool. Bancos de dados elásticos compartilham o armazenamento de pool, de modo que o armazenamento do banco de dados é limitado ao menor entre o armazenamento de pool restante e o armazenamento máximo por banco de dados.|
+
+
 ## Trabalhos de banco de dados elástico
 
-Com um pool, as tarefas de gerenciamento são simplificadas com a execução de scripts em **[trabalhos elásticos](sql-database-elastic-jobs-overview.md)**. Um Trabalho de Banco de Dados Elástico elimina a maioria do tédio associado a um grande número de bancos de dados. Para começar, veja [Introdução aos trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
+Com um pool, as tarefas de gerenciamento são simplificadas com a execução de scripts em **[trabalhos elásticos](sql-database-elastic-jobs-overview.md)**. Um Trabalho de Banco de Dados Elástico elimina a maioria do tédio associado a um grande número de bancos de dados. Para começar, veja [Introdução a trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
 
-Para obter mais informações sobre outras ferramentas, veja o [Mapa de aprendizagem das ferramentas de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Para obter mais informações sobre outras ferramentas, veja o [Elastic database tools learning map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) (Mapa de aprendizagem das ferramentas de banco de dados elástico).
 
 ## Recursos de continuidade de negócios para bancos de dados em um pool
 
-Atualmente em visualização, os bancos de dados elásticos dão suporte à maioria dos [recursos de continuidade de negócios](sql-database-business-continuity.md) disponíveis para bancos de dados únicos em servidores V12.
+Os bancos de dados elásticos normalmente dão suporte aos mesmos [recursos de continuidade de negócios](sql-database-business-continuity.md) disponíveis para bancos de dados únicos em servidores V12.
 
-### Recuperação Pontual
 
-O sistema realiza backup automático dos bancos de dados em um pool de banco de dados elástico, e a política de retenção de backup é a mesma que a camada de serviços correspondente para bancos de dados únicos. Em suma, os bancos de dados em cada camada têm um intervalo de restauração diferente:
+### Recuperação pontual
 
-* **Pool básico**: capaz de fazer a restauração para qualquer ponto nos últimos 7 dias.
-* **Pool Standard**: capaz de fazer a restauração para qualquer ponto dentro dos últimos 14 dias.
-* **Pool premium**: capaz de fazer a restauração para qualquer ponto nos últimos 35 dias.
-
-Durante a visualização, os bancos de dados em um pool serão restaurados para um novo banco de dados no mesmo pool. Bancos de dados descartados sempre serão restaurados como um banco de dados autônomo fora do pool para o nível de desempenho mais baixo para essa camada de serviço. Por exemplo, um banco de dados elástico em um pool padrão que é descartado será restaurado como um banco de dados S0. Você pode executar operações de restauração de bancos de dados pelo Portal do Azure ou programaticamente usando a API REST. O suporte ao cmdlet do PowerShell será disponibilizado em breve.
+A restauração pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto específico no tempo. Consulte [Recuperar um Banco de Dados SQL do Azure de um erro do usuário](sql-database-user-error-recovery.md)
 
 ### Restauração geográfica
 
-A Restauração Geográfica permite recuperar o banco de dados de um pool para um servidor em uma região diferente. Durante a visualização, para restaurar um banco de dados de um pool em um servidor diferente, o servidor de destino de ter um pool com o mesmo nome do pool de origem. Se necessário, crie um novo pool no servidor de destino e dê a ele o mesmo nome antes de restaurar o banco de dados. Caso o servidor de destino não contenha um pool com o mesmo nome, a operação de Restauração Geográfica falhará. Para obter detalhes, consulte [Recuperar usando a restauração geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
+A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde está hospedado. Consulte [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md)
 
+### Replicação geográfica ativa
 
-### Replicação Geográfica
-
-A replicação geográfica está disponível para qualquer banco de dados em um pool de banco de dados elástico Standard ou Premium. Um ou todos os bancos de dados em uma parceria de replicação geográfica podem ser em um pool de banco de dados elástico, contanto que as camadas de serviço sejam as mesmas. Você pode configurar a replicação geográfica para pools de bancos de dados elásticos usando o [Portal do Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) ou [Transact-SQL](sql-database-geo-replication-transact-sql.md).
-
-### Importação e exportação
-
-É possível exportar um banco de dados de dentro de um pool. Atualmente, não há suporte para a importação de um banco de dados diretamente para um pool, mas você pode importar para um único banco de dados e, em seguida, mover o banco de dados para um pool.
+Para aplicativos que têm requisitos de restauração mais agressivos do que a restauração geográfica pode oferecer, configure a Replicação geográfica ativa usando o [Portal do Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) ou [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

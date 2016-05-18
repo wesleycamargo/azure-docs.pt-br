@@ -1,7 +1,7 @@
 <properties
    pageTitle="Como exibir a integridade agregada das entidades do Azure Service Fabric | Microsoft Azure"
    description="Descreve como consultar, exibir e avaliar a integridade agregada das entidades do Azure Service Fabric, por meio de consultas de integridade e consultas gerais."
-   services="service-fabric"HealthManager
+   services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
@@ -1132,4 +1132,4 @@ Sempre que houver um problema no cluster ou aplicativo, observe a integridade do
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

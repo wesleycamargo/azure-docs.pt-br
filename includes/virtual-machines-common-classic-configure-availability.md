@@ -44,11 +44,7 @@ Para usar o portal clássico do Azure:
 
 	No painel da nova máquina virtual, você pode clicar em **Configurar** e verificar que a máquina virtual pertence ao novo conjunto de disponibilidade.
 
-Para usar comandos do Azure PowerShell para criar uma máquina virtual do Azure e adicioná-la a um conjunto de disponibilidade novo ou existente, consulte o seguinte:
-
-
-- [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Linux](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
-- [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
+Para usar comandos do Azure PowerShell para criar uma máquina virtual do Azure e adicioná-la a um conjunto de disponibilidade novo ou existente, consulte o [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"> </a>Opção 2: adicione uma máquina virtual já existente a um conjunto de disponibilidade##
 
@@ -80,7 +76,7 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 
 ## Recursos adicionais
 
-[Artigos para máquinas virtuais no Gerenciamento de Serviços]
+[Artigos para máquinas virtuais clássicas][]
 
 <!-- LINKS -->
 [Opção 1: crie uma máquina virtual e um conjunto de disponibilidade ao mesmo tempo.]: #createset
@@ -91,6 +87,6 @@ Para usar os comandos do PowerShell do Azure, abra uma sessão do PowerShell do 
 
 [Criar uma máquina virtual que execute o Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Visão geral da rede virtual]: ../articles/virtual-network/virtual-networks-overview.md
-[Artigos para máquinas virtuais no Gerenciamento de Serviços]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
+[Artigos para máquinas virtuais clássicas]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0427_2016-->

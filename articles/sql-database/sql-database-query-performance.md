@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/03/2016"
+   ms.date="04/28/2016"
    ms.author="sstein"/>
 
 # Visão do desempenho de consulta de Banco de Dados SQL do Azure
@@ -46,10 +46,10 @@ A Visão do Desempenho de Consulta é fácil de usar:
 
 - Examine a lista das consultas que consomem mais recursos. 
 - Escolha uma consulta individual para exibir seus detalhes.
-- Clique em **Configurações** para personalizar a exibição dos dados ou mostrar um período diferente.
-- Abra [Index Advisor](sql-database-index-advisor.md) e verifique se há alguma recomendação disponível.
-
-
+- Abra o [Performance Advisor](sql-database-index-advisor.md) e verifique se há alguma recomendação disponível.
+- Aplique zoom para obter informações detalhadas.
+- 
+    ![painel de desempenho](./media/sql-database-query-performance/performance.png)
 
 > [AZURE.NOTE] São necessárias duas horas de dados a serem capturados por Armazenamento de Consulta fornecer a visão de desempenho de consulta no banco de dados SQL. Se o banco de dados não tem atividades ou o Armazenamento de Consulta não estava ativo durante um determinado período de tempo, os gráficos estarão vazios ao exibir o período de tempo. Você pode habilitar o Armazenamento de Consulta a qualquer momento se ele não estiver em execução.
 
@@ -59,13 +59,13 @@ A Visão do Desempenho de Consulta é fácil de usar:
 
 No [portal](http://portal.azure.com), faça o descrito a seguir:
 
-1. Navegue para um banco de dados SQL e clique em **Visão do Desempenho de Consulta**. 
+1. Navegue até um banco de dados SQL e clique em **Todas as Configurações** > **Desempenho** > **Consultas**. 
 
     ![Visão de Desempenho de Consulta][1]
 
     A exibição das principais consultas é aberta e as consultas que consomem mais CPU são listadas.
 
-1. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a %DTU geral do banco de dados, enquanto as barras mostram a %CPU consumida pelas consultas selecionadas durante o intervalo escolhido (por exemplo, se **Semana passada** for escolhida, cada barra representará um dia).
+1. Clique em torno do gráfico para obter detalhes.<br>A linha superior mostra a % de DTU geral do banco de dados, enquanto as barras mostram a % de CPU consumida pelas consultas selecionadas durante o intervalo escolhido (por exemplo, se **Semana passada** for escolhida, cada barra representará um dia).
 
     ![principais consultas][2]
 
@@ -126,7 +126,7 @@ A política de captura pode ser definida para:
 
 - **Todas** – captura todas as consultas. Essa é a opção padrão.
 - **Automática** – consultas não frequentes e consultas com duração de execução e compilação insignificantes serão ignoradas. Os limites da duração de contagem de execução, compilação e tempo de execução são determinados internamente.
-- **Nenhum** – o Repositório de Consultas interrompe a captura de novas consultas.
+- **Nenhuma** – o Repositório de Consultas interrompe a captura de novas consultas.
 	
 É recomendável definir todas as políticas para AUTOMÁTICA e a limpeza de políticas para 30 dias:
 
@@ -158,11 +158,9 @@ A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de tr
 
 ## Próximas etapas
 
-Cargas de trabalho de banco de dados são dinâmicas e mudam continuamente. Monitore suas consultas e continue a ajustá-las para aprimorar o desempenho.
+Para obter recomendações adicionais para melhorar o desempenho do seu banco de dados SQL, clique em [Performance Advisor](sql-database-index-advisor.md) na folha **Análise de Desempenho de Consultas**.
 
-Para obter recomendações adicionais para melhorar o desempenho do seu banco de dados SQL, clique em [Index Advisor](sql-database-index-advisor.md) na folha **Análise de Desempenho de Consultas**.
-
-![Supervisor de Índices](./media/sql-database-query-performance/ia.png)
+![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
 
 <!--Image references-->
@@ -170,4 +168,4 @@ Para obter recomendações adicionais para melhorar o desempenho do seu banco de
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0504_2016-->

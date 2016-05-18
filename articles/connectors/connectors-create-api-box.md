@@ -22,7 +22,7 @@ Conecte-se ao Box, crie arquivos, exclua arquivos e muito mais. A API do Box pod
 
 - Aplicativos lógicos 
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Conector do Box](../app-service-logic/app-service-logic-connector-box.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o Box, você pode:
 
@@ -30,14 +30,14 @@ Com o Box, você pode:
 - Usar gatilhos para quando um arquivo for criado ou atualizado.
 - Usar ações para copiar um arquivo, excluir um arquivo e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um arquivo é alterado no Box, você pode obtê-lo e enviá-lo por email usando o Office 365.
 
-Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 O Box inclui os seguintes gatilhos e ações.
 
 | Gatilhos | Ações|
 | --- | --- |
-|<ul><li>Quando um arquivo é criado</li><li>Quando um arquivo é modificado</li></ul> | <ul><li>Criar arquivo</li><li>Quando um arquivo é criado</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair arquivo morto para a pasta</li><li>Obter conteúdo do arquivo usando a ID</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo usando a ID</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é modificado</li></ul>
+|<ul><li>Quando um arquivo é criado</li><li>Quando um arquivo é modificado</li></ul> | <ul><li>Criar arquivo</li><li>Quando um arquivo é criado</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair o arquivo para a pasta</li><li>Obter conteúdo do arquivo usando a ID</li><li>Obter arquivo usando o caminho</li><li>Obter metadados do arquivo usando a ID</li><li>Obter metadados de arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é modificado</li></ul>
 
 Todas as APIs dão suporte a dados nos formatos JSON e XML.
 
@@ -47,7 +47,7 @@ Quando você adiciona essa API aos seus aplicativos lógicos, precisa autorizar 
 1. Entre na sua conta do Box.
 2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem o Box. 
 
-Depois de criar a conexão, insira as propriedades do Box. A **referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do Box. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do Box em outros aplicativos lógicos.
 
@@ -262,4 +262,4 @@ Dispara um fluxo quando um arquivo é modificado em uma pasta do Box.```GET: /da
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

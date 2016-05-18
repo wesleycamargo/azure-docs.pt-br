@@ -21,13 +21,13 @@ ms.author="deonhe"/>
 
 Conecte-se ao Barramento de Serviço do Azure para enviar e receber mensagens. Você pode executar ações como enviar para a fila, enviar para o tópico, receber da fila, receber da assinatura, etc.
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. Para obter a versão do esquema 2014-12-01-preview, clique em [Barramento de Serviço do Azure](../app-service-logic/app-service-logic-connector-azureservicebus.md).
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
 Com o Barramento de Serviço do Azure, você pode:
 
 * Use-o para compilar aplicativos lógicos  
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação aos Aplicativos Lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Agora vamos falar sobre gatilhos e ações
 
@@ -57,14 +57,15 @@ Para usar a API do Barramento de Serviço do Azure, crie primeiro uma **conexão
 | ---|---|---|
 |ConnectionString|Sim|Fornecer uma Cadeia de Conexão do Barramento de Serviço do Azure|  
 
-Siga estas etapas para criar uma **conexão** do barramento de serviço que poderá ser usada em seu aplicativo lógico:
+Siga estas etapas para criar uma **conexão** do Barramento de Serviço que poderá ser usada em seu aplicativo lógico:
 
 1. Selecione **Recorrência**
 2. Selecione uma **Frequência** e insira um **Intervalo** ![Configurar o Barramento de Serviço][1] 
 3. Selecione **Adicionar uma ação** ![Configurar o Barramento de Serviço][2]   
-4. Insira **Barramento de Serviço** na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Barramento de Serviço no nome
+4. Digite **Barramento de Serviço** na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Barramento de Serviço no nome
 5. Selecione **Barramento de Serviço – Enviar mensagem** ![Configurar o Barramento de Serviço][3]
-7. Insira um **Nome da conexão** e uma **Cadeia de conexão** e, em seguida, selecione **Criar conexão**: ![Configurar o Barramento de Serviço][4]
+7. Insira um **Nome da conexão** e uma **Cadeia de conexão** e, em seguida, selecione **Criar conexão**:
+![Configurar o Barramento de Serviço][4]
 7. Depois de criar a conexão, você verá o diálogo **Enviar mensagem**. Insira todas as informações necessárias para enviar uma mensagem.![Configurar o Barramento de Serviço][5]
 8. Selecione o botão **Salvar** no menu acima para salvar seu trabalho.    
 
@@ -165,4 +166,4 @@ ContentTransferEncoding
 [5]: ./media/connectors-create-api-servicebus/connectionconfig5.png
 [6]: ./media/connectors-create-api-servicebus/connectionconfig6.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

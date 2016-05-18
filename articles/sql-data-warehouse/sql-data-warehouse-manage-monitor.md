@@ -3,7 +3,7 @@
    description="Aprenda a monitorar sua carga de trabalho usando DMVs."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyama"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/29/2016"
+   ms.date="05/03/2016"
    ms.author="sonyama;barbkess;sahajs"/>
 
 # Monitore sua carga de trabalho usando DMVs
@@ -39,7 +39,7 @@ No cenário em que você deseja investigar a execução da consulta para uma con
 -- Monitor running queries
 SELECT * FROM sys.dm_pdw_exec_requests WHERE status = 'Running';
 
--- Find the 10 longest running queries
+-- Find 10 queries which ran the longest
 SELECT TOP 10 * FROM sys.dm_pdw_exec_requests ORDER BY total_elapsed_time DESC;
 ```
 
@@ -132,36 +132,34 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 - Verifique a coluna *total\_elapsed\_time* para ver se uma distribuição específica está demorando muito mais do que outras para movimentar dados.
 - Para a distribuição de longa execução, verifique a coluna *rows\_processed* para verificar se o número de linhas sendo movidas dessa distribuição é significativamente maior do que outros. Se for o caso, isso poderá indicar distorção de dados subjacentes.
 
-## Investigar distorção de dados
-
-Use [DBCC PDW\_SHOWSPACEUSED][] para consultar o espaço usado por uma tabela.
+Se a consulta estiver em execução no momento, [DBCC PDW\_SHOWEXECUTIONPLAN][] poderá ser usado para recuperar o plano de execução do SQL Server para a Etapa de DMS em execução no momento para uma distribuição específica.
 
 ```sql
--- Find data skew for a distributed table
-DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
+-- Replace distribution_id and spid with values from previous query.
+
+DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
+
 ```
 
-O resultado dessa consulta lhe mostrará o número de linhas da tabela que são armazenadas em cada uma das 60 distribuições do seu banco de dados. Para ótimo desempenho, as linhas na tabela distribuída devem ser divididas uniformemente em todas as distribuições.
-
-Para saber mais, consulte o [design da tabela][]\:
-
 ## Próximas etapas
-Para obter mais informações sobre o Transact-SQL e DMVs (Exibições de Gerenciamento Dinâmico), consulte a [visão geral de referência][]. Para obter mais dicas sobre como gerenciar o SQL Data Warehouse, consulte [visão geral de gerenciamento][].
+Para obter mais informações sobre DMVs (exibições de gerenciamento dinâmico), consulte [Exibições do sistema][]. Para obter dicas sobre como gerenciar o SQL Data Warehouse, consulte [visão geral de gerenciamento][]. Para práticas recomendadas, consulte [Práticas recomendadas do SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
+[manage data skew for distributed tables]: sql-data-warehouse-manage-distributed-data-skew.md
 [visão geral de gerenciamento]: sql-data-warehouse-overview-manage.md
-[design da tabela]: sql-data-warehouse-develop-table-design.md
-[visão geral de referência]: sql-data-warehouse-overview-reference.md
+[Práticas recomendadas do SQL Data Warehouse]: sql-data-warehouse-best-practices.md
+[Exibições do sistema]: sql-data-warehouse-reference-tsql-system-views.md
+
+<!--MSDN references-->
 [sys.dm\_pdw\_dms\_workers]: http://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm\_pdw\_exec\_requests]: http://msdn.microsoft.com/library/mt203887.aspx
 [sys.dm\_pdw\_exec\_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
 [sys.dm\_pdw\_request\_steps]: http://msdn.microsoft.com/library/mt203913.aspx
 [sys.dm\_pdw\_sql\_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW\_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
+[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!--MSDN references-->
-
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0504_2016-->

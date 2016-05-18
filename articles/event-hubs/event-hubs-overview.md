@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Visão geral dos Hubs de Eventos do Azure | Microsoft Azure"
-   description="Introdução e visão geral de Hubs de Eventos do Azure."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Visão geral dos Hubs de Eventos do Azure | Microsoft Azure"
+    description="Introdução e visão geral de Hubs de Eventos do Azure."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="04/15/2016"
+    ms.author="sethm" />
 
 # Visão geral dos Hubs de Eventos do Azure
 
@@ -21,9 +21,9 @@ Muitas soluções modernas pretendem fornecer experiências adaptáveis para os 
 
 ![Hubs de Evento](./media/event-hubs-overview/IC759856.png)
 
-O Hub de Evento do Azure é um serviço de processamento de eventos que fornece entrada de telemetria e eventos na nuvem em grande escala, com baixa latência e alta confiabilidade. Esse serviço, usado com outros serviços downstream, é especialmente útil em cenários de instrumentação de aplicativos, processamento de fluxo de trabalho ou experiência do usuário e Internet das Coisas (IoT). Os Hubs de Eventos fornecem um recurso de manipulação de fluxo de mensagens e, embora um Hub de Eventos seja uma entidade similar a filas e tópicos, ele tem características que são muito diferentes das mensagens corporativas tradicionais. Cenários de mensagens corporativas, geralmente, exigem vários recursos sofisticados, como sequenciamento, mensagens mortas, suporte a transações e fortes garantias de entrega, enquanto a preocupação dominante para entrada de evento é alta taxa de transferência e flexibilidade de processamento para fluxos de eventos. Portanto, os recursos de Hubs de Eventos são diferentes de tópicos do Barramento de Serviço, no sentido de que são eficientes nos cenários de alta produtividade e processamento de eventos. Dessa forma, os Hubs de Eventos não implementam alguns dos recursos de mensagens que estão disponíveis para tópicos. Se você precisar desses recursos, os tópicos continuam sendo a melhor opção.
+O Hub de Evento do Azure é um serviço de processamento de eventos que fornece entrada de telemetria e eventos na nuvem em grande escala, com baixa latência e alta confiabilidade. Esse serviço, usado com outros serviços downstream, é especialmente útil em cenários de instrumentação de aplicativos, processamento de fluxo de trabalho ou experiência do usuário e Internet das Coisas (IoT). O Hub de Evento fornece um recurso de manipulação de fluxo de mensagens e, embora um Hub de eventos seja uma entidade similar a filas e tópicos, ele tem características que são muito diferentes das mensagens corporativas tradicionais. Cenários de mensagens corporativas, geralmente, exigem vários recursos sofisticados, como sequenciamento, mensagens mortas, suporte a transações e fortes garantias de entrega, enquanto a preocupação dominante para entrada de evento é alta taxa de transferência e flexibilidade de processamento para fluxos de eventos. Portanto, os recursos de Hubs de Eventos são diferentes de tópicos do Barramento de Serviço, no sentido de que são eficientes nos cenários de alta produtividade e processamento de eventos. Dessa forma, os Hubs de Eventos não implementam alguns dos recursos de mensagens que estão disponíveis para tópicos. Se você precisar desses recursos, os tópicos continuam sendo a melhor opção.
 
-Um Hub de Eventos é criado no nível de namespace no Barramento de Serviço, como filas e tópicos. O Hubs de Eventos usa HTTP e AMQP como suas interfaces de API principais. O diagrama a seguir mostra a relação entre o Hubs de Eventos e o Barramento de Serviço.
+Um Hub de Evento é criado no nível de namespace no Barramento de Serviço, como filas e tópicos. O Hubs de Evento usa HTTP e AMQP como suas interfaces de API principais. O diagrama a seguir mostra a relação entre o Hubs de Eventos e o Barramento de Serviço.
 
 ![Hubs de Evento](./media/event-hubs-overview/IC741188.png)
 
@@ -37,11 +37,11 @@ Uma partição é uma sequência ordenada de eventos que é mantida em um Hub de
 
 ![Hubs de Evento](./media/event-hubs-overview/IC759857.png)
 
-As partições retêm dados por um período de retenção configurado que é definido no nível do Hub de Eventos. Essa configuração aplica-se a todas as partições no Hub de Eventos. Eventos expiram periodicamente; não é possível excluí-los explicitamente. Um Hub de Eventos contém várias partições. Cada partição é independente e contém sua própria sequência de dados. Como resultado, partições geralmente aumentam em taxas diferentes.
+As partições retém dados por um período de retenção configurado que é definido no nível do Hub de Eventos. Essa configuração aplica-se a todas as partições no Hub de Eventos. Eventos expiram periodicamente; não é possível excluí-los explicitamente. Um Hub de Eventos contém várias partições. Cada partição é independente e contém sua própria sequência de dados. Como resultado, partições geralmente aumentam em taxas diferentes.
 
 ![Hubs de Evento](./media/event-hubs-overview/IC759858.png)
 
-O número de partições é especificado no momento da criação do Hub de Eventos e deve estar entre 2 e 32 (o padrão é 4). As partições são um mecanismo de organização de dados e estão mais relacionadas ao grau de paralelismo de downstream necessário em aplicativos de consumo que de consumo de Hubs de Evento. Isso torna a escolha do número de partições em um Hub de Eventos diretamente relacionado ao número de leitores simultâneos que você espera ter. Após a criação do Hub de Eventos, a contagem de partições não é alterável; você deve considerar esse número em termos de escala esperada de longo prazo. Você pode aumentar o limite de 32 partições entrando em contato com a equipe do Barramento de Serviço.
+O número de partições é especificado no momento da criação do Hub de Eventos e deve estar entre 2 e 32 (o padrão é quatro). As partições são um mecanismo de organização de dados e estão mais relacionadas ao grau de paralelismo de downstream necessário em aplicativos de consumo que de consumo de Hubs de Evento. Isso torna a escolha do número de partições em um Hub de Eventos diretamente relacionado ao número de leitores simultâneos que você espera ter. Após a criação do Hub de Eventos, a contagem de partições não é alterável; você deve considerar esse número em termos de escala esperada de longo prazo. Você pode aumentar o limite de 32 partições entrando em contato com a equipe do Barramento de Serviço.
 
 Enquanto as partições podem ser identificadas e podem ser enviadas diretamente, geralmente, é melhor evitar o envio de dados para partições específicas. Em vez disso, você pode usar construções de nível superior abordadas nas seções [Editor de eventos](#event-publisher) e [Política de editor](#capacity-and-security).
 
@@ -49,7 +49,7 @@ No contexto dos Hubs de Evento, as mensagens são denominadas *dados de evento*.
 
 ## Editor de eventos
 
-Qualquer entidade que envia eventos ou dados a um Hub de Eventos é um *editor de eventos*. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0. Os editores de eventos usam um token SAS (Assinatura de Acesso Compartilhado) a fim de identificarem para um Hub de Eventos e podem ter uma identidade exclusiva ou usar um token SAS comum, dependendo das exigências do cenário.
+Qualquer entidade que envia eventos ou dados para um Hub de Eventos é um *editor de eventos*. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0. Os editores de eventos usam um token de SAS (Assinatura de Acesso Compartilhado) para se identificar para um Hub de eventos, e podem ter uma identidade exclusiva ou usar um token SAS comum, dependendo das exigências do cenário.
 
 Para obter mais informações sobre como trabalhar com SAS, consulte [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus/service-bus-shared-access-signature-authentication.md).
 
@@ -59,7 +59,7 @@ Esta seção descreve as tarefas comuns para editores de eventos.
 
 #### Adquirir um token SAS
 
-O SAS (Assinatura de Acesso Compartilhado) é o mecanismo de autenticação para Hubs de Evento. O Barramento de Serviço fornece políticas de SAS no nível de namespace e Hub de Eventos. Um token SAS é gerado a partir de uma chave de SAS e é um hash SHA de uma URL, codificado em um formato específico. Usando o nome da chave (política) e o token, o Barramento de Serviço pode regenerar o hash e, portanto, autenticar o remetente. Normalmente, os tokens SAS para editores de eventos são criados apenas com privilégios de **enviar** em um Hub de Eventos específico. Esse mecanismo de URL de token SAS é a base para a identificação de editor abordada na política do editor. Para obter mais informações sobre como trabalhar com SAS, consulte [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus/service-bus-shared-access-signature-authentication.md).
+O SAS (Assinatura de Acesso Compartilhado) é o mecanismo de autenticação para Hubs de Evento. O Barramento de Serviço fornece políticas de SAS no namespace e no nível do Hub de Eventos. Um token SAS é gerado a partir de uma chave de SAS e é um hash SHA de uma URL, codificado em um formato específico. Usando o nome da chave (política) e o token, o Barramento de Serviço pode regenerar o hash e, portanto, autenticar o remetente. Normalmente, os tokens SAS para editores de eventos são criados apenas com privilégios de **enviar** em um Hub de Eventos específico. Esse mecanismo de URL de token SAS é a base para a identificação de editor abordada na política do editor. Para obter mais informações sobre como trabalhar com SAS, consulte [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus/service-bus-shared-access-signature-authentication.md).
 
 #### Publicar um evento
 
@@ -77,11 +77,11 @@ Os Hubs de Eventos garantem que todos os eventos que compartilham o mesmo valor 
 
 ### Consumidor de eventos
 
-Qualquer entidade que leia dados de evento de um Hub de Eventos é um consumidor de eventos. Todos os consumidores de evento leem o fluxo de eventos por meio de partições em um grupo de consumidores. Cada partição deve ter apenas um leitor ativo por vez. Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, onde os eventos são entregues quando estão disponíveis. O cliente não precisa buscar pela disponibilidade de dados.
+Qualquer entidade que lê dados de evento de um Hub de Evento é um consumidor de eventos. Todos os consumidores de evento leem o fluxo de eventos por meio de partições em um grupo de consumidores. Cada partição deve ter apenas um leitor ativo por vez. Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, onde os eventos são entregues quando estão disponíveis. O cliente não precisa buscar pela disponibilidade de dados.
 
 #### Grupos de consumidores
 
-O mecanismo de publicação/assinatura dos Hubs de Eventos é habilitado por meio de grupos de consumidores. Um grupo de consumidores é uma exibição (estado, posição ou deslocamento) de todo um Hub de Eventos. Os grupos de consumidores habilitam vários aplicativos de consumo para ter um modo de exibição separado do fluxo de eventos e para ler o fluxo de forma independente em seu próprio ritmo e com seus próprios deslocamentos. Em um arquitetura de processamento de fluxo, cada aplicativo downstream equivale a um grupo de consumidores. Se você quiser gravar dados de evento em um armazenamento de longo prazo, isso quer dizer que esse aplicativo gravador de armazenamento é um grupo de consumidores. O processamento de eventos complexos é executado por outro grupo separado de consumidores. Você pode acessar partições somente por meio de um grupo de consumidores. Sempre há um grupo de consumidores padrão em um Hub de Eventos, e você pode criar até 20 grupos de consumidores para um Hub de Eventos de camada Padrão.
+O mecanismo de publicação/assinatura dos Hubs de Evento é habilitado por meio de grupos de consumidores. Um grupo de consumidores é uma exibição (estado, posição ou deslocamento) de todo um Hub de Evento. Os grupos de consumidores habilitam vários aplicativos de consumo para ter um modo de exibição separado do fluxo de eventos e para ler o fluxo de forma independente em seu próprio ritmo e com seus próprios deslocamentos. Em um arquitetura de processamento de fluxo, cada aplicativo downstream equivale a um grupo de consumidores. Se você quiser gravar dados de evento em um armazenamento de longo prazo, isso quer dizer que esse aplicativo gravador de armazenamento é um grupo de consumidores. O processamento de eventos complexos é executado por outro grupo separado de consumidores. Você pode acessar partições somente por meio de um grupo de consumidores. Sempre há um grupo de consumidores padrão em um Hub de Eventos, e você pode criar até 20 grupos de consumidores para um Hub de Evento de camada Padrão.
 
 Veja estes exemplos de convenção de URI de grupo de consumidores:
 
@@ -134,11 +134,11 @@ A capacidade de transferência dos Hubs de Eventos é controlada pelas unidades 
 
 A entrada está limitada à quantidade de capacidade fornecida pelo número adquirido de unidades de transferência. O envio de dados acima essa quantidade resulta em uma exceção "cota excedida". Esse valor é 1 MB por segundo ou 1.000 eventos por segundo, o que ocorrer primeiro. A saída não gera exceções de limitação, mas está limitada à quantidade de transferência de dados fornecida pelas unidades adquiridas de transferência: 2 MB por segundo por unidade de transferência. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace no qual o Hub de Eventos foi criado. Para obter mais unidades de produtividade, você pode ajustar a configuração na página **Namespaces** na guia **Escala** no [portal clássico do Azure][]. Você também pode alterar essa configuração usando as APIs do Azure.
 
-Enquanto as partições são um conceito de organização de dados, as unidades de transferência são puramente um conceito de capacidade. As unidades de taxa de transferência são cobradas por hora e são pré-adquiridas. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. É possível adquirir até 20 unidades de transferência para um namespace do Barramento de Serviço, e há um limite de conta do Azure de 20 unidades de transferência. Essas unidades de produtividade são compartilhadas em todos os Hubs de Eventos em um namespace específico.
+Enquanto as partições são um conceito de organização de dados, as unidades de transferência são puramente um conceito de capacidade. As unidades de taxa de transferência são cobradas por hora e são pré-adquiridas. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. É possível adquirir até 20 unidades de transferência para um namespace do Barramento de Serviço, e há um limite de conta do Azure de 20 unidades de transferência. Essas unidades de transferência são compartilhadas em todos os Hubs de Evento em um namespace específico.
 
 As unidades de taxa de transferência são provisionadas da melhor maneira possível e podem não estar sempre disponíveis para compra imediata. Se você precisar de um recurso específico, é recomendável adquirir essas unidades de transferência com antecedência. Se precisar de mais de 20 unidades de produtividade, você pode entrar em contato com o suporte do Barramento de Serviço para adquirir mais unidades de produtividade em uma base de compromisso em blocos de 20 até as 100 primeiras unidades de produtividade. Além disso, você também pode comprar blocos de 100 unidades de transferência.
 
-É recomendável balancear criteriosamente partições e unidades de transferência para obter uma escala ideal com Hubs de Evento. Uma única partição tem uma escala máxima de uma unidade de transferência. O número de unidades de produtividade deve ser menor ou igual ao número de partições em um Hub de Eventos.
+É recomendável balancear criteriosamente partições e unidades de transferência para obter uma escala ideal com Hubs de Evento. Uma única partição tem uma escala máxima de uma unidade de transferência. O número de unidades de transferência deve ser menor ou igual ao número de partições em um Hub de Eventos.
 
 Para obter informações sobre preços, consulte [Preços de Hubs de Evento](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -168,4 +168,4 @@ Agora que já aprendeu sobre conceitos de Hubs de Evento, você pode passar para
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0420_2016-->

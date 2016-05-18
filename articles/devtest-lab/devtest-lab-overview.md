@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="O que é o serviço de Laboratório de Desenvolvimento/Teste? | Microsoft Azure"
 	description="Saiba como o Laboratório de Desenvolvimento/Teste pode facilitar a criar, gerenciar e monitorar as máquinas virtuais do Azure"
 	services="devtest-lab,virtual-machines"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="04/19/2016"
 	ms.author="tarcher"/>
 
 #Adicionar um Laboratório de Teste de Desenvolvimento?
@@ -52,7 +52,7 @@ A lista a seguir contém as principais definições e conceitos do laboratório 
 - Ações que você deseja executar na VM - como clonar um repositório.
 - Aplicativos que você deseja testar.
 
-Os artefatos são o Gerenciador de Recursos do Azure (ARM) com base em arquivos JSON que contém instruções para realizar a implantação e aplicar a configuração. Você pode ler mais sobre o ARM na [Visão geral do Gerenciador de Recursos do Azure](/resource-group-overview.md).
+Os artefatos são o Gerenciador de Recursos do Azure (ARM) com base em arquivos JSON que contém instruções para realizar a implantação e aplicar a configuração. Você pode ler mais sobre o ARM na [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
 
 **Repositórios de artefatos** são repositórios git onde os artefatos são verificados. Os mesmos repositórios de artefato podem ser adicionados a vários laboratórios da sua organização, permitindo a reutilização e compartilhamento.
 
@@ -66,4 +66,4 @@ Os artefatos são o Gerenciador de Recursos do Azure (ARM) com base em arquivos 
 
 Para iniciar o Laboratório de Desenvolvimento de Teste, siga o tutorial passo a passo para [Criar um laboratório de Teste de Desenvolvimento do Azure](devtest-lab-create-lab.md).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0420_2016-->

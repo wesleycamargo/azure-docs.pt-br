@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="04/18/2016" 
 	ms.author="spelluru"/>
 
 # Atividade de Hive
@@ -214,4 +214,12 @@ Para usar os scripts de Hive parametrizados, faça o seguinte
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=AcomDC_0302_2016-->
+
+## Consulte também
+- [Atividade Pig](data-factory-pig-activity.md)
+- [Atividade MapReduce](data-factory-map-reduce.md)
+- [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+- [Invocar programas Spark](data-factory-spark.md)
+- [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+
+<!---HONumber=AcomDC_0420_2016-->

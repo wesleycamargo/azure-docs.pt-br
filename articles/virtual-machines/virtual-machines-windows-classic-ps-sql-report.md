@@ -3,7 +3,7 @@
 	description="Este tópico descreve e fornece orientação para a implantação e a configuração de um servidor de relatório em modo nativo do SQL Server Reporting Services em uma Máquina Virtual do Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
-	authors="rothja"
+	authors="guyinacube"
 	manager="jeffreyg"
 	editor="monicar" 
 	tags="azure-service-management"/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="12/11/2015"
-	ms.author="jroth" />
+	ms.author="asaxton" />
 
 # Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 
@@ -633,7 +633,7 @@ Para verificar se a funcionalidade básica do servidor de relatório está funci
 
 		http://localhost/Reports
 
-- No computador local, navegue até o Gerenciador de relatório **remoto** na VM. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Quando receber uma solicitação por uma senha, use as credenciais de administrador que você criou durante o provisionamento da VM. O nome de usuário está no formato [Domínio] \[nome de usuário], em que o domínio é o nome de computador da VM, por exemplo, ssrsnativecloud\\testuser. Se você não estiver usando HTTP**S**, remova o **s** da URL. Consulte a próxima seção para saber mais sobre como criar usuários adicionais na VM.
+- No computador local, navegue até o Gerenciador de relatório **remoto** na VM. Atualize o nome DNS no exemplo a seguir, conforme apropriado. Quando receber uma solicitação por uma senha, use as credenciais de administrador que você criou durante o provisionamento da VM. O nome de usuário está no formato [Domínio]\[nome de usuário], em que o domínio é o nome de computador da VM, por exemplo, ssrsnativecloud\\testuser. Se você não estiver usando HTTP**S**, remova o **s** da URL. Consulte a próxima seção para saber mais sobre como criar usuários adicionais na VM.
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -703,6 +703,6 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 
 ### Links para outros recursos para SQL Server em VMs do Azure
 
-[Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-sql-overview.md)
+[Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0427_2016-->

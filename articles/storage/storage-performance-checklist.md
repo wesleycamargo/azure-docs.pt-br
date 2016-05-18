@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="04/29/2016"
 	ms.author="robinsh"/>
 
 # Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
@@ -34,6 +34,7 @@ Este artigo organiza as práticas comprovadas nos grupos a seguir. As práticas 
 |Concluído|	Área|	Categoria|	Pergunta
 |----|------|-----------|-----------
 ||Todos os serviços|	Metas de escalabilidade|[Seu aplicativo foi criado para evitar a abordagem de metas de escalabilidade?](#subheading1)
+||Todos os serviços|	Metas de escalabilidade|[A convenção de nomenclatura foi projetada para permitir melhor balanceamento de carga?](#subheading47)
 ||Todos os serviços|	Rede|	[Os dispositivos cliente têm largura de banda suficiente e baixa latência para alcançar o desempenho necessário?](#subheading2)
 ||Todos os serviços|	Rede|	[Os dispositivos cliente têm um link de alta qualidade?](#subheading3)
 ||Todos os serviços|	Rede|	[O aplicativo cliente está "próximo" à conta de armazenamento?](#subheading4)
@@ -108,6 +109,15 @@ Os links a seguir apresentam mais detalhes sobre as metas de escalabilidade:
 -	Confira [Replicação de Armazenamento do Azure](storage-redundancy.md) e a postagem de blog [Azure Storage Redundancy Options and Read Access Geo Redundant Storage (Opções de redundância do Armazenamento do Azure e armazenamento com redundância geográfica com acesso de leitura)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) para saber mais sobre as opções de redundância de armazenamento.
 -	Para obter informações atualizadas sobre os preços dos serviços Azure, confira [Preços do Azure](https://azure.microsoft.com/pricing/overview/).  
 
+###<a name="subheading47"></a>Convenção de nomenclatura de partição
+O Armazenamento do Azure usa um esquema de particionamento baseado em intervalo para dimensionar e balancear a carga do sistema. A chave de partição é usada para particionar dados em intervalos e esses intervalos têm balanceamento de carga em todo o sistema. Isso significa que as convenções de nomenclatura, como a ordem léxica (por exemplo, msftpayroll, msftperformance, msftemployees etc.) ou o uso dos carimbos de data/hora (log20160101, log20160102, log20160102 etc.) se prestarão às partições potencialmente co-localizadas no mesmo servidor de partição, até que uma operação de balanceamento de carga as divida em intervalos menores. Por exemplo, todos os blobs em um contêiner podem ser servidos por um único servidor até que a carga nesses blobs exija mais rebalanceamento dos intervalos de partição. Da mesma forma, um grupo de contas pouco carregados com seus nomes organizados em ordem léxica pode ser atendido por um único servidor até que a carga em uma ou em todas essas contas exija a ser dividida em vários servidores de partições. Cada operação de balanceamento de carga pode afetar a latência das chamadas de armazenamento durante a operação. A capacidade do sistema de lidar com um aumento repentino de tráfego para uma partição é limitada pela escalabilidade de um servidor de partição única até que a operação de balanceamento de carga seja ativada e reequilibre o intervalo de chaves de partição.
+
+Você pode seguir algumas práticas recomendadas para reduzir a frequência de tais operações.
+
+-	Examine detalhadamente a convenção de nomenclatura usada para contas, contêineres, blobs, tabelas e filas. Considere prefixar os nomes de conta com um hash de três dígitos usando uma função de hash que melhor atenda às suas necessidades.  
+-	Se você organizar os dados usando carimbos de data/hora ou identificadores numéricos, precisará garantir que não está usando padrões de tráfego somente acrescentar (ou somente preceder). Esses padrões não são adequados a um sistema de particionamento baseado em intervalo e pode fazer com que todo tráfego vá para uma única partição, limitando o sistema ao balancear a carga efetivamente. Por exemplo, se você tiver operações diárias que usam um objeto de blob com um carimbo de data/hora, como aaammdd, todo o tráfego para essa operação diária será direcionado para um único objeto, que é atendido por um servidor de partição única. Veja se os limites por blob e os limites por partição atendem às suas necessidades e considere a divisão dessa operação em vários blobs, se necessário. Da mesma forma, se você armazenar os dados de série temporal em suas tabelas, todo o tráfego poderá ser direcionado para a última parte do namespace chave. Se você tiver de usar carimbos de data/hora ou IDs numéricas, adicione um prefixo com um hash de três dígitos ou, no caso de prefixo de carimbos de data/hora, use um prefixo da parte de segundos da hora como ssaaaammdd. Se as operações de listagem e de consulta forem executadas rotineiramente, escolha uma função de hash que limite o número de consultas. Em outros casos, um prefixo aleatório pode ser suficiente.  
+-	Para obter informações adicionais sobre o esquema de particionamento usado no Armazenamento do Azure, leia o artigo SOSP [aqui](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+
 ###Rede
 Embora as chamadas de API sejam importantes, muitas vezes as limitações físicas da rede do aplicativo têm impacto considerável no desempenho. A seção a seguir descreve algumas das limitações que os usuários podem enfrentar.
 
@@ -119,7 +129,7 @@ No caso da largura de banda, muitas vezes o problema está relacionado às funci
 Como é necessário com qualquer uso de rede, as condições de rede que resultam em erros e na perda de pacote desaceleram a taxa de transferência. Usar WireShark ou NetMon pode ajudar a identificar esse problema.
 
 #####Recursos úteis
-Para saber mais sobre os tamanhos de máquina virtual e a largura de banda alocada, consulte [Tamanhos de máquinas virtuais](../virtual-machines/virtual-machines-linux-sizes.md).
+Para saber mais sobre os tamanhos de máquina virtual e sobre a largura de banda alocada, veja [Tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md) e [Tamanhos de VM do Linux](../virtual-machines/virtual-machines-linux-sizes.md).
 
 ####<a name="subheading4"></a>Local
 Em todos os ambientes, colocar o cliente próximo ao servidor proporciona o melhor desempenho. Para acessar o armazenamento do Azure com o mínimo de latência, o melhor local para o cliente é a região na qual o Azure se encontra. Por exemplo, se você tem um site do Azure que usa o armazenamento do Azure, ambos devem estar na mesma região (por exemplo, no oeste dos EUA ou no sudeste asiático). Isso diminui a latência e o custo. No momento da edição, o uso da largura de banda em uma única região é gratuito.
@@ -139,13 +149,13 @@ Normalmente, o navegador não permite o uso de JavaScript em páginas hospedadas
 As duas tecnologias podem ajudar você a evitar cargas e gargalos desnecessários no seu aplicativo Web.
 
 ####Recursos úteis
-Para obter mais informações sobre SAS, consulte [Assinaturas de acesso compartilhado, parte 1: entendendo o modelo SAS](../storage-dotnet-shared-access-signature-part-1/).
+Para obter mais informações sobre SAS, consulte [Assinaturas de acesso compartilhado, parte 1: entendendo o modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
 
 Para saber mais sobre o CORS, consulte [Suporte a CORS (Compartilhamento de Recursos entre Origens) para os serviços de Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn535601.aspx).
 
 ###Cache
 ####<a name="subheading7"></a>Obtenção de dados
-Em geral, obter os dados de um serviço uma única vez é melhor do que obtê-los duas vezes. Tome como exemplo um aplicativo Web MVC em execução em uma função web que já recuperou um blob de 50 MB do serviço de armazenamento para apresentar ao usuário como conteúdo. O aplicativo pode recuperar esse mesmo blob sempre que o usuário o solicitar, ou pode armazená-lo em cache localmente e reutilizar esse conteúdo em outras solicitações dos usuários. Além disso, sempre que um usuário solicitar os dados, o aplicativo pode emitir um GET com um cabeçalho condicional para tempo de modificação, o que evita obter todo o blob se ele não foi modificado. Você pode aplicar esse mesmo padrão ao trabalho com entidades em tabela.
+Em geral, obter os dados de um serviço uma única vez é melhor do que obtê-los duas vezes. Tome como exemplo um aplicativo Web MVC em execução em uma função web que já recuperou um blob de 50 MB do serviço de armazenamento para apresentar ao usuário como conteúdo. O aplicativo pode recuperar esse mesmo blob sempre que o usuário o solicitar, ou pode armazená-lo em cache localmente e reutilizar esse conteúdo em outras solicitações dos usuários. Além disso, sempre que um usuário solicitar os dados, o aplicativo pode emitir um GET com um cabeçalho condicional para tempo de modificação, o que evita obter todo o blob se ele não foi modificado. Você pode aplicar esse mesmo padrão ao trabalho com entidades em tabela.
 
 Em alguns casos, você pode determinar que seu aplicativo parta do pressuposto de que o blob permanece válido por um curto período após a recuperação e que, durante esse período, o aplicativo não precisa verificar se o blob foi modificado.
 
@@ -154,7 +164,7 @@ O armazenamento em cache é ótimo para configurações, pesquisas e outros dado
 Para saber como obter as propriedades de um blob e descobrir a data da última modificação usando o .NET, consulte [Definir e recuperar as propriedades e os metadados](storage-properties-metadata.md). Para saber mais sobre downloads condicionais, consulte [Atualização condicional de uma cópia local de um blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).
 
 ####<a name="subheading8"></a>Carregamento de dados em lotes
-Em algumas situações nos aplicativos, é possível agregar dados localmente e carregá-los em lotes em vez de carregar cada dado imediatamente. Por exemplo, um aplicativo Web deve manter um arquivo de registro de atividades: o aplicativo pode enviar os detalhes de cada atividade assim que elas acontecem, como uma entidade de tabela (que requer muitas operações de armazenamento), ou pode salvar os detalhes da atividade em um arquivo de log local para carregar os detalhes de todas as atividades periodicamente, como um arquivo delimitado, em um blob. Se cada entrada de log tiver 1 KB, você pode carrega milhares de transações de uma só vez (é possível carregar um blob para transações com até 64 MB). É claro que, se o computador local falhar antes do carregamento, potencialmente perderá alguns dados de log: o desenvolvedor do aplicativo deve criar a possibilidade de dispositivo cliente ou falhas de carregamento. Se for necessário carregar os dados das atividades para timespans (não apenas por atividade), os blobs são mais indicados do que as tabelas.
+Em algumas situações nos aplicativos, é possível agregar dados localmente e carregá-los em lotes em vez de carregar cada dado imediatamente. Por exemplo, um aplicativo Web deve manter um arquivo de registro de atividades: o aplicativo pode enviar os detalhes de cada atividade assim que elas acontecem, como uma entidade de tabela (que requer muitas operações de armazenamento), ou pode salvar os detalhes da atividade em um arquivo de log local para carregar os detalhes de todas as atividades periodicamente, como um arquivo delimitado, em um blob. Se cada entrada de log tiver 1 KB, você pode carrega milhares de transações de uma só vez (é possível carregar um blob para transações com até 64 MB). É claro que, se o computador local falhar antes do carregamento, potencialmente perderá alguns dados de log: o desenvolvedor do aplicativo deve criar a possibilidade de dispositivo cliente ou falhas de carregamento. Se for necessário carregar os dados das atividades para timespans (não apenas por atividade), os blobs são mais indicados do que as tabelas.
 
 ###Configuração .NET
 Esta seção é útil para quem usa o .NET Framework, pois lista diversas configurações rápidas que você pode usar para fazer melhorias significativas no desempenho. Se estiver usando outras linguagens, verifique se conceitos parecidos aplicam-se à linguagem escolhida.
@@ -232,7 +242,7 @@ Para saber mais, consulte [Copiar Blob](http://msdn.microsoft.com/library/azure/
 A equipe de armazenamento do Azure lançou a ferramenta de linha de comando "AzCopy", que deve ajudar na transferência em massa de muitos blobs para, de e entre as contas de armazenamento. Essa ferramenta foi otimizada para esse cenário e pode alcançar altas taxas de transferência. Ela deve ser usada para baixar e carregar itens, bem como para copiar cenários, em massa. Para saber mais sobre ela e sobre como baixá-la, confira [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md).
 
 ####<a name="subheading19"></a>Serviço de importação/exportação do Azure
-Para grandes volumes de dados (superiores a 1 TB), o armazenamento do Azure oferece o serviço de Importação/Exportação, que permite o carregamento e o download do armazenamento do blob por meio de discos rígidos. Você pode colocar os dados em um disco rígido e enviá-lo à Microsoft para que possamos carregar esses dados ou enviar um disco rígido vazio para que baixemos os dados. Para saber mais, consulte [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados ao armazenamento Blob.](storage-import-export-service.md) Essa ação pode ser muito mais eficiente do que o envio/carregamento desse volume de dados pela rede.
+Para grandes volumes de dados (superiores a 1 TB), o armazenamento do Azure oferece o serviço de Importação/Exportação, que permite o carregamento e o download do armazenamento do blob por meio de discos rígidos. Você pode colocar os dados em um disco rígido e enviá-lo à Microsoft para que possamos carregar esses dados ou enviar um disco rígido vazio para que baixemos os dados. Para saber mais, consulte [Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados ao armazenamento Blob.](storage-import-export-service.md) Essa ação pode ser muito mais eficiente do que o envio/carregamento desse volume de dados pela rede.
 
 ###<a name="subheading20"></a>Uso de metadados
 O serviço Blob dá suporte às principais solicitações, o que pode incluir metadados sobre o blob. Por exemplo, se o aplicativo precisar remover os dados EXIF de uma fotografia, é possível recuperá-la e extrair esses dados. Para economizar largura de banda e melhorar o desempenho, seu aplicativo pode armazenar os dados EXIF nos metadados do blob quando o aplicativo tiver carregado a foto: você pode então recuperar os dados EXIF nos metadados usando apenas uma solicitação HEAD, economizando o tempo de processamento e largura de banda significativa necessários para extrair os dados EXIF cada vez o blob for lido. Isso é útil quando você precisa apenas dos metadados, não do conteúdo completo de um blob. Observe que é possível armazenar apenas 8 KB de metadados por blob (o serviço não aceita solicitações para armazenar volumes maiores). Se esse tamanho não for suficiente, talvez não seja possível usar essa abordagem.
@@ -256,7 +266,7 @@ Para carregar diversos blobs com rapidez, carregue-os paralelamente. Esse tipo d
 ###<a name="subheading23"></a>Escolhendo o tipo de blob certo
 O armazenamento do Azure oferece suporte a dois tipos de blob: blobs de *página* e blobs de *bloco*. Em um determinado cenário de uso, o tipo de blob escolhido afeta o desempenho e a escalabilidade da solução. Os Blobs de bloco são apropriados quando você deseja carregar grandes quantidades de dados com eficiência: por exemplo, um aplicativo cliente pode precisar carregar fotos ou vídeo no armazenamento de blob. Os Blobs de página são apropriados, se o aplicativo precisa executar gravações aleatórias em dados: por exemplo, os VHDs do Azure são armazenados como blobs de página.
 
-Para saber mais, confira [Noções básicas sobre blobs de bloco, blobs de acréscimo e blobs de página](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Para saber mais, confira [Noções básicas sobre Blobs de bloco, Blobs de acréscimo e Blobs de página](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ##Tabelas
 Além das práticas comprovadas para [todos os serviços](#allservices) descritos, as práticas comprovadas a seguir aplicam-se especificamente ao serviço de tabela.
@@ -265,10 +275,10 @@ Além das práticas comprovadas para [todos os serviços](#allservices) descrito
 Além das limitações da largura de banda de toda uma conta de armazenamento, as tabelas têm o limite de escalabilidade descrito a seguir. Observe que o sistema balanceia a carga conforme o tráfego aumento, mas se houver um pico de tráfego repentino, é possível que você não obtenha esse volume de taxa de transferência imediatamente. Se você normalmente presencia esses picos, haverá restrições e/ou eventos de tempo limite durante esses picos, pois o serviço de armazenamento balanceia a carga da tabela automaticamente. Os aumentos graduais geralmente apresentam resultados melhores, pois permitem que o sistema tenha tempo para balancear a carga corretamente.
 
 ####Entidades por segundo (conta)
-O limite de escalabilidade para o acesso às tabelas é de até 20 mil entidades (1 KB para cada) por segundo em cada conta. Em geral, cada entidade inserida, atualizada, excluída ou verificada é computada nessa meta. Assim, uma inserção em lote com 100 entidades é computada como 100 entidades. Uma consulta que verifica 1000 entidades e retorna apenas 5 é computada como 1000 entidades.
+O limite de escalabilidade para o acesso às tabelas é de até 20 mil entidades (1 KB para cada) por segundo em cada conta. Em geral, cada entidade inserida, atualizada, excluída ou verificada é computada nessa meta. Assim, uma inserção em lote com 100 entidades é computada como 100 entidades. Uma consulta que verifica 1000 entidades e retorna apenas 5 é computada como 1000 entidades.
 
 ####Entidades por segundo (partição)
-Em uma única partição, a meta de escalabilidade para o acesso às tabelas é de 2000 entidades (1 KB para cada) por segundo, usando a mesma contagem descrita na seção anterior.
+Em uma única partição, a meta de escalabilidade para o acesso às tabelas é de 2000 entidades (1 KB para cada) por segundo, usando a mesma contagem descrita na seção anterior.
 
 ###Configuração
 Esta seção lista diversas configurações rápidas que você pode usar para fazer melhorias significativas no desempenho do serviço Tabela:
@@ -293,7 +303,7 @@ Como você representa e consulta os seus dados é o maior fator único que afeta
 ####<a name="subheading27"></a>Tabelas e partições
 As tabelas são divididas em partições. Cada entidade armazenada em uma partição compartilha a mesma chave de partição e tem uma chave de linha exclusiva que a identifica dentro da partição em questão. As partições trazem benefícios, mas também criam limites de escalabilidade.
 
--	Benefícios: você pode atualizar as entidades em uma única transação atômica e em lote que contenha até 100 operações de armazenamento independentes (limite total de 4 MB). Partindo do pressuposto de que a mesma quantidade de entidades pode ser recuperada, você também pode consultar dados em uma única partição com mais eficiência do que a consulta a dados presentes em diversas partições (consulte as demais recomendações sobre consulta aos dados das tabelas).
+-	Benefícios: você pode atualizar as entidades em uma única transação atômica e em lote que contenha até 100 operações de armazenamento independentes (limite total de 4 MB). Partindo do pressuposto de que a mesma quantidade de entidades pode ser recuperada, você também pode consultar dados em uma única partição com mais eficiência do que a consulta a dados presentes em diversas partições (consulte as demais recomendações sobre consulta aos dados das tabelas).
 -	Limite de escalabilidade: o acesso às entidades armazenadas em uma única partição não pode passar por balanceamento de carga porque as partições dão suporte a transações atômicas em lote. Por esse motivo, a meta de escalabilidade de cada partição da tabela é menor do que a meta do serviço Tabela como um todo.  
 
 Devido a essas características, você deve adotar estes princípios de design:
@@ -383,7 +393,7 @@ Para obter informações atualizadas sobre custos, confira [Preços do Armazenam
 ###<a name=subheading44"></a>UpdateMessage
 Você pode usar **UpdateMessage** para aumentar o tempo limite da invisibilidade ou atualizar as informações de estado de uma mensagem. Embora isso seja útil, lembre-se de que a operação **UpdateMessage** é computada na meta de escalabilidade. No entanto, essa abordagem pode ser muito mais eficiente do que ter um fluxo de trabalho que transmite uma tarefa de uma fila para a outra, pois cada etapa da tarefa é concluída. O uso da operação **UpdateMessage** permite que o aplicativo salve o estado da tarefa na mensagem e continue trabalhando, em vez de colocar a mensagem na fila novamente para a próxima etapa a cada etapa concluída.
 
-Para obter mais informações, consulte o artigo [Como alterar o conteúdo de uma mensagem em fila](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message).
+Para obter mais informações, consulte o artigo [Como alterar o conteúdo de uma mensagem em fila](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).
 
 ###<a name=subheading45"></a>Arquitetura do aplicativo
 Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A seguir temos algumas maneiras de usar filas para que seu aplicativo seja mais escalonável:
@@ -394,4 +404,4 @@ Você deve usar filas para que a arquitetura do aplicativo seja escalonável. A 
 ##Conclusão
 Este artigo falou sobre algumas das práticas comprovadas mais comuns para otimizar o desempenho com o uso do armazenamento do Azure. Nós recomendamos que cada desenvolvedor avalie seu aplicativo com base nas práticas descritas acima e considere seguir as recomendações para obter desempenho excelente para seus aplicativos que usam o Armazenamento do Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0504_2016-->

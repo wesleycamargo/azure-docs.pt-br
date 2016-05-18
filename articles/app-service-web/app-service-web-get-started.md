@@ -65,13 +65,13 @@ Vamos implantar um aplicativo Web no Serviço de Aplicativo do Azure.
     
     Siga o prompt para continuar o logon em um navegador com uma conta da Microsoft que tenha sua assinatura do Azure.
 
-4. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando. A URL do aplicativo Web será http://&lt;app_name>.azurewebsites.net.
+4. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando.
 
         azure site create --git <app_name>
       
     >[AZURE.NOTE] Se nunca tiver configurado credenciais de implantação para sua assinatura do Azure, você será solicitado a criá-las. Essas credenciais, não as credenciais de sua conta do Azure, são usadas pelo Serviço de Aplicativo somente para implantações do Git e logons de FTP.
     
-    O aplicativo é criado no Azure agora, e o diretório atual também é inicializado no Git e conectado ao novo aplicativo do Serviço de Aplicativo como um remoto do Git. Você pode navegar para a URL do aplicativo para ver a bela página HTML padrão, mas vamos incluir seu próprio código lá agora.
+    Seu aplicativo está criado no Azure. Além disso, seu diretório atual é inicializado no Git e conectado ao novo aplicativo do Serviço de Aplicativo como um remoto do Git. Você pode navegar até a URL do aplicativo (http://&lt;app_name>.azurewebsites.net) para ver a bela página HTML padrão, mas agora vamos incluir seu próprio código lá.
 
 4. Implante o código de exemplo no novo aplicativo do Serviço de Aplicativo, como você faria com qualquer código com o Git:
 
@@ -109,7 +109,7 @@ Agora, vamos para o portal do Azure para ver o que você criou:
 
 2. Na barra à esquerda, clique em **Serviços de Aplicativos**.
 
-3. Clique no aplicativo do Serviço de Aplicativo que você acabou de criar para abrir sua folha no portal. Você verá que a folha **Configurações** também é aberta por padrão, para fins de conveniência.
+3. Clique no aplicativo que você acabou de criar para abrir sua página no portal (chamada de [folha](../azure-portal-overview.md)). A folha **Configurações** também é aberta por padrão, para fins de conveniência.
 
     ![Exibição de portal do primeiro aplicativo no Serviço de Aplicativo do Azure](./media/app-service-web-get-started/portal-view.png)
 
@@ -117,7 +117,7 @@ A folha do portal do aplicativo do Serviço de Aplicativo expõe um conjunto ava
 
 - interromper o aplicativo
 - reiniciar o aplicativo
-- clique no link **Grupo de Recursos** para ver todos os recursos implantados no grupo de recursos
+- clique no link de **Grupo de Recursos** para ver todos os recursos implantados no grupo de recursos
 - clique em **Configurações** > **Propriedades** para ver outras informações sobre o aplicativo
 - clique em **Ferramentas** para acessar ferramentas úteis para monitoramento e solução de problemas  
 
@@ -139,4 +139,4 @@ Ou localize mais conteúdo sobre os tipos de aplicativos que você pode criar no
 - [Criar aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/)
 - [Criar aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0420_2016-->

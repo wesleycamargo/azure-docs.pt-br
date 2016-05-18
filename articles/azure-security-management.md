@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="04/26/2016"
    ms.author="terrylan"/>
 
 # Gerenciamento de segurança no Azure
@@ -28,7 +28,7 @@ O potencial para ataques aumenta nesse tipo de ambiente porque é muito difícil
 
 ### Ameaças de gerenciamento remoto
 
-Os invasores frequentemente tentam obter acesso privilegiado comprometendo as credenciais da conta (por exemplo, por meio de força bruta para obter a senha, phishing e coleta de credenciais) ou enganando os usuários para que executem programas mal-intencionados (por exemplo, de sites mal-intencionados com downloads não intencionais ou de anexos de email mal-intencionados). Em um ambiente de nuvem gerenciado remotamente, violações de contas podem levar a um risco maior devido ao acesso em qualquer local e a qualquer momento.
+Os invasores frequentemente tentam obter acesso privilegiado comprometendo as credenciais da conta (por exemplo, por meio de força bruta para obter a senha, phishing e coleta de credenciais) ou enganando os usuários para que executem programas prejudiciais (por exemplo, de sites mal-intencionados com downloads não intencionais ou de anexos de email mal-intencionados). Em um ambiente de nuvem gerenciado remotamente, violações de contas podem levar a um risco maior devido ao acesso em qualquer local e a qualquer momento.
 
 Mesmo com controles rígidos em contas de administrador primárias, contas de usuário de nível inferior podem ser usadas para explorar pontos fracos na estratégia de segurança. A falta de treinamento de segurança apropriado também pode levar a falhas devido à divulgação acidental ou à exposição de informações de contas.
 
@@ -38,21 +38,28 @@ Em geral, a maioria dos ataques direcionados que resultam em violações de dado
 
 ### Conceitos básicos de segurança operacional
 
-Para que o gerenciamento e as operações sejam mais seguros, você pode minimizar a superfície de ataque do cliente reduzindo o número de pontos de entrada possíveis. Isso pode ser feito por meio dos princípios de segurança de "separação de tarefas" e "segregação de ambientes": isolar funções confidenciais umas das outras diminui a probabilidade de que um erro em um nível leve a uma violação em outro. Assim, tarefas administrativas não devem ser combinadas a atividades que possam levar ao comprometimento (por exemplo, o malware no email do administrador que, em seguida, infecta um servidor de infraestrutura). Da mesma forma, a estação de trabalho usada para operações de alta confidencialidade não deve ser o mesmo sistema usado para fins de alto risco, como navegar na Internet.
+Para que o gerenciamento e as operações sejam mais seguros, você pode minimizar a superfície de ataque do cliente reduzindo o número de pontos de entrada possíveis. Isso pode ser feito por meio de princípios de segurança: "separação de tarefas" e "diferenciação de ambientes".
 
-Cada aplicativo ou serviço instalado na estação de trabalho do administrador aumenta os riscos de segurança, devido a vulnerabilidades potenciais que podem ser exploradas. Portanto, reduzir a superfície de ataque do sistema removendo o software desnecessário de uma imagem de instalação padrão do sistema melhora a estabilidade e a capacidade de gerenciamento do cliente e protege o perfil de segurança de software do cliente. Por exemplo, uma estação de trabalho padrão administrativa, de suporte ou de desenvolvimento não deve exigir a instalação de um cliente de email ou outros aplicativos de produtividade se o principal objetivo do dispositivo é gerenciar serviços de nuvem.
+Isole funções confidenciais umas das outras para reduzir a probabilidade de um erro em um nível levar a uma violação em outro. Exemplos:
 
-A rede deve tratar os sistemas cliente que têm acesso de administrador aos componentes de infraestrutura como se fossem tão confidenciais quanto os próprios componentes de infraestrutura. Como o comprometimento de um administrador ou sistema de administrador pode levar a uma violação de serviço, o cliente deve estar sujeito à política mais rígida possível para reduzir riscos de segurança. As políticas de segurança que aumentam a fiscalização em dispositivos cliente que têm privilégios administrativos podem incluir configurações de Política de Grupo que negam acesso aberto à Internet do dispositivo e o uso de uma configuração de firewall restritiva.
+- As tarefas administrativas não devem ser combinadas a atividades que possam levar ao comprometimento (por exemplo, o malware no email do administrador que, em seguida, infecta um servidor de infraestrutura).
+- Uma estação de trabalho usada para operações de alta confidencialidade não deve ser o mesmo sistema usado para fins de alto risco, como navegar na Internet.
 
-Você pode implementar outras medidas, como:
+Reduza a superfície de ataque do sistema ao remover o software desnecessário. Exemplo:
 
-- Usar VPNs com o IPsec (protocolo IPsec), caso seja necessário acesso direto.
-- Configurar domínios do Active Directory separados de gerenciamento e de desenvolvimento.
-- Isolar e filtrar o tráfego de rede de estações de trabalho de gerenciamento.
-- Usar software antimalware.
-- Implementar a autenticação multifator para reduzir o risco de credenciais roubadas.
+- Uma estação de trabalho padrão administrativa, de suporte ou de desenvolvimento não deve exigir a instalação de um cliente de email ou outros aplicativos de produtividade se o principal objetivo do dispositivo é gerenciar serviços de nuvem.
+
+Os sistemas de clientes com acesso de administrador aos componentes de infraestrutura devem estar sujeitos à política mais rígida possível para reduzir os riscos de segurança. Exemplos:
+
+- As políticas de segurança podem incluir configurações de Política de Grupo que negam acesso aberto à Internet do dispositivo e o uso de uma configuração de firewall restritiva.
+- Use VPNs com o IPsec (protocolo IPsec), caso seja necessário acesso direto.
+- Configure domínios separados do Active Directory de gerenciamento e de desenvolvimento.
+- Isole e filtre o tráfego de rede de estações de trabalho de gerenciamento.
+- Use software antimalware.
+- Implemente a autenticação multifator para reduzir o risco de credenciais roubadas.
 
 Consolidar recursos de acesso e eliminar pontos de extremidade não gerenciados também simplifica as tarefas de gerenciamento.
+
 
 ### Fornecer segurança para o gerenciamento remoto do Azure
 
@@ -92,7 +99,7 @@ A configuração de serviços de nuvem do Azure é executada por meio do portal 
 
 Os aplicativos implantados na Máquina Virtual fornecem suas próprias interfaces e ferramentas de clientes, conforme necessário, como o MMC (Console de Gerenciamento Microsoft), um console de gerenciamento empresarial (como o Microsoft System Center ou o Windows Intune) ou outro aplicativo de gerenciamento (o Microsoft SQL Server Management Studio, por exemplo). Essas ferramentas geralmente residem em uma rede de cliente ou ambiente empresarial. Elas podem depender de protocolos de rede específicos, como o protocolo RDP, que exigem conexões diretas com estado. Algumas delas podem ter interfaces habilitadas para a Web que não devem ser publicadas abertamente nem acessíveis pela Internet.
 
-Você pode restringir o acesso ao gerenciamento de serviços de plataforma e infraestrutura no Azure usando a [autenticação multifator](multi-factor-authentication/multi-factor-authentication.md), [certificados de gerenciamento X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e regras de firewall. O portal do Azure e a SMAPI exigem o protocolo TLS. No entanto, os serviços e aplicativos que você implanta no Azure exigem que tome medidas de proteção que são apropriadas com base no aplicativo. Esses mecanismos muitas vezes podem ser habilitados mais facilmente por meio de uma configuração de estação de trabalho protegida padronizada.
+Você pode restringir o acesso ao gerenciamento de serviços de plataforma e infraestrutura no Azure usando a [autenticação multifator](multi-factor-authentication/multi-factor-authentication.md), os [certificados de gerenciamento X.509](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) e as regras de firewall. O portal do Azure e a SMAPI exigem o protocolo TLS. No entanto, os serviços e aplicativos que você implanta no Azure exigem que tome medidas de proteção que são apropriadas com base no aplicativo. Esses mecanismos muitas vezes podem ser habilitados mais facilmente por meio de uma configuração de estação de trabalho protegida padronizada.
 
 ### Gateway de gerenciamento
 
@@ -197,7 +204,7 @@ Não presuma que, como uma estação de trabalho foi bloqueada, outros requisito
 | Não compartilhe contas e senhas entre administradores nem reutilize senhas em várias contas de usuário ou serviços, particularmente para mídia social ou outras atividades não administrativas. | Crie uma conta da Microsoft dedicada para gerenciar sua assinatura do Azure (uma conta que não seja usada para email pessoal). |
 | Não envie arquivos de configuração por email. | Os perfis e arquivos de configuração devem ser instalados de uma fonte confiável (por exemplo, uma unidade flash USB criptografada), não por meio de um mecanismo que possa ser facilmente comprometido, como email. |
 | Não use senhas de logon fracas ou simples. | Imponha políticas de senha forte, ciclos de expiração (alteração no primeiro uso), tempos limite de console e bloqueios de conta automáticos. Use um sistema de gerenciamento de senha de cliente com a autenticação multifator para acesso ao cofre de senhas. |
-| Não exponha as portas de gerenciamento à Internet. | Bloqueie as portas do Azure e os endereços IP para restringir o acesso de gerenciamento. Para obter mais informações, confira o white paper [Segurança de rede do Azure](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). |
+| Não exponha as portas de gerenciamento à Internet. | Bloqueie as portas do Azure e os endereços IP para restringir o acesso de gerenciamento. Para saber mais, confira o white paper [Segurança de rede do Azure](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx). |
 | | Use firewalls, VPNs e NAP para todas as conexões de gerenciamento. |
 
 ## Operações do Azure
@@ -232,7 +239,7 @@ Os seguintes recursos estão disponíveis para fornecer informações mais gerai
 - [Proteção de acesso privilegiado](https://technet.microsoft.com/library/mt631194.aspx) – obtenha os detalhes técnicos para projetar e criar uma estação de trabalho administrativa segura para o gerenciamento do Azure
 - [Central de Confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/Security/AzureSecurity) ‒ saiba mais sobre os recursos da plataforma Azure que protegem a malha do Azure e as cargas de trabalho que são executados no Azure
 - [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx) – o local em que vulnerabilidades de segurança da Microsoft, inclusive problemas do Azure, podem ser relatadas ou enviadas por email a [secure@microsoft.com](mailto:secure@microsoft.com)
-- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – fique em dia com últimas notícias da Segurança do Azure
+- [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – leia as últimas notícias da Segurança do Azure
 
 <!--Image references-->
 [1]: ./media/azure-security-management/typical-management-network-topology.png
@@ -240,4 +247,4 @@ Os seguintes recursos estão disponíveis para fornecer informações mais gerai
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0427_2016-->

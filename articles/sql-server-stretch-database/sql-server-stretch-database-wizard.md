@@ -44,9 +44,29 @@ Selecione as tabelas que você deseja habilitar para o Stretch.
 |**Nome**|Especifica o nome da coluna na tabela.|
 |(sem título)|Um símbolo nesta coluna normalmente indica que não é possível habilitar a tabela selecionada para o Stretch devido a um problema de bloqueio. Talvez o motivo seja o uso de um tipo de dados sem suporte pela tabela. Passe o cursor do mouse sobre o símbolo para exibir mais informações em uma dica de ferramenta. Para saber mais, confira [Problemas de bloqueio e limitações de área da superfície do Banco de Dados de Ampliação](sql-server-stretch-database-limitations.md).|
 |**Ampliado**|Indica se a tabela já está habilitada.|
+|**Migrar**|No RC3, você pode migrar uma tabela inteira (**Tabela Inteira**) ou especificar um predicado de filtro baseado em data no assistente. Se você quiser usar um predicado de filtro diferente para selecionar linhas para migrar, execute a instrução ALTER TABLE para especificar o predicado de filtro depois que você sair do assistente. Para saber mais sobre o predicado de filtro, confira [Usar um predicado de filtro para selecionar linhas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Para saber mais sobre como aplicar o predicado, confira [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Linhas**|Especifica o número de linhas na tabela.|
 |**Tamanho (KB)**|Especifica o tamanho da tabela em KB.|
-|**Migrar**|No CTP 3.1, por meio do RC2, só é possível migrar uma tabela inteira usando o assistente. Se você quiser especificar um predicado para selecionar as linhas para migração em uma tabela que contém os dados atuais e do histórico, execute a instrução ALTERAR TABELA para especificar um predicado depois de sair do assistente. Para saber mais, confira [Habilitar o Banco de Dados de Ampliação para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+
+## <a name="Filter"></a>Como opção, forneça um predicado de filtro baseado em data
+
+Se você quiser fornecer um predicado de filtro baseado em data para selecionar linhas para migrar, faça o seguinte na página **Selecionar tabelas**.
+
+1.  Na lista **Selecionar as tabelas que você deseja alongar**, clique em **Tabela Inteira** na linha da tabela. A caixa de diálogo **Selecionar linhas para alongar** é aberta.
+
+    ![Defina um predicado de filtro baseado em data][StretchWizardImage2a]
+
+2.  Na caixa de diálogo **Selecionar linhas para alongar**, selecione **Escolher linhas**.
+
+3.  No campo **Nome**, forneça um nome para o predicado do filtro.
+
+4.  na cláusula **Onde**, escolha uma coluna de data na tabela, escolha um operador e forneça um valor de data.
+
+5. Clique em **Verificar** para testar o predicado. Se o predicado retornar resultados da tabela, ou seja, se houver linhas para migrar que satisfaçam à condição, o teste mostrará**Sucesso**.
+
+6.  Clique em Concluído para retornar à página **Selecionar tabelas**.
+
+    ![Selecione a página Tabelas depois de definir um predicado de filtro][StretchWizardImage2b]
 
 ## <a name="Configure"></a>Configurar a implantação do Azure
 
@@ -108,7 +128,7 @@ Examine os valores inseridos e as opções selecionadas no assistente. Em seguid
 ## <a name="Results"></a>Resultados
 Revise os resultados.
 
-Como opção, escolha **Monitorar** para iniciar o monitoramento do status da migração de dados do Monitor do Banco de Dados de Ampliação. Para saber mais, confira [Monitorar e solucionar problemas de migração de dados (Banco de Dados de Ampliação)](sql-server-stretch-database-monitor.md).
+Como opção, escolha **Monitorar** para iniciar o monitoramento do status da migração de dados do Monitor do Banco de Dados de Ampliação. Para saber mais, confira [Monitorar e solucionar problemas de migração de dados (Stretch Database)](sql-server-stretch-database-monitor.md).
 
 ## <a name="KnownIssues"></a>Solução de problemas com o assistente
 **O assistente do Banco de Dados de Stretch falhou.** Se o Banco de Dados de Stretch ainda não estiver habilitado no nível do servidor, e você executar o assistente sem as permissões de administrador do sistema para habilitá-lo, o assistente falhará. Peça ao administrador do sistema para habilitar o Banco de Dados de Stretch na instância do servidor local e, em seguida, execute o assistente novamente. Para saber mais, confira [Pré-requisito: permissão para habilitar o Banco de Dados de Ampliação no servidor](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
@@ -116,9 +136,9 @@ Como opção, escolha **Monitorar** para iniciar o monitoramento do status da mi
 ## Próximas etapas
 Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migração de dados e gerenciar as tabelas e bancos de dados habilitados para o Stretch.
 
--   [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md) para habilitar outras tabelas.
+-   [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) para habilitar outras tabelas.
 
--   [Monitorar o Banco de Dados de Stretch](sql-server-stretch-database-monitor.md) para ver o status da migração dos dados.
+-   [Monitorar o Stretch Database](sql-server-stretch-database-monitor.md) para ver o status da migração dos dados.
 
 -   [Pausar e retomar o Banco de Dados de Stretch](sql-server-stretch-database-pause.md)
 
@@ -134,6 +154,8 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png
+[StretchWizardImage2a]: ./media/sql-server-stretch-database-wizard/stretchwiz2a.png
+[StretchWizardImage2b]: ./media/sql-server-stretch-database-wizard/stretchwiz2b.png
 [StretchWizardImage3]: ./media/sql-server-stretch-database-wizard/stretchwiz3.png
 [StretchWizardImage4]: ./media/sql-server-stretch-database-wizard/stretchwiz4.png
 [StretchWizardImage5]: ./media/sql-server-stretch-database-wizard/stretchwiz5.png
@@ -141,4 +163,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0420_2016-->

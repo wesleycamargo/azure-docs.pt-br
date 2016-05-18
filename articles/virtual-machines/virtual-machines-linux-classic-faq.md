@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Perguntas frequentes sobre VMs | Microsoft Azure"
-	description="Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais do Azure criadas com o modelo de implantação clássico."
+	description="Responde algumas das perguntas mais comuns sobre as máquinas virtuais do Azure criadas com o modelo de implantação clássico."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="04/15/2016"
 	ms.author="cynthn"/>
 
 # Perguntas frequentes sobre as Máquinas Virtuais do Azure criadas com o modelo de implantação clássico
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0420_2016-->

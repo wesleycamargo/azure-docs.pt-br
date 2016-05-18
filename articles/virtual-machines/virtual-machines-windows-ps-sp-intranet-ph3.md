@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="04/01/2016"
 	ms.author="josephd"/>
 
 # Fase 3 da carga de trabalho do farm da intranet do SharePoint: Configurar a infraestrutura do SQL Server
@@ -23,7 +23,9 @@
 
 Nesta fase da implantação de um farm do SharePoint 2013 somente intranet com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure, você deve configurar os dois computadores do SQL Server e o computador do nó principal do cluster e combiná-los em um cluster do Windows Server.
 
-Conclua esta fase antes de passar para a [Fase 4](virtual-machines-windows-ps-sp-intranet-ph4.md). Veja [Implantando o SharePoint com Grupos de Disponibilidade do SQL Server AlwaysOn no Azure](virtual-machines-windows-sp-intranet-overview.md) para conhecer todas as fases. virtual-machines-windows-sp-intranet-overview.md>[AZURE.NOTE] Essas instruções usam uma imagem do SQL Server na galeria de imagens do Azure e você receberá cobranças contínuas pelo uso da licença do SQL Server. Também é possível criar máquinas virtuais no Azure e instalar suas próprias licenças do SQL Server, mas você deverá ter o Software Assurance e a Licença de Mobilidade para usar sua licença do SQL Server em uma máquina virtual, incluindo uma máquina virtual do Azure. Para saber mais sobre como instalar o SQL Server em uma máquina virtual, consulte [Instalação do SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
+Conclua esta fase antes de passar para a [Fase 4](virtual-machines-windows-ps-sp-intranet-ph4.md). Consulte [Implantando o SharePoint com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure](virtual-machines-windows-sp-intranet-overview.md) para conhecer todas as fases.
+
+[AZURE.NOTE] Essas instruções usam uma imagem do SQL Server na galeria de imagens do Azure e você receberá cobranças contínuas pelo uso da licença do SQL Server. Também é possível criar máquinas virtuais no Azure e instalar suas próprias licenças do SQL Server, mas você deverá ter o Software Assurance e a Licença de Mobilidade para usar sua licença do SQL Server em uma máquina virtual, incluindo uma máquina virtual do Azure. Para saber mais sobre como instalar o SQL Server em uma máquina virtual, consulte [Instalação do SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Criar as máquinas virtuais do cluster do SQL Server no Azure
 
@@ -169,7 +171,7 @@ O SQL Server exige uma porta que os clientes usem para acessar o servidor de ban
 
 Saia como administrador local de cada uma das máquinas virtuais do SQL Server.
 
-Para obter informações sobre como otimizar o desempenho do SQL Server no Azure, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-classic-sql-perf.md). Você também desabilitar o armazenamento com redundância geográfica (GRS) para a conta de armazenamento do farm do SharePoint e usar espaços de armazenamento para otimizar o IOPs.
+Para obter informações sobre como otimizar o desempenho do SQL Server no Azure, consulte [Práticas recomendadas de desempenho do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md). Você também desabilitar o armazenamento com redundância geográfica (GRS) para a conta de armazenamento do farm do SharePoint e usar espaços de armazenamento para otimizar o IOPs.
 
 ## Configurar o servidor do nó principal do cluster
 
@@ -240,4 +242,4 @@ O próximo diagrama mostra a configuração resultante da conclusão bem-sucedid
 
 - Use a [Fase 4](virtual-machines-windows-ps-sp-intranet-ph4.md) para continuar com a configuração desta carga de trabalho.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0413_2016-->

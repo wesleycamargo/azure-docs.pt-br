@@ -13,20 +13,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="01/08/2016"
+	ms.date="04/18/2016"
 	ms.author="marsma"/>
 
 # Dimensionar automaticamente nós de computação em um pool do Lote do Azure
 
-Ao usar o dimensionamento automático do Lote do Azure, você poderá adicionar ou remover dinamicamente nós de computação em um pool do Lote durante a execução do trabalho para ajustar automaticamente o poder de processamento que é usado pelo seu aplicativo. Esse ajuste automático pode economizar tempo e dinheiro.
+Com dimensionamento automático, o serviço de Lote do Azure pode adicionar ou remover dinamicamente nós em um pool baseado nos parâmetros que você definir. Isso permite que você ajuste automaticamente a quantidade de recursos de computação usada pelo seu aplicativo, possivelmente economizando tempo e dinheiro.
 
-Você pode habilitar o dimensionamento automático em um pool de nós de computação associando uma *fórmula de dimensionamento automático* ao pool, como acontece com o método [PoolOperations.EnableAutoScale][net_enableautoscale] na biblioteca [Lote .NET](batch-dotnet-get-started.md). O serviço Lote usa então essa fórmula para determinar o número de nós de computação que são necessários para executar a carga de trabalho. O número de nós de computação no pool, que responde a exemplos de dados de métrica de serviço coletados periodicamente, é ajustado em um intervalo configurável baseado na fórmula associada.
+Você pode habilitar o dimensionamento automático em um pool de nós de computação associando uma *fórmula de dimensionamento automático* que você definir, como com o método [PoolOperations.EnableAutoScale][net_enableautoscale] na biblioteca [.NET do Lote](batch-dotnet-get-started.md). O serviço Lote usa então essa fórmula para determinar o número de nós de computação que são necessários para executar a carga de trabalho. O Lote responde aos exemplos de dados de métrica de serviço coletados periodicamente e ajusta o número de nós de computação em um pool em um intervalo configurável baseado na fórmula associada.
 
-Você pode habilitar o dimensionamento automático quando um pool é criado ou em um pool existente. Você também pode alterar uma fórmula existente em um pool que tenha o "dimensionamento automático" habilitado. O Lote permite avaliar as fórmulas antes de atribuí-las aos pools, bem como monitorar o status das execuções de dimensionamento automático.
+Você pode habilitar o dimensionamento automático quando um pool é criado ou em um pool existente. Você também pode alterar uma fórmula existente em um pool que tenha o "dimensionamento automático" habilitado. O Lote fornece a capacidade de avaliar as fórmulas antes de atribuí-las aos pools, bem como monitorar o status das execuções de dimensionamento automático.
 
 ## Fórmulas de dimensionamento automático
 
-Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que contém uma ou mais instruções que são atribuídas a um elemento [autoScaleFormula][rest_autoscaleformula] (API REST do Lote) do pool ou à propriedade [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (API .NET do Lote). Você define essas fórmulas. Quando atribuídas a um pool, elas determinam o número de nós de computação disponíveis em um pool para o próximo intervalo de processamento (veja mais sobre intervalos mais adiante). A cadeia de caracteres da fórmula não pode ter mais de 8 KB, pode incluir até cem instruções que são separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
+Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define, que contém uma ou mais instruções que são atribuídas a um elemento [autoScaleFormula][rest_autoscaleformula] (API REST do Lote) do pool ou à propriedade [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET do Lote). Ao ser atribuído a um pool, o serviço do Lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento (você verá mais sobre intervalos mais adiante). A cadeia de caracteres da fórmula não pode ter mais de 8 KB, pode incluir até cem instruções que são separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
 
 Você pode pensar nas fórmulas de dimensionamento automático como se estivesse usando uma "linguagem" de dimensionamento automático do Lote. As instruções de fórmula são expressões de forma livre que incluem variáveis definidas pelo sistema e pelo usuário, bem como constantes. Eles podem executar várias operações com esses valores usando tipos, operadores e funções internas. Por exemplo, uma instrução pode ter a seguinte forma:
 
@@ -39,7 +39,7 @@ VAR₀ = Expression₀(system-defined variables);
 VAR₁ = Expression₁(system-defined variables, VAR₀);
 ```
 
-Ao usar as instruções em sua fórmula, sua meta é atingir um número de nós de computação para o qual o pool deve ser dimensionado, o número **alvo** de **nós dedicados**. Esse número pode ser maior, menor ou igual ao número atual de nós no pool. O Lote avalia a fórmula de dimensionamento automático do pool em um intervalo específico (os [intervalos de dimensionamento automático](#interval) são discutidos abaixo). Em seguida, ele ajustará o número alvo de nós no pool para o número especificado pela fórmula de dimensionamento no momento da avaliação.
+Ao usar as instruções em sua fórmula, sua meta é atingir um número de nós de computação para o qual o pool deve ser dimensionado, o número de **destino** de **nós dedicados**. Esse número pode ser maior, menor ou igual ao número atual de nós no pool. O Lote avalia a fórmula de dimensionamento automático do pool em um intervalo específico ([intervalos de dimensionamento automático](#automatic-scaling-interval) são discutidos abaixo). Em seguida, ele ajustará o número alvo de nós no pool para o número especificado pela fórmula de dimensionamento no momento da avaliação.
 
 Como um exemplo rápido, essa fórmula de dimensionamento automático de duas linhas especifica que o número de nós deve ser ajustado de acordo com o número de tarefas ativas, até um máximo de 10 nós de computação:
 
@@ -48,9 +48,9 @@ $averageActiveTaskCount = avg($ActiveTasks.GetSample(TimeInterval_Minute * 15));
 $TargetDedicated = min(10, $averageActiveTaskCount);
 ```
 
-As próximas seções deste artigo abordam as diversas entidades que vão compor as fórmulas de dimensionamento automático, incluindo variáveis, operadores, operações e funções. Você descobrirá como obter vários recursos de computação e métricas de tarefa no Lote. Você pode usar essas métricas para ajustar a contagem de nós de seu pool baseado no uso de recursos e no status da tarefa. Você aprenderá como construir uma fórmula e habilitar o dimensionamento automático em um pool usando APIs de Lote .NET e REST. Vamos concluir usando algumas fórmulas de exemplo.
+As próximas seções deste artigo abordam as diversas entidades que vão compor as fórmulas de dimensionamento automático, incluindo variáveis, operadores, operações e funções. Você descobrirá como obter vários recursos de computação e métricas de tarefa no Lote. Você pode usar essas métricas para ajustar a contagem de nós do seu pool baseada no uso de recursos e no status da tarefa. Você aprenderá como construir uma fórmula e habilitar o dimensionamento automático em um pool usando APIs de Lote .NET e REST. Vamos concluir usando algumas fórmulas de exemplo.
 
-> [AZURE.NOTE] Cada conta do Lote do Azure fica limitada a um número máximo de nós de computação que podem ser usados para processamento. O serviço de Lote criará nós apenas até esse limite. Portanto, ele não pode atingir o número alvo que é especificado por uma fórmula. Confira [Cotas e limites para o serviço do Lote do Azure](batch-quota-limit.md) para obter informações sobre como exibir e aumentar as cotas da conta.
+> [AZURE.IMPORTANT] Cada conta do Lote do Azure fica limitada a um número máximo de nós de computação que podem ser usados para processamento. O serviço de Lote criará nós apenas até esse limite. Portanto, ele não pode atingir o número alvo que é especificado por uma fórmula. Confira [Cotas e limites para o serviço do Lote do Azure](batch-quota-limit.md) para obter informações sobre como exibir e aumentar as cotas da conta.
 
 ## <a name="variables"></a>Variáveis
 
@@ -65,7 +65,7 @@ Você pode usar variáveis definidas pelo sistema e pelo usuário em fórmulas d
   </tr>
   <tr>
     <td>$TargetDedicated</td>
-    <td>O número <b>alvo</b> de <b>nós de computação dedicados</b> para o pool. Esse é o número de nós de computação para o qual o pool deve ser dimensionado. Trata-se de um número "alvo", uma vez que é possível que um pool não atinja o número alvo de nós. Isso pode ocorrer se o número alvo de nós for modificado novamente por uma avaliação de dimensionamento automático subsequente antes do pool atingir a meta inicial. Isso também acontece ao atingir uma quota principal ou de nó da conta do Lote antes de atingir o número alvo de nós.</td>
+    <td>O número <b>alvo</b> de <b>nós de computação dedicados</b> para o pool. Esse é o número de nós de computação para o qual o pool deve ser dimensionado. Trata-se de um número "alvo", uma vez que é possível que um pool não atinja o número alvo de nós. Isso pode ocorrer se o número alvo de nós for modificado novamente por uma avaliação de dimensionamento automático subsequente antes do pool atingir a meta inicial. Isso também acontece ao atingir uma cota principal ou de nó da conta do Lote antes de atingir o número alvo de nós.</td>
   </tr>
   <tr>
     <td>$NodeDeallocationOption</td>
@@ -186,166 +186,52 @@ Esses **tipos** têm suporte em uma fórmula.
 
 Essas **operações** são permitidas nos tipos listados acima.
 
-<table>
-  <tr>
-    <th>Operação</th>
-    <th>Operadores permitidos</th>
-  </tr>
-  <tr>
-    <td>double &lt;operador> double => double</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>double &lt;operador> timeinterval => timeinterval</td>
-    <td>*</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operador> double => doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>doubleVec &lt;operador> doubleVec => doubleVec</td>
-    <td>+, -, *, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operador> double => timeinterval</td>
-    <td>*, /</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operador> timeinterval => timeinterval</td>
-    <td>+, -</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operador> timestamp => timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operador> timeinterval => timestamp</td>
-    <td>+</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operador> timestamp => timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>&lt;operador>double => double</td>
-    <td>-, !</td>
-  </tr>
-  <tr>
-    <td>&lt;operador>timeinterval => timeinterval</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>double &lt;operador> double => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>string &lt;operador> string => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>timestamp &lt;operador> timestamp => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>timeinterval &lt;operador> timeinterval => double</td>
-    <td>&lt;, &lt;=, ==, >=, >, !=</td>
-  </tr>
-  <tr>
-    <td>double &lt;operador> double => double</td>
-    <td>&amp;&amp;, ||</td>
-  </tr>
-  <tr>
-    <td>testar apenas double (diferente de zero é true, zero é false)</td>
-    <td>? :</td>
-  </tr>
-</table>
+| Operação | Operadores com suporte | Tipo de resultado |
+| ------------------------------------- | --------------------- | ------------- |
+| double *operator* double 				| +, -, *, /            | double		    |
+| double *operator* timeinterval 		| *                     | timeinterval	    |
+| doubleVec *operator* double 			| +, -, *, /            | doubleVec		    |
+| doubleVec *operator* doubleVec 		| +, -, *, /            | doubleVec		    |
+| timeinterval *operator* double 		| *, /                  | timeinterval	    |
+| timeinterval *operator* timeinterval 	| +, -                  | timeinterval	    |
+| timeinterval *operator* timestamp 	| +                     | timestamp		    |
+| timestamp *operator* timeinterval 	| +                     | timestamp		    |
+| timestamp *operator* timestamp 		| -                     | timeinterval	    |
+| *operator*double 						| -, !                  | double		    |
+| *operator*timeinterval 				| -                     | timeinterval	    |
+| double *operator* double 				| <, <=, ==, >=, >, !=  | double		    |
+| string *operator* string 				| <, <=, ==, >=, >, !=  | double		    |
+| timestamp *operator* timestamp 		| <, <=, ==, >=, >, !=  | double		    |
+| timeinterval *operator* timeinterval 	| <, <=, ==, >=, >, !=  | double		    |
+| double *operator* double 				| &&, &#124;&#124;      | double		    |
+
+Ao testar um duplo com um operador ternário (`double ? statement1 : statement2`), um item que não seja zero é **true** e zero é **false**.
 
 ## Funções
 
 Essas **funções** predefinidas estão disponíveis para uso na definição de uma fórmula de dimensionamento automático.
 
-<table>
-  <tr>
-    <th>Função</th>
-    <th>Descrição</th>
-  </tr>
-  <tr>
-    <td>double <b>avg</b>(doubleVecList)</td>
-    <td>Retorna o valor médio de todos os valores em doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>len</b>(doubleVecList)</td>
-    <td>Retorna o comprimento do vetor criado por meio de doubleVecList.</td>
-  <tr>
-    <td>double <b>lg</b>(double)</td>
-    <td>Retorna o logaritmo na base 2 do double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>lg</b>(doubleVecList)</td>
-    <td>Retorna o logaritmo de componentwise na base 2 de doubleVecList. Um vec (double) deve ser passado explicitamente para o parâmetro double único. Caso contrário, a versão double lg(double) será assumida.</td>
-  </tr>
-  <tr>
-    <td>double <b>ln</b>(double)</td>
-    <td>Retorna o logaritmo natural do double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>ln</b>(doubleVecList)</td>
-    <td>Retorna o logaritmo de componentwise na base 2 de doubleVecList. Um vec (double) deve ser passado explicitamente para o parâmetro double único. Caso contrário, a versão double lg(double) será assumida.</td>
-  </tr>
-  <tr>
-    <td>double <b>log</b>(double)</td>
-    <td>Retorna o logaritmo na base 10 do double.</td>
-  </tr>
-  <tr>
-    <td>doubleVec <b>log</b>(doubleVecList)</td>
-    <td>Retorna o logaritmo de componentwise na base 10 de doubleVecList. Um vec (double) deve ser passado explicitamente para o parâmetro double único. Caso contrário, a versão double log(double) será assumida.</td>
-  </tr>
-  <tr>
-    <td>double <b>max</b>(doubleVecList)</td>
-    <td>Retorna o valor máximo em doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>min</b>(doubleVecList)</td>
-    <td>Retorna o valor mínimo em doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>norm</b>(doubleVecList)</td>
-    <td>Retorna a norma dupla do vetor criado por meio de doubleVecList.
-  </tr>
-  <tr>
-    <td>double <b>percentile</b>(doubleVec v, double p)</td>
-    <td>Retorna o elemento percentil do vetor v.</td>
-  </tr>
-  <tr>
-    <td>double <b>rand</b>()</td>
-    <td>Retorna um valor aleatório entre 0,0 e 1,0.</td>
-  </tr>
-  <tr>
-    <td>double <b>range</b>(doubleVecList)</td>
-    <td>Retorna a diferença entre os valores mínimo e máximo em doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>double <b>std</b>(doubleVecList)</td>
-    <td>Retorna o desvio padrão da amostra dos valores em doubleVecList.</td>
-  </tr>
-  <tr>
-    <td><b>stop</b>()</td>
-    <td>Interrompe a avaliação da expressão de dimensionamento automático.</td>
-  </tr>
-  <tr>
-    <td>double <b>sum</b>(doubleVecList)</td>
-    <td>Retorna a soma de todos os componentes em doubleVecList.</td>
-  </tr>
-  <tr>
-    <td>timestamp <b>time</b>(string dateTime="")</td>
-    <td>Retorna o carimbo de data/hora do horário atual se nenhum parâmetro for passado, ou o carimbo de data/hora da cadeia de caracteres dateTime se algum parâmetro passar. Os formatos de dateTime com suporte são W3C-DTF e RFC1123.</td>
-  </tr>
-  <tr>
-    <td>double <b>val</b>(doubleVec v, double i)</td>
-    <td>Retorna o valor do elemento que está no local i do vetor v com um índice inicial de zero.</td>
-  </tr>
-</table>
+| Função | Tipo de retorno | Descrição
+| --------------------------------- | ------------- | --------- |
+| avg(doubleVecList) | double | Retorna o valor médio de todos os valores em doubleVecList.
+| len(doubleVecList) | double | Retorna o comprimento do vetor criado por meio de doubleVecList.
+| lg(double) | double | Retorna o logaritmo na base 2 do double.
+| lg(doubleVecList) | doubleVec | Retorna o logaritmo de componentwise na base 2 de doubleVecList. Um vec(double) deve ser passado explicitamente para o parâmetro. Caso contrário, a versão double lg(double) será assumida.
+| ln(double) | double | Retorna o logaritmo natural do double.
+| ln(doubleVecList) | doubleVec | Retorna o logaritmo de componentwise na base 2 de doubleVecList. Um vec(double) deve ser passado explicitamente para o parâmetro. Caso contrário, a versão double lg(double) será assumida.
+| log(double) | double | Retorna o logaritmo na base 10 do double.
+| log(doubleVecList) | doubleVec | Retorna o logaritmo de componentwise na base 10 de doubleVecList. Um vec (double) deve ser passado explicitamente para o parâmetro double único. Caso contrário, a versão double log(double) será assumida.
+| max(doubleVecList) | double | Retorna o valor máximo em doubleVecList.
+| min(doubleVecList) | double | Retorna o valor mínimo em doubleVecList.
+| norm(doubleVecList) | double | Retorna a norma dupla do vetor criado por meio de doubleVecList.
+| percentile(doubleVec v, double p) | double | Retorna o elemento percentil do vetor v.
+| rand() | double | Retorna um valor aleatório entre 0,0 e 1,0.
+| range(doubleVecList) | double | Retorna a diferença entre os valores mínimo e máximo em doubleVecList.
+| std(doubleVecList) | double | Retorna o desvio padrão da amostra dos valores em doubleVecList.
+| stop() | | Interrompe a avaliação da expressão de dimensionamento automático.
+| sum(doubleVecList) | double | Retorna a soma de todos os componentes em doubleVecList.
+| time(string dateTime="") | timestamp | Retorna o carimbo de data/hora do horário atual se nenhum parâmetro for passado, ou o carimbo de data/hora da cadeia de caracteres dateTime se algum parâmetro passar. Os formatos de dateTime com suporte são W3C-DTF e RFC1123.
+| val(doubleVec v, double i) | double | Retorna o valor do elemento que está no local i do vetor v com um índice inicial de zero.
 
 Algumas das funções descritas na tabela acima podem aceitar uma lista como argumento. A lista separada por vírgulas é qualquer combinação de *double* e *doubleVec*. Por exemplo:
 
@@ -353,7 +239,7 @@ Algumas das funções descritas na tabela acima podem aceitar uma lista como arg
 
 O valor de *doubleVecList* é convertido em um único *doubleVec* antes da avaliação. Por exemplo, se `v = [1,2,3]`, então chamar `avg(v)` equivale a chamar `avg(1,2,3)`. Chamar `avg(v, 7)` é equivalente a chamar `avg(1,2,3,7)`.
 
-## <a name="getsampledata"></a>Obter dados de exemplo
+## <a name="getsampledata"></a>Obter os dados de exemplo
 
 As fórmulas de dimensionamento automático atuam em dados de métricas (exemplos) que são fornecidos pelo serviço de Lote. Uma fórmula aumenta ou diminui o tamanho do pool com base nos valores obtidos do serviço. As variáveis definidas pelo sistema descritas acima são objetos que fornecem vários métodos para acessar dados associados ao objeto. Por exemplo, a expressão a seguir mostra uma solicitação para obter os últimos cinco minutos de uso da CPU:
 
@@ -367,7 +253,7 @@ As fórmulas de dimensionamento automático atuam em dados de métricas (exemplo
   <tr>
     <td>GetSample()</td>
     <td><p>O método <b>GetSample()</b> retorna um vetor de exemplos de dados.
-	<p>Um exemplo vale 30 segundos de dados de métrica. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme mencionado abaixo, há um atraso entre o momento em que uma amostra é coletada e o momento em ela fica disponível para uma fórmula. Como tal, nem todos os exemplos para um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.
+	<p>Um exemplo vale 30 segundos de dados de métrica. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme mencionado abaixo, há um atraso entre o momento em que uma amostra é coletada e o momento em que ela fica disponível para uma fórmula. Como tal, nem todos os exemplos para um determinado período de tempo podem estar disponíveis para avaliação por uma fórmula.
         <ul>
           <li><p><b>doubleVec GetSample(double count)</b> - especifica o número de exemplos a serem obtidos a partir dos exemplos mais recentes coletados.</p>
 				  <p>GetSample(1) retorna o último exemplo disponível. No entanto, para métricas como $CPUPercent, isso não deve ser usado porque é impossível saber <em>quando</em> a amostra foi coletada. Pode ser recente ou, devido a problemas do sistema, muito mais antigo. Nesses casos, é melhor usar um intervalo de tempo, conforme mostrado abaixo.</p></li>
@@ -398,7 +284,7 @@ As fórmulas de dimensionamento automático atuam em dados de métricas (exemplo
   </tr>
 </table>
 
-### Exemplos, porcentagem de exemplo e o método *GetSample()*
+### Exemplos, percentual de exemplo e o método *GetSample()*
 
 A operação principal de uma fórmula de dimensionamento automático é obter os dados de métrica de tarefa e recurso e ajustar o tamanho do pool baseado nesses dados. Assim, é importante ter um claro entendimento de como as fórmulas de dimensionamento automático interagem com dados de métricas, ou "exemplos".
 
@@ -426,11 +312,11 @@ Quando a linha acima é avaliada pelo Lote, ela retorna um intervalo de exemplos
 
 Depois de coletar o vetor de exemplos, você poderá usar funções como `min()`, `max()` e `avg()` para derivar valores significativos do intervalo coletado.
 
-Para obter mais segurança, você pode forçar uma avaliação de fórmula a *falhar* se menos de uma determinada porcentagem de exemplo estiver disponível para um período específico. Ao forçar uma avaliação de fórmula a falhar, você orienta o Lote a interromper outras avaliações da fórmula se a porcentagem especificada de exemplos não está disponível, e nenhuma mudança é feita no tamanho do pool. Para especificar uma porcentagem necessária de exemplos para que a avaliação seja bem-sucedida, especifique-a como o terceiro parâmetro para `GetSample()`. Aqui, é especificado um requisito de 75% de exemplos:
+Para obter mais segurança, você pode forçar uma avaliação de fórmula a *falhar* se menos de um determinado percentual de exemplo estiver disponível para um período específico. Ao forçar uma avaliação de fórmula a falhar, você orienta o Lote a interromper outras avaliações da fórmula se a porcentagem especificada de exemplos não está disponível, e nenhuma mudança é feita no tamanho do pool. Para especificar um percentual necessário de exemplos para que a avaliação seja bem-sucedida, especifique-a como o terceiro parâmetro para `GetSample()`. Aqui, é especificado um requisito de 75% de exemplos:
 
 `runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);`
 
-Também é importante, devido ao atraso mencionado anteriormente na disponibilidade do exemplo, sempre especificar um intervalo de tempo com uma hora de início anterior a um minuto. Isso porque leva aproximadamente um minuto para que os exemplos se propaguem pelo sistema, de modo que os exemplos no intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` muitas vezes não estarão disponíveis. Repetindo, você pode usar o parâmetro de porcentagem de `GetSample()` para forçar um requisito de porcentagem de exemplo específico.
+Também é importante, devido ao atraso mencionado anteriormente na disponibilidade do exemplo, sempre especificar um intervalo de tempo com uma hora de início anterior a um minuto. Isso porque leva aproximadamente um minuto para que os exemplos se propaguem pelo sistema, de modo que os exemplos no intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` muitas vezes não estarão disponíveis. Repetindo, você pode usar o parâmetro de percentual de `GetSample()` para forçar um requisito de percentual de exemplo específico.
 
 > [AZURE.IMPORTANT] **Recomendamos** que você **evite depender *apenas* de um `GetSample(1)` nas fórmulas de dimensionamento automático**. Isso porque `GetSample(1)` basicamente informa ao serviço de Lote: "Passe-me o último exemplo que você tem, não importa há quanto tempo você o tem". Como se trata apenas de único exemplo, e pode ser um exemplo antigo, ele pode não representar o retrato mais amplo do estado da tarefa ou do recurso. Se for mesmo usar `GetSample(1)`, verifique se ele faz parte de uma instrução mais ampla e não apenas do ponto de dados do qual sua fórmula depende.
 
@@ -481,9 +367,9 @@ Ao definir uma fórmula, você pode usar tanto a métrica de **recurso** quanto 
 
 Você pode construir uma fórmula de dimensionamento automático é feita formando instruções que usam os componentes acima e combinando essas instruções em uma fórmula completa. Por exemplo, aqui construímos uma fórmula primeiro definindo os requisitos para uma fórmula que vai:
 
-1. Aumentar o número alvo de nós de computação em um pool se o uso de CPU estiver alto
-2. Reduzir o número alvo de nós de computação em um pool quando o uso de CPU estiver baixo
-3. Restringir sempre o número máximo de nós a 400
+1. Aumente o número alvo de nós de computação em um pool se o uso de CPU estiver alto.
+2. Reduza o número alvo de nós de computação em um pool quando o uso de CPU estiver baixo.
+3. Restringir sempre o número máximo de nós a 400.
 
 Para o *aumento* de nós quando há uso elevado de CPU, definimos a instrução que popula uma variável definida pelo usuário ($TotalNodes) com um valor que é 110% do número alvo de nós atual, desde que o valor mínimo para a utilização média de CPU durante os últimos 10 minutos tenha estado acima de 70%:
 
@@ -511,13 +397,13 @@ $TargetDedicated = min(400, $TotalNodes)
 
 Para habilitar o dimensionamento automático durante a criação de um pool, use uma das técnicas a seguir:
 
-- [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx)– esse cmdlet do Azure PowerShell usa o parâmetro AutoScaleFormula para especificar a fórmula de dimensionamento automático.
-- [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx) – após esse método .NET ser chamado para criar um pool, você define as propriedades [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) e [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) para habilitar o dimensionamento automático.
-- [Adicionar um pool a uma conta](https://msdn.microsoft.com/library/azure/dn820174.aspx) – os elementos enableAutoScale e autoScaleFormula são usados nesta solicitação API REST para configurar o dimensionamento automático para o pool quando ele é criado.
+- [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx) – Esse cmdlet do Azure PowerShell usa o parâmetro AutoScaleFormula para especificar a fórmula de dimensionamento automático.
+- [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx) – Após esse método .NET ser chamado para criar um pool, você define as propriedades [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) e [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) para habilitar o dimensionamento automático.
+- [Adicionar um pool a uma conta](https://msdn.microsoft.com/library/azure/dn820174.aspx) – Os elementos enableAutoScale e autoScaleFormula são usados nesta solicitação API REST para configurar o dimensionamento automático para o pool quando ele é criado.
 
-> [AZURE.IMPORTANT] Se você criar um pool habilitado para dimensionamento automático usando uma das técnicas acima, o parâmetro *targetDedicated* para o pool **não** deve ser especificado. Observe também que, se você desejar redimensionar manualmente um pool habilitado para dimensionamento automático (por exemplo, com [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primeiramente é preciso **desabilitar** o dimensionamento automático no pool e depois redimensioná-lo.
+> [AZURE.IMPORTANT] Se você criar um pool habilitado para dimensionamento automático usando uma das técnicas acima, o parâmetro *targetDedicated* para o pool **não** deverá ser especificado. Observe também que, se você desejar redimensionar manualmente um pool habilitado para dimensionamento automático (por exemplo, com [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primeiramente será preciso **desabilitar** o dimensionamento automático no pool e depois redimensioná-lo.
 
-O trecho de código a seguir mostra a criação de um pool com dimensionamento automático habilitado ([CloudPool][net_cloudpool]) usando a biblioteca [do Lote .NET][net_api]. A fórmula de dimensionamento automático do pool define o número alvo de nós para cinco às segundas-feiras e um em todos os outros dias da semana. Além disso, o intervalo de dimensionamento automático é definido para 30 minutos (confira [Intervalo de dimensionamento automático](#interval) abaixo). Neste e nos outros trechos de C# neste artigo, "myBatchClient" é uma instância corretamente inicializada de [BatchClient][net_batchclient].
+O trecho de código a seguir mostra a criação de um pool com dimensionamento automático habilitado ([CloudPool][net_cloudpool]) usando a biblioteca [do .NET do Lote][net_api]. A fórmula de dimensionamento automático do pool define o número alvo de nós para cinco às segundas-feiras e um em todos os outros dias da semana. Além disso, o intervalo de dimensionamento automático é definido para 30 minutos (confira [Intervalo de dimensionamento automático](#automatic-scaling-interval) abaixo). Neste e nos outros trechos de C# neste artigo, "myBatchClient" é uma instância corretamente inicializada de [BatchClient][net_batchclient].
 
 ```
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -527,12 +413,12 @@ pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
 pool.Commit();
 ```
 
-### <a name="interval"></a>Intervalo de dimensionamento automático
+### Intervalo de dimensionamento automático
 
 Por padrão, o serviço de Lote ajusta o tamanho do pool de acordo com a sua fórmula de dimensionamento automático a cada **15 minutos**. Esse intervalo é configurável, no entanto, usando as seguintes propriedades do pool:
 
-- API REST -[autoScaleEvaluationInterval][rest_autoscaleinterval]
-- API do .NET –[CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval]
+- API REST - [autoScaleEvaluationInterval][rest_autoscaleinterval]
+- .NET API--[CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval]
 
 O intervalo mínimo é de cinco minutos e o máximo é de 168 horas. Se um intervalo fora desse intervalo for especificado, o serviço de Lote retornará um erro de solicitação incorreta (400).
 
@@ -540,10 +426,10 @@ O intervalo mínimo é de cinco minutos e o máximo é de 168 horas. Se um inter
 
 ## Habilitar o dimensionamento automático após um pool ser criado
 
-Se já tiver configurado um pool com um número alvo de nós de computação usando o parâmetro *targetDedicated*, você pode atualizar o pool existente em um momento posterior para dimensionar automaticamente. Você pode fazer isso de uma das seguintes maneiras:
+Se já tiver configurado um pool com um número alvo de nós de computação usando o parâmetro *targetDedicated*, você poderá atualizar o pool existente em um momento posterior para dimensionar automaticamente. Você pode fazer isso de uma das seguintes maneiras:
 
-- [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] – esse método .NET requer a identificação de um pool existente e a fórmula de dimensionamento automático a aplicar ao pool.
-- [Habilitar dimensionamento automático em um pool][rest_enableautoscale] – essa solicitação de API REST requer a ID do pool existente no URI e a fórmula de dimensionamento automático no corpo da solicitação.
+- [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] – este método .NET requer a ID de um pool existente e a fórmula de dimensionamento automático a aplicar ao pool.
+- [Habilitar dimensionamento automático em um pool][rest_enableautoscale] – Esta solicitação de API REST requer a ID do pool existente no URI e a fórmula de dimensionamento automático no corpo da solicitação.
 
 > [AZURE.NOTE] Se um valor foi especificado para o parâmetro *targetDedicated* quando o pool foi criado, tal valor é ignorado quando a fórmula de dimensionamento automático é avaliada.
 
@@ -561,12 +447,12 @@ Este trecho de código demonstra a habilitação do dimensionamento automático 
 
 É sempre uma boa prática avaliar uma fórmula antes de usá-la em seu aplicativo. Cada fórmula é avaliada por meio de uma “execução de teste” da fórmula em um pool existente. Faça isso usando:
 
-- [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) ou [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx) – esses métodos .NET exigem a ID de um pool existente e a cadeia de caracteres que contém a fórmula de dimensionamento automático. Os resultados da chamada estão contidos em uma instância da classe [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
-- [Avaliar uma fórmula de dimensionamento automático](https://msdn.microsoft.com/library/azure/dn820183.aspx)- nessa solicitação de API REST, a ID do pool é especificada no URI. A fórmula de dimensionamento automático é especificada no elemento *autoScaleFormula* do corpo da solicitação. A resposta da operação contém quaisquer informações de erro que possam estar relacionadas à fórmula.
+- [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) ou [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx) – Esses métodos .NET exigem a ID de um pool existente e a cadeia de caracteres que contém a fórmula de dimensionamento automático. Os resultados da chamada estão contidos em uma instância da classe [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
+- [Avaliar uma fórmula de dimensionamento automático](https://msdn.microsoft.com/library/azure/dn820183.aspx) - Nessa solicitação de API REST, a ID do pool é especificada no URI. A fórmula de dimensionamento automático é especificada no elemento *autoScaleFormula* do corpo da solicitação. A resposta da operação contém quaisquer informações de erro que possam estar relacionadas à fórmula.
 
 > [AZURE.NOTE] Para avaliar uma fórmula de dimensionamento automático, você deve primeiro ter habilitado o dimensionamento automático no pool usando uma fórmula válida.
 
-Nesse trecho de código que usa a biblioteca [.NET do Lote][net_api], podemos avaliar uma fórmula antes de aplicá-la ao [CloudPool][net_cloudpool].
+Nesse trecho de código que usa a biblioteca [.NET do Lote][net_api], podemos avaliar uma fórmula antes de aplicá-la ao pool ([CloudPool][net_cloudpool]).
 
 ```
 // First obtain a reference to the existing pool
@@ -613,13 +499,13 @@ Uma avaliação bem-sucedida da fórmula neste trecho de código resultará em u
 
 Verifique periodicamente os resultados das execuções de dimensionamento automático para garantir que uma fórmula esteja sendo executada conforme o esperado.
 
-- [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx)- quando você usa a biblioteca .NET, essa propriedade de um pool fornece uma instância da classe [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx). Essa classe fornece as seguintes propriedades da execução mais recente de dimensionamento automático:
+- [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx) - Quando você usa a biblioteca .NET, essa propriedade de um pool fornece uma instância da classe [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx). Essa classe fornece as seguintes propriedades da execução mais recente de dimensionamento automático:
   - [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
   - [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)
   - [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
-- [Obter informações sobre um pool](https://msdn.microsoft.com/library/dn820165.aspx) – essa solicitação de API REST retorna informações sobre o pool, que incluem a execução mais recente de dimensionamento automático.
+- [Obter informações sobre um pool](https://msdn.microsoft.com/library/dn820165.aspx) – Esta solicitação de API REST retorna informações sobre o pool, que incluem a execução mais recente de dimensionamento automático.
 
-## <a name="examples"></a>Exemplos de fórmulas
+## <a name="examples"></a>Fórmulas de exemplo
 
 Vamos dar uma olhada em alguns exemplos que mostram apenas algumas maneiras pelas quais as fórmulas podem ser usadas para dimensionar automaticamente os recursos de computação em um pool.
 
@@ -658,7 +544,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### Exemplo 3: contagem de tarefas paralelas
 
-Esse é outro exemplo que ajusta o tamanho do pool com base no número de tarefas. Essa fórmula também leva em conta o valor [MaxTasksPerComputeNode][net_maxtasks] que foi definido para o pool. Isso é especialmente útil em situações em que a [execução de tarefas paralelas](batch-parallel-node-tasks.md) foi habilitada no seu pool.
+Esse é outro exemplo que ajusta o tamanho do pool com base no número de tarefas. Essa fórmula também leva em conta o valor [MaxTasksPerComputeNode][net_maxtasks] que foi definido para o pool. Isso é especialmente útil em situações em que a [parallel task execution](batch-parallel-node-tasks.md) foi habilitada no seu pool.
 
 ```
 // Determine whether 70 percent of the samples have been recorded in the past 15 minutes; if not, use last sample
@@ -703,16 +589,9 @@ A fórmula no trecho de código acima:
 
 ## Próximas etapas
 
-1. Para avaliar completamente a eficiência de seu aplicativo, talvez seja necessário acessar um nó de computação. Para se beneficiar do acesso remoto, uma conta de usuário deve ser adicionada ao nó que você deseja acessar e um arquivo de protocolo RDP deve ser recuperado para esse nó.
-    - Adicione a conta de usuário de uma das seguintes maneiras:
-        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx) – esse cmdlet do PowerShell obtém o nome do pool, o nome do nó de computação, o nome da conta e a senha como parâmetros.
-        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx)- esse método .NET cria uma instância da classe [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx), na qual o nome da conta e a senha podem ser definidas para o nó de computação. [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx) é chamado na instância para criar o usuário nesse nó.
-        * [Adicionar uma conta de usuário a um nó](https://msdn.microsoft.com/library/dn820137.aspx)- o nome do pool e o nó de computação são especificados no URI. O nome da conta e a senha são enviados para o nó no corpo da solicitação dessa solicitação de API REST.
-    - Obtenha o arquivo RDP:
-        * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx) – esse método .NET requer a ID do pool, a ID do nó e o nome do arquivo RDP a criar.
-        * [Obter um arquivo de protocolo RDP de um nó](https://msdn.microsoft.com/library/dn820120.aspx) – essa solicitação API REST requer o nome do pool e o nome do nó de computação. A resposta tem o conteúdo do arquivo RDP.
-        * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – esse cmdlet do PowerShell obtém o arquivo RDP do nó de computação especificado e o salva no local de arquivo especificado ou em um fluxo.
-2.	Alguns aplicativos geram grandes quantidades de dados que podem ser difíceis de processar. Um modo de resolver isso é por meio da [consulta de lista eficiente](batch-efficient-list-queries.md).
+* [Maximizar o uso de recursos de computação do Lote do Azure com tarefas simultâneas do nó](batch-parallel-node-tasks.md) contém detalhes sobre como executar várias tarefas simultaneamente em nós de computação em seu pool. Além de dimensionamento automático, esse recurso pode ajudar a reduzir a duração do trabalho para algumas cargas de trabalho, economizando dinheiro.
+
+* Para outro auxiliar de eficiência, certifique-se de que o aplicativo do Lote consulte o serviço de Lote da maneira ideal. Em [Consultar o serviço do Lote do Azure com eficiência](batch-efficient-list-queries.md), você aprenderá a limitar a quantidade de dados que passam por transmissão ao consultar o status de potencialmente milhares de nós de computação ou tarefas.
 
 [net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_batchclient]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -728,4 +607,4 @@ A fórmula no trecho de código acima:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/pt-BR/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0420_2016-->

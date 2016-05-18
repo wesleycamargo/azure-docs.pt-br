@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/07/2015"
+   ms.date="04/19/2016"
    ms.author="yuemlu"/>
 
 # Capacidade de suporte e política de desativação do SO convidado do Azure
@@ -90,4 +90,4 @@ Se a arquitetura do aplicativo Web exigir uma dependência mais profunda do sist
 ## Próximas etapas
 Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0427_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="01/26/2016"
+    ms.date="05/06/2016"
     ms.author="sethm"/>
 
 # Como usar os tópicos e assinaturas do Barramento de Serviço
@@ -28,13 +28,11 @@ Este artigo descreve como usar tópicos e assinaturas do Barramento de Serviço.
 
 ## Configurar o aplicativo para usar o Barramento de Serviço
 
-Quando você cria um aplicativo que usa o Barramento de Serviço, você deve adicionar uma referência ao assembly do Barramento de Serviço e incluir os espaços para nome correspondentes.
+Quando você cria um aplicativo que usa o Barramento de Serviço, você deve adicionar uma referência ao assembly do Barramento de Serviço e incluir os espaços para nome correspondentes. A maneira mais fácil de fazer isso é baixar o pacote NuGet adequado.
 
 ## Obtenha o pacote do NuGet do Barramento de Serviço
 
-O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de serviço e configurar seu aplicativo com todas as dependências de Barramento de serviço. A extensão do Visual Studio do NuGet facilita a instalação e a atualização de bibliotecas e ferramentas no Visual Studio e no Visual Studio Express.
-
-Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
+O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de Serviço e configurar seu aplicativo com todas as dependências de Barramento de Serviço necessárias. Para instalar o pacote do NuGet em seu aplicativo, proceda da seguinte maneira:
 
 1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
 2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo a seguir.
@@ -47,14 +45,14 @@ Agora você está pronto para escrever código para o Barramento de Serviço.
 
 O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais. Você pode colocar a cadeia de conexão em um arquivo de configuração, em vez de embuti-la no código:
 
-- Ao usar os Serviços de Nuvem do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração de serviço do Azure (arquivos .csdef e .cscfg).
+- Ao usar os serviços do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração de serviço do Azure (arquivos .csdef e .cscfg).
 - Ao usar sites do Azure ou Máquinas Virtuais do Azure, é recomendável armazenar a cadeia de conexão usando o sistema de configuração do .NET (por exemplo, o arquivo Web.config).
 
 Nos dois casos, você pode recuperar a cadeia de conexão usando o método `CloudConfigurationManager.GetSetting`, como mostrado mais adiante neste artigo.
 
-### Configure sua cadeia de conexão ao usar Serviços de Nuvem
+### Configurar a cadeia de conexão
 
-O mecanismo de configuração de serviço é exclusivo para projetos de Serviços de Nuvem do Azure e permite que você altere dinamicamente os parâmetros de configuração no [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (****.csdef**), como mostrado no próximo exemplo.
+O mecanismo de configuração do serviço permite que você altere dinamicamente as definições de configuração a partir do [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (****.csdef**), como mostrado no próximo exemplo.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -107,7 +105,7 @@ Você pode executar operações de gerenciamento de tópicos e assinaturas do Ba
 O exemplo a seguir constrói um objeto `NamespaceManager` usando a classe `CloudConfigurationManager` do Azure com uma cadeia de conexão que consiste no endereço básico de um namespace do Barramento de Serviço e nas credenciais apropriadas da SAS com permissões para gerenciá-lo. Essa cadeia de conexão está na forma a seguir.
 
 ```
-Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
+Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
 ```
 
 Use o exemplo a seguir, considerando as definições de configuração da seção anterior.
@@ -126,7 +124,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-Há sobrecargas do método [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) que permitem ajustar as propriedades do tópico, por exemplo, definir o valor de vida útil (TTL) padrão a ser aplicado às mensagens enviadas ao tópico. Essas configurações são aplicadas usando a classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). O exemplo a seguir mostra como criar um tópico chamado **TestTopic** com um tamanho máximo de 5 GB e uma mensagem padrão de TTL de 1 minuto.
+Há sobrecargas do método [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) que permitem definir as propriedades do tópico, por exemplo, definir o valor de vida útil (TTL) padrão a ser aplicado às mensagens enviadas ao tópico. Essas configurações são aplicadas usando a classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). O exemplo a seguir mostra como criar um tópico chamado **TestTopic** com um tamanho máximo de 5 GB e uma mensagem padrão de TTL de 1 minuto.
 
 ```
 // Configure Topic Settings.
@@ -151,7 +149,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 ## Criar uma assinatura
 
-Você também pode criar assinaturas de tópico com a classe [`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens passadas para a fila virtual da assinatura.
+Você também pode criar assinaturas de tópico usando a classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens passadas para a fila virtual da assinatura.
 
 ### Criar uma assinatura com o filtro padrão (MatchAll)
 
@@ -236,7 +234,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Os tópicos do Barramento de Serviço oferecem suporte a um [tamanho máximo de mensagem de 256 KB](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, consulte [Entidades de mensagens particionadas](service-bus-partitioning.md).
+Os tópicos do Barramento de Serviço oferecem suporte a um [tamanho máximo de mensagem de 256 KB](service-bus-quotas.md) (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, confira [Entidades de mensagens particionadas](service-bus-partitioning.md).
 
 ## Como receber mensagens de uma assinatura
 
@@ -283,7 +281,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Este exemplo configura o retorno de chamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando um objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) é definido como **false** para habilitar o controle manual de quando chamar [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) na mensagem recebida. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) é definido como 1 minuto, o que faz com que o cliente aguarde até um minuto antes do encerramento do recurso de renovação automática e que o cliente faça uma nova chamada para verificar se há mensagens. Esse valor de propriedade reduz o número de vezes que o cliente faz chamadas passíveis de cobrança que não recuperam mensagens.
+Este exemplo configura o retorno de chamada [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) usando um objeto [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) é definido como **false** para habilitar o controle manual de quando chamar [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) na mensagem recebida. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) é definido como um minuto, o que faz com que o cliente aguarde até um minuto antes do encerramento do recurso de renovação automática e que o cliente faça uma nova chamada para verificar se há mensagens. Esse valor de propriedade reduz o número de vezes que o cliente faz chamadas passíveis de cobrança que não recuperam mensagens.
 
 ## Como tratar falhas do aplicativo e mensagens ilegíveis
 
@@ -313,18 +311,20 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
 
 -   [Filas, tópicos e assinaturas][].
+-   [Exemplo de filtros do tópico][]
 -   Referência da API para [SqlFilter][].
--   Compile um aplicativo de trabalho que envia e recebe mensagens de e para uma fila do Barramento de Serviço: [Tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço][].
--   Exemplos do Barramento de Serviço: baixe em [Exemplos do Azure][] ou consulte a [visão geral](service-bus-samples.md).
+-   Compile um aplicativo de trabalho que envie e receba mensagens de e para uma fila do Barramento de Serviço: [Tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço][].
+-   Exemplos do Barramento de Serviço: baixe de [Exemplos do Azure][] ou consulte a [visão geral](service-bus-samples.md).
 
   [portal clássico do Azure]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
+  [Exemplo de filtros do tópico]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço]: service-bus-brokered-tutorial-dotnet.md
   [Exemplos do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->
