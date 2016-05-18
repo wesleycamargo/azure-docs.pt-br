@@ -90,7 +90,9 @@ A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam 
 | Type=Perf (CounterName="% Processor Time") | measure max(Max) by Computer | Utilização máxima da CPU em todos os computadores |
 | Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" | measure Avg(Average) by InstanceName | Comprimento médio da fila de disco atual em todas as instâncias de um determinado computador |
 | Type=Perf CounterName="DiskTransfers/sec" | measure percentile95(Average) by Computer | 95º percentil de transferências de disco/s em todos os computadores |
-| Type=Perf CounterName="% Processor Time" InstanceName="\_Total" | measure avg(CounterValue) by Computer Interval 1HOUR | Média por hora do uso da CPU em todos os computadores | | Type=Perf Computer="MyComputer" CounterName=%* InstanceName=\_Total | measure percentile70(CounterValue) by CounterName Interval 1HOUR | Percentil 70 por hora de cada contador de percentagem % para um computador específico | | Type=Perf CounterName="% Processor Time" InstanceName="\_Total" (Computer="MyComputer") | measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Uso da CPU médio por horam mínimo, máximo e percentil 75 para um computador específico |
+| Type=Perf CounterName="% Processor Time" InstanceName="\_Total" | measure avg(CounterValue) by Computer Interval 1HOUR | Média por hora do uso da CPU em todos os computadores |
+| Type=Perf Computer="MyComputer" CounterName=%* InstanceName=\_Total | measure percentile70(CounterValue) by CounterName Interval 1HOUR | Percentil 70 por hora de cada contador de percentagem % para um computador específico |
+| Type=Perf CounterName="% Processor Time" InstanceName="\_Total" (Computer="MyComputer") | measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR | Uso da CPU médio por horam mínimo, máximo e percentil 75 para um computador específico |
 
 ## Exibindo dados de desempenho
 
@@ -108,4 +110,4 @@ Se o intervalo de tempo que você selecionou for de seis horas ou menos, o gráf
 - Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
 - Exporte os dados coletados para o [Power BI](log-analytics-powerbi.md) para análise e visualizações adicionais.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
