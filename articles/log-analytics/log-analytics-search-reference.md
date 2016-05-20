@@ -292,7 +292,7 @@ Exemplos:
 Type=Event Computer=*SQL*
 ```
 
->[AZURE.NOTE] Os caracteres curinga não podem ser usados entre aspas atualmente. Mensagem=`"*This text*"` considerará o (*) usado como um caractere literal (*).
+>[AZURE.NOTE] Os caracteres curinga não podem ser usados entre aspas atualmente. Mensagem=`"*This text*"` considerará o (\*) usado como um caractere literal (\*).
 
 ## Comandos
 
