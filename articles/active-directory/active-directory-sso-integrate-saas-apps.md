@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="04/26/2016"
     ms.author="curtand"/>
 
 # Integrar o logon único do Azure AD com aplicativos de SaaS  
@@ -47,7 +47,7 @@ Configurar o logon único para um aplicativo já utilizado pela sua organizaçã
 
 ### Mapeamento das contas de usuário
 
-A identidade de um usuário geralmente tem um identificador exclusivo que pode ser um endereço de email ou o nome pessoal universal (UPN). Você precisará vincular (mapear) a identidade do aplicativo de cada usuário com sua respectiva identidade do AD do Azure. Existem algumas maneiras de fazer isso, dependendo do requisito de autenticação de seu aplicativo.
+A identidade de um usuário geralmente tem um identificador exclusivo que pode ser um endereço de email ou um nome UPN. Você precisará vincular (mapear) a identidade do aplicativo de cada usuário com sua respectiva identidade do AD do Azure. Existem algumas maneiras de fazer isso, dependendo do requisito de autenticação de seu aplicativo.
 
 Para obter mais informações sobre como mapear as identidades do aplicativo com as identidades do AD do Azure, confira [Personalizando as declarações emitidas no token SAML](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx) e [Personalizando os mapeamentos de atributos para o provisionamento](active-directory-saas-customizing-attribute-mappings.md).
 
@@ -72,4 +72,4 @@ Há muito mais detalhes sobre todos esses assuntos na biblioteca do Azure.com, c
 
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

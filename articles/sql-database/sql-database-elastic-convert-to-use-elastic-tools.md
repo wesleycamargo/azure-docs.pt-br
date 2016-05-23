@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Converter bancos de dados existentes para usar ferramentas de banco de dados elástico"
+   pageTitle="Migrar bancos de dados existentes para escala horizontal | Microsoft Azure"
    description="Converter bancos de dados fragmentados para usar ferramentas de banco de dados elástico criando um gerenciador de mapa de fragmentos"
    services="sql-database"
    documentationCenter=""
@@ -13,31 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/01/2016"
+   ms.date="04/26/2016"
    ms.author="SilviaDoomra"/>
 
-# Converter bancos de dados existentes para usar ferramentas de banco de dados elástico
+# Migrar bancos de dados existentes para escala horizontal
 
-Se você tiver uma solução expandida fragmentada existente, poderá tirar proveito das ferramentas do Banco de Dados Elástico, como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md) e a [ferramenta de divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge.md), usando as técnicas descritas aqui.
+Gerencie com facilidade seus bancos de dados fragmentados e escalonados horizontalmente existentes, usando as ferramentas de banco de dados do Banco de Dados SQL (como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Você deve primeiro converter um conjunto existente de bancos de dados para usar o [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
+
+## Visão geral
+Para migrar um banco de dados fragmentado existente:
+
+1. Prepare o [banco de dados do gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md).
+2. Criar o mapa de fragmentos.
+3. Preparar os fragmentos individuais.  
+2. Adicione os mapeamentos ao mapa de fragmentos.
 
 Essas técnicas podem ser implementadas usando a [biblioteca de cliente .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou os scripts do PowerShell encontrados em [Azure SQL DB - Scripts de ferramentas de Banco de Dados Elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Os exemplos aqui usam os scripts do PowerShell.
 
-Observe que você deve criar os bancos de dados antes de executar os cmdlets Add-Shard e New-ShardMapManager. Os cmdlets não criam bancos de dados para você.
-
-Há quatro etapas:
-
-1. Preparar o banco de dados do gerenciador de mapa do fragmentos.
-2. Criar o mapa de fragmentos.
-3. Preparar os fragmentos individuais.  
-2. Adicionar os mapeamentos ao mapa de fragmentos.
-
 Para saber mais sobre o ShardMapManager, confira [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Para obter uma visão geral das ferramentas de banco de dados elástico, confira [Visão geral dos recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
 
-## Preparação do banco de dados do gerenciador de mapa do fragmentos
-Você pode usar um banco de dados novo ou existente como gerenciador do mapa de fragmentos.
+## Preparar o banco de dados do gerenciador de mapa de fragmentos
+
+O gerenciador de mapa de fragmentos é um banco de dados especial que contém os dados para gerenciar bancos de dados escalonados horizontalmente. Você pode usar um banco de dados existente ou criar um novo banco de dados. Observe que um banco de dados que atua como gerenciador de mapa de fragmentos não deve ser o mesmo banco de dados de um fragmento. Observe também que o script do PowerShell não cria o banco de dados para você.
 
 ## Etapa 1: criar um gerenciador de mapa de fragmentos
-Observe que um banco de dados que atua como gerenciador de mapa de fragmentos não deve ser o mesmo banco de dados de um fragmento.
 
 	# Create a shard map manager. 
 	New-ShardMapManager -UserName '<user_name>' 
@@ -59,31 +58,32 @@ Após a criação, você pode recuperar o gerenciador de mapa de fragmentos com 
 	-SqlDatabaseName '<smm_db_name>' 
 
   
-## Etapa 2: criar um mapa de fragmentos
+## Etapa 2: criar o mapa de fragmentos
 
-A opção é criar um dos seguintes modelos:
+Você deve selecionar o tipo do mapa de fragmentos a criar. A escolha depende da arquitetura do banco de dados:
 
-1. Um locatário único por banco de dados 
+1. Um locatário único por banco de dados (para termos, consulte o [glossário](sql-database-elastic-scale-glossary.md).) 
 2. Vários locatários por banco de dados (dois tipos):
-	3. Mapeamento de intervalo
-	4. Mapeamento de lista
+	3. Mapeamento de lista
+	4. Mapeamento de intervalo
  
 
-Se você estiver usando um modelo de banco de dados de locatário único, use o mapeamento de lista. O modelo de locatário único atribui um banco de dados por locatário. Esse é um modelo eficaz para desenvolvedores de SaaS, pois simplifica o gerenciamento.
+Para um modelo de locatário único, crie um mapa de fragmentos de **mapeamento de lista**. O modelo de locatário único atribui um banco de dados por locatário. Esse é um modelo eficaz para desenvolvedores de SaaS, pois simplifica o gerenciamento.
 
 ![Mapeamento de lista][1]
 
-Por outro lado, o modelo de banco de dados multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Esse é um modelo viável quando se espera que a quantidade de dados por locatário seja pequena. Nesse modelo, atribuímos um intervalo de locatários a um banco de dados usando *mapeamento de intervalo*.
+O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Use esse modelo quando você esperar que cada locatário tenha necessidades de dados pequenas. Nesse modelo, atribuímos um intervalo de locatários a um banco de dados usando **mapeamento de intervalo**.
  
 
 ![Mapeamento de intervalo][2]
 
-Você também pode implementar um modelo de banco de dados multilocatário usando um mapeamento de lista para atribuir vários locatários a um banco de dados individual. Por exemplo, DB1 é usado para armazenar informações sobre os locatários com IDs 1 e 5, e DB2 armazena dados dos locatários 7 e 10.
+Ou então, você pode implementar um modelo de banco de dados multilocatário usando um *mapeamento de lista* para atribuir vários locatários a um banco de dados individual. Por exemplo, DB1 é usado para armazenar informações sobre os locatários com IDs 1 e 5, e DB2 armazena dados dos locatários 7 e 10.
 
 ![Vários locatários em um banco de dados individual][3]
 
+**Com base na sua escolha, escolha uma destas opções:**
 
-## Etapa 2, opção 1: criar um mapa de fragmentos para um mapeamento de lista
+### Opção 1: criar um mapa de fragmentos para um mapeamento de lista
 Crie um mapa de fragmentos usando o objeto ShardMapManager.
 
 	# $ShardMapManager is the shard map manager object. 
@@ -92,7 +92,7 @@ Crie um mapa de fragmentos usando o objeto ShardMapManager.
 	-ShardMapManager $ShardMapManager 
  
  
-## Etapa 2, opção 2: criar um mapa de fragmentos para um mapeamento de intervalo
+### Opção 2: criar um mapa de fragmentos para um mapeamento de intervalo
 
 Observe que, para utilizar esse padrão de mapeamento, os valores de ID de locatário precisam ser intervalos contínuos. É aceitável ter lacunas nos intervalos simplesmente ignorando o intervalo ao criar os bancos de dados.
 
@@ -103,7 +103,7 @@ Observe que, para utilizar esse padrão de mapeamento, os valores de ID de locat
 	-RangeShardMapName 'RangeShardMap' 
 	-ShardMapManager $ShardMapManager 
 
-## Etapa 2, opção 3: mapeamentos de lista em um banco de dados individual
+### Opção 3: mapeamentos de lista em um banco de dados individual
 A configuração desse padrão também exige a criação de um mapa de lista conforme mostrado na etapa 2, opção 1.
 
 ## Etapa 3: preparar os fragmentos individuais
@@ -117,11 +117,11 @@ Adicione cada fragmento (banco de dados)ao gerenciador de mapa de fragmentos. Is
 	# The $ShardMap is the shard map created in step 2.
  
 
-## Etapa 4: adicionar mapeamentos
+## Etapa 4: Adicionar mapeamentos
 
 A adição de mapeamentos depende do tipo de mapa de fragmentos criado. Se tiver criado um mapa de lista, você adicionará mapeamentos de lista. Se tiver criado um mapa de intervalo, você adicionará mapeamentos de intervalo.
 
-### Etapa 4, opção 1: mapear os dados para um mapeamento de lista
+### Opção 1: mapear os dados para um mapeamento de lista
 
 Mapeie os dados adicionando um mapeamento de lista para cada locatário.
 
@@ -133,7 +133,7 @@ Mapeie os dados adicionando um mapeamento de lista para cada locatário.
 	-SqlServerName '<shard_server_name>' 
 	-SqlDatabaseName '<shard_database_name>' 
 
-### Etapa 4, opção 2: mapear os dados para um mapeamento de intervalo
+### Opção 2: mapear os dados para um mapeamento de intervalo
 
 Adicione os mapeamentos de intervalo para todo o intervalo de IDs de locatário – associações de banco de dados:
 
@@ -181,4 +181,4 @@ Use a ferramenta de divisão e mesclagem para mover dados de/para um modelo mult
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

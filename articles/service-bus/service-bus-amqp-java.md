@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Barramento de Serviço e Java com AMQP 1.0 | Microsoft Azure"
-   description="Usando o Barramento de Serviço do Java com AMQP."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Barramento de Serviço e Java com AMQP 1.0 | Microsoft Azure"
+    description="Usando o Barramento de Serviço do Java com AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Usar o barramento de serviço do Java com AMQP 1.0
 
@@ -362,7 +362,7 @@ A tabela a seguir mostra como os tipos de propriedades JMS são mapeados para os
 
 | Tipo de propriedade .NET | Tipo de propriedade JMS | Observações |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - | 
+| byte | UnsignedByte | - |
 | sbyte | Byte | - |
 | char | Character | - |
 | short | Short | - |
@@ -447,4 +447,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [portal clássico do Azure]: http://manage.windowsazure.com
 [portal clássico do Azure.]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

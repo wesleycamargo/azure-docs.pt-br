@@ -1,6 +1,6 @@
-The following table lists the possible upload and capture combinations of Linux generalized and specialized OS images. The combinations that will process without any errors are indicated by a Y, and those that will throw errors are indicated by an N. The causes and resolutions for the different errors you will run into are given below the table.
+A tabela a seguir lista as possíveis combinações de upload e captura de imagens de sistema operacional especializadas e generalizadas do Linux. As combinações que serão processadas sem erros são indicadas por um Y e aquelas que gerarão erros são indicadas por um N. As causas e resoluções para os diferentes erros que ocorrem são fornecidas abaixo da tabela.
 
-| OS            | Upload spec. | Upload gen. | Capture spec. | Capture gen. |
+| SO | Upload espec. | Upload gen. | Captura espec. | Captura gen. |
 |---------------|--------------|-------------|---------------|--------------|
-| Linux gen.  | N<sup>1</sup>            | Y           | N<sup>3</sup>             | Y            |
-| Linux spec. | Y            | N<sup>2</sup>           | Y             | N<sup>4</sup>            |
+| Linux gen. | N<sup>1</sup> | S | N<sup>3</sup> | S |
+| Linux espec. | S | N<sup>2</sup> | S | N<sup>4</sup> |

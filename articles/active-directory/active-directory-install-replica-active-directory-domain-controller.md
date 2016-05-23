@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Instalar um controlador de domínio de réplica no Azure | Microsoft Azure"
+	pageTitle="Instalar uma réplica de controlador de domínio do Active Directory no Azure | Microsoft Azure"
 	description="Um tutorial que explica como instalar um controlador de domínio por meio de uma floresta do Active Directory local em uma máquina virtual do Azure."
 	services="virtual-network"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="05/10/2016"
 	ms.author="curtand"/>
 
 
@@ -33,7 +33,7 @@ Nesse cenário, os usuários externos precisam acessar os aplicativos que são e
 
 Os servidores de aplicativos e os controladores de domínio são implantados em serviços de nuvem separados para distribuir o processamento de computação e em [conjuntos de disponibilidade](../virtual-machines/virtual-machines-windows-manage-availability.md) para melhorar a tolerância a falhas. Os DCs se replicam entre si e com os DCs locais por meio da replicação do Active Directory. Nenhuma ferramenta de sincronização é necessária.
 
-![][1]
+![Diagrama de uma réplica de controlador de domínio do Active Directory em uma rede virtual no Azure][1]
 
 ## Crie um site do Active Directory para a rede virtual do Azure
 
@@ -45,7 +45,7 @@ Os servidores de aplicativos e os controladores de domínio são implantados em 
 
 ## Crie uma rede virtual do Azure
 
-1. No Portal Clássico do Azure, clique em **Novo** > **Serviços de Rede** > **Rede Virtual** > **Criação Personalizada** e use os seguintes valores para concluir o assistente.
+1. No [portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo** > **Serviços de Rede** > **Rede Virtual** > **Criação Personalizada** e use os seguintes valores para concluir o assistente.
 
     Nesta página do assistente… | Especifique esses valores
 	------------- | -------------
@@ -58,12 +58,11 @@ Os servidores de aplicativos e os controladores de domínio são implantados em 
 3. Crie a conexão VPN site a site entre a nova rede virtual e um dispositivo VPN local. Consulte [Configurar um Gateway de Rede Virtual](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) para ver as instruções.
 
 
-
 ## Crie máquinas virtuais do Azure para as funções de controlador de domínio
 
 Repita as etapas a seguir para criar VMs para hospedar a função de controlador de domínio, conforme necessário. Você deve implantar pelo menos dois controladores de domínio virtuais para fornecer redundância e tolerância à falhas. Se a rede virtual do Azure inclui pelo menos dois controladores de domínio configurados da mesma forma (ou seja, ambos são GCs, executam o servidor DNS e não contêm nenhuma função FSMO, etc.), coloque as VMs que executam tais controladores de domínio em um conjunto de disponibilidade para melhorar a tolerância. Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
 
-1. No portal clássico do Azure, clique em **Novo** > **Computação** > **Máquina Virtual** > **Da galeria**. Use os valores a seguir para concluir o assistente. Aceite o valor padrão para uma configuração, a menos que outro valor seja sugerido ou necessário.
+1. No [portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo** > **Computação** > **Máquina Virtual** > **Da Galeria**. Use os valores a seguir para concluir o assistente. Aceite o valor padrão para uma configuração, a menos que outro valor seja sugerido ou necessário.
 
     Nesta página do assistente… | Especifique esses valores
 	------------- | -------------
@@ -85,14 +84,13 @@ Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN si
 
 ## Reconfigure o servidor DNS para a rede virtual
 
-1. No portal clássico do Azure, clique no nome da rede virtual e, em seguida, clique na guia **Configurar** para [reconfigurar os endereços IP do servidor DNS para a sua rede virtual](virtual-networks-manage-dns-in-vnet.md) para usar os endereços IP estáticos atribuídos à réplica de controladores de domínio em vez de endereços IP de servidores DNS locais.
+1. No [portal clássico do Azure](https://manage.windowsazure.com), clique no nome da rede virtual e, em seguida, clique na guia **Configurar** para [reconfigurar os endereços IP do servidor DNS para sua rede virtual](../virtual-network/virtual-networks-manage-dns-in-vnet.md) para usar os endereços IP estáticos atribuídos às réplicas dos controladores de domínio em vez dos endereços IP de servidores DNS locais.
 
 2. Para garantir que todas as VMs do controlador de domínio de réplica na rede virtual sejam configuradas para usar servidores DNS na rede virtual, clique em **Máquinas Virtuais**, clique na coluna de status para cada VM e, em seguida, clique em **Reiniciar**. Aguarde até a VM mostrar o estado **Executando** antes de tentar conectar-se a ela.
 
 ## Crie VMs para servidores de aplicativos
 
 1. Repita as etapas a seguir para criar VMs para executar como servidores de aplicativos. Aceite o valor padrão para uma configuração, a menos que outro valor seja sugerido ou necessário.
-
 
 	Nesta página do assistente… | Especifique esses valores
 	------------- | -------------
@@ -119,6 +117,6 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 -  [Cmdlets de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/jj152841)
 
 <!--Image references-->
-[1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
+[1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

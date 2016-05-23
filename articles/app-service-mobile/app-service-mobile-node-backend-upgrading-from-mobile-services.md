@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="ggailey"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="02/09/2016"
-	ms.author="chrande"/>
+	ms.date="05/05/2016"
+	ms.author="adrianha"/>
 
 # Atualizar seu Serviço Móvel do Azure Node.js para o Serviço de Aplicativo
 
@@ -34,11 +34,11 @@ Quando um back-end móvel é atualizado para o Serviço de Aplicativo do Azure, 
 
 A atualização para o novo [SDK de Aplicativos Móveis](https://www.npmjs.com/package/azure-mobile-apps) fornece muitos aprimoramentos, incluindo:
 
-- Com base na [estrutura do Express](http://expressjs.com/en/index.html), o novo SDK do Node é leve e foi projetado para acompanhar as novas versões do Node conforme elas forem surgindo. Você pode personalizar o comportamento do aplicativo com o middleware do Express.
+- Com base na [estrutura do Express](http://expressjs.com/en/index.html), o novo SDK do Node é leve e foi projetado para acompanhar as novas versões do Node, conforme elas forem surgindo. Você pode personalizar o comportamento do aplicativo com o middleware do Express.
 
 - Aprimoramentos consideráveis de desempenho em comparação com o SDK dos Serviços Móveis.
 
-- Agora você pode hospedar um site junto com o back-end móvel; da mesma forma, é fácil adicionar o Azure Mobile SDK a qualquer aplicativo expressv4 existente.
+- Agora você pode hospedar um site junto com o back-end móvel. Da mesma forma, é fácil adicionar o Azure Mobile SDK a qualquer aplicativo express.v4 existente.
 
 - Criado para o desenvolvimento local e de plataforma cruzada, o SDK dos Aplicativos Móveis pode ser desenvolvido e executado localmente nas plataformas do Windows, do Linux e do OSX. Agora é fácil usar técnicas comuns de desenvolvimento em Node, como a execução de testes [Mocha](https://mochajs.org/) antes da implantação.
 
@@ -288,4 +288,4 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

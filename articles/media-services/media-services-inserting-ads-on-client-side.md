@@ -21,7 +21,7 @@
 
 Este tópico contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
 
-Para obter informações sobre o suporte a legendagem oculta e anúncios em vídeos de transmissão ao vivo, consulte [Padrões de legendagem oculta e inserção de anúncios com suporte](media-services-manage-channels-overview.md#cc_and_ads).
+Para obter informações sobre o suporte a legendagem oculta e anúncios em vídeos de transmissão ao vivo, consulte [Padrões de legendagem oculta e inserção de anúncios com suporte](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
 >[AZURE.NOTE] Atualmente, o Azure Media Player não dá suporte a anúncios.
 
@@ -813,4 +813,4 @@ O exemplo a seguir mostra como agendar um anúncio com sobreposição mid-roll.
 
 [Desenvolver aplicativos de player de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

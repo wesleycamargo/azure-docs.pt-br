@@ -8,13 +8,11 @@ VMs por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md)|20<s
 Leituras de API do Gerenciador de Recursos|15\.000 por hora|15\.000 por hora
 Gravações de API do Gerenciador de Recursos|1\.200 por hora|1\.200 por hora
 Tamanho da solicitação de API do Gerenciador de Recursos|4194304 bytes|4194304 bytes
-[Serviços de nuvem](../articles/cloud-services/cloud-services-choose-me.md) por assinatura|Preterido<sup>3</sup>|Preterido<sup>3</sup>
-[Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura|Preterido<sup>3</sup>|Preterido<sup>3</sup>
+[Serviços de nuvem](../articles/cloud-services/cloud-services-choose-me.md) por assinatura|Não aplicável<sup>3</sup>|Não aplicável<sup>3</sup>
+[Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura|Não aplicável<sup>3</sup>|Não aplicável<sup>3</sup>
 
 <sup>1</sup>Os limites padrão variam de acordo com o tipo de categoria oferecido, como avaliação gratuita, pré-pago, etc.
 
 <sup>2</sup>O limite pode ser aumentado entrando em contato com o suporte.
 
 <sup>3</sup>Esses recursos não são mais necessários com os Grupos de Recursos do Azure e o Gerenciador de Recursos do Azure.
-
-<!---HONumber=AcomDC_0420_2016-->

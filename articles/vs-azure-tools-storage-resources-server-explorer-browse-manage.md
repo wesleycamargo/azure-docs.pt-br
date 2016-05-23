@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Navegando e gerenciando recursos de armazenamento com o Gerenciador de Servidores
@@ -21,7 +21,7 @@ Se você instalou as ferramentas do Azure para Microsoft Visual Studio, pode exi
 
 Para exibir o Gerenciador de Servidores no Visual Studio, na barra de menus, escolha **Exibir**, **Gerenciador de Servidores**. O nó de armazenamento mostra todas as contas de armazenamento que existem em cada assinatura/certificado do Azure ao qual você está conectado. Se sua conta de armazenamento não aparecer, você pode adicioná-la seguindo as instruções [mais adiante neste tópico](#add-storage-accounts-by-using-server-explorer).
 
-A partir do Azure SDK 2.7, você pode também usar o novo Gerenciador de nuvem para exibir e gerenciar os recursos do Azure. Consulte [Gerenciando recursos do Azure com o Gerenciador de nuvem](vs-azure-tools-resources-managing-with-cloud-explorer) para obter mais informações.
+A partir do Azure SDK 2.7, você pode também usar o novo Gerenciador de nuvem para exibir e gerenciar os recursos do Azure. Consulte [Gerenciando recursos do Azure com o Gerenciador de nuvem](./vs-azure-tools-resources-managing-with-cloud-explorer.md) para obter mais informações.
 
 
 ## Exibir e gerenciar recursos de armazenamento no Visual Studio
@@ -40,7 +40,7 @@ Para exibir recursos em uma conta de armazenamento, expanda o nó da conta de ar
 
 ## Trabalhar com recursos de blob
 
-O nó de blobs exibe uma lista de contêineres para a conta de armazenamento selecionado. Contêineres de blob contêm arquivos de blob e você pode organizar esses blobs em pastas e subpastas. Consulte [Como usar o Armazenamento de Blob do .NET](..storage/storage-dotnet-how-to-use-blobs/) para obter mais informações.
+O nó de blobs exibe uma lista de contêineres para a conta de armazenamento selecionado. Contêineres de blob contêm arquivos de blob e você pode organizar esses blobs em pastas e subpastas. Consulte [Como usar o Armazenamento de Blob do .NET](./storage/storage-dotnet-how-to-use-blobs.md) para obter mais informações.
 
 ### Para criar um contêiner de blob
 
@@ -308,10 +308,10 @@ Há duas maneiras de adicionar contas de armazenamento usando o Gerenciador de S
 
 - No Gerenciador de Servidores, abra o menu de atalho para o nome da conta e, em seguida, escolha **Excluir**. Se você excluir uma conta de armazenamento, qualquer informação de chave salva para essa conta também é removida.
 
-    >[AZURE.NOTE] Se você excluir uma conta de armazenamento do Gerenciador de servidores, isto não afeta sua conta de armazenamento ou todos os dados que ela contém. Isto simplesmente remove a referência do Gerenciador de Servidores. Para excluir permanentemente uma conta de armazenamento, use o Portal de Gerenciamento do Azure.
+    >[AZURE.NOTE] Se você excluir uma conta de armazenamento do Gerenciador de servidores, isto não afeta sua conta de armazenamento ou todos os dados que ela contém. Isto simplesmente remove a referência do Gerenciador de Servidores. Para excluir permanentemente uma conta de armazenamento, use o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 ## Próximas etapas
 
 Para saber mais sobre como usar os serviços de armazenamento do Azure, consulte [Acessando os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

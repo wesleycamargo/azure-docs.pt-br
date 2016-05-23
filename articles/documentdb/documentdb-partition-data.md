@@ -252,7 +252,7 @@ Você também poderá executar transações atômicas em documentos com a mesma 
 
     await client.ExecuteStoredProcedureAsync<DeviceReading>(
         UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
-        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") },
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") }, 
         "XMS-001-FE24C");
 
 Na próxima seção, examinaremos como é possível passar de coleções de partição única para coleções particionadas.
@@ -319,4 +319,4 @@ Neste artigo, descrevemos como o particionamento funciona no Banco de Dados de D
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,6 +1,10 @@
-+ Adicionar autenticação ao seu Aplicativo móvel: [Android][android-get-started-users], [Cordova][cordova-get-started-users], [iOS][ios-get-started-users], [Universal do Windows][windows-get-started-users], [Xamarin.Android][xamarin-android-get-started-users], [Xamarin.iOS][xamarin-ios-get-started-users] Saiba como adicionar a autenticação do Serviço de Aplicativo ao seu aplicativo móvel.
++ [Visão geral da Autenticação/Autorização do Serviço de Aplicativo](../articles/app-service/app-service-authentication-overview.md)
 
-+ Autenticação em Aplicativos de API: [entidade de usuário](../articles/app-service-api/app-service-api-dotnet-user-principal-auth.md), [entidade de serviço](../articles/app-service-api/app-service-api-dotnet-service-principal-auth.md) Saiba como proteger seu aplicativo de API usando a autenticação do Serviço de Aplicativo.
++ [Adicionar autenticação ao aplicativo Web](../articles/app-service-web/app-service-web-get-started-2.md#authenticate-your-users)
+
++ Adicionar autenticação ao seu Aplicativo móvel: [iOS][ios-get-started-users], [Android][android-get-started-users], [Windows Universal][windows-get-started-users], [Xamarin.Android][xamarin-android-get-started-users], [Xamarin.iOS][xamarin-ios-get-started-users], [Xamarin.Forms][xamarin-forms-get-started-users], [Cordova][cordova-get-started-users] Saiba como adicionar a autenticação do Serviço de Aplicativo ao seu aplicativo móvel.
+
++ Autenticação em Aplicativos de API: [entidade de segurança do usuário](../articles/app-service-api/app-service-api-dotnet-user-principal-auth.md), [entidade de serviço](../articles/app-service-api/app-service-api-dotnet-service-principal-auth.md) Saiba como proteger seu aplicativo de API usando a autenticação do Serviço de Aplicativo.
 
 [android-get-started-users]: ../articles/app-service-mobile/app-service-mobile-android-get-started-users.md
 [cordova-get-started-users]: ../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md
@@ -8,5 +12,4 @@
 [xamarin-ios-get-started-users]: ../articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
 [xamarin-android-get-started-users]: ../articles/app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md
 [ios-get-started-users]: ../articles/app-service-mobile/app-service-mobile-ios-get-started-users.md
-
-<!---HONumber=AcomDC_0413_2016-->
+[xamarin-forms-get-started-users]: ../articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started-users.md

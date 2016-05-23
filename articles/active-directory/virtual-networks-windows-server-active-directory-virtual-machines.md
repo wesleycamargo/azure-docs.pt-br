@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Windows Server Active Directory nas VMs do Azure | Microsoft Azure" 
-	description="Você pode executar os serviços de domínio do Windows Server Active Directory (AD DS) ou os serviços de federação do Active Directory (AD FS) em máquinas virtuais do Azure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Windows Server Active Directory nas VMs do Azure | Microsoft Azure"
+	description="Você pode executar os serviços de domínio do Windows Server Active Directory (AD DS) ou os serviços de federação do Active Directory (AD FS) em máquinas virtuais do Azure."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="stevenpo"
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/07/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/07/2016"
 	ms.author="markusvi"/>
 
 
@@ -24,7 +24,7 @@ Este tópico de navegação contém links para outros tópicos sobre como implan
 
 ## Diretrizes conceituais
 
-- [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
+- [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 ## Vídeo
 
@@ -33,7 +33,7 @@ Este tópico de navegação contém links para outros tópicos sobre como implan
 ## Como criar artigos
 
 - [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](active-directory-new-forest-virtual-machine.md)
-- [Instalar um controlador de domínio de réplica do Active Directory em Redes Virtuais do Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md) 
+- [Instalar um controlador de domínio de réplica do Active Directory em Redes Virtuais do Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
 - [Configurar um ambiente de nuvem híbrida para teste](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
 
 
@@ -42,9 +42,4 @@ Este tópico de navegação contém links para outros tópicos sobre como implan
 - [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 - [Identidade do Azure](fundamentals-identity.md)
 
-
-
-
- 
-
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

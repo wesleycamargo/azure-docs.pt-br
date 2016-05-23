@@ -6,7 +6,7 @@
 	authors="rothja"
 	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management" />
+	tags="azure-resource-management" />
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="02/03/2016"
+	ms.date="05/06/2016"
 	ms.author="jroth" />
 
 # Backup e restauração para o SQL Server em Máquinas Virtuais do Azure
@@ -33,31 +33,31 @@ A partir do SQL Server 2014, você pode fazer backup e restauração para o Arma
 
 As seções abaixo incluem informações específicas para as diferentes versões do SQL Server com suporte em uma máquina virtual do Azure.
 
-## Considerações sobre o backup quando arquivos de banco de dados estão armazenados no serviço Blob do Microsoft Azure
+## Máquinas virtuais do SQL Server
 
-Os motivos para a execução de backups de banco de dados e a tecnologia de backup subjacente em si muda quando os arquivos de banco de dados são armazenados no Armazenamento de Blobs do Microsoft Azure. Para obter mais informações sobre como armazenar arquivos de banco de dados no armazenamento de blob do Azure, veja [Arquivos de dados do SQL Server no Azure](https://msdn.microsoft.com/library/jj919148.aspx).
+Quando a instância do SQL Server está em execução em uma máquina virtual do Azure, os arquivos de banco de dados já residem em discos de dados no Azure. Esses discos residem no armazenamento de blobs do Azure. Portanto, os motivos para fazer backup do banco de dados e a abordagem adotada mudam ligeiramente. Considere o seguinte.
 
 - Você não precisa executar backups de banco de dados para fornecer proteção contra falhas de hardware ou de mídia, pois o Microsoft Azure fornece essa proteção como parte do seu serviço.
 
 - Você ainda precisará fazer backups de banco de dados para proporcionar proteção contra erros de usuário ou para fins de arquivamento, regulamentos ou fins administrativos.
 
-- Você pode executar backups quase imediatos e restaurações rápidas usando o recurso de Backup de instantâneo do arquivo do SQL Server no Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3). Para obter mais informações, veja [Backups de instantâneo de arquivo para arquivos de banco de dados no Azure](https://msdn.microsoft.com/library/mt169363.aspx).
+- Você pode armazenar o arquivo de backup diretamente no Azure. Para obter mais informações, consulte as seções a seguir que fornecem orientação para as diferentes versões do SQL Server.
 
-## Backup e restauração no Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3)
+## SQL Server 2016 versão Release Candidate
 
-O Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3) dá suporte ao recurso de [backup e restauração com blobs do Azure](https://msdn.microsoft.com/library/jj919148.aspx) encontrados no SQL Server 2014 e descritos abaixo. Porém ele também inclui os seguintes aprimoramentos:
+O Microsoft SQL Server 2016 versão Release Candidate (RC3) dá suporte às funcionalidades de [backup e restauração com blobs do Azure](https://msdn.microsoft.com/library/jj919148.aspx) encontradas no SQL Server 2014. Porém ele também inclui os seguintes aprimoramentos:
 
-- **Distribuição**: ao fazer backup para o armazenamento de blob do Microsoft Azure, o SQL Server 2016 dá suporte ao backup para vários blobs, a fim de habilitar o backup de grandes bancos de dados, até um máximo de 12,8 TB.
+| Aprimoramento do 2016 | Detalhes |
+|---------------------|-------------------------------|
+| **Distribuição** | Ao fazer backup para o armazenamento de blobs do Microsoft Azure, o SQL Server 2016 dá suporte ao backup para vários blobs a fim de habilitar o backup de grandes bancos de dados, até o máximo de 12,8 TB. |
+| **Backup de instantâneo** | Com o uso de instantâneos do Azure, o Backup de Instantâneo de Arquivo do SQL Server fornece backups quase imediatos e restaurações rápidas para os arquivos de banco de dados armazenados por meio do serviço de armazenamento de blobs do Azure. Essa funcionalidade permite simplificar suas políticas de backup e restauração. O backup de instantâneo de arquivo também dá suporte à recuperação pontual. Para obter mais informações, veja [Backups de instantâneo para arquivos de banco de dados no Azure](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx). |
+| **Agendamento de backup gerenciado** | O backup de gerenciado do SQL Server no Azure agora dá suporte a agendamentos personalizados. Para obter mais informações, veja [Backup Gerenciado do SQL Server para o Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx). |
 
-- **Backup de instantâneo**: com o uso de instantâneos do Azure, o Backup de Instantâneo de Arquivo do SQL Server fornece backups quase imediatos e restaurações rápidas para os arquivos de banco de dados armazenados por meio do serviço de armazenamento de Blob do Azure. Essa funcionalidade permite simplificar suas políticas de backup e restauração. O backup de instantâneo de arquivo também dá suporte à recuperação pontual. Para obter mais informações, veja [Backups de instantâneo para arquivos de banco de dados no Azure](https://msdn.microsoft.com/library/mt169363%28v=sql.130%29.aspx).
+Para obter um tutorial dos recursos do SQL Server 2016 ao usar o armazenamento de Blobs do Azure, consulte [Tutorial: usando o serviço de armazenamento de Blobs do Microsoft Azure com bancos de dados do SQL Server 2016](https://msdn.microsoft.com/library/dn466438.aspx).
 
-- **Agendamento de Backup Gerenciado**: o Backup de Gerenciado do SQL Server no Azure agora dá suporte a agendamentos personalizados. Para obter mais informações, veja [Backup Gerenciado do SQL Server para o Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx).
+## SQL Server 2014
 
->[AZURE.NOTE] Para obter um tutorial dos recursos do SQL Server 2016 ao usar o armazenamento de Blobs do Azure, consulte [Tutorial: usando o serviço de armazenamento de Blobs do Microsoft Azure com bancos de dados do SQL Server 2016](https://msdn.microsoft.com/library/dn466438.aspx).
-
-## Backup e restauração no SQL Server 2014
-
-O SQL Server 2014 inclui o seguinte aprimoramento:
+O SQL Server 2014 inclui os seguintes aprimoramentos:
 
 1. **Backup e restauração para o Azure**:
 
@@ -68,7 +68,7 @@ O SQL Server 2014 inclui o seguinte aprimoramento:
 
 1. **Criptografia**: o SQL Server 2014 dá suporte à criptografia de dados durante a criação de um backup. Ele dá suporte a vários algoritmos de criptografia e ao uso de um certificado ou chave assimétrica. Para obter mais informações, veja [Criptografia de backup](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
 
-## Backup e restauração no SQL Server 2012
+## SQL Server 2012
 
 Para obter informações detalhadas sobre o Backup e restauração do SQL Server no SQL Server 2012, veja [Backup e restauração de Bancos de Dados do SQL Server (SQL Server 2012)](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx).
 
@@ -78,7 +78,7 @@ Alguns dos benefícios de usar o serviço de armazenamento de Blobs do Azure inc
 
 Para ver as práticas recomendadas e informações de solução de problemas, veja [Práticas recomendadas de Backup e restauração (Serviço de Armazenamento de Blob do Azure)](https://msdn.microsoft.com/library/jj919149%28v=sql.110%29.aspx).
 
-## Backup e restauração em outras versões do SQL Server com suporte em uma Máquina Virtual do Azure
+## SQL Server 2008
 
 Para Backup e restauração do SQL Server no SQL Server 2008 R2, veja [Fazer backup e restauração de bancos de dados no SQL Server (SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx).
 
@@ -86,10 +86,10 @@ Para Backup e restauração do SQL Server no SQL Server 2008, veja [Fazer backup
 
 ## Próximas etapas
 
-Caso ainda esteja planejando a implantação do SQL Server em uma VM do Azure, você encontrará diretrizes sobre o provisionamento no seguinte tutorial: [Provisionando uma Máquina Virtual do SQL Server no Azure com o Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md).
+Caso esteja planejando a implantação do SQL Server em uma VM do Azure, você encontrará orientações sobre o provisionamento no seguinte tutorial: [Provisionando uma máquina virtual do SQL Server no Azure com o Azure Resource Manager](virtual-machines-windows-portal-sql-server-provision.md).
 
 Embora o backup e a restauração possam ser usados para migrar seus dados, há caminhos de migração de dados potencialmente mais fácil para o SQL Server em uma VM do Azure. Para ver uma discussão completa sobre as opções de migração e suas recomendações, consulte [Migração de um banco de dados para o SQL Server em uma VM do Azure](virtual-machines-windows-migrate-sql.md).
 
 Examine outros [recursos para executar o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

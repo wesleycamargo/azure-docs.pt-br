@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/23/2016"
+ms.date="05/10/2016"
 ms.author="mandia"/>
 
 # Introdução à API do Twilio
@@ -107,7 +107,7 @@ Enviar uma nova mensagem para um número de celular. ```POST: /Messages.json```
 |200|Operação concluída com êxito|
 |400|Solicitação incorreta|
 |500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -247,4 +247,4 @@ Enviar uma nova mensagem para um número de celular. ```POST: /Messages.json```
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

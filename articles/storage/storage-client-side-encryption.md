@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2016"
-	ms.author="lakasa"/>
+	ms.date="05/09/2016"
+	ms.author="robinsh"/>
 
 
 # Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
@@ -251,4 +251,4 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 - Baixar os pacotes de [Núcleo](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) e [Extensões](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) do Cofre de Chaves do Azure NuGet  
 - Visitar a [Documentação do Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
-# AD do Azure e aplicativos: orientando os desenvolvedores
-
-## Visão geral
+# Azure AD e aplicativos: desenvolver uma linha de aplicativos de negócios
 
 Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (linhas de negócios) do AD (Active Directory) do Azure e foi escrito especificamente para os administradores globais do Active Directory/Office 365.
+
+## Visão geral
 
 A criação de aplicativos integrados ao AD do Azure oferece aos usuários em sua organização logon único com o Office 365. Ter o aplicativo no AD do Azure dá controle sobre a política de autenticação definida para o aplicativo. Para saber mais sobre acesso condicional e como proteger aplicativos com MFA (autenticação multifator), consulte o seguinte documento: [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md)
 
@@ -32,12 +32,12 @@ Registrar um aplicativo permite que qualquer usuário faça o seguinte:
 
 - Obter uma identidade para o aplicativo que reconhece o AD do Azure
 - Obter um ou mais segredos/chaves que o aplicativo pode usar para se autenticar no AD
-- Marcar o aplicativo com um nome, logotipo, etc. no portal do Azure
-- Aproveitar os recursos de autorização do AD do Azure para seu aplicativo
-  - RBAC (controle de acesso baseado em função) de aplicativo
+- Marcar o aplicativo no portal do Azure com um nome, logotipo personalizado etc.
+- Aproveitar os recursos de autorização do Azure AD para seu aplicativo, incluindo:
+  - RBAC (Controle de Acesso Baseado em Função)
   - Active Directory do Azure como servidor de autorização oAuth (proteger uma API exposta pelo aplicativo)
 
-- Declare permissões exigidas necessárias para que o aplicativo funcione conforme o esperado. Elas incluem:
+- Declarar as permissões exigidas necessárias para que o aplicativo funcione conforme o esperado, incluindo:
 	  - Permissões de aplicativo (somente administradores globais). Por exemplo:
 	    - Associação de função em outro aplicativo do AD do Azure ou associação de grupo relativa a um recurso, grupo de recursos ou assinatura do Azure
 	  - Permissões (qualquer usuário). Por exemplo:
@@ -53,11 +53,9 @@ Aqui está o que você, o administrador global, precisará fazer para ajudar os 
 - Configurar o aplicativo para exigir a atribuição de usuário e atribuir usuários
 - Suprimir a experiência de consentimento do usuário padrão
 
-## Configurando regras de acesso
+## Configurar regras de acesso
 
-Como mencionamos anteriormente, consulte o seguinte artigo para obter mais informações sobre como configurar regras de acesso para qualquer aplicativo.
-
-[Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md).
+Configurar regras de acesso por aplicativo para seus aplicativos de SaaS. Isso pode incluir exigir MFA ou somente permitir o acesso a usuários em redes confiáveis. Os detalhes para isso estão disponíveis no documento [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md).
 
 ## Configurar o aplicativo para exigir a atribuição de usuário e atribuir usuários
 
@@ -69,16 +67,19 @@ Se você for um assinante do AD do Azure Premium ou Enterprise Mobility Suite (E
 
 [Atribuindo usuários a um aplicativo](active-directory-applications-guiding-developers-assigning-users.md) [Atribuindo grupos a um aplicativo](active-directory-applications-guiding-developers-assigning-groups.md)
 
-## Suprimindo o consentimento do usuário
+## Suprimir o consentimento do usuário
 
-Por padrão, o usuário precisará consentir à permissão necessária para fazer logon. A experiência de autorização, que está sendo solicitada a conceder permissões para um aplicativo, pode ser desconcertante para usuários que não estão familiarizados com a necessidade de tomar essa decisão.
+Por padrão, cada usuário passa por uma experiência de consentimento para entrar. A experiência de consentimento, de ser solicitado a conceder permissões para um aplicativo, pode ser desconcertante para usuários que não estão familiarizados com essa decisão.
 
-Para aplicativos em que você confia, é possível consentir ao aplicativo em nome de todos os usuários em sua organização.
+Para aplicativos em que você confia, você pode simplificar a experiência do usuário consentindo aplicativo em nome de sua organização.
 
-Para saber mais sobre o consentimento do usuário e sobre a experiência de consentimento no Azure, confira [Integrando aplicativos com o Active Directory do Azure](active-directory-integrating-applications.md).
+Para saber mais sobre o consentimento do usuário e sobre a experiência de consentimento no Azure, confira [Integrando aplicativos com o Azure Active Directory](active-directory-integrating-applications.md).
 
 ##Artigos relacionados
 
+- [Habilitar acesso remoto seguro a aplicativos locais com o Proxy de Aplicativo do Azure AD](active-directory-application-proxy-get-started.md)
+- [Visualização de acesso condicional do Azure para aplicativos SaaS](active-directory-conditional-access-azuread-connected-apps.md)
+- [Gerenciando o acesso a aplicativos usando o Azure AD](active-directory-managing-access-to-apps.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

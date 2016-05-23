@@ -19,7 +19,7 @@
 
     3. Especifique a frequência de backup em minutos, em horas, em dias ou em semanas.
 
-    4. Selecione um agendamento de retenção na lista suspensa. As opções de retenção dependem da frequência do backup. Por exemplo, para uma política diária, a retenção pode ser especificada em semanas, enquanto a retenção para uma política mensal é especificada em meses.
+    4. Selecione um agendamento de retenção na lista suspensa. As opções de retenção dependem da frequência do backup.
  
     5. Selecione a hora e a data de início da política.
 
@@ -29,4 +29,4 @@
 
 8. Você retornará à página **Políticas de Backup**. A listagem tabular de políticas de backup será atualizada para exibir a política personalizada.
 
-<!---HONumber=AcomDC_1217_2015-->
+

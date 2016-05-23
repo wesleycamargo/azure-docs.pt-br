@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 # Trabalhando com domínios personalizados no Proxy de Aplicativo do AD do Azure
@@ -31,25 +31,40 @@ Usando um domínio padrão permite que você defina a mesma URL como URL interna
 
 ## Perguntas frequentes sobre como trabalhar com domínios personalizados
 
-P: Posso selecionar um certificado já carregado sem carregá-lo novamente? R: Certificados carregados previamente são vinculados automaticamente a um aplicativo e há exatamente um certificado que corresponde ao nome de host do aplicativo. ... P: Como fazer para adicionar um certificado e em que formato o certificado exportado deve ser carregado? R: O certificado deve ser carregado por meio da página de configuração do aplicativo. O certificado deve ser um arquivo PFX. … P: Certificados ECC podem ser usados? R: Não há nenhuma limitação explícita em métodos de assinatura. ... P: Certificados SAN podem ser usados? R: Sim. ... P: Certificados curinga podem ser usados? R: Sim. ... P: É possível usar um certificado diferente em cada aplicativo? R: Sim, a menos que os dois aplicativos compartilhem o mesmo host externo. ... P: Se eu registrar um novo domínio, posso usar esse domínio? R: Sim, a lista de domínios é alimentada da lista de domínio verificada do locatário. … P: O que acontece quando um certificado expira? R: Você receberá um aviso na seção do certificado na página de configuração do aplicativo. Quando um usuário tenta acessar o aplicativo, um aviso de segurança será exibido. ... P: O que devo fazer se eu quiser substituir um certificado para um determinado aplicativo? R: Carregar um novo certificado da página de configuração de aplicativo. ... P: Posso excluir um certificado e substituí-lo? R: Quando você carregar um novo certificado, se o certificado antigo não estiver em uso por outro aplicativo, ele será excluído automaticamente. ... P: O que acontece quando um certificado é revogado? R: Verificações de revogação não são realizadas para certificados. Quando um usuário tenta acessar o aplicativo, dependendo do navegador, um aviso de segurança deve aparecer. … P: Posso usar um certificado autoassinado? A: Sim, os certificados autoassinados são permitidos. Observe que se você estiver usando uma autoridade de certificação privada, o CPD (ponto de distribuição de lista de revogação de certificados) para o certificado deve ser público. ... P: Existe um lugar para ver todos os certificados para o meu locatário? R: Não há suporte para isso na versão atual.
+P: Posso selecionar um certificado já carregado sem carregá-lo novamente? R: Certificados carregados previamente são vinculados automaticamente a um aplicativo e há exatamente um certificado que corresponde ao nome de host do aplicativo.
+
+P: Como fazer para adicionar um certificado e em que formato o certificado exportado deve ser carregado? R: O certificado deve ser carregado por meio da página de configuração do aplicativo. O certificado deve ser um arquivo PFX.
+
+P: Certificados ECC podem ser usados? R: Não há nenhuma limitação explícita para os métodos de assinatura.
+
+P: Certificados SAN podem ser usados? R: Sim.
+
+P: Certificados curinga podem ser usados? R: Sim.
+
+P: É possível usar um certificado diferente em cada aplicativo? R: Sim, a menos que os dois aplicativos compartilhem o mesmo host externo.
+
+P: Se eu registrar um novo domínio, posso usar esse domínio? R: Sim, a lista de domínios é alimentada por meio da lista de domínios verificados do locatário.
+
+P: O que acontece quando um certificado expira? R: Você receberá um aviso na seção do certificado na página de configuração do aplicativo. Quando um usuário tenta acessar o aplicativo, um aviso de segurança é exibido.
+
+P: O que devo fazer se eu quiser substituir um certificado para um determinado aplicativo? R: Carregar um novo certificado da página de configuração de aplicativo.
+
+P: Posso excluir um certificado e substituí-lo? R: Quando você carregar um novo certificado, se o certificado antigo não estiver em uso por outro aplicativo, ele será excluído automaticamente.
+
+P: O que acontece quando um certificado é revogado? R: Verificações de revogação não são realizadas para certificados. Quando um usuário tenta acessar o aplicativo, dependendo do navegador, um aviso de segurança deve aparecer.
+
+P: Posso usar um certificado autoassinado? A: Sim, os certificados autoassinados são permitidos. Observe que, se você estiver usando uma autoridade de certificação privada, o CDP (ponto de distribuição de lista de revogação de certificados) para o certificado deverá ser público.
+
+P: Existe um lugar para ver todos os certificados para o meu locatário? R: Não há suporte para isso na versão atual.
 
 
 ## Consulte também
-Você pode fazer muito mais com o Proxy de Aplicativo:
 
 - [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
-- [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
+- [Habilitar logon único](active-directory-application-proxy-sso-using-kcd.md)
 - [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
-- [Trabalhando com aplicativos com reconhecimento de declarações](active-directory-application-proxy-claims-aware-apps.md)- [Solucionar problemas que surgirem com o Proxy de aplicativo](active-directory-application-proxy-troubleshoot.md)
+- [Adicionar seu nome de domínio personalizado ao Azure AD](active-directory-add-domain.md)
 
-## Saiba mais sobre o Proxy de Aplicativo
-- [Veja nossa ajuda online](active-directory-application-proxy-enable.md)
-- [Confira o blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
-- [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+Para ver as últimas notícias e atualizações, confira o [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 
-## Recursos adicionais
-- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-- [Inscrever-se no Azure como uma organização](sign-up-organization.md)
-- [Identidade do Azure](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

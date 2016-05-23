@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Streaming de dados de diagnóstico do Azure no afunilamento usando os Hubs de Eventos
@@ -51,7 +51,7 @@ O Diagnóstico do Azure sempre envia logs e métricas, por padrão, a uma conta 
 
 Neste exemplo, a URL do hub de eventos é definida como o namespace totalmente qualificado do hub de eventos (namespace ServiceBus + "/" + nome do hub de evento).
 
-A URL do hub de eventos é exibida no [Portal clássico do Azure](https://manage.windowsazure.com) no painel do Hubs de Eventos.
+A URL do hub de eventos é exibida no [Portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) no painel dos Hubs de Eventos.
 
 O nome do **Coletor** pode ser definido como qualquer cadeia de caracteres válida, desde que o mesmo valor seja usado consistentemente no arquivo de configuração.
 
@@ -295,4 +295,4 @@ O *ServiceConfiguration.Cloud.cscfg* complementar para este exemplo se parece co
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -71,7 +71,7 @@ Depois da VM ser provisionada e estar em execução, você poderá anexar e mont
 
 7. Pare a VM cujo provisionamento você já cancelou usando o seguinte comando:
 
-	`azure vm stop –g <your-resource-group-name> -n <your-virtual-machine-name>`
+	`azure vm deallocate -g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 8. Generalize a VM com o seguinte comando:
 
@@ -197,4 +197,4 @@ Para obter opções adicionais de comando, execute `azure help vm create`.
 
 Para gerenciar suas VMs com a CLI, consulte as tarefas em [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-linux-cli-deploy-templates.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

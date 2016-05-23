@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 # Criar clusters autônomos do Service Fabric no Windows Server ou Linux
@@ -62,4 +62,4 @@ Crie um cluster em VMs ou em computadores que estejam executando o Windows Serve
 
 Crie um cluster em VMs ou em computadores que estejam executando o Linux: [Service Fabric no Linux](service-fabric-linux-overview.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

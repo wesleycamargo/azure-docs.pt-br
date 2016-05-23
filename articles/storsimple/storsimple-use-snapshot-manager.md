@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/25/2016"
    ms.author="v-sharos" />
 
 # Interface do usuário do StorSimple Snapshot Manager
 
 ## Visão geral
 
-O StorSimple Snapshot Manager tem uma GUI (interface gráfica do usuário) intuitiva que você pode usar para gerenciar cópias de backup de grupos de volumes, incluindo aqueles armazenados localmente e na nuvem. Este tutorial fornece uma introdução à interface e explica como usar cada um dos componentes. Para obter uma descrição detalhada do StorSimple Snapshot Manager, confira a seção [O que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+O StorSimple Snapshot Manager traz uma interface do usuário intuitiva que pode ser usada para fazer e gerenciar backups. Este tutorial fornece uma introdução à interface do usuário e explica como usar cada um dos componentes. Para obter uma descrição detalhada do StorSimple Snapshot Manager, confira a seção [O que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ### Descrição do console
 
@@ -110,7 +110,7 @@ A tabela a seguir contém uma lista em ordem alfabética das ações do StorSimp
 
 - A coluna **Descrição** descreve como utilizar cada ação do menu **Ação** ou do painel Ações e explica o que ela faz.
 
->[AZURE.NOTE]O painel **Ações** e os menus **Ação** contêm opções adicionais, como **Exibição**, **Nova Janela a Partir Daqui**, **Atualizar**, **Exportar Lista** e **Ajuda**. Essas opções estão disponíveis como parte do MMC e não são específicas ao StorSimple Snapshot Manager. A tabela inclui descrições dessas opções.
+>[AZURE.NOTE] O painel **Ações** e os menus **Ação** contêm opções adicionais, como **Exibição**, **Nova Janela a Partir Daqui**, **Atualizar**, **Exportar Lista** e **Ajuda**. Essas opções estão disponíveis como parte do MMC e não são específicas ao StorSimple Snapshot Manager. A tabela inclui descrições dessas opções.
  
 | Ação | Navegação | Descrição |
 |:--------|:------------|:-------------|
@@ -225,7 +225,7 @@ A tabela a seguir descreve os ícones que aparecem na barra de ferramentas.
 | ícone | Descrição |
 |:------|:-------------| 
 | ![Seta para a esquerda](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) | Clique no ícone de seta para a esquerda para retornar à página anterior. |
-| ![Seta para a direita](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | Clique na seta para a direita para ir para a página seguinte (se a seta estiver cinza, a ação estará indisponível). |
+| ![Seta para a direita](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) | Clique na seta para a direita para ir para a próxima página (se a seta estiver cinza, a ação estará indisponível). |
 | ![Ícone para cima](./media/storsimple-use-snapshot-manager/HCS_SSM_Up.png) | Clique no ícone para cima para subir um nível na árvore do console (o painel **Escopo**). |
 | ![Mostrar/ocultar árvore de console](./media/storsimple-use-snapshot-manager/HCS_SSM_ShowConsoleTree.png) | Clique no ícone mostrar/ocultar da árvore do console para mostrar ou ocultar o painel **Escopo**. |
 | ![Exportar lista](./media/storsimple-use-snapshot-manager/HCS_SSM_ExportListIcon.png) | Clique no ícone exportar lista para exportar uma lista para um arquivo CSV que você especificar. |
@@ -234,7 +234,7 @@ A tabela a seguir descreve os ícones que aparecem na barra de ferramentas.
  
 ## Painel Escopo
 
-O painel **Escopo** é o painel esquerdo da UI do StorSimple Snapshot Manager. Ele contém a árvore do console (ou nó) e é o principal mecanismo de navegação do StorSimple Snapshot Manager.
+O painel **Escopo** é o painel esquerdo da interface do usuário do StorSimple Snapshot Manager. Ele contém a árvore do console (ou nó) e é o principal mecanismo de navegação do StorSimple Snapshot Manager.
  
 ### Estrutura do painel Escopo
 
@@ -307,7 +307,7 @@ Políticas de backup são agendas de trabalhos para instantâneos locais e na nu
 
 - Para ver uma lista de políticas de backup, clique em **Políticas de Backup** no painel **Escopo**. A lista de políticas de backup, com informações sobre cada política, aparece no painel **Resultados**.
 
->[AZURE.NOTE]Você pode manter um máximo de 64 backups.
+>[AZURE.NOTE] Você pode manter um máximo de 64 backups.
 
 
 ### Nó Catálogo de Backups
@@ -516,4 +516,4 @@ As tabelas a seguir mostram as combinações de teclas de atalho para cada nó n
 - Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 - Saiba como [usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

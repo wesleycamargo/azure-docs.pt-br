@@ -82,7 +82,7 @@ A seguir, uma lista dos SDKs e das integrações que você pode usar com os pont
 
 * [Cliente Java dos Hubs de Eventos](https://github.com/hdinsight/eventhubs-client)
 * [Spout do Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). Você pode exibir a [fonte do spout](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
-* [Integração do Apache Spark](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [Integração do Apache Spark](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
 
 ## Registro de identidade do dispositivo
 
@@ -557,4 +557,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

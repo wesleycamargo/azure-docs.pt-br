@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade
@@ -75,9 +75,9 @@ Para implantar essa configuração, use o seguinte processo:
 
 	Crie máquinas virtuais do servidor Web e adicione a seu aplicativo de linha de negócios a ele. Para obter a configuração detalhada, consulte a [Fase 4](virtual-machines-windows-ps-lob-ph4.md).
 
-- Fase 5: configurar um Grupo de Disponibilidade AlwaysOn do SQL Server.
+- Fase 5: Configurar um grupo de disponibilidade AlwaysOn do SQL Server.
 
-	Prepare os bancos de dados do aplicativo, crie um Grupo de Disponibilidade AlwaysOn do SQL Server e, em seguida, adicione os bancos de dados do aplicativo a ele. Para obter as etapas de configuração detalhadas, consulte a [Fase 5](virtual-machines-windows-ps-lob-ph5.md).
+	Prepare os bancos de dados do aplicativo, crie um grupo de disponibilidade AlwaysOn do SQL Server e, em seguida, adicione os bancos de dados do aplicativo a ele. Para obter as etapas de configuração detalhadas, consulte a [Fase 5](virtual-machines-windows-ps-lob-ph5.md).
 
 Uma vez configurado, você pode expandir facilmente esse aplicativo de linha de negócios adicionando ao cluster mais servidores Web ou máquinas virtuais que executam o SQL Server.
 
@@ -85,4 +85,4 @@ Uma vez configurado, você pode expandir facilmente esse aplicativo de linha de 
 
 - Obtenha uma [visão geral](virtual-machines-windows-lob-overview.md) da carga de trabalho de produção antes começar a configuração.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->
