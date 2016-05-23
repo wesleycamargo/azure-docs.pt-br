@@ -59,7 +59,7 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
 
 
 * O membro `toDoTable` do `ToDoActivity` é do tipo `IMobileServiceSyncTable` em vez do `IMobileServiceTable`. Isso instrui todas as operações de tabela CRUD (Criar, Ler, Atualizar e Excluir) no banco de dados do armazenamento local.
-
+ 
 	Você decide quando essas alterações são enviadas por push para o back-end do aplicativo móvel do Azure chamando o `IMobileServiceSyncContext.PushAsync()` usando o contexto de sincronização para a conexão do cliente. O contexto de sincronização ajuda a preservar relações da tabela controlando e enviando por push as alterações em todas as tabelas que um aplicativo cliente tenha modificado quando o `PushAsync` é chamado.
 
 	O código fornecido chama o `ToDoActivity.SyncAsync()` para sincronizar sempre que a lista todoitem é atualizada ou um todoitem é adicionado ou concluído. Então ele sincroniza após cada alteração local executa um envio por push no contexto de sincronização e um pull na tabela de sincronização. No entanto, é importante observar que se o pull é executado em uma tabela que tenha atualizações locais pendentes controladas pelo contexto, e essa operação de pull automaticamente disparará um primeiro envio por push de contexto. Para esses casos (itens de atualizar, adicionar e concluir), você poderia omitir a chamada explícita `PushAsync`. Ela é redundante.
@@ -67,10 +67,9 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
     No código fornecido, todos os registros na tabela remota `TodoItem` são solicitados, mas também é possível filtrar os registros passando uma ID de consulta e uma consulta ao `PushAsync`. Para obter mais informações, confira a seção *Sincronização incremental* em [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->
-
-
+	-->	
 		// ToDoActivity.cs
+
         private async Task SyncAsync()
         {
 			try {

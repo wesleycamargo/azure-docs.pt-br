@@ -35,9 +35,9 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 3. No diretório do aplicativo, inicie um dos seguintes arquivos de comando da subpasta **server**.
 
-	+ ** launch-windows** (computadores com Windows) 
-	+ ** launch-mac.command** (computadores com Mac OS X)
-	+ ** launch-linux.sh** (computadores com Linux)
+	+ **launch-windows** (computadores com Windows) 
+	+ **launch-mac.command** (computadores com Mac OS X)
+	+ **launch-linux.sh** (computadores com Linux)
 
 	>[AZURE.NOTE]Em um computador Windows, digite `R` quando o PowerShell solicitar que você confirme se deseja executar o script. Seu navegador da web poderá avisá-lo para não executar o script por ele ter sido baixado da internet. Quando isso acontecer, você deverá solicitar que o navegador continue para carregar o script.
 

@@ -38,7 +38,7 @@ Oi, você sabia que a equipe do RemoteApp do Azure envia atualizações mensais 
 Grandes mudanças aconteceram em agosto – eis alguns destaques:
 
 - Agora você pode usar uma VNET do Azure com uma coleção de nuvem! Confira as [instruções de criação de nuvem](remoteapp-create-cloud-deployment.md) das novas etapas.
-- Agora é possível adicionar aplicativos ao menu **Iniciar ** para o cliente Windows RemoteApp. Os aplicativos aparecerão na lista de aplicativos, e você pode fixá-los no menu **Iniciar ** no Windows.
+- Agora é possível adicionar aplicativos ao menu **Iniciar** para o cliente Windows RemoteApp. Os aplicativos aparecerão na lista de aplicativos, e você pode fixá-los no menu **Iniciar** no Windows.
 - Uma nova imagem foi adicionada à galeria de VM do Azure – Host da Sessão da Área de Trabalho Remota do Windows Server com o Microsoft Office 365 ProPlus.
 - O cliente Mac foi corrigido para que aplicativos com janelas modais parem congelar.
 - Foram documentadas orientações de como usar a [assinatura do Office 365 ProPlus](remoteapp-officesubscription.md) com o Azure RemoteApp.

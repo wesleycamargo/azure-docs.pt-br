@@ -367,7 +367,7 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
             }
         }
 
-6. Defina as constantes no código anterior, incluindo **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** e DICTIONARYFILENAME. O DICTIONARYFILENAME é o nome do arquivo e o local do direction.tsv. O arquivo pode ser baixado de ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Se quiser mudar o nome da tabela HBase, você deve mudar o nome da tabela de modo correspondente no aplicativo Web.
+6. Defina as constantes no código anterior, incluindo **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** e DICTIONARYFILENAME. O DICTIONARYFILENAME é o nome do arquivo e o local do direction.tsv. O arquivo pode ser baixado de **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Se quiser mudar o nome da tabela HBase, você deve mudar o nome da tabela de modo correspondente no aplicativo Web.
 
 7. Abra **Program.cs** e substitua o código pelo seguinte:
 

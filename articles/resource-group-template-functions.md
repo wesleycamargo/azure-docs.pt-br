@@ -455,7 +455,7 @@ Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 | baseUri | Sim | Cadeia de caracteres do URI de base.
 | relativeUri | Sim | Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base.
 
-O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir ****http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base ****http://contoso.com/resources/**.
+O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir **http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base **http://contoso.com/resources/**.
 
 O exemplo a seguir mostra como criar um link para um modelo aninhado com base no valor do modelo pai.
 

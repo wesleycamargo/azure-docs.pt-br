@@ -157,7 +157,17 @@ Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las 
 
 | **Ações** ||
 | ------- | ------ |
-| **/read | Ler recursos de todos os tipos | | Microsoft.DevTestLab/labs/createEnvironment/action | Criar um ambiente de laboratório | | Microsoft.DevTestLab/labs/formulas/delete | Excluir fórmulas | | Microsoft.DevTestLab/labs/formulas/write | Adicionar ou modificar fórmulas | | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Avaliar políticas de laboratório | | Microsoft.Compute/virtualMachines/start/action | Iniciar máquinas virtuais | | Microsoft.Compute/virtualMachines/restart/action | Reiniciar máquinas virtuais | | Microsoft.Compute/virtualMachines/deallocate/action | Desalocar máquinas virtuais | | Microsoft.Storage/storageAccounts/listKeys/action | Listar chaves de conta de armazenamento | | Microsoft.Network/virtualNetworks/subnets/join/action | Ingressar em uma rede virtual | | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ingressar em um pool de endereços de back-end de balanceador de carga | | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Ingressar em uma regra de nat de entrada do balanceador de carga | | Microsoft.Network/publicIPAddresses/join/action | Ingressar em um endereço IP público | | Microsoft.Network/networkInterfaces/join/action | Ingressar uma máquina virtual em uma interface de rede | | Microsoft.Network/networkInterfaces/write | Gravar interfaces de rede |
+| */read | Ler recursos de todos os tipos | | Microsoft.DevTestLab/labs/labStats/action | Ler estatísticas de laboratório | | Microsoft.DevTestLab/Environments/* | Criar e gerenciar ambientes |
+| Microsoft.DevTestLab/labs/createEnvironment/action | Criar um ambiente de laboratório |
+| Microsoft.Compute/virtualMachines/start/action | Iniciar máquinas virtuais |
+| Microsoft.Compute/virtualMachines/restart/action | Reiniciar máquinas virtuais |
+| Microsoft.Compute/virtualMachines/deallocate/action | Desalocar máquinas virtuais |
+| Microsoft.Storage/storageAccounts/listKeys/action | Listar chaves da conta de armazenamento |
+| Microsoft.Network/virtualNetworks/join/action | Unir redes virtuais |
+| Microsoft.Network/loadBalancers/join/action | Unir balanceadores de carga |
+| Microsoft.Network/publicIPAddresses/link/action | Vincular a endereços IP públicos |
+| Microsoft.Network/networkInterfaces/link/action | Vincular a interfaces de rede |
+| Microsoft.Network/networkInterfaces/write | Gravar interfaces de rede |
 
 ### Colaborador de conta do banco de dados de documento
 Pode gerenciar contas do Banco de Dados de Documentos

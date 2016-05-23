@@ -45,7 +45,7 @@ Para migrar e publicar um aplicativo Web no Azure do Visual Studio, siga estas e
 
     - A propriedade **Copiar Local** é definida como verdadeira para todos os assemblies que são necessários para MVC 2, MVC 3, MVC 4 e aplicativos de negócios do Silverlight. Isso adicionará esses assemblies ao pacote de serviço usado para a implantação.
 
-  >[AZURE.IMPORTANT] Se tiver outros assemblies ou arquivos necessários para o aplicativo Web, você precisa definir manualmente as propriedades para esses arquivos. Para obter informações sobre como definir essas propriedades, consulte a seção **Incluir Arquivos no Pacote de Serviço** posteriormente neste artigo.
+  >[AZURE.IMPORTANT]Se tiver outros assemblies ou arquivos necessários para o aplicativo Web, você precisa definir manualmente as propriedades para esses arquivos. Para obter informações sobre como definir essas propriedades, consulte a seção **Incluir Arquivos no Pacote de Serviço** posteriormente neste artigo.  
 
   >[AZURE.NOTE] Se já existir uma função web para um projeto Web específicos em um projeto do Azure na solução, **Converter**, **Converter em projeto de serviço de nuvem do Azure** não é exibido no menu de atalho para este projeto Web.
 

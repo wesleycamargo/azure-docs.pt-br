@@ -645,7 +645,7 @@ Agora que você juntou todas as peças, seu projeto deve se parecer com um típi
 [Configure seu ambiente de desenvolvimento](service-fabric-get-started.md), caso ainda não tenha feito isso.
 
 
-Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando que o servidor Web foi aberto em http://localhost:8281/.
+Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando o servidor Web aberto em **http://localhost:80/webapp/api**
 
 
 ![Janela Eventos de Diagnóstico do Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
