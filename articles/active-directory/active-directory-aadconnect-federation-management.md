@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gerenciamento do AD FS e personalização com o Azure AD Connect | Microsoft Azure"
+	pageTitle="Gerenciamento e personalização dos Serviços de Federação do Active Directory (AD FS) com o Azure AD Connect | Microsoft Azure"
 	description="Gerenciamento do AD FS usando o Azure AD Connect e personalização da experiência de entrada do AD FS do usuário usando o Azure AD e o PowerShell."
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/04/2016"
 	ms.author="anandy"/>
 
-# Gerenciamento do AD FS e personalização com o Azure AD Connect
+# Gerenciamento e personalização dos Serviços de Federação do Active Directory (AD FS) com o Azure AD Connect
 
-Este artigo detalha as várias tarefas relacionadas do AD FS que podem ser executadas usando o Azure AD Connect e outras tarefas do AD FS que podem ser necessárias para uma configuração completa de um farm do AD FS.
+Este artigo detalha as várias tarefas relacionadas aos Serviços de Federação do Active Directory (AD FS) que podem ser realizadas usando o Azure AD Connect e outras tarefas comuns dos AD FS que podem ser necessárias para a configuração completa de um farm dos AD FS.
 
-## Gerenciamento do AD FS
+## Gerenciamento dos AD FS
 
 O Azure AD Connect fornece várias tarefas relacionadas ao AD FS que podem ser executadas usando o assistente do Azure AD Connect com mínima intervenção do usuário. Após instalar o Azure AD Connect executando o assistente, você pode executar o assistente novamente para executar tarefas adicionais.
 
@@ -28,7 +28,7 @@ O Azure AD Connect fornece várias tarefas relacionadas ao AD FS que podem ser e
 
 O Azure AD Connect pode verificar a integridade atual da confiança do AD FS e Azure AD e tomar as medidas apropriadas para reparar a relação de confiança. Siga as etapas a seguir para reparar a confiança do Azure AD e AD FS.
 
-Selecione **Reparar a confiança do Azure AD e ADFS** na lista de tarefas disponíveis.
+Selecione **Reparar Confiança do AAD e ADFS** na lista de tarefas disponíveis.
 
 ![](media\active-directory-aadconnect-federation-management\RepairADTrust1.PNG)
 
@@ -84,9 +84,9 @@ Clique em Avançar e passe pela página Configurar final. Após o Azure AD Conne
 
 ![](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### Adicionando um novo servidor WAP do AD FS
+### Adicionando um novo servidor proxy de aplicativo Web dos AD FS
 
-> [AZURE.NOTE] O Azure AD Connect requer o arquivo de certificado PFX para adicionar o servidor WAP. Portanto, você poderá executar esta operação somente se tiver configurado o farm do AD FS usando o Azure AD Connect.
+> [AZURE.NOTE] O Azure AD Connect requer o arquivo de certificado PFX para adicionar um servidor proxy de aplicativo Web. Portanto, você poderá executar esta operação somente se tiver configurado o farm do AD FS usando o Azure AD Connect.
 
 Selecione **Implantar Proxy de Aplicativo Web** na lista de tarefas disponíveis.
 
@@ -102,7 +102,7 @@ Em seguida, você verá a página **Especificar certificado SSL**, em que precis
 
 ![](media\active-directory-aadconnect-federation-management\WapServer4.PNG)
 
-Na próxima página, adicione o servidor a ser adicionado como WAP. Como o servidor WAP pode ou não estar ou não ingressado no domínio, o assistente solicitará as credenciais administrativas para o servidor que está sendo adicionado.
+Na próxima página, adicione o servidor a ser adicionado como proxy de aplicativo Web. Como o servidor proxy de aplicativo Web pode ou não estar ou não ingressado no domínio, o assistente solicitará as credenciais administrativas para o servidor que está sendo adicionado.
 
 ![](media\active-directory-aadconnect-federation-management\WapServer5.PNG)
 
@@ -138,7 +138,7 @@ Na próxima página, o assistente fornecerá uma lista de domínios do Azure AD 
 
 ![](media\active-directory-aadconnect-federation-management\AdditionalDomain4.PNG)
 
-Depois de escolher o domínio, o assistente fornecerá as informações apropriadas sobre outras ações que o assistente realizará e o impacto da configuração. Em alguns casos, se você selecionar um domínio que ainda não seja verificado no Azure AD, o assistente fornecerá informações para ajudá-lo a verificar o domínio. Consulte [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md) (Adicionar e verificar um nome de domínio personalizado no Azure Active Directory) para obter mais detalhes sobre como verificar seu domínio.
+Depois de escolher o domínio, o assistente fornecerá as informações apropriadas sobre outras ações que o assistente realizará e o impacto da configuração. Em alguns casos, se você selecionar um domínio que ainda não seja verificado no Azure AD, o assistente fornecerá informações para ajudá-lo a verificar o domínio. Consulte [Adicionar seu nome de domínio personalizado ao Azure Active Directory](active-directory-add-domain.md) para obter mais detalhes sobre como verificar seu domínio.
 
 Clique em Avançar e a página **Pronto para configurar** mostrará a lista de ações que o Azure AD Connect executará. Clique em Instalar para concluir a configuração.
 
@@ -191,7 +191,10 @@ Além disso, usando ‘add’ e não ‘issue’ você evita adicionar uma emiss
 
 Essa regra simplesmente define um sinalizador temporário "idflag", que será definido como "useguid" se não houver nenhum ms-ds-consistencyguid populado para o usuário. A lógica por trás disso é o fato de que o ADFS não permite declarações vazias. Portanto, ao adicionar as declarações http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid na regra 1, você acabará com uma declaração msdsconsistencyguid SOMENTE se o valor estiver preenchido para o usuário. Caso não esteja preenchido, o ADFS vê que ela aparecerá como um valor vazio e a descarta. O ObjectGuid, como você sabe, todos os objetos terão, portanto essa declaração sempre estará lá após a regra 1 ser executada.
 
-**Regra 3: emitir ms-ds-consistencyguid como ID imutável, se estiver presente** c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
+**Regra 3: emitir ms-ds-consistencyguid como a ID imutável, se estiver presente**
+
+    c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconcistencyguid"]
+    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
 Essa é uma verificação EXIST implícita. Se o valor para a declaração existir, emita-o como a ID imutável. Observe que eu estou emitindo a declaração do nameidentifier. Você precisará alterar isso com o tipo de declaração adequado para a ID imutável no seu ambiente.
 
@@ -205,4 +208,35 @@ Nesta regra, você está simplesmente verificando o sinalizador temporário ‘i
 
 > [AZURE.NOTE] A sequência dessas regras é importante.
 
-<!---HONumber=AcomDC_0427_2016-->
+#### SSO com um UPN de subdomínio
+
+Você pode adicionar mais de um domínio para ser federado usando o Azure AD Connect ([Adicionar um novo domínio federado](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain)). A declaração de UPN precisará ser modificada para que a ID do emissor corresponda ao domínio raiz e não ao subdomínio, porque o domínio raiz federado cobre o filho também.
+
+Por padrão, a regra da declaração da ID do emissor é definida como:
+
+	c:[Type 
+	== “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+![Declaração de ID do emissor padrão](media\active-directory-aadconnect-federation-management\issuer_id_default.png)
+
+A regra padrão simplesmente usa o sufixo do UPN na declaração da ID do emissor. Por exemplo, John é um usuário em sub.contoso.com e contoso.com é federado com o Azure AD. John insere john@sub.contoso.com como nome de usuário ao entrar no Azure AD, e a regra padrão de declaração da ID do emissor nos AD FS lidará com isso da seguinte maneira:
+
+c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
+
+**Valor da declaração:** http://sub.contoso.com/adfs/services/trust/
+
+Para ter somente o domínio raiz no valor da declaração do emissor, altere a regra de declaração para:
+
+	c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
+
+	=> issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+
+## Próximas etapas
+
+Saiba mais sobre as [opções de entrada do usuário](active-directory-aadconnect-user-signin.md)
+
+<!---HONumber=AcomDC_0511_2016-->

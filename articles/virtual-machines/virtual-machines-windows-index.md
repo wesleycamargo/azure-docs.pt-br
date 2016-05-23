@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Artigos técnicos para VMs do Windows | Microsoft Azure"
-   description="Uma lista completa de artigos de documentação do Microsoft Azure relacionados a máquinas virtuais do Windows"
+   pageTitle="Artigos técnicos para VMs Windows clássicas| Microsoft Azure"
+   description="Uma lista completa de artigos de documentação do Microsoft Azure para máquinas virtuais do Windows no modelo de implantação clássico"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   tags="azure-service-management,azure-resource-manager"
+   tags="azure-service-management"
    editor=""/>
 
 <tags
@@ -14,194 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="02/24/2016"
+   ms.date="04/20/2016"
    ms.author="danlep"/>
 
-# Artigos técnicos para VMs do Windows no Azure
+# Artigos técnicos para VMs do Windows no modelo de implantação clássico
 
 
-Localize toda a documentação de que você precisa para criar e gerenciar máquinas virtuais baseadas no Windows no Microsoft Azure.
+Localize toda a documentação necessária para criar e gerenciar máquinas virtuais baseadas no Windows no modelo de implantação clássico.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
-## VMs do Windows no modelo de implantação do Gerenciador de Recursos
 
-### Visão geral
-
-[Sobre máquinas virtuais](virtual-machines-windows-about.md)
-
-[Compare VMs, sites e serviços de nuvem](../app-service-web/choose-web-site-cloud-service-vm.md)
-
-[Provedores de computação, rede e armazenamento do Azure no Gerenciador de Recursos do Azure](virtual-machines-windows-compare-deployment-models.md)
-
-[Saiba mais sobre implantações do Azure Resource Manager](../resource-group-overview.md)
-
-[Máquinas virtuais e contêineres no Azure](virtual-machines-windows-containers.md)
-
-
-### Configuração do ambiente
-
-[Conta gratuita](https://azure.microsoft.com/free/)
- 
-[Instale o Azure PowerShell](../powershell-install-configure.md)
-
-[Instalar a CLI do Azure.](../xplat-cli-install.md)
-
-
-
-### Introdução
-[Roteiro de aprendizagem para VMs do Windows](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-
-[Criar uma máquina virtual do Windows no Portal do Azure](virtual-machines-windows-classic-tutorial.md)
-
-[Diferentes maneiras de criar uma máquina virtual do Windows com o Gerenciador de Recursos](virtual-machines-windows-creation-choices.md)
-
-[Criar uma VM do Windows com o Gerenciador de Recursos e o PowerShell](virtual-machines-windows-ps-create.md)
-
-[Como fazer logon em uma máquina virtual executando o Windows Server](virtual-machines-windows-connect-logon.md)
-
-
-
-
-### Plano
-[Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md)
-
-[Sobre as instâncias de computação intensiva A8, A9, A10 e A11](virtual-machines-windows-a8-a9-a10-a11-specs.md)
-
-[Manutenção planejada para máquinas virtuais do Azure](virtual-machines-windows-planned-maintenance.md) [Diretrizes de implementação dos serviços de infraestrutura do Azure](virtual-machines-windows-infrastructure-service-guidelines.md)
-
-[Gerencie a disponibilidade de máquinas virtuais](virtual-machines-windows-manage-availability.md)
-
-[Gerenciar acesso aos recursos](../active-directory/role-based-access-control-configure.md)
-
-[Usar marcações para organizar seus recursos do Azure](../resource-group-using-tags.md)
-
-
-### Implantar
-[Implantar recursos do Azure usando bibliotecas .NET e um modelo](virtual-machines-windows-csharp-template.md)
-
-[Como capturar uma máquina virtual do Windows no modelo de implantação do Gerenciador de Recursos](virtual-machines-windows-capture-image.md)
-
-[Carregar uma imagem de VM](virtual-machines-windows-upload-image.md)
-
-[Automatizando a implantação de máquina virtual do Azure com o Chef](virtual-machines-windows-chef-automation.md)
-
-[Criar e configurar uma Máquina Virtual do Windows com o Gerenciador de Recursos e o Azure PowerShell](virtual-machines-windows-create-powershell.md)
-
-[Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos](virtual-machines-windows-ps-template.md)
-
-[Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Azure Resource Manager](virtual-machines-windows-extensions-diagnostics-template.md)
-
-[Implantar estruturas populares de aplicativo usando os modelos do Gerenciador de Recursos do Azure](virtual-machines-windows-app-frameworks.md)
-
-
-
-### Gerenciar
-[Comandos equivalentes do Gerenciador de Recursos e de Gerenciamento de Serviços para tarefas de VM com a interface de linha de comando do Azure](virtual-machines-windows-cli-manage.md)
-	
-[Conectar VNets clássicas a VNets novas](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
-	
-[Como marcar uma Máquina Virtual no Azure](virtual-machines-windows-tag.md)
-
-[Usando a extensão de Script Personalizado com modelos do Gerenciador de Recursos do Azure](virtual-machines-windows-extensions-customscript.md)
-
-[Gerenciar máquinas virtuais usando o PowerShell e o Gerenciador de Recursos do Azure](virtual-machines-windows-ps-manage.md)
-	
-[Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-windows-cli-deploy-templates.md)
-		
-[Backup automatizado para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-backup.md)
-
-[Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-sql-automated-patching.md)
-
-
-
-### Configurar
-
-[Como redefinir uma senha ou o serviço de Área de Trabalho Remota para VM do Windows](virtual-machines-windows-reset-rdp.md)
-
-[Sobre os recursos e extensões de máquina virtual](virtual-machines-windows-extensions-features.md)
-	
-[Criar um nome de domínio totalmente qualificado no portal do Azure](virtual-machines-windows-portal-create-fqdn.md)
-
-### Armazenamento
-
-[Sobre discos e VHDs para máquinas virtuais do Azure](virtual-machines-windows-about-disks-vhds.md)
-	
-[Como anexar um disco de dados no portal do Azure](virtual-machines-windows-attach-disk-portal.md)
-
-
-### Rede
-
-[Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
-	
-[Gerenciar NSGs usando o portal do Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-	
-[Criar um balanceador de carga](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-
-	
-
-### Desenvolver
-
-[Implantar recursos do Azure usando bibliotecas de computação, rede e armazenamento do .NET](virtual-machines-windows-csharp.md)
-
-
-[Como criar modelos do Azure Resource Manager com extensões de VM](virtual-machines-windows-extensions-authoring-templates.md)
-
-[Criar e implantar por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-		
-[Criar modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
-
-
-### Cargas de trabalho
-
-[HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
-
-[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
-
-[Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade](virtual-machines-windows-lob.md)
-
-[SharePoint](virtual-machines-windows-sharepoint-farm.md)
-
-
-### Referência
-[Usar a CLI do Azure para Mac, Linux e Windows com o Gerenciador de Recursos do Azure](azure-cli-arm-commands.md)
-
-[API REST de computação](https://msdn.microsoft.com/library/azure/mt163647.aspx)
-
-[API REST de rede](https://msdn.microsoft.com/library/azure/mt163658.aspx)
-
-[API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-
-[API .NET de computação](https://msdn.microsoft.com/library/azure/mt131911.aspx)
-
-[API .NET de rede](https://msdn.microsoft.com/library/azure/dn973320.aspx)
-
-[API .NET de armazenamento](https://msdn.microsoft.com/library/azure/mt131037.aspx)
-
-[Documentação de referência de cmdlet do PowerShell](https://msdn.microsoft.com/library/azure/dn708514.aspx)
-
-[Página de referência da comunidade de modelo do Azure](https://azure.microsoft.com/documentation/templates/)
-
-
-
-### Solucionar problemas
-
-[Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
-
-[Como solucionar problemas de falhas da Extensão da VM](virtual-machines-windows-extensions-troubleshoot.md)
-
-[Solucionar problemas em implantações de grupos de recursos](../resource-manager-troubleshoot-deployments-portal.md)
-
-[Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-windows-troubleshoot-app-connection.md)
-
-[Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure](virtual-machines-windows-allocation-failure.md)
-
-
-
-
-## VMs do Windows no modelo de implantação clássico
-
-### Visão geral
+## Visão geral
 
 [Sobre máquinas virtuais](virtual-machines-windows-about.md)
 
@@ -213,7 +37,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 
 
-### Configuração do ambiente
+## Configuração do ambiente
 
 [Conta gratuita](https://azure.microsoft.com/free/)
  
@@ -222,7 +46,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 [Instalar a CLI do Azure.](../xplat-cli-install.md)
 
 
-### Introdução
+## Introdução
 [Roteiro de aprendizagem para VMs do Windows](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [Criar uma máquina virtual do Windows no portal clássico do Azure](virtual-machines-windows-classic-tutorial.md)
@@ -232,7 +56,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 
 
-### Plano
+## Plano
 
 [Sobre imagens de máquinas virtuais clássicas](virtual-machines-windows-classic-about-images.md)
 
@@ -247,7 +71,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 [Criar um conjunto de disponibilidade para máquinas virtuais](virtual-machines-windows-classic-configure-availability.md)
 
 
-### Implantar
+## Implantar
 
 [Criar uma máquina virtual personalizada executando Windows](virtual-machines-windows-classic-createportal.md)
 
@@ -262,7 +86,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 [Injetando dados personalizados em uma máquina virtual do Azure](virtual-machines-windows-classic-inject-custom-data.md)
 
 
-### Gerenciar
+## Gerenciar
 
 [Gerenciar suas máquinas virtuais usando o Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
 
@@ -282,7 +106,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 
 
-### Configurar
+## Configurar
 
 [Como redefinir uma senha ou o serviço de Área de Trabalho Remota para VM do Windows](virtual-machines-windows-reset-rdp.md)
 
@@ -296,7 +120,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Como configurar pontos de extremidade em uma máquina virtual clássica do Azure](virtual-machines-windows-classic-setup-endpoints.md)
 
-### Armazenamento
+## Armazenamento
 
 [Sobre discos e VHDs para máquinas virtuais do Azure](virtual-machines-windows-about-disks-vhds.md)
 	
@@ -306,7 +130,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Usar a unidade D como uma unidade de dados em uma VM do Windows](virtual-machines-windows-classic-change-drive-letter.md)
 
-### Rede
+## Rede
 
 [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
 
@@ -318,7 +142,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 	
 
-### Desenvolver
+## Desenvolver
 
 [Criar e gerenciar máquinas virtuais do Azure no Visual Studio](virtual-machines-windows-classic-manage-visual-studio.md)
 
@@ -330,13 +154,9 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 		
 
 
-### Cargas de trabalho
-
-[Aplicativo de linha de negócios de alta disponibilidade](virtual-machines-windows-lob.md)
+## Cargas de trabalho
 
 [HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md)
-
-[Ambiente de teste de nuvem híbrida](virtual-machines-windows-classic-hybrid-test-env.md)
 
 [MongoDB](virtual-machines-windows-classic-install-mongodb.md)
 
@@ -344,14 +164,14 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Oracle](virtual-machines-windows-classic-oracle.md)
 
-[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
+[SAP](virtual-machines-windows-classic-sap-get-started.md)
 
-[SharePoint](virtual-machines-windows-sharepoint-farm.md)
+[SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
-### Referência
-[Usar a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](../virtual-machines-command-line-tools.md)
+## Referência
+[Comandos da CLI do Azure no modo de Gerenciamento de Serviços](../virtual-machines-command-line-tools.md)
 
 [API REST de gerenciamento de serviço](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
@@ -360,7 +180,7 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 [Documentação de referência de cmdlet do PowerShell de Gerenciamento de Serviços do Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
 
-### Solucionar problemas
+## Solucionar problemas
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure executando o Windows](virtual-machines-windows-troubleshoot-rdp-connection.md)
 
@@ -368,4 +188,8 @@ Localize toda a documentação de que você precisa para criar e gerenciar máqu
 
 [Solução de problemas de falha de alocação quando você cria, reinicia ou redimensiona VMs no Azure](virtual-machines-windows-allocation-failure.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+[Solucionar problemas de implantação clássica ao criar uma nova máquina virtual Windows no Azure](virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
+
+[Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
+
+<!---HONumber=AcomDC_0511_2016-->

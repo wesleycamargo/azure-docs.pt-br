@@ -29,13 +29,14 @@ Se precisar criar implantações em massa de VMs do Linux similares, você preci
 
 ## Verifique estes itens antes de começar
 
-Este artigo pressupõe que os seguintes pré-requisitos foram atendidos antes de você iniciar as etapas:
+Este artigo supõe que você tem:
 
-1. Você tem uma máquina virtual do Azure executando o Linux, criada usando o modelo de implantação clássico ou o modelo de implantação do Gerenciador de Recursos. Você configurou o sistema operacional, anexou os discos de dados e fez outras personalizações, como instalar os aplicativos necessários. Nós usaremos essa VM para criar a cópia. Se você precisar de ajuda para criar a VM de origem, leia [Criar uma VM do Linux no Azure](virtual-machines-linux-quick-create-cli.md). 
+1. Uma **máquina virtual do Azure executando Linux**, no modelo de implantação clássico ou do Resource Manager, com o sistema operacional configurado, discos de dados anexados e os aplicativos necessários instalados. Se precisar de ajuda para criar essa VM, leia [Criar uma VM do Linux no Azure](virtual-machines-linux-quick-create-cli.md). 
 
-1. Você tem a CLI do Azure baixada e instalada em seu computador e fez logon na sua assinatura do Azure. Para obter mais informações, leia [Como instalar a CLI do Azure](../xplat-cli-install.md).
+1. A **CLI do Azure** instalada em seu computador e fez logon na sua assinatura do Azure. Para obter mais informações, leia [Como instalar a CLI do Azure](../xplat-cli-install.md).
 
-1. Você tem um grupo de recursos e uma conta de armazenamento, bem como um contêiner de blob criado nesse grupo de recursos para o qual copiar os VHDs. Leia [Usando a CLI do Azure com o Armazenamento do Azure](../storage/storage-azure-cli.md) para obter mais informações sobre como criar contas de armazenamento e contêineres de blob usando a CLI do Azure.
+1. Um **grupo de recursos** com uma **conta de armazenamento** e um **contêiner de blob** criados nele para os quais copiar os VHDs. Leia [Usando a CLI do Azure com o Armazenamento do Azure](../storage/storage-azure-cli.md) para obter mais informações.
+
 
 
 > [AZURE.NOTE] Etapas semelhantes se aplicam a uma VM criada usando qualquer um dos dois modelos de implantação como a imagem de origem. Nós indicaremos as pequenas diferenças quando elas existirem.
@@ -46,15 +47,15 @@ Este artigo pressupõe que os seguintes pré-requisitos foram atendidos antes de
 
 1. Primeiro, libere os VHDs usados pela VM de origem realizando uma das duas opções a seguir:
 
-	- Se quiser **_copiar_** sua máquina virtual de origem, você precisará **parar** e **desalocá-la**. No portal, clique em **Procurar** > **Máquinas virtuais** ou **Máquinas virtuais (clássicas)** > *sua VM* > **Parar**. Para VMs criadas no modelo de implantação do Gerenciador de Recursos, você também pode usar o comando `azure vm stop <yourResourceGroup> <yourVmName>` da CLI do Azure seguido por `azure vm deallocate <yourResourceGroup> <yourVmName>`. Observe que o *Status* da VM no portal muda de **Em execução** para **Parado (desalocado)**.
+	- Se quiser **_copiar_** sua máquina virtual de origem, **pare** e **desaloque-a**. No portal, clique em **Procurar** > **Máquinas virtuais** ou **Máquinas virtuais (clássicas)** > *sua VM* > **Parar**. Para VMs criadas no modelo de implantação do Resource Manager, você também pode usar o comando `azure vm stop <yourResourceGroup> <yourVmName>` da CLI do Azure seguido por `azure vm deallocate <yourResourceGroup> <yourVmName>`. Observe que o *Status* da VM no portal muda de **Em execução** para **Parado (desalocado)**.
 	
 	- Ou, se quiser **_migrar_** sua máquina virtual de origem, **exclua** a VM e use o VHD que restou. **Procure** sua máquina virtual no [portal](https://portal.azure.com) e clique em **Excluir**.
 	
-1. Encontre a chave de acesso da conta de armazenamento que contém o VHD de origem. Leia [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md) para saber mais sobre as chaves de acesso.
+1. Encontre a chave de acesso da conta de armazenamento que contém o VHD de origem. Leia [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md) para obter mais informações sobre as chaves de acesso.
 
-	- Se a sua VM de origem tiver sido criada usando o modelo de implantação clássico, clique em **Procurar** > **Contas de armazenamento (clássicas)** > *sua conta de armazenamento* > **Todas as configurações** > **Chaves** e copie a chave rotulada como **CHAVE DE ACESSO PRIMÁRIA**. Ou, na CLI do Azure, mude para o modo clássico usando `azure config mode asm` e, em seguida, use `azure storage account keys list <yourSourceStorageAccountName>`.
+	- Se sua VM de origem tiver sido criada usando o modelo de implantação clássico, clique em **Procurar** > **Contas de armazenamento (clássicas)** > *sua conta de armazenamento* > **Todas as configurações** > **Chaves** e copie a chave rotulada como **CHAVE DE ACESSO PRIMÁRIA**. Ou, na CLI do Azure, mude para o modo clássico usando `azure config mode asm` e, em seguida, use `azure storage account keys list <yourSourceStorageAccountName>`.
 
-	- Para uma VM criada usando o modelo de implantação do Gerenciador de Recursos, clique em **Procurar** > **Contas de armazenamento** > *sua conta de armazenamento* > **Todas as configurações** > **Chaves de acesso** e copie o texto rotulado como **key1**. Ou, na CLI do Azure, verifique se você está no modo do Gerenciador de Recursos usando `azure config mode arm` e, em seguida, use `azure storage account keys list -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>`.
+	- Para uma VM criada usando o modelo de implantação do Resource Manager, clique em **Procurar** > **Contas de armazenamento** > *sua conta de armazenamento* > **Todas as configurações** > **Chaves de acesso** e copie o texto rotulado como **key1**. Ou, na CLI do Azure, verifique se você está no modo do Resource Manager usando `azure config mode arm` e, em seguida, use `azure storage account keys list -g <yourDestinationResourceGroup> <yourDestinationStorageAccount>`.
 
 1. Copie os arquivos do VHD usando os [Comandos da CLI do Azure para armazenamento](../storage/storage-azure-cli.md), conforme descrito nas etapas a seguir. Como alternativa, se preferir uma abordagem de interface do usuário para chegar aos mesmos resultados, você poderá usar o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/). </br>
 	1. Configure a cadeia de conexão para a conta de armazenamento de destino. Essa cadeia de conexão conterá a chave de acesso desta conta de armazenamento.
@@ -95,12 +96,12 @@ Primeiro, configure uma rede virtual e uma NIC para sua nova VM, semelhante ao s
 	$azure network nic create <yourResourceGroup> <yourNicName> -k <yourSubnetName> -m <yourVnetName> -p <yourIpName> -l <yourLocation>
 
 
-Agora, crie a nova máquina virtual usando o(s) VHD(s) copiado(s) usando o comando a seguir. </br>
+Agora, crie a nova máquina virtual usando o(s) VHD(s) copiado(s) com o comando a seguir. </br>
 
 	$azure vm create -g <yourResourceGroup> -n <yourVmName> -f <yourNicName> -d <UriOfYourOsDisk> -x <UriOfYourDataDisk> -e <DataDiskSizeGB> -Y -l <yourLocation> -y Linux -z "Standard_A1" -o <DestinationStorageAccountName> -R <DestinationStorageAccountBlobContainer>
 
 	
-As URLs para o disco do sistema operacional e os dados se parecem com esta: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Você pode encontrá-la no portal navegando até o contêiner de armazenamento, clicando no VHD de sistema operacional ou dados que foi copiado e copiando o conteúdo da **URL**.
+As URLs do disco do sistema operacional e dos dados se parecem com esta: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Você pode encontrá-la no portal navegando até o contêiner de armazenamento, clicando no VHD de sistema operacional ou dados que foi copiado e copiando o conteúdo da **URL**.
 	
 	
 Se o comando for bem-sucedido, você verá uma saída semelhante a esta:
@@ -120,11 +121,11 @@ Se o comando for bem-sucedido, você verá uma saída semelhante a esta:
 
 Você deverá ver a VM recém-criada no [Portal do Azure](https://portal.azure.com), em **Procurar** > **Máquinas virtuais**.
 
-Conecte-se à sua nova máquina virtual usando um cliente SSH de sua escolha e use as credenciais da conta da máquina virtual original, por exemplo, `ssh OldAdminUser@<IPaddressOfYourNewVM>`. Para saber mais sobre SSH para sua VM do Linux, ler [Como usar SSH com Linux no Azure](virtual-machines-linux-ssh-from-linux.md).
+Conecte-se à sua nova máquina virtual usando um cliente SSH de sua escolha e use as credenciais da conta da máquina virtual original, por exemplo, `ssh OldAdminUser@<IPaddressOfYourNewVM>`. Para saber mais sobre SSH para sua VM do Linux, leia [Como usar SSH com Linux no Azure](virtual-machines-linux-ssh-from-linux.md).
 
 
 ## Próximas etapas
 
 Para saber como usar a CLI do Azure para gerenciar sua nova máquina virtual, consulte [Comandos da CLI do Azure para o Azure Resource Manager](azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

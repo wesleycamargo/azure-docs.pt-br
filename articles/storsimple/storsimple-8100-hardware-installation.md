@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Instalar o dispositivo StorSimple 8100 | Microsoft Azure"
    description="Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8100 antes de implantar e configurar o software."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
@@ -33,12 +33,12 @@ Antes de desempacotar o dispositivo, leia as informações a seguir.
 
 1. Se for manejar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do compartimento. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
 1. Coloque a caixa em uma superfície plana e nivelada.
- 
+
 Conclua as etapas a seguir para desempacotar o dispositivo.
 
 #### Para desempacotar o dispositivo
 
-1. Inspecione a caixa e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver muito danificada, não a abra. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para receber ajuda e saber se o dispositivo está em boas condições de funcionamento. 
+1. Inspecione a caixa e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver muito danificada, não a abra. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para receber ajuda e saber se o dispositivo está em boas condições de funcionamento.
 
 2. Abra a caixa. A imagem a seguir mostra a exibição desempacotada do dispositivo StorSimple.
 
@@ -46,7 +46,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
 
     **Exibição do dispositivo de armazenamento desempacotado**
 
-     Rótulo | Descrição 
+     Rótulo | Descrição
      ----- | -------------
      1 | Embalagem
      2 | Espuma inferior
@@ -73,9 +73,12 @@ A próxima etapa é montar o dispositivo em rack.
 
 ## Montar em rack o dispositivo StorSimple 8100
 
-Siga as próximas etapas para instalar o dispositivo de armazenamento StorSimple 8100 em um rack padrão de 19 polegadas (48 cm) com colunas frontal e traseira. O dispositivo StorSimple 8100 tem um único compartimento principal.
+Siga as próximas etapas para instalar o dispositivo de armazenamento StorSimple 8100 em um rack padrão de 19 polegadas com colunas frontal e traseira. O dispositivo StorSimple 8100 tem um único compartimento principal.
 
 A instalação consiste em várias etapas, e cada uma delas é discutida nos procedimentos a seguir.
+
+> [AZURE.IMPORTANT]
+Os dispositivos StorSimple devem ser montados em rack para a operação apropriada.
 
 ### Preparar o local
 
@@ -90,7 +93,7 @@ O dispositivo deve ser instalado em um rack padrão de 19 polegadas (48 cm) com 
 3. Verifique se um slot de 2U está disponível no rack em que você pretende montar o dispositivo.
 
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
- 
+
 Se for instalar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do dispositivo. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
 
 ### Pré-requisitos do rack
@@ -110,17 +113,14 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
 
 2. Execute esta etapa somente se não houver trilhos internos instalados em seu dispositivo. Normalmente, os trilhos internos são instalados na fábrica. Caso contrário, instale as corrediças do trilho esquerdo e direito nas laterais dos chassis do compartimento. Elas são presas por seis parafusos métricos em cada lado. Para ajudar com a orientação, as corrediças do trilho são marcadas com **LH – Frontal** e **RH – Frontal**, e a extremidade que é afixada na parte traseira do compartimento é afunilada.<br/>
 
-    ![Fixando as corrediças do trilho nos chassis do compartimento](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Fixando as corrediças do trilho nos chassis do compartimento](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) **Fixando corrediças do trilho interno às laterais do compartimento**
 
-   **Fixando corrediças do trilho interno às laterais do compartimento**
+	 Rótulo | Descrição
+       ----- | -----------
+     1 | Parafusos de cabeça abaulada M 3x4
+     2 | Corrediças dos chassis
 
-    	Label | Description
-    	----- | -----------
-    	1     | M 3x4 button-head screws
-   		2     | Chassis slides
-
-
-3. Fixe os módulos dos trilhos direito e esquerdo externos nos membros verticais do gabinete do rack. Os suportes são marcados com **LH**, **RH** e **Este lado para cima** para que você obtenha a orientação correta. 
+3. Fixe os módulos dos trilhos direito e esquerdo externos nos membros verticais do gabinete do rack. Os suportes são marcados com **LH**, **RH** e **Este lado para cima** para que você obtenha a orientação correta.
 
 4. Localize os pinos do trilho na parte frontal e traseira do módulo do trilho. Estenda o trilho para que ele se encaixe entre as colunas do rack e insira os pinos nos orifícios do membro vertical da coluna do rack frontal e traseiro. Certifique-se de que o módulo do trilho esteja nivelado.
 
@@ -147,7 +147,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 
 #### Para montar o dispositivo
 
-1. Com um assistente, levante o compartimento e alinhe-o com os trilhos do rack. 
+1. Com um assistente, levante o compartimento e alinhe-o com os trilhos do rack.
 
 2. Com cuidado, insira o dispositivo nos trilhos e empurre-o completamente para dentro do gabinete do rack.<br/>
 
@@ -163,7 +163,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 4. Instale as tampas do flange pressionando-as na posição e encaixando-as no lugar.<br/>
 
      ![Instalando as tampas do flange](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
- 
+
     **Instalando as tampas do flange**
 
      Rótulo | Descrição
@@ -218,7 +218,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
     ![Backplane do dispositivo 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
     **Parte traseira do dispositivo mostrando as portas de dados**
- 
+
      Rótulo | Descrição
      ------- | -----------
      0,1,4,5 | Interfaces de rede de 1 GbE
@@ -227,12 +227,12 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
 2. Consulte o diagrama a seguir para cabeamento de rede. (A configuração mínima de rede é mostrada pelas linhas azuis sólidas. Uma configuração adicional será necessária para alta disponibilidade e desempenho e é mostrada pelas linhas pontilhadas).
 
-		
+
     ![Cabear o dispositivo 2U para rede](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **Cabeamento de rede para o dispositivo**
 
-   
+
 	|Rótulo | Descrição |
     |----- | ----------- |
     | Uma | LAN com acesso à Internet |
@@ -244,34 +244,34 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
     | 0-5 | Interfaces de rede |
 
 
-	
+
 Ao cabear o dispositivo, a configuração mínima exige:
 
 
 - Pelo menos duas interfaces de rede conectadas em cada controlador com uma para acesso à nuvem e outra para iSCSI. A porta DATA 0 é habilitada e configurada automaticamente por meio do console serial do dispositivo. Além da DATA 0, outra porta de dados também precisa ser configurada por meio do Portal clássico do Azure. Nesse caso, conecte a porta DATA 0 à LAN primária (rede com acesso à Internet). As outras portas de dados podem ser conectadas ao segmento SAN/iSCSI LAN (VLAN) da rede, dependendo da função pretendida.
 
 - Interfaces idênticas em cada controlador conectadas à mesma rede para garantir a disponibilidade caso ocorra um failover do controlador. Por exemplo, se você optar por conectar DATA 0 e DATA 3 em um dos controladores, precisará conectar DATA 0 e DATA 3 correspondentes no outro controlador.
-	
+
 Lembre-se disso no caso de alta disponibilidade e desempenho:
 
 
-- Quando for possível, configure um par de interfaces de rede para acesso à nuvem (1 GbE) e outro par para iSCSI (10 GbE recomendados) em cada controlador. 
+- Quando for possível, configure um par de interfaces de rede para acesso à nuvem (1 GbE) e outro par para iSCSI (10 GbE recomendados) em cada controlador.
 
 - Quando for possível, conecte as interfaces de rede de cada controlador a pelo menos dois comutadores diferentes para garantir disponibilidade no caso de falha do comutador. A figura ilustra duas interfaces de rede de 10 GbE, DATA 2 e DATA 3, de cada controlador conectado a dois comutadores diferentes.
 
 Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
 >[AZURE.NOTE] Se você estiver usando transceptores SFP+ com suas interfaces de rede 10 GbE, use os adaptadores QSFP-SFP+ fornecidos. Para obter mais informações, acesse [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
-    
 
-   
+
+
 ### Cabeamento de porta serial
 
 Execute as etapas a seguir para cabear a porta serial.
 
 #### Para cabear a conexão serial
 
-1. O dispositivo tem uma porta serial em cada controlador que é identificada por um ícone de chave inglesa. Consulte a ilustração na seção [Cabeamento de rede](#network-cabling) para localizar as portas seriais no backplane do dispositivo. 
+1. O dispositivo tem uma porta serial em cada controlador que é identificada por um ícone de chave inglesa. Consulte a ilustração na seção [Cabeamento de rede](#network-cabling) para localizar as portas seriais no backplane do dispositivo.
 
 2. Identifique o controlador ativo no backplane do dispositivo. Um LED azul piscante indica que o controlador está ativo.
 
@@ -291,4 +291,4 @@ Agora o dispositivo está cabeado para energia, acesso à rede e conectividade s
 
 Saiba como [implantar e configurar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

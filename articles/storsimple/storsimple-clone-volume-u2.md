@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/31/2016"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para clonar um volume (Atualização 2)
@@ -35,7 +35,7 @@ Este tutorial descreve como você pode usar um conjunto de backups para clonar u
 >
 >`Unable to modify the usage type for volume {0}. This can happen if the volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry the modify operation.`
 >
->Você pode converter com êxito o volume a ser fixado localmente se você converter o clone transitório em um clone permanente. Para converter o clone transitório em um permanente, crie um instantâneo de nuvem desse clone.
+>Esse erro será recebido apenas se você estiver realizando a clonagem para um dispositivo diferente. Você pode converter com êxito o volume a ser fixado localmente se você converter o clone transitório em um clone permanente. Para converter o clone transitório em um permanente, crie um instantâneo de nuvem desse clone.
 
 ## Criar clone de um volume
 
@@ -55,11 +55,11 @@ Você pode criar um clone no mesmo dispositivo, em outro dispositivo ou mesmo em
 
   1. Identificar um dispositivo de destino. Esse é o local onde o clone será criado. Você pode escolher o mesmo dispositivo ou especificar outro dispositivo. Se você escolher um volume associado a outros provedores de serviço de nuvem (não do Azure), a lista suspensa do dispositivo de destino mostrará apenas os dispositivos físicos. Não é possível clonar um volume associado a outros provedores de serviço de nuvem em um dispositivo virtual.
 
-        >[AZURE.NOTE] Verifique se a capacidade necessária para o clone é menor que a capacidade disponível no dispositivo de destino.
+        >[AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
 
   2. Especifique um nome de volume exclusivo para o clone. O nome deve conter entre 3 e 127 caracteres.
     
-        >[AZURE.NOTE] O campo **Clonar Volume Como** será colocado **Em Camadas** mesmo que você esteja clonando um volume fixado localmente. Não é possível alterar esta configuração, no entanto, caso precise que o volume clonado também seja fixado localmente, você pode converter o clone para um volume fixado localmente após a criação com êxito do clone. Para obter mais informações sobre como converter um volume em camadas para um volume fixado localmente, acesse [Alterar tipo de volume](storsimple-manage-volumes-u2.md#change-the-volume-type).
+        >[AZURE.NOTE] The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
         ![Clone wizard 1](./media/storsimple-clone-volume-u2/clone1.png) 
 
@@ -90,9 +90,9 @@ O clone é agora um volume normal e qualquer operação que é possível em um v
 
 ## Clones transitórios versus permanentes
 
-Você pode clonar um volume específico a partir de um conjunto de backups. Um clone criado dessa maneira é um clone *transitório*. O clone transitório terá referências para o volume original e usará esse volume para ler durante a gravação local. Isso poderá resultar em baixo desempenho, especialmente se o volume clonado for grande.
+Os clones transitórios e permanentes são criados apenas quando a clonagem está sendo realizada para um dispositivo diferente. Você pode clonar um volume específico por meio de um conjunto de backups para um dispositivo diferente. Um clone criado dessa maneira é um clone *transitório*. O clone transitório terá referências para o volume original e usará esse volume para ler durante a gravação local.
 
-Depois de fazer um instantâneo de nuvem de um clone transitório, o clone resultante será um clone *permanente*. O clone permanente é independente e não tem nenhuma referência para o volume original do qual foi clonado. Para melhorar o desempenho, é recomendável que você crie clones permanentes.
+Depois de fazer um instantâneo de nuvem de um clone transitório, o clone resultante será um clone *permanente*. O clone permanente é independente e não tem nenhuma referência para o volume original do qual foi clonado.
 
 ## Cenários para os clones transitórios e permanentes
 
@@ -108,7 +108,7 @@ Para assistir a um vídeo que demonstra como você pode usar os recursos de clon
 
 ### Testando no ambiente de produção com um clone permanente
 
-Você precisa verificar um bug de teste no ambiente de produção. Você cria um clone do volume no ambiente de produção. Para melhorar o desempenho, você precisa fazer um instantâneo de nuvem do clone. O volume clonado agora é independente, o que resulta em um desempenho mais rápido. Nesse cenário, é usado um clone permanente.
+Você precisa verificar um bug de teste no ambiente de produção. Você cria um clone do volume no ambiente de produção e, em seguida, faz um instantâneo de nuvem desse clone para criar um volume clonado independente. Nesse cenário, é usado um clone permanente.
 
 ## Próximas etapas
 - Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set-u2.md).
@@ -117,4 +117,4 @@ Você precisa verificar um bug de teste no ambiente de produção. Você cria um
 
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

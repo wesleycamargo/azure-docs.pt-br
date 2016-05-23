@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico | Microsoft Azure"
+	pageTitle="Implantar um serviço de divisão e mesclagem | Microsoft Azure"
 	description="Divisão e mesclagem com ferramenta de banco de dados elástico"
 	services="sql-database"  
 	documentationCenter=""
@@ -13,21 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
-	ms.author="sidneyh" />
+	ms.date="04/26/2016"
+	ms.author="ddove" />
 
-# Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico
+# Implantar um serviço de divisão e mesclagem 
+
+A ferramenta de divisão e mesclagem permite mover dados entre bancos de dados fragmentados. Veja [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## Baixe os pacotes de Divisão-Mesclagem
+
 1. Baixe a versão mais recente do NuGet de [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
-2. Abra um prompt de comando e navegue até o diretório onde baixou o nuget.exe.
+2. Abra um prompt de comando e navegue até o diretório onde baixou o nuget.exe. O download inclui comandos do PowerShell.
 3. Baixe o pacote de mesclagem divisão mais recente no diretório atual com o comando abaixo:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número de versão. Localize os arquivos do serviço de Divisão-Mesclagem no subdiretório **content\\splitmerge\\service** e os scripts de Divisão-Mesclagem do PowerShell (e as .DLLs do cliente necessárias) no subdiretório **content\\splitmerge\\powershell**.
+Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** onde *x.x.xxx.x* reflete o número de versão. Localize os arquivos do Serviço de divisão e mesclagem no subdiretório **content\\splitmerge\\service** e os scripts de divisão e mesclagem do PowerShell (e as .dlls do cliente necessárias) no subdiretório **content\\splitmerge\\powershell**.
 
 ## Pré-requisitos
 
-1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de Divisão-Mesclagem. Faça logon no [portal do Azure](https://ms.portal.azure.com). Crie um novo **banco de dados SQL**. Preencha o nome do banco de dados e crie novos usuário e senha. Certifique-se de registrar o nome e a senha para uso posterior.
+1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [Portal do Azure](https://ms.portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 
 2. Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. No portal, em **Configurações de firewall**, certifique-se de que a configuração **Permitir acesso aos serviços do Azure** esteja definida como **Ativada**. Clique no botão “Salvar”.
 
@@ -38,11 +41,11 @@ As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os 
 4. Crie um Serviço de nuvem do Azure que conterá o seu serviço de Divisão-Mesclagem. Vá para o Portal do Azure. Na barra de ferramentas à esquerda, clique em **Novo**, em seguida em **Calcular**, **Serviço de Nuvem** e **Criar**.
 
 
-## Configurando seu serviço de Divisão-Mesclagem
+## Configurar o serviço de divisão e mesclagem
 
 ### Configuração do serviço de Divisão-Mesclagem
 
-1. Na pasta em que você baixou os assemblies de Divisão-Mesclagem, crie uma cópia do arquivo **ServiceConfiguration.Template.cscfg** fornecido junto com **SplitMergeService.cspkg** e renomeie para **ServiceConfiguration.cscfg**.
+1. Na pasta em que você baixou os assemblies de Divisão e Mesclagem, crie uma cópia do arquivo **ServiceConfiguration.Template.cscfg** fornecido junto com **SplitMergeService.cspkg** e renomeie para **ServiceConfiguration.cscfg**.
 
 2. Abra **ServiceConfiguration.cscfg** em um editor de texto como o Visual Studio que valide as entradas como o formato de impressões digitais de certificado.
 
@@ -57,12 +60,13 @@ As etapas acima baixam os arquivos de Divisão-Mesclagem para a pasta atual. Os 
 
 5.    Para a função **SplitMergeWorker**, digite uma cadeia de caracteres de conexão válida para o armazenamento do Azure para a configuração **WorkerRoleSynchronizationStorageAccountConnectionString**.
         
-### Configurando a segurança
+### Configurar a segurança
+
 Para obter instruções detalhadas configurar a segurança do serviço, consulte as [Configuração de segurança da divisão e mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Para fins de implantação de teste simples para este tutorial, um conjunto mínimo de etapas de configuração será executado para colocar o serviço em operação. Essas etapas permite que somente o computador/conta que as executa se comunique com o serviço.
 
-### Criando um certificado autoassinado
+### Crie um certificado autoassinado
 
 Crie um novo diretório e, nesse diretório, execute o seguinte comando usando uma janela de [Prompt de comando do desenvolvedor para o Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx):
 
@@ -119,9 +123,9 @@ Para a função da web:
 
 Observe que para implantações de produção devem ser usados certificados separados para a autoridade de certificação, para criptografia, o certificado do servidor e os certificados de cliente. Para obter instruções detalhadas sobre isso, consulte a [Configuração de segurança](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-### Implantando seu serviço de Divisão-Mesclagem
+## Implantar o serviço
 
-1. Vá para o [portal do Azure](https://manage.windowsazure.com).
+1. Vá para o [Portal do Azure](https://manage.windowsazure.com).
 2. Clique na guia **Serviços de nuvem** à esquerda e selecione o serviço de nuvem que você criou anteriormente.
 3. Clique em **Painel**.
 4. Escolha o ambiente de preparo e clique em **Carregar uma nova implantação de preparo**.
@@ -135,7 +139,7 @@ Observe que para implantações de produção devem ser usados certificados sepa
 ![Carregar][4]
 
 
-## Solucionando problemas de implantação
+## Solucionar problemas de implantação
 
 Se sua função web não ficar online, provavelmente é um problema com a configuração de segurança. Verifique se o SSL está configurado como descrito acima.
 
@@ -150,13 +154,13 @@ Se sua função de trabalho não fica online, mas sua função web tiver êxito,
 * Certifique-se de que o nome do servidor não comece com ****https://**.
 * Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. Para fazer isso, abra https://manage.windowsazure.com, clique em “Bancos de dados SQL” à esquerda, clique em “Servidores” na parte superior e selecione seu servidor. Clique em **Configurar** na parte superior e verifique se a configuração dos **Serviços do Azure** estão definidas como “Sim”. (Consulte a seção Pré-requisitos na parte superior deste artigo).
 
-## Testando sua implantação do serviço de Divisão-Mesclagem
+## Testar a implantação do serviço
 
-### Conectar-se com um navegador da web
+### Conectar-se com um navegador da Web
 
 Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Você pode descobrir isso no Portal Clássico do Azure indo para o **Painel** do seu serviço de nuvem e procurando na **URL do Site**, no lado direito. Substitua ****http://** por ****https://**, uma vez as configurações de segurança padrão desabilitam o ponto de extremidade HTTP. Carregue a página para este URL no seu navegador.
 
-### Testando com scripts do PowerShell
+### Testes com scripts do PowerShell
 
 A implantação e sue ambiente podem ser testados, executando os scripts de exemplo do PowerShell incluídos.
 
@@ -212,7 +216,7 @@ Os arquivos de script incluídos são:
   </tr>
 </table>
 
-##Usando o PowerShell para verificar sua implantação
+## Usar o PowerShell para verificar sua implantação
 
 1.    Abra uma nova janela do PowerShell, navegue até o diretório onde baixou o pacote de Divisão-Mesclagem e, em seguida, navegue para o diretório do “powershell”.
 2.    Crie um servidor de banco de dados SQL do Azure (ou escolha um servidor existente) onde o gerenciador do mapa do fragmento e os fragmentos serão criados.
@@ -292,11 +296,11 @@ Os arquivos de script incluídos são:
 
 6.    Experimente outros tipos de dados! Todos esses scripts usam um parâmetro de - ShardKeyType opcional que permite que você especifique o tipo de chave. O padrão é Int32, mas você também pode especificar Int64, Guid ou binário.
 
-## Criando suas próprias solicitações
+## Criar solicitações
 
 O serviço pode ser usado por meio da IU da web ou importando e usando o módulo SplitMerge.psm1 do PowerShell que irá enviar suas solicitações por meio da função web.
 
-O serviço de Divisão-Mesclagem pode mover dados em tabelas fragmentadas e tabelas de referência. Uma tabela fragmentada possui uma coluna de chave de fragmentação e tem diferentes dados de linha em cada fragmento. Uma tabela de referência não é fragmentada para que ele contenha os mesmos dados de linha em cada fragmento. As tabelas de referência são úteis para dados que não mudam com frequência e são usadas para associação com tabelas fragmentadas em consultas.
+O serviço pode mover dados em tabelas fragmentadas e tabelas de referência. Uma tabela fragmentada possui uma coluna de chave de fragmentação e tem diferentes dados de linha em cada fragmento. Uma tabela de referência não é fragmentada para que ele contenha os mesmos dados de linha em cada fragmento. As tabelas de referência são úteis para dados que não mudam com frequência e são usadas para associação com tabelas fragmentadas em consultas.
 
 Para executar uma operação de Divisão-Mesclagem, você deve declarar as tabelas fragmentadas e as tabelas de referência que deseja mover. Isso é feito com a API **SchemaInfo**. Esta API está no namespace **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema**.
 
@@ -312,6 +316,7 @@ Observe que o serviço de Divisão-Mesclagem não cria o banco de dados de desti
 
 
 ## Solucionar problemas
+
 Você pode ver a mensagem abaixo ao executar os scripts do powershell de exemplo:
 
     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
@@ -334,4 +339,4 @@ Nesse caso, verifique seu arquivo de configuração, em particular a configuraç
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

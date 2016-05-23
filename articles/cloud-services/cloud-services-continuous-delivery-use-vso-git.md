@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Entrega contínua no Azure usando Visual Studio Team Services e Git
@@ -59,7 +59,7 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
 
 ## 3: Conectar o projeto ao Azure
 
-1. Agora que possui um repositório Git no Visual Studio Team Services com algum código-fonte nele, você está pronto para conectar seu repositório Git ao Azure. No [portal clássico do Azure](http://manage.windowsazure.com), selecione o serviço de nuvem ou site ou crie um novo; para isso, selecione o ícone + na parte inferior esquerda e escolha **Serviço de Nuvem** ou **Aplicativo Web**, depois selecione **Criação Rápida**.
+1. Agora que possui um repositório Git no Visual Studio Team Services com algum código-fonte nele, você está pronto para conectar seu repositório Git ao Azure. No [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), selecione o serviço de nuvem ou site ou crie um novo; para isso, selecione o ícone + na parte inferior esquerda e escolha **Serviço de Nuvem** ou **Aplicativo Web**, depois selecione **Criação Rápida**.
 
 	![][9]
 
@@ -152,7 +152,7 @@ Para configurar um serviço de nuvem para compilação e implantação automáti
 
 	![][29]
 
-1. No [portal clássico do Azure](http://manage.windowsazure.com), você poderá exibir a implantação associada na guia **Implantações** quando o ambiente de preparo estiver selecionado.
+1. No [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), você poderá exibir a implantação associada na guia **Implantações** quando o ambiente de preparo estiver selecionado.
 
 	![][30]
 
@@ -182,7 +182,7 @@ Quando estiver pronto, você pode promover o ambiente de preparo para o ambiente
 
 ![][35]
 
-## 6: Implantar por meio de uma ramificação em funcionamento.
+## 7: Implantar por meio de uma ramificação em funcionamento.
 
 Quando usa o Git, normalmente você faz alterações em uma ramificação em andamento e a integra à ramificação mestre quando seu desenvolvimento estiver concluído. Durante a fase de desenvolvimento de um projeto, você compilará e implantará a ramificação em andamento no Azure.
 
@@ -272,4 +272,4 @@ Para obter mais dicas de como usar o Git com Visual Studio Team Services, consul
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

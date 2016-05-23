@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="04/22/2016"
    ms.author="alkohli" />
 
 # Substituir o chassi em seu dispositivo StorSimple
 
 ## Visão geral
 
-Esse tutorial explica como remover e substituir um chassi em um dispositivo StorSimple 8000. O modelo StorSimple 8100 é um dispositivo de compartimento único (um chassi), enquanto o 8600 é um dispositivo de compartimento duplo (dois chassis). No modelo 8600, existem potencialmente dois chassis que podem falhar no dispositivo: o chassi do compartimento primário ou o chassi do compartimento EBOD.
+Esse tutorial explica como remover e substituir um chassi em um dispositivo StorSimple 8000. O modelo StorSimple 8100 é um dispositivo de compartimento único (um chassi), enquanto o 8600 é um dispositivo de compartimento duplo (dois chassis). No modelo 8600, há potencialmente dois chassis que podem falhar no dispositivo: o chassi do compartimento primário ou o chassi do compartimento EBOD.
 
 Em ambos os casos, o chassi de substituição enviado pela Microsoft estará vazio. Não será incluído nenhum módulos de energia e resfriamento (PCM), módulo de controlador, unidade de disco de estado sólido (SSD), unidade de disco rígido (HD) ou módulos EBOD.
 
->[AZURE.IMPORTANT]Antes de remover e substituir p chassi, examine as informações de segurança em [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Antes de remover e substituir p chassi, examine as informações de segurança em [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Remover o chassi
 
@@ -45,7 +45,7 @@ Execute as seguintes etapas para remover o chassi em seu dispositivo StorSimple.
 
 ## Instalar o chassi
 
-Execute as seguintes etapas para instalar o chassi em um dispositivo Microsoft Azure StorSimple.
+Execute as seguintes etapas para instalar o chassi em seu dispositivo StorSimple.
 
 #### Para instalar um chassi
 
@@ -55,7 +55,7 @@ Execute as seguintes etapas para instalar o chassi em um dispositivo Microsoft A
 
 3. Instale as unidades nas mesmas posições e slots de que elas estavam instaladas anteriormente.
 
-    >[AZURE.NOTE]É recomendável instalar primeiro os SSDs nos slots e, em seguida, instalar os HDDs.
+    >[AZURE.NOTE] É recomendável instalar primeiro os SSDs nos slots e, em seguida, instalar os HDDs.
 
 2. Com o dispositivo montado no rack e os componentes instalados, conecte o dispositivo nas fontes de alimentação apropriadas e ligue o dispositivo. Para obter detalhes, consulte [Cabeamento do dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [Cabeamento do dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
@@ -63,4 +63,4 @@ Execute as seguintes etapas para instalar o chassi em um dispositivo Microsoft A
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

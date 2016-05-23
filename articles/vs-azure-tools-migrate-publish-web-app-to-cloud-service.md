@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azure por meio do Visual Studio
@@ -45,7 +45,7 @@ Para migrar e publicar um aplicativo Web no Azure do Visual Studio, siga estas e
 
     - A propriedade **Copiar Local** é definida como verdadeira para todos os assemblies que são necessários para MVC 2, MVC 3, MVC 4 e aplicativos de negócios do Silverlight. Isso adicionará esses assemblies ao pacote de serviço usado para a implantação.
 
-  >[AZURE.IMPORTANT] Se tiver outros assemblies ou arquivos necessários para o aplicativo Web, você precisa definir manualmente as propriedades para esses arquivos. Para obter informações sobre como definir essas propriedades, consulte a seção **Incluir Arquivos no Pacote de Serviço** posteriormente neste artigo.  
+  >[AZURE.IMPORTANT] Se tiver outros assemblies ou arquivos necessários para o aplicativo Web, você precisa definir manualmente as propriedades para esses arquivos. Para obter informações sobre como definir essas propriedades, consulte a seção **Incluir Arquivos no Pacote de Serviço** posteriormente neste artigo.
 
   >[AZURE.NOTE] Se já existir uma função web para um projeto Web específicos em um projeto do Azure na solução, **Converter**, **Converter em projeto de serviço de nuvem do Azure** não é exibido no menu de atalho para este projeto Web.
 
@@ -55,17 +55,17 @@ Para migrar e publicar um aplicativo Web no Azure do Visual Studio, siga estas e
 
 Se você tiver uma cadeia de conexão para o aplicativo Web que usa um banco de dados do SQL Server no local, é necessário alterar essa cadeia de conexão para usar uma instância do Banco de Dados SQL que o Azure hospeda.
 
->[AZURE.IMPORTANT] Sua assinatura deve habilitá-lo usar o Banco de Dados SQL. Se acessar sua assinatura no Portal de Gerenciamento do Azure, você pode determinar quais serviços são fornecidos pela assinatura. As instruções a seguir se aplicam ao Portal de Gerenciamento lançado. Se estiver usando o Portal de Gerenciamento na versão de visualização, vá para o próximo procedimento. |
+>[AZURE.IMPORTANT] Sua assinatura deve habilitá-lo usar o Banco de Dados SQL. Se acessar sua assinatura do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), você poderá determinar quais serviços serão fornecidos pela assinatura. As instruções a seguir se aplicam ao [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) lançado. Se estiver usando o [Portal do Azure](http://portal.microsoft.com), vá para o próximo procedimento.
 
 ### Para usar uma instância do Banco de Dados SQL em sua função web para a cadeia de conexão
 
-1. Para criar uma instância do banco de dados SQL no Portal de Gerenciamento do Azure, siga as etapas no seguinte artigo: [Criar um Servidor de Banco de Dados SQL](http://go.microsoft.com/fwlink/?LinkId=225109).
+1. Para criar uma instância do Banco de Dados SQL no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), siga as etapas no seguinte artigo: [Create a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109) (Criar um servidor do Banco de Dados SQL).
 
     >[AZURE.NOTE] Quando configura as regras de firewall para sua instância do banco de dados SQL, você deve selecionar a caixa de seleção **Permitir que outros serviços do Azure acessem este servidor**.
 
 1. Para criar uma instância do banco de dados SQL a ser usado para a cadeia de conexão, siga as etapas na próxima seção no seguinte artigo: [Criar um banco de dados SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
 
-1. Para copiar a cadeia de conexão ADO.NET a ser usada para a cadeia de conexão, execute as seguintes etapas no portal de gerenciamento do Azure.
+1. Para copiar a cadeia de conexão ADO.NET a ser usada para a cadeia de conexão, execute as seguintes etapas no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
   1. Escolha o botão **Banco de Dados** e, em seguida, abra o nó para a assinatura que você usou para criar a instância do banco de dados SQL.
 
@@ -99,9 +99,9 @@ Se você tiver uma cadeia de conexão para o aplicativo Web que usa um banco de 
 
 1. Salve o arquivo modificado e republique o aplicativo.
 
-### Para usar uma instância do banco de dados SQL usando o Portal de Gerenciamento do Azure
+### Para usar uma instância do Banco de Dados SQL usando o Portal Clássico do Azure
 
-1. No [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), escolha o nó bancos de dados SQL.
+1. No [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), escolha o nó de Bancos de Dados SQL.
 
   - Se a instância do Banco de Dados SQL que você deseja usar aparecer, abra-a.
 
@@ -135,7 +135,7 @@ Se você tiver uma cadeia de conexão para o aplicativo Web que usa um banco de 
 
 1. (Opcional) Para cancelar o processo de implantação, abra o menu de atalho do item de linha no log de atividades e escolha **Cancelar e remover**. Isso interrompe o processo de implantação e exclui o ambiente de implantação do Azure.
 
-    >[AZURE.NOTE] Para remover este ambiente de implantação após ele ter sido implantado, você deve usar o Portal de Gerenciamento do Azure.
+    >[AZURE.NOTE] Para remover este ambiente de implantação após ele ter sido implantado, você deve usar o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Opcional) Após as instâncias de função terem sido iniciadas, o Visual Studio mostra automaticamente o ambiente de implantação no nó **Computação do Azure** no **Gerenciador de Nuvem** ou **Gerenciador de Servidores**. Aqui você pode exibir o status das instâncias de função individuais.
 
@@ -168,7 +168,7 @@ Se você tiver uma cadeia de conexão para o aplicativo Web que usa um banco de 
 
 1. Para criar um banco de dados do SQL Azure que pode ser usado para um aplicativo Web de entidades dinâmicas do ASP.NET, siga as etapas no procedimento **usar um banco de dados do SQL Azure para seu aplicativo** anteriormente neste tópico.
 
-1. Adicione as tabelas e campos de que você precisa para esse banco de dados por meio do Portal de Gerenciamento do Azure.
+1. Adicione as tabelas e campos de que você precisa para esse banco de dados por meio do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. A cadeia de conexão para esse tipo de aplicativo tem o formato a seguir no arquivo web.config:
 
@@ -208,4 +208,4 @@ Para publicar um aplicativo Web no Azure, o aplicativo deve usar um dos modelos 
 ## Próximas etapas
 Para obter mais informações sobre a publicação, consulte [preparar, publicar ou implantar um aplicativo do Azure do Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Confira também [Configuração de credenciais de autenticação nomeadas](vs-azure-tools-setting-up-named-authentication-credentials.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

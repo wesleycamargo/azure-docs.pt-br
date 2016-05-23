@@ -51,7 +51,7 @@ Cada cluster do Service Fabric tem um nome. Quando um cluster do Fabric é criad
 Por padrão, o nome do cluster é gerado automaticamente e se torna exclusivo pelo acréscimo de um sufixo aleatório a um prefixo "cluster". Isso simplifica bastante o uso do modelo como parte de um sistema CI (**integração contínua**). Se quiser usar um nome específico para o cluster, um que seja significativo para você, defina o valor da variável `clusterName` no arquivo do Gerenciador de Recursos (`ServiceFabricCluster.json`) para seu nome escolhido. É a primeira variável definida nesse arquivo.
 
 ## Opcional: adicionar portas públicas do aplicativo
-Talvez você queira alterar as portas públicas de aplicativos do cluster antes de implantá-lo. Por padrão, o modelo abre apenas duas portas TCP públicas (80 e 8081). Se você precisar de mais para seus aplicativos, modifique a definição de Balanceador de Carga do Azure no modelo. A definição é armazenada no arquivo de modelo principal (`SecureFabricCluster.json`). Abra esse arquivo e procure `loadBalancedAppPort`. Você perceberá que cada porta está associada a três artefatos:
+Talvez você queira alterar as portas públicas de aplicativos do cluster antes de implantá-lo. Por padrão, o modelo abre apenas duas portas TCP públicas (80 e 8081). Se você precisar de mais para seus aplicativos, modifique a definição de Balanceador de Carga do Azure no modelo. A definição é armazenada no arquivo de modelo principal (`ServiceFabricCluster.json`). Abra esse arquivo e procure `loadBalancedAppPort`. Você perceberá que cada porta está associada a três artefatos:
 
 1. Uma variável de modelo que define o valor da porta TCP para a porta:
 
@@ -126,4 +126,4 @@ Se houver algum erro, acesse o [Portal do Azure](https://portal.azure.com/) e ab
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

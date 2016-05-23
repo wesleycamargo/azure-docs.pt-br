@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Visualização de colaboração B2B do AD do Azure: como funciona
@@ -34,9 +34,9 @@ Embora uma assinatura paga (Básico ou Premium) do AD do Azure não seja necess�
  - A identidade visual do locatário administrador é usada para marcar os emails de convite e a experiência de resgate, fornecendo mais contexto para os usuários convidados do parceiro.
 
 ## Artigos relacionados
- Conferir nossos outros artigos sobre a colaboração B2B do Azure
+ Navegue por nossos outros artigos sobre colaboração B2B no Azure AD
 
- - [O que é a colaboração AD B2B do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
+ - [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
  - [Passo a passo detalhado](active-directory-b2b-detailed-walkthrough.md)
  - [Referência do formato de arquivo CSV](active-directory-b2b-references-csv-file-format.md)
  - [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
@@ -44,4 +44,4 @@ Embora uma assinatura paga (Básico ou Premium) do AD do Azure não seja necess�
  - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
  - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

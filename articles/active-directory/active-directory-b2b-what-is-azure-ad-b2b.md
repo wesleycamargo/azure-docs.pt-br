@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Visualização da colaboração B2B do AD do Azure: integração simples e segura com parceiros de nuvem
@@ -32,7 +32,7 @@ Confira [a postagem no blog anunciando a visualização pública](http://blogs.t
 Para obter uma comparação entre os casos de uso da colaboração B2B do AD do Azure, de B2C do AD do Azure e do Aplicativo Multilocatário do AD do Azure, confira [Comparando recursos para o gerenciamento de identidades externas usando o AD do Azure](active-directory-b2b-compare-external-identities.md).
 
 ## Artigos relacionados
-Confira nossos outros artigos sobre a colaboração B2B do Azure:
+Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
 - [Como funciona](active-directory-b2b-how-it-works.md)
 - [Passo a passo detalhado](active-directory-b2b-detailed-walkthrough.md)
@@ -42,4 +42,4 @@ Confira nossos outros artigos sobre a colaboração B2B do Azure:
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

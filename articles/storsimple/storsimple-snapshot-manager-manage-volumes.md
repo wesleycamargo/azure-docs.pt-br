@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="04/18/2016"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para exibir e gerenciar volumes
 
 ## Visão geral
 
-Você pode usar o nó **Volumes** do StorSimple Snapshot Manager (no painel **Escopo**) para selecionar volumes e exibir informações sobre eles. Os volumes são apresentados como unidades que correspondem aos volumes montados pelo host. O nó **Volumes** mostra volumes locais e tipos de volumes que têm suporte pelo Azure StorSimple, incluindo volumes descobertos por meio do uso de iSCSI e um dispositivo.
+Você pode usar o nó **Volumes** do StorSimple Snapshot Manager (no painel **Escopo**) para selecionar volumes e exibir informações sobre eles. Os volumes são apresentados como unidades que correspondem aos volumes montados pelo host. O nó **Volumes** mostra os volumes locais e os tipos de volumes que têm suporte do StorSimple, incluindo os volumes descobertos por meio do uso do iSCSI e de um dispositivo.
 
 Para saber mais sobre os volumes compatíveis, vá até [Suporte para vários tipos de volume](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
@@ -35,11 +35,11 @@ Este tutorial explica como montar, inicializar e formatar volumes e usar o StorS
 - Configurar um volume básico e fazer seu backup
 - Configurar um volume dinâmico espelhado e fazer seu backup
 
->[AZURE.NOTE]Todas as ações do nó **Volume** também estão disponíveis no painel **Ações**.
+>[AZURE.NOTE] Todas as ações do nó **Volume** também estão disponíveis no painel **Ações**.
  
 ## Montar volumes
 
-Use o procedimento a seguir para montar, inicializar e formatar volumes do Azure StorSimple. O procedimento usa o Gerenciamento de Disco, um utilitário do sistema para gerenciar discos rígidos e os volumes ou partições que eles contêm. Para saber mais sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site do Microsoft TechNet.
+Use o procedimento a seguir para montar, inicializar e formatar volumes do StorSimple. Este procedimento usa o Gerenciamento de Disco, um utilitário do sistema para gerenciar discos rígidos e os volumes ou as partições correspondentes. Para saber mais sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site do Microsoft TechNet.
 
 #### Para montar volumes
 
@@ -55,7 +55,7 @@ Use o procedimento a seguir para montar, inicializar e formatar volumes do Azure
 
     - Inicie as **Ferramentas Administrativas**, expanda o nó **Gerenciamento do Computador** e selecione **Gerenciamento de Disco**.
 
-    >[AZURE.NOTE]Você precisa usar privilégios de administrador para executar o Gerenciamento de Disco.
+    >[AZURE.NOTE] Você precisa usar privilégios de administrador para executar o Gerenciamento de Disco.
  
 4. Coloque os volumes online:
 
@@ -110,7 +110,7 @@ Use o procedimento a seguir para exibir informações sobre volumes locais e do 
 
 Use o procedimento a seguir para excluir um volume do StorSimple Snapshot Manager.
 
->[AZURE.NOTE]Você não pode excluir um volume se ele fizer parte de um grupo de volumes. (A opção de exclusão não está disponível para volumes que fazem parte de um grupo de volumes). Você deve excluir o grupo de volumes inteiro para excluir o volume.
+>[AZURE.NOTE] Você não pode excluir um volume se ele fizer parte de um grupo de volumes. (A opção de exclusão não está disponível para volumes que fazem parte de um grupo de volumes). Você deve excluir o grupo de volumes inteiro para excluir o volume.
 
 
 #### Para excluir um volume
@@ -153,7 +153,7 @@ Use o procedimento a seguir para configurar um backup de um volume básico e, em
 
 Antes de começar:
 
-- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
 
 - Instale e configure o StorSimple Snapshot Manager. Para saber mais, vá até [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
@@ -195,7 +195,7 @@ Conclua as seguintes etapas para configurar o backup de um volume espelhado din�
 
 Antes de começar:
 
-- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+- Certifique-se de que o computador host e o dispositivo StorSimple estejam configurados corretamente. Para saber mais, vá até [Implantar seu dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
 
 - Instale e configure o StorSimple Snapshot Manager. Para saber mais, vá até [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
@@ -203,7 +203,7 @@ Antes de começar:
 
 ### Etapa 1: Usar o Gerenciamento de Disco para criar um volume espelhado dinâmico
 
-O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos rígidos e os volumes ou partições que eles contêm. Para saber mais sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site do Microsoft TechNet.
+O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos rígidos e os volumes ou partições que eles contêm. Para obter mais informações sobre o Gerenciamento de Disco, vá até [Gerenciamento de Disco](https://technet.microsoft.com/library/cc770943.aspx) no site Microsoft TechNet.
 
 #### Para criar um volume espelhado dinâmico
 
@@ -227,7 +227,7 @@ O Gerenciamento de Disco é um utilitário do sistema para gerenciar discos ríg
 
 6. Na página **Atribuir uma Letra de Unidade ou Caminho**, aceite os padrões e clique em **Avançar**.
 
-7. Na página **Formatar Volume**, na caixa **Tamanho da Unidade de Alocação**, selecione **64 K**. Marque a caixa de seleção **Executar uma formatação rápida** e clique em **Avançar**.
+7. Na página **Formatar Volume**, na caixa **Tamanho da Unidade de Alocação**, selecione **64 mil**. Marque a caixa de seleção **Executar uma formatação rápida** e clique em **Avançar**.
 
 8. Na página **Concluindo o Novo Volume Espelhado**, examine as configurações e clique em **Concluir**.
 
@@ -251,7 +251,7 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 
 3. No painel **Resultados**, clique no volume dinâmico espelhado e clique em **Criar Grupo de Volumes**.
 
-4. Na caixa de diálogo **Criar Grupo de Volumes**, digite um nome para o grupo de volumes, atribua o volume dinâmico espelhado a esse grupo e clique em **OK**.
+4. Na caixa de diálogo **Criar Grupo de Volumes**, digite um nome para o grupo de volumes, atribua o volume espelhado dinâmico a esse grupo e clique em **OK**.
 
 5. No painel **Escopo**, expanda o nó **Grupos de Volumes**. O novo grupo de volumes deve aparecer no nó **Grupos de Volumes**.
 
@@ -271,4 +271,4 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0511_2016-->

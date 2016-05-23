@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Barramento de Serviço e Java com AMQP 1.0 | Microsoft Azure"
-   description="Usando o Barramento de Serviço do Java com AMQP."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Barramento de Serviço e Java com AMQP 1.0 | Microsoft Azure"
+    description="Usando o Barramento de Serviço do Java com AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Usar o barramento de serviço do Java com AMQP 1.0
 
@@ -362,25 +362,7 @@ A tabela a seguir mostra como os tipos de propriedades JMS são mapeados para os
 
 | Tipo de propriedade .NET | Tipo de propriedade JMS | Observações |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - | 
-| sbyte | Byte | - |
-| char | Character | - |
-| short | Short | - |
-| UShort | UnsignedShort | - |
-| int | Integer | - |
-| uint | UnsignedInteger | - |
-| Long | Long | - |
-| ULong | UnsignedLong | - |
-| float | Float | - |
-| double | Double | - |
-| decimal | BigDecimal | - |
-| bool | Boolean | - |
-| GUID | UUID | - |
-| string | String | - |
-| DateTime | Date | - |
-| DateTimeOffset | DescribedType | DateTimeOffset.Utcticks mapeado para tipo AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan | DescribedType | Timespan.Ticks mapeado para tipo AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
-| Uri | DescribedType | Uri.AbsoluteUri mapeado para tipo AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | UnsignedByte | - | | sbyte | Byte | - | | char | Character | - | | short | Short | - | | UShort | UnsignedShort | - | | int | Integer | - | | uint | UnsignedInteger | - | | Long | Long | - | | ULong | UnsignedLong | - | | float | Float | - | | double | Double | - | | decimal | BigDecimal | - | | bool | Boolean | - | | GUID | UUID | - | | string | String | - | | DateTime | Date | - | | DateTimeOffset | DescribedType | DateTimeOffset.Utcticks mapeado para tipo AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks mapeado para tipo AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri mapeado para tipo AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### Cabeçalhos padrões
 
@@ -390,32 +372,13 @@ As tabelas a seguir mostram como os cabeçalhos JMS padrões e as propriedades p
 
 | JMS | Barramento de Serviço do .NET | Observações |
 |------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| JMSCorrelationID | Message.CorrelationID | - |
-| JMSDeliveryMode | Não disponível no momento | O Barramento de Serviço oferece suporte apenas a mensagens duráveis; por exemplo, DeliveryMode.PERSISTENT, independentemente do que é especificado. |
-| JMSDestination | Message.To | - |
-| JMSExpiration | Message. TimeToLive | Conversion |
-| JMSMessageID | Message.MessageID | Por padrão, JMSMessageID é codificado no formato binário na mensagem do AMQP. Após o recebimento da id de mensagem binária, a biblioteca de cliente .NET converte uma representação de cadeia de caracteres com base nos valores unicode dos bytes. Para alternar a biblioteca JMS para usar ids de mensagem de cadeia de caracteres, acrescente a cadeia de caracteres "binary-messageid=false" para os parâmetros de consulta da ConnectionURL JNDI. Por exemplo: "amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false ". |
-| JMSPriority | Não disponível no momento | O Barramento de Serviço não oferece suporte à prioridade da mensagem. |
-| JMSRedelivered | Não disponível no momento | - |
-| JMSReplyTo | Mensagem. ReplyTo | - |
-| JMSTimestamp | Message.EnqueuedTimeUtc | Conversion |
-| JMSType | Message.Properties["jms-type"] | - |
+| JMSCorrelationID | Message.CorrelationID | - | | JMSDeliveryMode | Não disponível no momento | O Barramento de Serviço oferece suporte apenas a mensagens duráveis; por exemplo, DeliveryMode.PERSISTENT, independentemente do que é especificado. | | JMSDestination | Message.To | - | | JMSExpiration | Message. TimeToLive | Conversion | | JMSMessageID | Message.MessageID | Por padrão, JMSMessageID é codificado no formato binário na mensagem do AMQP. Após o recebimento da id de mensagem binária, a biblioteca de cliente .NET converte uma representação de cadeia de caracteres com base nos valores unicode dos bytes. Para alternar a biblioteca JMS para usar ids de mensagem de cadeia de caracteres, acrescente a cadeia de caracteres "binary-messageid=false" para os parâmetros de consulta da ConnectionURL JNDI. Por exemplo: "amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false ". | | JMSPriority | Não disponível no momento | O Barramento de Serviço não oferece suporte à prioridade da mensagem. | | JMSRedelivered | Não disponível no momento | - | | JMSReplyTo | Mensagem. ReplyTo | - | | JMSTimestamp | Message.EnqueuedTimeUtc | Conversion | | JMSType | Message.Properties["jms-type"] | - |
 
 #### APIs .NET do Barramento de Serviço para JMS
 
 | Barramento de Serviço do .NET | JMS | Observações |
 |-------------------------|------------------|-------------------------|
-| ContentType | - | Não disponível no momento |
-| CorrelationId | JMSCorrelationID | - |
-| EnqueuedTimeUtc | JMSTimestamp | Conversion |
-| Label | n/d | Não disponível no momento |
-| MessageId | JMSMessageID | - |
-| ReplyTo | JMSReplyTo | - |
-| ReplyToSessionId | n/d | Não disponível no momento |
-| ScheduledEnqueueTimeUtc | n/d | Não disponível no momento |
-| SessionId | n/d | Não disponível no momento |
-| TimeToLive | JMSExpiration | Conversion |
-| To | JMSDestination | - |
+| ContentType | - | Não disponível no momento | | CorrelationId | JMSCorrelationID | - | | EnqueuedTimeUtc | JMSTimestamp | Conversion | | Label | n/d | Não disponível no momento | | MessageId | JMSMessageID | - | | ReplyTo | JMSReplyTo | - | | ReplyToSessionId | n/d | Não disponível no momento | | ScheduledEnqueueTimeUtc | n/d | Não disponível no momento | | SessionId | n/d | Não disponível no momento | | TimeToLive | JMSExpiration | Conversion | | To | JMSDestination | - |
 
 ## Restrições e recursos não suportados
 
@@ -447,4 +410,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [portal clássico do Azure]: http://manage.windowsazure.com
 [portal clássico do Azure.]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

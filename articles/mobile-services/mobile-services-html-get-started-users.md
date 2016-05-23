@@ -103,11 +103,13 @@ Em seguida, você irá atualizar o aplicativo para permitir autenticação antes
 
     Isso cria um conjunto de funções para manipular o processo de autenticação. O usuário é autenticado usando um logon do Facebook. Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para o método **login** acima para um dos seguintes: *microsoftaccount*,*facebook*, *twitter*, *google* ou *aad*.
 
-	>[AZURE.IMPORTANT]Em um aplicativo PhoneGap, você também deve adicionar os seguintes plug-ins para o projeto: <ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li> e <li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	>[AZURE.IMPORTANT]Em um aplicativo do PhoneGap, você deve também adicionar os seguintes plug-ins ao projeto:
+	><ul><li><code>plug-in PhoneGap adicionar https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
+	> <li><code>plug-in PhoneGap adicionar https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. Volte para o navegador onde seu aplicativo está em execução e atualize a página.
 
-	   Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
+	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
 	>[AZURE.NOTE]Ao usar o Internet Explorer, você pode receber o seguinte erro após o logon: <code>Não é possível alcançar a janela de abertura. Talvez ela esteja em outra zona do Internet Explorer</code>. Isso ocorre porque o pop-up é executado em uma zona de segurança diferente (internet) do host local (intranet). Isso afeta apenas aplicativos durante o desenvolvimento usando localhost. Para solucionar esse problema, abra a guia **Segurança** de **Opções da Internet**, clique em **Intranet Local**, clique em **Sites**e desative **Detectar automaticamente a rede intranet**. Lembre-se de alterar essa configuração novamente quando concluir o teste.
 
@@ -135,4 +137,4 @@ No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valo
 [Referência conceitual do tutorial HTML/JavaScript nos Serviços Móveis]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0511_2016-->

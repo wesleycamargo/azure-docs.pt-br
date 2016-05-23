@@ -107,7 +107,7 @@ Você pode criar o banco de dados de exemplo AdventureWorksLT [V12] com alguns c
 
 2. Conecte-se ao banco de dados com o SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copie o [script Transact-SQL do OLTP Na Memória](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_oltp_sample.sql) para a área de transferência.
+3. Copie o [script Transact-SQL do OLTP Na Memória](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_oltp_sample.sql) para a área de transferência.
  - O script T-SQL cria os objetos necessários Na Memória no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
 
 4. Cole o script T-SQL no SSMS e execute o script.
@@ -348,7 +348,7 @@ Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempr
  - Use esse nome exato.
  - Escolha qualquer camada de serviço Premium.
 
-2. Copie o [sql\_in-memory\_analytics\_sample](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_analytics_sample.sql) para sua área de transferência.
+2. Copie o [sql\_in-memory\_analytics\_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_analytics_sample.sql) para sua área de transferência.
  - O script T-SQL cria os objetos necessários Na Memória no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
  - O script cria a tabela Dimension e duas tabelas de fatos. As tabelas de fatos são preenchidas com 3,5 milhões de linhas cada.
  - O script pode levar 15 minutos para ser concluído.
@@ -371,7 +371,7 @@ Para fazer uma análise em tempo real em uma carga de trabalho OLTP, quase sempr
 #### Consultas cruciais para comparar o índice columnstore
 
 
-[Estes](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/clustered_columnstore_sample_queries.sql) são os diversos tipos de consulta T-SQL que você pode executar para ver as melhorias de desempenho. Na Etapa 2 no script T-SQL, há um par de consultas que são de interesse direto. As duas consultas diferem apenas em uma única linha:
+[Estes](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/clustered_columnstore_sample_queries.sql) são os diversos tipos de consulta T-SQL que você pode executar para ver as melhorias de desempenho. Na Etapa 2 no script T-SQL, há um par de consultas que são de interesse direto. As duas consultas diferem apenas em uma única linha:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -533,4 +533,4 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Monitorar o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

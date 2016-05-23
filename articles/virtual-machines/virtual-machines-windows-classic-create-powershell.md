@@ -14,15 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
-# Criar máquinas virtuais do Windows com o PowerShell e o modelo de implantação clássico 
+# Criar uma máquina virtual Windows com o PowerShell e o modelo de implantação clássico 
 
 > [AZURE.SELECTOR]
 - [Portal clássico do Azure - Windows](virtual-machines-windows-classic-tutorial.md)
 - [PowerShell - Windows](virtual-machines-windows-classic-create-powershell.md)
-- [PowerShell - Linux](virtual-machines-linux-classic-createpowershell.md)
 
 <br>
 
@@ -33,8 +32,6 @@
 Estas etapas mostram como personalizar um conjunto de comandos do Azure PowerShell que criam e pré-configuram uma máquina virtual do Azure baseada em Windows usando uma abordagem de bloco de construção. Você pode usar este processo para criar rapidamente um conjunto de comandos para uma nova máquina virtual baseada em Windows e expandir uma implantação existente ou criar vários conjuntos de comandos que criam rapidamente um ambiente personalizado para teste/desenvolvimento ou profissionais de TI.
 
 Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do PowerShell do Azure. Esta abordagem poderá ser útil se você for novo no PowerShell ou apenas quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
-
-Para o tópico complementar sobre como configurar máquinas virtuais baseadas em Linux, confira [Usar o PowerShell do Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Linux](virtual-machines-linux-classic-createpowershell.md).
 
 Se você ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do Windows PowerShell.
 
@@ -178,7 +175,7 @@ Se você estiver usando um editor de texto, copie o conjunto de comandos para a 
 Se pretender criar novamente essa máquina virtual ou uma semelhante, você poderá:
 
 - Salvar este conjunto de comandos como um arquivo de script do PowerShell (*.ps1).
-- Salve este conjunto de comandos como um runbook de Automação do Azure na seção **automação** do portal clássico do Azure.
+- Salve este conjunto de comandos como um runbook de Automação do Azure na seção **Automação** do Portal Clássico do Azure.
 
 ## <a id="examples"></a>Exemplos
 
@@ -263,4 +260,4 @@ Aqui está o conjunto de comandos do PowerShell do Azure correspondente para cri
 
 Se precisar de um disco do sistema operacional que seja maior do que 127 GB, você poderá [expandir a unidade do sistema operacional](virtual-machines-windows-expand-os-disk.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

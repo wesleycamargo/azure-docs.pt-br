@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/10/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect: habilitando o write-back do dispositivo
@@ -27,10 +27,11 @@ A documentação a seguir fornece informações sobre como habilitar o recurso d
 Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos é concedido somente a dispositivos confiáveis. Para obter mais informações sobre acesso condicional, consulte [Gerenciando risco com acesso condicional](active-directory-conditional-access.md) e [Configurando acesso condicional local usando o registro de dispositivo do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn788908.aspx).
 
 >[AZURE.IMPORTANT]
-<li>Os dispositivos devem estar localizados na mesma floresta que os usuários. Como o write-back dos dispositivos deve ser feito em uma única floresta, esse recurso não é compatível com uma implantação com várias florestas de usuário.</li> <li>Somente um objeto de configuração de registro de dispositivo pode ser adicionado à floresta local do Active Directory. Esse recurso não é compatível com uma topologia onde o Active Directory local é sincronizado a vários diretórios do AD do Azure.</li>
+<li>Os dispositivos devem estar localizados na mesma floresta que os usuários. Como o write-back dos dispositivos deve ser feito numa única floresta, esse recurso não é compatível com uma implantação com várias florestas de usuário.</li>
+<li>Somente um objeto de configuração de registro de dispositivo pode ser adicionado à floresta local do Active Directory. Esse recurso não é compatível com uma topologia em que o Active Directory local é sincronizado a vários diretórios do Azure AD.</li>
 
 ## Parte 1: instalar o Azure AD Connect
-1. Instale o Azure AD Connect usando configurações expressas ou personalizadas. A recomendação é iniciar para ter todos os usuários e grupos sincronizados com êxito antes de habilitar o write-back do dispositivo.
+1. Instale o Azure AD Connect usando configurações expressas ou personalizadas. A Microsoft recomenda iniciar com todos os usuários e grupos sincronizados com êxito antes de habilitar o write-back do dispositivo.
 
 ## Parte 2: preparar o Active Directory
 Use as etapas a seguir para preparar para o uso de write-back do dispositivo.
@@ -41,7 +42,7 @@ Use as etapas a seguir para preparar para o uso de write-back do dispositivo.
 
 	`Install-WindowsFeature –Name AD-Domain-Services –IncludeManagementTools`
 
-3. Se o módulo do PowerShell do Active Directory do Azure NÃO estiver instalado, baixe-o e instale-o de [Módulo do Active Directory do Azure para o Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente depende do assistente de conexão, que é instalado com o Azure AD Connect.
+3. Se o módulo do PowerShell do Azure Active Directory NÃO estiver instalado, baixe-o em [Módulo do Azure Active Directory para o Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297) e instale-o. Este componente depende do assistente de conexão, que é instalado com o Azure AD Connect.
 
 4.	Com credenciais de administrador corporativo, execute os seguintes comandos e, em seguida, saia do PowerShell.
 
@@ -51,7 +52,7 @@ Use as etapas a seguir para preparar para o uso de write-back do dispositivo.
 
 As credenciais de administrador corporativo serão necessárias, já que é necessário alterar o namespace de configuração. Um administrador de domínio não terá permissões suficientes.
 
-![Powershell](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+![Powershell para habilitar o write-back do dispositivo](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
 
 Descrição:
 
@@ -68,9 +69,9 @@ Parâmetros:
 ## Parte 3: habilitar o dispositivo write-back na conexão do AD do Azure
 Use o procedimento a seguir para habilitar write-back do dispositivo no Azure AD Connect.
 
-1.	Execute o assistente de instalação novamente. Selecione **personalizar opções de sincronização na página **Tarefas Adicionais e clique em **Próximo**. ![Instalação personalizada](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback2.png)
-2.	Na página Recursos Opcionais, o write-back do dispositivo não estará mais esmaecido. Observe que se as etapas de preparação do Azure AD Connect não forem concluídas, o write-back do dispositivo ficará indisponível na página Recursos Opcionais. Marque a caixa para write-back do dispositivo e clique em **avançar**. Se a caixa de seleção ainda estiver desabilitada, consulte a [seção de solução de problemas](#the-writeback-checkbox-is-still-disabled). ![Write-back de dispositivo](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
-3.	Na página de write-back, você verá o domínio fornecido como a floresta de write-back de dispositivo padrão. ![Instalação personalizada](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
+1.	Execute o assistente de instalação novamente. Selecione **personalizar opções de sincronização na página **Tarefas Adicionais e clique em **Próximo**. ![Instalação Personalizada - Personalizar opções de sincronização](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback2.png)
+2.	Na página Recursos Opcionais, o write-back do dispositivo não estará mais esmaecido. Observe que se as etapas de preparação do Azure AD Connect não forem concluídas, o write-back do dispositivo ficará indisponível na página Recursos Opcionais. Marque a caixa para write-back do dispositivo e clique em **avançar**. Se a caixa de seleção ainda estiver desabilitada, consulte a [seção de solução de problemas](#the-writeback-checkbox-is-still-disabled). ![Instalação Personalizada - Recursos opcionais de write-back de dispositivo](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
+3.	Na página de write-back, você verá o domínio fornecido como a floresta de write-back de dispositivo padrão. ![Instalação Personalizada - Floresta de dispositivo de write-back de dispositivo](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
 4.	Conclua a instalação do assistente sem alterações de configuração adicionais. Se necessário, consulte [Instalação personalizada do Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
 
 ## Habilitar o acesso condicional
@@ -80,10 +81,8 @@ Instruções detalhadas para habilitar esse cenário estão disponíveis em [Def
 O write-back do dispositivo agora deve estar funcionando corretamente. Pode levar até 3 horas para que os objetos do dispositivo sejam gravados no Active Directory. Para verificar se os dispositivos estão sendo sincronizados corretamente, faça o seguinte, depois de concluir as regras de sincronização:
 
 1.	Inicie o Centro Administrativo do Active Directory.
-2.	Expanda RegisteredDevices dentro do domínio que está sendo federado. ![Instalação personalizada](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
-3.	Dispositivos registrados atuais serão listados lá.
-
-![Instalação personalizada](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
+2.	Expanda RegisteredDevices dentro do domínio que está sendo federado. ![Dispositivos registrados do Centro de Administração do Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
+3.	Dispositivos registrados atuais serão listados lá. ![Lista de dispositivos registrados do Centro de Administração do Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
 ## Solucionar problemas
 
@@ -99,29 +98,30 @@ Primeiro as prioridades:
 	- Abra a guia **Conectores**.
 	- Localize o conector com o tipo de Serviços de Domínio do Active Directory e selecione-o.
 	- Em **Ações**, selecione **Propriedades**.
-	- Vá para **Conectar-se à floresta do Active Directory**. Verifique o nome de usuário e domínio especificado nessa correspondência de tela a conta fornecida para o script. ![Conta do conector](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
+	- Vá para **Conectar-se à floresta do Active Directory**. Verifique o nome de usuário e domínio especificado nessa correspondência de tela a conta fornecida para o script. ![Conta do conector no Sync Service Manager](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
-Verifique a configuração no Active Directory:-Verifique se o serviço de registro do dispositivo está localizado no local abaixo (CN = DeviceRegistrationService, CN = Serviços de registro de dispositivo, CN = Configuração do registro de dispositivo, CN = Services, CN = Configuration) no contexto de nomenclatura de configuração.
+Verifique a configuração no Active Directory:
+- Verifique se o serviço de registro do dispositivo está localizado no local abaixo (CN = DeviceRegistrationService, CN = Serviços de registro de dispositivo, CN = Configuração do registro de dispositivo, CN = Services, CN = Configuration) no contexto de nomenclatura da configuração.
 
-![Solução de problemas1](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot1.png)
+![Solucionar problemas, DeviceRegistrationService no namespace de configuração](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot1.png)
 
 - Verifique se há apenas um objeto de configuração pesquisando o namespace de configuração. Se houver mais de um, exclua a cópia.
 
-![Solução de problemas2](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot2.png)
+![Solucionar problemas, procurar por objetos duplicados](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot2.png)
 
 - No objeto do serviço de registro de dispositivo, verifique se o atributo msDS-DeviceLocation está presente e tem um valor. Pesquise esse local e verifique se ele está presente com o atributo msDS-DeviceContainer objectType.
 
-![Solução de problemas3](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot3.png)
+![Solucionar problemas, msDS-DeviceLocation](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot3.png)
 
-![Solução de problemas4](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot4.png)
+![Solucionar problemas, classe de objeto RegisteredDevices](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot4.png)
 
 - Verifique se a conta usada pelo conector do Active Directory tem as permissões necessárias no contêiner dos Dispositivos Registrados encontradas pela etapa anterior. Permissões esperadas neste contêiner:
 
-![Solução de problemas5](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot5.png)
+![Solucionar problemas, verificar permissões no contêiner](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot5.png)
 
 - Verifique se a conta do Active Directory tem permissões no objeto CN = Configuração do registro de dispositivo, CN = Services, CN= Configuração.
 
-![Solução de problemas6](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
+![Solucionar problemas, verificar permissões na configuração de registro do dispositivo](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
 ## Informações adicionais
 - [Gerenciamento de riscos com acesso condicional](active-directory-conditional-access.md)
@@ -130,4 +130,4 @@ Verifique a configuração no Active Directory:-Verifique se o serviço de regis
 ## Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

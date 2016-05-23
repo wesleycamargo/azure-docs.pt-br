@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016"
+	ms.date="04/26/2016"
 	ms.author="adegeo"/>
 
 
 # Como gerenciar serviços de nuvem
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-how-to-manage.md)
-- [Azure portal](cloud-services-how-to-manage-portal.md)
+- [Portal do Azure](cloud-services-how-to-manage-portal.md)
+- [Portal clássico do Azure](cloud-services-how-to-manage.md)
+
 
 Na área **Serviços de Nuvem** do portal do Azure, você pode atualizar uma função de serviço ou uma implantação, promover uma implantação de preparo para produção, vincular recursos ao Serviço de Nuvem para que você possa ver as dependências de recursos e dimensionar os recursos em conjunto, além de excluir um Serviço de Nuvem ou uma implantação.
 
@@ -42,15 +43,13 @@ Se você precisar atualizar o código do aplicativo para o seu serviço de nuvem
 
 4. **Como opção**, atualize o rótulo de implantação e a conta de armazenamento.
 
-5. Se a atualização alterar o número de funções ou o tamanho de qualquer função, marque a caixa de seleção **Permitir a atualização se os tamanhos ou o número de funções for alterado** para permitir que a atualização continue.
-
-	>[AZURE.WARNING] Lembre-se que, se você alterar o tamanho de uma função (u seja, o tamanho de uma máquina virtual que hospede uma instância de função) ou o número de funções, cada instância de função (máquina virtual) deverá ter outra imagem criada e todos os dados locais serão perdidos.
-
-6. Se alguma das funções de serviço tiver uma instância de função, marque a caixa de seleção **Atualizar mesmo se uma ou mais funções contiverem uma única instância** para permitir que a atualização continue.
+5. Se alguma das funções de serviço tiver uma instância de função, selecione **Implantar mesmo se uma ou mais funções contiverem uma única instância** para permitir que a atualização continue.
 
 	O Azure pode garantir apenas 99,95 por cento de disponibilidade do Serviço de Nuvem durante uma atualização do Serviço de Nuvem se cada função tiver pelo menos duas instâncias de função (máquinas virtuais). Isso permite que uma máquina virtual processe as solicitações do cliente enquanto a outra é atualizada.
 
-8. Clique em **OK** para iniciar a atualização do serviço.
+6. Marque a opção **Iniciar implantação** se você quiser que a atualização seja aplicada após terminar o upload do pacote.
+
+7. Clique em **OK** para iniciar a atualização do serviço.
 
 
 
@@ -114,4 +113,4 @@ Se o monitoramento detalhado estiver configurado para seu serviço de nuvem, o A
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Entrega contínua no Azure usando Visual Studio Team Services
@@ -32,11 +32,7 @@ Siga as instruções contidas [aqui](http://go.microsoft.com/fwlink/?LinkId=5129
 
 ## 2: Faça check-in em um projeto para o controle do código-fonte
 
-1. No Visual Studio, abra a solução que você deseja implantar ou crie uma nova. 
-Você pode implantar um aplicativo Web ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo. 
-Se você desejar criar uma nova solução, crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. 
-Verifique se o projeto é direcionado para o .NET Framework 4 ou 4.5 e, se você estiver criando um projeto de serviço de nuvem, adicione uma função web e uma função de trabalho ASP.NET MVC e escolha o aplicativo da Internet para a função web. Quando solicitado, escolha **Aplicativo da Internet**. 
-Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](../app-service-web/web-sites-dotnet-get-started.md).
+1. No Visual Studio, abra a solução que você deseja implantar ou crie uma nova. Você pode implantar um aplicativo Web ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo. Se você desejar criar uma nova solução, crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. Verifique se o projeto é direcionado para o .NET Framework 4 ou 4.5 e, se você estiver criando um projeto de serviço de nuvem, adicione uma função web e uma função de trabalho ASP.NET MVC e escolha o aplicativo da Internet para a função web. Quando solicitado, escolha **Aplicativo da Internet**. Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicativo Web ASP.NET e escolha MVC. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](../app-service-web/web-sites-dotnet-get-started.md).
 
 	> [AZURE.NOTE] O Visual Studio Team Services só suporta implantações de CI de aplicativos Web do Visual Studio no momento. Projetos de Site estão fora do escopo.
 
@@ -62,7 +58,7 @@ Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicati
 
 ## 3: Conectar o projeto ao Azure
 
-1. Agora que você tem um projeto da equipe do VS Team Services com algum código-fonte nele, você está pronto para conectar seu projeto da equipe ao Azure. No [portal clássico do Azure](http://manage.windowsazure.com), selecione o serviço de nuvem ou site ou crie um novo; para isso, selecione o ícone **+** na parte inferior esquerda e escolha **Serviço de Nuvem** ou **Aplicativo Web**, depois selecione **Criação Rápida**. Escolha o link **Configurar a publicação com o Visual Studio Team Services**.
+1. Agora que você tem um projeto da equipe do VS Team Services com algum código-fonte nele, você está pronto para conectar seu projeto da equipe ao Azure. No [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), selecione o serviço de nuvem ou site ou crie um novo; para isso, selecione o ícone **+** na parte inferior esquerda e escolha **Serviço de Nuvem** ou **Aplicativo Web**, depois selecione **Criação Rápida**. Escolha o link **Configurar a publicação com o Visual Studio Team Services**.
 
 	![][10]
 
@@ -161,7 +157,7 @@ Se você quiser criar um aplicativo Web, escolha o modelo de projeto de Aplicati
 
 	![][29]
 
-1. No [portal clássico do Azure](http://manage.windowsazure.com), você poderá exibir a implantação associada na guia **Implantações** quando o ambiente de preparo estiver selecionado.
+1. No [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), você poderá exibir a implantação associada na guia **Implantações** quando o ambiente de preparo estiver selecionado.
 
 	![][30]
 
@@ -321,4 +317,4 @@ Para obter mais informações sobre o teste de unidade no Visual Studio Team Ser
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

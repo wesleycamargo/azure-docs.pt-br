@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Gerenciar seus modelos de largura de banda do StorSimple | Microsoft Azure"
    description="Descreve como gerenciar modelos de largura do StorSimple, que permitem controlar o consumo da largura de banda."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="05/10/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para gerenciar modelos de largura de banda do StorSimple
@@ -28,7 +28,7 @@ Com agendas de limitação da largura de banda, você pode:
 - Centralizar o gerenciamento e reutilizar as agendas em vários dispositivos de uma maneira fácil e direta.
 
 > [AZURE.NOTE] Esse recurso está disponível somente para dispositivos físicos do StorSimple, e não para dispositivos virtuais.
-   
+
 Todos os modelos de largura de banda para seu serviço são exibidos em um formato de tabela e contêm as seguintes informações:
 
 - **Nome**: um nome exclusivo atribuído ao modelo de largura de banda quando ele foi criado.
@@ -63,11 +63,11 @@ Execute as etapas a seguir para criar um novo modelo de largura de banda.
    2. Selecione a opção **Dia Inteiro** se a agenda for imposta para o dia inteiro. Quando essa opção é marcada, você não pode especificar uma **Hora de Início** ou uma **Hora de Término**. A agenda é válida das 0:00 às 23:59.
    3. Na lista suspensa, selecione uma **Hora de Início**. Essa é a hora em que a agenda será iniciada.
    4. Na lista suspensa, selecione uma **Hora de Término**. Essa é a hora em que a agenda será encerrada.
-   
-         > [AZURE.NOTE] Os agendamentos sobrepostos não são permitidos. Se as horas de início e término resultarem em um agendamento sobreposto, você verá uma mensagem de erro sobre isso.
 
-   5. Especifique a **Taxa da Largura de Banda**. Essa é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo StorSimple em operações que envolvem a nuvem. Forneça um número entre 1 e 1.000 para esse campo.
-   
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
+
+   5. Especifique a **Taxa da Largura de Banda**. Essa é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo StorSimple em operações que envolvem a nuvem (uploads e downloads). Forneça um número entre 1 e 1.000 para esse campo.
+
    6. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). O modelo que você criou será adicionado à lista de modelos de largura de banda na página **Configurar** do serviço.
 
     ![Criar novo modelo de largura de banda](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
@@ -172,4 +172,4 @@ Siga estas práticas recomendadas para seu dispositivo StorSimple:
 
 Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

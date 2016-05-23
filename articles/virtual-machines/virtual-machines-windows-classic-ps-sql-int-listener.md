@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurar um Ouvinte de ILB para Grupos de Disponibilidade AlwaysOn | Microsoft Azure"
-	description="Este tutorial usa os recursos criados com o modelo de implantação clássica e cria um Ouvinte para Grupo de Disponibilidade AlwaysOn no Azure usando um ILB (Balanceador de Carga Interno)."
+	pageTitle="Configurar um ouvinte de ILB para grupos de disponibilidade AlwaysOn | Microsoft Azure"
+	description="Este tutorial usa os recursos criados com o modelo de implantação clássico e cria um ouvinte para grupo de disponibilidade AlwaysOn no Azure usando um ILB (Balanceador de Carga Interno)."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="mikeray" />
 
-# Configurar um ouvinte de ILB para grupos de disponibilidade do AlwaysOn no Azure
+# Configurar um ouvinte de ILB para grupos de disponibilidade AlwaysOn no Azure
 
 > [AZURE.SELECTOR]
 - [Ouvinte interno](virtual-machines-windows-classic-ps-sql-int-listener.md)
@@ -24,9 +24,9 @@
 
 ## Visão geral
 
-Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade do AlwaysOn usando um **Balanceador de carga interno (ILB)**.
+Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade AlwaysOn usando um **ILB (Balanceador de carga interno)**.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos. Para configurar um ouvinte de ILB para um grupo de disponibilidade AlwaysOn no modelo do Resource Manager, consulte [Configurar um balanceador de carga interno para um grupo de disponibilidade AlwaysOn no Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 
 O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md), mas não configurou um ouvinte.
@@ -36,7 +36,7 @@ Observe as seguintes diretrizes no ouvinte do grupo de disponibilidade no Azure 
 
 - Há suporte para o ouvinte do grupo de disponibilidade no Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
 
-- Há suporte a somente um ouvinte de grupo de disponibilidade que tem suporte por cada serviço de nuvem, porque o ouvinte é configurado ao ILB, e há apenas um ILB por serviço de nuvem. No entanto, é possível criar vários ouvintes externos. Para obter mais informações, consulte [Configurar um ouvinte para Grupos de Disponibilidade AlwayOn no Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+- Há suporte a somente um ouvinte de grupo de disponibilidade que tem suporte por cada serviço de nuvem, porque o ouvinte é configurado ao ILB, e há apenas um ILB por serviço de nuvem. No entanto, é possível criar vários ouvintes externos. Para obter mais informações, consulte [Configurar um ouvinte externo para grupos de disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 - Não há suporte para criar um ouvinte interno no mesmo serviço de nuvem em que você também tem um ouvinte externo usando o VIP público do serviço de nuvem.
 
@@ -138,4 +138,4 @@ Para o ILB, você deve criar primeiro o balanceador de carga interno. Isso é fe
 
 [AZURE.INCLUDE [Ouvinte das próximas etapas](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

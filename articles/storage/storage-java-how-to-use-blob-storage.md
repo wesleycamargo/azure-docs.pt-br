@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como usar o Armazenamento de Blob do Azure no Java | Microsoft Azure"
-	description="Saiba como usar o armazenamento de blob do Azure para carregar, baixar, listar e excluir conteúdo de blob. Amostras escritas em Java."
+	description="Armazene dados não estruturados na nuvem com o Armazenamento de Blobs do Azure (armazenamento de objeto)."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -268,4 +268,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [API REST de Armazenamento do Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

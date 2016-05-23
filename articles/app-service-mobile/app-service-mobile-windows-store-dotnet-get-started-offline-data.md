@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="wesmc"/>
 
 # Habilitar sincronização offline para o seu aplicativo do Windows
@@ -52,7 +52,17 @@ Os recursos offline do aplicativo móvel do Azure permitem que você interaja co
 
     >[AZURE.NOTE] Se a instalação criar uma referência adicional para uma versão do SQLite diferente da que você instalou, você receberá um erro de compilação. Você deve resolver esse erro removendo a duplicação no nó **Referências** em seus projetos.
 
-3. No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** para o tempo de execução dos projetos da plataforma Windows 8.1 e Windows Phone 8.1 e adicione uma referência para o SQLite, que está localizado na seção **Extensões**.
+3. SQLite é uma biblioteca nativa e requer que você escolha uma arquitetura de plataforma específica como **x86**, **x64** ou **ARM**. Não há suporte para **Qualquer CPU**. No Gerenciador de soluções, clique na solução na parte superior e mude a caixa suspensa da arquitetura processador para uma das configurações com suporte que você deseja testar.
+
+    >[AZURE.NOTE] Se você estiver usando o Visual Studio 2015, clique com o botão direito do mouse na solução e, em seguida, clique em **Propriedades** para abrir o Gerenciador de Configuração para definir a plataforma para os projetos do Windows e do Windows Phone.
+
+    ![][13]
+
+
+4. No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** para os projetos de plataforma do Windows 8.1 Runtime e do Windows Phone 8.1. Verifique se há uma referência ao SQLite, que está localizado na seção **Extensões**.
+
+    >[AZURE.NOTE] Se você estiver usando o Visual Studio 2015, clique com o botão direito do mouse no nó **Referências** para os projetos da plataforma do Windows 8.1 Runtime e do Windows Phone 8.1, e clique em **Adicionar uma referência** para abrir o Gerenciador de Referências.
+
 
     ![][1] </br>
 
@@ -62,9 +72,6 @@ Os recursos offline do aplicativo móvel do Azure permitem que você interaja co
 
     **Windows Phone 8.1**
 
-4. SQLite é uma biblioteca nativa e requer que você escolha uma arquitetura de plataforma específica como **x86**, **x64** ou **ARM**. Não há suporte para **Qualquer CPU**. No Gerenciador de soluções, clique na solução na parte superior e mude a caixa suspensa da arquitetura processador para uma das configurações com suporte que você deseja testar.
-
-    ![][13]
 
 5. No Gerenciador de soluções, no projeto compartilhado, abra o arquivo MainPage.cs. Remova os comentários a seguir usando instruções no topo do arquivo:
 
@@ -206,7 +213,7 @@ Nesta seção, você reconecta o aplicativo ao back-end do aplicativo móvel. Is
 
 4. No aplicativo, clique na caixa de seleção ao lado de alguns itens a serem concluídos no repositório local.
 
-  `UpdateCheckedTodoItem` chama `SyncAsync` para sincronizar a conclusão de cada item com o back-end do aplicativo móvel. `SyncAsync` chama push e pull. No entanto, você deve observar que, **sempre que executar um pull em comparação a uma tabela em que o cliente fez alterações, um push no contexto de sincronização do cliente sempre será executado primeiro automaticamente**. Isso serve para garantir que todas as tabelas no repositório local, juntamente com as relações, permaneçam consistentes. Então nesse caso, poderíamos ter removido a chamada a `PushAsync` porque ela é executada automaticamente ao executar um pull. Esse comportamento pode resultar em um push inesperado se você não estiver ciente dele. Para obter mais informações sobre esse comportamento, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
+  `UpdateCheckedTodoItem` chama `SyncAsync` para sincronizar cada item concluído com o back-end do aplicativo móvel. `SyncAsync` chama push e pull. No entanto, você deve observar que, **sempre que executar um pull em comparação a uma tabela em que o cliente fez alterações, um push no contexto de sincronização do cliente sempre será executado primeiro automaticamente**. Isso serve para garantir que todas as tabelas no repositório local, juntamente com as relações, permaneçam consistentes. Então nesse caso, poderíamos ter removido a chamada a `PushAsync` porque ela é executada automaticamente ao executar um pull. Esse comportamento pode resultar em um push inesperado se você não estiver ciente dele. Para obter mais informações sobre esse comportamento, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 
 ##Resumo
@@ -259,10 +266,10 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 
 
 <!-- URLs. -->
-[Sincronização de dados offline em Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
-[Sincronização de dados offline nos Aplicativos Móveis do Azure]: ../app-service-mobile-offline-data-sync.md
-[create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[Criar um aplicativo do Windows]: ../app-service-mobile-windows-store-dotnet-get-started.md
+[Sincronização de dados offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[Sincronização de dados offline nos Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
+[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
+[Criar um aplicativo do Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite para Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite para Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite para Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
@@ -272,4 +279,4 @@ Quando desejamos sincronizar o armazenamento local com o servidor, usamos os mé
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

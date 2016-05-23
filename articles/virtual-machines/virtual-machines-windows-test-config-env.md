@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Ambiente de teste de configuração básica
@@ -289,7 +289,7 @@ Verifique se que você pode acessar recursos Web e de compartilhamento de arquiv
 2.	Em **Propriedades para CLIENT1**, clique em **Ativado** ao lado de **Configuração de Segurança Aprimorada do IE**.
 3.	Em **Configuração de Segurança Aprimorada do Internet Explorer**, clique em **Desativado** para **Administradores** e **Usuários** e, em seguida, clique em **OK**.
 4.	Na tela Inicial, clique em **Internet Explorer** e em **OK**.
-5.	Na barra de endereços, digite **http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1.
+5.	Na barra de endereços, digite ****http://app1.corp.contoso.com/** e pressione ENTER. Você verá a página da Web de Serviços de Informações da Internet padrão para APP1.
 6.	Na barra de tarefas da área de trabalho, clique no ícone do Gerenciador de Arquivos.
 7.	Na barra de endereços, digite **\\\app1\\Files** e pressione ENTER.
 8.	Você deverá ver uma janela de pasta com o conteúdo da pasta compartilhada Arquivos.
@@ -302,9 +302,10 @@ Essa é a configuração final.
 
 A configuração básica no Azure agora está pronta para desenvolvimento e teste de aplicativos ou para ambientes de teste adicionais.
 
-## Próxima etapa
+## Próximas etapas
 
-- Adicionar uma nova máquina virtual usando o a [portal do Azure](virtual-machines-windows-hero-tutorial.md) ou compile o [ambiente de teste de nuvem híbrida simulado](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
+- Adicionar uma nova máquina virtual usando o [Portal do Azure](virtual-machines-windows-hero-tutorial.md).
+- Criar o [ambiente de teste de nuvem híbrida simulado](virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Minimizando os custos de máquinas virtuais do ambiente de teste no Azure
@@ -334,4 +335,4 @@ Para iniciar as máquinas virtuais na ordem com o Azure PowerShell, preencha o n
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

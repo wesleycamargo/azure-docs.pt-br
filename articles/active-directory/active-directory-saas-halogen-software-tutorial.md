@@ -13,17 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="04/26/2016"
 	ms.author="jeedes"/>
 
 
 # Tutorial: Integração do Active Directory do Azure com o Halogen Software
 
-O objetivo deste tutorial é mostrar a você como integrar o Halogen Software com o Active Directory do Azure (Azure AD).<br>A integração do Halogen Software com o Azure AD oferece os seguintes benefícios:
+O objetivo desse tutorial é mostrar como integrar o Halogen Software ao Azure AD (Azure Active Directory).
+
+A integração do Halogen Software ao Azure AD oferece os seguintes benefícios:
 
 - Você pode controlar, no Azure AD, quem tem acesso ao Halogen Software 
 - Você pode habilitar seus usuários a fazerem logon automaticamente no Halogen Software (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -45,7 +47,9 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
  
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
+
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Halogen Software por meio da galeria 
 2. Configurar e testar o logon único do Azure AD
@@ -56,22 +60,38 @@ Para configurar a integração do Halogen Software com o Azure AD, você precisa
 
 **Para adicionar o Halogen Software por meio da galeria, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+
+	![Active Directory][1]
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.<br><br> ![Aplicativos][2]
-4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo por meio da galeria**.<br><br> ![Aplicativos][4]
-6. Na caixa de pesquisa, digite **halogen software**.<br> ![Aplicativos][5]
-7. No painel de resultados, selecione **Halogen Software** e clique em **Concluir** para adicionar o aplicativo.<br>
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+
+	![Aplicativos][2]
+
+4. Clique em **Adicionar** na parte inferior da página.
+
+	![Aplicativos][3]
+
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+
+	![Aplicativos][4]
+
+6. Na caixa de pesquisa, digite **halogen software**.
+
+	![Aplicativos][5]
+
+7. No painel de resultados, selecione **Halogen Software** e clique em **Concluir** para adicionar o aplicativo.
 
 
 
-##  Configurar e testar o logon único do Azure AD
+##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar logon único do Azure AD com o Halogen Software, com base em um usuário de teste chamado "Britta Simon".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Halogen Software é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Halogen Software.<br> Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD ao valor de **nome de usuário** no Halogen Software.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Halogen Software é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Halogen Software.
+
+Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD ao valor de **nome de usuário** no Halogen Software.
  
 Para configurar e testar o logon único do Azure AD com o Halogen Software, você precisa concluir os seguintes blocos de construção:
 
@@ -83,26 +103,41 @@ Para configurar e testar o logon único do Azure AD com o Halogen Software, voc�
 
 ### Configuração do logon único do Azure AD
 
-O objetivo desta seção é habilitar o logon único do Azure AD no portal do Azure AD e configurar o logon único em seu aplicativo do Halogen Software.<br>
+O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure AD e configurar o logon único em seu aplicativo do Halogen Software.
+
 
 **Para configurar o logon único do Azure AD com o Halogen Software, execute as seguintes etapas:**
 
-1. No portal do Azure AD, na página de integração do aplicativo **Halogen Software**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar logon único**.<br><br>![Configurar o logon único][8]
+1. No portal clássico do Azure, na página de integração de aplicativos do **Halogen Software**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-2. Na página **Como você deseja que os usuários façam logon no Halogen Software**, selecione **Logon único do Azure AD** e clique em **Avançar**.<br><br>![Logon único do AD do Azure][9]
+	![Configurar o logon único][8]
 
-3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:<br><br>![Definir configurações de aplicativo][10]
+2. Na página **Como você deseja que os usuários façam logon no Halogen Software**, selecione **Logon único do Azure AD** e clique em **Avançar**.
+
+	![Logon único do AD do Azure][9]
+
+3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: ![Definir configurações de aplicativo][10]
  
      a. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon no aplicativo da Halogen Software, usando o seguinte padrão: **https://global.hgncloud.com/fabrikam/welcome.jsp*
 
      b. Clique em **Próximo**.
  
-4. Na página **Configurar logon único no Halogen Software**, clique em **Baixar metadados** e salve o arquivo de metadados em seu computador.<br><br>![O que é o Azure AD Connect][11]
+4. Na página **Configurar logon único no Halogen Software**, clique em **Baixar metadados** e salve o arquivo de metadados em seu computador.
+	
+	![O que é o Azure AD Connect][11]
 
 5. Em uma janela diferente do navegador, faça logon no aplicativo **Halogen Software** como administrador.
-6. Clique na guia **Opções**. <br><br>![O que é o Azure AD Connect][12]
-7. No painel de navegação esquerdo, clique em **Configuração do SAML**. <br><br>![O que é o Azure AD Connect][13]
-8. Na página **Configuração do SAML**, realize as seguintes etapas: <br><br>![O que é o Azure AD Connect][14]
+
+6. Clique na guia **Opções**.
+
+	![O que é o Azure AD Connect][12]
+
+
+7. No painel de navegação esquerdo, clique em **Configuração do SAML**.
+
+	![O que é o Azure AD Connect][13]
+
+8. Na página **Configuração do SAML**, realize as seguintes etapas: ![O que é o Azure AD Connect][14]
 
     a. Como **Identificador exclusivo**, selecione **NameID**.
 
@@ -112,36 +147,56 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal do Az
 
     d. Para testar a configuração, clique em **Executar Teste**.
 
-    > [AZURE.NOTE] Você precisa esperar pela mensagem "*O teste de SAML foi concluído. Feche esta janela*". Feche a janela do navegador aberta. <br> A caixa de seleção **Habilitar SAML** só será habilitada se o teste for concluído.
+    > [AZURE.NOTE] Você precisa esperar pela mensagem "*O teste de SAML foi concluído. Feche esta janela*". Feche a janela do navegador aberta. A caixa de seleção **Habilitar SAML** só será habilitada se o teste for concluído.
 
     e. Selecione **Habilitar SAML**.
     
     f. Clique em **Salvar Alterações**.
 
 
-9. No portal do Azure AD, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.<br><br>![O que é o Azure AD Connect][15]
-10. Na página **Confirmação de logon único**, clique em **Concluir**.<br><br>![O que é o Azure AD Connect][16]
+9. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+
+	![O que é o Azure AD Connect][15]
+
+10. Na página **Confirmação de logon único**, clique em **Concluir**.
+
+	![O que é o Azure AD Connect][16]
 
 
 
 
-### Criação de um usuário de teste do Azure AD
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Britta Simon.
+### Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
-**Para criar um usuário de teste no Azure AD, execute as seguintes etapas:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**. <br><br>![O que é o Azure AD Connect][100] 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+
+	![O que é o Azure AD Connect][100]
+
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br>![O que é o Azure AD Connect][101] 
-4. Para abrir a caixa de diálogo **Adicionar usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar usuário**.<br><br>![O que é o Azure AD Connect][102] 
-5. Na página de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br>![O que é o Azure AD Connect][103] 
+
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
+
+	![O que é o Azure AD Connect][101]
+
+4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+
+	![O que é o Azure AD Connect][102]
+
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
+
+	![O que é o Azure AD Connect][103]
  
     a. Em **Tipo de Usuário**, selecione **Novo usuário na organização**.
 
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
 
     c. Clique em Avançar.
-6.  Na caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![O que é o Azure AD Connect][104] 
+
+6.  Na página do diálogo **Perfil do Usuário**, realize as seguintes etapas:
+
+	![O que é o Azure AD Connect][104]
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -152,11 +207,16 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
     d. Na lista **Função**, selecione **Usuário**.
 
     e. Clique em **Próximo**.
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br>![O que é o Azure AD Connect][105]  
-8. Na página de caixa de diálogo **Obter senha temporária** execute as seguintes etapas:<br><br>![O que é o Azure AD Connect][106]   
 
-    a. Anote o valor da **Nova Senha**.
-    b. Clique em **Concluído**.
+7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+
+	![O que é o Azure AD Connect][105]
+
+8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+
+	![O que é o Azure AD Connect][106]
+
+    a. Anote o valor da **Nova Senha**. b. Clique em **Concluído**.
   
  
 ### Criação de um usuário de teste do Halogen Software
@@ -166,32 +226,61 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no Halogen So
 **Para criar um usuário chamado Britta Simon no Halogen Software, execute as seguintes etapas:**
 
 1. Faça logon no aplicativo **Halogen Software** como administrador.
-2. Clique na guia **Central do Usuário** e clique em **Criar Usuário**. <br><br>![O que é o Azure AD Connect][300]  
-3. Na página do diálogo **Novo Usuário**, execute as seguintes etapas: <br><br>![O que é o Azure AD Connect][301] 
-  a. Na caixa de texto **Nome**, digite **Brenda**. 
-  b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-  c. Na caixa de texto **Nome de Usuário**, digite o **Nome de usuário de Brenda Fernandes no portal do AD do Azure**. 
-  d. Na caixa de texto **Senha**, digite uma senha para Brenda. 
-  e. Clique em **Salvar**.
+
+2. Clique na guia **Central do Usuário** e clique em **Criar Usuário**.
+
+	![O que é o Azure AD Connect][300]
+
+3. Na página do diálogo **Novo Usuário**, realize as seguintes etapas:
+
+	![O que é o Azure AD Connect][301]
+
+    a. Na caixa de texto **Nome**, digite **Brenda**.
+  
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+  
+    c. Na caixa de texto **Nome de Usuário**, digite o **Nome de usuário de Brenda Fernandes no portal clássico do Azure**.
+  
+    d. Na caixa de texto **Senha**, digite uma senha para Britta.
+  
+    e. Clique em **Salvar**.
 
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é habilitar que Britta Simon use o logon único do Azure, concedendo a ela acesso ao Halogen Software.<br><br>![O que é o Azure AD Connect][200]
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Halogen Software.
+
+![O que é o Azure AD Connect][200]
 
 **Para atribuir Britta Simon ao Halogen Software, execute as seguintes etapas:**
 
-1. No Portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu principal.<br> <br><br>![O que é o Azure AD Connect][201]
-2. Na lista de aplicativos, selecione **Halogen Software**. <br><br>![O que é o Azure AD Connect][202]
-1. No menu na parte superior, clique em **Usuários**.<br> <br><br>![O que é o Azure AD Connect][203]
-1. Na lista de Usuários, selecione **Britta Simon**. <br><br>![O que é o Azure AD Connect][204]
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![O que é o Azure AD Connect][205]
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
+
+	![O que é o Azure AD Connect][201]
+
+2. Na lista de aplicativos, selecione **Halogen Software**.
+
+	![O que é o Azure AD Connect][202]
+
+1. No menu na parte superior, clique em **Usuários**.
+
+	![O que é o Azure AD Connect][203]
+
+1. Na lista Usuários, selecione **Brenda Fernandes**.
+
+	![O que é o Azure AD Connect][204]
+
+2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
+
+	![O que é o Azure AD Connect][205]
 
 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> Quando clica no bloco Halogen Software no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo Halogen Software.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Quando clica no bloco Halogen Software no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo Halogen Software.
 
 
 ## Recursos adicionais
@@ -232,4 +321,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->

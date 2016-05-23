@@ -13,6 +13,13 @@ Todos os assinantes podem executar software para servidores em uma máquina virt
 
 Para imagens do Windows Client, determinadas versões do Windows 7 e Windows 8.1 estão disponíveis para assinantes de benefícios do Azure na MSDN e assinantes do modelo "pré-pago" do Desenvolvimento e Teste da MSDN, para tarefas de teste e desenvolvimento. Para obter detalhes, incluindo instruções e limitações, veja [Imagens do Windows Client para assinantes do MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
+## Por que os Grupos de Afinidades estão sendo preteridos?
+
+Grupos de Afinidades é um conceito herdado que, originalmente, foi apresentado para melhorar o desempenho de rede VM a VM nos designs iniciais de rede do Azure, bem como para dar suporte à versão inicial das VNets (redes virtuais) que eram limitadas a um pequeno conjunto de hardware em uma região. A rede atual do Azure em uma região foi projetada de modo que os grupos de afinidades não são mais necessários. As VNets também estão em um escopo regional e, portanto, não é mais necessário ter um grupo de afinidades ao usar uma VNet. Em virtude dessas melhorias, não é mais recomendável que os clientes usem grupos de afinidades, pois eles podem ser restritivos em alguns cenários. O uso de grupos de afinidades associará desnecessariamente suas VMs a um hardware específico, o que limitará a escolha de tamanhos de VM disponíveis para você. Ele também pode levar a erros relacionados à capacidade ao tentar adicionar novas VMs, caso o hardware específico associado ao grupo de afinidades esteja próximo à capacidade.
+
+Os recursos de Grupo de Afinidades já foram preteridos no modelo de implantação do Azure Resource Manager e no portal. No portal clássico, o suporte para criação de grupos de afinidades e criação de recursos de armazenamento fixos em um grupo de afinidades está sendo preterido. Os serviços de nuvem existentes que usam um grupo de afinidades não precisam ser modificados. Os novos serviços de nuvem não devem usar grupos de afinidades, a menos que recomendado por um profissional do suporte do Azure.
+
+
 ## Quanto armazenamento eu posso usar com uma máquina virtual?
 
 Cada disco de dados pode ter até 1 TB. O número de discos de dados que você pode usar depende do tamanho da máquina virtual. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-sizes.md).
@@ -137,5 +144,3 @@ Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semel
 [Diferentes maneiras de criar uma Máquina Virtual Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
 [Diferentes maneiras de criar uma máquina virtual Windows](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
-
-<!---HONumber=AcomDC_0413_2016-->

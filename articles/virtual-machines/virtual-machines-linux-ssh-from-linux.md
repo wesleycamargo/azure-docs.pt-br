@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="04/15/2016" 
 	ms.author="rasquill"/>
 
 #Como usar SSH com Linux e Mac no Azure
@@ -38,7 +38,7 @@ Estes são os cenários de implantação e os tipos de arquivo que você usa em 
 
 ## Criar chaves para uso com SSH
 
-O Azure exige arquivos de chave no formato **ssh-rsa** de 2048 bits, ou arquivos .pem equivalentes, dependendo do cenário. Se você já tiver esses arquivos, passe o arquivo de chave pública ao criar sua VM do Azure.
+Se você já tiver essas chaves SSH, passe o arquivo de chave pública ao criar sua VM do Azure.
 
 Se você precisar criar os arquivos:
 
@@ -47,17 +47,14 @@ Se você precisar criar os arquivos:
 	- Para Mac, visite o [site de Segurança de produtos da Apple](https://support.apple.com/HT201222) e escolha as atualizações adequadas, se for necessário.
 	- Para distribuições Linux com base em Debian, como Ubuntu, Debian, Mint etc:
 
-			sudo apt-get update ssh-keygen
-			sudo apt-get update openssl
+			sudo apt-get install --upgrade-only openssl
 
 	- Para distribuições Linux com base em RPM, como CentOS e Oracle Linux:
 
-			sudo yum update ssh-keygen
 			sudo yum update openssl
 
 	- Para SLES e OpenSUSE
 
-			sudo zypper update ssh-keygen
 			sudo zypper update openssl
 
 2. Use **ssh-keygen** para criar arquivos de chave pública e privada de RSA de 2048 bits. Além disso, a menos que você tenha um local específico ou nomes específicos para os arquivos, aceite o local e o nome padrão de `~/.ssh/id_rsa`. O comando básico é:
@@ -72,9 +69,7 @@ Se você precisar criar os arquivos:
 
 	Se você quiser criar um arquivo .pem de um arquivo de chave privada diferente, modifique o argumento `-key`.
 
-> [AZURE.NOTE] Se você planeja gerenciar os serviços implantados com o modelo de implantação clássico, convém criar também um arquivo no formato **.cer** para carregar no portal, embora isso não envolva **ssh** ou a conexão com VMS do Linux, que é o assunto deste artigo. Para criar esses arquivos no Linux ou no Mac, digite:<br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
-
-Para converter o arquivo .pem em um arquivo de certificado X509 codificado em DER.
+> [AZURE.NOTE] Se você planeja gerenciar os serviços implantados com o modelo de implantação clássico, convém criar também um arquivo no formato **.cer** para carregar no portal, embora isso não envolva **ssh** ou a conexão com VMS do Linux, que é o assunto deste artigo. Para converter o arquivo .pem em um arquivo de certificado X509 codificado em DER no Linux ou Mac, digite: <br /> openssl x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Usar as chaves SSH que você já possui
 
@@ -86,7 +81,7 @@ Depois de criar os arquivos necessários, há muitas maneiras de criar uma VM co
 
 ### Exemplo: criando uma VM com o arquivo id\_rsa.pub
 
-O uso mais comum é durante a criação obrigatória de uma VM, ou durante o carregamento de um modelo para criar uma VM. O exemplo de código a seguir mostra como criar uma nova VM Linux segura no Azure passando o nome de arquivo público (neste caso, o arquivo padrão `~/.ssh/id_rsa.pub`) para o comando `azure vm create`. (Os outros argumentos foram criados anteriormente.)
+O uso mais comum é durante a criação obrigatória de uma VM, ou durante o carregamento de um modelo para criar uma VM. O exemplo de código a seguir mostra como criar uma nova VM Linux segura no Azure passando o nome de arquivo público (neste caso, o arquivo padrão `~/.ssh/id_rsa.pub`) para o comando `azure vm create`. (Os outros argumentos, como conta de armazenamento e grupo de recursos, foram criados anteriormente.). Este exemplo usa o método de implantação do Resource Manager, portanto, garanta que a CLI do Azure esteja configurada adequadamente com `azure config mode arm`:
 
 	azure vm create \
 	--nic-name testnic \
@@ -94,7 +89,7 @@ O uso mais comum é durante a criação obrigatória de uma VM, ou durante o car
 	--vnet-name testvnet \
 	--vnet-subnet-name testsubnet \
 	--storage-account-name computeteststore 
-	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
+	--image-urn canonical:UbuntuServer:14.04.4-LTS:latest \
 	--username ops \
 	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
@@ -133,23 +128,23 @@ O próximo exemplo mostra o uso do formato **ssh-rsa** com um modelo do Gerencia
 	data:    location               String  West Europe
 	data:    vmSize                 String  Standard_A2
 	data:    vmName                 String  sshvm
-	data:    ubuntuOSVersion        String  14.04.2-LTS
+	data:    ubuntuOSVersion        String  14.04.4-LTS
 	info:    group deployment create command OK
 
 
 ### Exemplo: criando uma VM com um arquivo .pem
 
-Em seguida, você pode usar o arquivo .pem com o portal clássico ou com o modo de implantação clássico e `azure vm create`, conforme o exemplo a seguir:
+Em seguida, você pode usar o arquivo .pem com o portal clássico ou com o modo de implantação clássico (`azure config mode asm`) e `azure vm create`, conforme o exemplo a seguir:
 
 	azure vm create \
 	-l "West US" -n testpemasm \
 	-P -t myCert.pem -e 22 \
 	testpemasm \
-	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-pt-BR-30GB \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-pt-BR-30GB \
 	ops
 	info:    Executing command vm create
 	warn:    --vm-size has not been specified. Defaulting to "Small".
-	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-pt-BR-30GB
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_4-LTS-amd64-server-20160406-pt-BR-30GB
 	+ Looking up cloud service
 	info:    cloud service testpemasm not found.
 	+ Creating cloud service
@@ -263,30 +258,32 @@ Se você criou uma VM usando um arquivo .pem criado a partir de seu arquivo `~/.
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-
+	
+    Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-49-generic x86_64)
+	
 	* Documentation:  https://help.ubuntu.com/
 
-	System information as of Sat Oct 10 20:53:08 UTC 2015
+    System information as of Fri Apr 15 18:51:42 UTC 2016
 
-	System load: 0.52              Memory usage: 5%   Processes:       80
-	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
+    System load: 0.31              Memory usage: 2%   Processes:       213
+    Usage of /:  42.1% of 1.94GB   Swap usage:   0%   Users logged in: 0
 
-	Graph this data and manage this system at:
-		https://landscape.canonical.com/
+    Graph this data and manage this system at:
+    https://landscape.canonical.com/
 
-	Get cloud support with Ubuntu Advantage Cloud Guest:
-		http://www.ubuntu.com/business/services/cloud
+    Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
 
-	0 packages can be updated.
+    0 packages can be updated.
 	0 updates are security updates.
-
+	
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-
+	
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
+
 
 ## Se você tiver problemas para se conectar
 
@@ -296,4 +293,4 @@ Leia as sugestões em [Solucionando problemas de conexões SSH](virtual-machines
  
 Agora que você conectou-se à sua VM, atualize sua distribuição escolhida antes de continuar a usá-la.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

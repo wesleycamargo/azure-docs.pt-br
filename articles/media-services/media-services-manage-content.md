@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2016"   
+	ms.date="04/25/2016"   
 	ms.author="juliako"/>
 
 
@@ -100,7 +100,9 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
 
 1.  Selecione o arquivo que você deseja codificar.
 
-  Se houver suporte para codificação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO. 4. Na caixa de diálogo **Processo**, selecione o processador do **Codificador de Mídia Padrão**. 5. Escolha uma das **configurações de codificação**.
+  Se houver suporte para codificação para esse tipo de arquivo, o botão PROCESSO será habilitado na parte inferior da página CONTEÚDO.
+4. Na caixa de diálogo **Processo**, selecione o processador do **Codificador de Mídia Padrão**.
+5. Escolha uma das **configurações de codificação**.
 
 ![Process2][process2]
 
@@ -220,4 +222,4 @@ Algumas considerações se aplicam:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

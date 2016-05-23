@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="05/06/2016"
    ms.author="tomfitz"/>
 
 # Funções do modelo do Gerenciador de Recursos do Azure
@@ -228,15 +228,15 @@ O próximo exemplo mostra como combinar duas matrizes.
 <a id="padleft" />
 ### padLeft
 
-**padLeft(stringToPad, totalLength, paddingCharacter)**
+**padLeft(valueToPad, totalLength, paddingCharacter)**
 
 Retorna uma cadeia de caracteres alinhada à direita adicionando caracteres à esquerda até alcançar o comprimento total especificado.
   
 | Parâmetro | Obrigatório | Descrição
 | :--------------------------------: | :------: | :----------
-| stringToPad | Sim | A cadeia de caracteres para alinhar à direita.
+| valueToPad | Sim | A cadeia de caracteres ou int para alinhar à direita.
 | totalLength | Sim | O número total de caracteres na cadeia de caracteres retornada.
-| paddingCharacter | Sim | O caractere a ser usado para o preenchimento à esquerda até que o tamanho total seja atingido.
+| paddingCharacter | Não | O caractere a ser usado para o preenchimento à esquerda até que o tamanho total seja atingido. O valor padrão é um espaço.
 
 O exemplo a seguir mostra como preencher o valor do parâmetro fornecido pelo usuário adicionando o caractere zero até que a cadeia de caracteres atinja 10 caracteres. Se o valor do parâmetro original for maior que 10 caracteres, nenhum caractere será adicionado.
 
@@ -278,7 +278,7 @@ Retorna uma matriz de cadeias de caracteres que contém as subcadeias de caracte
 
 | Parâmetro | Obrigatório | Descrição
 | :--------------------------------: | :------: | :----------
-| inputString | Sim | A cadeia de caracteres a ser dividida.
+| inputString | Sim | A cadeia de caracteres a dividir.
 | delimiter | Sim | O delimitador a ser usado, pode ser uma única cadeia de caracteres ou uma matriz de cadeias de caracteres.
 
 O exemplo a seguir divide a cadeia de caracteres de entrada com uma vírgula.
@@ -295,19 +295,35 @@ O exemplo a seguir divide a cadeia de caracteres de entrada com uma vírgula.
 
 **string(valueToConvert)**
 
-Converte o valor especificado em String.
+Converte o valor especificado em uma cadeia de caracteres.
 
 | Parâmetro | Obrigatório | Descrição
 | :--------------------------------: | :------: | :----------
-| valueToConvert | Sim | O valor a ser convertido em String. O tipo de valor pode ser apenas Boolean, Integer ou String.
+| valueToConvert | Sim | O valor a ser convertido em cadeia de caracteres. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes.
 
-O exemplo a seguir converte o valor do parâmetro fornecido pelo usuário em String.
+O exemplo a seguir converte os valores de parâmetro fornecidos pelo usuário em cadeias de caracteres.
 
     "parameters": {
-        "appId": { "type": "int" }
+      "jsonObject": {
+        "type": "object",
+        "defaultValue": {
+          "valueA": 10,
+          "valueB": "Example Text"
+        }
+      },
+      "jsonArray": {
+        "type": "array",
+        "defaultValue": [ "a", "b", "c" ]
+      },
+      "jsonInt": {
+        "type": "int",
+        "defaultValue": 5
+      }
     },
     "variables": { 
-        "stringValue": "[string(parameters('appId'))]"
+      "objectString": "[string(parameters('jsonObject'))]",
+      "arrayString": "[string(parameters('jsonArray'))]",
+      "intString": "[string(parameters('jsonInt'))]"
     }
 
 <a id="substring" />
@@ -397,14 +413,14 @@ O exemplo a seguir remove os caracteres de espaço em branco do valor de parâme
 
 **uniqueString (stringForCreatingUniqueString, ...)**
 
-Executa um hash de 64 bits das cadeias de caracteres fornecidas para criar uma cadeia de caracteres exclusiva. Essa função é útil quando você precisa criar um nome exclusivo para um recurso. Você fornece valores de parâmetros que representam o nível de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para sua assinatura, grupo de recursos ou implantação.
+Cria uma cadeia de caracteres exclusiva com base nos valores fornecidos como parâmetros. Essa função é útil quando você precisa criar um nome exclusivo para um recurso. Você fornece valores de parâmetros que representam o nível de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para sua assinatura, grupo de recursos ou implantação.
 
 | Parâmetro | Obrigatório | Descrição
 | :--------------------------------: | :------: | :----------
 | stringForCreatingUniqueString | Sim | A cadeia de caracteres de base usada na função de hash para criar uma cadeia de caracteres exclusiva.
 | parâmetros extras conforme necessário | Não | Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade.
 
-O valor retornado não é uma cadeia de caracteres totalmente aleatória, mas na verdade, o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é garantido que ele seja globalmente exclusivo. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome mais amigável.
+O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é garantido que ele seja globalmente exclusivo. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome mais fácil de reconhecer.
 
 Os exemplos a seguir mostram como usar uniqueString para criar um valor exclusivo para níveis diferentes mais usados.
 
@@ -439,7 +455,7 @@ Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 | baseUri | Sim | Cadeia de caracteres do URI de base.
 | relativeUri | Sim | Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base.
 
-O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir **http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base **http://contoso.com/resources/**.
+O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir ****http://contoso.com/resources/azuredeploy.json** como parâmetro baseUri resultará em uma URI base ****http://contoso.com/resources/**.
 
 O exemplo a seguir mostra como criar um link para um modelo aninhado com base no valor do modelo pai.
 
@@ -671,15 +687,6 @@ Você pode recuperar um valor específico do objeto retornado, como o URI do pon
 		}
 	}
 
-Se agora você quiser especificar diretamente a versão da API no modelo, use a função [providers](#providers) e recupere um dos valores, como a versão mais recente mostrada abaixo.
-
-    "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
-
 O exemplo a seguir faz referência a uma conta de armazenamento em um grupo de recursos diferente.
 
     "outputs": {
@@ -717,7 +724,7 @@ O exemplo a seguir usa o local do grupo de recursos para atribuir o local de um 
 <a id="resourceid" />
 ### resourceId
 
-**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 Retorna o identificador exclusivo de um recurso. Você pode usar essa função quando o nome do recurso é ambíguo ou não provisionado no mesmo modelo. O identificador é retornado no seguinte formato:
 
@@ -725,6 +732,7 @@ Retorna o identificador exclusivo de um recurso. Você pode usar essa função q
       
 | Parâmetro | Obrigatório | Descrição
 | :---------------: | :------: | :----------
+| subscriptionId | Não | ID de assinatura opcional. O valor padrão é a assinatura atual. Especifique esse valor quando você estiver recuperando um recurso em outra assinatura.
 | resourceGroupName | Não | Grupo de recursos opcional. O valor padrão é o grupo de recursos atual. Especifique esse valor quando você recuperar um recurso em outro grupo de recursos.
 | resourceType | Sim | Tipo de recurso, incluindo o namespace do provedor de recursos.
 | resourceName1 | Sim | Nome do recurso.
@@ -733,7 +741,7 @@ Retorna o identificador exclusivo de um recurso. Você pode usar essa função q
 O exemplo a seguir mostra como recuperar as IDs de recurso para um site Web e um banco de dados. O site Web existe em um grupo de recursos denominado **myWebsitesGroup** e o banco de dados existe no grupo de recursos para este modelo.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
+    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
 Frequentemente, você precisa usar essa função ao usar uma conta de armazenamento ou rede virtual em um grupo de recursos alternativo. A conta de armazenamento ou a rede virtual pode ser usada em vários grupos de recursos; portanto, você não deve excluí-los ao excluir um único grupo de recursos. O exemplo a seguir mostra como um recurso de um grupo de recursos externo pode ser facilmente usado:
 
@@ -807,4 +815,4 @@ O exemplo a seguir mostra a função de assinatura chamada na seção de saídas
 - Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
 - Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

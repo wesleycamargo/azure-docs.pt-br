@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/18/2016"
+	ms.date="05/10/2016"
 	ms.author="kgremban"/>
 
 #RBAC: funções internas
@@ -34,7 +34,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador do DB MySQL ClearDB](#cleardb-mysql-db-contributor) | Pode gerenciar bancos de dados MySQL ClearDB |
 | [Colaborador](#contributor) | Pode gerenciar tudo, exceto o acesso. |
 | [Colaborador da fábrica de dados](#data-factory-contributor) | Pode gerenciar fábricas de dados |
-| [Usuário do laboratório DevTest](#devtest-lab-user) | Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las. |
+| [Usuário do DevTest Labs](#devtest-labs-user) | Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las. |
 | [Colaborador de conta do banco de dados de documento](#document-db-account-contributor) | Pode gerenciar contas do Banco de Dados de Documentos |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) | Pode gerenciar contas do Intelligent Systems |
 | [Colaborador de rede](#network-contributor) | Pode gerenciar todos os recursos de rede |
@@ -152,22 +152,12 @@ Pode gerenciar fábricas de dados
 | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
-### Usuário do laboratório DevTest
+### Usuário do DevTest Labs
 Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las.
 
 | **Ações** ||
 | ------- | ------ |
-| */read | Ler recursos de todos os tipos | | Microsoft.DevTestLab/labs/labStats/action | Ler estatísticas de laboratório | | Microsoft.DevTestLab/Environments/* | Criar e gerenciar ambientes |
-| Microsoft.DevTestLab/labs/createEnvironment/action | Criar um ambiente de laboratório |
-| Microsoft.Compute/virtualMachines/start/action | Iniciar máquinas virtuais |
-| Microsoft.Compute/virtualMachines/restart/action | Reiniciar máquinas virtuais |
-| Microsoft.Compute/virtualMachines/deallocate/action | Desalocar máquinas virtuais |
-| Microsoft.Storage/storageAccounts/listKeys/action | Listar chaves da conta de armazenamento |
-| Microsoft.Network/virtualNetworks/join/action | Unir redes virtuais |
-| Microsoft.Network/loadBalancers/join/action | Unir balanceadores de carga |
-| Microsoft.Network/publicIPAddresses/link/action | Vincular a endereços IP públicos |
-| Microsoft.Network/networkInterfaces/link/action | Vincular a interfaces de rede |
-| Microsoft.Network/networkInterfaces/write | Gravar interfaces de rede |
+| **/read | Ler recursos de todos os tipos | | Microsoft.DevTestLab/labs/createEnvironment/action | Criar um ambiente de laboratório | | Microsoft.DevTestLab/labs/formulas/delete | Excluir fórmulas | | Microsoft.DevTestLab/labs/formulas/write | Adicionar ou modificar fórmulas | | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Avaliar políticas de laboratório | | Microsoft.Compute/virtualMachines/start/action | Iniciar máquinas virtuais | | Microsoft.Compute/virtualMachines/restart/action | Reiniciar máquinas virtuais | | Microsoft.Compute/virtualMachines/deallocate/action | Desalocar máquinas virtuais | | Microsoft.Storage/storageAccounts/listKeys/action | Listar chaves de conta de armazenamento | | Microsoft.Network/virtualNetworks/subnets/join/action | Ingressar em uma rede virtual | | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ingressar em um pool de endereços de back-end de balanceador de carga | | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Ingressar em uma regra de nat de entrada do balanceador de carga | | Microsoft.Network/publicIPAddresses/join/action | Ingressar em um endereço IP público | | Microsoft.Network/networkInterfaces/join/action | Ingressar uma máquina virtual em uma interface de rede | | Microsoft.Network/networkInterfaces/write | Gravar interfaces de rede |
 
 ### Colaborador de conta do banco de dados de documento
 Pode gerenciar contas do Banco de Dados de Documentos
@@ -369,17 +359,17 @@ Pode gerenciar contas de armazenamento clássicas
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ### Colaborador da Conta de Armazenamento
-Pode gerenciar contas de armazenamento
+Pode gerenciar contas de armazenamento, mas não acessá-las.
 
 | **Ações** ||
 | ------- | ------ |
 | Microsoft.Storage/storageAccounts/* | Criar e gerenciar contas de armazenamento |
 | Microsoft.Authorization/*/read | Ler todas as autorizações |
-| Microsoft.Resources/subscriptions/resources/read | Recursos de assinatura de leitura |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Ler grupos de recursos de assinatura |
-| Microsoft.Resources/subscriptions/resourceGroups/resources/read | Ler recursos de grupos de recursos de assinatura |
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Criar e gerenciar implantações do grupo de recursos de assinatura |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Ler a integridade dos recursos |
 | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
+| Microsoft.Insights/diagnosticSettings/* | Gerenciar configurações de diagnóstico |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ### Administrador de Acesso do Usuário
@@ -387,8 +377,7 @@ Pode gerenciar o acesso do usuário aos recursos do Azure
 
 | **Ações** ||
 | ------- | ------ |
-| */read | Ler recursos de todos os tipos, exceto segredos. | 
-| Microsoft.Authorization/* | Ler autorização |
+| */read | Ler recursos de todos os tipos, exceto segredos. | | Microsoft.Authorization/* | Ler autorização |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ### Colaborador de Máquina Virtual Clássica
@@ -492,4 +481,4 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 - [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
 - [Solução de problemas de Controle de Acesso Baseado em Função](role-based-access-control-troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

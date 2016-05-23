@@ -44,7 +44,7 @@ Embora você possa criar uma máquina virtual no [Portal de Gerenciamento do Azu
 
     >[AZURE.NOTE] Se você escolher tamanhos maiores para a máquina virtual, podem aplicar encargos adicionais. Consulte [Detalhes de preços das máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) para obter mais informações.
 
-1. Máquinas virtuais criadas no Visual Studio exigem um serviço de nuvem. Na página **Configurações de serviço de nuvem**, selecione um serviço de nuvem para a máquina virtual ou clique em **<Criar novo... >** na lista suspensa, se você ainda não tiver uma nuvem de serviço ou deseja usar um novo. Também é necessária uma conta de armazenamento, então escolha uma conta de armazenamento (ou crie uma nova conta de armazenamento) na caixa de listagem suspensa **Conta de armazenamento**. Para saber mais, consulte: [Introdução ao Armazenamento do Microsoft Azure](./storage/storage-introduction/).
+1. Máquinas virtuais criadas no Visual Studio exigem um serviço de nuvem. Na página **Configurações de serviço de nuvem**, selecione um serviço de nuvem para a máquina virtual ou clique em **<Criar novo... >** na lista suspensa, se você ainda não tiver uma nuvem de serviço ou deseja usar um novo. Também é necessária uma conta de armazenamento, então escolha uma conta de armazenamento (ou crie uma nova conta de armazenamento) na caixa de listagem suspensa **Conta de armazenamento**. Para saber mais, consulte: [Introdução ao Armazenamento do Microsoft Azure](../articles/storage/storage-introduction/).
 
 1. Se você quiser especificar uma rede virtual (que é opcional), selecione-a nas caixas de listagem suspensa da Sub-rede e Rede Virtual.
 
@@ -157,4 +157,3 @@ Como você configura sua máquina virtual e instala o software, é uma boa ideia
 ## Próximas etapas
 
 Para saber mais sobre a criação de máquinas virtuais, consulte [criar uma máquina Virtual executando Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) e [criar uma máquina virtual executando o Windows no portal de visualização do Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md).
-

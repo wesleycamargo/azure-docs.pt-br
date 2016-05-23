@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configurando codificadores ativos locais" 
+	pageTitle="Como configurar os codificadores locais ao usar os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits" 
 	description="Este tópico lista os codificadores ativos locais que podem ser usados para capturar os eventos ao vivo e enviar uma transmissão ao vivo de taxa de bits única para canais do AMS (que são habilitados para codificação ativa) para o processamento adicional. O tópico contém links para tutoriais que mostram como configurar os codificadores listados." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016"
+	ms.date="05/05/2016"
 	ms.author="juliako"/>
 
 
 
-#Configurando codificadores ativos locais
+#Como configurar os codificadores locais ao usar os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 
 Este tópico lista os codificadores ativos locais que podem ser usados para capturar os eventos ao vivo e enviar uma transmissão ao vivo de taxa de bits única para canais do AMS (que são habilitados para codificação ativa) para o processamento adicional. O tópico também contém links para tutoriais que mostram como configurar os codificadores listados.
 
@@ -51,6 +51,6 @@ Para obter informações sobre como configurar o codificador [Tricaster](http://
 
 ## Consulte também
 
-[Trabalhando com canais habilitados para executar a codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+[Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -58,7 +58,7 @@ O projeto é modificado e faz referência para as extensões do SDK do .NET dos 
 
 4. Para promover um ambiente de desenvolvimento mais limpo, considere a ativação da restauração de pacote do NuGet. Para obter mais informações, consulte [Restauração do pacote NuGet"](http://docs.nuget.org/consume/package-restore).
 
-3. Adicione uma referência ao assembly do **System.Configuration**. Este assembly contém a classe System.Configuration.**ConfigurationManager** que é utilizada para acessar arquivos de configuração (por exemplo, App.config).
+3. Adicionar uma referência ao assembly **System.Configuration**. Este assembly contém a classe System.Configuration.**ConfigurationManager** que é utilizada para acessar arquivos de configuração (por exemplo, App.config).
 
 Para adicionar referências usando a caixa de diálogo Gerenciar Referências, proceda da maneira a seguir:
 
@@ -103,4 +103,4 @@ Neste ponto, você está pronto para começar a desenvolver um aplicativo de Ser
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->
