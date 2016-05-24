@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/08/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc" />
 
 # Sobre a conectividade segura entre locais para redes virtuais
 
-Este artigo discute as diferentes maneiras que você pode conectar seu site local a uma rede virtual do Azure. Este artigo aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
+Este artigo discute as diferentes maneiras que você pode conectar seu site local a uma rede virtual do Azure. Este artigo aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico. Se você estiver procurando diagramas de conexão do Gateway de VPN, consulte as [topologias de conexão do Gateway de VPN do Azure](vpn-gateway-topology.md).
 
 Há três opções de conexão disponíveis: site a site, ponto a site e a Rota Expressa. A opção escolhida pode depender de várias considerações, como:
 
@@ -31,20 +31,7 @@ Há três opções de conexão disponíveis: site a site, ponto a site e a Rota 
 
 A tabela a seguir pode ajudá-lo a decidir a melhor opção de conectividade para sua solução.
 
-
-| - | **Ponto a Site** | **Site a Site** | **Rota Expressa** |
-|------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Serviços com Suporte no Azure** | Serviços de Nuvem e Máquinas Virtuais | Serviços de Nuvem e Máquinas Virtuais | [Lista de serviços](../expressroute/expressroute-faqs.md#supported-services) |
-| **Larguras de Banda Típicas** | Normalmente < 100 Mbps agregados | Normalmente < 100 Mbps agregados | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps e 10 Gbps |
-| **Protocolos com Suporte** | SSTP (Secure Sockets Tunneling Protocol) | IPsec | Conexão direta pelas tecnologias VLANs e VPN do NSP (MPLS, VPLS...) |
-| **Roteamento** | Baseado em rota (dinâmico) | Damos suporte a cenários baseados em política (roteamento estático) e em rota (VPN de roteamento dinâmico) | BGP |
-| **Resiliência de conexão** | ativo-passivo | ativo-passivo | ativo-ativo |
-| **Caso de uso típico** | Criação de protótipos, cenários de desenvolvimento / teste / laboratório para serviços de nuvem e máquinas virtuais | Cenários de desenvolvimento / teste / laboratório e de cargas de trabalho de produção em pequena escala para serviços de nuvem e máquinas virtuais | Acesso a todos os serviços do Azure (lista validada), cargas de trabalho essenciais e em nível Empresarial, Backup, Big Data e Azure como um site de DR |
-| **CONTRATO DE NÍVEL DE SERVIÇO** | [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) | [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/) |
-| **Preços** | [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [Preços](https://azure.microsoft.com/pricing/details/expressroute/) |
-| **Documentação Técnica** | [Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentação de Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [Documentação da Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **PERGUNTAS FREQUENTES** | [Perguntas frequentes de gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas frequentes de gateway de VPN](vpn-gateway-vpn-faq.md) | [Perguntas Frequentes sobre Rota Expressa](../expressroute/expressroute-faqs.md) |
-
+[AZURE.INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## Conexões site a site
 
@@ -60,10 +47,12 @@ Uma VPN site a site permite que você crie uma conexão segura entre o site loca
 
 - O dispositivo VPN local deve ter um endereço IP de IPv4 voltado para a Internet. Isso não pode ficar atrás de um NAT.
 - Você deve ter um dispositivo VPN compatível. Consulte [Sobre Dispositivos VPN](vpn-gateway-about-vpn-devices.md). 
-- O dispositivo VPN que você usar deve ser compatível com o tipo de gateway exigido pela sua solução. Consulte [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md).
-- O SKU do Gateway também terá impacto sobre a taxa de transferência agregada. Consulte [SKUs de gateway](vpn-gateway-about-vpngateways.md#gateway-skus) para obter mais informações. 
+- O dispositivo VPN que você usar deve ser compatível com o tipo de gateway exigido pela sua solução. Consulte [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md).
+- O SKU do Gateway também terá impacto sobre a taxa de transferência agregada. Consulte [SKUs de gateway](vpn-gateway-about-vpngateways.md#gwsku) para obter mais informações. 
 
-Para obter informações sobre como configurar uma conexão de gateway de VPN site a site usando o Portal Clássico do Azure e o modelo de implantação clássica, consulte [Configurar uma rede virtual com uma conexão VPN site a site para o modelo de implantação clássico](vpn-gateway-site-to-site-create.md). Para obter informações sobre como configurar uma VPN site a site usando o modelo de implantação do Gerenciador de Recursos, consulte [Criar uma rede virtual com uma conexão VPN site a site para o modelo de implantação do Gerenciador de Recurso](vpn-gateway-create-site-to-site-rm-powershell.md).
+**Modelos e métodos de implantação disponíveis para S2S**
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 
 ## Conexões Ponto a Site
@@ -84,7 +73,9 @@ Configurações ponto a site e site a site podem existir simultaneamente, mas ao
 
 - Você não tem um endereço IP IPv4 voltado para Internet para seu dispositivo VPN.
 
-Para saber mais sobre como configurar uma conexão ponto a site para o modelo de implantação clássica, confira [Configurar uma conexão VPN ponto a site para uma rede virtual para o modelo de implantação clássico](vpn-gateway-point-to-site-create.md). Para saber mais sobre como configurar uma conexão ponto a site para o modelo de implantação do Gerenciador de Recurso, confira [Configurar uma conexão VPN ponto a site para uma rede virtual para o modelo do Gerenciador de Recurso](vpn-gateway-howto-point-to-site-rm-ps.md).
+**Modelos e métodos de implantação disponíveis para P2S**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## Conexões de Rota Expressa
 
@@ -92,11 +83,13 @@ A Rota Expressa do Azure permite criar conexões privadas entre os datacenters d
 
 Em alguns casos, o uso de conexões da Rota Expressa para transferir dados entre o local e o Azure pode proporcionar um custo/benefício significativo. Com a Rota Expressa, você pode estabelecer conexões com o Azure em um local de Rota Expressa (instalação do provedor do Exchange) ou conectar-se diretamente ao Azure da sua rede WAN existente (como uma VPN MPLS) fornecida por um provedor de serviço de rede.
 
-Para obter mais informações sobre a Rota Expressa, consulte [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md).
+Para obter mais informações sobre a Rota Expressa, consulte a [Visão Geral Técnica](../expressroute/expressroute-introduction.md) da Rota Expressa.
 
 
 ## Próximas etapas
 
-Confira as [Perguntas frequentes sobre a Rota Expressa](vpn-gateway-vpn-faq.md) e as [Perguntas frequentes sobre o Gateway de VPN](../expressroute/expressroute-faqs.md) para saber mais.
+- Para obter mais informações sobre o Gateway de VPN, consulte os artigos [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md), Perguntas Frequentes do [Gateway de VPN](vpn-gateway-vpn-faq.md) e [Planejamento e Design](vpn-gateway-plan-design.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+- Para obter mais informações sobre a Rota Expressa, consulte a [Visão Geral Técnica](../expressroute/expressroute-introduction.md) da Rota Expressa, [Perguntas Frequentes](../expressroute/expressroute-faqs.md) e [Fluxos de Trabalho](../expressroute/expressroute-workflows.md).
+
+<!---HONumber=AcomDC_0518_2016-->

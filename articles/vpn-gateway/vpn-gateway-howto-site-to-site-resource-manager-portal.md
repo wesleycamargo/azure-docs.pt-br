@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
 # Criar uma rede virtual com uma conexão VPN site a site usando o Portal do Azure e o Azure Resource Manager
@@ -25,19 +25,23 @@
 - [PowerShell – Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Este artigo mostrará como criar uma rede virtual e uma conexão VPN Site a Site com sua rede local usando o modelo de implantação do Azure Resource Manager e o Portal do Azure.
+Este artigo mostrará como criar uma rede virtual e uma conexão VPN Site a Site com sua rede local usando o modelo de implantação do Azure Resource Manager e o Portal do Azure. Nas etapas a seguir, você criará uma rede virtual, adicionará uma sub-rede de gateway, um gateway, um site local e uma conexão. Além disso, você também precisará configurar seu dispositivo VPN.
+
 
 
 **Sobre modelos de implantação do Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+## Diagrama de conexão
+
+![Site a site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
+
 **Modelos de implantação e ferramentas para conexões Site a Site**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Se você quiser conectar Redes Virtuais, mas não estiver criando uma conexão com uma instalação local, confira [Configurar uma conexão de Rede Virtual para Rede Virtual](vpn-gateway-vnet-vnet-rm-ps.md).
-
+Se você quiser conectar Redes Virtuais, mas não estiver criando uma conexão com uma instalação local, confira [Configurar uma conexão de Rede Virtual para Rede Virtual](vpn-gateway-vnet-vnet-rm-ps.md). Se você estiver procurando um tipo diferente de configuração da conexão, consulte o artigo [Topologias de conexão do Gateway de VPN](vpn-gateway-topology.md).
 
 ## Antes de começar
 
@@ -47,20 +51,12 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 
 - Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
 	
-- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou se inscrever para obter uma [conta gratuita](http://azure.microsoft.com/pricing/free-trial/).
-
-## Sobre esta configuração
-
-
-![Site a site](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
-
-Nas etapas a seguir, você criará uma rede virtual, adicionará uma sub-rede de gateway, um gateway, um site local e uma conexão. Além disso, você também precisará configurar seu dispositivo VPN.
-
-Ao usar essas etapas como um exercício, use os seguintes valores:
-
-
+- Uma assinatura do Azure. Se você ainda não tiver uma assinatura do Azure, poderá ativar os [Benefícios do assinante do MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="values"></a>Exemplo de valores de configuração para este exercício
+
+
+Ao usar estas etapas como um exercício, você poderá usar os valores de configuração de exemplo.
 
 - Nome da rede virtual: TestVNet1
 - Espaço de endereço: 10.11.0.0/16 e 10.12.0.0/16
@@ -83,9 +79,9 @@ Ao usar essas etapas como um exercício, use os seguintes valores:
 
 ## 1\. Criar uma rede virtual 
 
-Se você já tiver criado uma rede virtual, verifique se as configurações são compatíveis com seu design de gateway de VPN, prestando atenção especial em quaisquer sub-redes que possam se sobrepor a outras redes. Depois, você pode continuar com [Especificar um servidor DNS](#dns).
+Se você já tiver criado uma rede virtual, verifique se as configurações são compatíveis com seu design de gateway de VPN, prestando atenção especial em quaisquer sub-redes que possam se sobrepor a outras redes. Se você tiver uma sobreposição de sub-redes, a conexão não funcionará corretamente. Se você verificou que sua VNet está configurada com as definições corretas, poderá começar as etapas na seção [Especificar um servidor DNS](#dns).
 
-Se a criação de uma nova rede virtual fizer parte de um exercício, você poderá se usar esses [valores](#values) ao criá-la.
+### Para criar uma rede virtual
 
 [AZURE.INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
@@ -97,7 +93,9 @@ Você pode adicionar um espaço de endereço e sub-redes adicionais para sua red
 
 ## <a name="dns"></a>3. Especificar um servidor DNS
 
-Se a criação dessa configuração fizer parte de um exercício, confira esses [valores](#values) ao especificar o servidor DNS.
+Se você estiver criando essa configuração como parte de um exercício, consulte estes [valores](#values) ao especificar o servidor DNS.
+
+### Para especificar um servidor DNS
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -109,19 +107,27 @@ O prefixo de sub-rede de gateway para algumas configurações exige uma sub-rede
 
 Se a criação dessa configuração fizer parte de um exercício, confira esses [valores](#values) ao criar sua sub-rede de gateway.
 
+### Para criar uma sub-rede de gateway
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5\. Criar um gateway de rede virtual
 
-Se a criação dessa configuração fizer parte de um exercício, confira esses [valores](#values) ao criar seu gateway.
+Se você estiver criando esta configuração como um exercício, consulte esses [valores](#values) ao criar seu gateway.
+
+### Para criar um gateway da rede virtual
 
 [AZURE.INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ## 6\. Criar um gateway de rede local
 
-O *gateway de rede local* se refere ao seu local. Você dará um nome ao gateway de rede local ao qual o Azure possa fazer referência.
+O *gateway da rede local* refere-se ao seu local. Você dará um nome ao gateway de rede local ao qual o Azure possa fazer referência.
 
-Se a criação dessa configuração fizer parte de um exercício, confira esses [valores](#values) ao adicionar seu site local.
+Se você estiver criando essa configuração como um exercício, consulte esses [valores](#values) ao adicionar seu site local.
+
+### Para criar um gateway de rede local
 
 [AZURE.INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
@@ -133,19 +139,23 @@ Se a criação dessa configuração fizer parte de um exercício, confira esses 
 
 Em seguida, você criará a conexão VPN site a site entre o gateway de rede virtual e o dispositivo VPN. Substitua os valores pelos seus próprios. A chave compartilhada deve corresponder ao valor usado para a configuração do dispositivo VPN.
 
-Antes de iniciar esta seção, verifique se a criação do gateway de rede virtual e dos gateways de rede local foram concluídas. Se a criação dessa configuração fizer parte de um exercício, confira esses [valores](#values) ao criar a conexão.
+Antes de iniciar esta seção, verifique se a criação do gateway de rede virtual e dos gateways de rede local foram concluídas. Se você estiver criando essa configuração como um exercício, consulte esses [valores](#values) ao criar sua conexão.
+
+### Para criar a conexão VPN
 
 
 [AZURE.INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-rm-portal-include.md)]
 
 ## 9\. Verificar a conexão VPN
 
+Você pode verificar a conexão VPN no portal ou usando o PowerShell.
+
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 ## Próximas etapas
 
-- Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Confira o [roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) de máquinas virtuais para saber mais.
+- Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte o roteiro de aprendizagem das [máquinas virtuais](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) para obter mais informações.
 
-- Para obter informações sobre BGP, consulte a [Visão geral de BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
+- Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

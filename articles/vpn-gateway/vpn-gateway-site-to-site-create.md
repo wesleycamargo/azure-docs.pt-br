@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/13/2016"
    ms.author="cherylmc"/>
 
 # Criar uma rede virtual com uma conexão VPN site a site usando o portal clássico do Azure
@@ -27,17 +27,20 @@
 
 Este artigo o orientará pela criação de uma rede virtual e de uma conexão VPN site a site com sua rede local. As conexões site a site podem ser usadas para configurações entre instalações e híbridas. Este artigo se aplica ao modelo de implantação clássico e usa o portal clássico do Azure.
 
+
 **Sobre modelos de implantação do Azure**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## Diagrama de conexão
  
 ![Diagrama Site a Site](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
 **Modelos de implantação e ferramentas para conexões Site a Site**
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
- 
-Se quiser conectar VNets, mas não estiver criando uma conexão com uma instalação local, confira [Configurar uma conexão de VNet a VNet para o modelo de implantação clássico](virtual-networks-configure-vnet-to-vnet-connection.md) ou [Configurar uma conexão de VNet para VNet para o modelo de implantação do Gerenciador de Recursos](vpn-gateway-vnet-vnet-rm-ps.md).
+
+Se você quiser conectar as VNets, mas não estiver criando uma conexão com uma instalação local, consulte [Configurar uma conexão VNet a VNet para o modelo de implantação clássico](virtual-networks-configure-vnet-to-vnet-connection.md). Se você estiver procurando um tipo diferente de configuração da conexão, consulte o artigo [Topologias de conexão do Gateway de VPN](vpn-gateway-topology.md).
 
  
 ## Antes de começar
@@ -48,7 +51,7 @@ Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
 -  Um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
 
-- Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou se inscrever para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Uma assinatura do Azure. Se você ainda não tiver uma assinatura do Azure, poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Criar sua rede virtual
@@ -83,7 +86,7 @@ Insira as informações a seguir e, em seguida, clique na seta de avanço.
 - 	**Nome**: o nome que você deseja dar ao site de rede local.
 - 	**Endereço IP do Dispositivo VPN**: é o endereço IPv4 voltado para o público do seu dispositivo VPN local que você usará para conectar-se ao Azure. O dispositivo VPN não pode ser localizado por trás de um NAT.
 - 	**Espaço de Endereço**: inclua o IP Inicial e a Contagem de Endereços (CIDR). É o local onde você especifica o(s) intervalo(s) de endereços que deseja que seja(m) enviado(s) por meio do gateway de rede virtual para o local. Se um endereço IP de destino estiver dentro dos intervalos especificados aqui, ele será roteado por meio do gateway de rede virtual.
-- 	**Adicionar espaço de endereço**: se houver vários intervalos de endereços que deseje enviar pelo gateway da rede virtual, é o local onde você especificará cada intervalo de endereços adicionais. Você poderá adicionar ou remover intervalos posteriormente na página **Rede Local**.
+- 	**Adicionar espaço de endereço**: se você tiver vários intervalos de endereço que deseja enviar pelo gateway da rede virtual, aqui será onde especificará cada intervalo de endereço adicional. Você poderá adicionar ou remover intervalos posteriormente na página **Rede Local**.
 
 ## Página Espaços de endereço de rede virtual
 
@@ -103,10 +106,10 @@ Clique na marca de seleção na parte inferior da página e sua rede virtual com
 
 ## Configurar seu Gateway de Rede Virtual
 
-Em seguida, você configurará o gateway de rede virtual para criar uma conexão VPN site a site segura. Confira [Configurar um gateway de rede virtual no portal clássico do Azure](vpn-gateway-configure-vpn-gateway-mp.md).
+Em seguida, você configurará o gateway de rede virtual para criar uma conexão VPN site a site segura. Consulte [Configurar um gateway da rede virtual no portal clássico do Azure](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Próximas etapas
 
-Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Confira a documentação de [Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para saber mais.
+Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte a documentação das [Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/) para saber mais.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

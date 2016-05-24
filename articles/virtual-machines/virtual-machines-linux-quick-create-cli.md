@@ -166,10 +166,9 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 O `azure vm quick-create` é a maneira de implantar rapidamente uma VM para que você possa fazer logon em um shell bash e começar a trabalhar. O uso de `vm quick-create` não oferece os benefícios adicionais de um ambiente complexo. Para implantar uma VM do Linux personalizada para sua infraestrutura, você pode seguir qualquer um dos artigos abaixo.
 
 - [Usar um modelo do Azure Resource Manager para criar uma implantação específica](virtual-machines-linux-cli-deploy-templates.md)
-- [Criar seu próprio ambiente personalizado para uma VM do Linux usando comandos da CLI do Azure diretamente](virtual-machines-linux-cli-deploy-templates.md).
+- [Criar seu próprio ambiente personalizado para uma VM do Linux usando os comandos da CLI do Azure diretamente](virtual-machines-linux-create-cli-complete.md).
 - [Criar uma VM do Linux Protegida por SSH no Azure usando Modelos](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Criar uma VM do Linux usando a CLI do Azure](virtual-machines-linux-create-cli-complete.md)
 
 Esses artigos o ajudarão a criar uma infraestrutura do Azure, bem como quaisquer ferramentas de implantação da infraestrutura patenteadas e de fonte aberta, de configuração e orquestração.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

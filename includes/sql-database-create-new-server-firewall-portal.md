@@ -30,6 +30,9 @@ Use as seguintes etapas no portal do Azure para criar uma regra de firewall de n
 
  	![firewall do novo servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
+
+ 	> [AZURE.IMPORTANT] Se você não vir a opção para **Firewall** na folha exibida, volte e verifique se está vendo a folha do servidor lógico do Banco de Dados SQL, e não a folha de um banco de dados SQL.
+
 5. Clique em **Adicionar IP do Cliente** para que o Azure crie uma regra para o endereço IP do cliente.
 
       ![firewall do novo servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
@@ -38,8 +41,8 @@ Use as seguintes etapas no portal do Azure para criar uma regra de firewall de n
 
       ![firewall do novo servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
     
-7. Clique em **Salvar** para criar a regra de firewall de nível de servidor.
+7. Clique em **Salvar** para criar a regra de firewall no nível do servidor.
 
      ![firewall do novo servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
 
-	>[AZURE.IMPORTANT] Seu endereço IP de cliente pode mudar periodicamente, e talvez você não possa acessar seu servidor até que crie uma nova regra de firewall. Você pode verificar seu endereço IP usando o [Bing](http://www.bing.com/search?q=my%20ip%20address) e depois adicionar um único endereço IP ou um intervalo de endereços IP. Confira [Gerenciar configurações de firewall](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) para obter detalhes.
+	>[AZURE.IMPORTANT] Seu endereço IP de cliente pode mudar periodicamente, e talvez você não possa acessar seu servidor até que crie uma nova regra de firewall. Você pode verificar seu endereço IP usando o [Bing](http://www.bing.com/search?q=my%20ip%20address) e depois adicionar um único endereço IP ou um intervalo de endereços IP. Consulte [Gerenciar configurações de firewall](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) para obter detalhes.

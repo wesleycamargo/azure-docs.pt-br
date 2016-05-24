@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="05/05/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # Como criar um aplicativo Web com o Cache Redis
@@ -688,12 +688,13 @@ Se clicar no botão **Implantar no Azure**, você será levado para o portal do 
 1. Na folha **Implantação personalizada**, selecione a assinatura do Azure a ser usada, selecione um grupo de recursos existente ou crie um novo e especifique o local do grupo de recursos.
 2. Na folha **Parâmetros**, especifique um nome de conta de administrador (**ADMINISTRATORLOGIN** -não use **admin**), uma senha de logon de administrador (**ADMINISTRATORLOGINPASSWORD**) e o nome do banco de dados (**DATABASENAME**). Os outros parâmetros são configurados para um plano de hospedagem do Serviço de Aplicativo gratuito e opções de custo mais baixo para o Banco de Dados SQL e o Cache Redis do Azure, que não vêm com uma camada gratuita.
 3. Altere outras configurações, se desejar, ou mantenha os padrões e clique em **OK**.
-4. Após definir as configurar, clique em **Examinar termos legais**.
+
 
 ![Implantar no Azure][cache-deploy-to-azure-step-2]
 
-1. Leia os termos na folha **Criar** e clique em **Criar**.
-2. Para iniciar o provisionamento dos recursos, clique em **Criar** na folha **Implantação personalizada**.
+1. Clique em **Examinar termos legais**.
+2. Leia os termos na folha **Comprar** e clique em **Comprar**.
+3. Para iniciar o provisionamento dos recursos, clique em **Criar** na folha **Implantação personalizada**.
 
 Para exibir o andamento da implantação, clique no ícone de notificação e clique em **Implantação iniciada**.
 
@@ -838,4 +839,4 @@ Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

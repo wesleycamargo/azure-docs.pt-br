@@ -40,8 +40,8 @@ As regras NSG contêm as propriedades a seguir.
 |---|---|---|---|
 |**Nome**|Nome para a regra|Deve ser exclusivo na região<br/>Pode conter letras, números, sublinhados, pontos e hifens<br/>Deve começar com uma letra ou com um número<br/>Deve terminar com uma letra, com um número ou com um sublinhado<br/>Pode ter até 80 caracteres|Você pode ter várias regras em um NSG, portanto, siga uma convenção de nomenclatura que permita a identificação da função da sua regra.|
 |**Protocolo**|Protocolo para fazer a correspondência da regra|TCP, UDP ou *|O uso do * como um protocolo inclui ICMP (apenas tráfego Leste-Oeste), bem como UDP e TCP, pode reduzir o número de regras necessárias<br/>Ao mesmo tempo, o uso do * pode ser uma abordagem muito ampla. Portanto, use-o quando for realmente necessário|
-|**Intervalo de portas de origem**|Intervalo de portas de origem para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja , 1 a 65635) ou * (para todas as portas)|As portas de origem pode ser efêmeras. A menos que o programa cliente esteja usando uma porta específica, use "*" na maioria dos casos.<br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula |
-**Intervalo de portas de destino**|Intervalo de portas de destino para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja, 1 a 65535) ou * (para todas as portas)|Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula
+|**Intervalo de portas de origem**|Intervalo de portas de origem para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja , 1 a 65635) ou * (para todas as portas)|As portas de origem pode ser efêmeras. A menos que o programa cliente esteja usando uma porta específica, use "*" na maioria dos casos.<br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula 
+|**Intervalo de portas de destino**|Intervalo de portas de destino para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja, 1 a 65535) ou * (para todas as portas)|Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula
 |**Prefixo de endereço de origem**|Prefixo ou marca de endereço de origem para fazer a correspondência da regra|Endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#Default-Tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
 |**Prefixo de endereço de destino**|Prefixo ou marca de endereço de destino para fazer a correspondência da regra|endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#Default-Tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
 |**Direção**|Direção do tráfego para fazer a correspondência da regra|entrada ou saída|Regras de entrada e saída são processadas separadamente, com base na direção|
@@ -173,7 +173,7 @@ Você precisa considerar as regras especiais listadas abaixo. Certifique-se de n
 
 ### Tráfego ICMP
 
-As atuais regras do NSG permitem apenas os protocolos *TCP* ou *UDP*. Não há uma marca específica para o *ICMP*. No entanto, o tráfego ICMP é permitido em uma Rede Virtual por padrão por meio da regra de VNet de entrada (regra padrão 65500 de entrada), que permite o tráfego de/para qualquer porta e protocolo na VNet.
+As atuais regras do NSG permitem apenas os protocolos *TCP* ou *UDP*. Não há uma marca específica para o *ICMP*. No entanto, o tráfego ICMP é permitido em uma Rede Virtual por padrão por meio da regra VNet de Entrada (Entrada 65000 da regra padrão), que permite o tráfego de/para qualquer porta e protocolo na VNet.
 
 ### Sub-redes
 
@@ -282,4 +282,4 @@ Uma vez que alguns dos NSGs acima precisam estar associados a NICs individuais, 
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

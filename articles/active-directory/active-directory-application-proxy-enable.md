@@ -47,7 +47,7 @@ Se o firewall reforça o tráfego de acordo com os usuários de origem, abra ess
 
 
 ## Etapa 1: habilite o Proxy de aplicativo no AD do Azure
-1. Entre como administrador no portal clássico do Azure.
+1. Entre como administrador no [portal clássico do Azure](https://manage.windowsazure.com/).
 2. Vá para o Active Directory e selecione o diretório no qual você deseja habilitar o Proxy de aplicativo.
 3. Clique em **Configurar**, role para baixo até o Proxy de Aplicativo e alterne a opção Habilitar serviços de Proxy de Aplicativo para este Diretório para **Habilitado**.
 
@@ -62,8 +62,8 @@ Se o firewall reforça o tráfego de acordo com os usuários de origem, abra ess
 
   - Forneça suas credenciais de administrador global do AD do Azure. Seu locatário de administrador global pode ser diferente das suas credenciais do Microsoft Azure.
   - Verifique se o administrador que registra o Conector está no mesmo diretório em que você habilitou o serviço de Proxy de Aplicativo. Por exemplo, se o domínio de locatário for contoso.com, o administrador deverá ser admin@contoso.com ou qualquer outro alias no domínio.
-  - Se a Configuração de Segurança Aprimorada do Internet Explorer estiver **Ativada** no servidor em que você estiver instalando o Conector do AD do Azure, a tela de registro poderá ser bloqueada. Se isso acontecer, siga as instruções na mensagem de erro para permitir o acesso. Certifique-se de que a Segurança Melhorada do Internet Explorer está desativada.
-  - Se o registro do Conector não for bem-sucedido, consulte [Solucionar problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md).  
+  - Se a Configuração de Segurança Aprimorada do Internet Explorer estiver **Ativada** no servidor em que você estiver instalando o Conector do Azure AD, a tela de registro poderá ser bloqueada. Se isso acontecer, siga as instruções na mensagem de erro para permitir o acesso. Certifique-se de que a Segurança Melhorada do Internet Explorer está desativada.
+  - Se o registro do Conector não for bem-sucedido, confira [Solucionar problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md).  
 
 4. Quando a instalação for concluída, dois novos serviços são adicionados ao seu servidor, conforme mostrado abaixo. Esses são o serviço de conector, que permite a conectividade, e um serviço de atualização automatizada que verifica periodicamente novas versões do conector e atualiza o conector conforme necessário. Clique em **Concluir** na janela de instalação para concluir a instalação
 
@@ -96,4 +96,4 @@ Você pode fazer muito mais com o Proxy de Aplicativo:
 - [Identidade do Azure](fundamentals-identity.md)
 - [Publicar os aplicativos com Proxy de Aplicativo](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

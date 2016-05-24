@@ -47,7 +47,7 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P3. Qual versão do servidor SCDPM tem suporte?** <br/> R3. Recomendamos que você instale o agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) no pacote cumulativo de atualizações mais recente do SCDPM (UR6 de julho de 2015)
 
-**P4. Ao configurar o agente do Backup do Azure, preciso inserir as **credenciais do cofre**. As credenciais do cofre expiram? R4. Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre de backup.
+****P4. Ao configurar o agente do Backup do Azure, preciso inserir as **credenciais do cofre**. As credenciais do cofre expiram? R4. Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre de backup.
 
 **P5. Há algum limite para o número de cofres de backup que podem ser criados em cada assinatura do Azure?** <br/> R5. Sim. Desde julho de 2015, você pode criar 25 cofres por assinatura. Se você precisar de mais cofres, crie uma nova assinatura.
 
@@ -110,13 +110,15 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P22. Posso instalar o agente de Backup do Azure em uma VM do Azure para fazer backup de arquivos e pastas presentes no armazenamento temporário fornecido pela VM do Azure?** <br/> R22. Você pode instalar o agente de Backup do Azure no SO convidado do Windows e fazer backup de arquivos e de pastas em um armazenamento temporário. No entanto, observe que os backups falharão assim que os dados do armazenamento temporário forem apagados. Além disso, se os dados de armazenamento temporário tiverem sido excluídos, você só poderá restaurar em um armazenamento não volátil.
 
-**P23. Qual é o comprimento do caminho do arquivo que pode ser especificado como parte da política de Backup do Azure usando o agente de Backup do Azure?** <br/> R23. O agente de Backup do Azure baseia-se em NTFS. A [especificação de comprimento de caminho de arquivo é limitada pela API do Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se tiver um caminho de arquivo maior do que o que é permitido pela API do Windows, você poderá fazer backup da pasta pai ou da unidade de disco dos arquivos desejados.
+**P23. Eu instalei o agente do Backup do Azure para proteger meus arquivos e minhas pastas. Agora posso instalar o SCDPM para trabalhar com o agente do Backup do Azure para proteger as cargas de trabalho do aplicativo/VM local no Azure?** <br/> R23. Para usar o Backup do Azure com o SCDPM, é aconselhável instalar o SCDPM primeiro e só depois instalar o agente do Backup do Azure. Isso garante a integração direta do agente do Backup do Azure com o SCDPM e permite proteger arquivos/pastas, cargas de trabalho de aplicativos e máquinas virtuais no Azure, diretamente do console de gerenciamento do SCDPM. A instalação do SCDPM após a instalação do agente do Backup do Azure para as finalidades mencionadas acima não é aconselhável nem tem suporte.
 
-**P24. Quais caracteres são permitidos no caminho de arquivo da política de Backup do Azure usando o agente de Backup do Azure?** <br/> R24. O agente de Backup do Azure baseia-se em NTFS. Ela permite os [caracteres com suporte do NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) como parte da especificação de arquivo.
+**P24. Qual é o comprimento do caminho do arquivo que pode ser especificado como parte da política de Backup do Azure usando o agente de Backup do Azure?** <br/> R24. O agente de Backup do Azure baseia-se em NTFS. A [especificação do comprimento do caminho de arquivo é limitada pela API do Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). No caso de backup de arquivos com comprimento de caminho de arquivo maior do que aqueles especificados pela API do Windows, os clientes poderão optar por fazer backup da pasta pai ou da unidade de disco dos arquivos de backup.
 
-**P25. Posso usar o servidor de Backup do Azure para criar um backup BMR (Recuperação Bare-Metal) para um servidor físico?** <br/> R25. Sim.
+**P25. Quais caracteres são permitidos no caminho de arquivo da política de Backup do Azure usando o agente de Backup do Azure?** <br> R25. O agente de Backup do Azure baseia-se em NTFS. Ele permite os [caracteres com suporte do NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) como parte da especificação de arquivo.
 
-**P26. Posso configurar o serviço de Backup para enviar emails se um trabalho de backup falhar?** <br/> R26. Sim, o serviço de Backup tem vários alertas baseados em eventos que podem ser usados com um script do PowerShell. Para obter uma descrição completa, confira [Notificações de alerta](backup-azure-manage-vms.md#alert-notifications)
+**P26. Posso usar o servidor de Backup do Azure para criar um backup BMR (Recuperação Bare-Metal) para um servidor físico?** <br/> R26. Sim.
+
+**P27. Posso configurar o serviço de Backup para enviar emails se um trabalho de backup falhar?** <br/> R27. Sim, o serviço de Backup tem vários alertas baseados em eventos que podem ser usados com um script do PowerShell. Para obter uma descrição completa, veja [Notificações de alerta](backup-azure-manage-vms.md#alert-notifications)
 
 
 
@@ -165,7 +167,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 **P12. Há uma maneira de ajustar a quantidade de largura de banda usada pelo serviço de Backup?**<br/> R12. Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Ajuste a quantidade de largura de banda e os horários quando você usa essa largura de banda. Veja [Limitação de rede](../backup-configure-vault.md#enable-network-throttling) para saber mais.
 
-**P13. Minha largura de banda de Internet é limitada para a quantidade de dados que preciso incluir no backup. Há uma maneira de mover dados para um determinado local com um pipe de rede grande e de enviar esses dados por push para o Azure?** <br/> P13. Você pode fazer backup de dados no Azure por meio do processo de backup online padrão ou pode usar o serviço Importção/Exportação do Azure para transferir dados para o armazenamento de blobs no Azure. Não há maneiras adicionais de enviar os dados de backup para o armazenamento do Azure. Para saber mais sobre como usar o serviço Importação/Exportação do Azure com o Backup do Azure, veja o artigo [Fluxo de trabalho do backup offline](backup-azure-backup-import-export).
+**P13. Minha largura de banda de Internet é limitada para a quantidade de dados que preciso incluir no backup. Há uma maneira de mover dados para um determinado local com um pipe de rede grande e de enviar esses dados por push para o Azure?** <br/> R13. Você pode fazer backup de dados no Azure por meio do processo de backup online padrão ou pode usar o serviço Importção/Exportação do Azure para transferir dados para o armazenamento de blobs no Azure. Não há maneiras adicionais de enviar os dados de backup para o armazenamento do Azure. Para saber mais sobre como usar o serviço Importação/Exportação do Azure com o Backup do Azure, veja o artigo [Fluxo de trabalho do backup offline](backup-azure-backup-import-export).
 
 
 ## Recuperação
@@ -203,5 +205,20 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
   ```PS C:\> Net start obengine```
 
   Assim que a criação do backup for concluída com êxito no novo local de cache, você poderá remover a pasta de cache original.
+  
+**P2. Onde posso colocar a pasta de cache para o agente do Backup do Azure para que ele funcione como esperado?**<br/> R2. Os locais a seguir para a pasta de cache não são recomendados:
 
-<!---HONumber=AcomDC_0504_2016-->
+- Compartilhamento de rede ou Mídia Removível: a pasta de cache deve ser local para o servidor que precisa de backup usando o backup online. Não há suporte para os locais de rede ou para a mídia removível como unidades USB.
+- Volumes Offline: a pasta de cache deve estar online para o backup esperado com o agente do Backup do Azure.
+
+**P3. Existe algum atributo da pasta de cache que não tenha suporte?**<br/> R3. Os atributos a seguir ou suas combinações não têm suporte para a pasta de cache:
+
+- Criptografado
+- Eliminação de duplicação
+- Compactado
+- Esparso
+- Ponto de nova análise
+
+É recomendável que nem a pasta de cache nem os metadados de VHD têm os atributos acima para o funcionamento esperado do agente do Backup do Azure.
+
+<!---HONumber=AcomDC_0518_2016-->

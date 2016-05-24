@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/03/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager
@@ -206,8 +206,8 @@ Clique na guia **Usando o Editor do Data Factory** para alternar para o artigo c
 						                "linkedServiceName": "HDInsightOnDemandLinkedService"
 						            }
 						        ],
-						        "start": "2014-02-01T00:00:00Z",
-						        "end": "2014-02-02T00:00:00Z",
+						        "start": "2016-04-01T00:00:00Z",
+						        "end": "2016-04-02T00:00:00Z",
 						        "isPaused": false
 						    }
 	                    }
@@ -254,6 +254,11 @@ Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linke
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)	
 10. Quando a fatia estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contêiner **adfgetstarted** em seu armazenamento de blobs para os dados de saída.  
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-monitor-manage-pipelines.md) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
+
+Você também pode Monitorar e gerenciar aplicativos para monitorar os pipelines de dados. Veja [Monitorar e gerenciar os pipelines do Azure Data Factory usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) para obter detalhes sobre a utilização do aplicativo.
+
+> [AZURE.IMPORTANT] O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta inputdata do contêiner adfgetstarted.
+
+<!---HONumber=AcomDC_0518_2016-->

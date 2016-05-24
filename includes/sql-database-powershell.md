@@ -4,7 +4,7 @@
 Primeiro, você precisa ter o [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 ou posterior) instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../articles/powershell-install-configure.md).
 
 
->[AZURE.NOTE] Muitas das novas funcionalidades do Banco de Dados SQL têm suporte usando apenas o [modelo de implantação ARM (Azure Resource Manager)](../articles/resource-group-overview.md), portanto os exemplos usam [cmdlets do PowerShell do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) baseados no ARM. Os [cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/dn546723.aspx) do modelo de implantação clássico existentes têm suporte para compatibilidade com versões anteriores, mas é recomendável usar os cmdlets baseados no ARM.
+>[AZURE.NOTE] Muitos recursos novos do Banco de Dados SQL só têm suporte usando o [modelo de implantação do Azure Resource Manager](../articles/resource-group-overview.md), portanto, os exemplos usam os [cmdlets do PowerShell do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) para oResource Manager. Os cmdlets do Banco de Dados SQL do Azure (clássico) do [modelo de implantação clássico existente](https://msdn.microsoft.com/library/azure/dn546723.aspx) têm suporte para a compatibilidade com versões anteriores, mas é recomendável usar os cmdlets do Resource Manager.
 
 
 Execute o cmdlet [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) e você verá uma tela de entrada para inserir suas credenciais. Use as mesmas credenciais que você usa para entrar no Portal do Azure.

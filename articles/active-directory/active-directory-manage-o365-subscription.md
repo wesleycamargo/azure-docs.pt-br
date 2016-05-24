@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/10/2016"
+   ms.date="05/16/2016"
    ms.author="curtand"/>
 
 #Gerenciar o diretório para sua assinatura do Office 365 no Azure
@@ -66,9 +66,9 @@ Agora vamos supor que John Doe precise entrar no portal clássico do Azure e adm
 
 1.	Entrar no portal clássico do Azure usando a conta de administrador de serviços da assinatura do Azure (neste exemplo, msmith@hotmail.com).
 2.	Transferir a assinatura para o diretório Contoso: clique em **Configurações** > **Assinaturas** > selecione a assinatura > **Editar diretório** > selecione **Contoso (Contoso.com)**. Como parte da transferência, qualquer conta de trabalho ou escola que atuar como coadministrador da assinatura será removida.
-3.	Adicionar John Doe como coadministrador da assinatura: clique em **Configurações** > **Administradores** > selecione a assinatura > **Adicionar** > digite * ***JohnDoe@Contoso.com**.
+3.	Adicionar John Doe como coadministrador da assinatura: clique em **Configurações** > **Administradores** > selecione a assinatura > **Adicionar** > digite * **JohnDoe@Contoso.com**.
 
 ##Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, consulte [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

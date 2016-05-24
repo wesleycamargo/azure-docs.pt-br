@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/14/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
 
 
@@ -143,15 +143,20 @@ Abra o recurso Application Insights no [Portal do Azure][portal].
 
 Se você não tiver entrado no Azure ao adicionar o Application Insights para este aplicativo, faça isso agora. Selecione **Configurar Application Insights**. Isso o habilitará a continuar a ver a telemetria do aplicativo ativo após implantá-lo. A telemetria aparecerá no portal do Application Insights.
 
-### Métrica: dados agregados
+### Live Stream
 
-Procure dados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
+Para obter uma visão rápida dos dados de telemetria quando você estiver depurando ou logo após uma implantação, use o Live Stream.
 
-![Clique por mais dados](./media/app-insights-asp-net/12-first-perf.png)
+![Na folha de visão geral, clique em Live Stream](./media/app-insights-asp-net/45.png)
 
-Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.][perf]
 
-* *Nenhum dado de usuário ou página?* - [Adicionar dados de usuário e página](app-insights-web-track-usage.md)
+O Live Stream foi projetado para que você possa verificar se o aplicativo está funcionando corretamente após uma implantação.
+
+Ele mostra dados apenas dos últimos minutos e não retém dados.
+
+Ele requer a versão 2.1.0-beta1 ou posterior do SDK.
+
+
 
 ### Pesquisa: eventos individuais
 
@@ -162,6 +167,23 @@ Abra a Pesquisa investigar solicitações individuais e seus eventos associados.
 [Saiba mais sobre a pesquisa](app-insights-diagnostic-search.md)
 
 * *Não há eventos associados?* Configure [exceções de servidor](app-insights-asp-net-exceptions.md) e [dependências](app-insights-asp-net-dependencies.md).
+
+
+### Métrica: dados agregados
+
+Procure dados agregados nos gráficos de Visão Geral. Primeiro, você apenas verá um ou dois pontos. Por exemplo:
+
+![Clique por mais dados](./media/app-insights-asp-net/12-first-perf.png)
+
+Clique em qualquer gráfico para ver métricas mais detalhadas. [Saiba mais sobre métricas.][perf]
+
+* *Nenhum dado de usuário ou página?* - [Adicionar dados de usuário e página](app-insights-web-track-usage.md)
+
+### Análise: linguagem de consulta poderosa
+
+À medida que acumular mais dados, você poderá executar consultas para agregar dados e localizar instâncias individuais. A [Análise]() é uma ferramenta poderosa para entender o desempenho e o uso e para fins de diagnóstico.
+
+![Exemplo de Análise](./media/app-insights-asp-net/025.png)
 
 
 ## Não há dados?
@@ -179,19 +201,8 @@ Abra a Pesquisa investigar solicitações individuais e seus eventos associados.
 
 Agora implante seu aplicativo e assista a acumulação dos dados.
 
-### Live Stream
+Use o [Live Stream](#live-stream) para monitorar os primeiros minutos de uma implantação ou reimplantação e saber se o aplicativo está funcionando corretamente. Especialmente quando estiver substituindo uma versão mais antiga, você deseja saber se o desempenho foi aprimorado. Se houver um problema, você poderá reverter para a versão antiga.
 
-Os primeiros minutos de uma implantação dizem a você se o seu aplicativo está funcionando corretamente. Especialmente quando estiver substituindo uma versão mais antiga, você deseja saber se o desempenho foi aprimorado. Se houver um problema, você poderá reverter para a versão antiga.
-
-O Live Stream fornece uma exibição imediata de um conjunto de métricas de desempenho chave. Ele foi projetado para que você possa assisti-lo durante uma reimplantação ou uma reconfiguração.
-
-![Na folha de visão geral, clique em Live Stream](./media/app-insights-asp-net/45.png)
-
-Ao contrário de outros gráficos de métricas, o Live Stream mostra somente os dados dos últimos minutos e não retém nenhum dado. O pipeline de agregação é mínimo e a exibição é atualizada a cada segundo.
-
-O Live Stream exige a versão 2.1.0-beta1 ou posterior do SDK.
-
-*O Live Stream ficou paralisado em sua página de configuração? - Atualize seu navegador (F5).*
 
 #### Problemas no servidor de compilação?
 
@@ -246,4 +257,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

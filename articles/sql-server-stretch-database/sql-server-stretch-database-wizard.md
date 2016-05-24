@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Comece ao executar o assistente Habilitar o Banco de Dados de Ampliação
@@ -44,7 +44,7 @@ Selecione as tabelas que você deseja habilitar para o Stretch.
 |**Nome**|Especifica o nome da coluna na tabela.|
 |(sem título)|Um símbolo nesta coluna normalmente indica que não é possível habilitar a tabela selecionada para o Stretch devido a um problema de bloqueio. Talvez o motivo seja o uso de um tipo de dados sem suporte pela tabela. Passe o cursor do mouse sobre o símbolo para exibir mais informações em uma dica de ferramenta. Para saber mais, confira [Problemas de bloqueio e limitações de área da superfície do Banco de Dados de Ampliação](sql-server-stretch-database-limitations.md).|
 |**Ampliado**|Indica se a tabela já está habilitada.|
-|**Migrar**|No RC3, você pode migrar uma tabela inteira (**Tabela Inteira**) ou especificar um predicado de filtro baseado em data no assistente. Se você quiser usar um predicado de filtro diferente para selecionar linhas para migrar, execute a instrução ALTER TABLE para especificar o predicado de filtro depois que você sair do assistente. Para saber mais sobre o predicado de filtro, confira [Usar um predicado de filtro para selecionar linhas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Para saber mais sobre como aplicar o predicado, confira [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
+|**Migrar**|Você pode migrar uma tabela inteira (**Tabela Inteira**) ou pode especificar um predicado de filtro baseado na data no assistente. Se você quiser usar um predicado de filtro diferente para selecionar linhas para migrar, execute a instrução ALTER TABLE para especificar o predicado de filtro depois que você sair do assistente. Para saber mais sobre o predicado de filtro, confira [Usar um predicado de filtro para selecionar linhas para migrar (Stretch Database)](sql-server-stretch-database-predicate-function.md). Para saber mais sobre como aplicar o predicado, confira [Habilitar o Stretch Database para uma tabela](sql-server-stretch-database-enable-table.md) ou [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx).|
 |**Linhas**|Especifica o número de linhas na tabela.|
 |**Tamanho (KB)**|Especifica o tamanho da tabela em KB.|
 
@@ -163,4 +163,4 @@ Habilitar outras tabelas para o Banco de Dados de Stretch. Monitorar a migraçã
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

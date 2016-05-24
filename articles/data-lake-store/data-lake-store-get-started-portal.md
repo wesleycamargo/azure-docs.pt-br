@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/07/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório do Azure Data Lake usando o Portal do Azure
@@ -44,6 +44,13 @@ Primeiro você precisa solicitar a habilitação de sua assinatura do Azure para
 3. Na folha **Novo Repositório Data Lake**, clique em **Inscreva-se para visualizar**. Revise as informações e clique em **OK**. Você receberá um email quando sua assinatura tiver sido habilitada para a Visualização Pública.
 
 	![Inscrever-se para a Visualização Pública](./media/data-lake-store-get-started-portal/preview-signup.png "Criar uma nova conta do Azure Data Lake")
+
+## Você aprenderá rapidamente com vídeos?
+
+Veja os vídeos a seguir para começar a usar o Repositório Data Lake.
+
+* [Criar uma conta do Repositório Data Lake](https://mix.office.com/watch/1k1cycy4l4gen)
+* [Gerenciar dados no Repositório Data Lake usando o Explorador de Dados](https://mix.office.com/watch/icletrxrh6pc)
 
 ## Criar uma conta do Repositório Azure Data Lake
 
@@ -130,4 +137,4 @@ Para excluir uma conta do Repositório Azure Data Lake da folha de seu Repositó
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

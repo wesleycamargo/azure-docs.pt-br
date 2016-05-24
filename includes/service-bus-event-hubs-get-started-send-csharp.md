@@ -4,9 +4,9 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 
 1. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console**. Nomeie o projeto como **Remetente**.
 
-   ![][7]
+	![][7]
 
-2. No Gerenciador de Soluções, clique com o botão direito do mouse na solução e clique em **Gerenciar Pacotes NuGet para Solução**. 
+2. No Gerenciador de Soluções, clique com o botão direito na solução e clique em **Gerenciar Pacotes NuGet para Solução**.
 
 3. Clique na guia **Procurar** e pesquise `Microsoft Azure Service Bus`. Verifique se o nome do projeto (**Remetente**) está especificado na caixa **Versão(ões)**. Clique em **Instalar** e aceite os termos de uso.
 
@@ -21,7 +21,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 	using Microsoft.ServiceBus.Messaging;
 	```
 
-5. Adicione os seguintes campos à classe **Programa**, substituindo os valores do espaço reservado com o nome do Hub de Eventos que você criou na seção anterior e a cadeia de conexão com direitos de **Envio** (a cadeia de conexão **SendRule**). Não deixe de remover o sufixo `EntityPath` da cadeia de conexão:
+5. Adicione os seguintes campos à classe **Programa**, substituindo os valores do espaço reservado pelo nome do Hub de Eventos criado na seção anterior e a cadeia de conexão no nível do namespace que você salvou anteriormente.
 
 	```
 	static string eventHubName = "{Event Hub name}";
@@ -69,5 +69,3 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-
-<!---HONumber=AcomDC_0413_2016-->
