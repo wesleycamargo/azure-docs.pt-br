@@ -66,7 +66,7 @@ Agora vamos supor que John Doe precise entrar no portal clássico do Azure e adm
 
 1.	Entrar no portal clássico do Azure usando a conta de administrador de serviços da assinatura do Azure (neste exemplo, msmith@hotmail.com).
 2.	Transferir a assinatura para o diretório Contoso: clique em **Configurações** > **Assinaturas** > selecione a assinatura > **Editar diretório** > selecione **Contoso (Contoso.com)**. Como parte da transferência, qualquer conta de trabalho ou escola que atuar como coadministrador da assinatura será removida.
-3.	Adicionar John Doe como coadministrador da assinatura: clique em **Configurações** > **Administradores** > selecione a assinatura > **Adicionar** > digite * ***JohnDoe@Contoso.com**.
+3.	Adicionar John Doe como coadministrador da assinatura: clique em **Configurações** > **Administradores** > selecione a assinatura > **Adicionar** > digite * **JohnDoe@Contoso.com**.
 
 ##Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, consulte [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).

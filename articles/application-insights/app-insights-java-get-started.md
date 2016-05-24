@@ -98,7 +98,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
       // or applicationinsights-core for bare API
     }
 
-* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como:* * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Para atualizar para um novo SDK*
  * Atualize as dependências do seu projeto.
 

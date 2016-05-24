@@ -40,7 +40,8 @@ As regras NSG contêm as propriedades a seguir.
 |---|---|---|---|
 |**Nome**|Nome para a regra|Deve ser exclusivo na região<br/>Pode conter letras, números, sublinhados, pontos e hifens<br/>Deve começar com uma letra ou com um número<br/>Deve terminar com uma letra, com um número ou com um sublinhado<br/>Pode ter até 80 caracteres|Você pode ter várias regras em um NSG, portanto, siga uma convenção de nomenclatura que permita a identificação da função da sua regra.|
 |**Protocolo**|Protocolo para fazer a correspondência da regra|TCP, UDP ou *|O uso do * como um protocolo inclui ICMP (apenas tráfego Leste-Oeste), bem como UDP e TCP, pode reduzir o número de regras necessárias<br/>Ao mesmo tempo, o uso do * pode ser uma abordagem muito ampla. Portanto, use-o quando for realmente necessário|
-|**Intervalo de portas de origem**|Intervalo de portas de origem para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja , 1 a 65635) ou * (para todas as portas)|As portas de origem pode ser efêmeras. A menos que o programa cliente esteja usando uma porta específica, use "*" na maioria dos casos.<br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula |**Intervalo de portas de destino**|Intervalo de portas de destino para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja, 1 a 65535) ou * (para todas as portas)|Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula
+|**Intervalo de portas de origem**|Intervalo de portas de origem para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja , 1 a 65635) ou * (para todas as portas)|As portas de origem pode ser efêmeras. A menos que o programa cliente esteja usando uma porta específica, use "*" na maioria dos casos.<br/>Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula 
+|**Intervalo de portas de destino**|Intervalo de portas de destino para fazer a correspondência da regra|Número de porta única de 1 a 65535, intervalo de portas (ou seja, 1 a 65535) ou * (para todas as portas)|Tente usar o máximo possível de intervalos de portas para evitar a necessidade de várias regras<br/>Várias portas ou intervalos de portas não podem ser agrupados por uma vírgula
 |**Prefixo de endereço de origem**|Prefixo ou marca de endereço de origem para fazer a correspondência da regra|Endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#Default-Tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
 |**Prefixo de endereço de destino**|Prefixo ou marca de endereço de destino para fazer a correspondência da regra|endereço IP único (ou seja, 10.10.10.10), sub-rede IP (ou seja, 192.168.1.0/24), [marca padrão](#Default-Tags) ou * (para todos os endereços)|Considere o uso de intervalos, marcas padrão e * para reduzir o número de regras|
 |**Direção**|Direção do tráfego para fazer a correspondência da regra|entrada ou saída|Regras de entrada e saída são processadas separadamente, com base na direção|
@@ -249,9 +250,9 @@ Os requisitos acima de 1 a 6 (com exceção do 3) estão confinados aos espaços
 
 |Regra|Access|Prioridade|Intervalo de endereços de origem|Porta de origem|Intervalo de endereços de destino|Porta de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP da Internet|Permitir|100|INTERNET|**|*|3389|TCP|
+|permitir RDP da Internet|Permitir|100|INTERNET|*|\*|3389|TCP|
 
->[AZURE.NOTE] Observe que o intervalo de endereços de origem para essa regra é **Internet**, não o VIP (IP virtual) do balanceador de carga; a porta de origem é *****, não 500001. Não confunda regras NAT/regras de balanceamento de carga com as regras NSG. As regras NSG sempre estão relacionadas à verdadeira origem e ao destino final do tráfego, **NÃO** ao balanceador de carga entre os dois.
+>[AZURE.NOTE] Observe que o intervalo de endereços de origem para essa regra é **Internet**, não o VIP (IP virtual) do balanceador de carga; a porta de origem é **\***, não 500001. Não confunda regras NAT/regras de balanceamento de carga com as regras NSG. As regras NSG sempre estão relacionadas à verdadeira origem e ao destino final do tráfego, **NÃO** ao balanceador de carga entre os dois.
 
 ### NSG para gerenciamento de NICs no back-end
 
@@ -259,7 +260,7 @@ Os requisitos acima de 1 a 6 (com exceção do 3) estão confinados aos espaços
 
 |Regra|Access|Prioridade|Intervalo de endereços de origem|Porta de origem|Intervalo de endereços de destino|Porta de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir RDP do front-end|Permitir|100|192\.168.1.0/24|**|*|3389|TCP|
+|permitir RDP do front-end|Permitir|100|192\.168.1.0/24|*|\*|3389|TCP|
 
 ### NSG para NICs de acesso ao banco de dados no back-end
 
@@ -267,7 +268,7 @@ Os requisitos acima de 1 a 6 (com exceção do 3) estão confinados aos espaços
 
 |Regra|Access|Prioridade|Intervalo de endereços de origem|Porta de origem|Intervalo de endereços de destino|Porta de destino|Protocolo|
 |---|---|---|---|---|---|---|---|
-|permitir SQL do front-end|Permitir|100|192\.168.1.0/24|**|*|1433|TCP|
+|permitir SQL do front-end|Permitir|100|192\.168.1.0/24|*|\*|1433|TCP|
 
 Uma vez que alguns dos NSGs acima precisam estar associados a NICs individuais, você precisa implantar esse cenário como uma implantação do Gerenciador de Recursos. Observe como as regras são combinadas no nível de sub-rede e da NIC, dependendo de como elas precisam ser aplicadas.
 

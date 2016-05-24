@@ -155,11 +155,11 @@ Este tutorial mostra como criar uma API [Node.js](http://nodejs.org) simples e c
 
         node server.js
 
-1. Ao navegar até ****http://localhost:8000/contacts**, você verá a saída JSON da lista de contatos (ou receberá uma solicitação para baixá-la, dependendo de seu navegador).
+1. Ao navegar até **http://localhost:8000/contacts**, você verá a saída JSON da lista de contatos (ou receberá uma solicitação para baixá-la, dependendo de seu navegador).
 
     ![Chamada à Api de todos os contatos](media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
 
-1. Ao navegar até ****http://localhost:8000/contacts/2**, você verá o contato representado por esse valor de ID.
+1. Ao navegar até **http://localhost:8000/contacts/2**, você verá o contato representado por esse valor de ID.
 
     ![Chamada à Api de contato específico](media/app-service-api-nodejs-api-app/specific-contact-api-call.png)
 
