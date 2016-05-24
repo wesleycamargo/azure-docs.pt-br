@@ -135,4 +135,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!------HONumber=AcomDC_0504_2016-->
+<!-------HONumber=AcomDC_0504_2016-->
