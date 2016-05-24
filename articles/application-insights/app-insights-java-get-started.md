@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="05/12/2016"
 	ms.author="awills"/>
 
 # Introdução ao Application Insights em um projeto Web Java
@@ -98,7 +98,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
       // or applicationinsights-core for bare API
     }
 
-* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como:*  `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Para atualizar para um novo SDK*
  * Atualize as dependências do seu projeto.
 
@@ -214,35 +214,38 @@ Execute-o no modo de depuração no computador de desenvolvimento ou publique em
 
 ## 6\. Exibir sua telemetria no Application Insights
 
+
 Retorne para seu recurso do Application Insights no [Portal do Microsoft Azure](https://portal.azure.com).
 
 Dados de solicitações HTTP aparecerão na folha de visão geral. (Se não estiverem lá, aguarde alguns segundos e, em seguida, clique em Atualizar.)
 
 ![dados de exemplo](./media/app-insights-java-get-started/5-results.png)
 
+[Saiba mais sobre métricas.][metrics]
 
-Clique em qualquer gráfico para ver métricas mais detalhadas.
+Clique em qualquer gráfico para ver métricas agregadas mais detalhadas.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
+> O Application Insights presume que o formato de solicitações HTTP para aplicativos MVC seja: `VERB controller/action` Por exemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` serão agrupados em `GET Home/Product`. Isso permite agregações significativas de solicitações, como o número de solicitações e o tempo médio de execução para solicitações.
 
+
+### Dados de instância 
+
+Clique em um tipo de solicitação específica para ver instâncias individuais.
+
+Dois tipos de dados são exibidos no Application Insights: dados agregados, armazenados e exibidos como médias, contagens e somas, e dados de instância ‒ relatórios individuais de solicitações HTTP, exceções, exibições de página ou eventos personalizados.
 
 Ao exibir as propriedades de uma solicitação, você pode ver os eventos de telemetria associados a ela, como solicitações e exceções.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
+### Análise: linguagem de consulta poderosa
 
-[Saiba mais sobre métricas.][metrics]
+À medida que acumular mais dados, você poderá executar consultas para agregar dados e localizar instâncias individuais. A [Análise]() é uma ferramenta poderosa para entender o desempenho e o uso e para fins de diagnóstico.
 
-#### Cálculo de nome de endereço inteligente
-
-O Application Insights presume que o formato de solicitações HTTP para aplicativos MVC é: `VERB controller/action`
-
-
-Por exemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` serão agrupados em `GET Home/Product`.
-
-Isso permite agregações significativas de solicitações, como o número de solicitações e o tempo médio de execução para solicitações.
+![Exemplo de Análise](./media/app-insights-java-get-started/025.png)
 
 
 ## 5\. Instalar aplicativo no servidor
@@ -398,4 +401,4 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

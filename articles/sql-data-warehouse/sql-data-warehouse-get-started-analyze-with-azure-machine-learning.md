@@ -3,7 +3,7 @@
    description="Tutorial para usar o Aprendizado de Máquina do Azure com o Data Warehouse do SQL Azure para desenvolver soluções."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shivaniguptamsft;barbkess;sonyama"/>
 
 # Analisar dados com o Aprendizado de Máquina do Azure
 Este tutorial mostrará como criar um modelo de aprendizado de máquina preditivo com o Aprendizado de Máquina do Azure usando seus dados do SQL Data Warehouse do Azure. Neste tutorial, vamos criar uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
@@ -65,9 +65,6 @@ Execute o teste clicando em **Executar** na tela do teste. ![Executar o teste][1
 Após o teste terminar de ser executado com êxito, clique na porta de saída na parte inferior do módulo Leitor e selecione **Visualizar** para ver os dados importados. ![Exibir dados importados][3]
 
 
-
-
-
 ## Etapa 2: limpar dados
 Removeremos algumas colunas que não são relevantes para o modelo.
 
@@ -75,8 +72,6 @@ Removeremos algumas colunas que não são relevantes para o modelo.
 2. Clique em **Iniciar seletor de colunas** no painel Propriedades para especificar quais colunas você deseja remover. ![Colunas do projeto][4]
 
 3. Exclua duas colunas: CustomerAlternateKey e GeographyKey. ![Remover colunas desnecessárias][5]
-
-
 
 
 ## Etapa 3: criar modelo
@@ -91,9 +86,6 @@ Dividiremos os dados 80-20: 80% para treinar um modelo de aprendizado de máquin
 5. Selecione a coluna **BikeBuyer** como a coluna a ser prevista. ![Selecionar a Coluna a prever][8]
 
 
-
-
-
 ## Etapa 4: pontuar modelo
 Agora, testaremos o desempenho do modelo nos dados de teste. Vamos comparar o algoritmo de nossa escolha com um algoritmo diferente para ver que tem um desempenho melhor.
 
@@ -103,8 +95,6 @@ Agora, testaremos o desempenho do modelo nos dados de teste. Vamos comparar o al
 4. Arraste o módulo **Avaliar Modelo** na tela para comparar os dois algoritmos.
 5. **Execute** o teste. ![Executar o teste][10]
 6. Clique na porta de saída na parte inferior do módulo Avaliar Modelo e clique em Visualizar. ![Visualizar os resultados de avaliação][11]
-
-
 
 As métricas fornecidas são a curva ROC, o diagrama de comparação de precisão e recolhimento e a curva de comparação de precisão. Ao examinar essas métricas, podemos ver que o primeiro modelo teve um desempenho melhor do que o segundo. Para ver o que o primeiro modelo previu, clique na porta de saída do Modelo de Pontuação e clique em Visualizar. ![Visualizar os resultados da pontuação][12]
 
@@ -118,8 +108,6 @@ Ao comparar a coluna BikeBuyer (real) com os Rótulos Pontuados (previsão), é 
 ## Próximas etapas
 
 Para saber mais sobre a criação de modelos de aprendizado de máquina de previsão, consulte [Introdução ao Aprendizado de Máquina no Azure][].
-
-
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,4 +130,4 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 [carregar dados de exemplo manualmente]: sql-data-warehouse-get-started-manually-load-samples.md
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

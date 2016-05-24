@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introdução a aplicativos Web no Serviço de Aplicativo do Azure - parte 2" 
-	description="Adicione recursos essenciais ao aplicativo Web no Serviço de Aplicativo com apenas alguns cliques." 
+	pageTitle="Adicionar funcionalidade ao seu primeiro aplicativo Web" 
+	description="Adicione recursos interessantes ao seu primeiro aplicativo Web em alguns minutos." 
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin" 
@@ -14,29 +14,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="05/12/2016" 
 	ms.author="cephalin"
 />
 
-# Introdução ao Serviço de Aplicativo do Azure - parte 2
+# Adicionar funcionalidade ao seu primeiro aplicativo Web
 
-Em [Introdução ao Serviço de Aplicativo do Azure](app-service-web-get-started.md), você implantou um aplicativo Web no Serviço de Aplicativo do Azure. Neste artigo, você adicionará rapidamente funcionalidade essencial ao aplicativo implantado. O Serviço de Aplicativo traz recursos corporativos para que seu ótimo aplicativo atenda às demandas reais de segurança, escalabilidade, desempenho, gerenciamento etc.
-
-Com alguns cliques, você aprenderá a:
+Em [Implantar um aplicativo Web no Azure em cinco minutos](app-service-web-get-started.md), você implantou um aplicativo Web de exemplo para [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Neste artigo, você adicionará rapidamente algumas ótimas funcionalidades ao seu aplicativo Web implantado. Em alguns minutos, você irá:
 
 - impor a autenticação para os usuários
-- dimensionar automaticamente o aplicativo
+- dimensionar seu aplicativo automaticamente
 - receba alertas sobre o desempenho de seu aplicativo
 
 Independentemente do aplicativo de exemplo que implantou no artigo anterior, você pode acompanhar os itens no tutorial.
 
+As três atividades deste tutorial são apenas alguns exemplos dos muitos recursos úteis que você obtém quando coloca seu aplicativo Web no Serviço de Aplicativo. Muitos dos recursos estão disponíveis na camada **Gratuita** (que é onde seu primeiro aplicativo Web está em execução), e você pode usar seus créditos de avaliação para experimentar os recursos que exigem tipos de preço mais altos. Tenha certeza de que seu aplicativo Web permanecerá na camada **Gratuita**, a menos que você o mude explicitamente para um tipo de preço diferente.
+
+>[AZURE.NOTE] O aplicativo Web criado com a CLI do Azure é executado na camada **Gratuita**, o que permite apenas uma instância compartilhada da VM com as cotas de recursos. Para saber mais sobre o que você obtém com a camada **Gratuita**, confira [Limites do Serviço de Aplicativo](../azure-subscription-service-limits.md#app-service-limits).
+
 ## Autenticar os usuários
 
-Agora vamos ver como é fácil adicionar a autenticação ao aplicativo.
+Agora, vamos ver como é fácil adicionar autenticação ao seu aplicativo (leia mais em [Autenticação/Autorização do Serviço de Aplicativo](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)).
 
 1. Na folha do portal do seu aplicativo, que você acabou de abrir, clique em **Configurações** > **Autenticação/Autorização**. ![Autenticar - folha configurações](./media/app-service-web-get-started/aad-login-settings.png)
     
-2. Clique em **Ativado** para ativar a autenticação. ![Autenticar - ativar](./media/app-service-web-get-started/aad-login-auth-on.png)
+2. Clique em **Ativado** para ativar a autenticação.
     
 4. Em **Provedores de Autenticação**, clique em **Azure Active Directory**. ![Autenticar - selecionar Azure AD](./media/app-service-web-get-started/aad-login-config.png)
 
@@ -46,9 +48,11 @@ Agora vamos ver como é fácil adicionar a autenticação ao aplicativo.
 
     Depois que a alteração for bem-sucedida, o sino de notificação ficará verde e uma mensagem amigável será exibida.
 
-7. De volta à folha do portal do aplicativo, clique no link **URL** (ou em **Procurar** na barra de menus). O link é um endereço HTTP. ![Autenticar - navegar para a URL](./media/app-service-web-get-started/aad-login-browse-click.png) Porém, quando ele abre o aplicativo em uma nova guia, a caixa URL é redirecionada várias vezes e termina no aplicativo com um endereço HTTPS. O que você está vendo é que já está conectado à sua assinatura do Azure, e é autenticado automaticamente no aplicativo. ![Autenticar - conectado](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Portanto, se agora você uma sessão não autenticada em um navegador diferente, você verá uma tela de logon ao navegar até a mesma URL: ![Autenticar - página de logon](./media/app-service-web-get-started/aad-login-browse.png) se nunca fez nada com o Azure Active Directory, o diretório padrão talvez não tenha usuários do AD do Azure. Nesse caso, provavelmente a única conta aqui será a conta da Microsoft com sua assinatura do Azure. É por isso que você foi conectado automaticamente ao aplicativo no mesmo navegador antes. Você pode usar essa mesma conta da Microsoft para fazer logon nessa página de logon.
+7. De volta à folha do portal do aplicativo, clique no link **URL** (ou em **Procurar** na barra de menus). O link é um endereço HTTP. ![Autenticar - navegar para a URL](./media/app-service-web-get-started/aad-login-browse-click.png) Porém, quando ele abre o aplicativo em uma nova guia, a caixa URL é redirecionada várias vezes e termina no aplicativo com um endereço HTTPS. O que você está vendo é que já está conectado à sua assinatura do Azure, e é autenticado automaticamente no aplicativo. ![Autenticar - conectado](./media/app-service-web-get-started/aad-login-browse-http-postclick.png) Dessa forma, se agora você abrir uma sessão não autenticada em um navegador diferente, verá uma tela de logon ao navegar até a mesma URL.
+    <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
+    Se você nunca tiver feito nada com o Azure Active Directory, talvez seu diretório padrão não tenha usuários do Azure AD. Nesse caso, provavelmente a única conta aqui será a conta da Microsoft com sua assinatura do Azure. É por isso que você foi conectado automaticamente ao aplicativo no mesmo navegador antes. Você pode usar essa mesma conta da Microsoft para fazer logon nessa página de logon.
 
-Parabéns, você está autenticando todo o tráfego para seu site.
+Parabéns, você está autenticando todo o tráfego para seu aplicativo Web.
 
 Talvez você tenha observado na folha **Autenticação/Autorização** que pode fazer muito mais, como:
 
@@ -56,16 +60,18 @@ Talvez você tenha observado na folha **Autenticação/Autorização** que pode 
 - Habilitar várias opções de logon
 - Alterar o comportamento padrão quando as pessoas navegam pela primeira vez para o aplicativo
 
-O Serviço de Aplicativo fornece uma solução pronta para algumas das necessidades de autenticação comuns, para que você não precise fornecer a lógica de autenticação por conta própria. Para saber mais, consulte [Autenticação/autorização do Serviço de Aplicativo](/blog/announcing-app-service-authentication-authorization/).
+O Serviço de Aplicativo fornece uma solução pronta para algumas das necessidades de autenticação comuns, para que você não precise fornecer a lógica de autenticação por conta própria. Para saber mais, veja [Autenticação/Autorização do Serviço de Aplicativo](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/).
 
-## Escalar o aplicativo verticalmente ou horizontalmente
+## Dimensionar seu aplicativo automaticamente com base na demanda
 
-Em seguida, vamos escalar o aplicativo. Você pode esalar o aplicativo do Serviço de Aplicativo de duas maneiras:
+Em seguida, vamos dimensionar automaticamente seu aplicativo, que ajustará automaticamente sua capacidade de responder à demanda do usuário (leia mais em [Dimensionar o tipo de preço no Serviço de Aplicativo do Azure](app-service-scale) e em [Dimensionar a contagem de instância manualmente ou automaticamente](../azure-portal/insights-how-to-scale.md)).
 
-- [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): ao escalar verticalmente um aplicativo do Serviço de Aplicativo, você altera o tipo de preço do plano do Serviço de Aplicativo à qual o aplicativo pertence. A escala vertical lhe dá mais CPU, memória e espaço em disco. Também fornece recursos adicionais como VMs dedicadas, dimensionamento automático, 99,95% de disponibilidade, certificados e domínios personalizados , slots de implantação, backup etc. As camadas mais altas oferecem mais recursos ao aplicativo do Serviço de Aplicativo.  
-- [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): ao escalar horizontalmente um aplicativo do Serviço de Aplicativo, você altera o número de instâncias de VM em que o aplicativo é executado (ou em que aplicativos do mesmo plano do Serviço de Aplicativo são executados). Com o tipo de preço Standard ou superior, você pode habilitar o dimensionamento automático de instâncias VM com base em métricas de desempenho. 
+Com rapidez, você pode dimensionar o aplicativo Web de duas maneiras:
 
-Sem mais demora, vamos configurar o dimensionamento automático para o aplicativo.
+- [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): obtenha mais CPU, memória, espaço em disco e recursos adicionais como VMs dedicadas, domínios e certificados personalizados, slots de preparação, dimensionamento automático e muito mais. Você escala horizontalmente ao alterar o tipo de preço do plano do Serviço de Aplicativo ao qual seu aplicativo pertence.
+- [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumentando o número de instâncias de VM que executam seu aplicativo. Você pode escalar horizontalmente até 50 instâncias, dependendo de seu tipo de preço.
+
+Sem mais demora, vamos configurar o dimensionamento automático.
 
 1. Primeiro, vamos escalar verticalmente para habilitar o dimensionamento automático. Na folha do portal do aplicativo, clique em **Configurações** > **Escalar Verticalmente (Plano do Serviço de Aplicativo)**. ![Escalar verticalmente - folha de configurações](./media/app-service-web-get-started/scale-up-settings.png)
 
@@ -97,7 +103,7 @@ Para saber mais sobre a escala vertical para o aplicativo, confira [Dimensionar 
 
 ## Receber alertas para o aplicativo
 
-Agora que seu aplicativo está sendo dimensionado automaticamente, o que acontece quando ele atinge a contagem máxima de instâncias (2) e se CPU está acima da utilização desejada (80%)? Você pode configurar um alerta para informá-lo dessa situação para que possa continuar a escalar verticalmente o aplicativo, por exemplo. Vamos configurar rapidamente um alerta para esse cenário.
+Agora que seu aplicativo está sendo dimensionado automaticamente, o que acontece quando ele atinge a contagem máxima de instâncias (2) e se CPU está acima da utilização desejada (80%)? Você pode configurar um alerta (leia mais em [Receber notificações de alerta](../azure-portal/insights-receive-alert-notifications.md)) para informá-lo dessa situação para que possa continuar a escalar verticalmente o aplicativo, por exemplo. Vamos configurar rapidamente um alerta para esse cenário.
 
 1. Na folha do portal do seu aplicativo do portal, clique em **Ferramentas** > **Alertas**. ![Alertas - folha de configurações](./media/app-service-web-get-started/alert-settings.png)
 
@@ -113,18 +119,22 @@ Essa configuração de alerta verifica a utilização da CPU a cada cinco minuto
 
 Você verá que os **Administradores de assinatura** já são os **Proprietários** do aplicativo. Esse grupo inclui se você é o administrador da conta de sua assinatura do Azure (por exemplo, sua assinatura de avaliação). Para saber mais sobre o controle de acesso baseado em função do Azure, confira [Controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md).
 
+> [AZURE.NOTE] As Regras de alerta são recursos do Azure. Para saber mais, veja [Receber notificações de alerta](../azure-portal/insights-receive-alert-notifications.md).
+
 ## Próximas etapas
 
 Quando foi configurar o alerta, talvez você tenha notado um conjunto avançado de ferramentas na folha **Ferramentas**. Aqui, você pode solucionar problemas, monitorar o desempenho, testar vulnerabilidades, gerenciar recursos, interagir com o console da VM e adicionar extensões úteis. Nós o convidamos a clicar em cada uma dessas ferramentas para descobrir as ferramentas simples mas eficientes que estão ao seu dispor.
 
-Saiba como fazer mais com o aplicativo implantado. Aqui está uma lista parcial:
+Saiba como fazer mais com o aplicativo implantado. Esta é apenas uma lista parcial:
 
-- [Comprar e configurar um nome de domínio personalizado](custom-dns-web-site-buydomains-web-app.md)
-- [Configurar ambientes de preparo](web-sites-staged-publishing.md)
-- [Configurar a implantação contínua](web-sites-publish-source-control.md)
-- [Fazer backup de seu aplicativo](web-sites-backup.md)
-- [Habilitar logs de diagnóstico](web-sites-enable-diagnostic-log.md)
-- [Acessar recursos locais](web-sites-hybrid-connection-get-started.md)
+- [Comprar e configurar um nome de domínio personalizado](custom-dns-web-site-buydomains-web-app.md) - compre um domínio atraente para seu aplicativo Web em vez do domínio *.azurewebsites.net. Ou use um domínio que você já tenha.
+- [Configurar ambientes de preparo](web-sites-staged-publishing.md) - implante seu aplicativo em uma URL de preparo antes de colocá-lo em produção. Atualize o aplicativo Web dinâmico com confiança. Configure uma solução DevOps elaborada com vários slots de implantação. 
+- [Configurar implantação contínua](web-sites-publish-source-control.md) - integre a implantação de aplicativo em seu sistema de controle de origem. Implante no Azure com cada confirmação.
+- [Acessar recursos locais](web-sites-hybrid-connection-get-started.md) - acesse um banco de dados local existente ou um sistema CRM.
+- [Fazer backup de seu aplicativo](web-sites-backup.md) – configure o backup e a restauração para seu aplicativo Web. Prepare-se para falhas inesperadas e recupere-se delas.
+- [Habilitar logs de diagnóstico](web-sites-enable-diagnostic-log.md) - leia os logs do IIS do Azure ou de rastreamentos de aplicativo. Leia-os em um fluxo, baixe-os ou porte-os para o [Application Insights](../application-insights/app-insights-overview.md) para análise turn key.
+- [Examinar seu aplicativo em busca de vulnerabilidades](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) - verifique seu aplicativo Web contra ameaças modernas usando o serviço fornecido pela [Tinfoil Security](https://www.tinfoilsecurity.com/).
+- [Executar trabalhos em segundo plano](../azure-functions/functions-overview.md) - execute trabalhos de processamento de dados, relatórios, etc.
 - [Saber como funciona o Serviço de Aplicativo](../app-service/app-service-how-works-readme.md) 
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

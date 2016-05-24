@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/03/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -37,7 +37,7 @@ Você pode usar endereços IP privados ou endereços IP públicos para configura
  - As sub-redes não devem entrar em conflito com o intervalo reservado pelo cliente para uso na nuvem da Microsoft.
  - Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
 	 - A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
-	 - Para cada uma das sub-redes /30, é necessário o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
+	 - Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
 	 - Você deve instalar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.  
 
 #### Exemplo para emparelhamento privado
@@ -48,8 +48,8 @@ a.b.c.d/29 será dividida em a.b.c.d/30 e a.b.c.d+4/30 e passada à Microsoft po
 
 Considere um caso em que você seleciona 192.168.100.128/29 para configurar o emparelhamento privado. 192.168.100.128/29 inclui os endereços de 192.168.100.128 a 192.168.100.135, entre os quais:
 
-- 192.168.100.128/30 será atribuído ao link1, com o provedor usando 192.168.100.129 e a Microsoft usando 192.168.100.130.
-- 192.168.100.132/30 será atribuído ao link2, com o provedor usando 192.168.100.133 e a Microsoft usando 192.168.100.134.
+- 192\.168.100.128/30 será atribuído ao link1, com o provedor usando 192.168.100.129 e a Microsoft usando 192.168.100.130.
+- 192\.168.100.132/30 será atribuído ao link2, com o provedor usando 192.168.100.133 e a Microsoft usando 192.168.100.134.
 
 ### Endereços IP para o emparelhamento público do Azure e o emparelhamento da Microsoft
 
@@ -176,4 +176,4 @@ A Microsoft não adota valores de comunidade BGP que você define. É necessári
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
 	- [Vincular uma VNet clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

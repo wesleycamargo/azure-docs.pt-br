@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/16/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Criar sua primeira data factory do Azure usando o Microsoft Visual Studio
@@ -238,8 +238,8 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2014-02-01T00:00:00Z",
-		        "end": "2014-02-02T00:00:00Z",
+		        "start": "2016-04-01T00:00:00Z",
+		        "end": "2016-04-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
@@ -304,8 +304,7 @@ Se você receber o erro: "**Esta assinatura não está registrada para usar o na
 ## Monitorar o pipeline
 
 6. Faça logon no [Portal do Azure](https://portal.azure.com/), faça o seguinte:
-	1. Clique em **Procurar** e selecione **Data factories**.
-	 ![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. Clique em **Procurar** e selecione **Data factories**. ![Procurar data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. Escolha **FirstDataFactoryUsingVS** na lista de data factories. 
 7. Na home page do seu data factory, clique em **Diagrama**.
   
@@ -339,6 +338,11 @@ Se você receber o erro: "**Esta assinatura não está registrada para usar o na
 
 Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-monitor-manage-pipelines.md) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
 
+Você também pode Monitorar e gerenciar aplicativos para monitorar os pipelines de dados. Veja [Monitorar e gerenciar os pipelines do Azure Data Factory usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) para obter detalhes sobre a utilização do aplicativo.
+
+> [AZURE.IMPORTANT] O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta inputdata do contêiner adfgetstarted.
+ 
+
 ## Usar o Gerenciador de Servidores para exibir os data factories
 
 1. No **Visual Studio**, clique em **Exibir** no menu e em **Gerenciador de Servidores**.
@@ -360,7 +364,7 @@ Para atualizar as ferramentas da Azure Data Factory para o Visual Studio, faça 
 ## Usar arquivos de configuração
 Você pode usar arquivos de configuração no Visual Studio para configurar propriedades de serviços/tabelas/pipelines vinculados de forma diferente para cada ambiente.
 
-Considere a definição de JSON a seguir para um serviço de Armazenamento do Azure vinculado. Para especificar a **connectionString** com valores diferentes para accountname e accountkey com base no ambiente (Desenvolvimento/Teste/Produção) no qual você está implantando entidades de Data Factory. Você pode fazer isso usando um arquivo de configuração separado para cada ambiente.
+Considere a definição de JSON a seguir para um serviço de Armazenamento do Azure vinculado. Para especificar a **connectionString** com valores diferentes para accountname e accountkey com base no ambiente (Desenvolvimento/Teste/Produção) no qual você está implantando entidades do Data Factory. Você pode fazer isso usando um arquivo de configuração separado para cada ambiente.
 
 	{
 	    "name": "StorageLinkedService",
@@ -376,7 +380,7 @@ Considere a definição de JSON a seguir para um serviço de Armazenamento do Az
 ### Adicionar um arquivo de configuração
 Adicione um arquivo de configuração para cada ambiente executando as seguintes etapas:
 
-1. Clique com o botão direito do mouse no projeto de Data Factory em sua solução do Visual Studio, aponte para **Adicionar** e clique em **Novo item**.
+1. Clique com o botão direito do mouse no projeto do Data Factory em sua solução do Visual Studio, aponte para **Adicionar** e clique em **Novo item**.
 2. Selecione **Config** na lista de modelos instalados à esquerda, selecione **Arquivo de Configuração**, insira um **nome** para o arquivo de configuração e clique em **Adicionar**.
 
 	![Adicionar arquivo de configuração](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
@@ -462,4 +466,4 @@ Quando você implantar, os valores do arquivo de configuração serão usados pa
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

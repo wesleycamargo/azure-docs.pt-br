@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/10/2016"
+   ms.date="05/12/2016"
    ms.author="nitinme"/>
 
 # Introdução ao Repositório Azure Data Lake usando o Java
@@ -29,13 +29,20 @@
 
 Saiba como usar o SDK do Java do Repositório Azure Data Lake para criar uma conta do Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta etc. Para obter mais informações sobre o Data Lake, veja [Repositório Azure Data Lake](data-lake-store-overview.md).
 
+## SDK do Java do Repositório Azure Data Lake
+
+Os links a seguir fornecem o local de download do SDK do Java para Repositório Data Lake e a referência do SDK do Java. Para este tutorial, não é necessário baixar o SDK ou seguir o documento de referência. Esses links servem somente para informá-lo.
+
+* O código-fonte do SDK do Java para Repositório Data Lake está disponível no [GitHub](https://github.com/Azure/azure-sdk-for-java).
+* A referência do SDK do Java para Repositório Data Lake está disponível em [https://azure.github.io/azure-sdk-for-java/](https://azure.github.io/azure-sdk-for-java/).
+
 ## Pré-requisitos
 
 * Java Development Kit (JDK) 8 (usando o Java versão 1.8).
 * IntelliJ ou outro ambiente de desenvolvimento Java adequado. Isto é opcional, mas recomendado. As instruções abaixo usam o IntelliJ.
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-* **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de autenticar usando o Azure Active Directory: **interativa** e **não interativa**. Existem pré-requisitos diferentes com base na forma como você deseja autenticar.
+* **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de autenticar usando o Azure Active Directory - **interativa** e **não interativa**. Existem pré-requisitos diferentes com base na forma como você deseja autenticar.
 	* **Para a autenticação interativa** (usada neste artigo) - no Azure Active Directory, você precisa criar um **aplicativo Cliente Nativo**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
 		- Obter a **ID do cliente** e o **URI de redirecionamento** do aplicativo
 		- Definir permissões delegadas
@@ -45,7 +52,7 @@ Saiba como usar o SDK do Java do Repositório Azure Data Lake para criar uma con
 		- Definir permissões delegadas
 		- Atribua o aplicativo do Azure Active Directory a uma função. A função pode estar no nível do escopo no qual você deseja conceder permissão ao aplicativo do Azure Active Directory. Por exemplo, você pode atribuir o aplicativo no nível da assinatura ou no nível de um grupo de recursos. 
 
-	Confira [Criar aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md) para obter instruções sobre como recuperar esses valores, definir as permissões e atribuir funções.
+	Veja [Criar aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md) para obter instruções sobre como recuperar esses valores, definir as permissões e atribuir funções.
 
 ## Como faço para me autenticar usando o Azure Active Directory?
 
@@ -303,4 +310,4 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

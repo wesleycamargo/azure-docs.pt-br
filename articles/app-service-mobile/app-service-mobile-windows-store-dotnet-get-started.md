@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Criar um aplicativo universal do Tempo de Execução do Windows 8.1 nos aplicativos móveis do Serviço de Aplicativo do Azure | Microsoft Azure"
-	description="Siga este tutorial para começar a usar os back-ends de aplicativo móvel do Azure para desenvolvimento da Windows Store em C#, no Visual Basic ou em JavaScript."
+	pageTitle="Criar um aplicativo UWP (Plataforma Universal do Windows) em Aplicativos Móveis do Serviço de Aplicativo do Azure | Microsoft Azure"
+	description="Siga este tutorial para começar a usar os back-ends de aplicativo móvel do Azure para desenvolvimento de aplicativos UWP (Plataforma Universal do Windows) em C#, Visual Basic ou JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -22,9 +22,13 @@
 
 ##Visão geral
 
-Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a um aplicativo universal do Windows. Para saber mais, confira [O que são Aplicativos Móveis](app-service-mobile-value-prop.md).
+Este tutorial mostra como adicionar um serviço de back-end baseado na nuvem a um aplicativo UWP (Plataforma Universal do Windows). Para saber mais, confira [O que são Aplicativos Móveis](app-service-mobile-value-prop.md). A seguir, há capturas de tela do aplicativo concluído:
 
-[AZURE.INCLUDE [app-service-mobile-windows-universal-get-started](../../includes/app-service-mobile-windows-universal-get-started.md)]
+![Aplicativo de área de trabalho concluído](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png) em execução em uma área de trabalho.
+
+![Aplicativo de telefone concluído](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png) em execução em um telefone
+
+A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais de Aplicativos Móveis para aplicativos UWP.
 
 ##Pré-requisitos
 
@@ -32,7 +36,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 aplicativos móveis gratuitos que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] ou uma versão posterior.
+* [Visual Studio Community 2015] ou uma versão posterior.
 
 >[AZURE.NOTE] Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://tryappservice.azure.com/?appServiceName=mobile). Lá, você pode criar imediatamente um aplicativo móvel de curta duração inicial no Serviço de Aplicativo – sem cartão de crédito e sem compromissos.
 
@@ -50,13 +54,13 @@ Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode s
 
 ##Baixe e execute o projeto do cliente
 
-Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um novo aplicativo cliente ou modificar um aplicativo existente para se conectar ao Azure. Nesta seção, você baixa um projeto de modelo de aplicativo Windows universal personalizado para se conectar ao back-end do Aplicativo Móvel.
+Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um novo aplicativo cliente ou modificar um aplicativo existente para se conectar ao Azure. Nesta seção, você baixa um projeto de modelo de aplicativo UWP personalizado para se conectar ao back-end do Aplicativo Móvel.
 
 1. De volta à folha **Introdução** do back-end do Aplicativo Móvel, clique em **Criar um novo aplicativo** > **Baixar**, extraia os arquivos de projeto compactados para seu computador local.
 
-3. (Opcional) Adicione o projeto de aplicativo Windows universal à solução com o projeto do servidor. Isso torna mais fácil depurar e testar o aplicativo e o back-end na mesma solução do Visual Studio, se você optar por fazer isso.
+3. (Opcional) Adicione o projeto de aplicativo UWP à mesma solução que o projeto de servidor. Isso torna mais fácil depurar e testar o aplicativo e o back-end na mesma solução do Visual Studio, se você optar por fazer isso. Para adicionar um projeto de aplicativo UWP à solução, você deve estar usando o Visual Studio 2015 ou posterior.
 
-4. Com o aplicativo da Windows Store como projeto de inicialização, pressione a tecla F5 para recompilar o projeto e para iniciar o aplicativo da Windows Store.
+4. Com o aplicativo UWP como o projeto de inicialização, pressione a tecla F5 para implantar e executar o aplicativo.
 
 5. No aplicativo, digite um texto significativo, como *Concluir o tutorial*, na caixa de texto **Inserir um TodoItem** e clique em **Salvar**.
 
@@ -64,17 +68,19 @@ Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um
 
 	Isso envia uma solicitação POST para o novo back-end de aplicativo móvel hospedado no Azure.
 
-6. Pare a depuração, clique com o botão direito do mouse no projeto `<your app name>.WindowsPhone`, clique em **Definir como Projeto de Inicialização** e pressione F5 novamente.
+6. (Opcional) Interrompa o aplicativo e reinicie-o em outro dispositivo ou emulador móvel.
 
-	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-wp8.png)
+	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
 
-	Observe que os dados salvos da etapa anterior são carregados por meio do aplicativo móvel após o aplicativo do Windows ser iniciado.
+	Observe que os dados salvos da etapa anterior são carregados do Azure depois que o aplicativo UWP é iniciado.
 
 ##Próximas etapas
 
-* [Adicionar autenticação ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
+* [Adicionar autenticação ao aplicativo](app-service-mobile-windows-store-dotnet-get-started-users.md) Saiba como autenticar os usuários do aplicativo com um provedor de identidade.
 
-* [Adicionar notificações por push ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>Saiba como enviar uma notificação por push bem básica ao seu aplicativo.
+* [Adicionar notificações por push ao aplicativo](app-service-mobile-windows-store-dotnet-get-started-push.md) Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
+
+* [Habilitar sincronização offline para seu aplicativo do Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -83,4 +89,4 @@ Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

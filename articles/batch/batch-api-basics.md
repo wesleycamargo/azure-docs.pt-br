@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="03/11/2016"
+	ms.date="05/12/2016"
 	ms.author="yidingz;marsma"/>
 
 # Visão geral dos recursos do Lote do Azure
@@ -38,7 +38,7 @@ O fluxo de trabalho de alto nível a seguir é tipicamente usado em quase todos 
 
 6. Monitore o andamento do trabalho e recupere os resultados.
 
-> [AZURE.NOTE] Você precisará de uma [conta do Lote](batch-account-create-portal.md) para usar o serviço Lote e quase todas as soluções usarão uma conta do [Armazenamento do Azure][azure_storage] para o armazenamento e a recuperação de arquivos.
+> [AZURE.NOTE] Você precisará de uma [conta do Lote](batch-account-create-portal.md) para usar o serviço Lote e quase todas as soluções usarão uma conta do [Armazenamento do Azure][azure_storage] para o armazenamento e a recuperação de arquivos. No momento, o Lote dá suporte somente ao tipo de conta de armazenamento de **Finalidade geral**, como descrito na etapa 5 [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
 
 Nas seções a seguir, você aprenderá sobre cada um dos recursos mencionados no fluxo de trabalho acima, bem como muitos outros recursos do Lote que habilitarão seu cenário de computação distribuído.
 
@@ -130,7 +130,7 @@ Uma tarefa é uma unidade de computação que está associada a um trabalho e é
 
 - O aplicativo especificado na **linha de comando** da tarefa.
 
-- **Arquivos de recursos** que contêm os dados a serem processados. Esses arquivos são copiados automaticamente do para o nó do armazenamento de blob em uma conta do Armazenamento do Azure. Para saber mais, consulte [Arquivos e diretórios](#files) abaixo.
+- **Arquivos de recursos** que contêm os dados a serem processados. Esses arquivos são copiados automaticamente para o nó do armazenamento de blobs em uma conta do Armazenamento do Azure de **Finalidade geral**. Para saber mais, veja *Tarefa inicial* e [Arquivos e diretórios](#files) abaixo.
 
 - As **variáveis de ambiente** exigidas pelo aplicativo. Para saber mais, consulte as [Configurações de ambiente para tarefas](#environment) abaixo.
 
@@ -149,6 +149,8 @@ Além das tarefas que você pode definir para realizar computação em um nó, a
 Associando uma **tarefa inicial** a um pool, você pode configurar o ambiente operacional de seus nós, executando ações como instalar software ou iniciar processos em segundo plano. A tarefa inicial será executada sempre que um nó for iniciado, enquanto esse nó permanecer no pool, incluindo quando o nó for adicionado pela primeira vez ao pool. O principal benefício da tarefa inicial é que ele contém todas as informações necessárias para configurar nós de computação e instalar aplicativos necessários para a execução da tarefa de trabalho. Assim, aumentar o número de nós em um pool é tão simples quanto especificar a nova contagem de nós de destino - o Lote já tem todas as informações necessárias para configurar os novos nós e prepará-los para a aceitação de tarefas.
 
 Como com qualquer tarefa do Lote, uma lista de **arquivos de recursos** no [Armazenamento do Azure][azure_storage] pode ser especificada além de uma **linha de comando** a ser executada. O Lote do Azure copiará primeiro os arquivos do Armazenamento do Azure e executará a linha de comando. Para uma tarefa inicial do pool, a lista de arquivos geralmente contém os arquivos de aplicativos ou o pacote de aplicativos, mas ela também pode incluir dados de referência que serão usados por todas as tarefas em execução nos nós de computação. A linha de comando da tarefa inicial poderia executar um script do PowerShell ou executar uma operação `robocopy`, por exemplo, para copiar arquivos de aplicativo para a pasta "compartilhada", depois executar um MSI ou `setup.exe`.
+
+> [AZURE.IMPORTANT] No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Finalidade geral**, como descrito na etapa 5 [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md). As tarefas do Lote (incluindo tarefas padrão, tarefas iniciais, preparação de trabalho e tarefas de versão de trabalho) devem especificar os arquivos de recursos que residem *somente* nas contas de armazenamento de **Finalidade geral** .
 
 Isso é tipicamente desejável que o serviço Lote aguarde a conclusão da tarefa inicial antes de considerar o nó pronto para ter tarefas atribuídas, mas isso é configurável.
 
@@ -195,8 +197,8 @@ As dependências de tarefas, como o nome indica, permitem especificar que uma ta
 
 Com as dependências de tarefas, você pode configurar cenários como o seguinte:
 
-* A *tarefaB* depende de *tarefaA* (*tarefaB* não iniciará sua execução até a conclusão de *tarefaA*)
-* *tarefaC* depende de *tarefaA* e de *tarefaB*
+* A *tarefaB* depende de *tarefaA* (a execução da *tarefaB* não iniciará até a conclusão da *tarefaA*)
+* A *tarefaC* depende da *tarefaA* e da *tarefaB*
 * A *tarefaD* depende de uma variedade de tarefas, como as tarefas *1* a *10*, antes de ser executada
 
 Confira o exemplo de código [TaskDependencies][github_sample_taskdeps] no repositório GitHub [azure-batch-samples][github_samples]. Nele, você verá como configurar as tarefas que dependem de outras tarefas usando a biblioteca [.NET do Lote][batch_net_api].
@@ -344,7 +346,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 
 	Às vezes, reiniciar o nó pode corrigir problemas latentes, como processos bloqueados ou com falha. Observe que, se o pool usar uma tarefa de inicialização ou se o trabalho usar uma tarefa de preparação de trabalho, eles serão executados quando o nó for reiniciado.
 
-- **Refazer a imagem do nó** ([REST][rest_reimage] | [.NET][net_reimage])
+- **Refazer imagem do nó** ([REST][rest_reimage] | [.NET][net_reimage])
 
 	Esse procedimento reinstala o sistema operacional no nó. Assim como ocorre com a reinicialização de um nó, as tarefas de inicialização e de preparação de trabalho são executadas novamente depois que a imagem do nó é refeita.
 
@@ -411,4 +413,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->
