@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Publicando um serviço de nuvem usando as ferramentas do Azure
 
 Usando as ferramentas do Azure para Microsoft Visual Studio, você pode publicar seu aplicativo do Azure diretamente do Visual Studio. O Visual Studio dá suporte à publicação integrada para o ambiente de teste ou de produção de um serviço de nuvem.
 
-Para publicar um aplicativo do Azure, você deve ter uma assinatura do Azure. Você também deve configurar uma conta de armazenamento e serviço de nuvem a ser usada pelo aplicativo. Você pode configurar isso no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+Para publicar um aplicativo do Azure, você deve ter uma assinatura do Azure. Você também deve configurar uma conta de armazenamento e serviço de nuvem a ser usada pelo aplicativo. Você pode configurá-los no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.IMPORTANT] Ao publicar, você pode selecionar o ambiente de implantação para seu serviço de nuvem. Você também deve selecionar uma conta de armazenamento que é usada para armazenar o pacote de aplicativos para implantação. Após a implantação, o pacote de aplicativos é removido da conta de armazenamento.
 
@@ -35,7 +35,7 @@ Use os procedimentos a seguir para publicar seu aplicativo do Azure e atualizar 
 
 Ao publicar seu aplicativo do Azure, você pode executar uma das seguintes tarefas:
 
-- Criar um pacote de serviço: você pode usar esse pacote e o arquivo de configuração de serviço para publicar seu aplicativo para um ambiente de implantação do [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+- Criar um pacote de serviço: você pode usar esse pacote e o arquivo de configuração de serviço para publicar seu aplicativo para um ambiente de implantação do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 - Publicar seu projeto do Azure do Visual Studio: para publicar seu aplicativo diretamente no Azure, use o Assistente de Publicação. Para obter informações, consulte [Assistente de Publicação de Aplicativo do Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
@@ -55,13 +55,13 @@ Ao publicar seu aplicativo do Azure, você pode executar uma das seguintes taref
 
   1. Para criar o pacote, escolha o link **pacote**.
 
-      O Explorador de Arquivos mostra o local do arquivo do pacote recém-criado. Você pode copiar esse local para que possa usá-lo no Portal de Gerenciamento do Azure.
+      O Explorador de Arquivos mostra o local do arquivo do pacote recém-criado. Você pode copiar esse local para que possa usá-lo do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-  1. Para publicar esse pacote em um ambiente de implantação, você deve usar esse local como o local do pacote ao criar um serviço de nuvem e implantar esse pacote em um ambiente com o [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+  1. Para publicar esse pacote em um ambiente de implantação, você deve usar esse local como o local do pacote ao criar um serviço de nuvem e implantar esse pacote em um ambiente com o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Opcional) Para cancelar o processo de implantação, no menu de atalho do item de linha no log de atividades, escolha **Cancelar e remover**. Isso interrompe o processo de implantação e exclui o ambiente de implantação do Azure.
 
-    >[AZURE.NOTE] Para remover este ambiente de implantação após ele ter sido implantado, você deve usar o Portal de Gerenciamento do Azure.
+    >[AZURE.NOTE] Para remover este ambiente de implantação após ele ter sido implantado, você deve usar o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. (Opcional) Após suas instâncias de função serem iniciadas, o Visual Studio mostra automaticamente o ambiente de implantação no nó **Serviços de Nuvem** no Gerenciador de Servidores. Daqui, você pode ver o status das instâncias de função individuais. Consulte [Gerenciando recursos de Azure com o Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md). A ilustração a seguir mostra as instâncias de função enquanto elas ainda estão no estado Inicializando:
 
@@ -121,7 +121,7 @@ O procedimento a seguir supõe que você esteja usando o assistente para **Publi
 
 1. A Implantação da Web usa um certificado não confiável, autoassinado por padrão, o que não é recomendado para carregar dados confidenciais. Se precisar proteger esse processo para dados confidenciais, você poderá adicionar um certificado SSL a ser usado para conexões de Implantação da Web. Esse deve ser um certificado confiável, que você obtém de uma CA (autoridade de certificação).
 
-    Para tornar a Implantação da Web segura para cada máquina virtual de cada uma das funções Web, você deve carregar o certificado de confiança que deseja usar para a Implantação da Web no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Isso garante que o certificado seja adicionado à máquina virtual que é criada para a função Web quando você publicar seu aplicativo.
+    Para tornar a Implantação da Web segura para cada máquina virtual de cada uma das funções Web, você deve carregar o certificado de confiança que deseja usar para a implantação da Web no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Isso garante que o certificado seja adicionado à máquina virtual que é criada para a função Web quando você publicar seu aplicativo.
 
 1. Para adicionar um certificado SSL confiável ao IIS a ser usado em conexões remotas, siga estas etapas:
 
@@ -129,7 +129,7 @@ O procedimento a seguir supõe que você esteja usando o assistente para **Publi
 
       O navegador solicitará que você baixe um arquivo .RDP.
 
-  1. Para adicionar um certificado SSL, abra o serviço de gerenciamento no Gerenciador do IIS. No Gerenciador do IIS, habilite o SSL abrindo o link **Ligações** no painel **Ação**. A caixa de diálogo **Adicionar Ligação do Site** é exibida. Escolha **Adicionar** e clique em HTTPS na lista suspensa **Tipo**. Na lista **Certificado SSL**, escolha o certificado SSL que foi assinado por uma autoridade de certificação e que você carregou no portal de gerenciamento do Azure. Para obter mais informações, consulte [Definir configurações de conexão para o serviço de gerenciamento](http://go.microsoft.com/fwlink/?LinkId=215824).
+  1. Para adicionar um certificado SSL, abra o serviço de gerenciamento no Gerenciador do IIS. No Gerenciador do IIS, habilite o SSL abrindo o link **Ligações** no painel **Ação**. A caixa de diálogo **Adicionar Ligação do Site** é exibida. Escolha **Adicionar** e clique em HTTPS na lista suspensa **Tipo**. Na lista **Certificado SSL**, escolha o certificado SSL que foi assinado por uma AC e que você carregou no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para obter mais informações, consulte [Definir configurações de conexão para o serviço de gerenciamento](http://go.microsoft.com/fwlink/?LinkId=215824).
 
       >[AZURE.NOTE] Se você adicionar um certificado SSL confiável, o triângulo amarelo de aviso não será mais exibido no **Assistente de Publicação**.
 
@@ -173,4 +173,4 @@ Talvez seja necessário incluir arquivos específicos em seu pacote de serviço 
 
 Para saber mais sobre a publicação do Azure por meio do Visual Studio, consulte o [Assistente de Publicação de Aplicativo do Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

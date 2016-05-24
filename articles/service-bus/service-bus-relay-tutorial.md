@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Tutorial de sistema de mensagens de retransmissão do Barramento de Serviço | Microsoft Azure"
-   description="Criar um serviço e um aplicativo cliente do Barramento de Serviço usando o sistema de mensagens de retransmissão do Barramento de Serviço."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Tutorial de sistema de mensagens de retransmissão do Barramento de Serviço | Microsoft Azure"
+    description="Criar um serviço e um aplicativo cliente do Barramento de Serviço usando o sistema de mensagens de retransmissão do Barramento de Serviço."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/17/2016"
+    ms.author="sethm" />
 
 # Tutorial de sistema de mensagens de retransmissão do Barramento de Serviço
 
@@ -27,17 +27,21 @@ As três etapas finais descrevem como criar um aplicativo cliente, configurá-lo
 
 Todos os tópicos desta seção supõem que você está usando o Visual Studio como o ambiente de desenvolvimento.
 
-## Inscreva-se para uma Conta
+## Inscrever-se em uma conta
 
-A primeira etapa é criar um namespace de serviço do Barramento de Serviço e obter uma chave de SAS (Assinatura de Acesso Compartilhado). Um namespace de serviço fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A combinação do namespace de serviço e a chave SAS fornece uma credencial para o Barramento de Serviço autenticar o acesso a um aplicativo.
+A primeira etapa é criar um namespace de serviço do Barramento de Serviço e obter uma chave de SAS (Assinatura de Acesso Compartilhado). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A combinação do namespace e a chave SAS fornece uma credencial para o Barramento de Serviço para autenticar o acesso a um aplicativo.
 
-1. Para criar um namespace de serviço, acesse o [portal clássico do Azure][]. Clique em **Barramento de Serviço** no lado esquerdo e clique em **Criar**. Digite um nome para o namespace e clique na marca de seleção.
+1. Para criar um namespace, visite o [portal clássico do Azure][]. Clique em **Barramento de Serviço** no lado esquerdo e clique em **Criar**. Digite um nome para seu namespace, aceite os padrões para todos os outros valores e, em seguida, clique na marca de seleção OK.
 
 	>[AZURE.NOTE] Você não precisa usar o mesmo namespace para aplicativos cliente e de serviço.
 
+	![][4]
+
 1. Na janela principal do portal, clique no nome do namespace de serviço criado na etapa anterior.
 
-2. Clique em **Configurar** para exibir as políticas de acesso compartilhado padrão para seu namespace.
+2. Clique em **Configurar** para exibir as políticas de acesso compartilhado padrão e as chaves de seu namespace.
+
+	![][1]
 
 3. Anote a chave primária para a política **RootManageSharedAccessKey** ou copie-a na área de transferência. Você usará este valor posteriormente neste tutorial.
 
@@ -49,29 +53,34 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
 
 1. Abra o Visual Studio como administrador clicando com o botão direito no programa no menu **Iniciar** e, em seguida, selecionando **Executar como administrador**.
 
-1. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo** e selecione **Novo**, então, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**). Clique no modelo **Aplicativo de Console** e nomeie-o **EchoService**. Use o **Local** padrão. Clique em **OK** para criar o projeto.
+2. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo** e selecione **Novo**, então, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**). Clique no modelo **Aplicativo de Console** e nomeie-o **EchoService**. Clique em **OK** para criar o projeto.
 
-1. Adicione uma referência a `System.ServiceModel.dll` ao projeto: no Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Referências**, na pasta do projeto e clique em **Adicionar Referência**. Selecione a guia **.NET** na caixa de diálogo **Adicionar Referência** e role para baixo até ver **System.ServiceModel**. Selecione-o e, em seguida, clique em **OK**.
+	![][2]
 
-1. No Gerenciador de Soluções, clique duas vezes no arquivo Program.cs para abri-lo no editor.
+3. Instalar o pacote NuGet do Barramento de Serviço. Esse pacote adiciona automaticamente referências para as bibliotecas do Barramento de Serviço, bem como o WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço.
 
-1. Adicione uma declaração `using` para o namespace System.ServiceModel.
+	No Gerenciador de Soluções, clique com o botão direito na solução e clique em **Gerenciar Pacotes NuGet para Solução**. Clique na guia **Procurar**, em seguida, pesquise `Microsoft Azure Service Bus`. Verifique se o nome do projeto está selecionado na caixa **Versão(ões)**. Clique em **Instalar** e aceite os termos de uso.
+
+	![][3]
+
+3. No Gerenciador de Soluções, clique duas vezes no arquivo Program.cs para abri-lo no editor, se já não estiver aberto.
+
+4. Adicione o seguinte usando as instruções na parte superior do arquivo:
 
 	```
 	using System.ServiceModel;
+	using Microsoft.ServiceBus;
 	```
-
-	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço.
 
 1. Altere o nome do namespace, de seu nome padrão **EchoService** para **Microsoft.ServiceBus.Samples**.
 
-	>[AZURE.IMPORTANT] Este tutorial usa o namespace **Microsoft.ServiceBus.Samples** do C#, que é o namespace do tipo gerenciado de contrato que é usado no arquivo de configuração na etapa [Configurar o cliente WCF](#configure-the-wcf-client). Você pode especificar qualquer namespace desejado ao compilar esta amostra; no entanto, o tutorial não funcionará a menos que você modifique os namespaces do contrato e do serviço de modo correspondente, no arquivo de configuração de aplicativo. O namespace especificado no arquivo App.config deve ser o mesmo que o namespace especificado em seus arquivos C#.
+	>[AZURE.IMPORTANT] Este tutorial usa o namespace do C# **Microsoft.ServiceBus.Samples**, que é o namespace do tipo gerenciado pelo contrato usado no arquivo de configuração na etapa [Configurar cliente WCF](#configure-the-wcf-client). Você pode especificar qualquer namespace desejado ao compilar esta amostra; no entanto, o tutorial não funcionará a menos que você modifique os namespaces do contrato e do serviço de modo correspondente, no arquivo de configuração de aplicativo. O namespace especificado no arquivo App.config deve ser o mesmo que o namespace especificado em seus arquivos C#.
 
-1. Imediatamente após a declaração do namespace `Microsoft.ServiceBus.Samples`, mas ainda dentro do namesapace, defina uma nova interface chamada `IEchoContract` e aplique o atributo `ServiceContractAttribute` à interface com um valor de ****http://samples.microsoft.com/ServiceModel/Relay/**. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. Em vez disso, o valor do namespace é usado como um identificador exclusivo para este contrato. Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
+1. Imediatamente após a declaração do namespace `Microsoft.ServiceBus.Samples`, mas ainda dentro do namesapace, defina uma nova interface chamada `IEchoContract` e aplique o atributo `ServiceContractAttribute` à interface com um valor de **http://samples.microsoft.com/ServiceModel/Relay/**. O valor do namespace é diferente do namespace que você usa em todo o escopo do seu código. Em vez disso, o valor do namespace é usado como um identificador exclusivo para este contrato. Especificar o namespace de forma explícita impede a adição do valor de namespace padrão ao nome do contrato.
 
 	```
 	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	publicinterface IEchoContract
+	public interface IEchoContract
 	{
 	}
 	```
@@ -85,22 +94,15 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
 	string Echo(string text);
 	```
 
-1. Fora do contrato, declare um canal que herde de ambas as `IEchoChannel` e também para a interface `IClientChannel`, conforme mostrado aqui:
+1. Logo após a `IEchoContract` definição da interface, declare um canal que herde de `IEchoChannel` e também a interface `IClientChannel`, como mostrado aqui:
 
 	```
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-    publicinterface IEchoContract
-    {
-        [OperationContract]
-        String Echo(string text);
-    }
-
-    publicinterface IEchoChannel : IEchoContract, IClientChannel { }
+    public interface IEchoChannel : IEchoContract, IClientChannel { }
 	```
 
 	Um canal é o objeto WCF por meio do qual o host e o cliente trocam informações. Posteriormente, você vai escrever código contra o canal para repercutir informações entre os dois aplicativos.
 
-1. No menu **Build**, clique em **Solução de Build** ou pressione F6 para confirmar a precisão de seu trabalho até o momento.
+1. No menu **Compilar**, clique em **Solução de Compilação** ou pressione **Ctrl+Shift+B** para confirmar a precisão de seu trabalho até o momento.
 
 ### Exemplo
 
@@ -134,7 +136,7 @@ Agora que a interface está criada, você pode implementar a interface.
 
 ## Implementar o contrato WCF para usar o Barramento de Serviço
 
-A criação de um serviço de Barramento de Serviço no exige primeiro a criação do contrato, que é definido por meio de uma interface. Para obter mais informações sobre como criar a interface, consulte a etapa anterior. A próxima etapa é implementar a interface. Isso envolve a criação de uma classe chamada `EchoService` que implementa a interface `IEchoContract` definida pelo usuário. Depois de implementar a interface, você a configura usando um arquivo App.config. O arquivo de configuração contém as informações necessárias para o aplicativo, como o nome do serviço, o nome do contrato e o tipo de protocolo usado para se comunicar com o Barramento de Serviço. O código usado para essas tarefas é fornecido no exemplo logo após o procedimento. Para obter uma discussão mais geral sobre como implementar um contrato de serviço, consulte [Implementar Contratos de Serviço](https://msdn.microsoft.com/library/ms733764.aspx) na documentação do WCF (Windows Communication Foundation).
+Criar uma retransmissão do Barramento de Serviço requer que você primeiro crie o contrato, que é definido usando uma interface. Para obter mais informações sobre como criar a interface, consulte a etapa anterior. A próxima etapa é implementar a interface. Isso envolve a criação de uma classe chamada `EchoService` que implementa a interface `IEchoContract` definida pelo usuário. Depois de implementar a interface, você a configura usando um arquivo App.config. O arquivo de configuração contém as informações necessárias para o aplicativo, como o nome do serviço, o nome do contrato e o tipo de protocolo usado para se comunicar com o Barramento de Serviço. O código usado para essas tarefas é fornecido no exemplo logo após o procedimento. Para ver uma análise mais geral sobre como implementar um contrato de serviço, consulte [Implementar Contratos de Serviço](https://msdn.microsoft.com/library/ms733764.aspx) na documentação WCF.
 
 1. Crie uma nova classe chamada `EchoService` diretamente após a definição da interface `IEchoContract`. A classe `EchoService` implementa a interface `IEchoContract`. 
 
@@ -146,9 +148,10 @@ A criação de um serviço de Barramento de Serviço no exige primeiro a criaç�
 	
 	Assim como outras implementações de interface, você pode implementar a definição em um arquivo diferente. No entanto, para este tutorial, a implementação está localizada no mesmo arquivo que a definição de interface e o método `Main`.
 
-1. Aplique o atributo [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx), que indica o nome do serviço e o namespace.
+1. Aplique o atributo [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) na interface `IEchoContract`. O atributo especifica o nome do serviço e o namespace. Depois de fazer isso, a classe `EchoService` aparecerá da seguinte maneira:
 
-	```[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+	```
+	[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
 	class EchoService : IEchoContract
 	{
 	}
@@ -168,26 +171,11 @@ A criação de um serviço de Barramento de Serviço no exige primeiro a criaç�
 
 ### Para definir a configuração do host de serviço
 
-1. O arquivo de configuração é muito semelhante a um arquivo de configuração do WCF. Ele inclui o nome do serviço, o ponto de extremidade (ou seja, o local que o Barramento de Serviço expõe para os clientes e hosts se comunicarem) e a associação (o tipo de protocolo usado para comunicação). A principal diferença é que esse ponto de extremidade de serviço configurado se refere a uma associação [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), que não faz parte do .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) é uma das associações definidas pelo Barramento de Serviço.
+1. O arquivo de configuração é muito semelhante a um arquivo de configuração do WCF. Ele inclui o nome do serviço, o ponto de extremidade (ou seja, o local que o Barramento de Serviço expõe para os clientes e hosts se comunicarem) e a associação (o tipo de protocolo usado para comunicação). A principal diferença é que esse ponto de extremidade de serviço configurado refere-se a uma associação [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx), que não faz parte do .NET Framework. [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) é uma das associações definidas pelo Barramento de Serviço.
 
-1. No **Gerenciador de Soluções**, clique duas vezes no arquivo App.config, que atualmente contém os seguintes elementos XML:
+1. No **Gerenciador de Soluções**, clique duas vezes no arquivo App.config para abri-lo no editor do Visual Studio.
 
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	</configuration>
-	```
-
-1. Adicione um elemento XML `<system.serviceModel>` ao arquivo App.config. Este é um elemento do WCF que define um ou mais serviços. Ele é usado neste exemplo para definir o nome do serviço e o ponto de extremidade.
-
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	  <system.serviceModel>
-  
-	  </system.serviceModel>
-	</configuration>
-	```
+2. No elemento `<appSettings>`, substitua os espaços reservados pelo nome do seu namespace de serviço e a chave SAS copiada em uma etapa anterior.
 
 1. Dentro das marcas `<system.serviceModel>`, adicione um elemento `<services>`. Assim como nas associações, você pode definir vários aplicativos de Barramento de Serviço em um único arquivo de configuração. Este tutorial, porém, define apenas um.
  
@@ -205,28 +193,17 @@ A criação de um serviço de Barramento de Serviço no exige primeiro a criaç�
 1. Dentro do elemento `<services>`, adicione um elemento `<service>` para definir o nome do serviço.
 
 	```
-	<servicename="Microsoft.ServiceBus.Samples.EchoService">
+	<service name="Microsoft.ServiceBus.Samples.EchoService">
 	</service>
 	```
 
 1. Dentro do elemento `<service>`, defina o local do contrato do ponto de extremidade e também o tipo de associação para o ponto de extremidade.
 
 	```
-	<endpointcontract="Microsoft.ServiceBus.Samples.IEchoContract"binding="netTcpRelayBinding"/>
+	<endpoint contract="Microsoft.ServiceBus.Samples.IEchoContract" binding="netTcpRelayBinding"/>
 	```
 
 	O ponto de extremidade define no qual o cliente procurará o aplicativo host. Posteriormente, o tutorial usa esta etapa para criar um URI que expõe totalmente o host através do Barramento de Serviço. A associação declara que estamos usando o TCP como protocolo para comunicação com o Barramento de Serviço.
-
-
-1. Imediatamente após o elemento `<services>`, adicione a seguinte extensão de associação:
- 
-	```
-	<extensions>
-	  <bindingExtensions>
-	    <addname="netTcpRelayBinding"type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-	  </bindingExtensions>
-	</extensions>
-	```
 
 1. No menu **Compilar**, clique em **Compilar Solução** para confirmar a precisão do seu trabalho.
 
@@ -260,7 +237,8 @@ O código a seguir mostra o formato básico do arquivo App.config associado ao h
     </services>
     <extensions>
       <bindingExtensions>
-        <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add name="netTcpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
       </bindingExtensions>
     </extensions>
   </system.serviceModel>
@@ -273,8 +251,6 @@ Esta etapa descreve como executar um serviço básico do Barramento de Serviço.
 
 ### Para criar as credenciais do Barramento de Serviço
 
-1. Instale o [pacote do NuGet do Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
-
 1. Em `Main()`, crie duas variáveis nas quais armazenar o namespace e a chave de SAS que são lidos da janela do console.
 
 	```
@@ -284,7 +260,7 @@ Esta etapa descreve como executar um serviço básico do Barramento de Serviço.
 	string sasKey = Console.ReadLine();
 	```
 
-	A chave de SAS será usada posteriormente para acessar seu projeto de Barramento de Serviço. O namespace é passado como um parâmetro para o `CreateServiceUri` para criar um URI de serviço.
+	A chave de SAS será usada posteriormente para acessar seu projeto de Barramento de Serviço. O namespace é passado como um parâmetro para `CreateServiceUri` para criar um URI de serviço.
 
 4. Usando um objeto [TransportClientEndpointBehavior](https://msdn.microsoft.com/library/microsoft.servicebus.transportclientendpointbehavior.aspx), declare que você usará uma chave de SAS como o tipo de credencial. Adicione o código a seguir diretamente após o código adicionado na última etapa.
 
@@ -372,7 +348,7 @@ Esta etapa descreve como executar um serviço básico do Barramento de Serviço.
 	host.Close();
 	```
 
-1. Pressione F6 para compilar o projeto.
+1. Pressione **Ctrl+Shift+B** para compilar o projeto.
 
 ### Exemplo
 
@@ -461,13 +437,13 @@ A próxima etapa é criar um aplicativo cliente do Barramento de Serviço básic
 	2. Na caixa de diálogo **Adicionar Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**), selecione o modelo **Aplicativo de Console** e nomeie-o como **EchoClient**.
 	3. Clique em **OK**. <br />
 
-1. No Gerenciador de Soluções, clique duas vezes no arquivo Program.cs no projeto **EchoClient** para abri-lo no editor.
+1. No Gerenciador de Soluções, clique duas vezes no arquivo Program.cs no projeto **EchoClient** para abri-lo no editor, se já não estiver aberto.
 
 1. Altere o nome do namespace de seu padrão `EchoClient` para `Microsoft.ServiceBus.Samples`.
 
-1. Adicione uma referência a System.ServiceModel.dll ao projeto:
-	1. Clique com o botão direito do mouse em **Referências** sob o projeto **EchoClient** no Gerenciador de Soluções. Em seguida, clique em **Adicionar Referência**.
-	2. Como você já adicionou uma referência a esse assembly na primeira etapa deste tutorial, ela é listada na guia **Recente**. Clique em **Recente** e, em seguida, selecione **System.ServiceModel.dll** na lista. Em seguida, clique em **OK**. Se você não vir **System.ServiceModel.dll** na guia **Recente**, clique na guia **Procurar** e vá para **C:\\Windows\\Microsoft.NET\\Framework\\v3.0\\Windows Communication Foundation**. Em seguida, selecione o assembly aí. <br />
+1. Instale o [pacote NuGet do Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus). No Gerenciador de Soluções, clique com botão direito no projeto **EchoClient**, em seguida, clique em **Gerenciar Pacotes NuGet**. Clique na guia **Procurar**, em seguida, pesquise `Microsoft Azure Service Bus`. Clique em **Instalar** e aceite os termos de uso.
+
+	![][3]
 
 1. Adicione uma declaração `using` ao namespace [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) no arquivo Program.cs.
 
@@ -475,22 +451,20 @@ A próxima etapa é criar um aplicativo cliente do Barramento de Serviço básic
 	using System.ServiceModel;
 	```
 
-1. Instale o [pacote do NuGet do Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
-
 1. Adicione a definição de contrato de serviço ao namespace, conforme mostrado no exemplo a seguir. Observe que essa definição é idêntica à definição usada no projeto **Service**. Você deve adicionar esse código à parte superior do namespace `Microsoft.ServiceBus.Samples`.
 
 	```
 	[ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
-	publicinterface IEchoContract
+	public interface IEchoContract
 	{
 	    [OperationContract]
 	    string Echo(string text);
 	}
 
-	publicinterface IEchoChannel : IEchoContract, IClientChannel { }
+	public interface IEchoChannel : IEchoContract, IClientChannel { }
 	```
 
-1. Pressione F6 para compilar o cliente.
+1. Pressione **Ctrl+Shift+B** para compilar o cliente.
 
 ### Exemplo
 
@@ -527,29 +501,9 @@ namespace Microsoft.ServiceBus.Samples
 
 Nesta etapa, você cria um arquivo App.config para um aplicativo cliente básico que acessa o serviço criado anteriormente neste tutorial. Esse arquivo App.config define o contrato, a associação e o nome do ponto de extremidade. O código usado para essas tarefas é fornecido no exemplo logo após o procedimento.
 
-1. No Gerenciador de Soluções, no projeto cliente, clique duas vezes em **App.config** para abrir o arquivo, que atualmente contém os seguintes elementos XML:
+1. No Gerenciador de Soluções, no projeto **EchoClient**, clique duas vezes em **App.config** para abrir o arquivo no editor do Visual Studio.
 
-	```
-	<?xmlversion="1.0"?>
-	<configuration>
-	  <startup>
-	    <supportedRuntimeversion="v4.0"sku=".NETFramework,Version=v4.0"/>
-	  </startup>
-	</configuration>
-	```
-
-1. Adicione um elemento XML ao arquivo App.config para `system.serviceModel`.
-
-	```
-	<?xmlversion="1.0"encoding="utf-8"?>
-	<configuration>
-	  <system.serviceModel>
-	
-	  </system.serviceModel>
-	</configuration>
-	```
-	
-	Esse elemento declara que o aplicativo usa pontos de extremidade no estilo WCF. Conforme mencionado anteriormente, grande parte da configuração de um aplicativo do barramento de serviço é idêntico à de um aplicativo WCF; a principal diferença é o local para o qual o arquivo de configuração aponta.
+2. No elemento `<appSettings>`, substitua os espaços reservados pelo nome do seu namespace de serviço e a chave SAS copiada em uma etapa anterior.
 
 1. Dentro do elemento system.serviceModel, adicione um elemento `<client>`.
 
@@ -568,22 +522,12 @@ Nesta etapa, você cria um arquivo App.config para um aplicativo cliente básico
 1. Dentro do elemento `client`, defina o nome, o contrato e o tipo de associação para o ponto de extremidade.
 
 	```
-	<endpointname="RelayEndpoint"
+	<endpoint name="RelayEndpoint"
 					contract="Microsoft.ServiceBus.Samples.IEchoContract"
 					binding="netTcpRelayBinding"/>
 	```
 
 	Essa etapa define o nome do ponto de extremidade, o contrato definido no serviço e o fato de que o aplicativo cliente usa TCP para se comunicar com o Barramento de Serviço. O nome do ponto de extremidade é usado na próxima etapa para vincular esta configuração de ponto de extremidade com o URI do serviço.
-
-1. Imediatamente após o elemento <client>, adicione a extensão de associação a seguir.
- 
-	```
-	<extensions>
-	  <bindingExtensions>
-	    <addname="netTcpRelayBinding"type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
-	  </bindingExtensions>
-	</extensions>
-	```
 
 1. Clique em **Arquivo**, depois em **Salvar Tudo**.
 
@@ -602,7 +546,8 @@ O código a seguir mostra o arquivo App.config para o cliente Echo.
     </client>
     <extensions>
       <bindingExtensions>
-        <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add name="netTcpRelayBinding"
+                    type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
       </bindingExtensions>
     </extensions>
   </system.serviceModel>
@@ -625,7 +570,7 @@ No entanto, uma das principais diferenças é que o aplicativo cliente usa um ca
 
 ### Para implementar um aplicativo cliente
 
-1. Defina o modo de conectividade como **AutoDetect**. Adicione o código a seguir dentro do método `Main()` do aplicativo cliente.
+1. Defina o modo de conectividade como **AutoDetect**. Adicione o código a seguir dentro do método `Main()` do aplicativo **EchoClient**.
 
 	```
 	ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
@@ -702,31 +647,41 @@ No entanto, uma das principais diferenças é que o aplicativo cliente usa um ca
 	channelFactory.Close();
 	```
 
-## Para executar seu aplicativo cliente
+## Para executar os aplicativos
 
-1. Pressione F6 para compilar a solução. Isso compila tanto o projeto cliente quanto o projeto de serviço que você criou na etapa anterior deste tutorial e cria um arquivo executável para cada um deles.
+1. Pressione **Ctrl+Shift+B** para compilar a solução. Isso compila o projeto cliente e o projeto de serviço que você criou nas etapas anteriores.
 
-1. Antes de executar o aplicativo cliente, certifique-se que o aplicativo de serviço está em execução.
+2. Antes de executar o aplicativo cliente, verifique se o aplicativo de serviço está em execução. No Gerenciador de Soluções no Visual Studio, clique com o botão direito na solução **EchoService** e, em seguida, clique em **Propriedades**.
 
-	Agora você deve ter um arquivo executável para o aplicativo de serviço Echo chamado EchoService.exe, localizado em sua pasta de projeto de serviço em \\bin\\Debug\\EchoService.exe (para a configuração de depuração) ou \\bin\\Release\\EchoService.exe (para a configuração de versão). Clique duas vezes nesse arquivo para iniciar o aplicativo de serviço.
+3. Na caixa de diálogo Propriedades da solução, clique em **Projeto de Inicialização**, então, clique no botão **Vários projetos de inicialização**. Verifique se **EchoService** aparece primeiro na lista.
 
-1. Uma janela do console será aberta e solicita que você informe o namespace. Na janela do console, digite o namespace de serviço e pressione Enter.
+4. Defina a caixa **Ação** dos projetos **EchoService** e **EchoClient** para **Iniciar**.
 
-1. Em seguida, será solicitado que você informe a sua chave de SAS. Insira a chave de SAS e pressione ENTER.
+	![][5]
+
+5. Clique em **Dependências do Projeto**. Na caixa **Projetos**, selecione **EchoClient**. Na caixa **Depende**, verifique se **EchoService** está marcado.
+
+	![][6]
+
+6. Clique em **OK** para descartar a caixa de diálogo **Propriedades**.
+
+7. Pressione **F5** para executar os dois projetos.
+
+8. Ambas as janelas do console serão abertas e o nome do namespace será solicitado. O serviço deve ser executado primeiro e, então, na janela do console **EchoService**, digite o namespace e pressione **Enter**.
+
+9. Em seguida, será solicitado que você informe a sua chave de SAS. Insira a chave de SAS e pressione ENTER.
 
 	Eis aqui um exemplo de saída da janela do console. Observe que os valores fornecidos aqui são apenas para fins de exemplificação.
 
 	`Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
-	O aplicativo de serviço é iniciado e imprime na janela do console o endereço no qual ele está escutando, como visto no exemplo a seguir.
+	O aplicativo de serviço imprime na janela do console o endereço no qual ele está escutando, como visto no exemplo a seguir.
 
     `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
     
-1. Execute o aplicativo cliente. Agora você deve ter um executável para o aplicativo cliente Echo chamado EchoClient.exe, localizado no diretório do projeto do cliente em \\bin\\Debug\\EchoClient.exe (para a configuração de depuração) ou \\bin\\Release\\EchoClient.exe (para a configuração de versão). Clique duas vezes nesse arquivo para iniciar o aplicativo cliente.
+10. Na janela do console **EchoClient**, digite as mesmas informações inseridas anteriormente para o aplicativo de serviço. Siga as etapas anteriores para inserir os mesmos valores para o namespace de serviço e a chave SAS do aplicativo do cliente.
 
-1. Uma janela do console será aberta e solicitará as mesmas informações que você inseriu anteriormente para o aplicativo de serviço. Siga as etapas anteriores para inserir os mesmos valores para o aplicativo cliente para o namespace de serviço, o nome do emissor e o segredo do emissor.
-
-1. Depois de inserir esses valores, o cliente abre um canal para o serviço e solicita que você digite algum texto, como visto no exemplo de saída do console a seguir.
+11. Depois de inserir esses valores, o cliente abre um canal para o serviço e solicita que você digite algum texto, como visto no exemplo de saída do console a seguir.
 
 	`Enter text to echo (or [Enter] to exit):`
 
@@ -738,7 +693,7 @@ No entanto, uma das principais diferenças é que o aplicativo cliente usa um ca
 
 	`Server echoed: My sample text`
 
-1. Você pode continuar a enviar mensagens de texto do cliente para o serviço dessa maneira. Quando terminar, pressione Enter nas janelas do console de cliente e serviço para encerrar ambos os aplicativos.
+12. Você pode continuar a enviar mensagens de texto do cliente para o serviço dessa maneira. Quando terminar, pressione Enter nas janelas do console de cliente e serviço para encerrar ambos os aplicativos.
 
 ## Exemplo
 
@@ -809,8 +764,6 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-Certifique-se de que o serviço está em execução antes de iniciar o cliente.
-
 ## Próximas etapas
 
 Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples do Barramento de Serviço usando os recursos de “retransmissão” do Barramento de Serviços. Para obter um tutorial semelhante que usa o barramento de serviço [sistema de mensagens agenciado](service-bus-messaging-overview.md#Brokered-messaging), consulte o [Tutorial do Sistema de Mensagens Agenciado .NET do Barramento de Serviço](service-bus-brokered-tutorial-dotnet.md).
@@ -823,4 +776,11 @@ Para saber mais sobre o Barramento de Serviço, consulte os tópicos a seguir.
 
 [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0302_2016-->
+[1]: ./media/service-bus-relay-tutorial/service-bus-policies.png
+[2]: ./media/service-bus-relay-tutorial/create-console-app.png
+[3]: ./media/service-bus-relay-tutorial/install-nuget.png
+[4]: ./media/service-bus-relay-tutorial/create-ns.png
+[5]: ./media/service-bus-relay-tutorial/set-projects.png
+[6]: ./media/service-bus-relay-tutorial/set-depend.png
+
+<!---HONumber=AcomDC_0518_2016-->

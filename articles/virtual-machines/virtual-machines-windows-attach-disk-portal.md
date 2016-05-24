@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="05/09/2016"
 	ms.author="cynthn"/>
 
 # Como anexar um disco de dados a uma VM do Windows no portal do Azure
@@ -31,7 +31,7 @@ Este artigo mostra como anexar discos novos e existentes a uma máquina virtual 
 
 ## <a id="initializeinWS"></a>Como: inicializar um novo disco de dados no Windows Server
 
-1. Conectar-se à máquina virtual. Para ver instruções, consulte [Como se conectar e fazer logon em uma máquina virtual do Azure que executa o Windows Server](virtual-machines-windows-connect-logon.md).
+1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](virtual-machines-windows-connect-logon.md).
 
 2. Depois de entrar na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, selecione **Arquivos e serviços de armazenamento**.
 
@@ -55,4 +55,4 @@ Este artigo mostra como anexar discos novos e existentes a uma máquina virtual 
 
 Caso seu aplicativo precise usar a unidade D: para armazenar dados, é possível [alterar a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

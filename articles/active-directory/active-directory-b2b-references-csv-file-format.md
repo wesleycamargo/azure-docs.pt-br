@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="03/31/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Visualização da colaboração B2B do AD do Azure: formato de arquivo CSV
@@ -57,9 +57,9 @@ bsmith@contoso.com,Ben Smith,Hi Ben! I hope you’ve been doing well.,,cd3ed3de-
 ```
 
 ## Artigos relacionados
-Conferir nossos outros artigos sobre a colaboração B2B do Azure
+Navegue por nossos outros artigos sobre colaboração B2B no Azure AD
 
-- [O que é a colaboração AD B2B do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Como funciona](active-directory-b2b-how-it-works.md)
 - [Passo a passo detalhado](active-directory-b2b-detailed-walkthrough.md)
 - [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
@@ -67,4 +67,4 @@ Conferir nossos outros artigos sobre a colaboração B2B do Azure
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -72,7 +72,7 @@ Para ver um exemplo de um modelo do Azure Resource Manager que defina a propried
 
 ## <a id="tutorialstart"></a> Continuação do tutorial de introdução do .NET
 
-Se você estiver seguindo a série de introdução do Node.js ou do Java para aplicativos de API, vá para o próximo artigo, [Autenticação para aplicativos de API do Serviço de Aplicativo](app-service-api-authentication.md).
+Se está seguindo a série de introdução do Node.js ou do Java para aplicativos de API, você concluiu a série de introdução. Vá para a seção [Próximas etapas](#next-steps) para obter sugestões e aprender mais sobre aplicativos de API.
 
 O restante deste artigo é uma continuação da série de introdução do .NET e supõe que você tenha concluído com êxito [o primeiro tutorial](app-service-api-dotnet-get-started.md).
 
@@ -264,6 +264,13 @@ As etapas a seguir resumem o processo para habilitar o suporte ao CORS da API We
 		    [EnableCors(origins:"https://todolistangular0121.azurewebsites.net", headers:"accept,content-type,origin,x-my-header", methods: "get,post")]
 		    public class ToDoListController : ApiController
  
+## Uso do Gerenciamento de API com Aplicativos de API
+
+Se você usar o Gerenciamento de API do Azure com um aplicativo de API, configure CORS no Gerenciamento de API em vez de no aplicativo de API. Para saber mais, consulte os recursos a seguir:
+
+* [Visão geral do Gerenciamento de API do Azure (vídeo: CORS começa em 12:10)](https://azure.microsoft.com/documentation/videos/azure-api-management-overview/)
+* [Políticas entre domínios de Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn894084.aspx#CORS)
+ 
 ## Solucionar problemas
 
 Se encontrar um problema ao percorrer este tutorial, verifique se você está usando a versão mais recente do SDK do Azure para .NET. A maneira mais fácil de fazer isso é [baixar o SDK do Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se você tiver a versão atual instalada, o Web Platform Installer avisará que nenhuma instalação é necessária.
@@ -279,6 +286,6 @@ Para saber mais sobre os recursos do Visual Studio que simplificam a solução d
 
 ## Próximas etapas 
 
-Neste artigo, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código JavaScript de cliente possa chamar uma API em um domínio diferente. No próximo artigo da série de introdução a Aplicativos de API, você saberá mais sobre [Autenticação para aplicativos de API do Serviço de Aplicativo](app-service-api-authentication.md).
+Neste artigo, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código JavaScript de cliente possa chamar uma API em um domínio diferente. Para saber mais sobre aplicativos de API, leia a [introdução à autenticação no Serviço de Aplicativo](../app-service/app-service-authentication-overview.md) e vá para o tutorial [autenticação de usuário para aplicativos de API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

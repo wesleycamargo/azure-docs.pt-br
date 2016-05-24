@@ -95,9 +95,10 @@ Quando você souber o número de porta pública atribuído a essa instância, fa
 1. Clique em **OK** para fechar a caixa de diálogo **Propriedades para Depuração de WorkerRole1**:
 1. Defina um ponto de interrupção em index.jsp:
     1. No Gerenciador de Projetos do Eclipse, expanda **MyHelloWorld**, expanda **WebContent** e clique duas vezes em **index.jsp**.
-    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir:
+    1. No index.jsp, clique com o botão direito na barra azul à esquerda do código Java e clique em **Ativar/Desativar Pontos de Interrupção**, conforme exibido a seguir:  
         ![][ic551537]
-       Um ponto de interrupção será definido se você vir um ícone de ponto de interrupção dentro da barra azul à esquerda do código Java.
+
+		Um ponto de interrupção será definido se você vir um ícone de ponto de interrupção dentro da barra azul à esquerda do código Java.
 1. Inicie o aplicativo no emulador de computação clicando no botão **Executar no Emulador do Azure** na barra de ferramentas do Azure.
 1. No menu do Eclipse, clique em **Executar** e clique em **Configurações de Depuração**.
 1. Na caixa de diálogo **Configurações de Depuração**, expanda **Aplicativo Java Remoto** no painel esquerdo, selecione **Emulador do Azure (WorkerRole1)** e clique em **Depurar**.
@@ -134,4 +135,4 @@ Para saber mais sobre como usar o Azure com Java, confira a [Central de Desenvol
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!-------HONumber=AcomDC_0504_2016-->

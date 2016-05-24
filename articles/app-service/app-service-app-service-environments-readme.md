@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Ambiente do Serviço de Aplicativo do Azure" 
-	description="Saiba como funciona o Serviço de Aplicativo" 
-	keywords="ambiente de serviço de aplicativo, ambiente do serviço de aplicativo do azure"
+	pageTitle="Ambiente do Serviço de Aplicativo | Microsoft Azure" 
+	description="O que é um Ambiente do Serviço de Aplicativo do Azure? Uma introdução ao Ambiente do Serviço de Aplicativo." 
+	keywords="ambiente do serviço de aplicativo do azure, rede virtual, rede segura"
 	services="app-service" 
 	documentationCenter="" 
 	authors="yochay" 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/10/2016" 
 	ms.author="stefsch"/>
 
-# Visão geral
+# Documentação do Ambiente de Serviço de Aplicativo
 
 Um Ambiente de Serviço de Aplicativo é uma opção de plano de serviço [Premium][PremiumTier] do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado para executar com segurança todos os seus aplicativos do Serviço de Aplicativo do Azure em alta escala, incluindo [Aplicativos Web][WebApps], [Aplicativos Móveis][MobileApps] e [Aplicativos de API][APIApps].
 
@@ -59,4 +59,4 @@ Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos 
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

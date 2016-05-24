@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="04/19/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para clonar um volume
@@ -69,9 +69,9 @@ O clone é agora um volume normal e qualquer operação que é possível em um v
 
 ## Clones transitórios versus permanentes
 
-Você pode clonar um volume específico a partir de um conjunto de backups. Um clone criado dessa maneira é um clone *transitório*. O clone transitório terá referências para o volume original e usará esse volume para ler durante a gravação local. Isso poderá resultar em baixo desempenho, especialmente se o volume clonado for grande.
+Os clones transitórios e permanentes são criados apenas quando a clonagem está sendo realizada para um dispositivo diferente. Você pode clonar um volume específico por meio de um conjunto de backups para um dispositivo diferente. Um clone criado dessa maneira é um clone *transitório*. O clone transitório terá referências para o volume original e usará esse volume para ler durante a gravação local.
 
-Depois de fazer um instantâneo de nuvem de um clone transitório, o clone resultante será um clone *permanente*. O clone permanente é independente e não tem nenhuma referência para o volume original do qual foi clonado. Para melhorar o desempenho, é recomendável que você crie clones permanentes.
+Depois de fazer um instantâneo de nuvem de um clone transitório, o clone resultante será um clone *permanente*. O clone permanente é independente e não tem nenhuma referência para o volume original do qual foi clonado.
 
 ## Cenários para os clones transitórios e permanentes
 
@@ -87,7 +87,7 @@ Para assistir a um vídeo que demonstra como você pode usar os recursos de clon
 
 ### Testando no ambiente de produção com um clone permanente
 
-Você precisa verificar um bug de teste no ambiente de produção. Você cria um clone do volume no ambiente de produção. Para melhorar o desempenho, você precisa fazer um instantâneo de nuvem do clone. O volume clonado agora é independente, o que resulta em um desempenho mais rápido. Nesse cenário, é usado um clone permanente.
+Você precisa verificar um bug de teste no ambiente de produção. Você cria um clone do volume no ambiente de produção fazendo um instantâneo da nuvem desse clone. O volume clonado agora é independente. Nesse cenário, é usado um clone permanente.
 
 ## Próximas etapas
 - Saiba como [restaurar um volume StorSimple a partir de um conjunto de backups](storsimple-restore-from-backup-set.md).
@@ -96,4 +96,4 @@ Você precisa verificar um bug de teste no ambiente de produção. Você cria um
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

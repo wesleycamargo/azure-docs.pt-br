@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Como configurar pontos de extremidade em uma máquina virtual clássica no Azure
@@ -23,13 +23,15 @@ Todas as máquinas virtuais do Linux criadas no Azure usando o modelo de implant
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
-Quando você cria uma máquina virtual do Linux no portal clássico do Azure, pontos de extremidade comuns, como os para SSH (Secure Shell), geralmente são criados para você automaticamente. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
+Ao criar uma máquina virtual Linux no portal clássico do Azure, em geral, um ponto de extremidade para o SSH (Secure Shell) é criado para você automaticamente. Você pode configurar pontos de extremidade adicionais criando a máquina virtual ou posteriormente, conforme a necessidade.
  
 
 [AZURE.INCLUDE [virtual-machines-common-classic-setup-endpoints](../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
 ## Próximas etapas
 
-* Você também pode criar um ponto de extremidade de VM usando a Interface de linha de comando do Azure no [Modo de Gerenciamento de Serviço](../virtual-machines-command-line-tools.md). Execute o comando **azure vm endpoint create**.
+* Também é possível criar um ponto de extremidade de VM usando a [Interface de Linha de Comando do Azure](../virtual-machines-command-line-tools.md). Execute o comando **azure vm endpoint create**.
 
-<!---HONumber=AcomDC_0413_2016-->
+* Se você criou uma máquina virtual no modelo de implantação do Gerenciador de Recursos, é possível usar a CLI do Azure no modo do Gerenciador de Recursos para [criar grupos de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-cli.md) a fim de controlar o tráfego para a VM.
+
+<!---HONumber=AcomDC_0511_2016-->

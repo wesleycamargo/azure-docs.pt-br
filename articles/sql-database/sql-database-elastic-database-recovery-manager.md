@@ -3,7 +3,7 @@
 	description="Use a classe RecoveryManager para resolver problemas com mapas de fragmentos" 
 	services="sql-database" 
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="ddove"/>
 
 <tags 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/05/2016" 
 	ms.author="ddove"/>
 
 # Usando a classe RecoveryManager para corrigir problemas do mapa de fragmentos
@@ -129,14 +129,13 @@ O failover geográfico e a recuperação são operações normalmente gerenciada
 4. Detecte inconsistências no mapeamento entre o GSM e o LSM. 
 5. Resolva as diferenças entre o GSM e o LSM, confiando no LSM. 
 
-Este exemplo executa as seguintes etapas: 1. Remove os fragmentos do Mapa de Fragmentos que refletem locais do fragmento antes do evento de failover. 2. Anexa fragmentos ao Mapa de Fragmentos que reflete os novos locais do fragmento (o parâmetro "Configuration.SecondaryServer" é o novo nome do servidor, mas o nome do banco de dados é o mesmo). 3. Recupera os tokens de recuperação detectando diferenças de mapeamento entre o GSM e o LSM para cada fragmento. 4. Resolve as inconsistências confiando no mapeamento do LSM de cada fragmento.
+Este exemplo executa as seguintes etapas:
+1. Remove os fragmentos do Mapa de Fragmentos que refletem locais do fragmento antes do evento de failover.
+2. Anexa fragmentos ao Mapa de Fragmentos que reflete os novos locais do fragmento (o parâmetro "Configuration.SecondaryServer" é o novo nome do servidor, mas o nome do banco de dados é o mesmo).
+3. Recupera os tokens de recuperação detectando diferenças de mapeamento entre o GSM e o LSM para cada fragmento. 
+4. Resolve as inconsistências confiando no mapeamento do LSM de cada fragmento. 
 
-	var shards = smm.GetShards(); 
-	foreach (shard s in shards) 
-	{ 
-	 if (s.Location.Server == Configuration.PrimaryServer) 
-		 { 
-		  ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
+	var shards = smm.GetShards(); foreach (shard s in shards) { if (s.Location.Server == Configuration.PrimaryServer) { ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database);
 		
 		  rm.DetachShard(s.Location); 
 		
@@ -149,7 +148,7 @@ Este exemplo executa as seguintes etapas: 1. Remove os fragmentos do Mapa de Fra
 			   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
 			} 
 		} 
-	} 
+	}
 
 
 
@@ -160,4 +159,4 @@ Este exemplo executa as seguintes etapas: 1. Remove os fragmentos do Mapa de Fra
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -33,6 +33,9 @@ Os clusters não podem reter as alterações devido à recriação das imagens. 
 Há três métodos para usar a Inicialização:
 
 - Usar PowerShell do Azure
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+    
 - Usar o SDK do .NET
 - Usar o modelo de ARM
 
@@ -249,4 +252,4 @@ Esse script do PowerShell cria um cluster do HDInsight e personaliza uma configu
 
     #endregion
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/18/2016" 
+	ms.date="05/18/2016" 
 	ms.author="andrl"/>
 
 #<a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativos Web com o Banco de Dados de Documentos
@@ -30,7 +30,7 @@ Para destacar como você pode aproveitar com eficiência o Banco de Dados de Doc
 
 ![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial - passo a passo do tutorial do ASP.NET MVC](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
-Este passo a passo mostra como usar o serviço Banco de Dados de Documentos fornecido pelo Azure para armazenar e acessar dados por meio de um aplicativo Web ASP.NET MVC hospedado no Azure.
+Este passo a passo mostra como usar o serviço Banco de Dados de Documentos fornecido pelo Azure para armazenar e acessar dados por meio de um aplicativo Web ASP.NET MVC hospedado no Azure. Se você estiver procurando um tutorial que se concentra somente nos Banco de Dados de Documentos e não nos componentes do ASP.NET MVC, confira [Criar um aplicativo de console em C# do Banco de Dados de Documentos](documentdb-get-started.md).
 
 > [AZURE.TIP] Este tutorial pressupõe que você tem experiência anterior com o ASP.NET MVC e com os Sites do Azure. Se estiver começando a usar o ASP.NET ou as [ferramentas que são pré-requisitos](#_Toc395637760), recomendamos baixar o [projeto de exemplo completo do GitHub][] e seguir as instruções nesse exemplo. Depois de compilá-lo, você poderá consultar esse artigo para obter informações sobre o código no contexto do projeto.
 
@@ -101,9 +101,9 @@ Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários
 
 	A caixa de diálogo **Gerenciar Pacotes NuGet** será exibida.
 
-2. Na caixa **Pesquisar Online**, digite ***Banco de Dados de Documentos do Azure***.
+2. Na caixa **Procurar** do NuGet, digite *** Banco de Dados de Documentos do Azure***.
 	
-	Com base nos resultados, instale o pacote da **Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure**. Essa ação baixará e instalará o pacote do Banco de Dados de Documentos, bem como todas as dependências, como Newtonsoft.Json.
+	Com base nos resultados, instale o pacote da **Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure**. Essa ação baixará e instalará o pacote do Banco de Dados de Documentos, bem como todas as dependências, como Newtonsoft.Json. Clique em **OK** na janela **Visualização** e **Aceito** na janela **Aceitação da Licença** para concluir a instalação.
 
   	![Captura de tela da janela Gerenciar Pacotes NuGet com a Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure realçada](./media/documentdb-dotnet-application/nuget.png)
 
@@ -391,6 +391,10 @@ A primeira coisa a fazer aqui é adicionar uma classe que contenha toda a lógic
 			return View(items);
 		}
 	
+7. Abra **Global.asax.cs** e adicione a seguinte linha ao método **Application\_Start**
+ 
+		DocumentDBRepository<todo.Models.Item>.Initialize();
+	
 Neste ponto, sua solução deve ser capaz de compilar sem erros.
 
 Se você executou o aplicativo agora, deverá ir para o **HomeController** e para a exibição **Índice** desse controlador. Esse é o comportamento padrão para o projeto do modelo MVC que escolhemos no início, mas não queremos isso! Vamos alterar o roteamento neste aplicativo MVC para alterar seu comportamento.
@@ -588,4 +592,4 @@ Para adicionar outras funcionalidades a seu aplicativo, consulte as APIs dispon�
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 [projeto de exemplo completo do GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

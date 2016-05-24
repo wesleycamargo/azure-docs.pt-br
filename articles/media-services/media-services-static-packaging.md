@@ -23,7 +23,7 @@
 
 ## Visão geral
 
-Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para entregar pela internet ou para dispositivos de seus clientes para exibir corretamente. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia. Quando um vídeo tiver sido codificado, ele poderá ser colocado em contêineres de arquivo diferentes. O processo de posicionar mídia codificada em um contêiner é chamado de empacotamento. Por exemplo, você pode pegar um arquivo MP4 e convertê-lo em conteúdo do Smooth Streaming ou do HLS usando o Azure Media Packager. Para saber mais, consulte [Codificação versus empacotamento](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+Para fornecer vídeo digital pela internet, você deve compactar a mídia. Os arquivos de vídeo digital são muito grandes e podem ser muito grandes para entregar pela internet ou para dispositivos de seus clientes para exibir corretamente. A codificação é o processo de compactação de vídeo e áudio para que seus clientes possam exibir sua mídia. Quando um vídeo tiver sido codificado, ele poderá ser colocado em contêineres de arquivo diferentes. O processo de posicionar mídia codificada em um contêiner é chamado de empacotamento. Por exemplo, você pode pegar um arquivo MP4 e convertê-lo em conteúdo do Smooth Streaming ou do HLS usando o Azure Media Packager.
 
 O Serviços de Mídia oferece suporte ao empacotamento dinâmico e estático. Ao usar o empacotamento estático, você precisará criar uma cópia do seu conteúdo em cada formato necessário aos seus clientes. Com o empacotamento dinâmico, tudo o que você precisa é criar um ativo que contenha um conjunto de arquivos MP4 ou de Smooth Streaming de taxa de bits adaptável. Em seguida, com base no formato especificado na solicitação de fragmento ou de manifesto, o servidor de Streaming Sob Demanda garantirá que seus usuários recebam o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente.
 
@@ -1447,4 +1447,4 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

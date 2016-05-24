@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="04/20/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Atribuir usuários a um domínio personalizado
@@ -56,10 +56,10 @@ Isso também pode ser feito usando o [Microsoft PowerShell](https://msdn.microso
 
 ## Próximas etapas
 
-- [Como usar nomes de domínio personalizados para simplificar a experiência de conexão para os usuários](active-directory-add-domain.md)
-- [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
-- [Adicionar e verificar um nome de domínio personalizado no Active Directory do Azure](active-directory-add-domain-add-verify-general.md)
-- [Alterar o registrador DNS para o nome de domínio personalizado](active-directory-add-domain-change-registrar.md)
-- [Excluir um domínio personalizado no Active Directory do Azure](active-directory-add-domain-delete-domain.md)
+-   [Como usar nomes de domínio personalizados para simplificar a experiência de conexão para os usuários](active-directory-add-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+-   [Gerenciar nomes de domínio personalizados](active-directory-add-manage-domain-names.md)
+
+-   [Saiba mais sobre os conceitos de gerenciamento de domínio no AD do Azure](active-directory-add-domain-concepts.md)
+
+<!---HONumber=AcomDC_0511_2016-->

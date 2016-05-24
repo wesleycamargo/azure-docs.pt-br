@@ -146,7 +146,7 @@ Para referência, este é o código Java para o trabalho do MapReduce de contage
 	  }
 	}
 
-Para saber mais sobre como escrever o seu próprio trabalho MapReduce, confira [Desenvolver programas Java MapReduce para HDInsight](hdinsight-develop-deploy-java-mapreduce.md).
+Para saber mais sobre como escrever o seu próprio trabalho MapReduce, confira [Desenvolver programas Java MapReduce para HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
 
 ##<a id="run"></a>Executar o MapReduce
 
@@ -163,7 +163,7 @@ O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tab
 
 Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser um pouco difícil de dominar. Há várias estruturas baseadas em Java que tornam mais fácil definir aplicativos MapReduce, assim como tecnologias como o Pig e o Hive, que facilitam o trabalho com dados no HDInsight. Para saber mais, consulte os seguintes artigos:
 
-* [Desenvolver programas Java MapReduce para HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+* [Desenvolver programas Java MapReduce para HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 
 * [Desenvolver programas MapReduce de streaming do Hadoop para o HDInsight](hdinsight-hadoop-streaming-python.md)
 
@@ -178,7 +178,7 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-samples]: hdinsight-run-samples.md
@@ -188,4 +188,4 @@ Embora o MapReduce forneça recursos avançados para diagnóstico, ele pode ser 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -626,4 +626,4 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 
 [Anunciando os serviços de entrega de licenças do Google Widevine nos Serviços de Mídia do Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->

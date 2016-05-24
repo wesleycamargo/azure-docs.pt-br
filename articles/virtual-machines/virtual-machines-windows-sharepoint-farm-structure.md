@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines-windows"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="01/21/2016"
+	ms.date="04/25/2016"
 	ms.author="josephd"/>
 
 # Farms do SharePoint hospedados nos serviços de infraestrutura do Azure
@@ -22,8 +22,6 @@
 [AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
 Configure seu primeiro ou próximo farm do SharePoint Server 2013 de desenvolvimento/teste ou de produção nos serviços de infraestrutura do Microsoft Azure, em que você pode tirar proveito da facilidade de configuração e da capacidade de expandir rapidamente o farm para incluir a nova capacidade ou a otimização da funcionalidade principal.
-
-> [AZURE.NOTE] A Microsoft lançou o SharePoint Server 2016 IT Preview. Para facilitar a instalação e teste desta visualização, você pode usar uma imagem da galeria de máquinas virtuais do Azure com o SharePoint Server 2016 IT Preview e seus pré-requisitos pré-instalados. Para saber mais, consulte [Testar o SharePoint Server 2016 IT Preview no Azure](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Farm de desenvolvimento/teste básico do SharePoint
 
@@ -47,18 +45,14 @@ Você também pode usar um modelo do Gerenciador de Recursos do Azure. Veja [Imp
 
 ## Farm de desenvolvimento/teste de nuvem híbrida
 
-Com o [farm de intranet do SharePoint em um ambiente de desenvolvimento/teste de nuvem híbrida](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), você cria uma configuração de nuvem híbrida simulada que hospeda um farm do SharePoint simples de duas camadas, o qual você pode usar para testar um farm do SharePoint de intranet hospedado no Azure de seu local na Internet.
-
-Esta configuração usa o modelo de implantação clássica.
+Com o [farm de intranet do SharePoint em um ambiente de desenvolvimento/teste de nuvem híbrida](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), você cria uma configuração de nuvem híbrida simulada que hospeda um farm do SharePoint simples de duas camadas, o qual você pode usar para testar um farm do SharePoint de intranet hospedado no Azure de seu local na Internet.
 
 ## Farm de produção do SharePoint de intranet de alta disponibilidade
 
 Com a implantação do [SharePoint 2013 com Grupos de Disponibilidade AlwaysOn do SQL Server no Azure](virtual-machines-windows-sp-intranet-overview.md), você cria um farm do SharePoint Server 2013 de intranet pronto para produção e de alta disponibilidade no Azure.
 
-Esta configuração usa o modelo de implantação clássica.
-
 ## Próxima etapa
 
 - Descubra configurações adicionais do [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nos serviços de infraestrutura do Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

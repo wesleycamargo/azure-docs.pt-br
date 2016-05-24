@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="mattchenderson"
-	manager="dwrede"
+	manager="erikref"
 	editor=""/>
 
 <tags
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/05/2016"
 	ms.author="mahender"/>
 
 # Autenticação e Autorização nos Aplicativos Móveis do Azure
 
 ## O que é a Autenticação/Autorização do Serviço de Aplicativo?
+
+> [AZURE.NOTE] Este tópico será migrado para um tópico consolidado de [Autenticação/Autorização de Serviço de Aplicativo](../app-service/app-service-authentication-overview.md), que abrange a Web, celulares e aplicativos de API.
 
 Autenticação/Autorização do Serviço de Aplicativo é um recurso que permite que o seu aplicativo faça logon dos usuários sem alterações de código necessárias no back-end do aplicativo. Ele fornece uma maneira fácil de proteger o aplicativo e trabalhar com dados por usuário.
 
@@ -102,4 +104,4 @@ Se você deseja usar um sistema de identidade diferente daqueles fornecidos aqui
 [Como configurar seu aplicativo para usar o logon da Conta da Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Como configurar seu aplicativo para usar o logon do Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

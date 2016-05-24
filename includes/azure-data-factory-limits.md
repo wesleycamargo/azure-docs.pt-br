@@ -2,6 +2,7 @@ Data factory é um serviço multilocatário que tem os seguintes limites padrão
 
 **Recurso** | **Limite padrão** | **Limite máximo**
 -------- | ------------- | -------------
+data factories em uma assinatura do Azure | 50 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 pipelines em um data factory | 100 | 2500
 conjuntos de dados em um data factory | 500 | 5\.000
 fatias simultâneas por conjunto de dados | 10 | 10
@@ -29,4 +30,4 @@ Valor de tempo limite de nova tentativa | 1 segundo | 1 segundo
 
 O Gerenciador de Recursos do Azure tem limites para chamadas de API. Você pode fazer chamadas de API em um intervalo dentro dos [limites de API do Gerenciador de Recursos do Azure](../azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=AcomDC_0323_2016-->
+

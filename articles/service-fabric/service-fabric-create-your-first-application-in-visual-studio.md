@@ -3,7 +3,7 @@
    description="Criar, implantar e depurar um aplicativo do Service Fabric usando o Visual Studio"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/27/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Criar seu primeiro aplicativo do Azure Service Fabric no Visual Studio
 
@@ -115,9 +115,9 @@ Agora que você tem um aplicativo, poderá tentar executá-lo.
   Antes da conclusão, é importante lembrar que o cluster local é muito real. Mesmo após a interrupção do depurador e do fechamento do Visual Studio, seus aplicativos continuarão a ser executados em segundo plano. Dependendo da natureza de seus aplicativos, essa atividade em segundo plano poderá ocupar recursos significativos em seu computador. Você tem várias opções para gerenciar isto:
 
   1. Para remover um aplicativo individual e todos os seus dados, use a ação **Excluir aplicativo** no Service Fabric Explorer, seja com o menu **AÇÕES** ou com o menu de contexto no modo de exibição de lista de aplicativos no painel esquerdo.
-  
+
     ![Excluir um aplicativo no Service Fabric Explorer][sfe-delete-application]
-    
+
   2. Depois de excluir o aplicativo do cluster, em seguida, você pode selecionar o **Tipo de Desprovisionamento** para o aplicativo, o que remove o pacote de aplicativos, incluindo o código e a configuração, do repositório de imagem do cluster.
   3. Para desligar o cluster, mas manter os dados e os rastreamentos do aplicativo, clique em **Parar Cluster Local** no aplicativo da bandeja do sistema.
 
@@ -150,4 +150,4 @@ Temporarily removing this link because we have removed the ASP.NET template.
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

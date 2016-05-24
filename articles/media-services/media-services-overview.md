@@ -45,10 +45,6 @@ Você pode exibir os roteiros de aprendizagem do AMS aqui:
 - [Fluxo de trabalho do streaming ao vivo do AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Fluxo de trabalho do streaming sob demanda do AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-##Cartaz
-
-[Aqui](https://azure.microsoft.com/documentation/infographics/media-services/) é possível exibir o cartaz dos Serviços de Mídia do Azure que representa os fluxos de trabalho do AMS, desde a criação de mídia até o consumo.
-
 ##Pré-requisitos
 
 Para começar a usar o Azure Media Services, você deve possuir o seguinte:
@@ -112,11 +108,11 @@ A Análise de Mídia é uma coleção de componentes de fala e de visão que fac
 1. Carregar um arquivo mezzanine de alta qualidade em um ativo.
 2. Use um dos seguintes serviços da Análise de Mídia para processar seus vídeos:
 	
-	- **Indexador** – [Processe vídeos com o Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
-	- **Hyperlapse** – [Arquivos de mídia do Hyperlapse com o Azure Media Hyperlapse](media-services-hyperlapse-content.md)
-	- **Detecção de movimento** – [Detecção de movimento para a Análise de Mídia do Azure](media-services-motion-detection.md).
-	- **Detecção de face e emoções** – [Detecção de emoção e face para a Análise de Mídia do Azure](media-services-face-and-emotion-detection.md).
-	- **Resumo de vídeo** – [Usar as miniaturas de vídeo de Mídia do Azure para criar um resumo de vídeo](media-services-video-summarization.md)
+	- **Indexador** – [processe vídeos com o Indexador de Mídia do Azure 2](media-services-process-content-with-indexer2.md)
+	- **Hyperlapse** – [arquivos de mídia do Hyperlapse com o Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+	- **Detecção de movimento** – [detecção de movimento para a Análise de Mídia do Azure](media-services-motion-detection.md).
+	- **Detecção de face e emoções** – [detecção de emoção e face para a Análise de Mídia do Azure](media-services-face-and-emotion-detection.md).
+	- **Resumo de vídeo** – [usar as miniaturas de vídeo de Mídia do Azure para criar um resumo de vídeo](media-services-video-summarization.md)
 3. O processador de mídia da Análise de Mídia produz arquivos MP4 ou arquivos JSON. Se um processador de mídia produzir um arquivo MP4, você poderá baixar o arquivo progressivamente. Se um processador de mídia produzir um arquivo JSON, você poderá baixar o arquivo do Armazenamento de Blobs do Azure. 
 
 
@@ -132,17 +128,6 @@ A Análise de Mídia é uma coleção de componentes de fala e de visão que fac
   
 1. Download progressivo de conteúdo.
 
-###Consulte também
-
-- [Como: carregar conteúdo](media-services-manage-content.md#upload)
-- [Como obter um processador de mídia](media-services-get-media-processor.md)
-- [Como codificar conteúdo](media-services-manage-content.md#encode)
-- [Como monitorar trabalhos](media-services-portal-check-job-progress.md)
-- [Como usar a análise](media-services-analytics-overview.md)
-- [Como proteger conteúdo](media-services-manage-content.md#encrypt)
-- [Como proteger publicação](media-services-manage-content.md#publish)
-- [Como dimensionar a codificação](media-services-portal-encoding-units.md)
-
 ##<a id="live_scenarios"></a>Trabalhando com Eventos de Live Streaming com os Serviços de Mídia do Azure
 
 Ao trabalhar com a transmissão ao vivo, normalmente os seguintes componentes estão envolvidos:
@@ -150,13 +135,14 @@ Ao trabalhar com a transmissão ao vivo, normalmente os seguintes componentes es
 - Uma câmera é usada para transmitir um evento.
 - Um codificador de vídeo ao vivo que converte os sinais da câmera para fluxos que são enviados a um serviço de transmissão ao vivo.
 
-Opcionalmente, vários codificadores ao vivo. Para determinados eventos ao vivo críticos que demandam disponibilidade e qualidade de experiência muito altas, é recomendável utilizar codificadores redundantes ativo-ativo para atingir um failover contínuo sem perda de dados.
+	Opcionalmente, vários codificadores sincronizados em tempo real. Para determinados eventos ao vivo críticos que demandam disponibilidade e qualidade de experiência muito altas, é recomendável utilizar codificadores redundantes ativo-ativo para atingir um failover contínuo sem perda de dados.
 - Um serviço de streaming ao vivo que permite que você faça o seguinte:
-- inclusão de conteúdo ao vivo usando diversos protocolos de transmissão ao vivo (por exemplo RTMP ou Smooth Streaming),
-- codificação de seu fluxo no fluxo de taxa de bits adaptável
-- visualização de sua transmissão ao vivo,
-- armazenamento do conteúdo incluído para ser transmitido posteriormente (vídeo sob demanda)
-- fornecimento do conteúdo por meio de protocolos de transmissão comuns (por exemplo, MPEG DASH, Smooth, HLS, HDS) diretamente aos seus clientes ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior.
+	
+	- inclusão de conteúdo ao vivo usando diversos protocolos de transmissão ao vivo (por exemplo RTMP ou Smooth Streaming),
+	- (opcionalmente) codificação de seu fluxo no fluxo de taxa de bits adaptável
+	- visualização de sua transmissão ao vivo,
+	- armazenamento do conteúdo incluído para ser transmitido posteriormente (vídeo sob demanda)
+	- fornecimento do conteúdo por meio de protocolos de transmissão comuns (por exemplo, MPEG DASH, Smooth, HLS, HDS) diretamente aos seus clientes ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior.
 
 
 Os **Serviços de Mídia do Microsoft Azure** (AMS) fornecem a capacidade de incluir, codificar, visualizar, armazenar e fornecer o conteúdo de transmissão ao vivo.
@@ -165,17 +151,24 @@ Ao fornecer conteúdo aos clientes, sua meta é fornecer um vídeo de alta quali
 
 Nos Serviços de Mídia do Azure, **Canais**, **Programas** e **StreamingEndpoints** tratam de todas as funcionalidades de transmissão ao vivo, incluindo ingestão, formatação, DVR, segurança, escalabilidade e redundância.
 
-Um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Atualmente, um Canal pode receber fluxos de entrada ao vivo da seguinte maneira:
+Um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um Canal pode receber fluxos de entrada ao vivo da seguinte maneira:
 
+- Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai**s sem nenhum processamento adicional. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Um codificador ativo também pode enviar um streaming de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
+	>[AZURE.NOTE] Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Confira os detalhes de [preço](/pricing/details/media-services/).
+	
 - Um codificador ao vivo local envia um fluxo de taxa de bits adaptável única para o Canal que é habilitado para realizar a codificação ao vico com os serviços de mídia em um dos seguintes formatos: RTP (MPEG-TS), RTMP oi Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
-A codificação de um fluxo ao vivo com os Serviços de Mídia está no modo **Visualização**.
-- Um codificador ativo local envia um **RTMP** ou **Smooth Streaming** (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming de múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Seu codificador ao vivo também pode enviar um fluxo de taxa de bits única para um canal que não está habilitado para codificação ao vivo, mas que não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
+###Trabalhando com canais que recebem a transmissão ao vivo de múltiplas taxas de bits de codificadores locais (passagem)
+
+O diagrama a seguir mostra as partes principais da plataforma AMS que estão envolvidas no fluxo de trabalho de **passagem**.
+
+![Fluxo de trabalho ao vivo][live-overview2]
+
+Para obter mais informações, consulte [Trabalhando com Canais que Recebem a Transmissão ao Vivo de Múltiplas Taxas de Bits de Codificadores Locais](media-services-live-streaming-with-onprem-encoders.md).
 
 ###Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure
-
 
 O diagrama a seguir mostra as partes principais da plataforma AMS envolvidas no fluxo de trabalho de transmissão ao vivo em que um canal está habilitado para executar a codificação ao vivo com os serviços de mídia.
 
@@ -183,15 +176,6 @@ O diagrama a seguir mostra as partes principais da plataforma AMS envolvidas no 
 
 Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-
-###Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais
-
-
-O diagrama a seguir mostra as partes principais da plataforma AMS que estão envolvidas no fluxo de trabalho de transmissão ao vivo.
-
-![Fluxo de trabalho ao vivo][live-overview2]
-
-Para obter mais informações, consulte [Trabalhando com Canais que Recebem a Transmissão ao Vivo de Múltiplas Taxas de Bits de Codificadores Locais](media-services-live-streaming-with-onprem-encoders.md).
 
 ##Consumo de conteúdo
 
@@ -236,4 +220,4 @@ Para obter mais informações, veja [SLA do Microsoft Azure](https://azure.micro
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

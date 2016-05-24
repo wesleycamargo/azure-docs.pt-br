@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/28/2016"
+   ms.date="05/05/2016"
    ms.author="sstein"/>
 
 # Visão do desempenho de consulta de Banco de Dados SQL do Azure
@@ -46,9 +46,9 @@ A Visão do Desempenho de Consulta é fácil de usar:
 
 - Examine a lista das consultas que consomem mais recursos. 
 - Escolha uma consulta individual para exibir seus detalhes.
-- Abra o [Performance Advisor](sql-database-index-advisor.md) e verifique se há alguma recomendação disponível.
+- Abra o [Advisor do Banco de Dados SQL](sql-database-index-advisor.md) e verifique se há alguma recomendação disponível.
 - Aplique zoom para obter informações detalhadas.
-- 
+
     ![painel de desempenho](./media/sql-database-query-performance/performance.png)
 
 > [AZURE.NOTE] São necessárias duas horas de dados a serem capturados por Armazenamento de Consulta fornecer a visão de desempenho de consulta no banco de dados SQL. Se o banco de dados não tem atividades ou o Armazenamento de Consulta não estava ativo durante um determinado período de tempo, os gráficos estarão vazios ao exibir o período de tempo. Você pode habilitar o Armazenamento de Consulta a qualquer momento se ele não estiver em execução.
@@ -59,7 +59,7 @@ A Visão do Desempenho de Consulta é fácil de usar:
 
 No [portal](http://portal.azure.com), faça o descrito a seguir:
 
-1. Navegue até um banco de dados SQL e clique em **Todas as Configurações** > **Desempenho** > **Consultas**. 
+1. Navegue até um Banco de Dados SQL e clique em **Todas as Configurações** > **Desempenho** > **Consultas**. 
 
     ![Visão de Desempenho de Consulta][1]
 
@@ -71,8 +71,9 @@ No [portal](http://portal.azure.com), faça o descrito a seguir:
 
     A grade inferior representa informações agregadas das consultas visíveis.
 
-    -	Média de CPU por consulta durante o intervalo observável. 
-    -	Duração total por consulta.
+    -	ID da consulta: identificador exclusivo da consulta no banco de dados. 
+    -	CPU por consulta durante o intervalo observável (depende da função de agregação).
+    -	Duração por consulta (depende da função de agregação).
     -	Número total de execuções para uma consulta específica.
 
 
@@ -124,9 +125,9 @@ Há dois tipos de política de retenção:
 
 A política de captura pode ser definida para:
 
-- **Todas** – captura todas as consultas. Essa é a opção padrão.
-- **Automática** – consultas não frequentes e consultas com duração de execução e compilação insignificantes serão ignoradas. Os limites da duração de contagem de execução, compilação e tempo de execução são determinados internamente.
-- **Nenhuma** – o Repositório de Consultas interrompe a captura de novas consultas.
+- **Todas**: captura todas as consultas. Essa é a opção padrão.
+- **Automática**: consultas pouco frequentes e consultas com duração de execução e compilação insignificantes são ignoradas. Os limites da duração de contagem de execução, compilação e tempo de execução são determinados internamente.
+- **Nenhuma**: o Repositório de Consultas interrompe a captura de novas consultas.
 	
 É recomendável definir todas as políticas para AUTOMÁTICA e a limpeza de políticas para 30 dias:
 
@@ -151,14 +152,14 @@ Limpe o Repositório de Consultas. Esteja ciente de que essa ação excluirá to
 
 ## Resumo
 
-A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você saberá mais sobre as consultas que consomem mais recursos e identificará facilmente as que devem ser corrigidas antes que as mesmas se tornem um problema. Clique em **Análise de Desempenho de Consultas** em um banco de dados para ver as consultas que mais consomem recursos (CPU).
+A Visão do Desempenho de Consulta ajuda a entender o impacto de sua carga de trabalho de consulta e como ela se relaciona com o consumo de recursos do banco de dados. Com esse recurso, você saberá mais sobre as consultas que consomem mais recursos e identificará facilmente as que devem ser corrigidas antes que as mesmas se tornem um problema.
 
 
 
 
 ## Próximas etapas
 
-Para obter recomendações adicionais para melhorar o desempenho do seu banco de dados SQL, clique em [Performance Advisor](sql-database-index-advisor.md) na folha **Análise de Desempenho de Consultas**.
+Para obter recomendações adicionais para melhorar o desempenho do seu Banco de Dados SQL, clique em [Advisor do Banco de Dados](sql-database-index-advisor.md) na folha **Análise de Desempenho de Consultas**.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 
@@ -168,4 +169,4 @@ Para obter recomendações adicionais para melhorar o desempenho do seu banco de
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

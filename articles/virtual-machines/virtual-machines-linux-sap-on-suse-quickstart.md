@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/04/2016"
    ms.author="hermannd"/>
 
 # Teste do SAP NetWeaver em VMs SUSE Linux no Microsoft Azure
@@ -161,4 +161,4 @@ Se você deseja usar a área de trabalho Gnome para instalar um sistema de demon
 
 Há uma restrição de suporte da Oracle para Linux em ambientes virtualizados. Embora este não seja um tópico específico do Azure, é importante entender. O SAP não oferece suporte ao Oracle no SUSE ou ao Red Hat em uma nuvem pública como o Azure. Para discutir sobre este tópico, contate diretamente o Oracle.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="04/28/2016"
+    ms.date="05/10/2016"
     ms.author="sidneyh"/>
 
 # Monitorar e gerenciar um pool de banco de dados elástico com o PowerShell 
@@ -31,6 +31,7 @@ Para ver os códigos de erro comuns, confira [Códigos de erro de SQL para aplic
 Valores para os pools podem ser encontrados em [limites de armazenamento e eDTU](sql-database-elastic-pool#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ## Pré-requisitos
+
 * Azure PowerShell 1.0 ou superior. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 * Os pools de banco de dados elásticos só estão disponíveis em servidores do Banco de Dados SQL V12. Se você tiver um servidor de Banco de Dados SQL V11, [use o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server-portal.md) em uma única etapa.
 
@@ -101,6 +102,26 @@ Para essa API, as métricas recuperadas são expressadas como um percentual das 
 Para recuperar as métricas:
 
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+
+## Coletar e monitorar dados de uso de recursos em vários pools em uma assinatura
+
+Quando você tiver um grande número de bancos de dados em uma assinatura, é complicado monitorar cada pool elástico separadamente. Em vez disso, os cmdlets do PowerShell do Banco de Dados SQL e consultas T-SQL podem ser combinadas para coletar dados de uso de recursos de vários pools e bancos de dados para monitoramento e análise de uso de recursos. Uma [implementação de exemplo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) de tal um conjunto de scripts do powershell podem ser encontrados no repositório de exemplos do SQL Server do GitHub junto com a documentação sobre o que ele faz e como usá-lo.
+
+Para usar esta implementação de exemplo, siga as etapas listadas abaixo.
+
+
+1. Baixe os [scripts e documentação](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools):
+2. Modifique os scripts para seu ambiente. Especifique um ou mais servidores nos quais os pools elásticos são hospedados.
+3. Especifique um banco de dados de telemetria no qual as métricas coletadas serão armazenadas. 
+4. Personalize o script para especificar a duração da execução de scripts.
+
+Em um alto nível, os scripts fazem o seguinte:
+
+*	Enumera todos os servidores em uma determinada assinatura do Azure (ou uma lista de servidores específicos).
+*	Executa um trabalho em segundo plano para cada servidor. O trabalho é executado em um loop em intervalos regulares e coleta dados de telemetria de todos os pools no servidor. Em seguida, ele carrega os dados coletados no banco de dados de telemetria especificado.
+*	Enumera uma lista de bancos de dados em cada pool para coletar os dados de uso de recursos do banco de dados. Em seguida, ele carrega os dados coletados no banco de dados de telemetria.
+
+As métricas coletadas no banco de dados de telemetria podem ser analisadas para monitorar a integridade dos pools elásticos e os bancos de dados nele. O script também instala uma TVF (função Tabela-Valor) predefinida no banco de dados de telemetria para ajudar a agregar as métricas para um período específico. Por exemplo, os resultados da TVF podem ser usados para mostrar "principais pools elásticos N” com a utilização de eDTU máxima em uma determinada janela de tempo". Outra opção é usar ferramentas analíticas como o Excel ou o Power BI para consultar e analisar os dados coletados.
 
 ## Exemplo: recuperar as métricas de consumo de recursos para um pool e seus bancos de dados
 
@@ -187,7 +208,7 @@ O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atua
 
 ## Próximas etapas
 
-- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos permitem a execução de scripts T-SQL em vários bancos de dados no pool.
-- Confira [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados, consultar ou criar transações.
+- [Criar trabalhos elásticos](sql-database-elastic-jobs-overview.md) Os trabalhos elásticos permitem executar scripts T-SQL em vários bancos de dados no pool.
+- Consulte [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use as ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados e consultar ou criar transações.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

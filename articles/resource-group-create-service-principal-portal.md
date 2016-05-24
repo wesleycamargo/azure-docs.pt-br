@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,20 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="04/18/2016"
    ms.author="tomfitz"/>
 
 # Criar o aplicativo do Active Directory e a entidade de serviço usando o portal
 
 ## Visão geral
-Quando tiver um aplicativo ou processo automatizado que precisa acessar ou modificar um recursos, você poderá usar o portal clássico para criar um aplicativo do Active Directory. Quando você cria um aplicativo do Active Directory por meio do portal clássico, ele realmente cria o aplicativo e uma entidade de serviço. Você pode executar o aplicativo em sua própria identidade ou sob a identidade do usuário conectado de seu aplicativo. Esses dois métodos de autenticação dos aplicativos são chamados de interativo (o usuário se conecta) e não interativo (o aplicativo fornece suas próprias credenciais). No modo não interativo, você deve atribuir a entidade de serviço a uma função com a permissão correta.
+Quando tiver um aplicativo ou processo automatizado que precisa acessar ou modificar um recursos, você poderá usar o portal clássico para criar um aplicativo do Active Directory. Você pode executar o aplicativo em sua própria identidade ou sob a identidade do usuário conectado de seu aplicativo. Esses dois métodos de autenticação dos aplicativos são chamados de interativo (o usuário se conecta) e não interativo (o aplicativo fornece suas próprias credenciais). No modo não interativo, você deve atribuir uma função com a permissão correta à identidade para o aplicativo. Se seu aplicativo for executado de modo autônomo, como um processo de back-end, você deverá usar a autenticação não interativa.
 
-Este tópico mostra como criar um novo aplicativo e uma nova entidade de serviço usando o portal clássico. Atualmente, você deve usar o portal clássico para criar um novo aplicativo do Active Directory. Essa capacidade será adicionada ao portal do Azure em uma versão posterior. Você pode usar o portal para atribuir o aplicativo a uma função. Você também pode executar essas etapas através do Azure PowerShell ou da CLI do Azure. Para obter mais informações sobre como usar o PowerShell ou a CLI com a entidade de serviço, confira [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
+Este tópico mostra como criar um novo aplicativo usando o portal clássico. Atualmente, você deve usar o portal clássico para criar um novo aplicativo do Active Directory. Você pode usar o portal para atribuir o aplicativo a uma função.
+
+Você também pode executar essas etapas através do Azure PowerShell ou da CLI do Azure. Para obter mais informações sobre como usar o PowerShell ou a CLI com a entidade de serviço, confira [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 
 ## Conceitos
 1. AAD (Active Directory do Azure) - um serviço de gerenciamento de identidades e acesso desenvolvido para a nuvem. Para mais detalhes, consulte: [O que é o Azure Active Directory](active-directory/active-directory-whatis.md)
-2. Entidade de serviço - uma instância de um aplicativo em um diretório.
-3. Aplicativo do AD - um registro de diretório no AAD que identifica um aplicativo ao AAD. 
+2. Aplicativo do AD - um registro de diretório no Active Directory que identifica um aplicativo. 
+3. Entidade de serviço - uma instância do aplicativo ao qual você pode aplicar funções de controle de acesso.
 
 Para obter uma explicação mais detalhada de aplicativos e entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço](active-directory/active-directory-application-objects.md). Para obter mais informações sobre a autenticação do Active Directory, consulte [Cenários de autenticação do Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
@@ -40,10 +42,14 @@ Para aplicativos interativos e não interativos, você deve criar e configurar s
 2. Selecione **Active Directory** no painel à esquerda.
 
      ![selecionar Active Directory][1]
-
-3. Selecione o diretório que você deseja usar para criar o novo aplicativo.
+     
+3. Selecione o diretório que você deseja usar para criar o novo aplicativo. Para recursos em sua assinatura, você só pode atribuir acesso para entidades de serviço no mesmo diretório de sua assinatura. Normalmente, é melhor que você crie o aplicativo no diretório em que reside a sua assinatura.
 
      ![escolher o diretório][2]
+     
+    Se você precisar localizar o diretório de sua assinatura, selecione **Configurações** e procure pelo nome do diretório.
+   
+     ![encontrar diretório padrão](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
 3. Para exibir os aplicativos em seu diretório, clique em **Aplicativos**.
 
@@ -65,7 +71,7 @@ Para aplicativos interativos e não interativos, você deve criar e configurar s
 
      ![nomear aplicativo][9]
 
-7. Preencha as propriedades de seu aplicativo. Para **URL DE LOGON**, forneça o URI para um site da Web que descreve seu aplicativo. A existência do site Web não é validada. Para **URI DE ID DO APLICATIVO**, forneça o URI que identifica seu aplicativo. A exclusividade ou existência do ponto de extremidade não está validada. Se você tiver selecionado **Aplicativo Cliente Nativo** para o tipo de aplicativo, forneça um valor para **URI de Redirecionamento**. Clique em **Concluir** para criar seu aplicativo AAD.
+7. Preencha as propriedades de seu aplicativo. Para **URL DE LOGON**, forneça o URI para um site da Web que descreve seu aplicativo. A existência do site Web não é validada. Para **URI DE ID DO APLICATIVO**, forneça o URI que identifica seu aplicativo. A exclusividade ou existência do ponto de extremidade não está validada. Se você tiver selecionado **Aplicativo Cliente Nativo** para o tipo de aplicativo, forneça um valor para **URI de Redirecionamento**. Clique em **Concluir** para criar seu aplicativo do AAD.
 
      ![propriedades do aplicativo][4]
 
@@ -83,7 +89,7 @@ Em alguns casos, você precisa passar o ID de locatário com a solicitação de 
 
 Não existem pontos de extremidade disponíveis para Aplicativos Clientes Nativos. Em vez disso, você pode recuperar a ID do locatário por meio do PowerShell:
 
-    PS C:\> Get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 ou o CLI do Azure:
 
@@ -120,11 +126,11 @@ Se o aplicativo acessa recursos em nome do usuário conectado, você deve conced
 
 1. Selecione **Adicionar aplicativo**.
 
-2. Na lista, selecione a **API de gerenciamento de serviços do Azure**.
+2. Na lista, selecione a **API de Gerenciamento de Serviços do Azure**.
 
       ![selecionar aplicativo](./media/resource-group-create-service-principal-portal/select-app.png)
 
-3. Adicione a permissão delegada **Acessar o Gerenciamento de Serviço do Azure (visualização)** à API de gerenciamento de serviços.
+3. Adicione a permissão delegada **Access Azure Service Management (preview) (Acessar o Gerenciamento de Serviços do Azure [preview])** à API de gerenciamento de serviços.
 
        ![selecionar permissão](./media/resource-group-create-service-principal-portal/select-permissions.png)
 
@@ -218,7 +224,7 @@ Você pode passar o token no cabeçalho de solicitação com o seguinte código:
 
 - Para aprender a especificar políticas de segurança, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).  
 - Para obter uma demonstração em vídeo dessas etapas, confira [Habilitando o gerenciamento programático de um Recurso do Azure Resource com o Active Directory do Azure](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- Para saber como usar o Azure PowerShell ou a CLI do Azure para trabalhar com aplicativos do Active Directory e entidades de serviço, incluindo como usar um certificado para autenticação, confira [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](./resource-group-authenticate-service-principal.md).
+- Para saber como usar o Azure PowerShell ou a CLI do Azure para trabalhar com aplicativos do Active Directory e entidades de serviço, incluindo como usar um certificado para autenticação, confira [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](resource-group-authenticate-service-principal.md).
 - Para obter orientações sobre como implantar recursos de segurança com o Gerenciador de Recursos do Azure, confira [Considerações de segurança do Gerenciador de Recursos do Azure](best-practices-resource-manager-security.md).
 
 
@@ -237,4 +243,4 @@ Você pode passar o token no cabeçalho de solicitação com o seguinte código:
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

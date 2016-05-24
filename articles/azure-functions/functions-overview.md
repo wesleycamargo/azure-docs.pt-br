@@ -87,4 +87,4 @@ Para saber mais sobre o dimensionamento de suas funções, confira [Como dimensi
 + [Como escalar o Azure Functions](functions-scale.md) Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico e como escolher o plano certo. 
 + [Saiba mais sobre o Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) O Azure Functions utiliza a plataforma Serviço de Aplicativo do Azure para a funcionalidade básica, como implantações, variáveis de ambiente e diagnóstico. 
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

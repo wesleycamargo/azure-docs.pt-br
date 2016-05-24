@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Transações no SQL Data Warehouse
@@ -27,6 +27,7 @@ O SQL Data Warehouse implementa transações ACID. No entanto, o isolamento do s
 Uma única transação de modificação de dados é limitada em tamanho. Hoje, o limite é aplicado “por distribuição”. Portanto, para obter o valor total, devemos multiplicar o limite pela contagem de distribuição. Para chegar a uma aproximação do número máximo de linhas na transação, divida o limite de distribuição pelo tamanho total de cada coluna. Para colunas de tamanho variável, considere o uso de um tamanho médio de coluna em vez do tamanho máximo.
 
 Na tabela abaixo, foram feitas as seguintes suposições:
+
 * Ocorreu uma distribuição uniforme dos dados 
 * O tamanho médio da linha é de 250 bytes
 
@@ -140,4 +141,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvime
 
 <!--Other Web references-->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="02/05/2016"
+ ms.date="04/26/2016"
  ms.author="larryfr"/>
 
 # Desenvolver trabalhos de MapReduce do Scalding com o Apache Hadoop no HDInsight
@@ -203,13 +203,13 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
 3. Uma vez conectado ao nó principal, use o seguinte comando para executar o trabalho de contagem de palavras
 
-        hadoop jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasb:///example/data/gutenberg/davinci.txt --output wasb:///example/wordcountout
+        yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasb:///example/data/gutenberg/davinci.txt --output wasb:///example/wordcountout
 
     Isso executa a classe WordCount implementada anteriormente. `--hdfs` instrui o trabalho para usar HDFS. `--input` especifica o arquivo de texto de entrada, enquanto `--output` especifica o local de saída.
 
 4. Após concluir o trabalho, use o seguinte para exibir a saída.
 
-        hadoop fs -text wasb:///example/wordcountout/part-00000
+        hdfs dfs -text wasb:///example/wordcountout/part-00000
 
     Isso exibirá informações semelhantes às seguintes:
 
@@ -229,9 +229,9 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
 ## Executar o trabalho em um cluster baseado em Windows
 
-> [AZURE.NOTE] As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
+As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
-1. [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 2. Inicie o Azure PowerShell e faça logon em sua conta do Azure. Depois de fornecer suas credenciais, o comando retornará informações sobre sua conta.
 
@@ -344,4 +344,4 @@ Agora que você aprendeu como usar o Scalding para criar trabalhos do MapReduce 
 
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -69,7 +69,7 @@ Nesta seção, você executará as etapas para criar uma entidade de serviço pa
 
 3. Conceda à entidade de serviço permissões em sua assinatura. Neste exemplo você concederá à entidade de serviço a permissão para ler todos os recursos na assinatura. Para o parâmetro **ServicePrincipalName**, forneça **ApplicationId** ou **IdentifierUris** usado ao criar o aplicativo. Para saber mais sobre o controle de acesso baseado em função, confira [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md)
 
-        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
 Você criou um aplicativo do Active Directory e uma entidade de serviço para esse aplicativo. Você atribuiu a entidade de serviço a uma função. Agora, você precisa fazer logon como a entidade de serviço para executar operações como a entidade de serviço. Este tópico mostra três opções:
 
@@ -523,4 +523,4 @@ Para obter mais informações sobre como usar os certificados e a CLI do Azure, 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

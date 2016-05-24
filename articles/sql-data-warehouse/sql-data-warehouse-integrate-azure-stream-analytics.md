@@ -86,8 +86,8 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 <!--Article references-->
 
-[Introdução ao Stream Analytics do Azure]: stream-analytics-introductiond.md
-[Introdução ao uso do Stream Analytics do Azure]: stream-analytics-get-started.md
+[Introdução ao Stream Analytics do Azure]: ../stream-analytics/stream-analytics-introductiond.md
+[Introdução ao uso do Stream Analytics do Azure]: ../stream-analytics/stream-analytics-get-started.md
 [Visão geral sobre o desenvolvimento no SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
 [Visão geral de integração do SQL Data Warehouse]: sql-data-warehouse-overview-integrate.md
 
@@ -96,4 +96,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

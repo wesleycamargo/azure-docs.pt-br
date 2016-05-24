@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/10/2016" 
 	ms.author="mandia"/>
 
 # Conecte-se aos conectores locais no serviço de aplicativo do Azure usando o Gerenciador de Conexão Híbrida
@@ -109,13 +109,17 @@ Porta do sistema local | No sistema local, abra a porta usada pelo sistema. Por 
 
 ## Perguntas frequentes
 
-**Pergunta**: há dois Gerenciadores de Conexões Híbridas. Qual é a diferença?<br/> **Resposta**: a tecnologia de [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) é usada principalmente por aplicativos Web (antigos sites) e aplicativos móveis (antigos serviços móveis) para estabelecer conexão local. Esse Gerenciador de Conexões Híbridas é sua própria [instalação](../biztalk-services/integration-hybrid-connection-create-manage.md) e usa um serviço BizTalk do Azure (em segundo plano). Ele dá suporte apenas aos protocolos TCP e HTTP.
+**PERGUNTA**: há dois Gerenciadores de Conexões Híbridas. Qual é a diferença?
+
+**Resposta**: a tecnologia de [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) é usada principalmente por aplicativos Web (antigos sites) e aplicativos móveis (antigos serviços móveis) para estabelecer conexão local. Esse Gerenciador de Conexões Híbridas é sua própria [instalação](../biztalk-services/integration-hybrid-connection-create-manage.md) e usa um serviço BizTalk do Azure (em segundo plano). Ele dá suporte apenas aos protocolos TCP e HTTP.
 
 Com os conectores do Serviço de Aplicativo do Azure, também temos um Gerenciador de Conexão Híbrida. Esse Gerenciador de Conexão Híbrida *não* usar um serviço BizTalk do Azure (em segundo plano) e dá suporte a mais protocolos além de TCP e HTTP. Consulte a [Lista de aplicativos de API e conectores](app-service-logic-connectors-list.md).
 
 Ambos usam o Barramento de Serviço do Azure para se conectar ao sistema local.
 
-**Pergunta**: quando eu crio um aplicativo de API personalizado, posso usar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para estabelecer conexão local? <br/> **Resposta**: não no sentido tradicional. Você pode usar um conector interno e configurar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para se conectar ao sistema local. Em seguida, use esse conector com seu aplicativo de API personalizado, possivelmente usando um aplicativo lógico. No momento, você não pode desenvolver ou criar seu próprio aplicativo de API híbrido (como o conector SQL ou conector de arquivo).
+**PERGUNTA**: quando eu crio um aplicativo de API personalizado, posso usar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para estabelecer conexão local?
+
+**Resposta**: não no sentido tradicional. Você pode usar um conector interno e configurar o Gerenciador de Conexão Híbrida do Serviço de Aplicativo para se conectar ao sistema local. Em seguida, use esse conector com seu aplicativo de API personalizado, possivelmente usando um aplicativo lógico. No momento, você não pode desenvolver ou criar seu próprio aplicativo de API híbrido (como o conector SQL ou o conector de arquivo).
 
 Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e o Gerenciador de Conexão Híbrida. Nesse cenário, um serviço BizTalk do Azure é usado. [Conectar-se a um SQL Server local por meio de um aplicativo Web](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) pode ajudar.
 
@@ -136,4 +140,4 @@ Se sua API personalizada usar uma porta TCP ou HTTP, você poderá usar [conexõ
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

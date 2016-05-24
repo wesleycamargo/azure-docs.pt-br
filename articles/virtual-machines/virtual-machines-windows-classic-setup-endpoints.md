@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="04/19/2016"
 	ms.author="cynthn"/>
 
 # Como configurar pontos de extremidade em uma máquina virtual clássica no Azure
@@ -36,6 +36,6 @@ Quando você cria uma máquina virtual do Windows no portal clássico do Azure, 
 
 * Para usar um cmdlet do Azure PowerShell para gerenciar uma ACL em um ponto de extremidade, consulte [Como gerenciar ACLs (listas de controle de acesso) para pontos de extremidade usando o PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
-* Se você criou uma máquina virtual no modelo de implantação do Resource Manager, também pode usar o Azure PowerShell para [criar um balanceador de carga para Internet](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+* Se você criou uma máquina virtual no modelo de implantação do Resource Manager, é possível usar o Azure PowerShell para [criar grupos de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-ps.md) a fim de controlar o tráfego para a VM.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

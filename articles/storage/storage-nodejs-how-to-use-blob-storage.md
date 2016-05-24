@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como usar o armazenamento de Blob do Node.js | Microsoft Azure"
-	description="Saiba como usar o Armazenamento de Blobs do Azure para carregar, baixar, listar e excluir conteúdo de blob. Os exemplos estão escritos no arquivo Node.js."
+	description="Armazene dados não estruturados na nuvem com o Armazenamento de Blobs do Azure (armazenamento de objeto)."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/08/2016"
+    ms.date="04/29/2016"
 	ms.author="micurd"/>
 
 
@@ -415,4 +415,4 @@ Para saber mais, consulte os recursos a seguir.
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referência do SDK do Armazenamento do Azure para APIs de nó]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

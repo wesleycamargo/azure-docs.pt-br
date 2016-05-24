@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configurando credenciais de autenticação nomeadas
@@ -33,7 +33,7 @@ O Visual Studio usa sua ID da assinatura junto com os dados do certificado como 
 
 Você pode editar as informações de assinatura da caixa de diálogo **Nova/Editar Assinatura**, conforme explicado posteriormente neste tópico.
 
-Para criar um certificado por conta própria, você pode consultar as instruções em [Criar e carregar um certificado de gerenciamento do Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) e carregar manualmente o certificado para o portal de gerenciamento.
+Se você deseja criar um certificado por conta própria, pode consultar as instruções em [Criar e carregar um certificado de gerenciamento do Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx) e carregar manualmente o certificado para o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 >[AZURE.NOTE] Essas credenciais que o Visual Studio requer para gerenciar seus serviços de nuvem não são as mesmas credenciais necessárias para autenticar uma solicitação nos serviços de armazenamento do Azure.
 
@@ -53,15 +53,15 @@ O procedimento a seguir pressupõe que a caixa de diálogo **Nova Assinatura** e
 
 1. Escolha o botão **Copiar o caminho completo**. O caminho para o certificado (arquivo .cer) é copiado na área de transferência.
 
-    >[AZURE.IMPORTANT] Para publicar seu aplicativo Azure no Visual Studio, você deve carregar esse certificado no Portal de Gerenciamento.
+    >[AZURE.IMPORTANT] Para publicar seu aplicativo Azure do Visual Studio, você deve carregar esse certificado no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-1. Para carregar o certificado no Portal de Gerenciamento do Azure:
+1. Para carregar o certificado no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885):
 
     1. Escolha o link Portal do Azure.
 
-         O [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) é aberto.
+         O [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) abre.
 
-    1. Entre no Portal de Gerenciamento do Azure usando sua conta da Microsoft e, em seguida, escolha o botão **Serviços de Nuvem**.
+    1. Entre no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) e selecione o botão **Serviços de Nuvem**.
 
     1. Escolha o serviço de nuvem que lhe interessa.
 
@@ -71,4 +71,4 @@ O procedimento a seguir pressupõe que a caixa de diálogo **Nova Assinatura** e
 
     1. Cole o caminho completo do arquivo .cer que você acabou de criar e, em seguida, digite a senha que especificou.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="05/13/2016"
    ms.author="sonyama;barbkess"/>
 
 # Conectar-se ao SQL Data Warehouse com o Visual Studio
@@ -22,27 +22,26 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-Este passo a passo mostra como se conectar e consultar um banco de dados do SQL Data Warehouse do Azure em apenas alguns minutos usando o SSDT (SQL Server Data Tools) no Visual Studio. Uma vez conectado, você executará uma consulta simples.
+Este passo a passo mostra como conectar um SQL Data Warehouse do Azure em apenas alguns minutos usando a extensão SSDT (SQL Server Data Tools) no Visual Studio. Uma vez conectado, você executará uma consulta simples.
 
 ## Pré-requisitos
 
-+ Banco de dados de exemplo AdventureWorksDW no SQL Data Warehouse. Para criar isso, consulte [Criar um banco de dados do SQL Data Warehouse](sql-data-warehouse-get-started-provision.md).
-+ SQL Server Data Tools para Visual Studio Para obter instruções e opções de instalação, consulte [Instalar o Visual Studio e/OU o SSDT](sql-data-warehouse-install-visual-studio.md)
++ Dados de exemplo do AdventureWorksDW no SQL Data Warehouse. Para criar isso, consulte [Criar um SQL Data Warehouse][].
++ SQL Server Data Tools para Visual Studio Para obter instruções e opções de instalação, consulte [Instalar o Visual Studio e o SSDT][].
 
 ## Etapa 1: Encontrar o nome totalmente qualificado do servidor do SQL Azure
 
-O banco de dados está associado a um servidor do SQL Azure. Para conectar-se ao banco de dados, você precisará do nome totalmente qualificado do servidor (**nomedoservidor**.database.windows.net*).
+O banco de dados SQL Data Warehouse está associado a um SQL Server do Azure. Para conectar o banco de dados, você precisa do nome totalmente qualificado do servidor (**nomeservidor**.database.windows.net*).
 
 Para localizar o nome de servidor totalmente qualificado.
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure][].
 2. Clique em **Bancos de dados SQL** e clique no banco de dados ao qual você deseja se conectar. Este exemplo usa o banco de dados de exemplo AdventureWorksDW.
 3. Localize o nome completo do servidor.
 
     ![Nome completo do servidor][1]
 
-## Etapa 2: Conectar-se ao seu banco de dados SQL
-Para obter a melhor experiência, use o Visual Studio 2015 com a [Atualização mais recente do SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+## Etapa 2: Conectar o SQL Data Warehouse
 
 1. Abra o Visual Studio 2013 ou 2015.
 2. Abra o Pesquisador de Objetos do SQL Server. Para fazer isso, selecione **Exibir** > **Pesquisador de Objetos do SQL Server**.
@@ -57,21 +56,18 @@ Para obter a melhor experiência, use o Visual Studio 2015 com a [Atualização 
 
     ![Conectar-se ao servidor][4]
 
-    - **Nome do servidor**. Insira o *nome do servidor* identificado anteriormente.
-    - **Autenticação**. Selecione Autenticação do SQL Server.
-    - **Nome de usuário** e **Senha**. Insira o nome de usuário e a senha para o servidor SQL do Azure.
-    - **Nome do Banco de Dados** Insira o nome do banco de dados para o banco de dados SQL DW.
+    - **Nome do servidor**. Insira o **nome do servidor** identificado anteriormente.
+    - **Autenticação**. Selecione **Autenticação do SQL Server** ou **Autenticação Integrada do Active Directory**.
+    - **Nome de Usuário** e **Senha**. Insira o nome de usuário e senha se a Autenticação do SQL Server foi selecionada acima.
     - Clique em **Conectar**.
 
 5. Para explorar, expanda seu servidor do SQL Azure. Você pode exibir os bancos de dados associados ao servidor. Expanda o AdventureWorksDW para ver as tabelas no banco de dados de exemplo.
 
     ![Explorar o AdventureWorksWeb][5]
 
-> [AZURE.NOTE] Especificar o banco de dados do SQL Data Warehouse no campo **Nome do Banco de Dados** no momento da conexão (etapa 4) é importante para que a árvore de objetos funcione corretamente. Deixar essa opção em branco e conectar-se ao banco de dados padrão **mestre**, pode não funcionar se alguns dos bancos de dados em seu servidor lógico estiverem em pausa. Essa limitação será resolvida eventualmente, mas enquanto isso, conectar-se ao banco de dados do SQL Data Warehouse garantirá o funcionamento adequado da árvore do Gerenciador de objetos, conforme mostrado acima.
-
 ## Etapa 3: Executar uma consulta de exemplo
 
-Agora que uma conexão foi estabelecida para o banco de dados, vamos prosseguir e escrever uma consulta.
+Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma consulta.
 
 1. Clique com o botão direito do mouse em seu banco de dados no Gerenciador de Objetos do SQL Server.
 
@@ -97,8 +93,16 @@ Agora que uma conexão foi estabelecida para o banco de dados, vamos prosseguir 
 
 Agora que você pode se conectar e consultar, tente [visualizar os dados com o PowerBI][].
 
+Para configurar seu ambiente para a autenticação do Windows, consulte [Conectar Banco de Dados SQL ou SQL Data Warehouse Usando a Autenticação do Azure Active Directory][].
+
+<!--Arcticles-->
+[Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Instalar o Visual Studio e o SSDT]: sql-data-warehouse-install-visual-studio.md
+[Conectar Banco de Dados SQL ou SQL Data Warehouse Usando a Autenticação do Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
 [visualizar os dados com o PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 
+<!--Other-->
+[Portal do Azure]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -111,4 +115,4 @@ Agora que você pode se conectar e consultar, tente [visualizar os dados com o P
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

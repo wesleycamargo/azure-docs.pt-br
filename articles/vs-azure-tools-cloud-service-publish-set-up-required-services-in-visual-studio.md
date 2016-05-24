@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Preparar para publicar ou implantar um aplicativo do Azure do Visual Studio
@@ -30,7 +30,7 @@ Use os procedimentos a seguir para configurar esses serviços e configurar seu a
 
 ## Criar um Serviço de Nuvem
 
-Para publicar um serviço de nuvem no Azure, crie primeiro um serviço de nuvem que executa suas funções no ambiente do Azure. Você pode criar um serviço de nuvem no Portal de Gerenciamento do Azure, conforme descrito na seção **Para criar um serviço de nuvem usando o Portal de Gerenciamento do Azure**, mais adiante neste tópico. Você também pode criar um serviço de nuvem no Visual Studio usando o Assistente de publicação.
+Para publicar um serviço de nuvem no Azure, crie primeiro um serviço de nuvem que executa suas funções no ambiente do Azure. Você pode criar um serviço de nuvem no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), conforme descrito na seção **Para criar um serviço de nuvem usando o Portal Clássico do Azure** mais adiante neste tópico. Você também pode criar um serviço de nuvem no Visual Studio usando o Assistente de publicação.
 
 ### Criar um serviço de nuvem usando o Visual Studio
 
@@ -48,9 +48,9 @@ Para publicar um serviço de nuvem no Azure, crie primeiro um serviço de nuvem 
 
 1. Insira o nome de seu serviço de nuvem. O nome faz parte da URL do serviço e, portanto, deve ser globalmente exclusivo. O nome não diferencia maiúsculas de minúsculas.
 
-### Para criar um serviço de nuvem usando o Portal de Gerenciamento do Azure
+### Para criar um serviço de nuvem usando o Portal Clássico do Azure
 
-1. Entre no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkId=253103) no site da Microsoft.
+1. Entre no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=253103) no site da Microsoft.
 
 1. (opcional) Para exibir uma lista de serviços de nuvem que você criou, escolha o link Serviços de Nuvem no lado esquerdo da página.
 
@@ -66,7 +66,7 @@ Para publicar um serviço de nuvem no Azure, crie primeiro um serviço de nuvem 
 
 ## Criar uma conta de armazenamento
 
-Uma conta de armazenamento fornece acesso aos serviços de blob, fila e tabela. Você pode criar uma conta de armazenamento usando o Visual Studio ou o [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkId=253103).
+Uma conta de armazenamento fornece acesso aos serviços de blob, fila e tabela. Você pode criar uma conta de armazenamento usando o Visual Studio ou o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=253103).
 
 ### Para criar uma conta de armazenamento usando o Visual Studio
 
@@ -82,9 +82,9 @@ Uma conta de armazenamento fornece acesso aos serviços de blob, fila e tabela. 
 
 1. Quando terminar, selecione **Criar**. A nova conta de armazenamento é exibida na lista **armazenamento** no **Gerenciador de Servidores**.
 
-### Para criar uma conta de armazenamento usando o Portal de Gerenciamento do Azure
+### Para criar uma conta de armazenamento usando o Portal Clássico do Azure
 
-1. Entre no [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkId=253103) no site da Microsoft.
+1. Entre no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=253103) no site da Microsoft.
 
 1. (Opcional) Para exibir suas contas de armazenamento, selecione o link **Armazenamento** no painel à esquerda da página.
 
@@ -124,15 +124,15 @@ Configure qualquer função que acessa os serviços de armazenamento para usar o
 
 1. Na lista **assinatura**, escolha sua assinatura. Se a lista de assinaturas não incluir aquela à qual você deseja, escolha o link **baixar configurações de publicação**.
 
-1. Na lista **nome da conta**, escolha o nome da sua conta de armazenamento. As ferramentas do Azure obtêm credenciais da conta de armazenamento automaticamente usando o arquivo .publishsettings. Para especificar as credenciais de conta de armazenamento manualmente, escolha a opção **credenciais inseridas manualmente** e, em seguida, continue com este procedimento. Você pode obter o nome da conta de armazenamento e a chave primária do [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885). Se você não deseja especificar configurações de conta de armazenamento manualmente, escolha o botão **OK** para fechar a caixa de diálogo.
+1. Na lista **nome da conta**, escolha o nome da sua conta de armazenamento. As ferramentas do Azure obtêm credenciais da conta de armazenamento automaticamente usando o arquivo .publishsettings. Para especificar as credenciais de conta de armazenamento manualmente, escolha a opção **credenciais inseridas manualmente** e, em seguida, continue com este procedimento. Você pode obter o nome da conta de armazenamento e a chave primária do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885). Se você não deseja especificar configurações de conta de armazenamento manualmente, escolha o botão **OK** para fechar a caixa de diálogo.
 
 1. Selecione o link **Inserir conta de armazenamento**.
 
 1. No **Nome da conta** digite o nome da sua conta de armazenamento.
 
-    >[AZURE.NOTE] Faça logon no Portal de Gerenciamento do Azure e, em seguida, selecione o botão **Armazenamento**. O portal mostra uma lista de contas de armazenamento. Se você escolher uma conta, uma página será aberta para ela. Você pode copiar o nome da conta de armazenamento nessa página. Se você estiver usando uma versão anterior do Portal de Gerenciamento, o nome da sua conta de armazenamento aparece na exibição **Contas de armazenamento** do Portal de Gerenciamento. Para copiar esse nome, realce-na janela **Propriedades** desta exibição, em seguida, escolha as teclas Ctrl-C. Para colar o nome no Visual Studio, selecione a caixa de texto **Nome da conta** e, em seguida, selecione as teclas Ctrl+V.
+    >[AZURE.NOTE] Faça logon no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) e, em seguida, selecione o botão **Armazenamento**. O portal mostra uma lista de contas de armazenamento. Se você escolher uma conta, uma página será aberta para ela. Você pode copiar o nome da conta de armazenamento nessa página. Se você estiver usando uma versão anterior do portal clássico, o nome da sua conta de armazenamento aparecerá na exibição **Contas de Armazenamento**. Para copiar esse nome, realce-na janela **Propriedades** desta exibição, em seguida, escolha as teclas Ctrl-C. Para colar o nome no Visual Studio, selecione a caixa de texto **Nome da conta** e, em seguida, selecione as teclas Ctrl+V.
 
-1. No caixa **Chave de conta**, digite sua chave primária, ou copie e cole-a do [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar essa chave do Portal de Gerenciamento:
+1. No caixa **Chave de conta**, digite sua chave primária ou copie e cole-a do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar essa chave:
 
     1. Na parte inferior da página para a conta de armazenamento apropriado, selecione o botão **Gerenciar chaves**.
 
@@ -153,4 +153,4 @@ Configure qualquer função que acessa os serviços de armazenamento para usar o
 
 Para obter mais informações sobre publicação de aplicativos para o Azure do Visual Studio, consulte [Publicando um serviço de nuvem usando as ferramentas do Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

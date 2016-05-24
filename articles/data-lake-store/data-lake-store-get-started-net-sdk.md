@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="04/27/2016"
@@ -34,7 +34,7 @@ Saiba como usar o SDK do .NET do Repositório Azure Data Lake para criar uma con
 * Visual Studio 2013 ou 2015. As instruções abaixo usam o Visual Studio 2015.
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup).
-* **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de você poder autenticar usando o Azure Active Directory - **interativa** e **não interativa**. Há pré-requisitos diferentes com base em como você deseja autenticar.
+* **Criar um aplicativo do Azure Active Directory**. Há duas maneiras de você poder autenticar usando o Azure Active Directory - **interativa** e **não interativa**. Existem pré-requisitos diferentes com base na forma como você deseja autenticar.
 	* **Para a autenticação interativa** (usada neste artigo) - no Azure Active Directory, você deve criar um **Aplicativo cliente nativo**. Depois de criar o aplicativo, recupere os seguintes valores relacionados ao aplicativo.
 		- Obter a **ID do cliente** e o **URI de redirecionamento** para o aplicativo
 		- Definir permissões delegadas
@@ -526,4 +526,4 @@ Finalmente, o caminho local e o nome de arquivo fornecido aqui têm que existir 
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

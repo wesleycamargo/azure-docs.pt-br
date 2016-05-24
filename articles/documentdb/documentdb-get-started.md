@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/11/2016"
+	ms.date="05/13/2016"
 	ms.author="anhoh"/>
 
 # Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos
@@ -47,7 +47,7 @@ Agora vamos começar!
 
 Certifique-se que você tem o seguinte:
 
-- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
 - [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 - .NET framework 4.6
 
@@ -594,7 +594,8 @@ Parabéns! Você concluiu este tutorial do NoSQL e tem um aplicativo de console 
 ##<a id="GetSolution"></a> Obter a solução do tutorial do NoSQL completa
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisará do seguinte:
 
--   [Conta de Banco de Dados de Documentos][documentdb-create-account].
+- Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/free/).
+-   Uma [conta de Banco de Dados de Documentos][documentdb-create-account].
 -   A solução [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) disponível no GitHub.
 
 Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no Visual Studio, clique com o botão direito do mouse na solução **GetStarted** no Gerenciador de Soluções e, em seguida, clique em **Habilitar Pacote de Restauração NuGet**. Em seguida, no arquivo App.config, atualize os valores EndpointUrl e AuthorizationKey conforme descrito em [Conectar-se a uma conta do Banco de Dados de Documentos](#Connect).
@@ -610,4 +611,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

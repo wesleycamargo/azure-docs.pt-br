@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste
@@ -149,7 +149,7 @@ Quando você cria uma máquina virtual, o arquivo de configuração JSON é seme
 
 Você pode editar a configuração JSON para alterar o que acontece quando você executa scripts de publicação. As seções `cloudService` e `virtualMachine` são necessárias, mas você pode excluir a seção `databases` se não precisar dela. As propriedades vazias no arquivo de configuração padrão que o Visual Studio gera são opcionais; aquelas que têm valores no arquivo de configuração padrão são obrigatórias.
 
-Se você tiver um site com vários ambientes de implantação (conhecidos como slots) em vez de um único site de produção no Azure, pode incluir o nome do slot no nome do site no arquivo de configuração JSON. Por exemplo, se você tiver um site chamado **mysite** e um slot para ele chamado **teste**, o URI é mysite test.cloudapp.net, mas o nome correto a ser usado no arquivo de configuração é mysite(test). Você só pode fazer isso se o site e os slots já existirem em sua assinatura. Se não existirem, crie o site executando o script sem especificar o slot, e depois crie o slot no portal de gerenciamento do Azure e execute o script com o nome do site modificado. Para obter mais informações sobre os slots de implantação para aplicativos Web, consulte [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](./app-service-web/web-sites-staged-publishing.md).
+Se você tiver um site com vários ambientes de implantação (conhecidos como slots) em vez de um único site de produção no Azure, pode incluir o nome do slot no nome do site no arquivo de configuração JSON. Por exemplo, se você tiver um site chamado **mysite** e um slot para ele chamado **teste**, o URI é mysite test.cloudapp.net, mas o nome correto a ser usado no arquivo de configuração é mysite(test). Você só pode fazer isso se o site e os slots já existirem em sua assinatura. Se não existirem, crie o site executando o script sem especificar o slot e depois crie o slot no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) e execute o script com o nome do site modificado. Para obter mais informações sobre os slots de implantação para aplicativos Web, consulte [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](./app-service-web/web-sites-staged-publishing.md).
 
 ## Como gerar scripts de publicação
 
@@ -351,4 +351,4 @@ Para obter ajuda para as funções que você pode usar no prompt de comando do W
 
 Saiba mais sobre os scripts do PowerShell ao ler [Criando scripts com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e confira outros scripts do Azure PowerShell no [Script Center](https://azure.microsoft.com/documentation/scripts/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Como usar os tópicos e assinaturas do Barramento de Serviço
@@ -123,7 +123,7 @@ for i in range(5):
 	bus_service.send_topic_message('mytopic', msg)
 ```
 
-Os tópicos de Service Bus oferecem suporte a um tamanho máximo de mensagem de 256 MB (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 MB). Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Para saber mais sobre cotas, consulte [Filas do Azure e filas do Barramento de Serviço][].
+Os tópicos de Service Bus oferecem suporte a um tamanho máximo de mensagem de 256 MB (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 MB). Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][].
 
 ## Receber mensagens de uma assinatura
 
@@ -180,6 +180,6 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 [pacote do Python Azure]: https://pypi.python.org/pypi/azure
 [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Filas do Azure e filas do Barramento de Serviço]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+[Cotas do Barramento de Serviço]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

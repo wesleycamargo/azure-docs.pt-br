@@ -48,7 +48,11 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para executar scripts do PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte Usando o cmdlet Set-ExecutionPolicy.
+- **Uma estação de trabalho com o PowerShell do Azure**.
+
+    Para executar scripts do PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte Usando o cmdlet Set-ExecutionPolicy.
+	
+	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 - **Duas redes virtuais do Azure com conectividade VPN com o DNS configurada**. Para obter instruções, consulte [Configurar uma conexão VPN entre duas redes virtuais do Azure][hdinsight-hbase-replication-vnet] e [Configurar DNS entre duas redes virtuais do Azure][hdinsight-hbase-replication-dns].
 
@@ -310,4 +314,4 @@ Neste tutorial, você aprendeu a configurar a replicação do HBase entre dois d
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

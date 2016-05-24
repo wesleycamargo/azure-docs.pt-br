@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Visualização da colaboração do B2B do AD do Azure: limitações da visualização atual
@@ -29,9 +29,9 @@
 - Um máximo de 2.000 registros pode ser carregado por meio do CSV.
 
 ## Artigos relacionados
-Confira nossos outros artigos sobre a colaboração B2B do Azure:
+Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
-- [O que é a colaboração AD B2B do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Como funciona](active-directory-b2b-how-it-works.md)
 - [Passo a passo detalhado](active-directory-b2b-detailed-walkthrough.md)
 - [Referência do formato de arquivo CSV](active-directory-b2b-references-csv-file-format.md)
@@ -39,4 +39,4 @@ Confira nossos outros artigos sobre a colaboração B2B do Azure:
 - [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Introdução às consultas elásticas para fragmentação (particionamento horizontal) | Microsoft Azure"
+	pageTitle="Relatórios em bancos de dados expandidos na nuvem (particionamento horizontal) | Microsoft Azure"
 	description="como usar consultas de banco de dados entre bancos de dados"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
+	manager="jhubbard"
 	authors="sidneyh"/>
 
 <tags
@@ -12,14 +12,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="04/26/2016"
 	ms.author="SilviaDoomra" />
 
-# Introdução às consultas elásticas para fragmentação (particionamento horizontal)
+# Relatórios entre bancos de dados expandidos na nuvem (preview)
 
-A consulta de banco de dados elástico (visualização) para o Banco de Dados SQL do Azure permite executar consultas T-SQL que abrangem vários bancos de dados usando um único ponto de conexão. Para obter mais informações sobre o recurso de consulta de Banco de Dados Elástico, consulte a [página de visão geral do recurso](sql-database-elastic-query-overview.md).
+Você pode criar relatórios de vários bancos de dados do SQL Azure de um ponto de conexão única usando uma [consulta elástica](sql-database-elastic-query-overview.md). Os bancos de dados devem ser particionados horizontalmente (também conhecido como "fragmentados").
 
-Este tópico estende o exemplo encontrado na [Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). Quando tiver concluído, você saberá como configurar e usar um Banco de Dados SQL do Azure para executar consultas que abrangem vários bancos de dados relacionados.
+Se você tiver um banco de dados existente, consulte [Migrando bancos de dados existentes para bancos de dados expandidos](sql-database-elastic-convert-to-use-elastic-tools.md).
+
+Para compreender os objetos SQL necessários para a consulta, veja [Consultar bancos de dados particionados horizontalmente](sql-database-elastic-query-horizontal-partitioning.md).
+
 ## Pré-requisitos
 
 Baixe e execute a [exemplo da Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
@@ -142,4 +145,4 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

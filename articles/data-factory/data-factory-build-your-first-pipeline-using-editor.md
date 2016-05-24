@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="03/03/2016"
+	ms.date="05/16/2016"
 	ms.author="spelluru"/>
 
 # Criar sua primeira data factory do Azure usando o Editor do Portal/Data Factory do Azure
@@ -253,8 +253,8 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2016-02-01T00:00:00Z",
-		        "end": "2016-02-02T00:00:00Z",
+		        "start": "2016-04-01T00:00:00Z",
+		        "end": "2016-04-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
@@ -304,7 +304,7 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 12. Na **Exibição de Diagrama**, clique duas vezes no conjunto de dados **AzureBlobOutput**. Você verá que a fatia que está sendo processada.
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.  
+9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.
 	>[AZURE.IMPORTANT] A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).  
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
@@ -312,6 +312,13 @@ Nesta etapa, você criará seu primeiro pipeline com a atividade **HDInsightHive
 10. Quando a fatia estiver no estado **Pronto**, verifique a pasta **partitioneddata** no contêiner **adfgetstarted** em seu armazenamento de blobs para os dados de saída.
  
 	![dados de saída](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
+
+
+Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-monitor-manage-pipelines.md) para obter instruções sobre como usar o Portal do Azure para monitorar o pipeline e os conjuntos de dados que você criou neste tutorial.
+
+Você também pode **Monitorar e gerenciar aplicativos** para monitorar os pipelines de dados. Veja [Monitorar e gerenciar os pipelines do Azure Data Factory usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) para obter detalhes sobre a utilização do aplicativo.
+
+> [AZURE.IMPORTANT] O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta inputdata do contêiner adfgetstarted.
 
 ## Próximas etapas
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](./data-factory-get-started.md).
@@ -327,4 +334,4 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Fazer logon em uma VM | Microsoft Azure"
+	pageTitle="Logon em uma VM do Azure clássica | Microsoft Azure"
 	description="Use o portal clássico do Azure para fazer logon na máquina virtual do Windows criada com o modelo clássico de implantação."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="05/05/2016"
 	ms.author="cynthn"/>
 
 
@@ -57,4 +57,4 @@ Veja um passo a passo em vídeo deste tutorial. Ele também aborda os pontos de 
 
 Se essas dicas não funcionarem ou se não forem necessárias, consulte [Solucionar problemas de conexões da Área de Trabalho Remota com uma Máquina Virtual do Azure baseada no Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

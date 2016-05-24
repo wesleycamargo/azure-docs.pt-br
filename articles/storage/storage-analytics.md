@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 # Análise de Armazenamento
@@ -69,7 +69,7 @@ Todas as outras solicitações anônimas com falha não estão conectadas. Uma l
 ### Como os logs são armazenados
 Todos os logs são armazenados em blobs de bloco em um contêiner denominado $logs, que é criado automaticamente quando a análise de armazenamento é habilitada para uma conta de armazenamento. O contêiner $logs está localizado no namespace de blob da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Este contêiner não pode ser excluído quando a análise de armazenamento tiver sido habilitada, embora seu conteúdo possa ser excluído.
 
->[Azure.NOTE] O contêiner de $logs não é exibido quando uma operação de listagem do contêiner é executada, como o método [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx). Ele deve ser acessado diretamente. Por exemplo, você pode usar o método [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) para acessar os blobs no contêiner `$logs`. Como as solicitações são registradas, a análise de armazenamento carrega resultados intermediários como blocos. Periodicamente, a análise de armazenamento confirmará esses blocos e os disponibilizará como um blob.
+>[Azure.NOTE]O contêiner de $logs não é exibido quando uma operação de listagem do contêiner é executada, como o método [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx). Ele deve ser acessado diretamente. Por exemplo, você pode usar o método [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) para acessar os blobs no contêiner `$logs`. Como as solicitações são registradas, a análise de armazenamento carrega resultados intermediários como blocos. Periodicamente, a análise de armazenamento confirmará esses blocos e os disponibilizará como um blob.
 
 Podem existir registros duplicados para os logs criados na mesma hora. Você pode determinar se um registro é uma duplicata verificando o **RequestId** e o número da **Operação**.
 
@@ -208,4 +208,4 @@ Ao analisar os dados de análise de armazenamento, você pode usar as tabelas no
 - [Esquema da tabela de métricas da análise de armazenamento](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Mensagens de operações e status registradas de análise de armazenamento](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

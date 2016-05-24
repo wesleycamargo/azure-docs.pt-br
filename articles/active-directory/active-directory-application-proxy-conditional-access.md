@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/09/2016"
 	ms.author="kgremban"/>
 
 # Trabalhando com acesso condicional
 > [AZURE.NOTE] O Proxy de Aplicativo é um recurso que está disponível somente se você tiver atualizado para a edição Premium ou Básica do Active Directory do Azure. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 
-Agora você pode habilitar as regras de acesso para conceder acesso condicional para usuários e grupos que acessam os aplicativos publicados usando o Proxy de Aplicativo. Isso permite a você:
+Você pode configurar regras de acesso para conceder acesso condicional a aplicativos publicados usando o Proxy de Aplicativo. Isso permite a você:
 
 - Exigir a autenticação multifator por aplicativo
 - Exigir a autenticação multifator somente quando os usuários não estiverem no trabalho
@@ -33,9 +33,7 @@ Regras de acesso são avaliadas quando um usuário acessa um aplicativo federado
 
 - Assinatura no Active Directory Premium do Azure
 - Um locatário do Active Directory do Azure federado ou gerenciado
-- Inquilinos federados exigem que a multi-factor authentication (MFA) esteja ativada
-
-![Configurar regras de acesso - exigir Multi-Factor Authentication](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
+- Inquilinos federados exigem que o MFA (Multi-Factor Authentication) esteja habilitado ![Configurar regras de acesso - exigir Multi-Factor Authentication](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## Configure a multi-factor authentication por aplicativo
 1. Entre como administrador no portal clássico do Azure.
@@ -44,7 +42,7 @@ Regras de acesso são avaliadas quando um usuário acessa um aplicativo federado
 4. Habilitar a regra selecionando **Habilitar Regras de Acesso** para **Ativado**.
 5. Especifique os usuários e grupos para os quais as regras serão aplicadas. Use o botão **Adicionar Grupo** para selecionar um ou mais grupos aos quais a regra de acesso será aplicada. Essa caixa de diálogo também pode ser usada para remover os grupos selecionados. Quando as regras são selecionadas para serem aplicadas aos grupos, as regras de acesso só serão impostas para os usuários que pertençam a um dos grupos de segurança especificados.  
 
-  - Para excluir explicitamente os grupos de segurança da regra, marque **Exceto** e especifique um ou mais grupos. Os usuários que são membros de um grupo na lista Exceto não serão solicitados a realizar a multi-factor authentication.  
+  - Para excluir explicitamente grupos de segurança da regra, marque **Exceto** e especifique um ou mais grupos. Os usuários que são membros de um grupo na lista Exceto não serão solicitados a realizar a multi-factor authentication.  
 
   - Se um usuário tiver sido configurado usando o recurso de autenticação multifator por usuário, essa configuração terá precedência sobre as regras de autenticação multifator do aplicativo. Isso significa que, para um usuário que foi configurado por uma multi-factor authentication por usuário, será necessário executar a multi-factor authentication, mesmo que eles tenham sido isentos das regras de multi-factor authentication do aplicativo. Saiba mais sobre a [autenticação multifator e as configurações por usuário](../multi-factor-authentication/multi-factor-authentication.md).
 
@@ -63,23 +61,12 @@ Além de definir esse sinalizador, a instância do AD FS do locatário federado 
 
 
 ## Consulte também
-Você pode fazer muito mais com o Proxy de Aplicativo:
 
-- [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
-- [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
-- [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 - [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
-- [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
+- [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
+- [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
+- [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
 
-## Saiba mais sobre o Proxy de Aplicativo
-- [Veja nossa ajuda online](active-directory-application-proxy-enable.md)
-- [Confira o blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
-- [Assista aos nossos vídeos no Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+Para ver as últimas notícias e atualizações, confira o [blog Application Proxy](http://blogs.technet.com/b/applicationproxyblog/)
 
-
-## Recursos adicionais
-- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-- [Inscrever-se no Azure como uma organização](sign-up-organization.md)
-- [Identidade do Azure](fundamentals-identity.md)
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="04/18/2016"
 	ms.author="tomfitz"/>
 
 
@@ -92,19 +92,29 @@ Isso abrirá uma lâmina com a lista de marcas que já foram aplicadas. Se esta 
 
 ![Marcar recursos com pares de nome/valor](./media/resource-group-using-tags/tag-resources.png)
 
-Para exibir sua taxonomia de marcas no portal, use o hub Procurar para exibir Tudo e, em seguida, selecionar Marcas.
+Para exibir sua taxonomia de marcas no portal, selecione **Procurar** e **Marcas**.
 
-![Localizar marcas pelo hub Procurar](./media/resource-group-using-tags/browse-tags.png)
+![Localizar marcas pelo hub Procurar](./media/resource-group-using-tags/select-tags.png)
 
-Fixe as marcas mais importantes no seu quadro inicial para acesso rápido e você estará pronto para começar. Divirta-se!
+Você verá um resumo das marcas na sua assinatura.
 
-![Fixar marcas no Quadro Inicial](./media/resource-group-using-tags/pin-tags.png)
+![Mostrar todas as marcas](./media/resource-group-using-tags/show-tag-summary.png)
+
+Selecionar qualquer uma dessas marcas exibirá os recursos e grupos de recursos com essa marcação.
+
+![Mostrar recursos marcados](./media/resource-group-using-tags/show-tagged-resources.png)
+
+Fixe as marcas mais importantes no seu painel para acesso rápido.
+
+![Fixar marcas no Quadro Inicial](./media/resource-group-using-tags/show-pinned-tag.png)
 
 ## Marcas e PowerShell
 
 As marcas existem diretamente em recursos e grupos de recursos; portanto, para ver quais marcas já estão aplicadas, podemos simplesmente obter um recurso ou grupo de recursos com **Get-AzureRmResource** ou **Get-AzureRmResourceGroup**. Vamos começar com um grupo de recursos.
 
-    PS C:\> Get-AzureRmResourceGroup -Name tag-demo-group
+    Get-AzureRmResourceGroup -Name tag-demo-group
+
+Esse cmdlet retorna vários bits de metadados sobre o grupo de recursos, incluindo quais marcas foram aplicadas, se houver.
 
     ResourceGroupName : tag-demo-group
     Location          : westus
@@ -115,12 +125,11 @@ As marcas existem diretamente em recursos e grupos de recursos; portanto, para v
                     Dept         Finance
                     Environment  Production
 
+Ao obter metadados para um recurso, as marcas não serão exibidas diretamente.
 
-Esse cmdlet retorna vários bits de metadados sobre o grupo de recursos, incluindo quais marcas foram aplicadas, se houver.
+    Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
 
-Ao obter metadados para um recurso, as marcas não serão exibidas diretamente. Você verá abaixo que as marcas são exibidas apenas como objeto Hashtable.
-
-    PS C:\> Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
+Você verá nos resultados que as marcas são exibidas apenas como objeto Hashtable.
 
     Name              : tfsqlserver
     ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
@@ -134,25 +143,36 @@ Ao obter metadados para um recurso, as marcas não serão exibidas diretamente. 
 
 Você pode exibir as marcas reais recuperando a propriedade **Tags**.
 
-    PS C:\> (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
+    (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
+   
+Ela retorna resultados formatados:
+    
     Dept: Finance
     Environment: Production
 
 Em vez de exibir as marcas de um determinado recurso ou grupo de recursos, você geralmente vai preferir recuperar todos os recursos ou grupos de recursos que tenham uma determinada marca e valor. Para obter os grupos de recursos com uma marca específica, use o cmdlet **Find-AzureRmResourceGroup** com o parâmetro **-Tag**.
 
-    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
+    Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
+    
+Isso retorna os nomes dos grupos de recursos com esse valor de marcação.
+   
     tag-demo-group
     web-demo-group
 
-Para obter todos os recursos com uma determinada marca e valor, use o cmdlet **Find-AzureRmResource**.
+Para obter todos os recursos com uma determinada marcação e valor, use o cmdlet **Find-AzureRmResource**.
 
-    PS C:\> Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
+    Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
+    
+Ele retorna os nomes dos recursos com esse valor de marcação.
+    
     tfsqlserver
     tfsqldatabase
 
-Para adicionar uma marca a um grupo de recursos que não tem marcas existentes, basta usar o comando **Set-AzureRmResourceGroup** e especificar um objeto de marca.
+Para adicionar uma marcação a um grupo de recursos sem marcas existentes, basta usar o comando **Set-AzureRmResourceGroup** e especificar um objeto de marcação.
 
-    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
+    Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
+
+Ele retorna o grupo de recursos com seus novos valores de marcação.
 
     ResourceGroupName : test-group
     Location          : southcentralus
@@ -163,15 +183,15 @@ Para adicionar uma marca a um grupo de recursos que não tem marcas existentes, 
                     Dept          IT
                     Environment   Test
                     
-Você pode adicionar marcas a um recurso que não tem marcas existentes usando o comando **SetAzureRmResource**
+Você pode adicionar marcas a um recurso sem marcas existentes usando o comando **Set-AzureRmResource**
 
-    PS C:\> Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
+    Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
 As marcas são atualizadas como um todo, portanto, se você estiver adicionando uma marca a um recurso que já foi marcado, você precisará usar uma matriz com todas as marcas que você deseja manter. Para fazer isso, primeiro selecione as marcas existentes, adicione uma nova ao conjunto e reaplique todas as marcas.
 
-    PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
-    PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureRmResourceGroup -Name test-group -Tag $tags
+    $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
+    $tags += @{Name="status";Value="approved"}
+    Set-AzureRmResourceGroup -Name test-group -Tag $tags
 
 Para remover uma ou mais marcas, apenas salve a matriz sem aquela(s) que deseja remover.
 
@@ -179,7 +199,7 @@ O processo é o mesmo para os recursos, exceto se você usar os cmdlets **Get-Az
 
 Para obter uma lista de todas as marcas dentro de uma assinatura usando o PowerShell, use o cmdlet **Get-AzureRmTag**.
 
-    PS C:/> Get-AzureRmTag
+    Get-AzureRmTag
     Name                      Count
     ----                      ------
     env                       8
@@ -191,9 +211,12 @@ Use o cmdlet **New-AzureRmTag** para adicionar novas marcas à taxonomia. Essas 
 
 ## Marcas e CLI do Azure
 
-As marcas existem diretamente em recursos e grupos de recursos, portanto, para ver quais marcas já estão aplicadas, podemos simplesmente obter um grupo de recursos com **azure group show**.
+As marcas existem diretamente em recursos e grupos de recursos, portanto, para ver quais marcas já estão aplicadas, podemos simplesmente obter um grupo de recursos com o **azure group show**.
 
     azure group show -n tag-demo-group
+    
+Ele retorna metadados sobre o grupo de recursos, incluindo todas as marcas aplicadas a esse grupo.
+    
     info:    Executing command group show
     + Listing resource groups
     + Listing resources for the group
@@ -211,17 +234,23 @@ As marcas existem diretamente em recursos e grupos de recursos, portanto, para v
     data:      Tags    : Dept=Finance;Environment=Production
     ...
 
-Para obter as marcas somente para o grupo de recursos, use um utilitário JSON, como [jq](http://stedolan.github.io/jq/download/).
+Para obter as marcas somente do grupo de recursos, use um utilitário JSON, como o [jq](http://stedolan.github.io/jq/download/).
 
     azure group show -n tag-demo-group --json | jq ".tags"
+    
+Ele retorna as marcas desse grupo de recursos.
+    
     {
       "Dept": "Finance",
       "Environment": "Production" 
     }
 
-Você pode exibir as marcas de um recurso específico usando **azure resource show**.
+Você pode exibir as marcas de um recurso específico usando o **azure resource show**.
 
     azure resource show -g tag-demo-group -n tfsqlserver -r Microsoft.Sql/servers -o 2014-04-01-preview --json | jq ".tags"
+    
+Ele retorna as marcas desse recurso.
+    
     {
       "Dept": "Finance",
       "Environment": "Production"
@@ -230,12 +259,18 @@ Você pode exibir as marcas de um recurso específico usando **azure resource sh
 Você pode recuperar todos os recursos com determinada marca e valor, conforme mostrado abaixo.
 
     azure resource list --json | jq ".[] | select(.tags.Dept == "Finance") | .name"
+    
+Ele retorna os nomes dos recursos com essa marcação.
+    
     "tfsqlserver"
     "tfsqlserver/tfsqldata"
 
-As marcas são atualizadas como um todo, portanto, se você estiver adicionando uma marca a um recurso que já foi marcado, você precisará recuperar todas as marcas existentes que desejar manter. A fim de definir valores de marca para um grupo de recursos, use **azure group set** e forneça todas as marcas para o grupo de recursos.
+As marcas são atualizadas como um todo, portanto, se você estiver adicionando uma marca a um recurso que já foi marcado, você precisará recuperar todas as marcas existentes que desejar manter. Para definir valores de marcação para um grupo de recursos, use **azure group set** e forneça todas as marcas para o grupo de recursos.
 
     azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
+    
+Um resumo do grupo de recursos com as novas marcas é retornado.
+    
     info:    Executing command group set
     ...
     data:    Name:                tag-demo-group
@@ -244,7 +279,7 @@ As marcas são atualizadas como um todo, portanto, se você estiver adicionando 
     data:    Tags: Dept=Finance;Environment=Production;Project=Upgrade
     ...
     
-Você pode listar as marcas existentes em sua assinatura com **azure tag list** e adicionar uma nova marca com **azure tag create**. Para remover uma marca de taxonomia de sua assinatura, primeiro remova a marca dos recursos que podem ser usados com ele e remova a marca com **azure tag delete**.
+Você pode listar as marcas existentes em sua assinatura com **azure tag list** e adicionar uma nova marcação com **azure tag create**. Para remover uma marcação de taxonomia de sua assinatura, primeiro remova a marcação dos recursos que podem ser usados com ela e remova a marcação com **azure tag delete**.
 
 ## Marcas e API REST
 
@@ -268,4 +303,4 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcas de cobr
 - Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](./xplat-cli-azure-resource-manager.md).
 - Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md)  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

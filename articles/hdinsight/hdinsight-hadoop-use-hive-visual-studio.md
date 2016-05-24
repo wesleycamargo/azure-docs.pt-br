@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="04/22/2016"
    ms.author="larryfr"/>
 
 #Executar consultas Hive usando as ferramentas de HDInsight para o Visual Studio
@@ -31,7 +31,13 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um cluster Azure HDInsight (Hadoop no HDInsight) (baseado em Linux ou Windows)
 
-* Visual Studio 2012 [Atualização 4](http://www.microsoft.com/download/details.aspx?id=39305), Visual Studio 2013 [Atualização 3](http://go.microsoft.com/fwlink/?LinkId=390465) ou [Visual Studio Express 2013](http://www.microsoft.com/download/details.aspx?id=40769)
+* Visual Studio (uma das versões a seguir):
+
+    Visual Studio 2013 Community/Professional/Premium/Ultimate com [Atualização 4](https://www.microsoft.com/download/details.aspx?id=44921)
+
+    Visual Studio 2015 (Community/Enterprise)
+
+- Ferramentas do HDInsight para o Visual Studio. Confira [Começar a usar as ferramentas Hadoop para HDInsight do Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para obter informações sobre como instalar e configurar as ferramentas.
 
 ##<a id="run"></a> Executar consultas Hive usando as ferramentas de HDInsight para o Visual Studio
 
@@ -59,7 +65,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
     * **SELECT**: seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
 
-3. Na barra de ferramentas, selecione o **Cluster HDInsight** que você deseja usar para essa consulta e selecione **Enviar** para executar as instruções como um trabalho Hive. O **Resumo do Trabalho do Hive** aparecerá e exibirá informações sobre o trabalho em execução. Use o link **Atualizar** para atualizar as informações do trabalho, até o **Status do Trabalho** ser alterado para **Concluído**.
+3. Na barra de ferramentas, selecione o **Cluster HDInsight** que você deseja usar para essa consulta e selecione **Enviar ao WebHCat** para executar as instruções como um trabalho hive usando o WebHCat. Você também poderá enviar o trabalho usando o botão __Executar via HiveServer2__, se o HiveServer2 estiver disponível na versão do seu cluster. O **Resumo do Trabalho do Hive** aparecerá e exibirá informações sobre o trabalho em execução. Use o link **Atualizar** para atualizar as informações do trabalho, até o **Status do Trabalho** ser alterado para **Concluído**.
 
 4. Use o link **Saída de Trabalho** para exibir a saída desse trabalho. Ela deve exibir `[ERROR] 3`, que é o valor retornado pela instrução SELECT.
 
@@ -135,4 +141,4 @@ Para obter mais informações sobre as ferramentas do HDInsight para o Visual St
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

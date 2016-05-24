@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Acessando nuvens privadas do Azure com o Visual Studio
@@ -23,7 +23,7 @@ Por padrão, o Visual Studio dá suporte a pontos de extremidade REST de nuvem p
 
 ## Para acessar uma nuvem privada do Azure no Visual Studio
 
-1. No portal de gerenciamento para a nuvem privada, baixe o arquivo de configurações de publicação ou contate o administrador para um arquivo de configurações de publicação. Na versão pública do Azure, o link para baixá-lo é [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (O arquivo baixado deve ter uma extensão .publishsettings.)
+1. No [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) para a nuvem privada, baixe o arquivo de configurações de publicação ou entre em contato com o administrador para um arquivo de configurações de publicação. Na versão pública do Azure, o link para baixá-lo é [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (O arquivo baixado deve ter uma extensão .publishsettings.)
 
 1. Em **Gerenciador de Servidores** no Visual Studio, escolha o nó do **Azure** e, no menu de atalho, escolha o comando **Gerenciar assinaturas**.
 
@@ -43,4 +43,4 @@ Por padrão, o Visual Studio dá suporte a pontos de extremidade REST de nuvem p
 
 [Como baixar e importar informações de assinatura e configurações de publicação] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

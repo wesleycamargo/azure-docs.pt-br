@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Como usar a API do Engagement no Android" 
+<properties
+	pageTitle="Como usar a API do Engagement no Android"
 	description="SDK mais recente do Android - Como usar a API do Engagement no Android"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/10/2016"
+	ms.author="piyushjo;ricksal" />
 
 #Como usar a API do Engagement no Android
 
-Este documento é um complemento ao documento [Como integrar o Engagement no Android](mobile-engagement-android-integrate-engagement.md). Ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
+Este documento é um complemento para o documento [Opções avançadas de relatório do Android SDK para o Mobile Engagement](mobile-engagement-android-advanced-reporting.md). Ele fornece detalhes aprofundados sobre como usar a API do Engagement para relatar as estatísticas do aplicativo.
 
 Tenha em mente que se desejar que o Engagement somente relate as sessões, atividades, falhas e informações técnicas do seu aplicativo, a maneira mais simples é fazer com que todas as suas subclasses `Activity` herdem da classe `EngagementActivity` correspondente.
 
@@ -136,7 +136,7 @@ Ao contrário dos erros de sessão, os erros autônomos podem ocorrer fora do co
 O exemplo a seguir mostra como relatar um erro sempre que a memória diminui no telefone enquanto seu processo de aplicativo está em execução.
 
 			public MyApplication extends EngagementApplication {
-			
+
 			  @Override
 			  protected void onApplicationProcessLowMemory() {
 			    EngagementAgent.getInstance(this).sendError("low_memory", null);
@@ -148,18 +148,18 @@ O exemplo a seguir mostra como relatar um erro sempre que a memória diminui no 
 ### Exemplo
 
 Suponha que você deseja relatar a duração do processo de logon:
-			
+
 			[...]
 			public void signIn(Context context, ...) {
-			
+
 			  /* We need an Android context to call the Engagement API, if you are extending Activity, Service, you can pass "this" */
 			  EngagementAgent engagementAgent = EngagementAgent.getInstance(context);
-			
+
 			  /* Report sign in job has started */
 			  engagementAgent.startJob("sign_in", null);
-			
+
 			  [... sign in ...]
-			
+
 			  /* Report sign in job is now ended */
 			  engagementAgent.endJob("sign_in");
 			}
@@ -177,10 +177,10 @@ Suponha que você deseja relatar um erro durante o seu processo de logon:
 
 			  /* We need an Android context to call the Engagement API, if you are extending Activity, Service, you can pass "this" */
 			  EngagementAgent engagementAgent = EngagementAgent.getInstance(context);
-			
+
 			  /* Report sign in job has been started */
 			  engagementAgent.startJob("sign_in", null);
-			
+
 			  /* Try to sign in */
 			  while(true)
 			    try {
@@ -190,7 +190,7 @@ Suponha que você deseja relatar um erro durante o seu processo de logon:
 			    catch(Exception e) {
 			      /* Report the error to Engagement */
 			      engagementAgent.sendJobError("sign_in_error", "sign_in", null);
-			
+
 			      /* Retry after a moment */
 			      sleep(2000);
 			    }
@@ -209,7 +209,7 @@ Os erros podem estar relacionados a um trabalho em execução, em vez de serem r
 Suponha que temos uma rede social e usamos um trabalho para relatar o tempo total durante o qual o usuário está conectado ao servidor. O usuário pode permanecer conectado em segundo plano, mesmo quando ele estiver usando outro aplicativo ou quando o telefone estiver em repouso, portanto, não há nenhuma sessão.
 
 O usuário pode receber mensagens de seus amigos, esse é um evento de trabalho.
-			
+
 			[...]
 			public void signin(Context context, ...) {
 			  [...Sign in code...]
@@ -296,6 +296,5 @@ As informações do aplicativo são limitadas a **1024** caracteres por chamada 
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
 			{"expiration":"2016-12-07","status":"premium"}
- 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="05/09/2016"
 	ms.author="renash"/>
 
 
@@ -195,6 +195,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 	- Anker 68UPSATAA-02BU
 	- Anker 68UPSHHDS-BU
 	- Startech SATADOCK22UE
+	- Sharkoon QuickPort XT HC
 
 > [AZURE.NOTE] Se tiver um conversor que não está relacionado acima, você pode tentar executar a Ferramenta de Importação/Exportação do Azure usando seu conversor para preparar a unidade e ver se funciona, antes de adquirir um conversor com suporte.
 
@@ -239,7 +240,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - As regiões dos EUA e Europa só dão suporte ao serviço [Federal Express](http://www.fedex.com/us/oadr/) (FedEx). Todos os pacotes serão retornados via FedEx Ground ou Fedex International Economy.
 
-- Para Leste do Pacífico Asiático, Sudeste do Pacífico Asiático, Leste da Austrália, Sudeste da Austrália e Oeste do Japão, apenas [DHL](http://www.dhl.com/) tem suporte. Todos os pacotes serão retornados via DHL Express Worldwide.
+- Para Leste do Pacífico Asiático, Sudeste do Pacífico Asiático, Leste da Austrália, Sudeste da Austrália, Oeste do Japão, Leste do Japão e Índia Central, apenas [DHL](http://www.dhl.com/) tem suporte. Todos os pacotes serão retornados via DHL Express Worldwide.
 
 	> [AZURE.IMPORTANT] Você deve fornecer seu número de controle ao serviço de Importação/Exportação do Azure; caso contrário, seu trabalho não poderá ser processado.
 
@@ -265,6 +266,8 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 	- Leste da Austrália
 	- Sudeste da Austrália
 	- Oeste do Japão
+	- Leste do Japão
+	- Índia Central
 
 - Você receberá um endereço de remessa na região onde sua conta de armazenamento está localizada. Por exemplo, se morar nos EUA e sua conta de armazenamento estiver no data center da Europa Ocidental, você receberá um endereço de remessa na Europa para envio das unidades.
 
@@ -280,7 +283,7 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 
 - Envie somente seus discos rígidos. Não inclua itens como cabos de alimentação ou cabos USB.
 
-**Por que o status do meu trabalho no Portal Clássico é mostrado como *Enviando* quando o site da Transportadora mostra que meu pacote foi entregue?**
+**Por que o status do meu trabalho no Portal Clássico é mostrado como *Enviando* quando o site da transportadora mostra que meu pacote foi entregue?**
 
 - O status do Portal muda de *Enviando* para *Transferindo* quando o processamento da unidade é iniciado. Se a unidade tiver alcançado a instalação, porém, ainda não tiver iniciado o processamento, o status do trabalho será exibido como *Enviando*.
 
@@ -293,4 +296,4 @@ Para trabalhos de exportação, você pode exibir e copiar as chaves do BitLocke
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

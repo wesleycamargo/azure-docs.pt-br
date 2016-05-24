@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como usar o armazenamento de blob do PHP | Microsoft Azure"
-	description="Saiba como usar o serviço Blob do Azure para carregar, baixar, listar e excluir blobs. Os exemplos de código são escritos em PHP."
+	description="Armazene dados não estruturados na nuvem com o Armazenamento de Blobs do Azure (armazenamento de objeto)."
 	documentationCenter="php"
 	services="storage"
 	authors="rmcmurray"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/17/2016"
+    ms.date="04/29/2016"
 	ms.author="robmcm"/>
 
 # Como usar o armazenamento de blob no PHP
@@ -306,4 +306,4 @@ Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

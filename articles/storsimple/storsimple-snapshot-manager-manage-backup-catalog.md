@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 # Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup
 
 ## Visão geral
 
-A principal função do StorSimple Snapshot Manager é permitir que você crie cópias de backup consistentes com aplicativos de volumes do Azure StorSimple na forma de instantâneos. Os instantâneos são listados em um arquivo XML chamado de *catálogo de backups*. O catálogo de backups organiza os instantâneos por grupo de volumes e, depois, por instantâneo local ou instantâneo de nuvem.
+A principal função do StorSimple Snapshot Manager é permitir a criação de cópias de backup consistentes com o aplicativo de volumes do StorSimple na forma de instantâneos. Os instantâneos são listados em um arquivo XML chamado de *catálogo de backups*. O catálogo de backups organiza os instantâneos por grupo de volumes e, depois, por instantâneo local ou instantâneo de nuvem.
+
+Este tutorial descreve como você pode usar o nó **Catálogo de Backups** para realizar as seguintes tarefas:
+
+- Restaurar um volume 
+- Clonar um volume ou grupo de volumes 
+- Excluir um conjunto de backups 
+- Recuperar um arquivo
+- Restaurar o banco de dados do StorSimple Snapshot Manager
 
 Você pode exibir o catálogo de backups expandindo o nó **Catálogo de Backups** no painel **Escopo** e expandindo o grupo de volumes.
 
@@ -33,7 +41,7 @@ Você pode exibir o catálogo de backups expandindo o nó **Catálogo de Backups
 
     - **Proprietário** – o proprietário do conteúdo.
 
-    - **Disponível** – se o instantâneo está disponível no momento. Verdadeiro indica que o instantâneo está disponível e pode ser restaurado. Falso indica que o ele não está mais disponível.
+    - **Disponível** – se o instantâneo está disponível no momento. **Verdadeiro** indica que o instantâneo está disponível e pode ser restaurado. **Falso** indica que o ele não está mais disponível.
 
     - **Importado** – se o backup foi importado. **Verdadeiro** indica que o backup foi importado do serviço StorSimple Manager no momento em que o dispositivo foi configurado no StorSimple Snapshot Manager. **Falso** indica que não foi importado, mas foi criado pelo StorSimple Snapshot Manager. (Você pode facilmente identificar um grupo de volumes importado porque é adicionado um sufixo que identifica o dispositivo do qual ele foi importado.)
 
@@ -49,13 +57,6 @@ Você pode exibir o catálogo de backups expandindo o nó **Catálogo de Backups
 
     - **Disponível** – se o instantâneo está disponível no momento. **Verdadeiro** indica que o instantâneo está disponível e pode ser restaurado. **Falso** indica que o ele não está mais disponível.
 
-Este tutorial descreve como você pode usar o nó **Catálogo de Backups** para realizar as seguintes tarefas:
-
-- Restaurar um volume 
-- Clonar um volume ou grupo de volumes 
-- Excluir um conjunto de backups 
-- Recuperar um arquivo
-- Restaurar o banco de dados do StorSimple Snapshot Manager
 
 ## Restaurar um volume
 
@@ -69,7 +70,7 @@ O StorSimple Snapshot Manager exibe a mensagem a seguir enquanto cria o backup d
 
 ![Mensagem de instantâneo automático](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png)
 
->[AZURE.IMPORTANT]Você não pode excluir um volume que faz parte de um grupo de volumes. A opção Excluir não está disponível.<br>
+>[AZURE.IMPORTANT] Você não pode excluir um volume que faz parte de um grupo de volumes. A opção Excluir não está disponível.<br>
 
 #### Para restaurar um volume
 
@@ -117,7 +118,7 @@ Use o procedimento a seguir para criar uma duplicata (clone) de um volume ou gru
 
 Use o procedimento a seguir para excluir um instantâneo do catálogo de backups.
 
->[AZURE.NOTE]Excluir um instantâneo exclui os dados dos backups associados a ele. No entanto, o processo de limpeza de dados da nuvem pode levar algum tempo.<br>
+>[AZURE.NOTE] Excluir um instantâneo exclui os dados dos backups associados a ele. No entanto, o processo de limpeza de dados da nuvem pode levar algum tempo.<br>
  
 #### Para excluir um backup
 
@@ -183,7 +184,7 @@ Você deve fazer backup regularmente do banco de dados do StorSimple Snapshot Ma
 
 2. No computador host, vá para C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
-    >[AZURE.NOTE]ProgramData é uma pasta oculta.
+    >[AZURE.NOTE] ProgramData é uma pasta oculta.
  
 3. Localize o arquivo XML do catálogo, copie o arquivo e armazene a cópia em um local seguro ou na nuvem. Se o host falhar, você pode usar esse arquivo de backup para ajudar a recuperar as políticas de backup que você criou no StorSimple Snapshot Manager.
 
@@ -208,4 +209,4 @@ Você deve fazer backup regularmente do banco de dados do StorSimple Snapshot Ma
 - Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 - [Saiba mais sobre fluxos de trabalho e tarefas do StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

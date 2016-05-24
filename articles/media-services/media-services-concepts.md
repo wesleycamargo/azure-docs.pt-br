@@ -137,7 +137,7 @@ Um canal dá suporte a até três programas em execução simultânea, para que 
 Para obter mais informações, confira:
 
 - [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md)
-- [Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md)
+- [Trabalhando com Canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-live-streaming-with-onprem-encoders.md)
 - [Cotas e limitações](media-services-quotas-and-limitations.md).  
 
 ##Proteção de conteúdo
@@ -252,4 +252,4 @@ A lista a seguir descreve os diferentes formatos de streaming e fornece exemplos
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0511_2016-->

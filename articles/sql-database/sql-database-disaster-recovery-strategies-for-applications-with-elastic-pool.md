@@ -24,9 +24,9 @@ Para os fins deste artigo, usaremos o padrão de aplicativo ISV SaaS canônico:
 
 <i>Um aplicativo Web baseado em nuvem moderno provisiona um banco de dados SQL para cada usuário final. O ISV tem um grande número de clientes e, portanto, usa vários bancos de dados, conhecidos como bancos de dados de locatário. Como os bancos de dados do locatário normalmente têm padrões de atividade imprevisíveis, o ISV usa um pool elástico para tornar o custo do banco de dados bastante previsível por longos períodos de tempo. O pool elástico também simplifica o gerenciamento de desempenho quando há picos de atividade de usuário. Além dos bancos de dados do locatário, o aplicativo também usa vários bancos de dados para gerenciar perfis de usuário, segurança, coletar padrões de uso, etc. A disponibilidade de locatários individuais não afeta a disponibilidade do aplicativo como um todo. No entanto, a disponibilidade e o desempenho dos bancos de dados de gerenciamento são essenciais para o funcionamento do aplicativo. Se os bancos de dados de gerenciamento estiverem offline, todo o aplicativo estará offline.</i>
 
-No restante do artigo, discutiremos os vários cenários relacionados e definiremos uma estratégia de recuperação de desastres para cada caso.
+No restante do artigo, discutiremos as estratégias de recuperação de desastre que abrangem uma variedade de cenários dos aplicativos de inicialização econômica para aqueles com requisitos rígidos de disponibilidade.
 
-## Cenário 1
+## Cenário 1. Inicialização econômica
 
 <i>Sou uma startup e dependo muito do custo das coisas. Quero simplificar a implantação e o gerenciamento do aplicativo e desejo ter um SLA limitado para clientes individuais. No entanto, quero garantir que o aplicativo como um todo nunca fique offline.</i>
 
@@ -61,7 +61,7 @@ Neste momento, seu aplicativo estará online na região primária com todos os b
 
 A principal **vantagem** dessa estratégia é o baixo custo da redundância da camada de dados. Os backups são usados automaticamente pelo serviço Banco de Dados SQL sem a necessidade de nova codificação do aplicativo e sem nenhum custo adicional. O custo é incorrido apenas quando os bancos de dados elásticos são restaurados. O **porém** é que a recuperação completa de todos os bancos de dados de locatário levará um tempo significativo. Dependerá do número total de restaurações que você iniciar na região da recuperação de desastres e do tamanho geral dos bancos de dados do locatário. Mesmo se você priorizar a restauração de alguns locatários sobre outros, você estará competindo com todos as outras restaurações iniciadas na mesma região já que o serviço arbitrará e restringirá para minimizar o impacto geral nos bancos de dados dos clientes existentes. Além disso, a recuperação dos bancos de dados do locatário não poderá ser iniciada até que o novo pool elástico na região da recuperação de desastres seja criado.
 
-## Cenário 2
+## Cenário 2: Aplicativo maduro com o serviço em camadas 
 
 <i>Tenho um aplicativo SaaS maduro com ofertas de serviço em camadas e diferentes SLAs para clientes de avaliação e para clientes pagantes. Para clientes de avaliação, preciso reduzir o custo tanto quanto possível. Os clientes de teste podem ter um tempo de inatividade, mas quero reduzir sua probabilidade. Para clientes pagantes, qualquer tempo de inatividade é um risco. Portanto, quero garantir que os clientes pagantes possam sempre acessar seus dados.</i>
 
@@ -102,7 +102,7 @@ Quando a região primária é recuperada pelo Azure *depois* de você ter restau
 
 A principal **vantagem** dessa estratégia é que ela fornece o SLA mais alto para os clientes pagantes. Ela também garante que as novas avaliações sejam desbloqueadas assim que o pool da recuperação de desastres de avaliação seja criado. O **porém** é que essa configuração aumentará o custo total de bancos de dados do locatário pelo custo do pool da recuperação de desastres secundário para clientes pagos. Além disso, se o pool secundário tem um tamanho diferente, os clientes pagantes verão um menor desempenho depois do failover até que a atualização de pool na região da recuperação de desastres seja concluída.
 
-## Cenário 3
+## Cenário 3: Aplicativo distribuído geograficamente com o serviço em camadas
 
 <i>Eu tenho um aplicativo SaaS maduro com ofertas de serviço em camadas. Quero oferecer um SLA muito agressivo para meus clientes pagos e minimizar o risco do impacto quando ocorrerem paralisações porque mesmo uma breve interrupção pode causar a insatisfação do cliente. É essencial que os clientes pagantes sempre possam acessar seus dados. As avaliações são gratuitas e não há oferta de SLA durante o período de avaliação. </i>
 
@@ -146,20 +146,22 @@ Quando a região A for recuperada, você precisará decidir se deseja usar a reg
 - Excluir o pool da recuperação de desastres (14) 
 
 As principais **vantagens** dessa estratégia são:
+
 - Ela dá suporte ao SLA mais agressivo para os clientes pagantes porque faz com que uma interrupção não possa afetar mais de 50% dos bancos de dados de locatário. 
 - Ela faz com que as novas avaliações sejam desbloqueadas assim que a trilha do pool da recuperação de desastres for criada durante a recuperação. 
 - Ela permite um uso mais eficiente da capacidade do pool, já que 50% dos bancos de dados secundários nos pools 1 e 2 são garantidamente menos ativos que os bancos de dados primários.
 
 Os principais **poréns** são:
+
 - As operações CRUD em relação aos bancos de dados de gerenciamento terão menor latência para os usuários finais conectados à região A que para os usuários finais conectados à região B, já que elas serão executadas em relação ao primário dos bancos de dados.
 - Ele requer um design mais complexo do banco de dados de gerenciamento. Por exemplo, cada registro de locatário precisa ter uma marca de local que tem que ser alterada durante o failover e o failback.  
 - Os clientes pagantes podem sentir um desempenho menor que o normal até que a atualização do pool na região B seja concluída. 
 
 ## Resumo
 
-Este artigo aborda as estratégias de recuperação de desastres para a camada de banco de dados usada por um aplicativo ISV SaaS multilocatário. A escolha da estratégia deve ser baseada nas necessidades do aplicativo, como o modelo de negócios, o SLA que você deseja oferecer aos seus clientes, restrições orçamentárias, etc. Cada estratégia descrita descreve as vantagens e os poréns para que você possa tomar uma decisão consciente. Além disso, seu aplicativo específico provavelmente incluirá outros componentes do Azure. Você deve revisar suas diretrizes de continuidade de negócios e coordenar a recuperação da camada de banco de dados com outros componentes do aplicativo. Para saber mais sobre o gerenciamento da recuperação de aplicativos de banco de dados no Azure, consulte [Criação de soluções de nuvem para a recuperação de desastres](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Este artigo aborda as estratégias de recuperação de desastres para a camada de banco de dados usada por um aplicativo ISV SaaS multilocatário. A escolha da estratégia deve ser baseada nas necessidades do aplicativo, como o modelo de negócios, o SLA que você deseja oferecer aos seus clientes, restrições orçamentárias, etc. Cada estratégia descrita descreve as vantagens e os poréns para que você possa tomar uma decisão consciente. Além disso, seu aplicativo específico provavelmente incluirá outros componentes do Azure. Sendo assim, você deve examinar suas diretrizes de continuidade de negócios e coordenar com elas a recuperação da camada de banco de dados. Para saber mais sobre o gerenciamento da recuperação de aplicativos de banco de dados no Azure, consulte [Criação de soluções de nuvem para a recuperação de desastres](./sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-As páginas abaixo ajudarão você a saber mais sobre as operações específicas necessárias para implementar cada um dos cenários neste artigo:
+As etapas individuais necessárias para cada cenário envolvem operações em um grande número de bancos de dados. Considere o uso de Trabalhos Elásticos de Banco de Dados SQL para gerenciar essas operações em grande escala. Para obter mais informações, consulte [Gerenciando bancos de dados de nuvem com escalonamento horizontal](./sql-database-elastic-jobs-overview.md). As páginas abaixo ajudarão você a saber mais sobre as operações específicas necessárias para implementar cada um dos cenários neste artigo:
 
 - [Adicionar banco de dados secundário](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Fazer failover do banco de dados para o secundário](https://msdn.microsoft.com/library/azure/mt619393.aspx)
@@ -167,4 +169,4 @@ As páginas abaixo ajudarão você a saber mais sobre as operações específica
 - [Remover banco de dados](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copiar banco de dados](https://msdn.microsoft.com/library/azure/mt603644.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

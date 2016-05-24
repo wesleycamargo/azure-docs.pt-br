@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Barramento de Serviço com o .NET e AMQP 1.0 | Microsoft Azure"
-   description="Usando o Barramento de Serviço do .NET com AMQP."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Barramento de Serviço com o .NET e AMQP 1.0 | Microsoft Azure"
+    description="Usando o Barramento de Serviço do .NET com AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Usando o Barramento de Serviço do .NET com AMQP 1.0
 
@@ -203,4 +203,4 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

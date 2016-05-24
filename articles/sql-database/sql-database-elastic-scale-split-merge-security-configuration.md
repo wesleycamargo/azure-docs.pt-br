@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Configurações de segurança da Escala Elástica | Microsoft Azure" 
+    pageTitle="Configuração de segurança da divisão e mesclagem | Microsoft Azure" 
     description="Configurar certificados x409 para criptografia" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/23/2016" 
+    ms.date="04/26/2016" 
     ms.author="torsteng;sidneyh" />
 
 
@@ -357,7 +357,7 @@ Cada pessoa para quem um certificado cliente tiver sido emitido deve seguir esta
 * Na caixa de diálogo certificado é aberta, selecione a guia Detalhes
 * Certifique-se de que mostrar está exibindo todos
 * Selecione o campo denominado impressão digital na lista
-* Copie o valor da impressão digital **Exclua caracteres Unicode não visíveis na frente do primeiro dígito** Exclua todos os espaços
+* Copie o valor da impressão digital ** Exclua caracteres Unicode não visíveis na frente do primeiro dígito ** Exclua todos os espaços
 
 ## Configurar clientes Permitidos no arquivo de configuração de serviço
 
@@ -487,4 +487,4 @@ As credenciais armazenadas neste banco de dados são criptografadas. No entanto,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher" />
 
 # Gerenciar os recursos de armazenamento do Azure com o Gerenciador de Armazenamento (Visualização)
@@ -42,8 +42,8 @@ Para ver os recursos de armazenamento do Azure no Gerenciador de Armazenamento, 
 ### Anexar um armazenamento externo
 
 1. Obtenha o nome da conta e a chave da conta de armazenamento que você deseja anexar.
-	1.	No portal de visualização do Azure, escolha a conta de armazenamento que você deseja anexar.
-	1.	Na seção **Gerenciar** do painel **Configurações** no portal de visualização do Azure, escolha o botão **Chaves**.
+	1.	No [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), escolha a conta de armazenamento que você deseja anexar.
+	1.	Na seção **Gerenciar** do painel **Configurações**, escolha o botão **Chaves**.
 	1.	Copie os valores de **Nome da Conta de Armazenamento** e **Tecla de Acesso Primária**.
 
 		![][2]
@@ -182,4 +182,4 @@ Saiba mais sobre os recursos nos serviços de Armazenamento do Azure lendo artig
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

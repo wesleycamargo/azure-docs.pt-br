@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="04/27/2016"
+   ms.date="05/10/2016"
    ms.author="elfish"/>
 
 # Visão geral: continuidade de negócios em nuvem e recuperação de desastre do banco de dados com o banco de dados SQL
@@ -73,14 +73,14 @@ Esses recursos são fornecidos para tratar dos cenários listados anteriormente.
 
 ###Restauração Pontual
 
-Ponto de restauração pontual é projetado para retornar seu banco de dados para um ponto anterior no tempo. Ele usa os backups de banco de dados, backups incrementais e backups de log de transações que o serviço mantém automaticamente para cada banco de dados do usuário. Esse recurso está disponível para todas as camadas de serviço. Você pode voltar 7 dias com a básica, 14 dias com a padrão e 35 dias com a premium. Consulte [Recuperação de erro humano](sql-database-user-error-recovery.md) para obter detalhes sobre como usar o ponto de restauração pontual.
+A [recuperação pontual](sql-database-point-in-time-restore.md) é projetada para retornar seu banco de dados para um ponto anterior no tempo. Ele usa os backups de banco de dados, backups incrementais e backups de log de transações que o serviço mantém automaticamente para cada banco de dados do usuário. Esse recurso está disponível para todas as camadas de serviço. Você pode voltar 7 dias com a básica, 14 dias com a padrão e 35 dias com a premium. Consulte [Recuperação de erro humano](sql-database-user-error-recovery.md) para obter detalhes sobre como usar o ponto de restauração pontual.
 
 ###Restauração geográfica
 
-A restauração geográfica também está disponível com bancos de dados Basic, Standard e Premium. Ele fornece a opção de recuperação padrão quando o banco de dados também estiver indisponível devido a um incidente na região onde seu banco de dados está hospedado. Semelhante ao ponto de restauração pontual, a restauração geográfica depende de backups de banco de dados no armazenamento do Azure com redundância geográfica. Ele restaura a partir da cópia de backup replicado geograficamente e, portanto, é resistente a falhas de armazenamento na região primária. Consulte [Recuperação de uma falha](sql-database-disaster-recovery.md) para obter detalhes sobre como usar a restauração geográfica.
+A [restauração geográfica](sql-database-geo-restore.md) também está disponível com bancos de dados Básico, Standard e Premium. Ele fornece a opção de recuperação padrão quando o banco de dados também estiver indisponível devido a um incidente na região onde seu banco de dados está hospedado. Semelhante ao ponto de restauração pontual, a restauração geográfica depende de backups de banco de dados no armazenamento do Azure com redundância geográfica. Ele restaura a partir da cópia de backup replicado geograficamente e, portanto, é resistente a falhas de armazenamento na região primária. Consulte [Recuperação de uma falha](sql-database-disaster-recovery.md) para obter detalhes sobre como usar a restauração geográfica.
 
 ###Replicação geográfica ativa
 
-A replicação geográfica ativa está disponível para todas as camadas de banco de dados. Ela se destina a aplicativos que têm requisitos de recuperação mais agressivos do que a restauração geográfica pode oferecer. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. Você pode iniciar o failover para qualquer um dos secundários. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Consulte [Projeto para continuidade de negócios](sql-database-business-continuity-design.md) para obter detalhes sobre como [configurar a replicação geográfica](sql-database-geo-replication-portal.md) e [fazer failover para o banco de dados secundário](sql-database-geo-replication-failover-portal.md). Consulte [Atualização de aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) para obter detalhes sobre como implementar a atualização de aplicativo sem tempo de inatividade.
+A [replicação geográfica ativa](sql-database-geo-replication-overview.md) está disponível para todas as camadas de banco de dados. Ela se destina a aplicativos que têm requisitos de recuperação mais agressivos do que a restauração geográfica pode oferecer. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. Você pode iniciar o failover para qualquer um dos secundários. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Consulte [Projeto para continuidade de negócios](sql-database-business-continuity-design.md) para obter detalhes sobre como [configurar a replicação geográfica](sql-database-geo-replication-portal.md) e [fazer failover para o banco de dados secundário](sql-database-geo-replication-failover-portal.md). Consulte [Atualização de aplicativo sem tempo de inatividade](sql-database-business-continuity-application-upgrade.md) para obter detalhes sobre como implementar a atualização de aplicativo sem tempo de inatividade.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

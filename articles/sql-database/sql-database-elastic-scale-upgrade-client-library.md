@@ -4,7 +4,7 @@
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove"/>
 
 <tags 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/01/2016" 
+	ms.date="04/26/2016" 
 	ms.author="ddove;sidneyh" />
 
-# Atualizar para a biblioteca de cliente de banco de dados elástico mais recente
+# Atualizar um aplicativo para usar a biblioteca de cliente de banco de dados elástico mais recente
 
-Novas versões da [biblioteca de cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md) estão disponíveis por meio do [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e da interface do Gerenciador de Pacotes NuGet no Visual Studio. Atualizações contêm correções de bugs e suporte para novos recursos de biblioteca de cliente.
+Novas versões da [biblioteca de cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md) estão disponíveis por meio do NuGet e da interface do Gerenciador de Pacotes NuGet no Visual Studio. Atualizações contêm correções de bugs e suporte para novos recursos de biblioteca de cliente.
+
+**Para obter a versão mais recente:** acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 Recompile seu aplicativo com a nova biblioteca, além de alterar os metadados do Gerenciador de Mapa de Fragmentos existentes armazenados em seus Bancos de Dados SQL do Azure para dar suporte aos novos recursos.
 
@@ -39,7 +41,7 @@ Executar estas etapas nesta ordem garante que as versões antigas da biblioteca 
 
 **3. Atualize o seu serviço de mesclagem de divisão.** Se você usar o serviço de mesclagem de divisão de banco de dados elástico para reorganizar dados fragmentados, [baixe e implante a versão mais recente do serviço](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Etapas detalhadas de atualização para o serviço podem ser encontradas [aqui](sql-database-elastic-scale-overview-split-and-merge.md).
 
-**4. Atualizar seus bancos de dados do Gerenciador do mapa de fragmento**. Atualizar os metadados que suportam seus mapas de fragmento no banco de dados SQL do Azure. Há duas maneiras que você pode fazer isso, usando o PowerShell ou C#. Ambas as opções são mostradas abaixo.
+**4. Atualizar seus bancos de dados do Gerenciador do Mapa de Fragmentos**. Atualizar os metadados que suportam seus mapas de fragmento no banco de dados SQL do Azure. Há duas maneiras que você pode fazer isso, usando o PowerShell ou C#. Ambas as opções são mostradas abaixo.
 
 ***Opção 1: Atualizar os metadados usando o PowerShell***
 
@@ -74,20 +76,7 @@ Essas técnicas para atualizações de metadados podem ser aplicadas várias vez
 
 ## O histórico de versões de cliente do banco de dados elástico 
 
-**Versão 1.0 – abril de 2015**
-
-* Lançamento de disponibilidade geral
-* Adicionado suporte para tipos de data e hora como chaves de fragmentação
-
-**Versão 0.8 – março de 2015**
-
-* Suporte assíncrono adicionado para roteamento dependente de dados com os novos métodos ShardMap.OpenConnectionForKeyAsync. 
-* Propriedade KeyType pública adicionada ao ShardMap 
-* Melhorias adicionadas que suportam cenários de recuperação de desastres e restauração de banco de dados para fragmentos 
-
-**VVersão 0.7 – outubro de 2014**
-
-Versão de visualização inicial
+Para ver o histórico de versão, vá para [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -97,4 +86,4 @@ Versão de visualização inicial
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0511_2016-->
