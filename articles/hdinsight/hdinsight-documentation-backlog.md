@@ -24,7 +24,7 @@ Esta página lista os artigos, ou atualizações para os artigos, que pretendemo
 
 Área |Tópico | Prioridade | Status | Atribuído a | Solicitado por 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-Administração | Administrar clusters HDInsight usando o SDK do .NET | 1 | Gravando | [@mumian](https://github.com/mumian) | - |
+Administração | Administrar clusters HDInsight usando o SDK do .NET | 1 | Gravando | [@mumian](https://github.com/mumian) | - | 
 Administração | Usar o Azure Data Factory para provisionar clusters HDInsight | 2 | [Concluído](hdinsight-hadoop-create-linux-clusters-adf.md) | [@mumian](https://github.com/mumian) | - | 
 Automação | Atualizar o artigo sobre [como criar um cluster Spark](hdinsight-apache-spark-jupyter-spark-sql.md) para usar um modelo ARM | 1 | [Concluído](hdinsight-apache-spark-jupyter-spark-sql.md#create-spark-cluster) | [@mumian](https://github.com/mumian) | - 
 Automação | Atualizar o artigo sobre [como criar um cluster Storm e executar amostras iniciais do Storm](hdinsight-apache-storm-tutorial-get-started-linux.md) para usar um modelo do ARM | 1 | [Concluído](hdinsight-apache-storm-tutorial-get-started-linux.md#create-a-storm-cluster) | [@mumian](https://github.com/mumian) | - 
@@ -33,7 +33,7 @@ Automação | Atualizar o artigo sobre [como analisar dados do sensor usando clu
 Armazenamento | Artigo explicando o WASB e o Repositório Data Lake como opções de armazenamento | 2 | Pendente | [@mumian](https://github.com/mumian) | - 
 Desempenho | Diretrizes de ajuste de desempenho para aplicativos MapReduce | 1 | Pendente | [@blackmist](https://github.com/blackmist) | - 
 Desempenho | Diretrizes de ajuste de desempenho para clusters Spark |1 | Pendente | [@nitinme](https://github.com/nitinme) | - 
-Desenvolvimento | Amostra da Curl e da API Rest sobre como usar o Sqoop | 2 | Pendente| [@mumian](https://github.com/mumian) | Jon Kennerly |
+Desenvolvimento | Amostra da Curl e da API Rest sobre como usar o Sqoop | 2 | Pendente| [@mumian](https://github.com/mumian) | Jon Kennerly | 
 Desenvolvimento | [autenticação não interativa com o aplicativo .NET do HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications) |2| [Concluído](hdinsight-create-non-interactive-authentication-dotnet-applications.md) | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
@@ -43,4 +43,4 @@ Há algumas opções para fornecer comentários sobre a lista de pendências:
 * Adicione um comentário abaixo.
 * Enviar uma solicitação pull sobre este documento no [Repositório de Conteúdo do Azure](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
