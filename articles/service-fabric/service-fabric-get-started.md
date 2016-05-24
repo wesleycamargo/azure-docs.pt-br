@@ -3,7 +3,7 @@
    description="Instale o tempo de execução, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/18/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Preparar seu ambiente de desenvolvimento
  Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento, você precisará instalar o tempo de execução, o SDK e as ferramentas. Você também precisa habilitar a execução dos scripts do Windows PowerShell incluídos no SDK.
@@ -64,4 +64,4 @@ Agora que seu ambiente de desenvolvimento está configurado, você pode começar
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Link do WebPI do SDK principal"
 [powershell5-download]: https://www.microsoft.com/pt-BR/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

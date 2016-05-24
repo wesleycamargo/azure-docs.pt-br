@@ -61,9 +61,11 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 7. No **Cabeçalho de host de origem**, digite o cabeçalho de host que você deseja que o CDN envie com cada solicitação ou deixe o padrão.
 
+	> [AZURE.WARNING] Alguns tipos de origens, como o Armazenamento do Azure e Aplicativos Web, exigem que o cabeçalho de host corresponda ao domínio da origem. A menos que tenha uma origem que exija um cabeçalho de host diferente do seu domínio, você deverá deixar o valor padrão.
+
 8. Para **Protocolo** e **Porta de origem**, especifique os protocolos e as portas usadas para acessar os recursos na origem. É necessário selecionar pelo menos um protocolo (HTTP ou HTTPS).
 	
-	> [AZURE.NOTE] A **Porta de origem** afeta somente qual porta o ponto de extremidade usa para recuperar as informações na origem. O ponto de extremidade em si só estará disponível para os clientes finais nas portas HTTP e HTTPS (80 e 443) padrão, independentemente da **Porta de origem**.
+	> [AZURE.NOTE] A **Porta de origem** afeta somente a porta que o ponto de extremidade usa para recuperar as informações da origem. O ponto de extremidade em si só estará disponível para os clientes finais nas portas HTTP e HTTPS (80 e 443) padrão, independentemente da **Porta de origem**.
 	>
 	> Os pontos de extremidade **Azure CDN do Akamai** não permitem o intervalo de portas TCP completo para origens. Para obter uma lista de portas de origem que não são permitidas, confira [Detalhes do comportamento do Azure CDN do Akamai](cdn-akamai-behavior-details.md).
 	>
@@ -95,4 +97,4 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="04/18/2016"
 	ms.author="rasquill"/>
 
 
@@ -24,27 +24,21 @@
 
 Instale um cliente SSH no computador que você deseja usar para fazer logon na máquina virtual. Há muitos programas de cliente SSH que você pode escolher. Estas são algumas opções:
 
-- Em um computador que executa um sistema operacional Windows, poderá usar um cliente SSH como PuTTY. Para obter mais informações, consulte a [Página de download do PuTTY (em inglês)](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - Para uma máquina virtual executando um sistema operacional Linux, você deve usar um cliente SSH (Secure Shell) para fazer logon; é difícil imaginar uma distribuição que ainda não isso tenha instalado por padrão. Consulte [Como usar SSH](virtual-machines-linux-ssh-from-linux.md) para obter mais informações sobre o Linux.
+- Em um computador que executa um sistema operacional Windows, poderá usar um cliente SSH como PuTTY. Para obter mais informações, consulte a [Página de download do PuTTY (em inglês)](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 
 >[AZURE.NOTE] Para mais dicas de requisitos e solução de problemas, confira [Conecte-se à uma máquina virtual Azure com RDP ou SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
-Este procedimento mostra como usar o programa PuTTY para acessar a máquina virtual.
+Este procedimento mostra como usar o cliente SSH no OS X para acessar a máquina virtual.
 
 1. Encontre o **nome do host** e **informações da porta** no [Portal de Gerenciamento](http://manage.windowsazure.com). Você pode encontrar as informações que você precisa no painel da máquina virtual. Clique no nome da máquina virtual e procure os **Detalhes de SSH** na seção **Visão Rápida** do painel de controle.
 
-	![Obter detalhes de SSH](./media/virtual-machines-linux-classic-log-on/sshdetails.png)
+	![Obter detalhes de SSH](./media/virtual-machines-linux-classic-log-on/portalsshdetails.png)
 
-2. Abra o programa PuTTY.
+2. Faça logon na máquina virtual usando a conta especificada durante sua criação, juntamente com o nome do host e a porta apropriados. Para obter mais detalhes sobre como criar uma máquina virtual com o nome de usuário e senha, confira [Criar uma máquina virtual que executa Linux](virtual-machines-linux-classic-createportal.md).
 
-3. Digite o Nome do Host e as Informações da porta coletadas do painel de controle e, em seguida, clique em **Abrir**.
-
-	![Abra o PuTTY](./media/virtual-machines-linux-classic-log-on/putty.png)
-
-4. Faça logon na máquina virtual usando a conta especificada quando ela foi criada. Para obter mais detalhes sobre como criar uma máquina virtual com o nome de usuário e senha, confira [Criar uma máquina virtual que executa Linux](virtual-machines-linux-classic-createportal.md).
-
-	![Faça logon na máquina virtual](./media/virtual-machines-linux-classic-log-on/sshlogin.png)
+	![Faça logon na máquina virtual](./media/virtual-machines-linux-classic-log-on/sshport.png)
 
 >[AZURE.NOTE] A extensão VMAccess pode ajudá-lo a redefinir a chave SSH ou a senha, caso a esqueça. Se você esquecer o nome de usuário, você pode usar a extensão para criar um novo com a autoridade sudo. Para instruções, confira [Como redefinir uma senha ou SSH para máquinas virtuais Linux].
 
@@ -53,4 +47,4 @@ Você agora pode trabalhar com a máquina virtual, como faria com qualquer outro
 <!-- LINKS -->
 [Como redefinir uma senha ou SSH para máquinas virtuais Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

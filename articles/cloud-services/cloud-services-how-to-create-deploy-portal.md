@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="04/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -67,7 +67,7 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 ## Criar e implantar
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **Novo > Computação**, role para baixo e clique em **Serviço de Nuvem**.
+2. Clique em **Novo > Máquinas Virtuais**, role para baixo e clique em **Serviço de Nuvem**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
@@ -75,12 +75,13 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 4. Na nova folha **Serviço de Nuvem**, insira um valor em **Nome DNS**.
 5. Crie um novo **Grupo de Recursos** ou selecione um existente.
 6. Selecione um **Local**.
-7. Selecione **Pacote** na folha **Carregar um pacote** e preencha os campos obrigatórios.  
+7. Clique em **Pacote**. Isso abrirá a folha **Carregar um pacote**. Preencha os campos obrigatórios.  
 
      Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
 
 8. Verifique se a opção **Iniciar implantação** está selecionada.
-9. Clique em **OK**.
+9. Clique em **OK**, que fechará a folha **Carregar um pacote**.
+10. Se você não tiver nenhum certificado para adicionar, clique em **Criar**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
@@ -115,4 +116,4 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0511_2016-->

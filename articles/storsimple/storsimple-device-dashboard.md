@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Use o painel do dispositivo StorSimple Manager | Microsoft Azure"
    description="Descreve o painel do dispositivo do serviço StorSimple Manager e como usá-lo para exibir iniciadores conectados e métricas de armazenamento e localizar o número de série e o IQN."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="05/09/2016"
    ms.author="alkohli" />
 
 # Usar o painel de dispositivo do StorSimple Manager
@@ -27,11 +27,11 @@ O painel contém as seguintes informações:
 
 - **Área do gráfico**: você pode ver as métricas de armazenamento relevantes na área do gráfico, na parte superior do painel. Nesse gráfico, você pode exibir métricas para o armazenamento principal total (a quantidade de dados gravados pelos hosts no seu dispositivo) e o armazenamento em nuvem total consumido pelo dispositivo em um período.
 
-     Nesse contexto, o *armazenamento principal* se refere ao volume total de dados gravados pelo host. Ele pode incluir dados armazenados localmente e dados em camadas na nuvem. O *armazenamento em nuvem*, por outro lado, é uma medição do volume total de dados armazenados na nuvem. Isso inclui backups e dados em camadas. Observe que os dados armazenados na nuvem passam pela eliminação de duplicação e são compactados, enquanto o armazenamento principal indica a quantidade de armazenamento usada antes de os dados passarem pela eliminação de duplicação e serem compactados. (Você pode comparar esses dois números para ter uma ideia da taxa de compactação). Tanto para o armazenamento principal, quanto para o armazenamento em nuvem, os volumes mostrados serão baseados na frequência de rastreamento que você configura. Por exemplo, se você escolher a frequência de uma semana, o gráfico mostrará dados para cada dia da semana anterior.
- 
+     Nesse contexto, *armazenamento primário* refere-se à quantidade total de dados gravados pelo host e pode ser dividido por tipo de volume: o *armazenamento primário em camadas* inclui tanto dados armazenados localmente quanto dados em camadas na nuvem; o *armazenamento primário fixo localmente* inclui apenas os dados armazenados localmente. O *armazenamento primário em camadas* inclui tanto dados armazenados localmente quanto dados em camadas na nuvem; o *armazenamento primário fixo localmente* inclui apenas os dados armazenados localmente. O *armazenamento em nuvem*, por outro lado, é uma medição do volume total de dados armazenados na nuvem. Isso inclui backups e dados em camadas. Observe que os dados armazenados na nuvem passam pela eliminação de duplicação e são compactados, enquanto o armazenamento principal indica a quantidade de armazenamento usada antes de os dados passarem pela eliminação de duplicação e serem compactados. (Você pode comparar esses dois números para ter uma ideia da taxa de compactação). Tanto para o armazenamento principal, quanto para o armazenamento em nuvem, os volumes mostrados serão baseados na frequência de rastreamento que você configura. Por exemplo, se você escolher a frequência de uma semana, o gráfico mostrará dados para cada dia da semana anterior.
+
 	 É possível configurar o gráfico como se segue:
 
-	 - Para ver o volume de armazenamento em nuvem consumido ao longo do tempo, selecione a opção **ARMAZENAMENTO EM NUVEM USADO**. Para ver o armazenamento total que foi escrito pelo host, selecione a opção **ARMAZENAMENTO PRINCIPAL USADO**. Na ilustração, ambas as opções são selecionadas. Portanto, o gráfico mostra volumes para armazenamento principal e em nuvem. 
+	 - Para ver o volume de armazenamento em nuvem consumido ao longo do tempo, selecione a opção **ARMAZENAMENTO EM NUVEM USADO**. Para ver o armazenamento total gravado pelo host, selecione as opções **ARMAZENAMENTO PRIMÁRIO EM CAMADAS USADO** e **ARMAZENAMENTO PRIMÁRIO FIXO LOCALMENTE USADO**. Na ilustração, ambas as opções são selecionadas. Portanto, o gráfico mostra volumes para armazenamento principal e em nuvem. Observe que qualquer armazenamento primário usado antes da instalação da Atualização 2 é representado pela linha **ARMAZENAMENTO PRIMÁRIO EM CAMADAS USADO**.
 	 - Use o menu suspenso no canto superior direito do gráfico para especificar um período de 1 semana, 1 mês, 3 meses ou 1 ano. Observe que o gráfico no nível superior é atualizado apenas uma vez por dia e, portanto, refletirá os totais do dia anterior.
 
      Para obter mais informações, consulte [Use the StorSimple Manager service to monitor your StorSimple device (Usar o serviço StorSimple Manager para monitorar seu dispositivo StorSimple)](storsimple-monitor-device.md).
@@ -100,4 +100,4 @@ Talvez você precise do IQN de destino do dispositivo ao configurar o protocolo 
 - Saiba mais sobre o [painel de serviços do StorSimple Manager](storsimple-service-dashboard.md).
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

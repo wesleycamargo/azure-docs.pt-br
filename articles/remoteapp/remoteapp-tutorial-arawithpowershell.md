@@ -13,19 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="02/23/2016"
+   ms.date="05/05/2016"
    ms.author="elizapo"/>
 
 
 
 # Usar os cmdlets do Windows PowerShell com o Azure RemoteApp
-=====================================
 
  Você pode usar os cmdlets do Azure RemoteApp PowerShell para administrar e manter suas coleções. Use as informações a seguir para começar.
 
 ## Obtenha os cmdlets 
 -------------
-Baixe primeiro os cmdlets do Azure PowerShell [aqui](http://go.microsoft.com/?linkid=9811175), os do RemoteApp estão incluídos.
+Baixe primeiro os cmdlets do Azure PowerShell [aqui](http://go.microsoft.com/?linkid=9811175), os do RemoteApp estão incluídos nele.
 
 Confira a [ajuda do cmdlet do Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
 
@@ -35,7 +34,7 @@ Siga [este guia](../powershell-install-configure.md) para que possa usar os cmdl
 
 Você pode usar estas etapas para começar rapidamente:
 
-1.	Baixar e instalar os [cmdlets do Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
+1.	Baixe e instale os [cmdlets do Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
 2.	Inicie o Microsoft Azure PowerShell.
 3.	Execute **Add-AzureAccount** para autenticar sua assinatura do Azure. Quando solicitado, insira o mesmo nome de usuário e a senha que você usa para entrar no Portal do Azure.  
 4.	Execute **Get-AzureSubscription** para listar as assinaturas associadas à sua conta de usuário. 
@@ -112,4 +111,4 @@ Outros cmdlets do RemoteApp:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -3,7 +3,7 @@
     description="Adicionar imagens ao aplicativo móvel Xamarin.Forms de lista de tarefas pendentes conectando-se ao Armazenamento de blobs do Azure"
     documentationCenter="xamarin"
     authors="lindydonna"
-    manager="dwrede"
+    manager="erikre"
     editor=""
     services="app-service\mobile"/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/03/2016"
+    ms.date="05/10/2016"
     ms.author="donnam"/>
 
 #Conectar ao Armazenamento do Azure em seu aplicativo Xamarin Forms
@@ -42,11 +42,19 @@ Neste tutorial, você criará uma conta de armazenamento e adicionará uma cadei
 
 3. Navegue até seu back-end de aplicativo móvel. Em **Todas as Configurações** -> **Configurações do Aplicativo** -> **Cadeias de Conexão**, crie uma nova chave chamada `MS_AzureStorageAccountConnectionString` e use o valor copiado de sua conta de armazenamento. Use **Personalizado** como o tipo de chave.
 
-## Adicionar um controlador de armazenamento ao projeto de seu servidor
+## Adicionar um controlador de armazenamento ao servidor
 
-1. No Visual Studio, abra o projeto de servidor .NET. Adicione o pacote NuGet [Microsoft.Azure.Mobile.Server.Files]. Selecione **Incluir pré-lançamento**.
+Você precisa adicionar um novo controlador ao projeto do seu servidor, que responderá às solicitações de um token SAS para o armazenamento do Azure, bem como retornará uma lista de arquivos que correspondem a um registro:
 
-2. No Visual Studio, abra o projeto de servidor .NET. Clique com o botão direito do mouse na pasta **Controladores** e selecione **Adicionar** > **Controlador** -> **API Web 2 Controlador - Vazio**. Dê ao controlador o nome `TodoItemStorageController`.
+- [Adicionar um controlador de armazenamento ao projeto de seu servidor](#add-controller-code)
+- [Rotas registradas pelo controlador de armazenamento](#routes-registered)
+- [Comunicação de cliente e servidor](#client-communication)
+
+###<a name="add-controller-code"></a>Adicionar um controlador de armazenamento ao projeto do seu servidor
+
+1. No Visual Studio, abra o projeto de servidor .NET. Adicione o pacote NuGet [Microsoft.Azure.Mobile.Server.Files]. Lembre-se de selecionar a opção **Incluir pré-lançamento**.
+
+2. No Visual Studio, abra o projeto de servidor .NET. Clique com o botão direito do mouse na pasta **Controladores** e selecione **Adicionar** > **Controlador** -> **Controlador da API Web 2 - Vazio**. Dê ao controlador o nome `TodoItemStorageController`.
 
 3. Adicione as seguintes instruções using:
 
@@ -91,7 +99,7 @@ Neste tutorial, você criará uma conta de armazenamento e adicionará uma cadei
 
 7. Publique o seu projeto de servidor em seu back-end de aplicativo móvel.
 
-###Rotas registradas pelo controlador de armazenamento
+###<a name="routes-registered"></a>Rotas registradas pelo controlador de armazenamento
 
 O novo `TodoItemStorageController` expõe dois sub-recursos sob o registro que gerencia:
 
@@ -111,11 +119,11 @@ O novo `TodoItemStorageController` expõe dois sub-recursos sob o registro que g
     
         `/tables/TodoItem/{id}/MobileServiceFiles/{fileid}`
 
-###Comunicação de cliente e servidor
+###<a name="client-communication"></a>Comunicação de cliente e servidor
 
-Observe que o `TodoItemStorageController` *não* tem uma rota para carregar ou baixar um blob. Isso ocorre porque um cliente móvel interage *diretamente* com o armazenamento de blobs para executar essas operações, depois de obter primeiro um token SAS (Assinatura de Acesso Compartilhado) para acessar com segurança um contêiner ou blob específico. Esse é um design arquitetônico importante, pois, de outra forma, o acesso ao armazenamento ficaria limitado pela escalabilidade e disponibilidade do back-end móvel. Em vez disso, conectando-se diretamente ao Armazenamento do Azure, o cliente móvel pode aproveitar seus recursos, como o particionamento automático e a distribuição geográfica.
+Observe que o `TodoItemStorageController` *não* tem uma rota para carregar ou baixar um blob. Isso ocorre porque um cliente móvel interage *diretamente* com o Armazenamento de Blobs para executar essas operações, depois de obter primeiro um token SAS (Assinatura de Acesso Compartilhado) para acessar um contêiner ou blob específico com segurança. Esse é um design arquitetônico importante, pois, de outra forma, o acesso ao armazenamento ficaria limitado pela escalabilidade e disponibilidade do back-end móvel. Em vez disso, conectando-se diretamente ao Armazenamento do Azure, o cliente móvel pode aproveitar seus recursos, como o particionamento automático e a distribuição geográfica.
 
-Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta. Para saber mais, confira [Noções básicas da Assinatura de Acesso Compartilhado].
+Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta. Para saber mais, confira as [Noções básicas da Assinatura de Acesso Compartilhado].
 
 O diagrama a seguir mostra as interações entre cliente e servidor. Antes de carregar um arquivo, o cliente solicita um token SAS do serviço. O serviço usa a cadeia de conexão de armazenamento para gerar uma nova SAS que, em seguida, retorna ao cliente. A SAS é limitada por tempo e restringe permissões para um determinado arquivo ou contêiner. O cliente móvel usa esse SAS e o SDK do cliente de Armazenamento do Azure para carregar o arquivo no armazenamento de blobs.
 
@@ -123,13 +131,22 @@ O diagrama a seguir mostra as interações entre cliente e servidor. Antes de ca
 
 ## Atualizar o aplicativo cliente para adicionar suporte de imagem
 
-Abra o projeto de início rápido do Xamarin.Forms no Visual Studio ou no Xamarin Studio.
+Abra o projeto de início rápido do Xamarin.Forms no Visual Studio ou no Xamarin Studio. Você instalará pacotes NuGet, atualizará o projeto de biblioteca portátil e os projetos de cliente iOS, Android e Windows:
+
+- [Adicionar pacotes NuGet](#add-nuget)
+- [Adicionar interface IPlatform](#add-iplatform)
+- [Adicionar classe FileHelper](#add-filehelper)
+- [Adicionar um manipulador de sincronização de arquivo](#file-sync-handler)
+- [Atualizar TodoItemManager](#update-todoitemmanager)
+- [Adicionar uma exibição de detalhes](#add-details-view)
+- [Atualizar exibição principal](#update-main-view)
+- [Atualizar os projetos do Android](#update-android), do [iOS](#update-ios) e do [Windows](#update-windows)
 
 >[AZURE.NOTE] Este tutorial contém apenas instruções para as plataformas Android, iOS e Windows Store, não para o Windows Phone.
 
-###Adicionar pacotes NuGet
+###<a name="add-nuget"></a>Adicionar pacotes NuGet
 
-Clique com o botão direito do mouse na solução e selecione **Gerenciar pacotes NuGet para a solução**. Adicione os seguintes pacotes NuGet a **todos** os projetos na solução. Lembre-se de marcar **Incluir pré-lançamento**.
+Clique com o botão direito do mouse na solução e selecione **Gerenciar pacotes NuGet para a solução**. Adicione os seguintes pacotes NuGet a **todos** os projetos na solução. Lembre-se de marcar a opção **Incluir pré-lançamento**.
 
   - [Microsoft.Azure.Mobile.Client.Files]
 
@@ -141,7 +158,7 @@ Para sua conveniência, este exemplo usa a biblioteca [PCLStorage], mas ela não
 
 [PCLStorage]: https://www.nuget.org/packages/PCLStorage/
 
-###Adicionar interface IPlatform
+###<a name="add-iplatform"></a>Adicionar a interface IPlatform
 
 Crie uma nova interface `IPlatform` no projeto da biblioteca portátil principal. Isso segue o padrão [Xamarin.Forms DependencyService] para carregar a classe específica da plataforma correta no tempo de execução. Posteriormente, você adicionará implementações específicas da plataforma em cada um dos projetos de cliente.
 
@@ -164,9 +181,9 @@ Crie uma nova interface `IPlatform` no projeto da biblioteca portátil principal
             Task DownloadFileAsync<T>(IMobileServiceSyncTable<T> table, MobileServiceFile file, string filename);
         }
 
-###Adicionar classe FileHelper
+###<a name="add-filehelper"></a>Adicionar a classe FileHelper
 
-1. Criar uma nova classe `FileHelper` no projeto da biblioteca portátil principal. Adicione as seguintes instruções using:
+1. Crie uma nova classe `FileHelper` no projeto da biblioteca portátil principal. Adicione as seguintes instruções using:
 
         using System.IO;
         using PCLStorage;
@@ -222,11 +239,11 @@ Crie uma nova interface `IPlatform` no projeto da biblioteca portátil principal
             }
         }
 
-### Adicionar um manipulador de sincronização de arquivo
+###<a name="file-sync-handler"></a> Adicionar um manipulador de sincronização de arquivo
 
-Criar uma nova classe `TodoItemFileSyncHandler` no projeto da biblioteca portátil principal. Essa classe contém retornos de chamada do SDK do Azure a fim de notificar seu código quando um arquivo é adicionado ou removido.
+Crie uma nova classe `TodoItemFileSyncHandler` no projeto da biblioteca portátil principal. Essa classe contém retornos de chamada do SDK do Azure a fim de notificar seu código quando um arquivo é adicionado ou removido.
 
-O SDK do cliente móvel do Azure não armazena realmente quaisquer dados do arquivo: o SDK do cliente invoca a implementação do `IFileSyncHandler` que, por sua vez, determina se os arquivos são armazenados no dispositivo local e de que maneira.
+O SDK do cliente móvel do Azure, de fato, não armazena nenhum dado do arquivo: o SDK do cliente invoca a implementação do `IFileSyncHandler` que, por sua vez, determina se os arquivos são armazenados no dispositivo local e de que maneira.
 
 1. Adicione as seguintes instruções using:
 
@@ -264,7 +281,7 @@ O SDK do cliente móvel do Azure não armazena realmente quaisquer dados do arqu
             }
         }
 
-###Atualizar TodoItemManager
+###<a name="update-todoitemmanager"></a>Atualizar TodoItemManager
 
 1. Em **TodoItemManager.cs**, remova a marca de comentário da linha `#define OFFLINE_SYNC_ENABLED`.
 
@@ -316,7 +333,7 @@ O SDK do cliente móvel do Azure não armazena realmente quaisquer dados do arqu
             return await this.todoTable.GetFilesAsync(todoItem);
         }
 
-###Adicionar uma exibição de detalhes
+###<a name="add-details-view"></a>Adicionar uma exibição de detalhes
 
 Nesta seção, você adicionará uma nova exibição de detalhes para um item de tarefa. A exibição é criada quando o usuário seleciona um item de tarefa e permite que novas imagens sejam adicionados a um item.
 
@@ -375,7 +392,7 @@ Nesta seção, você adicionará uma nova exibição de detalhes para um item de
 
 4. Clique com o botão direito do mouse no projeto de biblioteca portátil e selecione **Adicionar** -> **Novo Item** -> **Plataforma cruzada** -> **Página de Formulários XAML**. Dê o nome `TodoItemDetailsView` à exibição.
 
-5. Abra **TodoItemDetailsView.xaml** e substitua o corpo do ContentPage pelo seguinte:
+5. Abra **TodoItemDetailsView.xaml** e substitua o corpo da ContentPage pelo seguinte:
 
           <Grid>
             <Grid.RowDefinitions>
@@ -449,7 +466,7 @@ Nesta seção, você adicionará uma nova exibição de detalhes para um item de
             }
         }
 
-###Atualizar exibição principal 
+###<a name="update-main-view"></a>Atualizar exibição principal 
 
 Atualize a exibição principal para abrir a exibição de detalhes quando um item de tarefas for selecionado.
 
@@ -468,7 +485,7 @@ Em **TodoList.xaml.cs**, substitua a implementação de `OnSelected` pelo seguin
         todoList.SelectedItem = null;
     }
 
-###Atualizar o projeto do Android
+###<a name="update-android"></a>Atualizar o projeto do Android
 
 Adicione o código específico da plataforma ao projeto do Android, incluindo o código para baixar um arquivo e usar a câmera para capturar uma nova imagem.
 
@@ -540,7 +557,7 @@ Esse código usa o [DependencyService](https://developer.xamarin.com/guides/xama
 
         App.UIContext = this;
 
-###Atualizar o projeto do iOS
+###<a name="update-ios"></a>Atualizar o projeto do iOS
 
 Adicione o código específico da plataforma ao projeto do iOS.
 
@@ -603,11 +620,11 @@ Adicione o código específico da plataforma ao projeto do iOS.
 
 3. Edite **AppDelegate.cs** e remova a marca de comentário da chamada para `SQLitePCL.CurrentPlatform.Init()`.
 
-###Atualizar o projeto do Windows
+###<a name="update-windows"></a>Atualizar o projeto do Windows
 
-1. Instale a extensão do Visual Studio [SQLite para Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Para saber mais, consulte o tutorial [Habilitar sincronização offline para seu aplicativo do Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
+1. Instale a extensão do Visual Studio [SQLite para Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). Para saber mais, confira o tutorial [Habilitar sincronização offline para seu aplicativo do Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
 
-2. Edite **Package.appxmanifest** e verifique a capacidade **Webcam**.
+2. Edite **Package.appxmanifest** e verifique a capacidade da **Webcam**.
 
 3. Adicione uma nova classe `WindowsStorePlatform` com a seguinte implementação. Substitua "YourNamespace" pelo namespace principal de seu projeto.
 
@@ -674,7 +691,7 @@ Adicione o código específico da plataforma ao projeto do iOS.
 
 Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e cliente móvel do Azure para trabalhar com o Armazenamento do Azure.
 
-- Crie uma conta de armazenamento e adicione uma cadeia de conexão ao back-end do aplicativo móvel. Somente o back-end tem a chave para o Armazenamento do Azure: o cliente móvel solicita um token SAS (Assinatura de Acesso Compartilhado) sempre que precisar acessar o Armazenamento do Azure. Para saber mais sobre tokens SAS no Armazenamento do Azure, confira [Noções básicas das Assinaturas de Acesso Compartilhado].
+- Crie uma conta de armazenamento e adicione uma cadeia de conexão ao back-end do aplicativo móvel. Somente o back-end tem a chave para o Armazenamento do Azure: o cliente móvel solicita um token SAS (Assinatura de Acesso Compartilhado) sempre que precisar acessar o Armazenamento do Azure. Para saber mais sobre tokens SAS no Armazenamento do Azure, confira as [Noções básicas das Assinaturas de Acesso Compartilhado].
 
 - Crie um controlador que pode efetuar subclasses de `StorageController` a fim de manipular as solicitações de token SAS e obter os arquivos que estão associados a um registro. Por padrão, os arquivos são associados a um registro usando a ID do registro como parte do nome do contêiner; o comportamento pode ser personalizado especificando uma implementação de `IContainerNameResolver`. A política de token SAS também pode ser personalizada.
 
@@ -686,9 +703,9 @@ Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e c
 
       + `IFileSyncHandler.ProcessFileSynchronizationAction` é chamado como parte do fluxo de sincronização do arquivo. Uma referência de arquivo e um valor de enumeração FileSynchronizationAction são fornecidos para que você possa decidir como seu aplicativo deve tratar o evento (por exemplo, baixando automaticamente um arquivo quando ele é criado ou atualizado, excluindo um arquivo do dispositivo local quando esse arquivo é excluído do servidor).
 
-- Um `MobileServiceFile` pode ser usado no modo online ou offline, usando um `IMobileServiceTable` ou `IMobileServiceSyncTable`, respectivamente. No cenário offline, o upload ocorrerá quando o aplicativo chamar `PushFileChangesAsync`. Isso faz com que a fila de operação offline seja processados; para cada operação de arquivo, o SDK do cliente móvel do Azure invocará o método `GetDataSource` na instância `IFileSyncHandler` para recuperar o conteúdo do arquivo para o upload.
+- Um `MobileServiceFile` pode ser usado no modo online ou offline, usando um `IMobileServiceTable` ou `IMobileServiceSyncTable`, respectivamente. No cenário offline, o upload ocorrerá quando o aplicativo chamar `PushFileChangesAsync`. Isso faz com que a fila de operação offline seja processada; para cada operação de arquivo, o SDK do cliente móvel do Azure invocará o método `GetDataSource` na instância `IFileSyncHandler` para recuperar o conteúdo do arquivo para o upload.
 
-- Para recuperar os arquivos de um item, chame o método `GetFilesAsync` no `IMobileServiceTable<T>` ou na instância <T> de IMobileServiceSyncTable. Esse método retorna uma lista de arquivos associados ao item de dados fornecido. (Observação: essa é uma operação *local* e retornará os arquivos com base no estado do objeto quando ele foi sincronizada pela última vez. Para obter uma lista atualizada dos arquivos do servidor, primeiro você deve iniciar uma operação de sincronização.)
+- Para recuperar os arquivos de um item, chame o método `GetFilesAsync` na instância `IMobileServiceTable<T>` ou IMobileServiceSyncTable<T>. Esse método retorna uma lista de arquivos associados ao item de dados fornecido. (Observação: essa é uma operação *local* e retornará os arquivos com base no estado do objeto quando ele foi sincronizado pela última vez. Para obter uma lista atualizada dos arquivos do servidor, primeiro você deve iniciar uma operação de sincronização.)
 
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 
@@ -718,4 +735,4 @@ Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e c
 [Noções básicas das Assinaturas de Acesso Compartilhado]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [Criar uma conta de armazenamento do Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

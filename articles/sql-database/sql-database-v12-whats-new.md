@@ -114,7 +114,6 @@ A V12 oferece objetivos de ponto de recuperação (RPOs) significativamente apri
 | Recursos da continuidade dos negócios | Versão anterior | V12 |
 | :-- | :-- | :-- |
 | Restauração geográfica | • RPO < 24 horas.<br/>• ERT < 12 horas. | • RPO < 1 hora.<br/>• ERT < 12 horas. |
-| Replicação geográfica padrão | • RPO < 30 minutos.<br/>• ERT < 2 horas. | • RPO < 5 segundos.<br/>• ERT < 30 segundos. |
 | Replicação geográfica ativa | • RPO < 5 minutos.<br/>• ERT < 1 hora. | • RPO < 5 segundos.<br/>• ERT < 30 segundos. |
 
 
@@ -167,4 +166,4 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 
 [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

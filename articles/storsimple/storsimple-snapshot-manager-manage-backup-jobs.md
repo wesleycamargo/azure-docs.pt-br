@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 
@@ -40,7 +40,7 @@ Use o procedimento a seguir para exibir os trabalhos de backup agendados.
 
     - **Última execução** – a data e hora do instantâneo agendado mais recente
 
-    >[AZURE.NOTE]Para instantâneos únicos, a **Próxima execução** e a **Última execução** serão iguais.
+    >[AZURE.NOTE] Para instantâneos únicos, a **Próxima execução** e a **Última execução** serão iguais.
  
     ![Trabalhos de backup agendados](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png)
  
@@ -96,11 +96,11 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
     
     - **Decorrido** – a quantidade de tempo decorrido desde que o backup foi iniciado.
 
-    - **Taxa de transferência média (MB) **– a quantidade média de dados entregues, expressa em megabytes (MBs).
+    - **Taxa de transferência média (MB)** – proporção do total de bytes de dados processados em relação ao total de bytes do tempo total gasto para processamento (MBs).
 
-    - **Bytes processados (MB)** – a quantidade de dados do grupo de volumes que foram processados (em MB).
+    - **Bytes processados (MB)** – total de bytes de dados processados (em MBs).
 
-    - **Bytes gravados (MB)** – a quantidade de dados que foram gravados no backup (em MB).
+    - **Bytes gravados (MB)** – total de bytes de dados gravados (em MBs). Ela inclui os dados, bem como os metadados e, portanto, é geralmente maior que os Bytes Processados.
 
     ![Trabalhos em execução no momento](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 
@@ -130,4 +130,4 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0511_2016-->

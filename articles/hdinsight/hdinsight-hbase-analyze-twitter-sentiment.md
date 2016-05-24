@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="05/09/2016" 
 	ms.author="jgao"/>
 
 # Analisar sentimento no Twitter em tempo real com HBase no HDInsight.
@@ -23,7 +23,7 @@ Saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentime
 
 Sites sociais são uma das principais forças motrizes para adoção de Big Data. APIs públicas fornecidas por sites, como o Twitter, são uma fonte útil de dados para analisar e compreender as tendências populares. Neste tutorial, você desenvolverá um aplicativo de serviço de streaming de console e um aplicativo Web ASP.NET para realizar o seguinte:
 
-![][img-app-arch]
+![Analisar a opinião no Twitter sobre o HDInsight HBase][img-app-arch]
 
 - O aplicativo de streaming
 	- obter tweets marcados geograficamente em tempo real, usando a API de streaming do Twitter
@@ -71,7 +71,7 @@ Uma amostra da solução completa do Visual Studio pode ser encontrada em GitHub
 ### Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Um cluster HBase no HDInsight**. Para obter instruções sobre como criar clusters, consulte [Introdução ao uso do HBase com o Hadoop no HDInsight][hbase-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
+- **Um cluster HBase no HDInsight**. Para obter instruções sobre como criar clusters, confira [Introdução ao uso do HBase com o Hadoop no HDInsight][hbase-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
 
 
 	<table border="1">
@@ -146,8 +146,8 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
 		Install-Package Microsoft.HBase.Client
 		Install-Package TweetinviAPI
     Esses comandos instalam o pacote do [SDK .NET do HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/), que é a biblioteca de cliente para acessar o cluster HBase, e o pacote da [API Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/), que é usado para acessar a API do Twitter.
-3. De **Gerenciador de Soluções**, adicione **System.Configuration" à referência.
-4. Adicione um novo arquivo de classe ao projeto chamado **HBaseWriter.cs**, e, em seguida, substitua o código por:
+3. Do **Gerenciador de Soluções**, adicione **System.Configuration** à referência.
+4. Adicione um novo arquivo de classe ao projeto chamado **HBaseWriter.cs** e, em seguida, substitua o código por:
 
         using System;
         using System.Collections.Generic;
@@ -193,12 +193,12 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
                     client = new HBaseClient(credentials);
 
                     // create the HBase table if it doesn't exist
-                    if (!client.ListTables().name.Contains(HBASETABLENAME))
+                    if (!client.ListTablesAsync().Result.name.Contains(HBASETABLENAME))
                     {
                         TableSchema tableSchema = new TableSchema();
                         tableSchema.name = HBASETABLENAME;
                         tableSchema.columns.Add(new ColumnSchema { name = "d" });
-                        client.CreateTable(tableSchema);
+                        client.CreateTableAsync(tableSchema).Wait;
                         Console.WriteLine("Table "{0}" is created.", HBASETABLENAME);
                     }
 
@@ -344,7 +344,7 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
                                 }
 
                                 // Write the Tweet by words cell set to the HBase table
-                                client.StoreCells(HBASETABLENAME, set);
+								client.StoreCellsAsync(HBASETABLENAME, set).Wait();
                                 Console.WriteLine("\tRows written: {0}", set.rows.Count);
                             }
                             Thread.Sleep(100);
@@ -367,7 +367,7 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
             }
         }
 
-6. Defina as constantes no código anterior, incluindo **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** e DICTIONARYFILENAME. O DICTIONARYFILENAME é o nome do arquivo e o local do direction.tsv. O arquivo pode ser baixado de ****https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Se quiser mudar o nome da tabela HBase, você deve mudar o nome da tabela de modo correspondente no aplicativo Web.
+6. Defina as constantes no código anterior, incluindo **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** e DICTIONARYFILENAME. O DICTIONARYFILENAME é o nome do arquivo e o local do direction.tsv. O arquivo pode ser baixado de **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Se quiser mudar o nome da tabela HBase, você deve mudar o nome da tabela de modo correspondente no aplicativo Web.
 
 7. Abra **Program.cs** e substitua o código pelo seguinte:
 
@@ -445,9 +445,9 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
 
 Para executar o serviço de streaming, pressione **F5**. A seguir, uma captura de tela do aplicativo de console:
 
-	![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
+![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
     
-Mantenha o aplicativo de console de streaming em execução enquanto desenvolve o aplicativo Web, para que você tenha mais dados para usar. Para examinar os dados inseridos na tabela, você pode usar o HBase Shell. Consulte [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
+Mantenha o aplicativo de console de streaming em execução enquanto desenvolve o aplicativo Web, para que você tenha mais dados para usar. Para examinar os dados inseridos na tabela, você pode usar o HBase Shell. Confira a [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
 
 
 ## Visualizar o sentimento em tempo real
@@ -1099,7 +1099,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o layout.cshtml**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda **Compartilhado** e, em seguida, clique duas vezes com o mouse em _**Layout.cshtml**.
+1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda**Compartilhado** e, em seguida, clique duas vezes com o mouse em _**Layout.cshtml**.
 2. Substitua o conteúdo com o seguinte:
 
 		<!DOCTYPE html>
@@ -1164,7 +1164,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o Index.cshtml**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda **Página Inicial** e, em seguida, clique duas vezes com o mouse em **Index.cshtml**.
+1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda**Página Inicial** e, em seguida, clique duas vezes com o mouse em **Index.cshtml**.
 2. Substitua o conteúdo com o seguinte:
 
 		@{
@@ -1236,8 +1236,8 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 - [Desenvolver programas MapReduce em Java para HDInsight][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
-[website-get-started]: ../web-sites-dotnet-get-started.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
+[website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
 
 
 
@@ -1248,9 +1248,8 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 
 
 
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
 
 
 
@@ -1277,4 +1276,4 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-Este tutorial orienta você pelas etapas de implementação de um aplicativo básico de streaming ao vivo dos Serviços de Mídia, onde um canal recebe um fluxo ao vivo de múltiplas taxas de bits de um codificador ao vivo local. Para obter uma visão geral mais detalhada de como trabalhar com canais e componentes relacionados, consulte [Trabalhando com canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-manage-channels-overview.md).
+Este tutorial orienta você pelas etapas de implementação de um aplicativo básico de streaming ao vivo dos Serviços de Mídia, onde um canal recebe um fluxo ao vivo de múltiplas taxas de bits de um codificador ao vivo local. Para obter uma visão geral mais detalhada de como trabalhar com canais e componentes relacionados, consulte [Trabalhando com canais que recebam transmissão ao vivo de múltiplas taxas de bits de codificadores locais](media-services-live-streaming-with-onprem-encoders.md).
 
 Neste tutorial, o Portal Clássico do Azure é usado para realizar as seguintes tarefas:
 
@@ -88,7 +88,7 @@ Depois que o canal é criado, você pode obter URLs de ingestão que você forne
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-Para obter mais informações sobre URLs de ingestão, consulte [Usando codificadores de locais para enviar um fluxo ao vivo de múltiplas taxas de bits para um canal](media-services-manage-channels-overview.md).
+Para obter mais informações sobre URLs de ingestão, consulte [Usando codificadores de locais para enviar um fluxo ao vivo de múltiplas taxas de bits para um canal](media-services-live-streaming-with-onprem-encoders.md).
 
 ## Configurar um codificador ao vivo e receber transmissão ao vivo
 
@@ -212,4 +212,4 @@ Se este tópico não contiver o que você esperava, se estiver faltando alguma i
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0511_2016-->

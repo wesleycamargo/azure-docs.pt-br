@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="Implantação do Visual Studio | Microsoft Azure" 
+	pageTitle="Implantar o aplicativo Lógico do Visual Studio | Microsoft Azure" 
 	description="Crie um projeto no Visual Studio para gerenciar seu aplicativo lógico." 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="05/03/2016"
 	ms.author="stepsic"/>
 	
 # Implantar com o Visual Studio
@@ -27,25 +27,21 @@ Você deve ter o Azure SDK 2.7 ou posterior instalado para que você siga as eta
 
 ## Criar um projeto
 
-1. Vá até o menu **Arquivo** e selecione **Novo** > **Projeto** (ou então, você pode ir até **Adicionar** e selecionar **Novo projeto** para adicioná-lo a uma solução existente):
-![Menu Arquivo](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. Vá até o menu **Arquivo** e selecione **Novo** > **Projeto** (ou então, você pode ir até **Adicionar** e selecionar **Novo projeto** para adicioná-lo a uma solução existente): ![Menu Arquivo](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
-2. Na caixa de diálogo, encontre **Nuvem** e selecione **Grupo de Recursos do Azure**. Digite um **Nome** e, em seguida, clique em **OK**.
-![Adicionar novo projeto](./media/app-service-logic-deploy-from-vs/addnewproject.png)
+2. Na caixa de diálogo, encontre **Nuvem** e selecione **Grupo de Recursos do Azure**. Digite um **Nome** e, em seguida, clique em **OK**. ![Adicionar novo projeto](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
-3. Agora você precisa selecionar se deseja um **Aplicativo lógico** ou **Aplicativo lógico e Aplicativo de API**. Selecionar **Aplicativo lógico** exige que você aponte para APIs existentes. Caso selecione **Aplicativo lógico e Aplicativo de API**, você também poderá criar, simultaneamente, um Aplicativo de API novo e vazio. Neste documento, selecionei o Aplicativo lógico.
-![Selecionar modelo do Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+3. Agora você precisa selecionar se deseja um **Aplicativo lógico** ou **Aplicativo lógico e Aplicativo de API**. Selecionar **Aplicativo lógico** exige que você aponte para APIs existentes. Caso selecione **Aplicativo lógico e Aplicativo de API**, você também poderá criar, simultaneamente, um Aplicativo de API novo e vazio. Neste documento, selecionei o Aplicativo lógico. ![Selecionar modelo do Azure](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
 4. Depois de selecionar o **Modelo**, aperte **OK**.
 
-Agora, seu projeto de aplicativo lógico foi adicionado à sua solução. Você deve ver a implantação no Gerenciador de Soluções:
-![Implantação](./media/app-service-logic-deploy-from-vs/deployment.png)
+Agora, seu projeto de aplicativo lógico foi adicionado à sua solução. Você deve ver o arquivo de implantação no Gerenciador de Soluções: ![Implantação](./media/app-service-logic-deploy-from-vs/deployment.png)
 
 ## Configurando seu aplicativo lógico
 
 Depois que você tiver um projeto, poderá editar a definição de seu aplicativo lógico no Visual Studio. Clique no arquivo JSON no Gerenciador de Soluções. Você vê uma definição de espaço reservado que pode preencher com a lógica do seu aplicativo.
 
-Recomenda-se para usar **parâmetros** em toda a sua definição. Isso é útil se você deseja implantar tanto em um ambiente de desenvolvimento quanto em um ambiente de produção. Nesse caso, você deve colocar todas as configurações específicas de ambiente no arquivo `*.parameters.json`, e utilizar os parâmetros em vez das cadeias de caracteres em si.
+Recomendamos usar os **parâmetros** em toda a sua definição. Isso é útil se você deseja implantar tanto em um ambiente de desenvolvimento quanto em um ambiente de produção. Nesse caso, você deve colocar todas as configurações específicas de ambiente no arquivo `*.parameters.json` e utilizar os parâmetros em vez das cadeias de caracteres em si.
 
 Hoje, o Visual Studio não tem um designer interno de JSON; portanto, se você quer usar uma interface gráfica (em vez de escrever em JSON), use o Portal do Azure.
 
@@ -63,14 +59,14 @@ Finalmente, depois de configurar seu aplicativo, você pode implantar diretament
 
 2. Você é solicitado a entrar em suas assinaturas do Azure.
 
-3. Agora você precisa escolher os detalhes do grupo de recursos no qual você deseja implantar o aplicativo lógico.
-![Implantar no grupo de recursos](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
+3. Agora você precisa escolher os detalhes do grupo de recursos no qual você deseja implantar o aplicativo lógico. ![Implantar no grupo de recursos](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
 
      > [AZURE.NOTE]    Certifique-se de selecionar os arquivos certos de modelo e de parâmetros para o grupo de recursos (por exemplo, se você estiver implantando em um ambiente de produção, você preferirá escolher o arquivo de parâmetros de produção). 
 4.  Escolha o botão Implantar
+5. Você será solicitado a corrigir erros que forem detectados. Por exemplo: ![Implantar no grupo de recursos](./media/app-service-logic-deploy-from-vs/deploytoresourcegrouperror.png)
+ 
     
-5. O status da implantação aparece na janela **Saída** (talvez você precise escolher **Provisionamento do Azure**).
-![Saída](./media/app-service-logic-deploy-from-vs/output.png)
+6. O status da implantação aparece na janela **Saída** (talvez você precise escolher **Provisionamento do Azure**). ![Saída](./media/app-service-logic-deploy-from-vs/output.png)
 
 No futuro, você pode revisar seu aplicativo lógico no controle do código-fonte e usar o Visual Studio para implantar novas versões.
 
@@ -78,4 +74,4 @@ No futuro, você pode revisar seu aplicativo lógico no controle do código-font
 
 > [AZURE.TIP] Se você não quiser usar o Visual Studio, mas ainda quiser usar ferramentas para implantar seu aplicativo lógico por meio do controle do código-fonte, use diretamente a [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou o [Powershell](../powershell-azure-resource-manager.md) para automatizar suas implantações.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Como usar o Armazenamento de Tabela do Java | Microsoft Azure"
-	description="Saiba como usar o serviço de armazenamento de tabela no Azure. As amostras de código estão escritas em código Java."
+	description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um armazenamento de dados NoSQL."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
@@ -563,4 +563,4 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Tabelas do Azure: Introdução ao inserir e projeção de consulta]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -1,6 +1,6 @@
 <properties
     pageTitle="Como usar o Armazenamento de Blob do Azure no iOS | Microsoft Azure"
-    description="Saiba como usar o armazenamento de blob do Azure para carregar, baixar, listar e excluir conteúdo de blob. Exemplos escritos em Objective-C."
+	description="Armazene dados não estruturados na nuvem com o Armazenamento de Blobs do Azure (armazenamento de objeto)."
     services="storage"
     documentationCenter="ios"
     authors="micurd"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="04/11/2016"
     ms.author="micurd"/>
 
 # Como usar o armazenamento de Blob no iOS
@@ -111,7 +111,7 @@ O exemplo a seguir mostra como usar a CLI do Azure para gerar um token de SAS qu
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-Como você pode ver, ao usar um token de SAS, você não expõe seu nome de conta e chave de conta no aplicativo do iOS. Você pode aprender mais sobre SAS verificando [Assinaturas de acesso compartilhado: entendendo o modelo SAS](../storage-dotnet-shared-access-signature-part-1).
+Como você pode ver, ao usar um token de SAS, você não expõe seu nome de conta e chave de conta no aplicativo do iOS. Você pode aprender mais sobre SAS consultando [Assinaturas de Acesso Compartilhado: noções básicas sobre o modelo SAS](storage-dotnet-shared-access-signature-part-1.md).
 
 ##Operações assíncronas
 > [AZURE.NOTE] Todos os métodos que realizam uma solicitação ao serviço são operações assíncronas. Nos exemplos de código, você verá que esses métodos têm um manipulador de conclusão. O código no manipulador de conclusão será executado **após** a solicitação ser concluída. O código depois do manipulador de conclusão será executado **enquanto** a solicitação está sendo feita.
@@ -355,4 +355,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga es
 
 Se você tiver dúvidas sobre a biblioteca, fique à vontade para postar em nosso [Fórum do Azure do MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou no [Excedente de pilha](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Se você tiver sugestões de recursos para o Armazenamento do Azure, poste nos [Comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->

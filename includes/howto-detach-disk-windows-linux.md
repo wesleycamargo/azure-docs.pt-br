@@ -4,7 +4,7 @@ Quando não precisar mais de um disco de dados conectado a uma máquina virtual,
 
 Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo à mesma máquina virtual ou anexá-lo a uma outra máquina virtual.
 
-> [AZURE.NOTE] Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a máquina virtual.
+> [AZURE.NOTE] Para desanexar um disco do sistema operacional, você primeiro precisa excluir a máquina virtual.
 
 
 ## Localize o disco
@@ -32,5 +32,3 @@ Se você não souber o nome do disco ou deseja verificá-lo antes de desanexá-l
 	![Desanexar detalhes do disco](./media/howto-detach-disk-windows-linux/DetachDiskDetails.png)
 
 O disco permanece no armazenamento mas não esteja conectado a uma máquina virtual.
-
-<!---HONumber=AcomDC_0211_2016-->

@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="04/27/2016"
+   ms.date="05/04/2016"
    ms.author="iainfou"/>
 
 # Usando a extensão de VM do Docker para implantar seu ambiente
 
 O Docker é uma plataforma popular de geração de imagens e gerenciamento de contêineres que permite que você trabalhe rapidamente com contêineres no Linux (e também no Windows). Com o Azure, você tem a flexibilidade para implantar o Docker de algumas maneiras diferentes dependendo das suas necessidades:
 
-- Para fazer rapidamente um protótipo de um aplicativo ou se você já conhece e usa o Docker Machine, você pode [usar o driver do Azure do Docker Machine](./virtual-machines-linux-docker-machine.md) para criar hosts do Docker no Azure.
-- Para ter mais controle sobre a implantação de um ambiente de Docker de um modo reproduzível definido pelo modelo do Azure, que inclui controles de acesso baseados em função, diagnósticos e implantações conectadas e controladas, a Extensão de VM do Docker do Azure com o Azure Resource Manager é a melhor abordagem.
+- Para fazer rapidamente um protótipo de um aplicativo ou se você já conhece e usa o Docker Machine, você pode [usar o driver do Azure do Docker Machine](./virtual-machines-linux-docker-machine.md) para implantar hosts do Docker no Azure.
+- Para uma implantação baseada em modelo, a extensão de VM do Docker para máquinas virtuais do Azure pode ser usada. Essa abordagem pode se integrar a implantações de modelo do Azure Resource Manager e inclui todos os benefícios relacionados, como acesso baseado em função, diagnóstico e configuração após a implantação.
 - Você também pode [implantar um cluster completo do Docker Swarm nos Serviços de Contêiner do Azure](../container-service/container-service-deployment.md) para implantações escalonáveis prontas para produção que aproveitam as ferramentas de gerenciamento e agendamento adicionais fornecidas pelo Swarm.
 
 Este artigo se concentra no uso de modelos do Resource Manager para implantar a Extensão de VM do Docker em um ambiente personalizado e pronto para produção definido por você.
 
 ## Extensão de VM do Docker do Azure para implantações de modelo
 
-A Extensão de VM do Docker do Azure instala o Docker na sua VM do Linux e o configura para você. Usando modelos do Resource Manager, o ambiente pode, então, ser implantado novamente de forma consistente. O uso da Extensão de VM do Docker do Azure é adequado para ambientes de produção ou desenvolvimento mais robustos, pois você tem alguns controles adicionais que vão além de simplesmente usar o Docker Machine ou criar o host do Docker por conta própria.
+A Extensão de VM do Docker do Azure instala e configura o daemon do Docker, o cliente do Docker e o Docker Compose em sua máquina virtual Linux. A extensão também pode ser usada para definir e implantar aplicativos de contêiner usando o Docker Compose. Usando modelos do Resource Manager, o ambiente pode, então, ser implantado novamente de forma consistente. O uso da Extensão de VM do Docker do Azure é adequado para ambientes de produção ou desenvolvimento mais robustos, pois você tem alguns controles adicionais que vão além de simplesmente usar o Docker Machine ou criar o host do Docker por conta própria.
 
 Usando o Azure Resource Manager, você pode criar e implantar modelos que definem toda a estrutura do seu ambiente, como o armazenamento, o RBAC (Controle de acesso baseado em função), o diagnóstico, os hosts do Docker etc. Você pode [ler mais sobre o Gerenciador de Recursos](../resource-group-overview.md) e os modelos para entender melhor alguns dos benefícios. A vantagem de usar modelos do Resource Manager em vez de simplesmente usar o Docker Machine é que você pode definir hosts do Docker adicionais, armazenamento, controles de acesso etc. e pode reproduzir as implantações conforme necessário no futuro.
 
@@ -70,7 +70,7 @@ info:    group create command OK
 
 ## Implantar seu primeiro contêiner nginx
 
-Depois que a implantação for concluída, faça a conexão SSH com seu novo host do Docker usando o nome DNS que você forneceu durante a implantação. As ferramentas do Docker já estarão instaladas, então vamos tentar criar um contêiner nginx:
+Depois que a implantação for concluída, faça a conexão SSH com seu novo host do Docker usando o nome DNS que você forneceu durante a implantação. As ferramentas do Docker já estarão instaladas, então vamos tentar executar um contêiner nginx:
 
 ```
 docker run -d -p 80:80 nginx
@@ -101,6 +101,8 @@ Abra um navegador da Web e digite o nome DNS especificado durante a implantaçã
 
 ![Contêiner ngnix em execução](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
+Para obter informações adicionais sobre a extensão de VM do Docker, como configurar a porta TCP do daemon do Docker, configurar a segurança e implantar contêineres usando o Docker Compose, consulte a [Extensão da máquina virtual do Azure para o projeto do GitHub do Docker](https://github.com/Azure/azure-docker-extension/).
+
 ## Referência de modelo JSON da Extensão de VM do Docker
 
 Este exemplo usou um modelo de início rápido. Você pode usar seus próprios modelos do Resource Manager existentes para instalar a Extensão de VM do Docker em VMs definidas no seu modelo, adicionando o seguinte ao seu arquivo de definição de JSON:
@@ -130,8 +132,9 @@ Você pode encontrar um passo a passo mais detalhado de como usar modelos do Res
 ## Próximas etapas
 
 Leia etapas mais detalhadas para as diferentes opções de implantação:
-  1. [Usar o computador Docker com o driver do Azure](./virtual-machines-linux-docker-machine.md)
-  2. [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](./virtual-machines-linux-classic-cli-use-docker.md)
-  3. [Implantar um cluster do Serviço de Contêiner do Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+1. [Usar o computador Docker com o driver do Azure](./virtual-machines-linux-docker-machine.md)  
+2. [Usando a extensão de VM Docker da interface de linha de comando do Azure (CLI do Azure)](./virtual-machines-linux-classic-cli-use-docker.md)  
+3. [Implantar um cluster do Serviço de Contêiner do Azure](../container-service/container-service-deployment.md)
+
+<!---HONumber=AcomDC_0511_2016-->

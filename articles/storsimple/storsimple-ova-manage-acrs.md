@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/03/2016"
    ms.author="alkohli" />
 
 # Use o serviço StorSimple Manager para gerenciar registros de controle de acesso para o StorSimple Virtual Array 
@@ -43,7 +43,7 @@ Execute as seguintes etapas para obter o IQN de um host do Windows que está exe
 
 Use a página **Configuração** do serviço StorSimple Manager para adicionar ACRs. Normalmente, você associará um ACR a um volume.
 
-Para obter informações sobre como associar um ACR de um volume, vá para [Usar o serviço StorSimple Manager para gerenciar volumes em uma matriz Virtual StorSimple](storsimple-ova-manage-volumes).
+Para obter informações sobre como associar um ACR a um volume, vá para [Adicionar um volume](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
 >[AZURE.IMPORTANT] 
 > 
@@ -114,4 +114,4 @@ Execute as etapas a seguir para excluir um registro de controle de acesso.
 
 - Saiba mais sobre [Adicionar volumes e configurar ACRs](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0511_2016-->

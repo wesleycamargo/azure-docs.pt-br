@@ -87,7 +87,7 @@ Este artigo contém links para tópicos que mostram como configurar seu ambiente
 
 ##Conceitos
 
-Para obter conceitos relacionados ao fornecimento de conteúdo sob demanda, veja [Conceitos dos Serviços de Mídia](media-services-concepts.md) (players.md).
+Para conceitos relacionados ao fornecimento de conteúdo sob demanda, consulte[ Conceitos dos Serviços de Mídia](media-services-concepts.md).
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -101,4 +101,4 @@ Para obter conceitos relacionados ao fornecimento de conteúdo sob demanda, veja
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

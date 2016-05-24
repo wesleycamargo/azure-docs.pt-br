@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="02/24/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Configurar as funções para um Serviço de Nuvem do Azure com o Visual Studio
@@ -279,8 +279,8 @@ Você pode coletar dados de diagnóstico do seu serviço de nuvem do Azure. Esse
 
 1. Escolha a conta de armazenamento que você deseja usar no **Nome da Conta**.
 
-    Se você estiver inserindo manualmente suas credenciais de conta de armazenamento, copie ou digite sua chave primária em **Chave de Conta**. Essa chave pode ser copiada do Portal de Gerenciamento do Azure. Para copiar essa chave, siga estas etapas da exibição **Contas de Armazenamento** no Portal de Gerenciamento do Azure:
-
+    Se você estiver inserindo manualmente suas credenciais de conta de armazenamento, copie ou digite sua chave primária em **Chave de Conta**. Essa chave pode ser copiada do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Para copiar essa chave, siga estas etapas da exibição **Contas de Armazenamento** no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885):
+    
   1. Selecione a conta de armazenamento que você deseja usar para seu serviço de nuvem.
 
   1. Escolha o botão **Gerenciar chaves de acesso** localizado na parte inferior da tela. A caixa de diálogo **Gerenciar chaves de acesso** é exibida.
@@ -319,7 +319,7 @@ Você também pode adicionar pontos de extremidade que podem ser usados interna 
 
 Se adicionar pontos de extremidade HTTPS, você precisa usar um certificado SSL. Para fazer isso, você pode associar certificados com sua função para todas as configurações de serviço e usá-los para seus pontos de extremidade.
 
->[AZURE.IMPORTANT] Esses certificados não são empacotados com seu serviço. Você deve carregá-los separadamente no Azure por meio do Portal de Gerenciamento de plataforma do Azure
+>[AZURE.IMPORTANT] Esses certificados não são empacotados com seu serviço. Você deve carregá-los separadamente no Azure por meio do [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 Qualquer certificado de gerenciamento que você associar às suas configurações de serviço só se aplicará quando o serviço de nuvem estiver em execução no Azure. Quando seu serviço de nuvem é executado no ambiente de desenvolvimento local, um certificado padrão que é gerenciado pelo emulador de computação do Azure é usado.
 
@@ -376,4 +376,4 @@ Qualquer certificado de gerenciamento que você associar às suas configuraçõe
 ## Próximas etapas
 Saiba mais sobre projetos do Azure no Visual Studio, lendo [Configurando um projeto do Azure](vs-azure-tools-configuring-an-azure-project.md). Saiba mais sobre o esquema do serviço de nuvem lendo [Referência de Esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="05/06/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Inserir um relatório do Power BI com um IFrame
@@ -180,6 +180,40 @@ function postActionLoadReport() {
     iframe.contentWindow.postMessage(message, "*");
 }
 ```
+Depois de ter um relatório inserido em seu aplicativo, você poderá filtrar o relatório. A próxima seção mostra como filtrar um relatório usando uma sintaxe de URL.
+
+## Filtrar um relatório
+
+Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta à sua URL src iFrame com o filtro especificado. Você pode **Filtrar por um valor** e **Ocultar o Painel de Filtro**.
+
+
+**Filtrar por um valor**
+
+Para filtrar por um valor, você deverá usar uma sintaxe de consulta **$filter** com um operador **eq** da seguinte maneira:
+
+```
+https://app.powerbi.com/reportEmbed
+?reportId=d2a0ea38-0694-...-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
+```
+
+Por exemplo, você pode filtrar onde está 'Fernandes' na cadeia de armazenamento. A parte de filtro da URL teria esta aparência:
+
+```
+$filter=Store/Chain%20eq%20'Lindseys'
+```
+
+> [AZURE.NOTE] {tableName/fieldName} não pode incluir espaços ou caracteres especiais. O {fieldValue} aceita um único valor categórico.
+
+**Ocultar o Painel de Filtro**
+
+Para ocultar o **Painel de Filtro**, adicione **filterPaneEnabled** à cadeia de consulta de relatório da seguinte maneira:
+
+```
+&filterPaneEnabled=false
+```
+
+## Conclusão
 
 Neste artigo, você foi apresentado ao código para integrar um relatório **Power BI** em seu aplicativo. Para começar a integrar rapidamente um relatório em um aplicativo, baixe estes exemplos no GitHub:
 
@@ -194,4 +228,4 @@ Neste artigo, você foi apresentado ao código para integrar um relatório **Pow
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 - [Obter Relatórios](https://msdn.microsoft.com/library/mt711510.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Instalar o dispositivo StorSimple 8600 | Microsoft Azure"
    description="Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8600 antes de implantar e configurar o software."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
@@ -43,10 +43,10 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
 2. Abra a caixa externa e, em seguida, remova as duas caixas correspondentes aos compartimentos principal e EBOD. Agora você pode desempacotar os compartimentos principal e EBOD A figura a seguir mostra a visão desempacotada de um dos compartimentos.
 
     ![Desempacotar o dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
- 
+
     **Exibição do dispositivo de armazenamento desempacotado**
 
-     Rótulo | Descrição 
+     Rótulo | Descrição
      ----- | -------------
      1 | Embalagem
      2 | Cabos SAS (na bandeja de acessórios e cabos)
@@ -57,7 +57,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
 
 3. Depois de abrir as duas caixas, verifique se você tem estes itens:
 
-  - 1 compartimento principal (o compartimento principal e o compartimento EBOD estão em duas caixas separadas) 
+  - 1 compartimento principal (o compartimento principal e o compartimento EBOD estão em duas caixas separadas)
   - 1 compartimento EBOD
   - 4 cabos de alimentação, 2 em cada caixa
   - 2 cabos SAS (para conectar o compartimento principal ao compartimento EBOD)
@@ -77,6 +77,11 @@ A próxima etapa é montar o dispositivo em rack.
 Siga as próximas etapas para instalar o dispositivo de armazenamento StorSimple 8600 em um rack padrão de 19 polegadas (48 cm) com colunas frontal e traseira. Esse dispositivo é fornecido com dois compartimentos: um principal e um EBOD. Ambos precisam ser montados em rack.
 
 A instalação consiste em várias etapas, e cada uma delas é discutida nos procedimentos a seguir.
+
+> [AZURE.IMPORTANT]
+Os dispositivos StorSimple devem ser montados em rack para a operação apropriada.
+
+
 
 ### Preparação do local
 
@@ -118,7 +123,7 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
     ----- | -----------
     1 | Parafusos de cabeça abaulada M 3x4
     2 | Corrediças dos chassis
- 
+
 3. Fixe os módulos dos trilhos direito e esquerdo nos membros verticais do gabinete do rack. Os suportes são marcados com **LH**, **RH** e **Este lado para cima** para que você obtenha a orientação correta.
 
 4. Localize os pinos do trilho na parte frontal e traseira do módulo do trilho. Estenda o trilho para que ele se encaixe entre as colunas do rack e insira os pinos nos orifícios do membro vertical da coluna do rack frontal e traseiro. Certifique-se de que o módulo do trilho esteja nivelado.
@@ -139,13 +144,13 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
      4 | Parafuso de travamento
      5 | Pinos de localização do trilho posterior esquerdo
 
-### Montando o compartimento EBOD no rack 
+### Montando o compartimento EBOD no rack
 
 Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a seguir para montar o compartimento EBOD no rack.
 
 #### Para montar o compartimento EBOD
 
-1. Com um assistente, levante o compartimento e alinhe-o com os trilhos do rack. 
+1. Com um assistente, levante o compartimento e alinhe-o com os trilhos do rack.
 
 2. Com cuidado, insira o compartimento nos trilhos e empurre-o completamente para dentro do gabinete do rack.
 
@@ -162,7 +167,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
      ![Instalando as tampas do flange](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
 
     **Instalando as tampas do flange**
- 
+
      Rótulo | Descrição
      ----- | -----------
      1 | Parafuso de fixação do compartimento
@@ -173,8 +178,8 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
 Depois de acabar de montar o compartimento EBOD, você precisará montar o compartimento principal seguindo as mesmas etapas.
 
 > [AZURE.NOTE]
-> 
-> - É possível ter alguns slots vazios no rack entre os compartimentos principal e EBOD. 
+>
+> - É possível ter alguns slots vazios no rack entre os compartimentos principal e EBOD.
 > - Use o cabo SAS de 2 m fornecido para conectar o compartimento principal ao compartimento EBOD.
 > - Não há restrições quanto ao posicionamento relativo da unidade principal com a unidade EBOD. Portanto, o compartimento principal pode ser colocado no slot superior e o compartimento EBOD abaixo, ou vice-versa.
 
@@ -196,7 +201,7 @@ Antes de começar a cabear o dispositivo, você precisará dos seguintes itens:
 - Cabos seriais fornecidos
 - Conversor USB-serial com o driver apropriado instalado em seu computador (se necessário)
 - Quatro adaptadores QSFP para SFP+ para serem usados com interfaces de rede de 10 GbE
-- [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
+- [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### Cabeamento de energia e SAS
 
@@ -221,7 +226,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
      ![Backplane do dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
     **Parte de trás do dispositivo mostrando as portas de dados**
- 
+
      Rótulo | Descrição
      ------- | -----------
      0,1,4,5 | Interfaces de rede de 1 GbE
@@ -256,11 +261,11 @@ Ao cabear o dispositivo, a configuração mínima exige:
 - Pelo menos duas interfaces de rede conectadas em cada controlador com uma para acesso à nuvem e outra para iSCSI. A porta DATA 0 é habilitada e configurada automaticamente por meio do console serial do dispositivo. Além da DATA 0, outra porta de dados também precisa ser configurada por meio do Portal clássico do Azure. Nesse caso, conecte a porta DATA 0 à LAN primária (rede com acesso à Internet). As outras portas de dados podem ser conectadas ao segmento SAN/iSCSI LAN (VLAN) da rede, dependendo da função pretendida.
 
 - Interfaces idênticas em cada controlador conectadas à mesma rede para garantir a disponibilidade caso ocorra um failover do controlador. Por exemplo, se você optar por conectar DATA 0 e DATA 3 em um dos controladores, precisará conectar DATA 0 e DATA 3 correspondentes no outro controlador.
-	
+
 Lembre-se disso no caso de alta disponibilidade e desempenho:
 
 
-- Quando for possível, configure um par de interfaces de rede para acesso à nuvem (1 GbE) e outro par para iSCSI (10 GbE recomendados) em cada controlador. 
+- Quando for possível, configure um par de interfaces de rede para acesso à nuvem (1 GbE) e outro par para iSCSI (10 GbE recomendados) em cada controlador.
 
 - Quando for possível, conecte as interfaces de rede de cada controlador a pelo menos dois comutadores diferentes para garantir disponibilidade no caso de falha do comutador. A figura ilustra duas interfaces de rede de 10 GbE, DATA 2 e DATA 3, de cada controlador conectado a dois comutadores diferentes. Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
@@ -295,7 +300,6 @@ Você concluiu o cabeamento do dispositivo para conexão serial, de energia e ac
 
 ## Próximas etapas
 
-Você já está pronto para [implantar e configurar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
- 
+Agora você está pronto para [implantar e configurar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="05/16/2016"
     ms.author="magoedte"/>
 
 # Autenticar runbooks com uma conta Executar como do Azure
@@ -53,7 +53,15 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
 
 7. Enquanto o Azure cria a conta de Automação, você poderá acompanhar o andamento em **Notificações** no menu.
 
-Ao concluir, a conta de Automação será criada com um ativo Certificado denominado **AzureRunAsCertificate** com um tempo de vida de um ano e um ativo Conexão denominado **AzureRunAsConnection**.
+### Recursos incluídos
+Quando a criação da conta de automação estiver concluída, vários recursos serão criados automaticamente para você. Eles são resumidos na tabela a seguir.
+
+Recurso|Descrição 
+----|----
+Runbook AzureAutomationTutorial|Um exemplo de runbook que demonstra como autenticar usando a conta Executar como e exibir as 10 primeiras VMs do Azure em sua assinatura.
+AzureRunAsCertificate|O ativo de certificado criado se você tiver optado pela criação da conta Executar como durante a criação da conta da Automação ou usando o script do PowerShell abaixo para uma conta existente. Esse certificado tem um tempo de vida de um ano. 
+AzureRunAsConnection|O ativo de conexão criado se você tiver optado pela criação da conta Executar como durante a criação da conta da Automação ou usando o script do PowerShell abaixo para uma conta existente.
+Módulos|Quinze módulos com os cmdlets do Azure, do PowerShell e da Automação para começar a usá-los em seus runbooks imediatamente.  
 
 ## Atualizar uma Conta de automação usando o PowerShell
 O procedimento abaixo atualiza a Conta de automação existente e cria a entidade de serviço usando o PowerShell. Este procedimento será necessário se você tiver criado uma conta sem criar a conta Executar como.
@@ -92,6 +100,9 @@ O script do PowerShell irá configurar o seguinte:
     [String] $ApplicationDisplayName,
 
     [Parameter(Mandatory=$true)]
+    [String] $SubscriptionName,
+
+    [Parameter(Mandatory=$true)]
     [String] $CertPlainPassword,
 
     [Parameter(Mandatory=$false)]
@@ -100,6 +111,7 @@ O script do PowerShell irá configurar o seguinte:
 
     Login-AzureRmAccount
     Import-Module AzureRM.Resources
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
     $CurrentDate = Get-Date
     $EndDate = $CurrentDate.AddMonths($NoOfMonthsUntilExpired)
@@ -156,12 +168,13 @@ O script do PowerShell irá configurar o seguinte:
     ```
 <br>
 2. Em seu computador, inicie o **Windows PowerShell** na tela **Iniciar** com direitos de usuário elevados.
-3. No shell da linha de comando elevado do PowerShell, navegue até a pasta que contém o script criado na Etapa 1 e execute o script alterando os valores dos parâmetros *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName* e *-CertPlainPassword*.<br>
+3. No shell da linha de comando elevado do PowerShell, navegue até a pasta que contém o script criado na Etapa 1 e execute o script alterando os valores dos parâmetros *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionName* e *-CertPlainPassword*.<br>
 
     ```
     .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> `
      -AutomationAccountName <NameofAutomationAccount> `
      -ApplicationDisplayName <DisplayNameofAutomationAccount> `
+     -SubscriptionName <SubscriptionName> `
      -CertPlainPassword "<StrongPassword>"
     ```   
 <br>
@@ -179,10 +192,10 @@ Em seguida, executaremos um pequeno teste para confirmar que você é capaz de s
 5. Na folha **Editar Runbook do PowerShell**, cole o seguinte código na tela:<br>
 
     ```
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection `
+     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
      -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   ```  
+    ```  
 <br>
 6. Salve o runbook clicando em **Salvar**.
 7. Clique em **Painel de teste** para abrir a folha **Teste**.
@@ -194,10 +207,43 @@ Em seguida, executaremos um pequeno teste para confirmar que você é capaz de s
 13. Feche a folha **Editar Runbook do PowerShell**.
 14. Feche a folha **Test-SecPrin-Runbook**.
 
-O código acima, usado para verificar se a nova conta está configurada corretamente, é o que você usará em seus runbooks do PowerShell para se autenticar na Automação do Azure para gerenciar recursos do ARM. Obviamente, você pode continuar a se autenticar com a conta de Automação que usa no momento.
+## Código de exemplo para autenticação com recursos ARM
+
+Você pode usar o código de exemplo atualizado abaixo, obtido do runbook AzureAutomationTutorial de exemplo, para autenticação usando a conta Executar como para gerenciar os recursos ARM com seus runbooks.
+
+   ```
+   $connectionName = "AzureRunAsConnection"
+   $SubId = Get-AutomationVariable -Name 'SubscriptionId'
+   try
+   {
+      # Get the connection "AzureRunAsConnection "
+      $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+      "Logging in to Azure..."
+      Add-AzureRmAccount `
+         -ServicePrincipal `
+         -TenantId $servicePrincipalConnection.TenantId `
+         -ApplicationId $servicePrincipalConnection.ApplicationId `
+         -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+	  "Setting context to a specific subscription"	 
+	  Set-AzureRmContext -SubscriptionId $SubId	 		 
+   }
+   catch {
+       if (!$servicePrincipalConnection)
+       {
+           $ErrorMessage = "Connection $connectionName not found."
+           throw $ErrorMessage
+       } else{
+           Write-Error -Message $_.Exception
+           throw $_.Exception
+       }
+   } 
+   ```
+
+O script inclui duas linhas adicionais de código para oferecer suporte à referência a um contexto de assinatura para que você possa trabalhar facilmente entre várias assinaturas. Um ativo de variável chamado SubscriptionId contém a ID da assinatura e, depois da instrução do cmdlet Add-AzureRmAccount, o [cmdlet Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) é declarado com o conjunto de parâmetros *- SubscriptionId*. Se o nome da variável for muito genérico, você poderá revisar o nome da variável para incluir um prefixo ou outra convenção de nomenclatura para facilitar a identificação para suas finalidades. Como alternativa, você pode usar o conjunto de parâmetros -SubscriptionName em vez de -SubscriptionId com um ativo de variável correspondente.
 
 ## Próximas etapas
 - Para saber mais sobre Entidades de Serviço, veja [Objetos de aplicativo e objetos de entidade de serviço](../active-directory/active-directory-application-objects.md).
 - Para saber mais sobre o Controle de Acesso baseado em Função na Automação do Azure, veja [Controle de acesso baseado em função na Automação do Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

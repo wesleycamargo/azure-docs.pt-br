@@ -58,15 +58,15 @@ Serviços vinculados definem as informações necessárias para o Data Factory s
 Com os quatro conceitos simples de conjuntos de dados, atividades, pipelines e serviços vinculados, você está pronto para começar! Você pode [criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) desde o início ou implantar uma amostra pronta seguindo as instruções em nosso artigo [Exemplos de Data Factory](data-factory-samples.md).
 
 ## Regiões com suporte
-No momento, você pode criar fábricas de dados nas regiões **Oeste dos EUA** e **Europa Setentrional**. No entanto, uma fábrica de dados pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre repositórios de dados ou processar dados usando serviços de computação.
+No momento, você pode criar fábricas de dados nas regiões **Oeste dos EUA**, **Leste dos EUA** e **Europa Setentrional**. No entanto, uma fábrica de dados pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre repositórios de dados ou processar dados usando serviços de computação.
 
 O Azure Data Factory em si não armazena dados. Ele permite criar fluxos controlados por dados para orquestrar a movimentação de dados entre [repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores) e o processamento de dados usando [serviços de computação](data-factory-compute-linked-services.md) em outras regiões ou em um ambiente local. Ele também permite [monitorar e gerenciar fluxos de trabalho](data-factory-monitor-manage-pipelines.md) usando mecanismos programáticos e de interface do usuário.
 
-Observe que, embora o Azure Data Factory só esteja disponível nas regiões **Oeste dos EUA** e **Europa Setentrional**, o serviço que capacita a movimentação de dados no Data Factory está disponível [globalmente](data-factory-data-movement-activities.md#global) em várias regiões. Se um repositório de dados estiver por trás de um firewall, um [Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) instalado no ambiente local moverá os dados.
+Observe que, embora o Azure Data Factory só esteja disponível nas regiões **Oeste dos EUA**, **Leste dos EUA** e **Europa Setentrional**, o serviço que capacita a movimentação de dados no Data Factory está disponível [globalmente](data-factory-data-movement-activities.md#global) em várias regiões. Se um repositório de dados estiver por trás de um firewall, um [Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) instalado no ambiente local moverá os dados.
 
 Por exemplo, digamos que seu(s) ambiente(s) de computação, como o cluster Azure HDInsight e o Aprendizado de Máquina do Azure, esteja(m) ficando sem a região Europa Ocidental. Você pode criar e tirar proveito de uma instância do Azure Data Factory na Europa Setentrional e usá-la para agendar trabalhos em seus ambientes de computação na Europa Ocidental. Leva alguns milissegundos para o serviço Data Factory disparar o trabalho em seu ambiente de computação, mas o tempo de execução do trabalho em seu ambiente de computação não é alterado.
 
 No futuro, pretendemos ter o Azure Data Factory em todas as regiões com suporte do Azure.
   
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

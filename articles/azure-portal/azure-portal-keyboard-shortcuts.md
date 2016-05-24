@@ -37,6 +37,12 @@
 | J | Folha aberta anterior |
 | K | Próxima folha aberta |
 | L | Última folha aberta |
-| - | Minimizar folha ou restaurar de maximizada | | + | Maximizar a folha ou restaurar de minimizada | | # | Fechar folha atual | | ¦ | Fechar todas as folhas | | , | Mover o foco para a barra de comandos | |. | Mover o foco para a barra de navegação | |? | Exibir atalhos de teclado |
+| - | Minimizar folha ou restaurar de maximizada |
+| + | Maximizar a folha ou restaurar de minimizada |
+| # | Fechar folha atual |
+| ¦ | Fechar todas as folhas |
+| , | Mover o foco para a barra de comandos |
+|. | Mover o foco para a barra de navegação |
+|? | Exibir atalhos de teclado |
 
 <!---HONumber=AcomDC_0504_2016-->

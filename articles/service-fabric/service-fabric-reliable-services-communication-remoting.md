@@ -66,7 +66,7 @@ A chamada de métodos em um serviço usando a pilha de comunicação remota é f
 
 ```csharp
 
-IHelloWorldStateful helloWorldClient = ServiceProxy.Create<IHelloWorldStateful>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
+IMyService helloWorldClient = ServiceProxy.Create<IMyService>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
 string message = await helloWorldClient.GetHelloWorld();
 
@@ -82,4 +82,4 @@ A estrutura remota propaga exceções lançadas no serviço para o cliente. A l�
 
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

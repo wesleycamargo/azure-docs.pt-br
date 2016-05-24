@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/03/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Visualização da colaboração B2B do AD do Azure: alterações de atributo de objeto de usuário
@@ -27,9 +27,9 @@ Cada usuário em um diretório do AD do Azure é representado por um objeto de u
 O acompanhamento desses atributos no AD do Azure pode ajudar a solucionar problemas referentes a se um usuário do parceiro resgatou ou não seu convite da colaboração B2B.
 
 ## Artigos relacionados
-Confira nossos outros artigos sobre a colaboração B2B do Azure:
+Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
-- [O que é a colaboração AD B2B do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Como funciona](active-directory-b2b-how-it-works.md)
 - [Passo a passo detalhado](active-directory-b2b-detailed-walkthrough.md)
 - [Referência do formato de arquivo CSV](active-directory-b2b-references-csv-file-format.md)
@@ -37,4 +37,4 @@ Confira nossos outros artigos sobre a colaboração B2B do Azure:
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0511_2016-->

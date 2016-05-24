@@ -155,7 +155,7 @@ Uma tabela é um conjunto de dados retangular e tem um esquema. Nesta etapa, voc
 	- A **disponibilidade** é definida como **horária** (a **frequência** é definida como **hora** e o **intervalo** é definido como **1** ), de modo que o serviço Data Factory procure dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado. 
 	
 
-	Se você não especificar um **fileName** para uma **tabela** de **entradas**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn. Consulte os arquivos do [tutorial][adf-tutorial] para obter exemplos.
+	Se você não especificar um **fileName** para uma **tabela** de **entradas**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn.
  
 	Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.&lt;Guid&gt;.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -397,7 +397,6 @@ Confira o artigo [Atividades de movimentação de dados](data-factory-data-movem
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
@@ -456,4 +455,4 @@ Confira o artigo [Atividades de movimentação de dados](data-factory-data-movem
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

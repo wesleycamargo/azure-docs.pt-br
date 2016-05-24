@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/26/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher"/>
 
 # Implantar um contêiner ASP.NET em um host remoto do Docker
@@ -51,11 +51,11 @@ As etapas a seguir guiarão você na criação de um aplicativo básico ASP.NET 
 1.  Reinicie o Visual Studio.
 
 ## 5\. Configurar o ponto de extremidade do host do Docker no Azure
-Antes de implantar o aplicativo do Visual Studio no Azure, adicione o ponto de extremidade 80 à Máquina Virtual do Host do Docker para que depois você possa exibir o aplicativo no navegador. Isso pode ser feito no Portal clássico do Azure ou pelo Windows PowerShell:
+Antes de implantar o aplicativo do Visual Studio no Azure, adicione o ponto de extremidade 80 à Máquina Virtual do Host do Docker para que depois você possa exibir o aplicativo no navegador. Isso pode ser feito no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) ou pelo Windows PowerShell:
 
-- **Usar o Portal clássico do Azure para configurar o ponto de extremidade do Host do Docker no Azure**
+- **Use o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) para configurar o ponto de extremidade do Host do Docker do Azure**
 
-    1.  Navegue até o [Portal clássico do Azure](https://manage.windowsazure.com/). 
+    1.  Navegue até o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885). 
     
     1.  Toque em **MÁQUINAS VIRTUAIS**.
     
@@ -79,9 +79,9 @@ Antes de implantar o aplicativo do Visual Studio no Azure, adicione o ponto de e
 ## 6\. Criar e executar o aplicativo
 Ao implantar em hosts remotos, o recurso de mapeamento de volume usado para Editar e Atualizar o desenvolvimento não funcionará. Portanto, você precisará usar a *configuração de versão* ao criar seu aplicativo para evitar a configuração de mapeamento de volume. Siga estas etapas para executar o aplicativo.
 
-1.  Na barra de ferramentas do Visual Studio, escolha a configuração **Versão**
+1.  Na barra de ferramentas do Visual Studio, selecione a configuração **Versão**
 
-1.  Altere o destino do lançamento para **Docker**.
+1.  Altere o destino de inicialização para **Docker**.
 
 1.  Toque no ícone do **Docker** para criar e executar o aplicativo.
 
@@ -96,4 +96,4 @@ Você deverá ver resultados semelhantes ao seguinte.
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

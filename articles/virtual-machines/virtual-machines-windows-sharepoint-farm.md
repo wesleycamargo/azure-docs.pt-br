@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2016"
+	ms.date="05/04/2016"
 	ms.author="josephd"/>
 
 # Criar farm do SharePoint Server
@@ -53,17 +53,18 @@ Para criar o farm de alta disponibilidade (nove servidores) do SharePoint:
 
 > [AZURE.NOTE] Não é possível criar o **Farm de não HA do SharePoint 2013** ou **Farm de HA do SharePoint 2013** com uma Avaliação Gratuita do Azure.
 
+O portal do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização.
+
 ## Gerenciando os farms do SharePoint
 
 É possível administrar os servidores desses farms por meio de conexões da Área de Trabalho Remota. Para saber mais, veja [Fazer logon na máquina virtual](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
 No site Administração central do SharePoint, é possível configurar o My sites, os aplicativos SharePoint e outra funcionalidade. Para obter mais informações, consulte [Configurar o SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE] O portal do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização.
+> [AZURE.NOTE] Com a [imagem de avaliação do SharePoint Server 2016](https://azure.microsoft.com/blog/test-sharepoint-server-2016/), você pode criar uma máquina virtual executando o SharePoint Server 2016.
 
 ## Próximas etapas
 
-- Implante um [farm de intranet do SharePoint 2013](virtual-machines-windows-sp-intranet-overview.md) como uma carga de trabalho de produção nos serviços de infraestrutura do Azure.
 - Descubra configurações adicionais do [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) nos serviços de infraestrutura do Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

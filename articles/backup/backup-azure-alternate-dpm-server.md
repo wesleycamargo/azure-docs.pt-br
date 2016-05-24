@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="05/05/2016"
 	ms.author="giridham;jimpark"/>
 
 # Recuperando dados de outro servidor DPM no cofre de backup
@@ -24,7 +24,7 @@ Para recuperar dados de outro servidor DPM no cofre de backup, você precisará 
 ## Recuperar dados de outro Servidor DPM
 Para recuperar dados de outro servidor DPM:
 
-1. Na guia **Recuperação** no console de gerenciamento do DPM, clique em **“Adicionar DPM Externa”** (na parte superior esquerda da tela).
+1. Na guia **Recuperação** no console de gerenciamento do DPM, clique em **'Adicionar DPM Externa'** (na parte superior esquerda da tela).
 
     ![Adicionar DPM externo](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 
@@ -32,15 +32,15 @@ Para recuperar dados de outro servidor DPM:
 
     ![Credenciais do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
-    >[AZURE.NOTE]Somente os servidores DPM associados ao mesmo cofre de registro podem recuperar dados um do outro.
+    >[AZURE.NOTE] Somente os servidores DPM associados ao mesmo cofre de registro podem recuperar dados um do outro.
 
-    Depois que o servidor DPM externo for adicionado com êxito, é possível procurar os dados dos servidores DPM externo e local na guia **Recuperação**.
+    Depois que o servidor DPM externo for adicionado com êxito, você pode procurar os dados do servidor DPM externo e do servidor DPM local a partir da guia **Recuperação**.
 
 3. Procure a lista de servidores de produção protegidos pelo servidor DPM externo disponíveis e selecione a fonte de dados apropriada.
 
     ![Procurar o servidor DPM externo](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
 
-4. Selecione **o mês e o ano** na lista suspensa **Pontos de recuperação**, selecione a **Data de recuperação** solicitada para a criação do ponto de recuperação e selecione a **hora de recuperação**.
+4. Selecione **o mês e o ano** da lista suspensa **Pontos de recuperação**, selecione a **Data de recuperação** de quando o ponto de recuperação foi criado e selecione o **Tempo de recuperação**.
 
     Uma lista de arquivos e pastas será exibida no painel inferior, que pode ser pesquisado e recuperado em qualquer local.
 
@@ -58,7 +58,7 @@ Para recuperar dados de outro servidor DPM:
 
     ![Local alternativo de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
 
-8. Escolha a opção relacionada a **criar cópia**, **Ignorar** ou **Substituir**.
+8. Escolha a opção relacionada a **criar cópia**, **Ignorar**, ou **Substituir**.
     - **Criar cópia** criará uma cópia do arquivo em caso de conflito de nomes.
     - **Ignorar** ignorará a recuperação do arquivo em caso de conflito de nomes.
     - **Substituir** substituirá a cópia existente no local especificado em caso de conflito de nomes.
@@ -73,7 +73,7 @@ Para recuperar dados de outro servidor DPM:
 
     ![Resumo de opções de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
-    >[AZURE.NOTE]O trabalho de recuperação pode ser monitorado na guia **Monitoramento** do servidor DPM.
+    >[AZURE.NOTE] O trabalho de recuperação pode ser monitorado na guia **Monitoramento** do servidor DPM.
 
     ![Recuperação de monitoramento](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
 
@@ -103,4 +103,4 @@ Para recuperar dados de outro servidor DPM:
 ## Próximas etapas:
 • [Perguntas frequentes sobre o Backup do Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0511_2016-->

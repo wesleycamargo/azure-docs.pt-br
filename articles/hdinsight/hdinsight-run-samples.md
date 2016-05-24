@@ -32,7 +32,7 @@ Um conjunto de amostras é fornecido para ajudar você a começar a executar tra
 
 Existe muita documentação adicional na Web para tecnologias relacionadas ao Hadoop, como a programação e o streaming de MapReduce baseado em Java, bem como documentação sobre o uso de cmdlets usados em scripts do Windows PowerShell. Para obter mais informações sobre esses recursos, consulte
 
-- [Desenvolver programas Java MapReduce para Hadoop no HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+- [Desenvolver programas Java MapReduce para Hadoop no HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 - [Enviar trabalhos Hadoop no HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Introdução ao Azure HDInsight][hdinsight-introduction]
 
@@ -55,7 +55,7 @@ Para enviar um projeto do MapReduce, primeiro você cria uma definição de trab
 
 O código-fonte pode ser encontrado no [Apêndice A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Para obter o procedimento de desenvolver um programa MapReduce em Java, consulte - [Desenvolver programas MapReduce em Java para Hadoop no HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+Para obter o procedimento de desenvolver um programa MapReduce em Java, consulte - [Desenvolver programas MapReduce em Java para Hadoop no HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
  
 **Para enviar um trabalho MapReduce de contagem de palavras**
 
@@ -121,7 +121,7 @@ O Hadoop fornece uma API de streaming para o MapReduce que permite que você esc
 
 > [AZURE.NOTE] As etapas deste tutorial se aplicam apenas aos clusters HDInsight baseados no Windows. Para obter um exemplo de streaming para clusters do HDInsight baseados em Linux, consulte [Desenvolver programas de streaming em Python para o HDInsight](hdinsight-hadoop-streaming-python.md).
 
-No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] \(linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr]. O programa conta todas as palavras do texto.
+No exemplo, o mapeador e o redutor são executáveis que leem a entrada de [stdin][stdin-stdout-stderr] (linha por linha) e emitem a saída para [stdout][stdin-stdout-stderr]. O programa conta todas as palavras do texto.
 
 Quando um executável é especificado para **mappers**, cada tarefa do mapeador inicia o executável como um processo separado quando o mapeador é inicializado. À medida que a tarefa do mapeador é executada, converte suas entradas em linhas e alimenta as linhas para o [stdin][stdin-stdout-stderr] do processo.
 
@@ -1000,4 +1000,4 @@ O código do programa MapReduce TeraSort é apresentado para inspeção nesta se
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

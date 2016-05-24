@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="05/11/2016"
    ms.author="cherylmc" />
 
 # Locais de emparelhamento e parceiros da Rota Expressa
@@ -64,7 +64,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 |**China Telecom Global** | Com suporte | Sem suporte | Hong Kong |
 |**Cologix** | Com suporte | Em breve | Montreal+, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Suportado | Suportado | Amsterdã, Dublin, Londres |
-| **Comcast** | Suportado | Suportado | Vale do Silício, Washington, D.C. |
+| **Comcast** | Suportado | Suportado | Chicago, Vale do Silício, Washington D.C. |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Suportado | Suportado | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Suportado | Com suporte | Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova York, Osaka, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.C. |
 | **euNetworks** | Suportado | Suportado | Amsterdã |
@@ -79,7 +79,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **NTT Communications** | Suportado | Com suporte | Londres, Osaka, Tóquio |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** | Com suporte | Com suporte | Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Washington, D.C. |
 | **PCCW Global Limited** | Suportado | Suportado | Hong Kong |
-| **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Sem suporte | Cingapura |
+| **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Suportado | Suportado | Cingapura |
 | **Softbank** | Suportado | Suportado | Osaka, Tóquio | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Suportado | Suportado | Amsterdã, Chennai, Hong Kong, Londres, Mumbai, Vale do Silício, Cingapura, Washington, D.C. |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Suportado | Suportado | Amsterdã, Londres |
@@ -134,7 +134,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 - Solicite um circuito da Rota Expressa com o Exchange como o provedor de conectividade para conectar-se à Microsoft.
 	- Siga as etapas em [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md) para configurar a conectividade.
 
-|**Provedor de conectividade**|**Exchange**|**Locais de emparelhamento**|
+|**Provedor de conectividade**|**Exchange**|**Locais**|
 |---|---|---|
 |**Alaska Communications**|Equinix|Seattle|
 |**[Comunicações XO](http://www.xo.com/)**|Equinix|Vale do Silício|
@@ -157,4 +157,4 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 - Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 - Certifique-se que todos os pré-requisitos foram atendidos. Confira [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

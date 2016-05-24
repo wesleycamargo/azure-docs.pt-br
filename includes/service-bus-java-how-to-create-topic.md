@@ -12,9 +12,9 @@ As assinaturas e os tópicos do Barramento de Serviço permitem o dimensionament
 
 ## Criar um namespace de serviço
 
-Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace de serviço fornece um contêiner de controle para endereçamento dos recursos do Barramento de Serviço em seu aplicativo.
+Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
-Para criar um namespace de serviço:
+Para criar um namespace:
 
 1.  Entre no [portal clássico do Azure][].
 
@@ -56,5 +56,3 @@ A fim de executar operações de gerenciamento, como a criação de um tópico o
 
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
-
-<!---HONumber=AcomDC_1203_2015-->

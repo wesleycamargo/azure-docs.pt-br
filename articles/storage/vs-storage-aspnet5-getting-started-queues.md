@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Introdução ao armazenamento de fila e aos serviços conectados do Visual Studio (ASP.NET 5)
@@ -96,7 +96,9 @@ Você pode espiar a mensagem na frente de uma fila sem removê-la da fila, chama
 
 ##Ler e remover uma mensagem em uma fila
 
-Seu código pode remover uma mensagem de uma fila em duas etapas. 1. Chame **GetMessageAsync** para obter a próxima mensagem em uma fila. Uma mensagem retornada de **GetMessageAsync** torna-se invisível para todas as outras mensagens de leitura de código desta fila. Por padrão, essa mensagem permanece invisível por 30 segundos. 2. Para concluir a remoção da mensagem da fila, chame **DeleteMessageAsync**.
+Seu código pode remover uma mensagem de uma fila em duas etapas.
+1. Chame **GetMessageAsync** para obter a próxima mensagem em uma fila. Uma mensagem retornada de **GetMessageAsync** torna-se invisível para todas as outras mensagens de leitura de código desta fila. Por padrão, essa mensagem permanece invisível por 30 segundos.
+2.	Para concluir a remoção da mensagem da fila, chame **DeleteMessageAsync**.
 
 Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código a seguir chamará **DeleteMessageAsync** logo depois que a mensagem tiver sido processada.
 
@@ -164,4 +166,4 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **De
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0511_2016-->

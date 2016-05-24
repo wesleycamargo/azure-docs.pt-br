@@ -175,8 +175,9 @@ A amostra a seguir demonstra como instalar o Spark no cluster HDInsight baseado 
 1. No Visual Studio, crie um aplicativo de console C#.
 2. No Console do Gerenciador de Pacotes NuGet, execute o comando a seguir.
 
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
+		Install-Package Microsoft.Azure.Management.ResourceManager -Pre 
+		Install-Package Microsoft.Azure.Management.HDInsight
 
 2. Use as seguintes instruções using no arquivo Program.cs:
 
@@ -189,7 +190,7 @@ A amostra a seguir demonstra como instalar o Spark no cluster HDInsight baseado 
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
-		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.ResourceManager;
 
 3. Substitua o código na classe pelo seguinte:
 
@@ -216,13 +217,13 @@ A amostra a seguir demonstra como instalar o Spark no cluster HDInsight baseado 
             var tokenCreds = GetTokenCloudCredentials();
             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
             
-            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+            var svcClientCreds = new TokenCredentials(tokenCreds.Token); 
+            var resourceManagementClient = new ResourceManagementClient(svcClientCreds);
+            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
             CreateCluster();
-
         }
 
         private static void CreateCluster()
@@ -322,4 +323,4 @@ Confira [Desenvolver scripts da Ação de Script para o HDInsight][hdinsight-wri
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

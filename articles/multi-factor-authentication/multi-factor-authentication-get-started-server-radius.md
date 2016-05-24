@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 
@@ -60,4 +60,4 @@ Para configurar o cliente RADIUS, use as diretrizes:
 - Use o mesmo segredo compartilhado que foi configurado acima. 
 - Configure o tempo limite RADIUS para 30 a 60 segundos, de forma que haja tempo para validar as credenciais do usuário, executar a autenticação multifator, receber a resposta e responder à solicitação de acesso RADIUS.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

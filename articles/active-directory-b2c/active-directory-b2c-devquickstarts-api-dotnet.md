@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/22/2015"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Visualização do Active Directory B2C do Azure: compilar uma API Web do .NET
@@ -233,4 +233,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

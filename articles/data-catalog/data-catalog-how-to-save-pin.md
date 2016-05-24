@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="03/30/2016"
@@ -76,4 +76,4 @@ A home page do portal do Catálogo de Dados do Azure inclui uma seção "Meus At
 ## Resumo
 O Catálogo de Dados do Azure fornece recursos que tornam mais fácil para os usuários descobrir as fontes de dados de que precisam. Assim, eles podem gastar menos tempo procurando dados e mais tempo trabalhando com eles. As pesquisas salvas e os ativos de dados fixados se baseiam nesses recursos principais para que os usuários possam facilmente identificar fontes de dados com as quais trabalharão repetidamente.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

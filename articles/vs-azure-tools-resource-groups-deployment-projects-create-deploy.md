@@ -173,11 +173,17 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
 
     ![adicionar referência](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    Adicionando uma referência, você vincula o projeto do aplicativo Web ao projeto do grupo de recursos e define três propriedades principais. As **Propriedades Adicionais** contêm o pacote de implantação da Web local que será enviado para o Armazenamento do Azure. **Incluir Caminho do Arquivo** contém o caminho onde o pacote será criado. **Incluir Destinos** contém o comando que a implantação executará. O valor padrão de **Build;Package** permite que a implantação compile e crie um pacote de implantação da Web (package.zip). Um perfil de publicação não é necessário porque a implantação obtém as informações necessárias das propriedades para criar o pacote.
+    Adicionando uma referência, você vincula o projeto do aplicativo Web ao projeto do grupo de recursos e define três propriedades principais automaticamente.
+    
+    - As **Propriedades Adicionais** contêm o pacote de implantação da Web local que será enviado para o Armazenamento do Azure. 
+    - **Incluir Caminho do Arquivo** contém o caminho onde o pacote será criado. **Incluir Destinos** contém o comando que a implantação executará. 
+    - O valor padrão **Build;Package** permite que a implantação compile e crie um pacote de implantação da Web (package.zip).  
+    
+    Um perfil de publicação não é necessário porque a implantação obtém as informações necessárias das propriedades para criar o pacote.
     
       ![ver referência](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
-1. Adicione um novo recurso ao modelo e, desta vez, selecione **Implantação da Web para Aplicativos Web**.
+1. Adicione um novo recurso ao modelo e, desta vez, selecione **Implantação da Web para os Aplicativos Web**.
 
     ![adicionar implantação da Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
@@ -185,7 +191,7 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
 
     ![adicionar implantação da Web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    Para a **Conta de armazenamento do artefato**, você pode usar a implantada com esse grupo de recursos.
+    Para a **Conta de armazenamento do artefato**, você poderá usar a implantada com esse grupo de recursos.
     
 Após a implantação terminar, você poderá navegar para o site e observar se o aplicativo ASP.NET padrão foi implantado.
 
@@ -193,7 +199,7 @@ Após a implantação terminar, você poderá navegar para o site e observar se 
 
 ## Próximas etapas
 
-- Para saber mais sobre como gerenciar seus recursos com o portal, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
-- Para saber mais sobre os modelos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
+- Para saber mais sobre como gerenciar seus recursos com o portal, consulte [Usando o Portal do Azure para gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
+- Para saber mais sobre os modelos, consulte [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

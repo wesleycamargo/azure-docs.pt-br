@@ -28,15 +28,15 @@ Se precisar criar implantações em massa de VMs do Windows similares, você pre
 
 ## Verifique estes itens antes de começar
 
-Este artigo pressupõe que os seguintes pré-requisitos foram atendidos antes de você iniciar as etapas:
+Este artigo supõe que você tem:
 
-1. Você tem uma máquina virtual do Azure executando o Windows, criada usando o modelo de implantação clássico ou o modelo de implantação do Gerenciador de Recursos. Você configurou o sistema operacional, anexou os discos de dados e fez outras personalizações, como instalar os aplicativos necessários. Nós usaremos essa VM para criar a cópia. Se você precisar de ajuda para criar a VM de origem, leia [Como criar uma VM do Windows usando o Resource Manager](virtual-machines-windows-ps-create.md). 
+1. Uma **máquina virtual do Azure executando Windows**, no modelo de implantação clássico ou do Resource Manager, com o sistema operacional configurado, discos de dados anexados e os aplicativos necessários instalados. Se precisar de ajuda para criar essa VM, leia [Criar uma VM Windows com o Resource Manager](virtual-machines-windows-ps-create.md). 
 
-1. Você tem o Azure PowerShell instalado em seu computador e fez logon na sua assinatura do Azure. Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+1. O **Azure PowerShell 1.0 ou superior** instalado em seu computador e fez logon na sua assinatura do Azure. Para obter mais informações, consulte [Como instalar e configurar o PowerShell](../powershell-install-configure.md).
 
-1. Você baixou e instalou a ferramenta AzCopy. Para obter mais informações sobre a ferramenta, leia [Transfer data with AzCopy commandline tool (Transferir dados com a ferramenta de linha de comando AzCopy)](../storage/storage-use-azcopy.md).
+1. A **ferramenta AzCopy** instalada em seu computador. Para obter mais informações, leia [Transferir dados com a ferramenta de linha de comando AzCopy](../storage/storage-use-azcopy.md).
 
-1. Você tem um grupo de recursos e uma conta de armazenamento, bem como um contêiner de blob criado nesse grupo de recursos para o qual copiar os VHDs. Leia a seção [Criar ou localizar uma conta de armazenamento do Azure](virtual-machines-windows-upload-image.md#createstorage) para ver as etapas de como usar uma conta de armazenamento existente ou criar uma nova.
+1. Um **grupo de recursos** com uma **conta de armazenamento** e um **contêiner de blob** criados nele para os quais copiar os VHDs. Leia a seção [Criar ou localizar uma conta de armazenamento do Azure](virtual-machines-windows-upload-image.md#createstorage) para ver as etapas para usar uma conta de armazenamento existente ou criar uma nova.
 
 
 
@@ -48,24 +48,24 @@ Este artigo pressupõe que os seguintes pré-requisitos foram atendidos antes de
 
 1. Primeiro, libere os VHDs usados pela VM de origem realizando uma das duas opções a seguir:
 
-	- Se quiser **_copiar_** sua máquina virtual de origem, você precisará **parar** e **desalocá-la**.
+	- Se quiser **_copiar_** sua máquina virtual de origem, **pare** e **desaloque-a**.
 	
 		- Para uma VM criada usando o modelo de implantação clássico, você pode usar o [portal](https://portal.azure.com) e clicar em **Procurar** > **Máquinas virtuais (clássicas)** > *sua VM* > **Parar** ou usar o comando do PowerShell `Stop-AzureVM -ServiceName <yourServiceName> -Name <yourVmName>`. 
 		
-		- Para uma VM em um modelo de implantação do Gerenciador de Recursos, você pode fazer logon no portal e clicar em **Procurar** > **Máquinas virtuais** > *sua VM* > **Parar** ou usar o comando do PowerShell `Stop-AzureRmVM -ResourceGroupName <yourResourceGroup> -Name <yourVmName>`. Observe que o *Status* da VM no portal muda de **Em execução** para **Parado (desalocado)**.
+		- Para uma VM no modelo de implantação do Resource Manager, você pode fazer logon no portal e clicar em **Procurar** > **Máquinas virtuais** > *sua VM* > **Parar** ou usar o comando do PowerShell `Stop-AzureRmVM -ResourceGroupName <yourResourceGroup> -Name <yourVmName>`. Observe que o *Status* da VM no portal muda de **Em execução** para **Parado (desalocado)**.
 
 	
 	- Ou, se quiser **_migrar_** sua máquina virtual de origem, **exclua** a VM e use o VHD que restou. **Procure** sua máquina virtual no [portal](https://portal.azure.com) e clique em **Excluir**.
 	
-1. Localize as chaves de acesso para a conta de armazenamento que contém o VHD de origem, bem como a conta de armazenamento para a qual você copiará o VHD para criar a nova VM. A chave da conta da qual estamos copiando o VHD é chamada de *Chave de Origem* e a da conta para a qual ele será copiado é a *Chave de Destino*. Leia [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md) para saber mais sobre as chaves de acesso.
+1. Localize as chaves de acesso para a conta de armazenamento que contém o VHD de origem, bem como a conta de armazenamento para a qual você copiará o VHD para criar a nova VM. A chave da conta da qual estamos copiando o VHD é chamada de *Chave de Origem* e a da conta para a qual ele será copiado é a *Chave de Destino*. Leia [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md) para obter mais informações sobre as chaves de acesso.
 
-	- Se a sua VM de origem tiver sido criada usando o modelo de implantação clássico, clique em **Procurar** > **Contas de armazenamento (clássicas)** > *sua conta de armazenamento* > **Todas as configurações** > **Chaves** e copie a chave rotulada como **CHAVE DE ACESSO PRIMÁRIA**. 
+	- Se sua VM de origem tiver sido criada usando o modelo de implantação clássico, clique em **Procurar** > **Contas de armazenamento (clássicas)** > *sua conta de armazenamento* > **Todas as configurações** > **Chaves** e copie a chave rotulada como **CHAVE DE ACESSO PRIMÁRIA**. 
 	
-	- Para uma VM criada usando o modelo de implantação do Gerenciador de Recursos ou para a conta de armazenamento que você usará para a nova VM, clique em **Procurar** > **Contas de armazenamento** > *sua conta de armazenamento* > **Todas as configurações** > **Chaves de acesso** e copie a chave rotulada como **key1**.
+	- Para uma VM criada usando o modelo de implantação do Resource Manager ou para a conta de armazenamento que você usará para a nova VM, clique em **Procurar** > **Contas de armazenamento** > *sua conta de armazenamento* > **Todas as configurações** > **Chaves de acesso** e copie a chave rotulada como **key1**.
 
-1. Obtenha as URLs para acessar suas contas de armazenamento de origem e de destino. No portal, **Navegue** até sua conta de armazenamento e clique em **Blobs**. Clique no contêiner que hospeda o VHD de origem (por exemplo, *vhds* para o modelo de implantação clássico) ou no contêiner para o qual deseja que o VHD seja copiado. Clique nas **Propriedades** do contêiner e copie o texto rotulado como **URL**. Precisaremos das URLs dos contêineres de origem e de destino. As URLs serão semelhantes a `https://myaccount.blob.core.windows.net/mycontainer`.
+1. Obtenha as URLs para acessar suas contas de armazenamento de origem e de destino. No portal, **Navegue** até sua conta de armazenamento e clique em **Blobs**. Clique no contêiner que hospeda o VHD de origem (por exemplo, *vhds* para o modelo de implantação clássico) ou no contêiner para o qual deseja que o VHD seja copiado. Clique em **Propriedades** do contêiner e copie o texto rotulado como **URL**. Precisaremos das URLs dos contêineres de origem e de destino. As URLs serão semelhantes a `https://myaccount.blob.core.windows.net/mycontainer`.
 
-1. No computador local, abra uma janela de comando e navegue até a pasta em que o AzCopy está instalado. Ela seria semelhante a *C:\\Arquivos de Programas (x86) \\Microsoft SDKs\\Azure\\AzCopy*. Da pasta, execute este comando: </br>
+1. No computador local, abra uma janela de comando e navegue até a pasta em que o AzCopy está instalado. Ela seria semelhante a *C:\\Arquivos de Programas (x86) \\Microsoft SDKs\\Azure\\AzCopy*. Nela, execute este comando: </br>
 
 		AzCopy /Source:<URL_of_the_source_blob_container> /Dest:<URL_of_the_destination_blob_container> /SourceKey:<Access_key_for_the_source_storage> /DestKey:<Access_key_for_the_destination_storage> /Pattern:<File_name_of_the_VHD_you_are_copying>
 </br>
@@ -89,7 +89,7 @@ Primeiro, configure uma rede virtual e uma NIC para sua nova VM, semelhante ao s
 	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 
-Agora, defina as configurações de VM e use os VHDs copiados para criar uma nova máquina virtual, conforme mostrado abaixo. </br>
+Agora, defina as configurações de VM e use os VHDs copiados para criar uma nova máquina virtual conforme mostrado abaixo. </br>
 
 	#Set the VM name and size
 	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
@@ -105,7 +105,7 @@ Agora, defina as configurações de VM e use os VHDs copiados para criar uma nov
 	$dataDiskName = $vmName + "dataDisk"
 	$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
 	
-As URLs para o disco do sistema operacional e os dados se parecem com esta: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Você pode encontrá-la no portal navegando até o contêiner de armazenamento de destino, clicando no VHD de sistema operacional ou dados que foi copiado e copiando o conteúdo da **URL**.
+As URLs do disco do sistema operacional e dos dados se parecem com esta: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Você pode encontrá-las no portal navegando até o contêiner de armazenamento de destino, clicando no VHD de sistema operacional ou dados que foi copiado e copiando o conteúdo da **URL**.
 	
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
@@ -117,7 +117,7 @@ Se o comando for bem-sucedido, você verá uma saída semelhante a esta:
 	                         True         OK OK
 
 
-Você deverá ver a VM recentemente criada no [Portal do Azure](https://portal.azure.com) em **Procurar** > **Máquinas virtuais** OU usando os seguintes comandos do PowerShell:
+Você deverá ver a VM recém-criada no [Portal do Azure](https://portal.azure.com) em **Procurar** > **Máquinas virtuais** OU usando os seguintes comandos do PowerShell:
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
@@ -129,4 +129,4 @@ Para entrar em sua nova máquina virtual, **Navegue** até a VM no [portal](http
 
 Para gerenciar sua nova máquina virtual com o Azure PowerShell, leia [Gerenciar máquinas virtuais usando o PowerShell e o Azure Resource Manager](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -3,7 +3,7 @@
    description="Configure um cluster local do Service Fabric, implante um aplicativo existente nele e atualize esse aplicativo."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/12/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Introdução à implantação e à atualização de aplicativos em seu cluster local
 O SDK do Service Fabric do Azure inclui um ambiente de desenvolvimento local completo que você pode usar para rapidamente começar a implantar e a gerenciar aplicativos em um cluster local. Neste artigo, você criará um cluster local, implantará um aplicativo existente nele e atualizará o aplicativo para uma nova versão, tudo do Windows PowerShell.
@@ -190,4 +190,4 @@ A nova versão do aplicativo agora contará somente as palavras que comecem por 
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

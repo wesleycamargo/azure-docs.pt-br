@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Exemplos de desenvolvedor do Catálogo de Dados | Microsoft Azure"
-   description="Este artigo fornece uma visão geral dos exemplos de desenvolvedor disponíveis para a API REST do Catálogo de Dados."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	pageTitle="Exemplos de desenvolvedor do Catálogo de Dados | Microsoft Azure"
+	description="Este artigo fornece uma visão geral dos exemplos de desenvolvedor disponíveis para a API REST do Catálogo de Dados."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager=""
+	editor=""
+	tags=""/>
 <tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="03/30/2016"
-   ms.author="derrickv"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="03/30/2016"
+	ms.author="spelluru"/>
 
 
 # Exemplos de desenvolvedor do Catálogo de Dados
@@ -34,4 +34,4 @@ Eis os exemplos que temos no GitHub:
 
   Um exemplo que mostra como usar a API REST do Catálogo de Dados para buscar ativos no Catálogo de Dados do Azure e serializá-los em um arquivo. Ele também demonstra como obter um conjunto de ativos serializado como JSON e enviá-los ao catálogo. Ele oferece suporte para a exportação de um subconjunto do catálogo usando uma consulta de pesquisa.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

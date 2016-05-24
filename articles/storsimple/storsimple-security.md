@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="Carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/22/2016"
+   ms.date="05/03/2016"
    ms.author="v-sharos"/>
 
 # Proteção de dados e segurança de StorSimple
@@ -70,7 +70,7 @@ As senhas são um aspecto importante da segurança do computador e são usadas a
 
 O Windows PowerShell para StorSimple é uma interface de linha de comando que você pode usar para gerenciar o dispositivo StorSimple. O Windows PowerShell para StorSimple tem recursos que permitem registrar o dispositivo, configurar a interface de rede no dispositivo, instalar determinados tipos de atualizações, solucionar problemas do dispositivo acessando a sessão de suporte e alterar o estado do dispositivo. Você pode acessar o Windows PowerShell para StorSimple conectando-se ao console serial no dispositivo ou usando o Windows PowerShell remotamente.
 
-A comunicação remota do PowerShell pode ser feita por meio de HTTPS ou HTTP. Se o gerenciamento remoto por HTTPS estiver habilitado, você precisará baixar o certificado de gerenciamento remoto do dispositivo e instalá-lo no cliente remoto. Para obter mais informações sobre a comunicação remota do PowerShell, vá para [Conectar remotamente ao seu dispositivo StorSimple](storsimple-remote-connect).
+A comunicação remota do PowerShell pode ser feita por meio de HTTPS ou HTTP. Se o gerenciamento remoto por HTTPS estiver habilitado, você precisará baixar o certificado de gerenciamento remoto do dispositivo e instalá-lo no cliente remoto. Para obter mais informações sobre a comunicação remota do PowerShell, vá para [Conectar remotamente ao seu dispositivo StorSimple](storsimple-remote-connect.md).
 
 Depois de usar o Windows PowerShell para StorSimple para se conectar ao dispositivo, forneça a senha de administrador do dispositivo para fazer logon no dispositivo.
 
@@ -269,4 +269,4 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 [Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0511_2016-->

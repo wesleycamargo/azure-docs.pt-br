@@ -74,6 +74,7 @@ Se um usuário for excluído em seu diretório base ou cancelar a sua conta da M
 - Os usuários externos não podem consentir aplicativos multilocatários em diretórios fora de seu diretório base
 - No momento, o PowerBI não dá suporte ao acesso por usuários externos
 - O Portal do Office não dá suporte ao licenciamento de usuários externos
+- Em relação ao PowerShell do Azure AD, os usuários externos são conectados em seu diretório base e não podem gerenciar diretórios nos quais são usuários externos
 
 
 ## O que vem a seguir
@@ -83,4 +84,4 @@ Se um usuário for excluído em seu diretório base ou cancelar a sua conta da M
 - [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
 - [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Assistente Publicar aplicativo do Azure
@@ -29,7 +29,7 @@ Antes de publicar seu aplicativo Web no Azure, você precisa ter uma conta da Mi
 
 1. Obtenha uma conta da Microsoft e uma assinatura do Azure. Você pode tentar uma assinatura gratuita de um mês do Azure [aqui](https://azure.microsoft.com/pricing/free-trial/)
 
-1. Crie um serviço de nuvem e uma conta de armazenamento no Azure. Você pode fazer isso no Gerenciador de Servidores no Visual Studio ou usando o [Portal de Gerenciamento do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Crie um serviço de nuvem e uma conta de armazenamento no Azure. Você pode fazer isso no Gerenciador de Servidores no Visual Studio ou usando o [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 1. Habilite seu aplicativo Web para o Azure. Para habilitar seu aplicativo Web para ser publicado no Azure por meio do Visual Studio, você precisará associá-lo a um projeto de serviço de nuvem do Azure no Visual Studio. Para criar o projeto de serviço de nuvem associado, abra o menu de atalho para o projeto do aplicativo Web e, em seguida, escolha Converter, **Converter em Projeto de Serviço de Nuvem do Azure**.
 
@@ -139,4 +139,4 @@ Você pode modificar as configurações avançadas e comuns para uma implantaç�
 
 [Teste de desempenho de um serviço de nuvem](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

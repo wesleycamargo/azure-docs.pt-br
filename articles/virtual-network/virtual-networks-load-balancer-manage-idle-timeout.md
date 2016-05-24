@@ -1,15 +1,15 @@
 <properties 
-   authors="danielceckert" 
+   authors="jimdial" 
    documentationCenter="dev-center-name" 
    editor=""
-   manager="jefco" 
+   manager="carmonm" 
    pageTitle="Gerenciar: tempo limite de ociosidade do balanceador de carga" 
    description="Recursos de gerenciamento para o tempo limite de ociosidade do balanceador de carga do Azure" 
    services="virtual-network" 
    />
 
 <tags
-   ms.author="danecke"
+   ms.author="jdial"
    ms.date="09/01/2015"
    ms.devlang="na"
    ms.service="virtual-network"
@@ -152,4 +152,4 @@ O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

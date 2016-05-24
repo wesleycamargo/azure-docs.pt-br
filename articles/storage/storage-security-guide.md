@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/09/2016"
 	ms.author="robinsh"/>
 
 #Guia de segurança do Armazenamento do Azure
@@ -40,7 +40,7 @@ Estes são os tópicos abordados neste artigo:
 
 -   Criptografia em repouso
 
-    Falaremos sobre a Criptografia do Serviço de Armazenamento e como é possível habilitá-la para uma conta de armazenamento, resultando em blobs de blocos e blobs de páginas que são criptografados automaticamente quando gravados no Armazenamento do Azure. Também vamos ver como você pode usar o Azure Disk Encryption, bem como explorar as diferenças básicas e os casos do Disk Encryption vs. Criptografia do Cliente vegood lucrsus da Criptografia do Serviço de Armazenamento. Examinaremos rapidamente a compatibilidade de FIPS com os computadores do governo norte-americano.
+    Falaremos sobre a Criptografia do Serviço de Armazenamento e como é possível habilitá-la para uma conta de armazenamento, resultando em blobs de blocos e blobs de páginas que são criptografados automaticamente quando gravados no Armazenamento do Azure. Também vamos ver como você pode usar o Azure Disk Encryption e explorar as diferenças básicas e os casos do Disk Encryption vs. Criptografia do Cliente versus da Criptografia do Serviço de Armazenamento. Examinaremos rapidamente a compatibilidade de FIPS com os computadores do governo norte-americano.
 
 -   Uso da análise de armazenamento para auditar o acesso do armazenamento do Azure
 
@@ -634,4 +634,4 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 
 	Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0511_2016-->

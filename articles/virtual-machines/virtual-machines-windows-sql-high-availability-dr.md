@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/27/2016"
+	ms.date="05/04/2016"
 	ms.author="mikeray" />
 
 # Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure
@@ -39,7 +39,7 @@ As tecnologias HADR do SQL Server que têm suporte no Azure incluem:
 - [Espelhamento de banco de dados](https://technet.microsoft.com/library/ms189852.aspx)
 - [Envio de logs](https://technet.microsoft.com/library/ms187103.aspx)
 - [Backup e restauração com o Serviço de armazenamento de blob do Azure](https://msdn.microsoft.com/library/jj919148.aspx)
-- [Instâncias do cluster de failover do AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
+- [Instâncias do cluster de failover AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
 
 É possível combinar as tecnologias para implementar uma solução SQL Server com alta disponibilidade e recursos de recuperação de desastre. Dependendo da tecnologia usada, uma implantação híbrida pode exigir um túnel VPN com a rede virtual do Azure. As seções a seguir mostram algumas das arquiteturas de implantação de exemplo.
 
@@ -49,12 +49,12 @@ Você pode ter uma solução de alta disponibilidade para seus bancos de dados d
 
 |Tecnologia|Arquiteturas de exemplo|
 |---|---|
-|**Grupos de disponibilidade AlwaysOn**|Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar uma VM de controlador de domínio, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configurar Grupos de Disponibilidade AlwaysOn no Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md).|**Espelhamento de banco de dados**|Os servidores principal, de espelho e testemunha, todos em execução no mesmo data center do Azure para alta disponibilidade. Você pode implantar usando um controlador de domínio.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_dbmirroring1.gif)<br/>Você também pode implantar a mesma configuração de espelhamento de banco de dados sem um controlador de domínio, usando certificados do servidor.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_dbmirroring2.gif)|
-|**Instâncias do cluster de failover do AlwaysOn**|FCI (Instâncias de Cluster de Failover), que exigem armazenamento compartilhado, podem ser criadas de duas maneiras diferentes.<br/><br/>1. Uma FCI em um WSFC de dois nós em execução nas VMs do Azure com armazenamento que dá suporte a uma solução de cluster de terceiros. Para obter um exemplo específico que usa o SIOS DataKeeper, veja [Alta disponibilidade para um compartilhamento de arquivos usando o WSFC e o software de terceiros SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Uma FCI em um WSFC de dois nós em execução em VMs do Azure com armazenamento em um bloco compartilhado de destino iSCSI por meio da Rota Expressa. Por exemplo, o NPS (Armazenamento Privado do NetApp) expõe um destino iSCSI por meio da Rota Expressa com o Equinix para VMs do Azure.<br/><br/>Para obter soluções de armazenamento compartilhado e replicação de dados de terceiros, entre em contato com o fornecedor para tratar problemas relacionados ao acesso a dados no failover.<br/><br/>Observe que ainda não há suporte para o uso do FCI no [Armazenamento de arquivos do Azure](https://azure.microsoft.com/services/storage/files/), pois esta solução não utiliza o Armazenamento Premium. Estamos trabalhando para dar suporte a isso em breve.|
+|**Grupos de disponibilidade AlwaysOn**|Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar uma VM de controlador de domínio, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) (Configurar grupos de disponibilidade AlwaysOn no Azure (GUI)).|**Espelhamento de banco de dados**|Os servidores principal, de espelho e testemunha, todos em execução no mesmo data center do Azure para alta disponibilidade. Você pode implantar usando um controlador de domínio.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_dbmirroring1.gif)<br/>Você também pode implantar a mesma configuração de espelhamento de banco de dados sem um controlador de domínio, usando certificados do servidor.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_dbmirroring2.gif)|
+|**Instâncias do cluster de failover AlwaysOn**|FCI (Instâncias de Cluster de Failover), que exigem armazenamento compartilhado, podem ser criadas de duas maneiras diferentes.<br/><br/>1. Uma FCI em um WSFC de dois nós em execução nas VMs do Azure com armazenamento que dá suporte a uma solução de cluster de terceiros. Para obter um exemplo específico que usa o SIOS DataKeeper, veja [Alta disponibilidade para um compartilhamento de arquivos usando o WSFC e o software de terceiros SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Uma FCI em um WSFC de dois nós em execução em VMs do Azure com armazenamento em um bloco compartilhado de destino iSCSI por meio da Rota Expressa. Por exemplo, o NPS (Armazenamento Privado do NetApp) expõe um destino iSCSI por meio da Rota Expressa com o Equinix para VMs do Azure.<br/><br/>Para obter soluções de armazenamento compartilhado e replicação de dados de terceiros, entre em contato com o fornecedor para tratar problemas relacionados ao acesso a dados no failover.<br/><br/>Observe que ainda não há suporte para o uso do FCI no [Armazenamento de arquivos do Azure](https://azure.microsoft.com/services/storage/files/), pois esta solução não utiliza o Armazenamento Premium. Estamos trabalhando para dar suporte a isso em breve.|
 
 ## Somente Azure: soluções de recuperação de desastre
 
-Você pode ter uma solução de recuperação de desastres para seus bancos de dados do SQL Server no Azure usando Grupos de Disponibilidade AlwaysOn, espelhamento de banco de dados ou backup e restauração com blobs de armazenamento.
+Você pode ter uma solução de recuperação de desastre para seus bancos de dados do SQL Server no Azure usando grupos de disponibilidade AlwaysOn, espelhamento de banco de dados ou backup e restauração com blobs de armazenamento.
 
 |Tecnologia|Arquiteturas de exemplo|
 |---|---|
@@ -64,11 +64,11 @@ Você pode ter uma solução de recuperação de desastres para seus bancos de d
 
 ## TI híbrida: soluções de recuperação de desastre
 
-Você pode ter uma solução de recuperação de desastres para seus bancos de dados do SQL Server em um ambiente de TI híbrida, usando Grupos de disponibilidade AlwaysOn, espelhamento de banco de dados, envio de log e backup e restauração com o armazenamento de blog do Azure.
+Você pode ter uma solução de recuperação de desastre para seus bancos de dados do SQL Server em um ambiente de TI híbrida usando grupos de disponibilidade AlwaysOn, espelhamento de banco de dados, envio de log e backup e restauração com o armazenamento de blobs do Azure.
 
 |Tecnologia|Arquiteturas de exemplo|
 |---|---|
-|**Grupos de disponibilidade AlwaysOn**|Algumas réplicas de disponibilidade executadas em VMs do Azure e outras réplicas executadas localmente para recuperação de desastres intersite. O site de produção pode ser local ou em um datacenter do Azure.<br/>![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Como todas as réplicas de disponibilidade devem estar no mesmo cluster WSFC, o cluster WSFC deve abranger as duas redes (um cluster WSFC de várias sub-redes). Essa configuração requer uma conexão VPN entre o Azure e a rede local.<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local de recuperação de desastres.<br/><br/>É possível usar o assistente Adicionar réplica no SSMS para adicionar uma réplica do Azure a um Grupo de Disponibilidade AlwaysOn existente. Para obter mais informações, consulte o Tutorial: Estenda seu grupo de disponibilidade AlwaysOn para o Azure.|
+|**Grupos de disponibilidade AlwaysOn**|Algumas réplicas de disponibilidade executadas em VMs do Azure e outras réplicas executadas localmente para recuperação de desastres intersite. O site de produção pode ser local ou em um datacenter do Azure.<br/>![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Como todas as réplicas de disponibilidade devem estar no mesmo cluster WSFC, o cluster WSFC deve abranger as duas redes (um cluster WSFC de várias sub-redes). Essa configuração requer uma conexão VPN entre o Azure e a rede local.<br/><br/>Para a recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no site de recuperação de desastres.<br/><br/>É possível usar o Assistente de Adição de Réplica no SSMS para adicionar uma réplica do Azure a um grupo de disponibilidade AlwaysOn existente. Para obter mais informações, consulte o Tutorial: estender seu grupo de disponibilidade AlwaysOn para o Azure.|
 |**Espelhamento de banco de dados**|Um parceiro executado em uma VM do Azure e o outro executado localmente para recuperação de desastres intersite usando certificados de servidor. Os parceiros não precisam estar no mesmo domínio do Active Directory e nenhuma conexão VPN é necessária.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Outro cenário que o espelhamento de banco de dados envolve é um parceiro em execução em uma VM do Azure e o outro em execução localmente no mesmo domínio do Active Directory para recuperação de desastres intersite. É necessária uma [conexão VPN entre a rede virtual do Azure e a rede local](../vpn-gateway/vpn-gateway-site-to-site-create.md).<br/><br/>Para recuperação de desastres bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no local da recuperação de desastres.|
 |**Envio de logs**|Um servidor em execução em uma VM do Azure e outro em execução local para recuperação de desastre intersite. O envio de log depende do compartilhamento de arquivos do Windows, assim, uma conexão VPN entre a rede virtual do Azure e a rede local é necessária.<br/>![Envio de logs](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>Para recuperação de desastre bem-sucedida de seus bancos de dados, você também deve instalar um controlador de domínio de réplica no site de recuperação de desastres.|
 |**Backup e restauração com o Serviço de armazenamento de blob do Azure**|Bancos de dados de produção local com backup diretamente no armazenamento de blob do Azure para recuperação de desastres.<br/>![Backup e restauração](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e Restauração do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md).|
@@ -83,7 +83,7 @@ Conjuntos de disponibilidade no Azure permitem que você coloque os nós de alta
 
 ### Comportamento do cluster WSFC no sistema de rede do Azure
 
-O serviço DHCP não compatível com RFC no Azure pode causar falha na criação de certas configurações do cluster WSFC porque um endereço IP duplicado está sendo atribuído ao nome da rede de cluster, assim como o mesmo endereço IP de um dos nós do cluster. Isso é um problema quando você implementa Grupos de disponibilidade AlwaysOn que dependem do recurso WSFC.
+O serviço DHCP não compatível com RFC no Azure pode causar falha na criação de certas configurações do cluster WSFC porque um endereço IP duplicado está sendo atribuído ao nome da rede de cluster, assim como o mesmo endereço IP de um dos nós do cluster. Isso é um problema quando você implementa grupos de disponibilidade AlwaysOn que dependem do recurso WSFC.
 
 Considere o cenário onde um cluster de dois nós é criado e colocado online:
 
@@ -99,22 +99,22 @@ Considere o cenário onde um cluster de dois nós é criado e colocado online:
 
 1. Enquanto isso, o NODE1 pode enviar pacotes para o NODE2, mas NODE2 não pode responder. O NODE1 perde quorum e fecha o cluster.
 
-Esse cenário pode ser evitado atribuindo um estático endereço IP não usado, como um endereço IP de link local como 169.254.1.1, ao nome da rede de cluster para colocar o nome de rede do cluster online. Para simplificar esse processo, consulte [Configurando Cluster de Failover do Windows no Azure para Grupos de Disponibilidade AlwaysOn](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
+Esse cenário pode ser evitado atribuindo um estático endereço IP não usado, como um endereço IP de link local como 169.254.1.1, ao nome da rede de cluster para colocar o nome de rede do cluster online. Para simplificar esse processo, consulte [Configurando o cluster de failover do Windows no Azure para grupos de disponibilidade AlwaysOn](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
-Para obter mais informações, consulte [Configurar Grupos de Disponibilidade AlwaysOn no Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md).
+Para obter mais informações, consulte [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md) (Configurar grupos de disponibilidade AlwaysOn no Azure (GUI)).
 
 ### Suporte do ouvinte do grupo de disponibilidade
 
 Ouvintes do grupo de disponibilidade têm suporte em VMs do Azure que executam o Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. Esse suporte é possibilitado pelo uso de pontos de extremidade habilitados em VMs do Azure, que são nós do grupo de disponibilidade. Você deve seguir etapas especiais de configuração para que os ouvintes trabalhem para ambos os aplicativos clientes que estão em execução no Azure, bem como os que estão em execução local.
 
-Há duas opções principais para configurar o ouvinte: externo (público) ou interno. O ouvinte (público) externo é associado a um IP Virtual público (VIP) que seja acessível pela Internet. Com um ouvinte externo, você deve habilitar o retorno de servidor direto, o que significa que você deve se conectar ao ouvinte de um computador que não está no mesmo serviço de nuvem que os nós do grupo de disponibilidade do AlwaysOn. A outra opção é um ouvinte interno que usa o balanceador de carga interno (ILB). Um ouvinte interno só oferece suporte a clientes na mesma rede virtual.
+Há duas opções principais para configurar o ouvinte: externo (público) ou interno. O ouvinte (público) externo é associado a um IP Virtual público (VIP) que seja acessível pela Internet. Com um ouvinte externo, você deve habilitar o retorno de servidor direto, o que significa que você deve se conectar ao ouvinte de um computador que não está no mesmo serviço de nuvem que os nós do grupo de disponibilidade AlwaysOn. A outra opção é um ouvinte interno que usa o balanceador de carga interno (ILB). Um ouvinte interno só oferece suporte a clientes na mesma rede virtual.
 
 Se o Grupo de disponibilidade abranger várias sub-redes do Azure (como uma implantação que cruza regiões do Azure), a cadeia de conexão do cliente deve incluir "**MultisubnetFailover=True**". Isso resulta em tentativas de conexão em paralelo às réplicas nas diferentes sub-redes. Para obter instruções sobre como configurar um ouvinte, consulte
 
-- [Configurar um ouvinte de ILB para grupos de disponibilidade do AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
-- [Configurar um ouvinte externo para grupos de disponibilidade do AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
+- [Configurar um ouvinte de ILB para grupos de disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
+- [Configurar um ouvinte externo para grupos de disponibilidade AlwaysOn no Azure](virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
-Você pode ainda se conectar a cada réplica de disponibilidade separadamente conectando-se diretamente à instância do serviço. Além disso, como os Grupos de disponibilidade AlwaysOn são compatíveis com versões anteriores com clientes de espelhamento de banco de dados, você pode se conectar a réplicas de disponibilidade, como parceiros de espelhamento, desde que as réplicas sejam configuradas de forma semelhante ao espelhamento do banco de dados:
+Você pode ainda se conectar a cada réplica de disponibilidade separadamente conectando-se diretamente à instância do serviço. Além disso, como os grupos de disponibilidade AlwaysOn são compatíveis com versões anteriores com clientes de espelhamento de banco de dados, você pode se conectar a réplicas de disponibilidade, como parceiros de espelhamento, desde que as réplicas sejam configuradas de forma semelhante ao espelhamento do banco de dados:
 
 - Uma réplica primária e uma réplica secundária
 
@@ -151,6 +151,6 @@ Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, c
 ### Outros recursos
 
 - [Instalar uma nova floresta do Active Directory no Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
-- [Criar cluster WSFC para Grupos de Disponibilidade AlwaysOn em VM do Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
+- [Create WSFC Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Criar cluster WSFC para grupos de disponibilidade AlwaysOn em uma VM do Azure)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

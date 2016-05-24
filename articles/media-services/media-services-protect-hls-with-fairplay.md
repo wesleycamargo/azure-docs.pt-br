@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/03/2016"
+ 	ms.date="05/04/2016"
 	ms.author="juliako"/>
 
 #Use os Serviços de Mídia do Azure para transmitir seu conteúdo de HLS protegido com o Apple FairPlay 
@@ -41,6 +41,9 @@ Este tópico demonstra como usar os Serviços de Mídia do Azure para criptograf
 
 	- Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 	- Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Criar Conta](media-services-create-account.md).
+	- Inscreva-se no [Programa de Desenvolvimento da Apple](https://developer.apple.com/).
+	- A Apple exige que o proprietário do conteúdo obtenha o [pacote de implantação](https://developer.apple.com/contact/fps/). Informe a solicitação na qual você já implementou o KSM (Módulo de Segurança de Chave) com os Serviços de Mídia do Azure e que você está solicitando o pacote FPS final. Haverá instruções no pacote FPS final para gerar a certificação e obter o ASK, que você usará para configurar o FairPlay. 
+
 	- SDK do .NET dos Serviços de Mídia do Azure na versão **3.6.0** ou posterior.
 
 - Os seguintes itens devem ser definidos no lado de distribuição de chaves do AMS:
@@ -52,7 +55,7 @@ Este tópico demonstra como usar os Serviços de Mídia do Azure para criptograf
 	- **ID da senha do Certificado de Aplicativo** - O cliente deverá carregar a senha de maneira semelhante a como carrega outras chaves do AMS e usando o valor de enumeração **ContentKeyType.FairPlayPfxPassword**. No resultado, o cliente obterá a ID do AMS. Isso é o que ele precisa para usar na opção de política de distribuição de chaves.
 	- **iv** - um valor aleatório de 16 bytes, que deve coincidir com o iv na política de distribuição de ativos. O cliente gera o IV e o coloca em dois locais: na política de distribuição de ativos e na opção de política de distribuição de chaves. 
 	- **ASK** - A ASK (Chave Secreta do Aplicativo) é recebida quando você gera a certificação usando o portal do desenvolvedor da Apple. Cada equipe de desenvolvimento receberá uma ASK exclusiva. Salve uma cópia da ASK e armazene-a em um local seguro. Você precisará configurar a ASK como FairPlayAsk nos Serviços de Mídia do Azure posteriormente. 
-	-  **ID da ASK** - fornecida pela Apple. O cliente deverá carregar a ASK de maneira semelhante a como carrega outras chaves do AMS usando o valor de enumeração **ContentKeyType.FairPlayASk**. No resultado, o cliente obterá a ID do WAMS. Isso é o que ele precisa para usar na opção de política de distribuição de chaves.
+	-  **ID da ASK** -é obtida quando o cliente carrega a ASK no AMS. O cliente deve carregar a ASK usando o valor de enumeração **ContentKeyType.FairPlayASk**. Como resultado, a ID do AMS será retornada e ela que deve ser usada ao configurar a opção de política de distribuição de chaves.
 
 - Os seguintes itens devem ser definidos pelo lado do cliente FPS:
  	- **Certificado de Aplicativo (AC)** - o arquivo .cer/.der contendo a chave pública que o sistema operacional usa para criptografar alguma carga. O AMS precisa dessa informação porque ela é necessária para o player. O serviço de distribuição de chaves descriptografa-o usando a chave privada correspondente.
@@ -75,7 +78,9 @@ A seguir estão as etapas gerais que você precisará executar ao proteger seus 
 1. Configurar a política de autorização da chave de conteúdo. Ao criar a política de autorização de chave de conteúdo, você precisará especificar o seguinte: 
 	
 	- o método de entrega (nesse caso, o FairPlay), 
-	- a configuração de opções de política do FairPlay. Para obter detalhes sobre como configurar o FairPlay, confira o método ConfigureFairPlayPolicyOptions() abaixo.
+	- a configuração de opções de política do FairPlay. Para obter detalhes sobre como configurar o FairPlay, confira o método ConfigureFairPlayPolicyOptions() no exemplo abaixo.
+	
+		>[AZURE.NOTE] Na maioria dos casos, convém configurar as opções de política do FairPlay apenas uma vez, visto que você terá apenas um conjunto de certificação e ASK.
 	- restrições (abertas ou token), 
 	- e informações específicas sobre o tipo de distribuição de chave que define como a chave é entregue ao cliente. 
 	
@@ -91,6 +96,11 @@ A seguir estão as etapas gerais que você precisará executar ao proteger seus 
 	>- Outro IAssetDeliveryPolicy para configurar o FairPlay para o HLS
 
 1. Criar um localizador OnDemand para obter uma URL de streaming.
+
+>[AZURE.NOTE] O Azure Media Player não dá suporte para a reprodução do FairPlay pronto para uso. Você precisa obter o player de exemplo da conta de desenvolvedor da Apple para obter a reprodução do FairPlay no MAC OSX.
+>
+>Você também pode desenvolver aplicativos usando o SDK do iOS.
+
 
 ##Exemplo de .NET
 
@@ -281,7 +291,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 		
 		        static public IContentKey CreateCommonCBCTypeContentKey(IAsset asset)
 		        {
-		            // Create envelope encryption content key
+		            // Create HLS SAMPLE AES encryption content key
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		
@@ -439,6 +449,13 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 		            // Get the FairPlay license service URL.
 		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.FairPlay);
 		
+					// The reason the below code replaces "https://" with "skd://" is because
+					// in the IOS player sample code which you obtained in Apple developer account, 
+					// the player only recognizes a Key URL that starts with skd://. 
+					// However, if you are using a customized player, 
+					// you can choose whatever protocol you want. 
+					// For example, "https". 
+
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
@@ -519,4 +536,4 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

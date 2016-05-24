@@ -26,7 +26,7 @@
 
     3. Especifique a frequência de backup em minutos, em horas, em dias ou em semanas.
 
-    4. Selecione uma retenção. As opções de retenção dependem da frequência do backup. Por exemplo, para uma política diária, a retenção pode ser especificada em semanas, enquanto a retenção para uma política mensal é especificada em meses.
+    4. Selecione uma retenção. As opções de retenção dependem da frequência do backup.
  
     5. Selecione a hora e a data de início da política.
 
@@ -40,4 +40,4 @@
 
     ![Política de backup personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=AcomDC_1203_2015-->
+

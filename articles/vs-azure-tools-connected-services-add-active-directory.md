@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="visual-studio-online"
-   ms.date="04/18/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Adicionando um Active Directory do Azure usando Serviços Conectados no Visual Studio 
@@ -53,7 +53,7 @@ Você pode usar a caixa de diálogo Serviços Conectados para se conectar ao AD 
 
     ![Configurar o AD do Azure no assistente](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
 
-1. Escolha o botão **Concluir**. A caixa de diálogo adiciona as referências e o código de configuração necessários para habilitar seu projeto para autenticação AD do Azure. Você pode ver o domínio do AD no portal do Azure.
+1. Escolha o botão **Concluir**. A caixa de diálogo adiciona as referências e o código de configuração necessários para habilitar seu projeto para autenticação AD do Azure. Você pode ver o domínio do AD no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Analise a página de Introdução exibida no seu navegador para obter ideias sobre as próximas etapas e a página O que Aconteceu para ver como seu projeto foi modificado. Para verificar se tudo funcionou, abra um dos arquivos de configuração modificados e veja se as configurações mencionadas na página O Que Aconteceu estão lá. Por exemplo, o web.config principal em um projeto MVC ASP.NET terá estas configurações adicionadas:
 
@@ -79,4 +79,4 @@ Faça perguntas e obtenha ajuda.
 
  - [Postagem do blog: Introdução ao AD do Azure](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0511_2016-->

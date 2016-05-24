@@ -29,7 +29,12 @@ As fontes de dados que estão disponíveis no momento no Log Analytics são list
 
 | Fonte de dados | Tipo de evento | Descrição |
 |:--|:--|:--|
-| [Logs personalizados](log-analytics-data-sources-custom-logs.md) | <LogName>\_CL | Arquivos de texto em agentes do Windows ou Linux contendo informações de log. | | [Logs de eventos do Windows](log-analytics-data-sources-windows-events.md) | Event | Eventos coletados do log de eventos em computadores com Windows. | | [Contadores de desempenho do Windows](log-analytics-data-sources-performance-counters.md) | Perf | Contadores de desempenho coletados de computadores com Windows. | | [Contadores de desempenho do Linux](log-analytics-data-sources-performance-counters.md) | Perf | Contadores de desempenho coletados de computadores com Linux. | | [Logs do IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Logs dos Serviços de Informações da Internet no formato W3C. | | Syslog | Syslog | Eventos de Syslog em computadores com Windows ou Linux. |
+| [Logs personalizados](log-analytics-data-sources-custom-logs.md) | \<LogName\>_CL | Arquivos de texto em agentes do Windows ou Linux contendo informações de log. |
+| [Logs de eventos do Windows](log-analytics-data-sources-windows-events.md) | Event | Eventos coletados do log de eventos em computadores com Windows. |
+| [Contadores de desempenho do Windows](log-analytics-data-sources-performance-counters.md) | Perf | Contadores de desempenho coletados de computadores com Windows. |
+| [Contadores de desempenho do Linux](log-analytics-data-sources-performance-counters.md) | Perf | Contadores de desempenho coletados de computadores com Linux. |
+| [Logs do IIS](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Logs dos Serviços de Informações da Internet no formato W3C. |
+| Syslog | Syslog | Eventos de Syslog em computadores com Windows ou Linux. |
 
 ## Configurando fontes de dados
 

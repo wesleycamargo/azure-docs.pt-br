@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuração de segurança para a Replicação Geográfica Ativa"
+	pageTitle="Como gerenciar a segurança após a recuperação de desastre"
 	description="Este tópico explica as considerações sobre segurança para gerenciar cenários de Replicação Geográfica Ativa para o Banco de Dados SQL."
 	services="sql-database"
 	documentationCenter="na"
@@ -14,36 +14,39 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/27/2016"
+	ms.date="05/10/2016"
 	ms.author="carlrab" />
 
-# Configuração de segurança para a Replicação Geográfica
+# Como gerenciar a segurança após a recuperação de desastre
 
 >[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas de serviço.
 
-## Visão geral dos requisitos de autenticação para a Replicação Geográfica Ativa
-Este tópico descreve os requisitos de autenticação para configurar e controlar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) e as etapas necessárias para configurar o acesso de usuário ao banco de dados secundário. Para obter mais informações sobre como usar a Replicação Geográfica, veja [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md).
+## Visão geral dos requisitos de autenticação para a recuperação de desastre
 
-## Usando a Replicação Geográfica Ativa com usuários independentes
-Com a [versão V12 do Banco de Dados SQL do Azure](sql-database-v12-whats-new.md), o Banco de Dados SQL agora dá suporte a usuários independentes. Ao contrário de usuários tradicionais, que devem ser mapeados para logons no banco de dados mestre, um usuário independente é totalmente gerenciado pelo próprio banco de dados. Isso oferece dois benefícios. No cenário de replicação geográfica, os usuários podem continuar a se conectar ao banco de dados secundário sem qualquer configuração adicional, porque o banco de dados gerencia os usuários. Também há possíveis benefícios de desempenho e escalabilidade com esta configuração de uma perspectiva de logon. Para obter mais informações, veja [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+Este tópico descreve os requisitos de autenticação para configurar e controlar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) e as etapas necessárias para configurar o acesso de usuário ao banco de dados secundário. Ele também descreve como habilitar o acesso ao banco de dados recuperado depois de usar a restauração geográfica. Para obter mais informações sobre as opções de recuperação, consulte [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md).
 
-Quando você tiver vários bancos de dados que usam o mesmo logon, manter as credenciais usando usuários independentes em vários banco de dados pode invalidar os benefícios de usuários independentes. Por exemplo, quando a senha for alterada, a alteração precisará ser feita separadamente para o usuário independente em cada banco de dados, em vez de alterar a senha para o logon apenas uma vez no nível do servidor. Por esse motivo, se você tiver vários bancos de dados que usam o mesmo nome de usuário e senha, a utilização de usuários independentes não será recomendada.
+## Recuperação de desastre com usuários independentes
 
-## Usando logons e usuários com Replicação Geográfica Ativa
-Se estiver usando logons e usuários (em vez de usuários independentes), será necessário realizar etapas extras para assegurar que os mesmos logons existam no servidor de banco de dados secundário. As seções a seguir descrevem as etapas envolvidas e considerações adicionais.
+Com a [versão V12 do Banco de Dados SQL do Azure](sql-database-v12-whats-new.md), o Banco de Dados SQL agora dá suporte a usuários independentes. Ao contrário de usuários tradicionais, que devem ser mapeados para logons no banco de dados mestre, um usuário independente é totalmente gerenciado pelo próprio banco de dados. Isso oferece dois benefícios. No cenário de recuperação de desastre, os usuários podem continuar a conectar ao novo banco de dados primário recuperado usando restauração geográfica sem qualquer configuração adicional, pois o banco de dados gerencia os usuários. Também há possíveis benefícios de desempenho e escalabilidade com esta configuração de uma perspectiva de logon. Para obter mais informações, veja [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
-### Configurar o acesso do usuário para um banco de dados secundário
-Para que o banco de dados secundário possa ser usado como um banco de dados secundário somente leitura ou um banco de dados primário viável após um failover, o banco de dados secundário deve ter a configuração de segurança apropriada em vigor.
+A principal desvantagem é que gerenciar o processo de recuperação de desastre em grande escala é mais desafiador. Quando você tiver vários bancos de dados que usam o mesmo logon, manter as credenciais usando usuários independentes em vários banco de dados pode invalidar os benefícios de usuários independentes. Por exemplo, a política de rotação de senha requer que alterações ocorram consistentemente em vários bancos de dados em vez de alterar a senha do logon apenas uma vez no banco de dados mestre. Por esse motivo, se você tiver vários bancos de dados que usam o mesmo nome de usuário e senha, a utilização de usuários independentes não será recomendada.
 
-O administrador do servidor ou os usuários com as permissões apropriadas podem concluir as etapas de configuração descritas no tópico. As permissões específicas para cada etapa são descritas posteriormente neste tópico.
+## Como configurar logons e usuários
 
-A preparação do acesso do usuário ao secundário online da Replicação Geográfica Ativa pode ser executada a qualquer momento. Isso envolve as três etapas descritas abaixo:
+Se estiver usando logons e usuários (em vez de usuários independentes), será necessário realizar etapas extras para garantir que os mesmos logons existam no banco de dados mestre. As seções a seguir descrevem as etapas envolvidas e considerações adicionais.
 
-1. Determine os logons com acesso ao banco de dados primário.
-2. Localize o SID desses logons no servidor de origem.
-3. Crie os logons no servidor de destino com o SID correspondente do servidor de origem.
+### Configurar o acesso do usuário a um banco de dados secundário ou recuperado
 
->[AZURE.NOTE] Se os logons no servidor de destino não estiverem mapeados corretamente para os usuários no banco de dados secundário, o acesso a ele como um banco de dados somente leitura ou o acesso ao novo primário após o failover será limitado exclusivamente ao administrador do servidor.
+Para o banco de dados secundário poder ser usado como banco de dados secundário somente leitura e para garantir o acesso apropriado ao novo banco de dados primário ou o banco de dados recuperado usando a restauração geográfica, o banco de dados mestre do servidor de destino deve ter a configuração de segurança apropriadas em vigor antes da recuperação.
+
+As permissões específicas para cada etapa são descritas posteriormente neste tópico.
+
+A preparação do acesso do usuário a uma replicação geográfica secundária deve ser realizada como parte da configuração da replicação geográfica. A preparação do acesso do usuário aos bancos de dados restaurados geograficamente pode ser realizada a qualquer momento em que o servidor original estiver online (ex.: como parte do teste de DR).
+
+>[AZURE.NOTE] Se o failover ou a restauração geográfica for para um servidor que não tem acesso de logons configurado corretamente, eles ficarão limitados à conta de administrador do servidor.
+
+Configurar logons no servidor de destino envolve três etapas descritas abaixo:
+
 
 #### 1\. Determine os logons com acesso ao banco de dados primário:
 A primeira etapa do processo é determinar quais logons devem ser duplicados no servidor de destino. Isso é feito com um par de instruções SELECT, uma no banco de dados mestre lógico no servidor de origem e outra no próprio banco de dados primário.
@@ -85,8 +88,9 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 >DISABLE não altera a senha, portanto você sempre poderá habilitá-la se necessário.
 
 ## Próximas etapas
-Para obter mais informações sobre a Replicação Geográfica Ativa, consulte [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md).
 
+- Para obter mais informações sobre como gerenciar logons e acesso ao banco, consulte [Segurança do Banco de Dados SQL: gerenciar a segurança de acesso e de logon do banco de dados](sql-database-manage-logins.md).
+- Para saber mais sobre usuários de bancos de dados independentes, consulte [Usuários do bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## Recursos adicionais
 
@@ -96,4 +100,4 @@ Para obter mais informações sobre a Replicação Geográfica Ativa, consulte [
 - [Finalizar seu Banco de Dados SQL do Azure recuperado](sql-database-recovered-finalize.md)
 - [Perguntas frequentes sobre BCDR no Banco de Dados SQL](sql-database-bcdr-faq.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0511_2016-->

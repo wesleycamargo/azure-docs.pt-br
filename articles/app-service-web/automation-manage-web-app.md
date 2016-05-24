@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="04/18/2016"
 	ms.author="csand"/>
 
 
@@ -24,7 +24,7 @@ Este guia apresentará o serviço de Automação do Azure e como ele pode ser us
 
 ## O que é Automação do Azure?
 
-[Automação do Azure](https://azure.microsoft.com/services/automation/) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo. Com o uso da Automação do Azure, as tarefas manuais, repetidas com frequência, de execução longa e propensas a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e o tempo de retorno para sua organização.
+[Automação do Azure](https://azure.microsoft.com/services/automation/) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo. Com o uso da Automação do Azure, as tarefas manuais, repetidas, de execução longa e propensas a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e o tempo de retorno para sua organização.
 
 A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho altamente confiável e altamente disponível que é dimensionado para atender às suas necessidades. Na Automação do Azure, processos podem ser inicializados manualmente, por sistemas de terceiros ou em intervalos agendados para que as tarefas acontecem exatamente quando necessário.
 
@@ -33,13 +33,15 @@ Reduza o custo operacional e libere a equipe de TI e DevOps para se concentrar n
 
 ## Como a Automação do Azure ajuda a gerenciar o Aplicativo Web do Azure?
 
-O Aplicativo Web pode ser gerenciado na Automação do Azure usando os cmdlets do PowerShell que estão disponíveis em [Ferramentas PowerShell do Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). A Automação do Azure tem esses cmdlets do PowerShell do Aplicativo Web disponíveis imediatamente para que você possa executar todas as suas tarefas de gerenciamento de Aplicativo Web dentro do serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets de outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
+O aplicativo Web pode ser gerenciado na Automação do Azure usando os cmdlets do PowerShell que estão disponíveis em [Módulos do Azure PowerShell](../powershell-install-configure/). Você pode [instalar esses cmdlets do PowerShell do aplicativo Web na Automação do Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/), de modo que você pode executar todas as tarefas de gerenciamento de aplicativo Web no serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets de outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
 
+Aqui estão alguns exemplos de Serviços de Aplicativos com a automação de gerenciamento:
+* [Scripts para gerenciar os Aplicativos Web](https://azure.microsoft.com/documentation/scripts/)
 
 ## Próximas etapas
 
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Aplicativo Web do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
-* Confira o [Guia de introdução](../automation/automation-intro.md) da Automação do Azure.
+* Confira o [Guia de Introdução](https://azure.microsoft.com/documentation/learning-paths/automation/) da Automação do Azure
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0511_2016-->

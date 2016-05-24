@@ -6,7 +6,7 @@
    tags=""
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/24/2016"
+   ms.date="04/19/2016"
    ms.author="tomfitz"/>
 
 # Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager
@@ -22,6 +22,16 @@
 Este tópico descreve como você pode resolver alguns dos erros comuns que pode encontrar ao implantar recursos no Azure. Para saber mais sobre como solucionar problemas de implantação, consulte [Solucionando problemas de implantações de grupo de recursos](resource-manager-troubleshoot-deployments-portal.md).
 
 É possível evitar alguns erros validando o modelo e os parâmetros antes da implantação. Para obter exemplos de validação de modelo, consulte [Implantar recursos com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+
+## Modelo ou recurso inválido
+
+Se você receber um erro informando que o modelo ou uma propriedade em um recurso é inválida, isso possivelmente indicará a ausência de um caractere em seu modelo. Esse erro é fácil de cometer ao usar expressões de modelo porque a expressão fica entre aspas, então o JSON valida-a mesmo assim e seu editor pode não detectar o erro. Por exemplo, a atribuição de nome a seguir para uma conta de armazenamento contém um par de colchetes, três funções, três pares de parênteses, um par de aspas simples e uma propriedade:
+
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+
+Se você não fornecer toda a sintaxe correspondente, o modelo produzirá um valor muito diferente de sua intenção.
+
+Dependendo da localização do caractere ausente em seu modelo, você receberá um erro informando que o modelo ou então que um recurso é inválido. O erro também pode indicar que o processo de implantação não pôde processar a expressão de linguagem de modelo. Quando você receber esse tipo de erro, examine cuidadosamente a sintaxe da expressão.
 
 ## O nome do recurso já existe
 
@@ -32,7 +42,7 @@ Para alguns recursos, especialmente contas de armazenamento, servidores de banco
 
 ## Não é possível localizar o recurso durante a implantação
 
-O Gerenciador de Recursos otimiza a implantação criando recursos em paralelo, quando possível. Se um recurso precisar ser implantado após outro recurso, você precisa usar o elemento **dependsOn** em seu modelo para criar uma dependência do outro recurso. Por exemplo, ao implantar um aplicativo Web, o plano do Serviço de Aplicativo deve existir. Se você não tiver especificado que o aplicativo Web é dependente do plano do Serviço de Aplicativo, o Gerenciador de Recursos criará os dois recursos ao mesmo tempo. Você receberá um erro informando que o recurso do plano do Serviço de Aplicativo não pode ser encontrado porque ele ainda não existe quando tentar definir uma propriedade no aplicativo Web. Você pode evitar esse erro configurando a dependência no aplicativo Web.
+O Gerenciador de Recursos otimiza a implantação criando recursos em paralelo, quando possível. Se um recurso precisar ser implantado após outro recurso, você precisará usar o elemento **dependsOn** em seu modelo para criar uma dependência do outro recurso. Por exemplo, ao implantar um aplicativo Web, o plano do Serviço de Aplicativo deve existir. Se você não tiver especificado que o aplicativo Web é dependente do plano do Serviço de Aplicativo, o Gerenciador de Recursos criará os dois recursos ao mesmo tempo. Você receberá um erro informando que o recurso do plano do Serviço de Aplicativo não pode ser encontrado porque ele ainda não existe quando tentar definir uma propriedade no aplicativo Web. Você pode evitar esse erro configurando a dependência no aplicativo Web.
 
     {
       "apiVersion": "2015-08-01",
@@ -100,7 +110,7 @@ Para a API REST, consulte [Obter informações sobre um provedor de recursos](ht
 
 ## Cota excedida
 
-Você pode ter problemas quando a implantação ultrapassar uma cota, que pode ser por grupo de recursos, assinaturas, contas e outros escopos. Por exemplo, sua assinatura pode estar configurada para limitar o número de núcleos de uma região. Se tentar implantar uma máquina virtual com mais núcleos do que o valor permitido, você receberá um erro informando que a cota foi excedida. Para obter informações completas sobre cotas, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](./azure-subscription-service-limits.md).
+Você pode ter problemas quando a implantação ultrapassar uma cota, que pode ser por grupo de recursos, assinaturas, contas e outros escopos. Por exemplo, sua assinatura pode estar configurada para limitar o número de núcleos de uma região. Se tentar implantar uma máquina virtual com mais núcleos do que o valor permitido, você receberá um erro informando que a cota foi excedida. Para obter informações completas sobre cotas, consulte [Limites, cotas e restrições de serviço e assinatura do Azure](azure-subscription-service-limits.md).
 
 Para examinar as cotas de núcleos da assinatura, você deve usar o comando `azure vm list-usage` na CLI do Azure. O exemplo a seguir ilustra que a cota de núcleo de uma conta de avaliação gratuita é 4:
 
@@ -148,7 +158,7 @@ Você pode receber um erro durante a implantação porque a conta ou a entidade 
 
 Para obter mais informações sobre o controle de acesso baseado em função, consulte [Controle de acesso baseado em função do Azure](./active-directory/role-based-access-control-configure.md).
 
-Além de controle de acesso baseado em função, suas ações de implantação podem ser limitadas por políticas na assinatura. Por meio de políticas, o administrador pode impor convenções a todos os recursos implantados na assinatura. Por exemplo, um administrador pode exigir que um valor de marca específico seja fornecido para um tipo de recurso. Se não tiver cumprido os requisitos da política, você receberá um erro durante a implantação. Para obter mais informações sobre políticas, consulte [Usar a política para gerenciar recursos e controlar o acesso](./resource-manager-policy.md).
+Além de controle de acesso baseado em função, suas ações de implantação podem ser limitadas por políticas na assinatura. Por meio de políticas, o administrador pode impor convenções a todos os recursos implantados na assinatura. Por exemplo, um administrador pode exigir que um valor de marca específico seja fornecido para um tipo de recurso. Se não tiver cumprido os requisitos da política, você receberá um erro durante a implantação. Para obter mais informações sobre políticas, consulte [Usar a política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
 ## Verificar o registro do provedor de recursos
 
@@ -223,7 +233,7 @@ Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao cr
 
 ## Próximas etapas
 
-- Para saber mais sobre ações de auditoria, consulte [Operações de auditoria com o Gerenciador de Recursos](./resource-group-audit.md).
-- Para saber mais sobre ações para determinar os erros durante a implantação, consulte [Solução de problemas de implantação de grupo de recursos](./resource-manager-troubleshoot-deployments-portal.md).
+- Para saber mais sobre ações de auditoria, consulte [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
+- Para saber mais sobre ações para determinar os erros durante a implantação, consulte [Solução de problemas de implantação de grupo de recursos](resource-manager-troubleshoot-deployments-portal.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0511_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+	ms.date="05/04/2016" 
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 5: criar o grupo de disponibilidade e adicionar os bancos de dados do aplicativo
@@ -80,7 +80,7 @@ Use estas etapas para restaurar um banco de dados.
 Depois que pelo menos um banco de dados estiver preparado (usando o método de backup e restauração), você poderá criar um Grupo de Disponibilidade.
 
 1.	Retorne para a sessão de área de trabalho remota para o servidor de banco de dados primário.
-2.	No **SQL Server Management Studio**, no painel esquerdo, clique com o botão direito em **Alta Disponibilidade AlwaysOn** e em **Assistente de Novo Grupo de Disponibilidade**.
+2.	No **SQL Server Management Studio**, no painel esquerdo, clique com o botão direito do mouse em **Alta Disponibilidade AlwaysOn** e em **Assistente de Novo Grupo de Disponibilidade**.
 3.	Na página **Introdução**, clique em **Avançar**. 
 4.	Na página **Especificar o Nome do Grupo de Disponibilidade**, digite o nome do seu grupo de disponibilidade em **Nome do grupo de disponibilidade** (exemplo: AG1) e, em seguida, clique em **Avançar**.
 5.	Na página **Selecionar Bancos de Dados**, selecione os bancos de dados do aplicativo que foram armazenados em backup e clique em **Avançar**. Esses bancos de dados atendem aos pré-requisitos para um grupo de disponibilidade, pois você fez pelo menos um backup completo na réplica primária pretendida.
@@ -103,7 +103,7 @@ Secundário | Secundário Legível | Sim
 12.	Na página **Resumo**, clique em **Concluir**. Quando o assistente for concluído, inspecione a página **Resultados** para verificar se o grupo de disponibilidade foi criado com êxito. Nesse caso, clique em **Fechar** para sair do assistente. 
 13.	Na tela inicial, digite **Failover** e clique em **Gerenciador de Cluster de Failover**. No painel esquerdo, abra o nome do cluster e clique em **Funções**. Uma nova função com o nome do seu grupo de disponibilidade deve estar presente.
 
-Você configurou com êxito um Grupo de Disponibilidade AlwaysOn do SQL Server para os seus bancos de dados do aplicativo.
+Você configurou com êxito um grupo de disponibilidade AlwaysOn do SQL Server para os seus bancos de dados do aplicativo.
 
 ![](./media/virtual-machines-windows-ps-lob-ph5/workload-lobapp-phase4.png)
 
@@ -119,4 +119,4 @@ Depois de configurar o ouvinte, você precisa configurar todas as máquinas virt
 
 - Consulte estes [diretrizes](virtual-machines-linux-infrastructure-service-guidelines.md) se você estiver implantando sua própria carga de trabalho de TI no Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0511_2016-->

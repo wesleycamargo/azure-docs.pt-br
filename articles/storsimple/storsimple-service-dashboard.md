@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Painel do serviço do StorSimple Manager | Microsoft Azure"
    description="Descreve o painel de serviço do StorSimple Manager e explica como usá-lo para monitorar a integridade de sua solução StorSimple."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="SharS"
    manager="carolz"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/01/2016"
+   ms.date="05/10/2016"
    ms.author="v-sharos" />
 
 # Use o painel de serviço do StorSimple Manager
@@ -25,7 +25,7 @@ A página do painel serviço do StorSimple Manager fornece uma exibição resumi
 
 O painel de serviço do StorSimple Manager exibe as seguintes informações:
 
-- Na área **gráfico**, você pode ver o gráfico relevante de métricas para seus dispositivos. Você pode exibir o armazenamento primário usado em todos os dispositivos, bem como o armazenamento em nuvem consumido pelos dispositivos durante um período. Use os controles no canto superior direito do gráfico para especificar uma escala de tempo de 1 semana, 1 mês, 3 meses ou 1 ano.
+- Na área **gráfico**, você pode ver o gráfico relevante de métricas para seus dispositivos. É possível exibir o armazenamento primário (fixo localmente e em camadas) usado em todos os dispositivos, bem como o armazenamento em nuvem consumido pelos dispositivos durante determinado período. Use os controles no canto superior direito do gráfico para especificar uma escala de tempo de 1 semana, 1 mês, 3 meses ou 1 ano.
 
 - A **visão geral de uso** mostra o armazenamento primário provisionado e consumido por todos os dispositivos relativos ao armazenamento total disponível em todos os dispositivos. **Provisionado** refere-se à quantidade de armazenamento que é preparado e alocado para uso, enquanto **Usado** refere-se ao uso de volumes conforme exibido pelos iniciadores conectados aos dispositivos.
 
@@ -76,4 +76,4 @@ Você pode exibir os logs de operação clicando no link de logs de operação d
 
 - Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0511_2016-->
