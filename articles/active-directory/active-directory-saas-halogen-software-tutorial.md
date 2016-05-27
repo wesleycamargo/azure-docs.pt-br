@@ -118,7 +118,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: ![Definir configurações de aplicativo][10]
  
-     a. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon no aplicativo da Halogen Software, usando o seguinte padrão: **https://global.hgncloud.com/fabrikam/welcome.jsp*
+     a. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon no aplicativo da Halogen Software, usando o seguinte padrão: *https://global.hgncloud.com/fabrikam/welcome.jsp*
 
      b. Clique em **Próximo**.
  
