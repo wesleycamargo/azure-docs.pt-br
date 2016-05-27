@@ -22,7 +22,8 @@ Problemas de conexão no Banco de Dados SQL do Azure podem ser amplamente classi
 - [Erros transitórios (de curta duração ou intermitentes)](#troubleshoot-the-transient-errors)
 - [Erros persistentes ou não transitórios (erros regularmente recorrentes)](#troubleshoot-the-persistent-errors-non-transient-errors)
 
-Se você encontrar problemas de conexão, experimente as etapas de solução de problemas descritas neste artigo.[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+Se você encontrar problemas de conexão, experimente as etapas de solução de problemas descritas neste artigo.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Solucionar problemas de erros transitórios
 Se seu aplicativo estiver apresentando erros transitórios, examine os seguintes tópicos para obter dicas sobre como solucionar problemas e reduzir a frequência dos erros:
