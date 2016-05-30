@@ -83,7 +83,23 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Java ante
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.7.1](#1.7.1) | 30 de abril de 2016 |--- | [1\.7.0](#1.7.0) | 27 de abril de 2016 |--- | [1\.6.0](#1.6.0) | 29 de março de 2016 |--- | [1\.5.1](#1.5.1) | 31 de dezembro de 2015 |--- | [1\.5.0](#1.5.0) | 04 de dezembro de 2015 |--- | [1\.4.0](#1.4.0) | 05 de outubro de 2015 |--- | [1\.3.0](#1.3.0) | 05 de outubro de 2015 |--- | [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- | [1\.1.0](#1.1.0) | 09 de julho de 2015 |--- | [1\.0.1](#1.0.1) | 12 de maio de 2015 |--- | [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- | 0.9.5-prelease | 09 de março de 2015 | 29 de fevereiro de 2016 | 0.9.4-prelease | 17 de fevereiro de 2015 | 29 de fevereiro de 2016 | 0.9.3-prelease | 13 de janeiro de 2015 | 29 de fevereiro de 2016 | 0.9.2-prelease | 19 de dezembro de 2014 | 29 de dezembro de 2016 | 0.9.1-prelease | 19 de fevereiro de 2014 | 29 de fevereiro de 2016 | 0.9.0-prelease | 10 de dezembro de 2014 | 29 de fevereiro 2016
+| [1\.7.1](#1.7.1) | 30 de abril de 2016 |--- 
+| [1\.7.0](#1.7.0) | 27 de abril de 2016 |--- 
+| [1\.6.0](#1.6.0) | 29 de março de 2016 |--- 
+| [1\.5.1](#1.5.1) | 31 de dezembro de 2015 |--- 
+| [1\.5.0](#1.5.0) | 04 de dezembro de 2015 |--- 
+| [1\.4.0](#1.4.0) | 05 de outubro de 2015 |--- 
+| [1\.3.0](#1.3.0) | 05 de outubro de 2015 |--- 
+| [1\.2.0](#1.2.0) | 05 de agosto de 2015 |--- 
+| [1\.1.0](#1.1.0) | 09 de julho de 2015 |--- 
+| [1\.0.1](#1.0.1) | 12 de maio de 2015 |--- 
+| [1\.0.0](#1.0.0) | 07 de abril de 2015 |--- 
+| 0.9.5-prelease | 09 de março de 2015 | 29 de fevereiro de 2016 
+| 0.9.4-prelease | 17 de fevereiro de 2015 | 29 de fevereiro de 2016 
+| 0.9.3-prelease | 13 de janeiro de 2015 | 29 de fevereiro de 2016 
+| 0.9.2-prelease | 19 de dezembro de 2014 | 29 de dezembro de 2016 
+| 0.9.1-prelease | 19 de fevereiro de 2014 | 29 de fevereiro de 2016 
+| 0.9.0-prelease | 10 de dezembro de 2014 | 29 de fevereiro 2016
 
 ## Perguntas frequentes
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]

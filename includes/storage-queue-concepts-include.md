@@ -14,7 +14,8 @@ O serviço Fila contém os seguintes componentes:
 ![Fila1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **Formato da URL:** as filas são acessadas usando o seguinte formato de URL: http://`<storage account>`.queue.core.windows.net/`<queue>' 
+- **Formato da URL:** as filas são acessadas usando o seguinte formato de URL: 
+	http://`<storage account>`.queue.core.windows.net/`<queue>' 
       
 	A URL a seguir endereça um fila no diagrama:
 		

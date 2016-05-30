@@ -195,7 +195,7 @@ Os recursos principais do Jupyter também estão disponíveis no Visual Studio p
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repositório]: https://github.com/ipython/ipython
 [Ferramentas Python para Visual Studio]: http://aka.ms/ptvs
 

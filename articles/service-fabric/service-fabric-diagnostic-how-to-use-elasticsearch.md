@@ -24,9 +24,11 @@ O ETW é usado pelo tempo de execução do Service Fabric para originar informa�
 
 Para os rastreamentos que aparecerão em Elasticsearch, eles precisam ser capturados nos nós de cluster do Service Fabric em tempo real (enquanto o aplicativo estiver em execução) e enviados ao ponto de extremidade Elasticsearch. Há duas opções principais para a captura de rastreamento:
 
-+ **Captura de rastreamento dentro do processo** o aplicativo, ou mais precisamente, o processo de serviço, é responsável por enviar os dados de diagnóstico para o repositório de rastreamento (Elasticsearch).
++ **Captura de rastreamento dentro do processo**  
+o aplicativo, ou mais precisamente, o processo de serviço, é responsável por enviar os dados de diagnóstico para o repositório de rastreamento (Elasticsearch).
 
-+ **Captura de rastreamento fora do processo** um agente separado captura rastreamentos dos processos de serviço e os envia para o repositório de rastreamento.
++ **Captura de rastreamento fora do processo**  
+um agente separado captura rastreamentos dos processos de serviço e os envia para o repositório de rastreamento.
 
 A seguir, descreveremos como configurar o Elasticsearch no Azure, discutiremos os prós e contras de ambas as opções de captura e explicaremos como configurar um serviço do Service Fabric para enviar dados para o Elasticsearch.
 

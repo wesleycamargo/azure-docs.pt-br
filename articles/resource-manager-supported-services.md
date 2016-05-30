@@ -35,7 +35,9 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | Serviços de ciclo de vida do Dynamics | Sim | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (visualização) | Sim | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Máquinas Virtuais | Sim | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Máquinas virtuais (clássico) | Limitado | Aplicativo Remoto | Não | - | - | | Serviços de Nuvem (clássico) | Limitado (veja abaixo) | - | - | - |
+| Máquinas virtuais (clássico) | Limitado | - | - |
+Aplicativo Remoto | Não | - | - | 
+| Serviços de Nuvem (clássico) | Limitado (veja abaixo) | - | - | - |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -88,7 +90,8 @@ Os Serviços de Nuvem (clássico) podem ser usados com outros recursos clássico
 | Repositório Data Lake | Sim | | | |
 | HDInsights | Sim | [REST do HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Análise de fluxo | Sim | [Análise de fluxo REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| Aprendizado de Máquina | Não | - | - | - | | Catálogo de Dados | Não | - | - | - |
+| Aprendizado de Máquina | Não | - | - | - | 
+| Catálogo de Dados | Não | - | - | - |
 
 ## Internet das coisas
 

@@ -55,7 +55,7 @@ Um backup pode ser obtido a qualquer momento e é totalmente controlado por voc�
 [Agendar um backup](#backupschedule)
 
 #### <a name="backupnow"></a>Backup sob demanda
-1. No portal clássico do Azure, selecione **Serviços BizTalk ** e, em seguida, selecione o Serviço BizTalk do você quer fazer backup.
+1. No portal clássico do Azure, selecione **Serviços BizTalk** e, em seguida, selecione o Serviço BizTalk do você quer fazer backup.
 2. Na guia **Painel**, selecione **Backup** na parte inferior da página.
 3. Insira um nome de backup. Por exemplo, insira *meuServiçoBizTalk*BU*Data*.
 4. Escolha uma conta de armazenamento de blob e selecione a marca de seleção para iniciar o backup.

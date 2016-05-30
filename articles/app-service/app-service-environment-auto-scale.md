@@ -118,7 +118,7 @@ No caso da regra *Dimensionamento automático - escalar verticalmente* do perfil
 
 Esse valor também pode ser calculado para operações de redução:
 
-Com base na regra *Dimensionar automaticamente - reduzir verticalmente do perfil **Dia da semana* do **plano de Serviço de Aplicativo** de produção, seria semelhante ao seguinte:
+Com base na regra *Dimensionar automaticamente - reduzir verticalmente* do perfil *Dia da semana* do **plano de Serviço de Aplicativo** de produção, seria semelhante ao seguinte:
 
 ![][Equation3]
 

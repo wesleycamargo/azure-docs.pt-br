@@ -76,7 +76,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Logon Único do AD do Microsoft Azure](./media/active-directory-saas-igloo-software-tutorial/IC783965.png "Logon Único do AD do Microsoft Azure")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Igloo Software**, digite a URL usando o padrão "**https://company.igloocommunities.com/?signin*" e clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do Igloo Software**, digite a URL usando o padrão "*https://company.igloocommunities.com/?signin*" e clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-igloo-software-tutorial/IC773625.png "Configurar a URL do Aplicativo")
 

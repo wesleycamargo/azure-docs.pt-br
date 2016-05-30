@@ -40,7 +40,7 @@ Você pode arquivar solicitações de suporte para o Azure AD (Azure Active Dire
     - O **Tipo de emissão** é **Técnico**.
 	- Escolha a **Assinatura** apropriada.
     - O **Serviço** é **Active Directory**.
-    - Escolha o **Plano de suporte** apropriado. Se não tiver um, inscreva-se para um [aqui](https://azure.microsoft.com/pt-BR/support/plans/).
+    - Escolha o **Plano de suporte** apropriado. Se não tiver um, inscreva-se para um [aqui](https://azure.microsoft.com/support/plans/).
 
     ![Suporte - Noções básicas](./media/active-directory-b2c-support/support-basics.png)
 

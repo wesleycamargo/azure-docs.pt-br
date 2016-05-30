@@ -1288,7 +1288,17 @@ Observe que há outras maneiras de conseguir esse efeito:
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
+| - | Subtrair | 
+| * | Multiplicar | 
+| / | Dividir | 
+| % | Módulo | 
+|| 
+|`<` |Menor 
+|`<=`|Menor ou Igual a 
+|`>` |Maior 
+|`>=`|Maior ou Igual a 
+|`<>`|Diferente de 
+|`!=`|Diferente de
 
 
 

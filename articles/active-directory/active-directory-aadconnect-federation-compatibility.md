@@ -215,7 +215,9 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |**Suporte a Contratos Kerberos | | Aplicativos cliente avançados, como Lync, Assinatura do Office, CRM | Com suporte | Sem suporte para autenticação integrada do Windows | | Clientes de email avançados, como o Outlook e o ActiveSync | Com suporte | Nenhum|
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |**Suporte a Contratos Kerberos | 
+| Aplicativos cliente avançados, como Lync, Assinatura do Office, CRM | Com suporte | Sem suporte para autenticação integrada do Windows | 
+| Clientes de email avançados, como o Outlook e o ActiveSync | Com suporte | Nenhum|
 
 **O NetIQ oferece suporte à autenticação Kerberos por meio da configuração de um Contrato Kerberos. Para obter assistência com essa configuração, entre em contato com a NetIQ ou leia o guia de instalação. Para saber mais sobre o NetIQ Access Manager, confira [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
 

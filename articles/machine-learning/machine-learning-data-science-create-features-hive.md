@@ -25,7 +25,8 @@ As operações necessárias para criar recursos podem ter uso intensivo de memó
 
 Alguns exemplos de consultas apresentados são específicos para cenários de [Dados de Corridas de Táxi em Nova York](http://chriswhong.com/open-data/foil_nyc_taxi/) e também são fornecidos no [repositório GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução. Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa do [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa do [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Pré-requisitos
@@ -183,4 +184,4 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0518_2016--->

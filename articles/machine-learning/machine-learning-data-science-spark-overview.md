@@ -107,7 +107,7 @@ Pegamos uma amostra de 0,1% desses arquivos e os unimos em um único conjunto de
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
-Você também pode navegar até ******https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar os Notebooks do Jupyter. Basta substituir a parte CLUSTERNAME desta URL pelo nome do seu próprio cluster. Você precisará da senha de sua conta de administrador para acessar os blocos de anotações.
+Você também pode navegar até ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** para acessar os Notebooks do Jupyter. Basta substituir a parte CLUSTERNAME desta URL pelo nome do seu próprio cluster. Você precisará da senha de sua conta de administrador para acessar os blocos de anotações.
 
 ![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 

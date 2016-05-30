@@ -794,7 +794,9 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## Referências
 
-• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) • [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) 
+• [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) 
+• [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png

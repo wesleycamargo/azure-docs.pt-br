@@ -128,7 +128,7 @@ E o IssuerUri em nosso novo domínio foi definido como https://bmfabrikam.com/ad
 ##Suporte para Subdomínios
 Quando você adiciona um subdomínio, devido à maneira usada pelo Azure AD para tratar domínios, ele herda as configurações do pai. Isso significa que o IssuerUri precisa corresponder aos pais.
 
-Digamos, por exemplo, que tenho bmcontoso.com e adiciono corp.bmcontoso.com. Isso significa que o IssuerUri de um usuário corp.bmcontoso.com precisará ser ****http://bmcontoso.com/adfs/services/trust.** No entanto, a regra padrão implementada acima para o Azure AD gerará um token com um emissor como ****http://corp.bmcontoso.com/adfs/services/trust.**, que não corresponderá ao domínio do valor obrigatório e fará com que a autenticação falhe.
+Digamos, por exemplo, que tenho bmcontoso.com e adiciono corp.bmcontoso.com. Isso significa que o IssuerUri de um usuário corp.bmcontoso.com precisará ser **http://bmcontoso.com/adfs/services/trust.** No entanto, a regra padrão implementada acima para o Azure AD gerará um token com um emissor como **http://corp.bmcontoso.com/adfs/services/trust.**, que não corresponderá ao domínio do valor obrigatório e fará com que a autenticação falhe.
 
 ### Como habilitar o suporte para subdomínios
 Para solucionar esse problema, a relação de confiança de terceira parte confiável do AD FS do Microsoft Online precisa ser atualizada. Para isso, você precisa configurar a regra de declaração personalizada para que ela ignore os subdomínios do sufixo UPN do usuário ao construir o valor de Issuer personalizado.

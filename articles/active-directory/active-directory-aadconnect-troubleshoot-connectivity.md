@@ -36,7 +36,11 @@ Desses intervalos, a tabela a seguir é o mínimo absoluto para oferecer a capac
 | URL | Port | Descrição |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Usada para baixar as listas CRL. |
-| **.verisign.com | HTTP/80 | Usado para baixar listas CRL. | | *.entrust.com | HTTP/80 | Usado para baixar listas CRL para MFA. | | *.windows.net | HTTPS/443 | Usado para entrar no Azure AD. | | secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usado para MFA. | | *.microsoftonline.com | HTTPS/443 | Usado para configurar seu diretório do Azure AD e importar/exportar dados. |
+| *.verisign.com | HTTP/80 | Usado para baixar listas CRL. | 
+| *.entrust.com | HTTP/80 | Usado para baixar listas CRL para MFA. | 
+| *.windows.net | HTTPS/443 | Usado para entrar no Azure AD. | 
+| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usado para MFA. | 
+| *.microsoftonline.com | HTTPS/443 | Usado para configurar seu diretório do Azure AD e importar/exportar dados. |
 
 ## Erros no assistente
 O assistente de instalação está usando dois contextos de segurança diferentes. Na página **Conectar-se ao AD do Azure** utiliza o usuário conectado no momento. Na página **Configurar** o assistente muda para a [conta que executa o serviço no mecanismo de sincronização](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). As configurações de proxy que realizamos são globais para o computador de forma que, se houver um problema, ele provavelmente já aparecerá na página **Conectar-se ao AD do Azure** no assistente.
@@ -50,7 +54,7 @@ Esse erro será exibido quando o assistente não conseguir acessar o proxy. ![no
 - Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
 
 ### Não é possível alcançar o ponto de extremidade da MFA
-Esse erro será exibido se o ponto de extremidade ****https://secure.aadcdn.microsoftonline-p.com** não puder ser alcançado e o administrador global tiver a MFA habilitada. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Esse erro será exibido se o ponto de extremidade **https://secure.aadcdn.microsoftonline-p.com** não puder ser alcançado e o administrador global tiver a MFA habilitada. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Se vir isso, verifique se o ponto de extremidade secure.aadcdn.microsoftonline-p.com foi adicionado ao proxy.
 

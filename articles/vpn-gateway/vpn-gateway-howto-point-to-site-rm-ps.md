@@ -19,7 +19,7 @@
 # Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell – Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [PowerShell - Gerenciador de Recursos](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Clássico](vpn-gateway-point-to-site-create.md)
 
 Uma configuração Ponto a Site permite que você crie uma conexão segura com sua rede virtual em um computador cliente, individualmente. Uma conexão VPN é estabelecida por meio do início da conexão do computador cliente. A conexão Ponto a Site é uma excelente solução quando você deseja se conectar à sua rede virtual de um local remoto, como de casa ou de uma conferência, ou quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual.

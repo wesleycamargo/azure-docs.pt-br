@@ -138,9 +138,9 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Visão geral sobre o desenvolvimento no SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
 [Visão geral de integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integration.md
-[Criar tutorial de teste]: https://azure.microsoft.com/pt-BR/documentation/articles/machine-learning-create-experiment/
-[Tutorial de criação de experimento]: https://azure.microsoft.com/pt-BR/documentation/articles/machine-learning-create-experiment/
-[Introdução ao Aprendizado de Máquina no Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/machine-learning-what-is-machine-learning/
+[Criar tutorial de teste]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[Tutorial de criação de experimento]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[Introdução ao Aprendizado de Máquina no Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Estúdio de Aprendizado de Máquina do Azure]: https://studio.azureml.net/Home
 [portal do Azure]: https://portal.azure.com/
 

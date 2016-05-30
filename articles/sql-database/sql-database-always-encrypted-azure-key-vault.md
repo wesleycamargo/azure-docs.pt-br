@@ -69,8 +69,8 @@ Você deve primeiro habilitar o aplicativo cliente para acessar o serviço do Ba
 7. Copie a **ID do CLIENTE** (posteriormente você precisará desse valor no código).
 8. Na seção de chaves, defina a lista suspensa **Selecionar duração** para **1 ano** (copiaremos a chave após salvarmos abaixo).
 11. Role para baixo e clique em **Adicionar aplicativo**.
-12. Deixe **MOSTRAR** definido como **Aplicativos da Microsoft** e, em seguida, localize e escolha **Gerenciamento de Serviços do Windows Azure** e clique na marca de seleção para continuar.
-13. Na linha **Gerenciamento de Serviços do Windows Azure...**, clique na lista suspensa **Permissões Delegadas** e selecione **Acessar Gerenciamento de Serviços do Azure**.
+12. Deixe **MOSTRAR** definido como **Aplicativos da Microsoft** e, em seguida, localize e escolha **Gerenciamento de Serviços do Microsoft Azure** e clique na marca de seleção para continuar.
+13. Na linha **Gerenciamento de Serviços do Microsoft Azure...**, clique na lista suspensa **Permissões Delegadas** e selecione **Acessar Gerenciamento de Serviços do Azure**.
 14. Clique em **SALVAR** (na parte inferior).
 15. Após salvar, localize e copie o valor da chave na seção **chaves** (posteriormente você precisará desse valor no código). 
 
