@@ -56,13 +56,13 @@ Se preferir realizar seus próprios testes de penetração ou se desejar usar ou
 
 ##<a name="https"></a> Comunicação segura com os clientes
 
-Se você usar o nome de domínio **\*.azurewebsites.net** criado para o aplicativo do Serviço de Aplicativo, será possível usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio **\*.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), será possível carregar um certificado SSL para [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
+Se você usar o nome de domínio ***.azurewebsites.net** criado para o aplicativo do Serviço de Aplicativo, será possível usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio ***.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), será possível carregar um certificado SSL para [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
 
 Habilitar o [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pode ajudar a proteger contra ataques MITM na comunicação entre o aplicativo e seus usuários.
 
 ## Camada de dados segura
 
-O Serviço de Aplicativo integra-se favoravelmente ao Banco de Dados SQL, de modo que todas as cadeias de conexão são criptografadas em todos os sentidos e são descriptografadas apenas na VM em que o aplicativo é executado *e* apenas quando o aplicativo é executado. Além disso, o Banco de Dados SQL do Azure inclui muitos recursos de segurança que ajudam a proteger os dados do aplicativo contra ameaças cibernéticas, incluindo [criptografia em repouso](https://msdn.microsoft.com/library/dn948096.aspx), [Sempre Criptografado](https://msdn.microsoft.com/library/mt163865.aspx), [Máscara de Dados Dinâmicos](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [Detecção de Ameaças](sql-database-threat-detection-get-started). Se você tem dados confidenciais ou requisitos de conformidade, confira [Protegendo o Banco de Dados SQL](../sql-database/sql-database-security.md) para saber mais sobre como proteger seus dados.
+O Serviço de Aplicativo integra-se favoravelmente ao Banco de Dados SQL, de modo que todas as cadeias de conexão são criptografadas em todos os sentidos e são descriptografadas apenas na VM em que o aplicativo é executado *e* apenas quando o aplicativo é executado. Além disso, o Banco de Dados SQL do Azure inclui muitos recursos de segurança que ajudam a proteger os dados do aplicativo contra ameaças cibernéticas, incluindo [criptografia em repouso](https://msdn.microsoft.com/library/dn948096.aspx), [Sempre Criptografado](https://msdn.microsoft.com/library/mt163865.aspx), [Máscara de Dados Dinâmicos](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [Detecção de Ameaças](../sql-database/sql-database-threat-detection-get-started.md). Se você tem dados confidenciais ou requisitos de conformidade, confira [Protegendo o Banco de Dados SQL](../sql-database/sql-database-security.md) para saber mais sobre como proteger seus dados.
 
 Se você usar um provedor de banco de dados de terceiros, como ClearDB, será preciso consultar a documentação do provedor diretamente no que se refere às práticas recomendadas de segurança.
 
@@ -123,4 +123,4 @@ Para saber mais sobre como registrar em log informações de aplicativos do Serv
 
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

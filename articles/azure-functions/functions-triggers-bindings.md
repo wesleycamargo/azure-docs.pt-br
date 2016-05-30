@@ -26,7 +26,7 @@ Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor 
 
 ## Gatilhos e associações HTTP e WebHook
 
-Você pode usar um gatilho HTTP ou WebHook para chamar uma função em resposta a uma solicitação HTTP. A solicitação deve incluir uma chave API, que está disponível apenas na interface do usuário do portal do Azure.
+Você pode usar um gatilho HTTP ou WebHook para chamar uma função em resposta a uma solicitação HTTP. A solicitação deve incluir uma chave API, que atualmente está disponível apenas na interface do usuário do portal do Azure.
 
 A URL da função é uma combinação da URL do aplicativo de função e o nome da função:
 
@@ -42,9 +42,9 @@ Propriedades da solicitação HTTP:
 - `type`: deve ser definido como *httpTrigger*.
 - `direction`: deve ser definido como *in*. 
 - `webHookType`: para gatilhos WebHook, os valores válidos são *github*, *slack* e *genericJson*. Para um gatilho HTTP que não seja um WebHook, defina essa propriedade como uma cadeia de caracteres vazia. Para saber mais sobre WebHooks, consulte a seção [Gatilhos WebHook](#webhook-triggers) a seguir.
-- `authLevel`: não se aplica a gatilhos WebHook. Defina como "função" para solicitar a chave de API, como "anônimo" para remover o requisito de chave de API ou como "admin" para exigir a chave mestra de API. Veja [Chaves de API](#apikeys) abaixo para saber mais.
+- `authLevel`: não se aplica a gatilhos WebHook. Defina como "função" para solicitar a chave de API, como "anônimo" para remover o requisito de chave de API ou como "admin" para exigir a chave mestra de API. Consulte [Chaves de API](#apikeys) abaixo para obter mais informações.
 
-As propriedades da resposta HTTP:
+Propriedades da resposta HTTP:
 
 - `name`: nome da variável usada no código de função para o objeto de resposta.
 - `type`: deve ser definido como *http*.
@@ -95,7 +95,7 @@ Você pode encontrar os valores de chave de API na pasta *D:\\home\\data\\Functi
 }
 ```
 
-A chave de função do *host.json* pode ser usada para disparar qualquer função, mas não irá disparar uma função desabilitada. A chave mestra pode ser usada para disparar qualquer função irá disparar uma função mesmo se ela estiver desabilitada. Você pode configurar uma função para exigir a chave mestra ao definir a propriedade `authLevel` como "admin".
+A chave de função do *host.json* pode ser usada para disparar qualquer função, mas não irá disparar uma função desabilitada. A chave mestra pode ser usada para disparar qualquer função e irá disparar uma função mesmo se ela estiver desabilitada. Você pode configurar uma função para exigir a chave mestra ao definir a propriedade `authLevel` como "admin".
 
 Se a pasta *secrets* contiver um arquivo JSON com o mesmo nome da função, a propriedade `key` nesse arquivo também poderá ser usada para disparar a função e essa chave só funcionará com a função a que se refere. Por exemplo, a chave de API para uma função chamada `HttpTrigger` é especificada em *HttpTrigger.json* na pasta *secrets*. Aqui está um exemplo:
 
@@ -117,7 +117,7 @@ using System.Threading.Tasks;
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
-    log.Verbose($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     // parse query parameter
     string name = req.GetQueryNameValuePairs()
@@ -177,7 +177,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     string jsonContent = await req.Content.ReadAsStringAsync();
     dynamic data = JsonConvert.DeserializeObject(jsonContent);
 
-    log.Verbose($"WebHook was triggered! Comment: {data.comment.body}");
+    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         body = $"New GitHub comment: {data.comment.body}"
@@ -254,7 +254,7 @@ Este exemplo de código G# grava um único log sempre que a função é disparad
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
-    log.Verbose($"C# Timer trigger function executed at: {DateTime.Now}");    
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");    
 }
 ```
 
@@ -262,43 +262,23 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 Essa seção contém os seguintes procedimentos:
 
-* [Propriedade de conexão do Armazenamento do Azure em function.json](#storageconnection)
 * [Gatilho de fila do Armazenamento do Azure](#storagequeuetrigger)
 * [Associação de saída de fila do Armazenamento do Azure](#storagequeueoutput)
 * [Gatilho de blob do Armazenamento do Azure](#storageblobtrigger)
 * [Associações de entrada e de saída de blob do Armazenamento do Azure](#storageblobbindings)
 * [Associações de entrada e de saída de tabelas do Armazenamento do Azure](#storagetablesbindings)
 
-### <a id="storageconnection"></a> Propriedade de conexão do Armazenamento do Azure em function.json
-
-Para todos os gatilhos e associações do Armazenamento do Azure, o arquivo *function.json* inclui uma propriedade `connection`. Por exemplo:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
-            "queueName": "myqueue-items",
-            "connection":""
-        }
-    ]
-}
-```
-
-Se você deixar `connection` vazio, o gatilho ou a associação funcionará com a conta de armazenamento padrão para o aplicativo de função. Se desejar que o gatilho ou a associação funcione com uma conta de armazenamento diferente, crie uma configuração de aplicativo no aplicativo de função que aponte para a conta de armazenamento que você deseja usar e defina `connection` como o nome de configuração do aplicativo. Para adicionar uma configuração de aplicativo, siga estas etapas:
-
-1. Na folha **Aplicativo Function** do portal do Azure, clique em **Configurações do Aplicativo Function > Ir para configurações do Serviço de Aplicativo**.
-
-2. Na folha **Configurações**, clique em **Configurações do Aplicativo**.
-
-3. Role para baixo até a seção **Configurações do aplicativo** e adicione uma entrada com **Key** = *{algum valor exclusivo à sua escolha}* e **Value** = a cadeia de conexão da conta de armazenamento.
-
 ### <a id="storagequeuetrigger"></a> Gatilho de fila do Armazenamento do Azure
 
-O arquivo *function.json* fornece o nome da fila para sondagem e o nome da variável para a mensagem da fila. Por exemplo:
+O arquivo *function.json* para um gatilho de fila de armazenamento especifica as propriedades a seguir.
+
+- `name`: o nome da variável usada no código de função para a fila ou a mensagem da fila. 
+- `queueName`: o nome da fila a ser sondada. Para regras de nomenclatura de fila, consulte [Nomeando Filas e Metadados](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, o gatilho funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `type`: deve ser definido como *queueTrigger*.
+- `direction`: deve ser definido como *in*. 
+
+#### Exemplo de *Function.json* de um gatilho de fila de armazenamento
 
 ```json
 {
@@ -306,10 +286,10 @@ O arquivo *function.json* fornece o nome da fila para sondagem e o nome da vari�
     "bindings": [
         {
             "name": "myQueueItem",
-            "type": "queueTrigger",
-            "direction": "in",
             "queueName": "myqueue-items",
-            "connection":""
+            "connection":"",
+            "type": "queueTrigger",
+            "direction": "in"
         }
     ]
 }
@@ -319,10 +299,10 @@ O arquivo *function.json* fornece o nome da fila para sondagem e o nome da vari�
 
 A mensagem da fila pode ser desserializada para qualquer um destes tipos:
 
-* `string`
-* `byte[]`
-* Objeto JSON   
-* `CloudQueueMessage`
+* Objeto (de JSON)
+* Cadeia de caracteres
+* Matriz de bytes 
+* `CloudQueueMessage` (C#) 
 
 #### Metadados de gatilho de fila
 
@@ -349,7 +329,7 @@ public static void Run(string myQueueItem,
     int dequeueCount,
     TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}\n" +
+    log.Info($"C# Queue trigger function processed: {myQueueItem}\n" +
         $"queueTrigger={queueTrigger}\n" +
         $"expirationTime={expirationTime}\n" +
         $"insertionTime={insertionTime}\n" +
@@ -372,23 +352,33 @@ Se você quiser manipular mensagens suspeitas manualmente, poderá obter o núme
 
 ### <a id="storagequeueoutput"></a> Associação de saída de fila do Armazenamento do Azure
 
-O arquivo *function.json* fornece o nome da fila de saída e um nome de variável para o conteúdo da mensagem. Este exemplo usa um gatilho de fila e grava uma mensagem de fila.
+O arquivo *function.json* para uma associação de saída da fila de armazenamento especifica as propriedades a seguir.
+
+- `name`: o nome da variável usada no código de função para a fila ou a mensagem da fila. 
+- `queueName`: o nome da fila. Para regras de nomenclatura de fila, consulte [Nomeando Filas e Metadados](https://msdn.microsoft.com/library/dd179349.aspx).
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, o gatilho funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `type`: deve ser definido como *queue*.
+- `direction`: deve ser definido como *out*. 
+
+#### Exemplo de *Function.json* de uma associação de saída de fila de armazenamento
+
+Este exemplo usa um gatilho de fila e grava uma mensagem de fila.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
     },
     {
       "name": "myQueue",
-      "type": "queue",
       "queueName": "samples-workitems-out",
-      "connection": "",
+      "connection": "MyStorageConnection",
+      "type": "queue",
       "direction": "out"
     }
   ],
@@ -400,12 +390,14 @@ O arquivo *function.json* fornece o nome da fila de saída e um nome de variáve
 
 A associação `queue` pode serializar os seguintes tipos para uma mensagem de fila:
 
-* `string` (criará a mensagem da fila se o valor do parâmetro não for nulo quando a função terminar)
-* `byte[]` (funciona como cadeia de caracteres) 
-* `CloudQueueMessage` (funciona como cadeia de caracteres) 
-* Objeto JSON (criará uma mensagem com um objeto nulo se o parâmetro for nulo quando a função terminar)
+* Objeto (`out T` em C#, criará uma mensagem com um objeto nulo se o parâmetro for nulo quando a função terminar)
+* Cadeia de caracteres (`out string` no C#, criará a mensagem da fila se o valor do parâmetro não for nulo quando a função terminar)
+* Matriz de bytes (`out byte[]` em C#, funciona como uma cadeia de caracteres) 
+* `out CloudQueueMessage` (C#, funciona como cadeia de caracteres) 
 
-#### Exemplo de código de associação de saída de fila
+No C#, você também pode associar a `ICollector<T>` ou `IAsyncCollector<T>`, sendo `T` um dos tipos com suporte.
+
+#### Exemplos de código de associação de saída de fila
 
 Este exemplo de código C# grava uma mensagem de fila de saída única para cada mensagem de fila de entrada.
 
@@ -428,7 +420,17 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ### <a id="storageblobtrigger"></a> Gatilho de blob do Armazenamento do Azure
 
-*function.json* fornece um caminho que especifica o contêiner a ser monitorado e, opcionalmente, um padrão de nome de blob. Este exemplo dispara em qualquer blob adicionado ao contêiner samples-workitems.
+O arquivo *function.json* para um gatilho de blob de armazenamento especifica as propriedades a seguir.
+
+- `name`: o nome da variável usada no código de função para o blob. 
+- `path`: um caminho que especifica o contêiner a ser monitorado e, opcionalmente, um padrão de nome de blob.
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, o gatilho funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `type`: deve ser definido como *blobTrigger*.
+- `direction`: deve ser definido como *in*.
+
+#### Exemplo de *Function.json* de um gatilho de blob de armazenamento
+
+Este exemplo dispara em qualquer blob adicionado ao contêiner samples-workitems.
 
 ```json
 {
@@ -445,13 +447,15 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 }
 ```
 
-> [AZURE.NOTE] Se o contêiner de blob que o gatilho está monitorando contiver mais de 10.000 blobs, as verificações de tempo de execução do Functions varrerão os arquivos de log em busca de blobs novos ou alterados. Esse processo não ocorre em tempo real; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado. Além disso, os [logs de armazenamento são criados com base nos "melhores esforços"](https://msdn.microsoft.com/library/azure/hh343262.aspx); não há nenhuma garantia de que todos os eventos serão capturados. Sob algumas condições, logs poderão ser perdidos. Se as limitações de velocidade e de confiabilidade de gatilhos de blob para grandes contêineres não forem aceitáveis para o seu aplicativo, o método recomendado será criar uma mensagem de fila ao criar o blob e usar um gatilho de fila em vez de um gatilho de blob para processar o blob.
-
 #### Tipos de gatilho de blob com suporte
 
-Os blobs podem ser desserializados para estes tipos:
+O blob pode ser desserializado para qualquer um dos seguintes tipos de funções no Node ou C#:
 
-* string
+* Objeto (de JSON)
+* Cadeia de caracteres
+
+Em funções do C#, também é possível associar a qualquer um dos seguintes tipos:
+
 * `TextReader`
 * `Stream`
 * `ICloudBlob`
@@ -465,24 +469,24 @@ Os blobs podem ser desserializados para estes tipos:
 
 #### Exemplo de código C# de gatilho de blob
 
-Este exemplo de código C# registra em log o conteúdo de cada blob adicionado ao contêiner.
+Este exemplo de código C# registra em log o conteúdo de cada blob adicionado ao contêiner monitorado.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
 {
-    log.Verbose($"C# Blob trigger function processed: {myBlob}");
+    log.Info($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
 #### Padrões de nome do gatilho de blob
 
-Você pode especificar um padrão de nome de blob no `path`. Por exemplo:
+É possível especificar um padrão de nome de blob na propriedade `path`. Por exemplo:
 
 ```json
 "path": "input/original-{name}",
 ```
 
-Esse caminho encontraria um blob chamado *original-blob1.txt* no contêiner *input* e o valor da variável `name` no código de função seria `Blob1`.
+Esse caminho encontraria um blob chamado *original-Blob1.txt* no contêiner *input* e o valor da variável `name` no código de função seria `Blob1`.
 
 Outro exemplo:
 
@@ -492,7 +496,7 @@ Outro exemplo:
 
 Esse caminho também poderia ser um blob chamado *original-blob1.txt* e o valor das variáveis `blobname` e `blobextension` no código de função seria *original-Blob1* e *txt*.
 
-Você pode restringir os tipos de blobs que disparam a função especificando um padrão com um valor fixo para a extensão de arquivo. Se você definir o `path` como *samples/{nome}.png*, somente os blobs *.png* do contêiner *samples* irão disparar a função.
+Você pode restringir os tipos de blobs que disparam a função especificando um padrão com um valor fixo para a extensão de arquivo. Se você definir o `path` como *samples/{nome}.png*, somente os blobs *.png* do contêiner *samples* vão disparar a função.
 
 Se você precisar especificar um padrão de nome para nomes de blob que têm chaves no nome, duplique as chaves. Por exemplo, para localizar blobs no contêiner *imagens* que têm nomes como este:
 
@@ -510,7 +514,7 @@ O tempo de execução do Azure Functions garante que nenhuma função de gatilho
 
 Os recebimentos de blob são armazenados em um contêiner denominado *azure-webjobs-hosts* na conta de armazenamento do Azure especificada pela cadeia de conexão AzureWebJobsStorage. Um recebimento de blob tem as seguintes informações:
 
-* A função que foi chamada para o blob ("*{nome do aplicativo de função}*.Functions.*{nome da função}*", por exemplo: "functionsf74b96f7.Functions.CopyBlob")
+* A função que foi chamada para o blob ("*{nome do aplicativo de funções}*.Functions.*{nome da função}*", por exemplo: "functionsf74b96f7.Functions.CopyBlob")
 * O nome do contêiner
 * O tipo de blob ("BlockBlob" ou "PageBlob")
 * O nome do blob
@@ -524,22 +528,36 @@ Quando uma função de gatilho de blob falha, o SDK a chama novamente caso a fal
 
 A mensagem da fila para blobs suspeitos é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionId (no formato *{nome do aplicativo de função}*.Functions.*{nome da função}*)
+* FunctionId (no formato *{nome do aplicativo de funções}*.Functions.*{nome da função}*)
 * BlobType ("BlockBlob" ou "PageBlob")
 * ContainerName
 * BlobName
 * ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
 
-### <a id="storageblobbindings"></a> Associações de entrada e de saída de blob do Armazenamento do Azure
+#### Sondagem de blobs para grandes contêineres
 
-O *function.json* fornece o nome do contêiner e os nomes de variável para o nome e o conteúdo de blob. Este exemplo usa um gatilho de fila para copiar um blob:
+Se o contêiner de blob que o gatilho está monitorando contiver mais de 10.000 blobs, as verificações de tempo de execução do Functions varrerão os arquivos de log em busca de blobs novos ou alterados. Esse processo não ocorre em tempo real; uma função não poderá ser disparada até vários minutos ou mais depois que o blob for criado. Além disso, os [logs de armazenamento são criados com base nos "melhores esforços"](https://msdn.microsoft.com/library/azure/hh343262.aspx); não há nenhuma garantia de que todos os eventos serão capturados. Sob algumas condições, logs poderão ser perdidos. Se as limitações de velocidade e de confiabilidade de gatilhos de blob para grandes contêineres não forem aceitáveis para o seu aplicativo, o método recomendado será criar uma mensagem de fila ao criar o blob e usar um gatilho de fila em vez de um gatilho de blob para processar o blob.
+ 
+### <a id="storageblobbindings"></a> Associações de entrada e de saída de blobs do Armazenamento do Azure
+
+O arquivo *function.json* para uma associação de entrada ou de saída de blob de armazenamento especifica as propriedades a seguir.
+
+- `name`: o nome da variável usada no código de função para o blob. 
+- `path`: um caminho que especifica o contêiner do qual o blob será lido ou aonde será gavado, contendo opcionalmente um padrão de nome de blob.
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, a associação funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `type`: deve ser definido como *blob*.
+- `direction`: defina como *in* ou *out*. 
+
+#### Exemplo de *Function.json* de uma associação de entrada ou de saída de blobs de armazenamento
+
+Este exemplo usa um gatilho de fila para copiar um blob:
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -548,14 +566,14 @@ O *function.json* fornece o nome do contêiner e os nomes de variável para o no
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "out"
     }
   ],
@@ -565,13 +583,16 @@ O *function.json* fornece o nome do contêiner e os nomes de variável para o no
 
 #### Tipos de entrada e de saída de blob com suporte
 
-A associação `blob` pode serializar ou desserializar os seguintes tipos:
+A associação `blob` pode serializar ou desserializar os seguintes tipos em funções Node.js ou C#:
 
+* Objeto (`out T` no C# para blob de saída: criará um blob como um objeto nulo se o valor do parâmetro for nulo quando a função terminar)
+* Cadeia de caracteres (`out string` no C# para blob de saída: criará um blob somente se o parâmetro de cadeia de caracteres não for nulo quando a função retornar)
+
+Em funções do C#, também é possível associar aos seguintes tipos:
+
+* `TextReader` (somente entrada)
+* `TextWriter` (somente saída)
 * `Stream`
-* `TextReader`
-* `TextWriter`
-* `string` (para blob de saída: criará um blob somente se o parâmetro de cadeia de caracteres não for nulo quando a função retornar)
-* Objeto JSON (para blob de saída: criará um blob como um objeto nulo se o valor do parâmetro for nulo quando a função terminar)
 * `CloudBlobStream` (somente saída)
 * `ICloudBlob`
 * `CloudBlockBlob` 
@@ -581,25 +602,41 @@ A associação `blob` pode serializar ou desserializar os seguintes tipos:
 
 Este exemplo de código C# copia um blob cujo nome é recebido em uma mensagem de fila.
 
-```CSHARP
+```csharp
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
 
 ### <a id="storagetablesbindings"></a> Associações de entrada e de saída de tabelas do Armazenamento do Azure
 
-O *function.json* para as tabelas de armazenamento fornece várias propriedades:
+O *function.json* para tabelas de armazenamento especifica as propriedades a seguir.
 
-* `name` - o nome da variável a ser usado no código para a associação de tabela.
-* `tableName`
-* `partitionKey` e `rowKey` - usados em conjunto para ler uma única entidade em uma função do C# ou do Node, ou para gravar uma única entidade em uma função do Node.
-* `take` - o número máximo de linhas a serem lidas para a tabela de entrada em uma função do Node.
-* `filter` - expressão de filtro OData para a tabela de entrada em uma função do Node.
+- `name`: o nome da variável usada no código de função para a associação de tabela. 
+- `tableName`: o nome da tabela.
+- `partitionKey` e `rowKey`: usados em conjunto para ler uma única entidade em uma função do C# ou do Node, ou para gravar uma única entidade em uma função do Node.
+- `take`: o número máximo de linhas a serem lidas para a tabela de entrada em uma função Node.
+- `filter`: expressão de filtro OData para a tabela de entrada em uma função de Node.
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. Se você deixar `connection` vazio, a associação funcionará com a cadeia de conexão de armazenamento padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsStorage.
+- `type`: deve ser definido como *table*.
+- `direction`: defina como *in* ou *out*. 
 
-Estas propriedades dão suporte aos seguintes cenários:
+#### Tipos de entrada e de saída de tabelas de armazenamento com suporte
+
+A associação `table` pode serializar ou desserializar objetos em funções do Node.js ou C#: Os objetos terão as propriedades RowKey e PartitionKey.
+
+Em funções do C#, também é possível associar aos seguintes tipos:
+
+* `T` em que `T` implementa `ITableEntity`
+* `IQueryable<T>` (somente entrada)
+* `ICollector<T>` (somente saída)
+* `IAsyncCollector<T>` (somente saída)
+
+#### Cenários de associação de tabelas de armazenamento
+
+A associação de tabela dá suporte aos seguintes cenários:
 
 * Ler uma única linha em uma função do C# ou do Node.
 
@@ -607,26 +644,26 @@ Estas propriedades dão suporte aos seguintes cenários:
 
 * Ler várias linhas em uma função do C#.
 
-	O tempo de execução do Functions fornece um objeto `IQueryable<T>` associado à tabela. O tipo `T` deve derivar de `TableEntity` ou implementar `ITableEntity`. As propriedades `partitionKey`, `rowKey`, `filter` e `take` não são usadas neste cenário; você pode usar o objeto `IQueryable` para fazer qualquer filtragem necessária.
+	O tempo de execução de Functions fornece um objeto `IQueryable<T>` associado à tabela. O tipo `T` deve derivar de `TableEntity` ou implementar `ITableEntity`. As propriedades `partitionKey`, `rowKey`, `filter` e `take` não são usadas neste cenário; você pode usar o objeto `IQueryable` para fazer qualquer filtragem necessária.
 
 * Ler várias linhas em uma função do Node.
 
 	Defina as propriedades `filter` e `take`. Não defina `partitionKey` ou `rowKey`.
 
-* Escrever uma ou mais linhas em uma função do C#.
+* Gravar uma ou mais linhas em uma função do C#.
 
-	O tempo de execução do Functions oferece uma associação `ICollector<T>` ou `IAsyncCollector<T>` à tabela, onde `T` especifica o esquema das entidades que você deseja adicionar. Geralmente, o tipo `T` deriva de `TableEntity` ou implementa `ITableEntity`, mas isso não é obrigatório. As propriedades `partitionKey`, `rowKey`, `filter` e `take` não são usadas neste cenário.
+	O tempo de execução do Functions oferece uma associação `ICollector<T>` ou `IAsyncCollector<T>` à tabela, em que `T` especifica o esquema das entidades que você deseja adicionar. Geralmente, o tipo `T` deriva de `TableEntity` ou implementa `ITableEntity`, mas isso não é obrigatório. As propriedades `partitionKey`, `rowKey`, `filter` e `take` não são usadas neste cenário.
 
-#### Ler uma entidade única de tabela em C# ou em Node
+#### Exemplo de tabelas de armazenamento: ler uma única entidade de tabela em C# ou em Node
 
-Este exemplo de *function.json* usa um gatilho de fila para ler uma única linha da tabela, com um valor de chave de partição codificado e a chave de linha fornecida na mensagem de fila.
+Este exemplo de *function.json* usa um gatilho de fila para ler uma única linha da tabela, com um valor de chave de partição embutido em código e a chave de linha fornecida na mensagem de fila.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -637,20 +674,21 @@ Este exemplo de *function.json* usa um gatilho de fila para ler uma única linha
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "direction": "in"
     }
   ],
   "disabled": false
 }
 ```
-O exemplo de código C# a seguir funciona com o arquivo *function.json* anterior para ler uma entidade de tabela única. A mensagem da fila tem o valor de chave de linha e a entidade de tabela é lida em um tipo definido no arquivo *run.csx*. O tipo inclui as propriedades `PartitionKey` e `RowKey` e não deriva de `TableEntity`.
+
+O exemplo de código C# a seguir funciona com o arquivo *function.json* anterior para ler uma entidade de tabela única. A mensagem da fila tem o valor de chave de linha e a entidade de tabela é lida em um tipo definido no arquivo *run.csx*. O tipo inclui as propriedades `PartitionKey` e `RowKey`, e não deriva de `TableEntity`.
 
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
-    log.Verbose($"Name in Person entity: {personEntity.Name}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -671,7 +709,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-#### Ler várias entidades de tabela em C# 
+#### Exemplo de tabelas de armazenamento: ler várias entidades de tabela em C# 
 
 O exemplo de *function.json* e de código C# a seguir lê entidades para uma chave de partição especificada na mensagem de fila.
 
@@ -680,7 +718,7 @@ O exemplo de *function.json* e de código C# a seguir lê entidades para uma cha
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -688,6 +726,7 @@ O exemplo de *function.json* e de código C# a seguir lê entidades para uma cha
     {
       "name": "tableBinding",
       "type": "table",
+      "connection": "MyStorageConnection",
       "tableName": "Person",
       "direction": "in"
     }
@@ -696,7 +735,7 @@ O exemplo de *function.json* e de código C# a seguir lê entidades para uma cha
 }
 ```
 
-O código c# adiciona uma referência ao SDK do Armazenamento do Azure para que o tipo de entidade possa derivar de `TableEntity`.
+O código C# adiciona uma referência ao SDK do Armazenamento do Azure para que o tipo de entidade possa derivar de `TableEntity`.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -704,10 +743,10 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
 {
-    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
     foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
-        log.Verbose($"Name: {person.Name}");
+        log.Info($"Name: {person.Name}");
     }
 }
 
@@ -717,7 +756,7 @@ public class Person : TableEntity
 }
 ``` 
 
-#### Criar entidades de tabela em C# 
+#### Exemplo de tabelas de armazenamento: criar entidades de tabela em C# 
 
 O exemplo de *function.json* e *run.csx* a seguir mostra como gravar entidades de tabela em C#.
 
@@ -731,7 +770,7 @@ O exemplo de *function.json* e *run.csx* a seguir mostra como gravar entidades d
     },
     {
       "tableName": "Person",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -746,7 +785,7 @@ public static void Run(string input, ICollector<Person> tableBinding, TraceWrite
 {
     for (int i = 1; i < 10; i++)
         {
-            log.Verbose($"Adding Person entity {i}");
+            log.Info($"Adding Person entity {i}");
             tableBinding.Add(
                 new Person() { 
                     PartitionKey = "Test", 
@@ -766,7 +805,7 @@ public class Person
 
 ```
 
-#### Criar uma entidade de tabela em Node
+#### Exemplo de tabelas de armazenamento: criar uma entidade de tabela em Node
 
 O exemplo de *function.json* e *run.csx* a seguir mostra como gravar uma entidade de tabela em Node.
 
@@ -775,7 +814,7 @@ O exemplo de *function.json* e *run.csx* a seguir mostra como gravar uma entidad
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -784,7 +823,7 @@ O exemplo de *function.json* e *run.csx* a seguir mostra como gravar uma entidad
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "",
+      "connection": "MyStorageConnection",
       "name": "personEntity",
       "type": "table",
       "direction": "out"
@@ -798,6 +837,167 @@ O exemplo de *function.json* e *run.csx* a seguir mostra como gravar uma entidad
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
     context.bindings.personEntity = {"Name": "Name" + myQueueItem }
+    context.done();
+};
+```
+
+## Gatilhos e associações do Barramento de Serviço do Azure
+
+Essa seção contém os seguintes procedimentos:
+
+* [Barramento de Serviço do Azure: comportamento de PeekLock](#sbpeeklock)
+* [Barramento de Serviço do Azure: manipulação de mensagens suspeitas](#sbpoison)
+* [Barramento de Serviço do Azure: threading simples](#sbsinglethread)
+* [Fila do Barramento de Serviço do Azure ou gatilho de tópico](#sbtrigger)
+* [Associação de saída de fila ou tópico do Barramento de Armazenamento do Azure](#sboutput)
+
+### <a id="sbpeeklock"></a> Barramento de Serviço do Azure: comportamento de PeekLock
+
+O tempo de execução Functions receberá uma mensagem no modo `PeekLock` e chamadas `Complete` na mensagem se a função for concluída com êxito, ou chamadas `Abandon` se a função falhar. Se a função for executada por mais tempo que o limite `PeekLock`, o bloqueio é renovado automaticamente.
+
+### <a id="sbpoison"></a> Barramento de Serviço do Azure: manipulação de mensagens suspeitas
+
+O Barramento de Serviço faz seu próprio tratamento de mensagens suspeitas que não pode ser controlado ou definido na configuração ou código do Azure Functions.
+
+### <a id="sbsinglethread"></a> Barramento de Serviço do Azure: threading simples
+
+Por padrão, o tempo de execução do Functions processa várias mensagens da fila simultaneamente. Para direcionar o tempo de execução para processar uma única fila ou mensagem de tópico de cada vez, defina `serviceBus.maxConcurrrentCalls` como 1 no arquivo *host.json*. Para obter informações sobre o arquivo *host.json*, consulte [Estrutura da Pastas](functions-reference.md#folder-structure) no artigo de referência do Desenvolvedor e [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) no wiki do repositório WebJobs.Script.
+
+### <a id="sbtrigger"></a> Fila do Barramento de Serviço do Azure ou gatilho de tópico
+
+O arquivo *function.json* para um gatilho do Barramento de Serviço especifica as propriedades a seguir.
+
+- `name`: o nome da variável usada no código de função para a fila ou tópico, ou a mensagens de tópico ou fila. 
+- `queueName`: para gatilho de fila somente, o nome da fila a ser sondada.
+- `topicName`: para gatilho de tópico somente, o nome do tópico a ser sondado.
+- `subscriptionName`: para gatilho de tópico somente, o nome da assinatura.
+- `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão do Barramento de Serviço. A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico. Se a cadeia de conexão não gerenciar direitos, defina a propriedade `accessRights`. Se você deixar `connection` vazio, o gatilho ou a associação funcionará com a cadeia de conexão do Barramento de Serviço padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsServiceBus.
+- `accessRights`: especifica os direitos de acesso disponíveis para a cadeia de conexão. O valor padrão é `manage`. Defina como `listen` se você estiver usando uma cadeia de conexão que não fornece permissões de gerenciamento. Caso contrário, o tempo de execução do Functions pode tentar e falha ao executar operações que exigem gerenciamento de direitos.
+- `type`: deve ser definido como *serviceBusTrigger*.
+- `direction`: deve ser definido como *in*. 
+
+A mensagem da fila do Barramento de Serviço pode ser desserializada para qualquer um destes tipos:
+
+* Objeto (de JSON)
+* string
+* matriz de bytes 
+* `BrokeredMessage` (C#) 
+
+#### Exemplo do *Function.json* para usar um gatilho de fila do Barramento de Serviço
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+#### Exemplo de código C# que processa uma mensagem de fila do Barramento de Serviço
+
+```csharp
+public static void Run(string myQueueItem, TraceWriter log)
+{
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
+```
+
+#### Exemplo de código Node.js que processa uma mensagem de fila do Barramento de Serviço
+
+```javascript
+module.exports = function(context, myQueueItem) {
+    context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.done();
+};
+```
+
+### <a id="sboutput"></a> Fila do Barramento de Serviço do Azure ou saída de tópico
+
+O arquivo *function.json* para uma associação de saída do Barramento de Serviço especifica as propriedades a seguir.
+
+- `name`: o nome da variável usada no código de função para a fila ou mensagem da fila. 
+- `queueName`: para gatilho de fila somente, o nome da fila a ser sondada.
+- `topicName`: para gatilho de tópico somente, o nome do tópico a ser sondado.
+- `subscriptionName`: para gatilho de tópico somente, o nome da assinatura.
+- `connection`: mesmo para o gatilho do Barramento de Serviço.
+- `accessRights`: especifica os direitos de acesso disponíveis para a cadeia de conexão. O valor padrão é `manage`. Defina como `send` se você estiver usando uma cadeia de conexão que não fornece permissões de gerenciamento. Caso contrário, o tempo de execução do Functions pode tentar e falha ao executar operações que exigem gerenciamento de direitos, tais como da criação de filas.
+- `type`: deve ser definido como *serviceBus*.
+- `direction`: deve ser definido como *out*. 
+
+O Azure Functions pode criar uma mensagem de fila do Barramento de Serviço de qualquer um dos tipos a seguir.
+
+* Objeto (sempre cria uma mensagem JSON, criará a mensagem com um objeto nulo se o valor for nulo quando a função terminar)
+* cadeia de caracteres (criará uma mensagem se o valor não for nulo quando a função terminar)
+* matriz de bytes (funciona como uma cadeia de caracteres) 
+* `BrokeredMessage` (C#, funciona como cadeia de caracteres)
+
+Para criar várias mensagens em uma função C#, você pode usar `ICollector<T>` ou `IAsyncCollector<T>`. Uma mensagem é criada quando você chama o método `Add`.
+
+#### Exemplo de *function.json* para usar um gatilho de temporizador para gravar mensagens de fila do Barramento de Serviço
+
+```JSON
+{
+  "bindings": [
+    {
+      "schedule": "0/15 * * * * *",
+      "name": "myTimer",
+      "runsOnStartup": true,
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "outputSbQueue",
+      "type": "serviceBus",
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+#### Exemplos de código C# que cria mensagens de fila do Barramento de Serviço
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue = message;
+}
+```
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+{
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputSbQueue.Add("1 " + message);
+    outputSbQueue.Add("2 " + message);
+}
+```
+
+#### Exemplo de código Node.js que cria uma mensagem de fila do Barramento de Serviço
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    var message = 'Service Bus queue message created at ' + timeStamp;
+    context.log(message);   
+    context.bindings.outputSbQueueMsg = message;
     context.done();
 };
 ```
@@ -819,7 +1019,7 @@ O arquivo function.json fornece as seguintes propriedades para uso com a associa
 - `type`: deve ser definido como "documentdb".
 - `databaseName`: o banco de dados que contém o documento.
 - `collectionName`: a coleção que contém o documento.
-- `id`: a Id do documento a ser recuperado. Essa propriedade oferece suporte a associações semelhantes a "{queueTrigger}", que usará o valor da cadeia de caracteres da mensagem de fila como a identificação do documento.
+- `id`: a ID do documento a ser recuperado. Essa propriedade oferece suporte a associações semelhantes a "{queueTrigger}", que usará o valor da cadeia de caracteres da mensagem de fila como a identificação do documento.
 - `connection`: essa cadeia de caracteres deve ser uma Configuração de Aplicativo definida como o ponto de extremidade para sua conta do Banco de Dados de Documentos. Se você escolher a conta na guia Integrar, a configuração do novo Aplicativo será criada para você com um nome que terá este formato: suaConta\_DOCUMENTDB. Se você precisar criar manualmente a configuração do Aplicativo, a cadeia de conexão real deverá ter este formato: AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
 - `direction: deve ser definido como *"in"*.
 
@@ -851,7 +1051,7 @@ Usando o function.json de exemplo acima, a associação de entrada do Banco de D
 
 #### Exemplo de código de entrada do Banco de Dados de Documentos do Azure para um gatilho de fila do Node.js
  
-Usando o function.json de exemplo acima, a associação de entrada do Banco de Dados de Documentos irá recuperar o documento com a identificação que corresponda à cadeia de mensagem de fila e a passará para a propriedade de associação `documentIn`. Em funções do Node.js, os documentos atualizados não são enviados de volta à coleção. No entanto, você pode passar a associação de entrada diretamente para uma associação de saída do Banco de Dados de Documentos chamada `documentOut` para oferecer suporte a atualizações. Este exemplo de código atualiza a propriedade de texto do documento de entrada e o define como o documento de saída.
+Usando o function.json de exemplo acima, a associação de entrada do Banco de Dados de Documentos vai recuperar o documento com a identificação que corresponda à cadeia de mensagem de fila e a passará para a propriedade de associação `documentIn`. Em funções do Node.js, os documentos atualizados não são enviados de volta à coleção. No entanto, você pode passar a associação de entrada diretamente para uma associação de saída do Banco de Dados de Documentos chamada `documentOut` para dar suporte a atualizações. Este exemplo de código atualiza a propriedade de texto do documento de entrada e o define como o documento de saída.
  
 	module.exports = function (context, input) {   
 	    context.bindings.documentOut = context.bindings.documentIn;
@@ -861,14 +1061,14 @@ Usando o function.json de exemplo acima, a associação de entrada do Banco de D
 
 ### <a id="docdboutput"></a> Associações de saída do Banco de Dados de Documentos do Azure
 
-Suas funções podem gravar documentos JSON em um banco de dados do Banco de Dados de Documentos do Azure usando a associação de saída **Documento do Banco de Dados de Documentos do Azure**. Para saber mais sobre o Banco de Dados de Documentos do Azure, examine [Introdução Banco de Dados de Documentos](../documentdb/documentdb-introduction.md) e o [tutorial de Introdução](../documentdb/documentdb-get-started.md).
+Suas funções podem gravar documentos JSON em um Banco de Dados de Documentos do Azure usando a associação de saída **Documento do Banco de Dados de Documentos do Azure**. Para saber mais sobre o Banco de Dados de Documentos do Azure, examine a [Introdução ao Banco de Dados de Documentos](../documentdb/documentdb-introduction.md) e o [Tutorial de Introdução](../documentdb/documentdb-get-started.md).
 
 O arquivo function.json fornece as seguintes propriedades para uso com a associação de saída do Banco de Dados de Documentos:
 
 - `name`: nome da variável usada no código de função para o novo documento.
 - `type`: deve ser definido como *"documentdb"*.
-- `databaseName`: o banco de dados que contém a coleção onde o novo documento será criado.
-- `collectionName`: a coleção onde o novo documento será criado.
+- `databaseName`: o banco de dados que contém a coleção na qual o novo documento será criado.
+- `collectionName`: a coleção na qual o novo documento será criado.
 - `createIfNotExists`: é um valor booliano para indicar se a coleção será criada se ela não existir. O padrão é *false*. O motivo para isso é que as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
 - `connection`: essa cadeia de caracteres deve ser uma **Configuração de Aplicativo** definida como o ponto de extremidade para sua conta do Banco de Dados de Documentos. Se você escolher sua conta na guia **Integrar**, a configuração do novo Aplicativo será criada para você com um nome que terá este formato: `yourAccount_DOCUMENTDB`. Se você precisar criar manualmente a configuração do Aplicativo, a cadeia de conexão real deverá ter este formato: `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
 - `direction`: deve ser definido como *"out"*. 
@@ -917,7 +1117,7 @@ O documento de saída:
 
 	public static void Run(string myQueueItem, out object document, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   
 	    document = new {
 	        text = $"I'm running in a C# function! {myQueueItem}"
@@ -945,7 +1145,7 @@ Você poderia usar o seguinte código C# em uma função de gatilho de fila:
 	
 	public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	    
 	    dynamic employee = JObject.Parse(myQueueItem);
 	    
@@ -966,32 +1166,32 @@ Saída de exemplo:
 	  "address": "A town nearby"
 	}
 
-## Associações de tabelas fáceis dos Aplicativos Móveis do Azure
+## Associações de Aplicativos Móveis do Azure
 
-Os Aplicativos Móveis do Serviço de Aplicativo do Azure permitem que você exponha os dados de ponto de extremidade de tabela para clientes móveis. Esses mesmos dados tabulares podem ser usados em associações de entrada e de saída com o Azure Functions. Quando você tiver um aplicativo móvel de back-end do Node.js, poderá trabalhar com esses dados tabulares no portal do Azure usando as *tabelas fáceis*. As tabelas fáceis dão suporte ao esquema dinâmico, de forma que as colunas sejam adicionadas automaticamente para corresponderem à forma dos dados inseridos, simplificando o desenvolvimento do esquema. O esquema dinâmico está habilitado por padrão e deve ser desabilitado em um aplicativo móvel de produção. Para saber mais sobre tabelas fáceis em Aplicativos Móveis, veja [Como trabalhar com tabelas fáceis no portal do Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing). Observe que as tabelas fáceis no portal atualmente não têm suporte para aplicativos móveis de back-end .NET. Você ainda pode usar as associações de função de pontos de extremidade de tabela de aplicativo móvel de back-end do .NET, mas o esquema dinâmico não tem suporte em aplicativos móveis de back-end do .NET.
+Os Aplicativos Móveis do Serviço de Aplicativo do Azure permitem que você exponha os dados de ponto de extremidade de tabela para clientes móveis. Esses mesmos dados tabulares podem ser usados em associações de entrada e de saída com o Azure Functions. Como ele dá suporte ao esquema dinâmico, um aplicativo móvel de back-end Node.js é ideal para expor dados tabulares para serem usados com suas funções. O esquema dinâmico está habilitado por padrão e deve ser desabilitado em um aplicativo móvel de produção. Para obter mais informações sobre pontos de extremidade de tabela em um back-end Node.js, consulte [Visão geral: operações de tabela](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). Nos Aplicativos Móveis, o back-end do Node.js dá suporte à navegação e edição de tabelas no portal. Para obter mais informações, consulte [edição no portal](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) no tópico SDK do Node.js. Ao usar um aplicativo móvel de back-end do .NET com o Azure Functions, você deverá atualizar manualmente o modelo de dados conforme exigido pela sua função. Para obter mais informações sobre os pontos de extremidade de tabela em um aplicativo móvel de back-end do .NET, consulte [Como definir um controlador de tabela](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) no tópico do SDK de back-end do .NET.
 
 Essa seção contém os seguintes procedimentos:
 
-* [Chave de API de tabelas fáceis dos Aplicativos Móveis do Azure](#easytablesapikey)
-* [Associação de entrada de tabelas fáceis dos Aplicativos Móveis do Azure](#easytablesinput)
-* [Associação de saída de tabelas fáceis dos Aplicativos Móveis do Azure](#easytablesoutput)
+* [Chave de API de tabelas dos Aplicativos Móveis do Azure](#mobiletablesapikey)
+* [Associação de entrada de tabelas dos Aplicativos Móveis do Azure](#mobiletablesinput)
+* [Associação de saída de tabelas dos Aplicativos Móveis do Azure](#mobiletablesoutput)
 
-### <a id="easytablesapikey"></a> Use uma chave de API para proteger o acesso aos seus pontos de extremidade de tabelas fáceis dos Aplicativos Móveis.
+### <a id="mobiletablesapikey"></a> Use uma chave de API para proteger o acesso aos seus pontos de extremidade de tabelas dos Aplicativos Móveis.
 
-No momento, o Azure Functions não pode acessar pontos de extremidade protegidos pela autenticação do Serviço de Aplicativo. Isso significa que qualquer ponto de extremidade dos Aplicativos Móveis usados em suas funções com associações de tabelas fáceis deverá permitir o acesso anônimo, que é o padrão. As associações de tabelas fáceis permitem que você especifique uma chave de API, que é um segredo compartilhado que pode ser usado para impedir o acesso indesejado de aplicativos diferentes das suas funções. Os Aplicativos Móveis não possuem suporte interno para a autenticação de chave de API. No entanto, você pode implementar uma chave de API em seu aplicativo móvel de back-end do Node.js ao seguir os exemplos em [Implementação de back-end de Aplicativos Móveis do Serviço de Aplicativo do Azure de uma chave de API](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key).
+No Azure Functions, as associações de tabelas móveis permitem especificar uma chave de API, que é um segredo compartilhado que pode ser usado para impedir o acesso indesejado de aplicativos que não fazem parte das suas funções. Os Aplicativos Móveis não possuem suporte interno para a autenticação de chave de API. No entanto, você pode implementar uma chave de API em seu aplicativo móvel de back-end do Node.js ao seguir os exemplos em [Implementação de back-end de Aplicativos Móveis do Serviço de Aplicativo do Azure de uma chave de API](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key). Da mesma forma, você pode implementar uma chave de API em um [aplicativo móvel de back-end .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).
 
 >[AZURE.IMPORTANT] Essa chave de API não deve ser distribuída com seus clientes de aplicativo móvel, só deve ser distribuída com segurança aos clientes no lado do serviço, como o Azure Functions.
 
-### <a id="easytablesinput"></a> Associação de entrada de tabelas fáceis dos Aplicativos Móveis do Azure
+### <a id="mobiletablesinput"></a> Associação de entrada dos Aplicativos Móveis do Azure
 
-As associações de entrada podem carregar um registro de um ponto de extremidade de tabela dos Aplicativos Móveis e passá-lo diretamente para sua associação. A ID do registro é determinada com base no gatilho que invocou a função. Em uma função do C#, quaisquer alterações feitas no registro são enviadas automaticamente para a tabela quando a função sai com êxito.
+As associações de entrada podem carregar um registro de um ponto de extremidade de tabela móvel e passá-lo diretamente para sua associação. A ID do registro é determinada com base no gatilho que invocou a função. Em uma função do C#, quaisquer alterações feitas no registro são enviadas automaticamente para a tabela quando a função sai com êxito.
 
-O arquivo function.json dá às seguintes propriedades para uso com associações de entrada de tabela fácil dos Aplicativos Móveis:
+O arquivo function.json dá suporte às seguintes propriedades para uso com associações de entrada dos Aplicativos Móveis:
 
 - `name`: nome da variável usada no código de função para o novo registro.
-- `type`: o tipo de associação deve ser definido como *easyTable*.
-- `tableName`: a tabela onde o novo registro será criado.
-- `id`: a ID do registro a ser recuperado. Essa propriedade oferece suporte a associações semelhantes a `{queueTrigger}`, que usará o valor da cadeia de caracteres da mensagem de fila como a identificação do registro.
+- `type`: o tipo de associação deve ser definido como *mobileTable*.
+- `tableName`: a tabela na qual o novo registro será criado.
+- `id`: a ID do registro a ser recuperado. Essa propriedade dá suporte a associações semelhantes a `{queueTrigger}`, que usará o valor da cadeia de caracteres da mensagem de fila como a identificação do registro.
 - `apiKey`: cadeia de caracteres que é a configuração de aplicativo que especifica a chave de API opcional para seu aplicativo móvel. Isso será necessário quando seu aplicativo móvel usar uma chave de API para restringir o acesso de cliente.
 - `connection`: cadeia de caracteres que é a configuração de aplicativo que especifica o URI do seu aplicativo móvel.
 - `direction`: direção da associação, que deve ser definida como *in*.
@@ -1002,7 +1202,7 @@ function.json de exemplo:
 	  "bindings": [
 	    {
 	      "name": "record",
-	      "type": "easyTable",
+	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "id" : "{queueTrigger}",
 	      "connection": "My_MobileApp_Uri",
@@ -1013,9 +1213,9 @@ function.json de exemplo:
 	  "disabled": false
 	}
 
-#### Exemplo de código de tabelas fáceis dos Aplicativos Móveis do Azure para um gatilho de fila do C#
+#### Exemplo de código dos Aplicativos Móveis do Azure para um gatilho de fila do C#
 
-Com base no function.json de exemplo acima, a associação de entrada recupera o registro com a ID que corresponde à cadeia de mensagem de fila e a passa para o parâmetro *record*. Quando o registro não for encontrado, o parâmetro será nulo. O documento será então atualizado com o novo valor de *Text* quando a função sair.
+Com base no function.json de exemplo acima, a associação de entrada recupera o registro do ponto de extremidade de tabela dos Aplicativos Móveis com a ID que corresponde à cadeia de mensagem de fila e a passa para o parâmetro *record*. Quando o registro não for encontrado, o parâmetro será nulo. O documento será então atualizado com o novo valor de *Text* quando a função sair.
 
 	#r "Newtonsoft.Json"	
 	using Newtonsoft.Json.Linq;
@@ -1028,9 +1228,9 @@ Com base no function.json de exemplo acima, a associação de entrada recupera o
 	    }    
 	}
 
-#### Exemplo de código de tabelas fáceis dos Aplicativos Móveis do Azure para um gatilho de fila do Node.js
+#### Exemplo de código dos Aplicativos Móveis do Azure para um gatilho de fila do Node.js
 
-Com base no function.json de exemplo acima, a associação de entrada recupera o registro com a ID que corresponde à cadeia de mensagem de fila e a passa para o parâmetro *record*. Em funções do Node.js, os registros atualizados não são enviados de volta à tabela. Este exemplo de código grava o registro recuperado no log.
+Com base no function.json de exemplo acima, a associação de entrada recupera o registro do ponto de extremidade de tabela dos Aplicativos Móveis com a ID que corresponde à cadeia de mensagem de fila e a passa para o parâmetro *record*. Em funções do Node.js, os registros atualizados não são enviados de volta à tabela. Este exemplo de código grava o registro recuperado no log.
 
 	module.exports = function (context, input) {    
 	    context.log(context.bindings.record);
@@ -1038,15 +1238,15 @@ Com base no function.json de exemplo acima, a associação de entrada recupera o
 	};
 
 
-### <a id="easytablesoutput"></a> Associação de saída de tabelas fáceis dos Aplicativos Móveis do Azure
+### <a id="mobiletablesoutput"></a>Associação de saída dos Aplicativos Móveis do Azure
 
-Sua função pode gravar um registro para o ponto de extremidade de tabela dos Aplicativos Móveis usando uma associação de saída de tabela fácil.
+Sua função pode gravar um registro para o ponto de extremidade de tabela dos Aplicativos Móveis usando uma associação de saída.
 
-O arquivo function.json dá às seguintes propriedades para uso com uma associação de saída de Tabela Fácil:
+O arquivo function.json dá suporte às seguintes propriedades para uso com uma associação de saída de tabela móvel:
 
 - `name`: nome da variável usada no código de função para o novo registro.
-- `type`: o tipo de associação que deve ser definido como *easyTable*.
-- `tableName`: a tabela onde o novo registro é criado.
+- `type`: o tipo de associação que deve ser definido como *mobileTable*.
+- `tableName`: a tabela na qual o novo registro é criado.
 - `apiKey`: cadeia de caracteres que é a configuração de aplicativo que especifica a chave de API opcional para seu aplicativo móvel. Isso será necessário quando seu aplicativo móvel usar uma chave de API para restringir o acesso de cliente.
 - `connection`: cadeia de caracteres que é a configuração de aplicativo que especifica o URI do seu aplicativo móvel.
 - `direction`: direção da associação, que deve ser definida como *out*.
@@ -1057,7 +1257,7 @@ function.json de exemplo:
 	  "bindings": [
 	    {
 	      "name": "record",
-	      "type": "easyTable",
+	      "type": "mobileTable",
 	      "tableName": "MyTable",
 	      "connection": "My_MobileApp_Uri",
 	      "apiKey": "My_MobileApp_Key",
@@ -1067,9 +1267,9 @@ function.json de exemplo:
 	  "disabled": false
 	}
 
-#### Exemplo de código de tabelas fáceis dos Aplicativos Móveis do Azure para um gatilho de fila do C#
+#### Exemplo de código dos Aplicativos Móveis do Azure para um gatilho de fila do C#
 
-Este exemplo de código C# insere um novo registro com uma propriedade *Text* na tabela especificada na associação acima.
+Este exemplo de código C# insere um novo registro em um ponto de extremidade de tabela dos Aplicativos Móveis com uma propriedade *Text* na tabela especificada na associação acima.
 
 	public static void Run(string myQueueItem, out object record)
 	{
@@ -1078,9 +1278,9 @@ Este exemplo de código C# insere um novo registro com uma propriedade *Text* na
 	    };
 	}
 
-#### Exemplo de código de tabelas fáceis dos Aplicativos Móveis do Azure para um gatilho de fila do Node.js
+#### Exemplo de código dos Aplicativos Móveis do Azure para um gatilho de fila do Node.js
 
-Este exemplo de código Node.js insere um novo registro com uma propriedade *text* na tabela especificada na associação acima.
+Este exemplo de código Node.js insere um novo registro em um ponto de extremidade de tabela dos Aplicativos Móveis com uma propriedade *Text* na tabela especificada na associação acima.
 
 	module.exports = function (context, input) {
 	
@@ -1126,7 +1326,7 @@ Para usar uma associação de saída de um hub de notificação, você deve conf
 
 Você também pode adicionar manualmente uma cadeia de conexão a um hub existente adicionando uma cadeia de conexão à *DefaultFullSharedAccessSignature* para seu hub de notificação. Essa cadeia de conexão fornece sua permissão de acesso à função para enviar mensagens de notificação. O valor da cadeia de conexão *DefaultFullSharedAccessSignature* pode ser acessado do botão **chaves** na folha principal do seu recurso de hub de notificação no portal do Azure. Para adicionar manualmente uma cadeia de conexão ao hub, use estas etapas:
 
-1. Na folha **Aplicativo Function** do portal do Azure, clique em **Configurações do Aplicativo Function > Ir para configurações do Serviço de Aplicativo**.
+1. Na folha **Aplicativo de funções** do portal do Azure, clique em **Configurações do Aplicativo de funções > Ir para configurações do Serviço de Aplicativo**.
 
 2. Na folha **Configurações**, clique em **Configurações do Aplicativo**.
 
@@ -1163,7 +1363,7 @@ Este exemplo envia uma notificação para um [registro de modelo](../notificatio
 	 
 	public static void Run(string myQueueItem,  out IDictionary<string, string> notification, TraceWriter log)
 	{
-	    log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	    log.Info($"C# Queue trigger function processed: {myQueueItem}");
         notification = GetTemplateProperties(myQueueItem);
 	}
 	 
@@ -1180,13 +1380,13 @@ Este exemplo envia uma notificação para um [registro de modelo](../notificatio
 	 
 	public static void Run(string myQueueItem,  out string notification, TraceWriter log)
 	{
-		log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+		log.Info($"C# Queue trigger function processed: {myQueueItem}");
 		notification = "{"message":"Hello from C#. Processed a queue item!"}";
 	}
 
 ### Exemplo de código C# de gatilho de fila do Hub de Notificação do Azure usando o tipo Notificação
 
-Este exemplo mostra como usar o tipo `Notification` definido na [Biblioteca de Hubs de Notificações do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Para usar esse tipo e a biblioteca, você deve carregar um arquivo *project.json* para seu aplicativo de função. O arquivo project.json é um arquivo de texto JSON que terá esta aparência:
+Este exemplo mostra como usar o tipo `Notification` definido na [Biblioteca de Hubs de Notificação do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Para usar esse tipo e a biblioteca, você deve carregar um arquivo *project.json* para seu aplicativo de funções. O arquivo project.json é um arquivo de texto JSON que terá esta aparência:
 
 	{
 	  "frameworks": {
@@ -1208,7 +1408,7 @@ Código de exemplo:
 	 
 	public static void Run(string myQueueItem,  out Notification notification, TraceWriter log)
 	{
-	   log.Verbose($"C# Queue trigger function processed: {myQueueItem}");
+	   log.Info($"C# Queue trigger function processed: {myQueueItem}");
 	   notification = GetTemplateNotification(myQueueItem);
 	}
 	private static TemplateNotification GetTemplateNotification(string message)
@@ -1226,4 +1426,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

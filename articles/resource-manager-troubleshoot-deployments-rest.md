@@ -27,9 +27,7 @@
 
 Se você recebeu um erro durante a implantação de recursos no Azure, será necessário solucionar esse erro. A API REST fornece operações que permitem encontrar os erros e determinar as possíveis correções.
 
-É possível solucionar problemas da implantação examinando os logs de auditoria ou as operações de implantação. Este tópico mostra ambos os métodos.
-
-É possível evitar alguns erros validando o modelo e a infraestrutura antes da implantação. Para obter mais informações, veja [Implantar um grupo de recursos com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+[AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
 ## Solucionar problemas com a API REST
 
@@ -111,7 +109,8 @@ Se você recebeu um erro durante a implantação de recursos no Azure, será nec
 
 ## Próximas etapas
 
+- Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 - Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, veja [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
 - Para validar sua implantação antes de executá-la, confira [Implantar um grupo de recursos com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

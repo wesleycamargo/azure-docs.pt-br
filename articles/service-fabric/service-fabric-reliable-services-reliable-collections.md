@@ -34,7 +34,7 @@ As Coleções Confiáveis podem ser interpretadas como a evolução natural das 
 - Assíncronas: as APIs são assíncronas para garantir que os threads não sejam bloqueados quando gerarem E/S.
 - Transacionais: as APIs utilizam a abstração de transações para que você possa gerenciar facilmente várias Coleções Confiáveis dentro de um serviço.
 
-As Coleções Confiáveis fornecem sólidas garantias de consistência prontas para uso para facilitar o raciocínio sobre o estado do aplicativo. Coerência forte é obtida garantindo que confirmações de transação só sejam concluídas depois que toda a transação tiver sido aplicada em um quorum de réplicas, inclusive a primária. Para obter consistência mais fraca, os aplicativos podem confirmar para o cliente/solicitante antes de a confirmação assíncrona retornar.
+As Coleções Confiáveis fornecem sólidas garantias de consistência prontas para uso para facilitar o raciocínio sobre o estado do aplicativo. A coerência forte é obtida com a garantia de que as confirmações de transação só são concluídas depois que toda a transação tiver sido registrada em uma quorum de réplicas que seja a maioria, incluindo a primária. Para obter consistência mais fraca, os aplicativos podem confirmar para o cliente/solicitante antes de a confirmação assíncrona retornar.
 
 As APIs de Coleções Confiáveis são uma evolução das APIs de coleções simultâneas (encontradas no namespace **System.Collections.Concurrent**):
 
@@ -55,7 +55,7 @@ As Coleções Confiáveis escolhem automaticamente o nível de isolamento a ser 
 Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
 
 - **Leitura repetida**: especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. Para obter mais detalhes, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-- **Instantâneo**: especifica que os dados lidos por qualquer instrução em uma transação serão a versão transacionalmente consistente dos dados que existiam no início da transação. A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação. Modificações de dados feitas por outras transações após o início da transação atual não são visíveis para instruções em execução na transação atual. O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação. Para obter mais detalhes, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Instantâneo**: especifica que os dados lidos por qualquer instrução em uma transação serão a versão transacionalmente consistente dos dados que existiam no início da transação. A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação. Modificações de dados feitas por outras transações após o início da transação atual não são visíveis para instruções em execução na transação atual. O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação. Os instantâneos são consistentes entre as Coleções Confiáveis. Para obter mais detalhes, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 O Dicionário Confiável e a Fila Confiável dão suporte Read Your Writes. Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
 
@@ -99,24 +99,28 @@ Observe que o cenário de deadlock acima é um ótimo exemplo de como um Bloquei
 
 ## Recomendações
 
-- Não modifique um objeto de tipo personalizado retornado por operações de leitura (por exemplo, `TryPeekAsync` ou `TryGetAsync`). As Coleções Confiáveis, como as Coleções Simultâneas, retornam uma referência aos objetos e não uma cópia.
+- Não modifique um objeto de tipo personalizado retornado por operações de leitura (por exemplo, `TryPeekAsync` ou `TryGetValueAsync`). As Coleções Confiáveis, como as Coleções Simultâneas, retornam uma referência aos objetos e não uma cópia.
 - Faça uma cópia em profundidade do objeto de tipo personalizado retornado antes de modificá-lo. Como structs e tipos internos são pass-by-value, você não precisa fazer uma cópia em profundidade neles.
 - Não use `TimeSpan.MaxValue` para tempos limites. Tempos limite devem ser usados para detectar deadlocks.
 - Não crie uma transação dentro da instrução `using` de outra transação porque isso pode causar deadlocks.
+- Certifique-se de que a implementação de `IComparable<TKey>` está correta. O sistema depende disso para mesclar os pontos de verificação.
+- Considere o uso da funcionalidade de backup e restauração para ter uma recuperação de desastre.
 
 Eis aqui algumas coisas que se deve manter em mente:
 
 - O tempo limite padrão é de 4 segundos para todas as APIs de Coleções Confiáveis. A maioria dos usuários não deve substituir isso.
 - O token de cancelamento padrão é `CancellationToken.None` em todas as APIs de Coleções Confiáveis.
-- O parâmetro de tipo de chave (*TKey*) para um dicionário confiável deve implementar corretamente `GetHashCode()` e `Equals()`. As chaves devem ser imutáveis.
-- As Enumerações são instantâneos consistentes dentro de uma coleção. No entanto, as enumerações de várias coleções não são consistentes entre as coleções.
+- O parâmetro de tipo de chave (*TKey*) para um Dicionário Confiável deve implementar corretamente `GetHashCode()` e `Equals()`. As chaves devem ser imutáveis.
 - Para obter alta disponibilidade para as Coleções Confiáveis, cada serviço deve ter pelo menos um destino e uma réplica mínima com tamanho definido como 3.
+- As operações de leitura no secundário podem ler versões que não são confirmadas por quorum. Isso significa que uma versão dos dados que é lida por meio de um único secundário pode ter um progresso falso. É evidente que as leituras do Primário são sempre estáveis: elas nunca podem ter um progresso falso.
 
 ## Próximas etapas
 
 - [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+- [Backup e restauração do Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
+- [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
 - [Introdução aos serviços de API da Web da Malha de Serviços](service-fabric-reliable-services-communication-webapi.md)
 - [Uso avançado do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
 - [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Como criar um banco de dados no Banco de Dados de Documentos | Microsoft Azure" 
-	description="Saiba como criar um banco de dados usando o portal de serviço online do Banco de Dados de Documentos do Azure, um banco de dados de documentos NoSQL para o JSON. Obtenha uma conta gratuita hoje mesmo." 
+	description="Saiba como criar um banco de dados usando o portal de serviço online do Banco de Dados de Documentos do Azure, um banco de dados NoSQL extremamente rápido de escala global." 
 	keywords="como criar um banco de dados" 
 	services="documentdb" 
 	authors="mimig1" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # Como criar um banco de dados para o Banco de Dados de Documentos usando o portal do Azure
@@ -51,4 +51,4 @@ Depois de criar sua coleção, você pode [adicionar documentos JSON](documentdb
 
 Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-sql-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no Portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

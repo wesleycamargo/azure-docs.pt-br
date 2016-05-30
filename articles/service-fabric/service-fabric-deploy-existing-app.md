@@ -6,14 +6,14 @@
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-   
+
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="05/17/2016"
    ms.author="bscholl"/>
 
 # Implantar um executável convidado à Service Fabric
@@ -34,7 +34,7 @@ Neste artigo, abordaremos as etapas básicas para empacotar um convidado execut�
 
 ## Visão geral resumida de arquivos de manifesto do serviço e do aplicativo
 
-Antes de você entrar nos detalhes da implantação de um convidado executável, é útil entender o modelo de implantação e empacotamento do Service Fabric. O modelo de implantação de empacotamento do Service Fabric depende basicamente de dois arquivos:
+Antes de você entrar nos detalhes da implantação de um convidado executável, é útil entender o modelo de implantação e empacotamento do Service Fabric. O modelo de implantação de empacotamento do Service Fabric depende, principalmente, de dois arquivos XML: os manifestos do aplicativo e do serviço. A definição de esquema dos arquivos ApplicationManifest.xml e ServiceManifest.xml é instalada com o SDK e as ferramentas do Service Fabric em *C:\\Arquivos de Programas\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 
 * **Manifesto do aplicativo**
@@ -248,10 +248,10 @@ A última etapa será implantar seu aplicativo. O script do PowerShell abaixo mo
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\nodeapp'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MultipleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'nodeapp'
 
 Write-Host 'Registering application type...'
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\nodeapp'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'nodeapp'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0
 
@@ -272,11 +272,11 @@ Essa é uma configuração útil para aplicativos de front-end (por exemplo, um 
 
 No Gerenciador do Service Fabric, identifique o nó em que o serviço está em execução. Neste exemplo, ele está executando no Node1:
 
-![Nó em que o serviço está em execução](./media/service-fabric-deploy-existing-app/runningapplication.png)
+![Nó em que o serviço está em execução](./media/service-fabric-deploy-existing-app/nodeappinsfx.png)
 
 Se você navegar até o nó e procurar o aplicativo, verá as informações essenciais do nó, incluindo sua localização no disco.
 
-![Local no disco](./media/service-fabric-deploy-existing-app/locationondisk.png)
+![Local no disco](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
 Se você navegar até o diretório usando o Gerenciador de Servidores, poderá localizar o diretório de trabalho e a pasta de log do serviço, como mostrado abaixo.
 
@@ -286,8 +286,8 @@ Se você navegar até o diretório usando o Gerenciador de Servidores, poderá l
 ## Próximas etapas
 Neste artigo, você aprendeu como empacotar um executável convidado e implantá-lo à Service Fabric. Como uma próxima etapa, confira o conteúdo adicional deste tópico.
 
-- [Exemplo de empacotamento e implantação de um convidado executável no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), incluindo um link para a versão de pré-lançamento da ferramenta de empacotamento
+- [Amostra de empacotamento e implantação de um convidado executável no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), incluindo um link para o pré-lançamento da ferramenta de empacotamento
 - [Implantar vários executáveis de convidado](service-fabric-deploy-multiple-apps.md)
 - [Criar seu primeiro aplicativo do Service Fabric usando o Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

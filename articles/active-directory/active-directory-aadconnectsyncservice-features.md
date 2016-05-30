@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/10/2016"
+	ms.author="andkjell;markvi"/>
 
 # Recursos do serviço de sincronização do Azure AD Connect
 
@@ -72,12 +72,12 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ## Sincronizar atualizações de userPrincipalName
 Historicamente, atualizações do atributo UserPrincipalName usando o serviço de sincronização local são bloqueadas, a menos que estas duas condições sejam verdadeiras:
 
-- O usuário é gerenciado (não federado)
+- O usuário é gerenciado (não federado).
 - Não foi atribuída uma licença ao usuário.
 
 Para obter mais detalhes, consulte [Os nomes de usuário no Office 365, Azure ou Intune não coincidem com o UPN local ou ID de logon alternativo](https://support.microsoft.com/kb/2523192).
 
-Habilitar o recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele é alterado localmente, a menos que você use domínios federados.
+Habilitar o recurso permite que o mecanismo de sincronização atualize o userPrincipalName quando ele é alterado localmente e você usa a sincronização da senha. Se você usar a federação, esse recurso não funcionará.
 
 O recurso fica ativado por padrão para diretórios recém-criados do Azure AD. Você pode ver se ele está habilitado executando:
 ```
@@ -100,4 +100,4 @@ Essas configurações serão habilitadas para todos os diretórios do Azure AD n
 
 - [Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

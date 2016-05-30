@@ -83,7 +83,7 @@ Não, a auditoria não precisa estar habilitada em servidores de Proxy de aplica
 
 **P: Como Alertas do Azure AD Connect Health são resolvidos?**
 
-Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. Os agentes do Azure AD Connect Health detectam e relatam as condições de sucesso para o serviço periodicamente. Para alguns alertas, a supressão é periódica. Ou seja, se a mesma condição de erro não for observada no período de 48 horas a partir da geração do alerta, este será resolvido automaticamente.
+Alertas do Azure AD Connect Health são resolvidos em uma condição de êxito. Os agentes do Azure AD Connect Health detectam e relatam as condições de sucesso para o serviço periodicamente. Para alguns alertas, a supressão é periódica. Ou seja, se a mesma condição de erro não for observada no período de 72 horas a partir da geração do alerta, este será resolvido automaticamente.
 
 
 
@@ -106,4 +106,4 @@ Quando você remove um agente de um servidor, o servidor não é automaticamente
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -3,7 +3,7 @@
 	description="Recomendações do aprendizado de máquina do Azure - guia de início rápido" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="05/09/2016" 
 	ms.author="luisca"/>
 
 # Guia de início rápido para a API de recomendações de aprendizado de máquina
@@ -85,12 +85,9 @@ Criando uma solicitação para "criar modelo":
 |:--------|:--------|
 |POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	Nome do Parâmetro |	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | 
-| apiVersion | 1.0 |
-|||
-| Corpo da Solicitação | NENHUM |
+|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
@@ -140,11 +137,8 @@ Se você carregar vários arquivos de catálogo para o mesmo modelo com várias 
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelId	|	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas)  |
-| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_)<br>Comprimento máximo: 50 | 
-|	apiVersion		| 1.0 |
-|||
-| Corpo da solicitação | Dados do catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+|	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
+| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_)<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da solicitação | Dados do catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Resposta**:
@@ -187,13 +181,10 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |:--------|:--------|
 |POST |`<rootURI>/ImportUsageFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ImportUsageFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27ImplicitMatrix10_Guid_small.txt%27&apiVersion=%271.0%27`|
 
-|	Nome do Parâmetro |	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelId	|	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 50 |
-|	apiVersion		| 1.0 |
-|||
-| Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+|	modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
+| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -238,9 +229,9 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	apiVersion		| 1\.0 |
-|
-| Corpo da Solicitação | Entrada de dados de evento para cada evento que você deseja enviar. Você deve enviar a mesma ID no campo SessionId para a mesma sessão de usuário ou navegador. (Consulte o exemplo de corpo de evento abaixo.)|
+|	apiVersion | 1\.0 |
+|||
+|Corpo da solicitação| Entrada de dados de evento para cada evento que você deseja enviar. Você deve enviar a mesma ID no campo SessionId para a mesma sessão de usuário ou navegador. (Consulte o exemplo de corpo de evento abaixo.)|
 
 
 - Exemplo de evento “Click”:
@@ -295,23 +286,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
   		</EventData>
 		</Event>
 
-- Exemplo de evento “Purchase”:
-
-		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
-		<SessionId>11112222</SessionId>
-		<EventData>
-		<EventData>
-			<Name>Purchase</Name>
-			<PurchaseItems>
-			<PurchaseItems>
-				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-				<Count>3</Count>
-			</PurchaseItems>
-		</PurchaseItems>
-		</EventData>
-		</EventData>
-		</Event>
+- Exemplo de evento “Purchase”: <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
 
 - Exemplo de envio de dois eventos “Click” e “AddShopCart”:
 
@@ -346,8 +321,8 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 | modelId |	O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | userDescription | Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
 | apiVersion | 1\.0 |
-|
-| Corpo da Solicitação | NENHUM |
+|||
+| Corpo da solicitação | NENHUM |
 
 **Resposta**:
 
@@ -444,19 +419,19 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 - `feed/entry/content/properties/ExecutionTime` – Duração da compilação.
 - `feed/entry/content/properties/ProgressStep` – Detalhes sobre o estágio atual de uma compilação em andamento.
 
-Status válidos da compilação:
-- Criada - A entrada da solicitação de compilação foi criada.
-- Na fila – A solicitação de compilação foi disparada e está na fila.
--Criando – A compilação está em andamento.
-- Êxito – Compilação concluída com êxito.
-- Erro – Compilação concluída com falha.
-- Cancelada – A compilação foi cancelada.
+Status de compilação válidos:
+- Criada - a entrada da solicitação de compilação foi criada.
+- Em fila – a solicitação de build foi disparada e está na fila.
+- Compilando – a build está em andamento.
+- Sucesso – A compilação concluída com êxito.
+- Erro – A compilação foi concluída com uma falha.
+- Cancelado – A compilação foi cancelada.
 - Cancelando – A compilação está sendo cancelada.
 
-Os valores válidos para o tipo de compilação:
-- classificação - compilação de classificação. (Detalhes da compilação para classificação, consulte o documento "Documentação de API de recomendação de Aprendizado de Máquina").
--Recomendação - Compilação de recomendação.
--Fbt - frequentemente comprados juntos na compilação.
+Valores válidos para o tipo de compilação:
+- Classificação - compilação de classificação. (Para obter detalhes do build de classificação, consulte o documento “Documentação da API de Recomendação do Aprendizado de Máquina”).
+- Recomendação - compilação de recomendação.
+- Fbt - Build de frequentemente comprados juntos.
 
 XML de OData
 
@@ -675,8 +650,7 @@ A resposta de exemplo a seguir inclui 10 itens recomendados:
 	</feed>
 
 ###Atualizar modelo
-Você pode atualizar a descrição do modelo ou a ID de compilação ativa.
-*ID de compilação ativa* – cada compilação para cada modelo tem uma ID de compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.
+Você pode atualizar a descrição do modelo ou a ID de compilação ativa. *ID de compilação ativa* – cada compilação para cada modelo tem uma ID de compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.
 
 Esse mecanismo permite, depois de ter um modelo de recomendação em produção, compilar e testar novos modelos antes de promovê-los para produção.
 
@@ -685,12 +659,12 @@ Esse mecanismo permite, depois de ter um modelo de recomendação em produção,
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
 
-|	Nome do Parâmetro |	Valores Válidos						|
+|	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 | ID | O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | apiVersion | 1\.0 |
-|
-| Corpo da solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcas XML Description e ActiveBuildId são opcionais. Se você não quiser definir Description ou ActiveBuildId, remova a marca inteira. |
+|||
+| Corpo da solicitação | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcações XML Description e ActiveBuildId são opcionais. Se você não quiser definir Description ou ActiveBuildId, remova a marca inteira. |
 
 **Resposta**:
 
@@ -708,9 +682,7 @@ XML de OData
 	</feed>
 
 ##Legal
-Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.
-Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.
-Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
+Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida. Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

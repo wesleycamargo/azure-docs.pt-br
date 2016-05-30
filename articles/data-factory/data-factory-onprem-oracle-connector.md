@@ -24,7 +24,7 @@ Este artigo descreve como você pode usar a atividade de cópia da data factory 
 Para o serviço de fábrica de dados do Azure poder se conectar ao banco de dados Oracle no local, você deve instalar o seguinte:
 
 - Gateway de Gerenciamento de Dados na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar competência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados. 
-- Provedor de dados Oracle para .NET. Está incluído nos [ODAC (Componentes de acesso a dados do Oracle) para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Instale a versão adequada (32/64 bits) no computador host em que o gateway está instalado. 
+- Provedor de dados Oracle para .NET. Está incluído nos [Componentes de acesso a dados do Oracle para Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). Instale a versão adequada (32/64 bits) no computador host em que o gateway está instalado. [O Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) pode acessar o Oracle Database 10g Release 2 ou posterior.
 
 > [AZURE.NOTE] Confira [Solução de problemas de gateway](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para ver dicas sobre como solucionar problemas de conexão/gateway.
 
@@ -292,7 +292,7 @@ XML | Cadeia de caracteres
 
 ## Dicas de solução de problemas
 
-**Problema:** você vê a seguinte **mensagem de erro**: A atividade de cópia encontrou parâmetros inválidos: 'UnknownParameterName', Mensagem detalhada: não é possível localizar o Provedor de Dados do .Net Framework solicitado. Ele pode não estar instalado".
+****Problema: ** você vê a seguinte **mensagem de erro**: A atividade de cópia encontrou parâmetros inválidos: 'UnknownParameterName', Mensagem detalhada: não é possível localizar o Provedor de Dados do .Net Framework solicitado. Ele pode não estar instalado".
 
 **Possíveis causas**
 
@@ -314,6 +314,6 @@ XML | Cadeia de caracteres
 
 
 ## Desempenho e Ajuste  
-Confira o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho e o movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

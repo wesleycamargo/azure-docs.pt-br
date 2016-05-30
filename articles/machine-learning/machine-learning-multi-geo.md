@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="05/09/2016"
    ms.author="tedway; neerajkh"/>
 
 # Documentação da Ajuda para diversas áreas geográficas
@@ -38,7 +38,9 @@ Se você abrir um experimento da galeria, também pode selecionar a região para
 
 ## Gerenciamento de serviço Web
 
-Para gerenciar programaticamente os serviços Web, como novo treinamento, use o endereço específico de região: * ***https://asiasoutheast.management.azureml.net**
+Para gerenciar os serviços Web de forma programática, como um novo treinamento, use o endereço específico da região:
+- https://asiasoutheast.management.azureml.net
+- https://europewest.management.azureml.net
 
 ### Elementos a serem observados
 
@@ -57,4 +59,4 @@ Fazer uma pergunta no [fórum de Aprendizado de Máquina do Azure](https://socia
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

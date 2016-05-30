@@ -19,9 +19,11 @@
 # Replicar máquinas virtuais do Hyper-V em nuvens VMM no Azure usando o PowerShell - Clássico
 
 > [AZURE.SELECTOR]
-- [Portal Clássico do Azure](site-recovery-vmm-to-azure.md)
+- [Portal do Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Portal clássico](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - clássico](site-recovery-deploy-with-powershell.md)
-- [PowerShell – Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 ## Visão geral
 
@@ -447,4 +449,4 @@ Use os seguintes comandos para monitorar a atividade. Observe que é necessário
 
 [Leia mais](https://msdn.microsoft.com/library/dn850420.aspx) sobre os cmdlets do PowerShell do Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -19,6 +19,11 @@
 
 
 # Fazer backup de máquinas virtuais do Azure
+
+> [AZURE.SELECTOR]
+- [Fazer backup de VMs ARM no Azure](backup-azure-arm-vms.md)
+- [Fazer backup de máquinas virtuais do Azure](backup-azure-vms.md)
+
 Este artigo fornece os procedimentos para fazer backup de VMs (máquinas virtuais) do Azure.
 
 Primeiro, há algumas coisas que você precisa fazer antes de poder fazer backup de uma máquina virtual do Azure. Se ainda não tiver feito isto, conclua os [pré-requisitos](backup-azure-vms-prepare.md) para preparar o ambiente para o backup de VMs.
@@ -36,8 +41,7 @@ Para garantir que qualquer VM (máquina virtual) nova adicionada à assinatura s
 
 1. Entre no [portal clássico](http://manage.windowsazure.com/).
 
-2. Na lista de serviços do Azure, clique em **Serviços de Recuperação** para abrir a lista de cofres de Backup e Recuperação de Site.
-![Abrir listas de cofres](./media/backup-azure-vms/choose-vault-list.png)
+2. Na lista de serviços do Azure, clique em **Serviços de Recuperação** para abrir a lista de cofres de Backup e Recuperação de Site. ![Abrir listas de cofres](./media/backup-azure-vms/choose-vault-list.png)
 
 3. Na lista de cofres de Backup, escolha o cofre para fazer backup de uma VM.
 
@@ -55,8 +59,7 @@ Para garantir que qualquer VM (máquina virtual) nova adicionada à assinatura s
 
     ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-6. Clique em **DESCOBRIR** na parte inferior da página.
-![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
+6. Clique em **DESCOBRIR** na parte inferior da página. ![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
 
     O processo de descoberta pode ser executado por alguns minutos, enquanto as máquinas virtuais estão sendo tabuladas. Há uma notificação na parte inferior da tela que informa você de que o processo está sendo executado.
 
@@ -77,8 +80,7 @@ Você registra uma máquina virtual do Azure para associá-la ao serviço Backup
 
     ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Clique em **REGISTRAR** na parte inferior da página.
-![Botão Registrar](./media/backup-azure-vms/register-button-only.png)
+3. Clique em **REGISTRAR** na parte inferior da página. ![Botão Registrar](./media/backup-azure-vms/register-button-only.png)
 
 4. No menu de atalho **Registrar Itens**, selecione as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para fazer a distinção entre elas.
 
@@ -181,4 +183,4 @@ Se você enfrentar problemas durante o backup da sua máquina virtual, examine o
 - [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

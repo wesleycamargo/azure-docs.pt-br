@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="05/06/2016"
    ms.author="maroche"/>
 
 # Terminologia do Catálogo de Dados do Azure
@@ -51,7 +51,7 @@ Os metadados descritivos de um ativo de dados podem incluir informações sobre 
 - A URL de uma ferramenta de gerenciamento de identidade e de acesso (como o Microsoft Identity Manager) que pode ser usada para acessar a fonte de dados.
 - Uma entrada de texto livre que descreve como os usuários podem obter acesso à fonte de dados.
 
-## Visualizações
+## Visualização
 
 Uma visualização no Catálogo de Dados do Azure é um instantâneo de até 20 registros que podem ser extraídos da fonte de dados durante o registro e armazenados no catálogo com os metadados de ativos de dados. A visualização pode ajudar usuários que descobrem um ativo de dados a compreender melhor sua função e finalidade. Em outras palavras, a visualização de dados de exemplo pode ser mais valiosa do que ver apenas os nomes de coluna e tipos de dados. Visualizações só têm suporte para tabelas e exibições e devem ser explicitamente selecionadas pelo usuário durante o registro.
 
@@ -73,7 +73,7 @@ Especialista é um usuário que foi identificado como tendo uma perspectiva de "
 
 ## Proprietário
 
-Um proprietário é um usuário que tem privilégios adicionais para gerenciar um ativo de dados no Catálogo de Dados do Azure. Os usuários podem se apropriar de ativos de dados registrados e os proprietários podem adicionar outros usuários como co-proprietários.
+Um proprietário é um usuário que tem privilégios adicionais para gerenciar um ativo de dados no Catálogo de Dados do Azure. Os usuários podem se apropriar de ativos de dados registrados e os proprietários podem adicionar outros usuários como co-proprietários. Para obter mais informações, consulte [Como gerenciar ativos de dados](data-catalog-how-to-manage.md)
 > [AZURE.NOTE] Propriedade e gerenciamento estão disponíveis somente na Standard Edition do Catálogo de Dados do Azure.
 
 ## Registro
@@ -86,4 +86,4 @@ Registro é o ato de extrair metadados de ativos de dados de uma fonte de dados 
 
 - [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)- este artigo apresenta um tutorial completo que mostra como usar o Catálogo de Dados do Azure para a descoberta de fonte de dados.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

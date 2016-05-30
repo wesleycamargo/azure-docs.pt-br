@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="03/30/2016" 
+    ms.date="05/16/2016" 
     ms.author="arramac"/>
     
 # Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure
@@ -181,7 +181,7 @@ Se você incluir a indexação espacial em sua política de indexação, as "con
 
 ST\_WITHIN pode ser usado para verificar se um ponto está dentro de um polígono. Normalmente, os polígonos são usados para representar limites como códigos postais, fronteiras de estado ou formações naturais. Novamente, se você incluir a indexação espacial em sua política de indexação, as consultas "internas" serão servidas com eficiência por meio do índice.
 
-Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou seja, os polígonos não devem conter orifícios neles. Verifique os [limites do Banco de Dados de Documentos](documentdb-limits.md) para o número máximo de pontos permitido em um polígono para uma consulta ST\_WITHIN.
+Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou seja, os polígonos não devem conter orifícios neles.
 
 **Consulta**
 
@@ -346,4 +346,4 @@ Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco
 - Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 - Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

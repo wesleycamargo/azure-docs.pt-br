@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/09/2016"
 	ms.author="sstein"/>
 
 # Sempre Criptografado – Proteger dados confidenciais no Banco de Dados SQL com a criptografia de banco de dados e armazenar as chaves de criptografia no repositório de certificados do Windows
@@ -550,4 +550,4 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 - [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="ginathan;bradsev" />
 
 # O Processo de Análises do Cortana em ação - Usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
@@ -94,7 +94,7 @@ Uma abordagem alternativa para acessar, explorar e modelar esses dados que não 
 
 ## <a name="login"></a>Faça logon no nó principal do cluster
 
-Para fazer logon no nó principal do cluster, use o portal de [Gerenciamento do Azure](manage.windowsazure.com) para localizar o cluster. Clique no ícone de elefante do HDInsight à esquerda e depois clique duas vezes no nome do cluster. Navegue até a guia **Configuration**, clique duas vezes no ícone CONNECT na parte inferior da página e insira suas credenciais de acesso remoto quando solicitado. Isso leva ao nó principal do cluster.
+Para fazer logon no nó principal do cluster, use o portal de [Gerenciamento do Azure](https://manage.windowsazure.com) para localizar o cluster. Clique no ícone de elefante do HDInsight à esquerda e depois clique duas vezes no nome do cluster. Navegue até a guia **Configuration**, clique duas vezes no ícone CONNECT na parte inferior da página e insira suas credenciais de acesso remoto quando solicitado. Isso leva ao nó principal do cluster.
 
 Um típico primeiro logon no nó principal do cluster é semelhante ao seguinte:
 
@@ -663,4 +663,4 @@ Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na es
 
 Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de dados de grande dimensão usando o Aprendizado de Máquina do Azure. Começamos com um terabyte de dados, construímos um modelo de previsão e o implantamos como um serviço Web na nuvem.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -20,7 +20,7 @@
 # Funções personalizadas no RBAC do Azure
 
 
-Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. Funções personalizadas podem ser criadas usando o [Azure PowerShell](role-based-access-control-manage-access-powershell.md), a [CLI](role-based-access-control-manage-access-azure-cli.md) (Interface de linha de comando) do Azure e a [API REST](role-based-access-control-manage-access-rest.md). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso.
+Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. Funções personalizadas podem ser criadas usando o [Azure PowerShell](role-based-access-control-manage-access-powershell.md), a [CLI](role-based-access-control-manage-access-azure-cli.md) (Interface de linha de comando) do Azure e a [API REST](role-based-access-control-manage-access-rest.md). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure AD e podem ser compartilhadas entre todas as assinaturas que usam esse locatário como o diretório do Azure AD para a assinatura.
 
 Este é um exemplo de uma função personalizada para monitorar e reiniciar as máquinas virtuais:
 
@@ -99,4 +99,4 @@ A propriedade **AssignableScopes** da função personalizada também controla qu
 	- [API REST](role-based-access-control-manage-access-rest.md)
 - [Funções internas](role-based-access-built-in-roles.md): obter detalhes sobre as funções que estão incluídas por padrão no RBAC.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

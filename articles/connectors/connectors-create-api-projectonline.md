@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/16/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do ProjectOnline
@@ -65,7 +65,8 @@ Para criar Aplicativos Lógicos com o ProjectOnline, primeiro, você deve criar 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
 |A criptografia do token|Sim|Fornecer as credenciais do ProjectOnline|
-Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
+
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 
 >[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
 
@@ -523,4 +524,4 @@ Fazer check-in e publicar um projeto: faz check-in e publica um projeto existent
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

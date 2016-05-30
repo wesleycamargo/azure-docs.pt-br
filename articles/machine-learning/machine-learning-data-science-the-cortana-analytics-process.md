@@ -66,7 +66,7 @@ Os cientistas de dados, em colaboração com os especialistas de domínio, devem
 
 ## 4\. Criar modelos de previsão 
 
-Os cientistas de dados criam modelos de análise para a previsão das principais variáveis identificadas pelos requisitos de negócios definidos na etapa de planejamento usando dados que foram limpos e destacados. Os sistemas de aprendizado de máquina dão suporte a vários **algoritmos de modelagem** aplicáveis a uma ampla variedade de casos. Para obter diretrizes, consulte [Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice,md).
+Os cientistas de dados criam modelos de análise para a previsão das principais variáveis identificadas pelos requisitos de negócios definidos na etapa de planejamento usando dados que foram limpos e destacados. Os sistemas de aprendizado de máquina dão suporte a vários **algoritmos de modelagem** aplicáveis a uma ampla variedade de casos. Para obter diretrizes, consulte [Como escolher algoritmos de Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md).
 
 Os cientistas de dados devem escolher o modelo mais adequado para sua tarefa de previsão e não é incomum que os resultados de vários modelos tenham de ser combinados para a obtenção dos melhores resultados. Os dados de entrada para a modelagem geralmente são divididos aleatoriamente em três partes:
 
@@ -91,4 +91,4 @@ Também serão fornecidos passo a passos completos que demonstram todas as etapa
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

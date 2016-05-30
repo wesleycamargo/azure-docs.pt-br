@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Diferenças de Transact-SQL de Banco de Dados SQL do Azure
@@ -93,7 +93,7 @@ O Banco de Dados SQL V12 dá suporte a alguns, mas não todos os argumentos exis
 - Sinalizadores de rastreamento
 - Depuração de Transact-SQL
 - Disparadores: no escopo do servidor ou gatilhos de logon
-- Instrução USE
+- Instrução USE: para alterar o contexto do banco de dados para um banco de dados diferente, será necessário fazer uma nova conexão com o novo banco de dados.
 
 
 ## Referência completa do Transact-SQL
@@ -108,4 +108,4 @@ A referência do Transact-SQL inclui tópicos relacionados a versões do SQL Ser
 
 Em alguns casos, o assunto geral de um tópico pode ser usado em um produto, mas há pequenas diferenças entre produtos. As diferenças são indicadas em pontos médios no tópico, conforme apropriado.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

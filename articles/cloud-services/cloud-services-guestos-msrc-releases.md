@@ -20,6 +20,25 @@
 
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
 
+## SO convidado de maio 
+
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-051 | [3155533] | Atualização de segurança cumulativa do Internet Explorer | 4\.32, 3.39, 2.51 | 10 de maio de 2016 |  
+| MS16-053 | [3156764] | Atualização de Segurança Cumulativa do JScript e VBScript | 2\.51 | 10 de maio de 2016 | 
+| MS16-055 | [3156754] | Atualização de Segurança do Componente Gráfico da Microsoft | 4\.32, 3.39, 2.51 | 10 de maio de 2016 | 
+| MS16-057 | [3156987] | Atualização de Segurança para Windows Shell | 4\.32 | 10 de maio de 2016 | 
+| MS16-060 | [3154846] | Atualização de Segurança para Windows Kernel | 4\.32, 3.39, 2.51 | 10 de maio de 2016 | 
+| MS16-061 | [3155520] | Atualização de Segurança para RPC | 4\.32, 3.39, 2.51 | 10 de maio de 2016 | 
+| MS16-062 | [3158222] | Atualização de segurança para drivers do modo Kernel | 4\.32, 3.39, 2.51 | 10 de maio de 2016 | 
+| MS16-065 | [3156757] | Atualização de Segurança do .Net Framework | 4\.32, 3.39, 2.51 | 10 de maio de 2016 | 
+| MS16-067 | [3155784] | Atualização de segurança para o Driver do Gerenciador de Volumes | 4\.32, 3.39 | 10 de maio de 2016 | 
+| | [3148851] | Alterações de fuso horário para a Rússia no Windows | 4\.32, 3.39, 2.51 | 10 de maio de 2016 | 
+| | [3133977] | O BitLocker não pode criptografar unidades devido a falhas de serviço no processo de svchost.exe no Windows 7 ou Windows Server 2008 R2 | 2\.51 | 10 de maio de 2016 | 
+| | [3133681] | Máquinas virtuais não respondem à sua operação no SCVMM no Windows Server 2012 R2 | 4\.32 | 10 de maio de 2016 | 
+| | [3123245] | Atualização melhora a identificação de esgotamento de porta no Windows Server 2012 R2 | 4\.32 | 10 de maio de 2016 | 
+| | [Desabilitar RC4] | Comunicado de segurança da Microsoft: atualizar para desabilitar o RC4 | 4\.32, 3.39, 2.51 | 10 de maio de 2016 | 
+
 
 ## SO convidado de abril 
 
@@ -269,6 +288,23 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [2999802][2999802] | Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 | N/D | [2896881][2896881] | Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows | 4\.15, 3.22, 2.34 | 13 de janeiro de 2015 |
 
+[3155533]: http://support.microsoft.com/kb/3155533
+[3156764]: http://support.microsoft.com/kb/3156764
+[3156754]: http://support.microsoft.com/kb/3156754
+[3156987]: http://support.microsoft.com/kb/3156987
+[3141083]: http://support.microsoft.com/kb/3141083
+[3154846]: http://support.microsoft.com/kb/3154846
+[3155520]: http://support.microsoft.com/kb/3155520
+[3158222]: http://support.microsoft.com/kb/3158222
+[3156757]: http://support.microsoft.com/kb/3156757
+[3155784]: http://support.microsoft.com/kb/3155784
+[3148851]: http://support.microsoft.com/kb/3148851
+[3133977]: http://support.microsoft.com/kb/3133977
+[3133681]: http://support.microsoft.com/kb/3133681
+[3123245]: http://support.microsoft.com/kb/3123245
+[Desabilitar RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+
+
 [3148531]: http://support.microsoft.com/kb/3148531
 [3148522]: http://support.microsoft.com/kb/3148522
 [3148541]: http://support.microsoft.com/kb/3148541
@@ -453,4 +489,4 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

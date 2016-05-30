@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
     
 # Solucionando problemas de compactação de arquivo CDN
@@ -45,11 +45,13 @@ Primeiro, devemos fazer uma verificação de integridade rápida na solicitaçã
 - Verifique se a solicitação está sendo enviada para a URL do ponto de extremidade, `<endpointname>.azureedge.net`, e não para sua origem.
 - Verifique se a solicitação contém um cabeçalho **Accept-Encoding** e se o valor desse cabeçalho contém **gzip**, **deflate** ou **bzip2**.
 
+> [AZURE.NOTE] Os perfis da **CDN do Azure do Akamai** somente dão suporte à codificação **gzip**.
+
 ![Cabeçalhos da solicitação CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
 ### Verificar as configurações de compactação (perfil CDN Standard)
 
-> [AZURE.NOTE] Esta etapa se aplicará apenas se seu perfil CDN estiver no tipo de preço **Standard**.
+> [AZURE.NOTE] Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN Standard do Azure da Verizon** ou **CDN Standard do Azure do Akamai**.
 
 Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.com) e clique no botão **Configurar**.
 
@@ -60,7 +62,7 @@ Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.
 
 ### Verificar as configurações de compactação (perfil CDN Premium)
 
-> [AZURE.NOTE] Esta etapa se aplicará apenas se seu perfil CDN estiver no tipo de preço **Premium**.
+> [AZURE.NOTE] Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN Premium do Azure da Verizon**.
 
 Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.com) e clique no botão **Gerenciar**. O portal suplementar será aberto. Passe o ponteiro do mouse sobre a guia **HTTP Grande** e passe o ponteiro do mouse sobre o submenu **Configurações de Cache**. Clique em **Compactação**.
 
@@ -72,6 +74,8 @@ Navegue até seu ponto de extremidade no [Portal do Azure](https://portal.azure.
 
 ### Verificar se que o conteúdo está armazenado em cache
 
+> [AZURE.NOTE] Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN do Azure da Verizon** (Standard ou Premium).
+
 Usando as ferramentas de desenvolvedor do navegador, verifique os cabeçalhos de resposta para garantir que o arquivo está armazenado em cache na região em que está sendo solicitado.
 
 - Verifique o cabeçalho de resposta **Server**. O cabeçalho deve ter o formato **Plataforma (POP/ID do Servidor)**, como mostrado no exemplo abaixo.
@@ -81,9 +85,11 @@ Usando as ferramentas de desenvolvedor do navegador, verifique os cabeçalhos de
 
 ### Verificar se o arquivo atende aos requisitos de tamanho
 
+> [AZURE.NOTE] Essa etapa se aplica somente se o seu perfil de CDN é um perfil da **CDN do Azure da Verizon** (Standard ou Premium).
+
 Para ser elegível para compactação, um arquivo deve atender aos seguintes requisitos de tamanho:
 
 - Maior que 128 bytes.
 - Menor que 1 MB.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

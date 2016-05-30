@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="04/27/2016"
 	ms.author="maheshu"/>
 
 # Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD
@@ -26,7 +26,7 @@ Para executar as tarefas listadas neste artigo, você precisará de:
 
 2. Um **diretório do AD do Azure** - seja sincronizado com um diretório local ou com um diretório somente na nuvem.
 
-3. **Serviços de Domínio** habilitados para o diretório do Azure AD. Se você ainda não tiver feito isso, execute todas as tarefas descritas no [guia de Introdução](./active-directory-ds-getting-started.md).
+3. Os **Serviços de Domínio do Azure AD** devem ser habilitados para o diretório do Azure AD. Se você ainda não tiver feito isso, execute todas as tarefas descritas no [guia de Introdução](./active-directory-ds-getting-started.md).
 
 4. Um **certificado a ser usado para habilitar o LDAP seguro**.
     - **Recomendado** - obtenha um certificado da sua autoridade de certificação corporativa ou de uma autoridade de certificação pública. Essa é uma opção de configuração muito mais segura.
@@ -242,4 +242,4 @@ Isso é tudo - agora você está pronto para se conectar ao domínio gerenciado 
 
 - [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -91,10 +91,10 @@ Atualmente, não há mecanismo integrado para recuperação de desastres. Adicio
 
 As **Partições** oferecem armazenamento e E/S. Um único serviço de pesquisa pode ter um máximo de 12 partições. Cada partição é fornecida com um limite rígido de 15 milhões de documentos ou 25 GB de armazenamento, o que ocorrer primeiro. Se você adicionar partições, o serviço de pesquisa poderá carregar mais documentos. Por exemplo, um serviço com uma única partição que armazene inicialmente até 25 GB de dados pode armazenar 50 GB quando você adicionar uma segunda partição ao serviço.
 
-**Réplicas** são cópias do mecanismo de pesquisa. Um único serviço de pesquisa pode ter um máximo de seis réplicas. São necessárias pelo menos duas réplicas para disponibilidade de leitura (consulta) e pelo menos três réplicas para disponibilidade de leitura/gravação (consulta, indexação).
+**Réplicas** são cópias do mecanismo de pesquisa. Um único serviço de Pesquisa pode ter, no máximo, 12 réplicas. São necessárias pelo menos duas réplicas para disponibilidade de leitura (consulta) e pelo menos três réplicas para disponibilidade de leitura/gravação (consulta, indexação).
 
 Uma cópia de cada índice é executada em cada réplica. Conforme você adiciona réplicas, cópias adicionais do índice são colocadas online para oferecer maior suporte a cargas de trabalho de consulta e balancear a carga das solicitações em várias réplicas. Se você tiver vários índices, digamos seis, e três réplicas, cada réplica terá uma cópia de todos os seis índices.
 
 Observe que não fornecemos estimativas rígidas quanto a QPS (consultas por segundo), já que a execução da consulta pode variar muito conforme a complexidade da consulta e cargas de trabalho concorrentes. Em média, uma réplica pode atender cerca de 15 QPS, mas a taxa de transferência será um pouco maior ou menor dependendo da complexidade da consulta (consultas facetadas são mais complexas) e da latência de rede. Além disso, é importante reconhecer que, embora adicionar réplicas vai definitivamente adicionar escala e desempenho, o resultado final não é estritamente linear: adicionar três réplicas não garante o triplo da taxa de transferência. A latência da consulta é um indicador de que podem ser necessárias réplicas adicionais. Para saber mais sobre QPS, incluindo métodos para calcular o QPS para suas cargas de trabalho, veja [Gerenciar o serviço da Pesquisa](search-manage.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

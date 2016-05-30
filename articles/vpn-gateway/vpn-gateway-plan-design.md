@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/16/2016"
    ms.author="cherylmc"/>
 
 # Planejamento e design para o Gateway de VPN
@@ -23,7 +23,7 @@ Planejar e projetar suas conexões entre redes virtuais e entre locais pode ser 
 ## Planejamento
 
 
-### <a name="compare"></a>1. Comparar as opções de conectividade entre locais
+### <a name="compare"></a>Opções de conectividade entre locais
 
 Se você decidiu que deseja conectar seus sites locais com segurança a uma rede virtual, há três maneiras diferentes para isso: Site a Site, Ponto a Site e Rota Expressa. Compare as diferentes conexões entre locais que estão disponíveis. A opção escolhida pode depender de várias considerações, como:
 
@@ -44,7 +44,7 @@ A tabela a seguir pode ajudá-lo a decidir a melhor opção de conectividade par
 
 
 
-### <a name="gwrequire"></a>2. Considerar os requisitos de gateway por tipo de VPN e SKU
+### <a name="gwrequire"></a>Requisitos de gateway por tipo de VPN e SKU
 
 
 Ao criar um gateway de VPN, você precisará especificar a SKU de gateway que deseja usar. Há 3 SKUs de gateway de VPN:
@@ -57,7 +57,7 @@ Ao criar um gateway de VPN, você precisará especificar a SKU de gateway que de
 
 
 
-### 3\. Tipos de gateway e estimativas de taxa de transferência agregadas
+### <a name="aggthroughput"></a>Tipos de gateway e estimativas de taxa de transferência agregadas
 
 A tabela a seguir mostra os tipos de gateway e a taxa de transferência agregada estimada. A taxa de transferência agregada estimada pode ser um fator decisivo para seu design. Os preços diferem entre os SKUs de gateway. Para obter informações sobre preços, veja [Preços de gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
 
@@ -65,7 +65,7 @@ A tabela a seguir mostra os tipos de gateway e a taxa de transferência agregada
 
 
 
-### <a name="wf"></a>4. Fluxo de trabalho
+### <a name="wf"></a>Fluxo de trabalho
 
 A lista a seguir descreve o fluxo de trabalho comum para conectividade de nuvem:
 
@@ -78,20 +78,20 @@ A lista a seguir descreve o fluxo de trabalho comum para conectividade de nuvem:
 
 ## Design
 
-### 1\. Selecionar uma topologia de conexão
+### <a name="topologies"></a>Topologias de conexão
 
 Começar examinando o artigo [Topologias de conexão](vpn-gateway-topology.md). O artigo contém diagramas básicos, os modelos de implantação para cada topologia (Resource Manager ou clássica) e quais ferramentas de implantação você pode usar para implantar sua configuração.
 
-### 2\. Entender as noções básicas de design
+### <a name="designbasics"></a>Noções básicas sobre design
 
-As seções abaixo discutem as noções básicas de gateway de VPN. Além disso, considere também as [Limitações dos serviços de rede](../articles/azure-subscription-service-limits.md#networking-limits).
+As seções abaixo discutem as noções básicas de gateway de VPN. Além disso, considere também as [Networking services limitations](../articles/azure-subscription-service-limits.md#networking-limits) (Limitações dos serviços de rede).
 
 
 #### <a name="subnets"></a>Sobre sub-redes
 
 Ao planejar e projetar a conexão que melhor funciona para seu ambiente, é muito importante considerar os intervalos de endereços IP e sub-redes que você tem disponíveis para uso.
 
-Você precisará criar uma sub-rede de gateway para sua rede virtual a fim de configurar um gateway de VPN. Todas as sub-redes de gateway devem ser nomeadas como GatewaySubnet para funcionar adequadamente. Lembre-se de não pode nomear sua sub-rede de gateway com um nome diferente e não implantar VMs ou qualquer outra coisa para a sub-rede de gateway. Para obter mais informações sobre as sub-redes de gateway, consulte a seção [Sub-rede de gateway](vpn-gateway-about-vpngateways.md#gwsub) no artigo Sobre Gateways de VPN.
+Você precisará criar uma sub-rede de gateway para sua rede virtual a fim de configurar um gateway de VPN. Todas as sub-redes de gateway devem ser nomeadas como GatewaySubnet para funcionar adequadamente. Lembre-se de não pode nomear sua sub-rede de gateway com um nome diferente e não implantar VMs ou qualquer outra coisa para a sub-rede de gateway. Para obter mais informações sobre as sub-redes de gateway, consulte a seção [Sub-rede de gateway](vpn-gateway-about-vpngateways.md#gwsub) seção no artigo Sobre gateways de VPN.
 
 Ao criar conexões, em muitos casos é necessário tomar cuidado para não sobrepor os intervalos de endereços de sub-rede entre as conexões. Uma sub-rede sobreposta ocorre quando uma rede virtual ou local contém o mesmo espaço de endereço que outro local. Isso significa que seus engenheiros de rede para redes locais deverão definir um intervalo para usar o espaço/sub-redes de endereçamento IP do Azure. Você precisará de espaço de endereço que não está sendo usado na rede local.
 
@@ -101,7 +101,7 @@ Também é importante evitar a sobreposição de sub-redes quando você estiver 
 
 #### <a name="local"></a>Sobre gateways de rede local
 
-O gateway de rede local geralmente se refere ao seu local. No modelo de implantação clássico, o gateway de rede local era conhecido como um Site Local. Você dará ao gateway de rede local um nome e o endereço IP público do dispositivo VPN local e especificará os prefixos de endereço que estão localizados no caminho local. O Azure examinará os prefixos de endereço de destino para ol tráfego de rede, conferirá a configuração que você especificou para o gateway de rede local e roteará os pacotes adequadamente. Você pode modificar os prefixos de endereço conforme necessário. Para obter mais informações sobre gateways de rede local, consulte a seção [Gateways de rede local](vpn-gateway-about-vpngateways.md#lng) no artigo Sobre Gateways de VPN.
+O gateway de rede local geralmente se refere ao seu local. No modelo de implantação clássico, o gateway de rede local era conhecido como um Site Local. Você dará ao gateway de rede local um nome e o endereço IP público do dispositivo VPN local e especificará os prefixos de endereço que estão localizados no caminho local. O Azure examinará os prefixos de endereço de destino para ol tráfego de rede, conferirá a configuração que você especificou para o gateway de rede local e roteará os pacotes adequadamente. Você pode modificar os prefixos de endereço conforme necessário. Para obter mais informações sobre gateways de rede local, consulte a seção [Gateways de rede local](vpn-gateway-about-vpngateways.md#lng) no artigo Sobre gateways de VPN.
 
 
 #### <a name="gwtype"></a>Sobre tipos de gateway
@@ -113,7 +113,7 @@ Os tipos de gateway são:
 - Vpn
 - Rota Expressa
 
-#### Sobre os tipos de conexão
+#### <a name="connectiontype"></a>Sobre os tipos de conexão
 
 Cada configuração exige um tipo específico de conexão. Os tipos de conexão são:
 
@@ -134,27 +134,28 @@ As tabelas a seguir mostram o tipo VPN conforme mapeado para cada configuração
 
 [AZURE.INCLUDE [vpn-gateway-table-vpntype](../../includes/vpn-gateway-table-vpntype-include.md)]
 
-### <a name="devices"></a>3. Selecione um dispositivo VPN para conexões Site a Site
+### <a name="devices"></a>Dispositivos de VPN e conexões de site a site
 
 Para configurar uma conexão Site a Site, independentemente do modelo de implantação, você precisará os seguintes itens:
 
 - Um dispositivo VPN que é compatível com os gateways de VPN do Azure
 - Um endereço IP IPv4 público que não está protegido por um NAT
 
-Você precisará ter experiência em configurar seu dispositivo VPN para criar uma configuração de Site a Site. Para saber mais sobre dispositivos VPN, consulte [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). O artigo de dispositivos VPN contém informações sobre dispositivos validados, requisitos para dispositivos que não foram validados e links para os documentos de configuração do dispositivo para cada dispositivo, se estiverem disponíveis.
+Você precisará ter experiência ao configurar seu dispositivo VPN. Para saber mais sobre dispositivos VPN, consulte [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). O artigo de dispositivos VPN contém informações sobre dispositivos validados, requisitos para dispositivos que não foram validados e links para os documentos de configuração do dispositivo para cada dispositivo, se estiverem disponíveis.
 
-### <a name="forcedtunnel"></a>4. Considere a possibilidade de roteamento de túnel forçado
+### <a name="forcedtunnel"></a>Considere a possibilidade de roteamento de túnel forçado
 
 Para a maioria das configurações, é possível configurar o túnel forçado. O túnel forçado permite redirecionar ou "forçar" todo o tráfego direcionado para a Internet de volta para seu local por meio de um túnel VPN de Site a Site para inspeção e auditoria. Esse é um requisito crítico de segurança para a maioria das políticas de TI empresariais.
 
-Sem o túnel forçado, o tráfego direcionado para Internet de suas VMs no Azure sempre percorrerão da infraestrutura de rede do Azure diretamente para a Internet, sem a opção para permitir que você inspecione ou audite o tráfego. O acesso não autorizado à Internet pode levar à divulgação de informações ou outros tipos de violações de segurança. Para obter mais informações sobre como configurar o túnel forçado, consulte [Sobre túnel forçado para o modelo de implantação clássico](vpn-gateway-about-forced-tunneling.md) e [Sobre o túnel forçado para o modelo de implantação do Resource Manager](vpn-gateway-about-forced-tunneling.md).
+Sem o túnel forçado, o tráfego direcionado para Internet de suas VMs no Azure sempre percorrerão da infraestrutura de rede do Azure diretamente para a Internet, sem a opção para permitir que você inspecione ou audite o tráfego. O acesso não autorizado à Internet pode levar à divulgação de informações ou outros tipos de violações de segurança.
 
-**Diagrama de túnel forçado**
+Para obter mais informações sobre como configurar o túnel forçado, consulte [About forced tunneling for the classic deployment model](vpn-gateway-about-forced-tunneling.md) (Sobre túnel forçado para o modelo de implantação clássico) e [About forced tunneling for the Resource Manager deployment model](vpn-gateway-about-forced-tunneling.md) (Sobre o túnel forçado para o modelo de implantação do Resource Manager).
+
+**Diagrama do túnel forçado**
 
 ![Conexão de túnel forçado](./media/vpn-gateway-plan-design/forced-tunnel.png "túnel forçado")
 
-
-Esta tabela lista o modelo de implantação para o qual o túnel forçado está disponível e as ferramentas de implantação que você pode usar para configurar o túnel forçado e será vinculado diretamente a um artigo, se disponível. Atualizamos as tabelas com frequência, à medida que novos artigos ficam disponíveis para uso.
+Uma conexão de túnel forçado pode ser configurada em ambos os modelos de implantação e usando ferramentas diferentes. Consulte a tabela abaixo para obter mais informações. Podemos atualizar esta tabela conforme os novos artigos, novos modelos de implantação e ferramentas adicionais ficam disponíveis para esta configuração. Quando um artigo estiver disponível, o vincularemos diretamente da tabela.
 
 [AZURE.INCLUDE [vpn-gateway-table-forcedtunnel](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
@@ -162,6 +163,8 @@ Esta tabela lista o modelo de implantação para o qual o túnel forçado está 
 
 ## Próximas etapas
 
-Consulte [Perguntas frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) e [Sobre Gateways de VPN](vpn-gateway-about-vpngateways.md) para obter mais informações para ajudá-lo com seu design. Para obter mais informações sobre topologias de conexão, consulte [Topologias de conexão](vpn-gateway-topology.md).
+Consulte os artigos [Perguntas frequentes sobre o gateway de VPN](vpn-gateway-vpn-faq.md) e [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md) para obter mais informações para ajudá-lo com seu design.
 
-<!---HONumber=AcomDC_0504_2016-->
+Para obter mais informações sobre topologias de conexão, consulte [Connection toplogies](vpn-gateway-topology.md) (Topologias de conexão).
+
+<!---HONumber=AcomDC_0518_2016-->

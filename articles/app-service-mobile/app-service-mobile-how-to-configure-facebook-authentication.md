@@ -34,7 +34,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
 
 4. Clique em **Meus Aplicativos** > **Adicionar um Novo Aplicativo** > **Site** > **Ignorar e Criar ID do Aplicativo**.
 
-5. Em **Nome de Exibição**, insira um nome exclusivo para seu aplicativo, escolha uma **Categoria** para ele, clique em **Criar ID do Aplicativo** e conclua a verificação de segurança. Isso o levará ao painel do desenvolvedor de seu novo aplicativo do Facebook.
+5. Em **Nome de Exibição**, digite um nome exclusivo para seu aplicativo, digite seu **Email de Contato** escolha uma **Categoria** para ele, clique em **Criar ID do Aplicativo** e conclua a verificação de segurança. Isso o levará ao painel do desenvolvedor de seu novo aplicativo do Facebook.
 
 6. Em "Logon no Facebook", clique em **Introdução**. Adicione o **URI de redirecionamento** do seu aplicativo aos **URIs de redirecionamento OAuth válidos** e, então, clique em **Salvar alterações**.
 
@@ -75,4 +75,4 @@ Agora você está pronto para usar o Facebook para autenticação em seu aplicat
 [Get started with authentication]: /pt-BR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

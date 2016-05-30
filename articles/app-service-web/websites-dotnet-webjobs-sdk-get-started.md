@@ -73,13 +73,11 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 1. Abra a janela **Gerenciador de Servidores** no Visual Studio.
 
-2. Clique com o botão direito do mouse no nó **Azure** e clique em **Conectar ao Microsoft Azure**.
-![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Clique com o botão direito do mouse no nó **Azure** e clique em **Conectar ao Microsoft Azure**. ![Conecte-se ao Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Entre utilizando suas credenciais do Azure.
 
-5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**.
-![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Clique com botão direito do mouse em **Armazenamento** sob o nó do Azure e, em seguida, clique em **Criar conta de armazenamento**. ![Criar Conta de Armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Na caixa de diálogo **Criar conta de armazenamento**, digite um nome para a conta de armazenamento.
 
@@ -299,7 +297,7 @@ Trata-se de uma melhor prática de segurança [evitar colocar informações conf
 
 Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores da cadeia de conexão no Azure.
 
-7. No **Gerenciador de Servidores**, clique com o botão direito do mouse em seu aplicativo Web em **Azure > {seu grupo de recursos}** e, em seguida, clique em **Exibir Configurações**.
+7. No **Gerenciador de Servidores**, clique com o botão direito do mouse em seu aplicativo Web em **Azure > Serviço de Aplicativo > {seu grupo de recursos}** e, em seguida, clique em **Exibir Configurações**.
 
 	A janela **Aplicativo Web do Azure** é aberta na guia **Configuração**.
 
@@ -470,7 +468,7 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 	- *Global.asax.cs*  
 	- Na pasta *Controllers*: *AdController.cs*
 	- Na pasta *Views\\Shared*: arquivo *\_Layout.cshtml*
-	- Na pasta *Views\\Home*: *Index.cshtml*.
+- Na pasta *Views\\Home*: *Index.cshtml*.
 	- Na pasta *Views\\Ad* (crie a pasta primeiro): cinco arquivos *.cshtml*<br/><br/>
 
 3. No projeto ContosoAdsWebJob, adicione os seguintes arquivos do projeto baixado.
@@ -817,5 +815,4 @@ Para obter mais informações, consulte [Obtendo um painel para desenvolvimento 
 
 Para sabe r mais, consulte [Recursos de documentação de WebJobs do Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_0302_2016-->
-
+<!---HONumber=AcomDC_0518_2016-->

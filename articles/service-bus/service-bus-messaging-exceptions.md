@@ -58,8 +58,7 @@ A tabela a seguir relaciona os tipos de mensagens de exceção e suas causas e a
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | Solicitação para uma operação de tempo de execução em uma entidade desabilitada. | Ativar a entidade. | Tentar novamente poderá ajudar se a entidade tiver sido ativada durante o processo. |
 | [NoMatchingSubscriptionException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.nomatchingsubscriptionexception.aspx) | O Barramento de Serviço retorna essa exceção se você enviar uma mensagem para um tópico que tem a pré-filtragem habilitada e se nenhum dos filtros forem compatíveis. | Verifique se pelo menos um filtro é compatível. | Tentar novamente não ajudará. |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | Uma carga de mensagem excede o limite de 256K. Observe que o limite de 256k é o tamanho total de mensagens, que pode incluir propriedades do sistema e qualquer sobrecarga do .NET. | Reduza o tamanho da carga de mensagem e repita a operação. | Tentar novamente não ajudará. |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | A transação do ambiente (*Transaction.Current*) é inválida. Ela pode ter sido concluída ou anulada. A exceção interna pode fornecer informações adicionais. | | A repetição não ajudará. | -
-| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | Ocorre uma tentativa de operação em uma transação duvidosa, ou ocorre uma tentativa de confirmação da transação e a transação passa a ser duvidosa. | Seu aplicativo deve tratar essa exceção (como um caso especial), pois a transação pode já ter sido confirmada. | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | A transação do ambiente (*Transaction.Current*) é inválida. Ela pode ter sido concluída ou anulada. A exceção interna pode fornecer informações adicionais. | | A repetição não ajudará. | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | Ocorre uma tentativa de operação em uma transação duvidosa, ou ocorre uma tentativa de confirmação da transação e a transação passa a ser duvidosa. | Seu aplicativo deve tratar essa exceção (como um caso especial), pois a transação pode já ter sido confirmada. | - |
 
 ## QuotaExceededException
 
@@ -98,7 +97,7 @@ Para a retransmissão do Barramento de Serviço, essa exceção encapsula [Syste
 
 ## TimeoutException 
 
-Um [TimeoutException][] indica que uma operação iniciada pelo usuário está demorando mais do que o tempo limite da operação.
+Um [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indica que uma operação iniciada pelo usuário está demorando mais do que o tempo limite da operação.
 
 ### Filas e tópicos
 
@@ -139,4 +138,4 @@ Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/ser
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

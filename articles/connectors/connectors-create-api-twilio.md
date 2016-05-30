@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/10/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Introdução à API do Twilio
@@ -47,9 +47,10 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 |ID da Conta|Sim|Insira seu ID de conta do Twilio|
 |Token de Acesso|Sim|Insira seu token de acesso do Twilio|
 
-Confira o [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) para criar um token de acesso.
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Twilio](../../includes/connectors-create-api-twilio.md)]
 
-Depois de criar a conexão, insira as propriedades do Twilio. A **Referência da API REST** neste tópico descreve essas propriedades.
+Se você não tiver uma, confira [Twilio](https://www.twilio.com/docs/api/ip-messaging/guides/identity) para criar um token de acesso.
+
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do Twilio em outros aplicativos lógicos.
 
@@ -247,4 +248,4 @@ Enviar uma nova mensagem para um número de celular. ```POST: /Messages.json```
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

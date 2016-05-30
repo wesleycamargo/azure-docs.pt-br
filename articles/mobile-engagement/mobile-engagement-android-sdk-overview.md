@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Integração do Android SDK para Azure Mobile Engagement"
-	description="Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
+	description="Descreve como integrar o SDK do Azure Mobile Engagement em aplicativos Android"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo;ricksal" />
 
-
-# Usar os recursos avançados do Azure Mobile Engagement para aplicativos Android
+# Integração do Android SDK para Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
 - [Universal do Windows](mobile-engagement-windows-store-sdk-overview.md)
@@ -25,7 +24,7 @@
 - [iOS](mobile-engagement-ios-sdk-overview.md)
 - [Android](mobile-engagement-android-sdk-overview.md)
 
-Saiba mais sobre todos os recursos avançados do Azure Mobile Engagement que você pode integrar a seu aplicativo Android.
+Este documento descreve todas as opções de integração e configuração disponíveis para o SDK do Azure Mobile Engagement para Android.
 
 ## Pré-requisitos
 
@@ -53,15 +52,25 @@ Você pode adicionar esses recursos:
 
 ## Notas de versão
 
+### 4\.2.2 (17/05/2016)
+
+- Aprimoramentos de estabilidade.
+
+### 4\.2.1 (10/05/2016)
+
+- Segurança: desabilite o acesso de arquivo local de exibição na Web.
+- Segurança: remova a classe `EngagementPreferenceActivity` que estende a classe `PreferenceActivity` obsoleta e não segura.
+- Segurança: atividades de alcance agora estão documentadas para usar `exported="false"`; esse sinalizador também pode ser usado em versões anteriores do SDK.
+
 ### 4\.2.0 (03/11/2016)
 
 - O SDK está licenciado sob MIT.
 - Permita a especificação de um identificador de dispositivo personalizado no momento de inicialização do SDK.
 
-Para todas as versões, consulte as [notas de versão completas](mobile-engagement-android-release-notes.md).
+Para obter todas as versões, veja as [notas de versão completas](mobile-engagement-android-release-notes.md).
 
 ## Procedimentos de atualização
 
 Se você já tiver integrado uma versão mais antiga do nosso SDK em seu aplicativo, consulte os [Procedimentos de Atualização](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

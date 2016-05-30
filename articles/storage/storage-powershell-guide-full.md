@@ -3,7 +3,7 @@
 	description="Aprenda a usar os cmdlets do PowerShell do Azure para Armazenamento do Azure, para criar e gerenciar contas de armazenamento; trabalhar com tabelas, blobs, filas e arquivos; configurar e consultar a análise de armazenamento e criar assinaturas de acesso compartilhado."
 	services="storage"
 	documentationCenter="na"
-	authors="robinsh" 
+	authors="robinsh"
 	manager="carmonm"/>
 
 <tags
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/18/2016"
 	ms.author="robinsh"/>
 
 # Usando o PowerShell do Azure com o Armazenamento do Azure
@@ -102,16 +102,16 @@ Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Direct
 	- **$SubscriptionName:** você deve atualizar essa variável com o nome de sua própria assinatura. Execute uma das três maneiras a seguir para localizar o nome de sua assinatura:
 
 		a. No **ISE do Windows PowerShell**, clique em **Arquivo** > **Novo** para criar um novo arquivo de script. Copie o script a seguir para o novo arquivo de script e clique em **Depurar** > **Executar**. O script a seguir primeiro solicitará suas credenciais de conta do Azure para adicioná-la ao ambiente do PowerShell local e, em seguida, mostrará todas as assinaturas que estão conectadas à sessão do PowerShell local. Anote o nome da assinatura que você deseja usar e siga este tutorial:
-		
+
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-		
+
 		b. Para localizar e copiar o nome da sua assinatura no [Portal do Azure](https://portal.azure.com), no menu de Hub à esquerda, clique em **Assinaturas**. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia.
-		
+
 		![Portal do Azure][Image2]
-		  
+
 		c. Para localizar e copiar o nome da sua assinatura no [Portal clássico do Azure](https://manage.windowsazure.com/), role para baixo e clique em **Configurações** no lado esquerdo do portal. Clique em **Assinaturas** para ver uma lista das suas assinaturas. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia.
-		
+
 		![Portal Clássico do Azure][Image1]
 
 	- **$StorageAccountName:** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** o nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
@@ -235,8 +235,26 @@ Para obter mais informações sobre como configurar uma cadeia de conexão, cons
 
 Agora você configurou o seu computador e sabe como gerenciar assinaturas e contas de armazenamento usando o PowerShell do Azure. Vá para a próxima seção para aprender a gerenciar blobs do Azure e instantâneos de blob.
 
+### Como recuperar e regenerar chaves de armazenamento do Azure
+
+Uma conta de armazenamento do Azure é fornecida com duas chaves de conta. É possível usar o cmdlet a seguir para recuperar suas chaves.
+
+	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+
+Use o seguinte cmdlet para recuperar uma chave específica. Os valores válidos são Primary e Secondary.
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
+
+	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
+
+Se você desejar regerar suas chaves, use o seguinte cmdlet. Os valores válidos para -KeyType são "Primary" e "Secundary"
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+
+	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+
 ## Como gerenciar blobs do Azure
-O Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Esta seção pressupõe que você já esteja familiarizado com os conceitos do serviço de Armazenamento de Blobs do Azure. Para obter informações detalhadas, consulte [Introdução ao Armazenamento de Blobs usando o .NET](storage-dotnet-how-to-use-blobs.md) e os [Conceitos do Serviço Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+O Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Esta seção pressupõe que você já esteja familiarizado com os conceitos do serviço de Armazenamento de Blobs do Azure. Para obter informações detalhadas, consulte [Introdução ao armazenamento de Blobs usando o .NET](storage-dotnet-how-to-use-blobs.md) e os [Conceitos do Serviço Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Como criar um contêiner
 Todos os blobs no armazenamento do Azure devem residir em um contêiner. Você pode criar um contêiner privado usando o cmdlet New-AzureStorageContainer:
@@ -247,7 +265,7 @@ Todos os blobs no armazenamento do Azure devem residir em um contêiner. Você p
 > [AZURE.NOTE] Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para obter mais informações, consulte [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).
 
 ### Como carregar um blob para um contêiner
-O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Para obter mais informações, consulte [Compreendendo Blobs de blocos, Blobs de apêndice e Blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Para obter mais informações, consulte [Entendendo Blobs de Blocos, Blobs de Apêndice e Blobs de Páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Para carregar blobs em um contêiner, você pode usar o cmdlet [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx). Por padrão, esse comando carrega os arquivos locais para um blob de blocos. Para especificar o tipo do blob, você pode usar o parâmetro -BlobType.
 
@@ -300,7 +318,7 @@ Observe que este exemplo executa uma cópia assíncrona. Você pode monitorar o 
 ### Como copiar blobs de um local secundário
 Você pode copiar blobs do local secundário de uma conta habilitada para RA-GRS.
 
-    #define secondary storage context using a connection string constructed from secondary endpoints. 
+    #define secondary storage context using a connection string constructed from secondary endpoints.
     $SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***;BlobEndpoint=http://***-secondary.blob.core.windows.net;FileEndpoint=http://***-secondary.file.core.windows.net;QueueEndpoint=http://***-secondary.queue.core.windows.net; TableEndpoint=http://***-secondary.table.core.windows.net;"
     Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
 
@@ -373,7 +391,7 @@ Você pode copiar um instantâneo de um blob para restaurar o instantâneo. Para
 Agora você aprendeu como gerenciar blobs do Azure e o instantâneos de blob com o Azure PowerShell. Vá para a próxima seção para aprender a gerenciar arquivos, filas e tabelas.
 
 ## Como gerenciar tabelas do Azure e entidades de tabela
-O serviço de armazenamento de tabela do Azure é um armazenamento de dados NoSQL, que pode ser usado para armazenar e consultar grandes conjuntos de dados estruturados e não relacionais. Os principais componentes do serviço são tabelas, entidades e propriedades. Uma tabela é uma coleção de entidades. Uma entidade é um conjunto de propriedades. Cada entidade pode ter até 252 propriedades, que são todas pares de nome-valor. Esta seção pressupõe que você já esteja familiarizado com os conceitos do serviço de Armazenamento de Tabela do Azure. Para obter informações detalhadas, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx) e [Introdução ao Armazenamento de Tabelas do Azure usando .NET](storage-dotnet-how-to-use-tables.md).
+O serviço de armazenamento de tabela do Azure é um armazenamento de dados NoSQL, que pode ser usado para armazenar e consultar grandes conjuntos de dados estruturados e não relacionais. Os principais componentes do serviço são tabelas, entidades e propriedades. Uma tabela é uma coleção de entidades. Uma entidade é um conjunto de propriedades. Cada entidade pode ter até 252 propriedades, que são todas pares de nome-valor. Esta seção pressupõe que você já esteja familiarizado com os conceitos do serviço de Armazenamento de Tabela do Azure. Para obter informações detalhadas, consulte [Entendendo o Modelo de Dados do Serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx) e [Introdução ao Armazenamento de Tabelas do Azure usando .NET](storage-dotnet-how-to-use-tables.md).
 
 Nas subseções a seguir, você aprenderá como gerenciar o serviço de armazenamento de tabela do Azure usando o PowerShell do Azure. Os cenários abordados incluem a **criação**, **exclusão** e **recuperação** de **tabelas**, bem como **adição**, **consulta** e **exclusão de entidades de tabela**.
 
@@ -592,7 +610,7 @@ Seu código remove uma mensagem de um fila em duas etapas. Quando você chamar o
 ## Como gerenciar arquivos e compartilhamentos de arquivos do Azure
 O Armazenamento de Arquivos do Azure oferece o armazenamento compartilhado para aplicativos com o uso do protocolo SMB padrão. As máquinas virtuais e os serviços de nuvem do Microsoft Azure podem compartilhar dados de arquivos entre componentes de aplicativos por meio de compartilhamentos montados, e aplicativos locais podem acessar dados de arquivos em um compartilhamento por meio da API de armazenamento de arquivo ou o Azure PowerShell.
 
-Para obter mais informações sobre o Armazenamento de Arquivos do Azure, consulte [Introdução ao Armazenamento de Arquivos do Azure com o Windows](storage-dotnet-how-to-use-files.md) e [API REST do Serviço de Arquivos](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Para obter mais informações sobre o armazenamento de Arquivos do Azure, consulte [Introdução ao armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md) e [API REST do Serviço de Arquivos](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## Como definir e consultar análises de armazenamento
 Você pode usar a [Análise de armazenamento do Azure](storage-analytics.md) para coletar métricas para suas contas de armazenamento do Azure e registrar dados sobre solicitações enviadas à sua conta de armazenamento. Você pode usar métricas de armazenamento para monitorar a integridade de uma conta de armazenamento, e log de armazenamento para diagnosticar e solucionar problemas com sua conta de armazenamento. Por padrão, as métricas de armazenamento não estão habilitadas para seus serviços de armazenamento. Você pode habilitar o monitoramento usando o Portal do Azure ou o Windows PowerShell ou programaticamente usando a biblioteca de cliente de armazenamento. O log de armazenamento ocorre no lado do servidor e permite que você registre detalhes de solicitações bem-sucedidas e com falhas na conta de armazenamento. Esses registros permitem ver detalhes de operações de leitura, gravação e exclusão em suas tabelas, filas e blobs bem como as razões para solicitações com falha.
@@ -613,7 +631,7 @@ Uma assinatura de acesso compartilhado pode estar em uma das duas formas:
 - **SAS ad hoc**: quando você cria uma SAS ad hoc, a hora de início, a hora de término e as permissões para a SAS são especificadas no URI SAS. Esse tipo de SAS pode ser criado em um contêiner, blob, tabela ou fila e é não pode ser revogado.
 - **SAS com política de acesso armazenada:** uma política de acesso armazenada é definida em um contêiner de recurso - um contêiner de blob, uma tabela ou uma fila - e pode ser usada para gerenciar as restrições de uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada. Esse tipo de SAS pode ser revogado.
 
-Para obter mais informações, consulte [Assinaturas de Acesso Compartilhado: compreendendo o Modelo SAS](storage-dotnet-shared-access-signature-part-1.md) e [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).
+Para obter mais informações, consulte [Assinaturas de Acesso Compartilhado: entendendo o Modelo SAS](storage-dotnet-shared-access-signature-part-1.md) e [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).
 
 Nas seções a seguir, você aprenderá a como criar uma política de acesso armazenado e um token de assinatura de acesso compartilhado para tabelas do Azure. O PowerShell do Azure fornece cmdlets semelhantes para contêineres, blobs e filas. Para executar os scripts nesta seção, baixe o [Azure PowerShell versão 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) ou posterior.
 
@@ -732,6 +750,5 @@ Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerSh
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
- 
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

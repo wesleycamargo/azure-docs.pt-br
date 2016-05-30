@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/17/2016"
+   ms.date="05/17/2016"
    ms.author="yuemlu"/>
 
 # Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
@@ -28,6 +28,9 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## Notícias atualizadas
+
+###### **17 de maio de 2016**
+A distribuição do SO convidado de maio começa a partir de 17 de maio de 2016, e está projetada para ser lançada em 10 de junho de 2016.
 
 ###### **18 de abril de 2016**
 A distribuição do SO convidado de abril começa em 18 de abril de 2016 e está projetada para ser lançada em 12 de maio de 2016.
@@ -55,9 +58,10 @@ Dá suporte a .NET 4.0, 4.5, 4.5.1, 4.5.2 (Observação 2)
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.31\_201604-01 | 12 de maio de 2016* | Post 4.33 | TBD |
+| WA-GUEST-OS-4.32\_201605-01 | 10 de junho de 2016* | Post 4.34 | TBD |
+| WA-GUEST-OS-4.31\_201604-01 | 2 de maio de 2016 | Post 4.33 | TBD |
 | WA-GUEST-OS-4.30\_201603-01 | 7 de abril de 2016 | Post 4.32 | TBD |
-| WA-GUEST-OS-4.29\_201602-02 | 12 de março de 2016 | Post 4.31 | TBD |
+| WA-GUEST-OS-4.29\_201602-02 | 12 de março de 2016 | 2 de junho de 2016 | TBD |
 | WA-GUEST-OS-4.28\_201601-01 | 12 de fevereiro de 2016 | 7 de maio de 2016 | TBD | 
 | WA-GUEST-OS-4.27\_201512-01 | 12 de janeiro de 2016 | 12 de abril de 2016 | TBD |
 | ~~WA-GUEST-OS-4.26\_201511-02~~ | 4 de janeiro de 2016 | 12 de março de 2016 | TBD |
@@ -80,9 +84,10 @@ Dá suporte a .NET 4.0, 4.5
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.38\_201604-01 | 12 de maio de 2016* | Post 3.40 | TBD |
+| WA-GUEST-OS-3.39\_201605-01 | 10 de junho de 2016* | Post 3.41 | TBD |
+| WA-GUEST-OS-3.38\_201604-01 | 2 de maio de 2016 | Post 3.40 | TBD |
 | WA-GUEST-OS-3.37\_201603-01 | 7 de abril de 2016 | Post 3.39 | TBD |
-| WA-GUEST-OS-3.36\_201602-02 | 12 de março de 2016 | Post 3.38 | TBD |
+| WA-GUEST-OS-3.36\_201602-02 | 12 de março de 2016 | 2 de junho de 2016 | TBD |
 | WA-GUEST-OS-3.35\_201601-01 | 12 de fevereiro de 2016 | 7 de maio de 2016 | TBD |
 | WA-GUEST-OS-3.34\_201512-01 | 12 de janeiro de 2016 | 12 de abril de 2016 | TBD |
 | ~~WA-GUEST-OS-3.33\_201511-02~~ | 4 de janeiro de 2016 | 12 de março de 2016 | TBD |
@@ -106,9 +111,10 @@ Dá suporte a .NET 3.5, 4.0
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.50\_201604-01 | 12 de maio de 2016* | Post 2.52 | TBD |
+| WA-GUEST-OS-2.51\_201605-01 | 10 de junho de 2016* | Post 2.53 | TBD |
+| WA-GUEST-OS-2.50\_201604-01 | 2 de maio de 2016 | Post 2.52 | TBD |
 | WA-GUEST-OS-2.49\_201603-01 | 7 de abril de 2016 | Post 2.51 | TBD |
-| WA-GUEST-OS-2.48\_201602-02 | 12 de março de 2016 | Post 2.50 | TBD |
+| WA-GUEST-OS-2.48\_201602-02 | 12 de março de 2016 | 2 de junho de 2016 | TBD |
 | WA-GUEST-OS-2.47\_201601-01 | 12 de fevereiro de 2016 | 7 de maio de 2016 | TBD |
 | WA-GUEST-OS-2.46\_201512-01 | 12 de janeiro de 2016 | 12 de abril de 2016 | TBD |
 | ~~WA-GUEST-OS-2.45\_201511-02~~ | 4 de janeiro de 2016 | 12 de março de 2016 | TBD |
@@ -176,7 +182,7 @@ Se você atualizar manualmente o SO convidado, leia [Política de desativação 
 ## Política de suporte e desativação do SO convidado
 A política de suporte e desativação do SO convidado é explicada [aqui][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/pt-BR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Configurações de atualização de SO convidado do Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -197,4 +203,4 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

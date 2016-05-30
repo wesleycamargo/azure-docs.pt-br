@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Restaurar dados para um Windows Server ou Windows Client do Azure | Microsoft Azure"
+   pageTitle="Restaurar dados para um Windows Server ou Client do Azure usando o modelo de implantação do Gerenciador de Recursos | Microsoft Azure"
    description="Saiba como restaurar de um Windows Server ou Windows Client."
    services="backup"
    documentationCenter=""
@@ -13,16 +13,23 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/25/2016"
+	 ms.date="05/10/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
-# Restauração de arquivos para um computador cliente Windows ou para um servidor Windows
+# Restaurar arquivos em um computador de cliente do Windows ou Windows Server usando o modelo de implantação do Gerenciador de recursos
+
+> [AZURE.SELECTOR]
+- [Portal do Azure](backup-azure-restore-windows-server.md)
+- [Portal clássico](backup-azure-restore-windows-server-classic.md)
+
 Este artigo aborda as etapas necessárias para executar dois tipos de operações de restauração:
 
 - Restaurar dados para o mesmo computador do qual os backups foram realizados.
 - Restaurar dados para qualquer outra máquina.
 
-Em ambos os casos, os dados são recuperados do cofre de backup do Azure.
+Em ambos os casos, os dados são recuperados do cofre dos Serviços de Recuperação do Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
 ## Recuperar dados para o mesmo computador
 Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo computador (do qual o backup foi feito), as etapas a seguir o ajudarão a recuperar os dados.
@@ -69,12 +76,12 @@ A terminologia usada nessas etapas inclui:
 
 - *Máquina de origem*: a máquina original da qual o backup foi feito e que está indisponível no momento.
 - *Computador de destino* – O computador para o qual os dados estão sendo recuperados.
-- *Cofre de exemplo* – Cofre de backup em que o *Computador de origem* e o *Computador de destino* são registrados. <br/>
+- *Cofre de exemplo* – Cofre dos Serviços de Recuperação em que o *Computador de origem* e o *Computador de destino* são registrados. <br/>
 
 > [AZURE.NOTE] Os backups de um computador não podem ser restaurados em um computador que esteja executando uma versão anterior do sistema operacional. Por exemplo, se um backup for de um computador com Windows 7, ele poderá ser restaurado em um computador com Windows 8 ou superior. No entanto, o contrário não pode ocorrer.
 
 1. Abra o snap-in do **Backup do Microsoft Azure** no *Computador de destino*.
-2. Verifique se o *Computador de destino* e o *Computador de origem* serão restaurados no mesmo cofre de backup.
+2. Verifique se o *Computador de destino* e o *Computador de origem* serão restaurados no mesmo cofre de Serviços de Recuperação.
 3. Clique em **Recuperar Dados** para iniciar o fluxo de trabalho.
 
     ![Recuperar dados](./media/backup-azure-restore-windows-server/recover.png)
@@ -83,7 +90,7 @@ A terminologia usada nessas etapas inclui:
 
     ![Outro servidor](./media/backup-azure-restore-windows-server/anotherserver.png)
 
-5. Forneça o arquivo de credencial de cofre que corresponde ao *Cofre de exemplo*. Se o arquivo de credencial do cofre for inválido (ou tiver expirado), baixe um novo arquivo de credencial do *Cofre de exemplo* no Portal do Azure. Depois que o arquivo de credencial de cofre for fornecido, o cofre de backup relacionado ao arquivo de credencial de cofre será exibido.
+5. Forneça o arquivo de credencial de cofre que corresponde ao *Cofre de exemplo*. Se o arquivo de credencial do cofre for inválido (ou tiver expirado), baixe um novo arquivo de credencial do *Cofre de exemplo* no Portal do Azure. Depois que o arquivo de credencial de cofre for fornecido, o cofre de Serviços de Recuperação relacionado ao arquivo de credencial de cofre será exibido.
 
 6. Selecione o *Computador de origem* na lista de computadores exibidos.
 
@@ -108,12 +115,6 @@ A terminologia usada nessas etapas inclui:
 11. Após a entrada ser fornecida, clique no botão **Recuperar**, o que inicia a restauração dos arquivos de backup no destino fornecido.
 
 ## Próximas etapas
-- [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
-- Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Agora que você restaurou seus arquivos e pastas, poderá [gerenciar seus backups](backup-azure-manage-windows-server.md).
 
-## Saiba mais
-- [Visão geral do backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425)
-- [Fazer backup de máquinas virtuais do Azure](backup-azure-vms-introduction.md)
-- [Fazer backup de cargas de trabalho Microsoft](backup-azure-dpm-introduction.md)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

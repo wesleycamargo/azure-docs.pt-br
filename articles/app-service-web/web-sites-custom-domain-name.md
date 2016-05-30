@@ -20,9 +20,9 @@
 # Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure
 
 > [AZURE.SELECTOR]
-- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
-- [Web Apps with External Domains](web-sites-custom-domain-name.md)
-- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [Comprar Domínio para Aplicativos Web](custom-dns-web-site-buydomains-web-app.md)
+- [Aplicativos Web com Domínios Externos](web-sites-custom-domain-name.md)
+- [Aplicativos Web com Gerenciador de Tráfego](web-sites-traffic-manager-custom-domain-name.md)
 - [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 Quando você cria um aplicativo Web, o Azure o atribui a um subdomínio do azurewebsites.net. Por exemplo, se seu aplicativo Web é chamado **contoso**, a URL é **contoso.azurewebsites.net**. O Azure também fornece um endereço IP virtual.
@@ -112,7 +112,7 @@ Considerando que o nome de domínio personalizado é "contoso.com", isso criaria
 - **contoso.com** mapeado para 168.62.48.183.
 - **www.contoso.com** mapeado para **contoso.azurewebsites.net**.
 
->[AZURE.NOTE] Você pode usar o DNS do Azure para hospedar os registros de domínio necessários para seu aplicativo Web. Para configurar seu domínio personalizado e criar seus registros no DNS do Azure, consulte [Criar registros de DNS personalizados para um aplicativo Web](../dns/dns-web-sites-custom-domain).
+>[AZURE.NOTE] Você pode usar o DNS do Azure para hospedar os registros de domínio necessários para seu aplicativo Web. Para configurar seu domínio personalizado e criar seus registros no DNS do Azure, consulte [Criar registros de DNS personalizados para um aplicativo Web](../dns/dns-web-sites-custom-domain.md).
 
 <a name="awverify" />
 ## Criar um registro awverify (apenas registros A)
@@ -155,4 +155,4 @@ Para obter mais informações, consulte: [Introdução ao DNS do Azure](../dns/d
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

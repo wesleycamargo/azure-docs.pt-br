@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conectar-se ao Banco de Dados SQL usando Node.js"
+	pageTitle="Conectar-se ao Banco de Dados SQL usando Node.js | Microsoft Azure"
 	description="Apresenta um exemplo de código Node.js que pode ser usado para se conectar ao Banco de Dados SQL do Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -38,4 +38,4 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 
 [Proof of Concept connecting to SQL using Node.js](https://msdn.microsoft.com/library/mt715784.aspx) (Prova de conceito, conectar-se ao SQL usando Node.js)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

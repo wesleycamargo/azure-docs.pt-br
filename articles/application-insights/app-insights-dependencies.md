@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
  
 # Diagnosticar problemas com dependências no Application Insights
@@ -58,7 +58,17 @@ Serviço de Nuvem do Azure | [Usar tarefa de inicialização](app-insights-cloud
 
 O Monitor de status para servidores IIS não necessita que você recompile o projeto de origem com o SDK do Application Insights.
 
-## <a name="diagnosis"></a> Diagnosticar problemas de desempenho de dependência no servidor Web
+## Mapa de aplicativo
+
+O Mapa de aplicativo atua como uma ajuda visual para descobrir dependências entre os componentes do seu aplicativo.
+
+![Clique em Configurações, Mapa do aplicativo.](./media/app-insights-dependencies/08.png)
+
+A partir das caixas, você pode navegar para a dependência relevante e outros gráficos.
+
+Clique no pequeno [x] para recolher uma subárvore.
+
+## <a name="diagnosis"></a> Diagnosticando problemas de desempenho de dependência no servidor Web
 
 Para avaliar o desempenho de solicitações no seu servidor:
 
@@ -140,4 +150,4 @@ Consulte [Páginas da Web](app-insights-javascript.md).
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

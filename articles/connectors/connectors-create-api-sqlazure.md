@@ -14,23 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 
 # Introdução à API do SQL Azure
-Conecte-se ao SQL Azure para gerenciar suas tabelas e linhas, como ao inserir linhas, obter tabelas e muito mais.
+Conecte-se ao Banco de Dados SQL do Azure para gerenciar suas tabelas e linhas, como ao inserir linhas, obter tabelas e muito mais.
 
-A API do SQL Azure pode ser usada em:
+A API do Banco de Dados SQL do Azure pode ser usada em:
 
-- Aplicativos lógicos 
+- Aplicativos lógicos (discutidos neste tópico)
+- PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
-Com o SQL Azure, é possível:
+Com o Banco de Dados SQL do Azure, você pode:
 
-- Compile seu fluxo de negócios baseado nos dados obtidos do SQL Azure. 
-- Use as ações para obter uma linha, insira uma linha e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter uma linha de dados do SQL Azure e, em seguida, adicionar esses dados ao Excel. 
+- Compile seu fluxo de negócios baseado nos dados obtidos do Banco de Dados SQL do Azure. 
+- Use as ações para obter uma linha, insira uma linha e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode obter uma linha de dados do Banco de Dados SQL do Azure e, em seguida, adicionar esses dados ao Excel. 
 
 Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -49,7 +50,7 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
-|Cadeia de Conexão SQL|Sim|Insira a cadeia de conexão do SQL Azure|
+|Cadeia de Conexão SQL|Sim|Digite sua cadeia de conexão do Banco de Dados SQL do Azure|
 
 Depois de criar a conexão, insira as propriedades do SQL, como o nome da tabela. A **Referência da API REST** neste tópico descreve essas propriedades.
 
@@ -59,7 +60,7 @@ Depois de criar a conexão, insira as propriedades do SQL, como o nome da tabela
 Aplica-se à versão: 1.0.
 
 ### Obter linha 
-Recupera uma única linha de uma tabela SQL.```GET: /datasets/default/tables/{table}/items/{id}```
+Recupera uma única linha de uma tabela SQL. ```GET: /datasets/default/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -74,7 +75,7 @@ Recupera uma única linha de uma tabela SQL.```GET: /datasets/default/tables/{ta
 
 
 ### Obter linhas 
-Recupera linhas de uma tabela SQL.```GET: /datasets/default/tables/{table}/items```
+Recupera linhas de uma tabela SQL. ```GET: /datasets/default/tables/{table}/items```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -92,7 +93,7 @@ Recupera linhas de uma tabela SQL.```GET: /datasets/default/tables/{table}/items
 
 
 ### Inserir linha 
-Insere uma nova linha em uma tabela SQL.```POST: /datasets/default/tables/{table}/items```
+Insere uma nova linha em uma tabela SQL. ```POST: /datasets/default/tables/{table}/items```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -107,7 +108,7 @@ Insere uma nova linha em uma tabela SQL.```POST: /datasets/default/tables/{table
 
 
 ### Excluir linha 
-Exclui uma linha de uma tabela SQL.```DELETE: /datasets/default/tables/{table}/items/{id}```
+Exclui uma linha de uma tabela SQL. ```DELETE: /datasets/default/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -122,7 +123,7 @@ Exclui uma linha de uma tabela SQL.```DELETE: /datasets/default/tables/{table}/i
 
 
 ### Obter tabelas 
-Recupera as tabelas de um banco de dados SQL.```GET: /datasets/default/tables```
+Recupera as tabelas de um banco de dados SQL. ```GET: /datasets/default/tables```
 
 Não existem parâmetros para esta chamada.
 
@@ -134,7 +135,7 @@ Não existem parâmetros para esta chamada.
 
 
 ### Atualizar linha 
-Atualiza uma linha existente em uma tabela SQL.```PATCH: /datasets/default/tables/{table}/items/{id}```
+Atualiza uma linha existente em uma tabela SQL. ```PATCH: /datasets/default/tables/{table}/items/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -146,7 +147,7 @@ Atualiza uma linha existente em uma tabela SQL.```PATCH: /datasets/default/table
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 ## Definições de objeto
 
@@ -225,6 +226,6 @@ Atualiza uma linha existente em uma tabela SQL.```PATCH: /datasets/default/table
 
 ## Próximas etapas
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -73,17 +73,17 @@ Em seguida, você criará uma conexão híbrida e um serviço do BizTalk para o 
 2. Na lâmina Conexões Híbridas, clique em **Adicionar**.
 	
 	<!-- ![Add a hybrid connnection][CreateHCAddHC]
--->
+	-->
 	
 3. A lâmina **Adicionar uma conexão híbrida** se abre. Como essa é sua primeira conexão híbrida, a opção **Nova Conexão Híbrida** fica pré-selecionada e a lâmina **Criar Conexão Híbrida** se abre para você.
 	
 	![Criar uma Conexão Híbrida][TwinCreateHCBlades]
 	
-	Na **folha Criar conexão híbrida**:
-	- Para **Nome**, forneça um nome para a conexão.
-	- Para **Nome de host**, digite o nome do computador local que hospeda o recurso.
-	- Para **Porta**, digite o número da porta que o recurso local usa (1433 para uma instância do SQL Server padrão).
-	- Clique em **Serviço BizTalk**
+	Na lâmina **Criar Conexão Híbrida**:
+	- Como **Nome**, forneça um nome para a conexão.
+	- Como **Nome de host**, insira o nome do computador local que hospeda seu recurso.
+	- Como **Porta**, insira o número da porta que o seu recurso local utiliza (1433 para uma instância padrão de SQL Server).
+	- Clique em **Serviço Biz Talk**
 
 
 4. A folha **Criar serviço BizTalk** será aberta. Insira um nome para o serviço BizTalk, então clique em **OK**.
@@ -98,8 +98,8 @@ Em seguida, você criará uma conexão híbrida e um serviço do BizTalk para o 
 	
 6. Quando o processo for concluído, a área de notificações no Portal informa a você que a conexão foi criada com sucesso.
 	<!--- TODO
-
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	
+	Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
 	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
 	Create hybrid conn step, you get the following error
 	Failed to create hybrid connection RelecIoudHC. The 
@@ -227,7 +227,7 @@ Neste ponto, você pode publicar novamente o projeto do servidor e testar a nova
 
 [Site de Conexões Híbridas](https://azure.microsoft.com/services/biztalk-services/)
 
-[Serviços BizTalk: guias Painel, Monitor, Escala, Configurar e Conexão Híbrida](../biztalk-dashboard-monitor-scale-tabs/)
+[Serviços BizTalk: guias Painel, Monitor, Escala, Configurar e Conexão Híbrida](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 
 [Criando uma nuvem híbrida no mundo real com portabilidade perfeita com aplicativo (vídeo no Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
@@ -262,4 +262,4 @@ Neste ponto, você pode publicar novamente o projeto do servidor e testar a nova
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

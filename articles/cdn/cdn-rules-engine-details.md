@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
 # Condição de correspondência do mecanismo de regras CDN e detalhes do recurso
 
-Este tópico lista descrições detalhadas dos recursos e das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo do Azure)
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-> [AZURE.NOTE] O Mecanismo de Regras requer a camada CDN Premium. Para saber mais sobre os recursos das camadas CDN Standard e Premium, confira [Visão geral da Rede de Distribuição de Conteúdo do Azure](cdn-overview.md).
+Este tópico lista descrições detalhadas dos recursos e das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo do Azure)
 
 ## Condições de correspondência
 
@@ -98,6 +98,8 @@ Um recurso define o tipo de ação que será aplicado ao tipo de solicitação i
 ### Access
 
 Esses recursos são projetados para controlar o acesso ao conteúdo.
+
+> [AZURE.NOTE] A autenticação de token ainda não está disponível, mas terá suporte em uma versão futura.
 
 Nome | Finalidade
 -----|--------
@@ -206,4 +208,4 @@ O recurso Firewall do Aplicativo Web determina se uma solicitação será verifi
 * [Visão geral da CDN do Azure](cdn-overview.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

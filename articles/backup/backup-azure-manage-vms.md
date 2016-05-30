@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="05/06/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Gerenciar e monitorar backups de máquinas virtuais do Azure
@@ -42,7 +42,9 @@ Para gerenciar máquinas virtuais protegidas:
     ![Trabalhos](./media/backup-azure-manage-vms/backup-job.png)
 
 ## Backup sob demanda de uma máquina virtual
-Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup inicial estiver pendente para a máquina virtual, o backup sob demanda criará uma cópia completa da máquina virtual no cofre de backup do Azure. Se o primeiro backup for concluído, o backup sob demanda enviará apenas as alterações de backup anterior para o cofre de backup do Azure.
+Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup inicial estiver pendente para a máquina virtual, o backup sob demanda criará uma cópia completa da máquina virtual no cofre de backup do Azure. Se o primeiro backup for concluído, o backup sob demanda enviará apenas as alterações de backup anterior para o cofre de backup do Azure, ou seja, sempre é incremental.
+
+>[AZURE.NOTE] Período de retenção de um backup sob demanda é definido como o valor de retenção especificado para retenção diária na política de backup correspondente à máquina virtual.
 
 Para fazer backup sob demanda de uma máquina virtual:
 
@@ -198,62 +200,39 @@ Para exibir logs de operação correspondentes a um cofre de backup:
     ![Detalhes da Operação](./media/backup-azure-manage-vms/ops-logs-details-window.png)
 
 ## Notificações de alerta
-Você pode obter notificações de alerta personalizadas para os trabalhos no portal. Isso é feito definindo regras de alerta do PowerShell baseadas em eventos de logs operacionais.
-
-Os alertas baseados em eventos funcionam no modo de recurso do Azure. Alterne para modo de recurso do Azure executando o seguinte cmdlet no modo de comando com privilégios elevados:
-
-```
-PS C:\> Switch-AzureMode AzureResourceManager
-```
+Você pode obter notificações de alerta personalizadas para os trabalhos no portal. Isso é feito definindo regras de alerta do PowerShell baseadas em eventos de logs operacionais. É recomendável usar *PowerShell versão 1.3.0 ou superior*.
 
 Para definir uma notificação personalizada para o alerta de falhas de backup, um comando de exemplo terá a seguinte aparência:
 
 ```
-PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
+PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
 ```
 
 **ResourceId**: você pode obter isso no pop-up Logs de Operações, conforme descrito na seção acima. O ResourceUri na janela pop-up de detalhes de uma operação é a ResourceId a ser fornecida para esse cmdlet.
 
-**EventName**: para alertas sobre o backup da VM IaaS, os valores com suporte são: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
+**OperationName**: isto terá o formato  
+"Microsoft.Backup/backupvault/<EventName>" em que EventName é um de: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy
 
-**Level**: os valores com suporte são Informational, Error. Para alertas de falha na ação, use Error, e para alertas em trabalhos com êxito, use Informational.
-
-**OperationName**: terá o formato "Microsoft.Backup/backupvault/<EventName>", em que EventName é conforme descrito acima.
-
-**Status**: os valores com suporte são Started, Succeeded e Failed. É aconselhável manter Informational como nível de status de êxito.
-
-**SubStatus**: o mesmo que o status de operações de backup
-
-**RuleType**: mantenha-o como *Event*, já que os alertas de backup são baseados em eventos.
+**Status**: os valores com suporte são Started, Succeeded e Failed.
 
 **ResourceGroup**: ResourceGroup do recurso em que a operação é disparada. Você pode obter isso do valor ResourceId. O valor entre os campos */resourceGroups/* e */providers/* em um valor ResourceId é o valor para ResourceGroup.
 
 **Name**: nome da regra de alerta.
 
-**Description**: descrição da regra de alerta.
+**CustomEmail**: especifique o endereço de email personalizado para o qual você deseja enviar a notificação de alerta
 
-**CustomEmails**: especifique o endereço de email personalizado para o qual você deseja enviar a notificação de alerta
-
-**SendToServiceOwners**: essa opção envia a notificação de alerta para todos os administradores e coadministradores da assinatura.
-
-Uma mensagem de alerta de exemplo tem a seguinte aparência:
-
-Cabeçalho de exemplo:
-
-![Cabeçalho de alerta](./media/backup-azure-manage-vms/alert-header.png)
-
-Exemplo de corpo do email de alerta:
-
-![Corpo de alerta](./media/backup-azure-manage-vms/alert-body.png)
+**SendToServiceOwners**: essa opção envia a notificação de alerta para todos os administradores e coadministradores da assinatura. Ele pode ser usado no cmdlet **New-AzureRmAlertRuleEmail**
 
 ### Limitações sobre alertas
 Os alertas baseados em eventos em estão sujeitos às seguintes limitações:
 
 1. Os alertas são disparados em todas as máquinas virtuais no cofre de backup. Você não pode personalizá-lo para obter alertas de um conjunto específico de máquinas virtuais em um cofre de backup.
-2. Os alertas são automaticamente resolvidos se não há nenhum evento correspondente de alerta disparado no próximo intervalo do alerta. Use o parâmetro *WindowSize* no cmdlet Add-AlertRule para definir a duração de disparo do alerta.
+2. Esse recurso está na visualização. [Saiba mais](../azure-portal/insights-powershell-samples.md/#create-alert-rules)
+3. Você receberá alertas de "alerts-noreply@mail.windowsazure.com". No momento, você não pode modificar o remetente do email. 
 
 ## Próximas etapas
 
 - [Restaurar máquinas virtuais do Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

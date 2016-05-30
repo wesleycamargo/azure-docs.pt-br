@@ -55,7 +55,7 @@ Em seguida, crie o recurso de aplicativo do Serviço de Aplicativo no Azure. Voc
 
     Siga o prompt para continuar o logon em um navegador com uma conta da Microsoft que tenha sua assinatura do Azure.
 
-2. Verifique se você ainda está no diretório raiz do projeto Sails.js. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando. A URL do aplicativo Web será http://&lt;appname>.azurewebsites.net.
+2. Verifique se você ainda está no diretório raiz do projeto Sails.js. Crie o recurso de aplicativo do Serviço de Aplicativo no Azure com um nome de aplicativo exclusivo com o próximo comando. A URL do aplicativo Web é http://&lt;appname>.azurewebsites.net.
 
         azure site create --git <appname>
 
@@ -238,4 +238,4 @@ Para se conectar a um banco de dados do Azure, crie o banco de dados de sua esco
 - [Get started with Node.js web apps in Azure App Service](app-service-web-nodejs-get-started.md) (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)
 - [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/15/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Protegendo os dados armazenados no repositório Azure Data Lake
@@ -34,6 +34,10 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 - **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
+
+## Você aprende rapidamente com vídeos?
+
+[Assista a este vídeo](https://mix.office.com/watch/1q2mgzh9nn5lx) sobre como proteger os dados armazenados no Repositório Data Lake.
 
 ## Criar grupos de segurança no Active Directory do Azure
 
@@ -98,8 +102,8 @@ Ao atribuir usuários/grupos de segurança ao sistema de arquivos do Azure Data 
 
 	![Listar acesso padrão e personalizado](./media/data-lake-store-secure-data/adl.acl.2.png "Listar acesso padrão e personalizado")
 
-	* Acesso padrão é o acesso ao estilo UNIX, no qual você especifica leitura, gravação e execução (rwx) a três classes de usuário distintas: proprietário, grupo e outros.
-	* O acesso personalizado corresponde às ACLs POSIX e permite a definição de permissões para usuários ou grupos nomeados específicos, e não apenas ao proprietário do arquivo ou grupo.
+	* **Acesso padrão** é o acesso ao estilo UNIX, no qual você especifica leitura, gravação e execução (rwx) a três classes de usuário distintas: proprietário, grupo e outros.
+	* O **acesso personalizado** corresponde às ACLs POSIX e permite a definição de permissões para usuários ou grupos nomeados específicos, e não apenas ao proprietário do arquivo ou grupo. 
 	
 	Para saber mais, consulte [ACLs HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists).
 
@@ -111,8 +115,13 @@ Ao atribuir usuários/grupos de segurança ao sistema de arquivos do Azure Data 
 
 	![Atribuir permissões ao grupo](./media/data-lake-store-secure-data/adl.acl.4.png "Atribuir permissões ao grupo")
 
+	As permissões podem ser compreendidas da seguinte maneira:
 
-	>[AZURE.NOTE] A permissão de Execução é necessária para a enumeração de diretórios e costuma ser necessária ao fornecer a um usuário ou grupo o acesso somente leitura aos dados.
+	* **Leitura** - Se essa permissão for definida em um diretório, ela fornece a capacidade de ler os nomes dos arquivos no diretório.
+	* **Gravar** - Se essa permissão for definida em um diretório, ela fornece a capacidade de modificar as entradas no diretório, como criar um arquivo, excluir um arquivo ou renomear um arquivo.
+	* **Execução** - Se essa permissão for definida em um diretório, ela fornece a capacidade de acessar o conteúdo do arquivo no diretório. Isso também fornece acesso aos metadados do arquivo, se o nome do arquivo é conhecido. No entanto, essa permissão não permite listar os arquivos no diretório, a menos que a permissão **Leitura** também seja definida.
+
+	>[AZURE.NOTE] A permissão de **Leitura + Execução** é necessária para a enumeração de diretórios e costuma ser necessária ao fornecer a um usuário ou grupo o acesso somente leitura aos dados.
 
 
 6. Na folha **Adicionar Acesso Personalizado**, clique em **OK**. O grupo recém-adicionado, com as permissões associadas, estará listado na folha **Acesso**.
@@ -165,4 +174,4 @@ Quando você remove as ACLs de grupos de segurança do sistema de arquivos do re
 - [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)
 - [Introdução ao Repositório Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/09/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados De uma origem de OData usando o Azure Data Factory
@@ -287,4 +287,7 @@ Ao mover dados de repositórios de dados OData, os tipos de dados OData são map
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!-----HONumber=AcomDC_0224_2016-->
+## Desempenho e Ajuste  
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+
+<!---HONumber=AcomDC_0518_2016-->

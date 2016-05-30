@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
     
 # Solucionando problemas de pontos de extremidade CDN que retornam o status 404
@@ -37,7 +37,7 @@ Há várias causas possíveis, incluindo:
 
 ## Etapas para solucionar problemas
 
-> [AZURE.IMPORTANT] Depois de criar um ponto de extremidade CDN, ele não estará imediatamente disponível para uso, pois o registro demora um pouco para ser propagado pela CDN. Ele geralmente estará disponível dentro de 90 minutos, mas em alguns casos pode levar mais tempo. Se você concluir as etapas descritas neste documento e ainda obter respostas 404, considere aguardar algumas horas para verificar novamente antes de abrir um tíquete de suporte.
+> [AZURE.IMPORTANT] Depois de criar um ponto de extremidade CDN, ele não estará imediatamente disponível para uso, pois o registro demora um pouco para ser propagado pela CDN. Para perfis da <b>CDN do Azure da Akamai</b>, a propagação normalmente é concluída em um minuto. Para perfis da <b>CDN do Azure da Verizon</b>, a propagação geralmente é concluída em 90 minutos, mas em alguns casos pode levar mais tempo. Se você concluir as etapas descritas neste documento e ainda obter respostas 404, considere aguardar algumas horas para verificar novamente antes de abrir um tíquete de suporte.
 
 ### Verificar o arquivo de origem
 
@@ -49,7 +49,7 @@ Primeiro, devemos verificar se o arquivo que desejamos armazenar em cache está 
 
 ### Verificar as configurações de origem
 
-Agora que verificamos se o arquivo está disponível publicamente na Internet, devemos verificar nossas configurações de origem. No [Portal do Azure](https://portal.azure.com), navegue até o perfil CDN e clique no ponto de extremidade que você está solucionando. Na folha **Ponto de Extremidade** resultante, clique na origem.
+Agora que verificamos se o arquivo está disponível publicamente na Internet, devemos verificar nossas configurações de origem. No [Portal do Azure](https://portal.azure.com), navegue até o seu perfil CDN e clique no ponto de extremidade que você está solucionando. Na folha **Ponto de Extremidade** resultante, clique na origem.
 
 ![Folha do ponto de extremidade com a origem realçada](./media/cdn-troubleshoot-endpoint/cdn-endpoint.png)
 
@@ -66,6 +66,8 @@ Verifique se o **Tipo de origem** está correto e verifique também o **Nome do 
 O outro item a ser verificado aqui são as portas **HTTP** e **HTTPS**. Na maioria dos casos, as portas 80 e 443 estão corretas e não será necessária nenhuma alteração. No entanto, se o servidor de origem estiver escutando em uma porta diferente, isso precisará ser representado aqui. Caso você não tenha certeza disso, basta examinar a URL do arquivo de origem. As especificações de HTTP e HTTPS especificam as portas 80 e 443 como os padrões. Em minha URL, `https://cdndocdemo.blob.core.windows.net/publicblob/lorem.txt`, uma porta não é especificada, o padrão de 443 é adotado e minhas configurações estão corretas.
 
 No entanto, digamos que a URL do arquivo de origem testado anteriormente seja `http://www.contoso.com:8080/file.txt`. Observe o `:8080` no final do segmento do nome do host. Isso informa ao navegador que ele deverá usar a porta `8080` para se conectar ao servidor Web em `www.contoso.com`; portanto, você precisará inserir 8080 no campo **Porta HTTP**. É importante observar que essas configurações de porta só afetam a porta usada pelo ponto de extremidade para recuperar informações da origem.
+
+> [AZURE.NOTE] Os pontos de extremidade da **CDN do Azure da Akamai** não permitem o intervalo de portas TCP completo para origens. Para obter uma lista de portas de origem que não são permitidas, confira [Detalhes do comportamento da CDN do Azure da Akamai](cdn-akamai-behavior-details.md).
   
 ### Verificar as configurações de ponto de extremidade
 
@@ -81,7 +83,7 @@ A folha **Configurar** do ponto de extremidade é exibida.
 
 Para **Protocolos**, verifique se o protocolo usado pelos clientes está selecionado. O mesmo protocolo usado pelo cliente será usado para acessar a origem; portanto, é importante ter as portas de origem configuradas corretamente na seção anterior. O ponto de extremidade ouve apenas as portas HTTP e HTTPS (80 e 443) padrão, independentemente das portas de origem.
 
-Vamos voltar ao nosso exemplo hipotético com `http://www.contoso.com:8080/file.txt`. Como você se lembrará, a Contoso especificou `8080` como sua HTTP porta, mas suponhamos também que eles especificaram `44300` como sua porta HTTPS. Se eles criaram um ponto de extremidade chamado `contoso`, seu nome do host do ponto de extremidade CDN será `contoso.azureedge.net`. Uma solicitação de `http://contoso.azureedge.net/file.txt` é uma solicitação HTTP e, portanto, o ponto de extremidade usará HTTP na porta 8080 para recuperá-la da origem. Uma solicitação segura via HTTPS, `https://contoso.azureedge.net/file.txt`, faria com que o ponto de extremidade usasse HTTPS na porta 44300 ao recuperar o arquivo de origem.
+Vamos voltar ao nosso exemplo hipotético com `http://www.contoso.com:8080/file.txt`. Como você se lembrará, a Contoso especificou `8080` como sua porta HTTP, mas suponhamos também que eles especificaram `44300` como sua porta HTTPS. Se eles criaram um ponto de extremidade chamado `contoso`, seu nome do host do ponto de extremidade CDN será `contoso.azureedge.net`. Uma solicitação de `http://contoso.azureedge.net/file.txt` é uma solicitação HTTP, portanto o ponto de extremidade usará HTTP na porta 8080 para recuperá-la da origem. Uma solicitação segura via HTTPS, `https://contoso.azureedge.net/file.txt`, faria com que o ponto de extremidade usasse HTTPS na porta 44300 ao recuperar o arquivo da origem.
 
 #### Cabeçalho de host de origem
 
@@ -91,8 +93,8 @@ O **Cabeçalho de host de origem** é o valor do cabeçalho de host enviado para
 
 Por fim, devemos verificar nosso **Caminho de origem**. Por padrão, ele está em branco. Esse campo apenas deverá ser usado se você quiser restringir o escopo dos recursos hospedados na origem que deseja disponibilizar na CDN.
 
-Por exemplo, em meu ponto de extremidade, como eu queria que todos os recursos em minha conta de armazenamento estivessem disponíveis, deixei o **Caminho de origem** em branco. Isso significa que uma solicitação para `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` resulta em uma conexão de meu ponto de extremidade a `cdndocdemo.core.windows.net` que solicita `/publicblob/lorem.txt`. Da mesma forma, uma solicitação de `https://cdndocdemo.azureedge.net/donotcache/status.png` resulta na solicitação de `/donotcache/status.png` da origem pelo ponto de extremidade.
+Por exemplo, em meu ponto de extremidade, como eu queria que todos os recursos em minha conta de armazenamento estivessem disponíveis, deixei o **Caminho de origem** em branco. Isso significa que uma solicitação para `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` resulta em uma conexão do meu ponto de extremidade a `cdndocdemo.core.windows.net` que solicita `/publicblob/lorem.txt`. Da mesma forma, uma solicitação de `https://cdndocdemo.azureedge.net/donotcache/status.png` resulta na solicitação de `/donotcache/status.png` da origem pelo ponto de extremidade.
 
 Mas e se não quiser usar a CDN para cada caminho na origem? Digamos que eu quisesse apenas expor o caminho `publicblob`. Se eu inserir */publicblob* no campo **Caminho de origem**, isso fará com que o ponto de extremidade insira */publicblob* antes de todas as solicitações feitas para a origem. Isso significa que a solicitação de `https://cdndocdemo.azureedge.net/publicblob/lorem.txt` agora usará, na verdade, a parte da solicitação da URL, `/publicblob/lorem.txt`, e acrescentará `/publicblob` ao início. Isso resulta em uma solicitação de `/publicblob/publicblob/lorem.txt` da origem. Se esse caminho não for resolvido para um arquivo real, a origem retornará um status 404. Na verdade, a URL correta para recuperar lorem.txt neste exemplo seria `https://cdndocdemo.azureedge.net/lorem.txt`. Observe que não incluímos o caminho */publicblob*, porque a parte da solicitação da URL é `/lorem.txt` e o ponto de extremidade adiciona `/publicblob`, fazendo com que `/publicblob/lorem.txt` seja a solicitação transmitida para a origem.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

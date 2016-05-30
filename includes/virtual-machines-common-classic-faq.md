@@ -13,12 +13,13 @@ Todos os assinantes podem executar software para servidores em uma máquina virt
 
 Para imagens do Windows Client, determinadas versões do Windows 7 e Windows 8.1 estão disponíveis para assinantes de benefícios do Azure na MSDN e assinantes do modelo "pré-pago" do Desenvolvimento e Teste da MSDN, para tarefas de teste e desenvolvimento. Para obter detalhes, incluindo instruções e limitações, veja [Imagens do Windows Client para assinantes do MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/).
 
-## Por que os Grupos de Afinidades estão sendo preteridos?
+## Por que os grupos de afinidades estão sendo preteridos?
 
-Grupos de Afinidades é um conceito herdado que, originalmente, foi apresentado para melhorar o desempenho de rede VM a VM nos designs iniciais de rede do Azure, bem como para dar suporte à versão inicial das VNets (redes virtuais) que eram limitadas a um pequeno conjunto de hardware em uma região. A rede atual do Azure em uma região foi projetada de modo que os grupos de afinidades não são mais necessários. As VNets também estão em um escopo regional e, portanto, não é mais necessário ter um grupo de afinidades ao usar uma VNet. Em virtude dessas melhorias, não é mais recomendável que os clientes usem grupos de afinidades, pois eles podem ser restritivos em alguns cenários. O uso de grupos de afinidades associará desnecessariamente suas VMs a um hardware específico, o que limitará a escolha de tamanhos de VM disponíveis para você. Ele também pode levar a erros relacionados à capacidade ao tentar adicionar novas VMs, caso o hardware específico associado ao grupo de afinidades esteja próximo à capacidade.
+Os grupos de afinidade são um conceito herdado para um agrupamento geográfico de implantações de serviço de nuvem do cliente e contas de armazenamento no Azure. Eles foram originalmente fornecidos para aprimorar o desempenho da rede VM para VM nos designs de rede iniciais do Azure. Elas também dão suporte à versão inicial das redes virtuais (VNets), que eram limitadas a um pequeno conjunto de hardware em uma região.
 
-Os recursos de Grupo de Afinidades já foram preteridos no modelo de implantação do Azure Resource Manager e no portal. No portal clássico, o suporte para criação de grupos de afinidades e criação de recursos de armazenamento fixos em um grupo de afinidades está sendo preterido. Os serviços de nuvem existentes que usam um grupo de afinidades não precisam ser modificados. Os novos serviços de nuvem não devem usar grupos de afinidades, a menos que recomendado por um profissional do suporte do Azure.
+A rede atual do Azure em uma região foi projetada de modo que os grupos de afinidades não são mais necessários. As redes virtuais também estão em um escopo regional e, portanto, não é mais necessário ter um grupo de afinidades ao usar uma rede virtual. Em virtude dessas melhorias, não é mais recomendável que os clientes usem grupos de afinidades, pois eles podem ser restritivos em alguns cenários. O uso de grupos de afinidades associará desnecessariamente suas VMs a um hardware específico, limitando a escolha de tamanhos de VM disponíveis para você. Ele também pode levar a erros relacionados à capacidade quando você tentar adicionar novas VMs, caso o hardware específico associado ao grupo de afinidades esteja próximo à capacidade.
 
+Os recursos de grupo de afinidades já foram preteridos no modelo de implantação do Azure Resource Manager e no portal do Azure. Para o portal clássico do Azure, o suporte para criação de grupos de afinidades e criação de recursos de armazenamento fixos em um grupo de afinidades está sendo preterido. Você não precisa modificar os serviços de nuvem existentes que estejam usando um grupo de afinidades. No entanto, você não deve usar os grupos de afinidades para os novos serviços de nuvem, a menos que isso seja recomendado por um profissional do suporte do Azure.
 
 ## Quanto armazenamento eu posso usar com uma máquina virtual?
 
@@ -50,7 +51,7 @@ Você precisará especificar a rede à qual deseja que a máquina virtual perten
 
 ## Como posso acessar minha máquina virtual?
 
-Você precisa estabelecer uma conexão remota para fazer logon na máquina virtual, usando a Conexão de Área de Trabalho Remota para uma VM do Windows ou um SSH (Secure Shell) para uma VM do Linux. Para obter instruções, consulte:
+Você precisa estabelecer uma conexão remota para fazer logon na máquina virtual, usando a Conexão de Área de Trabalho Remota para uma VM do Windows ou um SSH (Secure Shell) para uma VM Linux. Para obter instruções, consulte:
 
 - [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md). Há suporte para o máximo de duas conexões simultâneas, a menos que o servidor esteja configurado como um host de sessão dos Serviços de Área de Trabalho Remota.  
 - [Como fazer logon em uma máquina virtual que executa o Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md). Por padrão, o SSH permite um máximo de 10 conexões simultâneas. Você pode aumentar esse número editando o arquivo de configuração.

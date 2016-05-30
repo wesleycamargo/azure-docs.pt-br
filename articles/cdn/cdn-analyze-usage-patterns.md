@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Analisar padrões de uso do CDN
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Você pode exibir os padrões de uso para o CDN usando os seguintes relatórios:
 
@@ -142,4 +144,4 @@ Esse relatório mostra a distribuição de uso de tráfego em IPV4 versus IPV6.
 
 Os relatórios só podem ser gerados com informações dos últimos 18 meses.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

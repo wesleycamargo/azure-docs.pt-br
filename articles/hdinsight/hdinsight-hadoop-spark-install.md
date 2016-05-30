@@ -27,7 +27,7 @@ Saiba como instalar o Spark no HDInsight baseado no Windows usando a Ação de S
 
 - [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters HDInsight
 
-- [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): crie um cluster do tipo Spark no sistema operacional Windows.
+- [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): crie um cluster do Spark no HDInsight.
 
 - [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]\: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script
 
@@ -233,7 +233,7 @@ Nesta seção, você conecta-se remotamente ao cluster com o Spark instalado e, 
 
 ## Instalar o Spark usando o Azure PowerShell
 
-Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, verifique se você instalou e configurou o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do Azure para HDInsight, consulte [Instalar e configurar o PowerShell do Azure][powershell-install-configure].
+Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, verifique se você instalou e configurou o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do Azure para HDInsight, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 
 Execute as seguintes etapas:
 
@@ -306,7 +306,7 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 ## Consulte também
 
 - [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): criar clusters HDInsight.
-- [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md): introdução ao Spark no HDInsight.
+- [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): introdução ao Spark no HDInsight.
 - [Personalizar o cluster HDInsight usando a Ação de Script][hdinsight-cluster-customize]\: personalizar o cluster HDInsight usando a Ação de Script.
 - [Desenvolver scripts da Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md): desenvolver scripts da Ação de Script.
 - [Instalar o R em clusters HDInsight][hdinsight-install-r] fornece instruções sobre como usar a personalização do cluster para instalar e usar o R em clusters Hadoop no HDInsight. R é uma linguagem e ambiente de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação, que combina aspectos de programação funcional e de programação orientada a objetos. Ele também fornece recursos abrangentes de gráficos.
@@ -318,4 +318,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

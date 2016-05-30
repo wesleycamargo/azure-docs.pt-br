@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # Configurar uma máquina virtual SQL Server do Azure como um servidor do IPython Notebook para análises avançadas
 
@@ -233,7 +233,7 @@ Para conectar-se ao Mecanismo de Banco de Dados do SQL Server em outro computado
 
 1.  No Portal Clássico do Azure (ou na etapa anterior), selecione **MÁQUINAS VIRTUAIS**.
 
-2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por **http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
+2.  Na página **INSTÂNCIAS DA MÁQUINA VIRTUAL**, na coluna **NOME DNS**, localize e copie o nome DNS para a máquina virtual que aparece precedido por ****http://**. (A interface do usuário pode não exibir o nome completo, mas você pode clicar com o botão direito do mouse nele e selecionar Copiar.)
 
 ##<a name="cde"></a>Conectar-se ao Mecanismo de Banco de Dados de outro computador
 
@@ -306,4 +306,4 @@ As próximas etapas no processo de ciência de dados estão mapeados no [Guia de
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

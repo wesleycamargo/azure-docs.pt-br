@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Usar um segredo do Cofre da Chave com o modelo do Gerenciador de Recursos | Microsoft Azure"
+   pageTitle="Segredo do Cofre de Chaves com o modelo do Resource Manager | Microsoft Azure"
    description="Mostra como transmitir um segredo de um cofre da chave como um parâmetro durante a implantação."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="05/16/2016"
    ms.author="tomfitz"/>
 
 # Transmitir valores seguros durante a implantação
@@ -103,4 +103,4 @@ O parâmetro que aceita o segredo deve ser um **securestring**. O exemplo a segu
 - Para obter informações sobre como usar um cofre de chave com uma máquina virtual, consulte [Considerações de segurança para o Azure Resource Manager](best-practices-resource-manager-security.md).
 - Para obter exemplos completos de referência de segredos de chave, veja [Exemplos do cofre da chave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

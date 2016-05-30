@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/09/2016"
 	ms.author="szark"/>
 
-# <a id="nonendorsed"> </a>Informações para as distribuições não endossadas #
+# Informações para as distribuições não endossadas #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -41,11 +41,11 @@ Por isso, recomendamos que você inicie com uma das nossas [distribuições endo
 O restante deste artigo traz orientações gerais para execução da sua distribuição do Linux no Azure.
 
 
-## <a id="linuxinstall"> </a>Notas de instalação gerais do Linux ##
+## Notas de instalação gerais do Linux ##
 
-- O formato VHDX não tem suporte no Azure, somente o **VHD fixo**. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd.
+- O formato VHDX não tem suporte no Azure, somente o **VHD fixo**. Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd. Se você estiver usando o VirtualBox, isso significará selecionar **Tamanho fixo** em vez do padrão alocado dinamicamente durante a criação do disco.
 
-- Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar LVM ou [RAID](virtual-machines-linux-configure-raid.md) em discos de dados.
+- Ao instalar o sistema Linux, é recomendável que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, poderá usar [LVM](virtual-machines-linux-configure-lvm.md) ou [RAID](virtual-machines-linux-configure-raid.md) em discos de dados.
 
 - Não há suporte para NUMA para tamanhos de máquinas virtuais maiores devido a um bug nas versões do kernel Linux abaixo de 2.6.37. Esse problema afeta principalmente distribuições que usam o kernel upstream do Red Hat 2.6.32. A instalação manual do agente Linux do Azure (waagent) desabilita a NUMA automaticamente na configuração do GRUB para o kernel do Linux.
 
@@ -164,7 +164,7 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 
 	As inicializações gráfica e silenciosa não são úteis em ambientes de rede, quando queremos que todos os logs sejam enviados para a porta serial.
 
-	Você pode deixar configurada a opção `crashkernel`, mas esse parâmetro reduz a memória disponível na máquina virtual em 128 MB ou mais, o que pode ser um problema em máquinas virtuais menores.
+	Você pode deixar configurada a opção `crashkernel`, mas esse parâmetro reduz a memória disponível na máquina virtual em 128 MB ou mais, o que pode ser um problema em máquinas virtuais menores.
 
 - Instalando o agente Linux do Azure
 
@@ -193,6 +193,8 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
 		# export HISTSIZE=0
 		# logout
 
+	>[AZURE.NOTE] No Virtualbox, você pode ver o seguinte erro após executar 'waagent -force -deprovision': `[Errno 5] Input/output error`. Essa mensagem de erro não é crítica e pode ser ignorada.
+
 - Em seguida, você deverá desligar a máquina virtual e carregar o VHD no Azure.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

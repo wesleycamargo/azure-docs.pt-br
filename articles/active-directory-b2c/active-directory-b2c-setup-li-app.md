@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="04/19/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Azure Active Directory B2C: fornecer inscrição e entrada aos consumidores com contas do LinkedIn
@@ -38,13 +38,13 @@ Para usar o LinkedIn como provedor de identidade no Azure AD (Azure Active Direc
 
 	>[AZURE.NOTE] O **Segredo do cliente** é uma credencial de segurança importante.
 
-6. Digite `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **URLs de Redirecionamento Autorizado** (em **OAuth 2.0**). Substitua **{tenant}** pelo nome do locatário (por exemplo, contoso.onmicrosoft.com). Clique em **Adicionar** e depois em **Atualizar**.
+6. Digite `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` no campo **URLs de Redirecionamento Autorizado** (em **OAuth 2.0**). Substitua **{tenant}** pelo nome do locatário (por exemplo, contoso.onmicrosoft.com). Clique em **Adicionar** e depois em **Atualizar**. O valor **{tenant}** diferencia letras maiúsculas de minúsculas.
 
     ![LinkedIn — Configurar aplicativo](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
 ## Configurar o LinkedIn como um provedor de identidade no locatário
 
-1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no Portal do Azure.
+1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
 2. Na folha de recursos do B2C, clique em **Provedores de identidade**.
 3. Clique em **+Adicionar**, na parte superior da folha.
 4. Forneça um **Nome** amigável para a configuração do provedor de identidade. Por exemplo, insira "LI".
@@ -52,4 +52,4 @@ Para usar o LinkedIn como provedor de identidade no Azure AD (Azure Active Direc
 6. Clique em **Configurar esse provedor de identidade** e insira a ID e o segredo do cliente do aplicativo do LinkedIn que você criou anteriormente.
 7. Clique em **OK** e em **Criar** para salvar sua configuração do LinkedIn.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

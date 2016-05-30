@@ -20,7 +20,7 @@
 
 ## Visão geral
 
-A biblioteca do cliente do DM do Hub IoT do Azure permite que você gerencie seus dispositivos IoT com o IoT Hub do Azure. "Gerenciar" inclui as ações de reinicialização, a redefinição de fábrica e a atualização de firmware. Hoje, oferecemos uma biblioteca C independente de plataforma, mas adicionaremos suporte a outras linguagens em breve. Como descrito na [Visão geral do gerenciamento de dispositivos do Hub IoT do Azure][lnk-dm-overview], há três conceitos principais no gerenciamento de dispositivos do Hub IoT:
+A biblioteca do cliente do gerenciamento de dispositivos do Hub IoT do Azure permite que você gerencie seus dispositivos IoT com o IoT Hub do Azure. "Gerenciar" inclui as ações de reinicialização, a redefinição de fábrica e a atualização de firmware. Hoje, oferecemos uma biblioteca C independente de plataforma, mas adicionaremos suporte a outras linguagens em breve. Como descrito na [Visão geral do gerenciamento de dispositivos do Hub IoT do Azure][lnk-dm-overview], há três conceitos principais no gerenciamento de dispositivos do Hub IoT:
 
 - Dispositivos gêmeos
 - Trabalhos de dispositivo
@@ -46,13 +46,13 @@ A principal maneira como o serviço interage com o dispositivo físico é por me
 
 As seções a seguir guiarão você pela arquitetura da biblioteca do cliente e fornecerão diretrizes sobre como implementar os objetos de dispositivos diferentes em seu dispositivo.
 
-## Princípios e conceitos funcionais de design da biblioteca do cliente do DM
+## Princípios e conceitos funcionais de design da biblioteca do cliente do gerenciamento de dispositivos
 A biblioteca do cliente do DM foi projetada pensando na portabilidade e na integração entre plataformas. Isso foi obtido por meio das seguintes decisões de design:
 
 1.	Baseado no LWM2M sobre o protocolo padrão COAP para acomodar a extensibilidade para uma variedade de dispositivos diferentes.
 2.	Gravado em ANSI C99 para facilitar a portabilidade para uma ampla variedade de plataformas.
 3.	Protegido por meio de autenticação TLS/TCP e do Hub IoT do Azure (tokens SAS) para que possa ser usado em cenários de alta segurança.
-4.	Com base no projeto OSS [Wakaama Eclipse][lnk-Wakaama] para aproveitar os itens existentes e contribuir com a comunidade.
+4.	Com base no projeto OSS [Wakaama Eclipse][lnk-Wakaama] para aproveitar o código existente e contribuir com a comunidade.
 
 ### Conceitos relevantes de LWM2M
 Escolhemos o LWM2M padrão para acomodar a extensibilidade para uma variedade de dispositivos diferentes. Para simplificar a experiência de desenvolvimento, abstraímos a maior parte do protocolo. No entanto, é importante entender os princípios fundamentais da biblioteca, principalmente o modelo de dados e como os dados são transmitidos.
@@ -69,7 +69,7 @@ Observe que há dois relacionamentos “um para muitos” neste modelo:
 - **Objetos e recursos**: cada objeto pode ter vários recursos. Por exemplo, um objeto pode conter os recursos de atualização do firmware de dispositivo da Contoso, como o pacote URI onde a nova imagem é armazenada.
 
 #### Padrão de observação/notificação: como os dados são transmitidos no LWM2M
-Além desses conceitos, é importante entender como os dados fluem do dispositivo para o serviço. Para fazer isso, o LWM2M define o padrão de "observação/notificação". Quando o dispositivo físico se conecta ao serviço, ele inicia a "observação" nas propriedades do dispositivo selecionado. Em seguida, o dispositivo físico "notifica" o serviço de alterações para as propriedades do dispositivo.
+Além desses conceitos, é importante entender como os dados fluem do dispositivo para o serviço. Para fazer isso, o LWM2M define o padrão de "observação/notificação". Quando o dispositivo físico se conecta ao serviço, o Hub IoT inicia a “observação” nas propriedades de dispositivo selecionadas. Em seguida, o dispositivo físico "notifica" o serviço de alterações para as propriedades do dispositivo.
 
 Em nossa biblioteca do cliente, implementamos o padrão de observação/notificação como a forma de enviar dados de gerenciamento de dispositivo do dispositivo para o Hub IoT. O padrão é controlado por dois parâmetros:
 
@@ -222,4 +222,4 @@ Para adquirir experiência prática, você pode acessar os seguintes recursos:
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

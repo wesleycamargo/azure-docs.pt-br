@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/19/2016" 
+ms.date="05/17/2016" 
 ms.author="adegeo"/>
 
 # Habilitar a Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
@@ -35,7 +35,7 @@ O cmdlet [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/lib
 Se estiver usando o PowerShell interativamente, você pode definir facilmente o objeto PSCredential chamando o cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx).
 
 ```
-	$remoteusercredentials = Get-Credential
+$remoteusercredentials = Get-Credential
 ```
 
 Isso exibirá uma caixa de diálogo, permitindo que você insira o nome de usuário e a senha para o usuário remoto de modo seguro.
@@ -45,7 +45,7 @@ Já que o PowerShell será usado principalmente para cenários de automação, v
 Use o PowerShell a seguir para criar um arquivo de senha de segurança:
 
 ```
-	ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
+ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ``` 
 
 Uma vez criado o arquivo de senha (password.txt), você usará apenas esse arquivo e não terá que especificar a senha em texto sem formatação. Se precisar atualizar a senha, você poderá executar o PowerShell acima novamente, com a nova senha, para gerar um novo arquivo password.txt.
@@ -57,12 +57,12 @@ Para criar o objeto de credencial com base no arquivo de senha segura, você dev
 Este PowerShell de exemplo mostra como definir a Extensão de Área de Trabalho Remota em um serviço de nuvem:
 
 ```
-	$servicename = "cloudservice"
-	$username = "RemoteDesktopUser"
-	$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
-	$expiry = $(Get-Date).AddDays(1)
-	$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
-	Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
+$servicename = "cloudservice"
+$username = "RemoteDesktopUser"
+$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
+$expiry = $(Get-Date).AddDays(1)
+$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
+Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
 ```
 Você também pode especificar o slot de implantação e as funções em que deseja habilitar a área de trabalho remota. Se esses parâmetros não forem especificados, o cmdlet usará por padrão o slot de implantação Production e habilitará a área de trabalho remota em todas as funções na implantação de produção.
 
@@ -73,7 +73,7 @@ A extensão de Área de Trabalho Remota está associada uma implantação. Se cr
 O cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) pode ser usado para a área de trabalho remota em uma instância de função específica do serviço de nuvem. Você pode usar o parâmetro *LocalPath* no cmdlet para baixar o arquivo RDP localmente, ou você pode usar o parâmetro *Launch* para iniciar diretamente a caixa de diálogo Conexão de Área de Trabalho Remota para acessar a instância de função do serviço de nuvem.
 
 ```
-	Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
+Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
 
@@ -81,7 +81,7 @@ O cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/d
 O cmdlet [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) exibe se a área de trabalho remota está ou não habilitada em uma implantação de serviço. O cmdlet retornará o nome de usuário para o usuário de área de trabalho remota e as funções nas quais a extensão de área de trabalho remota está habilitada. Você pode, opcionalmente, especificar um slot de implantação cujo tipo padrão será de produção.
 
 ```
-	Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
+Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
 ## Remover a extensão de Área de Trabalho Remota de um serviço 
@@ -91,10 +91,11 @@ Para remover a extensão de área de trabalho remota de uma implantação de ser
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
-
 ```  
 
->[AZURE.NOTE] O parâmetro *UninstallConfiguration* desinstalará qualquer configuração de extensão que tenha sido aplicada ao serviço. Em toda a configuração de extensão que está associada à configuração do serviço para ativar a extensão com uma implantação, a implantação deve ser associada a essa configuração de extensão. Chamar o cmdlet Remove sem *UninstallConfiguration* dissociará a implantação da configuração de extensão, removendo assim efetivamente a extensão da implantação. No entanto, a configuração de extensão ainda permanecerá associada ao serviço. Para remover completamente a configuração de extensão, você deve chamar o cmdlet Remove com o parâmetro *UninstallConfiguration*.
+>[AZURE.NOTE] Para remover completamente a configuração de extensão, você deve chamar o cmdlet *remove* com o parâmetro **UninstallConfiguration**.
+>
+>O parâmetro **UninstallConfiguration** desinstalará qualquer configuração de extensão que tenha sido aplicada ao serviço. Em toda a configuração de extensão que está associada à configuração do serviço para ativar a extensão com uma implantação, a implantação deve ser associada a essa configuração de extensão. Chamar o cmdlet *remove* sem **UninstallConfiguration** dissociará a implantação da configuração de extensão, removendo assim efetivamente a extensão da implantação. No entanto, a configuração de extensão ainda permanecerá associada ao serviço.
 
 
 
@@ -102,4 +103,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Como configurar serviços de nuvem](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -16,7 +16,9 @@
  ms.date="04/29/2016"
  ms.author="elfarber"/>
 
-# Tutorial: Como encontrar dispositivos gêmeos usando consultas (preview)
+# Tutorial: Como encontrar dispositivos gêmeos usando consultas com C# (visualização)
+
+[AZURE.INCLUDE [iot-hub-device-management-query-selector](../../includes/iot-hub-device-management-query-selector.md)]
 
 O gerenciamento de dispositivo IoT do Azure permite encontrar dispositivos gêmeos, a representação de serviço de um dispositivo físico, com consultas. É possível consultar com base nas propriedades de dispositivo, nas propriedades de serviço ou nas marcas do dispositivo gêmeo. É possível consultar usando marcas e propriedades:
 
@@ -53,26 +55,29 @@ As consultas sobre as propriedades de dispositivo e as propriedades de serviço 
 - **Projeto**: a expressão que designa os campos do objeto de dispositivo a serem incluídos no conjunto de resultados da consulta (equivalente a SELECT no SQL):
 
   ```
-  var query = JsonConvert.SerializeObject(
-      project = new
-      {
-        all = false,
-        properties = new []
-        {
-          new
-          {
-            name = "CustomerId",
-            type = "service"
-          },
-          new
-          {
-            name = "Weight",
-            type = "service"
-          }
-        }
-      }
-  );
-```
+	  var query = JsonConvert.SerializeObject(
+		  new
+		  {
+			  project = new
+			  {
+				  all = false,
+				  properties = new[]
+				  {
+					  new
+					  {
+					  name = "CustomerId",
+					  type = "service"
+					  },
+					  new
+					  {
+					  name = "Weight",
+					  type = "service"
+					  }
+				  }
+			  }
+		  }
+	  );
+	```
 
 - **Filtro**: a expressão que limita os objetos de dispositivo incluídos no conjunto de resultados da consulta (equivalente a WHERE no SQL):
 
@@ -216,4 +221,4 @@ Para saber mais sobre os recursos de gerenciamento de dispositivo Hub IoT do Azu
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 [lnk-query-expression-guide]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/node/service/devdoc/query_expression_requirements.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

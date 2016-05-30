@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="05/16/2016"
 	ms.author="curtand"/>
 
 # Gerenciar senhas no Active Directory do Azure
@@ -49,4 +49,4 @@ Use os links a seguir para ir para a documentação na qual você está mais int
 - [Criar ou editar usuários no AD do Azure](active-directory-create-users.md)
 - [Gerenciar grupos no AD do Azure](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

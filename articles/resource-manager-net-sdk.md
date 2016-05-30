@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="05/17/2016"
    ms.author="navale;tomfitz;"/>
 
 # SDK do Gerenciador de Recursos do Azure para .NET  
@@ -28,7 +28,7 @@ Esta documentação não se destina a descrever todos os aspectos do SDK do Azur
 Um projeto de exemplo completo para baixar, a partir do qual todos os trechos do código abaixo foram tirados, pode ser encontrado [aqui](https://github.com/dx-ted-emea/Azure-Resource-Manager-Documentation/tree/master/ARM/SDKs/Samples/Net).
 
 ## Autenticação
-A autenticação para ARM é tratada pelo Azure AD (Active Directory). Para se conectar a uma API, você primeiro precisa se autenticar com o Azure AD para receber um token de autenticação que poderá ser passado em cada solicitação. Para obter esse token, primeiro você precisa criar o que chamamos de Aplicativo do Azure AD e uma Entidade de Serviço que será usada para fazer logon. Siga [Criar Aplicativo do Azure AD e Entidade de Serviço](./resource-group-create-service-principal-portal.md) para obter instruções detalhadas.
+A autenticação para ARM é tratada pelo Azure AD (Active Directory). Para se conectar a uma API, você primeiro precisa se autenticar com o Azure AD para receber um token de autenticação que poderá ser passado em cada solicitação. Para obter esse token, primeiro você precisa criar o que chamamos de Aplicativo do Azure AD e uma Entidade de Serviço que será usada para fazer logon. Siga [Criar aplicativo Azure AD e entidade de serviço](resource-group-create-service-principal-portal.md) para obter instruções passo a passo.
 
 Após criar a entidade de serviço, você deverá ter:
 * ID do Cliente (GUID)
@@ -274,7 +274,7 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 ```
 
 ### Usando uma implantação de modelo
-Leia e siga o tutorial [Implantar recursos do Azure usando bibliotecas .NET e um modelo](./arm-template-deployment/#step-4-create-the-credentials-that-are-used-to-authenticate-requests) para obter instruções detalhadas sobre como implantar um modelo.
+Leia e siga o tutorial [Implantar recursos do Azure usando bibliotecas do .NET e um modelo](./virtual-machines/virtual-machines-windows-csharp-template.md) para obter instruções detalhadas sobre como implantar um modelo.
 
 Resumindo: a implantação de um modelo é muito mais fácil do que provisionar os recursos manualmente e o código abaixo mostra como fazer isso apontando para os URIs onde o modelo e um arquivo de parâmetros estão localizados.
 
@@ -298,4 +298,4 @@ private static async Task<DeploymentExtended> CreateTemplatedDeployment(TokenCre
  
    
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

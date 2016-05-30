@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,8 +19,7 @@
 
 # Diretrizes para implementação de API
 
-![](media/best-practices-api-implementation/pnp-logo.png)
-
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 Alguns tópicos nestas diretrizes estão em discussão e podem ser alterados no futuro. Agradecemos seus comentários!
 
@@ -1152,4 +1151,4 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 - A página [Verificando o Código Pelo Uso de Testes de Unidade](https://msdn.microsoft.com/library/dd264975.aspx), no site da Microsoft, fornece informações detalhadas sobre criação e gerenciamento de testes de unidade pelo uso do Visual Studio.
 - A página [Executar testes de desempenho em um aplicativo antes do lançamento](https://msdn.microsoft.com/library/dn250793.aspx) no site da Microsoft descreve como usar o Visual Studio Ultimate para criar um projeto de teste de carga e desempenho da Web.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

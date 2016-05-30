@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="04/28/2016"
    ms.author="erihur"/>
 
 
@@ -35,11 +35,11 @@ Para obter mais informações sobre os planos de taxa e consumo, confira a [pág
 
 ### Exibir ou baixar uma fatura do Microsoft Azure:
 
-No [Portal da Conta do Azure](https://account.windowsazure.com/subscriptions), você pode exibir cobranças atuais e baixar cobranças passadas.
+No [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions), você pode exibir cobranças atuais e baixar cobranças passadas.
 
 Para exibir ou baixar uma fatura:
 
-1. Entre no [Portal da Conta](https://account.windowsazure.com/subscriptions) usando sua ID da Conta da Microsoft ou a ID da Conta do corporativa ou de estudante.
+1. Entre no [Centro de Contas](https://account.windowsazure.com/subscriptions) usando sua ID da Conta da Microsoft ou a ID da Conta do corporativa ou de estudante.
 
 2. Clique na assinatura na qual você gostaria de ver os detalhes e o uso.
 
@@ -48,7 +48,7 @@ Para exibir ou baixar uma fatura:
     ![Resumo - histórico de cobrança -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
 
 
-4. A seção **Histórico de Cobrança** lista os demonstrativos dos últimos seis períodos de cobrança, além do período não cobrado atual. O demonstrativo do período atual é uma estimativa dos seus encargos no momento em que a estimativa foi gerada. Essas informações são atualizadas diariamente e talvez não incluam todo o uso incorrido até o momento. Sua fatura mensal pode ser diferente dessa estimativa.
+4. A seção **Histórico de Cobrança** lista os demonstrativos dos períodos de cobrança anteriores, além do período não cobrado atual. O demonstrativo do período atual é uma estimativa dos seus encargos no momento em que a estimativa foi gerada. Essas informações são atualizadas diariamente e talvez não incluam todo o uso incorrido até o momento. Sua fatura mensal pode ser diferente dessa estimativa.
 
     ![Resumo - histórico de cobrança 2](./media/billing-understand-your-bill/ContentViewaBillforMA2.png)
 
@@ -77,8 +77,7 @@ Oferta de compromisso | Gastar com dedução do seu compromisso pré-pago | [Arq
 
 ## Informações da conta
 
-A seção de informações da conta identifica informações pertinentes no que diz respeito ao seu uso e perfil. 
-    ![cabeçalho](./media/billing-understand-your-bill/Header.png)
+A seção de informações da conta identifica informações pertinentes no que diz respeito ao seu uso e perfil. ![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 ### Nº da Fatura
 Um identificador de fatura único para fins de acompanhamento
@@ -141,7 +140,7 @@ A página de informações adicionais fornece referências para outros recursos 
 ![informações adicionais](./media/billing-understand-your-bill/AdditionalInformation.png)
 
 ### Uso detalhado
-Um link na descrição em **Uso Detalhado** direciona você para o Portal da Conta, em que você pode exibir seu uso detalhado para essa assinatura. Agora há duas versões disponíveis para download: **. csv versão 1** contém os campos de uso e a antiga convenção de nomenclatura e **. csv versão 2** contém nomes amigáveis de cliente para cada uma das categorias mais campos adicionais que ajudam você a compreender quais serviços está usando no Microsoft Azure. Observe que no. csv versão 1 que não há nenhum detalhe do Azure Resource Manager. Informações do Azure Resource Manager podem ser encontradas no. csv versão 2.
+Um link na descrição em **Uso Detalhado** direciona você para o Centro de Contas, em que você pode exibir seu uso detalhado para essa assinatura. Agora há duas versões disponíveis para download: **. csv versão 1** contém os campos de uso e a antiga convenção de nomenclatura e **. csv versão 2** contém nomes amigáveis de cliente para cada uma das categorias mais campos adicionais que ajudam você a compreender quais serviços está usando no Microsoft Azure. Observe que no. csv versão 1 que não há nenhum detalhe do Azure Resource Manager. Informações do Azure Resource Manager podem ser encontradas no. csv versão 2.
 
 ### Informações adicionais e recursos úteis
 Esta seção contém links para perguntas simples sobre tamanhos de instância de computação, encargos de Banco de Dados SQL e links úteis para ajudá-lo a responder a perguntas adicionais.
@@ -226,7 +225,7 @@ Além de alguns novos campos e as alterações de nome do arquivo csv versão 2,
 
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
-- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md). Serviços que oferecem suporte a marcas de emissão são:  
+- **Marcas**: Esta coluna contém as marcas de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [Usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md) Serviços que oferecem suporte a marcas de emissão são:  
     - Máquinas Virtuais
     - Armazenamento e
     - Serviços de rede fornecidos com o [API do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
@@ -239,18 +238,19 @@ Navegue até a seção **Gerenciar contas, assinaturas e funções administrativ
 
 - [Perguntas Frequentes sobre Assinatura e Cobrança do Azure](billing-subscription-faq.md)
 
-- [Gerenciar seu método de pagamento](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+- [Como alterar o cartão de crédito usado para pagar uma assinatura do Azure](billing-how-to-change-credit-card.md)
 
-- [Editar informações de pagamento para um cartão de crédito existente](https://msdn.microsoft.com/library/azure/dn736053.aspx)
-
-- [Adicionar um novo cartão de crédito a ser usado como um método de pagamento](https://msdn.microsoft.com/library/azure/dn736057.aspx)
-
-- [Alterar o cartão de crédito em sua conta do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn736050.aspx)
-
-<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
+<!--
+OLD MSDN Articles
+- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+- [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
+- [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
+- [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
+- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
+-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

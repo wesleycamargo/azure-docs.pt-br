@@ -86,7 +86,7 @@ Para habilitar essa funcionalidade, você precisará preparar seu aplicativo par
 
 ### Preparar seu aplicativo para notificações de push da Apple
 
-Siga o guia : Como preparar seu aplicativo para notificações por push da Apple
+Siga o guia: [Como preparar seu aplicativo para notificações por push da Apple](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 ### Adicione o código de cliente necessário
 
@@ -416,4 +416,4 @@ Como para personalização da notificação avançada, é recomendável examinar
 
 	@end
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

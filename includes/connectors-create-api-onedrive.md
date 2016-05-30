@@ -1,17 +1,12 @@
-### Prerequisites
-- A [OneDrive](http://OneDrive.com) account 
+### Pré-requisitos
+- Uma conta do [OneDrive](http://OneDrive.com) 
 
-Before you can use your OneDrive account in a Logic app, you must authorize the Logic app to connect to your OneDrive account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Antes de usar sua conta do OneDrive em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do OneDrive. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
-Here are the steps to authorize your Logic app to connect to your OneDrive account:
+Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do OneDrive:
 
-1. To create a connection to OneDrive, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *OneDrive* in the search box. Select the trigger or action you'll like to use:  
-  ![](./media/connectors-create-api-onedrive/onedrive-1.png)
-2. If you haven't created any connections to OneDrive before, you'll get prompted to provide your OneDrive credentials. These credentials will be used to authorize your Logic app to connect to, and access your OneDrive account's data:  
-  ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-4. Provide your OneDrive user name and password to authorize your Logic app:  
-  ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
-3. Allow us to connect to OneDrive:  
-  ![](./media/connectors-create-api-onedrive/onedrive-4.png)   
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-  ![](./media/connectors-create-api-onedrive/onedrive-5.png)
+1. Para criar uma conexão com o OneDrive, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *OneDrive* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar: ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+2. Se você não tiver criado quaisquer conexões OneDrive antes, será solicitado a fornecer suas credenciais do OneDrive. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do OneDrive e usá-los: ![](./media/connectors-create-api-onedrive/onedrive-2.png)
+4. Forneça seu nome de usuário do OneDrive e a senha para autorizar seu aplicativo lógico: ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
+3. Permitir que nós nos conectemos ao OneDrive: ![](./media/connectors-create-api-onedrive/onedrive-4.png)   
+5. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![](./media/connectors-create-api-onedrive/onedrive-5.png)

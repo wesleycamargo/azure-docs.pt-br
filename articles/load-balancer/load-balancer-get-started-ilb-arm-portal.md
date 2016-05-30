@@ -56,7 +56,7 @@ Configurar um pool de back-end:
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e clique no balanceador de carga que você criou acima.
 2. Na folha **Configurações**, clique em **Pools de back-end**. 
-3. Na folha **Investigações**, clique em **Adicionar**.
+3. Na folha **Pools de endereços back-end**, clique em **Adicionar**.
 4. Na folha **Adicionar pool de back-end**, digite um **Nome** para o pool de back-end e clique em **OK**.
 
 ### Etapa 2 
@@ -65,7 +65,7 @@ Configurar uma investigação:
  
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e clique no balanceador de carga que você criou acima.
 2. Na folha **Configurações**, clique em **Investigações**. 
-3. Na folha **Pools de endereços back-end**, clique em **Adicionar**.
+3. Na folha **Investigações**, clique em **Adicionar**.
 4. Na folha **Adicionar investigação**, digite um **Nome** para a investigação.
 5. Em **Protocolo**, selecione **HTTP** (para sites) ou **TCP** (para outros aplicativos baseados em TCP).
 6. Em **Porta**, especifique a porta a ser usada ao acessar a investigação.
@@ -97,4 +97,4 @@ Configurar as regras de balanceamento de carga:
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

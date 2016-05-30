@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/10/2015"
+	ms.date="05/18/2016"
 	ms.author="rashimg;cgronlun"/>
 
 # Corrigir um erro OOM (memória insuficiente) com as configurações de memória do Hive no Hadoop no Azure HDInsight
@@ -109,7 +109,7 @@ Conforme explicado na postagem no blog [Configurações de memória Yarn do Hado
 
 Como sugere a postagem no blog, as duas configurações de memória a seguir definem a memória de contêiner para o heap: **hive.tez.container.size** e **hive.tez.java.opts**. Em nossa experiência, a exceção de OOM não significa que o tamanho do contêiner seja muito pequeno. Isso significa que o tamanho do heap de Java (hive.tez.java.opts) é muito pequeno. Portanto, sempre que você vir OOM, poderá tentar aumentar **hive.tez.java.opts**. Se necessário, pode ser que você precise aumentar **hive.tez.container.size**. A configuração **java.opts** deve ser aproximadamente 80% do **container.size**.
 
-> [AZURE.NOTE]A configuração **hive.tez.java.opts** deve ser menor que **hive.tez.container.size**.
+> [AZURE.NOTE]  A configuração **hive.tez.java.opts** deve ser menor que **hive.tez.container.size**.
 
 Como uma máquina D12 tem 28 GB de memória, decidimos usar um tamanho de contêiner de 10 GB (10240 MB) e atribuir 80% para java.opts. Isso foi feito no console do Hive usando a configuração abaixo:
 
@@ -122,4 +122,4 @@ Baseada nessas configurações, a consulta foi executada com êxito em menos de 
 
 O recebimento de um erro de memória insuficiente não significa necessariamente que o tamanho do contêiner é muito pequeno. Em vez disso, você deve definir as configurações de memória para que o tamanho do heap seja aumentado para pelo menos 80% do tamanho da memória do contêiner.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0518_2016-->

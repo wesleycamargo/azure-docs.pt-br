@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/12/2016"
 	ms.author="markvi"/>
 
 # Edições do Active Directory do Azure
@@ -30,7 +30,7 @@ Para aprimorar seu Active Directory do Azure, é possível adicionar recursos pa
 As assinaturas do Office 365 incluem recursos adicionais do Active Directory do Azure descritos na tabela de comparação abaixo.
 
 
-> [AZURE.NOTE] Para obter as opções de preço dessas edições, confira [Preço do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). <br>Atualmente, não há suporte para o Azure Active Directory Premium e o Azure Active Directory Basic na China. Entre em contato conosco no Fórum do Active Directory do Azure para obter mais informações
+> [AZURE.NOTE] Para obter as opções de preço dessas edições, confira [Preço do Active Directory do Azure](https://azure.microsoft.com/pricing/details/active-directory/). O Azure Active Directory Premium e o Azure Active Directory Basic não têm suporte atualmente na China. Entre em contato conosco no Fórum do Active Directory do Azure para obter mais informações
 
 
 - **Azure Active Directory Basic** - Projetada para profissionais de tarefas com necessidades que priorizam a nuvem, esta edição fornece soluções de gerenciamento de identidades por autoatendimento e de acesso a aplicativos centrados na nuvem. Com a Basic edition do Active Directory do Azure, você obtém recursos que aumentam sua produtividade e reduzem os custos, como o gerenciamento de acesso baseado em grupo, redefinição de senha por autoatendimento para aplicativos em nuvem e o Proxy de Aplicativo do Active Directory do Azure (para publicar aplicativos web locais usando o Active Directory do Azure), tudo com o apoio de um SLA de nível empresarial de 99,9% de tempo de atividade.
@@ -50,7 +50,7 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 
 ##Comparação de recursos geralmente disponíveis
 
-> [AZURE.NOTE] Para obter uma exibição diferente dos dados, confira os [Recursos do Active Directory do Azure](https://www.microsoft.com/server-cloud/products/azure-active-directory/Features.aspx).
+> [AZURE.NOTE] Para obter uma exibição diferente dos dados, confira os [Recursos do Azure Active Directory](https://www.microsoft.com/en/server-cloud/products/azure-active-directory/features.aspx).
 
 | | AD do Azure Gratuito | AD Basic do Azure | AD Premium do Azure |
 | ---                      | :-:           | :-:            | :-:              |
@@ -60,7 +60,7 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 
 
 
-<br>
+
 
 **Recursos comuns**
 
@@ -117,8 +117,8 @@ Uma série de recursos do Active Directory do Azure está disponível por meio d
 
 
 
-<br>
-<hr>
+
+
 ## Recursos comuns
 #### Objetos do diretório 
 
@@ -134,7 +134,6 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 | Até 500 mil objetos| Não há limite de objeto| Não há limite de objeto| Nenhum limite de objeto para contas de usuário do Office 365|
 
 
-<br>
 
 #### Gerenciamento de usuário/Grupo (adicionar/atualizar/excluir)/Provisionamento baseado em usuário, Registro de dispositivo
 
@@ -153,8 +152,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 - [Visão geral do registro de dispositivos do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br>
-<hr>
+
+
 #### SSO (Logon único)
 
 **Tipo:** recursos comuns
@@ -164,7 +163,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita| Edição Básica| Premium Edition| Somente aplicativos do Office 365 |
 | :-: | :-: | :-: | :-: |
-| 10 aplicativos por usuário [1] <br> (aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)| 10 aplicativos por usuário [1] <br>(camada gratuita + aplicativos de proxy de aplicativo) | Sem limite [2] <br> (gratuito, camadas Básicas + modelos da Integração de Aplicativos de Autoatendimento)| 10 aplicativos por usuário [1] <br> (aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)|
+| 10 aplicativos por usuário [1] (aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)| 10 aplicativos por usuário [1] (camada gratuita + aplicativos de proxy de aplicativo) | Sem limite [2] (gratuito, camadas Básicas + modelos da Integração de Aplicativos de Autoatendimento)| 10 aplicativos por usuário [1] (aplicativos SaaS pré-integrados e integrados pelo desenvolvedor)|
 
 [1] Com o AD do Azure Gratuito e o AD do Azure Básico, os usuários finais que receberam acesso a aplicativos SaaS podem ver até dez aplicativos em seu Painel de Acesso e ter acesso com SSO a eles. Os administradores podem configurar SSO e atribuir acesso do usuário a tantos aplicativos SaaS quantos quiserem com Gratuito e Básico; no entanto, os usuários finais só verão 10 aplicativos em seu Painel de Acesso de cada vez.
 
@@ -174,8 +173,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Gerenciando aplicativos com o AD do Azure (Active Directory do Azure)](active-directory-enable-sso-scenario.md)
 
-<br>
-<hr>
+
+
 #### Alteração de senhas por autoatendimento para usuários de nuvem
 
 **Tipo:** recursos comuns
@@ -191,8 +190,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 - [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md)
 
 
-<br>
-<hr>
+
+
 #### Connect (Mecanismo de sincronização que amplia os diretórios locais para o Active Directory do Azure) 
 
 **Tipo:** recursos comuns
@@ -208,8 +207,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<br>
-<hr>
+
+
 #### Relatórios de segurança/uso
 
 **Tipo:** recursos comuns
@@ -225,8 +224,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
 
-<br>
-<hr>
+
+
 
 ## Recursos básicos e Premium
 #### Gerenciamento/provisionamento de acesso baseado em grupos
@@ -244,8 +243,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Uso de um grupo para gerenciar o acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md)
 
-<br>
-<hr>
+
+
 #### Redefinição de Senha por Autoatendimento para usuários de nuvem
 
 **Tipo:** recursos básicos
@@ -261,8 +260,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Redefinição de senha do AD do Azure para usuários e administradores](active-directory-passwords.md)
 
-<br>
-<hr>
+
+
 #### Identidade visual da empresa (Páginas de logon/Personalização do painel de acesso)
 
 **Tipo:** recursos básicos
@@ -278,8 +277,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 
-<br>
-<hr>
+
+
 #### Proxy de Aplicativo
 
 **Tipo:** recursos básicos
@@ -295,8 +294,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Como fornecer acesso remoto seguro a aplicativos locais](active-directory-application-proxy-get-started.md)
 
-<br>
-<hr>
+
+
 #### SLA de 99,9%
 
 **Tipo:** recursos básicos
@@ -312,8 +311,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/)
 
-<br>
-<hr>
+
+
 
 ## Recursos premium
 #### Gerenciamento de grupo de autoatendimento/Adições de aplicativo de autoatendimento/ Grupos dinâmicos
@@ -329,7 +328,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 
 
-<br>
+
          
 #### Redefinição/Alteração/Desbloqueio de senha de autoatendimento com write-back local
 
@@ -344,7 +343,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 
 
-<br>
+
 
 #### Multi-Factor Authentication (nuvem e local [Servidor MFA])
 
@@ -361,8 +360,8 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 - [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br>
-<hr>
+
+
 #### CAL MIM + Servidor MIM 
 
 Direitos de software de servidor Microsoft Identity Manager são concedidos com licenças do Windows Server (qualquer edição). Como o Microsoft Identity Manager é executado no Sistema Operacional do Windows Server, desde que o servidor esteja executando uma cópia válida e licenciada do Windows Server, o Microsoft Identity Manager pode ser instalado e utilizado nesse servidor. Nenhuma outra licença separada é necessária para o servidor do Microsoft Identity Manager.
@@ -378,7 +377,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 
 
-<br>
+
 
 #### Cloud App Discovery 
 
@@ -395,8 +394,8 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 - [Encontrando aplicativos em nuvem não gerenciados com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 
-<br>
-<hr>
+
+
 #### Connect Health
 
 **Tipo:** recursos premium
@@ -412,8 +411,8 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 - [Monitorar infraestrutura de identidade local e serviços de sincronização na nuvem](active-directory-aadconnect-health.md)
 
-<br>
-<hr>
+
+
 #### Substituição automática de senha para contas de grupo
 
 **Tipo:** recursos premium
@@ -426,8 +425,8 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 | | | ![Verificação][12]| |
 
 
-<br>
-<hr>
+
+
 ## Ingresso do Active Directory do Azure - apenas para recursos relacionados ao Windows 10
 #### Adicione um dispositivo para AD do Azure, Desktop SSO, Microsoft Passport para AD do Azure, recuperação do Administrator Bitlocker
 
@@ -441,11 +440,11 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 | ![Verificação][12]| ![Verificação][12]| ![Verificação][12]| ![Verificação][12]|
 
 
-<br>
+
 
 #### Registro automático do MDM, recuperação de autoatendimento do Bitlocker, administração local extra para dispositivos do Windows 10 via Ingresso no AD do Azure
 
-**Tipo:** ingresso do Active Directory do Azure – apenas para recursos relacionados ao Windows 10
+**Tipo:** Ingresso do Active Directory do Azure – apenas para recursos relacionados ao Windows 10
 
 
 **Disponibilidade:**
@@ -454,7 +453,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 | :-: | :-: | :-: | :-: |
 | | | ![Verificação][12]| |
 
-<hr>
+
 
 
 ## Recursos de visualização do AD do Azure
@@ -483,4 +482,4 @@ Além dos recursos disponíveis das edições Gratuita, Básico e Premium, o AD 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

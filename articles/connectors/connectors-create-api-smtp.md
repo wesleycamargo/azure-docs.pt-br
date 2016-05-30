@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Introdução à API do SMTP
 Conecte-se a um servidor SMTP para enviar email. A API do SMTP pode ser usada em:
 
-- Aplicativos lógicos
+- Aplicativos lógicos (discutidos neste tópico)
+- PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -29,7 +30,7 @@ Com o SMTP, você pode:
 - Compile seu fluxo de negócios incluindo o envio de emails usando SMTP. 
 - Use uma ação para enviar email. Essa ação obtêm uma resposta e disponibiliza a saída para outras ações. Por exemplo, quando há um novo arquivo no servidor FTP, você pode obtê-lo e enviá-lo anexado em um email usando o SMTP. 
 
-Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 A API de SMTP tem a seguinte ação disponível. Não há nenhum gatilho.
@@ -92,6 +93,6 @@ Envia um email para um ou mais destinatários.```POST: /SendEmail```
 
 
 ## Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

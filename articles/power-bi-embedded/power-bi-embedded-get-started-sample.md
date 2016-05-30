@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="03/29/2016"
+   ms.date="05/16/2016"
    ms.author="derrickv"/>
 
 # Introdução ao exemplo do Microsoft Power BI Embedded
@@ -222,14 +222,14 @@ Depois de ter um **Relatório**, você usa um **IFrame** para inserir o **Relat�
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-iframe-code.png)
 
 
-### Filtrar relatórios inseridos no seu aplicativo
+## Filtrar relatórios inseridos no seu aplicativo
 
-Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta à sua URL src iFrame com o filtro especificado. Aqui está a sintaxe de consulta de filtro:
+Você pode filtrar um relatório inserido usando uma sintaxe de URL. Para fazer isso, adicione um parâmetro de cadeia de caracteres de consulta **$filter** com um operador **eq** à sua URL src iFrame com o filtro especificado. Aqui está a sintaxe de consulta de filtro:
 
 ```
 https://app.powerbi.com/reportEmbed
-?reportId=d2a0ea38-0694-4c70-9673-ee9655d54a4a&
-$filter={tableName/fieldName} eq '{fieldValue}'
+?reportId=d2a0ea38-...-9673-ee9655d54a4a&
+$filter={tableName/fieldName}%20eq%20'{fieldValue}'
 ```
 
 > [AZURE.NOTE] {tableName/fieldName} não pode incluir espaços ou caracteres especiais. O {fieldValue} aceita um único valor categórico.
@@ -242,4 +242,4 @@ $filter={tableName/fieldName} eq '{fieldValue}'
 - [Introdução ao Microsoft Power BI Embedded Preview](power-bi-embedded-get-started.md)
 - [Sobre o fluxo de tokens de aplicativo no Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

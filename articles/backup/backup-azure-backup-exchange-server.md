@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="04/20/2015"
 	ms.author="anuragm;jimpark;delhan"/>
 
 
@@ -32,6 +32,7 @@ Antes de continuar, verifique se todos os [pré-requisitos](backup-azure-dpm-int
 - Download das credenciais do agente e do cofre no servidor DPM.
 - Instalação do agente no servidor DPM.
 - Uso das credenciais do cofre para registro no servidor DPM.
+- Se você estiver protegendo o Exchange 2016, atualize para o DPM 2012 R2 UR9 ou posterior
 
 ## Agente de proteção do DPM  
 Execute estas etapas para instalar o agente de proteção do DPM no servidor do Exchange:
@@ -131,4 +132,4 @@ Há cinco tipos de recuperação para os pontos de recuperação online:
 
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

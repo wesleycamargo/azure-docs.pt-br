@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/01/2016"
+    ms.date="05/16/2016"
     ms.author="curtand"/>
 
 # O que é o licenciamento do Active Directory do Microsoft Azure?
@@ -45,7 +45,11 @@ Em geral, as informações de assinatura do AD do Azure são gerenciadas por mei
 
 > Ao comprar o AD do Azure ou o Enterprise Mobility Suite por meio do Licenciamento por Volume, a ativação da assinatura ocorrerá automaticamente quando o contrato incluir outros serviços Online da Microsoft, por exemplo, o Office 365.
 
-Recursos pagos do AD do Azure estendem a amplitude do diretório. Os exemplos incluem:- Atribuição baseada em grupo a aplicativos, que é habilitada no aplicativo específico que você está gerenciando. - Recursos avançados e de autoatendimento de gerenciamento de grupo estão disponíveis na configuração do diretório ou dentro do grupo específico. -Relatórios de segurança premium estão na guia Relatórios - Descoberta de aplicativos de nuvem aparece no portal do Azure, em Identidade.
+Recursos pagos do AD do Azure estendem a amplitude do diretório. Os exemplos incluem:
+- Atribuição baseada em grupos para aplicativos, que é habilitada no aplicativo específico que você está gerenciando.
+- Estão disponíveis recursos de gerenciamento de grupos avançados e de autoatendimento na configuração do diretório ou dentro do grupo específico.
+- Os relatórios de segurança premium estão na guia Relatório
+- A detecção de aplicativos de nuvem aparece no portal do Azure em Identidade.
 
 ###Atribuindo licenças
 Ao passo que adquirir uma assinatura é tudo o que você precisa para configurar recursos pagos, o uso de recursos pagos do AD do Azure requer a distribuição de licenças para os indivíduos certos. Em geral, qualquer usuário que deve ter acesso ou é gerenciado por meio de um recurso pago do AD do Azure deve ter uma licença atribuída. Uma atribuição de licença é um mapeamento entre um usuário e um serviço comprado, como o AD Premium, Basic do Azure ou o Enterprise Mobility Suite.
@@ -58,7 +62,9 @@ Com a atribuição de licença baseada em grupo, qualquer usuário sem um local 
 
 A introdução ao AD do Azure é fácil; você sempre pode criar seu diretório como parte da assinatura de uma avaliação gratuita do Azure. [Saiba mais sobre como se inscrever como uma organização](sign-up-organization.md). As informações a seguir podem ajudá-lo a garantir que seu diretório esteja mais bem alinhado com outros serviços da Microsoft que você possa estar consumindo ou planejando consumir, e suas metas em obter o serviço.
 
-Estas são algumas das práticas recomendadas: - se você já estiver usando qualquer um dos serviços organizacionais da Microsoft, já tem um diretório do AD do Azure. Nesse caso, você deve continuar a usar o mesmo diretório para outros serviços, para que o gerenciamento de identidade principal, incluindo provisionamento e SSO híbrido, possa ser utilizado nos serviços. Os usuários terão uma experiência de logon único e vão se beneficiar de recursos mais sofisticados entre os serviços. Como resultado, se você decidir comprar um serviço pago do AD do Azure para sua força de trabalho, é recomendável usar o mesmo diretório. -Se planeja usar o AD do Azure para um conjunto diferente de usuários (parceiros, clientes e assim por diante) ou se quiser avaliar os serviços do AD do Azure à parte de seu serviço de produção, ou configurar um ambiente de área restrita para seus serviços, é recomendável criar primeiro um novo diretório no portal clássico do Azure. [Saiba como criar um novo diretório do AD do Azure no portal clássico do Azure](active-directory-licensing-directory-independence.md). O novo diretório será criado com sua conta como um usuário externo com permissões de administrador global. Ao entrar no portal clássico do Azure com essa conta, você poderá ver esse diretório e acessar todas as tarefas de administração do diretório. É recomendável criar uma conta local com privilégios apropriados para gerenciar outros serviços da Microsoft (aqueles não acessíveis pelo portal clássico do Azure). [Saiba mais sobre como criar contas de usuário no AD do Azure](active-directory-create-users.md).
+Estas são algumas das práticas recomendadas:
+- Se você está usando algum dos serviços organizacionais da Microsoft, já tem um diretório do Azure AD. Nesse caso, você deve continuar a usar o mesmo diretório para outros serviços, para que o gerenciamento de identidade principal, incluindo provisionamento e SSO híbrido, possa ser utilizado nos serviços. Os usuários terão uma experiência de logon único e vão se beneficiar de recursos mais sofisticados entre os serviços. Como resultado, se você decidir comprar um serviço pago do Azure AD para a sua força de trabalho, recomendamos que você use o mesmo diretório para fazer isso.
+- Se você planeja usar o Azure AD para um conjunto diferente de usuários (parceiros, clientes e assim por diante) ou se gostaria de avaliar os serviços do Azure AD mas fazê-lo em um ambiente isolado do seu serviço de produção, ou ainda se estiver procurando configurar um ambiente de área restrita para os seus serviços, recomendamos que você primeiro crie um novo diretório por meio do portal clássico do Azure. [Saiba como criar um novo diretório do AD do Azure no portal clássico do Azure](active-directory-licensing-directory-independence.md). O novo diretório será criado com sua conta como um usuário externo com permissões de administrador global. Ao entrar no portal clássico do Azure com essa conta, você poderá ver esse diretório e acessar todas as tarefas de administração do diretório. É recomendável criar uma conta local com privilégios apropriados para gerenciar outros serviços da Microsoft (aqueles não acessíveis pelo portal clássico do Azure). [Saiba mais sobre como criar contas de usuário no AD do Azure](active-directory-create-users.md).
 
 > [AZURE.NOTE] O AD do Azure dá suporte a "usuários externos", que são contas de usuário em uma instância do AD do Azure, criadas usando uma MSA (Conta da Microsoft) ou uma identidade do AD do Azure de outro diretório. Enquanto estamos ocupados estendendo essa funcionalidade a todos os serviços organizacionais da Microsoft, neste momento essas contas não têm suporte em algumas experiências de serviços; por exemplo, o portal de administração do Office 365 não dá suporte a esses usuários atualmente. Como resultado, usuários externos com contas da Microsoft não poderão acessar o portal de administração do Office 365, e usuários externos de outros diretórios do AD do Azure serão ignorados. No último caso, apenas a conta local do usuário, o diretório do AD do Azure ou do Office 365 onde o usuário foi originalmente criado estariam acessíveis por meio dessas experiências.
 
@@ -97,7 +103,9 @@ Agora você pode pesquisar ou chamar grupos e adicioná-los à coluna **Atribuir
 
 Quando um grupo é atribuído, seus membros herdam as licenças dentro de 30 minutos, mas normalmente dentro de 1-2 minutos.
 
-Erros de atribuição podem ocorrer durante a atribuição de licença do AD do Azure, mas são relativamente raros. Possíveis erros de atribuição limitam-se a: - Conflito de atribuição - quando uma licença anterior concedida ao usuário é incompatível com a licença atual. Neste caso, a atribuição da nova licença vai exigir a remoção da anterior. - Falta de licenças disponíveis - quando o número de usuários em grupos atribuídos excede as licenças disponíveis, o status de atribuição dos usuários vai refletir uma falha de atribuição em razão de falta de licenças.
+Erros de atribuição podem ocorrer durante a atribuição de licença do AD do Azure, mas são relativamente raros. Os possíveis erros de atribuição estão limitados a:
+- Conflito de atribuição - quando um usuário recebeu anteriormente uma licença que é incompatível com a licença atual. Nesse caso, a atribuição da nova licença exigirá a remoção da anterior.
+- Licenças disponíveis excedidas - quando o número de usuários em grupos atribuídos excede as licenças disponíveis, o status de atribuição dos usuários refletirá uma falha ao atribuir devido à falta de licenças.
 
 ###Exibir licenças atribuídas
 
@@ -132,4 +140,4 @@ Agora você pode estar pronto para configurar e usar alguns recursos do AD Premi
 - [Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication.md)
 - [Compra direta de licenças do AD Premium do Azure](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

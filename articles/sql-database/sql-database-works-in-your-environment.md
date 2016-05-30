@@ -43,4 +43,14 @@ Com recursos garantidos, tutoriais sobre como criar seu primeiro Banco de Dados 
 
 Vá para a home page para ver o que mais o Banco de Dados SQL tem a oferecer. [Confira](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Próximas etapas
+
+Obtenha uma [assinatura do Azure gratuita](https://azure.microsoft.com/get-started/) e [crie seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
+
+## Saiba mais
+
+Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Desabilitar Banco de Dados de Stretch e retornar dados remotos
@@ -98,4 +98,4 @@ ALTER DATABASE <database name>
 
 [Pausar e retomar o Banco de Dados de Stretch](sql-server-stretch-database-pause.md)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

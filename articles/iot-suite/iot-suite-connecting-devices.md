@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="05/09/2016"
    ms.author="dobett"/>
 
 
-# Conectar seu dispositivo à solução pré-configurada de monitoramento remoto do IoT Suite
+# Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (Windows)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -54,7 +54,6 @@ As bibliotecas de cliente do Hub IoT usam um modelo para especificar o formato d
     #include "iothub_client.h"
     #include "serializer.h"
     #include "schemaserializer.h"
-    #include "threadapi.h"
     ```
 
 2. Adicione as declarações de variável a seguir após as instruções `#include`. Substitua os valores do espaço reservado [ID do Dispositivo] e [Chave do Dispositivo] pelos valores do seu dispositivo no painel da solução de monitoramento remoto. Use o nome de host do Hub IoT no painel para substituir [IoTHub Name]. Por exemplo, se o nome de host do Hub IoT for **contoso.azure-devices.net**, substitua [IoTHub Name] por contoso:
@@ -360,4 +359,4 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
 
 [lnk-setup-windows]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

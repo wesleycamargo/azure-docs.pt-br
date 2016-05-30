@@ -3,7 +3,7 @@
 	description="Como pontuar modelos de aprendizado que foram armazenados no WASB (Armazenamento de Blobs do Azure)."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="bradsev,deguhath,gokuma"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,22 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/05/2016"
 	ms.author="deguhath;bradsev" />
 
 # Pontuar modelos de aprendizado de máquina criados no Spark 
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-
-## Introdução
-
 Este tópico descreve como carregar modelos de AM (aprendizado de máquina) que foram criados usando o MLlib Spark e armazenados no WASB (Armazenamento de Blobs do Azure) e pontuá-los com conjuntos de dados que também foram armazenados no WASB. Ele mostra como pré-processar dados de entrada, transformar os recursos usando as funções de indexação e de codificação no kit de ferramentas MLlib e criar um objeto de dados de ponto rotulado que pode ser usado como entrada para pontuação com os modelos de AM. Os modelos usados para pontuação incluem regressão linear, regressão logística, modelos de florestas aleatórias e de árvore de aumento gradiente.
 
 
 ## Pré-requisitos
 
-1. Você precisa de uma conta do Azure e um cluster HDInsight Spark para iniciar este passo a passo. Confira os requisitos na [Visão geral de ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md) para obter uma descrição dos dados NYC 2013 Taxi usados aqui e para obter instruções sobre como executar código de um bloco de anotações do Jupyter no cluster Spark. O bloco de anotações **machine-learning-data-science-spark-model-consumption.ipynb** que contém os exemplos de código neste tópico estão disponíveis no [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Python).
+1. Você precisa de uma conta do Azure e um HDInsight Spark Você precisa de um cluster HDInsight 3.4 Spark 1.6 para concluir este passo a passo. Confira os requisitos na [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Visão geral de ciência de dados usando o Spark no Azure HDInsight) para obter uma descrição dos dados NYC 2013 Taxi usados aqui e para obter instruções sobre como executar código de um bloco de anotações do Jupyter no cluster Spark. O bloco de anotações **machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contém os exemplos de código deste tópico está disponível no [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 2. Você também tem que criar modelos de aprendizado de máquina que serão pontuados aqui de acordo com o tópico [Exploração e modelagem de dados com Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
 
@@ -36,11 +33,11 @@ Este tópico descreve como carregar modelos de AM (aprendizado de máquina) que 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
  
 
-## Configurar Spark e caminhos de diretório para dados e modelos armazenados 
+## Instalação: locais de armazenamento, bibliotecas e o contexto predefinido do Spark
 
 O Spark é capaz de ler e gravar em um WASB (blob de armazenamento do Azure). Portanto, qualquer dado existente armazenado lá pode ser processado usando o Spark, e os resultados podem ser armazenados novamente no WASB.
 
-Para salvar arquivos ou modelos no WASB, o caminho deve ser especificado corretamente. O contêiner padrão anexado ao cluster Spark pode ser referenciado usando uma caminho que começa com: *"wasb / /"*. O exemplo de código a seguir especifica o local dos dados a serem lidos e o caminho do diretório de armazenamento de modelo em que a saída do modelo será salva.
+Para salvar arquivos ou modelos no WASB, o caminho deve ser especificado corretamente. O contêiner padrão anexado ao cluster Spark pode ser referenciado usando um caminho que começa com: *"wasb///"*. O exemplo de código a seguir especifica o local dos dados a serem lidos e o caminho do diretório de armazenamento de modelo em que a saída do modelo será salva.
 
 
 ### Definir caminhos de diretório para locais de armazenamento no WASB
@@ -49,7 +46,11 @@ Os modelos são salvos em: "wasb:///user/remoteuser/NYCTaxi/Models". Se esse cam
 
 Os resultados de pontuação foram salvos em: "wasb:///user/remoteuser/NYCTaxi/ScoredResults". Se o caminho para a pasta estiver incorreto, os resultados não serão salvos nessa pasta.
 
->AZURE.NOTE: os locais de caminho de arquivo podem ser copiados e colados em espaços reservados nesse código da saída da última célula do bloco de anotações **machine-learning-data-science-spark-data-exploration-modeling.ipynb**.
+
+>[AZURE.NOTE] Os locais de caminho de arquivo podem ser copiados e colados em espaços reservados nesse código da saída da última célula do bloco de anotações **machine-learning-data-science-spark-data-exploration-modeling.ipynb**.
+
+
+Este é o código para definir caminhos de diretório:
 
 	# LOCATION OF DATA TO BE SCORED (TEST DATA)
 	taxi_test_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Test.tsv";
@@ -76,10 +77,10 @@ Os resultados de pontuação foram salvos em: "wasb:///user/remoteuser/NYCTaxi/S
 
 **SAÍDA:**
 
-datetime.datetime(2016, 4, 19, 17, 21, 28, 379845)
+datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 
-### Importar bibliotecas necessárias e definir o contexto do Spark 
+### Importar bibliotecas
 
 Defina o contexto do Spark e importe as bibliotecas necessárias com o código a seguir
 
@@ -88,6 +89,8 @@ Defina o contexto do Spark e importe as bibliotecas necessárias com o código a
 	from pyspark import SparkConf
 	from pyspark import SparkContext
 	from pyspark.sql import SQLContext
+	import matplotlib
+	import matplotlib.pyplot as plt
 	from pyspark.sql import Row
 	from pyspark.sql.functions import UserDefinedFunction
 	from pyspark.sql.types import *
@@ -95,24 +98,29 @@ Defina o contexto do Spark e importe as bibliotecas necessárias com o código a
 	from numpy import array
 	import numpy as np
 	import datetime
-	
-	# SET SPARK CONTEXT
-	sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-	sqlContext = SQLContext(sc)
-	atexit.register(lambda: sc.stop())
-	
-	sc.defaultParallelism
 
-**SAÍDA:**
 
-4
+### Contexto predefinido do Spark e palavras mágicas do PySpark
+
+Os kernels PySpark fornecidos com os notebooks do Jupyter têm um contexto predefinido e, portanto, não é necessário definir explicitamente contextos do Spark ou do Hive antes de começar a trabalhar com o aplicativo que está em desenvolvimento; eles estão disponíveis por padrão para você. Esses contextos são:
+
+- sc - para o Spark 
+- sqlContext - para o Hive
+
+O kernel PySpark fornece algumas “palavras mágicas” predefinidas, que são comandos especiais que podem ser chamados com %%. Há dois comandos que são usados nesses exemplos de código.
+
+- **%%local** Especificou que o código nas linhas posteriores será executado localmente. O código deve ser um código Python válido.
+- **%%sql -o <variable name>** Executa uma consulta do Hive no sqlContext. Se o parâmetro -o for transmitido, o resultado da consulta será persistido no contexto %%local do Python como um quadro de dados do Pandas.
+ 
+
+Para saber mais sobre os kernels para notebooks do Jupyter e as “palavras mágicas” predefinidas chamadas com %% (por exemplo, %%local) que eles fornecem, veja [Kernels disponíveis para notebooks do Jupyter com clusters HDInsight Spark Linux no HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Ingerir dados e criar um quadro de dados limpo
 
 Esta seção contém o código para uma série de tarefas necessárias para ingerir os dados a serem pontuados. Leia um exemplo de 0,1% associado do arquivo de corrida de táxi e tarifa (armazenado como um arquivo. tsv), formate os dados e crie um quadro de dados limpo.
 
-Os arquivos de corrida de táxi e tarifa foram associados com base no procedimento fornecido no tópico: [O Processo do Cortana Analytics em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
+Os arquivos de corrida de táxi e tarifa foram associados com base no procedimento fornecido no tópico: [O processo do Cortana Analytics em ação: usando clusters Hadoop do HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
 	# INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -174,7 +182,7 @@ Os arquivos de corrida de táxi e tarifa foram associados com base no procedimen
 
 **SAÍDA:**
 
-Tempo necessário para executar acima da célula: 15,36 segundos
+Tempo necessário para executar a célula acima: 46,37 segundos
 
 
 ## Preparar dados para pontuação no Spark 
@@ -195,7 +203,7 @@ O [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.prepr
 	timestart = datetime.datetime.now()
 	
 	# LOAD PYSPARK LIBRARIES
-	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
+	from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, VectorIndexer
 	
 	# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
 	sqlStatement = """
@@ -249,7 +257,7 @@ O [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.prepr
 
 **SAÍDA:**
 
-Tempo necessário para executar acima da célula: 4,88 segundos
+Tempo necessário para executar a célula acima: 5,37 segundos
 
 
 ### Crie objetos RDD com matrizes de recurso para entrada em modelos
@@ -326,7 +334,7 @@ Ele também contém o código que mostra como dimensionar dados com o `StandardS
 
 **SAÍDA:**
 
-Tempo necessário para executar acima da célula: 9,94 segundos
+Tempo necessário para executar a célula acima: 11,72 segundos
 
 
 ## Pontue com o modelo de regressão logística e salve a saída em um blob
@@ -360,7 +368,7 @@ O código nesta seção mostra como carregar um modelo de regressão logística 
 
 **SAÍDA:**
 
-Tempo necessário para executar acima da célula: 32,46 segundos
+Tempo necessário para executar a célula acima: 19,22 segundos
 
 
 ## Classificar um modelo de regressão linear
@@ -395,7 +403,7 @@ O código nesta seção mostra como carregar um modelo de regressão linear do a
 
 **SAÍDA:**
 
-Tempo necessário para executar acima da célula: 25,00 segundos
+Tempo necessário para executar a célula acima: 16,63 segundos
 
 
 ## Pontue modelos de florestas aleatórias de classificação e regressão
@@ -443,7 +451,7 @@ O código nesta seção mostra como carregar os modelos de florestas aleatórias
 
 **SAÍDA:**
 
-Tempo necessário para executar acima da célula: 52,2 segundos
+Tempo necessário para executar a célula acima: 31,07 segundos
 
 
 ## Pontue modelos de árvore de aumento gradiente de classificação e regressão
@@ -463,7 +471,7 @@ O código nesta seção mostra como carregar modelos de aumento gradiente de cla
 	#IMPORT MLLIB LIBRARIES
 	from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 	
-	# CLASSIFICATION:LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
+	# CLASSIFICATION: LOAD SAVED MODEL, SCORE AND SAVE RESULTS BACK TO BLOB
 
 	#LOAD AND SCORE THE MODEL
 	savedModel = GradientBoostedTreesModel.load(sc, BoostedTreeClassificationFileLoc)
@@ -496,7 +504,8 @@ O código nesta seção mostra como carregar modelos de aumento gradiente de cla
 	
 **SAÍDA:**
 
-Tempo necessário para executar acima da célula: 27,73 segundos
+Tempo necessário para executar a célula acima: 14,6 segundos
+
 
 ## Limpe objetos da memória e imprima a localização de arquivos pontuados
 
@@ -520,17 +529,17 @@ Tempo necessário para executar acima da célula: 27,73 segundos
 
 **SAÍDA:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-04-1917\_22\_36.354603.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-05-0317\_22\_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD\_2016-04-1917\_23\_06.083178
+linearRegFileLoc: LinearRegressionWithSGD\_2016-05-0317\_22\_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification\_2016-04-1917\_23\_33.994108.txt
+randomForestClassificationFileLoc: RandomForestClassification\_2016-05-0317\_23\_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression\_2016-04-1917\_24\_00.352683.txt
+randomForestRegFileLoc: RandomForestRegression\_2016-05-0317\_23\_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-04-1917\_24\_21.465683.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-05-0317\_23\_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-04-1917\_24\_32.371641.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_56.860740.txt
 
 
 
@@ -538,9 +547,11 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-04-1917\_24\_
 
 O Spark fornece um mecanismo para enviar remotamente trabalhos em lotes ou consultas interativas por meio de uma interface REST com um componente chamado Livy. O Livy está habilitado por padrão no cluster Spark no HDInsight. Para saber mais sobre o Livy, confira: [Enviar trabalhos em Spark remotamente usando o Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
 
-Você pode usar Livy para enviar um trabalho que pontua em lotes um arquivo armazenado em um blob do Azure e grava os resultados em outro blob. Para fazer isso, carregue o script em Python do [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) no blob do cluster Spark. Você pode usar uma ferramenta como o **Explorador do Armazenamento do Microsoft Azure** ou o **AzCopy** para copiar o script no blob de cluster. Em nosso caso, carregamos o script em ***wasb:///example/python/ConsumeGBNYCReg.py***.
+Você pode usar Livy para enviar um trabalho que pontua em lotes um arquivo armazenado em um blob do Azure e grava os resultados em outro blob. Para fazer isso, carregue o script em Python do [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) no blob do cluster Spark. Você pode usar uma ferramenta como o **Explorador do Armazenamento do Microsoft Azure** ou o **AzCopy** para copiar o script no blob de cluster. Em nosso caso, carregamos o script em ******wasb:///example/python/ConsumeGBNYCReg.py***.
 
->AZURE.NOTE: as chaves de acesso de que você precisa podem ser encontradas no portal da conta de armazenamento associada ao cluster Spark.
+
+>[AZURE.NOTE] As chaves de acesso de que você precisa podem ser encontradas no portal da conta de armazenamento associada ao cluster Spark.
+
 
 Uma vez carregado nesse local, o script será executado dentro do cluster Spark em um contexto distribuído. Ele carregará o modelo e executará previsões em arquivos de entrada baseado no modelo.
 
@@ -553,7 +564,9 @@ Você pode chamar esse script remotamente fazendo uma simples solicitação HTTP
 
 Você pode usar qualquer linguagem no sistema remoto para invocar o trabalho do Spark com o Livy fazendo uma simples chamada HTTPS com a autenticação básica.
 
->AZURE.NOTE: é conveniente usar a biblioteca de solicitações de Python ao fazer essa chamada HTTP, mas, atualmente, ela não é instalada por padrão no Azure Functions. Portanto, em vez disso, são usadas bibliotecas HTTP mais antigas.
+
+>[AZURE.NOTE] Seria conveniente usar a biblioteca de solicitações de Python ao fazer essa chamada HTTP, mas, atualmente, ela não é instalada por padrão no Azure Functions. Portanto, em vez disso, são usadas bibliotecas HTTP mais antigas.
+
 
 Aqui está o código do Python para a chamada HTTP:
 
@@ -582,14 +595,19 @@ Aqui está o código do Python para a chamada HTTP:
 	conn.close()
 
 
-Você também pode adicionar esse código Python ao [Azure Functions](../functions/) para disparar um envio de trabalho do Spark que pontua um blob com base em vários eventos, como um timer, criação ou atualização de um blob.
+Você também pode adicionar esse código Python ao [Azure Functions](https://azure.microsoft.com/documentation/services/functions/) para disparar um envio de trabalho do Spark que pontua um blob com base em vários eventos, como um timer, criação ou atualização de um blob.
 
-Se você preferir uma experiência de cliente gratuito de código, use os [Aplicativos Lógicos do Azure](../app-service/logic/) para invocar a pontuação em lote do Spark definindo uma ação HTTP no **Designer de aplicativos lógicos** e definindo seus parâmetros.
+Se você preferir uma experiência de cliente gratuito de código, use os [Aplicativos Lógicos do Azure](https://azure.microsoft.com/documentation/services/app-service/logic/) para invocar a pontuação em lote do Spark definindo uma ação HTTP no **Designer de aplicativos lógicos** e definindo seus parâmetros.
 
 - No Portal do Azure, crie um novo aplicativo lógico selecionando **+Novo** -> **Web + Móvel** -> **Aplicativo Lógico**. 
-- Insira o nome do aplicativo lógico e o plano de serviço de aplicativo para abrir o **Designer de aplicativos lógicos**.
+- Insira o nome do aplicativo lógico e o plano do serviço de aplicativo para abrir o **Designer de aplicativos lógicos**.
 - Selecione uma ação HTTP e insira os parâmetros mostrados na figura abaixo:
 
 ![](./media/machine-learning-data-science-spark-model-consumption/spark-logica-app-client.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+
+## O que vem a seguir? 
+
+**Validação cruzada e limpeza de hiperparâmetro**: veja [Advanced data exploration and modeling with Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) (Modelagem e exploração de dados avançadas com Spark) sobre como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
+
+<!---HONumber=AcomDC_0518_2016-->

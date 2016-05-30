@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="05/17/2016"
    ms.author="tomfitz"/>
 
 # Criando modelos do Gerenciador de Recursos do Azure
@@ -77,7 +77,7 @@ O seguinte exemplo mostra como usar várias das funções ao construir valores:
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-Para obter a lista completa das funções de modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](./resource-group-template-functions.md).
+Para obter a lista completa das funções de modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md).
 
 
 ## Parâmetros
@@ -167,7 +167,7 @@ O seguinte exemplo mostra como definir parâmetros:
        }
     }
 
-Para saber como inserir os valores de parâmetro durante a implantação, consulte [Implantar um aplicativo com o modelo do Azure Resource Manager](../resource-group-template-deploy/#parameter-file).
+Para saber como inserir os valores do parâmetro durante a implantação, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md#parameter-file).
 
 ## Variáveis
 
@@ -241,14 +241,14 @@ Você define recursos com a seguinte estrutura:
 
 | Nome do elemento | Obrigatório | Descrição
 | :----------------------: | :------: | :----------
-| apiVersion | Sim | Versão da API REST a ser usada para criar o recurso. Para determinar os números de versão disponíveis para um tipo de recurso específico, confira [Versões da API com suporte](../resource-manager-supported-services/#supported-api-versions).
+| apiVersion | Sim | Versão da API REST a ser usada para criar o recurso. Para determinar os números de versão disponíveis para um tipo de recurso específico, confira [Versões da API com suporte](resource-manager-supported-services.md#supported-api-versions).
 | type | Sim | Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso que tem suporte do provedor de recursos.
-| name | Sim | Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986.
-| location | Varia | Locais geográficos com suporte do recurso fornecido. Para determinar quais são os locais disponíveis, consulte [Regiões com suporte](../resource-manager-supported-services/#supported-regions). A maioria dos tipos de recursos exige um local, mas alguns deles (como uma atribuição de função) não.
+| name | Sim | Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso a terceiros validam o nome para garantir que ele não é uma tentativa de falsificar outra identidade. Confira [Verificar o nome do recurso](https://msdn.microsoft.com/library/azure/mt219035.aspx).
+| location | Varia | Locais geográficos com suporte do recurso fornecido. Para determinar quais são os locais disponíveis, veja [Regiões com suporte](resource-manager-supported-services.md#supported-regions). A maioria dos tipos de recursos exige um local, mas alguns deles (como uma atribuição de função) não.
 | marcas | Não | Marcas que são associadas ao recurso.
 | comentários | Não | Suas anotações para documentar os recursos em seu modelo
 | dependsOn | Não | Recursos dos quais o recurso que está sendo definido depende. As dependências entre recursos são avaliadas e os recursos são implantados na ordem de dependência. Quando os recursos não dependem uns dos outros, é possível que tentem ser implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos.
-| propriedades | Não | Definições de configuração específicas do recurso. Os valores para as propriedades são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Para obter links para a documentação do esquema de recursos ou a API REST, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
+| propriedades | Não | Definições de configuração específicas do recurso. Os valores para as propriedades são exatamente iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Para obter links para a documentação do esquema de recursos ou a API REST, veja [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md).
 | recursos | Não | Recursos filho que dependem do recurso que está sendo definido. Você pode fornecer apenas os tipos de recurso permitidos pelo esquema do recurso pai. O nome totalmente qualificado do tipo de recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**. A dependência no recurso pai não é implícita; você deve definir explicitamente essa dependência. 
 
 
@@ -370,20 +370,11 @@ O exemplo a seguir mostra um valor que é retornado na seção de saídas.
        }
     }
 
-## Cenários mais avançados.
-Este tópico fornece uma introdução do modelo. No entanto, o cenário pode exigir tarefas mais avançadas.
-
-Talvez seja necessário mesclar dois modelos ou usar um modelo filho dentro de um modelo pai. Para saber mais, confira [Usando modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md).
-
-Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-
-Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Isso é comum ao trabalhar com contas de armazenamento ou redes virtuais que são compartilhadas entre vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](../resource-group-template-functions#resourceid).
-
 ## Próximas etapas
-- Para ver modelos completos de diversos tipos diferentes de soluções, consulte os [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
-- Para obter detalhes sobre as funções que você pode usar em um modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](resource-group-template-functions.md)
-- Para saber como implantar o modelo que você criou, veja [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
-- Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- Para ver os esquemas disponíveis, consulte [Esquemas do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-resource-manager-schemas)
+- Para exibir modelos completos de diversos tipos diferentes de soluções, veja os [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+- Para obter detalhes sobre as funções que podem ser usadas em um modelo, veja [Funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
+- Para combinar vários modelos durante a implantação, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+- Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
+- Talvez seja necessário usar recursos que existam em um grupo de recursos diferente. Isso é comum ao trabalhar com contas de armazenamento ou redes virtuais que são compartilhadas entre vários grupos de recursos. Para obter mais informações, consulte a [função resourceId](resource-group-template-functions.md#resourceid).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

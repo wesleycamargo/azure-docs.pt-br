@@ -26,8 +26,8 @@ Este tópico lista cada biblioteca/driver que os programas clientes podem usar a
 | ADO.NET | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando .NET (C#)](sql-database-develop-dotnet-simple.md) | [Baixar](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
 | Java | Windows | [Conectar-se ao Banco de Dados SQL usando Java com JDBC no Windows](sql-database-develop-java-simple-windows.md) | [Baixar](http://go.microsoft.com/fwlink/?LinkId=245496) |
 | PHP | Windows | [Conectar-se ao Banco de Dados SQL usando PHP no Windows](sql-database-develop-php-simple-windows.md) | [Baixar](https://www.microsoft.com/download/details.aspx?id=20098) |
-| Node.js | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando Node.js](sql-database-develop-nodejs-simple.md) | [Baixar](https://msdn.microsoft.com/library/mt652094.aspx) |
-| Python | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-develop-python-simple.md) | [Baixar](https://msdn.microsoft.com/library/mt694094.aspx) |
-| Ruby | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-develop-ruby-simple.md) | [Baixar](https://msdn.microsoft.com/library/mt711041.aspx) |
+| Node.js | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando Node.js](sql-database-develop-nodejs-simple.md) | [Instalar](https://msdn.microsoft.com/library/mt652094.aspx) |
+| Python | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-develop-python-simple.md) | [Instalar](https://msdn.microsoft.com/library/mt694094.aspx) |
+| Ruby | Windows, Linux e Mac | [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-develop-ruby-simple.md) | [Instalar](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

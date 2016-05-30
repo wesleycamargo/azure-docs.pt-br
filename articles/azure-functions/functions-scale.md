@@ -47,4 +47,4 @@ Ao criar aplicativos de funções, você pode optar por executá-los em um Plano
 
 [AZURE.INCLUDE [Plano de serviço Dinâmico](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

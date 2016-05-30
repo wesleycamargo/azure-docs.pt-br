@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/14/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Referência do desenvolvedor de C# do Azure Functions
@@ -100,8 +100,10 @@ Os seguintes namespaces são automaticamente importados e, portanto, são opcion
 
 * `System`
 * `System.Collections.Generic`
+* `System.IO`
 * `System.Linq`
 * `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
@@ -135,10 +137,12 @@ Os seguintes assemblies são adicionados automaticamente pelo ambiente de hosped
 Além disso, os seguintes assemblies têm regras de maiúsculas e minúsculas especias e podem ser referenciados por simplename (por exemplo, `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Se você precisar fazer referência a um assembly particular, poderá carregar o arquivo do assembly para uma pasta `bin` referente à sua função e fazer referência a ela usando o nome do arquivo (por exemplo, `#r "MyAssembly.dll"`).
+Se você precisar fazer referência a um assembly particular, poderá carregar o arquivo do assembly para uma pasta `bin` referente à sua função e fazer referência a ela usando o nome do arquivo (por exemplo, `#r "MyAssembly.dll"`). Para obter informações sobre como carregar arquivos na pasta de função, consulte a seção a seguir sobre gerenciamento de pacotes.
 
 ## Gerenciamento de pacote
 
@@ -160,43 +164,13 @@ Quando você carregar um arquivo *project.json*, o tempo de execução obtém os
 
 ### Como carregar um arquivo project.json
 
-Comece verificando se o aplicativo está em execução, o que pode ser feito abrindo a função no portal do Azure. Isso também permite acessar os logs de streaming nos quais a saída da instalação do pacote será exibida.
+1. Comece verificando se o aplicativo está em execução, o que pode ser feito abrindo a função no portal do Azure. 
 
-Os aplicativos de função baseiam-se no Serviço de Aplicativo, portanto, todas as [opções de implantação disponíveis para aplicativos Web padrão](../app-service-web/web-sites-deploy.md) também estão disponíveis para aplicativos de função. Aqui estão alguns métodos que você pode usar.
+	Isso também permite acessar os logs de streaming nos quais a saída da instalação do pacote será exibida.
 
-#### Para carregar o project.json usando o Visual Studio Online (Monaco)
+2. Para carregar um arquivo project.json, use um dos métodos descritos na seção **Como atualizar os arquivos de aplicativo de função** do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
 
-1. No portal do Azure Functions, clique em **Configurações do aplicativo de função**.
-
-2. Na seção **Configurações Avançadas**, clique em **Ir para Configurações do Serviço de Aplicativo**.
-
-3. Clique em **Ferramentas**.
-
-4. Em **Desenvolver**, clique em **Visual Studio Online**.
-
-5. **Ative-o** se ainda não estiver habilitado e clique em **Ir**.
-
-6. Após o Visual Studio Online ser carregado, arraste e solte seu arquivo *project.json* para a pasta da função (a pasta com o mesmo nome da sua função).
-
-#### Para carregar o project.json usando o ponto de extremidade SCM (Kudu) do aplicativo de função
-
-1. Navegue para: `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Clique em **Console de Depuração > CMD**.
-
-3. Navegue para *D:\\home\\site\\wwwroot<nome\_da\_função>*.
-
-4. Arraste e solte seu arquivo *project.json* na pasta (para a grade de arquivos).
-
-#### Carregar o project.json usando FTP
-
-1. Siga as instruções [aqui](../app-service-web/web-sites-deploy.md#ftp) para configurar o FTP.
-
-2. Quando você estiver conectado ao site do aplicativo de função, copie o arquivo *project.json* para */site/wwwroot/<function_name>*.
-
-#### Log de instalação do pacote 
-
-Após o arquivo *project.json* ser carregado, você verá a saída como o exemplo a seguir no log de streaming da sua função:
+3. Após o arquivo *project.json* ser carregado, você verá a saída como o exemplo a seguir no log de streaming da sua função:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -213,6 +187,25 @@ Após o arquivo *project.json* ser carregado, você verá a saída como o exempl
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.189 
 2016-04-04T19:02:57.455 Packages restored.
+```
+
+## Variáveis de ambiente
+
+Para obter uma variável de ambiente ou um valor de configuração do aplicativo, use `System.Environment.GetEnvironmentVariable`, conforme mostrado no exemplo de código a seguir:
+
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+}
+
+public static string GetEnvironmentVariable(string name)
+{
+    return name + ": " + 
+        System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+}
 ```
 
 ## Reutilização de código .csx
@@ -258,4 +251,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

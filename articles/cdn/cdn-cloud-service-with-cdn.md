@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 
@@ -102,25 +102,7 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 
 > [AZURE.TIP] Se já tiver um perfil CDN que deseja usar para este tutorial, vá para [Criar um novo ponto de extremidade CDN](#create-a-new-cdn-endpoint).
 
-**Para criar um perfil CDN**
-
-1. No [Portal de Gerenciamento do Azure](https://portal.azure.com), no canto superior esquerdo, clique em **Novo**. Na folha **Novo**, selecione **Mídia + CDN** e, em seguida, **CDN**.
-
-    A folha do novo perfil CDN é exibida.
-
-    ![Novo perfil CDN][new-cdn-profile]
-
-2. Insira um nome para o perfil CDN.
-
-3. Selecione um **Tipo de preço** ou use o padrão.
-
-4. Selecione ou crie um **Grupo de Recursos**. Não é necessário que esse seja o mesmo Grupo de Recursos que a sua conta de armazenamento.
-
-5. Selecione a **Assinatura** para este perfil CDN. Isso precisará ser a mesma assinatura que a da conta de armazenamento para os fins deste tutorial.
-
-6. Selecione um **Local**. Esse é o local do Azure onde suas informações de perfil CDN serão armazenadas. Ele não tem impacto sobre os locais de ponto de extremidade CDN. Não precisa ser o mesmo local da conta de armazenamento.
-
-7. Clique no botão **Criar** para criar um novo perfil.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## Criar um novo ponto de extremidade CDN
 
@@ -177,7 +159,7 @@ De modo similar, você pode acessar qualquer URL publicamente acessível em **ht
 -	Qualquer controller/action
 -	Se cadeias de consulta estiverem habilitadas em seu ponto de extremidade da CDN, qualquer URL com cadeias de consulta
 
-De fato, com a configuração acima, você pode hospedar todo o serviço de nuvem **http://*&lt;cdnName>*.azureedge.net/**. Se eu navegar até **http://camservice.azureedge.net/**, obterei o resultado da ação de Home/Index.
+De fato, com a configuração acima, você pode hospedar todo o serviço de nuvem **http://*&lt;cdnName>*.azureedge.net/**. Se eu navegar até ****http://camservice.azureedge.net/**, obterei o resultado da ação de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -637,4 +619,4 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

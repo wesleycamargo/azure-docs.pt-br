@@ -1,13 +1,5 @@
 
 Se o problema do Azure não for resolvido neste artigo, visite os [Fóruns do Azure no MSDN e Excedente de Pilha](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou no @AzureSupport no Twitter. Além disso, você pode registrar uma solicitação de suporte do Azure selecionando **Obter suporte** no site de [suporte do Azure](https://azure.microsoft.com/support/options/).
-## Informações básicas
-### Como funciona a alocação
-Os servidores são particionados em clusters nos datacenters do Microsoft Azure. Normalmente, uma tentativa de solicitação de alocação é feita em vários clusters, mas é possível que determinadas restrições da solicitação de alocação forcem a plataforma do Azure a repeti-la em um único cluster. Neste artigo, chamaremos isso de "fixada a um cluster". O diagrama 1 a seguir ilustra o caso de uma tentativa de alocação normal feita em vários clusters. O diagrama 2 ilustra o caso de uma alocação que foi fixada ao Cluster 2 por se tratar do local de hospedagem do Serviço de Nuvem CS\_1 ou do conjunto de disponibilidade existente. ![Diagrama de alocação](./media/virtual-machines-common-allocation-failure/Allocation1.png)
-
-### Motivos das falhas de alocação
-Quando a solicitação de alocação é fixada a um cluster, é mais provável que haja falha na localização de recursos gratuitos, pois o pool de recursos disponíveis é menor. Além disso, quando a solicitação de alocação é fixada a um cluster, mas não há suporte para o tipo de recurso solicitado ao cluster, a solicitação falha mesmo que o cluster tenha recursos livres. O diagrama 3 a seguir demonstra o caso em que uma alocação fixada falha porque o único cluster candidato não dispõe de recursos gratuitos. O diagrama 4 demonstra o caso em que uma alocação fixada falha porque o único cluster candidato não é compatível com o tamanho da VM solicitado, mesmo que o cluster disponha de recursos livres.
-
-![Falha na alocação fixada](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
 ## Etapas gerais de solução de problemas
 ### Solução de problemas de falhas de alocação comuns no modelo de implantação clássico
@@ -24,10 +16,18 @@ Essas etapas podem ajudar a resolver diversas falhas de alocação em máquinas 
 
 - Pare (desaloque) todas as VMs no mesmo conjunto de disponibilidade e reinicie cada uma delas.<br> Para parar: clique em **Grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Parar**.
 
-	Depois de parar todas as VMs, selecione a primeira e clique em **Iniciar**.
+	Depois de parar todas as VMs, selecione a primeira VM e clique em **Iniciar**.
 
-## Etapas detalhadas de solução de problemas
-### Solução de problemas de cenários de falha de alocação específica no modelo de implantação clássico
+## Informações básicas
+### Como funciona a alocação
+Os servidores são particionados em clusters nos datacenters do Microsoft Azure. Normalmente, uma tentativa de solicitação de alocação é feita em vários clusters, mas é possível que determinadas restrições da solicitação de alocação forcem a plataforma do Azure a repeti-la em um único cluster. Neste artigo, chamaremos isso de "fixada a um cluster". O diagrama 1 a seguir ilustra o caso de uma tentativa de alocação normal feita em vários clusters. O diagrama 2 ilustra o caso de uma alocação que foi fixada ao Cluster 2 por se tratar do local de hospedagem do Serviço de Nuvem CS\_1 ou do conjunto de disponibilidade existente. ![Diagrama de alocação](./media/virtual-machines-common-allocation-failure/Allocation1.png)
+
+### Motivos das falhas de alocação
+Quando a solicitação de alocação é fixada a um cluster, é mais provável que haja falha na localização de recursos gratuitos, pois o pool de recursos disponíveis é menor. Além disso, quando a solicitação de alocação é fixada a um cluster, mas não há suporte para o tipo de recurso solicitado ao cluster, a solicitação falha mesmo que o cluster tenha recursos livres. O diagrama 3 a seguir demonstra o caso em que uma alocação fixada falha porque o único cluster candidato não dispõe de recursos gratuitos. O diagrama 4 demonstra o caso em que uma alocação fixada falha porque o único cluster candidato não é compatível com o tamanho da VM solicitado, mesmo que o cluster disponha de recursos livres.
+
+![Falha na alocação fixada](./media/virtual-machines-common-allocation-failure/Allocation2.png)
+
+## As etapas de solução de problemas detalhadas de cenários de falha de alocação específica no modelo de implantação clássico
 Veja os cenários comuns de alocação que causam a fixação de uma solicitação de alocação. Vamos nos aprofundar em cada cenário posteriormente neste artigo.
 
 - Redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
@@ -47,7 +47,7 @@ O diagrama 5 a seguir apresenta a taxonomia dos cenários de alocação (afixado
 
 > [AZURE.NOTE] Descrevemos o erro de forma reduzida em cada cenário de alocação. Veja [Pesquisa de cadeia de caracteres de erro](#Error string lookup) para obter cadeias de caracteres de erro detalhadas.
 
-#### Cenário de alocação: redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
+## Cenário de alocação: redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
 **Erro**
 
 Upgrade\_VMSizeNotSupported ou GeneralError
@@ -62,7 +62,7 @@ Se o erro for Upgrade\_VMSizeNotSupported*, tente usar um tamanho de VM diferent
 
 Se o erro for GeneralError*, é provável que o cluster tenha suporte para o tipo de recurso (como um determinado tamanho de VM), embora não tenha recursos livres no momento. Semelhante ao cenário acima, adicione o recurso de computação desejado criando um novo serviço de nuvem (observe que o novo serviço de nuvem deve usar um VIP diferente) e use a rede virtual regional para conectar seus serviços de nuvem.
 
-#### Cenário de alocação: reiniciar VMs parcialmente paradas (desalocadas)
+## Cenário de alocação: reiniciar VMs parcialmente paradas (desalocadas)
 
 **Erro**
 
@@ -78,7 +78,7 @@ Se for aceitável usar um VIP diferente, exclua as VMs paradas (desalocadas) (ma
 - Caso o serviço de nuvem existente use uma rede virtual regional, basta adicionar o novo serviço de nuvem à mesma rede virtual.
 - Caso o serviço de nuvem existente não use a rede virtual regional, crie uma nova rede virtual para o novo serviço de nuvem e [conecte sua rede virtual existente à nova rede virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Saiba mais sobre as [redes virtuais regionais](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-#### Cenário de alocação: reiniciar VMs totalmente paradas (desalocadas)
+## Cenário de alocação: reiniciar VMs totalmente paradas (desalocadas)
 **Erro**
 
 GeneralError*
@@ -91,7 +91,7 @@ A desalocação total significa que você parou (desalocou) todas as VMs de um s
 
 Se for aceitável usar um VIP diferente, exclua as VMs originais paradas (desalocadas) (mas mantenha os discos associados) e exclua o serviço de nuvem correspondente (os recursos de computação associados já foram liberados quando você parou ou desalocou as VMs). Crie um novo serviço de nuvem para adicionar novamente as VMs.
 
-#### Cenário de alocação: implantações de preparo/produção (apenas plataforma como serviço)
+## Cenário de alocação: implantações de preparo/produção (apenas plataforma como serviço)
 **Erro**
 
 New\_General* ou New\_VMSizeNotSupported*
@@ -104,7 +104,7 @@ A implantação de preparo e a implantação de produção de um serviço de nuv
 
 Exclua a primeira implantação e o serviço de nuvem original e reimplante o serviço de nuvem. Esta ação pode direcionar a primeira implantação para um cluster que dispõe de recursos livres adequados para as duas implantações ou que dê suporte para os tamanhos de VM solicitados.
 
-#### Cenário de alocação: grupo de afinidades (proximidade de serviço/VM)
+## Cenário de alocação: grupo de afinidades (proximidade de serviço/VM)
 **Erro**
 
 New\_General* ou New\_VMSizeNotSupported*
@@ -117,7 +117,7 @@ Os recursos de computação atribuídos a um grupo de afinidades estão vinculad
 
 Se um grupo de afinidades não for necessário, não use o grupo de afinidades ou agrupe os recursos de computação em vários grupos de afinidades.
 
-#### Cenário de alocação: rede virtual com base em grupo de afinidades
+## Cenário de alocação: rede virtual com base em grupo de afinidades
 **Erro**
 
 New\_General* ou New\_VMSizeNotSupported*
@@ -132,7 +132,7 @@ Caso você não precise de um grupo de afinidades, crie uma nova rede virtual re
 
 Como alternativa, é possível [migrar a rede virtual baseada em grupo de afinidades para uma rede virtual regional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/) e depois adicionar novamente os recursos desejados.
 
-### Solução de problemas de cenários de falha de alocação específica no modelo de implantação do Gerenciador de Recursos do Azure
+## As etapas de solução de problemas detalhados em cenários específicos de falha na alocação no modelo de implantação do Azure Resource Manager
 Veja os cenários comuns de alocação que causam a fixação de uma solicitação de alocação. Vamos nos aprofundar em cada cenário posteriormente neste artigo.
 
 - Redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
@@ -143,7 +143,7 @@ Caso receba um erro de alocação, verifique se os cenários descritos se aplica
 
 Em geral, se o erro não indicar "não há suporte para o tamanho de VM solicitado", você pode sempre tentar novamente mais tarde, já que os recursos necessários podem ter sido liberados no cluster para atender à sua solicitação. Se o problema for que o tamanho da VM solicitada não tem suporte, consulte as soluções alternativas abaixo.
 
-#### Cenário de alocação: redimensionar uma VM ou adicionar VMs a um conjunto de disponibilidade existente
+## Cenário de alocação: redimensionar uma VM ou adicionar VMs a um conjunto de disponibilidade existente
 **Erro**
 
 Upgrade\_VMSizeNotSupported* ou GeneralError*
@@ -158,7 +158,7 @@ Se o erro for Upgrade\_VMSizeNotSupported*, tente usar um tamanho de VM diferent
 
 Se o erro for GeneralError*, é provável que o cluster tenha suporte para o tipo de recurso (como um determinado tamanho de VM), embora não tenha recursos livres no momento. Quando a VM puder fazer parte de um conjunto de disponibilidade diferente, crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região). Essa nova VM pode ser adicionada à mesma rede virtual.
 
-#### Cenário de alocação: reiniciar VMs parcialmente paradas (desalocadas)
+## Cenário de alocação: reiniciar VMs parcialmente paradas (desalocadas)
 **Erro**
 
 GeneralError*
@@ -171,7 +171,7 @@ A desalocação parcial significa que você parou (desalocou) uma ou mais, mas n
 
 Pare todas as VMs no conjunto de disponibilidade antes de reiniciar a primeira. Isso garante que uma nova tentativa de alocação seja executada e que um novo cluster com capacidade disponível possa ser selecionado.
 
-#### Cenário de alocação: reiniciar a parada total (desalocada)
+## Cenário de alocação: reiniciar a parada total (desalocada)
 **Erro**
 
 GeneralError*
@@ -200,5 +200,3 @@ Selecione um novo tamanho de VM para alocar. Se isso não funcionar, tente novam
 **GeneralError***
 
 "O servidor encontrou um erro interno. Repita a solicitação." Ou "Falha na produção de uma alocação para o serviço."
-
-<!-----------HONumber=AcomDC_0330_2016-->

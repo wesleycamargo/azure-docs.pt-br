@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Visualização do Azure AD B2C: compilar um aplicativo da área de trabalho do Windows
@@ -330,9 +330,7 @@ Você pode fazer experiências com suas políticas e observar os efeitos no apli
 
 Para referência, o exemplo completo [é fornecido como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Você também pode cloná-lo do GitHub:
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
 <!--
 
@@ -346,4 +344,4 @@ You can now move on to more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

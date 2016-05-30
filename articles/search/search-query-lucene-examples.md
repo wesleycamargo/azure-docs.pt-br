@@ -15,7 +15,7 @@
     ms.workload="search"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-    ms.date="04/22/2016"
+    ms.date="05/17/2016"
     ms.author="liamca"
 />
 
@@ -48,8 +48,8 @@ Observe que a consulta usa um índice da Pesquisa do Azure pré-configurado cham
 
 Você pode modificar os exemplos deste artigo especificando uma construção **nomedocampo:termodepesquisa** para definir uma operação de consulta por campo, em que o campo é uma única palavra e o termo de pesquisa também é uma única palavra ou uma frase, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:
 
-- cargo:sênior NÃO júnior
-- estado:"Nova York" E "Nova Jersey"
+- business\_title:(sênior NOT júnior)
+- state:(“Nova York” AND “Nova Jersey”)
 
 Coloque várias cadeias de caracteres entre aspas se quiser que ambas as cadeias de caracteres sejam avaliadas como uma única entidade, como neste caso, pesquisar duas cidades distintas no campo de local. Além disso, verifique se o operador está em maiúsculas, como você pode ver com NÃO e E.
 
@@ -129,4 +129,4 @@ Tente especificar o Analisador de Consulta Lucene em seu código. Os links a seg
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

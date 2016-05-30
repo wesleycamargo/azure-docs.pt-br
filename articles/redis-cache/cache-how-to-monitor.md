@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Como monitorar o Cache Redis do Azure" 
+	pageTitle="Como monitorar o Cache Redis do Azure | Microsoft Azure" 
 	description="Saiba como monitorar a integridade e o desempenho de suas instâncias do Cache Redis do Azure" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sdanie"/>
 
 # Como monitorar o Cache Redis do Azure
@@ -82,8 +82,8 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cac
 | Memória Usada | A quantidade de memória de cache usada para os pares de chave/valor no cache, em MB, durante o intervalo de relatório especificado. Esse valor é mapeado para o comando INFO `used_memory` do Redis. Isso não inclui metadados ou fragmentação. |
 | Memória RSS Usada | A quantidade de memória de cache usada, em MB, durante o intervalo de relatório especificado, incluindo fragmentação e metadados. Esse valor é mapeado para o comando INFO `used_memory_rss` do Redis. |
 | CPU | A utilização da CPU do servidor do Cache Redis do Azure como um percentual durante o intervalo de relatório especificado. Esse valor é mapeado para o contador de desempenho `\Processor(_Total)\% Processor Time` do sistema operacional. |
-| Cache Lido | A quantidade de dados lidos do cache, em KB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de interface de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. |
-| Gravação no Cache | A quantidade de dados gravados no cache, em KB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de interface de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. |
+| Cache Lido | A quantidade de dados lidos do cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de interface de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. **Esse valor corresponde à largura de banda usada por esse cache. Se você deseja configurar alertas para limites de largura de banda de rede no servidor, crie-o usando esse contador `Cache Read`. Consulte [essa tabela](cache-faq.md#cache-performance) para ver os limites de largura de banda observados para vários tamanhos e camadas de preços de cache.** |
+| Gravação no Cache | A quantidade de dados gravados no cache, em MB/s, durante o intervalo de relatório especificado. Esse valor é derivado das placas de interface de rede que dão suporte à máquina virtual que hospeda o cache e não é específico do Redis. Esse valor corresponde à largura de banda de rede de dados enviados para o cache do cliente. |
 
 ## Gráficos de monitoramento
 
@@ -259,4 +259,4 @@ Para obter mais informações sobre os alertas no Azure, consulte [Receber notif
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

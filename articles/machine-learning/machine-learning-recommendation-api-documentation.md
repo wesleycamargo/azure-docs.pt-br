@@ -3,7 +3,7 @@
 	description="Documentação da API de Recomendações de Aprendizado de Máquina do Azure para um mecanismo de recomendações disponível no Microsoft Azure Marketplace." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="05/05/2016" 
 	ms.author="LuisCa"/>
 
 #Documentação da API de Recomendações do Aprendizado de Máquina do Azure
@@ -93,10 +93,7 @@ Cria uma solicitação "criar modelo".
 
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
-|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 |
-| apiVersion | 1.0 |
-|||
-| Corpo da Solicitação | NENHUM |
+|	modelName |	Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_).<br>Comprimento máximo: 20 | | apiVersion | 1.0 | ||| | Corpo da Solicitação | NENHUM |
 
 
 **Resposta**:
@@ -888,18 +885,7 @@ XML de OData
 |	apiVersion | 1\.0 |
 |||
 | Corpo da solicitação | 
-<ins>Sempre que você fornecer Ids de Item para regras de negócio, use a ID externa do item ( a mesma ID que você usou no arquivo de catálogo)</ins><br>
-<ins>Para adicionar uma regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Para adicionar uma regra FeatureBlockList:</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-Para adicionar uma regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
-<ins>Para adicionar uma regra WhiteList:</ins><br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Para adicionar uma regra FeatureWhiteList:</ins><br>
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
-Para adicionar uma regra PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Sempre que você fornecer IDs de Item para regras de negócio, use a ID Externa do item (a mesma ID que você usou no arquivo de catálogo)</ins><br> <ins>Para adicionar uma regra BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> <ins>Para adicionar uma regra FeatureBlockList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Para adicionar uma regra Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> <ins>Para adicionar uma regra WhiteList:</ins><br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> <ins>Para adicionar uma regra FeatureWhiteList:</ins><br> <br> `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Para adicionar uma regra PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
 **Resposta**:
@@ -989,11 +975,7 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 
 | Nome | Obrigatório | Tipo | Descrição |
 |:---|:---|:---|:---|
-| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador único de um item. |
-| Nome do item| Sim | Quaisquer caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item |
-|Categoria do item | Sim | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual esse item pertence (por exemplo, Livros de culinária, drama…); pode estar vazio. |
-| Descrição | Não, a menos que haja recursos presentes (mas pode estar vazio) | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000; Número máx. de recursos: 20 | Descrição desse item. |
-| Lista de recursos | Não | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000 | Lista separada por vírgulas do valor de recurso name=feature pode ser usado para otimizar a recomendação do modelo; veja a seção [Tópicos avançados](#2-advanced-topics). |
+| Id do item |Sim | [A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Comprimento máximo: 50 | Identificador único de um item. | | Nome do item| Sim | Quaisquer caracteres alfanuméricos<br> Comprimento máximo: 255 | Nome do item | |Categoria do item | Sim | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 255 | Categoria à qual esse item pertence (por exemplo, Livros de culinária, drama…); pode estar vazio. | | Descrição | Não, a menos que haja recursos presentes (mas pode estar vazio) | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000; Número máx. de recursos: 20 | Descrição desse item. | | Lista de recursos | Não | Quaisquer caracteres alfanuméricos <br> Comprimento máximo: 4000 | Lista separada por vírgulas do valor de recurso name=feature pode ser usado para otimizar a recomendação do modelo; veja a seção [Tópicos avançados](#2-advanced-topics). |
 
 
 | Método HTTP | URI |
@@ -1004,12 +986,7 @@ Observação: o tamanho máximo do arquivo é de 200 MB.
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 |
-| apiVersion | 1.0 |
-|||
-|
-|||
-| Corpo da solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_) são permitidos.<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | ||| | Corpo da solicitação | Exemplo (com recursos):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Resposta**:
@@ -1212,10 +1189,7 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 |	Nome do Parâmetro |	Valores Válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador exclusivo do modelo |
-| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_).<br>Comprimento máximo: 50 |
-| apiVersion | 1.0 |
-|||
-| Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do usuário</td><td>Sim</td><td>[A-z], [a-z], [0-9], [_] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 255 </td><td>Identificador exclusivo de um usuário.</td></tr><tr><td>Id do Item</td><td>Sim</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 50</td><td>Identificador exclusivo de um item.</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo 2013/06/20T10:00:00)</td><td>Hora dos dados.</td></tr><tr><td>Evento</td><td>Não; caso seja fornecido também precisará da data</td><td>Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| nome do arquivo | Identificador textual do catálogo.<br>Há permissão apenas para letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (_).<br>Comprimento máximo: 50 | | apiVersion | 1.0 | ||| | Corpo da solicitação | Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do usuário</td><td>Sim</td><td>[A-z], [a-z], [0-9], [_] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 255 </td><td>Identificador exclusivo de um usuário.</td></tr><tr><td>Id do Item</td><td>Sim</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Sublinhado&#41;, [-] &#40;Traço&#41;<br> Comprimento máximo: 50</td><td>Identificador exclusivo de um item.</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo 2013/06/20T10:00:00)</td><td>Hora dos dados.</td></tr><tr><td>Evento</td><td>Não; caso seja fornecido também precisará da data</td><td>Um dos seguintes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -1363,8 +1337,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
   		</EventData>
 		</Event>
 
-**Response**:
- código de status HTTP: 200
+**Response**: código de status HTTP: 200
 
 ###9\.2. Lista dos arquivos de modelo de uso
 Recupera os metadados de todos os arquivos de uso do modelo. Os arquivos de uso serão recuperados uma página por vez. Cada página contém 100 itens. Se você quiser obter itens em um índice específico, use o parâmetro odata $skip. Por exemplo, se você quiser obter itens a partir da posição 100, adicione o parâmetro $skip=100 à solicitação.
@@ -1650,9 +1623,7 @@ Exclui todos os arquivos de uso do modelo.
 Código de status HTTP: 200
 
 ##10\. Recursos
-Esta seção mostra como recuperar informações de recurso, como os recursos importados e seus valores, sua classificação e quando essa classificação foi alocada. Os recursos são importados como parte dos dados do catálogo e, em seguida, sua posição é associada quando uma compilação de classificação é criada.
-A classificação de recursos pode mudar de acordo com o padrão dos dados de uso e tipo de itens. Mas, para uso/itens consistentes, a classificação deve ter apenas pequenas flutuações.
-A classificação de recursos é um número não negativo. O número 0 significa que o recurso não foi classificado (acontece se você invocar essa API antes da conclusão da primeira compilação de classificação). A data em que a classificação foi atribuída é chamada de atualização da pontuação.
+Esta seção mostra como recuperar informações de recurso, como os recursos importados e seus valores, sua classificação e quando essa classificação foi alocada. Os recursos são importados como parte dos dados do catálogo e, em seguida, sua posição é associada quando uma compilação de classificação é criada. A classificação de recursos pode mudar de acordo com o padrão dos dados de uso e tipo de itens. Mas, para uso/itens consistentes, a classificação deve ter apenas pequenas flutuações. A classificação de recursos é um número não negativo. O número 0 significa que o recurso não foi classificado (acontece se você invocar essa API antes da conclusão da primeira compilação de classificação). A data em que a classificação foi atribuída é chamada de atualização da pontuação.
 
 ###10\.1. Obter informações de recursos (para a última compilação de classificação)
 Recupera as informações de recurso, incluindo classificação, para a última compilação de classificação bem-sucedida.
@@ -2943,8 +2914,7 @@ A resposta inclui uma entrada por item recomendado. Cada entrada tem os seguinte
 Veja um exemplo de resposta no 12.1
 
 ##13\. Histórico de uso do usuário
-Após a compilação de um modelo de recomendação, o sistema permitirá recuperar o histórico do usuário (os itens associados a um usuário específico) usado para a compilação.
-Essa API permite recuperar o histórico do usuário
+Após a compilação de um modelo de recomendação, o sistema permitirá recuperar o histórico do usuário (os itens associados a um usuário específico) usado para a compilação. Essa API permite recuperar o histórico do usuário
 
 Observação: o histórico do usuário está disponível atualmente apenas para compilações de recomendação.
 
@@ -3101,10 +3071,7 @@ Código de status HTTP: 200
 
 
 ##15\. Legal
-Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br>
-Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br>
-Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br>
-© 2015 Microsoft. Todos os direitos reservados.
+Este documento é fornecido "no estado em que se encontra". Informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.<br><br> Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.<br><br> Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna.<br><br> © 2015 Microsoft. Todos os direitos reservados.
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

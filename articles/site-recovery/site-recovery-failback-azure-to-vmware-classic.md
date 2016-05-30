@@ -19,11 +19,13 @@
 # Realizar o failback de máquinas virtuais VMware e servidores físicos para o site local
 
 > [AZURE.SELECTOR]
-- [Avançado](site-recovery-failback-azure-to-vmware-classic.md)
-- [Herdado](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Portal do Azure](site-recovery-failback-azure-to-vmware.md)
+- [Portal Clássico do Azure](site-recovery-failback-azure-to-vmware-classic.md)
+- [Portal Clássico do Azure (Herdado)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
 
-Este artigo descreve como realizar o failback de máquinas virtuais do Azure para o site local. Siga as instruções neste artigo quando estiver pronto para realizar o failback de suas máquinas virtuais VMware ou servidores físicos com Windows/Linux após o a realização do failover do site local para o Azure usando este [tutorial](site-recovery-vmware-to-azure-classic.md).
+
+Este artigo descreve como realizar o failback de máquinas virtuais do Azure para o site local. Siga as instruções neste artigo quando estiver pronto para realizar o failback de suas máquinas virtuais VMware ou de servidores físicos Windows/Linux após a realização do failover do site local para o Azure usando este [tutorial](site-recovery-vmware-to-azure-classic.md).
 
 
 
@@ -37,7 +39,7 @@ Use essa arquitetura quando o servidor de processo é local e você está usando
 
 Use essa arquitetura quando o servidor de processo está no Azure e você tem uma VPN ou uma conexão de Rota Expressa.
 
-![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
+![](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 Para ver a lista completa de portas e o diagrama da arquitetura de failback, consulte a imagem abaixo.
 
@@ -48,7 +50,7 @@ Veja a seguir como o failback funciona:
 - Após a realização do failover para o Azure, execute o failback para seu site local por meio de alguns estágios:
 	- **Estágio 1**: proteja novamente as VMs do Azure para que elas comecem a replicar de volta para as VMs do VMware em execução em seu site local. A habilitação da nova proteção move a VM para um grupo de proteção de failback criado automaticamente durante a criação original do grupo de proteção de failover. Se você adicionou seu grupo de proteção de failover a um plano de recuperação, o grupo de proteção de failback também terá sido adicionado automaticamente ao plano. Durante a nova proteção, especifique como planejar o failback.
 	- **Estágio 2**: após as VMs do Azure estarem replicando para seu site local, execute um failover para realizar o failback do Azure.
-	- **Estágio 3**: após realizar o failback de seus dados, proteja novamente as VMs locais paras as quais você realizou o failback, para que comecem a replicar para o Azure.
+	- **Estágio 3**: após realizar o failback de seus dados, você protege novamente as VMs locais para as quais você realizou o failback, para que comecem a serem replicadas no Azure.
 
 > [AZURE.VIDEO enhanced-vmware-to-azure-failback]
 
@@ -202,4 +204,4 @@ Você pode realizar o failback em uma conexão VPN ou pela Rota Expressa do Azur
 - A Rota Expressa deve ser configurada na rede virtual do Azure para a qual as máquinas de origem passam por failover, e nas quais as VMs do Azure ficam após o failover.
 - Os dados são replicados para uma conta de armazenamento do Azure em um ponto de extremidade público. Você deve configurar o emparelhamento público na Rota Expressa com o data center de destino para que a replicação da Recuperação de Site use a Rota Expressa.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

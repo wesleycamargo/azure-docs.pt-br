@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/31/2016"
+   ms.date="05/16/2016"
    ms.author="karolz@microsoft.com"/>
 
 # Usar o Elasticsearch como um repositório de rastreamento do aplicativo Service Fabric
@@ -24,11 +24,9 @@ O ETW é usado pelo tempo de execução do Service Fabric para originar informa�
 
 Para os rastreamentos que aparecerão em Elasticsearch, eles precisam ser capturados nos nós de cluster do Service Fabric em tempo real (enquanto o aplicativo estiver em execução) e enviados ao ponto de extremidade Elasticsearch. Há duas opções principais para a captura de rastreamento:
 
-+ **Captura de rastreamento dentro do processo**  
-o aplicativo ou, mais precisamente, o processo de serviço é responsável por enviar os dados de diagnóstico para o repositório de rastreamento (ElasticSearch).
++ **Captura de rastreamento dentro do processo** o aplicativo, ou mais precisamente, o processo de serviço, é responsável por enviar os dados de diagnóstico para o repositório de rastreamento (Elasticsearch).
 
-+ **Captura de rastreamento fora do processo**  
-um agente separado captura rastreamentos de processo(s) de serviço e envia-os para o repositório de rastreamento.
++ **Captura de rastreamento fora do processo** um agente separado captura rastreamentos dos processos de serviço e os envia para o repositório de rastreamento.
 
 A seguir, descreveremos como configurar o Elasticsearch no Azure, discutiremos os prós e contras de ambas as opções de captura e explicaremos como configurar um serviço do Service Fabric para enviar dados para o Elasticsearch.
 
@@ -36,14 +34,14 @@ A seguir, descreveremos como configurar o Elasticsearch no Azure, discutiremos o
 ## Configurar o Elasticsearch no Azure
 A maneira mais simples de configurar o serviço Elasticsearch no Azure é por meio de [**modelos do Gerenciador de Recursos do Azure**](../resource-group-overview.md). Um [modelo do Gerenciador de Recursos do Azure de início rápido para Elasticsearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) abrangente está disponível no repositório de modelos de início rápido do Azure. Este modelo usa contas de armazenamento separada para as unidades de escala (grupos de nós). Ele também pode provisionar nós de cliente e servidor separados com configurações diferentes e vários números de discos de dados anexados.
 
-Aqui, usaremos outro modelo chamado **ES-MultiNode** da [ramificação de ELK de padrões e práticas da Microsoft](https://github.com/mspnp/semantic-logging/tree/elk/). Esse modelo é um pouco mais fácil de usar e cria um cluster do Elasticsearch protegido pela autenticação HTTP básica por padrão. Antes de continuar, baixe o [Repositório de ELK de padrões e práticas da Microsoft](https://github.com/mspnp/semantic-logging/tree/elk/) do GitHub em seu computador (clonando o repositório ou baixando um arquivo zip). O modelo ES-MultiNode está localizado na pasta com o mesmo nome.
+Aqui, usaremos outro modelo, chamado **ES-MultiNode** do [repositório de ferramentas de diagnóstico do Azure](https://github.com/Azure/azure-diagnostics-tools). Esse modelo é um pouco mais fácil de usar e cria um cluster do Elasticsearch protegido pela autenticação HTTP básica. Antes de continuar, baixe o repositório do GitHub em seu computador (clonando o repositório ou baixando um arquivo zip). O modelo ES-MultiNode está localizado na pasta com o mesmo nome.
 
 ### Preparar um computador para executar scripts de instalação do ElasticSearch
 A maneira mais fácil de usar o modelo ES-MultiNode é por meio de um script fornecido pelo Azure PowerShell chamado `CreateElasticSearchCluster`. Para usar esse script, você precisará instalar os módulos do PowerShell e uma ferramenta chamada **openssl**. Essa ferramenta é necessária para criar uma chave SSH que pode ser usada para administrar o cluster do Elasticsearch remotamente.
 
 Observe que o script `CreateElasticSearchCluster` foi desenvolvido para facilitar o uso com o modelo ES-MultiNode em um computador com o Windows. É possível usar o modelo em um computador diferente do Windows, mas esse cenário está além do escopo deste artigo.
 
-1. Se você ainda não instalou os [**módulos do Azure PowerShell**](http://aka.ms/webpi-azps), faça isso. Quando solicitado, clique em **Executar** e em **Instalar**.
+1. Se você ainda não os tiver instalado, instale os [**módulos do Azure PowerShell**](http://aka.ms/webpi-azps). Quando solicitado, clique em **Executar** e em **Instalar**. O Azure PowerShell 1.3 ou mais recente é necessário.
 
 2. A ferramenta **openssl** está incluída na distribuição de [**Git para Windows**](http://www.git-scm.com/downloads). Se ainda não tiver feito isso, instale agora o [Git para Windows](http://www.git-scm.com/downloads). (As opções de instalação padrão estão OK.)
 
@@ -56,7 +54,7 @@ Observe que o script `CreateElasticSearchCluster` foi desenvolvido para facilita
 
     Substitua o `<Git installation folder>` pelo local do Git em seu computador; o padrão é **"C:\\Program Files\\Git"**. Observe o caractere ponto e vírgula no início do primeiro caminho.
 
-4. Certifique-se de que você esteja conectado ao Azure (por meio do cmdlet [`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx)) e que tenha selecionado a assinatura que deve ser usada para criar o cluster do Elasticsearch. Você pode verificar se a assinatura correta foi selecionada usando os cmdlets `Get-AzureRmContext` e `Get-AzureRmSubscription`.
+4. Certifique-se de que você esteja conectado ao Azure (por meio do cmdlet [`Add-AzureRmAccount`](https://msdn.microsoft.com/library/mt619267.aspx)) e que tenha selecionado a assinatura que deve ser usada para criar o cluster do Elastic Search. Você pode verificar se a assinatura correta foi selecionada usando os cmdlets `Get-AzureRmContext` e `Get-AzureRmSubscription`.
 
 5. Se você ainda não fez isso, altere o diretório atual para a pasta ES-MultiNode.
 
@@ -65,18 +63,18 @@ Antes de executar o script, abra o arquivo `azuredeploy-parameters.json` e verif
 
 |Nome do Parâmetro |Descrição|
 |-----------------------  |--------------------------|
-|dnsNameForLoadBalancerIP |Esse é o nome que será usado para criar o nome DNS publicamente visível para o cluster do Elasticsearch (anexando o domínio da região do Azure ao nome fornecido). Por exemplo, se esse valor de parâmetro é "myBigCluster" e a região do Azure escolhida é Oeste dos EUA, o nome DNS resultante para o cluster será myBigCluster.westus.cloudapp.azure.com. <br /><br />Esse nome também servirá como uma raiz para nomes de vários artefatos associados ao cluster do Elasticsearch, como os nomes de nó de dados.|
+|dnsNameForLoadBalancerIP |Esse é o nome que será usado para criar o nome DNS publicamente visível para o cluster do Elasticsearch (anexando o domínio da região do Azure ao nome fornecido). Por exemplo, se esse valor de parâmetro é "myBigCluster" e a região do Azure escolhida é Oeste dos EUA, o nome DNS resultante para o cluster será myBigCluster.westus.cloudapp.azure.com. <br /><br />Esse nome também servirá como uma raiz para nomes de vários artefatos associados ao cluster do Elastic Search, como os nomes de nó de dados.|
 |adminUsername |O nome da conta de administrador para gerenciar o cluster do Elasticsearch (as chaves SSH correspondentes serão geradas automaticamente)|
 |dataNodeCount |O número de nós no cluster do Elasticsearch. A versão atual do script não faz distinção entre nós de dados e consultas; todos os nós executarão as duas funções. O valor padrão é 3 nós.|
 |dataDiskSize |O tamanho dos discos de dados (em GB) que será alocado para cada nó de dados. Cada nó receberá 4 discos de dados, dedicados exclusivamente ao serviço Elasticsearch.|
 |region |O nome da região do Azure onde o cluster do Elasticsearch deve estar localizado.|
 |esUserName |O nome do usuário que será configurado para ter acesso ao cluster do Elasticsearch (sujeito à autenticação básica HTTP). A senha não faz parte do arquivo de parâmetros e deverá ser fornecida quando o script `CreateElasticSearchCluster` for invocado.|
-|vmSizeDataNodes |O tamanho da máquina virtual do Azure para nós do cluster do Elasticsearch. O padrão é Standard\_D1.|
+|vmSizeDataNodes |O tamanho da máquina virtual do Azure para nós do cluster do Elasticsearch. O padrão é Standard\_D2.|
 
 Agora você está pronto para executar os aplicativos. Emita o seguinte comando:
 
 ```powershell
-CreateElasticSearchCluster -ResourceGroupName <es-group-name>
+CreateElasticSearchCluster -ResourceGroupName <es-group-name> -Region <azure-region> -EsPassword <es-password>
 ```
 
 onde
@@ -257,4 +255,4 @@ Os valores de `serviceUri`, `userName` e `password` correspondem ao endereço do
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

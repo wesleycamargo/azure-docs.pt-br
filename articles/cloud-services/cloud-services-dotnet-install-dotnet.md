@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Instalar o .NET em uma Função do Serviço de Nuvem"
+   pageTitle="Instalar o .NET em uma Função do Serviço de Nuvem | Microsoft Azure"
    description="Este artigo descreve como instalar o .NET Framework manualmente em funções de trabalho ou Web do serviço de nuvem."
    services="cloud-services"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/17/2016"
+   ms.date="05/17/2016"
    ms.author="adegeo"/>
 
 # Instalar o .NET em uma Função do Serviço de Nuvem 
@@ -183,4 +183,4 @@ Quando você implantar o serviço, as tarefas de inicialização serão executad
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

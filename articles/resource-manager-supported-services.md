@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Serviços, regiões, esquemas e versões com suporte do Gerenciador de Recursos | Microsoft Azure"
+   pageTitle="Serviços com suporte do Gerenciador de Recursos | Microsoft Azure"
    description="Descreve os provedores de recursos que oferecem suporte ao Gerenciador de Recursos, aos respectivos esquemas e versões de API disponíveis, bem como às regiões que podem hospedar os recursos."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
+   ms.date="05/17/2016"
    ms.author="tomfitz"/>
 
 # Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos
@@ -35,9 +35,7 @@ As tabelas a seguir listam quais serviços suportam a implantação e o gerencia
 | Serviços de ciclo de vida do Dynamics | Sim | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (visualização) | Sim | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Máquinas Virtuais | Sim | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| Máquinas virtuais (clássico) | Limitado | - | - |
- Aplicativo Remoto | Não | - | - |
- | Serviços de Nuvem (clássico) | Limitado (veja abaixo) | - | - | - |
+| Máquinas virtuais (clássico) | Limitado | Aplicativo Remoto | Não | - | - | | Serviços de Nuvem (clássico) | Limitado (veja abaixo) | - | - | - |
 
 Máquinas virtuais (clássico) refere-se aos recursos que foram implantados por meio do modelo de implantação clássico, não por meio do modelo de implantação do Gerenciador de Recursos. Em geral, esses recursos não oferecem suporte a operações do Gerenciador de Recursos, mas existem algumas operações que foram habilitadas. Para saber mais sobre esses modelos de implantação, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](resource-manager-deployment-model.md).
 
@@ -90,8 +88,7 @@ Os Serviços de Nuvem (clássico) podem ser usados com outros recursos clássico
 | Repositório Data Lake | Sim | | | |
 | HDInsights | Sim | [REST do HDInsights](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Análise de fluxo | Sim | [Análise de fluxo REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| Aprendizado de Máquina | Não | - | - | - |
-| Catálogo de Dados | Não | - | - | - |
+| Aprendizado de Máquina | Não | - | - | - | | Catálogo de Dados | Não | - | - | - |
 
 ## Internet das coisas
 
@@ -115,12 +112,10 @@ Os Serviços de Nuvem (clássico) podem ser usados com outros recursos clássico
 | ------- | ------- | -------- | ------ | ------ |
 | Serviços do BizTalk | Sim | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Barramento de Serviço | Sim | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Backup | Não | - | - | - |
-| Recuperação de Site | Não | - | - | - |
 
 ## Gerenciamento de acesso e identidade 
 
-O Active Directory do Azure funciona com o Gerenciador de Recursos para habilitar o controle de acesso baseado em função para sua assinatura. Para obter mais informações sobre o controle de acesso baseado em função e Active Directory, confira [Controle de Acesso Baseado em Função do Azure](./active-directory/role-based-access-control-configure.md).
+O Active Directory do Azure funciona com o Gerenciador de Recursos para habilitar o controle de acesso baseado em função para sua assinatura. Para saber mais sobre como usar o controle de acesso baseado em função e o Active Directory, confira [Controle de Acesso Baseado em Função do Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Serviços para Desenvolvedores 
 
@@ -138,6 +133,7 @@ O Active Directory do Azure funciona com o Gerenciador de Recursos para habilita
 | Automação | Sim | | | [Microsoft.Automation](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Automation%22&type=Code) |
 | Cofre da Chave | Sim | [REST do Cofre da Chave](https://msdn.microsoft.com/library/azure/dn903609.aspx) | [Cofre da chave](resource-manager-template-keyvault.md)<br />[Segredo do cofre da chave](resource-manager-template-keyvault-secret.md) | [Microsoft.KeyVault](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.KeyVault%22&type=Code) |
 | Insights Operacionais | Sim | | | [Microsoft.OperationalInsights](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.OperationalInsights%22&type=Code) |
+| Serviços de Recuperação | Sim | | | |
 | Agendador | Sim | [REST do Agendador](https://msdn.microsoft.com/library/azure/mt629143.aspx) | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) | [Microsoft.Scheduler](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Scheduler%22&type=Code) |
 | Segurança (visualização) | Sim | | | [Microsoft.Security](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Security%22&type=Code) |
 
@@ -157,7 +153,7 @@ Para trabalhar com um provedor de recursos, o provedor de recursos deve ser regi
 
 ### API REST
 
-Para obter todos os provedores de recursos disponíveis, incluindo seus tipos, locais, versões de API e status do registro, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Se precisar registrar um provedor de recursos, veja [Registrar uma assinatura em um provedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+Para obter todos os provedores de recursos disponíveis, incluindo seus tipos, locais, versões de API e status do registro, use a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Se você precisar registrar um provedor de recursos, veja [Registrar uma assinatura em um provedor de recursos](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 ### PowerShell
 
@@ -304,4 +300,4 @@ Você pode abrir o arquivo e localizar o elemento **apiVersions**
 - Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 - Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

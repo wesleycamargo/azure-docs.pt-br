@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Introdução à API do Box
 Conecte-se ao Box, crie arquivos, exclua arquivos e muito mais. A API do Box pode ser usada em:
 
-- Aplicativos lógicos 
+- Aplicativos lógicos (discutidos neste tópico)
+- PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -30,7 +31,7 @@ Com o Box, você pode:
 - Usar gatilhos para quando um arquivo for criado ou atualizado.
 - Usar ações para copiar um arquivo, excluir um arquivo e muito mais. Essas ações obtém uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um arquivo é alterado no Box, você pode obtê-lo e enviá-lo por email usando o Office 365.
 
-Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
 O Box inclui os seguintes gatilhos e ações.
@@ -213,7 +214,7 @@ Dispara um fluxo quando um arquivo é modificado em uma pasta do Box.```GET: /da
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -260,6 +261,6 @@ Dispara um fluxo quando um arquivo é modificado em uma pasta do Box.```GET: /da
 
 ## Próximas etapas
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

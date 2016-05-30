@@ -3,8 +3,8 @@
 	description="Use o modelo do Gerenciador de Recursos do Azure para implantar o aplicativo Web com o Cache Redis." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	authors="steved0x" 
+	manager="erickson-doug" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/04/2016" 
-	ms.author="tomfitz"/>
+	ms.author="sdanie"/>
 
 # Criar um aplicativo Web mais o Cache Redis usando um modelo
 
@@ -41,6 +41,15 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 [AZURE.INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
+## Nomes de variáveis
+
+Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniqueString](../resource-group-template-functions/#uniquestring) para construir um valor com base na ID de grupo de recursos.
+
+    "variables": {
+      "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
+      "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
+      "cacheName": "[concat('cache', uniqueString(resourceGroup().id))]"
+    },
 
 
 ## Recursos a implantar
@@ -49,69 +58,67 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 ### Cache Redis
 
-Cria o Cache Redis do Azure que é usado com o aplicativo Web. O nome do cache é especificado no parâmetro **redisCacheName**.
+Cria o Cache Redis do Azure que é usado com o aplicativo Web. O nome do cache é especificado na variável **cacheName**.
 
-O modelo cria o cache no mesmo local que o aplicativo Web, que é recomendado para gerar o melhor desempenho.
+O modelo cria o cache no mesmo local que o grupo de recursos.
 
     {
-      "apiVersion": "2014-04-01-preview",
-      "name": "[parameters('redisCacheName')]",
+      "name": "[variables('cacheName')]",
       "type": "Microsoft.Cache/Redis",
-      "location": "[parameters('siteLocation')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2015-08-01",
+      "dependsOn": [ ],
+      "tags": {
+        "displayName": "cache"
+      },
       "properties": {
         "sku": {
-          "name": "[parameters('redisCacheSKU')]",
-          "family": "[parameters('redisCacheFamily')]",
-          "capacity": "[parameters('redisCacheCapacity')]"
-        },
-        "redisVersion": "[parameters('redisCacheVersion')]",
-        "enableNonSslPort": true
+          "name": "[parameters('cacheSKUName')]",
+          "family": "[parameters('cacheSKUFamily')]",
+          "capacity": "[parameters('cacheSKUCapacity')]"
+        }
       }
     }
 
+
 ### Aplicativo Web
 
-Cria o aplicativo Web com o nome especificado no parâmetro **siteName**.
+Cria o aplicativo Web com o nome especificado na variável **webSiteName**.
 
 Observe que o aplicativo Web está configurado com as propriedades de configuração de aplicativo que o habilitam a trabalhar com o Cache Redis. Essas configurações de aplicativo são criadas dinamicamente com base nos valores fornecidos durante a implantação.
         
     {
-      "apiVersion": "2015-04-01",
-      "name": "[parameters('siteName')]",
+      "apiVersion": "2015-08-01",
+      "name": "[variables('webSiteName')]",
       "type": "Microsoft.Web/sites",
-      "location": "[parameters('siteLocation')]",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
-          "[resourceId('Microsoft.Web/serverFarms', parameters('hostingPlanName'))]",
-          "[resourceId('Microsoft.Cache/Redis', parameters('redisCacheName'))]"
+        "[concat('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]",
+        "[concat('Microsoft.Cache/Redis/', variables('cacheName'))]"
       ],
+      "tags": {
+        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]": "empty",
+        "displayName": "Website"
+      },
       "properties": {
-          "serverFarmId": "[parameters('hostingPlanName')]"
+        "name": "[variables('webSiteName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
       },
       "resources": [
-          {
-              "apiVersion": "2015-06-01",
-              "type": "config",
-              "name": "web",
-              "dependsOn": [
-                  "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
-              ],
-              "properties": {
-                  "appSettings": [
-                      {
-                          "name": "REDIS_HOST",
-                          "value": "[concat(parameters('siteName'), '.redis.cache.windows.net:6379')]"
-                      },
-                      {
-                          "name": "REDIS_KEY",
-                          "value": "[listKeys(resourceId('Microsoft.Cache/Redis', parameters('redisCacheName')), '2014-04-01').primaryKey]"
-                      }
-                  ]
-              }
+        {
+          "apiVersion": "2015-08-01",
+          "type": "config",
+          "name": "appsettings",
+          "dependsOn": [
+            "[concat('Microsoft.Web/Sites/', variables('webSiteName'))]",
+            "[concat('Microsoft.Cache/Redis/', variables('cacheName'))]"
+          ],
+          "properties": {
+            "CacheConnection": "[concat(variables('cacheName'),'.redis.cache.windows.net,abortConnect=false,ssl=true,password=', listKeys(resourceId('Microsoft.Cache/Redis', variables('cacheName')), '2015-08-01').primaryKey)]"
           }
+        }
       ]
     }
-
-
 
 ## Comandos para executar a implantação
 
@@ -125,4 +132,4 @@ Observe que o aplicativo Web está configurado com as propriedades de configura�
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

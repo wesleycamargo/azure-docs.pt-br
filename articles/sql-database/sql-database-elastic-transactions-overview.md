@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Visão Geral das Transações de Banco de Dados Elástico com o Banco de Dados SQL do Azure"
+   pageTitle="Transações distribuídas entre bancos de dados na nuvem"
    description="Visão Geral das Transações de Banco de Dados Elástico com o Banco de Dados SQL do Azure"
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="sidneyh"/>
 
 <tags
@@ -16,7 +16,7 @@
    ms.date="02/23/2016"
    ms.author="torsteng"/>
 
-# Visão Geral das Transações de Banco de Dados Elástico com o Banco de Dados SQL do Azure
+# Transações distribuídas entre bancos de dados na nuvem
 
 As transações de banco de dados elástico para Banco de dados SQL (BD SQL) do Azure permitem que você execute transações que abranjam vários bancos de dados no BD SQL. As transações de banco de dados elástico do BD SQL estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx). Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 
@@ -149,6 +149,7 @@ As seguintes limitações se aplicam atualmente para as transações de banco de
 * Há suporte somente para transações em bancos de dados no BD SQL. Outros provedores de recursos [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) e bancos de dados fora do BD SQL não podem participar de transações de banco de dados elástico. Isso significa que as transações de banco de dados elástico não podem se estender para o SQL Server e o Banco de Dados SQL do Azure no local. Para transações distribuídas no local, continue a usar o MSDTC. 
 * Há suporte somente para transações coordenadas pelo cliente a partir de um aplicativo .NET. Há planos para suporte do lado do servidor para o T-SQL, como INICIAR TRANSAÇÃO DISTRIBUÍDA, mas ainda não está disponível. 
 * Há suporte somente para bancos de dados no V12 do BD SQL do Azure.
+* Não há suporte para transações em serviços WCF. Por exemplo, você tem um método de serviço WCF que executa uma transação. Colocar a chamada dentro de um escopo de transação falhará como [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## Saiba mais
 
@@ -157,4 +158,4 @@ Você ainda não está usando os recursos de banco de dados elástico nos seus a
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

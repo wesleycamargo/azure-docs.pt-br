@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/17/2016"
 	ms.author="markvi"/>
 
 #Tipos de eventos de risco detectados pelo Azure Active Directory Identity Protection 
@@ -38,7 +38,7 @@ Eventos de risco de credenciais vazadas são classificados como um evento de ris
 
 Esse tipo de evento de risco identifica duas entradas provenientes de locais geograficamente distantes, onde pelo menos um deles também pode ser atípico para o usuário, considerando seu comportamento anterior. Além disso, o tempo entre as duas entradas é menor que o tempo necessário para o trajeto do primeiro local até o segundo, o que indica que um usuário diferente está usando as mesmas credenciais.
 
-Esse algoritmo de aprendizado de máquina ignora “ *falsos positivos* ” óbvios que contribuem para a condição de viagem impossível, como VPNs e locais regularmente usados por outros usuários na organização. O sistema tem um período inicial de aprendizado de 14 dias, durante o qual ele assimila o comportamento de entrada do novo usuário.
+Esse algoritmo de aprendizado de máquina ignora “*falsos positivos*” óbvios que contribuem para a condição de viagem impossível, como VPNs e locais regularmente usados por outros usuários na organização. O sistema tem um período inicial de aprendizado de 14 dias, durante o qual ele assimila o comportamento de entrada do novo usuário.
 
 Uma viagem impossível geralmente é um bom indicador de que um hacker conseguiu entrar com êxito. No entanto, podem ocorrer falsos positivos quando um usuário estiver viajando usando um novo dispositivo ou usando uma VPN que normalmente não é usada por outros usuários na organização. Outra fonte de falsos positivos são os aplicativos que transmitem IPs de servidor incorretamente como IPs de cliente, o que pode dar a entender que as entradas estão ocorrendo do datacenter em que o aplicativo de back-end está hospedado (geralmente são datacenters Microsoft, o que dá a entender que as entradas estão ocorrendo de endereços IP de propriedade da Microsoft). Como resultado desses falsos positivos, o nível de risco desse evento de risco é “**Médio**”.
 
@@ -61,7 +61,7 @@ Recomendamos contatar o usuário imediatamente para verificar se ele estava usan
 
 ## Entradas de endereços IP com atividade suspeita
 
-Esse tipo de evento de risco identifica os endereços IP dos quais um grande número de tentativas de entrada com falha foram observadas, de várias contas de usuário e em um curto período de tempo. Isso corresponde aos padrões de tráfego de endereços IP usados por invasores e é um forte indicador de que contas já se encontram comprometidas ou estão prestes a ser. Esse é um algoritmo de aprendizado de máquina que ignora “ *falsos positivos* ” óbvios, como endereços IP que são regularmente usados por outros usuários na organização. O sistema tem um período inicial de aprendizado de 14 dias, no qual ele assimila o comportamento de entrada do novo usuário e do novo locatário.
+Esse tipo de evento de risco identifica os endereços IP dos quais um grande número de tentativas de entrada com falha foram observadas, de várias contas de usuário e em um curto período de tempo. Isso corresponde aos padrões de tráfego de endereços IP usados por invasores e é um forte indicador de que contas já se encontram comprometidas ou estão prestes a ser. Esse é um algoritmo de aprendizado de máquina que ignora “*falsos positivos*” óbvios, como endereços IP que são regularmente usados por outros usuários na organização. O sistema tem um período inicial de aprendizado de 14 dias, no qual ele assimila o comportamento de entrada do novo usuário e do novo locatário.
 
 Recomendamos contatar o usuário para verificar se ele realmente entrou de um endereço IP que foi marcado como suspeito. O nível de risco desse tipo de evento é “**Médio**”, pois vários dispositivos podem estar atrás do mesmo endereço IP, enquanto apenas alguns podem ser responsáveis pela atividade suspeita.
 
@@ -78,4 +78,4 @@ Esse tipo de evento de risco é um mecanismo de avaliação de entrada em tempo 
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!-----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

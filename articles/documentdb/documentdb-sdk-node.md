@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="04/26/2016" 
 	ms.author="andrl"/>
 
 # SDK do Banco de Dados de Documentos
@@ -37,12 +37,16 @@
 
 ##Notas de versão
 
+###<a name="1.7.0"/>1.7.0</a>
+
+- Adicionado o suporte para o recurso TTL (vida útil) para documentos.
+
 ###<a name="1.6.0"/>1.6.0</a>
 - [Coleções particionadas](documentdb-partition-data.md) implementadas e [níveis de desempenho definidos pelo usuário](documentdb-performance-levels.md). 
 
 ###<a name="1.5.6"/>1.5.6</a>
 
-- O bug RangePartitionResolver.resolveForRead foi corrigido, pois ele não estava retornando links devido a uma concatenação incorreta dos resultados
+- O bug RangePartitionResolver.resolveForRead foi corrigido, pois ele não estava retornando links devido a uma concatenação incorreta dos resultados.
 
 ###<a name="1.5.5"/>1.5.5</a>
 
@@ -58,15 +62,15 @@
 
 ###<a name="1.5.2"/>1.5.2</a>
 
-- Corrige o problema [nº 95](https://github.com/Azure/azure-documentdb-node/issues/95) — aviso de perda do ouvinte EventEmitter
+- Corrige o problema [nº 95](https://github.com/Azure/azure-documentdb-node/issues/95) — aviso de perda do ouvinte EventEmitter.
 
 ###<a name="1.5.1"/>1.5.1</a>
 
-- Corrige o problema [nº 92](https://github.com/Azure/azure-documentdb-node/issues/90) — renomeie a pasta Hash para hash nos sistemas que diferenciam maiúsculas de minúsculas
+- Corrige o problema [nº 92](https://github.com/Azure/azure-documentdb-node/issues/90) — renomeie a pasta Hash para hash nos sistemas que diferenciam maiúsculas de minúsculas.
 
 ### <a name="1.5.0"/>1.5.0</a>
 
-- Implemente o suporte a fragmentação ao adicionar os resolvedores de partição de hash e de intervalo
+- Implemente o suporte a fragmentação ao adicionar os resolvedores de partição de hash e de intervalo.
 
 ### <a name="1.4.0"/>1.4.0</a>
 
@@ -74,17 +78,17 @@
 
 ### <a name="1.3.0"/>1.3.0</a>
 
-- Ignorado para alinhar os números de versão com outros SDKs
+- Ignorado para alinhar os números de versão com outros SDKs.
 
 ### <a name="1.2.2"/>1.2.2</a>
 
-- Slipt Q promete wrapper para o novo repositório
-- Atualização para o arquivo de pacote do registro npm
+- Slipt Q promete wrapper para o novo repositório.
+- Atualização para o arquivo de pacote do registro npm.
 
 ### <a name="1.2.1"/>1.2.1</a>
 
-- Implementa o roteamento com base em ID
-- Corrige o problema [nº 49](https://github.com/Azure/azure-documentdb-node/issues/49) -propriedade atual está em conflito com o método current()
+- Implementa o roteamento com base em ID.
+- Corrige o problema [nº 49](https://github.com/Azure/azure-documentdb-node/issues/49) -propriedade atual está em conflito com o método current().
 
 ### <a name="1.2.0"/>1.2.0</a>
 
@@ -94,11 +98,11 @@
 
 ### <a name="1.1.0"/>1.1.0</a>
 
-- Implementa a política de indexação V2
+- Implementa a política de indexação V2.
 
 ### <a name="1.0.3"/>1.0.3</a>
 
-- Problema [nº 40](https://github.com/Azure/azure-documentdb-node/issues/40) - Configurações eslint e grunt implementadas no núcleo e promessa de SDK
+- Problema [nº 40](https://github.com/Azure/azure-documentdb-node/issues/40) - Configurações eslint e grunt implementadas no núcleo e promessa de SDK.
 
 ### <a name="1.0.2"/>1.0.2</a>
 
@@ -106,13 +110,13 @@
 
 ### <a name="1.0.1"/>1.0.1</a>
 
-- Habilidade implementada de consultar conflitos por meio da adição de readConflicts, readConflictAsync e queryConflicts
+- Habilidade implementada de consultar conflitos por meio da adição de readConflicts, readConflictAsync e queryConflicts.
 - Documentação da API atualizada.
-- Problema [nº 41](https://github.com/Azure/azure-documentdb-node/issues/41) - Erro client.createDocumentAsync  
+- Problema [nº 41](https://github.com/Azure/azure-documentdb-node/issues/41) - Erro client.createDocumentAsync.
 
 ### <a name="1.0.0"/>1.0.0</a>
 
-- SDK DO GA
+- SDK DO GA.
 
 ## Datas de lançamento e desativação
 A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
@@ -128,29 +132,7 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 | Versão | Data do lançamento | Data de desativação 
 | ---	  | ---	         | ---
-| [1\.6.0](#1.6.0) | 29 de março de 2016 |--- 
-| [1\.5.6](#1.5.6) | 8 de março de 2016 |--- 
-| [1\.5.5](#1.5.5) | 2 de fevereiro de 2016 |--- 
-| [1\.5.4](#1.5.4) | 1 de fevereiro de 2016 |--- 
-| [1\.5.2](#1.5.2) | 26 de janeiro de 2016 |--- 
-| [1\.5.2](#1.5.2) | 22 de janeiro de 2016 |--- 
-| [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |--- 
-| [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |---
- | [1\.4.0](#1.4.0) | 6 de outubro de 2015 |--- 
- | [1\.3.0](#1.3.0) | 6 de outubro de 2015 |--- 
- | [1\.2.2](#1.2.2) | 10 de setembro de 2015 |--- 
- | [1\.2.1](#1.2.1) | 15 de agosto de 2015 |--- 
- | [1\.2.0](#1.2.0) | 5 de agosto de 2015 |--- 
- | [1\.1.0](#1.1.0) | 9 de julho de 2015 |--- 
- | [1\.0.3](#1.0.3) | 4 de junho de 2015 |--- 
- | [1\.0.2](#1.0.2) | 23 de maio de 2015 |--- 
- | [1\.0.1](#1.0.1) | 15 de maio de 2015 |--- 
- | [1\.0.0](#1.0.0) | 8 de abril de 2015 |--- 
- | 0.9.4-prelease | 6 de abril de 2015 | 29 de fevereiro de 2016 
- | 0.9.3-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016 
- | 0.9.2-prelease | 18 de dezembro de 2014 | 29 de fevereiro de 2016 
- | 0.9.1-prelease | 22 de agosto de 2014 | 29 de fevereiro de 2016 
- | 0.9.0-prelease | 21 de agosto de 2014 | 29 de fevereiro de 2016
+| [1\.7.0](#1.7.0) | 26 de abril de 2016 |--- | [1\.6.0](#1.6.0) | 29 de março de 2016 |--- | [1\.5.6](#1.5.6) | 08 de março de 2016 |--- | [1\.5.5](#1.5.5) | 02 de fevereiro de 2016 |--- | [1\.5.4](#1.5.4) | 01 de fevereiro de 2016 |--- | [1\.5.2](#1.5.2) | 26 de janeiro de 2016 |--- | [1\.5.2](#1.5.2) | 22 de janeiro de 2016 |--- | [1\.5.1](#1.5.1) | 4 de janeiro de 2016 |--- | [1\.5.0](#1.5.0) | 31 de dezembro de 2015 |--- | [1\.4.0](#1.4.0) | 06 de outubro de 2015 |--- | [1\.3.0](#1.3.0) | 06 de outubro de 2015 |--- | [1\.2.2](#1.2.2) | 10 de setembro de 2015 |--- | [1\.2.1](#1.2.1) | 15 de agosto de 2015 |--- | [1\.2.0](#1.2.0) | 05 de agosto 2015 |--- | [1\.1.0](#1.1.0) | 09 de junho de 2015 |--- | [1\.0.3](#1.0.3) | 04 de junho de 2015 |--- | [1\.0.2](#1.0.2) | 23 de maio de 2015 |--- | [1\.0.1](#1.0.1) | 15 de maio de 2015 |--- | [1\.0.0](#1.0.0) | 08 de abril de 2015 |--- | 0.9.4-prelease | 06 de abril de 2015 | 29 de fevereiro de 2016 | 0.9.3-prelease | 14 de janeiro de 2015 | 29 de fevereiro de 2016 | 0.9.2-prelease | 18 de dezembro de 2014 | 29 de fevereiro de 2016 | 0.9.1-prelease | 22 de agosto de 2014 | 29 de fevereiro de 2016 | 0.9.0-prelease | 21 de agosto de 2014 | 29 de fevereiro de 2016
 
 
 ## Perguntas frequentes
@@ -160,4 +142,4 @@ Todas as versões do SDK do Banco de Dados de Documentos do Azure para Node.js a
 
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

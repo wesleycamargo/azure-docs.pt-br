@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Definir políticas de laboratório
 
-> [AZURE.NOTE] Clique no link a seguir para exibir o vídeo que acompanha este artigo: [como definir criar artefatos personalizados](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab)
-
 ## Visão geral
 
-Com o Laboratório de Desenvolvimento/Testes, você pode especificar as principais políticas que controlam como o seu laboratório e suas VMs são usados. Por exemplo, você pode definir as regras para os tamanhos de VM permitidos para criar VMs, o limite para o número de VMs que podem ser criadas, além de agendar trabalhos para iniciar/parar as VMs de laboratório automaticamente.
+Com os Laboratórios de Desenvolvimento/Testes, você pode especificar as principais políticas que controlam como o seu laboratório e suas VMs são usados. Por exemplo, você pode definir as regras para os tamanhos de VM permitidos para criar VMs, o limite para o número de VMs que podem ser criadas, além de agendar trabalhos para iniciar/parar as VMs de laboratório automaticamente.
 
 ## Acessar as políticas do laboratório
 
 Para exibir (e alterar) as políticas de um laboratório, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
@@ -132,8 +130,9 @@ A política de início automático permite que você especifique quando as VMs d
 
 Depois de definir e aplicar as várias configurações da política de VM em seu laboratório, aqui estão algumas opções para você tentar em seguida:
 
+- [Configurar gerenciamento de custos](./devtest-lab-configure-cost-management.md) - Este artigo ilustra como usar o gráfico **Tendência de custo estimado mensal** para exibir o custo estimado até a data do mês atual, bem como o custo projetado do final do mês para o mês atual.
 - [Criar imagem personalizada](./devtest-lab-create-template.md) - Durante a criação de uma VM, você especifica uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um arquivo VHD.
 - [Configurar imagens do Marketplace](./devtest-lab-configure-marketplace-images.md) - Os Laboratórios de Desenvolvimento/Teste dão suporte à criação de novas VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (se houver alguma) do Azure Marketplace podem ser usadas durante a criação de novas VMs em um laboratório.
-- [Criar uma VM em um laboratório](./devtest-lab-add-vm-with-artifacts.md) - Este artigo ilustra como criar uma nova VM de uma imagem de base (de forma personalizada ou no Marketplace) e como trabalhar com artefatos em sua VM.
+- [Criar uma VM em um laboratório](./devtest-lab-add-vm-with-artifacts.md): ilustra como criar uma nova VM de uma imagem de base (personalizada ou do Marketplace) e como trabalhar com artefatos em sua VM.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

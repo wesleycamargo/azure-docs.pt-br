@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="05/04/2016"
+ 	ms.date="05/11/2016"
 	ms.author="juliako"/>
 
 #Use os Serviços de Mídia do Azure para transmitir seu conteúdo de HLS protegido com o Apple FairPlay 
 
 Os Serviços de Mídia do Azure permitem que você criptografe seu conteúdo de HLS (HTTP Live Streaming) de maneira dinâmica, usando os seguintes formatos:
 
-- **Chave não criptografada de envelope do AES-128** - A parte inteira é criptografada usando o modo **CTR AES-128**. A descriptografia da transmissão tem suporte pelo iOS e pelo player OSX de forma nativa. Para obter mais informações, consulte [este artigo](media-services-protect-with-aes128.md).
+- **Chave não criptografada de envelope do AES-128** - A parte inteira é criptografada usando o modo **AES-128 CBC**. A descriptografia da transmissão tem suporte pelo iOS e pelo player OSX de forma nativa. Para obter mais informações, consulte [este artigo](media-services-protect-with-aes128.md).
 
 - **Apple FairPlay** - As amostras de áudio e vídeo individuais são criptografadas usando o modo **AES-128 CBC**. O **FPS** (FairPlay Streaming) é integrado aos sistemas operacionais de dispositivos, com suporte nativo no iOS e na Apple TV. O Safari no OS X habilita o FPS usando o suporte à interface de EME (Extensões de Mídia Criptografada).
 
@@ -97,10 +97,14 @@ A seguir estão as etapas gerais que você precisará executar ao proteger seus 
 
 1. Criar um localizador OnDemand para obter uma URL de streaming.
 
->[AZURE.NOTE] O Azure Media Player não dá suporte para a reprodução do FairPlay pronto para uso. Você precisa obter o player de exemplo da conta de desenvolvedor da Apple para obter a reprodução do FairPlay no MAC OSX.
->
->Você também pode desenvolver aplicativos usando o SDK do iOS.
+##Usando a entrega de chaves do FairPlay por aplicativos de player/cliente
 
+Os clientes podem desenvolver aplicativos de player usando o SDK do iOS. Para conseguir reproduzir conteúdo do FairPlay, os clientes precisam implementar o protocolo de troca de licenças. O protocolo de troca de licenças não é especificado pela Apple; cada aplicativo deverá decidir como enviar as solicitações de entrega de chaves. Os serviços de entrega de chaves do FairPlay do AMS espera que o SPC seja recebido como um mensagem de postagem codificada por URL de formato www da seguinte forma:
+
+	spc=<Base64 encoded SPC>
+
+>[AZURE.NOTE] O Azure Media Player não dá suporte para a reprodução do FairPlay pronto para uso. Os clientes precisam obter o player de exemplo da conta de desenvolvedor da Apple para obter a reprodução do FairPlay no MAC OSX.
+ 
 
 ##Exemplo de .NET
 
@@ -536,4 +540,4 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

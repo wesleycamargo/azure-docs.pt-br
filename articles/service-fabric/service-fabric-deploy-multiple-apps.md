@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="05/17/2016"
    ms.author="bscholl"/>
 
 
@@ -61,7 +61,7 @@ Como uma próxima etapa, crie um pacote de aplicativos para o aplicativo Node.js
 Veja a seguir uma descrição dos parâmetros que estão sendo usados:
 
 - **/source**: aponta para o diretório do aplicativo que deve ser empacotado.
-- **/target**: define o diretório no qual o pacote deve ser criado. Esse diretório deve ser diferente do diretório de destino.
+- **/target**: define o diretório no qual o pacote deve ser criado. Esse diretório deve ser diferente do diretório de origem.
 - **/appname**: define o nome do aplicativo existente. É importante entender que isso significa o nome do serviço no manifesto, e não o nome do aplicativo do Service Fabric.
 - **/exe**: define o arquivo executável que o Service Fabric deve iniciar, neste caso `node.exe`.
 - **/ma**: define o argumento usado para iniciar o arquivo executável. Como o Node.js não está instalado, o Service Fabric precisa iniciar o servidor Web do Node.js executando `node.exe bin/www`. `/ma:'bin/www'` informa à ferramenta de empacotamento para usar `bin/ma` como o argumento para node.exe.
@@ -182,10 +182,10 @@ A última etapa é publicar o aplicativo no cluster do Service Fabric local usan
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'NodeAppType'
 
 Write-Host 'Registering application type...'
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
@@ -198,4 +198,4 @@ Neste tutorial, você viu como empacotar facilmente dois aplicativos existentes 
 
 - Saiba como [empacotar um aplicativo convidado manualmente](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

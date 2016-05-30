@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Gerenciando configurações de usuário com o Azure Multi-Factor Authentication na nuvem
@@ -34,7 +34,7 @@ Isso é útil se um computador ou dispositivo for perdido ou roubado ou se você
 
 ## Exigir que os usuários selecionados forneçam métodos de contato novamente
 
-Essa configuração forçará o usuário a seguir o processo de registro novamente quando fizer logon. Lembre-se de que aplicativos sem navegador continuarão funcionando se o usuário tiver senhas de aplicativos para eles. Você pode excluir as senhas de aplicativos de usuários selecionando também **Excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
+Essa configuração forçará o usuário a seguir o processo de registro novamente quando fizer logon. Lembre-se de que aplicativos sem navegador continuarão funcionando se o usuário tiver senhas de aplicativos para eles. Você pode excluir as senhas de aplicativos de usuários selecionando também ** Excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
 
 ### Como exigir que os usuários selecionados forneçam métodos de contato novamente
 
@@ -86,4 +86,4 @@ Os administradores têm a capacidade de restaurar o Multi-Factor Authentication 
 9. Clique em Salvar.
 10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

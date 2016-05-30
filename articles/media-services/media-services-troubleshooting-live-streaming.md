@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Guia de solução de problemas de transmissão ao vivo" 
+	pageTitle="Guia de solução de problemas da transmissão ao vivo" 
 	description="Este tópico fornece sugestões sobre como solucionar problemas de transmissão ao vivo." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
  	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
-#Guia de solução de problemas de transmissão ao vivo 
+#Guia de solução de problemas da transmissão ao vivo
 
 Este tópico fornece sugestões sobre como solucionar alguns problemas de transmissão ao vivo.
 
@@ -85,4 +85,4 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

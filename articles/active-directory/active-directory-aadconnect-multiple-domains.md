@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Suporte a Vários Domínios para Federação com o Azure AD
@@ -153,4 +153,4 @@ Use as etapas a seguir para adicionar uma declaração personalizada que dê sup
 ![Substituir declaração](./media/active-directory-multiple-domains/sub2.png)
 5.	Clique em OK. Clique em Aplicar. Clique em OK. Feche o gerenciamento do AD FS.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -34,7 +34,7 @@ Quando você precisa criar um arquivo morto de um Banco de Dados SQL do Azure, p
 - O tamanho máximo de um arquivo BACPAC arquivado no armazenamento de blobs do Azure é de 200 GB. Use o utilitário de prompt de comando [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) para arquivar um arquivo BACPAC maior no armazenamento local. Esse utilitário é fornecido com o Visual Studio e o SQL Server. Você também pode [baixar](https://msdn.microsoft.com/library/mt204009.aspx) a versão mais recente do SQL Server Data Tools para obter esse utilitário.
 - Não há suporte para o arquivamento no armazenamento premium do Azure usando um arquivo BACPAC.
 - Se a operação de exportação ficar acima de 20 horas, ela poderá ser cancelada. Para aumentar o desempenho durante a exportação, você pode:
- - Aumentar temporariamente o nível de serviço 
+ - Aumentar temporariamente seu nível de serviço 
  - Interromper toda a atividade de leitura e gravação durante a exportação
  - Usar um índice clusterizado em todas as tabelas grandes. Sem índices clusterizados, a exportação poderá falhar se demorar mais de 6 a 12 horas. Isso ocorre porque os serviços de exportação precisam concluir a verificação de tabela para tentar exportar a tabela inteira
  
@@ -151,4 +151,4 @@ A execução desse comando solicitará uma senha. Insira a senha do administrado
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

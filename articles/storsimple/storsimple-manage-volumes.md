@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/29/2016"
+   ms.date="05/11/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar volumes
@@ -51,11 +51,11 @@ Um volume consiste em uma série de atributos:
 
 As tarefas mais comuns associadas a um volume são:
 
-- Adicionar um volume 
-- Modificar um volume 
-- Excluir um volume 
-- Colocar um volume offline 
-- Monitorar um volume 
+- Adicionar um volume
+- Modificar um volume
+- Excluir um volume
+- Colocar um volume offline
+- Monitorar um volume
 
 ## Adicionar um volume
 
@@ -79,9 +79,9 @@ Você [criou um volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-
   5. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)para ir para a página **Configurações Adicionais**.
 
         ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
-   
+
 5. Em **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
-  
+
   1. Selecione um registro de controle de acesso (ACR) na lista suspensa. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar os volumes fazendo a correspondência do IQN do host com aqueles listados no registro.
   2. É recomendável que você habilite um backup padrão ao marcar a caixa de seleção **Habilitar um backup padrão para este volume**.
    3. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
@@ -92,10 +92,10 @@ O seu novo volume agora está pronto para uso.
 
 Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acessam o volume.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 >
-> - Se você modificar o tamanho do volume no dispositivo, o tamanho do volume precisa ser alterado no host também. 
-> - As etapas do lado do host descritas aqui servem para o Windows Server 2012 (2012R2). Procedimentos para Linux ou para outros sistemas operacionais host serão diferentes. Consulte as instruções do sistema operacional host ao modificar o volume em um host que executa outro sistema operacional. 
+> - Se você modificar o tamanho do volume no dispositivo, o tamanho do volume precisa ser alterado no host também.
+> - As etapas do lado do host descritas aqui servem para o Windows Server 2012 (2012R2). Procedimentos para Linux ou para outros sistemas operacionais host serão diferentes. Consulte as instruções do sistema operacional host ao modificar o volume em um host que executa outro sistema operacional.
 
 ### Para modificar um volume
 
@@ -116,7 +116,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
 
   - Modificar os ACRs, desde que o volume esteja offline. Se o volume estiver online, você precisará colocá-lo offline primeiro. Consulte as etapas em [Colocar um volume offline](#take-a-volume-offline) antes de modificar o ACR.
   - Modificar a lista de ACRs depois que o volume está offline.
- 
+
     > [AZURE.NOTE] Você não pode alterar a opção **Habilitar um backup padrão para este volume** para o volume.
 
 6. Salve suas alterações, clicando no ícone de verificação ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). O portal clássico do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
@@ -198,6 +198,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
- 
-
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

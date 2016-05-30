@@ -19,18 +19,19 @@
 # Replicar as máquinas virtuais VMware e os servidores físicos no Azure com o Azure Site Recovery (herdado)
 
 > [AZURE.SELECTOR]
-- [Avançado](site-recovery-vmware-to-azure-classic.md)
-- [Herdado](site-recovery-vmware-to-azure-classic-legacy.md)
+- [Portal do Azure](site-recovery-vmware-to-azure.md)
+- [Portal clássico](site-recovery-vmware-to-azure-classic.md)
+- [Portal Clássico (herdado)](site-recovery-vmware-to-azure-classic-legacy.md)
 
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para ter uma breve visão geral, leia [O que é Azure Site Recovery?](site-recovery-overview.md).
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para uma breve visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md).
 
 ## Visão geral
 
 Este artigo descreve como:
 
-- **Replicar máquinas virtuais VMware no Azure**—Implante a Recuperação de Site para coordenar a replicação, failover e recuperação de máquinas virtuais do VMware locais no armazenamento do Azure.
-- **Replicar servidores físicos no Azure**—Implante o Azure Site Recovery para coordenar a replicação, failover e recuperação de servidores do Windows e Linux físicos locais no Azure.
+- **Replicar máquinas virtuais VMware no Azure** — implante a Recuperação de Site para coordenar a replicação, failover e recuperação de máquinas virtuais do VMware locais no armazenamento do Azure.
+- **Replicar servidores físicos no Azure** — implante o Azure Site Recovery para coordenar a replicação, failover e recuperação de servidores do Windows e Linux físicos locais no Azure.
 
 >[AZURE.NOTE] O cenário descrito neste artigo inclui **instruções herdadas**. Não siga este artigo para novas implantações. Em vez disso, use as instruções de [implantação avançada](site-recovery-vmware-to-azure-classic.md) para o portal clássico. Se você já tiver implantado usando o método descrito neste artigo, recomendamos que você migre para a nova versão, como descrito abaixo.
 
@@ -316,12 +317,12 @@ O servidor de configuração é implantado em um serviço de nuvem do Azure cria
 	- Quando você clicar em **Avançar**, um teste será executado para verificar a conexão proxy.
 	- Se você usar um proxy personalizado ou se o seu proxy padrão exigir autenticação, será preciso inserir os detalhes do proxy, incluindo o endereço, a porta e as credenciais.
 	- As URLs a seguir devem poder ser acessadas pelo proxy:
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- Se você tiver regras de firewall baseadas no endereço IP, verifique se as regras estão definidas para permitir a comunicação do servidor de configuração com os endereços IP descritos em [Intervalos IP do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e o protocolo HTTPS (443). Você terá que colocar os intervalos IP em uma lista de permissões da região do Azure que planeja usar e uma para o Oeste dos EUA.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- Se você tiver regras de firewall baseadas no endereço IP, verifique se as regras estão definidas para permitir a comunicação do servidor de configuração com os endereços IP descritos em [Intervalos IP do datacenter do Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) e o protocolo HTTPS (443). Você terá que colocar os intervalos IP em uma lista de permissões da região do Azure que planeja usar e uma para o Oeste dos EUA.
 
 	![Registro do proxy](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
 
@@ -424,9 +425,8 @@ Observe que os quatro primeiros endereços IP em qualquer sub-rede são reservad
 8. Se você estiver executando o Linux:
 	1. Certifique-se de ter os LIS (Linux Integration Services) mais recentes instalados antes de instalar o Software do servidor de destino mestre. Você pode encontrar a versão mais recente dos LIS com instruções sobre como instalá-los [aqui](https://www.microsoft.com/download/details.aspx?id=46842). Reinicie a máquina após instalar os LIS.
 	2. Em **Preparar Recursos de Destino do Azure**, clique em **Baixar e Instalar software adicional (somente para o Servidor de Destino Mestre Linux)** para baixar o pacote do servidor de destino mestre do Linux. Copie o arquivo tar baixado na máquina virtual usando um cliente sftp. Como alternativa, você pode fazer logon no servidor de destino mestre Linux implantado e usar *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* para baixar o arquivo.
-	2. Faça logon no servidor usando um cliente do Secure Shell. Observe que, se você estiver conectado à rede do Azure pela VPN, use o endereço IP interno. Caso contrário, use o endereço IP externo e o ponto de extremidade público do SSH.
-	3. Extraia os arquivos do instalador compactado executando **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***  
-	![Servidor de destino mestre Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
+2. Faça logon no servidor usando um cliente do Secure Shell. Observe que, se você estiver conectado à rede do Azure pela VPN, use o endereço IP interno. Caso contrário, use o endereço IP externo e o ponto de extremidade público do SSH.
+	3. Extraia os arquivos do instalador compactado executando **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Servidor de destino mestre Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
 	4. Verifique se você está no diretório no qual extraiu o conteúdo do arquivo tar.
 	5. Copie a senha do servidor de configuração para um arquivo local usando o comando **echo *`<passphrase>`* >passphrase.txt**
 	6. Execute o comando “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”.
@@ -705,7 +705,7 @@ Adicione computadores como se segue:
 	![Adicionar Servidor vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
 4. Em **Especificar Recursos de Destino**, selecione os servidores de destino mestre e o armazenamento a serem usados para replicação e selecione se as configurações devem ser usadas para todas as cargas de trabalho. Selecione [Conta de Armazenamento Premium](../storage/storage-premium-storage.md) quando configurar a proteção para cargas de trabalho que exigem alto desempenho de E/S consistente e baixa latência para hospedar as cargas de trabalho intensivas de E/S. Se você quiser usar uma conta de Armazenamento Premium para os discos de carga de trabalho, você precisa usar o Destino mestre da série DS. Mas você não pode usar discos de Armazenamento Premium com Destino mestre que não pertençam às séries DS.
 
-	>[AZURE.NOTE] Não há suporte para a movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+	>[AZURE.NOTE] Não há suporte à movimentação de contas de armazenamento criadas usando o [novo Portal do Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
 
 	![Servidor vCenter](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
@@ -814,4 +814,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

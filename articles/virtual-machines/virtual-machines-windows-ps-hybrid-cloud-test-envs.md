@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.date="04/01/2016"
@@ -52,4 +52,4 @@ Para organizações e indivíduos para os quais uma conexão direta com a Intern
 
 - Saiba mais sobre as [diretrizes de implementação](virtual-machines-linux-infrastructure-service-guidelines.md) para projetar uma implantação personalizada de teste/desenvolvimento ou produção nos serviços de infraestrutura do Azure.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

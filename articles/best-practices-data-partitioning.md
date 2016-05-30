@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Diretrizes de particionamento de dados
 
-![](media/best-practices-data-partitioning/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Visão geral
 
@@ -564,4 +564,4 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 [What is Azure SQL Database?]: sql-database/sql-database-technical-overview.md
 [O que é o Banco de Dados SQL do Azure?]: sql-database/sql-database-technical-overview.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

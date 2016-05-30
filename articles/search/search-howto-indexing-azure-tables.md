@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="04/12/2016"
+ms.date="05/12/2016"
 ms.author="eugenesh" />
 
 # Indexação do Armazenamento de Tabelas do Azure com a Pesquisa do Azure
@@ -29,15 +29,16 @@ Uma fonte de dados especifica quais dados indexar, as credenciais necessárias p
 
 Um indexador lê dados de uma fonte de dados e carrega-os em um índice de pesquisa de destino.
 
-Para configurar um indexador de tabela:
+Para configurar a indexação de tabela:
 
 1. Criar uma fonte de dados do tipo `azuretable` que faz referência a uma tabela (e, opcionalmente, uma consulta) em uma conta de armazenamento do Azure
 	- Passe a cadeia de conexão de sua conta de armazenamento como o parâmetro `credentials.connectionString`
 	- Especifique o nome da tabela usando o parâmetro `container.name`
 	- Opcionalmente, especifique uma consulta usando o parâmetro `container.query`. Sempre que possível, use um filtro em PartitionKey para obter o melhor desempenho. Qualquer outra consulta resultará em uma verificação completa da tavbela que pode resultar em baixo desempenho em tabelas grandes.
-2. Crie o indexador conectando sua fonte de dados a um índice de destino existente (crie o índice caso ainda não tenha um)
+2. Crie um índice de pesquisa com o esquema que corresponde às colunas na tabela que você deseja indexar. 
+3. Crie o indexador conectando a fonte de dados ao índice de pesquisa.
 
-O exemplo a seguir fornece uma ilustração:
+### Criar a fonte de dados
 
 	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -50,7 +51,27 @@ O exemplo a seguir fornece uma ilustração:
 	    "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
 	}   
 
-Em seguida, crie um indexador que faça referencia à fonte de dados e a um índice de destino. Por exemplo:
+Para obter mais informações sobre como a API Criar Fonte de Dados, veja [Criar Fonte de Dados](search-api-indexers-2015-02-28-preview.md#create-data-source).
+
+### Criar índice 
+
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "key", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
+  		]
+	}
+
+Para obter mais informações sobre a API Criar Índice, veja [Criar Índice](https://msdn.microsoft.com/library/dn798941.aspx)
+
+### Criar indexador 
+
+Por fim, crie o indexador que faz referência à fonte de dados e ao índice de destino. Por exemplo:
 
 	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -63,25 +84,27 @@ Em seguida, crie um indexador que faça referencia à fonte de dados e a um índ
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
+Para obter mais detalhes sobre a API Criar Indexador, veja [Criar Indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
+
 E isso é tudo. Boa indexação!
+
+## Lidando com nomes de campos diferentes
+
+Geralmente, os nomes de campos no índice existente serão diferentes dos nomes de propriedades da sua tabela. Você pode usar os **mapeamentos de campo** para mapear os nomes de propriedade da tabela para os nomes de campo em seu índice de pesquisa. Para saber mais sobre os mapeamentos de campo, veja [Os mapeamentos de campo do indexador da Pesquisa do Azure reduzem as diferenças entre fontes de dados e índices de pesquisa](search-indexer-field-mappings.md).
 
 ## Manipulando chaves de documento
 
 Na Pesquisa do Azure, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. O campo de chave é necessário para cada documento adicionado ao índice (é, na verdade, o único campo obrigatório).
 
-Como as linhas de tabela têm uma chave composta, a Pesquisa do Azure gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de linha e chave de partição. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, em seguida, o valor do campo `Key` será `PK1RK1`.
+Como as linhas de tabela têm uma chave composta, a Pesquisa do Azure gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de linha e de chave de partição. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
 
-> [AZURE.NOTE] O valor `Key` pode conter caracteres inválidos em chaves de documentos, como traços. Você pode lidar com caracteres inválidos habilitando a opção `base64EncodeKeys` nas propriedades do indexador. Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas de API, como Pesquisa. (Por exemplo, em .NET você pode usar o [método UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
-
-## Lidando com nomes de campos diferentes
-
-Geralmente, os nomes de campos no índice existente serão diferentes dos nomes de propriedades da sua tabela. Você pode usar os **mapeamentos de campo** para mapear os nomes de propriedade da tabela para os nomes de campo em seu índice de pesquisa. Para saber mais sobre mapeamentos de campo, confira [Personalização do indexador da Pesquisa do Azure](search-indexers-customization.md).
+> [AZURE.NOTE] O valor `Key` pode conter caracteres inválidos em chaves de documento, como traços. É possível lidar com caracteres inválidos usando a [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`. Se você fizer isso, lembre-se também de usar a codificação de Base 64 protegida por URL ao transmitir as chaves de documento nas chamadas à API como Pesquisa.
 
 ## Indexação incremental e detecção de exclusão
  
-Quando você configurar um indexador de tabela para ser executado de forma agendada, ele reindexará somente linhas novas ou atualizadas, conforme determinado pelo valor `Timestamp` de uma linha. Não é necessário especificar uma política de detecção de alteração, a indexação incremental é habilitada automaticamente para você.
+Ao configurar um indexador de tabela para ser executado em um agendamento, ele reindexará somente linhas novas ou atualizadas, conforme determinado pelo valor `Timestamp` de uma linha. Não é necessário especificar uma política de detecção de alteração, a indexação incremental é habilitada automaticamente para você.
 
-Para indicar que determinados documentos devem ser removidos do índice, você pode usar uma estratégia de exclusão reversível: em vez de excluir uma linha, adicione uma propriedade para indicar que ela deve ser excluída e configure uma política de detecção de exclusão reversível na fonte de dados. Por exemplo, a política abaixo considerará que uma linha foi excluída se tiver uma propriedade `IsDeleted` com o valor `"true"`:
+Para indicar que determinados documentos devem ser removidos do índice, você pode usar uma estratégia de exclusão reversível: em vez de excluir uma linha, adicione uma propriedade para indicar que ela deve ser excluída e configure uma política de detecção de exclusão reversível na fonte de dados. Por exemplo, a política mostrada abaixo considerará que uma linha foi excluída se tiver uma propriedade `IsDeleted` com o valor `"true"`:
 
 	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -100,4 +123,4 @@ Para indicar que determinados documentos devem ser removidos do índice, você p
 
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

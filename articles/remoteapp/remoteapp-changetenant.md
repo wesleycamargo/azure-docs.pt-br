@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/05/2016"
+    ms.date="05/05/2016"
     ms.author="elizapo" />
 
 
@@ -47,4 +47,4 @@ Se você quiser usar um locatário diferente, siga estas etapas para alterar a a
 
 Agora, você pode usar o novo locatário do Azure AD para controlar o acesso à assinatura do Azure e configurar o acesso do usuário no RemoteApp do Azure.
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

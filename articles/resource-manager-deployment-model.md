@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2016"
+   ms.date="05/13/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos
@@ -26,7 +26,9 @@ Para a maioria dos recursos, você pode fazer a transição para o Gerenciador d
 - **Armazenamento** - Dá suporte às contas de armazenamento necessárias que armazenam os VHDs para máquinas virtuais, incluindo o sistema operacional e os discos de dados adicionais.
 - **Rede** - Dá suporte às NICs necessárias, endereços IP de máquinas virtuais e sub-redes em redes virtuais e balanceadores de carga opcionais, endereços IP de balanceador de carga e grupos de segurança de rede.
 
-Para esses tipos de recurso, você deve saber qual versão está usando, pois as operações com suporte variam. Para entender o modelo que foi usado para implantar seus recursos, vamos examinar os dois modelos.
+Para esses tipos de recurso, você deve saber qual versão está usando, pois as operações com suporte variam. Se você estiver pronto para migrar seus recursos da implantação clássica para a implantação do Gerenciador de Recursos, veja [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md) (Migração de recursos de IaaS com suporte da plataforma do Clássico para o Azure Resource Manager).
+
+Para entender o modelo que foi usado para implantar seus recursos, vamos examinar os dois modelos.
 
 ## Características do Gerenciador de Recursos
 
@@ -38,7 +40,7 @@ Os recursos criados com o Gerenciador de Recursos compartilham as seguintes cara
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -85,7 +87,7 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Ou pelo portal de visualização, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
+        Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -161,7 +163,7 @@ Há algumas considerações importantes ao trabalhar com máquinas virtuais.
 - As máquinas virtuais implantadas com o modelo de implantação do Gerenciador de Recursos devem ser incluídas em uma rede virtual.
 - As máquinas virtuais implantadas com o modelo de implantação clássica não precisam ser incluídas em uma rede virtual.
 
-Se você puder se dar ao luxo de ter um tempo de inatividade para as suas Máquinas Virtuais, é possível fazer sua transição da implantação clássica para o Gerenciador de Recursos com os [scripts ASM2ARM do PowerShell](https://github.com/fullscale180/asm2arm).
+Se você estiver pronto para migrar seus recursos da implantação clássica para a implantação do Gerenciador de Recursos, veja [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](./virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md) (Migração de recursos de IaaS com suporte da plataforma do Clássico para o Azure Resource Manager).
 
 Para obter mais detalhes sobre como fazer a transição dos recursos Computação, Armazenamento e Rede, consulte [Provedores de Computação, de Rede e de Armazenamento do Azure no Gerenciador de Recursos do Azure](./virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
@@ -170,7 +172,7 @@ Para saber como conectar redes virtuais de diferentes modelos de implantação, 
 ## Próximas etapas
 
 - Para ver um passo a passo da criação do modelo que define uma máquina virtual, uma conta de armazenamento e uma rede virtual, confira [Passo a passo do modelo do Resource Manager](resource-manager-template-walkthrough.md).
-- Para saber mais sobre a estrutura de modelos do Gerenciador de Recursos, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
+- Para saber mais sobre a estrutura de modelos do Resource Manager, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 - Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

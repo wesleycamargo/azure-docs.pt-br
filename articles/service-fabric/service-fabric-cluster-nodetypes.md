@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/17/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -66,7 +66,7 @@ Neste documento, falei sobre como as instâncias de escala da VM mapeiam para os
 
 As portas são alocadas em ordem crescente de instância do conjunto de escala da VM. Portanto, no meu exemplo, para o tipo de nó FrontEnd, as portas para cada uma das cinco instâncias serão as mostradas abaixo. Agora, você precisa fazer o mesmo mapeamento para a sua instância do conjunto de escala da VM.
 
-|**Instância VMSS**|**Porta**|
+|**Instância do Conjunto de Escala de VM**|**Porta**|
 |-----------------------|--------------------------|
 |FrontEnd\_0|3389|
 |FrontEnd\_1|3390|
@@ -133,4 +133,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

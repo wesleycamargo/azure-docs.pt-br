@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Azure Active Directory B2C: Token, sessão e configuração de logon único
@@ -80,8 +80,9 @@ Estes são alguns casos de uso que você pode habilitar usando essas propriedade
 
 Se você tiver vários aplicativos e políticas em seu locatário B2C, poderá gerenciar interações do usuário entre eles usando a propriedade **Configuração de logon único**. Você pode definir a propriedade com uma das seguintes configurações:
 
-- **Locatário**: essa é a configuração padrão. O uso dessa configuração permite a vários aplicativos e políticas em seu locatário B2C compartilhar a mesma sessão de usuário. Por exemplo, quando um usuário entra em um aplicativo, o Contoso Shopping, ele também pode entrar sem problemas em outro aplicativo, Contoso Pharmacy, ao acessá-lo.
+- **Locatário**: essa é a configuração padrão. O uso dessa configuração permite a vários aplicativos e políticas em seu locatário B2C compartilhar a mesma sessão de usuário. Por exemplo, quando um usuário entra em um aplicativo, Contoso Shopping, ele também pode entrar sem problemas em outro aplicativo, Contoso Pharmacy, ao acessá-lo.
+- **Aplicativo**: isso permite que você mantenha uma sessão de usuário exclusivamente para um aplicativo, independente de outros aplicativos. Por exemplo, se você deseja que o usuário entre em Contoso Pharmacy (com as mesmas credenciais), mesmo que ele já esteja conectado a Contoso Shopping, outro aplicativo no mesmo locatário do B2C. 
 - **Política**: isso permite que você mantenha uma sessão de usuário exclusivamente para uma política, independente dos aplicativos que estejam a usá-la. Por exemplo, se o usuário já tiver entrado e concluído uma etapa da MFA (Multi-Factor Authentication), ele pode receber acesso à partes com maior segurança de vários aplicativos enquanto a sessão vinculada à política não expirar.
 - **Desabilitado**: isso força o usuário a percorrer toda a jornada do usuário em cada execução da política. Por exemplo, isso permitirá que vários usuários se inscrevam em seu aplicativo (em um cenário de área de trabalho compartilhada), mesmo quando um usuário permanecer conectado o tempo todo.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/03/2016"
+ms.date="05/17/2016"
 ms.author="eugenesh" />
 
 # Indexação de documentos no Armazenamento de Blobs do Azure com a Pesquisa do Azure
 
-Este artigo mostra como usar a Pesquisa do Azure para indexar documentos (como PDFs ou arquivos do Office) armazenados no Armazenamento de Blobs do Azure. O novo indexador de blob da Pesquisa do Azure torna esse processo rápido e direto.
+Este artigo mostra como usar a Pesquisa do Azure para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. O novo indexador de blob da Pesquisa do Azure torna esse processo rápido e direto.
 
 > [AZURE.IMPORTANT] Atualmente, essa funcionalidade está no modo de visualização. Ela está disponível somente na API REST que usa a versão **2015-02-28-Preview**. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
 
@@ -31,11 +31,11 @@ Um indexador é um recurso que conecta fontes de dados a índices de pesquisa de
 
 Para configurar a indexação de blob, faça o seguinte:
 
-1. Crie uma fonte de dados do tipo `azureblob` que faz referência a um contêiner (e, opcionalmente, a uma pasta nesse contêiner) em uma conta de armazenamento do Azure
-	- Passe a cadeia de conexão de sua conta de armazenamento como o parâmetro `credentials.connectionString`
-	- Especifique um nome de contêiner. Você também pode incluir, como opção, uma pasta usando o parâmetro `query`
-2. Criar um índice de pesquisa com um campo `content` pesquisável 
-3. Criar o indexador ao conectar a fonte de dados ao índice de destino
+1. Crie uma fonte de dados do tipo `azureblob` que faz referência a um contêiner (e, opcionalmente, a uma pasta nesse contêiner) em uma conta de armazenamento do Azure.
+	- Transmita a cadeia de conexão de sua conta de armazenamento como o parâmetro `credentials.connectionString`.
+	- Especifique um nome de contêiner. Você também pode incluir, como opção, uma pasta usando o parâmetro `query`.
+2. Crie um índice de pesquisa com um campo `content` pesquisável. 
+3. Crie o indexador conectando a fonte de dados ao índice de destino.
 
 ### Criar a fonte de dados
 
@@ -104,7 +104,7 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 A Pesquisa do Azure indexa cada documento (blob) da seguinte maneira:
 
 - Todo o conteúdo de texto do documento é extraído para um campo de cadeia de caracteres chamado `content`. Observe que no momento não fornecemos suporte para extração de vários documentos de um único blob:
-	- Por exemplo, um arquivo CSV é indexado como um único documento.
+	- Por exemplo, um arquivo CSV é indexado como um único documento. Se você precisar tratar cada linha em um CSV como um documento separado, vote [nessa sugestão no UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
 	- Um documento composto ou incorporado (como um arquivo ZIP ou um documento do Word com email do Outlook incorporado com um anexo em PDF) também é indexado como um único documento.
 
 - As propriedades de metadados especificadas pelo usuário e presentes no blob, se houver alguma, são extraídas literalmente. Elas também podem ser usadas para controlar determinados aspectos do processo de extração de documentos, confira [Uso de metadados personalizados para controlar a extração de documento](#CustomMetadataControl) para obter mais detalhes.
@@ -215,7 +215,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extração do texto, incluindo anexos
 ZIP (application/zip) | `metadata_content_type` | Extração do texto de todos os documentos no arquivo
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Remoção da marcação XML e extração do texto
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrair texto<br/>OBSERVAÇÃO: se você precisar extrair vários campos de documento de um blob JSON, consulte [Indexando blobs JSON](search-howto-index-json-blobs.md) para obter detalhes
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extrair texto<br/>OBSERVAÇÃO: se você precisar extrair vários campos de documento de um blob do JSON, veja [Indexando blobs do JSON](search-howto-index-json-blobs.md) para obter detalhes
 EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | Extração do texto, incluindo anexos
 Texto sem formatação (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
@@ -236,7 +236,7 @@ Diversos parâmetros de configuração do indexador estão disponíveis para con
 
 ### Indexe apenas os blobs com extensões de arquivo específicas
 
-Você pode indexar apenas os blobs com as extensões de nome de arquivo que você especificar usando o `indexedFileNameExtensions` parâmetro de configuração do indexador. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar apenas blobs de .PDF e .DOCX, faça o seguinte:
+Você pode indexar apenas os blobs com as extensões de nome de arquivo que você especificar usando o parâmetro de configuração do indexador `indexedFileNameExtensions`. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar apenas blobs de .PDF e .DOCX, faça o seguinte:
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -260,11 +260,11 @@ Você pode excluir blobs com extensões de nome de arquivo específicas da index
 	  "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
 	}
 
-Se os parâmetros `indexedFileNameExtensions` e `excludedFileNameExtensions` estiverem presentes, a Pesquisa do Azure primeiro examinará `indexedFileNameExtensions`, em seguida, `excludedFileNameExtensions`. Isso significa que, se a mesma extensão de arquivo estiver presente nas duas listas, ela será excluída da indexação.
+Se os parâmetros `indexedFileNameExtensions` e `excludedFileNameExtensions` estiverem presentes, a Pesquisa do Azure primeiro examinará `indexedFileNameExtensions` e, em seguida, `excludedFileNameExtensions`. Isso significa que, se a mesma extensão de arquivo estiver presente nas duas listas, ela será excluída da indexação.
 
 ### Indexar somente metadados de armazenamento
 
-Você pode indexar apenas os metadados de armazenamento e ignorar completamente o processo de extração de documentos usando a propriedade de configuração `indexStorageMetadataOnly`. Isso é útil quando você não precisa do conteúdo do documento ou quando não precisa das propriedades de metadados específicas do tipo de conteúdo. Para fazer isso, defina a propriedade `indexStorageMetadataOnly` como `true`:
+Você pode indexar apenas os metadados de armazenamento e ignorar por completo o processo de extração de documentos usando a propriedade de configuração `indexStorageMetadataOnly`. Isso é útil quando você não precisa do conteúdo do documento ou quando não precisa das propriedades de metadados específicas do tipo de conteúdo. Para fazer isso, defina a propriedade `indexStorageMetadataOnly` como `true`:
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -277,7 +277,7 @@ Você pode indexar apenas os metadados de armazenamento e ignorar completamente 
 
 ### Indexe metadados de tipo de conteúdo e armazenamento, mas ignore a extração de conteúdo
 
-Se precisar extrair todos os metadados, mas ignorar a extração de conteúdo para todos os blobs, você poderá solicitar esse comportamento usando a configuração do indexador em vez de precisar adicionar metadados `AzureSearch_SkipContent` a cada blob individualmente. Para fazer isso, defina a propriedade de configuração do indexador `skipContent` para `true`:
+Se precisar extrair todos os metadados, mas ignorar a extração de conteúdo para todos os blobs, você poderá solicitar esse comportamento usando a configuração do indexador, em vez de ter de adicionar os metadados `AzureSearch_SkipContent` a cada blob individualmente. Para fazer isso, defina a propriedade de configuração do indexador `skipContent` como `true`:
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -292,4 +292,4 @@ Se precisar extrair todos os metadados, mas ignorar a extração de conteúdo pa
 
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

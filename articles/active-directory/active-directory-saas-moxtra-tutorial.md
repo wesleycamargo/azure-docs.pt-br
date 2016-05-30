@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="05/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -45,8 +45,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
  
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br>
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Moxtra da galeria 
 2. Configurar e testar o logon único do AD do Azure
@@ -57,22 +56,15 @@ Para configurar a integração do Moxtra ao Azure AD, você precisará adicionar
 
 **Para adicionar o Moxtra a partir da galeria, realize as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
-<br><br> ![Active Directory][1]<br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.
-<br><br> ![Aplicativos][2]<br>
-4. Clique em **Adicionar** na parte inferior da página.
-<br><br> ![Aplicativos][3]<br>
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
-<br><br> ![Aplicativos][4]<br>
-6. Na caixa de pesquisa, digite **Moxtra**.
-<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
-7. No painel de resultados, selecione **Moxtra** e clique em **Concluir** para adicionar o aplicativo. 
-<br><br>
-![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_02.png)<br>
+3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
+4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
+6. Na caixa de pesquisa, digite **Moxtra**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
+7. No painel de resultados, selecione **Moxtra** e clique em **Concluir** para adicionar o aplicativo. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Moxtra, com base em um usuário de teste chamado “Brenda Fernandes”.
@@ -91,29 +83,24 @@ Para configurar e testar o logon único do Azure AD com o Moxtra, você precisa 
 
 O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do Moxtra.
 
-Seu aplicativo do Moxtra espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png)<br>
+Seu aplicativo do Moxtra espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. <br><br> ![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png) <br>
 
 
 
 **Para configurar o logon único do Azure AD com o Moxtra, realize as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração de aplicativos do **Moxtra**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
-<br><br> ![Configurar o logon único][6] <br>
+1. No portal clássico do Azure, na página de integração de aplicativos do **Moxtra**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
 
-2. Na página **Como você deseja que os usuários façam logon no Moxtra**, selecione **Logon único do Azure AD** e clique em **Avançar**. 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png)<br>
+2. Na página **Como você deseja que os usuários façam logon no Moxtra**, selecione **Logon único do Azure AD** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png) <br>
 
-3. Na página do diálogo **Definir Configurações de Aplicativo**, realize as seguintes etapas: 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png)<br>
+3. Na página do diálogo **Definir Configurações de Aplicativo**, realize as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png) <br>
 
-    a. Na caixa de texto **URL de logon**, digite a seguinte URL: **https://www.moxtra.com/service/#login**.
+    a. Na caixa de texto **URL de Logon**, digite a seguinte URL: ****https://www.moxtra.com/service/#login**.
 
     b. Clique em **Próximo**.
  
  
-4. Na página **Configurar logon único no Moxtra**, realize as seguintes etapas:
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_05.png) <br>
+4. Na página **Configurar logon único no Moxtra**, realize as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_05.png) <br>
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
@@ -122,12 +109,10 @@ Seu aplicativo do Moxtra espera as declarações do SAML em um formato específi
 
 1. Em outra janela do navegador, entre em seu site de empresa do Moxtra como administrador.
 
-1. Na barra de ferramentas à esquerda, clique em **Console do Administrador > Logon Único SAML** e em **Novo**. 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_06.png) <br>
+1. Na barra de ferramentas à esquerda, clique em **Console do Administrador > Logon Único SAML** e em **Novo**. <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_06.png) <br>
 
 
-1. Na página **SAML**, realize as seguintes etapas: 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_08.png)<br>
+1. Na página **SAML**, realize as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_08.png) <br>
 
     a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: *SAML*).
 
@@ -148,14 +133,11 @@ Seu aplicativo do Moxtra espera as declarações do SAML em um formato específi
     h. Clique em **Atualizar**.
 
 
-6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. 
-<br><br>![Logon único do AD do Azure][10]<br>
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
 
-7. Na página **Confirmação de logon único**, clique em **Concluir**.
-<br><br>![Logon único do AD do Azure][11]
+7. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![Logon único do AD do Azure][11]
 
-1. Para adicionar mapeamentos de atributo personalizados para a sua configuração de atributos de token SAML, na parte superior do menu, clique em **Atributos** para abrir o diálogo **Atributos de Token SAML**. 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_general_80.png) <br>
+1. Para adicionar mapeamentos de atributo personalizados para a sua configuração de atributos de token SAML, na parte superior do menu, clique em **Atributos** para abrir o diálogo **Atributos de Token SAML**. <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_general_80.png) <br>
 
 
 
@@ -176,8 +158,7 @@ Seu aplicativo do Moxtra espera as declarações do SAML em um formato específi
 
 
 
-1. Clique em **Aplicar alterações**.
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_general_84.png)<br>
+1. Clique em **Aplicar alterações**. <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_general_84.png) <br>
 
 
 
@@ -187,24 +168,19 @@ Seu aplicativo do Moxtra espera as declarações do SAML em um formato específi
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> 
-Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
-<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_09.png) <br> 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_09.png) <br> 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. 
-<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_03.png) <br>
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_03.png) <br>
  
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. 
-<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_04.png) <br>
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_04.png) <br>
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: 
-<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_05.png) <br>
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_05.png) <br>
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
@@ -212,8 +188,7 @@ Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do 
 
     c. Clique em **Próximo**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: 
-<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_06.png) <br>
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_06.png) <br>
  
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -223,11 +198,9 @@ Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do 
 
     d. Na lista **Função**, selecione **Usuário**. e. Clique em **Próximo**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
-<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_07.png) <br>
+7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_07.png) <br>
  
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: 
-<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_08.png) <br>
+8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_08.png) <br>
   
     a. Anote o valor da **Nova Senha**.
 
@@ -243,8 +216,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Moxtra
 
 1. Faça logon em seu site de empresa do Moxtra como administrador.
 
-1. Na barra de ferramentas à esquerda, clique em **Console do Administrador > Gerenciamento de Usuário** e em **Adicionar Usuário**. 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_10.png) <br>
+1. Na barra de ferramentas à esquerda, clique em **Console do Administrador > Gerenciamento de Usuário** e em **Adicionar Usuário**. <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_10.png) <br>
 
 
 
@@ -270,31 +242,25 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Moxtra
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Moxtra. 
-<br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Moxtra. <br><br>![Atribuir usuário][200] <br>
 
 **Para atribuir Brenda Fernandes ao Moxtra, realize as seguintes etapas:**
 
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. 
-<br><br>![Atribuir usuário][201] <br>
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
 
-2. Na lista de aplicativos, selecione **Moxtra**. 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_50.png) <br>
+2. Na lista de aplicativos, selecione **Moxtra**. <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_50.png) <br>
 
-1. No menu na parte superior, clique em **Usuários**. 
-<br><br>![Atribuir usuário][203] <br>
+1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
 
 1. Na lista Usuários, selecione **Brenda Fernandes**.
 
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. 
-<br><br>![Atribuir usuário][205]
+2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
 
 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br>
-Ao clicar no bloco do Moxtra no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do Moxtra.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> Ao clicar no bloco do Moxtra no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do Moxtra.
 
 
 ## Recursos adicionais
@@ -321,4 +287,4 @@ Ao clicar no bloco do Moxtra no Painel de Acesso, você deverá ser conectado au
 [204]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

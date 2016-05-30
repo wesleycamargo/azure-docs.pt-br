@@ -19,10 +19,12 @@
 # Executar o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware com o Azure Site Recovery (herdado)
 
 > [AZURE.SELECTOR]
-- [Avançado](site-recovery-failback-azure-to-vmware-classic.md)
-- [Herdado](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Portal do Azure](site-recovery-failback-azure-to-vmware.md)
+- [Portal Clássico do Azure](site-recovery-failback-azure-to-vmware-classic.md)
+- [Portal clássico do Azure (Herdado)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para uma breve visão geral, leia [O que é o Azure Site Recovery?](site-recovery-overview.md).
+
+O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando a replicação, o failover e a recuperação de máquinas virtuais e servidores físicos. As máquinas podem ser replicadas no Azure ou em um datacenter local secundário. Para ter uma breve visão geral, leia [O que é Azure Site Recovery?](site-recovery-overview.md)
 
 ## Visão geral
 
@@ -44,7 +46,7 @@ Este diagrama representa o cenário de failover e failback. As linhas azuis são
 
 Veja como configurar o failback:
 
-1. **Configurar componentes de failback**: você precisará configurar um servidor vContinuum no local e apontar para a VM do servidor de configuração no Azure. Você também configurará um servidor de processo como uma VM do Azure para enviar dados de volta ao servidor de destino mestre local. Registre o servidor de processo com o servidor de configuração que tratou do failover. Instale um servidor de destino mestre local. Se você precisar de um servidor de destino mestre Windows, ele será configurado automaticamente quando o vContinuum for instalado. Se você precisar de Linux, deverá defini-lo manualmente em um servidor separado.
+1. **Configurar componentes de failback**: você precisará configurar um servidor vContinuum localmente e apontar para a VM do servidor de configuração no Azure. Você também configurará um servidor de processo como uma VM do Azure para enviar dados de volta ao servidor de destino mestre local. Registre o servidor de processo com o servidor de configuração que tratou do failover. Instale um servidor de destino mestre local. Se você precisar de um servidor de destino mestre Windows, ele será configurado automaticamente quando o vContinuum for instalado. Se você precisar de Linux, deverá defini-lo manualmente em um servidor separado.
 2. **Habilitar proteção e failback**: depois de configurar os componentes, no vContinuum, você precisará habilitar a proteção de failover de máquinas virtuais do Azure. Você executará uma verificação de preparação nas máquinas virtuais e executará um failover do Azure para o site local. Após a conclusão do failback, proteja as máquinas locais novamente para que iniciem replicando no Azure.
 
 
@@ -150,7 +152,7 @@ Para obter as IDs de SCSI de cada disco SCSI em uma máquina virtual Linux, habi
 
 OBSERVAÇÃO: verifique se o sistema tem conectividade com a internet antes de baixar e instalar os pacotes adicionais.
 
-\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 Esse comando baixa estes 15 pacotes do repositório CentOS 6.6 e os instala:
 
@@ -186,17 +188,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 OBSERVAÇÃO: se a máquina de origem usar o sistema de arquivos Reiser ou XFS para o dispositivo raiz ou de inicialização, os pacotes a seguir deverão ser baixados e instalados no destino mestre com Linux antes da proteção.
 
-\# cd /usr/local
+# cd /usr/local
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Aplicar alterações de configuração personalizadas
 
@@ -426,4 +428,4 @@ Após a conclusão do failback, convém provavelmente proteger mais uma vez as m
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

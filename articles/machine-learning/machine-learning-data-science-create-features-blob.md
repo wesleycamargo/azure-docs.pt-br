@@ -13,23 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #Criar recursos para dados de armazenamento de blob do Azure usando o Panda
 
+Este documento mostra como criar recursos para os dados armazenados no contêiner de blobs do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/). Depois de descrever como carregar os dados em um quadro de dados do Panda, ele mostrará como gerar recursos categóricos usando os scripts Python com os valores de indicador e recursos de agrupamento.
 
-##Introdução
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa do [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Este documento aborda como criar recursos para os dados armazenados no contêiner de blob do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/). Depois de descrever como carregar em um quadro de dados Panda, ele mostrará como gerar recursos categóricos com os valores de indicador e a compartimentalização de recursos, ambos usando scripts Python.
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## Pré-requisitos
-Este artigo supõe que você:
-
-* Criou uma conta de armazenamento de blob do Azure e armazenou os dados lá. Se você precisar de instruções para configurar uma conta, consulte [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage)
+Este artigo pressupõe que você criou uma conta de armazenamento de blobs do Azure e armazenou os dados lá. Se você precisar de instruções para configurar uma conta, consulte [Criar uma conta de Armazenamento do Azure](../hdinsight-get-started.md#storage)
 
 
 ## Carregar os dados em um quadro de dados Pandas
@@ -141,4 +136,4 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

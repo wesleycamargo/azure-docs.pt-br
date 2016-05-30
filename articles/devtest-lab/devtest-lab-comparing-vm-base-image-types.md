@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Comparando imagens personalizadas e f처rmulas em Laborat처rios de Desenvolvimento/Teste
@@ -42,4 +42,4 @@ As f처rmulas fornecem uma maneira din창mica de criar VMs por meio das configura�
 **Contras**
 - Criar uma VM por meio de uma f처rmula pode levar mais tempo do que criar uma VM por meio de uma imagem personalizada.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

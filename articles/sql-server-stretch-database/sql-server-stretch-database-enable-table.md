@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Habilitar o Banco de Dados de Stretch para uma tabela
@@ -43,7 +43,7 @@ Examine o objetivo do assistente e os pré-requisitos.
 
 Confirme se a tabela que você deseja habilitar está sendo exibida e foi selecionada.
 
-No RC3, você pode migrar uma tabela inteira ou especificar um predicado de filtro simples baseado em data no assistente. Se você quiser usar um predicado de filtro diferente para selecionar linhas a serem migradas, siga um destes procedimentos.
+Você pode migrar uma tabela inteira ou especificar um predicado de filtro simples baseado em data no assistente. Se você quiser usar um predicado de filtro diferente para selecionar linhas a serem migradas, siga um destes procedimentos.
 
 -   Saia do assistente e execute a instrução ALTER TABLE para habilitar o Stretch para tabela e especificar um predicado.
 
@@ -118,4 +118,4 @@ Para obter mais informações, consulte [CREATE TABLE (Transact-SQL)](https://ms
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->
