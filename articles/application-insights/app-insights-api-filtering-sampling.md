@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="04/27/2016" 
 	ms.author="awills"/>
 
 # Realizando a amostragem, filtrando e pré-processando a telemetria no SDK do Application Insights
@@ -79,7 +79,8 @@ Para obter a amostragem de taxa fixa nos dados de páginas da Web, insira uma li
 
 [Saiba mais sobre a amostragem](app-insights-sampling.md).
 
-## Filtragem
+<a name="filtering"></a>
+## Filtragem: ITelemetryProcessor
 
 Essa técnica fornece um controle mais direto sobre o que é incluído ou excluído da transmissão de telemetria. Você pode usá-la em conjunto com a Amostragem, ou separadamente.
 
@@ -239,8 +240,8 @@ public void Process(ITelemetry item)
 
 ```
 
-
-## Adicionar propriedades
+<a name="add-properties"></a>
+## Adicionar propriedades: ITelemetryInitializer
 
 Use inicializadores de telemetria para definir propriedades globais que são enviadas com todas as telemetrias e para substituir o comportamento selecionado dos módulos de telemetria padrão.
 
@@ -368,6 +369,15 @@ Para obter um resumo das propriedades não personalizadas disponíveis em teleme
 Você pode adicionar quantos inicializadores desejar.
 
 
+## ITelemetryProcessor e ITelemetryInitializer
+
+Qual é a diferença entre os processadores de telemetria e inicializadores de telemetria?
+
+* Há algumas sobreposições no que você pode fazer com eles: ambos podem ser usados para adicionar propriedades à telemetria.
+* Sempre execute TelemetryInitializers antes de TelemetryProcessors.
+* TelemetryProcessors permitem que você substitua ou descarte completamente um item de telemetria.
+* TelemetryProcessors não processam telemetria do contador de desempenho.
+
 ## Documentos de Referência
 
 * [Visão geral da API](app-insights-api-custom-events-metrics.md)
@@ -409,4 +419,4 @@ Você pode adicionar quantos inicializadores desejar.
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

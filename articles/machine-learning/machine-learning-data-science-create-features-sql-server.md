@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev;fashah;garye" />
 
 
 # Criar recursos para dados no SQL Server usando o SQL e o Python
 
-## Introdução
 
-Este documento mostra como gerar recursos para dados armazenados em uma VM do SQL Server no Azure, dos quais algoritmos podem aprender com eficiência. Isso pode ser feito usando o SQL ou usando uma linguagem de programação como o Python, sendo os dois usados aqui.
-
-> [AZURE.NOTE] Para obter um exemplo prático, você poderá usar o [conjunto de dados de Táxis de NYC](http://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado [Realizar a disputa de dados de NYC usando o IPython Notebook e o SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um passo a passo de ponta a ponta.
+Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Isso pode ser feito usando o SQL ou usando uma linguagem de programação como o Python, ambos demonstrados aqui.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
+> [AZURE.NOTE] Para obter um exemplo prático, você poderá usar o [conjunto de dados de Táxis de NYC](http://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado [Realizar a disputa de dados de NYC usando o IPython Notebook e o SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um passo a passo de ponta a ponta.
 
 
 ## Pré-requisitos
@@ -126,4 +125,4 @@ Agora, você pode trabalhar com o quadro de dados Pandas como abordado nos tópi
 
  
 
-<!---HONumber=AcomDC_0211_2016--->
+<!---HONumber=AcomDC_0518_2016--->

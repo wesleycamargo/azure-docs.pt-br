@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Como adicionar operações a uma API no Gerenciamento de API do Azure" 
+	pageTitle="Como adicionar operações a uma API no Gerenciamento de API do Azure | Microsoft Azure" 
 	description="Saiba como adicionar operações a uma API no Gerenciamento de API do Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="04/19/2016" 
 	ms.author="sdanie"/>
 
 # Como adicionar operações a uma API no Gerenciamento de API do Azure
@@ -40,9 +40,13 @@ Especifique o **verbo HTTP** escolhendo na lista suspensa.
 
 ![Método HTTP][api-management-http-method]
 
+<a name="url-template"></a>
+
 Defina o modelo do URL digitando um fragmento de URL consistindo de um ou mais segmentos de caminho URL e nenhum ou mais parâmetros de cadeia de consulta. O modelo do URL, anexado ao URL base da API, identifica uma única operação HTTP. Ele pode conter uma ou mais partes variáveis nomeadas que são identificadas por chaves. Essas partes variáveis se chamam parâmetros de modelo, que são valores atribuídos dinamicamente e extraídos do URL da solicitação quando a solicitação está sendo processada pela plataforma de Gerenciamento de API.
 
 ![Modelo do URL][api-management-url-template]
+
+<a name="rewrite-url-template"></a>
 
 Se desejar, especifique **Reescrever modelo de URL**. Isso permite que você use o modelo de URL padrão para processar solicitações de entrada no front-end, enquanto chama o back-end por meio de um URL convertido de acordo com o modelo reescrito. Os parâmetros de modelo do modelo de URL devem ser usados no modelo reescrito. O exemplo a seguir mostra como o tipo de conteúdo codificado como um segmento de caminho no serviço Web do exemplo anterior pode ser fornecido como parâmetro de consulta na API publicada por meio da plataforma de Gerenciamento de API usando os modelos de URL.
 
@@ -164,4 +168,4 @@ Após as operações serem adicionadas a uma API, a próxima etapa é associar a
 [Como criar e publicar um produto]: api-management-howto-add-products.md
 [Como armazenar em cache os resultados de operações no Gerenciamento de API do Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

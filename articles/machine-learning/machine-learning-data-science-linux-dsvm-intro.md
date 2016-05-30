@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="05/10/2016"
 	ms.author="gokuma;bradsev" />
 
 # Provisionar a Máquina Virtual de Ciência de Dados Linux 
 
-## Introdução
 
 A Máquina Virtual de Ciência de Dados Linux é uma imagem de máquina virtual (VM) do Azure pré-instalada e configurada com uma coleção de ferramentas que são normalmente usadas para análise de dados e aprendizado de máquina. Os componentes de software principais incluídos são:
 
@@ -71,7 +70,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
    - **Nome**: o nome do servidor de ciência de dados que você está criando.
    - **Nome de Usuário**: primeira ID de logon da conta
    - **Senha**: primeira senha da conta (você pode usar a chave pública SSH, em vez de senha)
-   - **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. OBSERVAÇÃO: Você deve ter privilégios de criação de recurso nesta assinatura. 
+   - **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado OBSERVAÇÃO: Você deve ter privilégios de criação de recurso nesta assinatura. 
    - **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente
    - **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede
 
@@ -355,7 +354,7 @@ Você pode sair do Rattle e do R. Agora você pode modificar o script do R gerad
 Veja algumas das próximas etapas para continuar sua aprendizagem e exploração.
 
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados ao experimentar as ferramentas descritas neste artigo. Você também pode executar *dsvm-more-info* no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
-* Aprenda a compilar sistematicamente soluções completas de análise usando o [Processo de Ciência de Dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
+* Aprenda a compilar sistematicamente soluções completas de análise usando o [Processo de ciência de dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
 * Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite. 
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

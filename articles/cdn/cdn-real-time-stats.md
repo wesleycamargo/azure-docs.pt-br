@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Estatísticas em tempo real na CDN do Microsoft Azure
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## Visão geral
 
 Este documento explica as estatísticas em tempo real na CDN do Microsoft Azure. Essa funcionalidade fornece dados em tempo real sobre o desempenho da nossa CDN ao entregar conteúdo aos clientes.
-
-> [AZURE.NOTE] Estatísticas em tempo real é um recurso da camada Premium da CDN. Para obter uma comparação dos recursos de CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
 
 Os seguintes gráficos estão disponíveis ao exibir as estatísticas em tempo real para as plataformas baseadas em HTTP:
 
@@ -99,4 +99,4 @@ Essa representação gráfica da média de conexões por minuto permite exibir q
 * [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
 * [Analisar o desempenho de borda](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

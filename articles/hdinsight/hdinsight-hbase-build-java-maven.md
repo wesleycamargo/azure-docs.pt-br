@@ -361,7 +361,10 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 ##Carregar o arquivo JAR e iniciar um trabalho
 
-> [AZURE.NOTE] Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As etapas a seguir usam o [PowerShell do Azure](../powershell-install-configure.md).
+Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As etapas a seguir usam o PowerShell do Azure.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 
 1. Após instalar e configurar o PowerShell do Azure, crie um novo arquivo chamado __hbase-runner.psm1__. Use o seguinte como conteúdo deste arquivo:
 
@@ -629,4 +632,4 @@ Substitua __hdinsightclustername__ pelo nome do seu cluster HDInsight.
 
 Utilize o parâmetro `-showErr` para exibir o erro padrão (STDERR) produzido durante a execução do trabalho.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Diretrizes gerais de repetição
 
-![](media/best-practices-retry-general/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Visão geral
 
@@ -115,4 +115,4 @@ As diretrizes a seguir ajudarão você a projetar um mecanismo adequado para tra
 * [Padrão de transação de compensação](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Padrões de idempotência](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/04/2016" 
 	ms.author="wesmc"/>
 
 #Hubs de Notificação do Azure - Diretrizes de Diagnóstico
@@ -77,7 +77,9 @@ Supondo que o Hub de Notificação foi configurado corretamente e que qualquer e
 
 > [AZURE.NOTE] Como fazemos o processamento em paralelo, nós não garantimos a ordem em que as notificações serão entregues.
 
-Agora o Hub de Notificações do Azure foi otimizado para um modelo de entrega de mensagem "no máximo uma vez". Isso significa que podemos tentar uma eliminação de duplicação para que nenhuma notificação seja entregues mais de uma vez em um dispositivo. Para garantir isso, vamos examinar os registros e garantir que somente uma mensagem seja enviada por um identificador de dispositivo antes de realmente enviar a mensagem ao PNS. Como cada lote é enviado ao PNS, que por sua vez está aceitando e validando os registros, é possível que o PNS detecte um erro com um ou mais registros em um lote, retorna um erro para o Azure NH e interrompe o processamento, assim, descartando completamente esse lote. Isso é especialmente verdadeiro com o APNS que usa um protocolo de fluxo TCP. Como estamos otimizados para no máximo uma entrega única, deve-se observar que não há nenhuma repetição para este lote com falha porque não sabemos com certeza se o PNS descartou todo o lote ou parte do lote. O PNS diz ao Azure NH qual registro causou a falha e, com base nos comentários, removemos esse registro de nosso banco de dados. Isso significa que é possível que o lote de registro ou um subconjunto dele pode não receber uma notificação, no entanto, como limpamos o registro incorreto, na próxima vez que um envio for tentado, há uma chance maior de envio bem-sucedido. À medida que o número de dispositivos de destino crescem (alguns de nossa clientes enviam notificação para milhões de dispositivos), descartar um lote ímpar aqui e ali não faz muita diferença na porcentagem geral de dispositivos para receber notificações, no entanto, se você está enviando algumas notificações e há alguns erros PNS, você poderá ver todas ou a maioria das notificações que não estão sendo recebidas. Se você estiver vendo esse comportamento repetidamente, deve identificar os registros incorretos e excluí-los. Definitivamente, você deve excluir qualquer registros formados manualmente porque eles são a causa mais comum de notificações interrompidas. Se este for um ambiente de teste, você poderá excluir diretamente todos os registros como aplicativos quando abertos nos dispositivos tentarão novamente e registrarão nos Hubs de Notificação, garantindo que todos os registros criados a partir desse momento sejam válidos.
+Agora o Hub de Notificações do Azure foi otimizado para um modelo de entrega de mensagem "no máximo uma vez". Isso significa que podemos tentar uma eliminação de duplicação para que nenhuma notificação seja entregues mais de uma vez em um dispositivo. Para garantir isso, vamos examinar os registros e garantir que somente uma mensagem seja enviada por um identificador de dispositivo antes de realmente enviar a mensagem ao PNS. Como cada lote é enviado ao PNS, que por sua vez está aceitando e validando os registros, é possível que o PNS detecte um erro com um ou mais registros em um lote, retorna um erro para o Azure NH e interrompe o processamento, assim, descartando completamente esse lote. Isso é especialmente verdadeiro com o APNS que usa um protocolo de fluxo TCP. Embora estejamos otimizados para uma entrega “no máximo uma vez”, neste caso, removemos o registro com falha de nosso banco de dados e tentamos novamente a entrega da notificação para o restante dos dispositivos no lote.
+
+Você pode obter informações de erro para a tentativa de entrega com falha em um registro usando as APIs REST dos Hubs de Notificação do Azure: [Por telemetria de mensagem: obter telemetria de mensagem de notificação](https://msdn.microsoft.com/library/azure/mt608135.aspx) e [Comentários dos PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Veja [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample) para obter um código de exemplo.
 
 ##Problemas PNS
 
@@ -239,4 +241,4 @@ Mais detalhes aqui -
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

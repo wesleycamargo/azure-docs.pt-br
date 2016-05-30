@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/15/2016"
+   ms.date="05/16/2016"
    ms.author="v-sharos"/>
 
 # Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
@@ -77,13 +77,13 @@ DATA 0 é habilitada para nuvem por padrão. Ao configurar DATA 0, também é ne
 
 No StorSimple 8000 Series Update 1, a métrica de roteamento de DATA 0 é definida como a menor; portanto, se o dispositivo estiver executando o StorSimple 8000 Series Update 1, todo o tráfego de nuvem será roteado através de DATA 0. Anote isso se houver mais de uma interface de rede habilitada para nuvem em seu dispositivo StorSimple.
 
->[AZURE.NOTE]Os endereços IP fixos do controlador são usados para atender às atualizações do dispositivo. Portanto, os IPs fixos devem ser roteáveis e conseguir se conectar à Internet.
+>[AZURE.NOTE] Os endereços IP fixos do controlador são usados para atender às atualizações do dispositivo. Portanto, os IPs fixos devem ser roteáveis e conseguir se conectar à Internet.
 
 Para cada interface de rede, os parâmetros a seguir são exibidos:
 
 - **Velocidade** – Não é um parâmetro configurável pelo usuário. DATA 0, DATA 1, DATA 4 e DATA 5 são sempre de 1 GbE, enquanto DATA 2 e DATA 3 são interfaces de 10 GbE.
 
-     >[AZURE.NOTE]Velocidade e duplex são sempre negociados automaticamente. Não há suporte para quadros Jumbo.
+     >[AZURE.NOTE] Velocidade e duplex são sempre negociados automaticamente. Não há suporte para quadros Jumbo.
  
 - **Estado da interface** – Uma interface pode ser habilitada ou desabilitada. Se for habilitada, o dispositivo tentará usar a interface. É recomendável que apenas as interfaces que estejam conectadas à rede e sendo usadas sejam habilitadas. Desabilite qualquer interface que não estiver em uso.
 
@@ -104,7 +104,7 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
 
 É possível reconfigurar o Controlador 0 e o Controlador 1 por meio do Portal Clássico do Azure.
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >- Para garantir a operação correta, verifique a velocidade da interface e o duplex no comutador ao qual cada interface de dispositivo está conectada. As interfaces de comutador devem negociar com Gigabit Ethernet (1000 Mbps) ou serem configuradas para ela e devem ser full duplex. Interfaces que operam em velocidades menores ou em half-duplex causarão problemas de desempenho.
 >
@@ -129,4 +129,4 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
 - Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0518_2016-->

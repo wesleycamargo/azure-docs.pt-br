@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Veja como desinstalar a ferramenta de trabalho de banco de dados elástico" 
-	description="Veja como desinstalar a ferramenta de trabalho de banco de dados elástico" 
+	description="Como desinstalar a ferramenta de trabalho de banco de dados elástico" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="sidneyh" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/17/2016" 
 	ms.author="ddove; sidneyh"/>
 
 #Desinstalar componentes de trabalhos de banco de dados elástico
@@ -62,4 +62,6 @@ Para uma visão geral de trabalhos de banco de dados elástico, consulte [Visão
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

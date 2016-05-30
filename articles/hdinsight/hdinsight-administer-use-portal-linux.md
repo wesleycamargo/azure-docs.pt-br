@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="05/13/2016"
 	ms.author="jgao"/>
 
 #Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure
@@ -196,17 +196,49 @@ Há várias maneiras de programar o processo:
 
 Para saber mais sobre preços, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para excluir um cluster do Portal, veja [Excluir clusters](#delete-clusters)
 
-##Alterar nome de usuário do cluster
+##Alterar senhas
 
-Um cluster HDInsight pode ter duas contas de usuário. A conta de usuário do cluster HDInsight (também conhecido como conta de usuário HTTP) e a conta de usuário SSH são criadas durante o processo de criação. Você pode usar a interface do usuário do Ambari Web para alterar o nome de usuário e a senha da conta de usuário do cluster:
+Um cluster HDInsight pode ter duas contas de usuário. A conta de usuário do cluster HDInsight (também conhecido como conta de usuário HTTP) e a conta de usuário SSH são criadas durante o processo de criação. Você pode usar a interface do usuário do Ambari Web para alterar o nome de usuário e a senha da conta de usuário do cluster e ações de script para alterar a conta de usuário do SSH
 
-**Para alterar a senha de usuário do cluster HDInsight**
+###Alterar a senha de usuário do cluster
+
+> [AZURE.NOTE] Se você alterar a senha de usuário (admin) do cluster, isso poderá fazer com que ações de script executadas em relação a esse cluster falhem. Se você tiver ações de script persistente direcionadas para nós de trabalho, elas poderão falhar quando você adicionar nós ao cluster por meio de operações de redimensionamento. Para saber mais sobre as Ações de Script, confira [Personalizar clusters HDInsight usando ações de Script](hdinsight-hadoop-customize-cluster-linux.md)..
 
 1. Entre na interface do usuário do Ambari Web usando as credenciais de usuário do cluster HDInsight. O nome de usuário padrão é **admin**. A URL é **https://<HDInsight Cluster Name>azurehdinsight.net**.
-2. Clique em **Administrador** no menu superior e depois clique em “Gerenciar Ambari”. 
+2. Clique em **Administrador** no menu superior e depois clique em "Gerenciar Ambari". 
 3. No menu à esquerda, clique em **Usuários**.
 4. Clique em **Administrador**.
 5. Clique em **Alterar Senha**.
+
+Em seguida, o Ambari altera a senha em todos os nós no cluster.
+
+###Alterar a senha de usuário de SSH
+
+1. Usando um editor de texto, salve o seguinte como um arquivo chamado __changepassword.sh__.
+
+    > [AZURE.IMPORTANT] Você deve usar um editor que usa LF como o fim da linha. Se o editor usar CRLF, o script não funcionará.
+    
+        #! /bin/bash
+        USER=$1
+        PASS=$2
+
+        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+
+2. Carregue o arquivo para um local de armazenamento que possa ser acessado no HDInsight usando um endereço HTTP ou HTTPS. Por exemplo, um repositório de arquivos público como o OneDrive ou o Armazenamento de Blobs do Azure. Salve o URI (endereço HTTP ou HTTPS) no arquivo, pois isso é necessário na próxima etapa.
+
+3. No portal do Azure, selecione o cluster HDInsight e selecione __Todas as configurações__. Na folha __Configurações__, selecione __Ações de Script__.
+
+4. Na folha __Ações de Script__, selecione __Enviar Novo__. Quando a folha __Enviar ação de script__ for exibida, insira as informações a seguir.
+
+    | Campo | Valor |
+    | ----- | ----- |
+    | Nome | Alterar senha SSH |
+    | URI do script Bash | O URI do arquivo changepassword.sh |
+    | Nós (Principal, Trabalho, Nimbus, Supervisor, Zookeeper etc.) | ✓ para todos os tipos de nós listados |
+    | Parâmetros | Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha.
+    | Persistir esta ação de script... | Deixe este campo desmarcado.
+
+5. Selecione __Criar__ para aplicar o script. Quando o script for concluído, você poderá se conectar ao cluster usando SSH com a nova senha.
 
 ##Conceder/revogar acesso
 
@@ -259,7 +291,7 @@ Você não pode executar o trabalho do Hive diretamente do portal do Azure, mas 
 
 ##Monitorar trabalhos
 
-Veja [Gerenciar clusters HDInsight usando a interface do usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md#monitoring)
+Confira [Gerenciar clusters HDInsight usando a interface do usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md#monitoring)
 
 ##Procurar arquivos
 
@@ -283,7 +315,7 @@ A seção __Uso__ da folha do cluster HDInsight exibe informações sobre o núm
 
 ##Conectar a um cluster
 
-veja [Usar o Hive com Hadoop no HDInsight com SSH](hdinsight-hadoop-use-hive-ssh.md#ssh).
+Confira [Usar o Hive com Hadoop no HDInsight com SSH](hdinsight-hadoop-use-hive-ssh.md#ssh).
 	
 ##Próximas etapas
 Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e como abrir a ferramenta de linha de comando do Hadoop. Para saber mais, consulte os seguintes artigos:
@@ -300,4 +332,4 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e c
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

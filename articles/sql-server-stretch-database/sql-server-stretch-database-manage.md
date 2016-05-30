@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Gerenciar e solucionar problemas do Stretch Database
@@ -56,4 +56,4 @@ Para ver sugestões de solução de problema, confira [Monitorar e solucionar pr
 
 [Fazer backup e restaurar os bancos de dados habilitados para Stretch](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

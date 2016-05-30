@@ -10,14 +10,14 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/29/2016"
+   ms.date="05/06/2016"
    ms.author="cherylmc"/>
 
-# Como criar e gerenciar registros e conjuntos de registros DNS usando o Portal do Azure
+# Gerenciar registros e conjuntos de registros DNS usando o portal do Azure
 
 
 > [AZURE.SELECTOR]
@@ -26,9 +26,9 @@
 - [PowerShell](dns-operations-recordsets.md)
 
 
-Este guia mostrará como criar e gerenciar conjuntos de registros e registros da zona DNS usando o Portal do Azure.
+Este artigo mostra como gerenciar conjuntos de registro e registros de zona DNS usando o Portal do Azure.
 
-É importante compreender a diferença entre os conjuntos de registros DNS e registros DNS individuais. Um conjunto de registros é uma coleção de registros em uma zona com o mesmo nome e o mesmo tipo. Para obter mais detalhes, confira [Noções básicas sobre conjuntos de registros e registros](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
+É importante compreender a diferença entre os conjuntos de registros DNS e registros DNS individuais. Um conjunto de registros é uma coleção de registros em uma zona com o mesmo nome e o mesmo tipo. Para obter mais detalhes, confira [Noções básicas sobre conjuntos de registros e registros](dns-getstarted-create-recordset-portal.md).
 
 ## Criar um novo conjunto de registros e um registro
 
@@ -44,7 +44,7 @@ Para criar um conjunto de registros no Portal do Azure, confira [Create DNS reco
 	![pesquisar conjunto de registros](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## Adicionar um novo registro a um conjunto de registros existente
+## Adicionar um novo registro a um conjunto de registros
 
 Você pode adicionar até 20 registros em qualquer conjunto de registros. Um conjunto de registros não pode conter dois registros idênticos. Conjuntos de registros vazios (sem nenhum registro) podem ser criados, mas não aparecem nos servidores de nome do DNS do Azure. Os conjuntos de registros do tipo CNAME podem conter, no máximo, um registro.
 
@@ -77,14 +77,11 @@ Ao atualizar um registro em um conjunto de registros existente, os campos dispon
 	![modificar registro](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
 3. Clique em **Salvar** na parte superior da folha para salvar as configurações. Você verá a notificação de que o registro foi salvo no canto superior direito.
-
 	
 	![salvar registro](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-
 3. Assim que o registro tiver sido salvo, os valores do conjunto de registros na folha DNS refletirão o registro atualizado.
-
 
 
 ## Remover um registro de um conjunto de registros
@@ -135,4 +132,8 @@ Você não pode excluir os conjuntos de registro SOA e NS no apex da zona (nome 
 
 Para saber mais sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md). Para saber mais sobre como automatizar o DNS, confira [Criar zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+Se você quiser trabalhar com registros DNS reversos, confira [Como gerenciar registros DNS reversos](dns-reverse-dns-record-operations-ps.md).
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

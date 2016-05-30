@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Instalar a interface de linha de comando do Azure | Microsoft Azure"
-	description="Instalar a CLI do Azure para Mac, Linux e Windows para começar a usar os serviços do Azure"
+	description="Instalar a CLI (Interface de Linha de Comando) do Azure para Mac, Linux e Windows para começar a usar os serviços do Azure"
 	editor=""
 	manager="timlt"
 	documentationCenter=""
@@ -14,15 +14,19 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="04/20/2016"
 	ms.author="danlep"/>
-
+    
 # Instalar a CLI do Azure
+
+> [AZURE.SELECTOR]
+- [PowerShell](powershell-install-configure.md)
+- [CLI do Azure](xplat-cli-install.md)
 
 Instale rapidamente a CLI (Interface de linha de comando) do Azure para usar um conjunto de comandos de software livre baseados em shell para criar e gerenciar os recursos do Microsoft Azure. Você tem várias opções de instalação: use um dos pacotes de instalação fornecidos para diferentes sistemas operacionais, instale de um pacote npm ou instale a CLI do Azure como um contêiner em um host do Docker. Para obter mais opções e um histórico, consulte o repositório do projeto no [GitHub](https://github.com/azure/azure-xplat-cli).
 
 
-Quando a CLI do Azure estiver instalada, você poderá [conectá-la à sua assinatura do Azure](xplat-cli-connect.md) e executar os comandos **azure** na sua interface de linha de comando (Bash, Terminal, Prompt de comando e assim por diante) para trabalhar com seus recursos do Azure.
+Quando a CLI do Azure estiver instalada, você poderá [conectá-la à sua assinatura do Azure](xplat-cli-connect.md) e executar os comandos **azure** na sua interface de linha de comando (Lote, Terminal, Prompt de comando e assim por diante) para trabalhar com seus recursos do Azure.
 
 
 ## Usar um instalador
@@ -31,7 +35,7 @@ Os seguintes pacotes de instalador estão disponíveis:
 
 * [Windows installer][windows-installer]
 
-* [Instalador do OS X](http://go.microsoft.com/fwlink/?LinkId=252249)
+* [Instalador do OS X][mac-installer]
 
 * [Instalador do Linux][linux-installer]
 
@@ -42,7 +46,7 @@ Como alternativa, se o último Node.js e npm já estiverem instalados em seu sis
 
 	npm install azure-cli -g
 
-> [AZURE.NOTE]Se você precisar instalar ou atualizar o Node.js e npm para seu sistema operacional, consulte a documentação em [Nodejs.org](https://nodejs.org/en/download/package-manager/). Recomendamos que você instale a versão mais recente do Node.js LTS (4.x). Se você usar uma versão mais antiga, poderá obter erros de instalação.
+> [AZURE.NOTE]Se você precisar instalar ou atualizar o Node.js e npm no seu sistema operacional, consulte a documentação em [Nodejs.org](https://nodejs.org/en/download/package-manager/). Recomendamos que você instale a versão mais recente do Node.js LTS (4.x). Se você usar uma versão mais antiga, poderá obter erros de instalação.
 
 
 ## Usar um contêiner do Docker
@@ -54,10 +58,15 @@ docker run -it microsoft/azure-cli
 ```
 
 ## Executar comandos da CLI do Azure
-Quando a CLI do Azure estiver instalada, você poderá executar o comando **azure** na sua interface do usuário de linha de comando (Bash, Terminal, Prompt de comando, e assim por diante). Por exemplo, para executar o comando de ajuda, digite o seguinte:
+Quando a CLI do Azure estiver instalada, você poderá executar o comando **azure** na sua interface do usuário de linha de comando (Lote, Terminal, Prompt de comando, e assim por diante). Por exemplo, para executar o comando de ajuda, digite o seguinte:
 
 ```
 azure help
+```
+> [AZURE.NOTE]Em algumas distribuições Linux, você poderá receber um erro, /usr/bin/env: ‘node’: arquivo ou diretório inexistente, isso vem de instalações recentes do nodejs que estão sendo instaladas em /usr/bin/nodejs. Para corrigir esse erro, crie um link simbólico para /usr/bin/node executando o comando a seguir
+
+```
+sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
 Para ver a versão da CLI do Azure que você instalou, digite o seguinte:
@@ -67,6 +76,8 @@ azure --version
 ```
 
 Agora você está pronto! Para acessar todos os comandos da CLI para trabalhar com seus próprios recursos, [conecte-se à sua assinatura do Azure por meio da CLI do Azure](xplat-cli-connect.md).
+
+>[AZURE.NOTE] Quando você usar a CLI do Azure versão 0.9.20 ou posterior, você verá uma mensagem perguntando se você deseja permitir que a Microsoft colete informações sobre como usar a CLI. A participação é voluntária. Se você optar por participar, você poderá parar a qualquer momento executando `azure telemetry --disable`. Para habilitar a participação a qualquer momento, execute `azure telemetry --enable`.
 
 
 ## Atualizar a CLI
@@ -93,4 +104,4 @@ npm update -g azure-cli
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

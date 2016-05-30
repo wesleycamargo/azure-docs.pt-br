@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/13/2016"
 	ms.author="nitinme"/>
 
 
 # Notas de versão dos componentes do Hadoop no Azure HDInsight
+
+## Notas da versão de 13/05/2016 do HDInsight 3.1
+
+Os números completos da versão dos clusters HDInsight implantados com essa versão são:
+
+* HDInsight (Windows) 2.1.10.875.2159884 (HDP 1.3.12.0-01795 - inalterado)
+* HDInsight (Windows) 3.0.6.875.2159884 (HDP 2.0.13.0-2117 - inalterado)
+* HDInsight (Windows) 3.1.4.922.2266903 (HDP 2.1.15.0-2374 - inalterado)
+* HDInsight (Windows) 3.2.7.922.2266903 (HDP 2.2.9.1-11)
+* HDInsight (Windows) 3.3.0.922.2266903 (HDP 2.3.3.1-18)
+* HDInsight (Linux) 3.2.1000.0.7565644 (HDP 2.2.9.1-11)
+* HDInsight (Linux) 3.3.1000.0.7565644 (HDP 2.3.3.1-18)
+* HDInsight (Linux) 3.4.1000.0.7548380 (HDP 2.4.2.0)
+
+Esta versão contém as atualizações a seguir.
+
+| Title | Descrição | Área afetada (por exemplo, serviço, componente ou SDK) | Tipo de cluster (por exemplo, Spark, Hadoop, HBase ou Storm) | JIRA (se aplicável) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Atualização de versão do Spark e outras correções de bug | Esta versão atualiza a versão do Spark no cluster HDInsight para 1.6.1 e corrige outros bugs| O Barramento de | Spark| N/D
 
 ## Notas da versão de 11/04/2016 do HDInsight
 
@@ -31,7 +50,7 @@ Os números completos da versão dos clusters HDInsight implantados com essa ver
 * HDInsight (Windows) 3.3.0.889.2191206 (HDP 2.3.3.1-16 - inalterado)
 * HDInsight (Linux) 3.2.1000.0.7339916 (HDP 2.2.9.1-10)
 * HDInsight (Linux) 3.3.1000.0.7339916 (HDP 2.3.3.1-16)
-* HDInsight (Linux) 3.3.1000.0.7338911 (HDP 2.4.1.1-3)
+* HDInsight (Linux) 3.4.1000.0.7338911 (HDP 2.4.1.1-3)
 * SDK 1.5.8
 
 Esta versão contém as atualizações a seguir.
@@ -1565,4 +1584,4 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

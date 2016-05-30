@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="05/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -45,8 +45,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
  
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br>
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Moxtra da galeria 
 2. Configurar e testar o logon único do AD do Azure
@@ -57,8 +56,7 @@ Para configurar a integração do Moxtra ao Azure AD, você precisará adicionar
 
 **Para adicionar o Moxtra a partir da galeria, realize as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
-<br><br> ![Active Directory][1]<br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -69,9 +67,9 @@ Para configurar a integração do Moxtra ao Azure AD, você precisará adicionar
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
 <br><br> ![Aplicativos][4]<br>
 6. Na caixa de pesquisa, digite **Moxtra**.
-<br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
+<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
 7. No painel de resultados, selecione **Moxtra** e clique em **Concluir** para adicionar o aplicativo. 
-<br><br>
+<br><br> 
 ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_02.png)<br>
 
 ##  Configurar e testar o logon único do AD do Azure
@@ -92,27 +90,27 @@ Para configurar e testar o logon único do Azure AD com o Moxtra, você precisa 
 O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do Moxtra.
 
 Seu aplicativo do Moxtra espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png)<br>
+<br><br> ![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_09.png) <br>
 
 
 
 **Para configurar o logon único do Azure AD com o Moxtra, realize as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração de aplicativos do **Moxtra**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1. No portal clássico do Azure, na página de integração de aplicativos do **Moxtra**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. 
 <br><br> ![Configurar o logon único][6] <br>
 
 2. Na página **Como você deseja que os usuários façam logon no Moxtra**, selecione **Logon único do Azure AD** e clique em **Avançar**. 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png)<br>
+<br><br> ![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_03.png) <br>
 
 3. Na página do diálogo **Definir Configurações de Aplicativo**, realize as seguintes etapas: 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png)<br>
+<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_04.png) <br>
 
-    a. Na caixa de texto **URL de logon**, digite a seguinte URL: **https://www.moxtra.com/service/#login**.
+    a. Na caixa de texto **URL de Logon**, digite a seguinte URL: **https://www.moxtra.com/service/#login**.
 
     b. Clique em **Próximo**.
  
  
-4. Na página **Configurar logon único no Moxtra**, realize as seguintes etapas:
+4. Na página **Configurar logon único no Moxtra**, realize as seguintes etapas: 
 <br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_05.png) <br>
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
@@ -127,7 +125,7 @@ Seu aplicativo do Moxtra espera as declarações do SAML em um formato específi
 
 
 1. Na página **SAML**, realize as seguintes etapas: 
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_08.png)<br>
+<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_08.png) <br>
 
     a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: *SAML*).
 
@@ -151,7 +149,7 @@ Seu aplicativo do Moxtra espera as declarações do SAML em um formato específi
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. 
 <br><br>![Logon único do AD do Azure][10]<br>
 
-7. Na página **Confirmação de logon único**, clique em **Concluir**.
+7. Na página **Confirmação de logon único**, clique em **Concluir**. 
 <br><br>![Logon único do AD do Azure][11]
 
 1. Para adicionar mapeamentos de atributo personalizados para a sua configuração de atributos de token SAML, na parte superior do menu, clique em **Atributos** para abrir o diálogo **Atributos de Token SAML**. 
@@ -176,8 +174,8 @@ Seu aplicativo do Moxtra espera as declarações do SAML em um formato específi
 
 
 
-1. Clique em **Aplicar alterações**.
-<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_general_84.png)<br>
+1. Clique em **Aplicar alterações**. 
+<br><br>![Configurar o logon único](./media/active-directory-saas-moxtra-tutorial/tutorial_general_84.png) <br>
 
 
 
@@ -192,7 +190,7 @@ Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do 
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
 <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_09.png) <br> 
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -223,7 +221,7 @@ Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do 
 
     d. Na lista **Função**, selecione **Usuário**. e. Clique em **Próximo**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. 
 <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-moxtra-tutorial/create_aaduser_07.png) <br>
  
 8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: 
@@ -293,7 +291,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br>
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> 
 Ao clicar no bloco do Moxtra no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do Moxtra.
 
 
@@ -321,4 +319,4 @@ Ao clicar no bloco do Moxtra no Painel de Acesso, você deverá ser conectado au
 [204]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

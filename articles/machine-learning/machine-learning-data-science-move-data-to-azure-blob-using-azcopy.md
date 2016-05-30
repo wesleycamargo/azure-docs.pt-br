@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Mover dados de e para o Armazenamento de Blobs do Azure usando o AzCopy
-
-## Introdução
 
 AzCopy é um utilitário de linha de comando projetado para upload, download e cópia de dados de alto desempenho do e o armazenamento de blob, arquivo e tabela do Microsoft Azure.
 
@@ -33,12 +31,14 @@ Orientações sobre as tecnologias usadas para mover dados para e/ou do armazena
 
 > [AZURE.NOTE] Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
+
 ## Pré-requisitos
 
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
 - Para configurar uma assinatura do Azure, confira [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 - Para obter instruções sobre como criar uma conta de armazenamento e obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
+
 
 ## Carregar arquivos para um blob do Azure
 
@@ -47,12 +47,14 @@ Para carregar um arquivo, use o seguinte comando no AzCopy que é uma linha de c
 	# Upload from local file system
 	AzCopy /Source:<your_local_directory> /Dest: https://<your_account_name>.blob.core.windows.net/<your_container_name> /DestKey:<your_account_key> /S
 
+
 ## Baixe arquivos em um blob do Azure
 
 Para baixar um arquivo em um blob do Azure, use o comando a seguir no AzCopy que é uma linha de comando.
 
 	# Downloading blobs to local file system
 	AzCopy /Source:https://<your_account_name>.blob.core.windows.net/<your_container_name>/<your_sub_directory_at_blob>  /Dest:<your_local_directory> /SourceKey:<your_account_key> /Pattern:<file_pattern> /S
+
 
 ## Transferir os blobs entre os contêineres do Azure
 
@@ -68,6 +70,7 @@ Para transferir os blobs entre os contêineres do Azure, use o comando a seguir 
 	<your_local_directory>: directory of local file system where files to be uploaded from or the directory of local file system files to be downloaded to
 	<file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
 
+
 ## Dicas para usar o AzCopy
 
 > [AZURE.TIP]   
@@ -75,4 +78,4 @@ Para transferir os blobs entre os contêineres do Azure, use o comando a seguir 
 > 2. Ao baixar o arquivo, /S vai pesquisar recursivamente o contêiner até que todos os arquivos no diretório especificado e de seus subdiretórios, ou todos os arquivos que correspondam ao padrão especificado no diretório especificado e seus subdiretórios, sejam baixados.  
 > 3.  Não é possível especificar um arquivo de blob específico para baixar usando o parâmetro /Source. Para baixar um arquivo específico, especifique o nome do arquivo de blob a ser baixado usando o parâmetro /Pattern. O parâmetro /S pode ser usado para que AzCopy procure recursivamente um padrão de nome de arquivo. Sem o parâmetro padrão, o AzCopy baixará todos os arquivos nesse diretório.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

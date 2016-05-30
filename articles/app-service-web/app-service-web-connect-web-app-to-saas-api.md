@@ -22,12 +22,7 @@ Este tutorial mostra como consumir um aplicativo de API de um aplicativo Web ASP
 
 ## Pré-requisitos
 
-Este tutorial se baseia na série de tutoriais de Aplicativos de API:
-
-1. [Criar um aplicativo de API do Azure](../app-service-dotnet-create-api-app)
-3. [Implantar um aplicativo de API do Azure](../app-service-dotnet-deploy-api-app)
-4. [Depurar um aplicativo de API do Azure](../app-service-dotnet-remotely-debug-api-app)
-
+Esse tutorial complementa [Criar um aplicativo de API do Azure](../app-service-api/app-service-api-dotnet-get-started.md).
 
 ## Criar um Aplicativo MVC ASP.NET no Visual Studio
 
@@ -89,4 +84,4 @@ Siga as instruções disponíveis em [Como Implantar um Aplicativo Web do Azure]
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

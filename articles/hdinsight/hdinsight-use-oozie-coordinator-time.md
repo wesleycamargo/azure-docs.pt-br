@@ -56,14 +56,17 @@ O fluxo de trabalho contém duas ações:
 
 > [AZURE.NOTE] Para obter as versões do Oozie com suporte em clusters HDInsight, consulte [Novidades nas versões de clusters fornecidas pelo HDInsight][hdinsight-versions].
 
-> [AZURE.NOTE] Este tutorial funciona com o cluster HDInsight 2.1 e 3.0. Este artigo não foi testado no emulador do HDInsight.
-
 
 ##<a id="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Instalar e usar o PowerShell do Azure](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para executar scripts do Windows PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Para saber mais, confira [Executar scripts do Windows PowerShell][powershell-script].
+- **Uma estação de trabalho com o PowerShell do Azure**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+    Para executar scripts do Windows PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Para saber mais, confira [Executar scripts do Windows PowerShell][powershell-script].
+
 - **Um cluster HDInsight**. Para saber mais sobre como criar um cluster HDInsight, confira [Provisionar clusters HDInsight][hdinsight-provision] ou [Introdução ao HDInsight][hdinsight-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
 
 	<table border = "1">
@@ -687,8 +690,7 @@ Este é um exemplo de script do Windows PowerShell que você pode usar:
 Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um coordenador do Oozie e como executar um trabalho de coordenador do Oozie usando o PowerShell do Azure. Para saber mais, consulte os seguintes artigos:
 
 - [Introdução ao HDInsight][hdinsight-get-started]
-- [Introdução ao emulador do HDInsight][hdinsight-get-started-emulator]
-- [Usar o armazenamento de blobs do Azure com o HDInsight][hdinsight-storage]
+- [Usar o armazenamento de Blob do Azure com o HDInsight][hdinsight-storage]
 - [Administrar clusters HDInsight usando o PowerShell do Azure][hdinsight-admin-powershell]
 - [Carregar dados no HDInsight][hdinsight-upload-data]
 - [Use o Sqoop com o HDInsight][hdinsight-use-sqoop]
@@ -702,7 +704,7 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
@@ -713,13 +715,12 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
-[sqldatabase-get-started]: ../sql-database-get-started.md
+[sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -742,4 +743,4 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -3,7 +3,7 @@
    description="Tutorial para usar o Aprendizado de Máquina do Azure com o Data Warehouse do SQL Azure para desenvolver soluções."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="sahajs;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shigu;barbkess;sonyama"/>
 
 # Use o Aprendizado de Máquina do Azure com o SQL Data Warehouse
 
-O Aprendizado de Máquina do Azure é um serviço de análise preditiva totalmente gerenciado que você pode usar para criar modelos de previsão em relação aos dados do SQL Data Warehouse e publicá-los como serviços web prontos para consumir. Você pode aprender os fundamentos da análise de previsão e aprendizado de máquina lendo [Introdução ao Aprendizado de Máquina no Azure][]. Em seguida, você pode aprender como criar, treinar, pontuar e testar um modelo de aprendizado de máquina usando o [Criar tutorial de teste][].
+O Aprendizado de Máquina do Azure é um serviço de análise preditiva totalmente gerenciado que você pode usar para criar modelos preditivos em relação aos dados do SQL Data Warehouse e publicá-los como serviços Web prontos para consumo. Você pode aprender os fundamentos da análise de previsão e aprendizado de máquina lendo [Introdução ao Aprendizado de Máquina no Azure][]. Em seguida, você pode aprender como criar, treinar, pontuar e testar um modelo de aprendizado de máquina usando o [Criar tutorial de teste][].
 
 Neste artigo, você aprenderá a fazer o seguinte usando o [Estúdio de Aprendizado de Máquina do Azure][]\:
 
@@ -43,7 +43,7 @@ Procure o módulo Leitor na paleta de conjuntos de dados e módulos à esquerda 
 Selecione o módulo Leitor e preencha o painel de propriedades.
 
 1. Selecione o Banco de Dados SQL do Azure como a Fonte de dados.
-2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [Portal clássico do Azure][] para encontrá-lo.
+2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [portal do Azure][] para encontrar isso.
 
 ![][server_name]
 
@@ -101,7 +101,7 @@ Procure o módulo Gravador na paleta de conjuntos de dados e módulos à esquerd
 Selecione o módulo Gravador e preencha o painel de propriedades.
 
 1. Selecione o Banco de Dados do SQL Azure como o Destino de Dados.
-2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [Portal clássico do Azure][] para encontrá-lo.
+2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [portal do Azure][] para encontrar isso.
 3. Nome do banco de dados: digite o nome do banco de dados no servidor especificado.
 4. Nome de conta de usuário do servidor: digite o nome de usuário de uma conta que tenha permissões de gravação para o banco de dados.
 5. Senha de conta de usuário do servidor: forneça a senha da conta de usuário especificada.
@@ -136,13 +136,13 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 <!--Article references-->
 
-[Visão geral sobre o desenvolvimento no SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
-[Visão geral de integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
-[Criar tutorial de teste]: https://azure.microsoft.com/pt-BR/documentation/articles/machine-learning-create-experiment/
-[Tutorial de criação de experimento]: https://azure.microsoft.com/pt-BR/documentation/articles/machine-learning-create-experiment/
-[Introdução ao Aprendizado de Máquina no Azure]: https://azure.microsoft.com/pt-BR/documentation/articles/machine-learning-what-is-machine-learning/
+[Visão geral sobre o desenvolvimento no SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Visão geral de integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integration.md
+[Criar tutorial de teste]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[Tutorial de criação de experimento]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[Introdução ao Aprendizado de Máquina no Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Estúdio de Aprendizado de Máquina do Azure]: https://studio.azureml.net/Home
-[Portal clássico do Azure]: https://portal.azure.com/
+[portal do Azure]: https://portal.azure.com/
 
 <!--MSDN references-->
 
@@ -150,4 +150,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -19,9 +19,11 @@
 # Replicar máquinas virtuais Hyper-V em nuvens VMM para Azure usando o PowerShell e o Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Portal Clássico do Azure](site-recovery-vmm-to-azure.md)
+- [Portal do Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Portal clássico](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell - clássico](site-recovery-deploy-with-powershell.md)
-- [PowerShell – Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 
 ## Visão geral
@@ -42,7 +44,7 @@ O artigo inclui pré-requisitos para o cenário e mostra a você como:
 
 Se você enfrentar problemas ao configurar esse cenário, publique suas perguntas no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-> [AZURE.NOTE] O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e Clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos.
+> [AZURE.NOTE] O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos.
 
 ## Antes de começar
 
@@ -51,7 +53,7 @@ Verifique se estes pré-requisitos estão em vigor:
 ### Pré-requisitos do Azure
 
 - Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/). Se não tiver uma, comece com uma [conta gratuita](https://azure.microsoft.com/free). Além disso, você pode ler sobre os [preços do Gerenciador do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-- Você precisará de uma assinatura CSP se estiver tentando a replicação em um cenário de assinatura CSP. Saiba mais sobre o programa CSP em [Registre-se no programa CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
+- Você precisará de uma assinatura CSP se estiver tentando a replicação em um cenário de assinatura CSP. Saiba mais sobre o programa CSP em [como se registrar no programa CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
 - Você precisará de uma conta de armazenamento do Azure V2 (ARM) para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o serviço Azure Site Recovery e estar associada à mesma assinatura ou assinatura CSP. Para aprender mais sobre como configurar o armazenamento do Azure, confira [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md) para obter uma referência.
 - Você precisará verificar se as máquinas virtuais que deseja proteger atendem aos [requisitos de máquina virtual do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
@@ -67,14 +69,14 @@ Verifique se estes pré-requisitos estão em vigor:
 - Saiba mais sobre como configurar nuvens VMM:
 	- Leia mais sobre nuvens VMM privadas em [Novidades da nuvem privada com o System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) e em [VMM 2012 e as nuvens](http://go.microsoft.com/fwlink/?LinkId=324956).
 	- Saiba mais em [Configurando a malha de nuvem VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-	- Depois que os elementos de malha de nuvem estiverem em vigor, veja como criar nuvens privadas em [Criando uma nuvem privada no VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) e [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM (Passo a passo: criação de nuvens privadas com o System Center 2012 SP1 VMM)](http://go.microsoft.com/fwlink/p/?LinkId=324954).
+	- Depois que os elementos de malha de nuvem estiverem em vigor, veja como criar nuvens privadas em [Criando uma nuvem privada no VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) e [Passo a passo: criando de nuvens privadas com o System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/p/?LinkId=324954).
 
 
 ### Pré-requisitos do Hyper-V
 
 - Os servidores host Hyper-V devem estar executando pelo menos o Windows Server 2012 com a função Hyper-V e ter as últimas atualizações instaladas.
 - Se você estiver executando o Hyper-V em um cluster, observe que o agente de cluster não será criado automaticamente se você tiver um cluster de baseados em endereços IP estáticos. Você precisará configurar o agente de cluster manualmente. Para 
-- Para obter instruções, confira [How to Configure Hyper-V Replica Broker](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
+- Para obter instruções, confira [Como Configurar o Agente de Réplica do Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 - Qualquer cluster ou servidor host Hyper-V para o qual você desejar gerenciar a proteção deverá ser incluído em uma nuvem VMM.
 
 ### Pré-requisitos de mapeamento de rede
@@ -97,7 +99,7 @@ Saiba mais sobre mapeamento de rede em
 
 
 ###Pré-requisitos do PowerShell
-Verifique se você tem o PowerShell do Azure pronto para uso. Se você já estiver usando o PowerShell, precisará atualizar para a versão 0.8.10 ou posterior. Para saber mais sobre como configurar o PowerShell, confira o [Guia de instalação e de configuração do Azure PowerShell](../powershell-install-configure.md). Depois de instalar e configurar o PowerShell, você poderá exibir todos os cmdlets disponíveis para o serviço [aqui](https://msdn.microsoft.com/library/dn850420.aspx).
+Verifique se você tem o PowerShell do Azure pronto para uso. Se você já estiver usando o PowerShell, precisará atualizar para a versão 0.8.10 ou posterior. Para obter mais informações sobre como configurar o PowerShell, confira o [Guia de instalação e de configuração do Azure PowerShell](../powershell-install-configure.md). Depois de instalar e configurar o PowerShell, você poderá exibir todos os cmdlets disponíveis para o serviço [aqui](https://msdn.microsoft.com/library/dn850420.aspx).
 
 Para obter dicas que podem ajudar você a usar os cmdlets, como valores de parâmetro, entradas e saídas, que normalmente são tratados no Azure PowerShell, confira [Introdução aos cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
@@ -121,7 +123,7 @@ Para obter dicas que podem ajudar você a usar os cmdlets, como valores de parâ
 		Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 
-## Etapa 2: Criar um cofre dos Serviços de Recuperação
+## Etapa 2: Criar um cofre dos Serviços de Recuperação 
 
 1. Crie um grupo de recursos do ARM, caso ainda não tenha um
 
@@ -131,19 +133,11 @@ Para obter dicas que podem ajudar você a usar os cmdlets, como valores de parâ
 
 		$vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location 
 
-## Etapa 3: gerar uma chave de registro do cofre
+## Etapa 3: Configurar o contexto do Cofre dos Serviços de Recuperação
 
-Gere uma chave de registro no cofre. Após baixar o Provedor do Azure Site Recovery e instalá-lo no servidor VMM, você usará essa chave para registrar o servidor VMM no cofre.
+1.  Defina o contexto de cofre, executando o comando abaixo.
 
-1.	Obtenha o arquivo de configuração do cofre e defina o contexto:
-	
-
-		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault vaultname -Path #VaultSettingFilePath
-	
-	
-2.	Defina o contexto de cofre, executando os seguintes comandos:
-	
-		Import-AzureRmSiteRecoveryVaultSettingsFile -Path $VaultSettingFilePath
+		Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## Etapa 4: instalar o Provedor do Azure Site Recovery
 
@@ -319,7 +313,7 @@ Para verificar a conclusão da operação, execute as etapas em [Monitorar a Ati
 
 ### Executar um failover não planejado
 
-1. Inicie o failover planejado executando o seguinte comando:
+1. Inicie o failover não planejado executando o seguinte comando:
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
@@ -351,4 +345,4 @@ Use os seguintes comandos para monitorar a atividade. Observe que é necessário
 
 [Leia mais](https://msdn.microsoft.com/library/dn850420.aspx) sobre os cmdlets do PowerShell no Azure Site Recovery</a>.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

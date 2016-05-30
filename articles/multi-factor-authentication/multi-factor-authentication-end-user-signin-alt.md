@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Conectando-se usando um método alternativo com o Azure Multi-Factor Authentication
@@ -33,4 +33,6 @@ A seção a seguir mostrará como se conectar com um método alternativo quando 
 
 <li>Escolha um método alternativo e conecte-se.</li>
 
-<!---HONumber=AcomDC_0218_2016-->
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

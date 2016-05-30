@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure
@@ -45,6 +45,12 @@ Antes de começar este tutorial, você deve ter o seguinte:
 	* [Criar uma pasta no seu Repositório Data Lake](data-lake-store-get-started-portal.md#createfolder).
 	* [Carregar um arquivo em seu Repositório Data Lake](data-lake-store-get-started-portal.md#uploaddata). Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
+## Você aprende rapidamente com vídeos?
+
+Assista aos vídeos a seguir para entender como provisionar clusters HDInsight com acesso ao Repositório Data Lake.
+
+* [Criar um cluster HDInsight com acesso ao Repositório Data Lake](https://mix.office.com/watch/l93xri2yhtp2)
+* Depois que o cluster for configurado, [Acesse dados no Repositório Data Lake usando scripts do Hive e Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
 
 ## Criar um cluster HDInsight com acesso ao repositório Azure Data Lake
 
@@ -105,7 +111,7 @@ Após a configuração de um cluster HDInsight, você poderá executar trabalhos
 
 	![Iniciar painel do cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Iniciar painel do cluster")
 
-	Também é possível navegar diretamente até o Ambari indo para https://CLUSTERNAME.azurehdinsight.net em um navegador da Web (em que **CLUSTERNAME** é o nome de seu cluster HDInsight).
+	Também é possível navegar diretamente até o Ambari indo para https://CLUSTERNAME.azurehdinsight.net em um navegador da Web (em que **CLUSTERNAME** é o nome do cluster HDInsight).
 
 2. Abra o modo de exibição do Hive Selecione o conjunto de quadrados no menu da página (ao lado do link e do botão **Administrador** à direita da página) para listar os modos de exibição disponíveis. Selecione o modo de exibição **Hive**.
 
@@ -164,7 +170,7 @@ Após a configuração de um cluster HDInsight, você poderá executar trabalhos
 
 		SHOW TABLES;
 
-	Clique em **Exibir Detalhes** correspondente a essa consulta e a saída deverá mostrar o seguinte:
+	Clique na opção **Exibir Detalhes** correspondente a essa consulta, e a saída deverá mostrar o seguinte:
 
 		hivesampletable
 		vehicles
@@ -184,7 +190,7 @@ Após a configuração do cluster HDInsight para usar o Repositório Data Lake, 
 
 Nesta seção, você acessará o cluster por SSH e executará os comandos HDFS. O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Para obter mais informações sobre como usar o PuTTY, confira [Usar o SSH com Hadoop baseado em Linux no HDInsight por meio do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop baseado em Linux no HDInsight no Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 Uma vez conectado, use o comando do sistema de arquivos HDFS a seguir para listar os arquivos no Repositório Data Lake.
 
@@ -252,4 +258,4 @@ Com clusters HBase, você pode usar o Repositório Data Lake como um armazenamen
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

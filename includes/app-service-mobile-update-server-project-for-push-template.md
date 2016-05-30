@@ -70,7 +70,7 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam": context.item.text}'; 
+	    var payload = '{"messageParam":' + context.item.text + '}'; 
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -100,5 +100,3 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
 	Isso envia uma notificação de modelo que contém o item.text quando um novo item todo é inserido.
 
 2. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
-
-<!---HONumber=AcomDC_1223_2015-->

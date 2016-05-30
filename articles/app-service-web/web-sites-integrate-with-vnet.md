@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="05/13/2016" 
 	ms.author="ccompy"/>
 
 # Integrar seu aplicativo Web a uma Rede Virtual do Azure #
@@ -22,17 +22,17 @@ Este documento descreve o recurso de visualização de integração de rede virt
 
 O Serviço de Aplicativo do Azure tem duas formas.
 
-1. Os sistemas de vários locatários que dão suporte a toda a gama de planos de preço
-1. O recurso premium do ASE (Ambiente do Serviço de Aplicativo) que implanta em sua Rede Virtual.  
+1. Os sistemas de vários locatários que dão suporte a toda a gama de planos de preço.
+1. O recurso premium do ASE (Ambiente do Serviço de Aplicativo) que implanta em sua VNET.  
 
-Este artigo não descreve a colocação de ASE em uma Rede Virtual V2. Que ainda não tem suporte e não tem relação com este artigo. Este artigo é sobre a habilitação de seus aplicativos para consumir recursos em uma Rede Virtual V1 ou V2.
+Este artigo não descreve a colocação de ASE em uma VNET V2. Que ainda não tem suporte e não tem relação com este artigo. Este artigo é sobre a habilitação de seus aplicativos para consumir recursos em uma VNET V1 ou V2.
 
 A integração VNET concede ao seu aplicativo Web acesso a recursos da sua rede virtual, mas não concede acesso privado ao seu aplicativo Web por meio da rede virtual. Um cenário comum onde você usaria esse recurso seria habilitar o acesso de seu aplicativo Web a um banco de dados ou serviços Web que são executados em uma máquina virtual na sua rede virtual do Azure. Com a integração VNET, você não precisa expor um ponto de extremidade público para aplicativos em sua VM, mas pode usar, em vez disso, endereços roteáveis privados fora da Internet.
 
 O recurso de integração VNET:
 
 - requer um plano de preços Standard ou Premium 
-- funcionará com Rede Virtual V1(Clássica) ou V2(Gerenciador de Recursos) 
+- funcionará com VNET V1(Clássica) ou V2(Gerenciador de Recursos) 
 - dá suporte a TCP e UDP
 - funciona com aplicativos Web, móveis e de API
 - permite que um aplicativo se conecte somente a uma VNET por vez
@@ -59,7 +59,9 @@ Veja aqui algumas coisas para se ter em mente antes de conectar seu aplicativo W
 
 ## Habilitando a integração VNET ##
 
-Você tem a opção de se conectar a uma rede virtual nova ou existente. Se criar uma nova rede, além de criar a VNET, um gateway de roteamento dinâmico será pré-configurado para você e a VPN ponto a Site será habilitada.
+Este documento concentra-se principalmente em usar o Portal do Azure para a Integração VNET. Para habilitar a Integração VNET com o seu aplicativo usando o PowerShell, siga as instruções aqui: [Conectar seu aplicativo à rede virtual usando o PowerShell][IntPowershell].
+
+Você tem a opção de conectar seu aplicativo a uma rede virtual nova ou existente. Se você criar uma nova rede como parte a sua integração, além de criar apenas uma VNET, um gateway de roteamento dinâmico será pré-configurado para você e a VPN Ponto a Site será habilitada.
 
 >[AZURE.NOTE] A configuração de uma nova integração da rede virtual pode levar vários minutos.
 
@@ -71,7 +73,7 @@ Se seu aplicativo não estiver no plano de preços correto, a interface do usuá
 ![][1]
  
 ###Habilitando a integração VNET com uma VNET já existente###
-A interface de usuário de integração de Rede Virtual permite que você selecione em uma lista de suas Redes Virtuais. As Redes Virtuais V1 indicarão que são elas com a palavra "Clássica" entre parênteses ao lado do nome da Rede Virtual. A lista é classificada de modo que as Redes Virtuais V2 sejam listadas primeiro. Na imagem abaixo, você pode ver que somente uma Rede Virtual pode ser selecionada. Há vários motivos para uma VNET ficar esmaecida, incluindo:
+A interface de usuário de integração de VNET permite que você selecione em uma lista de suas VNETs. As VNETs V1 estarão identificadas com a palavra "Clássica" entre parênteses ao lado do nome da Rede Virtual. A lista é classificada de modo que as Redes Virtuais V2 sejam listadas primeiro. Na imagem abaixo, você pode ver que somente uma VNET pode ser selecionada. Há vários motivos para uma VNET ficar esmaecida, incluindo:
 
 - a rede virtual está em outra assinatura à qual sua conta não tem acesso
 - a VNET não tem um ponto a Site habilitado
@@ -82,30 +84,30 @@ A interface de usuário de integração de Rede Virtual permite que você seleci
 
 Para habilitar a integração, simplesmente clique na VNET que deseja integrar. Depois de selecionar a VNET, o aplicativo será reiniciado automaticamente para que as alterações entrem em vigor.
 
-##### Habilitar Ponto a site um Rede Virtual V1 #####
-Se sua VNET não tem um gateway ou ponto a site, você precisa configurar isso primeiro. Para fazer isso para uma Rede Virtual V1, vá para o [Portal do Azure][AzurePortal] e exiba a lista de Redes Virtuais(clássica). Em seguida, clique na rede com que você deseja integrar e clique na caixa grande em Essentials chamada Conexões VPN. A partir daqui, você pode criar sua VPN ponto a site e até mesmo fazê-la criar um gateway. Depois de passar pelo ponto a site com a experiência de criação do gateway, demora cerca de 30 minutos até que ele fique pronto.
+##### Habilitar Ponto a Site em uma VNET V1 #####
+Se sua VNET não tem um gateway ou ponto a site, você precisa configurar isso primeiro. Para fazer isso para uma VNET V1, vá para o [Portal do Azure][AzurePortal] e exiba a lista de Redes Virtuais (clássicas). Em seguida, clique na rede com que você deseja integrar e clique na caixa grande em Essentials chamada Conexões VPN. A partir daqui, você pode criar sua VPN ponto a site e até mesmo fazê-la criar um gateway. Depois de passar pelo ponto a site com a experiência de criação do gateway, demora cerca de 30 minutos até que ele fique pronto.
 
 ![][8]
 
-##### Habilitando Ponto a site um Rede Virtual V2 #####
+##### Habilitando Ponto a Site em uma VNET V2 #####
 
-Para configurar uma Rede Virtual V2 com um gateway e ponto a site, você precisa usar o PowerShell conforme documentado aqui, [Configurar uma conexão ponto a site para uma rede virtual usando o PowerShell][V2VNETP2S]. A interface do usuário para executar esse recurso ainda não está disponível.
+Para configurar uma VNET V2 com um gateway e um Ponto a Site, você precisa usar o PowerShell conforme documentado aqui, [Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell][V2VNETP2S]. A interface do usuário para executar esse recurso ainda não está disponível.
 
-### Criar uma Rede Virtual pré-configurada ###
-Se você quiser criar uma nova Rede Virtual que esteja configurada com um gateway e ponto a site, a interface do usuário do Serviço de Aplicativo tem a capacidade de fazer isso, mas somente para Rede Virtual V2. Se você quiser criar uma Rede Virtual V1 com um gateway e ponto a site, precisará fazer isso manualmente por meio da interface do usuário de rede.
+### Criar uma VNET pré-configurada ###
+Se você quiser criar uma nova VNET que esteja configurada com um gateway e um Ponto a Site, a interface do usuário de rede do Serviço de Aplicativo tem a capacidade de fazer isso, mas somente para VNET V2. Se você quiser criar uma VNET V1 com um gateway e um Ponto a Site, precisará fazer isso manualmente por meio da interface do usuário de rede.
 
-Para criar uma Rede Virtual V2 por meio da interface do usuário de integração de Rede Virtual, basta selecionar **Criar nova rede Virtual** e fornecer:
+Para criar uma VNET V2 por meio da interface do usuário de Integração VNET, basta selecionar **Criar Nova Rede Virtual** e fornecer:
 
-- Nome da Rede Virtual
-- Bloco de endereço da Rede Virtual
+- Nome da VNET
+- Bloco de endereço da VNET
 - Nome da sub-rede
 - Bloco de endereço da sub-rede
 - Bloco de endereço do Gateway
 - Bloco de endereço Ponto a site
 
-Se você quiser que essa Rede Virtual se conecte a qualquer outra rede, deverá evitar escolher um espaço de endereço IP que se sobreponha a essas redes.
+Se você quiser que essa VNET se conecte a qualquer outra rede, deverá evitar escolher um espaço de endereço IP que se sobreponha a essas redes.
 
->[AZURE.NOTE] A criação de Rede Virtual V2 com um gateway leva cerca de 30 minutos e atualmente não integrará a Rede Virtual com o seu aplicativo. Depois que sua Rede Virtual é criada com o gateway, você precisa voltar para a interface do usuário de integração de Rede Virtual do seu aplicativo e selecionar sua nova Rede Virtual.
+>[AZURE.NOTE] A criação de VNET V2 com um gateway leva cerca de 30 minutos e atualmente não integrará a VNET com o seu aplicativo. Depois que sua VNET é criada com o gateway, você precisa voltar para a interface do usuário de integração de VNET do seu aplicativo e selecionar sua nova VNET.
 
 ![][3]
 
@@ -173,7 +175,7 @@ Em relação a ações, existem duas ações primárias. A primeira é a capacid
 
 Um dos benefícios do recurso Integração de rede virtual é que, se a rede virtual estiver conectado à rede local com uma VPN Site a Site, seus aplicativos podem ter acesso aos recursos locais usando seu aplicativo. Para isso funcionar, talvez seja necessário atualizar o gateway de VPN local com as rotas para o intervalo de IP ponto a site. Quando o VPN site a site é configurado pela primeira vez, os scripts usados para configurá-lo devem configurar as rotas, incluindo a VPN ponto a site. Se você adicionar a VPN ponto a site depois de criar a VPN site a site, precisará atualizar as rotas manualmente. Os detalhes sobre como fazer isso variam de acordo com o gateway e não são descritos aqui.
 
->[AZURE.NOTE] Embora o recurso Integração de rede virtual funcione com uma VPN Site a Site para acessar recursos locais, ele atualmente não funciona com uma VPN de Rota Expressa na mesma situação. Isso é verdadeiro ao integrar com uma VNET V1 ou V2. Se você precisar acessar recursos por meio de uma VPN de Rota Expressa, poderá usar um ASE que pode ser executado em sua Rede Virtual.
+>[AZURE.NOTE] Embora o recurso Integração de rede virtual funcione com uma VPN Site a Site para acessar recursos locais, ele atualmente não funciona com uma VPN de Rota Expressa na mesma situação. Isso é verdadeiro ao fazer a integração com uma VNET V1 ou V2. Se você precisar acessar recursos por meio de uma VPN de Rota Expressa, poderá usar um ASE que pode ser executado em sua VNET.
 
 ##Detalhes de preço##
 Existem algumas nuances de preço que você deve levar em conta ao usar o recurso Integração VNET. Há três cobranças relacionadas ao uso desse recurso:
@@ -184,7 +186,7 @@ Existem algumas nuances de preço que você deve levar em conta ao usar o recurs
 
 Para que seus aplicativos possam usar o recurso, eles precisam estar em um Plano de Serviço de Aplicativo Standard ou Premium. Você pode ver mais detalhes sobre esses custos aqui: [Preço do Serviço de Aplicativo][ASPricing].
 
-Devido à maneira como as VPNs ponto a site são tratadas, você sempre será cobrado por dados de saída pela conexão da Integração VNET, mesmo que ela não esteja no mesmo data center. Para ver quais são essas cobranças, dê uma olhada aqui: [Detalhes de preço da Transferência de Dados][DataPricing].
+Devido à maneira como as VPNs ponto a site são tratadas, você sempre será cobrado por dados de saída pela conexão da Integração VNET, mesmo que ela não esteja no mesmo data center. Para ver quais são essas cobranças, dê uma olhada aqui: [Detalhes de Preço da Transferência de Dados][DataPricing].
 
 O último item é o custo dos gateways de rede virtual. Se você não precisa dos gateways para algo como VPNs Site a Site, está pagando para que eles deem suporte ao recurso Integração de rede virtual. Há detalhes sobre esses custos aqui: [Preço de Gateway de VPN][VNETPricing].
 
@@ -287,5 +289,6 @@ Além das diferenças funcionais, há também diferenças de preço. O recurso A
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 [V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[IntPowershell]: http://azure.microsoft.com/documentation/articles/app-service-vnet-integration-powershell/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

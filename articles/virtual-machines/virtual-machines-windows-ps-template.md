@@ -23,9 +23,11 @@ Este artigo apresenta um modelo do Azure Resource Manager e mostra como usar o P
 
 Deve levar cerca de 20 minutos para executar as etapas neste artigo.
 
+> [AZURE.IMPORTANT] Se você quiser que sua VM seja parte de um conjunto de disponibilidade, você precisará adicioná-la ao conjunto ao criar a VM. Atualmente não há uma maneira de adicionar uma VM a um conjunto de disponibilidade após ela ter sido criada.
+
 ## Etapa 1: Criar o arquivo do modelo
 
-Você pode criar seu próprio modelo usando as informações encontradas em [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Você também pode implantar modelos que foram criados para você de [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/). O exemplo usado neste artigo é semelhante ao modelo descrito em [Implantar uma VM do Windows simples no Oeste dos EUA](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/).
+Você pode criar seu próprio modelo usando as informações encontradas em [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Você também pode implantar modelos que foram criados para você de [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/). O exemplo usado neste artigo é semelhante ao modelo descrito em [Deploy a simple Windows VM in West US](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/) (Implantar uma VM do Windows simples no Oeste dos EUA).
 
 1. Abra seu editor de texto favorito e copie essas informações do JSON em um novo arquivo chamado *VirtualMachineTemplate.json*:
 
@@ -193,7 +195,7 @@ Você pode criar seu próprio modelo usando as informações encontradas em [Cri
           ]
         }
         
-    >[AZURE.NOTE] Este artigo cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, consulte [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md).
+    >[AZURE.NOTE] Este artigo cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, consulte [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md) (Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure).
     
 2. Salvar o arquivo de modelo.
 
@@ -218,7 +220,7 @@ Para especificar valores para os parâmetros de recursos que foram definidos no 
 
 ## Etapa 3: Instalar o Azure PowerShell
 
-Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter informações sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure.
+Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure.
 
 ## Etapa 4: Criar um grupo de recursos
 
@@ -280,6 +282,6 @@ Todos os recursos devem estar implantados em um grupo de recursos. Consulte a [V
 ## Próximas etapas
 
 - Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando os problemas de implantações do grupo de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
-- Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar as máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
+- Saiba como gerenciar a máquina virtual que você acabou de criar examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

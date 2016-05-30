@@ -14,13 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="garye;bradsev" />
 
 
 # Importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados
-
-## Introdução
 
 Para usar seus próprios dados no Estúdio de Aprendizado de Máquina para desenvolver e treinar uma solução de análise preditiva, você pode:
 
@@ -91,4 +89,4 @@ Se necessário, você pode converter o formato Data Table de volta para o format
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

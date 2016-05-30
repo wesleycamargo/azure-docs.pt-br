@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="04/18/2016"
 	ms.author="csand"/>
 
 
@@ -24,7 +24,7 @@ Este guia apresentará a você o serviço de Automação do Azure e como ele pod
 
 ## O que é Automação do Azure?
 
-[Automação do Azure](https://azure.microsoft.com/services/automation/) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo. Com o uso da Automação do Azure, as tarefas manuais, repetidas com frequência, de execução longa e propensas a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e o tempo de retorno para sua organização.
+[Automação do Azure](https://azure.microsoft.com/services/automation/) é um serviço do Azure para simplificar o gerenciamento de nuvem por meio da automação de processo e por uma configuração de estado desejada. Com o uso da Automação do Azure, as tarefas manuais, repetidas, de execução longa e propensas a erros podem ser automatizadas para aumentar a confiabilidade, a eficiência e o tempo de retorno para sua organização.
 
 A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho altamente confiável e altamente disponível que é dimensionado para atender às suas necessidades. Na Automação do Azure, processos podem ser inicializados manualmente, por sistemas de terceiros ou em intervalos agendados para que as tarefas acontecem exatamente quando necessário.
 
@@ -33,9 +33,13 @@ Reduza o custo operacional e libere a equipe de TI e DevOps para se concentrar n
 
 ## Como a Automação do Azure pode ajudar a gerenciar o cofre da chave do Azure?
 
-O Cofre da Chave pode ser gerenciado na Automação do Azure usando os [cmdlets do Cofre da Chave do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx) que estão disponíveis na [Galeria do PowerShell](https://azure.microsoft.com/blog/azps-1-0/). Você pode importar esse módulo na Automação do Azure para que seja possível executar muitas de suas tarefas de gerenciamento do Cofre da Chave no serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas nos serviços do Azure e sistemas de terceiros.
+O Cofre da Chave pode ser gerenciado na Automação do Azure usando os [cmdlets do Cofre da Chave do AzureRM](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) e os [cmdlets do Cofre da Chave clássico do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx). O módulo do Azure para gerenciar o Cofre da Chave clássico está disponível automaticamente na Automação do Azure, e você pode importar o [módulo AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) para a Automação do Azure, para executar muitas de suas tarefas de gerenciamento do Cofre da Chave dentro do serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas nos serviços do Azure e sistemas de terceiros.
 
-Com os cmdlets do Cofre da Chave do Azure, você pode executar estas tarefas e muitas outras: criar ou importar uma chave, criar ou atualizar um segredo, atualizar atributos de uma chave, obter uma chave ou um segredo ou excluir uma chave ou um segredo.
+Com os cmdlets do Cofre da Chave do Azure, você pode executar estas tarefas e muitas outras: criar e configurar um cofre de chave, criar ou importar uma chave, criar ou atualizar um segredo, atualizar atributos de uma chave, obter uma chave ou um segredo ou excluir uma chave ou um segredo.
+
+Veja alguns exemplos de uso do PowerShell para gerenciar o Cofre da Chave:
+* [Cofre da Chave do Azure - passo a passo](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/)
+* [Configurando um Cofre da Chave do Azure](https://www.simple-talk.com/cloud/platform-as-a-service/setting-up-and-configuring-an-azure-key-vault/)
 
 
 ## Próximas etapas
@@ -45,4 +49,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 * Consulte o [Tutorial de introdução](../automation/automation-first-runbook-graphical.md) da Automação do Azure.
 * Consulte os [scripts do PowerShell do Cofre da Chave do Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

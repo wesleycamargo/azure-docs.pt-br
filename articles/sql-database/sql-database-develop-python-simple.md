@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Conectar-se ao Banco de Dados SQL usando Phyton"
+	pageTitle="Conectar-se ao Banco de Dados SQL usando Python | Microsoft Azure"
 	description="Apresenta um exemplo de código Phyton que pode ser usado para se conectar ao Banco de Dados SQL do Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -47,4 +47,4 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

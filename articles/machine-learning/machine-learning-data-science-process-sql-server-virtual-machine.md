@@ -3,7 +3,7 @@
 	description="Processar dados do SQL Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="fashah" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
-	ms.author="fashah;garye" />
+	ms.date="05/16/2016" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Processar dados na Máquina Virtual do SQL Server no Azure
 
@@ -66,7 +66,7 @@ Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:
 
 ###<a name="sql-countfeature"></a>Geração de recursos baseada em contagem
 
-Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo usa a cláusula 'where'. Eles podem então ser unidos à tabela original (usando colunas de chave primária) para que os recursos de contagem fiquem junto com os dados originais.
+Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro método usa a soma condicional e o segundo usa a cláusula 'where'. Eles podem então ser unidos à tabela original (usando colunas de chave primária) para que os recursos de contagem fiquem junto com os dados originais.
 
 	select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -84,7 +84,7 @@ O exemplo a seguir mostra como gerar recursos compartimentalizados guardando (us
 
 Nesta seção, demonstraremos como propagar uma única coluna em uma tabela para gerar recursos adicionais. O exemplo presume que há uma coluna de latitude ou longitude na tabela da qual você está tentando gerar recursos.
 
-Aqui está uma breve cartilha sobre os dados de localização de latitude/longitude (recursos de stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). É útil entender isso antes de destacar o campo local:
+Apresentamos aqui uma breve cartilha sobre dados de localização de latitude/longitude (extraídos de [How to measure the accuracy of latitude and longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude) [Como medir a precisão de latitude e longitude?] do StackOverflow). É útil entender isso antes de destacar o campo local:
 
 - O sinal nos informa se estamos na parte norte ou sul, leste ou oeste do globo.
 - Um dígito em centenas diferente de zero informa que estamos usando longitude, não latitude!
@@ -97,7 +97,7 @@ Aqui está uma breve cartilha sobre os dados de localização de latitude/longit
 - A quinta casa decimal representa até 1,1 m: ela distingue as árvores mas das outras. Uma precisão desse nível com unidades GPS comerciais só pode ser obtida com a correção diferencial.
 - A sexta casa decimal representa até 0,11 m: você pode usá-la para dispor estruturas detalhadamente, projetar paisagens e criar estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Isso pode ser obtido coletando medidas arduamente com o GPS, tais como GPS com correção diferencial.
 
-As informações de localização podem pode ser destacadas da maneira indicada a seguir, separando informações de região, local e cidade. Observe que também é possível chamar um ponto de extremidade REST tal como a API do Bing Mapas, disponível em `https://msdn.microsoft.com/library/ff701710.aspx` para obter as informações de região/distrito.
+As informações de local podem ser destacadas da maneira indicada a seguir, separando as informações de região, local e cidade. Observe que também é possível chamar um ponto de extremidade REST tal como a API do Bing Mapas disponível em [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) (Encontrar um local por ponto) para obter as informações de região/distrito.
 
 	select 
 		<location_columnname>
@@ -110,17 +110,17 @@ As informações de localização podem pode ser destacadas da maneira indicada 
 		,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end 	
 	from <tablename>
 
-Os recursos de localização acima podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente.
+Os recursos baseados em local indicados acima podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente.
 
 
-> [AZURE.TIP] É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação [Confira o exemplo de como fazer isso usando pyodbc aqui](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> [AZURE.TIP] É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação (para obter um exemplo de como fazer isso usando o pyodbc, veja [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python) [Uma amostra do HelloWorld para acessar o SQL Server com o Python]).
  
 
-> [AZURE.TIP] Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> [AZURE.TIP] Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
-###<a name="sql-aml"></a>Conectar ao Aprendizado de Máquina do Azure
+###<a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
 
-O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Recursos podem ser gerados ou acessados se já foram criados, usando o módulo [Leitor][reader] no AM do Azure conforme mostrado abaixo:
+O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Os recursos podem ser gerados ou acessados se já foram criados, usando o módulo [Importar dados][reader] no Aprendizado de Máquina do Azure, conforme mostrado abaixo:
 
 ![leitores de azureml][1]
 
@@ -139,7 +139,7 @@ A [Biblioteca Pandas](http://pandas.pydata.org/) no Python fornece um conjunto a
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Agora, você pode trabalhar com o quadro de dados Pandas conforme abordado nos tópicos [Processar dados de Blobs do Azure em seu ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md).
+Agora, você pode trabalhar com o quadro de dados do Pandas, como abordamos no artigo [Processar dados do Blob do Azure em seu ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md).
 
 ## Exemplo da Ciência de Dados do Azure em Ação
 
@@ -152,4 +152,4 @@ Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de D
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

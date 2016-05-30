@@ -3,9 +3,9 @@
 	description="Criar tabelas Hive e carregar dados em blobs para tabelas hive" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="hangzh-msft" 
-	manager="jacob.spoelstra" 
-	editor="cgronlun"  />
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="hangzh;bradsev" />
 
  
 #Criar e carregar dados nas tabelas Hive do armazenamento de blobs do Azure
 
-## Introdução
-Neste **documento**, são apresentadas consultas de Hive genéricas que criam tabelas Hive e carregam dados do armazenamento de blobs do Azure. Também são fornecida algumas orientações sobre o particionamento de tabelas Hive e sobre como usar a formatação ORC (Colunar de Linha Otimizado) para melhorar o desempenho da consulta.
+Neste tópico, são apresentadas consultas genéricas do Hive que criam tabelas do Hive e carregam dados do armazenamento de blobs do Azure. Também são fornecida algumas orientações sobre o particionamento de tabelas Hive e sobre como usar a formatação ORC (Colunar de Linha Otimizado) para melhorar o desempenho da consulta.
 
 Esse **menu** liga os tópicos que descrevem a inclusão de dados em ambientes de destino em que os dados podem ser armazenados e processados durante o Processo de Análise do Cortana (CAPS).
 
@@ -41,88 +40,87 @@ Supomos que os dados de tabelas Hive estejam em formato de tabela **descompactad
 
 Se você deseja praticar no _Dados de Viagens de Táxi em NYC_, é necessário primeiro baixar todos os 24 arquivos dos <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">Dados de Viagens de Táxi em NYC</a> (12 arquivos Trip e 12 arquivos Fare), **descompactar** todos os arquivos em arquivos CSV e carregá-los para o contêiner padrão (ou adicional) da conta de armazenamento do Azure criada pelo procedimento descrito no tópico [Personalizar os clusters do Hadoop do Azure HDInsight para processo e tecnologia de análise avançada](machine-learning-data-science-customize-hadoop-cluster.md). O processo para carregar os arquivos .csv para o contêiner padrão na conta de armazenamento pode ser encontrado nesta [página](machine-learning-data-science-process-hive-walkthrough/#upload).
 
+
 ## <a name="submit"></a>Como enviar consultas de Hive
+
 Consultas de Hive podem ser enviadas usando:
 
-* a Linha de Comando do Hadoop no nó principal do cluster
-* o IPython Notebook
-* o Editor de Hive
-* Scripts do PowerShell do Azure
-
-Consultas de Hive são semelhantes ao SQL. Usuários familiarizados com o SQL podem achar o <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">Roteiro de SQL para Hive</a> útil.
+1. [Enviar consultas de Hive por meio de Linha de comando do Hadoop no nó principal do cluster Hadoop](#headnode)
+2. [Enviar consultas de Hive com o Editor de Hive](#hive-editor)
+3. [Enviar consultas de Hive com comandos do PowerShell do Azure](#ps)
+ 
+Consultas de Hive são semelhantes ao SQL. O [Roteiro para usuários do Hive para SQL](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) pode ser útil para os usuários que já estão familiarizados com o SQL.
 
 Ao enviar uma consulta de Hive, você também pode controlar o destino da saída de consultas de Hive, seja na tela, para um arquivo local no nó principal ou para um blob do Azure.
 
-### Por meio do Console de Linha de Comando do Hadoop no nó principal do Cluster do Hadoop
 
-Se a consulta for complexa, enviar de consultas de Hive diretamente do nó principal do cluster do Hadoop normalmente gera resultados mais rápidos do que enviá-las com um Editor de Hive ou usando scripts do PowerShell do Azure.
+###<a name="headnode"></a> 1. Enviar consultas de Hive por meio de Linha de comando do Hadoop no nó principal do cluster Hadoop
 
-Faça logon no nó principal do cluster do Hadoop, abra a Linha de Comando do Hadoop na área de trabalho do nó principal e digite o comando
+Se a consulta é complexa, o envio de consultas de Hive diretamente ao nó principal do cluster Hadoop normalmente leva a um resultado mais rápido do que enviá-la com scripts do Editor de Hive ou do PowerShell do Azure.
 
-    cd %hive_home%\bin
+Faça logon no nó principal do cluster do Hadoop, abra a Linha de Comando do Hadoop na área de trabalho do nó principal e digite o comando `cd %hive_home%\bin`.
 
-Os usuários têm três maneiras de enviar consultas de Hive no console de Linha de Comando do Hadoop:
+Os usuários têm três maneiras de enviar consultas de Hive na Linha de Comando do Hadoop:
 
-* diretamente da linha de comando do Hadoop
+* diretamente
 * usando arquivos .hql
-* pelo console de comando de Hive
+* com o console de comando do Hive
 
-#### Enviar consultas de Hive diretamente da Linha de Comando do Hadoop
+#### Enviar consultas de Hive diretamente na Linha de Comando do Hadoop. 
 
-Os usuários podem executar um comando como
+Os usuários podem executar o comando como `hive -e "<your hive query>;` para enviar consultas de Hive simples diretamente na Linha de Comando do Hadoop. Veja um exemplo, no qual a caixa vermelha descreve o comando que envia a consulta Hive e a caixa verde descreve a saída da consulta Hive.
 
-	hive -e "<your hive query>;
-
-para enviar consultas de Hive simples diretamente pela linha de comando do Hadoop. Veja um exemplo, no qual a caixa vermelha descreve o comando que envia a consulta Hive e a caixa verde descreve a saída da consulta Hive.
-
-![Criar espaço de trabalho](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
+![Criar espaço de trabalho](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-1.png)
 
 #### Enviar consultas de Hive em arquivos de .hql
 
-Quando a consulta de Hive é mais complicada e tem várias linhas, não é prático editar consultas na linha de comando ou no console de comando de Hive. Uma alternativa é usar um editor de texto no nó principal do cluster do Hadoop e salvar as consultas de Hive em um arquivo .hql em um diretório local do nó principal. Em seguida, a consulta de Hive no arquivo HQL pode ser enviada usando o argumento `-f` no comando `hive` da seguinte maneira:
+Quando a consulta Hive é mais complicada e tem várias linhas, não é prático editar consultas na linha de comando ou no console de comando de Hive. Uma alternativa é usar um editor de texto no nó principal do cluster do Hadoop para salvar as consultas de Hive em um arquivo .hql em um diretório local do nó principal. Em seguida, a consulta de Hive no arquivo HQL pode ser enviada usando o argumento `-f` da seguinte maneira:
+	
+	hive -f "<path to the .hql file>"
 
-	`hive -f "<path to the .hql file>"`
+![Criar espaço de trabalho](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-3.png)
 
 
-#### Suprimir a impressão da tela de status de progresso de consultas de Hive
+**Suprimir a impressão da tela de status de progresso de consultas de Hive**
 
-Por padrão, após a consulta de Hive ser enviada no console de Linha de Comando do Hadoop, o andamento do trabalho de Mapear/Reduzir será ser impresso na tela. Para suprimir a impressão da tela de andamento do trabalho de Mapear/Reduzir, você pode usar o argumento `-S` (diferencia maiúsculas de minúsculas) na linha de comando da seguinte maneira:
+Por padrão, após a consulta Hive ser enviada na Linha de Comando do Hadoop, o andamento do trabalho de Mapear/Reduzir será ser impresso na tela. Para suprimir a impressão da tela de andamento do trabalho de Mapear/Reduzir, você pode usar um argumento `-S` ("S" em letra maiúscula) na linha de comando da seguinte maneira:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
 #### Enviar consultas de Hive no console de comando de Hive.
 
-Os usuários também podem entrar no console de comando de Hive executando o comando `hive` na Linha de Comando do Hadoop e enviar consultas de Hive no console de comando do Hive no prompt **hive>**. Aqui está um exemplo.
+Os usuários também podem entrar primeiro no console de comando de Hive executando o comando `hive` na Linha de Comando do Hadoop e enviar consultas de Hive no console de comando de Hive. Aqui está um exemplo. Neste exemplo, as duas caixas vermelhas realçam os comandos usados para inserir o console de comando de Hive e a consulta de Hive enviada no console de comando de Hive, respectivamente. A caixa verde realça a saída da consulta de Hive.
 
-![Criar espaço de trabalho](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
-
-Neste exemplo, as duas caixas vermelhas realçam os comandos usados para inserir o console de comando de Hive e a consulta de Hive enviada no console de comando de Hive, respectivamente. A caixa verde realça a saída da consulta de Hive.
+![Criar espaço de trabalho](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-2.png)
 
 Os exemplos anteriores mostram os resultados da consulta de Hive diretamente na tela. Os usuários também podem gravar a saída em um arquivo local no nó principal ou em um blob do Azure. Em seguida, os usuários podem usar outras ferramentas para analisar com mais detalhes a saída das consultas de Hive.
 
-#### Resultados da consulta de Hive em um arquivo local de saída.
+**Resultados da consulta de Hive em um arquivo local de saída.**
 
 Para exibir os resultados da consulta de Hive em um diretório local no nó principal, os usuários precisam enviar a consulta de Hive na Linha de Comando do Hadoop da seguinte maneira:
 
-	`hive -e "<hive query>" > <local path in the head node>`
+	hive -e "<hive query>" > <local path in the head node>
 
+No exemplo a seguir, a saída da consulta de Hive é gravada em um arquivo `hivequeryoutput.txt` no diretório `C:\apps\temp`.
 
-#### Exportar a saída de consulta de Hive para um blob do Azure
+![Criar espaço de trabalho](./media/machine-learning-data-science-move-hive-tables/output-hive-results-1.png)
 
-Os usuários também podem exportar a saída da consulta de Hive para um blob do Azure dentro do contêiner padrão do cluster do Hadoop. A consulta de Hive para fazer isso é semelhante a esta:
+**Exportar a saída de consulta de Hive para um blob do Azure**
+
+Os usuários também podem exportar a saída da consulta de Hive para um blob do Azure dentro do contêiner padrão do cluster do Hadoop. A consulta de Hive deve ficar assim:
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-No exemplo a seguir, a saída da consulta de Hive é gravada em um diretório de blob `queryoutputdir` no contêiner padrão do cluster do Hadoop. Aqui, você deve fornecer somente o nome do diretório, sem o nome do blob. Um erro será gerado se você fornecer os nomes do blob e do diretório, como *wasb:///queryoutputdir/queryoutput.txt*.
+No exemplo a seguir, a saída da consulta de Hive é gravada em um diretório de blob `queryoutputdir` no contêiner padrão do cluster do Hadoop. Aqui, você precisa fornecer apenas o nome do diretório, sem o nome do blob. Um erro será gerado se você fornecer os nomes do blob e do diretório, como `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Criar espaço de trabalho](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
+![Criar espaço de trabalho](./media/machine-learning-data-science-move-hive-tables/output-hive-results-2.png)
 
-A saída da consulta de Hive pode ser vista no armazenamento de blob abrindo o contêiner padrão do cluster do Hadoop usando a ferramenta Gerenciador de Armazenamento do Azure (ou equivalente). Você pode aplicar o filtro (destacado pela caixa vermelha) se quiser recuperar um blob com letras especificadas em nomes.
+Se você abrir o contêiner padrão do cluster do Hadoop usando ferramentas como o Gerenciador de Armazenamento do Azure, você verá a saída da consulta de Hive da seguinte maneira. Você pode aplicar o filtro (destacado pela caixa vermelha) para recuperar apenas o blob com letras específicas nos nomes.
 
-![Criar espaço de trabalho](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
+![Criar espaço de trabalho](./media/machine-learning-data-science-move-hive-tables/output-hive-results-3.png)
 
-### Por meio do Editor de Hive ou de comandos do PowerShell do Azure
+###<a name="hive-editor"></a> 2. Enviar consultas de Hive com o Editor de Hive
 
 Os usuários também podem usar o Console de Consulta (Editor de Hive) digitando a URL do formulário
 
@@ -130,7 +128,9 @@ Os usuários também podem usar o Console de Consulta (Editor de Hive) digitando
 
 em um navegador da Web. Observe que você será solicitado a inserir as credenciais do cluster do Hadoop para fazer logon.
 
-Como alternativa, você pode [Executar consultas Hive usando o PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+###<a name="ps"></a> 3. Enviar consultas de Hive com comandos do PowerShell do Azure
+
+Os usuários também podem usar o PowerShell para enviar consultas de Hive. Para obter instruções, confira [Enviar trabalhos do Hive usando o PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
 
 ## <a name="create-tables"></a>Criar banco de dados e tabelas Hive
@@ -245,9 +245,4 @@ Os usuários não podem carregar dados diretamente do armazenamento de blob em t
 
 Depois de seguir esse procedimento, você deve ter uma tabela com dados no formato ORC pronta para uso.
 
-
-##O ajuste das seções deve ocorrer aqui
-
-Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
-
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

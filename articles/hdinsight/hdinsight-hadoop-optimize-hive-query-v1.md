@@ -21,9 +21,11 @@
 
 Por padrão, os clusters do Hadoop não são otimizados para desempenho. Este artigo aborda alguns dos métodos de otimização de desempenho do Hive mais comuns que você pode aplicar a nossas consultas.
 
-[AZURE.INCLUDE [portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Otimizar consultas do Hive para Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+> [AZURE.IMPORTANT] As etapas descritas neste documento usam o Portal Clássico do Azure. A Microsoft não recomenda o uso do portal clássico durante a criação de novos serviços. Para obter uma explicação das vantagens do Portal do Azure, veja [Portal do Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> Este documento também inclui informações sobre como usar o Azure PowerShell. Os trechos de código fornecidos baseiam-se em comandos que usam o ASM (Gerenciamento de Serviço do Azure) para funcionar com o HDInsight e foram __preteridos__. Estes comandos serão removidos até 1º de janeiro de 2017.
+>
+>Para obter uma versão deste documento que usa o portal do Azure, juntamente com os trechos de código do PowerShell e da CLI do Azure que usam o ARM (Azure Resource Manager), veja [Otimizar consultas do Hive para o Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).
 
 ##Escalar nós de trabalho horizontalmente
 
@@ -218,4 +220,4 @@ Neste artigo, você aprendeu a vários métodos comuns de otimização de consul
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

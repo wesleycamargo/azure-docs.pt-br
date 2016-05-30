@@ -3,7 +3,7 @@
    description="Dicas para usar o Stream Analytics do Azure com o Azure SQL Data Warehouse para desenvolver as soluções."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="shivaniguptamsft"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
-   ms.author="sahajs;mausher;barbkess;sonyama"/>
+   ms.date="05/17/2016"
+   ms.author="shivaniguptamsft;barbkess;sonyama"/>
 
 # Usar o Stream Analytics do Azure com o SQL Data Warehouse
 
@@ -88,12 +88,12 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 
 [Introdução ao Stream Analytics do Azure]: ../stream-analytics/stream-analytics-introductiond.md
 [Introdução ao uso do Stream Analytics do Azure]: ../stream-analytics/stream-analytics-get-started.md
-[Visão geral sobre o desenvolvimento no SQL Data Warehouse]: sql-data-warehouse-overview-develop.md
-[Visão geral de integração do SQL Data Warehouse]: sql-data-warehouse-overview-integrate.md
+[Visão geral sobre o desenvolvimento no SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Visão geral de integração do SQL Data Warehouse]: ./sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

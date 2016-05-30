@@ -14,59 +14,50 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/26/2016" 
+	ms.date="04/21/2016" 
 	ms.author="betorres"
 />
 
 
 # Habilitação e uso da análise de tráfego de pesquisa
 
-A análise de tráfego de pesquisa é um recurso de pesquisa do Azure que permite que você ganhe visibilidade em seu serviço de pesquisa e tenha ideias sobre os usuários e seus comportamentos. Quando você habilita esse recurso, os dados do serviço de pesquisa são copiados para uma conta de armazenamento de sua escolha. Esses dados incluem os logs do serviço de pesquisa e as métricas operacionais agregadas. Depois, você pode processar e manipular os dados de uso de qualquer forma.
-
+A análise de tráfego de pesquisa é um recurso de pesquisa do Azure que permite que você ganhe visibilidade em seu serviço de pesquisa e tenha ideias sobre os usuários e seus comportamentos. Quando você habilita esse recurso, os dados do serviço de pesquisa são copiados para uma conta de armazenamento de sua escolha. Esses dados incluem seus logs de serviço de pesquisa e as métricas operacionais agregadas que você pode processar e manipular para análise posterior.
 
 ## Como habilitar a análise de tráfego de pesquisa
+
+Você precisará de uma Conta de armazenamento na mesma região e assinatura do serviço de pesquisa.
+
+> [AZURE.IMPORTANT] Os encargos padrão se aplicam para essa conta de armazenamento
+
+Uma vez habilitados, os dados começarão a fluir para sua conta de armazenamento no prazo de 5 a 10 minutos nesses dois contêineres de blobs:
+
+    insights-logs-operationlogs: search traffic logs
+    insights-metrics-pt1m: aggregated metrics
+
 
 ### 1\. Usando o portal
 Abra o serviço de Pesquisa do Azure no [Portal do Azure](http://portal.azure.com). Em Configurações, você encontrará a opção Análise de tráfego de pesquisa.
 
 ![][1]
 
-Selecione esta opção e uma nova folha será aberta. Altere o status para **Ativado**, selecione a conta de armazenamento do Azure para a qual seus dados serão copiados e escolha os dados que você deseja copiar: logs, métricas ou ambos. É recomendável copiar os logs e as métricas.
+Selecione esta opção e uma nova folha será aberta. Altere o status para **Ativado**, selecione a conta de armazenamento do Azure para a qual seus dados serão copiados e escolha os dados que você deseja copiar: logs, métricas ou ambos. É recomendável copiar os logs e as métricas. Você tem a opção de definir a política de retenção de dados de 1 a 365 dias. Se você não desejar aplicar qualquer política de retenção e reter os dados por tempo indeterminado, defina a retenção (dias) como 0.
 
 ![][2]
 
-
-> [AZURE.IMPORTANT] A conta de armazenamento precisa estar na mesma região e na mesma assinatura do serviço de pesquisa.
-> 
-> Os encargos padrão se aplicam para essa conta de armazenamento
-
 ### 2\. Usando o PowerShell
 
-Você também pode habilitar este recurso ao executar os seguintes cmdlets do PowerShell.
+Primeiro, verifique se você tem a versão mais recente dos [cmdlets do Azure PowerShell](https://github.com/Azure/azure-powershell/releases) instalada.
+
+Em seguida, obtenha as IDs do Recurso para o Serviço de Pesquisa e sua Conta de armazenamento. Você pode encontrá-las no portal navegando até Configurações -> Propriedades -> ResourceId.
+
+![][3]
 
 ```PowerShell
 Login-AzureRmAccount
-Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccountId <StorageAccount ResourceId> -Enabled $true
+$SearchServiceResourceId = "Your Search service resource id"
+$StorageAccountResourceId = "Your Storage account resource id"
+Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccountId $StorageAccountResourceId -Enabled $true
 ```
-
--   **SearchService ResourceId**: ```
-/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Search/searchServices/<searchServiceName>
-```
-
- 
--  **StorageAccount ResourceId**: você pode encontrá-lo no portal em Configurações -> Propriedades -> ResourceId ```
-New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-OR
-Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
-```
-
-----------
-
-Uma vez habilitado, os dados começarão a fluir para sua conta de armazenamento dentro de 5 a 10 minutos. Você encontrará dois novos contêineres em seu Armazenamento de Blobs:
-
-    insights-logs-operationlogs: search traffic logs
-    insights-metrics-pt1m: aggregated metrics
-
 
 ## Compreendendo os dados
 
@@ -112,6 +103,7 @@ Os blobs de métricas contêm os valores agregados para o serviço de pesquisa. 
 Métricas disponíveis:
 
 - Latência
+- SearchQueriesPerSecond
 
 ####Esquema de métricas
 
@@ -135,28 +127,28 @@ Como ponto de partida, recomendamos o uso do [Power BI](https://powerbi.microsof
 
 #### Power BI Online
 
-[Pacote de Conteúdo do Power BI](https://app.powerbi.com/getdata/services/azure-search): crie um painel e um conjunto de relatórios do Power BI que mostram automaticamente os dados e fornecem informações visuais sobre o serviço de pesquisa. Confira a [página de ajuda do pacote de conteúdo](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-content-pack-azure-search/).
+[Pacote de conteúdo do Power BI](https://app.powerbi.com/getdata/services/azure-search): crie um painel e um conjunto de relatórios do Power BI que mostram automaticamente seus dados e fornecem análises visuais sobre o serviço de pesquisa. Confira a [página de ajuda do pacote de conteúdo](https://powerbi.microsoft.com/pt-BR/documentation/powerbi-content-pack-azure-search/).
 
-![][3]
+![][4]
 
 #### Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/pt-BR/desktop): explore seus dados e crie as próprias visualizações de seus dados. Fornecemos abaixo uma consulta inicial para ajudar você.
+[Power BI Desktop](https://powerbi.microsoft.com/pt-BR/desktop): explore seus dados e crie suas próprias visualizações de dados. Fornecemos abaixo uma consulta inicial para ajudar você.
 
 1. Abra um novo relatório do Power BI Desktop
 2. Selecione Obter Dados -> Mais...
 
-	![][4]
+	![][5]
 
 3. Selecionar o Armazenamento de Blobs do Microsoft Azure e Conectar-se
 
-	![][5]
+	![][6]
 
 4. Inserir o Nome e a Chave da Conta de sua conta de armazenamento
 5. Selecione "insight-logs-operationlogs" e "insights-metrics-pt1m" e clique em Editar
 6. O Editor de Consultas abrirá. Verifique se "insight-logs-operationlogs" está selecionado à esquerda. Agora, abra o Editor Avançado selecionando Exibir -> Editor Avançado.
 
-	![][6]
+	![][7]
 
 7. Mantenha as duas primeiras linhas e substitua o restante com a seguinte consulta:
 
@@ -223,9 +215,10 @@ Saiba mais sobre como criar relatórios incríveis. Confira [Introdução ao Pow
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/Dashboard.png
-[4]: ./media/search-traffic-analytics/GetData.png
-[5]: ./media/search-traffic-analytics/BlobStorage.png
-[6]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/ResourceId.png
+[4]: ./media/search-traffic-analytics/Dashboard.png
+[5]: ./media/search-traffic-analytics/GetData.png
+[6]: ./media/search-traffic-analytics/BlobStorage.png
+[7]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

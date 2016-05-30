@@ -1,27 +1,27 @@
 <properties
    pageTitle="Problemas de reinicialização ou redimensionamento de VM | Microsoft Azure"
    description="Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure"
-   services="virtual-machines"
+   services="virtual-machines-windows, azure-resource-manager"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-windows"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.author="delhan"/>
 
 # Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure
 
 > [AZURE.SELECTOR]
 - [Clássico](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-- [Gerenciador de Recursos](../articles/virtual-machines/virtual-machines-windows-arm-restart-resize-error-troubleshooting.md)
+- [Gerenciador de Recursos](../articles/virtual-machines/virtual-machines-windows-restart-resize-error-troubleshooting.md)
 
 Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma VM do Azure existente, o erro comum encontrado é uma falha de alocação. Esse erro ocorre quando o cluster ou a região não tem recursos disponíveis ou quando não dá suporte ao tamanho de VM solicitado.
 
@@ -70,10 +70,10 @@ Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster origi
 * Se o tamanho da VM solicitada não puder ser alterado:
 
   1. Pare todas as VMs no conjunto de disponibilidade.
-  
+
     * Clique em **Grupos de recursos** > _seu grupo de recursos_ > **Recursos** > _seu conjunto de disponibilidade_ > **Máquinas Virtuais** > _sua máquina virtual_ > **Parar**.
 
   2. Depois de parar todas as VMs, redimensione a VM desejada para um tamanho maior.
   3. Selecione a VM redimensionada e clique em **Iniciar**, em seguida, inicie cada uma das VMs paradas.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

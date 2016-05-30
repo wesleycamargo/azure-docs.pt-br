@@ -3,7 +3,7 @@
     description="Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="MarkusVi"
     manager="stevenpo"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
     ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.author="markvi;liviodlc"/>
 
 #Resolução de problemas da extensão do painel de acesso do Internet Explorer
 
@@ -109,4 +109,4 @@ Se você encontrar problemas ao desinstalar a extensão, também pode removê-lo
 - [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
 - [Como implantar a extensão do painel de acesso para o Internet Explorer usando a Política de Grupo](active-directory-saas-ie-group-policy.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

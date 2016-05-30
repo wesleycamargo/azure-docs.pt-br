@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/29/2016"
+   ms.date="05/17/2016"
    ms.author="larryfr"/>
 
 # Implantar e gerenciar topologias Apache Storm no HDInsight baseado nem Linux
@@ -145,7 +145,7 @@ Para obter mais informações, veja [API REST da interface do usuário do Storm]
 
 ### URI de base
 
-O URI de base para a API REST em clusters baseados no Linux HDInsight está disponível no nó do cabeçalho em ****https://HEADNODEFQDN:8744/api/v1/**; no entanto, o nome de domínio do nó de cabeçalho é gerado durante a criação do cluster e não é estático.
+O URI de base para a API REST em clusters baseados no Linux HDInsight está disponível no nó do cabeçalho em **https://HEADNODEFQDN:8744/api/v1/**; no entanto, o nome de domínio do nó de cabeçalho é gerado durante a criação do cluster e não é estático.
 
 Você pode encontrar o FQDN (Nome de Domínio Totalmente Qualificado) para o nó de cabeçalho do cluster de várias maneiras diferentes:
 
@@ -170,4 +170,4 @@ Agora que você aprendeu a implantar e monitorar topologias usando o Painel do S
 
 Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

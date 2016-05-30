@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Mover dados de e para o Armazenamento de Blobs do Azure usando o Gerenciador de Armazenamento do Azure
 
-## Introdução 
-
-O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita do Windows para inspecionar e alterar dados em uma conta de Armazenamento do Azure. Este tópico descreve como usá-lo para carregar e baixar os dados do armazenamento de blobs do Azure. A ferramenta pode ser baixada do [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/).
+O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita do Windows para inspecionar e alterar dados em uma conta de Armazenamento do Azure. Este tópico descreve como usá-lo para carregar e baixar os dados do armazenamento de blobs do Azure. A ferramenta pode ser baixada no [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/).
 
 Orientações sobre as tecnologias usadas para mover dados para e/ou do armazenamento de blobs do Azure estão vinculadas aqui:
  
@@ -59,4 +57,4 @@ As etapas a seguir mostram como carregar/baixar os dados usando o Gerenciador de
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

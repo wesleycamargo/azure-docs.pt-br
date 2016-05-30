@@ -4,7 +4,7 @@
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/08/2016"
+   ms.date="05/09/2016"
    ms.author="sstein"/>
 
 # Recomendações de camada de preços do Banco de Dados SQL
@@ -96,4 +96,4 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

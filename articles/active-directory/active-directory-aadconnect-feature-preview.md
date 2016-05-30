@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="05/11/2016"
    ms.author="andkjell;billmath"/>
 
 # Mais detalhes sobre os recursos no modo de visualização
@@ -36,19 +36,11 @@ Esse grupo será representado como um grupo de distribuição no AD DS local. Se
 >[AZURE.NOTE] Uma assinatura do Azure AD Premium é necessária para write-back do grupo.
 
 ## Write-back de usuário
-> [AZURE.IMPORTANT] O recurso de visualização de write-back do usuário foi removido temporariamente na atualização de agosto de 2015 do Azure AD Connect. Se você tiver habilitado, você deve desabilitar esse recurso.
-
-O write-back do usuário está na versão inicial de visualização. Ele só pode ser usado quando o Azure AD é a origem de todos os objetos de usuário e o Active Directory local está vazio antes de habilitar o recurso (implantação em campo verde).
-
->[AZURE.WARNING] Esse recurso só deve ser avaliado em um ambiente de teste e não deve ser usado em um diretório do Azure AD usado para uso em produção.
-
-.
-
->[AZURE.NOTE] Uma assinatura do Azure AD Premium é necessária para write-back do usuário.
+> [AZURE.IMPORTANT] O recurso de visualização de write-back do usuário foi removido na atualização de agosto de 2015 do Azure AD Connect. Se você tiver habilitado, você deve desabilitar esse recurso.
 
 ## Próximas etapas
 Continuar a [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

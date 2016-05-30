@@ -1,5 +1,5 @@
 <properties
-   pageTitle="O Banco de Dados SQL do Azure compila aplicativos multilocatário"
+   pageTitle="O Banco de Dados SQL do Azure Compila Aplicativos de Multilocatário com Isolamento e Eficiência"
    description="Saiba como o Banco de Dados SQL compila aplicativos multilocatário"
    keywords=""
    services="sql-database"
@@ -17,7 +17,7 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
 
-# Compila aplicativos multilocatário com o Banco de Dados SQL do Azure
+# Compilar Aplicativos de Multilocatário com o Banco de Dados SQL com Isolamento e Eficiência
 
 ## Aproveite os pools Elásticos e compile aplicativos multilocatário mais eficientes
 
@@ -55,4 +55,14 @@ Além dos pools elásticos, há recursos de banco de dados SQL para ajudar a ger
 
 Vá para a home page para ver o que mais o Banco de Dados SQL tem a oferecer. [Confira](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Próximas etapas
+
+Obtenha uma [assinatura do Azure gratuita](https://azure.microsoft.com/get-started/) e [crie seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
+
+## Saiba mais
+
+Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

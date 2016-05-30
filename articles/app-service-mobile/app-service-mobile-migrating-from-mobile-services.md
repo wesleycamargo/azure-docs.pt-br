@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/26/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
@@ -332,6 +332,33 @@ Se você clonar seu serviço móvel migrado usando o Azure PowerShell e excluir 
 
 Solução: estamos trabalhando para corrigir esse problema. Se quiser clonar seu site, faça isso por meio do portal.
 
+### A alteração do web.config não funciona
+
+Se você tiver um site do ASP.NET, alterações no arquivo `Web.config` não funcionarão. O Serviço de Aplicativo do Azure cria um arquivo `Web.config` adequado durante a inicialização para suportar o tempo de execução dos Serviços Móveis. Você pode substituir determinadas configurações (como cabeçalhos personalizados) usando um arquivo de transformação XML. Crie um arquivo chamado `applicationHost.xdt` - esse arquivo deve terminar no diretório `D:\home\site` no Serviço do Azure. Isso pode ser obtido por meio de um script de implantação personalizada ou usando o Kudu. Um documento de exemplo é mostrado abaixo:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="X-Frame-Options" value="DENY" xdt:Transform="Replace" />
+        <remove name="X-Powered-By" xdt:Transform="Insert" />
+      </customHeaders>
+    </httpProtocol>
+    <security>
+      <requestFiltering removeServerHeader="true" xdt:Transform="SetAttributes(removeServerHeader)" />
+    </security>
+  </system.webServer>
+</configuration>
+```
+
+Para obter mais informações, consulte a documentação de [Exemplos de Transformação XDT] no GitHub.
+
+### Os Serviços Móveis migrados não podem ser adicionados ao Gerenciador de Tráfego
+
+Quando você cria um perfil do Gerenciador de Tráfego, não pode escolher diretamente um serviço móvel migrado para o perfil. Você precisa usar um "ponto de extremidade externo". O ponto de extremidade externo só pode ser adicionado por meio do PowerShell. Consulte o [Tutorial do Gerenciador de Tráfego](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) para obter mais informações.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais recursos você pode aproveitar:
@@ -380,5 +407,6 @@ Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais
 [slots de preparo]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
+[Exemplos de Transformação XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
@@ -13,42 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2016" 
+	ms.date="05/09/2016" 
 	ms.author="sstein"/>
 
 # Gerenciar o Banco de Dados SQL do Azure com o PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
+- [Portal do Azure](sql-database-manage-portal.md)
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
 Este tópico fornece comandos do PowerShell para executar várias tarefas do Banco de Dados SQL do Azure.
 
+[AZURE.INCLUDE [Iniciar sua sessão do PowerShell](../../includes/sql-database-powershell.md)]
 
-Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-
-
-
-## Configurar credenciais
-
-Para executar os cmdlets do PowerShell em sua assinatura do Azure, primeiramente você deve estabelecer acesso à sua conta do Azure. Execute o seguinte e você receberá um sinal na tela para inserir suas credenciais. Use o mesmo email e senha usados para entrar no Portal Clássico do Azure.
-
-	Login-AzureRmAccount
-
-Após entrar, você verá algumas informações na tela, incluindo a ID usada para entrar e as assinaturas do Azure as quais você tem acesso.
-
-
-## Selecionar sua assinatura do Azure
-
-Para selecionar a assinatura com a qual deseja trabalhar, você precisará da ID (**-SubscriptionId**) ou do nome da assinatura (**-SubscriptionName**). Você pode copiar essas informações da etapa anterior, ou, se tiver várias assinaturas, poderá executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultado.
-
-Execute o cmdlet a seguir com as informações da sua assinatura para definir a assinatura atual:
-
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-Os comandos a seguir serão executados na assinatura que você acabou de selecionar acima.
 
 ## Criar um grupos de recursos
 
@@ -127,4 +106,4 @@ Combinar comandos e automatizar. Por exemplo, substitua tudo que está entre asp
 
 - [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

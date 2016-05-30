@@ -28,9 +28,9 @@ Os modelos do Azure Resource Manager podem ser executados no Azure PowerShell. D
 
 Aqui está um exemplo:
 
-Azure Powershell:
+PowerShell do Azure:
 
-      Get-AzureVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Veja o exemplo de saída:
 
@@ -66,8 +66,8 @@ Se estiver executando scripts na VM usando a Extensão de Script Personalizado, 
 
 #### Remover a extensão do Azure PowerShell
 
-    Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Depois que a extensão tiver sido removida, o modelo poderá ser executado novamente para executar os scripts na VM.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

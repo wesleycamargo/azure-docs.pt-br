@@ -125,4 +125,4 @@ Como mostrado acima, o método `UnregisterReminder` aceita uma interface `IActor
  - [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

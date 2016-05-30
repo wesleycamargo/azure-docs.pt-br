@@ -93,7 +93,7 @@ bm.Properties["MachineID"] = "POS_1";
 A maneira mais fácil de enviar mensagens para o tópico é usar [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx) para criar um objeto [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) diretamente da instância de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx).
 
 ```
-MessageSender sender = factory.CreateMessageSender("DataCollectionQueue");
+MessageSender sender = factory.CreateMessageSender("DataCollectionTopic");
 sender.Send(bm);
 ```
 
@@ -150,4 +150,4 @@ Todos os motivos para usar o enfileiramento de mensagens descrito em [Criar apli
 
 Consulte [Criar aplicativos que usem as filas do Barramento de Serviço](service-bus-create-queues.md) para informações sobre como usar as filas no cenário de varejo de PDV.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

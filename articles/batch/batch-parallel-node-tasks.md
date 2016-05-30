@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Maximizar o uso do nó do Lote com tarefas paralelas | Microsoft Azure"
-	description="Aumente a eficiência e reduza os custos usando menos nós de computação durante a execução de tarefas simultâneas em cada nó em um pool do Lote do Azure"
+	description="Aumente a eficiência e reduza os custos usando menos nós de computação e executando tarefas simultâneas em cada nó em um pool do Lote do Azure"
 	services="batch"
 	documentationCenter=".net"
 	authors="mmacy"
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="04/21/2016"
 	ms.author="marsma" />
 
 # Maximizar o uso de recursos de computação do Lote do Azure com tarefas de nó simultâneas
 
-Neste artigo, você aprenderá a executar mais de uma tarefa simultaneamente em cada nó de computação de seu pool do Lote do Azure. A habilitação da execução de tarefas simultâneas em nós de computação de um pool permite a maximização do uso de recursos em uma quantidade menor de nós no pool. Para algumas cargas de trabalho, isso pode economizar tempo e dinheiro.
+Saiba como executar mais de uma tarefa simultaneamente em cada nó de computação do seu pool do Lote do Azure. A habilitação da execução de tarefas simultâneas em nós de computação de um pool permite a maximização do uso de recursos em uma quantidade menor de nós no pool. Para algumas cargas de trabalho, isso pode resultar em tempos mais curtos de trabalho e reduzir os custos.
 
-Embora alguns cenários se beneficiem da disponibilidade de todos os recursos de um nó para a alocação para uma única tarefa, algumas situações serão beneficiadas quando várias tarefas compartilharem esses recursos:
+Embora alguns cenários se beneficiem de dedicar todos os recursos de um nó para uma única tarefa, algumas situações se beneficiam de permitir que várias tarefas compartilhem esses recursos:
 
  - **Minimização da transferência de dados** quando as tarefas puderem compartilhar dados. Nesse cenário, é possível reduzir drasticamente os encargos de transferência de dados copiando dados compartilhados em uma quantidade menor de nós e executando tarefas em paralelo em cada nó. Isso se aplicará especialmente se os dados que devem ser copiados em cada nó precisarem ser transferidos entre regiões geográficas.
 
@@ -32,31 +32,31 @@ Embora alguns cenários se beneficiem da disponibilidade de todos os recursos de
 
 ## Cenário de exemplo
 
-Veja um exemplo que ilustra os benefícios da execução de tarefas em paralelo. Vamos supor que seu aplicativo de tarefa tenha requisitos de CPU e de memória que tornem um tamanho de nó Standard\_D1 adequado. Mas, para executar o trabalho no tempo necessário, 1.000 nós desse tipo serão necessários.
+Veja um exemplo que ilustra os benefícios da execução de tarefas em paralelo. Vamos supor que seu aplicativo de tarefa tenha requisitos de CPU e de memória que tornem um tamanho de nó [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md#general-purpose-d) adequado. Mas, para executar o trabalho no tempo necessário, 1.000 nós desse tipo serão necessários.
 
-Em vez de usar nós Standard\_D1, que têm um núcleo de CPU, você poderia empregar nós Standard\_D14 com 16 núcleos cada um e permitir a execução de tarefas paralelas. Nesse caso, poderíamos usar *16 vezes menos nós* -- em vez de 1,000 nós, somente 63 seriam necessários. Isso melhora muito o tempo de execução e a eficiência do trabalho caso grandes arquivos de aplicativo ou dados de referência sejam exigidos para cada nó.
+Em vez de usar nós Standard\_D1, que têm um núcleo de 1 CPU, você poderia empregar nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#memory-intensive-d) com 16 núcleos cada um e permitir a execução de tarefas paralelas. Nesse caso, poderíamos usar *16 vezes menos nós* – em vez de 1,000 nós, somente 63 seriam necessários. Isso melhora muito o tempo de execução e a eficiência do trabalho caso grandes arquivos de aplicativo ou dados de referência sejam exigidos para cada nó.
 
 ## Habilitar a execução de tarefas paralelas
 
 A configuração de nós de computação em sua solução do Lote para execução de tarefas em paralelo é feita no nível do pool. Ao usar a biblioteca .NET do Lote, a propriedade [CloudPool.MaxTasksPerComputeNode][maxtasks_net] é definida durante a criação de um pool. Se você estiver usando a API REST do Lote, o elemento [maxTasksPerNode][rest_addpool] é definido no corpo da solicitação durante a criação do pool.
 
-O Lote do Azure permite que você configure o número máximo de tarefas por nó até quatro vezes (4x) o número de núcleos de nó. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), será possível definir `maxTasksPerNode` como 16. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, confira [Tamanhos para serviços de nuvem](./../cloud-services/cloud-services-sizes-specs.md). Para saber mais sobre limites de serviço, confira [Cotas e limites para o serviço de Lote do Azure](batch-quota-limit.md).
+O Lote do Azure permite que você configure o número máximo de tarefas por nó até quatro vezes (4x) o número de núcleos de nó. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), será possível definir `maxTasksPerNode` como 16. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, confira [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). Para saber mais sobre limites de serviço, confira [Cotas e limites para o serviço de Lote do Azure](batch-quota-limit.md).
 
-> [AZURE.TIP] Leve em consideração o valor de `maxTasksPerNode` ao criar uma [fórmula de autoescala][enable_autoscaling] para o pool. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetada por um aumento nas tarefas por nó. Consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md) para saber mais.
+> [AZURE.TIP] Leve em consideração o valor de `maxTasksPerNode` ao criar uma [fórmula de autoescala][enable_autoscaling] para o seu pool. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetada por um aumento nas tarefas por nó. Consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md) para saber mais.
 
 ## Distribuição de tarefas
 
 Quando os nós de computação dentro de um pool puderem executar tarefas simultaneamente, será importante especificar como você deseja distribuir suas tarefas pelos nós no pool.
 
-Usando a propriedade [CloudPool.TaskSchedulingPolicy][task_schedule], você pode especificar as tarefas devem ser atribuídas uniformemente em todos os nós no pool ("difusão"). Ou você pode especificar que o máximo possível de tarefas deve ser atribuído a cada nó antes de as tarefas serem atribuídas a outro nó no pool ("remessa").
+Ao usar a propriedade [CloudPool.TaskSchedulingPolicy][task_schedule], você pode especificar que as tarefas devam ser atribuídas uniformemente em todos os nós no pool ("difusão"). Ou você pode especificar que o máximo possível de tarefas deve ser atribuído a cada nó antes de as tarefas serem atribuídas a outro nó no pool ("remessa").
 
-Como um exemplo de como esse recurso é útil, considere o pool de nós Standard\_D14 (no exemplo acima) configurados com um valor 16 em [CloudPool.MaxTasksPerComputeNode][maxtasks_net]. Se a [CloudPool.TaskSchedulingPolicy][task_schedule] for configurada com um [ComputeNodeFillType][fill_type] de *Pack*, ela maximizaria o uso de todos os 16 núcleos de cada nó e permitiria que um [pool de dimensionamento automático](./batch-automatic-scaling.md) aparasse os nós não utilizados no pool (nós sem nenhuma tarefa atribuída). Isso minimiza o uso de recursos e economizando dinheiro.
+Como um exemplo de como esse recurso é útil, considere o pool de nós [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#memory-intensive-d) (no exemplo acima) configurados com um valor 16 em [CloudPool.MaxTasksPerComputeNode][maxtasks_net]. Se a [CloudPool.TaskSchedulingPolicy][task_schedule] for configurada com um [ComputeNodeFillType][fill_type] de *Pack*, ela maximizaria o uso de todos os 16 núcleos de cada nó e permitiria que um [pool de dimensionamento automático](batch-automatic-scaling.md) aparasse os nós não utilizados do pool (nós sem nenhuma tarefa atribuída). Isso minimiza o uso de recursos e economizando dinheiro.
 
 ## Exemplo de .NET do Lote
 
 Esse trecho de código da API [.NET do Lote][api_net] mostra uma solicitação para criar um pool com quatro nós grandes, com um máximo de quatro tarefas por nó. Isso especifica uma política de agendamento de tarefas que preencherá cada nó com tarefas antes de atribuir tarefas a outro nó no pool. Para saber mais sobre como adicionar pools usando a API .NET do Lote, confira [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
-```
+```csharp
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
         poolId: "mypool",
@@ -73,7 +73,7 @@ pool.Commit();
 
 Esse trecho da API [REST do Lote][api_rest] mostra uma solicitação para criar um pool com dois nós grandes, com um máximo de quatro tarefas por nó. Para saber mais sobre como adicionar pools usando a API REST, confira [Adicionar um pool a uma conta][rest_addpool].
 
-```
+```json
 {
   "odata.metadata":"https://myaccount.myregion.batch.azure.com/$metadata#pools/@Element",
   "id":"mypool",
@@ -120,7 +120,7 @@ A segunda execução do exemplo mostra uma redução significativa na duração 
 
 ## Mapa de Calor do Explorador do Lote
 
-O [Gerenciador de Lote do Azure][batch_explorer], um dos [aplicativos de exemplo][github_samples] do Lote do Azure, contém um recurso *Mapa de Calor* que fornece a visualização da execução de tarefa. Ao executar o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample], use o recurso Mapa de Calor para visualizar facilmente a execução de tarefas paralelas em cada nó.
+O [Gerenciador de Lote do Azure][batch_explorer], um dos [aplicativos de exemplo][github_samples] do Lote do Azure, contém um recurso *Mapa de Calor* que fornece a visualização da execução de tarefa. Ao executar o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample], você pode usar o recurso Mapa de Calor para visualizar facilmente a execução de tarefas paralelas em cada nó.
 
 ![Mapa de Calor do Explorador do Lote][1]
 
@@ -141,4 +141,4 @@ O [Gerenciador de Lote do Azure][batch_explorer], um dos [aplicativos de exemplo
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

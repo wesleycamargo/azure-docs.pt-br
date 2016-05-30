@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Introdução à API do FTP
 Conecte-se a um servidor FTP para gerenciar seus arquivos, incluindo carregar, excluir arquivos e muito mais. A API do FTP pode ser usada em:
 
-- Aplicativos lógicos
+- Aplicativos lógicos (discutidos neste tópico)
+- PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -173,7 +174,7 @@ Recupera os metadados do arquivo do servidor FTP usando o caminho.```GET: /datas
 
 
 ### Obtém um arquivo atualizado
-Obtém um arquivo atualizado.```GET: /datasets/default/triggers/onupdatedfile```
+Obtém um arquivo atualizado. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -187,7 +188,7 @@ Obtém um arquivo atualizado.```GET: /datasets/default/triggers/onupdatedfile```
 
 
 ### Atualizar arquivo 
-Atualiza um arquivo no servidor FTP.```PUT: /datasets/default/files/{id}```
+Atualiza um arquivo no servidor FTP. ```PUT: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -198,7 +199,7 @@ Atualiza um arquivo no servidor FTP.```PUT: /datasets/default/files/{id}```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -245,6 +246,6 @@ Atualiza um arquivo no servidor FTP.```PUT: /datasets/default/files/{id}```
 
 ## Próximas etapas
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

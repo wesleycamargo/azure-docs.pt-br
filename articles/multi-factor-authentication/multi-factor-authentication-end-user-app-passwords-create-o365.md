@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Criar ou excluir senhas de aplicativo no portal do Office 365 para o Azure Multi-Factor Authentication
@@ -68,4 +68,9 @@ Se você usar uma multi-factor authentication com o Office 365, talvez seja conv
 <li>Aparecerá um pop-up solicitando que você confirme a exclusão.</li>
 <li>Clique em **Sim**.</li>
 
-<!---HONumber=AcomDC_0218_2016-->
+
+
+ 
+ 
+
+<!---HONumber=AcomDC_0518_2016-->

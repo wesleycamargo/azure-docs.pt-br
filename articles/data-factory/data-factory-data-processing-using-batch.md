@@ -62,21 +62,17 @@ A solução conta o número de ocorrências de um termo de pesquisa ("Microsoft"
     A solução de exemplo usa Lote do Azure (indiretamente por meio de um pipeline do Azure Data Factory) para processar dados de forma paralela em um pool de nós de computação, que é uma coleção gerenciada de máquinas virtuais.
 
 4.  Crie um **pool de Lote do Azure** com pelo menos dois nós de computação.
-
-	 Você pode baixar o código-fonte para a [ferramenta Gerenciador de Lote do Azure](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), compilar e usá-lo para criar o pool (**altamente recomendado para esta solução de exemplo**), ou usar a [Biblioteca de Lote do Azure para .NET](../batch/batch-dotnet-get-started.md) para criar o pool. Consulte [Passo a passo de exemplo do gerenciador do Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) para obter instruções passo a passo de como usar o Gerenciador do Azure Batch. Você também pode usar o cmdlet [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) para criar um pool do Lote do Azure.
-
-	 Use o Gerenciador de Lote para criar o pool com a seguinte configuração:
-
-	-   Insira uma ID para o pool (**ID do Pool**). Observe a **ID do pool**; você precisará dela ao criar a solução do Data Factory.
-
-	-   Especifique **Windows Server 2012 R2** para a configuração **Família do Sistema Operacional**.
-
-	-   Especifique **2** como valor da configuração **Máximo de tarefas por nó de computação**.
-
-	-   Especifique **2** como valor da configuração **Número de destino dedicado**.
-
-	 ![](./media/data-factory-data-processing-using-batch/image2.png)
-
+	1.  No [Portal do Azure](https://portal.azure.com), clique em **Procurar** no menu à esquerda e clique em **Contas do Batch**. 
+	2. Selecione sua a conta do Lote do Azure para abrir a folha **Conta do Batch**. 
+	3. Clique no bloco **Pools**.
+	4. Na folha **Pools**, clique no botão Adicionar na barra de ferramentas para adicionar um pool.
+		1. Insira uma ID para o pool (**ID do Pool**). Observe a **ID do pool**; você precisará dela ao criar a solução Data Factory. 
+		2. Especifique **Windows Server 2012 R2** para a configuração da família do sistema operacional.
+		3. Selecione um **camada de preços de nó**. 
+		3. Digite **2** como valor para a configuração **Destino Dedicado**.
+		4. Digite **2** como valor para a configuração **Máximo de tarefas por nó**.
+	5. Clique em **OK** para criar o pool. 
+ 	 
 5.  [Azure Storage Explorer 6 (ferramenta)](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (de ClumsyLeaf Software). Essas são ferramentas de GUI para inspecionar e alterar os dados em seus projetos de armazenamento do Azure, incluindo os logs dos aplicativos hospedados na nuvem.
 
     1.  Crie um contêiner chamado **mycontainer** com acesso privado (sem acesso anônimo)
@@ -161,7 +157,7 @@ O método tem alguns componentes principais que você precisa entender.
 
     4.  **logger**. O logger permite que você escreva comentários de depuração que serão exibidos como o log do “usuário" no pipeline.
 
--   O método retorna um dicionário que pode ser usado para concatenar atividades personalizadas. Não usaremos esse recurso nesta solução de exemplo.
+-   O método retorna um dicionário que pode ser usado para unir atividades personalizadas no futuro. Este recurso ainda não está implementado, portanto, basta retornar um dicionário vazio a partir do método.
 
 ### Procedimento: criar a atividade personalizada
 
@@ -228,13 +224,8 @@ O método tem alguns componentes principais que você precisa entender.
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
 
-            // declare dataset types
-            CustomDataset inputLocation;
-            AzureBlobDataset outputLocation;
-
             Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
-            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
-
+	
             foreach (LinkedService ls in linkedServices)
                 logger.Write("linkedService.Name {0}", ls.Name);
 
@@ -277,8 +268,6 @@ O método tem alguns componentes principais que você precisa entender.
 
             // get the output dataset using the name of the dataset matched to a name in the Activity output collection.
             Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-            // convert to blob location object.
-            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
 
             folderPath = GetFolderPath(outputDataset);
 
@@ -295,7 +284,8 @@ O método tem alguns componentes principais que você precisa entender.
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.
             return new Dictionary<string, string>();
         }
 
@@ -428,9 +418,6 @@ Esta seção fornece mais detalhes e observações sobre o código no método Ex
 		// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 		Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 
-		// Convert to blob location object.
-		outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
-
 4.	O código também chama um método auxiliar: **GetFolderPath** para recuperar o caminho da pasta (o nome do contêiner de armazenamento).
 
 		folderPath = GetFolderPath(outputDataset);
@@ -554,9 +541,15 @@ Nesta etapa, você criará um serviço vinculado para a sua conta do **Lote do A
 
     3.  Insira a ID do pool para a propriedade **poolName****.** Para essa propriedade, você pode especificar o nome do pool ou a ID do pool.
 
-    4.  Digite o URI do lote para a propriedade JSON **batchUri**. A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: <nomeconta>.<região>.batch.azure.com. Para a propriedade **batchUri** em JSON, você precisará **remover "accountname."** da URL. Exemplo: "batchUri": "https://eastus.batch.azure.com".
+    4.  Digite o URI do lote para a propriedade JSON **batchUri**.
+    
+		> [AZURE.IMPORTANT] A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: <nomeconta>.<região>.batch.azure.com. Para a propriedade **batchUri** em JSON, você precisará **remover "accountname."** da URL. Exemplo: "batchUri": "https://eastus.batch.azure.com".
 
         ![](./media/data-factory-data-processing-using-batch/image9.png)
+
+		Para a propriedade **poolName**, você também pode especificar a ID do pool em vez do nome do pool.
+
+		> [AZURE.NOTE] O serviço de Data Factory não suporta uma opção sob demanda para o Azure Batch como o faz para o HDInsight. Você só pode usar seu próprio pool do Azure Batch em um Azure Data Factory.
 
     5.  Especifique **StorageLinkedService** para a propriedade **linkedServiceName**. Você criou esse serviço vinculado na etapa anterior. Esse armazenamento é usado como uma área de preparação para arquivos e logs.
 
@@ -576,7 +569,7 @@ Nesta etapa, você criará conjuntos de dados para representar a entrada e saíd
 		    "name": "InputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 		            "format": {
@@ -651,7 +644,7 @@ Nesta etapa, você criará conjuntos de dados para representar a entrada e saíd
 	| 4 | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
 	| 5 | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
-3.  Clique em **Implantar** na barra de ferramentas para criar e implantar a tabela **InputDataset**. Confirme que você vê a mensagem **TABELA CRIADA COM ÊXITO** na barra de título do Editor.
+3.  Clique em **Implantar** na barra de ferramentas para criar e implantar a tabela **InputDataset**.
 
 #### Criar conjunto de dados de saída
 
@@ -665,7 +658,7 @@ Nesta etapa, você criará outro conjunto de dados do tipo AzureBlob para repres
 		    "name": "OutputDataset",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
 		            "folderPath": "mycontainer/outputfolder",
@@ -723,7 +716,7 @@ Nesta etapa, você criará um pipeline com uma atividade, a atividade personaliz
 						"typeProperties": {
 							"assemblyName": "MyDotNetActivity.dll",
 							"entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-							"packageLinkedService": "StorageLinkedService",
+							"packageLinkedService": "AzureStorageLinkedService",
 							"packageFile": "customactivitycontainer/MyDotNetActivity.zip"
 						},
 						"inputs": [
@@ -807,6 +800,8 @@ Nesta etapa, você testará o pipeline largando arquivos nas pastas de entrada. 
 6.  Use o [Gerenciador do Lote do Azure](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) para exibir as **tarefas** associadas a **fatias** e ver em qual VM cada fatia foi executada. Você vê que um trabalho é criado com o nome **adf-<poolname>**. Esse trabalho terá uma tarefa para cada fatia. Neste exemplo, haverá cinco fatias, então cinco tarefas no Lote do Azure. Com **simultaneidade** definida para **5** no pipeline do JSON no Azure Data Factory e **Máximo de tarefas por VM** definido para **2** no pool do Lote do Azure com **2** VMs, as tarefas foram executadas com muito mais rapidez (veja o tempo **Criado**).
 
     ![](./media/data-factory-data-processing-using-batch/image14.png)
+
+	> [AZURE.NOTE] Baixe o código-fonte para a [ferramenta Gerenciador do Azure Batch][batch-explorer], compile-o e use-o para criar e monitorar os pools de lote. Consulte [Passo a passo de exemplo do gerenciador do Azure Batch][batch-explorer-walkthrough] para obter instruções passo a passo de como usar o Gerenciador do Azure Batch.
 
 7.  Você deve ver os arquivos de saída em **outputfolder** de **mycontainer** no seu Armazenamento de Blobs do Azure.
 
@@ -899,7 +894,7 @@ Você pode estender este exemplo para saber mais sobre os recursos de Data Facto
 
 	Veja [Escalar automaticamente nós de computação em um pool do Lote do Azure](../batch/batch-automatic-scaling.md) para obter detalhes.
 
-	O serviço do Lote do Azure poderá levar de 15 a 30 minutos para preparar a VM antes de executar a atividade personalizada nela.
+	Se o pool está usando o padrão [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço do Lote pode levar 15 a 30 minutos para preparar a máquina virtual antes de executar a atividade personalizada. Se o pool estiver usando um autoScaleEvaluationInterval diferente, o serviço de lote pode levar autoScaleEvaluationInterval + 10 minutos.
 	 
 5. Na solução de exemplo, o método **Execute** invoca o método **Calculate**, que processa uma fatia de dados de entrada para produzir uma fatia de dados de saída. Você pode escrever seu próprio método para processar dados de entrada e substituir a chamada do método Calculate no método Execute por uma chamada para o seu método.
 
@@ -938,4 +933,8 @@ Depois de processar dados, é possível consumi-lo com ferramentas online como o
 
     -   [Introdução ao .NET da Biblioteca de Lote do Azure](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+
+[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+
+<!---HONumber=AcomDC_0518_2016-->

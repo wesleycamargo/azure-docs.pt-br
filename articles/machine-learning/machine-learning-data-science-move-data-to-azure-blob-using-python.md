@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/10/2016"
 	ms.author="bradsev" />
 
 # Mover dados de e para o Armazenamento de Blobs do Azure usando Python
 
-## Introdução
-Este tópico descreve como listar, carregar e baixar blobs usando a API Python.
-
-Com a API de Python fornecida no SDK do Azure, você pode:
+Este tópico descreve como listar, carregar e baixar blobs usando a API Python. Com a API do Python fornecida no SDK do Azure, você pode:
 
 - Criar um contêiner
 - Carregar um blob em um contêiner
@@ -40,12 +37,14 @@ Orientações sobre as tecnologias usadas para mover dados para e/ou do armazena
 
 > [AZURE.NOTE] Para obter uma introdução completa ao armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
+
 ## Pré-requisitos
 
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
 - Para configurar uma assinatura do Azure, confira [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 - Para obter instruções sobre como criar uma conta de armazenamento e obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
+
 
 ## Carregar dados para Blob
 
@@ -93,6 +92,7 @@ O código de exemplo a seguir carrega todos os arquivos (exceto diretórios) em 
 	    except:
 	        print "something wrong happened when uploading the data %s"%blob_name
 
+
 ## Baixar Dados de Blob
 
 Use os métodos a seguir para baixar dados de um blob:
@@ -129,4 +129,4 @@ O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa lis
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

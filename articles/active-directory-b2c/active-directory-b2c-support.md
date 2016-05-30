@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Preview do Azure Active Directory B2C: solicitações de suporte de arquivo
@@ -40,7 +40,7 @@ Você pode arquivar solicitações de suporte para o Azure AD (Azure Active Dire
     - O **Tipo de emissão** é **Técnico**.
 	- Escolha a **Assinatura** apropriada.
     - O **Serviço** é **Active Directory**.
-    - Escolha o **Plano de suporte** apropriado. Se não tiver um, inscreva-se para um [aqui](https://azure.microsoft.com/pt-BR/support/plans/).
+    - Escolha o **Plano de suporte** apropriado. Se não tiver um, inscreva-se para um [aqui](https://azure.microsoft.com/support/plans/).
 
     ![Suporte - Noções básicas](./media/active-directory-b2c-support/support-basics.png)
 
@@ -70,4 +70,4 @@ Não tente se inscrever em uma nova assinatura do Azure em seu locatário B2C.
 
 ![Suporte — sem assinatura](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

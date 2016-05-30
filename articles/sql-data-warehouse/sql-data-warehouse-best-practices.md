@@ -46,7 +46,7 @@ Consulte também [Insert (Transact-SQL)][]
 ## Use o PolyBase para Carregar e Exportar os Dados Rapidamente
 O SQL Data Warehouse oferece suporte ao carregamento e exportação dos dados por meio de várias ferramentas, incluindo o Azure Data Factory, PolyBase e BCP. Para pequenas quantidades de dados em que o desempenho não é essencial, qualquer ferramenta poderá ser suficiente para satisfazer suas necessidades. No entanto, quando você estiver carregando ou exportando grandes volumes de dados ou um desempenho rápido for necessário, o PolyBase será a melhor opção. O PolyBase foi projetado para aproveitar a arquitetura MPP (Processamento Paralelo Massivo) do SQL Data Warehouse e, portanto, carregará e exportará grandes quantidades de dados mais rapidamente do que qualquer outra ferramenta. As cargas do PolyBase podem ser executadas usando CTAS ou INSERT INTO. **Usar o CTAS minimizará o registro em log das transações e será o modo mais rápido de carregar os dados.** O Azure Data Factory também oferece suporte para as cargas do PolyBase. O PolyBase oferece suporte a vários formatos de arquivo, incluindo os arquivos Gzip. **Para maximizar a taxa de transferência ao usar os arquivos de texto gzip, divida os arquivos em 60 ou mais arquivos para maximizar o paralelismo de sua carga.** Para ter uma taxa de transferência total mais rápida, considere carregar os dados simultaneamente.
 
-Consulte também [Carregar os dados no SQL Data Warehouse][], [Guia para usar o PolyBase no SQL Data Warehouse][], [Padrões e estratégias de carregamento do SQL Data Warehouse do Azure][], [Carregar os Dados com o Azure Data Factory][], [Mover os dados para e a partir do SQL Data Warehouse do Azure usando o Azure Data Factory][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][], [CTAS (Create Table As Select) no SQL Data Warehouse][]
+Consulte também [Carregar dados no SQL Data Warehouse][], [Guia para usar o PolyBase no SQL Data Warehouse][], [Padrões e estratégias de carregamento do SQL Data Warehouse do Azure][], [Carregar os Dados com o Azure Data Factory][], [Mover dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory][], [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][], [CTAS (Create Table As Select) no SQL Data Warehouse][]
 
 ## Tabelas Grandes com Distribuição Hash
 Por padrão, as tabelas são distribuídas pelo método Round Robin. Isso facilita para os usuários começar a criar tabelas sem ter de decidir sobre como as tabelas deverão ser distribuídas. Tabelas Round Robin podem ter um bom desempenho com algumas cargas de trabalho, mas, geralmente, o desempenho será muito melhor se uma coluna de distribuição for escolhida. O exemplo mais comum de quando uma tabela distribuída por uma coluna superará bastante uma tabela Round Robin ocorre quando duas tabelas de fatos grandes são unidas. Por exemplo, se você tiver uma tabela de pedidos, que é distribuída por order\_id, e uma tabela de transações, que também é distribuída por order\_id, quando você unir a tabela de pedidos e a tabela de transações em order\_id, a consulta se tornará uma consulta de passagem, o que significa que podemos eliminar as operações de movimentação de dados. Menos etapas significam uma consulta mais rápida. Menos movimento de dados também resulta em consultas mais rápidas. Essa explicação é bem superficial. Ao carregar uma tabela distribuída, verifique se os dados de entrada não estão classificados na chave de distribuição, pois isso reduzirá a velocidade das cargas. Consulte os links abaixo para obter muito mais detalhes sobre como escolher uma coluna de distribuição pode melhorar o desempenho e também como definir uma tabela distribuída na cláusula WITH da instrução CREATE TABLES.
@@ -112,14 +112,14 @@ O [Fórum do MSDN do SQL Data Warehouse do Azure][] foi criado como um local par
 [CTAS (Create Table As Select) no SQL Data Warehouse]: sql-data-warehouse-develop-ctas.md
 [Guia para usar o PolyBase no SQL Data Warehouse]: sql-data-warehouse-load-polybase-guide.md
 [Distribuição de hash e seu efeito no desempenho da consulta no SQL Data Warehouse]: sql-data-warehouse-develop-hash-distribution-key.md
-[Carregar os dados no SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[Carregar dados no SQL Data Warehouse]: sql-data-warehouse-overview-load.md
 [Carregar os Dados com o Azure Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
 [Load data with PolyBase in SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
 [Gerenciar índices columnstore no SQL Data Warehouse do Azure]: sql-data-warehouse-manage-columnstore-indexes.md
 [Gerenciar estatísticas no SQL Data Warehouse]: sql-data-warehouse-develop-statistics.md
 [Monitorar sua carga de trabalho usando DMVs]: sql-data-warehouse-manage-monitor.md
-[Mover os dados para e a partir do SQL Data Warehouse do Azure usando o Azure Data Factory]: data-factory-azure-sql-data-warehouse-connector.md
+[Mover dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [Otimização de transações para o SQL Data Warehouse]: sql-data-warehouse-develop-best-practices-transactions.md
 [Pausar os recursos de computação]: sql-data-warehouse-overview-scalability.md#pause-compute-bk
 [Retomar os recursos de computação]: sql-data-warehouse-overview-scalability.md#resume-compute-bk
@@ -157,4 +157,4 @@ O [Fórum do MSDN do SQL Data Warehouse do Azure][] foi criado como um local par
 [Fórum sobre Stack Overflow do SQL Data Warehouse do Azure]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Padrões e estratégias de carregamento do SQL Data Warehouse do Azure]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

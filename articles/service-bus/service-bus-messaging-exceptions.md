@@ -98,7 +98,7 @@ Para a retransmissão do Barramento de Serviço, essa exceção encapsula [Syste
 
 ## TimeoutException 
 
-Um [TimeoutException][] indica que uma operação iniciada pelo usuário está demorando mais do que o tempo limite da operação.
+Um [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indica que uma operação iniciada pelo usuário está demorando mais do que o tempo limite da operação.
 
 ### Filas e tópicos
 
@@ -139,4 +139,4 @@ Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/ser
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

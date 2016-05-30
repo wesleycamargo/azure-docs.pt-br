@@ -12,18 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="05/07/2016" 
 	ms.author="awills"/>
  
 # Exportar telemetria do Application Insights
 
-Deseja fazer algumas análises personalizadas em sua telemetria? Ou talvez você gostaria de receber um alerta por email sobre eventos com propriedades específicas? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.
+Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.
 
 A Exportação Contínua está disponível no período de avaliação gratuita nos [planos de preços Standard e Premium](https://azure.microsoft.com/pricing/details/application-insights/).
 
->[AZURE.NOTE] Se desejar [explorar seus dados no Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), é possível fazer isso sem usar a Exportação Contínua.
->
->E se desejar fazer apenas uma [exportação única](app-insights-metrics-explorer.md#export-to-excel) do que você vê em uma folha de métrica ou de pesquisa, clique em Exportar na parte superior da folha.
+
+Antes de configurar a exportação contínua, há algumas alternativas que você talvez queira considerar:
+
+* [O botão Exportar](app-insights-metrics-explorer.md#export-to-excel) na parte superior de uma métrica ou folha de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel. 
+* [Análise](app-insights-analytics.md) fornece uma linguagem de consulta eficiente para telemetria e também pode exportar os resultados.
+* Se desejar [explorar seus dados no Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), é possível fazer isso sem usar a Exportação Contínua.
 
 
 ## Criar uma conta de armazenamento
@@ -74,6 +77,8 @@ Para interromper o fluxo permanentemente, exclua a exportação. Isso não exclu
 
 Os dados exportados são a telemetria bruta que recebemos de seu aplicativo, exceto que adicionamos dados de localização que calculamos por meio do endereço IP do cliente.
 
+Dados que foram descartados por [amostragem](app-insights-sampling.md) não são incluídos nos dados exportados.
+
 Outras métricas calculadas não são incluídas. Por exemplo, nós não exportamos a utilização média de CPU, mas exportamos a telemetria bruta por meio da qual a média é computada.
 
 Os dados também incluem os resultados de todos os [testes da Web de disponibilidade](app-insights-monitor-web-app-availability.md) que você configurou.
@@ -107,6 +112,7 @@ Where
 ## <a name="format"></a> Formato dos dados
 
 * Cada blob é um arquivo de texto que contém várias linhas separadas por “ \\n”.
+* Cada linha representa um ponto de dados de telemetria como uma solicitação ou uma exibição de página.
 * Cada linha é um documento JSON não formatado. Se você quiser ficar olhando para ele, abra-o no Visual Studio e escolha Editar, Avançado, Arquivo de Formato:
 
 ![Veja a telemetria com uma ferramenta adequada](./media/app-insights-export-telemetry/06-json.png)
@@ -223,4 +229,4 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

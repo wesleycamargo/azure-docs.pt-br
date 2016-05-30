@@ -3,7 +3,7 @@
    description="Uma visão geral da terminologia do Service Fabric. Aborda os principais conceitos de terminologia e os termos usados no restante da documentação."
    services="service-fabric"
    documentationCenter=".net"
-   authors="msfussell"
+   authors="rwike77"
    manager="timlt"
    editor="chackdan;subramar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/05/2016"
-   ms.author="msfussell"/>
+   ms.author="ryanwi"/>
 
 # Visão geral da terminologia do Service Fabric
 
@@ -67,7 +67,7 @@ Há serviços do sistema que são criados em cada cluster que fornece os recurso
 
 **Serviço de Nomenclatura**: cada cluster do Service Fabric tem um serviço de nomenclatura que resolve nomes de serviço para um local no cluster e permite a você gerenciar propriedades e nomes de serviço. Isso é como um DNS (serviço de nome de domínio) de Internet para o cluster. Usando o serviço de nomenclatura, os clientes podem se comunicar seguramente com qualquer nó no cluster para resolver um nome de serviço e seu local (isto é, obter o endereço IP do computador real e a porta em que ele está em execução no momento). Usando as APIs do cliente de comunicação, você pode desenvolver serviços e clientes capazes de resolver o local da rede atual, apesar de os aplicativos serem movidos dentro do cluster, por exemplo, devido a falhas, balanceamento de recursos ou redimensionamento do cluster.
 
-Leia o artigo [Comunicar-se com serviços](service-fabric-connect-and-communicate-with-services.md) para obter mais informações sobre como usar a API de comunicação do serviço e do cliente que funciona em conjunto com o Serviço de nomenclatura.
+Leia o artigo [Comunicar-se com os serviços](service-fabric-connect-and-communicate-with-services.md) para obter mais informações sobre como usar a API de comunicação do serviço e do cliente que funciona em conjunto com o serviço de Nomenclatura.
 
 **Serviço de Repositório de Imagens**: cada cluster do Service Fabric tem um serviço de repositório de imagens em que os pacotes de aplicativos implantados com versão são mantidos. Você deve copiar o conteúdo de um pacote de aplicativos para o serviço de repositório de imagens e registrar o tipo de aplicativo contido nesse pacote de aplicativos. Em seguida, após o provisionamento do tipo de aplicativo, você pode criar aplicativos nomeados a partir dele. Você pode cancelar o registro de um tipo de aplicativo do serviço de repositório de imagens após a exclusão de todos os seus aplicativos nomeados.
 
@@ -90,4 +90,4 @@ Para saber mais sobre o Service Fabric
 - [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
 - [Cenários de aplicativos](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

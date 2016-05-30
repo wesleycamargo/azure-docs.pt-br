@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="05/18/2016"
    ms.author="andkjell"/>
 
 # Sincronização do Azure AD Connect: impedir exclusões acidentais
@@ -29,11 +29,13 @@ Cenários comuns quando você vê isso incluem:
 
 O valor padrão de 500 objetos pode ser alterado com o PowerShell, usando `Enable-ADSyncExportDeletionThreshold`. Você deve configurar esse valor para ajustar o tamanho da sua organização. Como o agendador de sincronização será executado a cada 30 minutos, o valor será o número de exclusões visto em 30 minutos.
 
-Com esse recurso habilitado, se houver muitas exclusões preparadas para exportação no Azure AD, a exportação não continuará e você receberá um email como este:
+Se houver muitas exclusões preparadas para exportação no Azure AD, a exportação não continuará e você receberá um email como este:
 
 ![Impedir exclusões de email acidentais](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *Saudação (contato técnico). No momento, o Serviço de sincronização de identidade detectou que o número de exclusões excedeu o limite configurado de exclusões para (nome da organização). Um total de (número) objetos foram enviados para exclusão nesta execução da sincronização de Identidade. Isso atingiu ou excedeu o valor de limite de exclusão configurado de (número) objetos. Precisamos que você forneça a confirmação de que essas exclusões devem ser processadas antes de continuarmos. Veja Impedindo exclusões acidentais para obter mais informações sobre o erro listado nesta mensagem de email.*
+
+Você também pode ver o status `stopped-deletion-threshold-exceeded` examinando a interface do **Synchronization Service Manager** para o perfil de exportação. ![Impedir exclusões acidentais na interface do usuário do Synchronization Service Manager](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/syncservicemanager.png)
 
 Caso isso não seja esperado, investigue e tome medidas corretivas. Para ver quais objetos estão prestes a ser excluídos, siga este procedimento:
 
@@ -56,4 +58,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

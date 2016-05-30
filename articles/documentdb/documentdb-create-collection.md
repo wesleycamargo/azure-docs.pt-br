@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # Como criar uma coleção do Banco de Dados de Documentos usando o portal do Azure
@@ -44,7 +44,7 @@ Não sabe direito o que é uma coleção? Confira [O que é uma coleção do Ban
 
 	Se você vai criar uma coleção particionada, pule para a etapa 7, pois você não precisa selecionar um tipo de preço.
 
-7. Selecione um **Modo de particionamento** para a coleção, **Partição Única** ou **Particionado**. Uma partição única tem uma capacidade de armazenamento reservado de 10 GB e pode ter níveis de taxa de transferência de 400 a 10.000 unidades de solicitação/segundo. Uma coleção particionada pode ser dimensionada para lidar com 250 GB de armazenamento em várias partições e pode ter níveis de taxa de transferência de 10.100 a 250.000 unidades de solicitação/segundo.
+7. Selecione um **Modo de particionamento** para a coleção, **Partição Única** ou **Particionado**. Uma partição única tem uma capacidade de armazenamento reservado de 10 GB e pode ter níveis de taxa de transferência de 400 a 10.000 unidades de solicitação/segundo. Uma coleção particionada pode ser dimensionada para lidar com 250 GB de armazenamento em várias partições e pode ter níveis de taxa de transferência de 10.100 a 250.000 unidades de solicitação/segundo. Para obter informações sobre como solicitar aumentos dessas alocações padrão depois de criar uma coleção, consulte [Solicitar maiores limites de conta do Banco de Dados de Documentos](documentdb-increase-limits.md).
 
 8. Selecione a **Taxa de transferência** para a coleção particionada. Uma RU (Unidade de Solicitação) corresponde à taxa de transferência de uma leitura de um documento de 1 KB. Para obter mais informações sobre unidades de solicitação, confira [Unidades de solicitação](documentdb-request-units.md).
 
@@ -87,4 +87,4 @@ Agora que você tem uma coleção, a próxima etapa é adicionar documentos ou i
 
 Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL do Banco de Dados de Documentos](documentdb-sql-query.md) para [executar consultas](documentdb-sql-query.md#executing-queries) nos documentos usando o [Gerenciador de Consultas](documentdb-query-collections-query-explorer.md) no portal, a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou um dos [SDKs](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

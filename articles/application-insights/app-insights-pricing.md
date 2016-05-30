@@ -67,7 +67,7 @@ A qualquer momento, você pode alternar para a avaliação Premium gratuita de 3
 * Também é possível inspecionar os pontos de dados individuais na origem durante a depuração:
  * Caso execute seu aplicativo no modo de depuração no Visual Studio, os pontos de dados são registrados na janela de saída. 
  * Para exibir os pontos de dados do cliente, abra o painel de depuração do navegador (geralmente F12) e abra a guia de rede.
-* A taxa de dados pode ser (por padrão) reduzida por [amostragem adaptável](app-insights-sampling). Isso significa que, conforme o uso de seu aplicativo aumenta, a taxa de telemetria não aumentará tanto quanto você poderia esperar.
+* A taxa de dados pode ser (por padrão) reduzida por [amostragem adaptável](app-insights-sampling.md). Isso significa que, conforme o uso de seu aplicativo aumenta, a taxa de telemetria não aumentará tanto quanto você poderia esperar.
 
 ### Excedente
 
@@ -86,7 +86,7 @@ O gráfico na parte inferior da folha de preços mostra o volume de ponto de dad
 
 Clique no gráfico para obter mais detalhes ou arraste sobre ele e clique em (+) para obter detalhes de um intervalo de tempo.
 
-O gráfico mostra o volume de dados que chegam no serviço Application Insights após a [amostragem](app-insights-sampling).
+O gráfico mostra o volume de dados que chegam no serviço Application Insights após a [amostragem](app-insights-sampling.md).
 
 
 ## Taxa de dados
@@ -148,7 +148,7 @@ Há várias formas de amostragem. Recomendamos a [amostragem adaptável](app-ins
 
 Como alternativa, é possível definir a *amostragem de ingestão* na folha Cotas e Preço. Essa forma de amostragem opera no ponto em que a telemetria de seu aplicativo entra no serviço do Application Insights. Ela não afeta o volume de telemetria enviado de seu aplicativo, mas reduz o volume retido pelo serviço.
 
-![Na folha Cota e preço, clique no bloco Exemplos e selecione uma fração de amostragem.](./media/app-insights-sampling/04.png)
+![Na folha Cota e preço, clique no bloco Exemplos e selecione uma fração de amostragem.](./media/app-insights-pricing/04.png)
 
 A amostragem é uma maneira eficiente de reduzir encargos e permanecer dentro de sua cota mensal. O algoritmo de amostragem retém itens de telemetria relacionados, para que, por exemplo, quando a Pesquisa for utilizada, seja possível encontrar a solicitação relacionada a uma exceção específica. O algoritmo também retém contagens corretas, para que você veja os valores corretos no Gerenciador de Métricas referentes a taxas de solicitação, taxas de exceção e outras contagens.
 
@@ -173,4 +173,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

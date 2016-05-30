@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/28/2016"
+   ms.date="05/02/2016"
    ms.author="chackdan"/>
 
 
@@ -30,8 +30,7 @@ Esta página ajuda você a configurar um cluster do Service Fabric. Sua assinatu
 
     a. No nível superior, clique em **Marketplace**.
 
-    b. Em **Tudo**, insira "Fabric" e pressione Enter. Às vezes, o filtro automático não funciona, portanto, é necessário pressionar Enter. 
-    ![Captura de tela da pesquisa pelo modelo de cluster do Service Fabric no Portal do Azure.][SearchforServiceFabricClusterTemplate]
+    b. Em **Tudo**, insira "Fabric" e pressione Enter. Às vezes, o filtro automático não funciona, portanto, é necessário pressionar Enter. ![Captura de tela da pesquisa pelo modelo de cluster do Service Fabric no Portal do Azure.][SearchforServiceFabricClusterTemplate]
 
 3. Selecione **Cluster do Service Fabric** na lista.
 
@@ -76,7 +75,7 @@ Na folha Básico, você precisa fornecer os detalhes básicos do seu cluster.
 
 	b. Selecione o tamanho/tipo de preço da VM. O padrão é o Padrão D4, mas se você for usar esse cluster apenas para testar seu aplicativo, selecione D2 ou qualquer tamanho menor de VM.
 
-	c. O número mínimo de VMs para o tipo de nó primário é determinado pela camada de confiabilidade que você escolhe. O padrão para a camada de confiabilidade é Prata. Leia mais no documento sobre como [escolher a durabilidade e a confiabilidade do cluster do Service Fabric](service-fabric-cluster-reliability-and-durability.md).
+	c. O número mínimo de VMs para o tipo de nó primário é determinado pela camada de confiabilidade que você escolhe. O padrão para a camada de confiabilidade é Prata. Leia mais no documento sobre como [escolher a durabilidade e a confiabilidade do cluster do Service Fabric](service-fabric-cluster-capacity.md).
 
 	c. Escolha o número de VMs para o tipo de nó. Você pode expandir ou reduzir o número de VMs em um tipo de nó posteriormente, mas no tipo de nó primário, o mínimo é determinado pelo nível de confiabilidade que você escolheu. Outros tipos de nó podem ter um mínimo de uma VM.
 
@@ -128,12 +127,10 @@ Depois que o cluster for criado, você poderá inspecioná-lo no portal:
 
 1. Vá para **Procurar** e clique em **Clusters do Service Fabric**.
 
-2. Localize o cluster e clique nele.
+2. Localize o cluster e clique nele. ![Captura de tela da localização do cluster no portal.][BrowseCluster]
 
-![Captura de tela da localização do cluster no portal.][BrowseCluster]
-3. Agora você pode ver os detalhes do cluster no painel, inclusive o endereço IP público do cluster. Passar o mouse sobre o **Endereço IP Público do Cluster** abrirá uma área de transferência, na qual você pode clicar para copiar o endereço. 
+3. Agora você pode ver os detalhes do cluster no painel, inclusive o endereço IP público do cluster. Passar o mouse sobre o **Endereço IP Público do Cluster** abrirá uma área de transferência, na qual você pode clicar para copiar o endereço. ![Captura de tela dos detalhes do cluster no painel de controle.][ClusterDashboard]
 
-![Captura de tela dos detalhes do cluster no painel de controle.][ClusterDashboard]
   A seção **Monitor do Nó** na folha do painel do cluster indica o número de VMs íntegras e não íntegras. Você pode encontrar mais detalhes sobre a integridade do cluster em [Introdução ao modelo de integridade do Service Fabric](service-fabric-health-introduction.md).
 
 >[AZURE.NOTE] Os clusters de Service Fabric exigem um determinado número de nós que devem estar ativos em todos os momentos para manter a disponibilidade e preservar o estado - conhecido como "manter o quórum". Consequentemente, em geral não é seguro desligar todos os computadores no cluster, a menos que você tenha executado primeiro um [backup completo do estado](service-fabric-reliable-services-backup-restore.md).
@@ -144,39 +141,39 @@ Agora que a configuração do cluster foi concluída, você pode se conectar e c
 
 ### Conectar a um cluster não seguro
 
-    ```powershell
-    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
-    ```
+```powershell
+Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
+```
 
 ### Conectar a um cluster seguro
 
-    1. Execute o seguinte para configurar o certificado no computador em que você pretende usar para executar o cmd de PS "Connect-serviceFabricCluster".
+1. Execute o seguinte para configurar o certificado na máquina que você pretende usar para executar o comando do PowerShell "Connect-serviceFabricCluster".
 
-        ```powershell
-        Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-                -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-                -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-        ```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-    2. Execute o seguinte PS para conectar-se agora a um cluster seguro. Os detalhes do certificado são os mesmos que você atribuiu no portal.
+2. Execute o seguinte comando do PowerShell para se conectar a um cluster seguro. Os detalhes do certificado são os mesmos que você atribuiu no portal
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-                  -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+              -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
-Por exemplo, o comando PS acima deve ser semelhante ao seguinte.
+    Por exemplo, o comando do PowerShell acima deve ser semelhante ao seguinte.
 
-        ```powershell
-        Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
-                  -KeepAliveIntervalInSec 10 `
-                  -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-                  -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
-                  -StoreLocation CurrentUser -StoreName My
-        ```
+    ```powershell
+    Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
+              -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+              -StoreLocation CurrentUser -StoreName My
+    ```
 
 ### Implantar seu aplicativo
 Agora que você está conectado, execute os seguintes comandos para implantar seu aplicativo, substituindo os caminhos mostrados pelos adequados em seu computador. O exemplo a seguir implanta o aplicativo de exemplo de contagem de palavras.
@@ -208,9 +205,9 @@ Agora que você está conectado, execute os seguintes comandos para implantar se
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## Conectar remotamente a uma instância de VMSS (Conjunto de Escala de Máquinas Virtuais) ou um nó de cluster
+## Conectar remotamente a uma instância do Conjunto de Escala de Máquinas Virtuais ou a um nó de cluster
 
-Cada um dos NodeTypes que você especificar no cluster resultará na configuração de um VMSS. Consulte [How to RDP into your VMSS instance](service-fabric-cluster-nodetypes.md) para ver mais detalhes.
+Cada um dos NodeTypes que você especificar no cluster resultará na configuração de um Conjunto de Escala de VM. Consulte [Conectar remotamente a uma instância do Conjunto de Escala de VM](service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node) para obter detalhes.
 
 ## Próximas etapas
 
@@ -232,4 +229,4 @@ Depois de criar um cluster, saiba mais sobre como protegê-lo e implantar aplica
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

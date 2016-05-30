@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Diretrizes de monitoramento e diagnóstico
 
-![Logotipo de padrões e práticas](media/best-practices-monitoring/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Visão geral
 Os serviços e os aplicativos distribuídos em execução na nuvem são, por sua natureza, partes complexas de software que incluem muitas partes móveis. Em um ambiente de produção, é importante ser capaz de controlar a maneira como os usuários utilizam o seu sistema, monitorar a utilização de recursos e, de maneira geral, monitorar a integridade e o desempenho do sistema. Você pode usar essas informações como um auxílio de diagnóstico para detectar e corrigir problemas e para ajudar a identificar possíveis problemas e impedir que eles ocorram.
@@ -664,4 +664,4 @@ Em muitos casos, os processos em lotes podem gerar relatórios de acordo com um 
 - [Receber notificações de alerta](./azure-portal/insights-receive-alert-notifications.md) e [Controlar a integridade do serviço](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-get-started.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -19,7 +19,7 @@
 # Usar atividades personalizadas em um pipeline do Data Factory do Azure
 Há dois tipos de atividades que você pode usar em um pipeline do Azure Data Factory.
  
-- [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para mover dados entre [armazenamentos de dados com suporte](data-factory-data-movement-activities#supported-data-stores).
+- [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para mover dados entre [armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores).
 - [Atividades de transformação de dados](data-factory-data-transformation-activities.md) para transformar/processar dados usando computações como Azure HDInsight, Lote do Azure e Aprendizado de Máquina do Azure. Por exemplo: o Hive do HDInsight e a Execução de Lote do Aprendizado de Máquina.  
 
 Se precisar mover dados de/para um repositório de dados que não tenha suporte do Azure Data Factory, você pode criar uma atividade personalizada do .NET com sua própria lógica de movimentação de dados e usar a atividade no pipeline.
@@ -47,17 +47,19 @@ Para o tutorial, você precisa criar uma conta do Lote do Azure com um pool de V
 1. Crie uma **conta do Lote do Azure** usando o [Portal do Azure](http://manage.windowsazure.com). Consulte o artigo [Criar e gerenciar uma conta do Lote do Azure][batch-create-account] para obter instruções. Anote a chave e o nome da conta do Azure Batch.
 
 	Você também pode usar o cmdlet [New-AzureBatchAccount][new-azure-batch-account] para criar uma conta do Azure Batch. Consulte [usando o Azure PowerShell para gerenciar conta do Azure lote][azure-batch-blog] para obter instruções detalhadas sobre como usar este cmdlet.
-2. Crie um pool do **Lote do Azure**. Você pode baixar o código-fonte da [ferramenta Gerenciador do Lote do Azure][batch-explorer], compilar e usá-lo (ou) usar a [Biblioteca do Lote do Azure para .NET][batch-net-library] para criar um pool do Lote do Azure. Consulte [Passo a passo de exemplo do gerenciador do Azure Batch][batch-explorer-walkthrough] para obter instruções passo a passo de como usar o Gerenciador do Azure Batch.
-
+2. Crie um pool do **Lote do Azure**.
+	1. No [Portal do Azure](https://portal.azure.com), clique em **Procurar** no menu à esquerda e clique em **Contas do Batch**. 
+	2. Selecione sua a conta do Lote do Azure para abrir a folha **Conta do Batch**. 
+	3. Clique no bloco **Pools**.
+	4. Na folha **Pools**, clique no botão Adicionar na barra de ferramentas para adicionar um pool.
+		1. Insira uma ID para o pool (**ID do Pool**). Observe a **ID do pool**; você precisará dela ao criar a solução Data Factory. 
+		2. Especifique **Windows Server 2012 R2** para a configuração da família do sistema operacional.
+		3. Selecione um **camada de preços de nó**. 
+		3. Digite **2** como valor para a configuração **Destino Dedicado**.
+		4. Digite **2** como valor para a configuração **Máximo de tarefas por nó**.
+	5. Clique em **OK** para criar o pool. 
+ 
 	Você também pode usar o cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) para criar um pool do Azure Batch.
-
-	Crie o pool do Lote do Azure com pelo menos 2 nós de computação para que as fatias sejam processadas em paralelo. Se você estiver usando o Gerenciador de lotes:
-
-	- Insira uma ID para o pool (**ID do Pool**). Observe a **ID do pool**; você precisará dela ao criar a solução Data Factory. 
-	- Especifique **Windows Server 2012 R2** para a configuração da família do sistema operacional.
-	- Especifique **2** como valor da configuração **Máximo de tarefas por nó de computação**.
-	- Especifique **2** como valor da configuração **Número de destino dedicado**. 
-
 
 ### Etapas de alto nível 
 1.	**Crie uma atividade personalizada** para usar um pipeline do Data Factory. A atividade personalizada neste exemplo conterá a lógica de processamento/transformação de dados. 
@@ -77,7 +79,7 @@ Para o tutorial, você precisa criar uma conta do Lote do Azure com um pool de V
 	4. Depure o pipeline.
 
 ## Criar a atividade personalizada
-Para criar uma atividade personalizada do .NET, crie um projeto **Biblioteca de classes do .NET** com uma classe que implemente a interface **IDotNetActivity**. Essa interface tem apenas um método: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx), e a assinatura é:
+Para criar uma atividade personalizada do .NET, crie um projeto de **Biblioteca de Classes do .NET** com uma classe que implemente a interface **IDotNetActivity**. Essa interface tem apenas um método: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx), e a assinatura é:
 
 	public IDictionary<string, string> Execute(
             IEnumerable<LinkedService> linkedServices, 
@@ -93,10 +95,10 @@ O método utiliza quatro parâmetros:
 - **atividade**. Esse parâmetro representa a entidade de computação atual, nesse caso, um Lote do Azure.
 - **logger**. O logger permite que você escreva comentários de depuração que serão exibidos como o log do “usuário" no pipeline. 
 
-O método retorna um dicionário que pode ser usado para concatenar atividades personalizadas. Este recurso ainda não tem suporte no momento.
+O método retorna um dicionário que pode ser usado para unir atividades personalizadas no futuro. Este recurso ainda não está implementado, portanto, basta retornar um dicionário vazio a partir do método.
 
 ### Procedimento 
-1.	Crie um projeto de **biblioteca de classes do .NET**.
+1.	Crie um projeto de **Biblioteca de Classes do .NET**.
 	<ol type="a">
 		<li>Inicie o <b>Visual Studio 2015</b>, <b>Visual Studio 2013</b> ou <b>Visual Studio 2012</b>.</li>
 		<li>Clique em <b>Arquivo</b>, indique <b>Novo</b> e, em seguida, clique em <b>Projeto</b>.</li>
@@ -234,7 +236,9 @@ O método retorna um dicionário que pode ser usado para concatenar atividades p
             logger.Write("Writing {0} to the output blob", output);
             outputBlob.UploadText(output);
 
-            // return a new Dictionary object (unused in this code).
+			// The dictionary can be used to chain custom activities together in the future.
+			// This feature is not implemented yet, so just return an empty dictionary.  
+
             return new Dictionary<string, string>();
         }
 
@@ -307,7 +311,7 @@ O método retorna um dicionário que pode ser usado para concatenar atividades p
             return output;
         }
 
-	O método GetFolderPath retorna o caminho para a pasta indicada pelo conjunto de dados e o método GetFileName retorna o nome do blob/arquivo para o qual o conjunto de dados aponta. Observe que se havefolderPath for definido usando variáveis como {Year}, {Month}, {Day} etc., o método retornará a cadeia de caracteres como ela é sem substituí-los por valores de tempo de execução. Consulte a seção [Acessar propriedades estendidas](#access-extended-properties) para obter detalhes sobre como acessar SliceStart, SliceEnd, etc...
+	O método GetFolderPath retorna o caminho para a pasta indicada pelo conjunto de dados e o método GetFileName retorna o nome do blob/arquivo para o qual o conjunto de dados aponta. Observe que se havefolderPath for definido usando variáveis como {Year}, {Month}, {Day} etc., o método retornará a cadeia de caracteres como ela é sem substituí-los por valores de tempo de execução. Confira a seção [Acessar propriedades estendidas](#access-extended-properties) para obter detalhes sobre como acessar SliceStart, SliceEnd, etc...
 	
 		    "name": "InputDataset",
 		    "properties": {
@@ -321,10 +325,10 @@ O método retorna um dicionário que pode ser usado para concatenar atividades p
 
 10. Compile o projeto. Clique em **Compilar** no menu e clique em **Compilar Solução**.
 11. Inicie o **Windows Explorer** e navegue até a pasta **bin\\debug** ou **bin\\release** dependendo do tipo da compilação.
-12. Crie um arquivo zip **MyDotNetActivity.zip** que contém todos os binários na pasta <project folder>\\bin\\Debug. Inclua o arquivo **MyDotNetActivity.pdb** para obter detalhes adicionais, como número de linha no código-fonte que causou o problema, no caso de uma falha. Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível mais elevado**, sem subpastas.
+12. Crie um arquivo zip **MyDotNetActivity.zip** que contém todos os binários na pasta <project folder>\\bin\\Debug. Inclua o arquivo **MyDotNetActivity.pdb** para obter detalhes adicionais, como número de linha no código-fonte que causou o problema, no caso de uma falha. Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior**, sem subpastas.
 
 	![Arquivos de saída binários](./media/data-factory-use-custom-activities/Binaries.png)
-13. Carregue **MyDotNetActivity.zip** como um blob para o contêiner de blobs: **customactvitycontainer** no armazenamento de blobs do Azure que o serviço vinculado **AzureStorageLinkedService** em **ADFTutorialDataFactory** utiliza. Crie o contêiner de blob **customactivitycontainer** se ele ainda não existir.
+13. Carregue **MyDotNetActivity.zip** como um blob para o contêiner de blobs: **customactvitycontainer** no armazenamento de blobs do Azure que o serviço vinculado **AzureStorageLinkedService** no **ADFTutorialDataFactory** utiliza. Crie o contêiner de blob **customactivitycontainer** se ele ainda não existir.
 
 > [AZURE.NOTE] Se você adicionar esse projeto de atividade do .NET a uma solução no Visual Studio que contenha um projeto de Data Factory e adicionar uma referência ao projeto de atividade do .NET do projeto de aplicativo do Data Factory, não será necessário executar as duas últimas etapas de criação do arquivo zip e carregá-lo para o armazenamento de blobs do Azure. Quando você publica entidades de Data Factory usando o Visual Studio, essas etapas são executadas automaticamente pelo processo de publicação. Consulte os artigos [Compilar seu primeiro pipeline usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) e [Copiar dados de blob do Azure no SQL do Azure](data-factory-get-started-using-vs.md) para saber mais sobre como criar e publicar entidades de Data Factory usando o Visual Studio.
 
@@ -419,7 +423,7 @@ Aqui estão as etapas que você realizará nesta seção:
 3. **Pipeline** que usa atividade personalizada.
 4. **Data factory**. Você criará uma ao publicar essas entidades no Azure. 
 
-> [AZURE.NOTE] Crie o **file.txt** e carregue-o em um contêiner de blob se ainda não fez isso. Veja as instruções acima.
+> [AZURE.NOTE] Crie o **file.txt** e carregue-o em um contêiner de blob se ainda não tiver feito isso. Veja as instruções acima.
 
 ### Etapa 1: Criar o data factory
 
@@ -447,12 +451,12 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 
 #### Crie o serviço vinculado do Lote do Azure
 
-2. No Editor Data Factory, clique em **Nova computação** na barra de comandos e selecione **Lote do Azure** no menu.
+2. No Editor do Data Factory, clique em **Nova computação** na barra de comandos e selecione **Lote do Azure** no menu.
 3. No script JSON, faça o seguinte:
-	1. Especifique o nome da conta do Lote do Azure para a propriedade **accountName**. A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: http://**accountname**.region.batch.azure.com. Para a propriedade **batchUri** no JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON de **accountName**.
+	1. Especifique o nome da sua conta do Lote do Azure para a propriedade **accountName**. A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: http://**accountname**.region.batch.azure.com. Para a propriedade **batchUri** no JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON de **accountName**.
 	2. Especifique a chave de conta do Lote do Azure para a propriedade **accessKey**. 
 	3. Especifique o nome do pool que você criou como parte dos pré-requisitos para a propriedade **poolName**. Você também pode especificar a ID do pool em vez do nome do pool.
-	4. Especifique o URI do Lote do Azure para a propriedade **batchUri**. A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: http://accountname.region.batch.azure.com. Para a propriedade **batchUri** no JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON de **accountName**.
+	4. Especifique a URI do Lote do Azure para a propriedade **batchUri**. A **URL** da **folha de conta do Lote do Azure** está no seguinte formato: http://accountname.region.batch.azure.com. Para a propriedade **batchUri** no JSON, você precisará **remover "accountname."** da URL e usar o **accountname** para a propriedade JSON de **accountName**.
 	5. Especifique **AzureStorageLinkedService** para a propriedade **linkedServiceName**.
 		
 			{
@@ -543,7 +547,7 @@ Nesta etapa, você criará conjuntos de dados para representar a entrada e saíd
 		    }
 		}
 
- 	O local de saída é **adftutorial/customactivityoutput/AAAAMMDDHH/**, em que AAAAMMDDHH é o ano, mês, data e hora da fatia sendo produzida. Consulte a [Referência do Desenvolvedor][adf-developer-reference] para obter detalhes.
+ 	O local de saída é **adftutorial/customactivityoutput/** e o nome do arquivo de saída é aaaa-MM-dd-HH.txt onde aaaa-MM-dd-HH é o ano, mês, data e hora da fatia sendo produzida. Consulte a [Referência do Desenvolvedor][adf-developer-reference] para obter detalhes.
 
 	Um blob/arquivo de saída é gerado para cada fatia de entrada. Aqui está como um arquivo de saída é chamado para cada fatia. Todos os arquivos de saída são gerados em uma pasta de saída: **adftutorial\\customactivityoutput**.
 
@@ -611,11 +615,11 @@ Nesta etapa, você criará conjuntos de dados para representar a entrada e saíd
 
 	Observe o seguinte:
 
-	- **Simultaneidade** é definido como **2** para que 2 fatias sejam processadas em paralelo por 2 VMs no pool do Lote do Azure.
+	- A **Simultaneidade** é definida como **2** para que 2 fatias sejam processadas em paralelo por 2 VMs no pool do Lote do Azure.
 	- Há uma atividade na seção de atividades, que é do tipo **DotNetActivity**.
 	- **AssemblyName** é definido como o nome da DLL **MyActivities.dll**.
 	- **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**.
-	- **PackageLinkedService** é definido como **AzureStorageLinkedService** que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, terá de criar outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
+	- **PackageLinkedService** é definido como o **AzureStorageLinkedService** que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, terá de criar outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
 	- **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: containerforthezip/nameofthezip.zip.
 	- A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
 	- A propriedade linkedServiceName da atividade personalizada aponta para o **HDInsightLinkedService**, que informa ao Azure Data Factory que a atividade personalizada precisa ser executada em um cluster do Azure HDInsight.
@@ -654,8 +658,11 @@ Nesta etapa, você criará conjuntos de dados para representar a entrada e saíd
 Consulte [Monitorar e Gerenciar Pipelines](data-factory-monitor-manage-pipelines.md) para obter etapas detalhadas do monitoramento de conjuntos de dados e pipelines.
 
 O serviço Data Factory cria um trabalho no Lote do Azure com o nome: **adf-<pool name>:job-xxx**. Uma tarefa é criada para cada execução de atividade da fatia. Se houver 10 fatias prontas para serem processadas, 10 tarefas serão criadas neste trabalho. Pode haver mais de uma fatia em execução em paralelo, se você tiver vários nós de computação no pool. Você também pode ter mais de uma fatia em execução na mesmo computação, se o máximo de tarefas por nó de computação for definido como 1 >.
+
 	
 ![Tarefas do Gerenciador de lotes](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
+
+> [AZURE.NOTE] Baixe o código-fonte para a [ferramenta Gerenciador do Azure Batch][batch-explorer], compile-o e use-o para criar e monitorar os pools de lote. Consulte [Passo a passo de exemplo do gerenciador do Azure Batch][batch-explorer-walkthrough] para obter instruções passo a passo de como usar o Gerenciador do Azure Batch.
 
 ![Data Factory e lote](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
@@ -667,7 +674,7 @@ Você pode ver as tarefas do Azure Batch associadas ao processamento das fatias 
 ### Depurar o pipeline
 A depuração consiste em algumas técnicas básicas:
 
-1.	Se a fatia de entrada não estiver definida como **Pronto**, confirme se a estrutura de pasta de entrada está correta e se **file.txt** existe nas pastas de entrada. 
+1.	Se a fatia de entrada não estiver definida como **Pronto**, confirme se a estrutura da pasta de entrada está correta e se **file.txt** existe nas pastas de entrada. 
 2.	No método **Execute** da atividade personalizada, use o objeto **IActivityLogger** para registrar informações que o ajudarão a solucionar problemas. As mensagens registradas aparecerão nos arquivos de log do usuário (um ou mais arquivos denominados: user-0.log, user-1.log, user-2.log, etc...). 
 
 	Na folha **OutputDataset**, clique na fatia para ver a folha **FATIA DE DADOS** dessa fatia. Você verá as **execuções de atividade** para essa fatia. Você deverá ver uma execução de atividade para a fatia. Se você clicar em Executar na barra de comandos, poderá iniciar outra execução de atividade para a mesma fatia.
@@ -679,7 +686,7 @@ A depuração consiste em algumas técnicas básicas:
 	Você também deve verificar **system-0.log** para quaisquer mensagens de erro e exceções do sistema.
 
 3.	Inclua o arquivo **PDB** no arquivo zip para que os detalhes do erro tenham informações como **pilha de chamadas** quando ocorrer um erro.
-4.	Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível mais elevado**, sem subpastas.
+4.	Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior**, sem subpastas.
 5.	Verifique se **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), e **packageLinkedService** (devem apontar para o armazenamento de blobs do Azure que contém o arquivo zip) estão definidos com os valores corretos. 
 6.	Se você corrigir um erro e quiser reprocessar a fatia, clique com o botão direito do mouse na fatia na folha **OutputDataset** e clique em **Executar**. 
 
@@ -688,12 +695,12 @@ A depuração consiste em algumas técnicas básicas:
 Se você atualizar o código para a atividade personalizada, compile-o e carregue o arquivo zip que contém os novos binários para o armazenamento de blob.
 
 ## Copiar/mover dados 
-A atividade de cópia copia os dados de um armazenamento de dados de **origem** para um armazenamento de dados **coletor**. Consulte [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores) para ver uma lista de armazenamentos de dados com suporte como fontes e coletores para a Atividade de Cópia.
+A atividade de cópia copia os dados de um armazenamento de dados de **origem** para um armazenamento de dados **coletor**. Confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores) para ver uma lista de armazenamentos de dados com suporte como fontes e coletores para a Atividade de Cópia.
 
-Se precisar mover dados de/para um repositório de dados que não tem suporte com a **Atividade de Cópia**, você pode usar a **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover os dados. Consulte [Exemplo de HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) no GitHub.
+Se precisar mover dados de/para um repositório de dados que não tenha suporte na **Atividade de Cópia**, você pode usar a **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover os dados. Confira [Exemplo de HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) no GitHub.
 
 ## Isolamento de Appdomain 
-Consulte [Exemplo de AppDomain Cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample), que mostra como criar uma atividade personalizada do .NET para o Azure Data Factory não seja restrita a versões de assembly usadas pelo iniciador do Azure Data Factory (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
+Confira [Exemplo de AppDomain Cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample), que mostra como criar uma atividade personalizada do .NET para o Azure Data Factory que não esteja restrita a versões de assembly usadas pelo iniciador do Azure Data Factory (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
 
 ## Acessar propriedades estendidas
 Você pode declarar propriedades estendidas na atividade JSON, conforme mostrado abaixo:
@@ -709,7 +716,7 @@ Você pode declarar propriedades estendidas na atividade JSON, conforme mostrado
 	  }
 	},
 
-No exemplo acima, há duas propriedades estendidas: **SliceStart** e **DataFactoryName**. O valor de SliceStart baseia-se na variável de sistema SliceStart. Consulte [Variáveis de sistema](data-factory-scheduling-and-execution.md#data-factory-system-variables) para obter uma lista de variáveis de sistema com suporte. O valor de DataFactoryName é embutido no código como "CustomActivityFactory".
+No exemplo acima, há duas propriedades estendidas: **SliceStart** e **DataFactoryName**. O valor de SliceStart baseia-se na variável de sistema SliceStart. Confira [Variáveis de sistema](data-factory-scheduling-and-execution.md#data-factory-system-variables) para obter uma lista de variáveis de sistema com suporte. O valor de DataFactoryName é embutido no código como "CustomActivityFactory".
 
 Para acessar essas propriedades estendidas no método **Execute**, use código semelhante ao seguinte:
 
@@ -725,6 +732,14 @@ Para acessar essas propriedades estendidas no método **Execute**, use código s
     	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
 	}
 
+## Recurso de dimensionamento automático do Azure Batch
+Você também pode criar um pool de lote do Azure com o recurso **autoscale**. Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes:
+ 
+	pendingTaskSampleVector=$PendingTasks.GetSample(600 * TimeInterval_Second);$TargetDedicated = max(pendingTaskSampleVector);
+
+Veja [Escalar automaticamente nós de computação em um pool do Lote do Azure](../batch/batch-automatic-scaling.md) para obter detalhes.
+
+Se o pool está usando o padrão [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), o serviço do Lote pode levar 15 a 30 minutos para preparar a máquina virtual antes de executar a atividade personalizada. Se o pool estiver usando um autoScaleEvaluationInterval diferente, o serviço de lote pode levar autoScaleEvaluationInterval + 10 minutos.
 
 ## Usar serviços vinculados do Azure HDInsight
 No passo a passo, você usou a computação de Lote do Azure para executar a atividade personalizada. Você também pode usar seu próprio cluster do HDInsight ou fazer com que o Data Factory crie um cluster do HDInsight sob demanda e execute a atividade personalizada no cluster do HDInsight. Estas são as etapas gerais para usar um cluster do HDInsight.
@@ -747,7 +762,7 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
 	1. Para a propriedade **clusterSize**, especifique o tamanho do cluster do HDInsight.
 	3. Para a propriedade **timeToLive**, especifique quanto tempo o cliente pode ficar ocioso antes de ser excluído.
 	4. Para a propriedade **version**, especifique a versão do HDInsight que você deseja usar. Se você excluir essa propriedade, a versão mais recente será usada.  
-	5. Para o **linkedServiceName**, especifique **AzureStorageLinkedService** que você criou no tutorial do guia de Introdução.
+	5. Para o **linkedServiceName**, especifique o **AzureStorageLinkedService** que você criou no tutorial de Introdução.
 
 			{
 			    "name": "HDInsightOnDemandLinkedService",
@@ -756,7 +771,7 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
 			        "typeProperties": {
 			            "clusterSize": 4,
 			            "timeToLive": "00:05:00",
-			            "osType": "linux",
+			            "osType": "Windows",
 			            "linkedServiceName": "AzureStorageLinkedService",
 			        }
 			    }
@@ -825,12 +840,12 @@ No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o
 
 ## Exemplos
 
-| Amostra | Qual atividade personalizada realiza| 
-| ------ | ----------- | 
-| [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Baixa dados de um ponto de extremidade de HTTP para o Armazenamento de Blobs do Azure usando uma atividade de C# personalizada no Data Factory. |
-| [Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Invoca um modelo ML do Azure e faz análise de opinião, contagem de pontos, previsão, etc. |
-| [Executar script de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. | 
-| [Atividade cruzada do .NET no AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Usa versões de assembly diferentes daquelas usadas pelo inicializador do Data Factory (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
+Amostra | Qual atividade personalizada realiza 
+------ | ----------- 
+[HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Baixa dados de um ponto de extremidade de HTTP para o Armazenamento de Blobs do Azure usando uma atividade de C# personalizada no Data Factory.
+[Exemplo de análise de opinião no Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Invoca um modelo ML do Azure e faz análise de opinião, contagem de pontos, previsão, etc.
+[Executar script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Invoca o script de R executando o RScript.exe no seu cluster do HDInsight que já tem o R instalado nele. 
+[Atividade cruzada do .NET no AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Usa versões de assembly diferente daquelas usadas pelo iniciador do Data Factory  
  
 
 ## Consulte também
@@ -844,7 +859,6 @@ No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
@@ -872,4 +886,4 @@ No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

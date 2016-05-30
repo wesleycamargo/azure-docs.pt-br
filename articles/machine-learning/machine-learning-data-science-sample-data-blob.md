@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
 
-## Introdução
 
-Este documento aborda os dados de amostragem armazenados no Armazenamento do Blobs do Azure, baixando-os por meio de programação e realizando amostragem com um exemplo de código Python. As etapas para isso são os seguintes:
+Este documento aborda os dados de amostragem armazenados no armazenamento de blobs do Azure, baixando-os de forma programática e realizando amostragem usando procedimentos escritos em Python.
 
 **Por que fazer amostragem dos dados?** Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
@@ -28,7 +27,7 @@ O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de 
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-A tarefa de amostragem é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+A tarefa de amostragem é uma etapa do [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Baixar e reduzir os dados de exemplo
@@ -65,7 +64,7 @@ A tarefa de amostragem é uma etapa no [CAP (Processo do Cortana Analytics)](htt
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
     	dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-	Agora você pode trabalhar com o quadro de dados acima com a amostra de 1 por cento para exploração e geração de recursos adicional.
+Agora você pode trabalhar com o quadro de dados acima com a amostra de 1 por cento para exploração e geração de recursos adicional.
 
 ##<a name="heading"></a>Carregar os dados e lê-los no Aprendizado de Máquina do Azure
 
@@ -99,13 +98,8 @@ Você pode usar o seguinte código de exemplo para os reduzir os dados de exempl
 
 3. Leia os dados de blob do Azure usando o [Leitor](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do AM do Azure como mostra a captura de tela abaixo:
  
-![blob de leitor][1]
+![blob de leitor](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 
-[1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
-
-
-<!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

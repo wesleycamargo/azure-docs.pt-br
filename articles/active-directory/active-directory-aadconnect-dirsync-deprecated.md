@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/11/2016"
 	ms.author="andkjell"/>
 
 
@@ -46,11 +46,7 @@ Se você usa o Azure AD Sync, recomenda-se uma atualização in-loco. Se desejar
 
 Para ver como fazer uma atualização in-loco do DirSync para o Azure AD Connect, confira este vídeo do Channel 9:
 
-<!-- The next section is actually supposed to look like this, but video ids are not working at present.
 > [AZURE.VIDEO azure-active-directory-connect-in-place-upgrade-from-legacy-tools]
--->
-
-[Azure Active Directory Connect: atualização in-loco de ferramentas herdadas](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools) ![atualização in-loco](./media/active-directory-aadconnect-dirsync-deprecated/inplaceupgrade.png)
 
 ## Perguntas frequentes
 **P: Eu recebi uma notificação por email da equipe do Azure e/ou uma mensagem do centro de mensagens do Office 365, mas estou usando o Connect.** A notificação também foi enviada para clientes que estão usando o Azure AD Connect com número de build 1.0.*. 0 (usando uma versão anterior à 1.1). A Microsoft recomenda que os clientes fiquem atualizados com as versões do Azure AD Connect. Com a versão 1.1, o recurso de [atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) tornará muito fácil ter sempre uma versão recente do Azure AD Connect instalada.
@@ -65,4 +61,4 @@ Para ver como fazer uma atualização in-loco do DirSync para o Azure AD Connect
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

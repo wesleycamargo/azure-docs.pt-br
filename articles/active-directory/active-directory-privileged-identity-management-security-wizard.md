@@ -31,12 +31,12 @@ A segunda etapa do assistente lhe fornece a oportunidade de alterar as atribuiç
 
 Depois de ter feito alterações, o assistente não aparecerá mais. Na próxima vez que você ou outro administrador de segurança usar o PIM, você verá o painel PIM.
 
-- Se você desejar adicionar ou remover usuários das funções ou alterar as atribuições de permanentes para temporárias, leia mais em [como adicionar ou remover uma função de usuário](active-directory-privileged-identity-management-how-to-add-role-to-user).
-- Se desejar fornecer aos usuários mais acesso para gerenciar o PIM, leia mais em [como conceder acesso para gerenciar no PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim).
+- Se você desejar adicionar ou remover usuários das funções ou alterar as atribuições de permanentes para temporárias, leia mais em [como adicionar ou remover uma função de usuário](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
+- Se desejar fornecer aos usuários mais acesso para gerenciar o PIM, leia mais em [como conceder acesso para gerenciar no PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 
 
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

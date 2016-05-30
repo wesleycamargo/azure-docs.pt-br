@@ -27,7 +27,7 @@ Entre as necessidades variáveis dos negócios estão:
 
 Essas necessidades comerciais estão afetando o *modo* como criamos os aplicativos.
 
-Para obter mais informações sobre a abordagem do Azure aos microsserviços, leia: [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+Para obter mais informações sobre a abordagem do Azure aos microsserviços, leia [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## Abordagem de design monolítico versus microsserviços
 Todos os aplicativos evoluem ao longo do tempo. Os aplicativos bem-sucedidos evoluem sendo úteis às pessoas. Aplicativos sem sucesso não evoluem e eventualmente tornam-se obsoletos. A pergunta principal é: o que você realmente sabe sobre suas necessidades atuais e quais serão essas necessidades no futuro? Por exemplo, se você estiver construindo um aplicativo de relatórios para um departamento e tiver certeza de que isso permanecerá dentro do escopo de sua empresa, e de que os relatórios terão vida curta, sua opção de abordagem será diferente de, vamos supor, construir um serviço para entrega de conteúdo em vídeo para dezenas de milhões de clientes. Às vezes, lançar algo como prova de conceito é o fator determinante, com a noção de que o aplicativo pode ser reprojetado posteriormente. Não há muito sentido em trabalhar muito em algo que nunca será usado. É a compensação comum da engenharia. Por outro lado, quando as empresas falam sobre criação para a nuvem, a expectativa é de crescimento e uso. O problema é que o crescimento e o dimensionamento são imprevisíveis. Gostaríamos de ser capazes de criar um protótipo rapidamente e saber, ao mesmo tempo, que estamos no caminho certo para lidar com o sucesso no futuro. Essa é a abordagem de inicialização simples: compilar, medir, aprender, iterar.
@@ -143,9 +143,9 @@ O objetivo do Service Fabric é reduzir a complexidade da criação de aplicativ
 
 * Para mais informações:
 	* [Visão geral da Malha do Serviço](service-fabric-overview.md)
-    * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/pt-BR/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+    * [Microsserviços: uma revolução de aplicativo proporcionada pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

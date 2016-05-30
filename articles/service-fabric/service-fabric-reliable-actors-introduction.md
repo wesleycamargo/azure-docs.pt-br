@@ -21,7 +21,7 @@
 Os Reliable Actors são uma estrutura do aplicativo do Service Fabric baseada no padrão de [Ator Virtual](http://research.microsoft.com/pt-BR/projects/orleans/). A API dos Reliable Actors fornece um modelo de programação single-threaded fundamentado nas garantias de escalabilidade e confiabilidade fornecidas pelo Service Fabric.
 
 ## O que são Atores?
-Um ator é uma unidade isolada e independente de computação e de estado com execução single-threaded. O [padrão de ator](https://en.wikipedia.org/wiki/Actor_model) é um modelo computacional para sistemas simultâneos ou distribuídos por meio dos quais é possível executar, simultanea e individualmente, um grande número desses atores que, por sua vez, podem criar outros atores, comunicando-se entre si.
+Um ator é uma unidade isolada e independente de computação e de estado com execução single-threaded. O [padrão de ator](https://en.wikipedia.org/wiki/Actor_model) é um modelo computacional para sistemas simultâneos ou distribuídos por meio dos quais é possível executar, simultânea e individualmente, um grande número desses atores que, por sua vez, podem criar outros atores, comunicando-se entre si.
 
 ### Quando usar os Reliable Actors
 
@@ -158,4 +158,4 @@ O tempo de execução dos Atores fornece essas garantias de simultaneidade em si
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

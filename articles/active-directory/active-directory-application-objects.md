@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="05/16/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,7 +31,7 @@ Quando você registra um aplicativo no Portal de Gerenciamento do Azure, dois ob
 - **Objeto ServicePrincipal**: esse objeto representa uma instância de seu aplicativo em seu locatário de diretório. Você pode aplicar políticas a objetos ServicePrincipal, incluindo a atribuição de permissões para o ServicePrincipal que permitem que o aplicativo leia dados de diretório do locatário. Sempre que você altera o objeto de Aplicativo, as alterações também são aplicadas ao objeto ServicePrincipal associado em seu locatário.
 
 
-> [AZURE.NOTE]Se seu aplicativo estiver configurado para acesso externo, as alterações no objeto de aplicativo não serão refletidas no ServicePrincipal de um locatário consumidor até que o locatário do consumidor remova o acesso e conceda-o novamente.
+> [AZURE.NOTE] Se seu aplicativo estiver configurado para acesso externo, as alterações no objeto de aplicativo não serão refletidas no ServicePrincipal de um locatário consumidor até que o locatário do consumidor remova o acesso e conceda-o novamente.
 
 
 
@@ -85,4 +85,4 @@ Propriedade | Descrição
 
 ##
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0518_2016-->

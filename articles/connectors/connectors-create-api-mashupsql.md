@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do Conector SQL
@@ -25,7 +25,7 @@ O conector do Conector SQL pode ser usado por meio de:
 
 - [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Fluxos](http://flows.microsoft.com)  
+- [Fluxo](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -61,6 +61,8 @@ Para criar Aplicativos Lógicos com o Conector SQL, primeiro, você deve criar u
 | ---|---|---|
 |SqlConnectionString|Sim|Fornecer a cadeia de conexão SQL|
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
+
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Mashup SQL](../../includes/connectors-create-api-mashupsql.md)]
 
 >[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
 
@@ -302,4 +304,4 @@ Atualizar linha: atualiza uma linha existente em uma tabela SQL
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

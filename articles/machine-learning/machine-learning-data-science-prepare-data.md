@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 
 # Tarefas para preparar dados para o aprendizado de máquina avançado
 
-## Introdução
 O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Essas tarefas fazem parte do processo de análise da Cortana (CAP) e normalmente seguem uma análise inicial de um conjunto de dados usado para descobrir e planejar o pré-processamento necessário. Para obter instruções mais detalhadas sobre o processo de CAP, consulte as etapas descritas no [Processo de Análise da Cortana](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 As tarefas de pré-processamento e de limpeza, assim como a tarefa de exploração de tarefas, podem ser executadas em uma ampla variedade de ambientes, como o SQL ou o Hive ou o Estúdio de Aprendizado de Máquina do Azure e com diversas ferramentas e linguagens, como R ou Python, dependendo de onde seus dados estejam armazenados e de como estejam formatados. Como o CAP é iterativo por natureza, essas tarefas podem ocorrer em várias etapas do fluxo de trabalho do processo.
@@ -110,4 +109,4 @@ A **exploração de dados** oferece uma exibição antecipada dos dados. Alguns 
 
 >*Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber e Jian Pei
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="05/11/2016"
    ms.author="cherylmc"/>
 
 # Perguntas Frequentes sobre Rota Expressa
@@ -149,7 +149,7 @@ Você deve estabelecer um circuito de Rota Expressa e configurar rotas para empa
 Sim. Aceitamos até 4.000 prefixos de rota para emparelhamento privado e 200 para cada emparelhamento público e da Microsoft. Você poderá aumentar esse limite para 10.000 rotas para emparelhamento privado se habilitar o recurso premium da Rota Expressa.
 
 ### Há restrições de intervalos de endereços IP que posso anunciar durante a sessão BGP?
-Não aceitamos prefixos privados (RFC1918) na sessão BGP de emparelhamento público.
+Não aceitamos prefixos privados (RFC1918) na sessão BGP de emparelhamento público e da Microsoft.
 
 ### O que acontece se eu exceder os limites de BGP?
 As sessões BGP serão interrompidas. Elas serão redefinidas quando a contagem de prefixos voltar a ficar abaixo do limite.
@@ -245,4 +245,7 @@ Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para o
 ### Posso acessar o Office 365 pela Internet mesmo se a Rota Expressa foi configurada para minha organização?
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
 
-<!---HONumber=AcomDC_0427_2016-->
+### O Dynamics AX pode ser acessado por uma conexão de Rota Expressa?
+Não há suporte para isso.
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Portas e Protocolos Requeridos para Identidade Híbrida
@@ -84,4 +84,4 @@ Esta tabela descreve as portas e protocolos de saída a seguir que são necessá
 ### 6b - pontos de extremidade de agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
 Para obter uma lista de pontos de extremidade, veja [a seção Requisitos para o agente do Azure AD Connect Health](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

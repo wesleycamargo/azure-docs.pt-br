@@ -455,6 +455,7 @@ Antes de executar as etapas nesta seção, você precisa ter associado um nome d
 >
 > 2. Usando as ferramentas fornecidas pelo registro de nomes de domínio, modifique o registro A de seu nome de domínio personalizado para redirecionar para o endereço IP da etapa anterior.
 
+> [AZURE.NOTE] Se você adicionar um **SSL baseado em IP** a um aplicativo Web que já tinha uma **associação SNI** com um certificado diferente, assim que o SSL de IP for habilitado para o aplicativo Web, remapearemos o nome de host do site para esse endereço IP, portanto, se qualquer outro nome de host tiver CNAME para o nome de host desse site, ele também receberá tráfego no endereço IP SSL. Nesses casos, criamos mais uma entrada DNS: sni.&lt;nameofyourWebApp&gt;.azurewebsites.net em que &lt;nameofyourWebApp&gt; é o nome do seu aplicativo Web do Serviço de Aplicativo do Azure. Portanto, você deve alterar os registros DNS apontando para o nome usado na associação SNI para que ele aponte para sni.&lt;nameofyourWebApp&gt;.azurewebsites.net.
 
 Nesse momento, você poderá visitar o seu aplicativo usando `HTTPS://` em vez de `HTTP://` para verificar se o certificado foi configurado corretamente.
 
@@ -563,5 +564,3 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [certwiz2]: ./media/configure-ssl-web-site/waws-certwiz2.png
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
-
-<!---HONumber=AcomDC_0323_2016-->

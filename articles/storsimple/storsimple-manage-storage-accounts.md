@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="04/29/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar sua conta de armazenamento
@@ -60,7 +60,10 @@ Você pode criar várias contas para um provedor de serviços de nuvem específi
 
 Enquanto a conta de armazenamento está sendo salvo, o serviço tenta se comunicar com o seu provedor de serviços de nuvem. As credenciais e o material de acesso que você forneceu serão autenticados neste momento. Uma conta de armazenamento será criada somente se a autenticação for bem-sucedida. Se a autenticação falhar, será exibida uma mensagem de erro apropriada.
 
-> [AZURE.NOTE]O procedimento para adicionar uma conta de armazenamento varia de acordo com a versão do software StorSimple que você está usando. Certifique-se de seguir o procedimento correto para a sua versão do StorSimple.
+Contas de armazenamento do Gerenciador de Recursos criadas no portal do Azure também são compatíveis com o StorSimple. As contas de armazenamento do Gerenciador de Recursos não aparecerão na lista suspensa para seleção quando tentar criar um contêiner de volume. Apenas as contas de armazenamento criadas no Portal Clássico do Azure serão exibidas. As contas de armazenamento do Gerenciador de Recursos precisarão ser adicionadas usando o procedimento para adicionar uma conta de armazenamento descrita abaixo.
+
+> [AZURE.NOTE] O procedimento para adicionar uma conta de armazenamento varia de acordo com a versão do software StorSimple que você está usando. Certifique-se de seguir o procedimento correto para a sua versão do StorSimple.
+
 
 [AZURE.INCLUDE [add-a-storage-account-update1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -87,7 +90,7 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
   
 ## Excluir uma conta de armazenamento
 
-> [AZURE.IMPORTANT]Você pode excluir uma conta de armazenamento somente se ela não for usada por um contêiner de volume. Se uma conta de armazenamento está sendo usada por um contêiner de volume, exclua primeiro o contêiner de volume e, em seguida, exclua a conta de armazenamento associada.
+> [AZURE.IMPORTANT] Você pode excluir uma conta de armazenamento somente se ela não for usada por um contêiner de volume. Se uma conta de armazenamento está sendo usada por um contêiner de volume, exclua primeiro o contêiner de volume e, em seguida, exclua a conta de armazenamento associada.
 
 #### Para excluir uma conta de armazenamento
 
@@ -103,7 +106,7 @@ Você pode editar uma conta de armazenamento usada por um contêiner de volume. 
 
 Por motivos de segurança, a rotação de chaves é normalmente um requisito em datacenters.
 
-> [AZURE.NOTE]As seguintes informações de rotação de chaves e o procedimento de rotação aplicam-se apenas a contas de Armazenamento do Microsoft Azure. Se você estiver usando outro provedor de serviços de nuvem, poderá gerenciar chaves de conta de armazenamento por meio do painel de controle do provedor.
+> [AZURE.NOTE] As seguintes informações de rotação de chaves e o procedimento de rotação aplicam-se apenas a contas de Armazenamento do Microsoft Azure. Se você estiver usando outro provedor de serviços de nuvem, poderá gerenciar chaves de conta de armazenamento por meio do painel de controle do provedor.
  
 Cada assinatura do Microsoft Azure pode ter uma ou mais contas de armazenamento associadas. O acesso a essas contas é controlado pelas chaves de assinatura e acesso para cada conta de armazenamento.
 
@@ -151,4 +154,4 @@ Para informar o serviço StorSimple Manager da alteração, será necessário ac
 - Saiba mais sobre a [segurança do StorSimple](storsimple-security.md).
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -45,12 +45,12 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 |[Standard\_A0](#standard-tier-a-series) |50 |
 |[Standard\_A1-4](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-15v2](#standard-tier-dv2-series) |210 - 250 *|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[DS1-14v2](#standard-tier-dsv2-series) |210-250* |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *| 
+|[D1-14](#standard-tier-d-series) |160 | 
+|[D1-15v2](#standard-tier-dv2-series) |210 - 250 *| 
+|[DS1-14](#standard-tier-ds-series) |160 | 
+|[DS1-15v2](#standard-tier-dsv2-series) |210-250* | 
+|[G1-5](#standard-tier-g-series) |180 - 240 *| 
 |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
@@ -150,6 +150,7 @@ Observação: para obter informações e considerações sobre o uso desses tama
 |Standard\_DS12\_v2 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 192 MB por segundo | alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 384 MB por segundo | alto |
 |Standard\_DS14\_v2 |16|112|8|Disco SSD local = 224 GB |32|576| 50\.000 768 MB por segundo | muito alta |
+|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD local = 280 GB |40| 720|62\.500 960 MB por segundo | muito alta |
 
 
 **O máximo de operações de entrada/saída por segundo (IOPS) e de taxa de transferência (largura de banda) possível com uma VM da série DS é afetado pelo tamanho do disco. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
@@ -189,7 +190,8 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 
 ## Próximas etapas
 
-- Saiba mais sobre a [Assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
-- Saiba mais [Sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para conhecer cargas de trabalho como HPC (Computação de Alto Desempenho).
+- Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
+- Saiba mais [sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabalho como HPC (Computação de Alto Desempenho).
 
-<!---HONumber=AcomDC_0406_2016-->
+
+

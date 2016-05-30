@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/29/2016"
+   ms.date="05/11/2016"
    ms.author="nitinme"/>
 
 # Copiar dados entre o Repositório Data Lake e o banco de dados SQL do Azure usando o Sqoop
@@ -36,6 +36,10 @@ Antes de começar este artigo, você deve ter o seguinte:
 - **Habilite sua assinatura do Azure** para a visualização pública do Repositório Data Lake. Veja [instruções](data-lake-store-get-started-portal.md#signup). 
 - **Cluster HDInsight do Azure** com acesso a uma conta do Repositório Data Lake. Confira [Criar um cluster HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md). Este artigo pressupõe que você tenha um cluster HDInsight Linux com acesso ao Repositório Data Lake.
 - **Banco de dados SQL do Azure**. Para saber mais sobre como criar um, confira [Criar um banco de dados SQL do Azure](../sql-database/sql-database-get-started.md)
+
+## Você aprende rapidamente com vídeos?
+
+[Assista a este vídeo](https://mix.office.com/watch/1butcdjxmu114) sobre como copiar dados entre o Repositório do Data Lake e os Blobs de Armazenamento do Azure usando o DistCp.
 
 ## Criar tabelas de exemplo no Banco de Dados SQL do Azure
 
@@ -152,4 +156,4 @@ Um cluster HDInsight já tem os pacotes Sqoop disponíveis. Se você tiver confi
 - [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

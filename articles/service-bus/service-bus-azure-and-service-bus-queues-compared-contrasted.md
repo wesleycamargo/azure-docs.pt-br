@@ -89,7 +89,7 @@ Esta seção compara alguns dos recursos básicos de enfileiramento fornecidos p
 |---|---|---|
 |Garantia de ordenação|**Não** <br/><br>Para obter mais informações, consulte a primeira observação na seção “Informações adicionais”.</br>|**Sim — PEPS (primeiro a entrar, primeiro a sair)**<br/><br>(pelo uso de sessões de mensagens)|
 |Garantia de entrega|**Pelo menos uma vez**|**Pelo menos uma vez**<br/><br/>**No máximo uma vez**|
-|Suporte a transações|**Não**|**Sim**<br/><br/>(pelo uso de transações locais)|
+|Suporte à operação atômica|**Não**|**Sim**<br/><br/>|
 |Comportamento de recebimento|**Sem bloqueio**<br/><br/>(concluído imediatamente se nenhuma mensagem nova for encontrada)|**Bloqueio com/sem tempo limite**<br/><br/>(oferece sondagem longa ou a ["técnica Comet"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sem bloqueio**<br/><br/>(apenas pelo uso da API gerenciada pelo .NET)|
 |API de estilo push|**Não**|**Sim**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) e sessões **OnMessage** API .NET.|
 |Modo de recebimento|**Inspecionar e Conceder**|**Inspecionar e Bloquear**<br/><br/>**Receber & Excluir**|
@@ -178,7 +178,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço da p
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
 |Tamanho máximo da fila|**200 TB**<br/><br/>(limitado a uma capacidade de conta de armazenamento única)|**1 GB a 80 GB**<br/><br/>(definido na criação de uma fila e [habilitando particionamento](service-bus-partitioning.md) – consulte a seção "Informações adicionais")|
-|Tamanho máximo da mensagem|**64 KB**<br/><br/>(48 KB ao usar codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GB para um único item.|**256 KB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB)|
+|Tamanho máximo da mensagem|**64 KB**<br/><br/>(48 KB ao usar codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GB para um único item.|**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md).|
 |TTL máxima da mensagem|**7 dias**|**Ilimitada**|
 |Número máximo de filas|**Ilimitado**|**10.000**<br/><br/>(por namespace de serviço, pode ser aumentado)|
 |Número máximo de clientes simultâneos|**Ilimitado**|**Ilimitado**<br/><br/>(o limite de 100 conexões simultâneas se aplica somente à comunicação baseada no protocolo TCP)|
@@ -191,7 +191,7 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço da p
 
 - Com as Filas do Azure, se o conteúdo da mensagem não for XML seguro, ele deverá ser codificado em **Base64**. Se você codificar a mensagem em **Base64**, a carga de usuário poderá ser de até 48 KB, em vez de 64 KB.
 
-- Com as filas do Barramento de Serviço, cada mensagem armazenada em uma fila é composta por duas partes: um cabeçalho e um corpo. O tamanho total da mensagem não pode exceder 256 KB.
+- Com as filas do Barramento de Serviço, cada mensagem armazenada em uma fila é composta por duas partes: um cabeçalho e um corpo. O tamanho total da mensagem não pode exceder o tamanho máximo da mensagem com suporte da camada de serviço.
 
 - Quando os clientes se comunicam com as filas do Barramento de Serviço pelo protocolo TCP, o número máximo de conexões simultâneas para uma única fila do Barramento de Serviço é limitado a 100. Esse número é compartilhado entre remetentes e receptores. Se essa cota for atingida, as solicitações subsequentes de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Esse limite não é imposto a clientes que se conectam às filas usando a API baseada em REST.
 
@@ -204,14 +204,14 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas Filas do Azur
 |Critérios de comparação|Filas do Azure|Filas de barramento de serviço|
 |---|---|---|
 |Protocolo de gerenciamento|**REST por HTTP/HTTPS**|**REST por HTTPS**|
-|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 Padrão (TCP com TLS)**|
-|API .NET Gerenciada|**Sim**<br/><br/>(API de Cliente de Armazenamento Gerenciado .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
+|Protocolo de tempo de execução|**REST por HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 padrão (TCP com TLS)**| 
+|API .NET Gerenciada|**Sim**<br/><br/>(API de cliente de armazenamento gerenciado .NET)|**Sim**<br/><br/>(API do sistema de mensagens agenciado gerenciada pelo .NET)|
 |C++ nativo|**Sim**|**Não**|
 |API Java|**Sim**|**Sim**|
 |API PHP|**Sim**|**Sim**|
 |API Node.js|**Sim**|**Sim**|
 |Suporte a metadados arbitrários|**Sim**|**Não**|
-|Regras de nomenclatura da fila|**Até 63 caracteres**<br/><br/>(letras em um nome de fila devem estar em minúsculas)|**Até 260 caracteres**<br/><br/>(nomes de fila diferenciam maiúsculas de minúsculas)|
+|Regras de nomenclatura da fila|**Até 63 caracteres**<br/><br/>(letras em um nome de fila devem estar em minúsculas)|**Até 260 caracteres**<br/><br/>(nomes e caminhos de fila não diferenciam maiúsculas de minúsculas)|
 |Função Obter tamanho da fila|**Sim**<br/><br/>(valor aproximado se as mensagens expirarem depois da TTL sem que sejam excluídas)|**Sim**<br/><br/>(valor exato, pontual)|
 |Função Inspecionar|**Sim**|**Sim**|
 
@@ -223,7 +223,7 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas Filas do Azur
 
 - As APIs do sistema de mensagens agenciado .NET do Barramento de Serviço aproveitam as conexões de TCP full duplex para melhor desempenho quando comparadas ao REST por HTTP, além de oferecerem suporte ao protocolo padrão AMQP 1.0.
 
-- Os nomes de fila do Azure podem ter de 3 a 63 caracteres, podem conter letras minúsculas, número e hifens. Para obter mais informações, consulte [Nomeando filas e metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+- Os nomes de filas do Azure podem ter de 3 a 63 caracteres e podem conter letras minúsculas, número e hifens. Para obter mais informações, consulte [Nomeando filas e metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - Os nomes de fila do Barramento de Serviço podem ter até 260 caracteres e têm menos regras restritivas de nomenclatura. Os nomes de fila do Barramento de Serviço podem conter letras, números, pontos (.), hifens (-) e sublinhados (\_).
 
@@ -311,8 +311,7 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 - [Usando o serviço de enfileiramento do Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Noções básicas sobre a cobrança de armazenamento do Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
-
 [portal clássico do Azure]: http://manage.windowsazure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

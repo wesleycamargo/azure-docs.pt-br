@@ -43,7 +43,7 @@ Para restaurar usando o Portal do Azure, empregue as etapas a seguir.
 
 Use o Azure PowerShell para executar programaticamente uma restauração do banco de dados com o cmdlet [Restore-AzureRmSqlDatabase][].
 
-> [AZURE.NOTE]  Para usar o Azure Powershell com o SQL Data Warehouse, você precisará instalar a versão 1.0.3 ou superior do Azure PowerShell. Você pode verificar a versão executando **Get-Module -ListAvailable -Name Azure**. A versão mais recente pode ser instalada do [Microsoft Web Platform Installer][]. Para saber mais sobre como instalar a versão mais recente, confira [Como instalar e configurar o Azure PowerShell][].
+> [AZURE.NOTE]  Para usar o Azure Powershell com o SQL Data Warehouse, você precisará instalar a versão 1.0.3 ou superior do Azure PowerShell. Você pode verificar a versão executando **Get-Module -ListAvailable -Name Azure**. A versão mais recente pode ser instalada do [Microsoft Web Platform Installer][]. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
 
 1. Abra o Windows PowerShell.
 2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
@@ -163,9 +163,9 @@ Para saber mais sobre os recursos de continuidade de negócios das edições do 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de continuidade de negócios do Banco de Dados SQL do Azure]: sql-database-business-continuity.md
-[Finalizar um banco de dados recuperado]: sql-database-recovered-finalize.md
-[Como instalar e configurar o Azure PowerShell]: powershell-install-configure.md
+[Visão geral de continuidade de negócios do Banco de Dados SQL do Azure]: ../sql-database/sql-database-business-continuity.md
+[Finalizar um banco de dados recuperado]: ../sql-database/sql-database-recovered-finalize.md
+[Como instalar e configurar o Azure PowerShell]: ../powershell/powershell-install-configure.md
 
 <!--MSDN references-->
 [Criar solicitação de restauração do banco de dados]: https://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -181,4 +181,4 @@ Para saber mais sobre os recursos de continuidade de negócios das edições do 
 [Portal do Azure]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Design da tabela no SQL Data Warehouse #
-SQL Data Warehouse é um sistema de banco de dados distribuído de processamento extremamente paralelo (MPP). Ele armazena dados em vários locais diferentes, conhecidos como **distribuições**. Cada **distribuição** é como um bucket, armazenando um único subconjunto de dados no data warehouse. Ao distribuir os dados e a funcionalidade de processamento em vários nós, o SQL Data Warehouse pode oferecer uma enorme escalabilidade, muito além de qualquer sistema individual.
+SQL Data Warehouse é um sistema de banco de dados distribuído de processamento extremamente paralelo (MPP). Ele armazena dados em vários locais diferentes, conhecidos como **distribuições**. Cada **distribuição** é como um bucket, armazenando um único subconjunto de dados no data warehouse. Ao dividir os dados e a funcionalidade de processamento em vários nós, o SQL Data Warehouse pode oferecer uma enorme escalabilidade, muito além de qualquer sistema individual.
 
 Quando uma tabela é criada no SQL Data Warehouse, na verdade ela é espalhada por todas as distribuições.
 
@@ -52,8 +52,10 @@ O SQL Data Warehouse oferece suporte aos tipos comuns de dados corporativos:
 - **smalldatetime**
 - **smallint**
 - **smallmoney**
+- **sysname**
 - **time**
 - **tinyint**
+- **uniqueidentifier**
 - **varbinary**
 - **varchar**
 
@@ -75,26 +77,17 @@ WHERE y.[name] IN
                 ,   'hierarchyid'
                 ,   'image'
                 ,   'ntext'
-                ,   'numeric'
                 ,   'sql_variant'
-                ,   'sysname'
                 ,   'text'
                 ,   'timestamp'
-                ,   'uniqueidentifier'
                 ,   'xml'
                 )
-
-OR  (   y.[name] IN (  'nvarchar','varchar','varbinary')
-    AND c.[max_length] = -1
-    )
-OR  y.[is_user_defined] = 1
+AND  y.[is_user_defined] = 1
 ;
 
 ```
 
-A consulta inclui todos os tipos de dados definidos pelo usuário que não têm suporte.
-
-Veja abaixo algumas alternativas que você pode usar no lugar de tipos de dados sem suporte.
+A consulta inclui todos os tipos de dados definidos pelo usuário que não têm suporte. Veja abaixo algumas alternativas que você pode usar no lugar de tipos de dados sem suporte.
 
 Em vez de:
 
@@ -102,22 +95,22 @@ Em vez de:
 - **geography**, use um tipo varbinary
 - **hierarchyid**, tipo CLR não nativo
 - **image**, **text**, **ntext** quando tiver base em texto, use varchar/nvarchar (quanto menor, melhor)
-- **nvarchar(max)**, use nvarchar(4000) ou menor para um melhor desempenho
-- **numeric**, use decimais
 - **sql\_variant**, divida a coluna em várias colunas fortemente tipadas
-- **sysname**, use nvarchar(128)
 - **table**, converta em tabelas temporárias
 - **timestamp**, retrabalhe o código para usar datetime2 e a função `CURRENT_TIMESTAMP`. Observe que não é possível ter current\_timestamp como uma restrição padrão, e o valor não será atualizado automaticamente. Se você precisar migrar valores de rowversion de uma coluna tipada como timestamp, use BINARY(8) ou VARBINARY(8) para valores de versão de linha NOT NULL ou NULL.
+- **tipos definidos pelo usuário**, converta de volta aos tipos nativos sempre que possível
+- **xml**, use um varchar(max) ou menor para melhor desempenho
+
+Para obter melhor desempenho, em vez de:
+
+- **nvarchar(max)**, use nvarchar(4000) ou menor para um melhor desempenho
 - **varchar(max)**, use varchar(8000) ou menor para obter o melhor desempenho
-- **uniqueidentifier**, use varbinary(8)
-- **tipos definidos pelo usuário**, converta de volta para os tipos nativos sempre que possível
-- **xml**, use um varchar(8000) ou menor para obter o melhor desempenho. Divida entre colunas, se for necessário.
 
 Suporte parcial:
 
 - As restrições padrão oferecem suporte apenas a literais e constantes. Não há suporte para expressões ou funções não determinísticas como `GETDATE()` ou `CURRENT_TIMESTAMP`.
 
-> [AZURE.NOTE] Defina as tabelas para que o tamanho máximo possível da linha, incluindo o comprimento total das colunas de tamanho variável, não exceda 32.767 bytes. Embora seja possível definir uma linha com dados de tamanho variável que possam exceder esse número, não será possível inserir dados na tabela. Além disso, tente limitar o tamanho de suas colunas de tamanho variável para obter uma taxa de transferência ainda melhor na execução de consultas.
+> [AZURE.NOTE] Se estiver usando o Polybase para carregar suas tabelas, defina as tabelas para que o tamanho máximo possível da linha, incluindo o comprimento total das colunas de tamanho variável, não exceda 32.767 bytes. Enquanto é possível definir uma linha com dados de tamanho variável que possa exceder essa figura e carregar linhas com BCP, ainda não será possível usar Polybase para carregar dados. O suporte a Polybase para linhas amplas será adicionado em breve. Além disso, tente limitar o tamanho de suas colunas de tamanho variável para uma taxa de transferência ainda melhor na execução de consultas.
 
 ## Princípios da distribuição de dados
 
@@ -179,7 +172,7 @@ WITH
 
 Normalmente, esse tipo de tabela é usado quando não há uma coluna de chave óbvia para basear o hash dos dados. Ela também pode ser usada por tabelas menores ou menos importantes nas quais o custo do movimento talvez não seja tão bom.
 
-O carregamento de dados em uma tabela distribuída por round robin tende a ser mais rápido do que o carregamento em uma tabela distribuída por hash. Com uma tabela distribuída por round robin, não há a necessidade de entender os dados ou executar o hash antes do carregamento. Por esse motivo, as tabelas round robin normalmente são bons destinos de carregamento.
+O carregamento de dados em uma tabela distribuída por round robin tende a ser mais rápido do que o carregamento em uma tabela distribuída por hash. Com uma tabela distribuída por round robin, não há a necessidade de entender os dados ou executar o hash antes do carregamento. Por esse motivo, as tabelas Round Robin normalmente são bons destinos de carregamento.
 
 > [AZURE.NOTE] Quando são distribuídos por round robin, os dados são alocados para a distribuição no nível do *buffer*.
 
@@ -201,7 +194,7 @@ A previsibilidade do hash é extremamente importante. Isso significa que os dado
 
 Você verá abaixo que a distribuição de hash pode ser muito eficiente para otimização da consulta. Por isso, é considerada uma forma otimizada de distribuição de dados.
 
-> [AZURE.NOTE] Lembre-se! O hash não tem base no valor dos dados, mas no tipo dos dados que estão passando por hash.
+> [AZURE.NOTE] Lembre-se! O hash não se baseia somente no valor dos dados. O hash é uma combinação do valor e do tipo de dados.
 
 Veja abaixo uma tabela que foi distribuída por hash, por ProductKey.
 
@@ -228,7 +221,7 @@ WITH
 ## Partições de tabela
 As partições de tabela recebem suporte e são fáceis de definir.
 
-Exemplo de comando `CREATE TABLE` particionado do SQL Data Warehouse :
+Exemplo de comando `CREATE TABLE` particionado do SQL Data Warehouse:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -254,7 +247,7 @@ WITH
 ;
 ```
 
-Observe que não há nenhuma função ou esquema de particionamento na definição. Tudo isso é resolvido no momento de criação da tabela. Tudo o que você precisa fazer é identificar os pontos limite da coluna que será a chave de particionamento.
+Observe que não há nenhuma função ou esquema de particionamento na definição. O SQL Data Warehouse usa uma definição simplificada de partições que é ligeiramente diferente do SQL Server. Tudo o que você precisa fazer é identificar os pontos limite da coluna particionada.
 
 ## Estatísticas
 
@@ -277,33 +270,36 @@ Aplique as seguintes recomendações para gerar estatísticas:
 >[AZURE.NOTE] É comum que o SQL Server Data Warehouse confie exclusivamente em `AUTOSTATS` para manter as estatísticas de coluna atualizadas. Essa não é uma prática recomendada nem para data warehouses do SQL Server. As `AUTOSTATS` são disparadas por uma taxa de 20% de alteração, algo que talvez não seja suficiente para grandes tabelas de fatos contendo milhões ou bilhões de linhas. Portanto, convém manter-se sempre bem informado sobre as atualizações de estatísticas, a fim de garantir que elas reflitam com precisão a cardinalidade da tabela.
 
 ## Recursos sem suporte
-O SQL Data Warehouse não usa ou oferece suporte a estes recursos:
+O SQL Data Warehouse não usa nem oferece suporte a estes recursos:
 
-- chaves primárias
-- chaves estrangeiras
-- restrições de verificação
-- restrições exclusivas
-- índices exclusivos
-- colunas computadas
-- colunas esparsas
-- tipos definidos pelo usuário
-- exibições indexadas
-- identidades
-- sequências
-- gatilhos
-- sinônimos
-
+| Recurso | Solução alternativa |
+| --- | --- |
+| identidades | [Atribuição de chaves substitutas] |
+| chaves primárias | N/D |
+| chaves estrangeiras | N/D |
+| restrições de verificação | N/D |
+| restrições exclusivas | N/D |
+| índices exclusivos | N/D |
+| colunas computadas | N/D |
+| colunas esparsas | N/D |
+| tipos definidos pelo usuário | N/D |
+| exibições indexadas | N/D |
+| sequências | N/D |
+| gatilhos | N/D |
+| sinônimos | N/D |
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][]. Para obter mais dicas sobre práticas recomendadas, veja [Práticas recomendadas do SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
 [Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
+[Atribuição de chaves substitutas]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[Práticas recomendadas do SQL Data Warehouse]: sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

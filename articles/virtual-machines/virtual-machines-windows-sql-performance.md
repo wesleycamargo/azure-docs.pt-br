@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/07/2016"
+	ms.date="04/22/2016"
 	ms.author="jroth" />
 
 # Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
@@ -23,7 +23,7 @@
 
 Este tópico fornece as práticas recomendadas para aprimoramento do desempenho do SQL Server na máquina Virtual do Microsoft Azure. Durante a execução do SQL Server em máquinas virtuais do Azure, recomendamos que você continue usando as mesmas opções de ajuste de desempenho aplicáveis ao SQL Server no ambiente de servidor local. No entanto, o desempenho de um banco de dados relacional em uma nuvem pública depende de muitos fatores como, por exemplo, o tamanho de uma máquina virtual e a configuração dos discos de dados.
 
-Ao criar imagens do SQL Server, [considere provisionar as suas VMs no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md) para aproveitar os recursos, como o uso do Armazenamento Premium como padrão e outras opções, como configurações de Aplicação de Patch Automatizada, Backup Automatizado e do AlwaysOn.
+Ao criar imagens do SQL Server, [considere provisionar suas VMs no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md). VMs do SQL Server provisionadas no Portal com o Resource Manager implementam todas essas práticas recomendadas, incluindo a configuração de armazenamento.
 
 Este artigo concentra-se na obtenção do *melhor* desempenho para o SQL Server em máquinas virtuais do Azure. Se sua carga de trabalho for menos exigente, talvez você não precise de todos os aprimoramentos relacionados abaixo. Considere suas necessidades de desempenho e padrões de carga de trabalho ao avaliar essas recomendações.
 
@@ -36,7 +36,7 @@ Veja a seguir uma lista de verificação rápida para obter o melhor desempenho 
 |Área|Otimizações|
 |---|---|
 |[Tamanho da VM](#vm-size-guidance)|[DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) ou superior para o SQL Enterprise Edition.<br/><br/>[DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) ou superior para os SQL Standard e Web Editions.|
-|[Armazenamento](#storage-guidance)|Use o [Armazenamento Premium](../storage/storage-premium-storage.md).<br/><br/>Mantenha a [conta de armazenamento](../storage/storage-create-storage-account.md) e a VM do SQL Server na mesma região.<br/><br/>Desabilite o [armazenamento com redundância geográfica](../storage/storage-redundancy.md) (replicação geográfica) do Azure na conta de armazenamento.|
+|[Armazenamento](#storage-guidance)|Use o [Armazenamento Premium](../storage/storage-premium-storage.md). O armazenamento padrão é recomendado somente para desenvolvimento/teste.<br/><br/>Mantenha a [conta de armazenamento](../storage/storage-create-storage-account.md) e a VM do SQL Server na mesma região.<br/><br/>Desabilite o [armazenamento com redundância geográfica](../storage/storage-redundancy.md) (replicação geográfica) do Azure na conta de armazenamento.|
 |[Discos](#disks-guidance)|Use no mínimo dois [discos P30](../storage/storage-premium-storage.md#scalability-and-performance-targets-whpt-BRing-premium-storage) (um para arquivos de log; um para arquivos de dados e TempDB).<br/><br/>Evite usar os discos do sistema operacional ou os discos temporários para o armazenamento de bancos de dados ou o registro em log.<br/><br/>Habilite o caching de leitura no(s) disco(s) que hospeda(m) os arquivos de dados e o TempDB.<br/><br/>Não habilite o caching no(s) disco(s) que hospeda(m) o arquivo de log.<br/><br/>Distribua vários discos de dados do Azure para obter uma taxa de transferência de E/S mais alta.<br/><br/>Formate com os tamanhos de alocação documentados.|
 |[E/S](#io-guidance)|Habilite a compactação de página do banco de dados.<br/><br/>Habilite a inicialização instantânea de arquivo para arquivos de dados.<br/><br/>Limite ou desabilite o crescimento automático no banco de dados.<br/><br/>Desative a redução automática do banco de dados.<br/><br/>Mova todos os bancos de dados para os discos de dados, incluindo bancos de dados do sistema.<br/><br/>Mova o log de erros do SQL Server e os diretórios de arquivos de rastreamento para discos de dados.<br/><br/>Configure os locais padrão de arquivos de backup e de banco de dados.<br/><br/>Habilite as páginas bloqueadas.<br/><br/>Aplique correções de desempenho do SQL Server.|
 |[Específico do recurso](#feature-specific-guidance)|Faça backup diretamente no armazenamento de blob.|
@@ -78,11 +78,11 @@ A política padrão de caching no disco do sistema operacional é de **Leitura/G
 
 ### Disco temporário
 
-A unidade de armazenamento temporário, rotulada como a unidade **D**:, não é mantida no armazenamento de blob do Azure. Não armazene seus dados ou arquivos de log na unidade **D**:.
+A unidade de armazenamento temporário, rotulada como a unidade **D**:, não é mantida no armazenamento de blob do Azure. Não armazene seus arquivos de banco de dados do usuário ou arquivos de log de transações do usuário na unidade **D**:.
 
-Para a série D, série Dv2 e VMs da série G, armazene o TempDB e/ou extensões do Pool de Buffer na unidade **D**. A unidade temporária nessas máquinas virtuais é baseada em SSD. Isso pode melhorar o desempenho de cargas de trabalho que usam muitos objetos temporários ou que têm conjuntos de trabalho que não cabem na memória.
+Para VMs da série D, série Dv2 e série G, a unidade temporária dessas VMs é baseada em SSD. Se sua carga de trabalho faz uso intenso de TempDB (por exemplo, para objetos temporários ou junções complexas), armazenar o TempDB na unidade **D** pode resultar em maior taxa de transferência de TempDB e reduzir a latência de TempDB.
 
-Para VMs que têm suporte para Armazenamento Premium (séries DS, DSv2 e GS), é recomendável armazenar o TempDB e/ou as Extensões do Pool de Buffer em um disco com suporte para Armazenamento Premium com o cache de leitura habilitado. Há uma exceção a essa recomendação. Se o uso do TempDB apresenta gravação intensa, obtenha um melhor desempenho armazenando o TempDB na unidade local **D**.
+Para VMs que têm suporte para Armazenamento Premium (séries DS, DSv2 e GS), é recomendável armazenar o TempDB e/ou as Extensões do Pool de Buffer em um disco com suporte para Armazenamento Premium com o cache de leitura habilitado. Há uma exceção a essa recomendação. Se o uso do TempDB apresenta gravação intensa, obtenha um melhor desempenho armazenando o TempDB na unidade local **D**, que é também baseado em SSD nesses tamanhos de computador.
 
 ### Discos de dados
 
@@ -148,4 +148,4 @@ Para conferir as práticas recomendadas de segurança, consulte [Considerações
 
 Revise outros tópicos sobre máquina virtual do SQL Server em [Visão geral do SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

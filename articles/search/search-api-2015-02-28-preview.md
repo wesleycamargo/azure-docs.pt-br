@@ -262,8 +262,6 @@ Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalh
 
   - **Observação**: se um campo não tiver nenhum dos atributos acima definidos como `true` (`searchable`, `filterable`, `sortable` ou `facetable`) o campo será efetivamente excluído do índice invertido. Essa opção é útil para campos que não são usados em consultas, mas são necessários em resultados de pesquisa. A exclusão desses campos do índice melhora o desempenho.
 
-`suggestions` ‒ versões anteriores da API incluída uma `suggestions` propriedade. Essa propriedade booliana foi substituída e não está mais disponível na `2015-02-28` ou `2015-02-28-Preview`. Use a [API de sugestores](#Suggesters) em vez disso. Na versão `2014-07-31`, a propriedade `suggestions` foi usada para especificar se o campo pode ser usado para preenchimento automático para digitação antecipada, para campos do tipo `Edm.String` ou `Collection(Edm.String)`. A propriedade `suggestions` era `false` por padrão porque era preciso espaço adicional no índice, mas se você a habilitou, consulte [Transição da visualização para a versão geral na Pesquisa do Azure](search-transition-from-preview.md) para obter instruções sobre como fazer a transição para a nova API.
-
 `key` ‒ marca o campo como contendo identificadores exclusivos para documentos no índice. Exatamente um campo deve ser escolhido como o campo `key`, e ele deve ser do tipo `Edm.String`. Campos de chave podem ser usados para pesquisar documentos diretamente por meio da [API de pesquisa](#LookupAPI).
 
 `retrievable` ‒ define se o campo pode ser retornado em um resultado de pesquisa. Isso é útil quando você quer usar um campo (por exemplo, margem) como mecanismo de filtro, classificação ou pontuação, mas não deseja que o campo seja visível ao usuário final. Esse atributo deve ser `true` para campos `key`.
@@ -1047,14 +1045,14 @@ O corpo da solicitação contém um ou mais documentos a serem indexados. Os doc
       ]
     }
 
-> [AZURE.NOTE] As chaves de documento só podem conter letras, números, traços ("-"), sublinhados ("\_") e sinais de igual ("="). Para obter mais detalhes, consulte as [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx).
+> [AZURE.NOTE] As chaves de documento só podem conter letras, números, traços ("-"), sublinhados ("\_") e sinais de igual ("="). Para obter mais detalhes, veja [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx).
 
 **Ações do documento**
 
 - `upload`: uma ação de carregamento é semelhante a um "upsert", em que o documento será inserido se for novo e será atualizado/substituído se ele existir. Observe que todos os campos são substituídos no caso da atualização.
 - `merge`: a mesclagem atualiza um documento existente com os campos especificados. Se o documento não existir, a mesclagem falhará. Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo "marcas" com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para "marcas", o valor final do campo "marcas" final será `["economy", "pool"]`. Ele **não** será `["budget", "economy", "pool"]`.
 - `mergeOrUpload`: se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, se comportará como `upload` com um novo documento.
-- `delete`: a exclusão remove o documento especificado do índice. Observe que todos os campos que você especificar em uma operação `delete`, que não seja o campo de chave, serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` em vez disso e apenas defina o campo explicitamente como `null`.
+- `delete`: a exclusão remove o documento especificado do índice. Observe que todos os campos que você especificar em uma operação `delete`, exceto o campo de chave, serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` em vez disso e apenas defina o campo explicitamente como `null`.
 
 **Resposta**
 
@@ -1152,7 +1150,7 @@ Uma operação **Search** é emitida como uma solicitação GET ou POST e especi
 
 Quando você usa o HTTP GET para chamar a API de **Search**, é preciso estar ciente de que o comprimento da URL da solicitação não pode exceder 8 KB. Isso costuma ser suficiente para a maioria dos aplicativos. No entanto, alguns aplicativos geram consultas muito grandes ou expressões de filtro OData. Para esses aplicativos, usar HTTP POST é uma opção melhor, pois permite filtros e consultas maiores que o GET. Com o POST, o número de termos ou cláusulas em uma consulta é o fator limitante, não o tamanho da consulta processada, uma vez que o limite de tamanho da solicitação POST é quase 16 MB.
 
-> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, consultas de pesquisa e expressões de filtro não podem ser arbitrariamente complexos. Consulte [Sintaxe de consulta Lucene](https://msdn.microsoft.com/library/mt589323.aspx) e [Sintaxe de expressão OData](https://msdn.microsoft.com/library/dn798921.aspx) para obter mais informações sobre limitações de complexidade de consulta e filtro de pesquisa. **Solicitação**
+> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, consultas de pesquisa e expressões de filtro não podem ser arbitrariamente complexos. Veja [Sintaxe de consulta Lucene](https://msdn.microsoft.com/library/mt589323.aspx) e [Sintaxe de expressão OData](https://msdn.microsoft.com/library/dn798921.aspx) para obter mais informações sobre as limitações de complexidade de consulta e filtro de pesquisa. **Solicitação**
 
 HTTPS é necessário para as solicitações de serviço. A solicitação **Pesquisar** pode ser criada usando os métodos GET ou POST.
 
@@ -1175,7 +1173,7 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 
 A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e especificam o comportamento da pesquisa. Você fornece esses parâmetros na cadeia de consulta da URL ao chamar **Pesquisar** via GET e como propriedades JSON no corpo da solicitação ao chamar **Pesquisar** via POST. A sintaxe para alguns parâmetros é ligeiramente diferente entre GET e POST. Essas diferenças são indicadas, como aplicável, abaixo:
 
-`search=[string]` (opcional) ‒ o texto a ser pesquisado. Todos os campos `searchable` são pesquisados por padrão, a menos que `searchFields` sejam especificados. Ao se pesquisar campos `searchable`, o próprio texto de pesquisa é indexado, assim, vários termos podem ser separados por espaços em branco (por exemplo: `search=hello world`). Para corresponder a qualquer termo, use `*` (isso pode ser útil para consultas de filtros boolianos). A omissão desse parâmetro tem o mesmo efeito que sua definição como `*`. Consulte [Sintaxe de consulta simples](https://msdn.microsoft.com/library/dn798920.aspx) para obter informações específicas sobre a sintaxe de pesquisa.
+`search=[string]` (opcional) ‒ o texto a ser pesquisado. Todos os campos `searchable` são pesquisados por padrão, a menos que `searchFields` sejam especificados. Ao pesquisar campos `searchable`, é gerado um token para o próprio texto de pesquisa; assim, vários termos podem ser separados por espaços em branco (por exemplo: `search=hello world`). Para corresponder a qualquer termo, use `*` (isso pode ser útil para consultas de filtros boolianos). A omissão desse parâmetro tem o mesmo efeito que sua definição como `*`. Consulte [Sintaxe de consulta simples](https://msdn.microsoft.com/library/dn798920.aspx) para obter informações específicas sobre a sintaxe de pesquisa.
 
   - **Observação**: os resultados às vezes podem ser surpreendentes ao se consultar sobre campos `searchable`. O criador de token inclui lógica para lidar com casos comuns para texto em inglês, como apóstrofos, vírgulas em números etc. Por exemplo, `search=123,456` corresponderá a um único termo, 123,456, em vez de cada um do termos 123 e 456, já que as vírgulas são usadas como separadores de milhar para números grandes em inglês. Por esse motivo, recomendamos o uso de espaços em branco em vez de pontuação para separar os termos do parâmetro `search`.
 
@@ -1224,9 +1222,9 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
   - Por exemplo: `facet=baseRate,interval:100` produz classificações com base em intervalos de taxa de base de tamanho 100. Por exemplo, se as taxas de base estiverem todas entre US$ 60 e US$ 600, haverá classificações para 0-100, 100-200, 200-300, 300-400, 400-500 e 500-600.
   - Por exemplo: `facet=lastRenovationDate,interval:year` produz uma classificação para cada ano em que os hotéis foram reformados.
 - `timeoffset` ([+-]hh:mm, [+-]hhmm ou [+-]hh) `timeoffset` é opcional. Só pode ser combinado com a opção `interval` e somente quando aplicado a um campo do tipo `Edm.DateTimeOffset`. O valor especifica o deslocamento de hora em relação ao UTC para compensar ao definir limites de tempo.
-  - Por exemplo: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa o limite de dia que inicia no 01:00:00 UTC (meia-noite no fuso horário de destino)
+  - Por exemplo: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa o dia limite que inicia à 01:00:00 UTC (meia-noite no fuso horário de destino)
 - **Observação**: `count` e `sort` podem ser combinados na mesma especificação de faceta, mas não podem ser combinados com `interval` ou `values`, e `interval` e `values` não podem ser combinados juntos.
-- **Observação**: facetas de intervalo de data hora serão calculadas com base na hora no UTC se `timeoffset` não for especificado. Por exemplo: para `facet=lastRenovationDate,interval:day`, o dia limite começa em 00:00:00 UTC. 
+- **Observação**: facetas de intervalo de data e hora serão calculadas com base na hora UTC caso `timeoffset` não seja especificado. Por exemplo: para `facet=lastRenovationDate,interval:day`, o dia limite começa à 00:00:00 UTC. 
 
 > [AZURE.NOTE] Ao chamar **Search** usando POST, esse parâmetro é chamado de `facets` em vez de `facet`. Além disso, especifique-o como uma matriz JSON de cadeias de caracteres em que cada cadeia é uma expressão de faceta separada.
 
@@ -1254,7 +1252,7 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 
 > [AZURE.NOTE] Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não existe a garantia de que todos os documentos correspondentes estejam presentes nos resultados da pesquisa. Se rechamada da pesquisa é mais importante para o seu aplicativo do que a disponibilidade, é melhor deixar `minimumCoverage` em seu valor padrão de 100.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
 
 Observação: para essa operação, o `api-version` é especificado como um parâmetro de consulta na URL, independentemente de você chamar **Pesquisa** com GET ou POST.
 
@@ -1641,7 +1639,7 @@ Uma operação **Suggestions** é emitida como uma solicitação GET ou POST.
 
 Quando você usar HTTP GET para chamar a API de **Sugestões**, será preciso estar ciente de que o comprimento da URL da solicitação não pode exceder 8 KB. Isso costuma ser suficiente para a maioria dos aplicativos. No entanto, alguns aplicativos geram consultas muito grandes, especificamente expressões de filtro OData. Para esses aplicativos, usar HTTP POST é uma opção melhor, pois permite filtros maiores que o GET. Com o POST, o número de cláusulas em um filtro é o fator limitante, não o tamanho da cadeia de caracteres de filtro não processada, uma vez que o limite de tamanho da solicitação POST é quase 16 MB.
 
-> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, expressões de filtro não podem ser arbitrariamente complexos. Consulte [Sintaxe de expressão OData](https://msdn.microsoft.com/library/dn798921.aspx) para obter mais informações sobre limitações de complexidade de filtro.
+> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, expressões de filtro não podem ser arbitrariamente complexos. Veja [Sintaxe de expressão OData](https://msdn.microsoft.com/library/dn798921.aspx) para obter mais informações sobre as limitações de complexidade de filtro.
 
 **Solicitação**
 
@@ -1774,4 +1772,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "suggesterName": "sg"
     }
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

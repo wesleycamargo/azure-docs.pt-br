@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Relatórios HTTP avançados na CDN do Microsoft Azure
@@ -22,7 +22,7 @@
 
 Este documento explica os relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN.
 
-> [AZURE.NOTE] Relatórios HTTP avançados é um recurso da camada CDN Premium. Para obter uma comparação dos recursos de CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## Acessando relatórios HTTP avançados
 
@@ -196,4 +196,4 @@ Diretamente abaixo do gráfico de barras, as informações a seguir serão lista
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Analisar o desempenho de borda](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->
