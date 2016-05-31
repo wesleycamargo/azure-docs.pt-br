@@ -45,7 +45,7 @@ Se você quiser conectar Redes Virtuais, mas não estiver criando uma conexão c
 
 ## Antes de começar
 
-Antes de começar a configurar, verifique se você tem os itens a seguir.
+Antes de começar a configurar, verifique se você tem os seguintes itens:
 
 - Um dispositivo VPN compatível e alguém que possa configurá-lo. Confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se você não estiver familiarizado com a configuração de seu dispositivo VPN ou se não estiver familiarizado com os intervalos de endereços IP localizados em sua configuração de rede local, será necessário coordenar com alguém que possa fornecer os detalhes para você.
 
@@ -56,7 +56,7 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
 ### <a name="values"></a>Exemplo de valores de configuração para este exercício
 
 
-Ao usar estas etapas como um exercício, você poderá usar os valores de configuração de exemplo.
+Ao usar estas etapas como um exercício, você poderá usar os valores de configuração de exemplo:
 
 - Nome da rede virtual: TestVNet1
 - Espaço de endereço: 10.11.0.0/16 e 10.12.0.0/16
@@ -158,4 +158,4 @@ Você pode verificar a conexão VPN no portal ou usando o PowerShell.
 
 - Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

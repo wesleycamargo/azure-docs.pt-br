@@ -27,7 +27,7 @@ Confira [Noções básicas sobre o Gerenciador de Recursos e modelos de implanta
 
 ## <a name="gwsub"></a>Sub-rede de gateway
 
-Para configurar um gateway de VPN, primeiro você precisa criar uma sub-rede de gateway para a rede virtual. Todas as sub-redes de gateway devem ser nomeadas como GatewaySubnet para funcionar adequadamente.
+Para configurar um gateway de VPN, primeiro você precisa criar uma sub-rede de gateway para a rede virtual. As sub-redes de gateway devem ser nomeadas como *GatewaySubnet* para funcionar adequadamente. Esse nome permite que o Azure saiba que essa sub-rede deve ser usada para o gateway.<BR>Se você estiver usando o portal clássico, a sub-rede de gateway será nomeada *Gateway* automaticamente na interface do portal. Isso é específico da exibição da sub-rede de gateway no portal clássico. Nesse caso, a sub-rede é efetivamente criada no Azure como *GatewaySubnet* e pode ser exibida dessa maneira no portal do Azure e no PowerShell.
 
 O tamanho mínimo de sub-rede de gateway depende totalmente da configuração que você deseja criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29 em algumas configurações, é recomendável criar uma sub-rede de gateway de /28 ou maior (/28, /27, /26 etc.).
 
@@ -49,7 +49,7 @@ O tipo de gateway especifica como o próprio gateway se conecta e é uma defini�
 - Rota Expressa
 
 
-Este exemplo para o modelo de implantação doResource Manager especifica -GatewayType como *Vpn*. Ao criar um gateway, você deve garantir que o tipo de gateway seja correto para sua configuração.
+Este exemplo para o modelo de implantação do Resource Manager especifica -GatewayType como *Vpn*. Ao criar um gateway, você deve garantir que o tipo de gateway seja correto para sua configuração.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -123,7 +123,7 @@ Se você precisar modificar seus sites locais ao usar o modelo de implantação 
 
 ##  <a name="devices"></a> Dispositivos VPN
 
-Verifique se o dispositivo VPN que você planeja usar dá suporte ao tipo de VPN necessário para a configuração. Consulte [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md) para obter mais informações sobre os dispositivos VPN compatíveis.
+Verifique se o dispositivo VPN que você planeja usar dá suporte ao tipo de VPN necessário para a configuração. Confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md) para saber mais sobre os dispositivos VPN compatíveis.
 
 ##  <a name="requirements"></a>Requisitos do gateway
 
@@ -133,7 +133,7 @@ Verifique se o dispositivo VPN que você planeja usar dá suporte ao tipo de VPN
 
 ## Próximas etapas
 
-Consulte o artigo [Perguntas Frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações antes de prosseguir com o planejamento e o projeto da configuração.
+Confira o artigo [Perguntas Frequentes sobre o Gateway de VPN](vpn-gateway-vpn-faq.md) para saber mais antes de prosseguir com o planejamento e o projeto da configuração.
 
 
 
@@ -141,4 +141,4 @@ Consulte o artigo [Perguntas Frequentes sobre o Gateway de VPN](vpn-gateway-vpn-
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

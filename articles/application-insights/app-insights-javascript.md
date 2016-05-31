@@ -12,10 +12,11 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/19/2016"
+	ms.date="05/18/2016"
 	ms.author="awills"/>
 
 # Application Insights para páginas da Web
+
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -89,8 +90,14 @@ Os [parâmetros disponíveis](https://github.com/Microsoft/ApplicationInsights-J
     // Don't log browser exceptions.
     disableExceptionTracking: true,
 
+    // Don't log ajax calls.
+    disableAjaxTracking: boolean,
+
     // Limit number of Ajax calls logged, to reduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
+
+    // Time page load up to execution of first trackPageView().
+    overridePageViewDuration: boolean,
 
     // Set these dynamically for an authenticated user.
     appUserId: string,
@@ -204,7 +211,11 @@ Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique
 
 ### Propriedades de exibição de página
 
-* **Duração da exibição de página** O tempo necessário para carregar a página e iniciar a execução de scripts. Especificamente, o intervalo entre iniciar o carregamento da página e a execução de trackPageView. Se você moveu trackPageView da sua posição normal após a inicialização do script, ele refletirá um valor diferente.
+* **Duração do modo de exibição de página** 
+
+ * Por padrão, o tempo necessário para carregar a página, desde a solicitação do cliente até o carregamento completo (incluindo arquivos auxiliares, mas excluindo tarefas assíncronas, como chamadas do Ajax).
+ * Se você definir `overridePageViewDuration` no [configuração de página](#detailed-configuration), o intervalo entre a solicitação do cliente e a execução do primeiro `trackPageView`. Se você moveu trackPageView da sua posição normal após a inicialização do script, ele refletirá um valor diferente.
+ * Se `overridePageViewDuration` for definido e um argumento de duração for fornecido na chamada `trackPageView()`, o valor do argumento será usado em vez disso. 
 
 
 ## Contagens da página personalizada
@@ -238,4 +249,4 @@ Quer saber o que os usuários fazem com seu aplicativo?
 * [Eventos e métricas personalizados](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

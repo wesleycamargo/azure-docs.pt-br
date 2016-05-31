@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Contêineres, Microsserviços, Mesos, Azure"/>
+   keywords="Docker, Contêineres, Microsserviços, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -34,12 +34,14 @@ A primeira coisa que você faz quando cria um túnel SSH no Linux ou no OS X é 
 
 Agora, abra um shell e execute o seguinte comando, em que:
 
-**PORTA** é a porta do ponto de extremidade que você deseja expor. Para o Swarm, é 2375. Para o DC/OS, use a porta 80. **NOME DE USUÁRIO** é o nome de usuário fornecido quando você implantou o cluster. **PREFIXODEDNS** é o prefixo de DNS que você forneceu ao implantar o cluster. **REGIÃO** é a região em que o grupo de recursos está localizado.
+**PORTA** é a porta do ponto de extremidade que você deseja expor. Para o Swarm, é 2375. Para o DC/OS, use a porta 80. **NOME DE USUÁRIO** é o nome de usuário fornecido quando você implantou o cluster. **PREFIXODEDNS** é o prefixo de DNS que você forneceu ao implantar o cluster. **REGIÃO** é a região em que o grupo de recursos está localizado. **CAMINHO\_PARA\_CHAVE\_PRIVADA** [OPCIONAL] é o caminho para a chave privada correspondente à chave pública que você forneceu ao criar o cluster do serviço do contêiner. Use essa opção com o sinalizador -i.
 
 ```bash
 # ssh sample
-ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+
+ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
+> A porta de conexão SSH é 2200, não a porta 22 padrão.
 
 ## Túnel DC/OS
 
@@ -48,7 +50,7 @@ Para abrir um túnel para pontos de extremidade relacionados a DC/OS, execute um
 ```bash
 # ssh sample
 
-ssh -L 80:localhost:80 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Agora você pode acessar os pontos de extremidade relacionados ao DC/OS:
@@ -66,7 +68,7 @@ Para abrir um túnel para o ponto de extremidade do Swarm, execute um comando se
 ```bash
 # ssh sample
 
-ssh -L 2375:localhost:2375 -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
 Agora você pode definir a variável de ambiente DOCKER\_HOST da maneira a seguir e continuar a usar a CLI (interface de linha de comando) do Docker da maneira normal.
@@ -81,7 +83,7 @@ Há várias opções para a criação de túneis SSH no Windows. Este documento 
 
 Baixe o PuTTY para seu sistema Windows e execute o aplicativo.
 
-Insira um nome de host que consista no nome de usuário do administrador do cluster e no nome DNS público do primeiro mestre no cluster. O **Nome de Host** será semelhante a: `adminuser@PublicDNS`. Insira 2200 para a **Porta**.
+Insira um nome de host que consista no nome de usuário do administrador do cluster e no nome DNS público do primeiro mestre no cluster. O **Nome de Host** será semelhante a: `adminuser@PublicDNS`. Insira 2200 em **Porta**.
 
 ![Configuração do PuTTY 1](media/putty1.png)
 
@@ -115,6 +117,6 @@ Quando você tiver configurado o túnel para o Docker Swarm, poderá acessar o c
 
 Implantar e gerenciar contêineres com DC/OS ou Swarm.
 
-[Trabalhar com o Serviço de Contêiner do Azure e o DC/OS](./container-service-mesos-marathon-rest.md) [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](./container-service-docker-swarm.md)
+[Trabalhar com o Serviço de Contêiner do Azure e o DC/OS](container-service-mesos-marathon-rest.md) [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

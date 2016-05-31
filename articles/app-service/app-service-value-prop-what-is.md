@@ -20,12 +20,12 @@
 # O que é o Serviço de Aplicativo do Azure?
 O Serviço de Aplicativo do Azure é o único serviço de nuvem que integra tudo o que você precisa compilar com rapidez e facilidade aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. Criado para desenvolvedores, o Serviço de Aplicativo é uma plataforma totalmente gerenciada com recursos avançados, como DevOps interno, integração contínua com Visual Studio Team Services e GitHub, suporte ao preparo e à produção, bem como a aplicação automática de patch.
 
-O Serviço de Aplicativo do Azure é um serviço único que inclui todos os recursos dos sites do Azure, Serviços Móveis do Azure e Serviços BizTalk do Azure. O Azure Functions é um exemplo das adições em andamento para o Serviço de Aplicativo que permite a próxima geração de aplicativos.
+O Serviço de Aplicativo do Azure é um serviço único que inclui todos os recursos existentes de sites do Azure, Serviços Móveis do Azure e Serviços BizTalk do Azure durante a adição de novos recursos. [Saiba mais](https://azure.microsoft.com/documentation/services/app-service/) sobre como o Serviço de Aplicativo se relaciona com esses serviços existentes.
 
 ## Por que o Serviço de Aplicativo?
 Voltada para o desenvolvimento rápido de aplicativos Web e móveis, bem como para automatizar processos de negócios, o Serviço de Aplicativo do Azure fornece um conjunto integrado de recursos empresariais por meio de uma experiência única de desenvolvimento de gerenciamento, oferecendo os seguintes benefícios:
 
-- **Compilar Aplicativos Web e Móveis Rapidamente** - compile, implante e gerencie rapidamente os aplicativos Web e móveis para funcionários ou clientes usando um único back-end. Use suas habilidades existentes de linguagem – .NET, Java, NodeJS, PHP ou Python. Acelere o desenvolvimento com acesso a uma galeria de APIs avançadas, conectores e lógica disponíveis no Azure Marketplace.
+- **Compilar Aplicativos Web e Móveis Rapidamente** ‒ compile, implante e gerencie rapidamente aplicativos Web e móveis para funcionários ou clientes usando um único back-end. Use suas habilidades existentes de linguagem – .NET, Java, NodeJS, PHP ou Python. Acelere o desenvolvimento com acesso a uma galeria de APIs avançadas, conectores e lógica disponíveis no Azure Marketplace.
 
 - **Conecte-se a qualquer serviço e desbloqueie os seus dados** - conecte o aplicativo Web ou móvel a sistemas empresariais ou SaaS em minutos com conectores internos. Escolha entre mais de 50 conectores para os sistemas corporativos, como SAP, Siebel e Oracle, serviços de SaaS corporativo populares, como o Salesforce e Office 365, e serviços de Internet populares, como o Facebook, Twitter e Dropbox.
 
@@ -43,8 +43,7 @@ O Serviço de Aplicativo permite que você crie os seguintes tipos de aplicativo
 
 - [**Aplicativos Web**](../app-service-web/app-service-web-overview.md) - crie e implante rapidamente aplicativos Web críticos dimensionados de acordo com sua empresa.
 - [**Aplicativos Móveis**](../app-service-mobile/app-service-mobile-value-prop.md) - envolva funcionários, parceiros e clientes em qualquer dispositivo a qualquer momento.
-- [**Aplicativos de API**](../app-service-api/app-service-api-apps-why-best-platform.md) - Compile e consuma as APIs de nuvem com facilidade.
-- [**Aplicativos de Função**](../azure-functions/functions-overview.md) - Crie funções simples que respondem a eventos no Azure, no local e nos provedores SaaS.
+- [**Aplicativos de API**](../app-service-api/app-service-api-apps-why-best-platform.md) ‒ compile e consuma APIs de nuvem com facilidade.
 - [**Aplicativos Lógicos**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - automatize o acesso e o uso de dados entre nuvens sem escrever código.
 
 Como um único serviço integrado, o Serviço de Aplicativo facilita a composição dos tipos de aplicativo acima em uma única solução, permitindo que você compile facilmente os aplicativos Web e os clientes móveis usando o mesmo back-end e integre nos sistemas locais, bem como os serviços populares, como o Office 365 e o salesforce.com.
@@ -60,4 +59,4 @@ Com o Serviço de Aplicativo do Azure, isso é tão fácil quanto selecionar um 
 [Crie um novo aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) agora mesmo e gratuitamente. Nenhum cartão de crédito é exigido, sem problemas.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

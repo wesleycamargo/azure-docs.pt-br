@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -27,7 +27,7 @@ Para o Microsoft Monitoring Agent se conectar e se registrar no serviço do OMS,
 
 |**Recurso de agente**|**Portas**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
+|*.ods.opinsights.azure.com|Port 443| 
 |*.oms.opinsights.azure.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
 |*.blob.core.windows.net|Porta 443|
@@ -97,7 +97,7 @@ Aqui está uma lista de portas e recursos de agente:
 
 |**Recurso de agente**|**Portas**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443|
+|*.ods.opinsights.azure.com|Port 443| 
 |*.oms.opinsights.azure.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
 |*.blob.core.windows.net/|Porta 443|
@@ -106,10 +106,10 @@ Aqui está uma lista de portas e recursos de servidor de gerenciamento:
 
 |**Recurso do servidor de gerenciamento**|**Portas**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Porta 443|
-|service.systemcenteradvisor.com|Porta 443|
-|scadvisor.accesscontrol.windows.net|Porta 443|
-|scadvisorservice.accesscontrol.windows.net|Porta 443|
+|*.ods.opinsights.azure.com|Porta 443| 
+|service.systemcenteradvisor.com|Porta 443| 
+|scadvisor.accesscontrol.windows.net|Porta 443| 
+|scadvisorservice.accesscontrol.windows.net|Porta 443| 
 |*.blob.core.windows.net|Porta 443|
 |data.systemcenteradvisor.com|Porta 443|
 |ods.systemcenteradvisor.com|Porta 443|
@@ -119,9 +119,9 @@ Aqui está uma lista de portas e recursos do OMS e do console do Operations Mana
 
 |**Recurso do console do OMS e do Operations Manager**|**Portas**|
 |----|----|
-|*.systemcenteradvisor.com|Port 80 and 443|
+|*.systemcenteradvisor.com|Port 80 and 443| 
 |*.live.com|Porta 80 e 443|
-|*.microsoftonline.com|Portas 80 e 443|
+|*.microsoftonline.com|Portas 80 e 443| 
 |login.windows.net|Portas 80 e 443|
 
 
@@ -196,5 +196,4 @@ Para o computador local que executa o Hybrid Runbook Worker, é necessário ter 
 - [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md) para adicionar funcionalidades e reunir dados.
 - Familiarize-se com as [pesquisas de log](log-analytics-log-searches.md) para exibir informações detalhadas reunidas por soluções.
 
-<!---HONumber=AcomDC_0504_2016-->
-
+<!---HONumber=AcomDC_0525_2016-->

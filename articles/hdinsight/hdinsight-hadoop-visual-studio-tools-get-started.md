@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2016"
+	ms.date="05/25/2016"
 	ms.author="jgao"/>
 
 # Começar a usar as ferramentas Hadoop para HDInsight do Visual Studio para executar uma consulta de Hive
@@ -230,6 +230,8 @@ As Ferramentas HDInsight para Visual Studio dão suporte à criação e envio de
 
 - Se os resultados forem iniciados com valores NULL, atualmente os resultados não serão mostrados. Podemos corrigir esse problema. Se você está com bloqueio em relação a isso, fique à vontade para enviar um email ou entrar em contato com a equipe de suporte.
 
+- O script HQL criado pelo Visual Studio é codificado dependendo da configuração de região local do usuário. Ele poderá não ser executado corretamente se o usuário carregar o script no cluster como binário.
+
 Se você tiver sugestões ou comentários, ou se encontrar problemas ao usar essa ferramenta, fique à vontade para enviar um email no hdivstool em microsoft.com.
 
 ## Próximas etapas
@@ -275,4 +277,4 @@ Neste artigo, você aprendeu como se conectar a clusters HDInsight no Visual Stu
 
 [apache.hive]: http://hive.apache.org
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="05/11/2016"
 	ms.author="banders"/>
 
@@ -35,7 +35,7 @@ Vamos dar uma olhada no processo:
 - Você precisa de uma assinatura paga do Microsoft Azure para usar totalmente o Log Analytics. Se não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/), que permitirá o acesso a qualquer serviço do Azure. Ou então, você pode criar uma conta gratuita do OMS no site do [Operations Management Suite](http://microsoft.com/oms) e clicar em **Experimente gratuitamente**.
 - Um espaço de trabalho do OMS
 - Cada computador com Windows do qual você deseja coletar dados devem executar o Windows Server 2008 SP1 ou superior
-- Acesso de [firewall](log-analytics-proxy-firewall) ao endereço do serviço Web do OMS
+- Acesso de [firewall](log-analytics-proxy-firewall.md) ao endereço do serviço Web do OMS
 - Um servidor [Encaminhador do Log Analytics do OMS](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) (Gateway) para encaminhar o tráfego de servidores para o OMS, se o acesso à Internet não estiver disponível nos computadores
 - Se você usar o Operations Manager, o Log Analytics dará suporte ao Operations Manager 2012 SP1 UR6 e superior e ao Operations Manager 2012 R2 UR2 e superior. Foi adicionado suporte a proxy ao Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3. Determine como ele será integrado ao OMS.
 - Determine se os computadores têm acesso direto à Internet. Caso contrário, eles precisarão de um servidor de gateway para acessar os sites de serviço Web do OMS. Todo o acesso é via HTTPS.
@@ -131,4 +131,4 @@ Com o Operations Management Suite, você pode rapidamente pesquisar eventos e lo
 - Familiarize-se com as [pesquisas de log](log-analytics-log-searches.md) para exibir informações detalhadas reunidas por soluções.
 - Use [painéis](log-analytics-dashboards.md) para salvar e exibir suas próprias pesquisas personalizadas.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

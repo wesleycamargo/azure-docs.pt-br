@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -63,4 +63,4 @@ Se você planeja habilitar o CRM Online na Rota Expressa, consulte os documentos
 	- [Configurar o roteamento](expressroute-howto-routing-classic.md)
 	- [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

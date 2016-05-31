@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -41,17 +41,17 @@ Um espaço de trabalho é um recurso do Azure e é um contêiner no qual os dado
 
 Atualmente o espaço de trabalho do Log Analytics fornece:
 
-- Uma localização geográfica para os dados serem armazenados. 
-- Granularidade de cobrança 
-- Isolamento dos dados 
+- Uma localização geográfica para os dados serem armazenados.
+- Granularidade de cobrança
+- Isolamento dos dados
 
 Com base nas características acima, pode ser útil criar vários espaços de trabalho se:
 
-- Você é uma empresa global e precisar de dados armazenados em regiões específicas por motivos de soberania de dados / conformidade. 
+- Você é uma empresa global e precisar de dados armazenados em regiões específicas por motivos de soberania de dados / conformidade.
 - Você usa o Azure e desejar evitar encargos de transferência de dados de saída tendo um espaço de trabalho do Log Analytics na mesma região que os recursos do Azure que ele gerencia.
 - Você deseja alocar encargos para departamento/grupos de negócios diferentes com base no uso. Criar um espaço de trabalho para cada departamento/grupo de negócios na sua cobrança do Azure e demonstrativo de uso mostrarão os encargos de cada espaço de trabalho separadamente.
-- Você é um provedor de serviço gerenciado e precisa para manter os dados do Log Analytics para cada cliente que você gerencia isolados dos de outros clientes. 
-- Você gerencia vários clientes e deseja que cada cliente/departamento/grupo de negócios veja seus próprios dados, mas não os dos clientes/departamentos/grupos de negócios. 
+- Você é um provedor de serviço gerenciado e precisa para manter os dados do Log Analytics para cada cliente que você gerencia isolados dos de outros clientes.
+- Você gerencia vários clientes e deseja que cada cliente/departamento/grupo de negócios veja seus próprios dados, mas não os dos clientes/departamentos/grupos de negócios.
 
 Ao usar agentes para coletar dados, você pode configurar cada agente para relatar o espaço de trabalho necessário.
 
@@ -246,4 +246,4 @@ Se você for um administrador e houver vários usuários associados ao espaço d
 - [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md) para adicionar funcionalidade e obter dados.
 - [Definir configurações de proxy e firewall no Log Analytics](log-analytics-proxy-firewall.md) se sua organização usar um servidor proxy ou firewall para que os agentes possam se comunicar com o serviço do Log Analytics.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

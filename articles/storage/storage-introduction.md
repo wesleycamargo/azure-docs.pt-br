@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/24/2016"
+	ms.date="05/23/2016"
 	ms.author="tamram"/>
 
 # Introdução ao Armazenamento do Microsoft Azure
@@ -233,4 +233,4 @@ Para saber mais sobre o Armazenamento do Azure, explore estes recursos:
 - [Como usar o Armazenamento de fila do Python](storage-python-how-to-use-queue-storage.md)
 - [Como usar o Armazenamento de Filas no Python](storage-python-how-to-use-file-storage.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

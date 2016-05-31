@@ -13,13 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie"/>
 
 # Como usar o Cache Redis do Azure com Python
 
 > [AZURE.SELECTOR]
-- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
 - [Node.js](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
@@ -34,30 +35,37 @@ Instale o [redis-py](https://github.com/andymccurdy/redis-py).
 
 ## Criar um cache Redis no Azure
 
-No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=398536), clique em **Novo**, **Dados + Armazenamento** e selecione **Cache Redis**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-  ![][1]
+## Recuperar as chaves de acesso e o nome do host
 
-Insira um nome de host DNS. Ele terá o formato `<name>
-  .redis.cache.windows.net`. Clique em **Criar**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-  ![][2]
 
-  Depois de criar o cache, [navegue até ele](cache-configure.md#configure-redis-cache-settings) para exibir as configurações de cache. Você precisará do seguinte:
+## Habilitar o ponto de extremidade não SSL
 
-  - **Nome do host.** Esse é o nome que você inseriu ao criar o cache.
-  - **Porta.** Clique no link em **Portas** para exibir as portas. Use a porta SSL.
-  - **Chave de acesso.** Clique no link em **Chaves** e copie a chave primária.
+Alguns clientes Redis não dão suporte a SSL e, por padrão, a [porta não SSL está desabilitada para novas instâncias do Cache Redis do Azure](cache-configure.md#access-ports). No momento da redação deste artigo, o cliente [redis\_py](https://github.com/andymccurdy/redis-py) não oferecia suporte a SSL.
 
-  ##Adicionar algo ao cache e recuperá-lo
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-  >>> import redis r = redis.StrictRedis(host='<name>.redis.cache.windows.net', port=6380, db=0, password='<key>', ssl=True) >>> r.set('foo', 'bar') True >>> r.get('foo') b'bar'
 
-Substitua *&lt;name&gt;* pelo nome do cache e *&lt;key&gt;* por sua chave de acesso.
+## Adicionar algo ao cache e recuperá-lo
+
+
+	>>> import redis
+	>>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
+	      port=6380, db=0, password='<key>', ssl=True)
+	>>> r.set('foo', 'bar')
+	True
+	>>> r.get('foo')
+	b'bar'
+
+
+Substitua `<name>` pelo nome do seu cache e `key` por sua chave de acesso.
 
 
 <!--Image references-->
-[1]: ./media/cache-python-get-started/cache01.png
-[2]: ./media/cache-python-get-started/cache02.png
+[1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
+[2]: ./media/cache-python-get-started/redis-cache-cache-create.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

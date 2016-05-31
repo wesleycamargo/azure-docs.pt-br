@@ -177,7 +177,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-As filas do Barramento de Serviço são compatíveis com um [tamanho máximo de mensagem de 256 Kb](service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas) (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo, podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, confira [Entidades de mensagens particionadas](service-bus-partitioning.md).
+As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Se o particionamento estiver habilitado, o limite superior será maior. Para saber mais, consulte [Entidades de mensagens particionadas](service-bus-partitioning.md).
 
 ## Como receber mensagens de uma fila
 
@@ -253,4 +253,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

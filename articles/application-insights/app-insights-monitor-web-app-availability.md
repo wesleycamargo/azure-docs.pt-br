@@ -12,10 +12,13 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/18/2016"
+	ms.date="05/20/2016"
 	ms.author="awills"/>
 
 # Monitorar a disponibilidade e a capacidade de resposta de qualquer site
+
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 Após ter implantado seu aplicativo Web, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. O Application Insights envia solicitações em intervalos regulares por meio de pontos no mundo inteiro, e pode alertá-lo se o seu aplicativo responder lentamente ou simplesmente não responder.
 
@@ -237,7 +240,7 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 
 ## Automação
 
-* [Use os scripts do PowerShell para configurar um teste da Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente. 
+* [Use os scripts do PowerShell para configurar um teste na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente. 
 * Configure um [webhook](../azure-portal/insights-webhooks-alerts.md), que é chamado quando um alerta é gerado.
 
 ## Perguntas? Problemas?
@@ -257,6 +260,28 @@ Talvez você deseje desabilitar testes na Web quando estiver fazendo a manutenç
 * *Eu gostaria de usar testes de disponibilidade em nosso servidor interno que é executado por trás de um firewall.*
 
     Configure o firewall para permitir solicitações de endereços IP na lista no fim deste artigo.
+
+* *Falha de carregamento de um teste na Web de várias etapas*
+
+    Há um limite de tamanho de 300 K.
+
+    Não há suporte para loops.
+
+    Não há suporte para referências a outros testes na Web.
+
+    Não há suporte para fontes de dados.
+
+    
+* *O teste de várias etapas não foi concluído*
+
+    Há um limite de 100 solicitações por teste.
+
+    O teste será interrompido se for executado por mais de dois minutos.
+
+* *Como executar um teste com certificados de cliente*
+
+    Não há suporte para isso, infelizmente.
+
 
 ## <a name="video"></a>Vídeo
 
@@ -396,4 +421,4 @@ Abra as portas 80 (http) e 443 (https).
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->
