@@ -139,7 +139,7 @@ Nesta etapa, você criará dois serviços vinculados: **StorageLinkedService** e
 		  		}
 			}
 
-	Substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes de seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
+	Substitua **servername**, **databasename**, **username@servername** e **password** pelos nomes de seu servidor SQL do Azure, banco de dados, conta de usuário e senha.
 
 2.	Execute o comando a seguir para criar um serviço vinculado.
 	

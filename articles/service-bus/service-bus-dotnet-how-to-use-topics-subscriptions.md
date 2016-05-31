@@ -52,7 +52,7 @@ Nos dois casos, você pode recuperar a cadeia de conexão usando o método `Clou
 
 ### Configurar a cadeia de conexão
 
-O mecanismo de configuração do serviço permite que você altere dinamicamente as definições de configuração a partir do [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (****.csdef**), como mostrado no próximo exemplo.
+O mecanismo de configuração do serviço permite que você altere dinamicamente as definições de configuração a partir do [portal clássico do Azure][] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (**.csdef**), como mostrado no próximo exemplo.
 
 ```
 <ServiceDefinition name="Azure1">

@@ -102,7 +102,7 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
 
 	![Configurações do SQL do Azure do editor][image-editor-azure-sql-settings]
 
-2. Substitua **servername**, **databasename**, ****username@servername** e **password** pelos nomes do servidor SQL do Azure, do banco de dados, da conta de usuário e a senha.
+2. Substitua **servername**, **databasename**, **username@servername** e **password** pelos nomes do servidor SQL do Azure, do banco de dados, da conta de usuário e a senha.
 3. Clique em **Implantar** na barra de ferramentas para implantar o AzureSqlLinkedService. 
    
 

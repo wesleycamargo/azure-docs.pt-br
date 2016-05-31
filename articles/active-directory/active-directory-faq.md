@@ -28,7 +28,7 @@ Para saber mais, confira [O que é o Azure Active Directory?](active-directory-w
 ## Acessar o Azure e o Azure Active Directory
 
 
-****P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no portal clássico do Azure (https://manage.windowsazure.com)?**
+**P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no portal clássico do Azure (https://manage.windowsazure.com)?**
 
 **R:** o acesso ao portal clássico do Azure requer que cada usuário tenha permissões em uma assinatura do Azure. Se você tiver uma assinatura paga do Office 365 ou do Azure AD, navegue até [http://aka.ms/accessAAD](http://aka.ms/accessAAD) para obter uma etapa única de ativação. Caso contrário, você precisará ativar uma [avaliação do Azure](https://azure.microsoft.com/pricing/free-trial/) completa ou uma assinatura paga.
 
