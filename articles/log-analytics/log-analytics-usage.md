@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="04/28/2016"
 	ms.author="banders"/>
 
@@ -61,4 +61,4 @@ A página **Uso** exibe as seguintes informações:
 
 - Consulte as [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir as informações detalhadas reunidas pelas soluções.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

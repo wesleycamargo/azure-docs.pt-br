@@ -21,8 +21,8 @@
 # Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL
 
 > [AZURE.SELECTOR]
+- [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
-- [C#](sql-database-connect-query.md)
 - [Excel](sql-database-connect-excel.md)
 
 Este artigo mostra como conectar-se a um Banco de Dados SQL do Azure usando a versão mais recente do SQL Server Management Studio (SSMS) e executar uma consulta simples com instruções Transact-SQL.
@@ -56,7 +56,7 @@ Depois que se conectar ao servidor lógico, você pode se conectar a um banco de
 
 4. Clique no botão **Executar**. A captura de tela a seguir mostra uma consulta bem-sucedida.
 
-	![Êxito. Conectar-se ao servidor de Banco de Dados SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
+	![Sucesso. Conectar-se ao servidor de Banco de Dados SQL: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Próximas etapas
 
@@ -66,4 +66,4 @@ Se não tiver experiência com o T-SQL, consulte [Tutorial: Escrevendo instruç�
 
 Para começar a criação de usuários de banco de dados e administradores de usuários de banco de dados, confira [Introdução à segurança do Banco de Dados SQL](sql-database-get-started-security.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

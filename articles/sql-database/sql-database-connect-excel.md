@@ -22,7 +22,7 @@
 # Tutorial do Banco de Dados SQL: Conectar o Excel a um banco de dados SQL do Azure e criar um relatório
 
 > [AZURE.SELECTOR]
-- [C#](sql-database-connect-query.md)
+- [Visual Studio](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
@@ -83,4 +83,4 @@ Agora que você estabeleceu a conexão e criou o arquivo com dados e informaçõ
 - Saiba mais sobre os benefícios dos [pools elásticos](sql-database-elastic-pool.md).
 - Saiba como [criar um aplicativo Web que se conecta ao Banco de Dados SQL em back-end](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

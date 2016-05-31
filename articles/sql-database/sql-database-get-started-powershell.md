@@ -34,7 +34,7 @@ Saiba como criar um novo banco de dados SQL usando os cmdlets do PowerShell. (Pa
 
 ## Configuração do banco de dados: criar um grupo de recursos, servidor e regra de firewall
 
-Agora que você tem acesso para executar cmdlets em sua assinatura do Azure selecionada, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o banco de dados será criado. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureRmLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** para obter uma lista de locais válidos.
+Agora que você tem acesso para executar cmdlets em sua assinatura do Azure selecionada, a próxima etapa é estabelecer o grupo de recursos que contém o servidor no qual o banco de dados será criado. Você pode editar o próximo comando a fim de usar qualquer local válido de sua escolha. Execute **(Get-AzureRmLocation | Where-Object {$\_.Providers -eq "Microsoft.Sql" }).Locations** para obter uma lista de locais válidos.
 
 Execute o seguinte comando para criar um novo grupo de recursos:
 
@@ -120,4 +120,4 @@ Depois de criar um novo banco de dados SQL e de realizar tarefas básicas de con
 
 - [Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

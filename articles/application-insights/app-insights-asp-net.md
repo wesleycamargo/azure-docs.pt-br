@@ -34,6 +34,7 @@ Você precisa de:
 * Uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela, usando sua [Conta da Microsoft](http://live.com).
 * Atualização 3 ou mais recente do Visual Studio 2013.
 
+
 ## <a name="ide"></a> Adicionar o Application Insights ao seu projeto no Visual Studio
 
 #### Se for um novo projeto...
@@ -62,7 +63,7 @@ Se esse aplicativo é parte de um aplicativo maior, você talvez queira usar **D
 
 ####<a name="land"></a> Qual a função de "Adicionar o Application Insights"?
 
-O comando executou estas etapas (que, em vez disso, você poderia [executar manualmente](app-insights-start-monitoring-app-health-usage.md), se preferir):
+O comando executou estas etapas (que, em vez disso, você poderia [executar manualmente](app-insights-asp-net-manual.md), se preferir):
 
 1. Adiciona o pacote NuGet do SDK da Web do Application Insights ao seu projeto. Para vê-lo no Visual Studio, clique com o botão direito em seu projeto e escolha Gerenciar pacotes NuGet.
 2. Cria um recurso do Application Insights no [portal do Azure][portal]. É onde você verá seus dados. Ele recupera a *chave de instrumentação*, que identifica o recurso.
@@ -257,4 +258,4 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

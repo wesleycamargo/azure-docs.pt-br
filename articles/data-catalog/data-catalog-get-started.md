@@ -160,7 +160,7 @@ Para este exemplo, você usará uma pesquisa por palavra-chave. A pesquisa do **
 Neste exemplo, você fará uma pesquisa de **Agrupamento** para ativos de dados nos quais o nome é igual a produtos e as marcas são iguais à ilustração ou as marcas são iguais à foto.
 
 1. Vá para https://azure.microsoft.com/services/data-catalog, clique em **Introdução** e faça logon no portal do **Catálogo de Dados do Azure**.
-2. Na caixa **Pesquisar no Catálogo de Dados**, insira uma consulta de **Agrupamento**: (tags:description OR tags:photo).
+2. Na caixa **Pesquisar no Catálogo de Dados**, insira uma consulta de **Agrupamento**: (**marcas:descrição OU marcas:foto**).
 3. Clique no ícone de pesquisa ou pressione Enter. O **Catálogo de Dados do Azure** exibirá os ativos de dados para esta consulta de pesquisa.
 
     ![](media/data-catalog-get-started/data-catalog-search-box.png)
@@ -262,4 +262,4 @@ Neste exercício, você explorou os recursos de gerenciamento do **Catálogo de 
 
 Neste tutorial, você explorou recursos essenciais do **Catálogo de Dados do Azure**, incluindo o registro, a anotação, a descoberta e o gerenciamento de fontes de dados corporativas. Agora que você concluiu o tutorial, é hora de começar. Você pode começar hoje mesmo registrando as fontes de dados que você e sua equipe precisam e convidando colegas para usar o catálogo.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

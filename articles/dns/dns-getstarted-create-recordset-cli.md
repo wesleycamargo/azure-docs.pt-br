@@ -62,8 +62,8 @@ Os exemplos a seguir mostram como criar um conjunto de registros de cada tipo de
 
 ## Próximas etapas
 
-Para gerenciar seus registros e conjunto de registros, confira [Gerenciar registros DNS e conjuntos de registros usando a CLI](dns-operations-recordsets-portal.md).
+Para gerenciar seus registros e conjunto de registros, confira [Gerenciar registros DNS e conjuntos de registros usando a CLI](dns-operations-recordsets-cli.md).
 
 Para saber mais sobre o Azure DNS, confira [Visão geral do Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->
