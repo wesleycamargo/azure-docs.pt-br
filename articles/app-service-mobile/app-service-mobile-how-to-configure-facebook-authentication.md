@@ -42,7 +42,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
 
 6. No painel de navegação à esquerda, clique em **Configurações**. Clique no campo **Segredo do Aplicativo**, clique em **Mostrar**, forneça sua senha se solicitado e anote os valores de **ID do Aplicativo** e **Segredo do Aplicativo**. Você os utilizará mais tarde para configurar seu aplicativo no Azure.
 
-> [AZURE.IMPORTANT] O segredo do aplicativo é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
+	> [AZURE.IMPORTANT] O segredo do aplicativo é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
 
 7. A conta do Facebook usada para registrar o aplicativo é um administrador do aplicativo. Neste ponto, apenas os administradores podem entrar neste aplicativo. Para autenticar outras contas do Facebook, clique em **Análise do Aplicativo** e habilite a opção **Tornar <your-app-name> público** para habilitar o acesso ao público geral usando a autenticação do Facebook.
 

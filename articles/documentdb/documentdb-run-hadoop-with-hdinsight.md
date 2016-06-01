@@ -318,7 +318,7 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 2. <p>Vamos começar pela cadeia de caracteres de consulta. Vamos escrever uma consulta Pig que usa todas as IDs exclusivas (_rid) e os carimbos de data/hora (_ts) gerados pelo sistema de documentos de uma coleção do Banco de Dados de Documentos, registra todos os documentos por minuto e armazena os resultados em uma nova coleção do Banco de Dados de Documentos.</p>
     <p>Primeiro, carregue documentos do Banco de Dados de Documentos no HDInsight. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Adicione uma consulta do Banco de Dados de Documentos ao parâmetro de consulta opcional do Banco de Dados de Documentos para limitar os documentos a somente _ts e _rid.</p>
 
-   > [AZURE.NOTE] Sim, podemos permitir a adição de várias coleções como uma entrada: </br> 
+    > [AZURE.NOTE] Sim, podemos permitir a adição de várias coleções como uma entrada: </br> 
     '*\<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos\>*,*\<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos\>*'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </b>
 
 	OS documentos são distribuídos em round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
