@@ -33,7 +33,7 @@ Poste quaisquer comentários ou perguntas ao final deste artigo ou no [Fórum do
 
 Aqui está o que você precisa para essa implantação:
 
-- **Servidor de gerenciamento**: uma VM local que executa o Windows Server 2012 R2 e que atua como o servidor de gerenciamento. Você instala os componentes de Recuperação de Site (incluindo os servidores de configuração e de processo) neste servidor. Leia mais em [Considerações sobre o servidor de gerenciamento](site-recovery-vmware-to-azure-classic.md#management-server-considerations) e [Pré-requisitos locais](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
+- **Servidor de gerenciamento**: uma VM que executa o Windows Server 2012 R2 e que atua como o servidor de gerenciamento. Você instala os componentes de Recuperação de Site (incluindo os servidores de configuração e de processo) neste servidor. Leia mais em [considerações sobre o servidor de gerenciamento](site-recovery-vmware-to-azure-classic.md#management-server-considerations) e [pré-requisitos de origem](site-recovery-vmware-to-azure-classic.md#on-premises-prerequisites).
 - **Máquinas virtuais IaaS**: as VMs que você deseja migrar.
 
 ## Etapas de implantação.
@@ -61,4 +61,4 @@ Aqui está o que você precisa para essa implantação:
 
 Saiba mais sobre outros cenários de replicação em [O que é o Azure Site Recovery?](site-recovery-overview.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Pré-carregar ativos em um ponto de extremidade da CDN do Azure
+
+[AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Por padrão, os ativos são armazenados primeiro em cache à medida que são solicitados. Isso significa que a primeira solicitação de cada região pode demorar mais tempo, pois os servidores de borda não terão o conteúdo armazenado em cache e precisarão encaminhar a solicitação para o servidor de origem. O pré-carregamento de conteúdo evita essa latência de primeiro acesso.
 
@@ -58,4 +60,4 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 - [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
 - [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

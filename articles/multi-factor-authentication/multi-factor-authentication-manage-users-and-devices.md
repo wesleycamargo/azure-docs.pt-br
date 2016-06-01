@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Gerenciando configurações de usuário com o Azure Multi-Factor Authentication na nuvem
@@ -86,4 +86,4 @@ Os administradores têm a capacidade de restaurar o Multi-Factor Authentication 
 9. Clique em Salvar.
 10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

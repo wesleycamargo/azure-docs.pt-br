@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Azure AD Connect Health: histórico de lançamento de versão
@@ -86,4 +86,4 @@ Este artigo destina-se para ajudar você a controlar as versões que foram lanç
 ## Próximas etapas
 Saiba mais sobre [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](active-directory-aadconnect-health.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

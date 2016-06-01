@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Adicionar proprietários e usuários a um Laboratório de Desenvolvimento/Teste | Microsoft Azure"
-	description="Com segurança, adicione um usuário que não está em sua assinatura para o Laboratório de Desenvolvimento/Teste do Azure."
+	pageTitle="Adicionar proprietários e usuários a um laboratório | Microsoft Azure"
+	description="Adicionar com segurança um usuário que não está em sua assinatura aos Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,33 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Adicionar proprietários e usuários a um Laboratório de Desenvolvimento/Teste
+# Adicionar proprietários e usuários a um laboratório
 
-> [AZURE.NOTE] Clique no link a seguir para exibir o vídeo que acompanha este artigo: [como definir a segurança no seu Laboratório de Desenvolvimento/Teste](/documentation/videos/how-to-set-security-in-your-devtest-lab)
+> [AZURE.NOTE] Clique no link a seguir para exibir o vídeo que acompanha este artigo: [Como definir a segurança em Laboratórios de Desenvolvimento/Teste](/documentation/videos/how-to-set-security-in-your-devtest-lab).
 
 ## Visão geral
-
-O acesso a um Laboratório de Desenvolvimento/Teste é controlado pelo Controle de Acesso Baseado em Função do Azure (RBAC). Procure [Controle de Acesso Baseado em Função(RBAC)](https://azure.microsoft.com/searchresults?query=Role%20Based%20Access%20Control%20%28RBAC%29) no Portal de visualização do Azure para saber mais.
+O acesso a Laboratórios de Desenvolvimento/Teste é controlado pelo RBAC (Controle de Acesso Baseado em Função do Azure). Pesquise [RBAC (Controle de Acesso Baseado em Função)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) no [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) para saber mais.
 
 Você permite acesso ao seu laboratório por meio de duas funções:
 
- - **Proprietário**: os usuários atribuídos à função **Proprietário** no nível de laboratório têm acesso completo ao laboratório, incluindo às funções de gerenciamento e monitoramento. A função **Proprietário** atribuída ao nível de laboratório não concede aos usuários permissões para acessar recursos na assinatura fora do escopo do laboratório. Os usuários atribuídos à função **Proprietário** no nível de assinatura do Azure automaticamente têm direitos de **Proprietário** sobre quaisquer laboratórios criados nessa assinatura.
+- **Proprietário**: os usuários atribuídos à função **Proprietário** no nível de laboratório têm acesso completo ao laboratório, incluindo as funções de gerenciamento e monitoramento. A função **Proprietário** atribuída no nível de laboratório não concede aos usuários permissões para acessar recursos na assinatura fora do escopo do laboratório. Os usuários atribuídos à função **Proprietário** no nível de assinatura do Azure automaticamente têm direitos de **Proprietário** sobre quaisquer laboratórios criados nessa assinatura.
 
- -  **Usuário do Laboratório de Desenvolvimento/Teste**: usuários atribuídos à função **Usuário do Laboratório de Desenvolvimento/Teste** pode criar, atualizar e excluir VMs no laboratório especificado. Os usuários podem ser *internos* (um membro do Active Directory do Azure para a assinatura) ou *externos* (um usuário que não é membro do AD do Azure, como um membro de uma organização parceira).
-	-  Uma função **Usuário do Laboratório de Desenvolvimento/Teste** deve ser atribuída por meio dos blocos **Adicionar Usuários** do laboratório.
-	-  Os usuários na função **Usuário do Laboratório de Desenvolvimento/Teste** podem executar essas operações apenas dentro do laboratório ao qual estão atribuídos. Por exemplo, um **Usuário do Laboratório de Desenvolvimento/Teste** não pode criar uma máquina virtual usando o serviço de Máquina Virtual da assinatura. A criação de uma máquina virtual só é permitida a partir da conta do Laboratório de Desenvolvimento/Teste.
+-  **Usuário de Laboratórios de Desenvolvimento/Teste**: usuários atribuídos à função **Usuário de Laboratórios de Desenvolvimento/Teste** podem criar, atualizar e excluir VMs no laboratório especificado. Os usuários podem ser *internos* (um membro do Active Directory do Azure para a assinatura) ou *externos* (um usuário que não é membro do AD do Azure, como um membro de uma organização parceira).
+	-  Uma função **Usuário de Laboratórios de Desenvolvimento/Teste** deve ser atribuída por meio dos blocos **Adicionar Usuários** do laboratório.
+	-  Os usuários na função **Usuário de Laboratórios de Desenvolvimento/Teste** podem executar essas operações apenas dentro do laboratório ao qual estão atribuídos. Por exemplo, um **Usuário de Laboratórios de Desenvolvimento/Teste** não pode criar uma máquina virtual usando o serviço de Máquina Virtual da assinatura. A criação de uma máquina virtual só é permitida por meio da conta de Laboratórios de Desenvolvimento/Teste.
 	- Os usuários *externos* devem ter uma conta em um dos domínios de conta da Microsoft (ou seja, @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com ou qualquer variante de um país específico).
-
+ 
 ## Adicionar um proprietário ao laboratório
 
-O Laboratório de Desenvolvimento/Teste considera os proprietários de uma assinatura do Azure que contém laboratórios como proprietários desses laboratórios. Embora seja possível adicionar outros proprietários a um Laboratório de Desenvolvimento/Teste por meio da folha do laboratório no Portal de visualização do Azure, isso não tem suporte no momento.
+Os Laboratórios de Desenvolvimento/Teste consideram os proprietários de uma assinatura do Azure que contém laboratórios como proprietários desses laboratórios. Embora seja possível adicionar outros proprietários a um laboratório por meio da folha do laboratório no [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), não há suporte para isso no momento.
 
 Para adicionar um proprietário a uma assinatura do Azure na qual você já tem laboratórios criados, ou na qual criará novos laboratórios, siga estas etapas:
 
-1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. No painel de navegação esquerdo, toque em **Assinaturas**.
 
@@ -67,11 +66,11 @@ Para adicionar um proprietário a uma assinatura do Azure na qual você já tem 
 
 1. Quando você retornar à folha **Usuários**, verá que o usuário foi adicionado como proprietário. Agora, essa pessoa será o proprietário de todos os laboratórios criados nessa assinatura e, portanto, será capaz de executar tarefas de proprietário.
 
-## Adicionar um usuário do Laboratório de Desenvolvimento/Teste ao seu laboratório
+## Adicionar um usuário de Laboratórios de Desenvolvimento/Teste ao seu laboratório
 
-Para adicionar um usuário do Laboratório de Desenvolvimento/Teste ao seu laboratório, execute estas etapas:
+Para adicionar um usuário de Laboratórios de Desenvolvimento/Teste ao seu laboratório, execute estas etapas:
 
-1. Entre no [Portal de visualização do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toque em **Procurar**.
 
@@ -87,7 +86,7 @@ Para adicionar um usuário do Laboratório de Desenvolvimento/Teste ao seu labor
 
 	![Adicionar usuário](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-1. Na folha **Selecionar uma função**, toque em **Usuário do Laboratório de Desenvolvimento/Teste**
+1. Na folha **Selecionar uma função**, toque em **Usuário de Laboratórios de Desenvolvimento/Teste**
 
 1. Na folha **Adicionar usuários**:
 
@@ -99,6 +98,6 @@ Para adicionar um usuário do Laboratório de Desenvolvimento/Teste ao seu labor
 
 	1. Toque em **OK** para fechar a folha **Adicionar acesso**.
 
-	1. A folha **Usuários** exibe as funções e usuários adicionados.
+1. A folha **Usuários** exibe as funções e usuários adicionados.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

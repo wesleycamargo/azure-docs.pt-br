@@ -72,7 +72,7 @@ Adicionar a conta de trabalho do dispositivo não Samsung Android
 
 Depois de ter instalado o aplicativo Azure Authenticator, você também poderá criar uma conta de trabalho do Gerenciador de Contas Android.
 
-1. No menu Configurações, navegu**e até **Contas** e clique em **Adicionar Conta**.
+1. No menu Configurações, navegue até **Contas** e clique em **Adicionar Conta**.
 2. Siga as etapas 2 a 7 no procedimento, adicionando a conta de trabalho por meio da tela** principal do aplicativo, a fim de adicionar uma conta de trabalho.
 
 ### Como descobrir qual versão está instalada
@@ -104,7 +104,8 @@ Você pode remover a conta de trabalho que você criou a qualquer momento da seg
 4. Clique em **OK** quando a mensagem "Tem certeza de que deseja deixar a área de trabalho" for exibida.
 5. Isso garante que você excluiu sua conta de trabalho de seu local de trabalho.
 
->[AZURE.NOTE> É recomendável que você não use a opção de Remover Conta para excluir uma conta de trabalho, pois essa opção pode não funcionar em algumas versões anteriores do Android.
+>[AZURE.NOTE]
+É recomendável que você não use a opção de Remover Conta para excluir uma conta de trabalho, pois essa opção pode não funcionar em algumas versões anteriores do Android.
 
 ##Desinstalando o aplicativo
 
@@ -116,4 +117,4 @@ Em um dispositivo Samsung Android, os privilégios de administrador do dispositi
 
 Se você vir o **Erro do Keystore**, isso pode ocorrer por não ter o bloqueio de tela configurado com um PIN. Para contornar esse problema, desinstale o aplicativo Azure Authenticator, configure um PIN para a tela de bloqueio e reinstale o aplicativo.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

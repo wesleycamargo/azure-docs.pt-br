@@ -123,7 +123,7 @@ Um aplicativo Scala de exemplo para receber o evento e encaminhá-lo para difere
 
 5. O aplicativo requer dois jars de dependência:
 
-	* **Jar receptor EventHub**. Ele é necessário para o Spark receber as mensagens do hub de eventos. Este jar está disponível em seu cluster Spark Linux em `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Você pode usar pscp para copiar o jar para seu computador local.
+	* **Jar receptor EventHub**. Ele é necessário para o Spark receber as mensagens do hub de eventos. Este jar está disponível em seu cluster Spark Linux em `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. Você pode usar pscp para copiar o jar para seu computador local. (Observação: algumas instâncias têm o arquivo em `/usr/hdp/2.4.1.0-327/spark/lib`)
 
 			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
@@ -257,6 +257,8 @@ Para executar o aplicativo que transmite eventos em uma tabela Hive, são necess
 
 Os arquivos **.jar** estão disponíveis no seu cluster HDInsight Spark em `/usr/hdp/current/spark-client/lib`. O **hive-site.xml** está disponível em `/usr/hdp/current/spark-client/conf`.
 
+
+
 Você pode usar [WinScp](http://winscp.net/eng/download.php) para copiar esses arquivos do cluster para seu computador local. Em seguida, você pode usar ferramentas para copiar esses arquivos para a sua conta de armazenamento associada ao cluster. Para obter mais informações sobre como carregar arquivos para a conta de armazenamento, consulte [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
 
 Depois de copiar os arquivos da sua conta de armazenamento do Azure, abra um prompt de comando, navegue até o diretório em que instalou CURL e execute o seguinte comando (substitua nome de usuário/senha e nome do cluster):
@@ -374,4 +376,4 @@ Você deverá ver uma saída semelhante ao seguinte:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

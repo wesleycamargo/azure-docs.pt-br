@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/16/2015"
+   ms.date="04/25/2016"
    ms.author="sngun"/>
 
 # Parâmetros de entrada do Runbook
@@ -98,17 +98,9 @@ Você pode usar a atividade [**Write-Output**](https://technet.microsoft.com/lib
 
 4. Crie dois parâmetros com as seguintes propriedades que serão usadas pela atividade **Get-AzureVM**:
 
-    * **Parâmetro1:** 
-    Nome – VMName,
-    Tipo – String,
-    Obrigatório – No
-	
-    * **Parâmetro2:** 
-    Nome – ServiceName,
-    Tipo – String,
-    Obrigatório – No,
-    Valor padrão – Custom,
-    Valor padrão personalizado – \<nome do serviço padrão que contém as máquinas virtuais>
+    * **Parâmetro1:** Nome – VMName, Tipo – String, Obrigatório – No
+
+    * **Parameter2:** Name--ServiceName, Type--String, Mandatory--No, Default value--Custom, Custom default value--<Nome do serviço padrão que contém as máquinas virtuais>
 
 5. Depois de adicionar os parâmetros, clique em **OK**. Agora você pode exibi-los na **folha Entrada e saída**. Clique em **OK** novamente e clique em **Salvar** e **Publicar** o runbook.
 
@@ -137,10 +129,10 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
 
     - **Cmdlets de gerenciamento de serviços do azure:** você pode iniciar um runbook de automação criado em um grupo de recursos padrão usando [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx)
 
-    **Exemplo:**  
+    **Exemplo:**
 
       ```
-		$params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
@@ -148,10 +140,10 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
     - **Cmdlets do Azure Resource Manager:** você pode iniciar um runbook de Automação criado em um grupo de recursos usando [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
 
 
-    **Exemplo:**  
+    **Exemplo:**
 
       ```
-		$params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
@@ -279,4 +271,4 @@ Quando você executa um runbook usando um webhook, o parâmetro de entrada prede
 - Para editar um runbook textual, consulte [Como editar runbooks textuais](automation-edit-textual-runbook.md).
 - Para editar um runbook gráfico, consulte [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

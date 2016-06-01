@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="hangzh;bradsev" />
 
 
@@ -794,9 +794,9 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## Referências
 
-•	[Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Página de download das Corridas de Táxi em NYC de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/) 
+• [FOILing em dados de Corrida de Táxi em NYC por Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) 
+• [Pesquisa e estatísticas de comissionamento de táxis e limusines de NYC](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +810,4 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

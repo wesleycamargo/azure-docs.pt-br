@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Problemas com a Multi-Factor Authentication do Azure
@@ -172,4 +172,4 @@ Você também pode contatar o administrador ou a pessoa que configurou a autenti
 
 Por fim, deixe alguns comentários detalhados nesta página para que possamos atualizá-la e aprimorá-la sempre com mais informações.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

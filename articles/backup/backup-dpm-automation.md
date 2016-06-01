@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="04/20/2016"
 	ms.author="jimpark; aashishr; anuragm"/>
 
 
@@ -99,11 +99,11 @@ As opções disponíveis incluem:
 | Opção | Detalhes | Padrão |
 | ---- | ----- | ----- |
 | /q | Instalação silenciosa | - | 
-| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
 | /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
 | /m | Inscreva no Microsoft Update | - | 
 | /nu | Não verificar se há atualizações após a conclusão da instalação | - | 
-| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - |
+| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - | 
 | /Ph | Endereço de Host do Proxy | - | 
 | /po | Número da porta do Host do Proxy | - | 
 | /pu | Nome de usuário do Host do Host | - | 
@@ -300,7 +300,10 @@ Por último, as alterações precisam ser confirmadas antes que o DPM possa faze
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## Exibir os pontos de backup
-Você pode usar o cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obter uma lista de todos os pontos de recuperação para uma fonte de dados. Neste exemplo, vamos: buscar todos os GPs no servidor DPM que serão armazenados em uma matriz ```$PG```; obter as fontes de dados que correspondem a ```$PG[0]```; obter todos os pontos de recuperação para uma fonte de dados.
+Você pode usar o cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obter uma lista de todos os pontos de recuperação para uma fonte de dados. Neste exemplo, iremos:
+- buscar todos os PGs no servidor DPM que serão armazenados em uma matriz ```$PG```
+- obter as fontes de dados correspondente ao ```$PG[0]```
+- obter todos os pontos de recuperação para uma fonte de dados.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -333,4 +336,4 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 
 - Para saber mais sobre o Backup do Azure para DPM, confira [Introdução ao Backup de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0518_2016-->

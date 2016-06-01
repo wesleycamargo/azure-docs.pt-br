@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/27/2016"
 	ms.author="markusvi"/>
 
 
@@ -150,7 +150,7 @@ Nenhum desses problemas conhecidos causará degradação do serviço nem a perda
 
 1. O usuário com uma configuração de atributo específica continua recebendo os erros de exportação, em vez dos atributos serem colocados em quarentena. Por exemplo:
 
-    a. Um novo usuário é criado no AD com o UPN **Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
+    a. Um novo usuário é criado no AD com o UPN ****Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
 
     b. Propriedades desse conflito de objetos com um Group existente, em que o ProxyAddress é **SMTP:Joe@contoso.com**.
 
@@ -158,9 +158,9 @@ Nenhum desses problemas conhecidos causará degradação do serviço nem a perda
 
 2. A tarefa de temporizador que procura por conflitos de atributo duplicado resolvidos compara apenas os conflitos UPN com outros conflitos UPN. Isso causa o problema mostrado na etapa 4 do cenário a seguir:
 
-    a. **UserA@contoso.com** tem um UPN não exclusivo porque o ProxyAddress de outro objeto também tem esse valor.
+    a. ****UserA@contoso.com** tem um UPN não exclusivo porque o ProxyAddress de outro objeto também tem esse valor.
 
-    b. O Usuário A recebe um **UPN MOERA** temporário, **UserA1234@contoso.onmicrosoft.com** e o valor real do UPN é colocado em quarentena (conforme o esperado).
+    b. O Usuário A recebe um **UPN MOERA** temporário, ****UserA1234@contoso.onmicrosoft.com** e o valor real do UPN é colocado em quarentena (conforme o esperado).
 
     c. O outro objeto conflitante terá o ProxyAddress removido posteriormente.
 
@@ -188,9 +188,9 @@ Nenhum desses problemas conhecidos causará degradação do serviço nem a perda
 
     b. O **Usuário B** tenta ser sincronizado em seguida com **UPN = User@contoso.com**.
 
-    c. O UPN do **Usuário B** é alterado para **User1234@contoso.onmicrosoft.com** e **User@contoso.com** é adicionada a **DirSyncProvisioningErrors**.
+    c. O UPN do **Usuário B** é alterado para ****User1234@contoso.onmicrosoft.com** e ****User@contoso.com** é adicionada a **DirSyncProvisioningErrors**.
 
-    d. A mensagem de erro para o **Usuário B** deve indicar que o **Usuário A** já tem **User@contoso.com** como um UPN, mas mostra o próprio displayName do **Usuário B**.
+    d. A mensagem de erro para o **Usuário B** deve indicar que o **Usuário A** já tem ****User@contoso.com** como um UPN, mas mostra o próprio displayName do **Usuário B**.
 
 3. O relatório só pode exibir informações de erro detalhadas para os usuários com conflitos de **UPN**, não para aqueles com erros de **ProxyAddress** (ainda estamos investigando se isso é consistente ou ambiental).
 
@@ -200,4 +200,4 @@ Nenhum desses problemas conhecidos causará degradação do serviço nem a perda
 
 - [Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

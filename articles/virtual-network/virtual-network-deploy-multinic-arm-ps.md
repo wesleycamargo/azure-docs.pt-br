@@ -77,6 +77,7 @@ Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent
 		$vmNamePrefix          = "DB"
 		$osDiskPrefix          = "osdiskdb"
 		$dataDiskPrefix        = "datadisk"
+		$diskSize	           = "120"	
 		$nicNamePrefix         = "NICDB"
 		$ipAddressPrefix       = "192.168.2."
 		$numberOfVMs           = 2
@@ -139,12 +140,12 @@ Você deve usar um loop para criar várias VMs desejadas e para criar as NICs e 
 
 5. Crie dois discos de dados por VM. Observe que os discos de dados se encontram na conta de Armazenamento Premium criada anteriormente.
 
-		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
+		    $dataDisk1Name = $vmName + "-" + $osDiskPrefix + "-1"    
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
 				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
 
-		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
+		    $dataDisk2Name = $vmName + "-" + $dataDiskPrefix + "-2"    
 		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
@@ -308,4 +309,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 # Entrar e sair de aplicativo Web com o AD do Azure
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-O AD do Azure torna simples e direto terceirizar o gerenciamento da identidade de seu aplicativo Web, fornecendo uma única entrada e uma única saída com apenas algumas linhas de código. Em aplicativos da Web Asp.NET, você pode conseguir isso usando a implementação da Microsoft do middleware OWIN voltado à comunidade, incluído no .NET Framework 4.5. Aqui usaremos o OWIN para: Entrada do usuário no aplicativo usando o Azure AD como o provedor de identidade. Exibir algumas informações sobre o usuário. Saída do usuário do aplicativo.
+O AD do Azure torna simples e direto terceirizar o gerenciamento da identidade de seu aplicativo Web, fornecendo uma única entrada e uma única saída com apenas algumas linhas de código. Em aplicativos da Web Asp.NET, você pode conseguir isso usando a implementação da Microsoft do middleware OWIN voltado à comunidade, incluído no .NET Framework 4.5. Aqui usaremos OWIN para:
+-	Conectar o usuário ao aplicativo usando o Azure AD como o provedor de identidade.
+-	Exibir algumas informações sobre o usuário.
+-	Desconectar o usuário do aplicativo.
 
 Para isso, você precisará:
 
@@ -176,4 +179,4 @@ Agora você pode ir para tópicos mais avançados. Você pode desejar experiment
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

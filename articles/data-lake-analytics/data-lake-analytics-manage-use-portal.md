@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Gerenciar a Análise do Azure Data Lake usando o Portal do Azure
@@ -167,7 +167,7 @@ A Análise Data Lake usa o controle de acesso com base em funções com o Active
 |Colaborador|Acessar o portal; enviar e monitorar trabalhos. Para poder enviar trabalhos, um colaborador também precisa de permissão de leitura ou de gravação nas contas do Repositório Data Lake.|
 |DataLakeAnalyticsDeveloper | O usuário pode enviar trabalhos, monitorar todos os trabalhos, mas pode cancelar apenas seus próprios trabalhos. Ele não pode gerenciar sua própria conta, por exemplo, adicionar usuários, alterar permissões ou excluir a conta. Para poder executar trabalhos, o usuário precisa de acesso de leitura ou de gravação nas contas do Repositório Data Lake | 
 |Leitor|Permite que você veja tudo, mas não faça alterações.|  
-|Usuário do laboratório DevTest|Permite que você veja tudo e se conecte, inicie, reinicie e desligue máquinas virtuais.|  
+|Usuário do DevTest Labs|Permite que você veja tudo e se conecte, inicie, reinicie e desligue máquinas virtuais.|  
 |Administrador de Acesso do Usuário|Permite que você gerencie o acesso do usuário aos recursos do Azure.|  
 
 Para saber mais sobre como criar usuários e grupos de segurança do Active Directory do Azure, consulte [O que é o Active Directory do Azure](../active-directory/active-directory-whatis.md).
@@ -293,4 +293,4 @@ Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem s
 - [Gerenciar a Análise Azure Data Lake usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 - [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

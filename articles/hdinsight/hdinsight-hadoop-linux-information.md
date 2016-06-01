@@ -86,7 +86,7 @@ Dados de exemplo e arquivos JAR encontram-se no HDFS (Sistema de Arquivos Distri
 
 ## HDFS, armazenamento de Blob do Azure e práticas recomendadas de armazenamento
 
-Na maioria das distribuições do Hadoop, o HDFS é conta com o suporte do armazenamento local nos computadores do cluster. Embora isso seja eficiente, pode ser dispendioso para uma solução baseada em nuvem onde você é cobrado por hora por recursos de computação.
+Na maioria das distribuições do Hadoop, o HDFS é conta com o suporte do armazenamento local nos computadores do cluster. Embora isso seja eficiente, pode ser dispendioso para uma solução baseada em nuvem onde você é cobrado por hora ou minuto por recursos de computação.
 
 O HDInsight usa o armazenamento de Blob do Azure como armazenamento padrão, o que proporciona os seguintes benefícios:
 
@@ -257,4 +257,4 @@ Se o cluster já fornece uma versão de um componente como um arquivo jar indepe
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/08/2016" 
+    ms.date="05/13/2016" 
     ms.author="elizapo" />
 
 
@@ -45,4 +45,4 @@ Siga as instruções descritas em [Alterar o locatário do Active Directory do A
 
 Neste ponto, sua assinatura do Azure RemoteApp está associada ao Azure AD do Office 365. Você pode usar as contas de usuário existentes do Office 365 com o Azure RemoteApp!
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

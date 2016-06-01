@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/18/2016" 
 	ms.author="byvinyal"/>
 
 #Visão geral detalhada de planos de serviço de aplicativo do Azure#
@@ -86,7 +86,7 @@ Há três maneiras de dimensionar um plano:
 
 - Altere a **camada de preços** do plano. Por exemplo, um plano na camada **Básica** pode ser convertido para a camada **Padrão** ou **Premium**, e todos os aplicativos associados a esse plano poderão aproveitar os recursos oferecidos na nova camada de serviço.
 - Altere o **tamanho da instância** do plano. Por exemplo, um plano na camada **Básica** usando instâncias **pequenas** pode ser alterado para usar instâncias **grandes**. Todos os aplicativos associados a esse plano poderão aproveitar a memória adicional e os recursos de CPU oferecidos pelo tamanho de instância maior.
-- Altere a **contagem de instâncias** do plano. Por exemplo, um plano **Standard** escalado horizontalmente para 3 instâncias pode ser escalado para 10 instâncias, e um plano **Premium** pode ser escalado horizontalmente para 20 instâncias. Todos os aplicativos associados a esse plano poderão aproveitar a memória adicional e os recursos de CPU oferecidos pela contagem de instâncias maior.
+- Altere a **contagem de instâncias** do plano. Por exemplo, um plano **Standard** escalado horizontalmente para 3 instâncias pode ser escalado para 10 instâncias, e um plano **Premium** pode ser escalado horizontalmente para 20 instâncias (sujeito a disponibilidade). Todos os aplicativos associados a esse plano poderão aproveitar a memória adicional e os recursos de CPU oferecidos pela contagem de instâncias maior.
 
 É possível alterar o tipo de preço e o tamanho de instância clicando no item **Escalar Verticalmente** nas configurações do Aplicativo ou do Plano do Serviço de Aplicativo. As alterações serão aplicadas ao **Plano do Serviço de Aplicativo** e afetarão todos os Aplicativos hospedados por ele.
  
@@ -107,4 +107,4 @@ Os planos de Serviço de Aplicativo representam um conjunto de recursos e capaci
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [appclone]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/app-clone.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
@@ -47,8 +47,10 @@ O exemplo a seguir mostra como incluir o arquivo de carregador automático e faz
 
 > [AZURE.NOTE] Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, será necessário fazer referência ao arquivo de carregador automático **WindowsAzure.php**.
 
-	require_once 'vendor\autoload.php';
-	use WindowsAzure\Common\ServicesBuilder;
+```
+require_once 'vendor\autoload.php';
+use WindowsAzure\Common\ServicesBuilder;
+```
 
 Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
 
@@ -56,9 +58,11 @@ Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas som
 
 Para criar uma instância do cliente do Barramento de Serviço, você deve ter primeiro uma cadeia de conexão válida neste formato:
 
-	Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
+```
+Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
+```
 
-Em que **Ponto de extremidade** normalmente está no formato `https://[yourNamespace].servicebus.windows.net`.
+Em que **Ponto de extremidade** normalmente está no formato `[yourNamespace].servicebus.windows.net`.
 
 Para criar qualquer cliente de serviço do Azure é necessário usar a classe **ServicesBuilder**. Você pode:
 
@@ -69,14 +73,15 @@ Para criar qualquer cliente de serviço do Azure é necessário usar a classe **
 
 Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
-	require_once 'vendor\autoload.php';
+```
+require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServicesBuilder;
 
-	$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
+$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
 
-	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+```
 
 ## Tutorial: criar uma fila
 
@@ -84,61 +89,65 @@ Você pode realizar operações de gerenciamento para as filas do Barramento de 
 
 O exemplo a seguir mostra como criar uma instância de um **ServiceBusRestProxy** e chamar **ServiceBusRestProxy->createQueue** para criar uma fila chamada `myqueue` em um namespace de serviço `MySBNamespace`:
 
-    require_once 'vendor\autoload.php';
+```
+require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\ServiceBus\Models\QueueInfo;
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\ServiceBus\Models\QueueInfo;
 
-	// Create Service Bus REST proxy.
-		$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+// Create Service Bus REST proxy.
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 	
-	try	{
-		$queueInfo = new QueueInfo("myqueue");
+try	{
+	$queueInfo = new QueueInfo("myqueue");
 		
-		// Create queue.
-		$serviceBusRestProxy->createQueue($queueInfo);
-	}
-	catch(ServiceException $e){
-		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/dd179357
-		$code = $e->getCode();
-		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />";
-	}
+	// Create queue.
+	$serviceBusRestProxy->createQueue($queueInfo);
+}
+catch(ServiceException $e){
+	// Handle exception based on error codes and messages.
+	// Error codes and messages are here: 
+	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	$code = $e->getCode();
+	$error_message = $e->getMessage();
+	echo $code.": ".$error_message."<br />";
+}
+```
 
-> [AZURE.NOTE] Você pode usar o método `listQueues` em objetos `ServiceBusRestProxy` para verificar se já existe uma fila com um nome especificado dentro de um namespace de serviço.
+> [AZURE.NOTE] Você pode usar o método `listQueues` em objetos `ServiceBusRestProxy` para verificar se já existe uma fila com um nome especificado em um namespace.
 
 ## Tutoria: Enviar mensagens a uma fila
 
 Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo chamará o método **ServiceBusRestProxy->sendQueueMessage**. O código abaixo demonstra como enviar uma mensagem à fila `myqueue` que criamos acima no namespace de serviço `MySBNamespace`.
 
-	require_once 'vendor\autoload.php';
+```
+require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
-	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+// Create Service Bus REST proxy.
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 		
-	try	{
-		// Create message.
-		$message = new BrokeredMessage();
-		$message->setBody("my message");
+try	{
+	// Create message.
+	$message = new BrokeredMessage();
+	$message->setBody("my message");
 	
-		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
-	}
-	catch(ServiceException $e){
-		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/library/windowsazure/hh780775
-		$code = $e->getCode();
-		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />";
-	}
+	// Send message.
+	$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+}
+catch(ServiceException $e){
+	// Handle exception based on error codes and messages.
+	// Error codes and messages are here: 
+	// http://msdn.microsoft.com/library/windowsazure/hh780775
+	$code = $e->getCode();
+	$error_message = $e->getMessage();
+	echo $code.": ".$error_message."<br />";
+}
+```
 
 As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe **BrokeredMessage**. Objetos **BrokeredMessage** possuem um conjunto de métodos padrão (como **getLabel**, **getTimeToLive**, **setLabel** e **setTimeToLive**) e propriedades que são usadas para manter propriedades personalizadas específicas do aplicativo e um corpo de dados arbitrários do aplicativo.
 
@@ -154,41 +163,43 @@ No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de d
 
 O exemplo a seguir demonstra como uma mensagem pode ser recebida e processada usando o modo **PeekLock** (não o modo padrão).
 
-	require_once 'vendor\autoload.php';
+```
+require_once 'vendor\autoload.php';
 
-	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
+use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServiceException;
+use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
-	// Create Service Bus REST proxy.
-	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+// Create Service Bus REST proxy.
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 		
-	try	{
-		// Set the receive mode to PeekLock (default is ReceiveAndDelete).
-		$options = new ReceiveMessageOptions();
-		$options->setPeekLock();
+try	{
+	// Set the receive mode to PeekLock (default is ReceiveAndDelete).
+	$options = new ReceiveMessageOptions();
+	$options->setPeekLock();
 		
-		// Receive message.
-		$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
-		echo "Body: ".$message->getBody()."<br />";
-		echo "MessageID: ".$message->getMessageId()."<br />";
+	// Receive message.
+	$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
+	echo "Body: ".$message->getBody()."<br />";
+	echo "MessageID: ".$message->getMessageId()."<br />";
 		
-		/*---------------------------
-			Process message here.
-		----------------------------*/
+	/*---------------------------
+		Process message here.
+	----------------------------*/
 		
-		// Delete message. Not necessary if peek lock is not set.
-		echo "Message deleted.<br />";
-		$serviceBusRestProxy->deleteMessage($message);
-	}
-	catch(ServiceException $e){
-		// Handle exception based on error codes and messages.
-		// Error codes and messages are here:
-		// http://msdn.microsoft.com/library/windowsazure/hh780735
-		$code = $e->getCode();
-		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />";
-	}
+	// Delete message. Not necessary if peek lock is not set.
+	echo "Message deleted.<br />";
+	$serviceBusRestProxy->deleteMessage($message);
+}
+catch(ServiceException $e){
+	// Handle exception based on error codes and messages.
+	// Error codes and messages are here:
+	// http://msdn.microsoft.com/library/windowsazure/hh780735
+	$code = $e->getCode();
+	$error_message = $e->getMessage();
+	echo $code.": ".$error_message."<br />";
+}
+```
 
 ## Como: tratar falhas do aplicativo e mensagens ilegíveis
 
@@ -209,4 +220,4 @@ Para saber mais, consulte também o [Centro de Desenvolvedores em PHP](/develop/
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

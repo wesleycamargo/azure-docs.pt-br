@@ -43,11 +43,13 @@ Esta seção pressupõe que você já instalou uma imagem RHEL (a partir de um a
 
 **Notas de instalação do RHEL**
 
+- Veja também [Notas gerais de instalação do Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) para obter mais dicas sobre como preparar o Linux para o Azure.
+
 - Não há suporte para o formato VHDX mais recente no Azure. Você pode converter o disco para o formato VHD usando o Gerenciador do Hyper-V ou o cmdlet **convert-vhd** do PowerShell.
 
 - Os VHDs devem ser criados como "fixed" (fixos), VHDs dinâmicos não são suportados.
 
-- Ao instalar o sistema operacional Linux, é recomendável utilizar partições padrões em vez de Gerenciador de Volume Lógico (LVM) (que é geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome de LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se preferir, você pode usar LVM ou RAID em discos de dados.
+- Ao instalar o sistema Linux, é recomendável utilizar partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM para solução de problemas. Se você preferir, é possível usar LVM ou [RAID](virtual-machines-linux-configure-raid.md) em discos de dados.
 
 - Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários. Verifique as etapas a seguir para obter mais informações a esse respeito.
 
@@ -147,7 +149,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL (a partir de um a
         # export HISTSIZE=0
         # logout
 
-16.	Clique em **Ação > Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
+16.	Clique em **Ação** -> Desligar no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 ### <a id="rhel7xhyperv"> </a>Preparar uma máquina virtual RHEL 7.1/7.2 do Gerenciador do Hyper-V###
 
@@ -225,7 +227,7 @@ Esta seção pressupõe que você já instalou uma imagem RHEL (a partir de um a
         # export HISTSIZE=0
         # logout
 
-15.	Clique em **Ação > Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
+15.	Clique em **Ação** -> Desligar no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 
 ## Preparar uma máquina virtual baseada no Red Hat para KVM
@@ -729,7 +731,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 ## Preparar uma máquina virtual baseada em Red Hat de um arquivo ISO, usando um arquivo de início rápido automaticamente
 
 
-### <a id="rhel7xkickstart"> </a>Preparar uma máquina virtual RHEL 7.1/7.2 a partir de um arquivo de início rápido###
+### <a id="rhel7xkickstart"> </a>Preparar uma máquina virtual RHEL 7.1/7.2 de um arquivo de início rápido###
 
 
 1.	Crie o arquivo de início rápido com o conteúdo abaixo e salve o arquivo. Para saber mais sobre a instalação de início rápido, consulte o [Guia de instalação de início rápido](https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
@@ -910,8 +912,8 @@ Recrie initramfs:
 Para obter mais detalhes, consulte as informações sobre [recriação de initramfs](https://access.redhat.com/solutions/1958).
 
 ## Próximas etapas
-Agora, você está pronto para usar o disco rígido virtual Red Hat Enterprise Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd no Azure, consulte as etapas 2 e 3 em [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-classic-create-upload-vhd.md).
+Agora, você está pronto para usar o disco rígido virtual Red Hat Enterprise Linux para criar novas máquinas virtuais no Azure. Se esta é a primeira vez que você está carregando o arquivo .vhd no Azure, veja as etapas 2 e 3 em [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
 Para obter mais detalhes sobre os hipervisores certificados para execução do Red Hat Enterprise Linux, visite [o site da Red Hat](https://access.redhat.com/certified-hypervisors).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

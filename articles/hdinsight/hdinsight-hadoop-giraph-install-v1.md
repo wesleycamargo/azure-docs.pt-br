@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2016" 
+	ms.date="05/17/2016" 
 	ms.author="nitinme"/>
 
 # Instalar o Giraph nos clusters Hadoop do HDInsight e usar o Giraph para processar gráficos em grande escala
@@ -21,6 +21,12 @@
 Saiba como personalizar o cluster HDInsight baseado em Windows com o Giraph usando a Ação de Script, e como usar o Giraph para processar gráficos em larga escala. Para obter informações sobre como usar o Giraph com um cluster baseado no Linux, consulte [Instalar o Giraph em clusters Hadoop do HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md).
  
 Você pode instalar o Giraph em qualquer tipo de cluster (Hadoop, Storm, HBase, Spark) no Azure HDInsight usando a *Ação de Script*. Um script de exemplo para instalar o Giraph em um cluster HDInsight está disponível em um blob de armazenamento do Azure somente leitura em [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). O script de exemplo funciona apenas com o cluster HDInsight versão 3.1. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
+
+> [AZURE.IMPORTANT] As etapas descritas neste documento usam o Portal Clássico do Azure. A Microsoft não recomenda o uso do portal clássico durante a criação de novos serviços. Para obter uma explicação das vantagens do Portal do Azure, veja [Portal do Microsoft Azure](https://azure.microsoft.com/features/azure-portal/).
+>
+> Este documento também inclui informações sobre como usar o Azure PowerShell. Os trechos de código fornecidos baseiam-se em comandos que usam o ASM (Gerenciamento de Serviço do Azure) para funcionar com o HDInsight e foram __preteridos__. Estes comandos serão removidos até 1º de janeiro de 2017.
+>
+>Para obter uma versão deste documento que usa o portal do Azure, juntamente com os trechos de código do PowerShell que usam o ARM (Azure Resource Manager), veja [Instalar Giraph em clusters do HDInsight](hdinsight-hadoop-giraph-install.md).
 
 **Artigos relacionados**
 
@@ -41,26 +47,24 @@ O <a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> permite 
    
 ## Instalar o Giraph usando o Portal
 
-[AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Instalar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md)
-
 1. Comece a criar um cluster usando a opção **CRIAÇÃO PERSONALIZADA**, conforme descrito em [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md#portal). 
 2. Na página **Ações de Script** do assistente, clique em **Adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
 
 	![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-giraph-install-v1/hdi-script-action-giraph.png "Usar Ação de Script para personalizar um cluster")
 	
 	<table border='1'>
-	<tr><th>Propriedade</th><th>Valor</th></tr>
-	<tr><td>Nome</td>
-		<td>Especifique um nome para a ação de script. Por exemplo, <b>Instalar o Giraph</b>.</td></tr>
-	<tr><td>URI do script</td>
-		<td>Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-	<tr><td>Tipo de nó</td>
-		<td>Especifique os nós em que o script de personalização deve ser executado. Você pode escolher <b>Todos os nós</b>, <b>Somente nós principais</b> ou <b>Somente nós de trabalho</b>.
-	<tr><td>Parâmetros</td>
-		<td>Especifique os parâmetros, se exigido pelo script. O script para instalar o Giraph não requer nenhum parâmetro; você pode deixar em branco.</td></tr>
-</table>Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para começar a criar o cluster.
+		<tr><th>Propriedade</th><th>Valor</th></tr>
+		<tr><td>Nome</td>
+			<td>Especifique um nome para a ação de script. Por exemplo, <b>Instalar o Giraph</b>.</td></tr>
+		<tr><td>URI do script</td>
+			<td>Especifique o URI (Uniform Resource Identifier) do script invocado para personalizar o cluster. Por exemplo, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
+		<tr><td>Tipo de nó</td>
+			<td>Especifique os nós em que o script de personalização deve ser executado. Você pode escolher <b>Todos os nós</b>, <b>Somente nós principais</b> ou <b>Somente nós de trabalho</b>.
+		<tr><td>Parâmetros</td>
+			<td>Especifique os parâmetros, se exigido pelo script. O script para instalar o Giraph não requer nenhum parâmetro; você pode deixar em branco.</td></tr>
+	</table>	
+
+	Você pode adicionar mais de uma ação de script para instalar vários componentes no cluster. Depois de adicionar os scripts, clique na marca de seleção para começar a criar o cluster.
 
 Você também pode usar o script para instalar o Giraph no HDInsight usando o PowerShell do Azure ou o HDInsight .NET SDK. Instruções para esses procedimentos são fornecidas posteriormente neste tópico.
 
@@ -190,4 +194,4 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

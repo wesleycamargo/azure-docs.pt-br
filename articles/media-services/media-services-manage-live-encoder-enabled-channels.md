@@ -20,21 +20,23 @@
 
 ##Visão geral
 
-Nos Serviços de Mídia do Azure, um **Canal** representa um pipeline para processamento de conteúdo de streaming ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
+No AMS (Serviços de Mídia do Azure), um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
-- Um codificador local ao vivo envia **RTMP** ou **Smooth Streaming** (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
-- Um fluxo de taxa de bits única (em um dos seguintes formatos: **RTP** (MPEG TS)), **RTMP** ou **Smooth Streaming** (MP4 fragmentado)) é enviado para o **Canal** que está habilitado a realizar a codificação ao vivo com os Serviços de Mídia. O **Canal** então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+- Um codificador ao vivo local envia um fluxo de taxa de bits adaptável única para o Canal que é habilitado para realizar a codificação ao vico com os serviços de mídia em um dos seguintes formatos: RTP (MPEG-TS), RTMP oi Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+
+- Um codificador ativo local envia uma taxa de bits múltipla **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+
+	>[AZURE.NOTE] O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
 
 A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, você pode especificar de que modo você deseja que o canal receba o fluxo de entrada e se deseja ou não que o canal realize a codificação ao vivo do seu fluxo. Você tem duas opções:
 
-- **Nenhum** – especifique esse valor, se você planeja usar um codificador ao vivo local, que emitirá um fluxo de múltiplas taxas de bits. Nesse caso, o fluxo de entrada foi transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Para obter mais informações sobre como trabalhar com canais desse tipo, confira [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) (Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits).
+- **Nenhum** – Especifique esse valor se você planejar usar um codificador ativo local, que emitirá uma transmissão de taxa de bits múltipla (uma transmissão de passagem). Nesse caso, o fluxo de entrada foi transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Para obter informações mais detalhadas sobre como trabalhar com canais desse tipo, confira [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) (Transmissão ao vivo com codificadores locais que criam transmissões de taxa de bits múltipla).
 
 - **Standard** – Escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Lembre-se de que há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra.
 
->[AZURE.NOTE]Este tópico discute os atributos de canais habilitados para executar a codificação ativa (tipo de codificação **Standard**). Para obter informações sobre como trabalhar com canais não habilitados a realizar a codificação ativa, confira [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) (Transmissão ao vivo com codificadores locais que criam fluxos de múltiplas taxas de bits).
+>[AZURE.NOTE]Este tópico discute os atributos de canais habilitados para executar a codificação ativa (tipo de codificação **Standard**). Para obter informações sobre como trabalhar com canais que não estão habilitados a realizar a codificação ativa, confira [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md) (Transmissão ao vivo com codificadores locais que criam transmissões de taxa de bits múltipla).
 >
 >Certifique-se de examinar a seção [Considerações](media-services-manage-live-encoder-enabled-channels.md#Considerations).
-
 
 
 ##Implicações de cobrança
@@ -259,7 +261,7 @@ Você pode definir os endereços IP que têm permissão para conectar-se ao pont
 
 Esta seção descreve como as configurações para o codificador ao vivo no canal podem ser ajustadas, quando o **Tipo de codificação** de um canal é definido como **Padrão**.
 
->[AZURE.NOTE]Ao inserir várias faixas de idioma e fazer a codificação ao vivo com o Azure, somente o RTP tem suporte para vários idioma entrada. Você pode definir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. A ingestão de várias faixas de áudio com RTMP ou Smooth streaming não tem suporte atualmente. Ao fazer a codificação ativa com [codificações ativas locais](media-services-live-streaming-with-onprem-encoders.md), não há nenhuma limitação desse tipo porque tudo o que é enviado para o AMS passa por um canal sem nenhum processamento adicional.
+>[AZURE.NOTE]Ao inserir várias faixas de idioma e fazer a codificação ao vivo com o Azure, somente o RTP tem suporte para vários idioma entrada. Você pode definir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. A ingestão de várias faixas de áudio com RTMP ou Smooth streaming não tem suporte atualmente. Ao fazer a codificação ativa com [codificações ativos locais](media-services-live-streaming-with-onprem-encoders.md), não há nenhuma limitação desse tipo, porque tudo o que é enviado para o AMS passa por um canal sem processamento adicional.
 
 ###Origem do marcador de anúncio
 
@@ -434,7 +436,7 @@ Parada|Parada|Não
 - Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
 - Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived na Microsoft.com se precisar executar um Canal por períodos mais longos.
 - Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
-- Ao inserir várias faixas de idioma e fazer a codificação ao vivo com o Azure, somente o RTP tem suporte para vários idioma entrada. Você pode definir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. A ingestão de várias faixas de áudio com RTMP ou Smooth streaming não tem suporte atualmente. Ao fazer a codificação ativa com [codificações ativas locais](media-services-live-streaming-with-onprem-encoders.md), não há nenhuma limitação desse tipo porque tudo o que é enviado para o AMS passa por um canal sem nenhum processamento adicional.
+- Ao inserir várias faixas de idioma e fazer a codificação ao vivo com o Azure, somente o RTP tem suporte para vários idioma entrada. Você pode definir até 8 fluxos de áudio usando MPEG-2 TS sobre RTP. A ingestão de várias faixas de áudio com RTMP ou Smooth streaming não tem suporte atualmente. Ao fazer a codificação ativa com [codificações ativos locais](media-services-live-streaming-with-onprem-encoders.md), não há nenhuma limitação desse tipo, porque tudo o que é enviado para o AMS passa por um canal sem processamento adicional.
 - A predefinição de codificação usa a noção de "taxa de quadros máxima" de 30 fps. Portanto, se a entrada é 60fps/59,97i, os quadros de entrada são descartados/divididos para 30/29,97 fps. Se a entrada é 50fps/50i, os quadros de entrada são descartados/divididos para 25 fps. Se a entrada é 25 fps, a saída permanece em 25 fps.
 - Não se esqueça de PARAR SEUS CANAIS quando terminar. Caso contrário, a cobrança continuará.
 
@@ -474,4 +476,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

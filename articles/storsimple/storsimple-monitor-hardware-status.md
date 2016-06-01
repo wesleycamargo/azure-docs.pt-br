@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="05/18/2016"
    ms.author="alkohli" />
 
 # Usar o serviço StorSimple Manager para monitorar componentes e status de hardware
@@ -39,7 +39,7 @@ Um dispositivo 8600 tem componentes adicionais que correspondem ao compartimento
 
 - **Componentes do controlador 1** – Os componentes que constituem o compartimento 1, similar aos detalhados para o compartimento 0.
 
->[AZURE.NOTE]**A seção de status de hardware não está presente na página Manutenção para o dispositivo virtual StorSimple (1100).**
+>[AZURE.NOTE] **A seção de status de hardware não está presente na página Manutenção para o dispositivo virtual StorSimple (1100).**
 
 
 ## Monitorar o status de hardware
@@ -136,4 +136,4 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 
 - Se você continuar enfrentando problemas de dispositivo, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

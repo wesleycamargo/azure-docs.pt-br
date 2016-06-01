@@ -1,7 +1,7 @@
-##Highly available solutions with Azure traffic manager
+##Soluções altamente disponíveis com o gerenciador de tráfego do Azure
 
-You need to determine whether your workload's high availability requirements can be met by using Azure traffic manager alone, or if you need to combine traffic manager with other DNS solutions, or processes. Depending on your needs, you can use:
+Você precisa determinar se os requisitos de alta disponibilidade da carga de trabalho podem ser atendidos usando o gerenciador de tráfego do Azure sozinho ou se precisa combinar o gerenciador de tráfego com outras soluções DNS ou processos. Dependendo das suas necessidades, você pode usar:
 
-- **Traffic manager alone**. If a 99.99% up time is sufficient for your workload, you can use traffic manager by itself. In the event of failure in the traffic manager service, users will not be able to access your workload until the traffic manager service is reestablished.
+- **Somente Gerenciador de Tráfego** Se um tempo de atividade de 99,99% é suficiente para sua carga de trabalho, você pode usar o gerenciador de tráfego por si só. No caso de falha no serviço de gerenciador de tráfego, os usuários não poderão acessar sua carga de trabalho até que o serviço de gerenciador de tráfego seja restabelecido.
 
-- **Use another traffic manager solution along with Azure traffic manager**. In the event of failure in the traffic manager service, you can change your CNAME record to point to the other traffic manager service. Access to your workload is still available, and distributed to all locations hosting your workload. This is the most expensive solution, but may be required for workloads that need a higher SLA.
+- **Usar outra solução de gerenciador de tráfego, juntamente com o gerenciador de tráfego do Azure**. No caso de falha no serviço de gerenciador de tráfego, você pode alterar o registro CNAME para apontar para o outro serviço de gerenciador de tráfego. O acesso a sua carga de trabalho ainda está disponível e é distribuído para todos os locais que hospedam sua carga de trabalho. Isso é a solução mais cara, mas pode ser necessário para cargas de trabalho que precisam de um SLA mais alto.

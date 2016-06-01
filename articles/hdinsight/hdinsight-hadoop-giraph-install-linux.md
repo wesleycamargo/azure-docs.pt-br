@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/17/2016"
 	ms.author="larryfr"/>
 
 # Instalar o Giraph nos clusters Hadoop do HDInsight e usar o Giraph para processar gráficos em grande escala
@@ -154,4 +154,4 @@ Quando a criação do cluster tiver terminado, use as etapas a seguir para execu
 
 - [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite que você execute operações poderosas nos dados armazenados.
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

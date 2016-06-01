@@ -123,7 +123,7 @@ Para esta configuração, usaremos os seguintes valores:
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Carregue o arquivo .cer do certificado raiz no Azure. Você pode usar um certificado raiz de seu ambiente de certificação corporativa ou pode usar um certificado raiz autoassinado. É possível carregar até 20 certificados raiz. Para obter instruções sobre como criar um certificado raiz autoassinado usando *makecert*, consulte [Trabalhando com certificados raiz autoassinados para configurações Ponto a Site](vpn-gateway-certificates-point-to-site.md). Observe que o arquivo .cer não deve conter a chave privada do certificado raiz.
+10. Carregue o arquivo .cer do certificado raiz no Azure. Você pode usar um certificado raiz de seu ambiente de certificação corporativa ou pode usar um certificado raiz autoassinado. É possível carregar até 20 certificados raiz. Para obter instruções sobre como criar um certificado raiz autoassinado usando *makecert*, consulte [Trabalhando com certificados raiz autoassinados para configurações Ponto a Site](vpn-gateway-certificates-point-to-site.md). Observe que o arquivo .cer não deve conter a chave privada do certificado raiz. Para obter a chave pública conforme mostrado no exemplo a seguir, exporte o arquivo .cer como um arquivo X.509 com codificação de Base 64 (.CER), em seguida, abra o arquivo com o bloco de notas. Nele copie tudo entre: -----BEGIN CERTIFICATE----- & -----END CERTIFICATE-----
 	
 	Veja abaixo um exemplo da aparência do arquivo. A parte difícil de carregar os dados do certificado público é que você deve copiar e colar toda a cadeia de caracteres sem espaços. Caso contrário, o carregamento não funcionará. Você precisará usar seu próprio arquivo .cer do certificado para esta etapa. Não tente copiar e colar o exemplo abaixo.
 
@@ -240,4 +240,4 @@ Você pode restabelecer um certificado de cliente removendo a impressão digital
 
 Você pode adicionar uma máquina virtual à rede virtual. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para obter as etapas.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

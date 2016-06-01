@@ -49,7 +49,7 @@ Veja um CSV de exemplo que você pode modificar.
 > Adicione mais campos opcionais no Excel especificando o rótulo e populando a coluna abaixo dele.
 
 ```
-Email,DisplayName,InvitationText,InviteRedirectUrl,InvitedToApplications, InvitedToGroups,CcEmailAddress,Language
+Email,DisplayName,InvitationText,InviteRedirectUrl,InvitedToApplications,InvitedToGroups,CcEmailAddress,Language
 wharp@contoso.com,Walter Harp,Hi Walter! I hope you’ve been doing well.,,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,,you@yourcompany.com,en
 jsmith@contoso.com,Jeff Smith,Hi Jeff! I hope you’ve been doing well.,,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,,you@yourcompany.com,en
 bsmith@contoso.com,Ben Smith,Hi Ben! I hope you’ve been doing well.,,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,,you@yourcompany.com,en
@@ -67,4 +67,4 @@ Navegue por nossos outros artigos sobre colaboração B2B no Azure AD
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

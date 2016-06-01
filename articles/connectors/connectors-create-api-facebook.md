@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/16/2016"
    ms.author="mandia"/>
 
 # Introdução à API do Facebook
 Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais. A API do Facebook pode ser usada em:
 
-- Aplicativos lógicos 
+- Aplicativos lógicos (discutidos neste tópico)
+- PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -48,7 +49,7 @@ Quando você adiciona essa API a seus aplicativos lógicos, precisa autorizar os
 1. Entre em sua conta do Facebook
 2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem o Facebook. 
 
-Depois de criar a conexão, você pode inserir as propriedades do Facebook. A **Referência da API REST** neste tópico descreve essas propriedades.
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Facebook](../../includes/connectors-create-api-facebook.md)]
 
 >[AZURE.TIP] Você pode usar esta conexão com o Facebook em outros aplicativos lógicos.
 
@@ -157,7 +158,7 @@ Publicar uma mensagem em uma Página do Facebook como o usuário conectado. ```P
 |200|OK|
 |400|Solicitação incorreta|
 |500|Erro interno do servidor|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -435,4 +436,4 @@ O perfil pode ser um usuário, página, aplicativo ou grupo.
 
 [Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

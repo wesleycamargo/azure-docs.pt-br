@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Aplicativo de Demonstração do Azure Mobile Engagement"
-	description="Descreve onde baixar, como usar e encontrar benefícios ao utilizar o aplicativo de demonstração do Azure Mobile Engagement"
+	pageTitle="Aplicativo de demostração do Azure Mobile Engagement | Microsoft Azure"
+	description="Descreve o local em que é possível baixar, como usar e os benefícios de usar o aplicativo de demonstração do Azure Mobile Engagement"
 	services="mobile-engagement"
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="erikre" 
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -16,134 +16,139 @@
 	ms.date="04/29/2016"
 	ms.author="piyushjo" />
 
-# Aplicativo de Demonstração do Azure Mobile Engagement
+# Aplicativo de demonstração do Azure Mobile Engagement
 
-Publicamos um aplicativo de demonstração do Azure Mobile Engagement para as plataformas **iOS**, **Android** e **Windows** para ajudar você a localizar recursos úteis e saber mais sobre o Azure Mobile Engagement.
+Publicamos um aplicativo de demonstração do Azure Mobile Engagement para as plataformas **iOS**, **Android** e **Windows** para ajudá-lo encontrar recursos úteis e saber mais sobre o Mobile Engagement.
 
 O aplicativo ajuda você a:
 
-1. Encontrar facilmente links úteis para recursos específicos do Azure Mobile Engagement, como vídeos, documentação, fórum de suporte, onde ir para gerar solicitações de recursos, etc. 
-2. Experimente notificações de exemplo com suporte pelo Azure Mobile Engagement para ter ideias para seus próprios aplicativos móveis. 
-3. Fornece uma implementação de referência que você pode usar para estudar como implementar o Mobile Engagement em seu próprio aplicativo para: 
+- Encontrar com facilidade links úteis para recursos do Mobile Engagement, como vídeos, documentação, fórum de suporte e o local para gerar solicitações de recursos.
+- Experimente as notificações de exemplo com suporte do Mobile Engagement para ter ideias para seus próprios aplicativos móveis.
+- Use uma implementação de referência para estudar como implementar o Mobile Engagement em seu próprio aplicativo. Você pode aprender a:
 
-	- coletar dados de análise 
-	- implementar cenários de notificação avançados de tipos, como a *Tela inteira intersticial* ou *Pop-up*
-	- implementar Pesquisas/Votações
-	- implementar envio por push silencioso/cenários de push de dados   
+	- Coletar dados de análise.
+	- Implementar cenários de notificação avançada de tipos, como *Tela inteira intersticial* ou *Pop-up*.
+	- Implementar pesquisas e sondagens.
+	- Implementar cenários de push e dados por push silencioso.   
 
 ## Instalação do aplicativo
-Cada aplicativo está disponível em sua respectiva loja de aplicativos:
+Este aplicativo está disponível nas seguintes lojas de aplicativos:
 
-1. **Aplicativo Universal de Demonstração do Windows**
+- **Aplicativo de demonstração Universal do Windows**:
 
-	- [Baixe o link na Windows Store](https://www.microsoft.com/pt-BR/store/apps/azure-mobile-engagement/9nblggh4qmh2) 
-	- O aplicativo foi desenvolvido como um aplicativo universal do Windows 10 e o código-fonte está disponível no [Github](https://github.com/Azure/azure-mobile-engagement-app-ios)
+	- Baixe o aplicativo na [Windows Store](https://www.microsoft.com/pt-BR/store/apps/azure-mobile-engagement/9nblggh4qmh2).
+	- O aplicativo foi desenvolvido como um aplicativo Universal do Windows 10. O código-fonte está disponível no [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios).
 
-2. **Aplicativo de Demonstração do iOS**
+- **Aplicativo de demonstração do iOS**:
 
-	- [Baixe o link na Apple Store](https://itunes.apple.com/us/app/azure%20mobile%20engagement/id1105090090) 
-	- O aplicativo foi desenvolvido no iOS Swift e o código-fonte está disponível no [Github](https://github.com/Azure/azure-mobile-engagement-app-ios)
+	- Baixe o aplicativo na [Apple Store](https://itunes.apple.com/us/app/azure%20mobile%20engagement/id1105090090).
+	- O aplicativo foi desenvolvido no iOS Swift. O código-fonte está disponível no [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios).
 
-3. **Aplicativo de Demonstração do Android**
+- **Aplicativo de demonstração do Android**:
 
-	- [Baixe o link na Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.azure.engagement)
-	- O código-fonte está disponível no [GitHub](https://github.com/Azure/azure-mobile-engagement-app-android)
+	- Baixe o aplicativo na [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.azure.engagement).
+	- O código-fonte está disponível no [GitHub](https://github.com/Azure/azure-mobile-engagement-app-android).
 
-![][1]
+![Aplicativo de demonstração Universal do Windows][1]
 
-![][2] ![][3]
+![Aplicativo de demonstração do iOS][2] ![Aplicativo de demonstração do Android][3]
 
 
 ## Uso
 
 Você pode usar esses aplicativos das seguintes formas:
 
-**1) Baixe os aplicativos em seu dispositivo dos links da loja de aplicativos fornecidos acima.**
+**Baixe o aplicativo em seu dispositivo por meio dos links da loja de aplicativos (fornecidos anteriormente):**
 
->[AZURE.IMPORTANT] Você não precisa ter uma conta do Azure ou conectar o aplicativo a um back-end. O aplicativo funcionará de forma independente.
+>[AZURE.IMPORTANT] Você não precisa de uma conta do Azure ou de conectar o aplicativo a um back-end. O aplicativo funciona de forma independente.
 
-- Uma vez que o aplicativo estiver em seu dispositivo, você poderá, então, percorrer os links no menu à esquerda para localizar todos os recursos úteis sobre o Azure Mobile Engagement. 
-- Também adicionamos nosso [feed RSS do serviço](https://aka.ms/azmerssfeed) diretamente no aplicativo para que você sempre saiba sobre as últimas atualizações do produto.
-- Você também pode percorrer os cenários de notificação de exemplo para experimentar quais tipos de notificações têm suporte pelo Azure Mobile Engagement para cada plataforma. Essas notificações podem ser experimentadas localmente, ou seja, você pode clicar nos botões nas telas para mostrar a experiência de notificações que é idêntica a quando você envia as notificações da plataforma do Azure Mobile Engagement. 
+- Assim que o aplicativo estiver em seu dispositivo, você poderá percorrer os links no menu do lado esquerdo para encontrar os recursos úteis sobre o Mobile Engagement.
+- Adicionamos o [feed RSS do serviço](https://aka.ms/azmerssfeed) neste aplicativo para que você esteja sempre atualizado sobre as últimas atualizações do produto.
+- Também é possível percorrer os cenários de notificação de exemplo para experimentar os tipos de notificações que têm suporte do Mobile Engagement para cada plataforma. Essas notificações podem ser experimentadas localmente, ou seja, você pode clicar nos botões nas telas para mostrar a experiência de notificações, que é idêntica a quando você envia as notificações por meio da plataforma Mobile Engagement.
 
-![][4]
-    
-![][5] ![][6]
+![Menu do aplicativo para Windows][4]
 
-**2) Baixe o código-fonte dos links do Github fornecidos acima.**
+![Menu do aplicativo para iOS][5] ![Menu do aplicativo para Android][6]
 
-- Depois de baixar o código-fonte, abra-o no respectivo ambiente de desenvolvimento, ou seja, XCode para o iOS, Android Studio para Android e o Visual Studio para Windows. 
-- Em seguida, siga nossas [etapas de integração do SDK básico](mobile-engagement-windows-store-dotnet-get-started.md) para que você possa se conectar a esse aplicativo em sua própria instância de back-end do Mobile Engagement. 
-	- Você precisará configurar uma cadeia de conexão no aplicativo.  
-	- Você também precisará configurar a plataforma de notificação por push no seu aplicativo. 
-- Você observará que esse aplicativo em si é instrumentado com o Azure Mobile Engagement e, portanto, conforme você abre o aplicativo depois de se conectar a ele no back-end, você será capaz de ver a sessão do usuário, as atividades, os eventos, etc., na guia Monitorar. 
-- Você também poderá enviar notificações para este aplicativo de sua própria instância do Mobile Engagement em vez de usar as notificações locais. 
-	- Aqui você pode adicionar seu dispositivo como um dispositivo de teste usando o item de menu **obter a ID do dispositivo** no aplicativo que lhe dará uma identificação de dispositivo que você, então, registrará como um dispositivo de teste com sua instância de back-end de plataforma. 
+**Baixe o código-fonte dos links do GitHub (fornecidos anteriormente):**
 
-	![][7]
-	    
-	![][8] ![][9]
+- Depois de baixar o código-fonte, abra-o no respectivo ambiente de desenvolvimento: XCode para iOS, Android Studio para Android e Visual Studio para Windows.
+- Em seguida, siga nossas [etapas básicas de integração do SDK](mobile-engagement-windows-store-dotnet-get-started.md) para que você possa se conectar a esse aplicativo em sua própria instância de back-end do Mobile Engagement.
+	- Você precisa configurar uma cadeia de conexão no aplicativo.
+	- Também é necessário configurar a plataforma de notificação por push do aplicativo.
+- Você observará que o aplicativo em si é instrumentado com o Mobile Engagement. Portanto, ao abrir o aplicativo após sua conexão ao back-end, você poderá ver a sessão do usuário, as atividades, os eventos e, assim por diante, na guia **Monitorar**.
+- Você também poderá enviar notificações para este aplicativo de sua própria instância do Mobile Engagement, em vez de usar as notificações locais.
+	- Aqui é possível adicionar seu dispositivo como um dispositivo de teste usando o item de menu **Obter a Identificação do Dispositivo** no aplicativo. Isso fornece uma identificação do dispositivo que você registra em seguida como um dispositivo de teste com sua instância de back-end da plataforma.
 
-## Principais recursos do Aplicativo de Demonstração
+	![Identificação do dispositivo no Windows][7]
 
-1. Conforme mencionado acima, com este aplicativo, você tem todos os recursos principais do Azure Mobile Engagement em suas mãos. Você pode percorrer os links no menu à esquerda. 
+	![Identificação do dispositivo no iOS][8] ![Identificação do dispositivo no Android][9]
 
-2. Experimente as notificações fora do aplicativo para cada plataforma. Essas notificações podem ser entregues como **somente notificação**, nas quais um clique na notificação fará com que uma tela nativa do aplicativo seja aberta (usando a **vinculação profunda**), ou como um **comunicado da Web**, no qual você pode entregar o conteúdo HTML de back-end adicional do Mobile Engagement a ser exibido quando a notificação é clicada.
+## Principais recursos do aplicativo de demonstração
 
-	![][29]
+- Como mencionamos anteriormente, com este aplicativo, você tem todos os principais recursos do Mobile Engagement ao seu alcance. Você pode percorrer os links no menu à esquerda.
 
-	
-	- No iOS, você terá que fechar o aplicativo para ver as notificações por push fora do aplicativo ou do sistema. Você pode examinar a implementação aqui para adicionar os **Botões de ação**, como aqueles adicionados nesta notificação de fora do aplicativo para *Comentários* e *Compartilhamento*, de forma que o usuário possa tomar providências desde a notificação em si. 
-	    
-	![][11] ![][14]
-	
-	
-	- No Android, você verá as opções com suporte do Android na forma de adicionar texto de várias linhas (**Texto grande**) ou de adicionar uma imagem na notificação (**Panorama**) para a notificação junto com os **Botões de ação**, conforme suporte do iOS. 
-	
-	![][12] ![][15]
-	
-	
-	- No Windows 10, você pode ver a aparência das notificações no PC. Essa notificação também será exibida na **Central de notificação** do Windows 10. Não há suporte para a adição de **Botões de ação** com o SDK do Windows no momento. 
-	
-	![][10] ![][13]
+- Você pode experimentar as notificações fora do aplicativo de cada plataforma. Essas notificações podem ser entregues como **Somente notificação**, nas quais um clique na notificação fará com que uma tela nativa do aplicativo seja aberta (usando a **vinculação profunda**), ou como um **comunicado da Web**, no qual você pode entregar o conteúdo HTML adicional do back-end do Mobile Engagement a ser exibido quando a notificação é clicada.
 
-3. Experimente as notificações no aplicativo padrão para cada plataforma. Esta é uma experiência de duas etapas, na qual uma janela de **Notificação** é exibida pela primeira vez e que, quando clicada, abre uma tela inteira de **Comunicado**, conforme mostrado abaixo. O conteúdo deste comunicado vem da sua instância de back-end do Mobile Engagement. O SDK tem os modelos de notificação e comunicado que podem ser facilmente personalizados, como neste aplicativo de demonstração, com a adição do nosso logotipo e cores.
+	![Notificações fora do aplicativo][29]
 
-	![][16]
-	
-	![][17] **iOS** ![][18] **Android**
+- No iOS, você terá de fechar o aplicativo para ver as notificações por push fora do aplicativo ou do sistema. É possível examinar a implementação aqui para adicionar os **Botões de ação**, como aqueles adicionados nesta notificação fora do aplicativo para *Comentários* e *Compartilhamento* (de forma que o usuário possa tomar uma ação diretamente na própria notificação).
 
-4. Você também pode usar o recurso **Categoria** do Azure Mobile Engagement para personalizar essa experiência padrão. No aplicativo de demonstração, demonstramos duas maneiras de alterar a experiência das notificações. Observe que ainda não há suporte para o recurso Categoria no Windows SDK.
+	![Notificações fora do aplicativo no iOS][11] ![Tela de notificação fora do aplicativo no iOS][14]
 
-	**Tela inteira intersticial**
-	
-	![][30]
+- No Android, as opções com suporte são a adição de texto multilinha (**Texto grande**) ou de uma imagem de notificação (**Visão geral**) à notificação, juntamente com os **Botões de ação** (quando tiverem suporte do iOS).
 
-	![][21] ![][22]
+	![Notificações fora do aplicativo no Android][12] ![Tela de notificação fora do aplicativo no Android][15]
 
-	**Notificação de pop-up**
+- No Windows 10, é possível ver a aparência das notificações no PC. Essa notificação também será exibida na **Central de Notificações** do Windows 10. Não há suporte para a adição de **Botões de ação** com o SDK do Windows no momento.
 
-	![][31]
-	
-	![][19] ![][20]
+	![Notificações fora do aplicativo no Windows][10] ![Tela fora do aplicativo no Windows][13]
 
-5. O Azure Mobile Engagement também dá suporte a um tipo especializado de notificação no aplicativo chamado **Votações**, que permite que você envie pesquisas rápidas para usuários de seu aplicativo segmentado. Você pode adicionar perguntas e opções para cada pergunta semelhante à seguinte, que será, então, exibida como uma notificação no aplicativo para o usuário do aplicativo.
+- Você pode experimentar as notificações padrão “no aplicativo” de cada plataforma. Essa é uma experiência de duas etapas em que uma janela **Notificação** é exibida primeiro. Quando você clica nela, ela abre um **Comunicado** de tela inteira, conforme exibido na captura de tela a seguir. O conteúdo deste comunicado é recebido de sua instância de back-end do Mobile Engagement. O SDK tem os modelos para notificações e comunicados. Você pode personalizá-los com facilidade, conforme mostrado neste aplicativo de demonstração com a adição de nosso logotipo e cores.
 
-	![][32]
+	![Notificações no aplicativo no Windows][16]
 
-	![][26]
-	    
-	![][27] **iOS** ![][28] **Android**
+	![Notificações no aplicativo no iOS][17] ![Notificações no aplicativo no Android][18]
 
-5. O Azure Mobile Engagement também dá suporte para o envio de notificações silenciosas de **Push de Dados**, nas quais você pode enviar alguns dados do seu serviço, como os dados JSON no exemplo de notificação a seguir, que você pode manipular no seu aplicativo e executar alguma ação. Por exemplo, de que modo estamos alterando o preço de um item usando a notificação por Push de Dados de forma seletiva.
+	**iOS**, **Android**
 
-	![][33]
+- Você também pode usar o recurso **Categoria** do Mobile Engagement para personalizar essa experiência padrão. No aplicativo de demonstração, demonstramos duas maneiras de alterar a experiência das notificações. Observe que ainda não há suporte para o recurso Categoria no SDK do Windows.
 
-	![][23]
-	    
-	![][24] **iOS** ![][25] **Android**
+	**Tela inteira intersticial:**
 
-> [AZURE.NOTE] Observe que você pode exibir instruções detalhadas de qualquer uma dessas notificações clicando em *Clique aqui para obter instruções sobre como enviar essas notificações de plataforma do Mobile Engagement* em qualquer tela de notificação de exemplo.
+	![Notificação no aplicativo - Categoria intersticial][30]
+
+	![Categoria intersticial no iOS][21] ![Categoria intersticial no Android][22]
+
+	**Notificação de pop-up:**
+
+	![Notificação no aplicativo - Categoria pop-up][31]
+
+	![Notificação de pop-up no iOS][19] ![Notificação de pop-up no Android][20]
+
+**iOS**, **Android**
+
+- O Mobile Engagement também dá suporte a um tipo especializado de notificação no aplicativo chamado **Sondagens**. Isso permite que você envie pesquisas rápidas para usuários segmentados de seu aplicativo. É possível adicionar perguntas e opções para cada pergunta, como mostrado na captura de tela a seguir. Em seguida, isso será exibido como uma notificação no aplicativo para o usuário do aplicativo.   
+
+	![Notificações de sondagem][32]
+
+	![Pesquisa no Windows][26]
+
+	![Pesquisa no iOS][27] ![Pesquisa no Android][28]
+
+**iOS**, **Android**
+
+- O Mobile Engagement também dá suporte à notificações de **Push de Dados** silenciosas. Com essas notificações, é possível enviar dados de seu serviço (como os dados JSON no exemplo a seguir), que você pode manipular em seu aplicativo e executar alguma ação. Um exemplo é como estamos alterando o preço de um item de forma seletiva, usando a notificação por push de dados.
+
+	![Notificação por push de dados][33]
+
+	![Notificação por push de dados no Windows][23]
+
+	![Notificação por push de dados no iOS][24] ![Notificação por push de dados no Android][25]
+
+**iOS**, **Android**
+
+> [AZURE.NOTE] Você pode exibir instruções passo a passo detalhadas de qualquer uma dessas notificações clicando em **Clique aqui para obter instruções sobre como enviar essas notificações da plataforma Mobile Engagement** em qualquer tela de notificação de exemplo.
 
 
 [1]: ./media/mobile-engagement-demo-apps/home-windows.png
@@ -180,4 +185,4 @@ Você pode usar esses aplicativos das seguintes formas:
 [32]: ./media/mobile-engagement-demo-apps/notification-poll.png
 [33]: ./media/mobile-engagement-demo-apps/notification-data-push.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

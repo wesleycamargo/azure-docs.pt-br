@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="02/18/2016"
+	ms.date="05/17/2016"
 	ms.author="heidist"/>
 
 # Quem está usando a Pesquisa do Azure: estudos de caso e relatos de clientes
@@ -61,4 +61,4 @@ Saiba como uma startup sueca criou um portal que conecta compradores a varejista
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -16,7 +16,7 @@ Este tutorial usa uma instalação do [HDInsight Storm][], que acompanha o spout
 
 4. No Eclipse, crie um novo projeto Maven (clique em **Arquivo**, **Novo** e **Projeto**).
 
-   ![][12]
+	![][12]
 
 5. Selecione **Uso do local de espaço de trabalho padrão** e clique em **Avançar**
 
@@ -229,5 +229,3 @@ Este tutorial usa uma instalação do [HDInsight Storm][], que acompanha o spout
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-
-<!---HONumber=AcomDC_0316_2016-->

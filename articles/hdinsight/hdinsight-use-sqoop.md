@@ -37,7 +37,9 @@ Para as versões do Sqoop com suporte em clusters HDInsight, confira [Novidades 
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-- **Uma estação de trabalho com o PowerShell do Azure**. Veja [Instalar o Azure PowerShell 1.0 e superior](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **Uma estação de trabalho com o PowerShell do Azure**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Compreender o cenário
 
@@ -103,9 +105,9 @@ Esta seção mostra como criar um cluster e os esquemas de banco de dados SQL pa
     
 3\. Clique em **OK** para salvar os parâmetros.
 
-4\. Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
+4\. Na folha **Implantação personalizada**, clique na caixa suspensa **Grupo de recursos** e clique em **Novo** para criar um novo grupo de recursos. O grupo de recursos é um contêiner que agrupa o cluster, a conta de armazenamento dependente e outros recursos vinculados.
 
-5\. Clique em **Termos legais** e, então, clique em **Criar**.
+5\. Clique em **Termos legais** e em **Criar**.
 
 6\. Clique em **Criar**. Você verá um novo bloco intitulado Como enviar a implantação para a implantação do modelo. É preciso sobre cerca de 20 minutos para criar o cluster e o banco de dados SQL.
 
@@ -624,7 +626,7 @@ O exemplo do PowerShell executa as seguintes etapas:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
-[sqldatabase-get-started]: ../sql-database-get-started.md
+[sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
@@ -633,4 +635,4 @@ O exemplo do PowerShell executa as seguintes etapas:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

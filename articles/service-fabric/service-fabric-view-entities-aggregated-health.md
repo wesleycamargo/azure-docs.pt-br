@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/25/2016"
    ms.author="oanapl"/>
 
 # Como exibir relatórios de integridade do Service Fabric
@@ -1132,4 +1132,4 @@ Sempre que houver um problema no cluster ou aplicativo, observe a integridade do
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -65,7 +65,32 @@ Por esse motivo, as seguintes restrições se aplicam ao Azure AD Connect:
 - Se você instalar outro servidor do Azure AD Connect, você deverá selecionar o mesmo atributo sourceAnchor usado anteriormente. Se você usava o DirSync anteriormente e mudou para o Azure AD Connect, será preciso usar **objectGUID**, já que ele é o atributo usado pelo DirSync.
 - Se o valor de sourceAnchor for alterado após o objeto ser exportado para o AD do Azure, a sincronização do Azure AD Connect gerará um erro e não permitirá nenhuma outra alteração no objeto antes de o problema ser corrigido e o sourceAnchor ser alterado de volta no diretório de origem.
 
+## Entrar no Azure AD
+
+Ao integrar seu diretório local ao Azure AD, é importante compreender como as configurações de sincronização podem afetar a maneira de autenticar o usuário. O Azure AD usa userPrincipalName ou UPN para autenticar o usuário. No entanto, ao sincronizar os usuários, você deve escolher o atributo a ser usado para o valor de userPrincipalName cuidadosamente.
+
+### Escolher o atributo para userPrincipalName
+
+Ao selecionar o atributo para fornecer o valor de UPN a ser usado no Azure, garanta que
+
+* Os valores de atributo estão de acordo com a sintaxe UPN (RFC 822), ou seja, eles devem estar no formato username@domain.
+* O sufixo nos valores corresponde a um dos domínios personalizados verificados no Azure AD
+
+Em configurações expressas, a opção suposta para o atributo é userPrincipalName. No entanto, se você acredita que o atributo userprincipalname não contém o valor que você deseja que os usuários usem para fazer logon no Azure, escolha **Instalação Personalizada** e forneça o atributo apropriado.
+
+### Estado de domínio personalizado e UPN
+É importante garantir que haja um domínio verificado para o sufixo UPN.
+
+John é um usuário em contoso.com. Você deseja que João use o UPN local john@contoso.com para fazer logon no Azure depois de ter sincronizado os usuários para o diretório azurecontoso.onmicrosoft.com do Azure AD. Para fazer isso, você precisará adicionar e verificar contoso.com como um domínio personalizado no Azure AD antes de iniciar a sincronização dos usuários. Se o sufixo UPN de João, por exemplo, contoso.com, não corresponder a um domínio verificado no Azure AD, este substituirá o sufixo UPN com azurecontoso.onmicrosoft.com e João terá que usar john@azurecontoso.onmicrosoft.com para entrar no Azure.
+
+### Domínios locais não roteáveis e UPN para Azure AD
+Algumas organizações têm domínios não roteáveis, como contoso.local ou domínios de rótulo único simples, como contoso. Não é possível verificar um domínio no Azure AD que não pode ser roteado. O Azure AD Connect pode sincronizar apenas um domínio verificado no Azure AD. Quando você cria um diretório do Azure AD, ele cria um domínio roteável que torna-se o domínio padrão do Azure AD, por exemplo, contoso.onmicrosoft.com. Portanto, é necessário verificar se outros domínios roteáveis nesse cenário, caso você não deseje sincronizar com o domínio padrão .onmicrosoft.com.
+
+Leia [Adicionar seu nome de domínio personalizado ao Azure Active Directory](active-directory-add-domain.md) para obter mais informações sobre como verificar domínios.
+
+O Azure AD Connect detecta se você está executando em um ambiente de domínio não roteável e avisa corretamente para não prosseguir com configurações expressas. Se você está operando em um domínio não roteável, é provável que o UPN dos usuários também tenham sufixos não roteáveis. Por exemplo, se você estiver executando em contoso.local, o Azure AD Connect vai sugerir o uso de configurações personalizadas em vez de usar as configurações expressas. Usando as configurações personalizadas, você poderá especificar o atributo que deve ser usado como o UPN para fazer logon no Azure depois que os usuários são sincronizados com o Azure AD. Consulte **Selecionar o atributo para o nome UPN no Azure AD** abaixo para ver mais informações.
+
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

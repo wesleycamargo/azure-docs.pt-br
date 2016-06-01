@@ -53,19 +53,21 @@ Depois de criar suas três políticas, você estará pronto para compilar o apli
 
 ## Baixar o código
 
-O código para este tutorial está [no GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Para compilar o exemplo à medida que avança, [baixe um projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Também é possível clonar o esqueleto:
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
+O código deste tutorial [é mantido no GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Para compilar o exemplo à medida que avançar, [baixe um projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Também é possível clonar o esqueleto:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
 ```
 
-O aplicativo completo também está [disponível como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) ou na ramificação `complete` do mesmo repositório.
+O aplicativo concluído também está [disponível como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) ou na ramificação `complete` do mesmo repositório.
 
 Depois de baixar o código de exemplo, abra o arquivo .sln do Visual Studio para começar. O arquivo de solução que contém dois projetos: `TaskWebApp` e `TaskService`. `TaskWebApp` é um aplicativo Web de MVC com o qual o usuário interage. `TaskService` é API Web back-end do aplicativo que armazena a lista de tarefas de cada usuário.
 
 ## Configurar o aplicativo Web da tarefa
 
-Quando um usuário interage com `TaskWebApp`, o cliente envia solicitações ao AD do Azure e recebe de volta tokens que podem ser usados para chamar a API Web `TaskService`. Para conectar o usuário e obter tokens, você precisa fornecer ao `TaskWebApp` algumas informações sobre seu aplicativo. No projeto `TaskWebApp`, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`.
+Quando um usuário interage com `TaskWebApp`, o cliente envia solicitações ao Azure AD e recebe de volta tokens que podem ser usados para chamar a API Web `TaskService`. Para conectar o usuário e obter tokens, você precisa fornecer ao `TaskWebApp` algumas informações sobre o aplicativo. No projeto `TaskWebApp`, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`:
 
 ```
 <appSettings>
@@ -87,7 +89,7 @@ Quando um usuário interage com `TaskWebApp`, o cliente envia solicitações ao 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Também há dois decoradores `[PolicyAuthorize]` que exigem o nome de sua política de entrada. O atributo `[PolicyAuthorize]` é usado para invocar uma determinada política quando o usuário tenta acessar uma página no aplicativo que exige autenticação.
+Também há dois decoradores `[PolicyAuthorize]` que exigem o nome da política de entrada. O atributo `[PolicyAuthorize]` é usado para invocar uma política específica quando o usuário tenta acessar uma página no aplicativo que exige autenticação.
 
 ```C#
 // Controllers\HomeController.cs
@@ -105,11 +107,11 @@ public class TasksController : Controller
 {
 ```
 
-Para saber como um aplicativo Web como o `TaskWebApp` usa o AD B2C do Azure, consulte [Compilar um aplicativo Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Para saber como um aplicativo Web como o `TaskWebApp` usa o B2C do Azure AD, confira [Compilar um aplicativo Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Proteger a API
 
-Quando você tem um cliente que chama a API em nome dos usuários, é possível proteger o `TaskService` usando os tokens de portador do OAuth 2.0. Sua API pode aceitar e validar tokens usando a biblioteca OWIN (Open Web Interface para .NET) da Microsoft.
+Quando você tem um cliente que chama a API em nome dos usuários, pode proteger o `TaskService` usando os tokens de portador do OAuth 2.0. Sua API pode aceitar e validar tokens usando a biblioteca OWIN (Open Web Interface para .NET) da Microsoft.
 
 ### Instalar a OWIN
 Comece instalando o pipeline de autenticação OAuth da OWIN:
@@ -137,7 +139,7 @@ Abra o `web.config` arquivo na raiz do `TaskService` do projeto e substitua os v
 ```
 
 ### Adicionar uma classe de inicialização da OWIN
-Adicionar uma classe de inicialização do OWIN para o projeto `TaskService` chamado `Startup.cs`. Clique com o botão direito do mouse no projeto, selecione **Adicionar** **Novo Item** e pesquise por OWIN.
+Adicionar uma classe de inicialização do OWIN para o projeto `TaskService` chamado `Startup.cs`. Clique com o botão direito do mouse no projeto, selecione **Adicionar** e **Novo Item** e pesquise por OWIN.
 
 
 ```C#
@@ -187,7 +189,7 @@ public partial class Startup
 ```
 
 ### Proteger o controlador de tarefa
-Após a configuração do aplicativo para usar a autenticação OAuth 2.0, você pode proteger sua API Web adicionando uma marca `[Authorize]` ao controlador de tarefa. Este é o controlador onde ocorre toda a manipulação da lista de tarefas, portanto, proteja todo o controlador no nível da classe. Você também pode adicionar a marca `[Authorize]` a ações individuais para obter um controle mais refinado.
+Após a configuração do aplicativo para usar a autenticação OAuth 2.0, você pode proteger a API Web adicionando uma marca `[Authorize]` ao controlador de tarefa. Este é o controlador onde ocorre toda a manipulação da lista de tarefas, portanto, proteja todo o controlador no nível da classe. Você também pode adicionar a marca `[Authorize]` a ações individuais para obter um controle mais refinado.
 
 ```C#
 // Controllers\TasksController.cs
@@ -200,7 +202,7 @@ public class TasksController : ApiController
 ```
 
 ### Obter informações de usuário do token
-O `TasksController` armazena tarefas em um banco de dados, no qual cada tarefa tem um usuário associado que é o "proprietário" da tarefa. O proprietário é identificado pela **ID de objeto**do usuário. (É por isso que você precisa adicionar a ID do objeto como uma declaração de aplicativo em todas as suas políticas.)
+O `TasksController` armazena tarefas em um banco de dados, no qual cada tarefa tem um usuário associado que é o "proprietário" da tarefa. O proprietário é identificado pela **ID de objeto** do usuário. (É por isso que você precisa adicionar a ID do objeto como uma declaração de aplicativo em todas as suas políticas.)
 
 ```C#
 // Controllers\TasksController.cs
@@ -219,7 +221,7 @@ Por fim, compile e execute `TaskWebApp` e `TaskService`. Inscreva-se no aplicati
 
 ## Editar suas políticas
 
-Depois de proteger uma API usando o AD B2C do Azure, experimente as políticas do aplicativo e veja o efeito (ou a falta dele) na API. Você pode <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular as declarações do aplicativo nas políticas e alterar as informações do usuário que estão disponíveis na API da Web. Quaisquer declarações que você adicionar estarão disponíveis para a API Web de MVC do .NET no objeto `ClaimsPrincipal`, conforme descrito acima.
+Depois de proteger uma API usando o AD B2C do Azure, experimente as políticas do aplicativo e veja o efeito (ou a falta dele) na API. Você pode <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->manipular as declarações do aplicativo nas políticas e alterar as informações do usuário que estão disponíveis na API Web. Quaisquer declarações que você adicionar estarão disponíveis para a API Web de MVC do .NET no objeto `ClaimsPrincipal`, conforme descrito acima.
 
 <!--
 
@@ -233,4 +235,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

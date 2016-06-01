@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Gerenciar o gerenciamento de custo | Microsoft Azure"
-	description="Aprenda a configurar os recursos de gerenciamento de custo do Laboratório de Desenvolvimento/Teste."
+	description="Aprenda a configurar os recursos de gerenciamento de custo dos Laboratórios de Desenvolvimento/Teste."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
 # Configurar o gerenciamento de custo
@@ -26,7 +26,7 @@ O recurso de gerenciamento de custos dos Laboratórios de Desenvolvimento/Teste 
 
 Para habilitar o gráfico Tendência de custo estimado mensal, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
@@ -68,4 +68,4 @@ Eis aqui algumas coisas para experimentar a seguir:
 - [Configurar imagens do Marketplace](./devtest-lab-configure-marketplace-images.md): os Laboratórios de Desenvolvimento/Teste dão suporte à criação de novas VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (se houver alguma) do Azure Marketplace podem ser usadas durante a criação de novas VMs em um laboratório.
 - [Criar uma VM em um laboratório](./devtest-lab-add-vm-with-artifacts.md): ilustra como criar uma nova VM de uma imagem de base (personalizada ou do Marketplace) e como trabalhar com artefatos em sua VM.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

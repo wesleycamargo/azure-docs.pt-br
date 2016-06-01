@@ -606,4 +606,4 @@ Agora que você tem a visão geral, a próxima etapa é escrever seu primeiro ap
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

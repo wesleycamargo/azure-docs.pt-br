@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="03/07/2016" 
+	ms.date="05/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Criar um pipeline com a Atividade de Cópia usando o Assistente de Cópia do Data Factory
@@ -108,6 +108,15 @@ Nesta etapa, você usa o Portal do Azure para criar uma data factory do Azure de
 13. Use as instruções de [Monitorar e gerenciar o pipeline usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) para saber mais sobre como monitorar o pipeline que você acabou de criar.
 
 	![Aplicativo de Monitoramento](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
-  
+ 
 
-<!---HONumber=AcomDC_0330_2016-->
+## Veja também
+| Tópico | Descrição |
+| :---- | :---- |
+| [Atividades de movimentação de dados](data-factory-data-movement-activities.md) | Este artigo fornece informações detalhadas sobre a Atividade de Cópia utilizada neste tutorial. |
+| [Agendamento e execução](data-factory-scheduling-and-execution.md) | Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
+| [Pipelines](data-factory-create-pipelines.md) | Este artigo o ajudará a compreender pipelines e atividades no Azure Data Factory e como aproveitá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |
+| [Conjunto de dados](data-factory-create-datasets.md) | Este artigo o ajudará a entender os conjuntos de dados no Azure Data Factory.
+| [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
+
+<!---HONumber=AcomDC_0525_2016-->

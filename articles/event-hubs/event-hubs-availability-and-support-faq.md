@@ -33,7 +33,7 @@ Eventos consumidos a partir de um Hub de Eventos, bem como operações de gerenc
 
 ## O que são unidades de produtividade dos Hubs de Eventos?
 
-As unidades de produtividade dos Hubs de Eventos são selecionadas explicitamente pelo usuário, por meio do portal clássico do Azure ou das APIs de gerenciamento dos Hubs de Eventos. Unidades de produtividade se aplicam a todos os Hubs de Eventos em um namespace do Barramento de Serviço, e cada unidade de produtividade proporciona ao namespace os seguintes recursos:
+As unidades de produtividade dos Hubs de Eventos são selecionadas explicitamente pelo usuário, por meio do portal clássico do Azure ou dos modelos do gerenciador de recursos dos Hubs de Eventos. Unidades de produtividade se aplicam a todos os Hubs de Eventos em um namespace do Barramento de Serviço, e cada unidade de produtividade proporciona ao namespace os seguintes recursos:
 
 - Até 1 MB por segundo de eventos de entrada (eventos enviados para um Hub de Eventos), mas não mais de 1.000 eventos de entrada, operações de gerenciamento ou chamadas de controle à API por segundo.
 
@@ -110,4 +110,4 @@ Para saber mais sobre os Hubs de Eventos, consulte os artigos a seguir:
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solução de mensagens na fila]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

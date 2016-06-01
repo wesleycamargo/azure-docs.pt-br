@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/04/2016" 
 	ms.author="awills"/>
 
 
@@ -31,10 +31,10 @@ Vamos analisar algumas consultas básicas para começar.
 
 Abra a Análise na [folha de visão geral](app-insights-dashboards.md) de seu aplicativo no Application Insights:
 
-![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics/001.png)
+![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics-tour/001.png)
 
 	
-## [Take](app-insights-analytics-aggregations.md#take): mostre-me n linhas
+## [Take](app-insights-analytics-reference.md#take-operator): mostre-me n linhas
 
 Os pontos de dados que registram em log operações de usuário (geralmente solicitações HTTP recebidas pelo seu aplicativo Web) são armazenados em uma tabela chamada `requests`. Cada linha é um ponto de dados de telemetria recebido do SDK do Application Insights em seu aplicativo.
 
@@ -56,7 +56,7 @@ Expanda algum item para ver os detalhes:
 
 > [AZURE.NOTE] Clique no cabeçalho de uma coluna para reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Esteja ciente de que classificar dessa maneira nem sempre mostra os reais itens mais altos ou mais baixos. Para isso, você deve usar o operador `top` ou `sort`.
 
-## [Top](app-insights-analytics-aggregations.md#top) e [sort](app-insights-analytics-aggregations.md#sort)
+## [Top](app-insights-analytics-reference.md#top-operator) e [sort](app-insights-analytics-reference.md#sort-operator)
 
 `take` é útil para obter um exemplo rápido de um resultado, mas mostra linhas da tabela sem uma ordem específica. Para obter uma exibição ordenada, use `top` (para obter um exemplo) ou `sort` (na tabela inteira).
 
@@ -84,9 +84,9 @@ O resultado seria o mesmo, mas ele seria executado um pouco mais lentamente. (Ta
 Os cabeçalhos de coluna no modo de exibição de tabela também podem ser usados para classificar os resultados na tela. Mas, obviamente, se você usou `take` ou `top` para recuperar apenas parte de uma tabela, apenas os registros que foram recuperados serão reordenados.
 
 
-## [Project](app-insights-analytics-aggregations.md#project): selecionar, renomear e computar colunas
+## [Project](app-insights-analytics-reference.md#project-operator): selecionar, renomear e computar colunas
 
-Use [`project`](app-insights-analytics-aggregations.md#project) para selecionar apenas as colunas desejadas:
+Use [`project`](app-insights-analytics-reference.md#project-operator) para selecionar apenas as colunas desejadas:
 
 ```AIQL
 
@@ -117,11 +117,13 @@ Na expressão escalar:
 * `1d` (que é o dígito um e um 'd') é um literal de timespan que significa um dia. Aqui estão mais alguns literais de timespan: `12h`, `30m`, `10s` e `0.01s`.
 * O `floor` (alias `bin`) arredonda um valor até o múltiplo mais próximo do valor de base fornecido. De modo que `floor(aTime, 1s)` arredonda um tempo até o segundo mais próximo.
 
-As [expressões](app-insights-analytics-scalars.md) podem incluir todos os operadores comuns (`+`, `-`, ...) e há uma variedade de funções úteis.
+As [expressões](app-insights-analytics-reference.md#scalars) podem incluir todos os operadores comuns (`+`, `-`, ...) e há uma variedade de funções úteis.
 
-## [Extend](app-insights-analytics-aggregations.md#extend): computar colunas
+    
 
-Se quiser apenas adicionar colunas às existentes, use [`extend`](app-insights-analytics-aggregations.md#extend):
+## [Extend](app-insights-analytics-reference.md#extend-operator): computar colunas
+
+Se quiser apenas adicionar colunas às existentes, use [`extend`](app-insights-analytics-reference.md#extend-operator):
 
 ```AIQL
 
@@ -130,13 +132,57 @@ Se quiser apenas adicionar colunas às existentes, use [`extend`](app-insights-a
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-O uso de [`extend`](app-insights-analytics-aggregations.md#extend) será menos detalhado do que de [`project`](app-insights-analytics-aggregations.md#project) se você quiser manter todas as colunas existentes.
+O uso de [`extend`](app-insights-analytics-reference.md#extend-operator) será menos detalhado do que o de [`project`](app-insights-analytics-reference.md#project-operator) se você quiser manter todas as colunas existentes.
 
-## [Summarize](app-insights-analytics-aggregations.md#summarize): agregar grupos de linhas
+
+## Acessando objetos aninhados
+
+Os objetos aninhados podem ser acessados facilmente. Por exemplo, no fluxo de exceções, você verá objetos estruturados como este:
+
+![result](./media/app-insights-analytics-tour/520.png)
+
+Você pode mesclá-lo escolhendo as propriedades que te interessam:
+
+```AIQL
+
+    exceptions | take 10
+    | extend method1 = details[0].parsedStack[1].method
+```
+
+## Medidas e propriedades personalizadas
+
+Se o seu aplicativo anexa eventos [dimensões personalizadas (propriedades) e medidas personalizadas](app-insights-api-custom-events-metrics.md#properties), você os verá nos objetos `customDimensions` e `customMeasurements`.
+
+
+Por exemplo, se o seu aplicativo inclui:
+
+```C#
+
+    var dimensions = new Dictionary<string, string> 
+                     {{"p1", "v1"},{"p2", "v2"}};
+    var measurements = new Dictionary<string, double>
+                     {{"m1", 42.0}, {"m2", 43.2}};
+	telemetryClient.TrackEvent("myEvent", dimensions, measurements);
+```
+
+Para extrair esses valores na Análise:
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1, 
+      m1 = todouble(customMeasurements.m1) // cast numerics
+
+``` 
+
+> [AZURE.NOTE] Em [Metrics Explorer](app-insights-metrics-explorer.md), todas as medidas personalizadas anexadas a qualquer tipo de telemetria aparecem juntos na folha de métricas, juntamente com métricas enviadas usando `TrackMetric()`. Mas na Análise, as medidas personalizadas ainda estão conectadas a qualquer tipo de telemetria no qual elas tenham sido realizadas, e as métricas exibidas em seus próprios fluxos `metrics`.
+
+
+## [Summarize](app-insights-analytics-reference.md#summarize-operator): agregar grupos de linhas
 
 `Summarize` aplica uma *função de agregação* especificada em grupos de linhas.
 
-Por exemplo, o tempo que seu aplicativo Web leva para responder a uma solicitação é informado no campo `duration`. Vamos ver o tempo médio de resposta para todas as solicitações:
+Por exemplo, o tempo que o seu aplicativo Web leva para responder a uma solicitação é informado no campo `duration`. Vamos ver o tempo médio de resposta para todas as solicitações:
 
 ![](./media/app-insights-analytics-tour/410.png)
 
@@ -151,7 +197,7 @@ Ou podemos agrupar os resultados por hora do dia:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Observe como estamos usando a função `bin` (também conhecida como `floor`). Se usássemos apenas `by timestamp`, cada linha de entrada acabaria em seu próprio pequeno grupo. Para qualquer escalar contínuo, como horas ou números, temos que dividir o intervalo contínuo em um número gerenciável de valores discretos, e `bin`, que é realmente uma função `floor` familiar de arredondamento para baixo, é a maneira mais fácil de fazer isso.
+Observe como estamos usando a função `bin` (também conhecida como `floor`). Se usássemos apenas `by timestamp`, cada linha de entrada acabaria em seu próprio pequeno grupo. Para qualquer escalar contínuo, como horas ou números, temos que dividir o intervalo contínuo em um número gerenciável de valores discretos; e `bin`, que é realmente uma função `floor` familiar de arredondamento para baixo, é a maneira mais fácil de fazer isso.
 
 Podemos usar a mesma técnica para reduzir intervalos de cadeias de caracteres:
 
@@ -170,7 +216,7 @@ Observe que você pode usar `name=` para definir o nome de uma coluna de resulta
 Também há uma agregação `count()` (e uma operação de contagem), para casos em que você realmente queira contar o número de linhas em um grupo.
 
 
-Há uma série de [funções de agregação](app-insights-analytics-aggregations.md).
+Há uma série de [funções de agregação](app-insights-analytics-reference.md#aggregations).
 
 
 ## Colocando os resultados em gráficos
@@ -196,7 +242,7 @@ Podemos fazer melhor do que a exibição de tabela. Vamos examinar os resultados
 Observe que, embora não tenhamos classificado os resultados por tempo (como você pode ver na exibição de tabela), a exibição de gráfico sempre mostra datetimes na ordem correta.
 
 
-## [Where](app-insights-analytics-aggregations.md#where): filtrando uma condição
+## [Where](app-insights-analytics-reference.md#where-operator): filtrando uma condição
 
 Se você tiver configurado o monitoramento do Application Insights para os lados do [cliente](app-insights-javascript.md) e do servidor de seu aplicativo, alguma telemetria do banco de dados virá de navegadores.
 
@@ -216,9 +262,9 @@ O operador `where` usa uma expressão booliana. Eis alguns pontos importantes so
 
  * `and`, `or`: operadores boolianos
  * `==`, `<>`: igual a e diferente de
- * `=~`, `!=`: cadeia de caracteres que não diferencia maiúsculas de minúsculas igual a e diferente de. Há muitos outros operadores de comparação de cadeia de caracteres.
+ * `=~`, `!=`: cadeia de caracteres que não diferencia maiúsculas de minúsculas "igual a" e "diferente de". Há muitos outros operadores de comparação de cadeia de caracteres.
 
-Leia mais sobre [expressões escalares](app-insights-analytics-scalars.md).
+Leia mais sobre [expressões escalares](app-insights-analytics-reference.md#scalars).
 
 ### Filtragem de eventos
 
@@ -230,7 +276,7 @@ Solicitações malsucedidas de localização:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` tem o tipo string e, portanto, devemos [convertê-lo](app-insights-analytics-scalars.md#casts) em uma comparação numérica.
+`responseCode` tem o tipo string, portanto devemos [convertê-lo](app-insights-analytics-reference.md#casts) em uma comparação numérica.
 
 Resuma as diferentes respostas:
 
@@ -272,7 +318,7 @@ Use vários valores em uma cláusula `summarize by` a fim de criar uma linha sep
 
 ![](./media/app-insights-analytics-tour/090.png)
 
-Para exibir várias linhas em um gráfico, clique em **Dividido por** e escolha uma coluna.
+Para exibir várias linhas em um gráfico, clique em **Dividir por** e escolha uma coluna.
 
 ![](./media/app-insights-analytics-tour/100.png)
 
@@ -339,7 +385,7 @@ A cláusula `where` exclui sessões únicas (sessionDuration==0) e define o comp
 
 
 
-## [Percentis](app-insights-analytics-aggregations.md#percentiles)
+## [Percentis](app-insights-analytics-reference.md#percentiles)
 
 Quais intervalos de durações abordam diferentes porcentagens de sessões?
 
@@ -385,7 +431,7 @@ Para obter uma análise separada para cada país, temos apenas que trazer a colu
 ![](./media/app-insights-analytics-tour/190.png)
 
 
-## [Join](app-insights-analytics-aggregations.md#join)
+## [Join](app-insights-analytics-reference.md#join)
 
 Temos acesso a várias tabelas, incluindo solicitações e exceções.
 
@@ -404,7 +450,7 @@ Para encontrar as exceções relacionadas a uma solicitação que retornou uma r
 
 
 
-## [Let](app-insights-analytics-aggregations.md#let): atribuir um resultado a uma variável
+## [Let](app-insights-analytics-reference.md#let-clause): atribuir um resultado a uma variável
 
 Use [let](./app-insights-analytics-syntax.md#let-statements) para separar as partes da expressão anterior. Os resultados não mudam:
 
@@ -423,4 +469,4 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) para separar as par
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="05/10/2016"
 	ms.author="hangzh;bradsev" />
+
 
 #Criar recursos para os dados em um cluster Hadoop usando as consultas do Hive
 
-## Introdução
-Veja exemplos de consultas de Hive que geram recursos em dados armazenados em um cluster Hadoop do Azure HDInsight. Essas consultas de Hive usam UDFs (funções definidas pelo usuário) de Hive incorporadas, Os scripts para eles são fornecidos.
+Este documento mostra como criar recursos para os dados armazenados em um cluster Hadoop do Azure HDInsight usando consultas do Hive. Essas consultas de Hive usam UDFs (funções definidas pelo usuário) de Hive incorporadas, Os scripts para eles são fornecidos.
 
-Exemplos de consultas que são específicas para cenários de [Dados de Viagens de Táxi em NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) também são fornecidos no [repositório Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução.
+As operações necessárias para criar recursos podem ter uso intensivo de memória. O desempenho das consultas do Hive se torna mais crítico nesses casos e pode ser melhorado com o ajuste de determinados parâmetros. O ajuste desses parâmetros é abordado na seção final.
 
-Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
+Alguns exemplos de consultas apresentados são específicos para cenários de [Dados de Corridas de Táxi em Nova York](http://chriswhong.com/open-data/foil_nyc_taxi/) e também são fornecidos no [repositório GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Essas consultas já tem o esquema de dados especificado e estão prontas para ser enviadas para execução. Na seção final, são discutidos os parâmetros que os usuários podem ajustar para que o desempenho das consultas do Hive possa ser melhorado.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Os links deste **menu** o levam até os tópicos que descrevem como criar recursos para os dados em vários ambientes. Esta tarefa é uma etapa do [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Pré-requisitos
@@ -143,7 +143,7 @@ Os campos que são usados nesta consulta são coordenadas de GPS de locais de sa
 
 As equações matemáticas que calculam a distância entre duas coordenadas de GPS podem ser encontradas no site <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Scripts de Tipo Móvel</a>, as quais foram criadas por Peter Lapisu. No Javascript dele, a função `toRad()` é apenas *lat\_or\_lon*pi/180*, que converte graus em radianos. Aqui, *lat\_or\_lon* é a latitude ou a longitude. Como o Hive não fornece a função `atan2`, mas fornece a função `atan`, a função `atan2` é implementada pela função `atan` na consulta de Hive acima usando a definição fornecida na <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipédia</a>.
 
-![Criar espaço de trabalho][1]
+![Criar espaço de trabalho](./media/machine-learning-data-science-create-features-hive/atan2new.png)
 
 Uma lista completa de UDFs de Hive inseridas pode ser encontrada na seção **Funções Internas** no <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki do Apache Hive</a>.
 
@@ -181,13 +181,7 @@ As configurações de parâmetro padrão do cluster de Hive talvez não sejam ad
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-process-hive-tables/atan2new.png
-[10]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png
-[11]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png
-[12]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-1.png
-[13]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png
-[14]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png
-[15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
+
  
 
-<!---HONumber=AcomDC_0211_2016--->
+<!---HONumber=AcomDC_0518_2016--->

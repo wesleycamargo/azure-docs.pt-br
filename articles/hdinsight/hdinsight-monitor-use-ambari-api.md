@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/18/2016"
 	ms.author="jgao"/>
 
 # Monitorar clusters Hadoop no HDInsight usando a API da Ambari
@@ -174,4 +174,4 @@ Você aprendeu como usar as chamadas de API para monitoramento da Ambari. Para o
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

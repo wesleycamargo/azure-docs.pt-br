@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/16/2016"
 	ms.author="jeedes"/>
 
 
@@ -228,4 +228,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

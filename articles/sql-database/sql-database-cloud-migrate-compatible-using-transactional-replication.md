@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -31,6 +31,10 @@ A replicação transacional é uma tecnologia interna e integrada ao SQL Server 
  - SQL Server 2012 SP2 CU8 e posterior
  - SQL Server 2013 SP3 quando ele for lançado
 
+
+> [AZURE.IMPORTANT] Você deve usar a versão mais recente do SQL Server Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. Versões anteriores do SQL Server Management Studio não poderão configurar o Banco de Dados SQL como um assinante. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+
 Você também pode usar a replicação transacional para migrar um subconjunto de seu banco de dados local. A publicação que você replica no Banco de Dados SQL do Azure pode ser limitada a um subconjunto de tabelas no banco de dados que está sendo replicado. Além disso, para cada tabela que estiver sendo replicada, você poderá limitar os dados a um subconjunto de linhas e/ou um subconjunto de colunas.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

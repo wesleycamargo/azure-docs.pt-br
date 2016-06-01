@@ -466,6 +466,8 @@ Esse comando exclui uma imagem de máquina virtual.
 
 Esse comando cria uma imagem de máquina virtual. Os arquivos .vhd personalizados são carregados no armazenamento de blob e, em seguida, a imagem de máquina virtual é criada nela. Em seguida, você pode usar essa imagem de máquina virtual para criar uma máquina virtual. Os parâmetros Location e OS são obrigatórios.
 
+>[AZURE.NOTE]No momento, este comando dá suporte apenas para o carregamento de arquivos .vhd fixos. Para carregar um arquivo .vhd dinâmico, use os [utilitários do VHD do Azure para prosseguir](https://github.com/Microsoft/azure-vhd-utils-for-go).
+
 Alguns sistemas impõem limites de descritor de arquivo por processo. Se esse limite for excedido, a ferramenta exibirá um erro de limite de descritor de arquivo. Você pode executar o comando novamente usando o parâmetro -p &lt;number> para reduzir o número máximo de carregamentos paralelos. O número máximo padrão de carregamentos paralelos é 96.
 
 	~$ azure vm image create mytestimage ./Sample.vhd -o windows -l "West US"
@@ -2348,4 +2350,4 @@ Remove uma entrada de servidor DNS da configuração de rede.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

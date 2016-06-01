@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2016" 
+	ms.date="05/09/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados para e do Banco de Dados de Documentos usando o Azure Data Factory
@@ -419,12 +419,14 @@ No caso da Atividade de cópia, quando a fonte é do tipo **DocumentDbCollection
 
 	**Resposta:** se os registros têm um campo "ID" e a operação de cópia tenta inserir um registro com a mesma ID, a operação de cópia gerará um erro.
  
-3. **Pergunta:** o suporte do Data Factory faz [intervalo ou o particionamento de dados baseado em hash]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+3. **Pergunta:** o suporte do Data Factory faz [intervalo ou o particionamento de dados baseado em hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
 	**Resposta:** Não. 
 4. **Pergunta:** posso especificar mais de uma coleção de Banco de Dados de Documentos para uma tabela?
 	
 	**Resposta:** Não. Somente uma coleção pode ser especificada no momento.
      
+## Desempenho e Ajuste  
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

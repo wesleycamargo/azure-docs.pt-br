@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/11/2016"
 	ms.author="jroth"/>
 
 # Assinatura do Azure e limite de serviços, cotas e restrições
@@ -41,6 +41,7 @@ Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Gru
 - [Gerenciamento da API](#api-management-limits)
 - [Serviço de Aplicativo](#app-service-limits)
 - [Application Insights](#application-insights-limits)
+- [Automação](#automation-limits)
 - [Cache Redis do Azure](#azure-redis-cache-limits)
 - [RemoteApp do Azure](#azure-remoteapp-limits)
 - [Backup](#backup-limits)
@@ -272,6 +273,9 @@ Para saber mais sobre outros limites, como tamanho do documento, chaves, solicit
 ### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
+### Limites de automação
+[AZURE.INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
 ### Limites de banco de dados SQL
 
 Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco de Dados SQL](sql-database/sql-database-resource-limits.md).
@@ -284,4 +288,4 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

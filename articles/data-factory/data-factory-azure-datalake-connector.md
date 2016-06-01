@@ -464,8 +464,8 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | folderPath | Caminho para o contêiner e a pasta no repositório do Azure Data Lake. | Sim |
 | fileName | O nome do arquivo no repositório Azure Data Lake. fileName é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funcionará no arquivo específico.<br/><br/>Quando fileName não for especificado, a cópia incluirá todos os arquivos em folderPath no conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado estará no seguinte formato: Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | Não |
 | partitionedBy | partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. Consulte Utilizando a seção da propriedade partitionedBy abaixo para obter detalhes e exemplos. | Não |
-| formato | Há suporte para três tipos de formatos: **TextFormat**, **AvroFormat** e **JsonFormat**. Você precisa definir a propriedade de tipo em formato para qualquer um desses valores. Quando o formato for TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Consulte a seção [Especificando TextFormat](#specifying-textformat) abaixo para obter mais detalhes. Consulte a seção [Especificando AvroFormat](#specifying-avroformat) se estiver usando AvroFormat. Consulte a seção [Especificando JsonFormat](#specifying-jsonformat) se estiver usando JsonFormat. | Não
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2** e os níveis com suporte são: **Melhor** e **Mais rápido**. Observe que, no momento, não há suporte para configurações de compactação de dados no **AvroFormat**. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
+| formato | Há suporte para três tipos de formatos: **TextFormat**, **AvroFormat** e **JsonFormat**. É necessário definir a propriedade de **tipo** sob o formato como um desses valores. Quando o formato for TextFormat, você pode especificar as propriedades opcionais adicionais para o formato. Veja as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat) e [Especificando JsonFormat](#specifying-jsonformat) para obter detalhes. | Não
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate** e **BZip2** e os níveis com suporte são: **Melhor** e **Mais rápido**. Observe que não há suporte para configurações de compactação de dados no **AvroFormat** neste momento. Consulte a seção [Suporte à compactação](#compression-support) para obter mais detalhes. | Não |
 
 ### Utilizando a propriedade partitionedBy
 Conforme mencionado acima, você pode especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal com a seção **partitionedBy**, macros de Data Factory e variáveis do sistema: SliceStart e SliceEnd, que indicam as horas de início e término para uma fatia de dados determinada.
@@ -496,51 +496,8 @@ No exemplo acima, {Slice} é substituído pelo valor da variável de sistema Sli
 
 No exemplo acima, ano, mês, dia e hora do SliceStart são extraídos em variáveis separadas que são usadas pelas propriedades folderPath e fileName.
 
-### Especificando TextFormat
-
-Se o formato é definido como **TextFormat**você pode especificar as seguintes propriedades **opcionais** na seção **Formato**.
-
-| Propriedade | Descrição | Obrigatório |
-| -------- | ----------- | -------- |
-| columnDelimiter | O caractere usado como um separador de coluna em um arquivo. Somente um caractere é permitido nesse momento. Essa marca é opcional. O valor padrão é vírgula (,). | Não |
-| rowDelimiter | O caractere usado como um separador bruto no arquivo. Somente um caractere é permitido nesse momento. Essa marca é opcional. O valor padrão é qualquer um dos seguintes: ["\\r\\n", "\\r"," \\n"]. | Não |
-| escapeChar | O caractere especial usado como escape do delimitador de coluna mostrado no conteúdo. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<br/><br/>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas desejar ter o caractere de vírgula no texto (exemplo: "Hello, world"), poderá definir “$” como o caractere de escape e usar a cadeia de caracteres "Hello$, world" na origem.<br/><br/>Observe que não é possível especificar escapeChar e quoteChar para uma tabela. | Não | 
-| quoteChar | O caractere especial é usado como o caractere no qual colocar o valor de cadeia de caracteres. Os delimitadores de linha e coluna dos caracteres de aspas seriam tratados como parte do valor de cadeia de caracteres. Essa marca é opcional. Nenhum valor padrão. Você deve especificar não mais de um caractere para essa propriedade.<br/><br/>Por exemplo, se você tiver a vírgula (,) como o delimitador de coluna, mas deseja ter caractere de vírgula no texto (exemplo: <Hello  world>), você pode definir ‘"’ como o caractere de citação e usar a cadeia de caracteres <"Hello, world"> na fonte. Essa propriedade é aplicável às tabelas de entrada e de saída.<br/><br/>Observe que não é possível especificar escapeChar e quoteChar para uma tabela. | Não |
-| nullValue | Os caracteres usados para representar um valor nulo no conteúdo do arquivo de blob. Essa marca é opcional. O valor padrão é "\\N".<br/><br/>Por exemplo, com base no exemplo acima, "NaN" no blob será convertido em valor nulo quando copiado para o SQL Server, por exemplo. | Não |
-| encodingName | Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, confira: [Propriedade Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por exemplo: windows-1250 ou shift\_jis. O valor padrão é UTF-8. | Não | 
-
-#### Exemplo de TextFormat
-O exemplo a seguir mostra algumas das propriedades de formato para TextFormat.
-
-	"typeProperties":
-	{
-	    "folderPath": "mycontainer/myfolder",
-	    "fileName": "myfilename"
-	    "format":
-	    {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "rowDelimiter": ";",
-	        "quoteChar": """,
-	        "NullValue": "NaN"
-	    }
-	},
-
-Para usar um escapeChar em vez de quoteChar, substitua a linha com quoteChar pelo seguinte:
-
-	"escapeChar": "$",
-
-### Especificando AvroFormat
-Se o formato é definido como AvroFormat, não é necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
-
-	"format":
-	{
-	    "type": "AvroFormat",
-	}
-
-Para usar o formato Avro em uma tabela de Hive, consulte [Tutorial do Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
-
-[AZURE.INCLUDE [data-factory-json-format](../../includes/data-factory-json-format.md)]
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+ 
 
 ### Suporte à compactação  
 O processamento de grandes conjuntos de dados pode causar afunilamentos de E/S e de rede. Portanto, os dados compactados em repositórios não apenas aceleram a transferência de dados pela rede e economizam espaço em disco, mas também oferecem aprimoramentos consideráveis de desempenho no processamento de Big Data. No momento, a compactação tem suporte para armazenamentos de dados baseados em arquivo, por exemplo, Blob do Azure ou o Sistema de arquivos local.
@@ -612,6 +569,6 @@ Propriedades disponíveis na seção typeProperties da atividade, por outro lado
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Desempenho e Ajuste  
-Confira o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para aprender sobre os principais fatores que afetam o desempenho e o movimento de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

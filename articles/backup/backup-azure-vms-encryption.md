@@ -36,13 +36,22 @@ Há muitas partes dessa solução que precisam ser configuradas e gerenciadas co
 
 | Função | Software usado | Observações adicionais |
 | -------- | ------------- | ------- |
-| Criptografia | Bitlocker ou dmcrypt | Como a criptografia ocorre em uma camada *diferente* quando comparado ao Backup do Azure, não importa qual software de criptografia é usado. Dito isso, essa experiência foi validada apenas com o Bitlocker e o dmcrypt.<br><br> Para criptografar os dados, é necessária uma chave. A chave também precisa ser mantida com segurança para garantir o acesso autorizado aos dados. |
-| Gerenciamento de chaves | CloudLink SecureVM<br>ou Cofre da Chave do Azure | A chave é essencial para criptografar ou descriptografar os dados. Sem a chave correta, os dados não podem ser recuperados. Isso se torna *incrivelmente* importante com:<br><li>Principais substituições<li>Retenção de longo prazo<br><br>Por exemplo, é possível que a chave usada para o backup dos dados há sete anos não seja a mesma chave usada hoje. Sem a chave de 7 anos atrás, será impossível usar os dados restaurados daquela época.|
+| Criptografia | Bitlocker ou dmcrypt | Como a criptografia ocorre em uma camada *diferente* quando comparado ao Backup do Azure, não importa qual software de criptografia é usado. Dito isso, essa experiência foi validada apenas com o CloudLink usando Bitlocker e o dmcrypt.<br><br> Para criptografar os dados, é necessária uma chave. A chave também precisa ser mantida com segurança para garantir o acesso autorizado aos dados. |
+| Gerenciamento de chaves | CloudLink SecureVM | A chave é essencial para criptografar ou descriptografar os dados. Sem a chave correta, os dados não podem ser recuperados. Isso se torna *incrivelmente* importante com:<br><li>Principais substituições<li>Retenção de longo prazo<br><br>Por exemplo, é possível que a chave usada para o backup dos dados há sete anos não seja a mesma chave usada hoje. Sem a chave de 7 anos atrás, será impossível usar os dados restaurados daquela época.|
 | Backup de dados | Serviço de Backup do Azure | Use o Backup do Azure para fazer backup de suas VMs de IaaS do Azure usando o [portal de gerenciamento do Azure](http://manage.windowsazure.com) ou o PowerShell |
 | Restauração de dados | Serviço de Backup do Azure | Use o Backup do Azure para restaurar discos ou uma VM inteira de um ponto de recuperação. Os dados não são descriptografados pelo Backup do Azure como parte da operação de restauração.|
 | Descriptografia | Bitlocker ou dmcrypt | Para ler dados de um disco de dados restaurado ou uma VM restaurada, o software precisa da chave do software de Gerenciamento de Chaves. Sem a chave correta, os dados não podem ser descriptografados. |
 
 > [AZURE.IMPORTANT]  O gerenciamento de chaves - incluindo substituição de chave - não é uma parte do Backup do Azure. Esse aspecto deve ser gerenciado de modo independente, mas é muito importante para a operação geral de backup/restauração.
+
+### Cenários com suporte
+
+
+| &nbsp; | Cofre de backup | Cofre dos Serviços de Recuperação |
+| :-- | :-- | :-- |
+| VMs V1 do Azure IaaS | Sim | Não |
+| VMs V2 do Azure IaaS | N/D | Não |
+
 
 ## CloudLink SecureVM
 
@@ -62,4 +71,4 @@ Quando você precisar substituir ou alterar as chaves para as VMs que têm backu
 - [Guia de implantação - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Implantando e usando o SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

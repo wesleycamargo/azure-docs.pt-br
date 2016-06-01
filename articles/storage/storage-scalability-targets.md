@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="04/11/2016"
+   ms.date="04/19/2016"
    ms.author="robinsh" />
 
 # Metas de desempenho e escalabilidade do Armazenamento do Azure
@@ -22,8 +22,6 @@
 Este tópico descreve os tópicos de desempenho e escalabilidade do Armazenamento do Microsoft Azure. Para obter um resumo de outros limites do Azure, confira [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
 
 >[AZURE.NOTE] Todas as contas de armazenamento são executadas na nova topologia de rede simples e dão suporte às metas de escalabilidade e desempenho descritas abaixo, independentemente de quando foram criadas. Para obter mais informações sobre a arquitetura de rede simples do armazenamento do Azure e sobre escalabilidade, consulte [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
-
-<!-- -->
 
 >[AZURE.IMPORTANT] As metas de escalabilidade e desempenho listadas aqui são metas avançadas, mas podem ser alcançadas. Em todos os casos, a taxa de solicitação e a largura de banda obtidas por sua conta armazenamento dependem do tamanho dos objetos armazenados, dos padrões de acesso utilizados e do tipo de carga de trabalho executado por seu aplicativo. Teste o serviço para determinar se o desempenho atende às suas necessidades. Se possível, evite picos repentinos na taxa de tráfego e certifique-se de que o tráfego esteja bem distribuído entre as partições.
 
@@ -40,8 +38,7 @@ Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-
-Consulte [Tamanhos de máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md) para saber mais detalhes.
+Consulte [tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md) ou [tamanhos de VM Linux](../virtual-machines/virtual-machines-linux-sizes.md) para obter detalhes adicionais.
 
 ### Contas de armazenamento padrão
 
@@ -86,4 +83,4 @@ Recomendações detalhadas para a criação de estratégias de particionamento d
 - [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 - [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

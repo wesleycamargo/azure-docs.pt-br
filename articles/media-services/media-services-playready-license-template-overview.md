@@ -48,7 +48,7 @@ O exemplo a seguir mostra o modelo mais simples (e mais comum) que configura uma
 
 O XML está de acordo com o esquema XML do modelo da licença de PlayReady definido no modelo de licença PlayReady seção do esquema XML.
 
-Serviços de mídia também define um conjunto de classes .NET que podem ser usado para serializar para o XML e desserializar do XML. Para obter a descrição das classes principais, consulte [Classes .NET de serviços de mídia]((media-services-playready-license-template-overview.md#classes). que são usadas para configurar modelos de licença.
+Serviços de mídia também define um conjunto de classes .NET que podem ser usado para serializar para o XML e desserializar do XML. Para obter a descrição das principais classes, veja [Classes do .NET para os Serviços de Mídia](media-services-playready-license-template-overview.md#classes) que são usadas para configurar modelos de licença.
 
 Para obter um exemplo de ponta a ponta que usa classes do .NET para configurar o modelo de licença do PlayReady, consulte [Usando o serviço de entrega de licença e criptografia dinâmica PlayReady](https://msdn.microsoft.com/library/azure/dn783467.aspx).
 
@@ -311,4 +311,4 @@ Para obter um exemplo de quais níveis de proteção o Silverlight dá suporte, 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

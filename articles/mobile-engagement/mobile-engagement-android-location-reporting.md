@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Relatório de localização para Android para o Mobile Engagement"
-	description="Relatório de localização para Android para o Azure Mobile Engagement"
+	pageTitle="Relatório de local para o SDK do Azure Mobile Engagement para Android"
+	description="Descreve como configurar relatórios de local para o SDK do Azure Mobile Engagement para Android"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="piyushjo;ricksal" />
 
-# Relatório de Localização no Engagement no Android
+# Relatório de local para o SDK do Azure Mobile Engagement para Android
 
 > [AZURE.SELECTOR]
 - [Android](mobile-engagement-android-integrate-engagement.md)
 
-Este tópico descreve como fazer relatórios de localização do Engagement no seu aplicativo Android.
+Este tópico descreve como fazer relatórios de local para seu aplicativo Android.
 
 ## Pré-requisitos
 
 [AZURE.INCLUDE [Pré-requisitos](../../includes/mobile-engagement-android-prereqs.md)]
-
 
 ## Relatórios de local
 
@@ -47,7 +46,7 @@ Para habilitar o relatório de localização de área simples, você pode fazer 
 
 Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Ou pode continuar usando ``ACCESS_FINE_LOCATION`` se você já usa em seu aplicativo.
 
@@ -66,7 +65,7 @@ Para habilitar o relatório de localização em tempo real, adicione uma linha d
 
 Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
-		<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Ou pode continuar usando ``ACCESS_FINE_LOCATION`` se você já usa em seu aplicativo.
 
@@ -82,7 +81,7 @@ Por padrão, os relatórios de local em tempo real usam apenas locais com base e
 
 Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
-		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### Relatório de segundo plano
 
@@ -98,18 +97,18 @@ Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o 
 
 O relatório de local de segundo plano será interrompido se o usuário reiniciar o dispositivo; você pode adicionar isso para fazê-lo reiniciar automaticamente no momento de inicialização:
 
-		<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-			   android:exported="false">
-			<intent-filter>
-			    <action android:name="android.intent.action.BOOT_COMPLETED" />
-			</intent-filter>
-		</receiver>
+	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+		   android:exported="false">
+		<intent-filter>
+		    <action android:name="android.intent.action.BOOT_COMPLETED" />
+		</intent-filter>
+	</receiver>
 
 Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Permissões do Android M
+## Permissões do Android M
 
 A partir do Android M, algumas permissões são gerenciadas em tempo de execução e precisam de aprovação do usuário.
 
@@ -160,4 +159,4 @@ Aqui está um exemplo de código para usar em uma atividade do seu aplicativo pa
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,25 +1,27 @@
 <properties 
-   pageTitle="Visão geral de exemplos do Barramento de Serviço | Microsoft Azure"
-   description="Categoriza e descreve exemplos do Barramento de Serviço com links para cada um."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Visão geral de exemplos do Barramento de Serviço | Microsoft Azure"
+    description="Categoriza e descreve exemplos do Barramento de Serviço com links para cada um."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Exemplos do Barramento de Serviço
 
 Os exemplos do Barramento de Serviço demonstram os principais recursos do [Barramento de Serviço](https://azure.microsoft.com/services/service-bus/) (serviço de nuvem) e do [Barramento de Serviço para o Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). Este tópico categoriza e descreve os exemplos disponíveis, com links para cada um.
 
 >[AZURE.NOTE] Os exemplos do Barramento de Serviço não são instalados com o SDK. Para obter os exemplos, visite a [página de exemplos do SDK do Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+>
+>Além disso, há um conjunto atualizado de amostras de mensagens do Barramento de Serviço [aqui](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (até o fechamento deste artigo, elas não são descritas). Amostras de retransmissão podem ser encontradas [aqui](https://github.com/Azure-Samples/azure-servicebus-relay-samples).
 
 ## Sistema de mensagens agenciado do Barramento de Serviço
 
@@ -132,4 +134,4 @@ Confira os tópicos a seguir para obter visões gerais conceituais do Barramento
 - [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 - [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

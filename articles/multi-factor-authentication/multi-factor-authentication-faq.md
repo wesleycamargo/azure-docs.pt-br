@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Perguntas frequentes sobre o Azure Multi-Factor Authentication
@@ -185,4 +185,4 @@ Atualmente, a verificação de segurança adicional pode ser usada somente com a
 
 Uma solução alternativa para isso é ter uma conta de usuário para as operações administrativas e outra para as operações não administrativas. Posteriormente, você pode vincular caixas de correio entre a conta administrativa e a conta não administrativa para que seja possível entrar no Outlook usando a conta não administrativa. Para obter mais detalhes sobre isso, veja [Fornecer a um administrador a capacidade de abrir e exibir o conteúdo da caixa de correio de um usuário] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

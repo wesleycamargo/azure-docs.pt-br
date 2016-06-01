@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/12/2016"
 ms.author="mandia"/>
 
 # Introdução à API do OneDrive
@@ -59,7 +59,7 @@ Quando você adiciona essa API aos seus aplicativos lógicos, precisa autorizar 
 1. Entre em sua conta do OneDrive.
 2. Permitir que seus aplicativos lógicos se conectem e usem o OneDrive. 
 
-Depois de criar a conexão, insira as propriedades do OneDrive, como o caminho da pasta ou o nome do arquivo. A **Referência da API REST** neste tópico descreve essas propriedades.
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
 >[AZURE.TIP] Você pode usar essa mesma conexão em outros aplicativos lógicos.
 
@@ -220,7 +220,7 @@ Dispara um fluxo quando um novo arquivo é criado em uma pasta do OneDrive.```GE
 
 
 ### Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive.
-Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
+Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive.```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -251,7 +251,7 @@ Extrai uma pasta para o OneDrive.```POST: /datasets/default/extractFolderV2```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 
@@ -312,4 +312,4 @@ Volte para a [Lista de APIs](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

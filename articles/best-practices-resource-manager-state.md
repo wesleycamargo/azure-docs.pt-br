@@ -365,7 +365,7 @@ Você pode usar essa expressão na seção de saídas ou na seção de recursos 
         "type": "string"
       }
      
-Para obter um exemplo de como usar a seção de saídas de um modelo vinculado para retornar discos de dados para uma máquina virtual, consulte [Criando vários discos de dados para uma Máquina Virtual](./resource-group-create-multiple/#creating-multiple-data-disks-for-a-virtual-machine).
+Para obter um exemplo de como usar a seção de saídas de um modelo vinculado para retornar discos de dados para uma máquina virtual, consulte [Criando vários discos de dados para uma Máquina Virtual](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
 
 ## Definir configurações de autenticação para uma máquina virtual
 
@@ -426,4 +426,4 @@ Ao definir a máquina virtual, você define o **osProfile** para a variável que
 - Para saber mais sobre as seções do modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md)
 - Para ver as funções que estão disponíveis em um modelo, confira [Funções do modelo do Azure Resource Manager](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

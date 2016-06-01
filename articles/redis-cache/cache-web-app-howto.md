@@ -18,6 +18,13 @@
 
 # Como criar um aplicativo Web com o Cache Redis
 
+> [AZURE.SELECTOR]
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
+
 Este tutorial mostra como criar e implantar um aplicativo Web ASP .NET no aplicativo Web do Serviço de Aplicativo do Azure usando o Visual Studio 2015. O aplicativo de exemplo exibe uma lista de estatísticas da equipe de um banco de dados e mostra diferentes maneiras de usar o Cache Redis do Azure para armazenar e recuperar dados do cache. Ao concluir o tutorial, você terá um aplicativo Web em execução que lê e grava em um banco de dados, otimizado com o Cache Redis do Azure e hospedado no Azure.
 
 O que você aprenderá:
@@ -79,7 +86,7 @@ Nesta seção do tutorial, você criará o aplicativo básico que lê e exibe es
 
     ![Adicionar modelo][cache-model-add-class]
 
-2. Digite `Team` para o nome da classe e clique em **Adicionar**.
+2. Insira `Team` como o nome da classe e clique em **Adicionar**.
 
     ![Adicionar classe de modelo][cache-model-add-class-dialog]
 
@@ -265,7 +272,7 @@ Nesta seção do tutorial, você configurará o aplicativo de exemplo para armaz
 
     ![Gerenciar pacotes NuGet][redis-cache-manage-nuget-menu]
 
-2. Digite **StackexchStackExchange.Redis** na caixa de texto de pesquisa, selecione a versão desejada dos resultados e clique em **Instalar**.
+2. Digite **StackExchange.Redis** na caixa de texto de pesquisa, selecione a versão desejada dos resultados e clique em **Instalar**.
 
     ![Pacote NuGet StackExchange.Redis][redis-cache-stack-exchange-nuget]
 
@@ -297,7 +304,7 @@ Nesta seção do tutorial, você configurará o aplicativo de exemplo para armaz
 	        }
 	    }
   
-1. Crie no computador um arquivo chamado `WebAppPlusCacheAppSecrets.config` e coloque-o em um local do qual não será feito check-in com o código-fonte do aplicativo de exemplo, se você decidir fazer check-in dele em algum lugar. Nesse exemplo, o arquivo `AppSettingsSecrets.config` está localizado em `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
+1. Crie no computador um arquivo chamado `WebAppPlusCacheAppSecrets.config` e coloque-o em um local do qual não será feito check-in com o código-fonte do aplicativo de exemplo, se você decidir fazer check-in dele em algum lugar. Neste exemplo, o arquivo `AppSettingsSecrets.config` está localizado em `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
 
     Edite o arquivo `WebAppPlusCacheAppSecrets.config` e adicione o conteúdo a seguir. Se você executar o aplicativo localmente, essas informações serão usadas para se conectar à instância do Cache Redis do Azure. Mais adiante no tutorial, você provisionará uma instância do Cache Redis do Azure e atualizará o nome e a senha do cache. Se você não planeja executar o aplicativo de exemplo localmente, pode ignorar a criação desse arquivo e as etapas subsequentes que fazem referência a ele, pois quando você implanta no Azure, o aplicativo recupera as informações de conexão de cache da configuração do aplicativo Web, não desse arquivo. Como o `WebAppPlusCacheAppSecrets.config` não é implantado no Azure com seu aplicativo, você não precisa dele, a menos que pretenda executar o aplicativo localmente.
 
@@ -513,7 +520,7 @@ Neste exemplo, as estatísticas de equipe podem ser recuperadas do banco de dado
 	    }
 
 
-    O método `GetFromSortedSetTop5` lê as cinco equipes principais do conjunto ordenado armazenado em cache. Ele começa verificando a existência da chave `teamsSortedSet` no cache. Se a chave não estiver presente, o método `GetFromSortedSet` será chamado para ler as estatísticas de equipe e armazená-las no cache. Em seguida, o conjunto ordenado armazenado em cache é consultado para fornecer as cinco equipes principais, que são retornadas.
+    O método `GetFromSortedSetTop5` lê as cinco equipes principais do conjunto ordenado armazenado em cache. Ele começa verificando a existência da chave `teamsSortedSet` no cache. Se a chave não estiver presente, o método `GetFromSortedSet` será chamado para ler as estatísticas de equipe e para armazená-las no cache. Em seguida, o conjunto ordenado armazenado em cache é consultado para fornecer as cinco equipes principais, que são retornadas.
 
 
         List<Team> GetFromSortedSetTop5()
@@ -686,7 +693,7 @@ Se clicar no botão **Implantar no Azure**, você será levado para o portal do 
 ![Implantar no Azure][cache-deploy-to-azure-step-1]
 
 1. Na folha **Implantação personalizada**, selecione a assinatura do Azure a ser usada, selecione um grupo de recursos existente ou crie um novo e especifique o local do grupo de recursos.
-2. Na folha **Parâmetros**, especifique um nome de conta de administrador (**ADMINISTRATORLOGIN** -não use **admin**), uma senha de logon de administrador (**ADMINISTRATORLOGINPASSWORD**) e o nome do banco de dados (**DATABASENAME**). Os outros parâmetros são configurados para um plano de hospedagem do Serviço de Aplicativo gratuito e opções de custo mais baixo para o Banco de Dados SQL e o Cache Redis do Azure, que não vêm com uma camada gratuita.
+2. Na folha **Parâmetros**, especifique um nome de conta de administrador (**LOGONDOADMINISTRADOR** -não use **admin**), uma senha de logon de administrador (**SENHADELOGONDOADMINISTRADOR**) e o nome do banco de dados (**NOMEDOBANCODEDADOS**). Os outros parâmetros são configurados para um plano de hospedagem do Serviço de Aplicativo gratuito e opções de custo mais baixo para o Banco de Dados SQL e o Cache Redis do Azure, que não vêm com uma camada gratuita.
 3. Altere outras configurações, se desejar, ou mantenha os padrões e clique em **OK**.
 
 
@@ -720,7 +727,7 @@ Nesta etapa do tutorial, você publicará o aplicativo no Azure e o executará n
 
     ![Publicar][cache-publish-to-app-service]
 
-3. Selecione a assinatura usada ao criar os recursos do Azure, expanda o grupo de recursos que contém os recursos, selecione o aplicativo Web desejado e clique em **OK**. Se você usou o botão **implantar no Azure**, o nome do aplicativo Web começa com **webSite**, seguido de alguns caracteres adicionais.
+3. Selecione a assinatura usada ao criar os recursos do Azure, expanda o grupo de recursos que contém os recursos, selecione o aplicativo Web desejado e clique em **OK**. Se você tiver usado o botão **Implantar no Azure**, o nome do aplicativo Web começa com **webSite**, seguido de alguns caracteres adicionais.
 
     ![Selecionar aplicativo Web][cache-select-web-app]
 
@@ -839,4 +846,4 @@ Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

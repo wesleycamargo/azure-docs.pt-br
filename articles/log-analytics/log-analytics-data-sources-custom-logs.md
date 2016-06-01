@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/04/2016"
    ms.author="bwren" />
 
 # Logs personalizados no Log Analytics
@@ -70,8 +70,8 @@ A tabela a seguir fornece exemplos de padrões válidos para especificar diferen
 |:--|:--|
 | Todos os arquivos em *C:\\Logs* com extensão .txt no agente do Windows | C:\\Logs\\*.txt |
 | Todos os arquivos em *C:\\Logs* cujo nome começa com log e uma extensão .txt no agente do Windows | C:\\Logs\\log*.txt |
-| Todos os arquivos em */var/log/audit* com extensão .txt no agente do Windows | /var/log/audit/*.txt |
-| Todos os arquivos em */var/log/audit* cujo nome começa com log e uma extensão .txt no agente do Windows | /var/log/audit/log*.txt |
+| Todos os arquivos em */var/log/audit* com extensão .txt no agente do Linux | /var/log/audit/*.txt |
+| Todos os arquivos em */var/log/audit* cujo nome começa com log e uma extensão .txt no agente do Linux | /var/log/audit/log*.txt |
   
 
 1.	Selecione Windows ou Linux para especificar qual formato de caminho você está adicionando.
@@ -178,4 +178,4 @@ Usamos campos personalizados para definir os campos *EventTime*, *Code*, *Status
 - Use [campos personalizados](log-analytics-custom-fields.md) para analisar as entradas no log personalizado em campos personalizados.
 - Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções. 
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

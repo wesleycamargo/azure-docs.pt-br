@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2016"
+	ms.date="05/06/2016"
 	ms.author="cabailey"/>
 #Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -151,7 +151,7 @@ KeyVault-BYOK-Tools-Australia.zip
 
 ---
 
-[**Azure Government:**](../../../../features/gov/)
+[**Azure Government:**](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -380,4 +380,4 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

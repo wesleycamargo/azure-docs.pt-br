@@ -60,7 +60,7 @@ Se você desejar conceder acesso para gerenciar no próprio PIM a outro usuário
 
 Funções no Exchange Online ou SharePoint Online, exceto por aquelas mencionadas acima, não são representadas no Azure AD e, portanto, não são visíveis no PIM. Para obter mais informações sobre como alterar as atribuições de função refinadas nesses serviços do Office 365, consulte [Permissões no Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-As assinaturas e grupos de recursos do Azure também não são representados no Azure AD. Para gerenciar assinaturas do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing-add-change-azure-subscription-administrator) e para obter mais informações sobre o RBAC do Azure, consulte [Controle de acesso baseado em função do Azure](role-based-access-control-configure.md).
+As assinaturas e grupos de recursos do Azure também não são representados no Azure AD. Para gerenciar assinaturas do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md) e para obter mais informações sobre o RBAC do Azure, consulte [Controle de acesso baseado em função do Azure](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -87,4 +87,4 @@ O acesso ao Microsoft Online Services pode exigir que o usuário também tenha u
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

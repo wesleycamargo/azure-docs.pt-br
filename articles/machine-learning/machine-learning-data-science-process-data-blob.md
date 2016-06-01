@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/10/2016"
 	ms.author="sunliangms;fashah;garye;bradsev" />
 
 #<a name="heading"></a>Processar dados de blob do Azure com análises avançadas
@@ -48,6 +48,7 @@ Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
+
 
 ##<a name="blob-dataexploration"></a>Exploração de Dados
 
@@ -149,6 +150,7 @@ Para gerar recursos compartimentalizados, faça o seguinte:
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
+
 ##<a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
 
 Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Aprendizado de Máquina do Azure usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Estúdio de Aprendizado de Máquina do Azure também.
@@ -189,4 +191,4 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

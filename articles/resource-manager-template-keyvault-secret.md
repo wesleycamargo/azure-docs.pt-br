@@ -22,7 +22,7 @@ Cria um segredo que é armazenado em um cofre da chave. Esse tipo de recurso é 
 
 ## Formato de esquema
 
-Para criar um segredo do cofre da chave, adicione o seguinte esquema ao modelo. O segredo pode ser definido como um recurso filho de um cofre da chave ou como um recurso de nível superior. Você pode defini-lo como um recurso filho quando o cofre da chave é implantado no mesmo modelo. Você precisará definir o segredo como um recurso de nível superior quando a chave do cofre não estiver implantada no mesmo modelo, ou quando você precisar criar vários segredos fazendo um loop no tipo de recurso.
+Para criar um segredo do cofre da chave, adicione o seguinte esquema ao modelo. O segredo pode ser definido como um recurso filho de um cofre da chave ou como um recurso de nível superior. Você pode defini-lo como um recurso filho quando o cofre de chaves é implantado no mesmo modelo. Você precisará definir o segredo como um recurso de nível superior quando a chave do cofre não estiver implantada no mesmo modelo, ou quando você precisar criar vários segredos fazendo um loop no tipo de recurso.
 
     {
         "type": enum,
@@ -227,4 +227,4 @@ O segundo exemplo implanta o segredo como um recurso de nível superior que é a
 - Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
 - Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

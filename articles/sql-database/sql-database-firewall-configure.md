@@ -5,7 +5,7 @@
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="cgronlun"
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/18/2016"
+   ms.date="05/12/2016"
    ms.author="rickbyh"/>
 
 # Como configurar um firewall do Banco de Dados SQL do Azure
@@ -29,9 +29,6 @@ Para configurar seu firewall de banco de dados, você deve criar regras de firew
 
 **Recomendação:** a Microsoft recomenda o uso de regras de firewall no nível do banco de dados sempre que possível, a fim de tornar seu banco de dados mais portátil. Use regras de firewall no nível do servidor quando você tiver muitos bancos de dados com os mesmos requisitos de acesso e não quiser gastar tempo configurando cada um individualmente.
 
-**Sobre federações:** a implementação atual das Federações será descontinuada com as camadas de serviço Web e Business. Considere a implantação de soluções personalizadas de fragmentação para maximizar a escalabilidade, a flexibilidade e o desempenho. Para obter mais informações sobre a fragmentação personalizada, consulte [Colocando em Escala Horizontalmente o Bancos de Dados SQL do Azure](https://msdn.microsoft.com/library/dn495641.aspx).
-
-> [AZURE.NOTE] Se você criar uma federação de banco de dados no Banco de Dados SQL do Azure na qual o banco de dados raiz contém regras de firewall no nível do banco de dados, as regras não serão copiadas para os bancos de dados membro da federação. Se você precisar de regras de firewall no nível do banco de dados para os membros da federação, será necessário recriar as regras para os membros da federação. No entanto, se você dividir um membro da federação contendo uma regra de firewall no nível do banco de dados em novos membros da federação usando a Instrução ALTER FEDERATION... SPLIT, os novos membros de destino terão as mesmas regras de firewall no nível do banco de dados do membro da federação de origem. Para saber mais sobre federações, consulte[Federações no Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/hh597452.aspx).
 
 ## Visão geral do firewall do Banco de Dados SQL
 
@@ -138,4 +135,4 @@ Considere os seguintes pontos quando o acesso ao serviço de Banco de Dados SQL 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

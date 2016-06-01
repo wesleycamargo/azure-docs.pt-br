@@ -20,10 +20,22 @@
 
 ##Visão geral
 
-Nos Serviços de Mídia do Azure, um **Canal** representa um pipeline para processamento de conteúdo de streaming ao vivo. Um **Canal** recebe transmissões de entrada ao vivo das seguintes maneiras:
+Nos Serviços de Mídia do Azure, um **Canal** representa um pipeline para processamento de conteúdo de streaming ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
-Um codificador local ao vivo envia **RTMP** ou **Smooth Streaming** (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Os fluxos ingeridos passam pelos **Canais** sem nenhum processamento adicional. Seu codificador ao vivo pode também enviar um fluxo de taxa de bits única, mas isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
+- Um codificador ativo local envia uma taxa de bits múltipla **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelos **Canais**sem nenhum processamento adicional. Esse método é chamado **passagem**. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco. Os codificadores ao vivo a seguir produzem RTMP: transcodificadores Adobe Flash Live, Telestream Wirecast e Tricaster. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+
+	>[AZURE.NOTE] O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
+	
+- Um codificador ao vivo local envia um fluxo de taxa de bits adaptável única para o Canal que é habilitado para realizar a codificação ao vico com os serviços de mídia em um dos seguintes formatos: RTP (MPEG-TS), RTMP oi Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+
+A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, você pode especificar de que modo você deseja que o canal receba o fluxo de entrada e se deseja ou não que o canal realize a codificação ao vivo do seu fluxo. Você tem duas opções:
+
+- **Nenhum** – Especifique esse valor se você planejar usar um codificador ativo local, que emitirá uma transmissão de taxa de bits múltipla (uma transmissão de passagem). Nesse caso, o fluxo de entrada foi transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Este tópico fornece detalhes sobre como trabalhar com canais desse tipo.
+
+- **Standard** – Escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Lembre-se de que há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças. É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+
+>[AZURE.NOTE]Este tópico discute os atributos de canais que não estão habilitados para executar a codificação ativa (tipo de codificação **Nenhum**). Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo que usa um codificador ao vivo local para gerar fluxos RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming).
 
@@ -265,4 +277,4 @@ Escolha **Portal**, **.NET** e **API REST** para saber como criar e gerenciar ca
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

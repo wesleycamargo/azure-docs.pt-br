@@ -29,7 +29,7 @@
 
 Do recurso de página inicial do seu aplicativo no Application Insights, clique em Análise.
 
-![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics/001.png)
+![Abra o portal.azure.com, abra o recurso do Application Insights e clique em Análise.](./media/app-insights-analytics-using/001.png)
 
 O tutorial embutido fornecerá algumas ideias sobre o que você pode fazer.
 
@@ -37,7 +37,7 @@ Há um [tour mais extenso aqui](app-insights-analytics-tour.md).
 
 ## Escrever consultas
 
-Escreva uma consulta começando pelos nomes de qualquer uma das tabelas listadas à esquerda. Use `|` para criar um pipeline de [operadores](app-insights-analytics-queries.md).
+Escreva uma consulta começando pelos nomes de qualquer uma das tabelas listadas à esquerda. Use `|` para criar um pipeline de [operadores](app-insights-analytics-reference.md#queries-and-operators).
 
 
 ![](./media/app-insights-analytics-using/150.png)
@@ -60,9 +60,9 @@ Você pode escolher as colunas que gostaria de ver. Expanda qualquer item para v
 
 ![](./media/app-insights-analytics-using/030.png)
 
-> [AZURE.NOTE] Clique no cabeçalho de uma coluna como uma maneira rápida de reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Portanto, classificar dessa maneira não mostra sempre a você os reais itens maiores ou menores. Para isso, você deve usar o operador [superior](app-insights-analytics-queries.md#top-operator) ou [classificar](app-insights-analytics-queries.md#sort-operator).
+> [AZURE.NOTE] Clique no cabeçalho de uma coluna como uma maneira rápida de reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Portanto, classificar dessa maneira não mostra sempre a você os reais itens maiores ou menores. Para isso, você deve usar o operador [superior](app-insights-analytics-reference.md#top-operator) ou [classificar](app-insights-analytics-reference.md#sort-operator).
 
-Mas é recomendável usar os operadores [pegar](app-insights-analytics-queries.md#take-operator), [superior](app-insights-analytics-queries.md#top-operator) ou [resumir](app-insights-analytics-queries.md#summarize-operator) para evitar o download de tabelas enormes do servidor. Mesmo assim, há um limite automático de 10 mil linhas por consulta.
+Mas é recomendável usar os operadores [pegar](app-insights-analytics-reference.md#take-operator), [superior](app-insights-analytics-reference.md#top-operator) ou [resumir](app-insights-analytics-reference.md#summarize-operator) para evitar o download de tabelas enormes do servidor. Mesmo assim, há um limite automático de 10 mil linhas por consulta.
 
 
 ## Diagramas
@@ -75,7 +75,7 @@ Se você tiver várias colunas dos tipos corretos, você poderá escolher os eix
 
 ![](./media/app-insights-analytics-using/100.png)
 
-Por padrão, os resultados são exibidos inicialmente como uma tabela e você seleciona o diagrama manualmente. Mas você pode usar a [política de renderização](app-insights-analytics-queries.md#render-directive) ao final de uma consulta para selecionar um diagrama.
+Por padrão, os resultados são exibidos inicialmente como uma tabela e você seleciona o diagrama manualmente. Mas você pode usar a [política de renderização](app-insights-analytics-reference.md#render-directive) ao final de uma consulta para selecionar um diagrama.
 
 ## Exportar para o Excel
 
@@ -104,4 +104,4 @@ Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

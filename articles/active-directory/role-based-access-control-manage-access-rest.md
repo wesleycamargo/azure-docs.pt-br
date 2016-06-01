@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="05/13/2016"
 	ms.author="kgremban"/>
 
 # Gerenciar o controle de acesso com base em função com a API REST
@@ -36,7 +36,7 @@ Para listar as atribuições de função, é necessário ter acesso à operaçã
 
 Use o método **GET** com o seguinte URI:
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
@@ -56,8 +56,8 @@ Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a
 | Condição | *{Filter}* | Substitua |
 |-----------|------------|---------|
 | Para atribuições de função da lista para apenas o escopo especificado, não incluindo as atribuições de função em sub-escopos. | `atScope()` | |
-| Para listar atribuições de função somente para um usuário, grupo ou aplicativo específico | `principalId%20eq%20'{objectId}'` | Substitua *{objectId}* pela objectId do Azure AD do usuário, do grupo ou da entidade de serviço. Por exemplo, `&filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
-| Para listar atribuições de função somente para um usuário específico incluindo aqueles atribuídas a grupos dos quais o usuário é membro | `assignedTo('{objectId}')` | Substitua *{objectId}* pelo objectId do Azure AD do usuário. Por exemplo, `&filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
+| Para listar atribuições de função somente para um usuário, grupo ou aplicativo específico | `principalId%20eq%20'{objectId}'` | Substitua *{objectId}* pela objectId do Azure AD do usuário, do grupo ou da entidade de serviço. Por exemplo, `&$filter=principalId%20eq%20'3a477f6a-6739-4b93-84aa-3be3f8c8e7c2'` |
+| Para listar atribuições de função somente para um usuário específico incluindo aqueles atribuídas a grupos dos quais o usuário é membro | `assignedTo('{objectId}')` | Substitua *{objectId}* pelo objectId do Azure AD do usuário. Por exemplo, `&$filter=assignedTo('3a477f6a-6739-4b93-84aa-3be3f8c8e7c2')` |
 
 
 
@@ -259,7 +259,7 @@ Para listar as funções, é necessário ter acesso à operação `Microsoft.Aut
 
 Use o método **GET** com o seguinte URI:
 
-	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&filter={filter}
+	https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
 
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
@@ -714,4 +714,4 @@ Código de status: 200
 
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

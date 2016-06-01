@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016"
+ 	ms.date="05/03/2016"
 	ms.author="juliako;anilmur"/>
 
 
@@ -37,12 +37,15 @@ Se seu ativo de saída tiver o armazenamento criptografado, você deverá config
 
 O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-###Metadados de entrada e saída de MES
+###Metadados de entrada e saída
 
-Os metadados de entrada dos codificadores estão descritos [aqui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+Ao codificar um ativo (ou ativos) de entrada usando MES, você obtém um ativo de saída na conclusão bem-sucedida da tarefa de codificação. O ativo de saída contém vídeo, áudio, miniaturas, manifesto, etc., com base na predefinição de codificação utilizada.
 
-Os metadados de saída dos codificadores estão descritos [aqui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+O ativo de saída também contém um arquivo com metadados sobre o ativo de entrada. O nome do arquivo XML de metadados tem o seguinte formato: <asset_id>\_metadata.xml (por exemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml), em que <asset_id> é o valor de AssetId do ativo de entrada. O esquema desse XML de metadados de entrada é descrito [aqui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
+O ativo de saída também contém um arquivo com metadados sobre o ativo de saída. O nome do arquivo XML de metadados tem o seguinte formato: <source_file_name>\_manifest.xml (por exemplo, BigBuckBunny\_manifest.xml). O esquema desse XML de metadados de saída é descrito [aqui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+
+Se desejar examinar qualquer um dos dois arquivos de metadados, você poderá criar um localizador SAS e baixe o arquivo em seu computador local. É possível encontrar um exemplo de como criar um localizador SAS e baixar um arquivo usando as Extensões do SDK do .NET para os Serviços de Mídia.
 
 ##Baixar exemplo
 
@@ -147,4 +150,4 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 [Como gerar miniatura usando o codificador de mídia padrão com o .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Visão geral de codificação dos Serviços de Mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

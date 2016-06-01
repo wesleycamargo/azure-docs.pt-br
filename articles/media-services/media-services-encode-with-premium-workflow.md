@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="05/15/2016" 
 	ms.author="juliako"/>
 
 #Codificação avançada com fluxo de trabalho do Media Encoder Premium
 
->[AZURE.NOTE]- Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
->
->- O processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
+>[AZURE.NOTE] O processador de mídia do Fluxo de trabalho do Media Encoder Premium discutido neste tópico não está disponível na China.
+
+Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
 
 ##Visão geral
 
@@ -268,6 +268,7 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
 	}
 
 
+Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
 
 ##Roteiros de aprendizagem dos Serviços de Mídia
 
@@ -277,4 +278,4 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

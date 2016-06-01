@@ -24,8 +24,8 @@ O DC/OS fornece um ambiente de implantação e dimensionamento de cargas de trab
 
 Embora haja estruturas disponíveis para várias cargas de trabalho populares, este documento descreverá como você pode criar e dimensionar implantações de contêiner com o Marathon. Antes de trabalhar nos exemplos, você precisará de um cluster DC/OS configurado no Serviço de Contêiner do Azure. Você também precisa ter conectividade remota com esse cluster. Para saber mais sobre esses itens, confira os artigos a seguir.
 
-- [Como implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md)
-- [Conexão a um cluster do Serviço de Contêiner do Azure](./container-service-connect.md)
+- [Como implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md)
+- [Conexão a um cluster do Serviço de Contêiner do Azure](container-service-connect.md)
 
 ## Explorar a interface do usuário do DC/OS
 
@@ -95,6 +95,6 @@ Após a conclusão da operação de dimensionamento, você verá várias instân
 
 ## Próximas etapas
 
-[Trabalhar com a API do Marathon e DC/OS](./container-service-mesos-marathon-rest.md)
+[Trabalhar com a API do Marathon e DC/OS](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

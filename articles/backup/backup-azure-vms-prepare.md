@@ -14,11 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/01/2016"
+	ms.date="05/04/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Preparar o seu ambiente para o backup das máquinas virtuais do Azure
+
+> [AZURE.SELECTOR]
+- [Prepare-se para fazer backup de VMs de ARM](backup-azure-arm-vms-prepare.md)
+- [Prepare-se para fazer backup de VMs do Azure](backup-azure-vms-prepare.md)
 
 Antes de poder fazer backup de uma máquina virtual (VM) do Azure, há três condições que devem existir.
 
@@ -33,9 +37,7 @@ Se você souber que essas condições já existem em seu ambiente, prossiga para
 
 >[AZURE.NOTE] O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). A lista a seguir fornece as limitações durante a implantação no modelo clássico.
 
-- Não há suporte para o backup de máquinas virtuais baseadas no ARM (Azure Resource Manager, também conhecido como IaaS V2).
 - Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
-- Não há suporte para o backup de máquinas virtuais usando o Armazenamento Premium.
 - Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
 - Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Primeiro, exclua a máquina virtual existente e todos os discos associados e, em seguida, restaure os dados do backup.
 - Não há suporte para backup e restauração entre regiões.
@@ -43,11 +45,11 @@ Se você souber que essas condições já existem em seu ambiente, prossiga para
 - O backup de máquinas virtuais usando o serviço Backup do Azure tem suporte somente para determinadas versões de sistema operacional:
   - **Linux**: confira [a lista de distribuições endossadas pelo Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual.
   - **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
-	- A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#restoring-domain-controller-vms)
-	- Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. Máquinas virtuais que você criar usando o fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
-		- Máquinas virtuais sob configuração do balanceador de carga (interno e externo)
-		- Máquinas virtuais com vários endereços IP reservados
-		- Máquinas virtuais com vários adaptadores de rede
+- A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#restoring-domain-controller-vms)
+- Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. Máquinas virtuais que você criar usando o fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
+    - Máquinas virtuais sob configuração do balanceador de carga (interno e externo)
+    - Máquinas virtuais com vários endereços IP reservados
+    - Máquinas virtuais com vários adaptadores de rede
 
 ## Criar um cofre de backup para uma VM
 
@@ -88,56 +90,83 @@ Para criar um cofre de backup:
 
 ## Conectividade de rede
 
-A extensão de backup precisa de conectividade aos endereços IP públicos do Azure para funcionar corretamente, pois ela envia comandos para um ponto de extremidade do Armazenamento do Azure (URL HTTP) para gerenciar os instantâneos da VM. Sem a conexão correta com a Internet, essas solicitações HTTP da VM atingirão o tempo limite e a operação de backup falhará.
+Para gerenciar os instantâneos de VM, a extensão de backup precisa de conectividade com os endereços IP públicos do Azure. Sem a conexão correta com a Internet, as solicitações HTTP da máquina virtual atingirão o tempo limite e a operação de backup falhará. Se sua implantação possui restrições de acesso em vigor (por meio de um NSG, Grupo de Segurança de Rede, por exemplo), escolha uma destas opções para fornecer um caminho livre para o tráfego de backup:
 
-### Restrições de rede com NSGs
+- [Lista branca de intervalos de IP de datacenter do Azure](http://www.microsoft.com/pt-BR/download/details.aspx?id=41653): consulte o artigo para obter instruções sobre como colocar os endereços IP na lista branca.
+- Implante um servidor de proxy HTTP para rotear o tráfego.
 
-Se a implantação tiver restrições de acesso (por meio de um NSG - Grupo de Segurança de Rede, por exemplo), você deverá realizar mais etapas para garantir que o tráfego de backup do cofre do Azure Backup não seja afetado.
-
-Há duas maneiras para providenciar um caminho para o tráfego de backup:
-
-1. Realizar a lista branca de [intervalos de IP do banco de dados do Azure](http://www.microsoft.com/pt-BR/download/details.aspx?id=41653).
-2. Implantar um proxy HTTP para encaminhar o tráfego.
-
-O compromisso será entre a capacidade de gerenciamento, o controle granular e o custo.
+Ao decidir qual opção usar, desvantagens entre a capacidade de gerenciamento, controle granular e custo.
 
 |Opção|Vantagens|Desvantagens|
 |------|----------|-------------|
-|OPÇÃO 1: Intervalos de IPs na lista branca| Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i> | É complexo para gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br>Fornece acesso ao Azure por completo, não somente ao Armazenamento.|
-|OPÇÃO 2: Proxy HTTP| É permitido o controle granular no proxy em relação às URLs de armazenamento, <br>Ponto único de acesso à Internet nas VMs, <br>Não está sujeito a alterações do endereço IP do Azure| Custos adicionais para a execução de uma VM com o software do proxy|
+|Intervalos de IPs na lista branca| Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i> | É complexo para gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br><br>Fornece acesso ao Azure por completo, não somente ao Armazenamento.|
+|Proxy HTTP| É permitido o controle granular no proxy em relação às URLs de armazenamento, <br>Ponto único de acesso à Internet nas VMs, <br>Não está sujeito a alterações do endereço IP do Azure| Custos adicionais para a execução de uma VM com o software do proxy|
+
+### Realizar a lista branca de intervalos de IP do datacenter do Azure
+
+Para colocar os intervalos IP do datacenter do Azure na lista branca, consulte o [site do Azure](http://www.microsoft.com/pt-BR/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
 
 ### Usando um proxy HTTP para backups de uma VM
-Durante o backup de uma VM, os comandos de gerenciamento de instantâneos são enviados pela extensão de backup ao Armazenamento do Azure usando uma API HTTPS. Esse tráfego deve ser encaminhado da extensão por meio do proxy, já que somente o proxy estará configurado para ter acesso à Internet pública.
+Ao fazer backup de uma VM, a extensão de backup na VM envia os comandos de gerenciamento de instantâneo para o Armazenamento do Azure usando a API de HTTPS. Roteie o tráfego da extensão de backup por meio do proxy HTTP, pois ele é o único componente configurado para dar acesso à Internet pública.
 
 >[AZURE.NOTE] Não há recomendações do software de proxy a serem usadas. Escolha um proxy que seja compatível com as etapas de configuração abaixo.
 
-No exemplo abaixo, a VM do aplicativo deve ser configurada para usar a VM do proxy para todo o tráfego HTTP destinado à Internet pública. A VM do Proxy deve ser configurada para permitir o tráfego de entrada das VMs na rede virtual. E, por fim, o NSG (chamado *NSG-lockdown*) precisa de uma nova regra de segurança que permita o tráfego de saída da Internet da VM do proxy.
+A imagem de exemplo abaixo mostra as três etapas de configuração necessárias para usar um proxy HTTP:
+
+- A VM de aplicativo roteia todo o tráfego HTTP voltado para a Internet pública por meio da VM do Proxy.
+- A VM do Proxy permite a passagem do tráfego de entrada de VMs na rede virtual.
+- O NSG (Grupo de Segurança de Rede) chamado bloqueio de NSF precisa de uma regra de segurança para permitir a passagem de tráfego de Internet da VM do Proxy.
 
 ![Diagrama de implantação de proxy HTTP com NSG](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
-**A) Permitir conexões de rede de saída:**
+Para usar um proxy HTTP para se comunicar com a Internet pública, siga estas etapas:
 
-1. Para computadores com o Windows, execute o seguinte comando em um prompt de comando com privilégios elevados:
+#### Etapa 1. Configurar conexões de rede de saída
+###### Para computadores Windows
+Isso definirá a configuração do servidor de proxy para a Conta do Sistema Local.
 
-    ```
-    netsh winhttp set proxy http://<proxy IP>:<proxy port>
-    ```
-    Isso configurará um proxy de todo o computador e será usado para qualquer tráfego de saída HTTP/HTTPS.
+1. Baixe o [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
+2. Execute o seguinte comando no prompt com privilégios elevados,
 
-2. Para computadores Linux, adicione a linha abaixo ao arquivo ```/etc/environment```:
+     ```
+     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
+     ```
+    Isso abrirá a janela do Internet Explorer.
+3. Acesse Ferramentas -> Opções da Internet -> Conexões -> Configurações de LAN.
+4. Verifique as configurações de proxy para a conta do Sistema. Defina o IP e a porta do proxy. 
+5. Feche o Internet Explorer.
 
-    ```
-    http_proxy=http://<proxy IP>:<proxy port>
-    ```
+Isso configurará um proxy de todo o computador e será usado para qualquer tráfego de saída HTTP/HTTPS.
+   
+Se você configurou um servidor de proxy em uma conta de usuário atual (não uma Conta do Sistema Local), use o script a seguir para aplicá-la ao SYSTEMACCOUNT:
 
-  Adicione as linhas abaixo ao arquivo ```/etc/waagent.conf```:
+```
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
+   $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
+   Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
+```
 
-    ```
-    HttpProxy.Host=<proxy IP>
-    HttpProxy.Port=<proxy port>
-    ```
+>[AZURE.NOTE] Se você receber "(407) Autenticação de Proxy Necessária" no log do servidor de proxy, verifique se a configuração da sua autenticação está correta.
 
-**B) Permitir conexões de entrada no servidor proxy:**
+######Para computadores Linux 
+
+Adicione a seguinte linha ao arquivo ```/etc/environment```:
+
+```
+http_proxy=http://<proxy IP>:<proxy port>
+```
+
+Adicione as linhas abaixo ao arquivo ```/etc/waagent.conf```:
+   
+```
+HttpProxy.Host=<proxy IP>
+HttpProxy.Port=<proxy port>
+```
+
+#### Etapa 2. Permitir conexões de entrada no servidor de proxy:
 
 1. No servidor proxy, abra o Firewall do Windows. A maneira mais fácil de acessar o firewall é procurar o Firewall do Windows com Segurança Avançada.
 
@@ -148,6 +177,7 @@ No exemplo abaixo, a VM do aplicativo deve ser configurada para usar a VM do pro
     ![Criar uma nova regra](./media/backup-azure-vms-prepare/firewall-02.png)
 
 3. No **Assistente para Nova Regra de Entrada**, selecione a opção **Personalizar** para **Tipo de Regra** e clique em **Avançar**.
+
 4. Na página para selecionar **Programa**, escolha **Todos os Programas** e clique em **Avançar**.
 
 5. Na página **Protocolo e Portas**, insira as seguintes informações e clique em **Avançar**:
@@ -160,16 +190,16 @@ No exemplo abaixo, a VM do aplicativo deve ser configurada para usar a VM do pro
 
     Para o restante do assistente, clique até o fim e dê um nome a essa regra.
 
-**C) Adicionar uma regra de exceção ao NSG:**
+#### Etapa 3. Adicionar uma regra de exceção ao NSG:
 
 Em um prompt de comando do Azure PowerShell, digite o seguinte comando:
+
+O comando a seguir adiciona uma exceção ao NSG. Essa exceção permite a passagem de tráfego TCP de qualquer porta em 10.0.0.5 para qualquer endereço da Internet na porta 80 (HTTP) ou 443 (HTTPS). Se você exigir uma porta específica na Internet pública, adicione-a também ao ```-DestinationPortRange```.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
-
-Esse comando adiciona uma exceção ao NSG, o que permite o tráfego TCP de qualquer porta em 10.0.0.5 para qualquer endereço da Internet na porta 80 (HTTP) ou 443 (HTTPS). Se for preciso atingir determinada porta na Internet pública, adicione isso ao ```-DestinationPortRange``` também.
 
 *Verifique se você substituiu os nomes no exemplo com os detalhes adequados para a implantação.*
 
@@ -208,4 +238,4 @@ Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxim
 - [Planeje sua infraestrutura de backup da VM](backup-azure-vms-introduction.md)
 - [Gerenciar backups de máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Dados de exemplo no SQL Server no Azure
 
 
-## Introdução
-
-Este documento mostra como obter amostras de dados armazenados no SQL Server no Azure usando SQL e a linguagem de programação Python. Também mostra como mover dados de amostra para o Aprendizado de Máquina do Azure, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no Estúdio do Aprendizado de Máquina do Azure.
+Este documento mostra como obter amostras de dados armazenados no SQL Server no Azure usando o SQL ou a linguagem de programação Python. Também mostra como mover dados de amostra para o Aprendizado de Máquina do Azure, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no Estúdio do Aprendizado de Máquina do Azure.
 
 A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/pyodbc/) para se conectar ao SQL Server no Azure e a biblioteca [Pandas](http://pandas.pydata.org/) para fazer a amostragem.
 
@@ -33,7 +31,7 @@ O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de 
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-A tarefa de amostragem é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+A tarefa de amostragem é uma etapa do [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ##<a name="SQL"></a>Usando o SQL
 
@@ -126,4 +124,4 @@ Para obter um exemplo passo a passo completo do Processo de Análise da Cortana 
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

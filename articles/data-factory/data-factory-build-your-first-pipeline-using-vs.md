@@ -279,8 +279,6 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 	2. Insira **FirstDataFactoryUsingVS** em **Nome**. 
 	
 		> [AZURE.IMPORTANT] O nome do Azure Data Factory deve ser globalmente exclusivo. Se você receber o erro **O nome da fábrica de dados "FirstDataFactoryUsingVS" não está disponível** durante a publicação, altere o nome (por exemplo, seunomeFirstDataFactoryUsingVS). Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
-		> 
-		> O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
 	3. Selecione a assinatura certa para o campo **Assinatura**. 
 	4. Selecione o **grupo de recursos** para o data factory a ser criado. 
 	5. Selecione a **região** do data factory. 
@@ -289,16 +287,20 @@ Quando você publicar a solução na próxima etapa, o arquivo **partitionweblog
 24. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
 25. Na página **Status da Implantação**, você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado. 
 
-Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente:
+Observe o seguinte:
 
-- No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory. 
+- Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente: 
+
+	- No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory. 
 		
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-	Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado.
+		Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado.
 	
-		Get-AzureRmResourceProvider
-- Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie uma fábrica de dados no portal do Azure. Isso registra automaticamente o provedor para você.
+			Get-AzureRmResourceProvider
+	- Faça logon no [portal do Azure](https://portal.azure.com) usando a assinatura do Azure e navegue até uma folha do Data Factory (ou) crie uma fábrica de dados no portal do Azure. Isso registra automaticamente o provedor para você.
+- 	O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.
+- 	Para criar instâncias do Data Factory, você precisa ser um colaborador/administrador da assinatura do Azure
 
  
 ## Monitorar o pipeline
@@ -329,6 +331,7 @@ Se você receber o erro: "**Esta assinatura não está registrada para usar o na
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Quando o processamento for concluído, você verá a fatia no estado **Pronto**.
+
 	>[AZURE.IMPORTANT] A criação de um cluster do HDInsight sob demanda geralmente leva algum tempo (20 minutos, aproximadamente).  
 
 	![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -463,8 +466,27 @@ Para publicar as entidades em um projeto do Azure Data Factory usando o arquivo 
 
 Quando você implantar, os valores do arquivo de configuração serão usados para definir valores de propriedades nos arquivos JSON para entidades de Data Factory (serviços vinculados, tabelas ou pipelines) antes que as entidades sejam implantadas no serviço Azure Data Factory.
 
+## Resumo 
+Neste tutorial, você criou uma data factory do Azure para processar dados ao executar o script Hive em um cluster hadoop do HDInsight. Você usou o Data Factory Editor no Portal do Azure para executar as seguintes etapas:
+
+1.	Foi criada uma **data factory** do Azure.
+2.	Foram criados dois **serviços vinculados**:
+	1.	O serviço vinculado **Armazenamento do Azure** para vincular seu armazenamento de blobs do Azure que contém os arquivos de entrada/saída para a data factory.
+	2.	O serviço vinculado **Azure HDInsight** sob demanda para vincular um cluster Hadoop do HDInsight sob demanda à data factory. O Azure Data Factory cria um cluster Hadoop do HDInsight just-in-time para processar dados de entrada e gerar dados de saída. 
+3.	Foram criados dois **conjuntos de dados** que descrevem dados de entrada e de saída para a atividade Hive do HDInsight no pipeline. 
+4.	Foi criado um **pipeline** com uma atividade **Hive do HDInsight**.  
+
+
 ## Próximas etapas
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-get-started.md).
   
+## Consulte também
+| Tópico | Descrição |
+| :---- | :---- |
+| [Atividades de transformação de dados](data-factory-data-transformation-activities.md) | Este artigo fornece uma lista de atividades de transformação de dados (como a transformação do Hive do HDInsight usado neste tutorial) com suporte do Azure Data Factory. | 
+| [Agendamento e execução](data-factory-scheduling-and-execution.md) | Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
+| [Pipelines](data-factory-create-pipelines.md) | Este artigo o ajudará a compreender pipelines e atividades no Azure Data Factory e como aproveitá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |
+| [Conjunto de dados](data-factory-create-datasets.md) | Este artigo o ajudará a entender os conjuntos de dados no Azure Data Factory.
+| [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) | Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. 
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

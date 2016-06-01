@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Fluxos do Azure Active Directory Identity Protection | Microsoft Azure"
+	pageTitle="Experiências de entrada com a proteção de identidade do Azure AD | Microsoft Azure"
 	description="Fornece uma visão geral da experiência do usuário quando o Identity Protection tiver atenuado ou corrigido um usuário ou quando a autenticação multifator for exigida por uma política."
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/17/2016"
 	ms.author="markvi"/>
 
-#Fluxos do Azure Active Directory Identity Protection
+# Experiências de entrada com a proteção de identidade do Azure AD
 
 Com o Azure Active Directory Identity Protection, é possível:
 
@@ -158,4 +158,4 @@ Caso os usuários comprometidos sejam impedidos de entrar, um administrador pode
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -34,7 +34,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
 
 4. Clique em **Meus Aplicativos** > **Adicionar um Novo Aplicativo** > **Site** > **Ignorar e Criar ID do Aplicativo**.
 
-5. Em **Nome de Exibição**, insira um nome exclusivo para seu aplicativo, escolha uma **Categoria** para ele, clique em **Criar ID do Aplicativo** e conclua a verificação de segurança. Isso o levará ao painel do desenvolvedor de seu novo aplicativo do Facebook.
+5. Em **Nome de Exibição**, digite um nome exclusivo para seu aplicativo, digite seu **Email de Contato** escolha uma **Categoria** para ele, clique em **Criar ID do Aplicativo** e conclua a verificação de segurança. Isso o levará ao painel do desenvolvedor de seu novo aplicativo do Facebook.
 
 6. Em "Logon no Facebook", clique em **Introdução**. Adicione o **URI de redirecionamento** do seu aplicativo aos **URIs de redirecionamento OAuth válidos** e, então, clique em **Salvar alterações**.
 
@@ -42,7 +42,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook
 
 6. No painel de navegação à esquerda, clique em **Configurações**. Clique no campo **Segredo do Aplicativo**, clique em **Mostrar**, forneça sua senha se solicitado e anote os valores de **ID do Aplicativo** e **Segredo do Aplicativo**. Você os utilizará mais tarde para configurar seu aplicativo no Azure.
 
-	> [AZURE.IMPORTANT] O segredo do aplicativo é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
+> [AZURE.IMPORTANT] O segredo do aplicativo é uma credencial de segurança importante. Não compartilhe essa senha com ninguém nem distribua-a em um aplicativo cliente.
 
 7. A conta do Facebook usada para registrar o aplicativo é um administrador do aplicativo. Neste ponto, apenas os administradores podem entrar neste aplicativo. Para autenticar outras contas do Facebook, clique em **Análise do Aplicativo** e habilite a opção **Tornar <your-app-name> público** para habilitar o acesso ao público geral usando a autenticação do Facebook.
 
@@ -75,4 +75,4 @@ Agora você está pronto para usar o Facebook para autenticação em seu aplicat
 [Get started with authentication]: /pt-BR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

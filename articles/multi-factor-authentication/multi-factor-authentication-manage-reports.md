@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Relatórios no Azure Multi-Factor Authentication
@@ -49,4 +49,4 @@ Em fila|Lista os relatórios em fila para processamento e seu status. Um link pa
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

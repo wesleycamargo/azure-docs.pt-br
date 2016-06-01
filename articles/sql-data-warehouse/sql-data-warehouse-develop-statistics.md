@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="05/10/2016"
+   ms.author="jrj;barbkess;sonyama;nicw"/>
 
 # Gerenciar estatísticas no SQL Data Warehouse
  O SQL Data Warehouse usa estatísticas para avaliar o custo de diferentes maneiras de executar uma consulta distribuída. Quando as estatísticas são precisas, o otimizador de consulta pode gerar planos de consulta de alta qualidade que melhoram o desempenho da consulta.
@@ -54,13 +54,50 @@ Refine esse modelo conforme entender o modo como deseja consultar os dados, espe
 ## Quando atualizar as estatísticas
 É importante incluir a atualização de estatísticas na sua rotina de gerenciamento de banco de dados. Quando a distribuição dos dados no banco de dados é alterada, as estatísticas precisam ser atualizadas. Caso contrário, o desempenho ficará inferior ao ideal e talvez os esforços para solucionar o problema da consulta não tenham êxito.
 
-Portanto, uma das primeiras perguntas a serem feitas durante a solução de uma consulta é, "As estatísticas estão atualizadas?"
+Uma prática recomendada é atualizar as estatísticas em colunas de data por dia à medida que novas datas são adicionadas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas. Por outro lado, as estatísticas em uma coluna de país em uma tabela de cliente talvez nunca tenham de ser atualizadas, já que a distribuição de valores geralmente não é alterada. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se seu data warehouse contiver apenas um país e se você exibir dados de um país, resultando em dados de vários países sendo armazenados, definitivamente será necessário atualizar as estatísticas na coluna país.
 
-Essa questão não pode ser respondida pela idade. Um objeto de estatísticas atualizado pode ser muito antigo. Quando o número de linhas muda ou ocorre uma mudança substancial na distribuição dos valores de uma determinada coluna, *é necessário* atualizar as estatísticas.
+Uma das primeiras perguntas a serem feitas durante a solução de uma consulta é, "As estatísticas estão atualizadas?"
 
-Por exemplo, as colunas de data em um data warehouse normalmente precisam de atualizações frequentes de estatísticas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas.
+Essa questão não pode ser respondida pela idade dos dados. Um objeto de estatísticas atualizado pode ser muito antigo se não haja nenhuma alteração material nos dados subjacentes. Quando o número de linhas tiver mudado substancialmente ou se houver uma alteração material na distribuição dos valores de uma determinada coluna, *será necessário* atualizar as estatísticas.
 
-Por outro lado, talvez as estatísticas em uma coluna de gênero de uma tabela de clientes nunca precisem ser atualizadas. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se o data warehouse contiver apenas um gênero, e um novo requisito resultar em vários gêneros, será definitivamente necessário atualizar as estatísticas na coluna gênero.
+Para referência, o **SQL Server** (não o SQL Data Warehouse) atualiza automaticamente as estatísticas para estas situações:
+
+- Se você não tiver nenhuma linha na tabela, quando adicionar uma linha (ou linhas), obterá uma atualização automática de estatísticas
+- Quando você adicionar mais de 500 linhas a uma tabela, começando com menos de 500 linhas (por exemplo, no início você tem 499 e, em seguida, adiciona 500 linhas para ter um total de 999 linhas), obterá uma atualização automática 
+- Quando você tiver mais de 500 linhas, terá de adicionar outras 500 linhas mais 20% do tamanho da tabela antes de ver uma atualização automática nas estatísticas
+
+Como não há nenhuma DMV para determinar se os dados da tabela foram alterados desde que a última vez em que as estatísticas foram atualizadas, saber a idade das estatísticas pode fornecer uma parte da cena. Você pode usar a consulta a seguir para determinar a última vez que suas estatísticas foram atualizadas em cada tabela.
+
+> [AZURE.NOTE] Lembre-se de que se houver uma mudança substancial na distribuição dos valores para uma determinada coluna, você deverá atualizar as estatísticas, independentemente da última vez em que elas foram atualizadas.
+
+```sql
+SELECT
+    sm.[name] AS [schema_name],
+    tb.[name] AS [table_name],
+    co.[name] AS [stats_column_name],
+    st.[name] AS [stats_name],
+    STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
+FROM
+    sys.objects ob
+    JOIN sys.stats st
+        ON  ob.[object_id] = st.[object_id]
+    JOIN sys.stats_columns sc    
+        ON  st.[stats_id] = sc.[stats_id]
+        AND st.[object_id] = sc.[object_id]
+    JOIN sys.columns co    
+        ON  sc.[column_id] = co.[column_id]
+        AND sc.[object_id] = co.[object_id]
+    JOIN sys.types  ty    
+        ON  co.[user_type_id] = ty.[user_type_id]
+    JOIN sys.tables tb    
+        ON  co.[object_id] = tb.[object_id]
+    JOIN sys.schemas sm    
+        ON  tb.[schema_id] = sm.[schema_id]
+WHERE
+    st.[user_created] = 1;
+```
+
+As colunas de data em um data warehouse, por exemplo, normalmente precisam de atualizações frequentes de estatísticas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas. Por outro lado, talvez as estatísticas em uma coluna de gênero de uma tabela de clientes nunca precisem ser atualizadas. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se o data warehouse contiver apenas um gênero, e um novo requisito resultar em vários gêneros, será definitivamente necessário atualizar as estatísticas na coluna gênero.
 
 Para obter mais explicações, confira [Estatísticas][] no MSDN.
 
@@ -461,4 +498,4 @@ Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvol
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Atualizar estatísticas]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -26,6 +26,8 @@ Há uma ampla variedade de plataformas nas quais o SDK foi testado (confira a [l
 
 Neste artigo, você será apresentado à arquitetura do SDK do dispositivo IoT do Azure para C. Demonstraremos como inicializar a biblioteca de dispositivos, enviar eventos ao Hub IoT, bem como receber mensagens dele. As informações neste artigo devem ser suficientes para começar a usar o SDK, mas também há indicações para se saber mais sobre as bibliotecas.
 
+>> [AZURE.NOTE] Este artigo inclui informações sobre como usar os recursos de *gerenciamento de dispositivo* das bibliotecas C no SDK. Para saber como usar os recursos de gerenciamento de dispositivos, confira [Apresentação da biblioteca de gerenciamento de dispositivos do Hub IoT do Azure para C](iot-hub-device-management-library.md).
+
 ## Arquitetura do SDK
 
 Você pode encontrar o **SDK do dispositivo IoT do Azure para C** no seguinte repositório do GitHub:
@@ -118,7 +120,7 @@ Depois que a cadeia de conexão do Hub IoT for configurada, clique na guia **Ger
 
 Esse é o local onde você vai gerenciar os dispositivos registrados no seu Hub IoT.
 
-Você pode criar um dispositivo clicando no botão **Criar**. Uma caixa de diálogo é exibida com um conjunto de chaves pré-populadas (primárias e secundárias). Tudo o que você precisa fazer é inserir uma **ID de Dispositivo** e clicar em **Criar**.
+Você pode criar um dispositivo clicando no botão **Criar**. Uma caixa de diálogo é exibida com um conjunto de chaves pré-populadas (primárias e secundárias). Basta inserir uma **ID de Dispositivo** e clicar em **Criar**.
 
   ![](media/iot-hub-device-sdk-c-intro/05-CreateDevice.PNG)
 
@@ -460,4 +462,6 @@ Cada uma dessas três funções se alinha às três funções de inicialização
 
 Este artigo abordou os conceitos básicos de como usar as bibliotecas no **SDK do dispositivo IoT do Azure para C**. Ele forneceu informações suficientes para entender o que está incluído no SDK, sua arquitetura e como começar a trabalhar com os exemplos do Windows. O próximo artigo continua a descrição do SDK, explicando [mais sobre a biblioteca IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+Para saber como usar os recursos de gerenciamento de dispositivos no **SDK do dispositivo IoT do Azure para C**, confira [Apresentação da biblioteca de gerenciamento de dispositivos do Hub IoT do Azure para C](iot-hub-device-management-library.md).
+
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,37 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="05/16/2016"
 	ms.author="trinadhk;jimpark;"/>
 
 
 # Solucionar problemas de backup de máquinas virtuais do Azure
+
+> [AZURE.SELECTOR]
+- [Cofre dos serviços de recuperação](backup-azure-vms-troubleshoot.md)
+- [Cofre de backup](backup-azure-vms-troubleshoot-classic.md)
+
 Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as informações listadas na tabela a seguir.
-
-## Descoberta
-
-| Operação de backup | Detalhes do erro | Solução alternativa |
-| -------- | -------- | -------|
-| Descoberta | Falha ao detectar novos itens - Backup do Microsoft Azure encontrado e erro interno. Aguarde alguns minutos e repita a operação. | Repita o processo de descoberta após 15 minutos.
-| Descoberta | Falha ao descobrir novos itens – outra operação de descoberta já está em andamento. Aguarde até que a operação de descoberta atual seja concluída. | Nenhum |
-
-## Registrar
-| Operação de backup | Detalhes do erro | Solução alternativa |
-| -------- | -------- | -------|
-| Registrar | O número de discos de dados anexados à máquina virtual excedeu o limite com suporte. Retire alguns discos de dados dos anexos nesta máquina virtual e repita a operação. O backup do Azure dá suporte a até 16 discos de dados anexados a uma máquina virtual do Azure para backup | Nenhum |
-| Registrar | O Backup do Microsoft Azure encontrou um erro interno. Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contate o Suporte da Microsoft. | É possível obter esse erro devido a uma das seguintes configuração sem suporte: <ul><li>LRS Premium </ul> |
-| Registrar | Falha no registro com o tempo limite da operação Instalar agente | Verifique se a versão do sistema operacional da máquina virtual tem suporte. |
-| Registrar | A execução do comando falhou - há outra operação em andamento neste item. Aguarde até que a operação anterior seja concluída | Nenhum |
-| Registrar | Não há suporte para máquinas virtuais com discos rígidos virtuais no armazenamento Premium para backup | Nenhum |
-| Registrar | O agente de máquina virtual não está presente na máquina virtual - instale o pré-requisito necessário, agente de VM e reinicie a operação. | [Leia mais](#vm-agent) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 
 ## Backup
 
 | Operação de backup | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
 | Backup | A cópia de VHDs do Cofre de backup atingiu o tempo limite - tente a operação novamente dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Isso ocorre quando há muitos dados a serem copiados. Verifique se você tem menos de 16 discos de dados. |
-| Backup | Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM instantâneo VM atingiu o tempo limite. - Consulte o guia de solução de problemas sobre como resolver esse problema. | Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. <ul> <li>Aprenda sobre [depuração de problemas no Agente de VM](#vm-agent) <li>Aprenda sobre [depuração de problemas de rede](#networking) <li>Se o agente de VM está funcionando bem, Aprenda sobre [solução de problemas de Instantâneo de VM](#Troubleshoot-VM-Snapshot-Issues)</ul><br>Se o agente de VM não está causando nenhum problema, reinicie a VM. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
-| Backup | Falha no backup com um erro interno - tente novamente a operação dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft | Você pode obter esse erro por duas razões: <ol><li> há muitos dados a serem copiados. <li>A máquina virtual original foi excluída e, portanto, o backup não pode ser feito. Para manter os dados de backup de uma VM excluída, mas parar os erros de backup, desproteja a VM e escolha a opção para manter os dados. Isso interromperá o agendamento de backup e também as mensagens de erro recorrentes. |
+| Backup | Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM instantâneo VM atingiu o tempo limite. - Consulte o guia de solução de problemas sobre como resolver esse problema. | Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. Saiba mais sobre [depuração de problemas de instantâneo de VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
+| Backup | Falha no backup com um erro interno - tente novamente a operação dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft | Você pode obter esse erro por 2 motivos: <ol><li> Há um problema temporário ao acessar o armazenamento de VM. Verifique [Status Azure](https://azure.microsoft.com/status/) para ver se há qualquer problema ativo relacionado a computação/armazenamento/rede na região. Repita até que o problema de publicação de backup seja mitigado. <li>A máquina virtual original foi excluída e, portanto, o backup não pode ser feito. Para manter os dados de backup de uma VM excluída, mas parar os erros de backup, desproteja a VM e escolha a opção para manter os dados. Isso interromperá o agendamento de backup e também as mensagens de erro recorrentes. |
 | Backup | Falha ao instalar a extensão dos Serviços de Recuperação do Azure no item selecionado - o agente de VM é um pré-requisito para a extensão de Serviços de Recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro | <ol> <li>Verifique se o agente de VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> [Leia mais](#validating-vm-agent-installation) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 | Backup | A execução do comando falhou - outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída e tente novamente | Está em execução um backup existente ou um trabalho de restauração para a máquina virtual e não é possível iniciar um novo trabalho enquanto o trabalho existente estiver sendo executado. |
 | Backup | Falha na instalação da extensão. Erro "COM+ não pôde se comunicar com o Coordenador de transações distribuídas da Microsoft | Isso geralmente significa que o serviço COM+ não está em execução. Entre em contato com o suporte da Microsoft para obter ajuda sobre como corrigir esse problema. |
@@ -53,6 +41,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Backup | O agente de máquina virtual não está presente na máquina virtual - instale o pré-requisito necessário, agente de VM e reinicie a operação. | [Leia mais](#vm-agent) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 
 ## Trabalhos
+
 | Operação | Detalhes do erro | Solução alternativa |
 | -------- | -------- | -------|
 | Cancelar trabalho | Não há suporte para cancelamento deste tipo de trabalho - Aguarde até que o trabalho seja concluído. | Nenhum |
@@ -125,7 +114,7 @@ O backup de VM depende da emissão do comando de instantâneo para o armazenamen
 	"USEVSSCOPYBACKUP"="TRUE"
 	```
 3.  Status da VM informado incorretamente porque a VM está desligada em RDP. <br> Se você desligou a máquina virtual em RDP, verifique no portal que o status da VM esteja refletido corretamente. Se não estiver, desligue a máquina virtual no portal usando a opção 'Desligar' no painel da VM.
-4.  Várias VMs do mesmo serviço de nuvem são configuradas para backup simultaneamente.<br> É a melhor prática distribuir as VMs do mesmo serviço de nuvem que tem diferentes agendamentos de backup.
+4.  Se mais de quatro VMs compartilharem o mesmo serviço de nuvem, configure várias políticas de backup para preparar os tempos de backup para que não haja mais de quatro backups de VM iniciados ao mesmo tempo. Tente distribuir os tempos de início de backup em intervalos de uma hora entre políticas. 
 5.  A VM está executando com alta utilização de CPU/memória.<br> Se a máquina virtual está em execução com alta utilização de CPU (>90%) ou memória, a tarefa de instantâneo é enfileirada, atrasada e eventualmente atingirá o tempo limite. Tente o backup sob demanda em tais situações.
 
 <br>
@@ -149,6 +138,6 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
     - Se você tiver alguma restrição de rede no local (um Grupo de Segurança de Rede, por exemplo), implante um servidor proxy HTTP para encaminhar o tráfego. As etapas para implantar um servidor proxy HTTP podem ser encontradas [aqui](backup-azure-vms-prepare.md#2-network-connectivity).
     - Adicione regras ao NSG (se você tiver uma em vigor) para permitir o acesso à INTERNET do Proxy HTTP.
 
->[AZURE.NOTE] O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Exiba mais informações sobre como [Definir um IP privado interno estático](../virtual-network/virtual-networks-reserved-private-ip.md).
+>[AZURE.NOTE] O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Exiba mais informações sobre [Como definir um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

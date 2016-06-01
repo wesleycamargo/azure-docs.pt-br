@@ -66,7 +66,7 @@ O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs esp
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 type | A propriedade de tipo deve ser configurada como **HDInsightOnDemand**. | Sim
-clusterSize | O tamanho do cluster sob demanda. Especifica quantos nós devem estar neste cluster sob demanda. | Sim
+clusterSize | Número de nós de trabalho/dados no cluster. O cluster HDInsight é criado com 2 nós principais juntamente com o número de nós de trabalho que você especifica para esta propriedade. Os nós são de tamanho Standard\_D3 com 4 núcleos, portanto um cluster de 4 nós de trabalho levará 24 núcleos (4 * 4 para nós de trabalho + 2 * 4 para nós principais). Consulte [Criar clusters do Hadoop baseados em Linux no HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada Standard\_D3. | Sim
 timetolive | O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica quanto tempo o cluster HDInsight sob demanda permanecerá ativo após a conclusão de uma atividade executada se não houver nenhum outro trabalho ativo no cluster.<br/><br/>Por exemplo, se uma execução de atividade demora 6 minutos e o timetolive é definido como 5 minutos, o cluster fica ativo durante 5 minutos após a execução de 6 minutos de execução da atividade. Se outra atividade é executada com a janela de 6 minutos, ela é processada pelo mesmo cluster.<br/><br/>Criar um cluster HDInsight sob demanda é uma operação custosa (pode demorar um pouco), então use essa configuração, conforme o necessário, para melhorar o desempenho de uma fábrica de dados com a reutilização de um cluster HDInsight sob demanda.<br/><br/>Se você definir o valor de timetolive como 0, o cluster é excluído assim que a atividade executada é processada. Por outro lado, se você definir um valor alto, o cluster pode permanecer ocioso desnecessariamente resultando em altos custos. Portanto, é importante que você defina o valor apropriado com base em suas necessidades.<br/><br/>Vários pipelines podem compartilhar a mesma instância do cluster do HDInsight sob demanda se o valor da propriedade timetolive estiver definido corretamente | Sim
 versão | Versão do cluster HDInsight O valor padrão é 3.1 para cluster do Windows e 3.2 para o cluster do Linux. | Não
 linkedServiceName | O armazenamento de blob a ser usado pelo cluster sob demanda para armazenar e processar dados. | Sim
@@ -137,9 +137,9 @@ Você pode especificar os tamanhos de nós de dados, principais e zookeeper usan
 
 Propriedade | Descrição | Obrigatório
 :-------- | :----------- | :--------
-headNodeSize | Especificar o tamanho do nó principal O valor padrão é: Grande. Veja a seção **Especificando tamanhos dos nós** abaixo para obter detalhes. | Não
-dataNodeSize | Especifica o tamanho do nó principal O valor padrão é: Grande | Não
-zookeeperNodeSize | Especifica o tamanho do nó Zoo Keeper. O valor padrão é: "Small". | Não
+headNodeSize | Especificar o tamanho do nó principal O valor padrão é: Standard\_D3. Veja a seção **Especificando tamanhos dos nós** abaixo para obter detalhes. | Não
+dataNodeSize | Especifica o tamanho do nó principal O valor padrão é: Standard\_D3. | Não
+zookeeperNodeSize | Especifica o tamanho do nó Zoo Keeper. O valor padrão é: Standard\_D3. | Não
  
 #### Especificar tamanhos de nós
 Veja o artigo [Tamanhos de máquinas virtuais](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) para obter valores de cadeia de caracteres que você precisa especificar para as propriedades acima. Os valores precisam estar em conformidade com os **CMDLETs e as APIS** mencionadas no artigo. Como você pode ver neste artigo, o nó de dados de tamanho grande (padrão) tem 7 GB de memória, que pode não ser suficiente para seu cenário.
@@ -339,4 +339,4 @@ Veja os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft
 
 Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL do Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para saber mais sobre esse serviço vinculado.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

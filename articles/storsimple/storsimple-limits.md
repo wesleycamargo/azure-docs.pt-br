@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/29/2016"
+   ms.date="05/17/2016"
    ms.author="alkohli" />
 
 # Limites do sistema StorSimple
@@ -26,6 +26,7 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 | Número máximo de credenciais de conta de armazenamento | 64 | |
 | Número máximo de contêineres de volume | 64 | |
 | Número máximo de volumes | 255 | |
+| Número máximo de volumes afixados localmente | 32 | |
 | Número máximo de agendas por modelo de largura de banda | 168 | Uma agenda para cada hora, cada dia da semana (24x7). |
 | Tamanho máximo de um volume em camadas em dispositivos físicos | 64 TB para 8100 e 8600 | 8100 e 8600 são dispositivos físicos. |
 | Tamanho máximo de um volume em camadas em dispositivos virtuais no Azure | 30 TB para 8010 <br></br> 64 TB para 8020 | 8010 e 8020 são dispositivos virtuais no Azure que usam armazenamento Standard e Premium, respectivamente. |
@@ -41,7 +42,7 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 | Número máximo de volumes que podem ser processados paralelamente para backup, restauração e clonagem | 16 |<ul><li>Se houver mais de 16 volumes, eles serão processados sequencialmente à medida que os slots de processamento se tornarem disponíveis.</li><li>Novos backups de um volume clonado ou restaurado em camadas não poderão ocorrer até que a operação seja finalizada. No entanto, para um volume local, há permissão para backups quando o volume estiver online.</li></ul>|
 | Tempo de recuperação de clonagem e restauração para volumes em camadas | Menos de 2 minutos | <ul><li>O volume é disponibilizado em até 2 minutos depois da operação de restauração ou clonagem, independentemente do tamanho do volume.</li><li>Inicialmente, o desempenho do volume pode ser mais lento do que o normal, pois a maioria dos dados e metadados ainda reside na nuvem. O desempenho pode aumentar à medida que os dados fluem da nuvem para o dispositivo StorSimple.</li><li>O tempo total para baixar metadados depende do tamanho do volume alocado. Os metadados são automaticamente colocados no dispositivo em segundo plano a uma taxa de 5 minutos por TB de dados de volume alocados. Essa taxa pode ser afetada pela largura de banda da Internet para a nuvem.</li><li>A operação de restauração ou clonagem será concluída quando todos os metadados estiverem no dispositivo.</li><li>As operações de backup não podem ser executadas até que a operação de restauração ou clonagem seja totalmente concluída.|
 | Tempo de recuperação de restauração para volumes localmente fixados | Menos de 2 minutos | <ul><li>O volume é disponibilizado em até 2 minutos depois da operação de restauração ou clonagem, independentemente do tamanho do volume.</li><li>Inicialmente, o desempenho do volume pode ser mais lento do que o normal, pois a maioria dos dados e metadados ainda reside na nuvem. O desempenho pode aumentar à medida que os dados fluem da nuvem para o dispositivo StorSimple.</li><li>O tempo total para baixar metadados depende do tamanho do volume alocado. Os metadados são automaticamente colocados no dispositivo em segundo plano a uma taxa de 5 minutos por TB de dados de volume alocados. Essa taxa pode ser afetada pela largura de banda de Internet para a nuvem.</li><li>Ao contrário de volumes em camadas, no caso de volumes localmente afixados, os dados do volume também serão baixados localmente no dispositivo. A operação de restauração é concluída quando todos os dados de volume foi colocado no dispositivo.</li><li>As operações de restauração podem ser longas e o tempo total para concluir a restauração dependerá do tamanho do volume local provisionado, da largura de banda da Internet e dos dados existentes no dispositivo. Operações de backup em volume localmente afixado são permitidas enquanto a operação de restauração está em andamento.|
-|Taxa de processamento de instantâneos de nuvem| 15 minutos/TB | <ul><li>O tempo mínimo para preparar o instantâneo de nuvem para carregamento, de acordo com os TB dos dados do volume alocado no backup. </li><li> O tempo total do instantâneo de nuvem é calculado pela adição desse tempo ao tempo de carregamento do instantâneo, que é afetado pela largura de banda da Internet para a nuvem.
+|Taxa de processamento de instantâneos de nuvem| 15 minutos/TB | <ul><li>O tempo mínimo para preparar o instantâneo de nuvem para upload, de acordo com os TB dos dados do volume alocado no backup. </li><li> O tempo total do instantâneo de nuvem é calculado pela adição desse tempo ao tempo de upload do instantâneo, que é afetado pela largura de banda da Internet para a nuvem.
 | Taxa de transferência máxima de leitura/gravação do cliente (quando servida da camada SSD)* | 920/720 MB/s com uma única interface de rede de 10 GbE | Até 2 vezes com MPIO e duas interfaces de rede. |
 | Taxa de transferência máxima de leitura/gravação do cliente (quando servida da camada HDD)* | 120/250 MB/s |
 | Taxa de transferência máxima de leitura/gravação do cliente (quando servida da camada de nuvem)* | 11/41 MB/s | A taxa de transferência de leitura depende dos clientes que geram e mantêm profundidade suficiente de fila de E/S. |
@@ -52,4 +53,4 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 
 Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

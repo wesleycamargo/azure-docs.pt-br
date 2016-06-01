@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/05/2016" 
+    ms.date="05/12/2016" 
     ms.author="elizapo" />
 
 
@@ -58,4 +58,4 @@ Use estas etapas para importar a nova imagem para o RemoteApp do Azure:
 
 Agora você está pronto para criar a nova coleção, uma coleção na [nuvem](remoteapp-create-cloud-deployment.md) ou [híbrida](remoteapp-create-hybrid-deployment.md), dependendo de suas necessidades.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

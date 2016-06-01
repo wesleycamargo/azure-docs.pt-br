@@ -53,7 +53,7 @@ Recomendamos que você examine primeiro os tutoriais, guias e vídeos que abrang
 - [Configurar uma rede virtual somente em nuvem no Portal do Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 - [Configurar uma VPN Site a Site no Portal do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 - [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](active-directory-new-forest-virtual-machine.md)
-- [Instalar uma réplica do controlador de domínio do Active Directory no Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md)
+- [Instalar uma réplica do controlador de domínio do Active Directory no Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
 - [Microsoft Azure IaaS para profissionais de TI: (01) conceitos básicos de máquina virtual](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 - [Microsoft Azure IaaS para profissionais de TI: (05) Criando redes virtuais e conectividade entre instalações](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
@@ -338,7 +338,7 @@ Um aplicativo com reconhecimento de LDAP é implantado em uma máquina virtual d
 
 - [Topologia de rede](#BKMK_NetworkTopology): criar uma rede virtual do Azure com [conectividade entre locais](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-- [Método de instalação](#BKMK_InstallMethod): implantar controladores de domínio de réplica do domínio do Active Directory do Windows Server corporativo. Para um controlador de domínio de réplica, você pode instalar o AD DS do Windows Server na VM e, opcionalmente, usar o recurso IFM (instalar da mídia) para reduzir a quantidade de dados que precisam ser replicados no novo controlador de domínio durante a instalação. Para obter um tutorial, confira [Instalar um controlador de domínio do Active Directory de réplica no Azure](../virtual-network/virtual-networks-install-replica-active-directory-domain-controller.md). Mesmo se você usar o IFM, pode ser mais eficiente criar o CD virtual no local e mover todo o VHD (disco rígido virtual) para a nuvem em vez de replicar o AD DS do Windows Server durante a instalação. Para segurança, é recomendável que você exclua o VHD da rede local assim que tiver sido copiado para o Azure.
+- [Método de instalação](#BKMK_InstallMethod): implantar controladores de domínio de réplica do domínio do Active Directory do Windows Server corporativo. Para um controlador de domínio de réplica, você pode instalar o AD DS do Windows Server na VM e, opcionalmente, usar o recurso IFM (instalar da mídia) para reduzir a quantidade de dados que precisam ser replicados no novo controlador de domínio durante a instalação. Para obter um tutorial, confira [Instalar um controlador de domínio do Active Directory de réplica no Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Mesmo se você usar o IFM, pode ser mais eficiente criar o CD virtual no local e mover todo o VHD (disco rígido virtual) para a nuvem em vez de replicar o AD DS do Windows Server durante a instalação. Para segurança, é recomendável que você exclua o VHD da rede local assim que tiver sido copiado para o Azure.
 
 - [Topologia do site do Active Directory do Windows Server](#BKMK_ADSiteTopology): criar um novo site do Azure em Serviços e Sites do Active Directory. Crie um objeto de sub-rede do Active Directory do Windows Server para representar a rede virtual do Azure e adicione a sub-rede ao site. Crie um novo link de site que inclui o novo site do Azure e o site em que o ponto de extremidade VPN da rede virtual do Azure está localizado para controlar e otimizar o tráfego do Active Directory do Windows Server de e para o Azure.
 
@@ -558,4 +558,4 @@ Confira [Considerações de topologia da implantação do AD FS 2.0](https://tec
 
 > [AZURE.NOTE] Para obter o balanceamento de carga para pontos de extremidade do AD FS do Windows Server no Azure, configure todos os membros do farm do AD FS do Windows Server no mesmo serviço de nuvem e use o recurso de balanceamento de carga do Azure para HTTP (padrão 80) e portas HTTPS (padrão 443). Para saber mais, confira [Investigação do balanceador de carga do Azure](https://msdn.microsoft.com/library/azure/jj151530). Não há suporte para o NLB (balanceamento de carga de rede) do Windows Server no Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

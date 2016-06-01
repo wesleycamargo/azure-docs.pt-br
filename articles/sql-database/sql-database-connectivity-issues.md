@@ -93,7 +93,7 @@ Você também poderá definir um número máximo de tentativas antes que o progr
 
 Os exemplos de código com lógica de repetição, em uma variedade de linguagens de programação, estão disponíveis em:
 
-- [Exemplos de código de início rápido](sql-database-develop-quick-start-client-code-samples.md)
+- [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -418,11 +418,6 @@ A lógica de repetição para tratar erros transitórios é uma área em que Ent
 - [4 - Perseverança, os segredos de todos os triunfos: usando o Bloco de Aplicativos para Tratamento de Falhas Transitórias](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)
 
 
-Um breve exemplo de código em C# que usa EntLib60 em sua lógica de repetição está disponível em:
-
-- [Exemplo de código: lógica de repetição da Enterprise Library 6, em C# para conexão com o Banco de Dados SQL](sql-database-develop-entlib-csharp-retry-windows.md)
-
-
 > [AZURE.NOTE] O código-fonte para EntLib60 está disponível para [download](http://go.microsoft.com/fwlink/p/?LinkID=290898) público. A Microsoft não tem planos de fazer mais atualizações de manutenção ou de recursos no EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
@@ -565,4 +560,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* é uma biblioteca de tentativas de repetições de finalidade geral licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de tentativa de repetição para quase tudo.](https://pypi.python.org/pypi/retrying)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

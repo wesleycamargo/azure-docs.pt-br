@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2016" 
+	ms.date="05/12/2016" 
 	ms.author="billmath"/>
 
 # Configurando o Azure Multi-Factor Authentication
@@ -98,8 +98,7 @@ Um desvio único permite que um usuário se autentique uma única vez ao "desvia
 1.	Faça logon no http://azure.microsoft.com
 2.	Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
 3.	No Portal de Gerenciamento de Azure Multi-Factor Authentication, se você vir o nome do locatário ou Provedor de Azure MFA à esquerda com um + ao lado dele, clique no + para ver grupos diferentes de replicação do Servidor MFA e o grupo Padrão do Azure. Clique no grupo apropriado.
-4.	Em Administração de Usuário, clique em **Bypass Avulso**.
-![Nuvem](./media/multi-factor-authentication-whats-next/create1.png)
+4.	Em Administração de Usuário, clique em **Bypass Avulso**. ![Nuvem](./media/multi-factor-authentication-whats-next/create1.png)
 5.	Na página de Bypass Único, clique em **Novo Bypass Único**.
 6.	Digite o nome do usuário, o número de segundos durante os quais o bypass existirá, o motivo do bypass e clique em **Bypass**.![Nuvem](./media/multi-factor-authentication-whats-next/create2.png)
 7.	Neste ponto, o usuário deve se conectar antes que o desvio único expire.
@@ -377,4 +376,4 @@ Método|Descrição
 9. Clique em Salvar.
 10. Clique em Fechar.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

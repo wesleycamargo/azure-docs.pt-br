@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="05/16/2016"
    ms.author="curtand"/>
 
 # Adicionar e gerenciar vários diretórios do Active Directory do Azure
@@ -26,18 +26,23 @@ Se você criar ou excluir um recurso em um diretório, ele não afeta nenhum rec
 
 ##Independência administrativa
 
-Se um usuário não administrativo do diretório "Contoso" criar um diretório "Teste", então: - por padrão, o usuário que cria um diretório é adicionado como um usuário externo nesse novo diretório e atribuído à função de administrador global nesse diretório. -Os administradores do diretório "Contoso" não têm privilégios administrativos diretos para o diretório "Teste", a menos que um administrador do "Teste" conceda especificamente a eles esses privilégios. Os administradores do "Contoso" podem controlar o acesso ao diretório "Teste" se controlarem a conta de usuário que criou o "Teste". - Se você alterar (adicionar ou remover) uma função de administrador para um usuário em um diretório, a alteração não afetará nenhuma função de administrador que o usuário possa ter em outro diretório.
+Se um usuário não administrativo do diretório "Contoso" criar um diretório "Teste", então:
+- Por padrão, o usuário que cria um diretório é adicionado como um usuário externo nesse novo diretório e recebe a função de administrador global nesse diretório.
+- Os administradores do diretório "Contoso" não têm privilégios administrativos diretos para o diretório "Teste", a menos que um administrador de "Teste" conceda especificamente esses privilégios a eles. Os administradores do "Contoso" podem controlar o acesso ao diretório "Teste" se controlarem a conta de usuário que criou "Teste".
+- Se você alterar (adicionar ou remover) uma função de administrador para um usuário em um diretório, a alteração não afeta nenhuma função de administrador que o usuário pode ter em outro diretório.
 
 ##Independência de sincronização
 
-Você pode configurar cada diretório do AD do Azure independentemente para obter dados sincronizados de uma única instância de: - ferramenta de sincronização de diretório (DirSync), para sincronizar dados com uma única floresta AD. - O Active Directory Connector do Azure para o Forefront Identity Manager, para sincronizar dados com um ou mais florestas locais e/ou fontes de dados do AD não Azure.
+Você pode configurar cada diretório do Azure AD independentemente para que os dados sejam sincronizados a partir de uma única instância de:
+  - A ferramenta de sincronização de diretório (DirSync), para sincronizar dados com uma única floresta do AD.
+  - Azure Active Directory Connector para o Forefront Identity Manager, para sincronizar dados com uma ou mais florestas locais e/ou fontes de dados não Azure AD.
 
 ##Adicionar um diretório do AD do Azure
 
 Para adicionar um diretório do Active Directory do Azure no portal de clássico do Azure, selecione a extensão do Active Directory do Azure à esquerda e toque em **Adicionar**.
 
-> [AZURE.NOTE]Observe também que, ao contrário de outros recursos do Azure, seus diretórios não são recursos filho de uma assinatura do Azure. Se você cancelar ou permitir que a assinatura do Azure expire, ainda poderá acessar os dados de diretório usando o Azure PowerShell, o Azure Graph API ou outras interfaces, como o Centro de Administração do Office 365. Você também pode associar outra assinatura ao diretório.
+> [AZURE.NOTE]   Observe também que, ao contrário de outros recursos do Azure, seus diretórios não são recursos filho de uma assinatura do Azure. Se você cancelar ou permitir que a assinatura do Azure expire, ainda poderá acessar os dados de diretório usando o Azure PowerShell, o Azure Graph API ou outras interfaces, como o Centro de Administração do Office 365. Você também pode associar outra assinatura ao diretório.
 
 Para obter uma visão geral dos problemas de licenciamento do AD do Azure e as práticas recomendadas, consulte [O que é o licenciamento do Active Directory do Azure?](active-directory-licensing-what-is.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

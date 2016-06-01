@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/17/2016"
+   ms.date="05/18/2016"
    ms.author="jgao"/>
 
 # Criar clusters do HBase na Rede Virtual do Azure 
@@ -40,7 +40,7 @@ Nesta seção, você criará um cluster HBase baseado em Linux no HDInsight usan
 
 1. Clique na imagem a seguir para abrir um modelo ARM no Portal do Azure. O modelo ARM está localizado em um contêiner de blob público. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/pt-BR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Na folha **Parâmetros**, insira o seguinte:
 
@@ -167,7 +167,7 @@ Para começar a trabalhar com o novo cluster do HBase, você pode usar os proced
 				}
 				if($PropertyName -eq "FQDNSuffix")
 				{
-					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/yarn/components/resourcemanager"
+					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/YARN/components/RESOURCEMANAGER"
 					$Response = $webclient.DownloadString($Url)
 					$JsonObject = $Response | ConvertFrom-Json
 					$FQDN = $JsonObject.host_components[0].HostRoles.host_name
@@ -272,4 +272,4 @@ Neste tutorial, você aprendeu a criar um cluster do HBase. Para obter mais info
 
 [azure-preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

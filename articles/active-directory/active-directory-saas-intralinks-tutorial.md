@@ -63,6 +63,7 @@ Para configurar a integração do Intralinks ao Azure AD, você precisará adici
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
 	![Active Directory][1]
+
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
@@ -80,11 +81,14 @@ Para configurar a integração do Intralinks ao Azure AD, você precisará adici
 6. Na caixa de pesquisa, digite **Intralinks**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_01.png)
+
 7. No painel de resultados, selecione **Intralinks**. e clique em **Concluir** para adicionar o aplicativo.
 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_02.png)
 
 
 ##  Configurar e testar o logon único do AD do Azure
+
 Nesta seção, você configurará e testará o logon único do Azure AD com o Intralinks, com base em uma usuária de teste chamada "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Intralinks é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Intralinks.
@@ -114,7 +118,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
 	![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_03.png)
 
-3. Na página da caixa de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas:
+3. Na página do diálogo **Definir Configurações do Aplicativo**, realize as seguintes etapas:
 
 	![Configurar o logon único](./media/active-directory-saas-intralinks-tutorial/tutorial_intralinks_04.png)
 
@@ -166,7 +170,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_04.png)
 
-5. Na página da caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_05.png)
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_05.png)
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
@@ -174,7 +178,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
     c. Clique em **Próximo**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_06.png)
+6.  Na página do diálogo **Perfil do Usuário**, realize as seguintes etapas: ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intralinks-tutorial/create_aaduser_06.png)
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -213,7 +217,7 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
 
 **Para atribuir Brenda Fernandes ao Intralinks, execute as seguintes etapas:**
 
-1. No portal clássico, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
+1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
 	![Atribuir usuário][201]
 
@@ -274,7 +278,7 @@ Depois disso, você pode seguir o procedimento abaixo para adicionar outro aplic
 	a. Na caixa de texto URL de Logon, digite a URL usada pelos usuários para fazer logon em seu aplicativo Intralinks usando o seguinte padrão: **https://\<NomedaEmpresa>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<IDdoLocatáriodoAzureAD>/**
 
 
-11. Clique em Avançar
+11. Clique em **Próximo**.
 
 12. Atribua o aplicativo para usuários ou grupos, como mostrado na seção **[Atribuição do usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)**
 
@@ -311,4 +315,4 @@ Ao clicar no bloco Intralinks no Painel de Acesso, você deverá ser conectado a
 [204]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-intralinks-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

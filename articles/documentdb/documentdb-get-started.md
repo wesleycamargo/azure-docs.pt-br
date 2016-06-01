@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/13/2016"
+	ms.date="05/16/2016"
 	ms.author="anhoh"/>
 
 # Tutorial do NoSQL: criar um aplicativo de console em C# do Banco de Dados de Documentos
@@ -602,7 +602,8 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 
 ## Próximas etapas
 
--   Quer um tutorial mais complexo do NoSQL do ASP.NET MVC? Consulte [Criar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos](documentdb-dotnet-application.md).
+- Quer um tutorial mais complexo do NoSQL do ASP.NET MVC? Consulte [Criar um aplicativo Web com ASP.NET MVC usando o Banco de Dados de Documentos](documentdb-dotnet-application.md).
+- Deseja executar testes de desempenho e escalabilidade com o Banco de Dados de Documentos? Confira [teste de desempenho e escalabilidade com o Banco de Dados de Documentos](documentdb-performance-testing.md)
 -	Saiba como [monitorar uma conta do Banco de Dados de Documentos](documentdb-monitor-accounts.md).
 -	Executar consultas em nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).
 -	Saiba mais sobre o modelo de programação na seção Desenvolvimento da [Página de documentação do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/services/documentdb/).
@@ -611,4 +612,4 @@ Para restaurar as referências do Banco de Dados de Documentos do SDK do .NET no
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/23/2016"
+   ms.date="04/25/2016"
    ms.author="oanapl"/>
 
 # Introdução ao monitoramento da integridade do Service Fabric
@@ -94,7 +94,7 @@ A [política de integridade do cluster](https://msdn.microsoft.com/library/azure
 
 - [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). O mapa da política de integridade do tipo de aplicativo pode ser usado durante a avaliação da integridade do cluster para descrever tipos especiais de aplicativo. Por padrão, todos os aplicativos são colocados em um pool e avaliados com MaxPercentUnhealthyApplications. Se um ou mais tipos de aplicativo forem especiais e devem ser tratados de maneira diferente, eles poderão ser retirados do pool global e avaliados em relação às porcentagens associadas ao respectivo nome do tipo de aplicativo no mapa. Por exemplo, em um cluster, há milhares de aplicativos de diferentes tipos e algumas instâncias de aplicativo de controle de um tipo especial de aplicativo. Os aplicativos de controle nunca deve apresentar erro. Portanto, os usuários podem especificar MaxPercentUnhealthyApplications global como 20% para tolerar algumas falhas, mas para o tipo de aplicativo "ControlApplicationType", devem definir MaxPercentUnhealthyApplications como 0. Dessa forma, se alguns dos muitos aplicativos estiverem em estado não íntegro, mas abaixo da porcentagem de não integridade global, o estado do cluster será Aviso. Um estado de integridade de aviso não afeta a atualização do cluster nem outros recursos de monitoramento disparados pelo estado de integridade Erro. Porém, até mesmo um aplicativo de controle em erro causaria o erro de integridade do cluster, o que poderia reverter ou impedir uma atualização do cluster. Para os tipos de aplicativo definidos no mapa, todas as instâncias do aplicativo são retiradas do pool global de aplicativos. Eles são avaliados com base no número total de aplicativos do tipo de aplicativo, usando MaxPercentUnhealthyApplications específico do mapa. O restante dos aplicativos permanece no pool global e é avaliado com MaxPercentUnhealthyApplications.
 
-Veja a seguir o trecho de um manifesto do cluster: Para definir as entradas no mapa do tipo de aplicativo, prefixe o nome do parâmetro com "ApplicationTypeMaxPercentUnhealthyApplications-", seguido pelo nome do tipo de aplicativo.
+Veja a seguir o trecho de um manifesto do cluster: Para definir as entradas no mapa do tipo de aplicativo, prefixe o nome do parâmetro com “ApplicationTypeMaxPercentUnhealthyApplications-”, seguido do nome do tipo de aplicativo.
 
 ```xml
 <FabricSettings>
@@ -264,38 +264,38 @@ PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
-UnhealthyEvaluations            : 
+UnhealthyEvaluations            :
                                   Error event: SourceId='MyWatchdog', Property='Availability'.
-                                  
-ServiceHealthStates             : 
+
+ServiceHealthStates             :
                                   ServiceName           : fabric:/WordCount/WordCountService
                                   AggregatedHealthState : Error
-                                  
+
                                   ServiceName           : fabric:/WordCount/WordCountWebService
                                   AggregatedHealthState : Ok
-                                  
-DeployedApplicationHealthStates : 
+
+DeployedApplicationHealthStates :
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_0
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_2
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_3
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_4
                                   AggregatedHealthState : Ok
-                                  
+
                                   ApplicationName       : fabric:/WordCount
                                   NodeName              : _Node_1
                                   AggregatedHealthState : Ok
-                                  
-HealthEvents                    : 
+
+HealthEvents                    :
                                   SourceId              : System.CM
                                   Property              : State
                                   HealthState           : Ok
@@ -307,7 +307,7 @@ HealthEvents                    :
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
                                   Transitions           : Error->Ok = 3/22/2016 7:56:53 PM, LastWarning = 1/1/0001 12:00:00 AM
-                                  
+
                                   SourceId              : MyWatchdog
                                   Property              : Availability
                                   HealthState           : Error
@@ -315,7 +315,7 @@ HealthEvents                    :
                                   SentAt                : 3/23/2016 3:27:56 PM
                                   ReceivedAt            : 3/23/2016 3:27:56 PM
                                   TTL                   : Infinite
-                                  Description           : 
+                                  Description           :
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
                                   Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
@@ -337,4 +337,4 @@ O modelo de integridade é muito usado para monitoramento e diagnóstico, para a
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -11,17 +11,17 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016" 
+	ms.date="05/08/2016" 
 	ms.author="josephd"/>
 
 # Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
 
-Este artigo contém links para as instruções passo a passo para implantar um aplicativo de linha de negócios de alta disponibilidade, apenas para intranet e baseado na Web com Grupos de Disponibilidade AlwaysOn do SQL Server nos Serviços de Infraestrutura do Azure. O aplicativo está hospedado nesses computadores:
+Este artigo contém links para as instruções passo a passo para implantar um aplicativo de linha de negócios de alta disponibilidade, apenas para intranet e baseado na Web com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure. O aplicativo está hospedado nesses computadores:
 
 - Dois servidores Web
 - Dois servidores de banco de dados
@@ -93,4 +93,4 @@ Para obter informações adicionais sobre a criação de cargas de trabalho de T
 
 - Inicie a configuração desta carga de trabalho com [Fase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

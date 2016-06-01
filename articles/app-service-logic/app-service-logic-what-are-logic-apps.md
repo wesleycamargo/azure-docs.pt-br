@@ -80,4 +80,4 @@ A seguir estão algumas das principais partes que compõem a experiência de apl
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!----HONumber=AcomDC_0413_2016-->

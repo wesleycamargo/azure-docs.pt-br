@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="05/17/2016"
 	ms.author="douglasl"/>
 
 # Monitorar e solucionar problemas de migração de dados (Stretch Database)
@@ -58,4 +58,4 @@ Há vários problemas que podem afetar a migração. Verifique os seguintes proc
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

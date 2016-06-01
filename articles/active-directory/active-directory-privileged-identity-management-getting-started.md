@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/28/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Introdução ao Azure AD Privileged Identity Management
@@ -35,16 +35,16 @@ Antes de usar o Azure AD Privileged Identity Management, você precisa adicionar
 6. Marque **Fixar no painel** e clique no botão **Criar**. O aplicativo Privileged Identity Management será aberto.
 
 
-Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management em seu diretório, o [assistente segurança](active-directory-privileged-identity-management-security-wizard.md) lhe guiará pela experiência de atribuição inicial. Após isso, você se tornará automaticamente o primeiro **Administrador de segurança** do diretório. Somente um administrador de segurança pode acessar esse aplicativo para gerenciar o acesso de outros administradores.
+Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management em seu diretório, o [assistente segurança](active-directory-privileged-identity-management-security-wizard.md) lhe guiará pela experiência de atribuição inicial. Depois disso, você se tornará automaticamente o primeiro **Administrador de segurança** e um **administrador com função privilegiada** do diretório. Somente um administrador com função privilegiada pode acessar esse aplicativo para gerenciar o acesso de outros administradores.
 
-Caso contrário, se você tiver atribuído a uma ou mais funções por outro administrador de segurança, terá a opção de qual função ativar. Se você mesmo estiver em uma função de administrador de segurança, verá também uma opção para **Gerenciar Identidades**.
+Caso contrário, se tiver sido atribuído a uma ou mais funções por outro administrador com função privilegiada, você poderá escolher qual função ativar. Se você mesmo estiver em uma função de administrador com função privilegiada, verá também uma opção para **Gerenciar Identidades**.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
 
-A [visão geral do Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) inclui mais detalhes sobre como você pode gerenciar o acesso administrativo na sua organização.
+A [visão geral do Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) inclui mais detalhes sobre como você pode gerenciar o acesso administrativo em sua organização.
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

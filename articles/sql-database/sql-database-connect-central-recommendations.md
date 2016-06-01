@@ -130,8 +130,7 @@ Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET e
 
 Para obter exemplos de código que ilustram a lógica de repetição, consulte:
 
-- [Exemplos de código do cliente de início rápido do Banco de Dados SQL](sql-database-develop-quick-start-client-code-samples.md)
-
+- Exemplos de código em: [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
 ### Números de erro para falhas transitórias
 
@@ -161,10 +160,12 @@ Para saber mais, consulte:
 Os tópicos a seguir contêm links para exemplos de código de várias linguagens e tecnologias de driver que você pode usar para se conectar do seu programa cliente ao Banco de Dados SQL do Azure.
 
 
-Vários exemplos de código são fornecidos para clientes que são executados no Windows, Linux e Mac OS X.
+Vários exemplos de código são fornecidos para clientes que são executados nas plataformas Windows, Linux e Mac.
 
 
-**Exemplos gerais:** há [exemplos de código](sql-database-develop-quick-start-client-code-samples.md) para várias linguagens de programação, incluindo PHP, Python, Node.js e .NET CSharp. Além disso, são fornecidos exemplos para clientes que são executados no Windows, Linux e Mac OS X.
+**Exemplos gerais:** há exemplos de código para várias linguagens de programação, incluindo PHP, Python, Java, Node.js e .NET CSharp. Você pode encontrar links de exemplos de código em:
+
+- [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
 
 
 **Escala elástica:** para obter informações sobre conectividade com bancos de dados de Escala Elástica, consulte:
@@ -172,9 +173,4 @@ Vários exemplos de código são fornecidos para clientes que são executados no
 - [Introdução à visualização da Escala Elástica do Banco de Dados SQL do Azure](sql-database-elastic-scale-get-started.md)
 - [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md)
 
-
-**Bibliotecas de drivers:** para obter informações sobre bibliotecas de drivers de conexão, incluindo versões recomendadas, consulte:
-
-- [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
-
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

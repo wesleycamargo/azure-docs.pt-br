@@ -24,8 +24,8 @@ O DC/OS fornece um ambiente de implantação e dimensionamento de cargas de trab
 
 Embora haja estruturas disponíveis para várias cargas de trabalho populares, este documento descreve como você pode criar e dimensionar implantações de contêiner usando o Marathon. Antes de trabalhar nos exemplos, você precisará de um cluster DC/OS configurado no Serviço de Contêiner do Azure. Você também precisa ter conectividade remota com esse cluster. Para saber mais sobre esses itens, confira os artigos a seguir:
 
-- [Como implantar um cluster do Serviço de Contêiner do Azure](./container-service-deployment.md)
-- [Conexão a um cluster do Serviço de Contêiner do Azure](./container-service-connect.md)
+- [Como implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md)
+- [Conexão a um cluster do Serviço de Contêiner do Azure](container-service-connect.md)
 
 Depois que você estiver conectado ao cluster do Serviço de Contêiner do Azure, poderá acessar o DC/OS e as APIs REST relacionadas por meio de http://localhost:local-port. Os exemplos neste documento pressupõem que você crie um túnel na porta 80. Por exemplo, o ponto de extremidade Marathon pode ser acessado na `http://localhost/marathon/v2/`. Para saber mais sobre as várias APIs, confira a documentação da Mesosphere para a [API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e a [API Chronos](https://mesos.github.io/chronos/docs/api.html) e a documentação do Apache para a [API do Agendador do Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
 
@@ -172,6 +172,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## Próximas etapas
 
-[Leia mais sobre os pontos de extremidade HTTP Meso](http://mesos.apache.org/documentation/latest/endpoints/). [Leia mais sobre a API REST do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
+[Leia mais sobre os pontos de extremidade HTTP Mesos](http://mesos.apache.org/documentation/latest/endpoints/). [Leia mais sobre a API REST do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

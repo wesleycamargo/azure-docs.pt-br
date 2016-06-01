@@ -1,27 +1,29 @@
 <properties
-   pageTitle="Criação e implantação de projetos do Visual Studio no Grupo de Recursos do Azure | Microsoft Azure"
+   pageTitle="Projetos do Visual Studio no Grupo de Recursos do Azure | Microsoft Azure"
    description="Use o Visual Studio para criar um projeto do grupo de recursos do Azure e implantar os recursos no Azure."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor="" />
+   manager="timlt"
+   editor="tysonn" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="05/17/2016"
    ms.author="tomfitz" />
 
 # Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
 Com o Visual Studio e o [SDK do Azure](https://azure.microsoft.com/downloads/), você pode criar um projeto que implementa sua infraestrutura e o código no Azure. Por exemplo, você pode definir o host da Web, o site da Web e o banco de dados para seu aplicativo, e implantar essa infraestrutura juntamente com o código. Ou pode definir uma Máquina Virtual, uma Rede Virtual e uma Conta de Armazenamento e implantar essa infraestrutura juntamente com um script que é executado na Máquina Virtual. O projeto de implantação **Grupo de Recursos do Azure** permite a você implantar todos os recursos necessários em uma única operação repetida. Para obter mais informações sobre como implantar e gerenciar seus recursos, confira [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md).
 
-Os projetos do Grupo de Recursos do Azure contêm modelos JSON do Gerenciador de Recursos do Azure, que definem os recursos que são implantados em um Azure. Para saber mais sobre os elementos do modelo do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md). O Visual Studio permite editar esses modelos e fornece ferramentas que simplificam o trabalho com eles.
+Os projetos do Grupo de Recursos do Azure contêm modelos JSON do Azure Resource Manager, que definem os recursos que são implantados no Azure. Para saber mais sobre os elementos do modelo do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md). O Visual Studio permite editar esses modelos e fornece ferramentas que simplificam o trabalho com eles.
 
 Neste tópico, você implantará um aplicativo Web e o Banco de Dados SQL. No entanto, as etapas são praticamente as mesmas para qualquer tipo de recurso. Você pode implantar facilmente uma Máquina Virtual e seus recursos relacionados. O Visual Studio fornece muitos modelos iniciais diferentes para implantar cenários comuns.
+
+Este artigo foi escrito usando o Visual Studio 2015 com Atualização 2 e o SDK do Microsoft Azure para .NET 2.9. Se você usar o Visual Studio 2013 com o SDK do Azure 2.9, sua experiência será basicamente a mesma. Você pode usar versões do SDK do Azure 2.6 ou posterior. No entanto, sua experiência pode ser diferente daquela mostrada neste artigo. É altamente recomendável que você instale a versão mais recente do [SDK do Azure](https://azure.microsoft.com/downloads/) antes de iniciar as etapas.
 
 ## Criar um projeto do Grupo de Recursos do Azure
 
@@ -29,7 +31,7 @@ Neste procedimento, você criará um projeto do Grupo de Recursos do Azure com u
 
 1. No Visual Studio, escolha **Arquivo**, **Novo Projeto**, escolha **C#** ou **Visual Basic**. Então escolha **Nuvem**, e, em seguida, escolha projeto de **Grupo de Recursos do Azure**.
 
-    ![Projeto do Cloud Deployment](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796668.png)
+    ![Projeto do Cloud Deployment](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 
 1. Escolha o modelo que você deseja implantar no Gerenciador de Recursos do Azure. Observe que há várias opções diferentes com base no tipo de projeto que você deseja implantar. Para este tópico, escolheremos o modelo **aplicativo Web + SQL**.
 
@@ -52,9 +54,8 @@ Neste procedimento, você criará um projeto do Grupo de Recursos do Azure com u
     |Deploy-AzureResourceGroup.ps1|Um script do PowerShell que invoca comandos do PowerShell para implantar no Gerenciador de Recursos do Azure.<br />**Observação** Esse script do PowerShell é usado pelo Visual Studio para implantar o modelo. As alterações feitas no script também afetarão a implantação no Visual Studio. Portanto, tenha cuidado.|
     |WebSiteSQLDatabase.json|O modelo do gerenciador de recursos que define a infraestrutura que você deseja implantar no Azure e os parâmetros que você pode fornecer durante a implantação. Também define as dependências entre os recursos para que eles sejam implantados na ordem correta.|
     |WebSiteSQLDatabase.parameters.json|Um arquivo de parâmetros que contém os valores necessários ao modelo. São os valores que você passa para personalizar cada implantação.|
-    |AzCopy.exe|Uma ferramenta usada pelo script do PowerShell para copiar arquivos do caminho de depósito do armazenamento local para o contêiner da conta de armazenamento. Essa ferramenta será usada somente se você configurar o projeto de implantação para implantar seu código juntamente com o modelo.|
 
-    Todos os projetos de implantação do grupo de recursos do Azure contêm esses quatro arquivos básicos. Outros projetos podem conter arquivos adicionais para dar suporte a outras funcionalidades.
+    Todos os projetos de implantação do grupo de recursos do Azure contêm esses arquivos básicos. Outros projetos podem conter arquivos adicionais para dar suporte a outras funcionalidades.
 
 ## Personalizar o modelo do Gerenciador de Recursos
 
@@ -84,7 +85,7 @@ Observe que não só foi adicionado o recurso, mas também um parâmetro para o 
 
 O parâmetro **WebSitePicturesType** é predefinido com os tipos permitidos e um tipo padrão. Você pode deixar esses valores ou editá-los para seu cenário. Se você não quiser permitir que ninguém implante uma conta de armazenamento **Premium\_LRS** com esse modelo, simplesmente remova-o dos tipos permitidos, conforme mostrado abaixo.
 
-    "WebSitePicturesType": {
+    "storageType": {
       "type": "string",
       "defaultValue": "Standard_LRS",
       "allowedValues": [
@@ -112,13 +113,13 @@ Agora, você está pronto para implantar seu projeto. Quando você implanta um p
 
 1. No menu de atalho do nó do projeto de implantação, escolha **Implantar**, **Nova Implantação**.
 
-    ![Item de menu Implantar, Nova Implantação](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796672.png)
+    ![Item de menu Implantar, Nova Implantação](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
 
     A caixa de diálogo **Implantar no Grupo de Recursos** é exibida.
 
     ![Caixa de diálogo Implantar no Grupo de Recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
 
-1. Na caixa suspensa de **Grupo de recursos**, escolha um grupo de recursos existente ou crie um novo. Para criar um grupo de recursos, abra a caixa suspensa **Grupo de Recursos** e escolha **<Create New...>**.
+1. Na caixa suspensa de **Grupo de recursos**, escolha um grupo de recursos existente ou crie um novo. Para criar um grupo de recursos, abra a caixa suspensa **Grupo de Recursos** e escolha **Criar Novo...**.
 
     ![Caixa de diálogo Implantar no Grupo de Recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
 
@@ -130,13 +131,13 @@ Agora, você está pronto para implantar seu projeto. Quando você implanta um p
 
     ![Caixa de diálogo Editar Parâmetros](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    A opção **Salvar senhas** significa que as senhas serão salvas como texto sem formatação no arquivo JSON. Esta opção não é segura.
+    A opção **Salvar senhas como texto sem formatação no arquivo de parâmetros** não é segura.
 
-1. Escolha o botão **Implantar** para implantar o projeto no Azure. Você pode ver o andamento da implantação na janela **Saída**. A implantação pode levar vários minutos para ser concluída, dependendo da configuração. Se solicitado, insira a senha do administrador do banco de dados.
+1. Escolha o botão **Implantar** para implantar o projeto no Azure. Você pode ver o andamento da implantação na janela **Saída**. A implantação pode levar vários minutos para ser concluída, dependendo da configuração. Digite a senha do administrador de banco de dados no console do PowerShell quando solicitado. Caso não haja progresso na sua implantação, pode ser porque o processo está aguardando que você digite a senha no console do PowerShell.
 
     >[AZURE.NOTE] Você pode ser solicitado a instalar os cmdlets do Azure PowerShell. Já que esses cmdlets são necessários para implantar grupos de recursos do Azure, você precisa instalá-los.
     
-1. Quando a implantação for concluída, você verá uma mensagem na janela **Saída** como:
+1. Quando a implantação for concluída, você verá uma mensagem na janela **Saída** parecida com:
 
         ...
         15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
@@ -199,7 +200,7 @@ Após a implantação terminar, você poderá navegar para o site e observar se 
 
 ## Próximas etapas
 
-- Para saber mais sobre como gerenciar seus recursos com o portal, consulte [Usando o Portal do Azure para gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
-- Para saber mais sobre os modelos, consulte [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
+- Para saber mais sobre como gerenciar seus recursos com o portal, confira [Usando o Portal do Azure para gerenciar os recursos do Azure](./azure-portal/resource-group-portal.md).
+- Para saber mais sobre os modelos, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Problemas de reinicialização ou redimensionamento de VM | Microsoft Azure"
    description="Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma Máquina Virtual Linux existente no Azure"
-   services="virtual-machines"
+   services="virtual-machines-linux"
    documentationCenter=""
-   authors="delhan"
+   authors="Deland-Han"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 
 <tags
-   ms.service="virtual-machines"
-   ms.topic="support-article"
-   ms.tgt_pltfrm="virtual-machines"
+   ms.service="virtual-machines-linux"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="required"
-   ms.date="04/28/2016"
+   ms.date="05/12/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Clássico](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-- [Gerenciador de Recursos](../articles/virtual-machines/virtual-machines-linux-arm-restart-resize-error-troubleshooting.md)
+- [Gerenciador de Recursos](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
 Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma VM do Azure existente, o erro comum encontrado é uma falha de alocação. Esse erro ocorre quando o cluster ou a região não tem recursos disponíveis ou quando não dá suporte ao tamanho de VM solicitado.
 
@@ -76,9 +76,9 @@ Se não for possível reduzir o tamanho da VM, siga estas etapas:
   * Crie um novo serviço de nuvem, garantindo que ele não esteja vinculado a um grupo de afinidades nem associado a uma rede virtual vinculada a um grupo de afinidades.
 
   * Crie uma nova VM maior nele.
-  
+
 É possível consolidar todas as VMs no mesmo serviço de nuvem. Se o serviço de nuvem existente estiver associado a uma rede virtual baseada em região, será possível conectar o novo serviço de nuvem à rede virtual existente.
 
 Se o serviço de nuvem existente não estiver associado a uma rede virtual baseada em região, será necessário excluir as VMs no serviço de nuvem existente e recriá-las no novo serviço de nuvem por meio de seus discos. No entanto, é importante lembrar-se de que o novo serviço de nuvem terá um novo nome e VIP e, portanto, será necessário atualizá-los em todas as dependências que atualmente usam essas informações para o serviço de nuvem existente.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

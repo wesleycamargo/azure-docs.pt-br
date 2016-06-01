@@ -460,7 +460,7 @@ GO
 Os recursos do OLTP Na Memória no Banco de Dados SQL do Azure se tornaram [ativos para visualização em 28 de outubro de 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
-Durante a fase de Visualização antes da Disponibilidade Geral (GA), o OLTP Na Memória só tem suporte para:
+Na preview atual, só há suporte do OLTP in-memory para:
 
 - Os bancos de dados na camada de serviço *Premium*.
 
@@ -491,7 +491,11 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 #### Outros relacionamentos
 
 
-- O uso de recursos OLTP Na Memória com bancos de dados em pools elásticos não tem suporte durante a Visualização, mas poderá ter suporte no futuro:
+- O uso de recursos OLTP in-memory com bancos de dados em pools elásticos não tem suporte durante a Preview.
+ - Para mover um banco de dados que tenha ou já teve objetos OLTP in-memory para um pool elástico, siga estas etapas:
+  - 1. Remover tabelas com otimização de memória, tipos de tabela e módulos do T-SQL compilados nativamente no banco de dados
+  - 2. Alterar a camada de serviço do banco de dados padrão (*atualmente, há um problema que impede a movimentação de bancos de dados Premium que tiveram objetos OLTP in-memory no passado para um pool elástico; a equipe de banco de dados do Azure está trabalhando ativamente para resolver o problema)
+  - 3. Mover o banco de dados para o pool elástico
 
 - Usando OLTP Na Memória com o SQL Data Warehouse não tem suporte.
  - O recurso de índice columnstore da Análise Na Memória tem suporte no SQL Data Warehouse.
@@ -533,4 +537,4 @@ Se um banco de dados contiver qualquer um dos seguintes tipos de objetos ou de t
 
 - [Monitorar o Armazenamento Na Memória](sql-database-in-memory-oltp-monitoring.md) para o OLTP Na Memória.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

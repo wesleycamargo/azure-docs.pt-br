@@ -91,15 +91,13 @@ Uma condição avalia se um **campo** ou uma **fonte** atende a determinados cri
 | No | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | containsKey" : "&lt;keyName&gt;" |
 
-### Campos e fontes
+### Campos
 
 As condições são formadas por meio do uso de campos e fontes. Um campo representa as propriedades na carga de solicitação de recurso que é usada para descrever o estado do recurso. Uma fonte representa as características da solicitação em si.
 
 Há suporte para os seguintes campos e fontes:
 
 Campos: **nome**, **variante**, **tipo**, **local**, **marcas**, **marcas.*** e **alias de propriedade**.
-
-Fontes: **ação**.
 
 ### Aliases de propriedade 
 Alias de propriedade é um nome que pode ser usado em uma definição de política para acessar as propriedades específicas do tipo de recurso, como SKUs e configurações. Ele funciona em todas as versões de API que contêm a propriedade. Aliases podem ser recuperados usando a API REST mostrada abaixo (o suporte ao PowerShell será adicionado no futuro):
@@ -153,7 +151,7 @@ A política dá suporte a três tipos de efeito - **negar**, **auditar** e **acr
 - Auditar gera um evento no log de auditoria, mas não causa falha da solicitação
 - Acrescentar adiciona o conjunto de campos definido à solicitação 
 
-Para **acrescentar**, você precisa fornecer os detalhes conforme mostrado abaixo:
+Para **acrescentar**, é necessário fornecer os detalhes, conforme mostrado abaixo:
 
     ....
     "effect": "append",
@@ -339,8 +337,8 @@ O exemplo abaixo mostra como aninhar operadores lógicos para exigir uma marca d
                 }
               },
               {
-                "source": "action",
-                "like": "Microsoft.Storage/*"
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
               }
             ]
         },
@@ -387,7 +385,7 @@ Com um corpo de solicitação semelhante ao seguinte:
     }
 
 
-Definição de política pode ser definida como um dos exemplos mostrados acima. Para api-version, use *2016-04-01*. Para obter exemplos e mais detalhes, veja a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+Definição de política pode ser definida como um dos exemplos mostrados acima. Para a api-version, use *2016-04-01*. Para obter exemplos e mais detalhes, veja a [API REST para Definições de Política](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Criar definição de política usando o PowerShell
 
@@ -420,7 +418,7 @@ Para criar uma nova atribuição de política, execute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-A {Atribuição da política} é o nome da atribuição da política. Para api-version, use *2016-04-01*.
+A {Atribuição da política} é o nome da atribuição da política. Para a api-version, use *2016-04-01*.
 
 Com um corpo de solicitação semelhante ao seguinte:
 
@@ -464,4 +462,4 @@ Para exibir todos os eventos relacionados ao efeito de auditoria, você pode usa
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

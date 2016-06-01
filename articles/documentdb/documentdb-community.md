@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="04/16/2016"
+  ms.date="05/09/2016"
   ms.author="andrl"/>
 
 # Portal da comunidade
@@ -147,12 +147,8 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Nome do evento | Palestrante | Local | Data | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 16 de abril de 2016 | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 16 de abril de 2016 | [#GlobalAzure](https://twitter.com/hashtag/GlobalAzure)
-| [Grupo de usuários de integração](http://www.integrationusergroup.com/#) | Howard Edidin | Webinar | 25 de abril de 2016 | n/d |
-| [Meetup: grupo de desenvolvedores de .NET de NYC](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | Cidade de Nova York, NY | 21 de abril de 2016 | n/d |
-| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Reino Unido | 4 a 7 de maio de 2016 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 | [Meetup: Grupo de usuários do Azure Reino Unido](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | Londres, Reino Unido | 12 de maio de 2016 | n/d |
+| [Meetup: ONETUG - Orlando, grupo de usuários do .NET](http://www.meetup.com/ONETUG/events/230797164/) | Santosh Hari | Orlando, Flórida | 12 de maio de 2016 | [#ONETUG](https://twitter.com/search?q=%23onetug&src=typd) |
 
 *Você está participando como palestrante ou organizando um evento? [Fale conosco](mailto:askdocdb@microsoft.com) para sabermos como podemos ajudar!*
 
@@ -160,6 +156,11 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 
 | Nome do evento | Palestrante | Local | Data | Gravação |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu, Aravind Ramachandran | Liverpool, Reino Unido | 4 a 7 de maio de 2016 | n/d
+| [Meetup: grupo de desenvolvedores de .NET de NYC](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Leonard Lobel | Cidade de Nova York, NY | 21 de abril de 2016 | n/d |
+| [Grupo de usuários de integração](http://www.integrationusergroup.com/#) | Howard Edidin | Webinar | 25 de abril de 2016 | n/d |
+| [Global Azure Bootcamp: SoCal](http://xprs.imcreator.com/free/vishalishere/gab2016) | Leonard Lobel | Orange, CA | 16 de abril de 2016 | n/d |
+| [Global Azure Bootcamp: Redmond](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | David Makogon | Redmond, WA | 16 de abril de 2016 | n/d |
 | [SQL Sábado #481 - Israel 2016](http://www.sqlsaturday.com/481/Sessions/Details.aspx?sid=40912) | Leonard Lobel | HaMerkaz, Israel | 04 de abril de 2016 | n/d |
 | [Build 2016](https://build.microsoft.com/) | John Macintyre | San Francisco, CA | 31 de março de 2016 | [Fornecimento de aplicativos em escala com o Banco de Dados de Documentos, Banco de dados de documentos NoSQL do Azure](https://channel9.msdn.com/Events/Build/2016/B840)
 | [SQL Sábado #505 - Bélgica 2016](http://www.sqlsaturday.com/505/Sessions/Details.aspx?sid=44217) | Mihail Mateev | Antuérpia, Bélgica | 19 de março de 2016 | n/d |
@@ -305,6 +306,6 @@ Os Magos do Banco de Dados de Documentos são líderes de comunidade que demonst
 | [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Allan Mitchell](https://twitter.com/allansqlis) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Jen Stirrup](https://twitter.com/jenstirrup) | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Lenni Lobel](https://twitter.com/lennilobel) | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Mihail Mateev](https://twitter.com/mihailmateev)|
 | [![Larry Maccherone](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) <br/> [Larry Maccherone](https://twitter.com/lmaccherone) | [![Howard Edidin](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) <br/> [Howard Edidin](https://twitter.com/hsedidin)
 
-Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com).
+Deseja tornar-se um Mago do Banco de Dados de Documentos? Embora não haja qualquer parâmetro para tornar-se um Mago do Banco de Dados de Documentos, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como o StackOverflow e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. Você pode indicar a si mesmo ou outra pessoa [enviando um email para nós](mailto:askdocdb@microsoft.com)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

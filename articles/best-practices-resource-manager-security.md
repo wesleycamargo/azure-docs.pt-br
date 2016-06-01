@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Considerações de segurança do Gerenciador de Recursos do Azure"
+	pageTitle="Considerações de segurança para o Gerenciador de Recursos | Microsoft Azure"
 	description="Mostra abordagens recomendadas no Gerenciador de Recursos do Azure para proteger recursos com chaves e segredos, controle de acesso baseado em função e grupos de segurança de rede."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/16/2016"
 	ms.author="georgem;tomfitz"/>
 
 
@@ -306,7 +306,7 @@ Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabe
 
 ### Rotas BGP
 
-No momento em que este artigo foi escrito, a [Rota Expressa](./expressroute/expressroute-introduction.md) ainda não tinha suporte no [Provedor de Recursos de Rede](virtual-network/resource-groups-networking.md) para o Gerenciador de Recursos do Azure. Se houver uma conexão de Rota Expressa entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure assim que o provedor de recursos de rede der suporte à Rota Expressa. Essas rotas BGP são usadas da mesma maneira que as rotas padrão e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](./expressroute/expressroute-introduction.md).
+No momento em que este artigo foi escrito, a [Rota Expressa](./expressroute/expressroute-introduction.md) ainda não tinha suporte no [Provedor de Recursos de Rede](./virtual-network/resource-groups-networking.md) para o Gerenciador de Recursos do Azure. Se houver uma conexão de Rota Expressa entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure assim que o provedor de recursos de rede der suporte à Rota Expressa. Essas rotas BGP são usadas da mesma maneira que as rotas padrão e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](./expressroute/expressroute-introduction.md).
 
 >[AZURE.NOTE] Quando o NRP der suporte à Rota Expressa, você poderá configurar seu ambiente do Azure para usar um túnel à força por meio de sua rede local, criando uma rota definida pelo usuário para a sub-rede 0.0.0.0/0 que usa o gateway de VPN como o próximo salto. No entanto, isso só funcionará se você estiver usando um gateway de VPN, não o ExpressRoute. Para o ExpressRoute, o túnel à força é configurado por meio do BGP.
 
@@ -339,4 +339,4 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 - Para configurar o roteamento e o encaminhamento de IP, consulte [Criar UDRs (Rotas Definidas pelo Usuário) no Resource Manager usando um modelo](./virtual-network/virtual-network-create-udr-arm-template.md)
 - Para obter uma visão geral do controle de acesso baseado em função, consulte [Controle de acesso baseado em função no portal do Microsoft Azure](./active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

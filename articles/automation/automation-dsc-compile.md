@@ -37,7 +37,7 @@ Você pode compilar as configurações DSC (Configuração de Estado Desejado) d
 
 Depois de decidir sobre um método de compilação, é possível seguir os respectivos procedimentos abaixo para iniciar a compilação.
 
-##Compilando uma Configuração DSC com o portal de visualização do Azure##
+##Compilando uma Configuração DSC com o portal do Azure##
 
 1.  Na sua conta de automação, clique em **Configurações**.
 2.  Clique em uma configuração para abrir sua folha.
@@ -115,7 +115,7 @@ O PowerShell requer parâmetros em uma [tabela de hash](http://technet.microsoft
     }
     
     
-    Start-AzureRMAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
+    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
     
 
 Para obter informações sobre como transmitir PSCredentials como parâmetros, veja <a href="#credential-assets">**Ativos de credencial**</a> abaixo.
@@ -189,7 +189,7 @@ Embora as Configurações DSC na Automação do Azure possam fazer referência a
 
 Manter as credenciais seguras em configurações de nó (documentos de configuração do MOF) requer a criptografia das credenciais no arquivo MOF da configuração de nó. A Automação do Azure vai além e criptografa todo o arquivo MOF. No entanto, atualmente, você deve informar a DSC do PowerShell que as credenciais podem ser exportadas em texto sem formatação durante a geração do MOF da configuração de nó, pois a DSC do PowerShell não está ciente de que a Automação do Azure criptografará todo o arquivo MOF após sua geração por meio de um trabalho de compilação.
 
-Você pode informar à DSC do PowerShell que não há problema nas credenciais serem exportadas em texto sem formatação nos MOFs gerados da configuração de nó usando <a href="#configurationdata">**ConfigurationData**</a>. Você deve transmitir o `PSDscAllowPlainTextPassword = $true` por meio do **ConfigurationData** para o nome do bloco de cada nó que aparece na Configuração DSC e que usa credenciais.
+Você pode informar à DSC do PowerShell que não há problema nas credenciais serem exportadas em texto sem formatação nos MOFs gerados da configuração de nó usando <a href="#configurationdata">**ConfigurationData**</a>. Você deve transmitir o `PSDscAllowPlainTextPassword = $true` por meio do **ConfigurationData** para o nome do bloco de cada nó que aparece na configuração DSC e que usa credenciais.
 
 O exemplo a seguir mostra uma configuração DSC que usa um ativo de credencial da Automação.
 
@@ -228,4 +228,4 @@ Você pode compilar a configuração da DSC acima com o PowerShell. O PowerShell
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0518_2016-->

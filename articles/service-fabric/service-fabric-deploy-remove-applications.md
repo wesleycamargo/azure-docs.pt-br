@@ -3,7 +3,7 @@
    description="Como implantar e remover aplicativos na Malha do Serviço"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/08/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Implantar um aplicativo
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->
