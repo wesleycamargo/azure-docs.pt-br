@@ -20,9 +20,11 @@ Para criar um namespace:
 
 2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 
-3.  No painel inferior do portal, clique em **Criar**. ![][0]
+3.  No painel inferior do portal, clique em **Criar**.
+    ![][0]
 
-4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. ![][2]
+4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
+    ![][2]
 
 5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
 
@@ -39,11 +41,14 @@ A fim de executar operações de gerenciamento, como a criação de um tópico o
 
 ### Para obter as credenciais de gerenciamento do portal
 
-1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: ![][0]
+1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis:
+    ![][0]
 
-2.  Na lista mostrada, clique no namespace que acabou de criar: ![][3]
+2.  Na lista mostrada, clique no namespace que acabou de criar:
+    ![][3]
 
-3.  Clique em **Configurar** para exibir as políticas de acesso compartilhado para seu namespace. ![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
+3.  Clique em **Configurar** para exibir as políticas de acesso compartilhado para seu namespace.
+	![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
 
 4.  Anote a chave primária ou copie-a na área de transferência.
 
@@ -56,3 +61,5 @@ A fim de executar operações de gerenciamento, como a criação de um tópico o
 
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
+
+

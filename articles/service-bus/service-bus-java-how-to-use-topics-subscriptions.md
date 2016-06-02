@@ -239,7 +239,7 @@ Agora que você aprendeu as noções básicas sobre as filas do Barramento de Se
 
   [SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
   [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
-  [Azure classic portal]: http://manage.windowsazure.com/
+  [portal clássico do Azure]: http://manage.windowsazure.com/
   [Filas, tópicos e assinaturas do Barramento de Serviço]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
