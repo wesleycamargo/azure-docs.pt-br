@@ -86,4 +86,4 @@ Você acabou de provisionar um back-end do aplicativo móvel do Azure que pode s
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->
