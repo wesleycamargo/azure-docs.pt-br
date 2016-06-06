@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Custo de movimento do serviço que influencia as escolhas do Gerenciador de Recursos
@@ -32,11 +32,11 @@ Código
 this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 ```
 
-O MoveCost tem quatro níveis: Zero, Baixo, Médio e Alto. Mais uma vez, isso refere-se apenas a relação entre eles, com exceção de Zero, que significa que a movimentação de uma réplica é gratuita e não deve contar na pontuação da solução. Definir o custo de movimentação para Alto não é uma garantia de que a réplica não será movida, apenas que não a moveremos, a menos que encontremos um bom motivo para isso.
+O MoveCost tem quatro níveis: Zero, Baixo, Médio e Alto. Mais uma vez, isso refere-se apenas a relação entre eles, com exceção de Zero, que significa que a movimentação de uma réplica é gratuita e não deve contar na pontuação da solução. Definir o custo de movimentação para Alto *não* é uma garantia de que a réplica não será movida, apenas que não a moveremos, a menos que encontremos um bom motivo para isso.
 
 ![Custo das movimentações como um fator na seleção de réplicas para movimentação][Image1]
 
-O MoveCost nos ajuda a encontrar as soluções que causam, em geral, o mínimo de interrupções, ao mesmo tempo que alcançam um equilíbrio equivalente. A noção de custo de um serviço pode ser relativa a muitas coisas, mas as coisas mais comuns são:
+O MoveCost nos ajuda a encontrar as soluções que causam, em geral, o mínimo de interrupções, ao mesmo tempo que alcançam um equilíbrio equivalente. A noção de custo de um serviço pode ser relativa a muitas coisas, mas os fatores mais comuns para calcular seus custos de mudança são:
 
 1.	A quantidade de estados ou dados que o serviço deve mover
 2.	O custo de desconexão de clientes (para que o custo de movimentação de uma réplica Primária seja mais alto do que o de uma réplica Secundária)
@@ -44,8 +44,8 @@ O MoveCost nos ajuda a encontrar as soluções que causam, em geral, o mínimo d
 
 ## Próximas etapas
 - As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre elas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
-- Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
+- Para descobrir como o Resource Manager de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

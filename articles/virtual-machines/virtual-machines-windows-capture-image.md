@@ -3,7 +3,7 @@
 	description="Saiba como capturar uma imagem de uma máquina virtual (VM) do Azure baseada no Windows criada com o modelo de implantação do Gerenciador de Recursos do Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/13/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # Como capturar uma máquina virtual do Windows no modelo de implantação do Gerenciador de Recursos
 
@@ -210,4 +210,4 @@ Você deverá ver a VM recém-criada no [Portal do Azure](https://portal.azure.c
 
 Para gerenciar sua nova máquina virtual com o Azure PowerShell, leia [Gerenciar máquinas virtuais usando o PowerShell e o Azure Resource Manager](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="05/19/2016" 
 	ms.author="robb"/>
 
 #Arquitetura de aplicativos no Microsoft Azure
@@ -85,4 +85,4 @@ A Microsoft publica diversas arquiteturas relacionadas a cartazes/infográficos.
 
 ![Infográfico de arquitetura do Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

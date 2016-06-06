@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Adicionar a API do armazenamento de blobs do Azure a seus Aplicativos Lógicos | Microsoft Azure"
-	description="Visão geral da API do armazenamento de blobs do Azure com parâmetros da API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Adicionar o conector do armazenamento de blobs do Azure a seus Aplicativos Lógicos | Microsoft Azure"
+    description="Visão geral do conector do armazenamento de blobs do Azure com parâmetros da API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introdução à API de armazenamento de blobs do Azure
-Conecte-se a um Blob do Azure para gerenciar arquivos em um contêiner de blob, criando os arquivos, excluindo os arquivos e muito mais. A API do armazenamento de blobs do Azure pode ser usada em:
+# Introdução ao conector de armazenamento de blobs do Azure
+Conecte-se a um Blob do Azure para gerenciar arquivos em um contêiner de blob, criando os arquivos, excluindo os arquivos e muito mais. O conector do armazenamento de blobs do Azure pode ser usado em:
 
 - Aplicativos lógicos 
 
@@ -38,17 +38,13 @@ O blob do Azure inclui as ações a seguir. Não há gatilhos.
 | --- | --- |
 | Nenhum. | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair arquivo morto para a pasta</li><li>Obter conteúdo do arquivo</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li></ul> |
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o blob do Azure
-Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores da conta de armazenamento:
 
-|Propriedade| Obrigatório|Descrição|
-| ---|---|---|
-|Nome da conta de armazenamento do Azure | sim | O nome da sua conta de armazenamento de blobs|
-|Chave de acesso da conta de armazenamento do Azure | sim | A chave de acesso para sua conta de armazenamento de blobs|
+>[AZURE.INCLUDE [Etapas para criar uma conexão para o Armazenamento de Blobs do Azure](../../includes/connectors-create-api-azureblobstorage.md)]
 
-Depois de criar a conexão, insira as propriedades do blob, como o caminho da pasta ou o nome do arquivo. A **referência da API REST** neste tópico descreve essas propriedades.
+Depois de criar a conexão, insira as propriedades do blob, como o caminho da pasta ou o nome do arquivo. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão de blob em outros aplicativos lógicos.
  
@@ -185,7 +181,7 @@ Atualiza um arquivo no Armazenamento de Blobs do Azure. ```PUT: /datasets/defaul
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 ## Definições de objeto
 
@@ -234,4 +230,4 @@ Atualiza um arquivo no Armazenamento de Blobs do Azure. ```PUT: /datasets/defaul
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

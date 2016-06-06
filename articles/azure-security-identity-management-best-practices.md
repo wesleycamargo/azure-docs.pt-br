@@ -1,19 +1,19 @@
 <properties
    pageTitle="Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso | Microsoft Azure"
    description="Este artigo fornece um conjunto de práticas recomendadas para gerenciamento de identidade e controle de acesso usando recursos internos do Azure."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2016"
+   ms.date="05/23/2016"
    ms.author="yuridio"/>
 
 # Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
@@ -38,7 +38,7 @@ As práticas recomendadas de segurança de controle de acesso e gerenciamento de
 - Habilitar SSO (Logon Único)
 - Implantar o gerenciamento de senhas
 - Impor MFA (autenticação multifator) para usuários
-- Usar RBAC (controle de acesso baseado em função) 
+- Usar RBAC (controle de acesso baseado em função)
 - Controlar os locais em que os recursos são criados usando o gerenciador de recursos
 - Guiar os desenvolvedores para aproveitar os recursos de identidade para aplicativos SaaS
 - Monitorar ativamente as atividades suspeitas
@@ -88,28 +88,28 @@ Por exemplo: você impõe a MFA do Azure a seus usuários e a configura para usa
 
 Uma alternativa para as organizações que desejam manter todo o controle da autenticação localmente é usar o [servidor Azure Multi-Factor Authentication](./multi-factor-authentication/multi-factor-authentication-get-started-server.md), também chamado de MFA local. Usando esse método você ainda poderá impor a autenticação multifator, mantendo o servidor MFA local.
 
-Para saber mais sobre a Azure MFA, leia o artigo [Introdução à Azure Multi-Factor Authentication na nuvem](./multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+Para saber mais sobre a Azure MFA, leia o artigo [Introdução à Azure Multi-Factor Authentication na nuvem](./multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 ## Usar RBAC (controle de acesso baseado em função)
- 
+
 Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e no [privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. O RBAC (Controle de Acesso Baseado em Função) pode ser usado para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo. O escopo de uma atribuição de função pode ser uma assinatura, um grupo de recursos ou um único recurso.
- 
+
 Você pode aproveitar [funções RBAC internas](./active-directory/role-based-access-built-in-roles.md) no Azure para atribuir privilégios aos usuários. Considere usar a função *Colaborador da Conta de Armazenamento* para operadores de nuvem que precisam gerenciar contas de armazenamento e a *Colaborador da Conta de Armazenamento Clássico* para gerenciar contas de armazenamento clássico. Para operadores de nuvem que precisam gerenciar máquinas virtuais e contas de armazenamento, considere adicioná-los à função *Colaborador de Máquina Virtual*.
 
 As organizações que não impõem o controle de acesso de dados utilizando recursos como o RBAC podem estar dando mais privilégios do que o necessário para seus usuários. Isso pode levar ao comprometimento de dados permitindo que os usuários acessem certos tipos de dados (por exemplo, com alto impacto nos negócios) que não deveriam acessar.
- 
+
 Você pode saber mais sobre o RBAC do Azure lendo o artigo [Controle de Acesso Baseado em Função do Azure](./active-directory/role-based-access-control-configure.md).
 
 ## Controlar os locais em que os recursos são criados usando o gerenciador de recursos
 
 É muito importante habilitar os operadores de nuvem a executar tarefas, mas impedi-los de romper convenções que são necessárias para gerenciar recursos de sua organização. As organizações que desejam controlar os locais em que os recursos são criados devem codificar esses locais.
- 
+
 Para fazer isso, as organizações podem criar políticas de segurança com definições que descrevem as ações ou os recursos que são especificamente negados. Atribua essas definições de política no escopo desejado, como a assinatura, grupo de recursos ou um recurso individual.
 
 > [AZURE.NOTE] isso não é o mesmo que o RBAC; na verdade, tira proveito do RBAC para autenticar os usuários que têm o privilégio para criar esses recursos.
 
 Utilize o [Azure Resource Manager](resource-group-overview.md) para criar políticas personalizadas também para cenários em que a organização deseja permitir operações apenas quando o centro de custo apropriado estiver associado; caso contrário, elas negarão a solicitação.
- 
+
 As organizações que não estão controlando como os recursos são criados são mais suscetíveis a usuários que podem usar o serviço de maneira imprópria, criando mais recursos do que o necessário. Proteger o processo de criação de recursos é uma etapa importante para proteger um cenário de multilocatário.
 
 Você pode saber mais sobre como criar políticas com o Azure Resource Manager lendo o artigo [Usar a política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
@@ -134,4 +134,4 @@ Em contraste, a proteção de identidade do Azure AD é um sistema de monitorame
 
 As organizações que não monitoram ativamente os seus sistemas de identidade estão em risco de ter as credenciais de usuários comprometidas. Sem o conhecimento de que atividades suspeitas estão ocorrendo usando essas credenciais, as organizações não serão capazes de reduzir esse tipo de ameaça. Você pode saber mais sobre a proteção de identidade do Azure lendo [Proteção de Identidade do Azure Active Directory](./active-directory/active-directory-identityprotection.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

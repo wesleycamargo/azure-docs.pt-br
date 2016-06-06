@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/15/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
 
 # Gerenciar cotas e preços do Application Insights
@@ -35,7 +35,6 @@ A sua opção de esquema de preços afeta à:
 
 * [Cota mensal](#monthly-quota) - a quantidade de telemetria que você pode analisar a cada mês.
 * [Taxa de dados](#data-rate) - a taxa máxima em que os dados do seu aplicativo podem ser processados.
-* [Retenção](#data-retention) - quanto tempo os dados são mantidos no portal do Application Insights para exibição.
 * [Exportação contínua](#continuous-export)- se que você pode exportar dados para outras ferramentas e serviços.
 
 Esses limites são definidos separadamente para cada recurso do Application Insights.
@@ -86,7 +85,7 @@ O gráfico na parte inferior da folha de preços mostra o volume de ponto de dad
 
 Clique no gráfico para obter mais detalhes ou arraste sobre ele e clique em (+) para obter detalhes de um intervalo de tempo.
 
-O gráfico mostra o volume de dados que chegam no serviço Application Insights após a [amostragem](app-insights-sampling.md).
+O gráfico mostra o volume de dados que chegam ao serviço Application Insights após a [amostragem](app-insights-sampling.md).
 
 
 ## Taxa de dados
@@ -98,8 +97,6 @@ Há três classificações que são contados separadamente:
 * [Chamadas do TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e [logs capturados](app-insights-asp-net-trace-logs.md)
 * [Exceções](app-insights-api-custom-events-metrics.md#track-exception), limitado a 50 pontos/s.
 * Todos os outros dados de telemetria (exibições de página, sessões, solicitações, dependências, métricas, eventos personalizados, resultados de teste da Web).
-
-
 
 
 
@@ -125,24 +122,9 @@ Se você encontrar as limitações, aqui há algumas coisas que você pode fazer
 * Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou então, você pode usar um [pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
 
 
-### Limites de nome
-
-1.	Máximo de 200 nomes de métrica exclusivos e 200 nomes de propriedade exclusivos para seu aplicativo. As métricas incluem dados enviados por meio de TrackMetric, bem como as medidas em outros tipos de dados, como Eventos. Os[ nomes de propriedades e métricas][api] são globais por chave de instrumentação, mas não têm escopo definido segundo o tipo de dados.
-2.	As [propriedades][apiproperties] podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa e filtragem, mas não para filtros.
-3.	As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
-
-## Retenção de dados
-
-A camada de preços determina quanto tempo os dados são mantidos no portal e, portanto, quanto você pode definir para atrás os intervalos de tempo.
-
-
-* Pontos de dados brutos (ou seja, instâncias que você pode inspecionar na Pesquisa de Diagnóstico): entre sete dias.
-* Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Gerenciador de Métricas) são mantidos em um detalhamento de um minuto por 30 dias e de uma hora ou de um dia (dependendo do tipo) por 90 dias.
-
-
 ## Amostragem
 
-[Amostragem](app-insights-sampling.md) é um método de redução do volume de telemetria retida pelo seu aplicativo, ao mesmo tempo que ainda retém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico, retendo também as contagens de eventos corretas. A amostragem o ajuda a se manter dentro de sua cota mensal.
+A [amostragem](app-insights-sampling.md) é um método de redução da taxa na qual a telemetria é enviada para seu aplicativo, ao mesmo tempo que ainda retém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico, retendo também as contagens de eventos corretas. A amostragem o ajuda a se manter dentro de sua cota mensal.
 
 Há várias formas de amostragem. Recomendamos a [amostragem adaptável](app-insights-sampling.md), que se ajusta automaticamente ao volume de telemetria enviado por seu aplicativo. Ela opera no SDK em seu aplicativo Web, para que o tráfego de telemetria na rede seja reduzido. É possível usá-la se a estrutura do aplicativo Web for o .NET: basta instalar a versão (beta) mais recente do SDK.
 
@@ -159,6 +141,15 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
 ![No menu lateral, escolha Cobrança.](./media/app-insights-pricing/02-billing.png)
 
+
+
+## Limites de nome
+
+1.	Máximo de 200 nomes de métrica exclusivos e 200 nomes de propriedade exclusivos para seu aplicativo. As métricas incluem dados enviados por meio de TrackMetric, bem como as medidas em outros tipos de dados, como Eventos. Os[ nomes de propriedades e métricas][api] são globais por chave de instrumentação, mas não têm escopo definido segundo o tipo de dados.
+2.	As [propriedades][apiproperties] podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que os valores exclusivos excederem 100, a propriedade ainda pode ser usada para pesquisa e filtragem, mas não para filtros.
+3.	As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
+
+
 ## Resumo de limites
 
 [AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
@@ -173,4 +164,4 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

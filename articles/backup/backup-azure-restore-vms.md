@@ -100,7 +100,7 @@ Quando a operação de restauração for concluída, ela será marcada como conc
 
 ![Trabalho de restauração concluído](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Depois de restaurar a máquina virtual, talvez seja necessário reinstalar as extensões existentes na VM original e [modificar os pontos de extremidade](virtual-machines-set-up-endpoints) para a máquina virtual no portal do Azure.
+Depois de restaurar a máquina virtual, talvez seja necessário reinstalar as extensões existentes na VM original e [modificar os pontos de extremidade](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) para a máquina virtual no portal do Azure.
 
 ## Backup de VMs restauradas
 Se você tiver restaurado a VM no mesmo serviço de nuvem com o mesmo nome conforme feito backup originalmente da VM, o backup continuará na VM após a restauração. Se você tiver restaurado a VM para um serviço de nuvem diferente ou especificar um nome diferente para a VM restaurada, isso será tratado como uma nova VM e você precisa configurar o backup para a VM restaurada.
@@ -142,7 +142,7 @@ O PowerShell tem a capacidade de restaurar apenas os discos da VM do backup, e n
 
 Para recriar completamente a máquina virtual após restaurar os discos, execute estas etapas:
 
-1. Restaure os discos do cofre de backup usando o [PowerShell do Backup do Azure](../backup-azure-vms-automation.md#restore-an-azure-vm)
+1. Restaure os discos do cofre de backup usando o [PowerShell do Backup do Azure](../backup-azure-vms-classic-automation.md#restore-an-azure-vm)
 
 2. Crie a configuração da VM necessária para o balanceador de carga/múltiplos NICs, múltiplos IPs reservados usando os cmdlets do PowerShell e use-a para criar a VM com a configuração desejada.
 	- Criar a VM no serviço de nuvem com o [balanceador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
@@ -155,4 +155,4 @@ Para recriar completamente a máquina virtual após restaurar os discos, execute
 - [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

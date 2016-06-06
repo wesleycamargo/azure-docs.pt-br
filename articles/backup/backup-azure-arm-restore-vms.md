@@ -153,7 +153,7 @@ Para exibir a operação durante o processamento ou para exibir quando for concl
 
 Para recriar completamente as máquinas virtuais após restaurar para o disco, siga essas etapas:
 
-1. Restaure os discos de um cofre de serviços de recuperação usando o [PowerShell](backup-azure-vms-automation.md/#restore-an-azure-vm)
+1. Restaure os discos de um cofre de serviços de recuperação usando o [PowerShell](../backup-azure-vms-automation.md#restore-an-azure-vm)
 
 2. Crie a configuração da VM necessária para o balanceador de carga/múltiplos NICs, múltiplos IPs reservados usando os cmdlets do PowerShell e use-a para criar a VM com a configuração desejada.
 	- Criar a VM no serviço de nuvem com o [balanceador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)
@@ -167,4 +167,4 @@ Agora que você pode restaurar suas VMs, consulte o artigo de solução de probl
 - [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 - [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

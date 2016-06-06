@@ -116,12 +116,14 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
 * Perguntas e problemas:
  * [Solucionar problemas][qna]
- * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/pt-BR/home?forum=ApplicationInsights)
+ * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bugs:
  * [Conectar-se](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Sugestões:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
+* Blog:
+ * [Blog do Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
 
 
 ## Vídeos
@@ -155,4 +157,4 @@ Para obter mais detalhes, escolha o tipo de aplicativo em Introdução na barra 
 
  
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/18/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Instalar a Atualização 2.1 no dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 Este tutorial explica como instalar a Atualização 2.1 em um dispositivo StorSimple que está executando uma versão de software anterior por meio do Portal Clássico do Azure e usando o método de hotfix. O método de hotfix é usado quando um gateway é configurado em uma interface de rede que não seja DATA 0 do dispositivo StorSimple e quando você está tentando atualizar de uma versão de software anterior à Atualização 1.
 
-A Atualização 2.1 inclui o software do dispositivo, a WMI e as atualizações de iSCSI. Se estiver atualizando de uma versão anterior à Atualização 2, você também precisará aplicar o LSI driver, Spaceport, Storport e as atualizações de firmware de disco. O software do dispositivo e as correções de WMI, iSCSI, LSI driver, Spaceport e Storport são atualizações sem interrupções e podem ser aplicadas por meio do Portal Clássico do Azure. As atualizações de firmware de disco são interruptivas e só podem ser aplicadas por meio da interface do Windows PowerShell do dispositivo.
+A Atualização 2.1 inclui o software do dispositivo, a WMI e as atualizações de iSCSI. Se estiver atualizando de uma versão anterior à Atualização 2, você também precisará aplicar o LSI driver, Spaceport, Storport e as atualizações de firmware de disco. O software do dispositivo e as correções de WMI, iSCSI, LSI driver, Spaceport e Storport são atualizações sem interrupções e podem ser aplicadas por meio do Portal Clássico do Azure. As atualizações de firmware de disco são as atualizações de interrupção e só podem ser aplicadas por meio da interface do Windows PowerShell do dispositivo.
 
 > [AZURE.IMPORTANT]
 
@@ -42,7 +42,7 @@ Se você estiver aplicando a Atualização 2 ou posterior (incluindo a Atualiza�
 
 [AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-12. Verifique se o dispositivo está executando a **Atualização 2.1 do StorSimple 8000 Series (6.3.9600.17704)**. A **Data da última atualização** também deve ser modificada. 
+12. Verifique se o dispositivo está executando a **Atualização 2.1 do StorSimple 8000 Series (6.3.9600.17705)**. A **Data da última atualização** também deve ser modificada. 
 
 	Se você estiver atualizando de uma versão anterior à Atualização 2, você também verá que as atualizações do modo de manutenção estarão disponíveis (essa mensagem poderá continuar a ser exibida por até 24 horas após a instalação das atualizações).
 
@@ -78,25 +78,27 @@ O método de hotfix envolve as três etapas a seguir:
 
 #### Baixe as atualizações para um dispositivo que executa o software da Atualização 2
 
-Se o dispositivo estiver executando a Atualização 2, você deverá baixar e instalar os hotfixes a seguir na ordem recomendada:
+**Se o dispositivo estiver executando a Atualização 2**, você deverá baixar e instalar os hotfixes a seguir na ordem recomendada:
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
 |--------|-----------|-------------------------|------------- |-------------|
-| 1\. | KB3162954 | Atualização de software | Regular | ~ 45 Min. |
+| 1\. | KB3162954 | Atualização de software &#42; | Regular | ~ 45 Min. |
 | 2\. | KB3146621 | Pacote iSCSI | Regular | ~ 20 Min. |
 | 3\. | KB3103616 | Pacote WMI | Regular | ~ 12 Min. |
 
 
+ &#42; *Observe que a atualização de software consiste em dois arquivos binários: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` e `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. A atualização de software do dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` deve ser instalada antes do agente de Cis e Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`.*
+
 #### Baixe as atualizações para um dispositivo que executa um software anterior à Atualização 2
 
-Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0 e 1.1, você deverá baixar e instalar a atualização do LSI driver e do firmware. Se você estiver executando a Atualização 1.2 ou 2, essa atualização já estará instalada.
+**Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0 e 1.1**, você deverá baixar e instalar a atualização do LSI driver e do firmware. Se você estiver executando a Atualização 1.2 ou 2, essa atualização já estará instalada.
  
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
 |--------|-----------|-------------------------|------------- |-------------|
 | 4\. | KB3121900 | Driver LSI e firmware | Regular | ~ 20 Min. |
 
 
-<br></br> Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0, 1.1 e 1.2, baixe e instale o Spaceport e a correção do Storport. Se você estiver executando a Atualização 2, eles já estarão instalados.
+<br></br> **Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0, 1.1 e 1.2**, baixe e instale o Spaceport e a correção do Storport. Se você estiver executando a Atualização 2, eles já estarão instalados.
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -130,4 +132,4 @@ Execute as seguintes etapas para baixar e instalar os hotfixes.
 
 Saiba mais sobre a [versão da Atualização 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

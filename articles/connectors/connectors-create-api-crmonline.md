@@ -1,10 +1,10 @@
 <properties
-pageTitle="Adicionar a API do Dynamic CRM Online no PowerApps Enterprise ou para seus aplicativos lógicos | Microsoft Azure"
-description="Visão geral da API do CRM Online com os parâmetros de API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Adicionar o conector do Dynamic CRM Online no PowerApps Enterprise ou para seus aplicativos lógicos | Microsoft Azure"
+description="Visão geral do conector do CRM Online com os parâmetros de API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor="" tags="connectors" />
 
 <tags
@@ -13,11 +13,11 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introdução à API do CRM
-Conecte-se ao Dynamics CRM Online para criar um novo registro, atualizar um item e muito mais. A API do CRM Online pode ser usada em:
+# Introdução ao conector do CRM
+Conecte-se ao Dynamics CRM Online para criar um novo registro, atualizar um item e muito mais. O conector do CRM Online pode ser usado por meio de:
 
 - Aplicativos lógicos
 - PowerApps
@@ -32,22 +32,22 @@ Com o CRM Online, você pode:
 - Usar ações que excluem um registro, obtêm entidades e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um item é atualizado no CRM, você pode enviar um email usando o Office 365.
 
 
-Para obter mais informações sobre como adicionar uma API no PowerApps Enterprise, vá para [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para saber mais sobre como adicionar um conector ao PowerApps Enterprise, acesse [Registrar um conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
-A API do CRM inclui as seguintes ações. Não há gatilhos.
+O Conector do CRM inclui as ações a seguir. Não há nenhum gatilho.
 
 | Gatilhos | Ações|
 | --- | --- |
 |Nenhum| <ul><li>Criar um novo registro</li><li>Obtém registros</li><li>Excluir um registro</li><li>Obtém um registro</li><li>Obtém entidades</li><li>Atualizar um item</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o CRM Online
 
-Ao adicionar essa API aos seus aplicativos lógicos, é necessário entrar no Dynamic CRM Online. Siga estas etapas para entrar no CRM online e concluir a configuração da **conexão** em seu aplicativo lógico:
+Ao adicionar esse conector aos seus aplicativos lógicos, é necessário entrar no Dynamic CRM Online. Siga estas etapas para entrar no CRM online e concluir a configuração da **conexão** em seu aplicativo lógico:
 
 1. Em seu aplicativo lógico, selecione **Adicionar uma ação**: ![Configurar o CRM Online][13]
 4. Insira CRM na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com CRM no nome.
@@ -173,7 +173,7 @@ Usado para obter a lista de entidades presentes em uma instância do CRM.```GET:
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -268,4 +268,4 @@ Volte para a [Lista de APIs](apis-list.md).
 [14]: ./media/connectors-create-api-crmonline/crmconfig2.png
 [15]: ./media/connectors-create-api-crmonline/crmconfig3.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/24/2016"
 	ms.author="sdanie"/>
 
 # Como proteger um back-end de API da Web com o Active Directory do Azure e Gerenciamento de API
@@ -237,9 +237,9 @@ Escolha **Aplicativo Web e/ou API Web**, insira um nome e clique na seta Próxim
 
 ![Novo aplicativo][api-management-aad-new-application-devportal-1]
 
-Para a **URL de logon**, insira a URL do seu serviço de Gerenciamento de API e acrescente `/signin`. Neste exemplo ****https://contoso5.portal.azure-api.net/signin** é usado.
+Para a **URL de logon**, insira a URL do seu serviço de Gerenciamento de API e acrescente `/signin`. Neste exemplo **https://contoso5.portal.azure-api.net/signin** é usado.
 
-Para a **URL da Id do aplicativo** insira a URL do seu serviço de Gerenciamento de API e acrescente alguns caracteres exclusivos. Eles podem ser qualquer caractere desejado e, neste exemplo, ****https://contoso5.portal.azure-api.net/dp** é usado. Quando as **Propriedades do aplicativo** desejadas forem configuradas, clique na marca de seleção para criar o aplicativo.
+Para a **URL da Id do aplicativo** insira a URL do seu serviço de Gerenciamento de API e acrescente alguns caracteres exclusivos. Eles podem ser qualquer caractere desejado e, neste exemplo, **https://contoso5.portal.azure-api.net/dp** é usado. Quando as **Propriedades do aplicativo** desejadas forem configuradas, clique na marca de seleção para criar o aplicativo.
 
 ![Novo aplicativo][api-management-aad-new-application-devportal-2]
 
@@ -362,7 +362,7 @@ Para outra demonstração de configuração e uso dessa diretiva, consulte [Abor
 
 ## Próximas etapas
 -	Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre o Gerenciamento de API.
--	Para conhecer outras maneiras de proteger seu serviço de back-end, confira [Autenticação de certificado mútuo](api-management-howto-mutual-certificates.md) e [Conectar via VPN ou Rota Expressa](api-management-howto-setup-vpn).
+-	Para conhecer outras maneiras de proteger seu serviço de back-end, confira [Autenticação de certificado mútuo](api-management-howto-mutual-certificates.md) e [Conectar via VPN ou Rota Expressa](api-management-howto-setup-vpn.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -413,4 +413,4 @@ Para outra demonstração de configuração e uso dessa diretiva, consulte [Abor
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 [Gerenciar sua primeira API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

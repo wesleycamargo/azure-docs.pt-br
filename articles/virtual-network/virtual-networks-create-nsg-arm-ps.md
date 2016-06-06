@@ -30,7 +30,7 @@
 O exemplo de comando PowerShell abaixo espera um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos conforme eles são exibidos neste documento, primeiro crie o ambiente de teste ao implantar [esse modelo](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
 
 ## Como criar o NSG para a sub-rede front-end
-Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as etapas abaixo.
+Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as etapas abaixo:
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -136,7 +136,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
 		}
 
 ## Como criar o NSG para a sub-rede back-end
-Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etapas abaixo.
+Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etapas abaixo:
 
 1. Crie uma regra de segurança, permitindo o acesso na sub-rede front-end à porta 1433 (porta padrão usada pelo SQL Server).
 
@@ -154,7 +154,7 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 
 5. Adicione as regras criadas acima ao novo NSG chamado **NSG-BackEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Associe o NSG criado acima à sub-rede *BackEnd*.
@@ -182,4 +182,4 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0525_2016-->

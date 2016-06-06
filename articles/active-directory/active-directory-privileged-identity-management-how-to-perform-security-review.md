@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Como executar uma revisão de segurança no Azure AD Privileged Identity Management
 
 O Azure AD (Active Directory) Privileged Identity Management simplifica como as empresas gerenciam as identidades com privilégios e o acesso a recursos no Azure AD e em outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.
 
-Se uma função administrativa tiver sido atribuída a você, o administrador de segurança da sua organização poderá solicitar que você revise e confirme regularmente que ainda precisa da função para seu trabalho. Você pode receber um email que inclui um link ou acessar diretamente o [portal do Azure](https://portal.azure.com). Siga as etapas neste artigo para executar a autorrevisão das suas funções atribuídas.
+Se uma função administrativa tiver sido atribuída a você, o administrador de função com privilégios da sua organização poderá solicitar que você revise e confirme regularmente a necessidade dessa função para seu trabalho. Você pode receber um email que inclui um link ou acessar diretamente o [portal do Azure](https://portal.azure.com). Siga as etapas neste artigo para executar a autorrevisão das suas funções atribuídas.
 
-Se você for um administrador de segurança interessado nas revisões de segurança, obtenha mais detalhes em [Como iniciar uma análise de segurança](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Se você for um administrador de função com privilégios interessado nas revisões de segurança, obtenha mais detalhes em [Como iniciar uma análise de segurança](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 ## Adicionar o aplicativo Privileged Identity Management
 
@@ -49,4 +49,4 @@ O acesso não será alterado até [a revisão ser concluída](active-directory-p
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

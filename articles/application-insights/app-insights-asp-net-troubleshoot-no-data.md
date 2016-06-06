@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="05/17/2016" 
 	ms.author="awills"/>
  
 # Solução de problemas de ausência de dados - Application Insights para .NET
@@ -50,7 +50,7 @@ Correção:
 + Verifique se você forneceu as credenciais corretas de entrada da conta do Azure. 
 + No navegador, verifique se você tem acesso ao [portal do Azure](https://portal.azure.com). Abra Configurações e veja se há alguma restrição.
 + [Adicione o Application Insights ao seu projeto existente](app-insights-asp-net.md): no Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e selecione “Adicionar Application Insights”.
-+ Se ainda não estiver funcionando, siga o [procedimento manual](app-insights-start-monitoring-app-health-usage.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto. 
++ Se ainda não estiver funcionando, siga o [procedimento manual](app-insights-asp-net-manual.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto. 
 
 ## <a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
 
@@ -205,4 +205,4 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 
 * [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/pt-BR/home?forum=ApplicationInsights)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

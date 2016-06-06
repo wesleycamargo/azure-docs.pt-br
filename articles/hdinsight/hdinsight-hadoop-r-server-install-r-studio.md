@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/29/2016"
+   ms.date="05/24/2016"
    ms.author="jeffstok"/>
 
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
 
 ## Pré-requisitos
 
-* Um cluster Azure HDInsight com R Server instalado. Para obter instruções, veja [Introdução ao Servidor R nos clusters HDInsight](hdinsight-hadoop-r-server-get-started.mdulet).
+* Um cluster Azure HDInsight com R Server instalado. Para obter instruções, confira [Introdução ao Servidor R nos clusters HDInsight](hdinsight-hadoop-r-server-get-started.md).
 * Um cliente SSH. Para distribuições Linux e Unix ou o Macintosh OS X, o comando `ssh` é fornecido com o sistema operacional. Para o Windows, é recomendável usar o [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
 1. Identifique o nó de borda do cluster. Para um cluster HDInsight com R Server, esta é a convenção de nomenclatura para o nó principal e o nó de borda:
 
 	* Nó principal - `CLUSTERNAME-ssh.azurehdinsight.net`
-	* Nó de borda - `rserver.CLUSTERNAME.ssh.azurehdinsight.net` 
+	* Nó de borda - `r-server.CLUSTERNAME-ssh.azurehdinsight.net` 
 
 3. SSH no nó de borda do cluster usando o padrão de nomenclatura acima.
  
@@ -75,7 +75,7 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
 
 	* Em um cliente Linux ou Windows (usando [Cygwin](http://www.redhat.com/services/custom/cygwin/)), abra uma sessão de terminal e use o comando a seguir.
 
-			ssh -L localhost:8787:localhost:8787 USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+			ssh -L localhost:8787:localhost:8787 USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		Substitua **USERNAME** por um usuário SSH para seu cluster HDInsight e substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight
 
@@ -124,4 +124,4 @@ Neste artigo, você aprenderá como instalar a versão de comunidade (gratuita) 
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

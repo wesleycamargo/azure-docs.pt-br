@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/07/2016"
+	ms.date="05/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@ Avalie se usar um Pool de Banco de Dados Elástico é econômico com base em pad
 
 ## Pools de banco de dados elástico
 
-Desenvolvedores de SaaS compilam aplicativos com base em camadas de dados de grande escala compostas por vários bancos de dados. Um padrão de aplicativo comum é provisionar um banco de dados individual para cada cliente. Mas diferentes clientes geralmente têm padrões de uso variados e imprevisíveis, e é difícil prever os requisitos de recursos de cada usuário de banco de dados individual. Assim, o desenvolvedor pode provisionar excessivamente os recursos causando despesas consideráveis para garantir uma taxa de transferência e tempos de resposta favoráveis para todos os bancos de dados. Ou então, o desenvolvedor pode gastar menos com o risco de oferecer uma experiência de baixo desempenho para seus clientes.
+Desenvolvedores de SaaS compilam aplicativos com base em camadas de dados de grande escala compostas por vários bancos de dados. Um padrão de aplicativo comum é provisionar um banco de dados individual para cada cliente. Mas diferentes clientes geralmente têm padrões de uso variados e imprevisíveis, e é difícil prever os requisitos de recursos de cada usuário de banco de dados individual. Assim, o desenvolvedor pode provisionar excessivamente os recursos causando despesas consideráveis para garantir uma taxa de transferência e tempos de resposta favoráveis para todos os bancos de dados. Ou então, o desenvolvedor pode gastar menos com o risco de oferecer uma experiência de baixo desempenho para seus clientes. Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
 
 Os pools elásticos no Banco de Dados SQL do Azure permitem que desenvolvedores de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados. Os pools permitem ao desenvolvedor comprar eDTUs (Unidades de Transação de Banco de Dados elástico) para um pool compartilhado por vários bancos de dados para acomodar períodos de uso imprevisíveis em bancos de dados individuais. O requisito de eDTU para um pool é determinado pela utilização de agregação de seus bancos de dados. A quantidade de eDTUs disponíveis para o pool é controlado pelo orçamento do desenvolvedor. Pools facilitam a tarefa de desenvolvedores ponderarem sobre o impacto do orçamento no desempenho e vice-versa para o pool. O desenvolvedor simplesmente adiciona bancos de dados ao pool, define as eDTUs mínima e máxima para os bancos de dados e define a eDTU do pool com base no seu orçamento. Um desenvolvedor pode usar pools para aumentar seu serviço com perfeição desde uma startup lean até uma empresa madura em escala cada vez maior.
 ## Quando considerar um pool
@@ -70,7 +70,7 @@ As seguintes regras básicas relacionadas à contagem e utilização de banco de
 
 Se a soma das DTUs dos níveis de desempenho para bancos de dados individuais for maior que 1,5x as eDTUs necessárias para o pool, um pool elástico será mais econômico. Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools de banco de dados elásticos e bancos de dados elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-***Exemplo***<br> pelo menos dois bancos de dados S3 ou pelo menos 15 bancos de dados S0 são necessários para um pool de 100 eDTUs ser mais econômico que usar níveis de desempenho para bancos de dados individuais.
+***Exemplo***<br> pelo menos dois bancos de dados S3 ou 15 bancos de dados S0 são necessários para um pool de 100 eDTUs ser mais econômico do que o uso de níveis de desempenho para bancos de dados individuais.
 
 ### Número máximo de banco de dados em pico simultaneamente
 
@@ -84,7 +84,7 @@ Observe que esse exemplo não considera a utilização de outros bancos de dados
 
 Uma grande diferença entre o máximo e média de utilização de um banco de dados indica longos períodos de baixa utilização e curtos períodos de alta utilização. Esse padrão de utilização é ideal para compartilhar recursos entre bancos de dados. Um banco de dados deve ser considerado para um pool quando seu pico de utilização for aproximadamente 1,5 vez maior que sua utilização média.
 
-***Exemplo***<br> um banco de dados S3 com picos de 100 DTUs e que usa em média 67 DTUs ou menos é um bom candidato para o compartilhamento de eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
+***Exemplo***<br> um banco de dados S3 com picos de 100 DTUs e que usa em média 67 DTUs, ou menos, é um bom candidato para o compartilhamento de eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
 
 ## Dimensionar um pool elástico
 
@@ -95,9 +95,9 @@ O melhor tamanho de um pool depende das eDTUs e recursos de armazenamento agrega
 
 Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools de banco de dados elásticos e bancos de dados elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-O Banco de Dados SQL avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor de Banco de Dados SQL existente e recomenda a configuração de pool apropriada no portal do Azure. Além das recomendações, uma experiência interna calcula o uso de eDTU para um grupo personalizado de bancos de dados no servidor. Isso permite que você faça uma análise "e se" interativamente adicionando bancos de dados ao pool e removendo-os para obter a análise de uso de recursos e conselhos de dimensionamento antes de confirmar as alterações. Para obter instruções, consulte [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md) (Monitorar, gerenciar e dimensionar um pool elástico).
+O Banco de Dados SQL avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor de Banco de Dados SQL existente e recomenda a configuração de pool apropriada no portal do Azure. Além das recomendações, uma experiência interna calcula o uso de eDTU para um grupo personalizado de bancos de dados no servidor. Isso permite que você faça uma análise "e se" interativamente adicionando bancos de dados ao pool e removendo-os para obter a análise de uso de recursos e conselhos de dimensionamento antes de confirmar as alterações. Para obter instruções, confira [Monitorar, gerenciar e dimensionar um pool elástico](sql-database-elastic-pool-manage-portal.md).
 
-Para avaliações mais flexíveis de uso de recursos que permitem estimativas de dimensionamento ad hoc para servidores anteriores ao V12, bem como estimativas de dimensionamento de bancos de dados em servidores diferentes, consulte [Script do PowerShell para identificar os bancos de dados adequados para um Pool de Banco de Dados Elástico](sql-database-elastic-pool-database-assessment-powershell.md).
+Para avaliações mais flexíveis de uso de recursos que permitem estimativas de dimensionamento ad hoc para servidores anteriores ao V12, bem como estimativas de dimensionamento de bancos de dados em servidores diferentes, confira [Script do PowerShell para identificar os bancos de dados adequados para um pool de banco de dados elástico](sql-database-elastic-pool-database-assessment-powershell.md).
 
 | Recurso | Experiência do Portal|	Script do PowerShell|
 |:---------------|:----------|:----------|
@@ -114,9 +114,9 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
 
     MÁX(<*número total de DBs* X *utilização de DTU média por DB*>,<br> <*número de DBs em pico simultaneamente* X *pico de utilização de DTU por DB*)
 
-2.	Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento. Para ver os limites de armazenamento em pool baseados no tamanho do pool em eDTUs, consulte [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) (Limites de armazenamento e eDTU para pools de banco de dados elástico e bancos de dados elásticos).
+2.	Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento. Para ver os limites de armazenamento em pool baseados no tamanho do pool em eDTUs, confira [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) (Limites de armazenamento e eDTU para pools de banco de dados elástico e bancos de dados elásticos).
 3.	Escolha a maior entre as estimativas de eDTU das etapas 1 e 2.
-4.	Consulte a [página de preço do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e localize o menor pool de eDTU que seja maior que a estimativa da Etapa 3.
+4.	Consulte a [Página de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e localize o menor pool de eDTU que seja maior que a estimativa da Etapa 3.
 5.	Compare o preço do pool da Etapa 5 com o preço de usar os níveis de desempenho adequados para bancos de dados individuais.
 
 
@@ -131,4 +131,4 @@ Nem todos os bancos de dados individuais são candidatos ideais para pools. Banc
 - [Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço](sql-database-service-tiers.md)
 - [Script do PowerShell para identificar os bancos de dados adequados para um pool de banco de dados elástico](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

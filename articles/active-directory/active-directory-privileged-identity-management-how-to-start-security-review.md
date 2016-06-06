@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Como iniciar uma revisão de segurança no Azure AD Privileged Identity Management
 
-As atribuições de função se tornam "obsoletas" quando os usuários têm acesso privilegiado de que não precisam mais. Para reduzir o risco associado a essas atribuições de função obsoletas, os administradores de segurança devem revisar regularmente as funções que os usuários receberam. Este documento aborda as etapas para iniciar uma revisão de segurança no Azure AD PIM (Privileged Identity Management).
+As atribuições de função se tornam "obsoletas" quando os usuários têm acesso privilegiado de que não precisam mais. Para reduzir o risco associado a essas atribuições de função obsoletas, os administradores de função com privilégios devem revisar regularmente as funções que os usuários receberam. Este documento aborda as etapas para iniciar uma revisão de segurança no Azure AD PIM (Privileged Identity Management).
 
 ## Iniciar uma revisão de segurança:
 > [AZURE.NOTE] Se você não adicionou o aplicativo PIM ao painel no portal do Azure, consulte as etapas em [Getting Started with Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) (Introdução ao Azure Privileged Identity Management)
@@ -64,4 +64,4 @@ Você pode acompanhar o progresso conforme os revisores concluem suas revisões 
 ## Sumário do PIM
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Solucionando problemas de implantações com o PowerShell | Microsoft Azure"
-   description="Descreve como usar o Azure PowerShell para detectar e corrigir problemas de implantação do Gerenciador de Recursos."
+   pageTitle="Exibir operações de implantação com o PowerShell | Microsoft Azure"
+   description="Descreve como usar o Azure PowerShell para detectar e corrigir problemas de implantação do Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="05/19/2016"
    ms.author="tomfitz"/>
 
-# Solucionando problemas de implantações de grupo de recursos com o Azure PowerShell
+# Exibir operações de implantação com o Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,7 +25,7 @@
 - [CLI do Azure](resource-manager-troubleshoot-deployments-cli.md)
 - [API REST](resource-manager-troubleshoot-deployments-rest.md)
 
-Se você recebeu um erro durante a implantação de recursos no Azure, será necessário solucionar esse erro. O Azure PowerShell fornece cmdlets que permitem a fácil localização dos erros e determinar as possíveis correções.
+Se você recebeu um erro durante a implantação de recursos do Azure, você talvez queira ver mais detalhes sobre as operações de implantação que foram executadas. O Azure PowerShell fornece cmdlets que permitem a fácil localização dos erros e determinar as possíveis correções.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
@@ -144,4 +144,4 @@ Para ver os erros de uma implantação, use as seguintes etapas:
 - Para saber mais sobre como usar os logs de auditoria para monitorar outros tipos de ações, veja [Auditar operações com o Gerenciador de Recursos](resource-group-audit.md).
 - Para validar sua implantação antes de executá-la, veja [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

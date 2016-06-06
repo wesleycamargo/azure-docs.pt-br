@@ -108,12 +108,14 @@ Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo conforme 
 Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
-###   Cenário 4: Desabilitar a extensão do monitor Linux
+###   Cenário 4: Parar a coleta de todos os logs pela extensão
+Esta seção descreve como parar a coleta de todos os logs pela extensão. Observe que o processo do agente de monitoramento ainda estará em execução mesmo com essa reconfiguração. Portanto, se você quiser parar completamente o processo do agente de monitoramento, a extensão deverá ser desinstalada no momento. No futuro, poderemos adicionar uma propriedade de configuração que apenas desabilita a extensão (parando também todo o processo do agente de monitoramento) sem exigir a desinstalação de toda a extensão.
+
 Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo conforme descrito no Cenário 1. Crie outro arquivo denominado PublicConfig.json com o conteúdo a seguir.
 
 	{
      	"perfCfg":[],
-     	"enableSyslog":”False”
+     	"enableSyslog":"false"
 	}
 
 
@@ -137,4 +139,4 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 ## Problemas conhecidos
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

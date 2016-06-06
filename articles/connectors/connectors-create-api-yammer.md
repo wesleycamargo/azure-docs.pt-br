@@ -1,10 +1,10 @@
 <properties
-pageTitle="Adicionar a API do Yammer aos seus Aplicativos Lógicos | Microsoft Azure"
-description="Visão geral da API do Yammer com os parâmetros da API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Adicionar o Conector do Yammer aos seus Aplicativos Lógicos | Microsoft Azure"
+description="Visão geral do Conector do Yammer com os parâmetros da API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introdução à API do Yammer
+# Introdução ao conector do Yammer
 
 Conecte-se ao Yammer para acessar conversas em sua rede corporativa.
 
@@ -38,10 +38,10 @@ Gatilho | Ações
 --- | ---
 <ul><li>Quando há uma nova mensagem em um grupo</li><li>Quando há uma nova mensagem no meu feed Seguindo</li></ul>| <ul><li>Obter todas as mensagens</li><li>Obtém mensagens em um grupo</li><li>Obtém as mensagens no meu feed Seguindo</li><li>Postar mensagem</li><li>Quando há uma nova mensagem em um grupo</li><li>Quando há uma nova mensagem no meu feed Seguindo</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o Yammer
-Para usar a API do Yammer, crie primeiro uma **conexão** e, em seguida, forneça os detalhes dessas propriedades:
+Para usar o conector do Yammer, crie primeiro uma **conexão** e forneça os detalhes dessas propriedades:
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
@@ -195,4 +195,4 @@ Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado. 
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

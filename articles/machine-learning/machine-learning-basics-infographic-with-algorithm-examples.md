@@ -20,17 +20,17 @@
 
 # Infográfico baixável: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo
 
-Baixe esta visão geral de fácil compreensão do infográfico de noções básicas de aprendizado de máquina para identificar os algoritmos populares usados para responder a perguntas comuns sobre aprendizado de máquina. Os exemplos de algoritmo ajudam o iniciante no aprendizado de máquina a compreender quais algoritmos usar e para que eles são usados.
+Baixe esta visão geral de infográfico de fácil compreensão dos conceitos básicos de aprendizado de máquina. Saiba mais sobre os algoritmos populares usados para responder perguntas comuns de aprendizado de máquina. Exemplos de algoritmo ajudam o iniciante no aprendizado de máquina a compreender quais algoritmos usar e para que eles são usados.
 
-## Há algoritmos populares disponíveis no Estúdio de Aprendizado de Máquina
+## Algoritmos populares no Estúdio de Aprendizado de Máquina
 
-O [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/) vem com um grande número de algoritmos de aprendizado de máquina que você pode usar para resolver problemas de análise preditiva. O infográfico baixável abaixo demonstra como os quatro tipos de algoritmos de aprendizado de máquina - **regressão**, **detecção de anomalias**, **clustering** e **classificação** -podem ser usados para responder a suas perguntas sobre aprendizado de máquina.
+O [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/) vem com uma grande biblioteca de algoritmos para análise preditiva. O infográfico mostra famílias populares de algoritmos: **regressão**, **detecção de anomalias**, **clustering** e **classificação**.
 
-A [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) contém muitos exemplos que mostram como esses algoritmos podem ser aplicados a soluções do mundo real. Os links incorporados no infográfico levam a exemplos funcionais de cada algoritmo.
+A [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) mostra como esses algoritmos podem ser aplicados a soluções do mundo real. Siga os links do infográfico para ver exemplos que funcionam.
 
-## Baixar o infográfico de conceitos básicos de aprendizado de máquina
+## Baixe o infográfico com exemplos de algoritmo
 
-**[Baixe: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Baixe: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 
 ![Infográfico: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo. Algoritmos populares. Aprendizado de máquina para iniciantes.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
@@ -52,4 +52,4 @@ A [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) cont�
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

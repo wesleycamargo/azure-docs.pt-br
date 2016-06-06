@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/20/2016"
    ms.author="terrylan"/>
 
 # Blog de Segurança e Conformidade do Azure
@@ -26,6 +26,18 @@ Além de informações técnicas, o blog da equipe de Segurança e Conformidade 
 
 Não deixe de conferir o blog da equipe de Segurança e Conformidade do Azure para ver as novidades com tudo relacionado à segurança do Azure.
 
-**ARTIGOS RECENTES** (atualizados semanalmente):
+**Artigos recentes** (esta seção será atualizada semanalmente com links para novas postagens):
 
-<!---HONumber=AcomDC_0518_2016-->
+[O Azure Disk Encryption para Máquinas Virtuais do Windows alcança disponibilidade geral](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) (20 de maio de 2016)
+
+[Avanços na Detecção de Ameaças da Central de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/17/advances-in-azure-security-center-threat-detection/) (17 de maio de 2016)
+
+[Atualização de segurança do OMS (Operations Management Suite)](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/12/update-on-operations-management-suite-omssecurity/) (12 de maio de 2016)
+
+[Atualização do pacote de criptografia SSL/TLS dos Serviços do Azure e remoção do RC4](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/26/azure-services-ssltls-cipher-suite-update-and-removal-of-rc4/) (26 de abril de 2016)
+
+[Habilitação do log de diagnóstico do Azure Antimalware](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/19/enabling-diagnostics-logging-for-azure-antimalware/) (19 de abril de 2016)
+
+[O que a responsabilidade compartilhada na nuvem significa?](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/18/what-does-shared-responsibility-in-the-cloud-mean/) (18 de abril de 2016)
+
+<!---HONumber=AcomDC_0525_2016-->

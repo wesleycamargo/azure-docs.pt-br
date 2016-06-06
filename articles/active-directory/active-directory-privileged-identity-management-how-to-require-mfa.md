@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Como exigir o MFA no Azure AD Privileged Identity Management
@@ -26,7 +26,7 @@ Você também pode exigir que os usuários concluam um desafio de MFA quando ati
 
 ## Solicitação de MFA no Privileged Identity Management do Azure AD
 
-Ao gerenciar identidades no PIM como um administrador de segurança, você poderá ver os alertas que recomendam o MFA para contas com privilégios. Clique no alerta de segurança no painel PIM e uma nova folha será aberta com uma lista das contas de administrador que devem exigir o MFA. É possível exigir o MFA selecionando várias funções e clicando no botão **Corrigir** ou você pode clicar nas reticências ao lado das funções individuais e clicar no botão **Corrigir**.
+Ao gerenciar identidades no PIM como um administrador de função com privilégios, você poderá ver os alertas que recomendam o MFA para contas com privilégios. Clique no alerta de segurança no painel PIM e uma nova folha será aberta com uma lista das contas de administrador que devem exigir o MFA. É possível exigir o MFA selecionando várias funções e clicando no botão **Corrigir** ou você pode clicar nas reticências ao lado das funções individuais e clicar no botão **Corrigir**.
 
 > [AZURE.IMPORTANT] Como as contas da Microsoft (por exemplo, @outlook.com, @live.com ou @hotmail.com) atualmente não têm suporte para se registrar no Azure MFA, os usuários não serão aceitos como administradores temporários para funções altamente privilegiadas. Se os usuários precisarem continuar a gerenciar cargas de trabalho usando uma conta da Microsoft, converta-os em administradores permanentes por enquanto.
 
@@ -45,4 +45,4 @@ Alternativamente, se os usuários se autenticarem localmente, você poderá faze
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

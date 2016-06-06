@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Adicionar a API do Dropbox a aplicativos lógicos e ao PowerApps Enterprise | Microsoft Azure"
-	description="Visão geral da API do Dropbox com os parâmetros da API REST"
-	services=""
+    pageTitle="Adicionar o conector do Dropbox a aplicativos lógicos e ao PowerApps Enterprise | Microsoft Azure"
+    description="Visão geral do Conector do Dropbox com os parâmetros da API REST"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/20/2016"
    ms.author="mandia"/>
 
-# Introdução à API do Dropbox 
-Conecte-se ao Dropbox para gerenciar arquivos, por exemplo, criar e obter arquivos, e muito mais. A API do Dropbox pode ser usada em:
+# Introdução ao conector do Dropbox 
+Conecte-se ao Dropbox para gerenciar arquivos, por exemplo, criar e obter arquivos, e muito mais. O conector do Dropbox pode ser usado por meio de:
 
 - Aplicativos lógicos 
 - PowerApps
@@ -38,9 +38,9 @@ Com o Dropbox, você pode:
 - Criar seu fluxo de negócios baseado nos dados que obtém do Dropbox. 
 - Usar gatilhos para quando um arquivo for criado ou atualizado.
 - Usar ações para criar um arquivo, excluir um arquivo e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um novo arquivo é criado no Dropbox, você pode enviar esse arquivo por email usando o Office 365.
-- Adicione a API do Dropbox ao PowerApps Enterprise. Assim, seus usuários poderão usar essa API em seus próprios aplicativos. 
+- Adicionar o conector do Dropbox ao PowerApps Enterprise Assim, seus usuários poderão usar esse conector em seus próprios aplicativos. 
 
-Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para saber mais sobre como adicionar um conector ao PowerApps Enterprise, acesse [Registrar um conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Para adicionar uma operação aos aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,14 +51,13 @@ Gatilhos | Ações
 --- | ---
 <ul><li>Quando um arquivo é criado</li><li>Quando um arquivo é modificado</li></ul> | <ul><li>Criar arquivo</li><li>Quando um arquivo é criado</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair o arquivo para a pasta</li><li>Obter conteúdo do arquivo usando a ID</li><li>Obter o arquivo usando o caminho</li><li>Obter metadados do arquivo usando a ID</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é modificado</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Criar a conexão com o Dropbox
 
-Quando você adiciona essa API a seus aplicativos lógicos, precisa autorizar os aplicativos lógicos a se conectarem ao Dropbox.
+Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Dropbox.
 
-1. Entre na sua conta do Dropbox.
-2. Selecione **Autorizar** e permita que seus Aplicativos Lógicos se conectem e usem o Dropbox. 
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Dropbox](../../includes/connectors-create-api-dropbox.md)]
 
 Depois de criar a conexão, insira as propriedades do Dropbox, como o caminho da pasta ou o nome do arquivo. A **referência da API REST** neste tópico descreve essas propriedades.
 
@@ -68,7 +67,7 @@ Depois de criar a conexão, insira as propriedades do Dropbox, como o caminho da
 Aplica-se à versão: 1.0.
 
 ### Criar arquivo    
-Carrega um arquivo no Dropbox.```POST: /datasets/default/files```
+Carrega um arquivo no Dropbox. ```POST: /datasets/default/files```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -84,7 +83,7 @@ Carrega um arquivo no Dropbox.```POST: /datasets/default/files```
 
 
 ### Quando um arquivo é criado    
-Dispara um fluxo quando um novo arquivo é criado em uma pasta do Dropbox.```GET: /datasets/default/triggers/onnewfile```
+Dispara um fluxo quando um novo arquivo é criado em uma pasta do Dropbox. ```GET: /datasets/default/triggers/onnewfile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -98,7 +97,7 @@ Dispara um fluxo quando um novo arquivo é criado em uma pasta do Dropbox.```GET
 
 
 ### Copiar arquivo    
-Copia um arquivo no Dropbox.```POST: /datasets/default/copyFile```
+Copia um arquivo no Dropbox. ```POST: /datasets/default/copyFile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -114,7 +113,7 @@ Copia um arquivo no Dropbox.```POST: /datasets/default/copyFile```
 
 
 ### Excluir arquivo    
-Exclui um arquivo do Dropbox.```DELETE: /datasets/default/files/{id}```
+Exclui um arquivo do Dropbox. ```DELETE: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -128,7 +127,7 @@ Exclui um arquivo do Dropbox.```DELETE: /datasets/default/files/{id}```
 
 
 ### Extrair o arquivo morto para a pasta    
-Extrai um arquivo morto para uma pasta no Dropbox (exemplo: .zip).**```POST: /datasets/default/extractFolderV2```**
+Extrai um arquivo morto para uma pasta no Dropbox (exemplo: .zip). **```POST: /datasets/default/extractFolderV2```**
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -144,7 +143,7 @@ Extrai um arquivo morto para uma pasta no Dropbox (exemplo: .zip).**```POST: /da
 
 
 ### Obter o conteúdo do arquivo usando a ID    
-Recupera o conteúdo do arquivo do Dropbox usando a ID.```GET: /datasets/default/files/{id}/content```
+Recupera o conteúdo do arquivo do Dropbox usando a ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -158,7 +157,7 @@ Recupera o conteúdo do arquivo do Dropbox usando a ID.```GET: /datasets/default
 
 
 ### Obter o conteúdo do arquivo usando o caminho    
-Recupera o conteúdo do arquivo do Dropbox usando o caminho.```GET: /datasets/default/GetFileContentByPath```
+Recupera o conteúdo do arquivo do Dropbox usando o caminho. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -172,7 +171,7 @@ Recupera o conteúdo do arquivo do Dropbox usando o caminho.```GET: /datasets/de
 
 
 ### Obter metadados de arquivo usando a id    
-Recupera os metadados do arquivo do Dropbox usando a ID do arquivo.```GET: /datasets/default/files/{id}```
+Recupera os metadados do arquivo do Dropbox usando a ID do arquivo. ```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -186,7 +185,7 @@ Recupera os metadados do arquivo do Dropbox usando a ID do arquivo.```GET: /data
 
 
 ### Obter metadados de arquivo usando o caminho    
-Recupera os metadados do arquivo do Dropbox usando o caminho.```GET: /datasets/default/GetFileByPath```
+Recupera os metadados do arquivo do Dropbox usando o caminho. ```GET: /datasets/default/GetFileByPath```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -200,7 +199,7 @@ Recupera os metadados do arquivo do Dropbox usando o caminho.```GET: /datasets/d
 
 
 ### Atualizar arquivo    
-Atualiza um arquivo no Dropbox.```PUT: /datasets/default/files/{id}```
+Atualiza um arquivo no Dropbox. ```PUT: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -215,7 +214,7 @@ Atualiza um arquivo no Dropbox.```PUT: /datasets/default/files/{id}```
 
 
 ### Quando um arquivo é modificado    
-Dispara um fluxo quando um arquivo é modificado em uma pasta do Dropbox.```GET: /datasets/default/triggers/onupdatedfile```
+Dispara um fluxo quando um arquivo é modificado em uma pasta do Dropbox. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -225,7 +224,7 @@ Dispara um fluxo quando um arquivo é modificado em uma pasta do Dropbox.```GET:
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -274,7 +273,7 @@ Dispara um fluxo quando um arquivo é modificado em uma pasta do Dropbox.```GET:
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Voltar para a [Lista de APIs](apis-list.md).
+Volte para a [Lista de APIs](apis-list.md).
 
 
 <!--References-->
@@ -286,4 +285,4 @@ Voltar para a [Lista de APIs](apis-list.md).
 [10]: ./media/connectors-create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/connectors-create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

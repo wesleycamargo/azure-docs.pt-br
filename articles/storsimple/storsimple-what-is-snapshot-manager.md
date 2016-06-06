@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/07/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # O que é o StorSimple Snapshot Manager
@@ -25,7 +25,7 @@ Essa visão geral apresenta o StorSimple Snapshot Manager, descreve seus recurso
 
 Para obter uma visão geral do sistema inteiro do Microsoft Azure StorSimple, incluindo o dispositivo StorSimple, o serviço do StorSimple Manager, o StorSimple Snapshot Manager e o Adaptador do StorSimple para o SharePoint, veja [StorSimple série 8000: uma solução de armazenamento de nuvem híbrida](storsimple-overview.md).
  
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >- Você não pode usar o StorSimple Snapshot Manager para gerenciar as Matrizes Virtuais do Microsoft Azure StorSimple (também conhecido como dispositivos virtuais locais StorSimple).
 >
@@ -38,9 +38,9 @@ O StorSimple Snapshot Manager fornece um console de gerenciamento central que vo
 - Configurar, fazer backup e excluir volumes.
 - Configurar grupos de volumes para garantir que o backup dos dados seja consistente com o aplicativo.
 - Gerencie políticas de backup para que os dados sejam copiados em um agendamento predeterminado.
-- Crie cópias de dados independentes, as quais podem ser armazenadas na nuvem e usadas para a recuperação de desastres.
+- Criar instantâneos locais e de nuvem, que podem ser armazenados na nuvem e usados para a recuperação de desastre.
 
-Com o StorSimple Snapshot Manager, você monta volumes e em seguida os configura em grupos de volumes, normalmente por aplicativo. O StorSimple Snapshot Manager usa esses grupos de volumes para gerar cópias de backup consistentes com o aplicativo. (A consistência do aplicativo existe quando todos os arquivos relacionados e bancos de dados são sincronizados e representam o verdadeiro estado do aplicativo em um momento específico).
+O StorSimple Snapshot Manager busca no host a lista de aplicativos registrados no provedor VSS. Em seguida, para criar backups consistentes com aplicativos, ele verifica os volumes usados por um aplicativo e sugere grupos de volume para configurar. O StorSimple Snapshot Manager usa esses grupos de volumes para gerar cópias de backup consistentes com o aplicativo. (A consistência do aplicativo existe quando todos os arquivos relacionados e bancos de dados são sincronizados e representam o verdadeiro estado do aplicativo em um momento específico).
 
 Os backups do StorSimple Snapshot Manager assumem a forma de instantâneos incrementais, que capturam apenas as alterações desde o último backup. Como resultado, os backups exigem menos armazenamento e podem ser criados e restaurados rapidamente. O StorSimple Snapshot Manager usa o VSS (Serviço de Cópias de Sombra de Volume) do Windows para garantir que os instantâneos capturem dados consistentes com o aplicativo. (Para saber mais, vá para a seção Integração com o Serviço de Cópias de Sombra de Volume). Com o StorSimple Snapshot Manager, você pode criar agendamentos de backup ou fazer backups imediatos, conforme necessário. Se você precisar restaurar dados de um backup, o StorSimple Snapshot Manager permite selecionar a partir de um catálogo de instantâneos locais ou em nuvem. O Azure StorSimple restaura apenas os dados necessários e quando necessário, o que impede atrasos na disponibilidade dos dados durante operações de restauração).
 
@@ -62,7 +62,7 @@ Você pode usar o StorSimple Snapshot Manager para configurar e fazer backup dos
 
 - **Volumes compartilhados clusterizados** – Com CSVs (volumes compartilhados clusterizados), vários nós em um cluster de failover podem ler ou gravar simultaneamente no mesmo disco. O failover de um nó para outro nó pode ocorrer rapidamente, sem exigir uma alteração na propriedade, montagem ou desmontagem da unidade e remoção de um volume.
 
->[AZURE.IMPORTANT]Não misture CSVs e não CSVs no mesmo instantâneo. Não há suporte para a combinação de CSVs e não CSVs em um instantâneo.
+>[AZURE.IMPORTANT] Não misture CSVs e não CSVs no mesmo instantâneo. Não há suporte para a combinação de CSVs e não CSVs em um instantâneo.
  
 Você pode usar o StorSimple Snapshot Manager para restaurar grupos de volume inteiros ou clonar volumes individuais e recuperar arquivos individuais.
 
@@ -79,7 +79,7 @@ O StorSimple Snapshot Manager usa grupos de volumes para criar cópias de backup
 
 Grupos de volumes e contêineres de volume são coisas distintas. Um contêiner de volume contém um ou mais volumes que compartilham uma conta de armazenamento em nuvem e outros atributos, como o consumo de largura de banda e criptografia. Um contêiner de volume único pode conter até 256 volumes do StorSimple escassamente provisionados. Para obter mais informações sobre contêineres de volume, vá para [Gerenciar contêineres de volume](storsimple-manage-volume-containers.md). Grupos de volumes são conjuntos de volumes que você configura para facilitar as operações de backup. Se você selecionar dois volumes que pertencem a diferentes contêineres de volumes, coloque-os em um único grupo de volumes e, em seguida, crie uma política de backup para ele; será feito backup de cada volume no contêiner de volume apropriado, usando a conta de armazenamento apropriada.
 
->[AZURE.NOTE]Todos os volumes em um grupo de volumes devem vir de um único provedor de serviço de nuvem.
+>[AZURE.NOTE] Todos os volumes em um grupo de volumes devem vir de um único provedor de serviço de nuvem.
 
 ## Integração com o Serviço de Cópias de Sombra de Volume do Windows
 
@@ -156,4 +156,4 @@ Para obter informações sobre como monitorar trabalhos de backup, vá para [Usa
 
 - Baixe o [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0525_2016-->

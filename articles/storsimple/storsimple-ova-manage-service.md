@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # Implantar o serviço StorSimple Manager para o StorSimple Virtual Array
@@ -38,7 +38,7 @@ As tarefas comuns que podem ser executadas pela página do StorSimple Manager s�
 - Obtenha a chave de registro do serviço
 - Regenerar a chave de registro do serviço
 
-Este tutorial descreve como executar cada uma dessas tarefas.
+Este tutorial descreve como executar cada uma dessas tarefas. As informações contidas neste artigo aplicam-se apenas a Matrizes Virtuais do StorSimple. Para obter mais informações sobre a série 8000 do StorSimple, acesse [implantar um serviço StorSimple Manager](storsimple-manage-service.md).
 
 ## Criar um serviço
 
@@ -51,6 +51,8 @@ Use a opção **Criação Rápida** para criar um serviço StorSimple Manager se
 Também é possível optar por gerar uma conta de armazenamento padrão ao criar o serviço.
 
 Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias do serviço para trabalhar com diferentes assinaturas, organizações ou até mesmo locais de implantação.
+
+> [AZURE.NOTE] Você precisa de instâncias separadas do serviço StorSimple Manager para gerenciar as Matrizes Virtuais e os dispositivos da série 8000 do StorSimple.
 
 Execute as etapas a seguir para criar um serviço.
 
@@ -111,4 +113,4 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0525_2016-->

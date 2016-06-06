@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/01/2016"
+   ms.date="05/20/2016"
    ms.author="alkohli" />
 
 
@@ -108,7 +108,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     1. Forneça a **URL do proxy Web** neste formato: *http://host-IPendereço* ou *FDQN:Número da porta*. Observe que não há suporte para URLs HTTPS.
 
-    2. Especifique a **Autenticação** como **Básica**, **NTLM** ou **Nenhuma**.
+    2. Especifique **Autenticação** como **Básica** ou **Nenhuma**.
 
     3. Se estiver usando a autenticação, também será necessário fornecer um **Nome de Usuário** e uma **Senha**.
 
@@ -122,7 +122,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     1. Na lista suspensa, selecione o **Fuso horário** com base na localização geográfica na qual o dispositivo está sendo implantado. O fuso horário padrão para o seu dispositivo é PST. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
 
-    2. Especifique um **Servidor NTP primário** para seu dispositivo ou aceite o valor padrão time.windows.com. Verifique se sua rede permite que o tráfego NTP passe do data center para a Internet.
+    2. Especifique um **Servidor NTP primário** para seu dispositivo ou aceite o valor padrão de time.windows.com. Verifique se sua rede permite que o tráfego NTP passe do data center para a Internet.
 
     3. Opcionalmente, especifique um **Servidor NTP secundário** para seu dispositivo.
 
@@ -132,7 +132,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
     1. Insira a **Chave de registro do serviço** obtida na **Etapa 2: Obter a chave de registro do serviço** em [Implantar o StorSimple Virtual Array – preparar o portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-    2. Se esse não for o primeiro dispositivo registrando nesse serviço, será necessário fornecer a **Chave de criptografia de dados do serviço**. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Manager. Para saber mais, consulte [Obter a chave de criptografia de dados do serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) em sua interface do usuário da Web local.
+    2. Se não for o primeiro dispositivo que você está registrando com esse serviço, você precisará fornecer a **Chave de criptografia de dados de serviço**. Essa chave é necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço StorSimple Manager. Para obter mais informações, consulte [Obter a chave de criptografia de dados de serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) em sua interface do usuário da Web local.
 
     3. Clique em **Registrar**. Isso reiniciará o dispositivo. Talvez seja necessário aguardar de 2 a 3 minutos até que o dispositivo seja registrado com êxito. Depois que o dispositivo for reiniciado, você será levado à página de entrada.
 
@@ -154,7 +154,7 @@ Execute as etapas a seguir no portal clássico do Azure para concluir a configur
 
 #### Para concluir a configuração mínima do dispositivo
 
-1. Na página **Dispositivos**, selecione o dispositivo que você acabou de criar. Este dispositivo aparecerá como **Ativo**. Clique na seta ao lado do nome do dispositivo e clique em **Início Rápido**.
+1. Na página **Dispositivos**, selecione o dispositivo que você acabou de criar. Este dispositivo apareceria como **Ativo**. Clique na seta ao lado do nome do dispositivo e clique em **Início Rápido**.
 
     ![Página Dispositivos](./media/storsimple-ova-deploy3-iscsi-setup/image13.png)
 
@@ -284,7 +284,7 @@ Execute as etapas a seguir para montar, inicializar e formatar os volumes StorSi
 
 ## Próximas etapas
 
-[Saiba como usar a interface do usuário da Web local para administrar seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Aprenda como [usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## Apêndice A: obter o IQN de um host do Windows Server
 
@@ -303,4 +303,4 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

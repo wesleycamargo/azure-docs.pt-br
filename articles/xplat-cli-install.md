@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/23/2016"
 	ms.author="danlep"/>
     
 # Instalar a CLI do Azure
@@ -23,30 +23,31 @@
 - [PowerShell](powershell-install-configure.md)
 - [CLI do Azure](xplat-cli-install.md)
 
-Instale rapidamente a CLI (Interface de linha de comando) do Azure para usar um conjunto de comandos de software livre baseados em shell para criar e gerenciar os recursos do Microsoft Azure. Você tem várias opções de instalação: use um dos pacotes de instalação fornecidos para diferentes sistemas operacionais, instale de um pacote npm ou instale a CLI do Azure como um contêiner em um host do Docker. Para obter mais opções e um histórico, consulte o repositório do projeto no [GitHub](https://github.com/azure/azure-xplat-cli).
+Instale rapidamente a CLI (Interface de linha de comando) do Azure para usar um conjunto de comandos de software livre baseados em shell para criar e gerenciar os recursos do Microsoft Azure. Você tem várias opções de instalação: instalar a partir de um pacote npm (requer Node.js e npm), usar um dos pacotes de instalador fornecidos para diferentes sistemas operacionais ou instalar a CLI do Azure como um contêiner em um host do Docker. Para obter mais opções e um histórico, consulte o repositório do projeto no [GitHub](https://github.com/azure/azure-xplat-cli).
 
 
 Quando a CLI do Azure estiver instalada, você poderá [conectá-la à sua assinatura do Azure](xplat-cli-connect.md) e executar os comandos **azure** na sua interface de linha de comando (Lote, Terminal, Prompt de comando e assim por diante) para trabalhar com seus recursos do Azure.
 
 
-## Usar um instalador
-
-Os seguintes pacotes de instalador estão disponíveis:
-
-* [Windows installer][windows-installer]
-
-* [Instalador do OS X][mac-installer]
-
-* [Instalador do Linux][linux-installer]
-
 
 ## Instalar um pacote npm
 
-Como alternativa, se o último Node.js e npm já estiverem instalados em seu sistema, execute o comando a seguir para instalar o pacote da CLI do Azure. (Nas distribuições Linux, talvez você precise usar **sudo** para executar o comando __npm__ com êxito.)
+Para instalar a CLI a partir de um pacote npm, você precisará do Node. js e do npm mais recentes instalados em seu sistema. Em seguida, para instalar a CLI do Azure, use o seguinte comando. (Nas distribuições Linux, talvez você precise usar **sudo** para executar o comando __npm__ com êxito.)
 
 	npm install azure-cli -g
 
 > [AZURE.NOTE]Se você precisar instalar ou atualizar o Node.js e npm no seu sistema operacional, consulte a documentação em [Nodejs.org](https://nodejs.org/en/download/package-manager/). Recomendamos que você instale a versão mais recente do Node.js LTS (4.x). Se você usar uma versão mais antiga, poderá obter erros de instalação.
+
+## Usar um instalador
+
+Os seguintes pacotes de instalador estão disponíveis também para download:
+
+
+* [Instalador do OS X][mac-installer]
+
+* [Windows installer][windows-installer]
+
+* [Arquivo tar de Linux][linux-installer] \(requer o Node. js e npm) - instale executando `sudo npm install -g <path to downloaded tar file>`
 
 
 ## Usar um contêiner do Docker
@@ -88,9 +89,27 @@ Com frequência, a Microsoft lança versões atualizadas da CLI do Azure. Reinst
 npm update -g azure-cli
 ```
 
+## Ativar o recurso auto-completar com TAB
+
+Há suporte para o recurso auto-completar de comandos da CLI para Mac e Linux.
+
+Para habilitá-lo no zsh, execute:
+
+```
+echo '. <(azure --completion)' >> .zshrc
+```
+
+Para habilitá-lo no bash, execute:
+
+```
+azure --completion >> ~/azure.completion.sh
+echo 'source ~/azure.completion.sh' >> ~/.bash_profile
+```
+
+
 ## Próximas etapas 
 
-* [Conecte-se da CLI à sua assinatura do Azure](xplat-cli-connect.md) para criar e gerenciar recursos do Azure.
+* [Conecte-se a partir da CLI à sua assinatura do Azure](xplat-cli-connect.md) para criar e gerenciar recursos do Azure.
 
 * Para saber mais sobre a CLI do Azure, baixar o código-fonte, relatar problemas ou colaborar com o projeto, visite o [Repositório GitHub para a CLI do Azure](https://github.com/azure/azure-xplat-cli).
 
@@ -104,4 +123,4 @@ npm update -g azure-cli
 [cliasm]: virtual-machines-command-line-tools.md
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="05/23/2016"
+	ms.author="andkjell;markvi"/>
 
 
 # Azure AD Connect Sync: referência de funções
-
 
 No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização. A sintaxe das funções é expressa usando o seguinte formato: `<output type> FunctionName(<input type> <position name>, ..)`
 
@@ -32,50 +31,44 @@ Os tipos são expressos com a seguinte sintaxe:
 - **enum** - enumeração das constantes conhecidas
 - **exp** - expressão, que espera-se que seja avaliada como um valor Booliano
 - **mvbin** - binário de vários valores
-- **mvstr** - referência de vários valores
+- **mvstr** - Cadeia de Caracteres com Vários Valores
+- **mvstr** - Referência de Vários Valores
 - **num** - numérico
 - **ref** - referência de valor único
 - **str** - cadeia de caracteres de valor único
 - **var** - uma variante de (quase) qualquer outro tipo
 - **void** - não retorna um valor
 
-
-
 ## Referência de funções
 
-----------
-**Conversão:**
-
-[CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [CGuid](#cguid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromBase64](#convertfrombase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromUTF8Hex](#convertfromutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [CNum](#cnum) &nbsp;&nbsp;&nbsp;&nbsp; [CRef](#cref) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [StringFromGuid](#StringFromGuid) &nbsp;&nbsp;&nbsp;&nbsp; [StringFromSid](#stringfromsid)
-
-**Data / hora:**
-
-[DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate)
-
-**Diretório**
-
-[DNComponent](#dncomponent) &nbsp;&nbsp;&nbsp;&nbsp; [DNComponentRev](#dncomponentrev) &nbsp;&nbsp;&nbsp;&nbsp; [EscapeDNComponent](#escapedncomponent)
-
-**Avaliação:**
-
-[IsBitSet](#isbitset) &nbsp;&nbsp;&nbsp;&nbsp; [IsDate](#isdate) &nbsp;&nbsp;&nbsp;&nbsp; [IsEmpty](#isempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsGuid](#isguid) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsNumeric](#isnumeric) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring)
-
-**Matemática:**
-
-[BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [BitOr](#bitor) &nbsp;&nbsp;&nbsp;&nbsp; [RandomNum](#randomnum)
-
-**De valores múltiplos**
-
-[Contains](#contains) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [ItemOrNull](#itemornull) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)
-
-**Fluxo do programa:**
-
-[Error](#error) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
-
-
-**Texto**
-
-[GUID](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [InStrRev](#instrrev) &nbsp;&nbsp;&nbsp;&nbsp; [LCase](#lcase) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Len](#len) &nbsp;&nbsp;&nbsp;&nbsp; [LTrim](#ltrim) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [PadLeft](#padleft) &nbsp;&nbsp;&nbsp;&nbsp; [PadRight](#padright) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceChars](#replacechars) &nbsp;&nbsp;&nbsp;&nbsp; [Right](#right) &nbsp;&nbsp;&nbsp;&nbsp; [RTrim](rtrim) &nbsp;&nbsp;&nbsp;&nbsp; [Trim](#trim) &nbsp;&nbsp;&nbsp;&nbsp; [UCase](#ucase) &nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+Lista de funções | | | | |  
+--------- | --------- | --------- | --------- | --------- | ---------
+**Conversão** |  
+[CBool](#cbool) | [CDate](#cdate) | [CGuid](#cguid) | [ConvertFromBase64](#convertfrombase64)
+[ConvertToBase64](#converttobase64) | [ConvertFromUTF8Hex](#convertfromutf8hex) | [ConvertToUTF8Hex](#converttoutf8hex) | [CNum](#cnum)
+[CRef](#cref) | [CStr](#cstr) | [StringFromGuid](#StringFromGuid) | [StringFromSid](#stringfromsid)
+**Data / hora** |  
+[DateAdd](#dateadd) | [DateFromNum](#datefromnum) | [FormatDateTime](#formatdatetime) | [Now](#now)
+[NumFromDate](#numfromdate) |  
+**Diretório** |  
+[DNComponent](#dncomponent) | [DNComponentRev](#dncomponentrev) | [EscapeDNComponent](#escapedncomponent)
+**Avaliação** |  
+[IsBitSet](#isbitset) | [IsDate](#isdate) | [IsEmpty](#isempty) | [IsGuid](#isguid)
+[IsNull](#isnull) | [IsNullOrEmpty](#isnullorempty) | [IsNumeric](#isnumeric) | [IsPresent](#ispresent) |
+[IsString](#isstring) |  
+**Matemática** |  
+[BitAnd](#bitand) | [BitOr](#bitor) | [RandomNum](#randomnum)
+**De valores múltiplos** |  
+[Contém:](#contains) | [Contagem](#count) | [Item](#item) | [ItemOrNull](#itemornull)
+[Join](#join) | [RemoveDuplicates](#removeduplicates) | [Divisão](#split) |
+**Fluxo do Programa** |  
+[Erro](#error) | [IIF](#iif) | [Switch](#switch)
+**Texto** |  
+[GUID](#guid) | [InStr](#instr) | [InStrRev](#instrrev) | [LCase](#lcase)
+[Left](#left) | [Len](#len) | [LTrim](#ltrim) | [Mid](#mid)
+[PadLeft](#padleft) | [PadRight](#padright) | [PCase](#pcase) | [Substitua](#replace)
+[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim) | [Trim](#trim)
+[UCase](#ucase) | [Word](#word)
 
 ----------
 ### BitAnd
@@ -104,7 +97,7 @@ Em outras palavras, ele retorna 0 em todos os casos, exceto quando os bits corre
 
 - value1, value2: valores numéricos que devem ser agrupados com OR
 
-**Comentários:** Esta função converte ambos os parâmetros para a representação binária e define um bit como 1 se um ou ambos os bits correspondentes na máscara e sinalizador forem 1; ou então define o bit como 0, se ambos os bits correspondentes forem 0. Em outras palavras, ele retorna 1 em todos os casos, exceto naqueles em que os bits correspondentes de ambos os parâmetros são 0.
+**Comentários:** esta função converte ambos os parâmetros para a representação binária e define um bit como 1 se um ou ambos os bits correspondentes na máscara e sinalizador forem 1; ou então define o bit como 0, se ambos os bits correspondentes forem 0. Em outras palavras, ele retorna 1 em todos os casos, exceto naqueles em que os bits correspondentes de ambos os parâmetros são 0.
 
 ----------
 ### CBool
@@ -276,7 +269,7 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### DNComponent
 
-**Descrição:** a função DNComponent retornará o valor de um componente DN especificado, saindo da esquerda.
+**Description:** The DNComponent function returns the value of a specified DN component going from left.
 
 **Sintaxe:** `str DNComponent(ref dn, num ComponentNumber)`
 
@@ -330,7 +323,7 @@ Ambos os exemplos retornam "*Hello world!*"
 
 **Exemplo:**
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` Resulta em: “25-12-2007”.
+`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")` Resulta em "2007-12-25".
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")` Pode resultar em "20140905081453.0Z"
 
@@ -357,7 +350,7 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### InStr
 
-**Descrição:** A função InStr localiza a primeira ocorrência de uma subcadeia de caracteres em uma cadeia de caracteres
+**Descrição:** a função InStr localiza a primeira ocorrência de uma subcadeia de caracteres em uma cadeia de caracteres
 
 **Sintaxe:**
 
@@ -379,7 +372,7 @@ Ambos os exemplos retornam "*Hello world!*"
 
 **Descrição:** a função InStrRev localiza a última ocorrência de uma subcadeia de caracteres em uma cadeia de caracteres
 
-**Sintaxe:** `num InstrRev(str stringcheck, str stringmatch)``num InstrRev(str stringcheck, str stringmatch, num start)``num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
+**Sintaxe:** `num InstrRev(str stringcheck, str stringmatch)` `num InstrRev(str stringcheck, str stringmatch, num start)` `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
 - stringcheck: cadeia de caracteres a ser pesquisada
 - stringmatch: cadeia de caracteres a ser localizada
@@ -532,7 +525,7 @@ Retorna um valor nulo se o índice está fora dos limites.
 
 **Sintaxe:** `str LCase(str value)`
 
-**Exemplo:** `LCase("TeSt")` retorna “test”.
+**Exemplo:** `LCase("TeSt")` retorna "TEST".
 
 ----------
 ### Left
@@ -570,7 +563,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 
 **Sintaxe:** `str LTrim(str value)`
 
-**Exemplo:** `LTrim(" Test ")` retorna "Test".
+**Exemplo:** `LTrim(" Test ")` retorna "TEST".
 
 ----------
 ### Mid
@@ -664,7 +657,7 @@ Se não houver caracteres numChar restantes na cadeia de caracteres na posição
 
 **Sintaxe:** `String PCase(string)`
 
-**Exemplo:** `PCase("TEsT")` retorna “Test”.
+**Exemplo:** `PCase("TEsT")` retorna "Test".
 
 ----------
 ### RandomNum
@@ -764,7 +757,7 @@ Se a cadeia de caracteres contém menos caracteres do que o número especificado
 
 **Sintaxe:** `str RTrim(str value)`
 
-**Exemplo:** `RTrim(" Test ")` retorna "Test".
+**Exemplo:** `RTrim(" Test ")` retorna "TEST".
 
 ----------
 ### Divisão
@@ -825,7 +818,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
 
 **Sintaxe:** `str Trim(str value)` `mvstr Trim(mvstr value)`
 
-**Exemplo:** `Trim(" Test ")` retorna “Test”.
+**Exemplo:** `Trim(" Test ")` retorna "Test".
 
 `Trim([proxyAddresses])` remove espaços à direita e à esquerda para cada valor no atributo proxyAddress.
 
@@ -836,7 +829,7 @@ Valor também pode ser a função Error, que retornaria uma cadeia de caracteres
 
 **Sintaxe:** `str UCase(str string)`
 
-**Exemplo:** `UCase("TeSt")` retorna "TEST".
+**Exemplo:** `UCase("TeSt")` retorna "Test".
 
 ----------
 ### Word
@@ -866,4 +859,4 @@ Se a cadeia de caracteres contém um número menor que o número de palavras ou 
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

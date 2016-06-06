@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Adicionar a API do Facebook ao seus aplicativos lógicos | Microsoft Azure"
-	description="Visão geral da API do Facebook com os parâmetros de API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Adicionar o conector do Facebook ao seus aplicativos lógicos | Microsoft Azure"
+    description="Visão geral do conector do Facebook com os parâmetros de API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introdução à API do Facebook
-Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais. A API do Facebook pode ser usada em:
+# Introdução ao conector do Facebook
+Conecte-se ao Facebook e publique em uma linha do tempo, recebe um feed de página e muito mais. O conector do Facebook pode ser usado por meio de:
 
 - Aplicativos lógicos (discutidos neste tópico)
 - PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
@@ -35,16 +35,16 @@ Com o Facebook, você pode:
 Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
-A API de Facebook inclui o gatilho e ações a seguir.
+O conector do Facebook inclui o gatilho e as ações a seguir.
 
 | Gatilhos | Ações|
 | --- | --- |
 | <ul><li>Quando há uma nova publicação em minha linha do tempo</li></ul> |<ul><li>Obter feed de minha linha do tempo</li><li>Publicar em minha linha do tempo</li><li>Quando há uma nova publicação em minha linha de tempo</li><li>Obter feed da página</li><li>Obter linha do tempo do usuário</li><li>Publicar na página</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o Facebook
-Quando você adiciona essa API a seus aplicativos lógicos, precisa autorizar os aplicativos lógicos a se conectarem ao Facebook.
+Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Facebook.
 
 1. Entre em sua conta do Facebook
 2. Selecione **Autorizar** e permita que seus aplicativos lógicos se conectem e usem o Facebook. 
@@ -436,4 +436,4 @@ O perfil pode ser um usuário, página, aplicativo ou grupo.
 
 [Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

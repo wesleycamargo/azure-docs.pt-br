@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução ao Gerenciador de Recursos de Cluster do Service Fabric | Microsoft Azure"
-   description="Uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric."
+   pageTitle="Limitação no Resource Manager de Cluster do Service Fabric | Microsoft Azure"
+   description="Aprenda a configurar os limitadores fornecidos pelo Resource Manager de Cluster do Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 
@@ -43,4 +43,4 @@ Esteja ciente de que na maioria das vezes, temos visto clientes usarem esses lim
 - Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
 - O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

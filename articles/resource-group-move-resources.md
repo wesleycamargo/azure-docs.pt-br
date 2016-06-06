@@ -32,7 +32,7 @@ Você não pode alterar o local do recurso. Mover um recurso só o move para um 
 Há algumas etapas importantes a serem realizadas antes de mover um recurso. Ao verificar essas condições, é possível evitar erros.
 
 1. O serviço deve dar suporte à capacidade de mover recursos. Veja a lista abaixo para obter informações sobre quais [serviços dão suporte à movimentação de recursos](#services-that-support-move).
-2. A assinatura de destino deve estar registrada para que o provedor de recursos do recurso seja movido. Se não estiver, você receberá um erro afirmando que a **assinatura não foi registrada para um tipo de recurso**. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso. Para saber como verificar o status do registro e registrar provedores de recursos, confira [Provedores e tipos de recursos](../resource-manager-supported-services/#resource-providers-and-types).
+2. A assinatura de destino deve estar registrada para que o provedor de recursos do recurso seja movido. Se não estiver, você receberá um erro afirmando que a **assinatura não foi registrada para um tipo de recurso**. Você pode encontrar esse problema ao mover um recurso para uma nova assinatura que nunca tenha sido usada com esse tipo de recurso. Para saber como verificar o status do registro e registrar provedores de recursos, consulte [Provedores e tipos de recursos](../resource-manager-supported-services.md#resource-providers-and-types).
 3. Se estiver usando o Azure PowerShell ou a CLI do Azure, use a versão mais recente. Para atualizar sua versão, execute o Microsoft Web Platform Installer e verifique se uma nova versão está disponível. Para saber mais, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md) e [Instalar a CLI do Azure](xplat-cli-install.md).
 4. Se estiver movendo um aplicativo do Serviço de Aplicativo, você examinou as [Limitações do Serviço de Aplicativo](#app-service-limitations).
 5. Se estiver movendo recursos implantados por meio do modelo clássico, você examinou as [Limitações da implantação clássica](#classic-deployment-limitations).
@@ -48,6 +48,7 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 - CDN
 - Serviços de Nuvem - veja [Limitações da implantação clássica](#classic-deployment-limitations)
 - Data Factory
+- DNS
 - Banco de Dados de Documentos
 - Clusters do HDInsight
 - Cofre da Chave
@@ -57,9 +58,9 @@ Por enquanto, os serviços que dão suporte à transferência para um novo grupo
 - Cache Redis
 - Agendador
 - Pesquisar
-- Armazenamento (clássico) - veja [Limitações da implantação clássica](#classic-deployment-limitations)
+- Armazenamento (clássico) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 - Servidor do Banco de Dados SQL - O banco de dados e o servidor devem residir no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos.
-- Máquinas virtuais (clássicas) - veja [Limitações da implantação clássica](#classic-deployment-limitations)
+- Máquinas virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 
 ## Serviços dão suporte parcial à movimentação
 
@@ -75,7 +76,7 @@ Os serviços que atualmente não dão suporte à transferência de um recurso s�
 - Rota Expressa
 - Armazenamento
 - Máquinas Virtuais
-- Redes Virtuais (clássicas) - veja [Limitações da implantação clássica](#classic-deployment-limitations)
+- Redes Virtuais (clássicas) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
 
 ## Limitações do Serviço de Aplicativo
 
@@ -266,9 +267,9 @@ Com o corpo da solicitação:
 
 
 ## Próximas etapas
-- Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, veja [Usando o Azure PowerShell com o Gerenciador de Recursos](powershell-azure-resource-manager.md).
-- Para saber mais sobre os comandos da CLI do Azure para gerenciar sua assinatura, veja [Usando a CLI do Azure com o Gerenciador de Recursos](xplat-cli-azure-resource-manager.md).
+- Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, veja [Usando o Azure PowerShell com o Resource Manager](powershell-azure-resource-manager.md).
+- Para saber mais sobre os comandos da CLI do Azure para gerenciar sua assinatura, veja [Usando a CLI do Azure com o Resource Manager](xplat-cli-azure-resource-manager.md).
 - Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Usando o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
 - Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/19/2016"
+	ms.date="05/25/2016"
 	ms.author="v-darmi"/>
 
 # Cache personalizado no Gerenciamento de API do Azure
@@ -245,4 +245,4 @@ A liberdade de usar o cache de gerenciamento de API do Azure para armazenar qual
 ## Próximas etapas
 Envie-nos seus comentários no thread de discussão para este tópico, se houver outros cenários que essas políticas habilitaram para você, ou se houver cenários que você gostaria de ter, mas não sente que é possível no momento.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,10 +1,10 @@
 <properties
-pageTitle="Adicionar a API do Excel ao PowerApps Enterprise | Microsoft Azure"
-description="Visão geral da API do Excel com os parâmetros da API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Adicionar o conector do Excel ao PowerApps Enterprise | Microsoft Azure"
+description="Visão geral do Conector do Excel com os parâmetros da API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,20 +14,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introdução à API do Excel
+# Introdução ao conector do Excel
 
-Conecte-se ao Excel para inserir uma linha, excluir uma linha e muito mais. A API do Excel pode ser usada em:
+Conecte-se ao Excel para inserir uma linha, excluir uma linha e muito mais. O conector do Excel pode ser usado por meio de:
 
 - PowerApps
 
 Com o Excel, você pode:
 
-- Adicione a API do Excel ao PowerApps Enterprise. Em seguida, seus usuários podem usar essa API dentro dos seus próprios aplicativos. 
+- Adicionar o conector do Excel ao PowerApps Enterprise Assim, seus usuários poderão usar esse conector em seus próprios aplicativos. 
 
-Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para saber mais sobre como adicionar um conector ao PowerApps Enterprise, acesse [Registrar um conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 ## Gatilhos e ações
 O Excel inclui a ação a seguir. Não há nenhum gatilho.
@@ -36,7 +36,7 @@ O Excel inclui a ação a seguir. Não há nenhum gatilho.
 |--- | ---|
 |Nenhum | <ul><li>Obter linhas</li><li>Inserir linha</li><li>Excluir linha</li><li>Obter linha</li><li>Obter tabelas</li><li>Atualizar linha</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Referência da API REST do Swagger
 Aplica-se à versão: 1.0.
@@ -125,7 +125,7 @@ Aplica-se à versão: 1.0.
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 
@@ -208,4 +208,4 @@ Aplica-se à versão: 1.0.
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) [Criar um PowerApp](../power-apps/powerapps-get-started-azure-portal.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

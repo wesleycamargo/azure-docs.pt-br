@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -28,18 +28,18 @@ O assistente de instalação do Azure AD Connect oferece dois caminhos diferente
 ## Documentação relacionada
 Se você não leu a documentação em [Integrando suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md), a tabela a seguir fornece links para tópicos relacionados.
 
-| Tópico | |
-| --------- | --------- |
-| Instalar usando as Configurações expressas | [Instalação expressa do Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
-| Instalar usando Configurações personalizadas | [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
-| Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
+Tópico |  
+--------- | ---------
+Instalar usando as Configurações expressas | [Instalação expressa do Azure AD Connect](active-directory-aadconnect-get-started-express.md)
+Instalar usando Configurações personalizadas | [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
 ## Instalação das configurações expressas
 As configurações expressas do assistente de instalação solicitará credenciais de administrador corporativo do AD DS para que o Active Directory local possa ser configurado com as permissões necessárias para o Azure AD Connect. Se você estiver atualizando o DirSync, as credenciais de administrador corporativo do AD DS serão usadas para redefinir a senha da conta usada pelo DirSync. Você também precisará de credenciais de Administrador Global do AD do Azure.
 
 Página do assistente | Credenciais coletadas | Permissões necessárias| Usadas para
-------------- | ------------- |------------- |------------- |
+------------- | ------------- |------------- |-------------
 N/D|Usuário que está executando o assistente de instalação| Administrador do servidor local| <li>Cria a conta local que será usada como a [conta de serviço do mecanismo de sincronização](#azure-ad-connect-sync-service-account).
 Conecte-se ao AD do Azure| Credenciais de diretório do AD do Azure | Função de administrador global no AD do Azure | <li>Habilitar a sincronização no diretório do AD do Azure.</li> <li>Criação da [conta do AD do Azure](#azure-ad-service-account) que será usada para operações de sincronização em andamento no AD do Azure.</li>
 Conectar-se ao AD DS | Credenciais do Active Directory local | Membro do grupo EA (Administradores de Empresa) no Active Directory| <li>Cria uma [conta](#active-directory-account) no Active Directory e concede permissões a ela. Essa conta criada é usada para ler e gravar informações de diretório durante a sincronização.</li>
@@ -53,14 +53,14 @@ Essas credenciais são usadas apenas durante a instalação e não serão usadas
 ### Permissões de configurações expressas para a conta do AD DS criada
 A [conta](#active-directory-account) criada para leitura e gravação no AD DS terá as seguintes permissões se for criada pelas configurações expressas:
 
-| Permissão | Usado para |
-| ---- | ---- |
-| <li>Replicar alterações de diretório</li> <li>Replicar todas as alterações de diretório | Sincronização de senha |
-| Ler/Gravar todas as propriedades Usuário | Importação e Exchange híbrido |
-| Ler/Gravar todas as propriedades iNetOrgPerson | Importação e Exchange híbrido |
-| Ler/Gravar todas as propriedades Grupo | Importação e Exchange híbrido |
-| Ler/Gravar todas as propriedades Contato | Importação e Exchange híbrido |
-| Redefinir senha | Preparação para habilitar write-back de senha |
+Permissão | Usado para
+---- | ----
+<li>Replicar alterações de diretório</li> <li>Replicar todas as alterações de diretório | Sincronização de senha
+Ler/Gravar todas as propriedades Usuário | Importação e Exchange híbrido
+Ler/Gravar todas as propriedades iNetOrgPerson | Importação e Exchange híbrido
+Ler/Gravar todas as propriedades Grupo | Importação e Exchange híbrido
+Ler/Gravar todas as propriedades Contato | Importação e Exchange híbrido
+Redefinir senha | Preparação para habilitar write-back de senha
 
 ## Instalação de configurações personalizadas
 Ao usar configurações personalizadas, a conta usada para conectar-se ao Active Directory deve ser criada antes da instalação. As permissões que você deve conceder a essa conta podem ser encontradas em [Criar a conta do AD DS](#create-the-ad-ds-account).
@@ -81,22 +81,22 @@ Quando você instala o Azure AD Connect, a conta que especifica na página **Con
 
 As permissões de que você precisa dependem dos recursos opcionais que habilitar. Se você tiver vários domínios, as permissões devem ser concedidas para todos os domínios na floresta. Se você não habilitar esses recursos, as permissões padrão **Usuário de domínio** serão suficientes.
 
-| Recurso | Permissões |
-| ------ | ------ |
-| Sincronização de senha | <li>Replicar alterações de diretório</li> <li>Replicar todas as alterações de diretório |
-| Implantação híbrida do Exchange | Permissões de gravação para os atributos documentados em [Write-back híbrido do Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
-| Write-back de senha | Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) para usuários. |
-| Write-back de dispositivo | Permissões concedidas com um script do PowerShell, conforme descrito em [Write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md).|
-| Write-back de grupo | Ler, criar, atualizar e excluir objetos de grupo na UO em que os grupos de distribuição devem estar localizados.|
+Recurso | Permissões
+------ | ------
+Sincronização de senha | <li>Replicar alterações de diretório</li> <li>Replicar todas as alterações de diretório
+Implantação híbrida do Exchange | Permissões de gravação para os atributos documentados em [Write-back híbrido do Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos.
+Write-back de senha | Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) para usuários.
+Write-back de dispositivo | Permissões concedidas com um script do PowerShell, conforme descrito em [Write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md).
+Write-back de grupo | Ler, criar, atualizar e excluir objetos de grupo na UO em que os grupos de distribuição devem estar localizados.
 
 ## Atualizar
 Ao atualizar de uma versão do Azure AD Connect para uma nova versão, você precisará das seguintes permissões:
 
-| Principal | Permissões necessárias | Usado para |
-| ---- | ---- | ---- |
-| Usuário que está executando o assistente de instalação | Administrador do servidor local | Binários de atualização. |
-| Usuário que está executando o assistente de instalação | Membro do ADSyncAdmins | Fazer alterações em Regras de Sincronização e outras configurações. |
-| Usuário que está executando o assistente de instalação | Se usar um SQL Server completo: DBO (ou semelhante) do banco de dados de mecanismo de sincronização | Fazer alterações no nível de banco de dados, como a atualização de tabelas com novas colunas. |
+Principal | Permissões necessárias | Usado para
+---- | ---- | ----
+Usuário que está executando o assistente de instalação | Administrador do servidor local | Binários de atualização.
+Usuário que está executando o assistente de instalação | Membro do ADSyncAdmins | Fazer alterações em Regras de Sincronização e outras configurações.
+Usuário que está executando o assistente de instalação | Se usar um SQL Server completo: DBO (ou semelhante) do banco de dados de mecanismo de sincronização | Fazer alterações no nível de banco de dados, como a atualização de tabelas com novas colunas.
 
 ## Mais informações sobre as contas criadas
 
@@ -134,4 +134,4 @@ A conta de serviço é criada com uma senha longa e complexa que não expira. El
 
 Saiba mais sobre [Como integrar suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->
