@@ -85,7 +85,7 @@ Sim, a persistência do Redis pode ser configurada na criação do cache e em ca
 
 ### Posso alterar a frequência de backup depois de criar o cache?
 
-Sim, você pode alterar a frequência de backup na folha de ** Persistência de dados do Redis**. Para obter instruções, consulte [Configurar persistência do Redis](#configure-redis-persistence).
+Sim, você pode alterar a frequência de backup na folha de **Persistência de dados do Redis**. Para obter instruções, consulte [Configurar persistência do Redis](#configure-redis-persistence).
 
 ### Por que se eu tiver uma frequência de backup de 60 minutos haverá mais de 60 minutos entre os backups?
 

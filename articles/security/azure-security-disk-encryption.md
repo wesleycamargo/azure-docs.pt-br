@@ -91,7 +91,7 @@ Quando você habilita e a implanta a criptografia de disco do Azure para VMs Iaa
 
 A criptografia de disco do Azure para VMs IaaS para solução Windows e Linux inclui a extensão de criptografia de disco para Windows, a extensão de criptografia de disco para Linux, os cmdlets de criptografia de disco do PowerShell, os cmdlets CLI de criptografia de disco e os modelos de Gerenciador de Recursos do Azure de criptografia de disco. Há suporte para a solução de criptografia de disco do Azure em VMs IaaS executando o Windows ou o sistema operacional Linux. Para obter mais detalhes sobre os sistemas operacionais com suporte, consulte a seção de pré-requisitos abaixo.
 
-****Nota:** não há nenhuma taxa para criptografar discos de VM com o Azure Disk Encryption.
+**Nota:** não há nenhuma taxa para criptografar discos de VM com o Azure Disk Encryption.
 
 ### Proposta de valor
 

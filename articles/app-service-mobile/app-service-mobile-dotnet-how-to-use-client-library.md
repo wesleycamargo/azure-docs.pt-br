@@ -452,7 +452,7 @@ Dois fluxos de autenticação têm suporte: um _fluxo de servidor_ e um _fluxo d
 De qualquer forma, você deve registrar seu aplicativo com seu provedor de identidade. O provedor de identidade fornece uma ID do cliente e um segredo do cliente. Você deve configurar a Autenticação/Autorização do Serviço de Aplicativo do Azure com o segredo do cliente e a ID do cliente fornecidos pelo provedor de identidade. Para saber mais, siga as instruções detalhadas no tutorial [Adicionar autenticação ao seu aplicativo].
 
 ###<a name="serverflow"></a>Fluxo de servidor
-Depois de registrar o provedor de identidade, chame o método MobileServiceClient.[LoginAsync] com o valor [MobileServiceAuthenticationProvider] de seu provedor. Por exemplo, o código a seguir inicia uma entrada de fluxo do servidor usando o Facebook.
+Depois de registrar o provedor de identidade, chame o método MobileServiceClient.\[LoginAsync] com o valor [MobileServiceAuthenticationProvider] de seu provedor. Por exemplo, o código a seguir inicia uma entrada de fluxo do servidor usando o Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()

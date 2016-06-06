@@ -435,7 +435,7 @@ Antes de executar as etapas nesta seção, você precisa ter associado um nome d
 
 	![carregamento de SSL][uploadcert]
 
-9. Na seção **Associações SSL** da guia **Configurações de SLL**, use os menus suspensos para selecionar o nome de domínio a ser protegido com o SSL e o certificado a usar. Você também pode selecionar se deseja usar [Indicação de nome do servidor][sni] (SNI) ou SSL baseado em IP.
+9. Na seção **Associações SSL** da guia **Configurações de SLL**, use os menus suspensos para selecionar o nome de domínio a ser protegido com o SSL e o certificado a usar. Você também pode selecionar se deseja usar [Indicação de nome do servidor][sni] \(SNI) ou SSL baseado em IP.
 
 	![associações SSL][sslbindings]
 

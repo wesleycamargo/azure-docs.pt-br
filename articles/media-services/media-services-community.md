@@ -52,7 +52,7 @@ Atualmente, o MSDN é fórum principal do AMS.
 
 ## Entre em contato com a equipe
 
-O email principal dos Serviços de Mídia do Azure é: ****mediaservices@microsoft.com**.
+O email principal dos Serviços de Mídia do Azure é: **mediaservices@microsoft.com**.
 
 A tabela a seguir lista email das subequipes de recursos:
 

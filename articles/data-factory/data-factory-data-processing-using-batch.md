@@ -539,7 +539,7 @@ Nesta etapa, você criará um serviço vinculado para a sua conta do **Lote do A
 
     2.  Substitua **chave de acesso** pela chave de acesso da conta do Lote do Azure.
 
-    3.  Insira a ID do pool para a propriedade **poolName****.** Para essa propriedade, você pode especificar o nome do pool ou a ID do pool.
+    3.  Insira a ID do pool para a propriedade **poolName**.** Para essa propriedade, você pode especificar o nome do pool ou a ID do pool.
 
     4.  Digite o URI do lote para a propriedade JSON **batchUri**.
     
@@ -754,11 +754,11 @@ Nesta etapa, você criará um pipeline com uma atividade, a atividade personaliz
 
 	-   **AssemblyName** é definido para o nome da DLL: **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente <namespace>.<classname> em seu código.
+	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente \<namespace\>.\<classname\> em seu código.
 
 	-   **PackageLinkedService** é definido como **StorageLinkedService**, que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, terá de criar outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
 
-	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: <contêinerdozip>/<nomedozip.zip>.
+	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: \<contêinerdozip\>/\<nomedozip.zip\>.
 
 	-   A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
 

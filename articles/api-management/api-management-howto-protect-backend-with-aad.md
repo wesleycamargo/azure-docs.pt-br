@@ -237,9 +237,9 @@ Escolha **Aplicativo Web e/ou API Web**, insira um nome e clique na seta Próxim
 
 ![Novo aplicativo][api-management-aad-new-application-devportal-1]
 
-Para a **URL de logon**, insira a URL do seu serviço de Gerenciamento de API e acrescente `/signin`. Neste exemplo ****https://contoso5.portal.azure-api.net/signin** é usado.
+Para a **URL de logon**, insira a URL do seu serviço de Gerenciamento de API e acrescente `/signin`. Neste exemplo **https://contoso5.portal.azure-api.net/signin** é usado.
 
-Para a **URL da Id do aplicativo** insira a URL do seu serviço de Gerenciamento de API e acrescente alguns caracteres exclusivos. Eles podem ser qualquer caractere desejado e, neste exemplo, ****https://contoso5.portal.azure-api.net/dp** é usado. Quando as **Propriedades do aplicativo** desejadas forem configuradas, clique na marca de seleção para criar o aplicativo.
+Para a **URL da Id do aplicativo** insira a URL do seu serviço de Gerenciamento de API e acrescente alguns caracteres exclusivos. Eles podem ser qualquer caractere desejado e, neste exemplo, **https://contoso5.portal.azure-api.net/dp** é usado. Quando as **Propriedades do aplicativo** desejadas forem configuradas, clique na marca de seleção para criar o aplicativo.
 
 ![Novo aplicativo][api-management-aad-new-application-devportal-2]
 

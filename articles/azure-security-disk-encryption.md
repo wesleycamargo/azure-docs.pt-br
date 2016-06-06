@@ -91,7 +91,7 @@ Quando você habilita e a implanta a criptografia de disco do Azure para VMs Iaa
 
 A criptografia de disco do Azure para VMs IaaS para solução Windows e Linux inclui a extensão de criptografia de disco para Windows, a extensão de criptografia de disco para Linux, os cmdlets de criptografia de disco do PowerShell, os cmdlets CLI de criptografia de disco e os modelos de Gerenciador de Recursos do Azure de criptografia de disco. Há suporte para a solução de criptografia de disco do Azure em VMs IaaS executando o Windows ou o sistema operacional Linux. Para obter mais detalhes sobre os sistemas operacionais com suporte, consulte a seção de pré-requisitos abaixo.
 
-****Nota:** não há nenhuma taxa para criptografar discos de VM com o Azure Disk Encryption.
+**Nota:** não há nenhuma taxa para criptografar discos de VM com o Azure Disk Encryption.
 
 ### Proposta de valor
 
@@ -169,21 +169,21 @@ O Azure Disk Encryption tem suporte nos seguintes SKUs de cliente Windows: clien
 
 	- Exemplo de URL de segredo válida:
 
-		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Exemplo de KEK de KRK válida:
 
-		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - A criptografia de disco do Azure não dá suporte a números de porta especificadas como parte do segredo do Cofre da Chave e das URLs de KEK. Veja a seguir exemplos de URL de Cofre da Chave com suporte:
 
  	- URL do Cofre da Chave inaceitável
 
-		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- URL do Cofre da Chave aceitável:
 
-		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Para habilitar o recurso de Criptografia de Disco do Azure, as VMs IaaS devem atender aos seguintes requisitos de configuração do ponto de extremidade de rede:
 
