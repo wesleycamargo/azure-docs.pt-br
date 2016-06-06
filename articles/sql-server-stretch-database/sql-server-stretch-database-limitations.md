@@ -30,7 +30,7 @@ As tabelas habilitadas para o Stretch têm as limitações a seguir.
 
 ### Operações DML
 
--   Não é possível atualizar com UPDATE ou excluir com DELETE as linhas em uma tabela habilitada para o Stretch ou em uma exibição que inclua tabelas habilitadas para o Stretch.
+-   Não é possível ATUALIZAR ou EXCLUIR as linhas que foram migradas ou linhas elegíveis para migração em uma tabela habilitada para o Stretch ou em uma exibição que inclua tabelas habilitadas para o Stretch.
 
 -   Você não pode inserir linhas com INSERT em uma tabela habilitada para Stretch em um servidor vinculado.
 
@@ -96,4 +96,4 @@ Os itens a seguir atualmente impedem você de habilitar o Stretch para uma tabel
 
 [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

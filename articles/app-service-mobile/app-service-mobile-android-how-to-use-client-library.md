@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="05/24/2016"
 	ms.author="ricksal"/>
 
 
@@ -57,9 +57,9 @@ Altere ambos os arquivos **build.gradle**:
 
 2. Adicione este código ao arquivo **build.gradle** do nível *Module app* dentro da marca *dependencies*:
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.1'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
-	Atualmente, a versão mais recente é a 3.1. As versões com suporte estão listadas [aqui](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+	Atualmente, a versão mais recente é a 3.1.0. As versões com suporte estão listadas [aqui](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>Habilitar a permissão de Internet
 Para acessar o Azure, o aplicativo deve ter a permissão INTERNET habilitada. Se ela ainda não estiver habilitada, adicione a seguinte linha de código ao arquivo **AndroidManifest.xml**:
@@ -95,24 +95,24 @@ Se a tabela do SQL Azure contiver mais colunas, adicione os campos correspondent
 
 Por exemplo, se ela tivesse uma coluna Priority de inteiros, você poderia adicionar este campo, com seus métodos getter e setter:
 
-		private Integer priority;
+	private Integer priority;
 
-	    /**
-	     * Returns the item priority
-	     */
-	    public Integer getPriority() {
-	        return mPriority;
-	    }
-
-	    /**
-	     * Sets the item priority
-	     *
-	     * @param priority
-	     *            priority to set
-	     */
-	    public final void setPriority(Integer priority) {
-	        mPriority = priority;
-	    }
+	/**
+	* Returns the item priority
+	*/
+	public Integer getPriority() {
+	return mPriority;
+	}
+	
+	/**
+	* Sets the item priority
+	*
+	* @param priority
+	*            priority to set
+	*/
+	public final void setPriority(Integer priority) {
+	mPriority = priority;
+	}
 
 Para saber como criar mais tabelas em seu back-end de Aplicativos Móveis, confira [Como definir um controlador de tabela](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (back-end do .NET) ou [Como definir tabelas usando um esquema dinâmico](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (back-end do Node.js). Para um back-end Node.js, você também pode usar a configuração **Tabelas fáceis** no [portal do Azure].
 
@@ -121,8 +121,8 @@ Para saber como criar mais tabelas em seu back-end de Aplicativos Móveis, confi
 Este código cria o objeto **MobileServiceClient** usado para acessar o back-end do Aplicativo Móvel. O código deve ser colocado no método `onCreate` da classe **Activity** especificada em *AndroidManifest.xml* como uma ação **MAIN** e categoria **LAUNCHER**. No código do Início Rápido, ele deve ser colocado no arquivo **ToDoActivity.java**.
 
 		MobileServiceClient mClient = new MobileServiceClient(
-				"MobileAppUrl", // Replace with the above Site URL
-				this)
+			"MobileAppUrl", // Replace with the above Site URL
+			this)
 
 Nesse código, substitua `MobileAppUrl` pela URL do back-end do Aplicativo Móvel, que pode ser encontrada no [portal do Azure](https://portal.azure.com/), na folha do back-end do Aplicativo Móvel. Para que essa linha de código seja compilada, você também precisa adicionar a instrução **import** a seguir:
 
@@ -132,7 +132,7 @@ Nesse código, substitua `MobileAppUrl` pela URL do back-end do Aplicativo Móve
 
 A maneira mais fácil de consultar ou modificar dados no back-end é usando o *modelo de programação tipado*, pois o Java é uma linguagem fortemente tipada (posteriormente, discutiremos o modelo *não tipado*). Esse modelo fornece perfeita serialização e desserialização de JSON usando a biblioteca [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) ao enviar dados entre objetos e tabelas do cliente no SQL do Azure no back-end: o desenvolvedor não precisa fazer nada, a estrutura cuida de tudo.
 
-Para acessar uma tabela, primeiramente crie um objeto [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) chamando o método **getTable** no [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). Esse método tem duas sobrecargas:
+Para acessar uma tabela, primeiramente crie um objeto [MobileServiceTable](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html) chamando o método **getTable** no [MobileServiceClient](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). Esse método tem duas sobrecargas:
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -141,14 +141,14 @@ Para acessar uma tabela, primeiramente crie um objeto [MobileServiceTable](http:
 
 No código a seguir, *mClient* é uma referência ao objeto MobileServiceClient.
 
-A [primeira sobrecarga](http://go.microsoft.com/fwlink/p/?LinkId=296839) é usada onde o nome da classe e o nome da tabela são iguais, e é a usada no Início Rápido:
+A [primeira sobrecarga](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-) é usada onde o nome da classe e o nome da tabela são iguais, e é a usada no Início Rápido:
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
 
-A [segunda sobrecarga](http://go.microsoft.com/fwlink/p/?LinkId=296840) é usada quando o nome da tabela é diferente do nome da classe: o primeiro parâmetro é o nome da tabela.
+A [segunda sobrecarga](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-java.lang.Class-) é usada quando o nome da tabela é diferente do nome da classe: o primeiro parâmetro é o nome da tabela.
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 ###<a name="binding"></a>Como associar dados à interface do usuário
 
@@ -174,7 +174,6 @@ O layout é definido por vários trechos de código XML. Com base em um layout e
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
-
 
 No código acima, o atributo *listitem* especifica a id do layout para uma linha individual na lista. Este é o código, que especifica uma caixa de seleção e seu texto associado. Isso será instanciado uma vez para cada item da lista. Esse layout não exibe o campo **ID**, e um layout mais complexo especificaria campos adicionais na exibição. Este código está no arquivo **row\_list\_to\_do.xml**.
 
@@ -258,9 +257,6 @@ Para saber como essas APIs assíncronas são usadas no aplicativo Android e como
 #### <a name="use-adapter"></a>Como usar o adaptador
 
 Agora você está pronto para usar a associação de dados. O código a seguir mostra como obter os itens na tabela de serviços móveis, limpar o adaptador e chamar o método *add* do adaptador para preenchê-lo com os itens retornados.
-
-
-**TBD**: teste este código!!
 
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -544,7 +540,7 @@ Você pode fazer filtragem, classificação e paginação, concatenando os méto
 
 Uma API personalizada permite que você defina pontos de extremidade personalizados que expõem a funcionalidade do servidor que não mapeia para uma inserção, atualização, exclusão ou operação de leitura. Usando uma API personalizada, você pode ter mais controle sobre mensagens, incluindo ler e definir cabeçalhos de mensagens HTTP e definir um formato de corpo de mensagem diferente do JSON.
 
-Em um cliente Android, você chama o método **invokeApi** para chamar o ponto de extremidade de API personalizada. O exemplo a seguir mostra como chamar um ponto de extremidade de API denominado *completeAll*, que retorna uma classe de coleção chamada MarkAllResult.
+Em um cliente Android, você chama o método **invokeApi** para chamar o ponto de extremidade da API personalizada. O exemplo a seguir mostra como chamar um ponto de extremidade da API denominado *completeAll*, que retorna uma classe de coleção chamada MarkAllResult.
 
 	public void completeItem(View view) {
 
@@ -570,7 +566,7 @@ O método **invokeApi** é chamado no cliente, que envia uma solicitação POST 
 
 Os tutoriais já descrevem detalhadamente como adicionar esses recursos.
 
-O Serviço de Aplicativo oferece suporte à [autenticação de usuários do aplicativo](app-service-mobile-android-get-started-users.md) usando uma variedade de provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e Azure Active Directory. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização no seu back-end.
+O Serviço de Aplicativo oferece suporte à [autenticação de usuários do aplicativo](app-service-mobile-android-get-started-users.md) usando uma variedade de provedores de identidade externos: Facebook, Google, Conta da Microsoft, Twitter e Active Directory do Azure. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização no seu back-end.
 
 Dois fluxos de autenticação têm suporte: um fluxo de *servidor* e um fluxo de *cliente*. O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda a recursos específicos do dispositivo, como o logon único, uma vez que ele depende de SDKs específicos de dispositivos específicos do provedor, além de exigir que você codifique isso.
 
@@ -616,7 +612,7 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para c
 
 * Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário onde você provisionou o aplicativo. O formato deve ser https://login.windows.net/contoso.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Active Directory do Azure no [Portal Clássico do Azure].
 
-* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter isso na guia **Avançadas** em **Configurações do Azure Active Directory** no portal.
+* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter isso na guia **Avançadas** em **Configurações do Active Directory do Azure** no portal.
 
 * Substitua **INSERT-CLIENT-ID-HERE** pela ID do cliente copiada do aplicativo cliente nativo.
 
@@ -682,7 +678,7 @@ Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para c
 
 ## Como adicionar notificação por push ao aplicativo
 
-Você pode [ler uma visão geral](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) que descreve como os Hubs de Notificação do Microsoft Azure oferecem suporte a uma ampla variedade de notificações por push.
+Você pode [ler uma visão geral](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) que descreve como os Hubs de Notificações do Microsoft Azure oferecem suporte a uma ampla variedade de notificações por push.
 
 [Neste tutorial](app-service-mobile-android-get-started-push.md), sempre que um registro for inserido, será enviada uma notificação por push.
 
@@ -841,4 +837,4 @@ Esse método geral pode ser usado sempre que tivermos um objeto complexo não se
 [Comece a usar a autenticação]: app-service-mobile-android-get-started-users.md
 [Introdução à autenticação]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

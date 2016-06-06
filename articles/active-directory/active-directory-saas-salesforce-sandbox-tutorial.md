@@ -12,16 +12,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="02/22/2016" 
+    ms.date="05/19/2016" 
     ms.author="jeedes" />
 
 
 #Tutorial: Integração do Active Directory do Azure com a Área Restrita Salesforce
 >[AZURE.TIP]Para ver comentários, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-O objetivo deste tutorial é mostrar a integração do Azure com a Área Restrita Salesforce.  
-As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce.  
-Para obter mais detalhes, confira [Visão geral da área restrita](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+O objetivo deste tutorial é mostrar a integração do Azure com a Área Restrita Salesforce. As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce. Para obter mais detalhes, confira [Visão geral da área restrita](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -80,7 +78,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
 
-3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon**, digite sua URL usando o seguinte padrão, "`http://company.my.salesforce.com` e, em seguida, clique em **Avançar**.
+3.  Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon**, digite sua URL usando o seguinte padrão, "*`http://company.my.salesforce.com` e, em seguida, clique em **Avançar**.
 
     ![Configurar a URL do Aplicativo](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configurar a URL do Aplicativo")
 
@@ -104,23 +102,33 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
     ![Configurações de logon único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "Configurações de Logon Único")
 
-    1.  Selecione **SAML Habilitado**.
-    2.  Clique em **Novo**.
+    a. Selecione **SAML Habilitado**.
+    
+    b. Clique em **Novo**.
 
 9.  Na seção Configurações de Logon Único de SAML, execute as seguintes etapas:
 
     ![Configurações de Logon Único do SAML](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "Configurações de Logon Único do SAML")
 
-    1.  Na caixa de texto Nome, digite o nome da configuração (por exemplo:*SPSSOWAAD\_Teste*).
-    2.  No Portal Clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**.
-    3.  Na caixa de texto **Id da Entidade**, digite **https://test.salesforce.com** se esta for a primeira instância de área restrita do Salesforce que você está adicionando ao seu diretório. Se você já tiver adicionado uma instância da Área restrita do Salesforce, para a **ID da Entidade** digite a **URL de Logon**, que deve estar no seguinte formato: `http://company.my.salesforce.com`
-	4.  Clique em **Procurar** para carregar o certificado baixado.
-    5.  Para o **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de Usuário**.
-    6.  Para **Local de Identidade SAML**, selecione **A identidade está no elemento NameIdentifier da instrução Subject**.
-    7.  No Portal Clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
-    8.  No Portal Clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL de Saída Remoto** e cole-o na caixa de texto **URL de Saída do Provedor de Identidade**.
-    9.  Para **Associação de Solicitação Iniciada pelo Provedor de Serviços**, selecione **HTTP POST**.
-    10. Clique em **Salvar**.
+    a. Na caixa de texto Nome, digite o nome da configuração (por exemplo:*SPSSOWAAD\_Teste*).
+    
+    b. No portal clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**.
+    
+    c. Na caixa de texto **Id da Entidade**, digite ****https://test.salesforce.com** se esta for a primeira instância de área restrita do Salesforce que você está adicionando ao seu diretório. Se você já tiver adicionado uma instância da Área restrita do Salesforce, para a **ID da Entidade** digite a **URL de Logon**, que deve estar no seguinte formato: `http://company.my.salesforce.com`
+    
+    d. Clique em **Procurar** para carregar o certificado baixado.
+    
+    e. Para o **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de Usuário**.
+    
+    f. Para **Local de Identidade SAML**, selecione **A identidade está no elemento NameIdentifier da instrução Subject**.
+    
+    g. No portal clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
+    
+    h. No portal clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL de Saída Remoto** e cole-o na caixa de texto **URL de Saída do Provedor de Identidade**.
+    
+    i. Para **Associação de Solicitação Iniciada pelo Provedor de Serviços**, selecione **HTTP POST**.
+    
+    j. Clique em **Salvar**.
 
 10. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
 
@@ -163,11 +171,11 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
     ![Novo Token](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698776.png "Novo Token")
 
-5.  Marque a caixa de entrada de um email do Salesforce.com usando "**confirmação de segurança de salesforce.com.com**" como o assunto.
+5.  Marque a caixa de entrada de um email do Salesforce.com usando "**confirmação de segurança de salesforce.com.com* *" como o assunto.
 
 6.  Leia o email e copie o valor do token de segurança.
 
-7.  No Portal Clássico do Azure, na página de integração de aplicativos da **Área restrita do salesforce**, clique em **Configurar provisionamento do usuário** para abrir a caixa de diálogo **Configurar Provisionamento do Usuário**.
+7.  No portal clássico do Azure, na página de integração do aplicativo **Área restrita do salesforce**, clique em **Configurar provisionamento do usuário** para abrir a caixa de diálogo **Configurar Provisionamento do Usuário**.
 
     ![Configure o provisionamento do usuário](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "Configure o provisionamento do usuário")
 
@@ -175,15 +183,15 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
     ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746476.png "Salesforce Sandbox")
 
-    1.  Na caixa de texto **Nome de Usuário de Administrador da área restrita Salesforce**, digite o nome da conta de uma área restrita Salesforce com o perfil **Administrador de Sistema** do Salesforce.com atribuído.
+    a. Na caixa de texto **Nome de Usuário de Administrador da área restrita Salesforce**, digite o nome da conta de uma área restrita Salesforce com o perfil **Administrador de Sistema** do Salesforce.com atribuído.
 
-    2.  Na caixa de texto **Senha do Administrador da Área Restrita Salesforce**, digite a senha dessa conta.
+    b. Na caixa de texto **Senha do Administrador da Área Restrita Salesforce**, digite a senha dessa conta.
 
-    3.  Na caixa de texto **Token de Segurança do Usuário**, cole o valor do token de segurança.
+    c. Na caixa de texto **Token de Segurança do Usuário**, cole o valor do token de segurança.
 
-    4.  Clique em **Validar** para verificar sua configuração.
+    d. Clique em **Validar** para verificar sua configuração.
 
-    5.  Clique no botão **Próximo** para abrir a página **Confirmação**.
+    e. Clique no botão **Próximo** para abrir a página **Confirmação**.
 
 9.  Na página **Confirmação**, clique em **Concluir** para salvar sua configuração.
 ##Atribuindo usuários
@@ -206,5 +214,4 @@ Agora você deve aguardar 10 minutos e verificar se a conta foi sincronizada com
   
 Se quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0224_2016-->
-
+<!---HONumber=AcomDC_0525_2016-->

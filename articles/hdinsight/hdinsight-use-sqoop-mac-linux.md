@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="05/24/2016"
 	ms.author="larryfr"/>
 
 #Usar o Sqoop com Hadoop no HDInsight (SSH)
@@ -29,20 +29,76 @@ Aprenda a usar o Sqoop para importar e exportar entre um cluster HDInsight basea
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
-
-- **Um cluster Hadoop no HDInsight**. Confira [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database) (Criar o cluster e o Banco de dados SQL).
+- **Um cluster Hadoop no HDInsight** e um __Banco de Dados Azure SQL__: as etapas neste documento são baseadas no cluster e no banco de dados criados usando o documento [Criar cluster e banco de dados SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database). Se você já tiver um cluster HDInsight e o banco de dados SQL, você pode substituir aqueles para os valores usados neste documento.
 - **Estação de trabalho**: um computador com um cliente SSH.
-- **CLI do Azure**: para obter mais informações, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md)
 
-    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+##Instalar o FreeTDS
+
+1. Utilize SSH para se conectar ao cluster do HDInsight para Linux. O endereço a ser usado ao conectar-se é `CLUSTERNAME-ssh.azurehdinsight.net` e a porta é `22`.
+
+	Para obter mais informações sobre como usar o SSH para se conectar ao HDInsight, consulte os seguintes documentos:
+
+    * **Clientes Linux, Unix ou OS X**: consulte [Conectar-se a um cluster HDInsight com base no Linux do Linux, OS X ou Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
+
+    * **Clientes Windows**: consulte [Conectar-se a um cluster HDInsight com base no Linux do Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
+
+3. Use o seguinte comando para instalar o FreeTDS:
+
+        sudo apt-get --assume-yes install freetds-dev freetds-bin
+
+    FreeTDS será usado em várias etapas para se conectar ao banco de dados SQL.
+
+##Crie a tabela no banco de dados SQL
+
+> [AZURE.IMPORTANT] Se você estiver usando um cluster HDInsight e um Banco de Dados SQL criado usando as etapas em [Criar cluster e banco de dados SQL](hdinsight-use-sqoop.md), ignore as etapas nesta seção, já que o banco de dados e a tabela foram criados como parte das etapas naquele documento.
+
+1. Da conexão SSH para HDInsight, use o seguinte comando para se conectar ao servidor do Banco de Dados SQL e criar a tabela que será usada no restante destas etapas:
+
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+
+    Você receberá saídas semelhantes ao seguinte:
+
+        locale is "en_US.UTF-8"
+        locale charset is "UTF-8"
+        using default charset "UTF-8"
+        Default database being set to sqooptest
+        1>
+
+5. Ao prompt `1>`, insira o seguinte:
+
+        CREATE TABLE [dbo].[mobiledata](
+        [clientid] [nvarchar](50),
+        [querytime] [nvarchar](50),
+        [market] [nvarchar](50),
+        [deviceplatform] [nvarchar](50),
+        [devicemake] [nvarchar](50),
+        [devicemodel] [nvarchar](50),
+        [state] [nvarchar](50),
+        [country] [nvarchar](50),
+        [querydwelltime] [float],
+        [sessionid] [bigint],
+        [sessionpagevieworder] [bigint])
+        GO
+        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+        GO
+
+    Quando a instrução `GO` for inserida, as instruções anteriores serão avaliadas. Primeiro, a tabela **mobiledata** é criada e, em seguida, um índice de cluster é adicionado a ela (exigido pelo Banco de Dados SQL).
+
+    Use o seguinte para verificar se a tabela foi criada:
+
+        SELECT * FROM information_schema.tables
+        GO
+
+    Você deverá ver uma saída semelhante ao seguinte:
+
+        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+        sqooptest       dbo     mobiledata      BASE TABLE
+
+8. Para sair do utilitário tsql, insira `exit` no prompt `1>`.
 
 ##Exportação do Sqoop
 
-2. Use o seguinte comando para criar um link para o driver JDBC do SQL Server do diretório lib Sqoop. Isso permite que o Sqoop use esse driver para se comunicar com o Banco de Dados SQL:
-
-        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /usr/hdp/current/sqoop-client/lib/sqljdbc41.jar
-
-3. Use o comando a seguir para verificar se o Sqoop pode ver seu Banco de Dados SQL:
+3. Da conexão SSH para HDInsight, use o comando abaixo para verificar se o Sqoop pode ver seu Banco de Dados SQL:
 
         sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
 
@@ -52,7 +108,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Isso instrui o Sqoop a se conectar ao Banco de Dados SQL, ao banco de dados **sqooptest** e exportar os dados do **wasb:///hive/warehouse/hivesampletable** (arquivos físico para o *hivesampletable*) à tabela **mobiledata**.
+    Isso instrui o Sqoop a se conectar ao Banco de Dados SQL, ao banco de dados **sqooptest** e exportar os dados do ****wasb:///hive/warehouse/hivesampletable** (arquivos físico para o *hivesampletable*) à tabela **mobiledata**.
 
 5. Depois de concluir o comando, use o seguinte para se conectar ao banco de dados usando TSQL:
 
@@ -67,7 +123,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 ##Importação do Sqoop
 
-1. Use o seguinte para importar dados da tabela **mobiledata** no Banco de Dados SQL para o diretório **wasb:///tutorials/usesqoop/importeddata** do HDInsight:
+1. Use o seguinte para importar dados da tabela **mobiledata** no Banco de Dados SQL para o diretório ****wasb:///tutorials/usesqoop/importeddata** do HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -144,4 +200,4 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -24,11 +24,11 @@ Este artigo foi projetado para ajudá-lo a controlar as versões que foram lanç
 
 Esta é a lista de tópicos relacionados:
 
-| Tópico | |
-| --------- | --------- |
-| Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](active-directory-aadconnect-upgrade-previous-version.md) do Azure AD Connect. |
-| Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](active-directory-aadconnect-accounts-permissions.md#upgrade) |
-| Baixar| [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+Tópico |  
+--------- | --------- |
+Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](active-directory-aadconnect-upgrade-previous-version.md) do Azure AD Connect.
+Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](active-directory-aadconnect-accounts-permissions.md#upgrade)
+Baixar| [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1\.1.180.0
 Lançamento: maio de 2016
@@ -284,4 +284,4 @@ Lançamento: setembro de 2014
 ## Próximas etapas
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

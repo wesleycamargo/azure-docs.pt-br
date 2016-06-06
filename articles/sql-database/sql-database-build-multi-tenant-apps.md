@@ -21,7 +21,7 @@
 
 ## Aproveite os pools Elásticos e compile aplicativos multilocatário mais eficientes
 
-Se você é um desenvolvedor de aplicativos SaaS escrevendo um aplicativo multilocatário e atendendo muitos clientes, normalmente é preciso fazer compromissos quanto à segurança, ao gerenciamento e ao desempenho do cliente. Com os Pools de Bancos de Dados elásticos do Banco de Dados SQL do Azure, você não precisa mais fazer esses compromissos. Esses pools ajudam você a gerenciar e a monitorar aplicativos multilocatário e a receber os benefícios do isolamento de um cliente por banco de dados.
+Se você é um desenvolvedor de aplicativos SaaS escrevendo um aplicativo multilocatário e atendendo muitos clientes, normalmente é preciso fazer compromissos quanto à segurança, ao gerenciamento e ao desempenho do cliente. Com os Pools de Bancos de Dados elásticos do Banco de Dados SQL do Azure, você não precisa mais fazer esses compromissos. Esses pools ajudam você a gerenciar e a monitorar aplicativos multilocatário e a receber os benefícios do isolamento de um cliente por banco de dados. Consulte [Padrões de design para aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
@@ -47,7 +47,7 @@ Pools Básicos, Standard e Premium fornecem a você um amplo espectro de opçõe
 
 Além dos pools elásticos, há recursos de banco de dados SQL para ajudar a gerenciar atividades operacionais em vários bancos de dados:
 
-** Realize consultas e gere relatórios em bancos de dados. ** [A consulta de banco de dados elástico](sql-database-elastic-query-overview.md) permite que você execute consultas ou relatórios em bancos de dados em seu pool elástico e acesse dados remotos armazenados em vários bancos de dados de seu pool de uma só vez.
+** Realize consultas e gere relatórios de bancos de dados. ** [A consulta de banco de dados elástico](sql-database-elastic-query-overview.md) permite que você execute consultas ou relatórios em bancos de dados em seu pool elástico e acesse dados remotos armazenados em vários bancos de dados de seu pool de uma só vez.
 
 ** Execute transações de banco de dados. ** [Transações de banco de dados elástico](sql-database-elastic-transactions-overview.md) permitem a execução de transações que abrangem vários bancos de dados em bancos de dados SQL e executam operações (por exemplo, ao processar transações financeiras em bancos de dados ou ao atualizar o estoque em um banco de dados e os em pedidos).
 
@@ -65,4 +65,4 @@ Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft
  
 Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

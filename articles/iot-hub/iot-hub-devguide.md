@@ -204,7 +204,7 @@ Consulte o artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens] para obter m
 
 Cada protocolo com suporte, como AMQP, MQTT e HTTP, transporta os tokens de maneiras diferentes.
 
-O HTTP implementa a autenticação incluindo um token válido no cabeçalho da solicitação **Authorization**. Um parâmetro de consulta chamado **Autorização** também pode transportar o token.
+O HTTP implementa a autenticação incluindo um token válido no cabeçalho da solicitação **Authorization**.
 
 Quando usa [AMQP][lnk-amqp], o Hub IoT dá suporte ao [SASL PLAIN][lnk-sasl-plain] e à [Segurança baseada em declarações AMQP][lnk-cbs].
 
@@ -557,4 +557,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

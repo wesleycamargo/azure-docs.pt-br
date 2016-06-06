@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="05/22/2016" 
 	ms.author="jeannt"/>
 
 
@@ -397,12 +397,12 @@ A definição de rede a seguir foi projetada para reconhecer números e ilustra 
 -	A rede tem uma terceira camada oculta, _Hid3_, que é totalmente conectada à _Conv2_, a segunda camada oculta.
 -	A camada de saída, _Digit_, é conectada somente à terceira camada oculta, _Hid3_. A palavra-chave **all** indica que a camada de saída está totalmente conectada a _Hid3_.
 -	A aridade da convolução é três (o tamanho das tuplas **InputShape**, **KernelShape**, **Stride** e **Sharing**). 
--	O número de pesos por kernel é _1 + **KernelShape**[0] * **KernelShape**\[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
+-	O número de pesos por kernel é _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
 -	Você pode calcular os nós em cada camada oculta, conforme descrito a seguir:
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\\1 = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5], conforme descrito a seguir: _**MapCount** * **NodeCount**[0] * **NodeCount**\[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
+-	O número total de nós pode ser calculado usando a dimensionalidade declarada da camada, [50, 5, 5], conforme descrito a seguir: _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
 -	Como **Sharing**[d] é Falso somente para _d == 0_, o número de kernels é _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 
@@ -414,4 +414,4 @@ A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolv
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0525_2016-->

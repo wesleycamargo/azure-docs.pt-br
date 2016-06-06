@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do conector do Windows PowerShell
@@ -61,16 +61,16 @@ Em seguida, você pode fornecer parâmetros de configuração para se conectar a
 
 **Conectividade**
 
-| Parâmetro | Valor Padrão | Finalidade |
-| --- | --- | --- |
-| Servidor | <Blank> | Nome do servidor ao qual o conector deve se conectar. |
-| Domínio | <Blank> | Domínio da credencial a ser armazenado para uso quando o conector é executado. |
-| Usuário | <Blank> | Nome de usuário da credencial a ser armazenado para uso quando o conector é executado. |
-| Senha | <Blank> | Senha da credencial a ser armazenada para uso quando o conector é executado. |
-| Representar Conta do Conector | Falso | Quando verdadeiro, o serviço de sincronização executará os scripts do Windows PowerShell no contexto das credenciais fornecidas acima. Quando possível, é recomendável que o parâmetro $Credentials passado para cada script seja usado no lugar da representação. Para obter mais informações sobre permissões adicionais que são necessárias para usar esse parâmetro, confira Configuração adicional para representação. |
-| Carregar o Perfil de Usuário ao Representar | Falso | Instrui o Windows a carregar o perfil do usuário das credenciais do conector durante a representação. Se o usuário a ser representado tiver um perfil móvel, o conector não carregará o perfil móvel. Para obter mais informações sobre permissões adicionais que são necessárias para usar esse parâmetro, confira Configuração adicional para representação. |
-| Tipo de Logon ao Representar | Nenhum | Tipo de logon durante representação. Para obter mais informações, veja a documentação [dwLogonType][dw]. |
-| Somente Scripts Assinados | Falso | Se verdadeiro, o conector Windows PowerShell confirmará que cada script tem uma assinatura digital válida. Se falso, verifique se a política de execução do Windows PowerShell do servidor do Serviço de Sincronização é RemoteSigned ou Unrestricted. |
+Parâmetro | Valor Padrão | Finalidade
+--- | --- | ---
+Servidor | <Blank> | Nome do servidor ao qual o conector deve se conectar.
+Domínio | <Blank> | Domínio da credencial a ser armazenado para uso quando o conector é executado.
+Usuário | <Blank> | Nome de usuário da credencial a ser armazenado para uso quando o conector é executado.
+Senha | <Blank> | Senha da credencial a ser armazenada para uso quando o conector é executado.
+Representar Conta do Conector | Falso | Quando verdadeiro, o serviço de sincronização executará os scripts do Windows PowerShell no contexto das credenciais fornecidas acima. Quando possível, é recomendável que o parâmetro $Credentials passado para cada script seja usado no lugar da representação. Para obter mais informações sobre permissões adicionais que são necessárias para usar esse parâmetro, confira Configuração adicional para representação.
+Carregar o Perfil de Usuário ao Representar | Falso | Instrui o Windows a carregar o perfil do usuário das credenciais do conector durante a representação. Se o usuário a ser representado tiver um perfil móvel, o conector não carregará o perfil móvel. Para obter mais informações sobre permissões adicionais que são necessárias para usar esse parâmetro, confira Configuração adicional para representação.
+Tipo de Logon ao Representar | Nenhum | Tipo de logon durante representação. Para obter mais informações, veja a documentação [dwLogonType][dw].
+Somente Scripts Assinados | Falso | Se verdadeiro, o conector Windows PowerShell confirmará que cada script tem uma assinatura digital válida. Se falso, verifique se a política de execução do Windows PowerShell do servidor do Serviço de Sincronização é RemoteSigned ou Unrestricted.
 
 **Módulo comum**
 
@@ -92,11 +92,11 @@ O Script de Validação é um script opcional do Windows PowerShell que pode ser
 
 O script de validação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameterPage | [ConfigParameterPage][cpp] | A guia ou caixa de diálogo de configuração que disparou a solicitação de validação. |
-| ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector. |
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameterPage | [ConfigParameterPage][cpp] | A guia ou caixa de diálogo de configuração que disparou a solicitação de validação.
+ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
 
 O script de validação deve retornar um único objeto ParameterValidationResult para o pipeline.
 
@@ -106,10 +106,10 @@ O script Descoberta de Esquema é obrigatório. Esse script retorna os tipos de 
 
 O script de descoberta de esquema recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector. |
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
 
 O script deve retornar um único objeto [Schema][schema] para o pipeline. O objeto Schema é composto por objetos [SchemaType][schemaT] que representam tipos de objeto (por ex., usuários, grupos, etc.). O objeto SchemaType mantém um conjunto de objetos [SchemaAttribute][schemaA] que representa os atributos (por ex., nome fornecido, sobrenome, endereço postal, etc.) do tipo.
 
@@ -127,25 +127,25 @@ A guia Recursos do Designer do Agente de Gerenciamento define o comportamento e 
 
 ![Funcionalidades](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
-| Recurso | Descrição |
-| --- | --- |
-| [Estilo de Nome Diferenciado][dnstyle] | Indica se o conector oferecerá suporte a nomes diferenciados e, em caso positivo, à qual estilo. |
-| [Tipo de Exportação][exportT] | Determina os tipos de objeto que são apresentados para o script Exportar. <li>AttributeReplace – inclui o conjunto completo de valores para um atributo com vários valores quando o atributo muda.</li><li>AttributeUpdate – inclui apenas os deltas para um atributo com vários valores quando o atributo muda.</li><li>MultivaluedReferenceAttributeUpdate - inclui um conjunto completo de valores de atributos com vários valores de não referência e apenas deltas para atributos de referência com vários valores.</li><li>ObjectReplace – inclui todos os atributos de um objeto quando algum atributo muda</li> |
-| [Normalização de Dados][DataNorm] | Instrui o Serviço de Sincronização a normalizar os atributos de âncora antes que eles sejam fornecidos aos scripts. |
-| [Confirmação do Objeto][oconf] | Define o comportamento de importação pendente no Serviço de Sincronização. <li>Normal – comportamento padrão que espera que todas as alterações exportadas sejam confirmadas via importação</li><li>NoDeleteConfirmation – quando um objeto é excluído, não há nenhuma importação pendente gerada.</li><li>NoAddAndDeleteConfirmation – quando um objeto é criado ou excluído, não há nenhuma importação pendente gerada.</li>
-| Usar DN como âncora | Se o Estilo de Nome Diferenciado for definido como LDAP, o atributo de âncora do espaço do conector também será o nome diferenciado. |
-| Operações Simultâneas de Vários Conectores | Quando marcada, vários conectores do Windows PowerShell podem ser executados simultaneamente. |
-| Partições | Quando marcada, o conector oferece suporte a várias partições e à descoberta de partição. |
-| Hierarquia | Quando marcada, o conector oferece suporte a uma estrutura hierárquica de estilo LDAP. |
-| Habilitar Importação | Quando marcada, o conector importará dados por meio de scripts de importação. |
-| Habilitar Importação Delta | Quando marcada, o conector pode solicitar deltas de scripts de importação. |
-| Habilitar Exportação | Quando marcada, o conector exportará dados por meio de scripts de exportação. |
-| Habilitar Exportação Completa | Quando marcada, os scripts de exportação oferecem suporte à exportação do espaço inteiro do conector. Para usar essa opção, Habilitar Exportação também deve ser marcada.|
-| Nenhum Valor de Referência na Primeira Passagem de Exportação | Quando marcada, os atributos de referência são exportados em uma segunda passagem de exportação. |
-| Habilitar Renomeação do Objeto | Quando marcada, os nomes diferenciados podem ser modificados. |
-| Excluir-Adicionar como Substituição | Quando marcada, as operações excluir-adicionar são exportadas como uma única substituição. |
-| Habilitar Operações de Senha | Quando marcada, há suporte para scripts de sincronização de senha. |
-| Habilitar Exportar Senha na Primeira Passagem | Quando marcada, as senhas definidas durante o provisionamento são exportadas quando o objeto é criado. |
+Recurso | Descrição |
+--- | --- |
+[Estilo de Nome Diferenciado][dnstyle] | Indica se o conector oferecerá suporte a nomes diferenciados e, em caso positivo, à qual estilo.
+[Tipo de Exportação][exportT] | Determina os tipos de objeto que são apresentados para o script Exportar. <li>AttributeReplace – inclui o conjunto completo de valores para um atributo com vários valores quando o atributo muda.</li><li>AttributeUpdate – inclui apenas os deltas para um atributo com vários valores quando o atributo muda.</li><li>MultivaluedReferenceAttributeUpdate - inclui um conjunto completo de valores de atributos com vários valores de não referência e apenas deltas para atributos de referência com vários valores.</li><li>ObjectReplace – inclui todos os atributos de um objeto quando algum atributo muda</li>
+[Normalização de Dados][DataNorm] | Instrui o Serviço de Sincronização a normalizar os atributos de âncora antes que eles sejam fornecidos aos scripts.
+[Confirmação do Objeto][oconf] | Define o comportamento de importação pendente no Serviço de Sincronização. <li>Normal – comportamento padrão que espera que todas as alterações exportadas sejam confirmadas via importação</li><li>NoDeleteConfirmation – quando um objeto é excluído, não há nenhuma importação pendente gerada.</li><li>NoAddAndDeleteConfirmation – quando um objeto é criado ou excluído, não há nenhuma importação pendente gerada.</li>
+Usar DN como âncora | Se o Estilo de Nome Diferenciado for definido como LDAP, o atributo de âncora do espaço do conector também será o nome diferenciado.
+Operações Simultâneas de Vários Conectores | Quando marcada, vários conectores do Windows PowerShell podem ser executados simultaneamente.
+Partições | Quando marcada, o conector oferece suporte a várias partições e à descoberta de partição.
+Hierarquia | Quando marcada, o conector oferece suporte a uma estrutura hierárquica de estilo LDAP.
+Habilitar Importação | Quando marcada, o conector importará dados por meio de scripts de importação.
+Habilitar Importação Delta | Quando marcada, o conector pode solicitar deltas de scripts de importação.
+Habilitar Exportação | Quando marcada, o conector exportará dados por meio de scripts de exportação.
+Habilitar Exportação Completa | Quando marcada, os scripts de exportação oferecem suporte à exportação do espaço inteiro do conector. Para usar essa opção, Habilitar Exportação também deve ser marcada.
+Nenhum Valor de Referência na Primeira Passagem de Exportação | Quando marcada, os atributos de referência são exportados em uma segunda passagem de exportação.
+Habilitar Renomeação do Objeto | Quando marcada, os nomes diferenciados podem ser modificados.
+Excluir-Adicionar como Substituição | Quando marcada, as operações excluir-adicionar são exportadas como uma única substituição.
+Habilitar Operações de Senha | Quando marcada, há suporte para scripts de sincronização de senha.
+Habilitar Exportar Senha na Primeira Passagem | Quando marcada, as senhas definidas durante o provisionamento são exportadas quando o objeto é criado.
 
 ### Parâmetros Globais
 
@@ -157,10 +157,10 @@ Uma partição é um namespace separado dentro de um esquema compartilhado. Por 
 
 O script de descoberta de partição recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
 
 O script deve retornar um único objeto [Partition][part] ou uma Lista[T] de objetos Partition para o pipeline.
 
@@ -170,11 +170,11 @@ O script de descoberta de hierarquia é usado apenas quando o recurso Estilo de 
 
 O script de descoberta de hierarquia recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector. |
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| ParentNode | [HierarchyNode][hn] | O nó raiz da hierarquia sob a qual o script deve retornar os filhos diretos. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
+ParentNode | [HierarchyNode][hn] | O nó raiz da hierarquia sob a qual o script deve retornar os filhos diretos.
 
 O script deve retornar um único objeto filho HierarchyNode ou uma Lista[T] de objetos filho HierarchyNode para o pipeline.
 
@@ -188,12 +188,12 @@ O script de início de importação é executado no começo de uma etapa de exec
 
 O script de início de importação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector. |
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informa o script sobre o tipo de execução de importação (delta ou completa), partição, hierarquia, marca d'água e tamanho esperado da página.
-| Tipos | [Esquema][schema] | Esquema para o espaço do conector que será importado. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
+OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informa o script sobre o tipo de execução de importação (delta ou completa), partição, hierarquia, marca d'água e tamanho esperado da página.
+Tipos | [Esquema][schema] | Esquema para o espaço do conector que será importado.
 
 O script deve retornar um único objeto [OpenImportConnectionResults][oicres] para o pipeline. O código de exemplo abaixo demonstra como retornar um objeto OpenImportConnectionResults para o pipeline:
 
@@ -205,13 +205,13 @@ O script de importação de dados é chamado pelo conector até que o script ind
 
 O script de importação de dados recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector. |
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| GetImportEntriesRunStep | [ImportRunStep][irs] | Contém a marca d'água (CustomData) que pode ser usada durante importações paginadas e importações delta. |
-| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informa o script sobre o tipo de execução de importação (delta ou completa), partição, hierarquia, marca d'água e tamanho esperado da página. |
-| Tipos | [Esquema][schema] | Esquema para o espaço do conector que será importado. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
+GetImportEntriesRunStep | [ImportRunStep][irs] | Contém a marca d'água (CustomData) que pode ser usada durante importações paginadas e importações delta.
+OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informa o script sobre o tipo de execução de importação (delta ou completa), partição, hierarquia, marca d'água e tamanho esperado da página.
+Tipos | [Esquema][schema] | Esquema para o espaço do conector que será importado.
 
 O script de importação de dados deve gravar um objeto List[[CSEntryChange][csec]] no pipeline. Essa coleção é composta por atributos CSEntryChange que representam cada objeto que está sendo importado. Durante uma importação completa, essa coleção deve ter um conjunto completo de objetos CSEntryChange com todos os atributos para cada objeto individual. Durante uma importação delta, o objeto CSEntryChange deve conter os deltas de nível de atributo para cada objeto a ser importado ou uma representação completa dos objetos que foram alterados (modo Substituir).
 
@@ -221,12 +221,12 @@ Na conclusão da execução da importação, o script Finalizar Importação ser
 
 O script de finalização de importação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector. |
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informa o script sobre o tipo de execução de importação (delta ou completa), partição, hierarquia, marca d'água e tamanho esperado da página. |
-| CloseImportConnectionRunStep | [CloseImportConnectionRunStep][cecrs] | Informa o script sobre o motivo da finalização da importação. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
+OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informa o script sobre o tipo de execução de importação (delta ou completa), partição, hierarquia, marca d'água e tamanho esperado da página.
+CloseImportConnectionRunStep | [CloseImportConnectionRunStep][cecrs] | Informa o script sobre o motivo da finalização da importação.
 
 O script deve retornar um único objeto [CloseImportConnectionResults][cicres] para o pipeline. O código de exemplo abaixo demonstra como retornar um objeto CloseImportConnectionResults para o pipeline: `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
 
@@ -240,12 +240,12 @@ O script de início de exportação é executado no começo de uma etapa de exec
 
 O script de início de exportação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector. |
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informa o script sobre o tipo de execução de exportação (delta ou completa), partição, hierarquia e tamanho esperado da página. |
-| Tipos | [Esquema][schema] | Esquema para o espaço do conector que será exportado. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
+OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informa o script sobre o tipo de execução de exportação (delta ou completa), partição, hierarquia e tamanho esperado da página.
+Tipos | [Esquema][schema] | Esquema para o espaço do conector que será exportado.
 
 O script não deve retornar saídas para o pipeline.
 
@@ -255,13 +255,13 @@ O Serviço de Sincronização chamará o script Exportar Dados quantas vezes for
 
 O script de exportação de dados recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.|
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.|
-| CSEntries | IList[CSEntryChange][csec] | Lista de todos os objetos do espaço do conector com exportações pendentes a serem processadas durante essa etapa. |
-| OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informa o script sobre o tipo de execução de exportação (delta ou completa), partição, hierarquia e tamanho esperado da página. |
-| Tipos | [Esquema][schema] | Esquema para o espaço do conector que será exportado. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
+CSEntries | IList[CSEntryChange][csec] | Lista de todos os objetos do espaço do conector com exportações pendentes a serem processadas durante essa etapa.
+OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informa o script sobre o tipo de execução de exportação (delta ou completa), partição, hierarquia e tamanho esperado da página.
+Tipos | [Esquema][schema] | Esquema para o espaço do conector que será exportado.
 
 O script de exportação de dados deve retornar um objeto [PutExportEntriesResults][peeres] para o pipeline. Esse objeto não precisa incluir informações de resultado para cada conector exportado, a menos que ocorra um erro ou uma alteração no atributo de âncora.
 
@@ -273,12 +273,12 @@ Na conclusão da execução da exportação, o script Finalizar Exportação ser
 
 O script de finalização de exportação recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector. |
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informa o script sobre o tipo de execução de exportação (delta ou completa), partição, hierarquia e tamanho esperado da página. |
-| CloseExportConnectionRunStep | [CloseExportConnectionRunStep][cecrs] | Informa o script sobre o motivo da finalização da exportação. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
+OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informa o script sobre o tipo de execução de exportação (delta ou completa), partição, hierarquia e tamanho esperado da página.
+CloseExportConnectionRunStep | [CloseExportConnectionRunStep][cecrs] | Informa o script sobre o motivo da finalização da exportação.
 
 O script não deve retornar saídas para o pipeline.
 
@@ -288,16 +288,16 @@ Os conectores do Windows PowerShell podem ser usados como um destino para altera
 
 O script de senha recebe os seguintes parâmetros do conector:
 
-| Nome | Tipo de Dados | Descrição |
-| --- | --- | --- |
-| ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector. |
-| Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| Partição | [Partition][part] | Partição de diretório em que CSEntry está. |
-| CSEntry | [CSEntry][cse] | Entrada do espaço do conector para o objeto que recebeu uma alteração ou redefinição de senha. |
-| OperationType | Cadeia de caracteres | Indica se a operação é uma redefinição (**SetPassword**) ou uma alteração (**ChangePassword**). |
-| PasswordOptions | [PasswordOptions][pwdopt] | Sinalizadores que especificam o comportamento de redefinição de senha pretendido. Esse parâmetro estará disponível somente se OperationType for **SetPassword**. |
-| OldPassword | Cadeia de caracteres | Populado com a senha antiga do objeto para alterações de senha. Esse parâmetro estará disponível somente se OperationType for **ChangePassword**. |
-| NewPassword | Cadeia de caracteres | Populado com a nova senha do objeto que o script deve definir. |
+Nome | Tipo de Dados | Descrição
+--- | --- | ---
+ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Tabela de parâmetros de configuração para o conector.
+Credencial | [PSCredential][pscred] | Contém as credenciais inseridas pelo administrador na guia Conectividade.
+Partição | [Partition][part] | Partição de diretório em que CSEntry está.
+CSEntry | [CSEntry][cse] | Entrada do espaço do conector para o objeto que recebeu uma alteração ou redefinição de senha.
+OperationType | Cadeia de caracteres | Indica se a operação é uma redefinição (**SetPassword**) ou uma alteração (**ChangePassword**).
+PasswordOptions | [PasswordOptions][pwdopt] | Sinalizadores que especificam o comportamento de redefinição de senha pretendido. Esse parâmetro estará disponível somente se OperationType for **SetPassword**.
+OldPassword | Cadeia de caracteres | Populado com a senha antiga do objeto para alterações de senha. Esse parâmetro estará disponível somente se OperationType for **ChangePassword**.
+NewPassword | Cadeia de caracteres | Populado com a nova senha do objeto que o script deve definir.
 
 Não é comum que o script de senha retorne algum resultado para o pipeline do Windows PowerShell. Se ocorrer um erro no script de senha, o script deverá lançar uma das seguintes exceções para informar o Serviço de Sincronização sobre o problema:
 
@@ -370,4 +370,4 @@ Substitua o nome do conector Windows PowerShell para o espaço reservado <Connec
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

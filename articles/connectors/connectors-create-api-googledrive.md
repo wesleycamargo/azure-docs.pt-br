@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Adicionar a API do Google Drive ao PowerApps ou aplicativos lógicos | Microsoft Azure"
-	description="Visão geral da API do Google Drive com parâmetros da API REST"
-	services=""
+    pageTitle="Adicionar o conector do Google Drive ao PowerApps ou aplicativos lógicos | Microsoft Azure"
+    description="Visão geral do conector do Google Drive com parâmetros da API REST"
+    services=""
     suite=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -15,11 +15,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introdução à API do Google Drive
-Conecte-se ao Google Drive para criar arquivos, obter linhas e muito mais. A API do Google Drive pode ser usada em:
+# Introdução ao conector do Google Drive
+Conecte-se ao Google Drive para criar arquivos, obter linhas e muito mais. O conector do Google Drive pode ser usado por meio de:
 
 - Aplicativos lógicos 
 - PowerApps
@@ -32,9 +32,9 @@ Com o Google Drive, você pode:
 
 - Crie seu fluxo de negócios baseado nos dados que você obtém da pesquisa. 
 - Use ações para pesquisar imagens, notícias e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode pesquisar por um vídeo e usar o Twitter para publicar esse vídeo em um feed do Twitter.
-- Adicione a API do Google Drive ao PowerApps Enterprise. Assim, seus usuários poderão usar essa API em seus próprios aplicativos. 
+- Adicionar o conector do Google Drive ao PowerApps Enterprise Assim, seus usuários poderão usar esse conector em seus próprios aplicativos. 
 
-Para obter mais informações sobre como adicionar uma API no PowerApps Enterprise, vá para [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para saber mais sobre como adicionar um conector ao PowerApps Enterprise, acesse [Registrar um conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Para adicionar uma operação nos aplicativos lógicos, veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -46,15 +46,14 @@ Gatilhos | Ações
 --- | ---
 Nenhum | <ul><li>Criar arquivo</li><li>Inserir linha</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Excluir linha</li><li>Extrair o arquivo morto para a pasta</li><li>Obter conteúdo do arquivo usando a ID</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo usando a ID</li><li>Obter metadados do arquivo usando o caminho</li><li>Obter linha</li><li>Atualizar arquivo</li><li>Atualizar linha</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 
 ## Criar a conexão com o Google Drive
 
-Quando você adiciona essa API aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Google Drive.
+Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao Google Drive.
 
-1. Entre em sua conta do Google Drive.
-2. Permita que seus aplicativos lógicos se conectem e usem o Google Drive. 
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o googledrive](../../includes/connectors-create-api-googledrive.md)]
 
 Depois de criar a conexão, insira as propriedades do Google Drive, como o caminho da pasta ou o nome do arquivo. A **referência da API REST** neste tópico descreve essas propriedades.
 
@@ -259,7 +258,7 @@ Atualiza uma linha em uma Planilha Google.```PATCH: /datasets/{dataset}/tables/{
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -356,4 +355,4 @@ Volte para a [Lista de APIs](apis-list.md).
 [13]: ./media/connectors-create-api-googledrive/configure-consent-screen.png
 [14]: ./media/connectors-create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

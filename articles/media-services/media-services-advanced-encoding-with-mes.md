@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2016"    
+	ms.date="05/19/2016"    
 	ms.author="juliako"/>
 
 
@@ -236,6 +236,20 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 		}
 
 
+##Suporte para tamanhos relativos
+
+Ao gerar miniaturas, você não precisa sempre especificar a largura e altura da saída em pixels. Você pode especificá-los em porcentagens, no intervalo de [% 1, …, 100%].
+
+###Predefinição JSON 
+	
+	"Width": "100%",
+	"Height": "100%"
+
+###Predefinição XML
+	
+	<Width>100%</Width>
+	<Height>100%</Height>
+	
 ##<a id="thumbnails"></a>Gerar miniaturas
 
 Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e adicionar o código que gera miniaturas.
@@ -869,7 +883,7 @@ Você pode pegar qualquer uma das predefinições MES documentadas [aqui](https:
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-##<a id="deinterlacing"></a>Desabilitar o desentrelaçamento automático
+##<a id="deinterlacing"></a>Desabilitar desentrelaçamento automático
 
 Os clientes não precisam fazer nada se desejarem que o conteúdo de entrelaçamento seja automaticamente desentrelaçado. Quando o desentrelaçamento automático está ativado (padrão), o MES faz a detecção automática de quadros entrelaçados e apenas desentrelaça quadros marcados como entrelaçados.
 
@@ -1072,4 +1086,4 @@ Atualize sua predefinição personalizada com IDs que você deseja concatenar e 
 
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

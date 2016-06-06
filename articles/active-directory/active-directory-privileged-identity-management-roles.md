@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Funções no Azure AD Privileged Identity Management
@@ -32,7 +32,8 @@ O Azure AD PIM (Privileged Identity Management) gerencia políticas para o acess
 O Privileged Identity Management permite que você atribua usuários às funções de administrador comuns, incluindo:
 
 
-- O **Administrador global** (também conhecido como Administrador da Empresa) tem acesso a todos os recursos administrativos. Você pode ter mais de um administrador global na sua organização. A pessoa que se inscreve para comprar o Office 365 automaticamente se torna um administrador global.
+- O **Administrador global** (também conhecido como Administrador da empresa) tem acesso a todos os recursos administrativos. Você pode ter mais de um administrador global na sua organização. A pessoa que se inscreve para comprar o Office 365 automaticamente se torna um administrador global.
+- O **Administrador de função com privilégios** gerencia o PIM do Azure AD e atualiza as atribuições de função para outros usuários.  
 - O **Administrador de cobrança** faz compras, gerencia as assinaturas, gerencia tíquetes de suporte e monitora a integridade do serviço.
 - O **Administrador de senha** redefine as senhas, gerencia as solicitações de serviço e monitora a integridade do serviço. Os administradores de senha são limitados à redefinição de senhas para usuários.
 - O **Administrador de serviços** gerencia as solicitações de serviço e monitora a integridade do serviço.
@@ -79,7 +80,7 @@ O acesso ao Microsoft Online Services pode exigir que o usuário também tenha u
 3. Selecione o diretório com o qual você deseja trabalhar e que tem licenças associadas a ele.
 4. Selecione **Licenças**. A lista de licenças disponíveis será exibida.
 5. Selecione o plano de licença que contém as licenças que você deseja distribuir.
-6. Selecione **Atribuir Usuários**.
+6. Selecione **Atribuir usuários**.
 7. Selecione o usuário ao qual você deseja atribuir uma licença.
 8. Clique no botão **Atribuir**. O usuário agora pode fazer logon no Azure.
 
@@ -87,4 +88,4 @@ O acesso ao Microsoft Online Services pode exigir que o usuário também tenha u
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar notificações e modelos de email no Gerenciamento de API do Azure
@@ -114,4 +114,4 @@ Clique em **Visualização** ou **Enviar um teste** para ver como o email ficar�
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
 [Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

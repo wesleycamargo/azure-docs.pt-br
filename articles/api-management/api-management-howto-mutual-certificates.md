@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/25/2016" 
 	ms.author="sdanie"/>
 
 # Como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure
@@ -141,4 +141,4 @@ Para obter mais informações sobre outras maneiras de proteger seu serviço de 
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

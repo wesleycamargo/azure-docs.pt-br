@@ -22,28 +22,31 @@
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
-
 | | | | | 
 |---|---|---|---|---
-|[ago](#ago)|[dayofweek](#dayofweek)|[cláusula Let](#let-clause)|[rand](#rand)|[sum](#sum)
-|[qualquer](#any)|[dcount](#dcount)|[operador limit](#limit-operator)|[range](#range)|[operador summarize](#summarize-operator)
-|[argmax](#argmax)|[Objetos dinâmicos em cláusulas let](#dynamic-objects-in-let-clauses)|[log](#log)|[operador range](#range-operator)|[operador take](#take-operator)
-|[argmin](#argmin)|[exp](#exp)|[makelist](#makelist)|[operador reduce](#reduce-operator)|[todatetime](#todatetime)
-|[Operadores aritméticos](#arithmetic-operators)|[operador extend](#extend-operator)|[makeset](#makeset)|[renderizar política](#render-directive)|[todouble](#todouble)
-|[Literais de matriz e objeto](#array-and-object-literals)|[extract](#extract)|[max](#max)|[substitui](#replace)|[todynamic](#todynamic)
-|[arraylength](#arraylength)|[extractjson](#extractjson)|[min](#min)|[restringir cláusula](#restrict-clause)|[toint](#toint)
-|[avg](#avg)|[floor](#floor)|[operador mvexpand](#mvexpand-operator)|[Comparações escalares](#scalar-comparisons)|[tolong](#tolong)
-|[bin](#bin)|[getmonth](#getmonth)|[notempty](#notempty)|[operador sort](#sort-operator)|[tolower](#tolower)
-|[Literais boolianos](#boolean-literals)|[gettype](#gettype)|[notnull](#notnull)|[split](#split)|[operador top](#top-operator)
-|[Operadores boolianos](#boolean-operators)|[getyear](#getyear)|[now](#now)|[sqrt](#sqrt)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[hash](#hash)|[Literais numéricos](#numeric-literals)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Conversões](#casts)|[iff](#iff)|[Literais de cadeia de caracteres ofuscados](#obfuscated-string-literals)|[startofyear](#startofyear)|[treepath](#treepath)
-|[count](#count)|[isempty](#isempty)|[operador parse](#parse-operator)|[stdev](#stdev)|[operador union](#union-operator)
-|[operador count](#count-operator)|[isnotempty](#isnotempty)|[parsejson](#parsejson)|[strcat](#strcat)|[variance](#variance)
-|[countif](#countif)|[isnotnull](#isnotnull)|[percentile](#percentile)|[Comparações de cadeias de caracteres](#string-comparisons)|[operador where](#where-operator)
-|[countof](#countof)|[isnull](#isnull)|[percentiles](#percentiles)|[Literais de cadeia de caracteres](#string-literals)
-|[Expressões de data e hora](#date-and-time-expressions)|[operador join](#join-operator)|[operador project](#project-operator)|[strlen](#strlen)
-|[Literais de data e hora](#date-and-time-literals)|[Expressões de caminho JSON](#json-path-expressions)|[project-away op](#project-away-operator)|[substring](#substring)
+|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[operador summarize](#summarize-operator)
+|[ago](#ago)|[dayofyear](#dayofyear)|[operador join](#join-operator)|[range](#range)|[operador take](#take-operator)
+|[qualquer](#any)|[dcount](#dcount)|[Expressões de caminho JSON](#json-path-expressions)|[operador range](#range-operator)|[todatetime](#todatetime)
+|[argmax](#argmax)|[dcountif](#dcountif)|[cláusula Let](#let-clause)|[operador reduce](#reduce-operator)|[todouble](#todouble)
+|[argmin](#argmin)|[Objetos dinâmicos em cláusulas let](#dynamic-objects-in-let-clauses)|[operador limit](#limit-operator)|[renderizar política](#render-directive)|[todynamic](#todynamic)
+|[Operadores aritméticos](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[substitui](#replace)|[toint](#toint)
+|[Literais de matriz e objeto](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[restringir cláusula](#restrict-clause)|[tolong](#tolong)
+|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Comparações escalares](#scalar-comparisons)|[tolower](#tolower)
+|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[operador sort](#sort-operator)|[operador top](#top-operator)
+|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[operador top-nested](#top-nested-operator)
+|[Literais boolianos](#boolean-literals)|[operador extend](#extend-operator)|[operador mvexpand](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
+|[Operadores boolianos](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
+|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
+|[Conversões](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
+|[count](#count)|[getmonth](#getmonth)|[Literais numéricos](#numeric-literals)|[startofyear](#startofyear)|[operador union](#union-operator)
+|[operador count](#count-operator)|[gettype](#gettype)|[Literais de cadeia de caracteres ofuscados](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
+|[countif](#countif)|[getyear](#getyear)|[operador parse](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
+|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[Comparações de cadeias de caracteres](#string-comparisons)|[operador where](#where-operator)
+|[Expressões de data e hora](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[Literais de cadeia de caracteres](#string-literals)
+|[Literais de data e hora](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
+|[datepart](#datepart)|[isnotempty](#isnotempty)|[operador project](#project-operator)|[substring](#substring)
+|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[project-away op](#project-away-operator)|[sum](#sum)
+
 
 
 ## Consultas e operadores
@@ -115,7 +118,7 @@ Acrescente uma ou mais colunas calculadas a uma tabela.
 **Argumentos**
 
 * *T:* a tabela de entrada.
-* *ColumnName:* o nome das colunas a serem adicionadas. [Nomes](#names) diferenciam maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
+* *ColumnName:* o nome das colunas a serem adicionadas. [Names](#names) diferencia maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou ‘\_’. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
 * *Expression:* um cálculo sobre as colunas existentes.
 
 **Retorna**
@@ -151,10 +154,10 @@ Mescla as linhas das duas tabelas fazendo a correspondência entre valores da co
 
 **Argumentos**
 
-* *Table1*: o “lado esquerdo” da junção.
-* *Table2*: o “lado direito” da junção. Pode ser uma expressão de consulta aninhada que gera uma tabela.
-* *CommonColumn*: uma coluna que tem o mesmo nome nas duas tabelas.
-* *Kind*: especifica como deve ser feita a correspondência entre as linhas das duas tabelas.
+* *Table1* - o “lado esquerdo” da junção.
+* *Table2* - o “lado direito” da junção. Pode ser uma expressão de consulta aninhada que gera uma tabela.
+* *CommonColumn* - uma coluna que tem o mesmo nome nas duas tabelas.
+* *Kind* - especifica como deve ser feita a correspondência entre as linhas das duas tabelas.
 
 **Retorna**
 
@@ -258,7 +261,7 @@ Self-join:
 
      T | limit 5
 
-Retorna até o número especificado de linhas da tabela de entrada. Não há garantia de quais registros serão retornados. (Para retornar registros específicos, use [`top`](#top-operator).)
+Retorna até o número especificado de linhas da tabela de entrada. Não há garantia de quais registros serão retornados. (Para retornar registros específicos, use [`top`](#top-operator)).
 
 **Alias** `take`
 
@@ -281,7 +284,7 @@ Há um limite implícito quanto ao número de linhas retornadas ao cliente, mesm
 
 Expande uma lista de uma célula dinamicamente tipada (JSON) para que cada entrada tenha uma linha separada. Todas as outras células em uma linha expandida são duplicadas.
 
-(Confira também [`summarize makelist`](#summarize-operator), que executa a função oposta.)
+(Confira também [`summarize makelist`](#summarize-operator), que executa a função oposta).
 
 **Exemplo**
 
@@ -436,7 +439,7 @@ StormEvents
 
     T | project cost=price*quantity, price
 
-Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas colunas calculadas. A ordem das colunas no resultado é especificada pela ordem dos argumentos. Somente as colunas especificadas nos argumentos são incluídas no resultado: as demais colunas na entrada serão removidas. (Consulte também `extend`.)
+Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas colunas calculadas. A ordem das colunas no resultado é especificada pela ordem dos argumentos. Somente as colunas especificadas nos argumentos são incluídas no resultado: as demais colunas na entrada serão removidas. (Veja também `extend`).
 
 
 **Sintaxe**
@@ -446,7 +449,7 @@ Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas 
 **Argumentos**
 
 * *T:* a tabela de entrada.
-* *ColumnName:* o nome de uma coluna que deve aparecer na saída. Se não houver uma *Expression*, uma coluna com esse nome deverá aparecer na entrada. [Nomes](#names) diferenciam maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
+* *ColumnName:* o nome de uma coluna que deve aparecer na saída. Se não houver uma *Expression*, uma coluna com esse nome deverá aparecer na entrada. [Names](#names) diferencia maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou ‘\_’. Use `['...']` ou `["..."]` para substituir as aspas em palavras-chave ou em nomes por outros caracteres.
 * *Expression:* expressão escalar opcional que faz referência às colunas de entrada. 
 
     É válido retornar uma nova coluna calculada com o mesmo nome que uma coluna existente na entrada.
@@ -501,11 +504,11 @@ Gera uma tabela de coluna única de valores. Observe que ele não tem uma entrad
 * *Stop:* o valor mais elevado que está sendo gerado na saída (ou um limite para o valor mais elevado, se *step* passar por esse valor).
 * *Step:* a diferença entre dois valores consecutivos. 
 
-Os argumentos devem ser valores numéricos, de data ou de período de tempo. Eles não podem referenciar as colunas de nenhuma tabela. (Se quiser calcular o intervalo com base em uma tabela de entrada, use a [função *range*](#range), talvez com o [operador mvexpand](#mvexpand-operator).)
+Os argumentos devem ser valores numéricos, de data ou de período de tempo. Eles não podem referenciar as colunas de nenhuma tabela. (Se quiser calcular o intervalo com base em uma tabela de entrada, use a [função *range*](#range), talvez com o [operador mvexpand](#mvexpand-operator)).
 
 **Retorna**
 
-Uma tabela com uma única coluna chamada *ColumnName*, cujos valores são *Start*, *Start* + *Step*, ... até *Stop* inclusive.
+Uma tabela com uma única coluna chamada *ColumnName*, cujos valores são *Start*, *Start* + *Step*, ... até *Stop*, inclusive.
 
 **Exemplo**
 
@@ -610,7 +613,7 @@ Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
 ```
-Todas as linhas na tabela Traces que têm um `ActivityId` específico, classificadas por seu carimbo de data/hora.
+Todas as linhas na tabela Traces com um `ActivityId` específico, classificadas por seu carimbo de data/hora.
 
 ### operador summarize
 
@@ -637,19 +640,19 @@ Uma tabela que mostra quantos itens têm preços em cada intervalo [0,10,0], [10
 
 **Argumentos**
 
-* *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão. [Nomes](#names) diferenciam maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou “\_”. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
+* *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão. [Names](#names) diferencia maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou ‘\_’. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
 * *Aggregation:* uma chamada para uma função de agregação, como `count()` ou `avg()`, com nomes de coluna como argumentos. Consulte [agregações](#aggregations).
 * *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento. 
 
 Se você fornecer uma expressão numérica ou de hora sem usar `bin()`, a Análise a aplicará automaticamente com um intervalo de `1h` para horas ou de `1.0` para números.
 
-Se você não fornecer um *GroupExpression*, toda a tabela será resumida em uma única linha de saída.
+Se você não fornecer uma *GroupExpression*, toda a tabela será resumida em uma única linha de saída.
 
 
 
 **Retorna**
 
-As linhas de entrada são organizadas em grupos com os mesmos valores das expressões `by`. Em seguida, as funções de agregação especificadas são calculadas sobre cada grupo, produzindo uma linha para cada grupo. O resultado contém as colunas `by` e, também, pelo menos uma coluna para cada agregação calculada. (Algumas funções de agregação retornam várias colunas.)
+As linhas de entrada são organizadas em grupos com os mesmos valores das expressões `by`. Em seguida, as funções de agregação especificadas são calculadas sobre cada grupo, produzindo uma linha para cada grupo. O resultado contém as colunas `by` e pelo menos uma coluna para cada agregação calculada. (Algumas funções de agregação retornam várias colunas.)
 
 O resultado tem a mesma quantidade de linhas das diferentes combinações de valores `by`. Se quiser resumir intervalos de valores numéricos, use `bin()` para reduzir os intervalos a valores distintos.
 
@@ -684,7 +687,27 @@ Retorna os primeiros registros *N* classificados pelas colunas especificadas.
 
 **Dicas**
 
-`top 5 by name` é superficialmente equivale a `sort by name | take 5`. No entanto, é executado mais depressa e sempre retorna resultados classificados, enquanto `take` não oferece essa garantia.
+`top 5 by name` equivale superficialmente a `sort by name | take 5`. No entanto, tem execução mais rápida e sempre retorna resultados classificados, enquanto `take` não oferece essa garantia.
+
+### operador top-nested
+
+    requests 
+    | top-nested 5 of name by count()  
+    , top-nested 3 of performanceBucket by count() 
+    , top-nested 3 of client_CountryOrRegion by count()
+    | render barchart 
+
+Produz resultados hierárquicos, onde cada nível é uma busca detalhada do nível anterior. É útil para responder a perguntas como "quais são as cinco solicitações principais e, para cada uma delas, quais são os três principais buckets de desempenho e, para cada um deles, quais são os três países principais de onde vêm as solicitações?”
+
+**Sintaxe**
+
+   T | top-nested N of COLUMN by AGGREGATION [, ...]
+
+**Argumentos**
+
+* N:int - número de linhas a serem retornadas ou passadas para o próximo nível. Em uma consulta com três níveis onde N é 5, 3 e 3, o número total de linhas será 45.
+* COLUMN - uma coluna a ser agrupada para agregação. 
+* AGGREGATION - uma [função de agregação](#aggregations) a ser aplicada a cada grupo de linhas. Os resultados dessas agregações determinará os maiores grupos a serem exibidos.
 
 
 ### operador union
@@ -701,8 +724,8 @@ Usa duas ou mais tabelas e retorna as linhas de todas elas.
 
 **Argumentos**
 
-* *Table1*, *Table2* ...
- *  O nome de uma tabela, como `requests`, ou uma tabela definida em uma [cláusula let](#let-clause); ou
+* *Tabela1*, *Tabela2* ...
+ *  O nome de uma tabela, como `requests`, ou de uma tabela definida em uma [cláusula let](#let-clause) ou
  *  Uma expressão de consulta, como `(requests | where success=="True")`
  *  Um conjunto de tabelas especificadas com um curinga. Por exemplo, `e*` pode formar a união de todas as tabelas definidas nas cláusulas let anteriores cujo nome começa com “e”, juntamente com a tabela “exceções”.
 * `kind`: 
@@ -770,7 +793,7 @@ As linhas em *T* para as quais o *Predicate* é `true`.
 
 Para obter o desempenho mais rápido:
 
-* **Use comparações simples** entre os nomes de coluna e as constantes. (“Constante” significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma [cláusula `let`](#let-clause)).
+* **Use comparações simples** entre os nomes de coluna e as constantes. (‘Constant’ significa constante ao longo da tabela. Portanto, `now()` e `ago()` estão OK, bem como valores escalares atribuídos usando uma [cláusula `let`](#let-clause)).
 
     Por exemplo, prefira `where Timestamp >= ago(1d)` a `where floor(Timestamp, 1d) == ago(1d)`.
 
@@ -982,6 +1005,26 @@ Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para
 
 ![](./media/app-insights-analytics-reference/dcount.png)
 
+
+### dcountif
+
+    dcountif( Expression, Predicate [ ,  Accuracy ])
+
+Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset)).
+
+*Accuracy*, se for especificada, controlará o equilíbrio entre velocidade e precisão.
+
+ * `0` = o cálculo menos preciso e mais rápido.
+ * `1`, que é o padrão, equilibra a precisão e o tempo de cálculo; cerca de 0,8% de erro.
+ * `2` = cálculo mais preciso e mais lento; cerca de 0,4% de erro.
+
+**Exemplo**
+
+    pageViews 
+    | summarize cities=dcountif(client_City, client_City startswith "St") 
+      by client_CountryOrRegion
+
+
 ### makelist
 
     makelist(Expr [ ,  MaxListSize ] )
@@ -1096,7 +1139,7 @@ Retorna a soma de *Expr* no grupo.
 
 ## Escalares
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
 Os tipos que recebem suporte são:
 
@@ -1126,6 +1169,11 @@ Você pode converter de um tipo para outro. Em geral, se a conversão fizer sent
     tostring(42.5)
     todynamic("{a:10, b:20}")
 
+Verifique se uma cadeia de caracteres pode ser convertida em um tipo específico:
+
+    iff(notnull(todouble(customDimensions.myValue)),
+       ..., ...)
+
 ### Comparações escalares
 
 ||
@@ -1154,7 +1202,7 @@ Uma cadeia de caracteres que representa o tipo de armazenamento subjacente de se
 ---|---
 `gettype("a")` |`"string" `
 `gettype(111)` |`"long" `
-`gettype(1==1)` |`"int8" (*) `
+`gettype(1==1)` |`"int8"`
 `gettype(now())` |`"datetime" `
 `gettype(1s)` |`"timespan" `
 `gettype(parsejson('1'))` |`"int" `
@@ -1164,8 +1212,7 @@ Uma cadeia de caracteres que representa o tipo de armazenamento subjacente de se
 `gettype(123.45)` |`"real" `
 `gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
 `gettype(parsejson(''))` |`"null"`
-
-
+`gettype(1.2)==real` | `true`
 
 ### hash
 
@@ -1253,6 +1300,30 @@ Observe que há outras maneiras de conseguir esse efeito:
 
     T | summarize count(PossiblyNull)
 
+### toscalar
+
+Avalia uma consulta ou uma expressão e retorna o resultado como um único valor. Essa função é útil para cálculos em etapas. Por exemplo, calcular uma contagem total de eventos e, em seguida, usá-la como uma linha de base.
+
+**Sintaxe**
+
+    toscalar(query)
+    toscalar(scalar)
+
+**Retorna**
+
+O argumento avaliado. Se o argumento for uma tabela, retornará a primeira coluna da primeira linha. (É uma boa prática organizar para que o argumento tenha apenas uma coluna e uma linha).
+
+**Exemplo**
+
+```AIQL
+
+    // Get the count of requests 5 days ago:
+    let baseline = toscalar(requests  
+        | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
+    // List the counts relative to that baseline:
+    requests | summarize daycount = count() by floor(timestamp, 1d)  
+    | extend relative = daycount - baseline
+```
 
 
 
@@ -1274,7 +1345,7 @@ Observe que há outras maneiras de conseguir esse efeito:
 
 ## Números
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Literais numéricos
 
@@ -1288,22 +1359,25 @@ Observe que há outras maneiras de conseguir esse efeito:
 || |
 |---|-------------|
 | + | Adicionar |
-| - | Subtrair | 
-| * | Multiplicar | 
-| / | Dividir | 
-| % | Módulo | 
-|| 
-|`<` |Menor 
-|`<=`|Menor ou Igual a 
-|`>` |Maior 
-|`>=`|Maior ou Igual a 
-|`<>`|Diferente de 
-|`!=`|Diferente de
+| - | Subtrair | | * | Multiplicar | | / | Dividir | | % | Módulo | || |`<` |Menor |`<=`|Menor ou Igual a |`>` |Maior |`>=`|Maior ou Igual a |`<>`|Diferente de |`!=`|Diferente de
 
 
+### abs
 
+**Sintaxe**
 
-### bin
+	abs(x)
+
+**Argumentos**
+
+* x - um inteiro, um real ou um período de tempo
+
+**Retorna**
+
+    iff(x>0, x, -x)
+
+<a name="bin"></a><a name="floor"></a>
+### bin, arredmultb
 
 Arredonda os valores até um número inteiro múltiplo de um determinado tamanho de compartimentalização. Muito usado na consulta [`summarize by`](#summarize-operator). Se você tiver um conjunto disperso de valores, eles serão agrupados em um conjunto menor de valores específicos.
 
@@ -1312,11 +1386,12 @@ Alias `floor`.
 **Sintaxe**
 
      bin(value, roundTo)
+     floor(value, roundTo)
 
 **Argumentos**
 
-* *value:* um número, uma data ou um período. 
-* *roundTo:* o "tamanho da compartimentalização". Um número, uma data ou um período que divide *value*. 
+* *value:* um número, uma data ou um período de tempo. 
+* *roundTo:* o "tamanho do bin". Um número, uma data ou um período de tempo que divida *value*. 
 
 **Retorna**
 
@@ -1339,6 +1414,7 @@ A expressão a seguir calcula um histograma de durações, com um tamanho de par
 
     T | summarize Hits=count() by bin(Duration, 1s)
 ```
+
 ### exp
 
     exp(v)   // e raised to the power v
@@ -1359,7 +1435,7 @@ Um alias para [`bin()`](#bin).
     log10(v)  // Logarithm base 10 of v
 
 
-`v` deve ser um número real > 0. Caso contrário, nulo será retornado.
+`v` deve ser um número real maior do que 0. Caso contrário, nulo será retornado.
 
 ### rand
 
@@ -1381,7 +1457,7 @@ A função da raiz quadrada.
 
 **Argumentos**
 
-* *x:* um número real >= 0.
+* *x:* um número real maior ou igual a 0.
 
 **Retorna**
 
@@ -1421,7 +1497,7 @@ A função da raiz quadrada.
 ## Data e hora
 
 
-[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+[ago](#ago) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) |[datepart](#datepart) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
 ### Literais de data e hora
 
@@ -1453,7 +1529,7 @@ Expressão |Resultado
 `datetime("2015-01-01") + 1d`| `datetime("2015-01-02")`
 `datetime("2015-01-01") - 1d`| `datetime("2014-12-31")`
 `2h * 24` | `2d`
-`2d` / `2h` | `24`
+`2d`/`2h` | `24`
 `datetime("2015-04-15T22:33") % 1d` | `timespan("22:33")`
 `bin(datetime("2015-04-15T22:33"), 1d)` | `datetime("2015-04-15T00:00")`
 ||
@@ -1492,6 +1568,39 @@ Todas as linhas com um carimbo de data/hora na última hora:
     T | where timestamp > ago(1h)
 ```
 
+### datepart
+
+    datepart("Day", datetime(2015-12-14)) == 14
+
+Extrai uma parte especificada de uma data como um número inteiro.
+
+**Sintaxe**
+
+    datepart(part, datetime)
+
+**Argumentos**
+
+* `part:String` -{"Ano", "Mês", "Dia", "Hora", "Minuto", "Segundo", "Milissegundo", "Microssegundo", "Nanossegundo"}
+* `datetime`
+
+**Retorna**
+
+Long que representa a parte especificada.
+
+
+### dayofmonth
+
+    dayofmonth(datetime("2016-05-15")) == 15 
+
+O número ordinal do dia do mês.
+
+**Sintaxe**
+
+    dayofmonth(a_date)
+
+**Argumentos**
+
+* `a_date`: um `datetime`.
 
 
 ### dayofweek
@@ -1518,6 +1627,32 @@ O `timespan` desde a meia-noite no início do último domingo, arredondado para 
 dayofweek(1947-11-29 10:00:05)  // time(6.00:00:00), indicating Saturday
 dayofweek(1970-05-11)           // time(1.00:00:00), indicating Monday
 ```
+
+### dayofyear
+
+    dayofyear(datetime("2016-05-31")) == 152 
+    dayofyear(datetime("2016-01-01")) == 1 
+
+O número ordinal do dia do ano.
+
+**Sintaxe**
+
+    dayofyear(a_date)
+
+**Argumentos**
+
+* `a_date`: um `datetime`.
+
+<a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
+### endofday, endofweek, endofmonth, endofyear
+
+    dt = datetime("2016-05-23 12:34")
+
+    endofday(dt) == 2016-05-23T23:59:59.999
+    endofweek(dt) == 2016-05-28T23:59:59.999 // Saturday
+    endofmonth(dt) == 2016-05-31T23:59:59.999 
+    endofyear(dt) == 2016-12-31T23:59:59.999 
+
 
 ### getmonth
 
@@ -1568,17 +1703,16 @@ Determina o intervalo desde o evento identificado pelo predicado:
 T | where ... | extend Elapsed=now() - timestamp
 ```
 
-### startofmonth
+<a name="startofday"></a><a name="startofweek"></a><a name="startofmonth"></a><a name="startofyear"></a>
+### startofday, startofweek, startofmonth, startofyear
 
-    startofmonth(date)
+    date=datetime("2016-05-23 12:34:56")
 
-O início do mês que contém a data.
+    startofday(date) == datetime("2016-05-23")
+    startofweek(date) == datetime("2016-05-22") // Sunday
+    startofmonth(date) == datetime("2016-05-01")
+    startofyear(date) == datetime("2016-01-01")
 
-### startofyear
-
-    startofyear(date)
-
-O início do ano que contém a data.
 
 
 ### todatetime
@@ -1587,11 +1721,17 @@ Alias `datetime()`.
 
      todatetime("2016-03-28")
      todatetime("03/28/2016")
-     todatetime("2016-03-28 14:34")
+     todatetime("2016-03-28 14:34:00")
      todatetime("03/28/2016 2:34pm")
      todatetime("2016-03-28T14:34.5Z")
-     todatetime(a[0])  // cast a dynamic type
-     todatetime(b.c)   // cast a dynamic type
+     todatetime(a[0]) 
+     todatetime(b.c) 
+
+Verifique se uma cadeia de caracteres é uma data válida:
+
+     iff(notnull(todatetime(customDimensions.myDate)),
+         ..., ...)
+
 
 ### totimespan
 
@@ -1600,6 +1740,14 @@ Alias `timespan()`.
     totimespan("21d")
     totimespan("21h")
     totimespan(request.duration)
+
+### weekofyear
+
+    weekofyear(datetime("2016-05-14")) == 21
+    weekofyear(datetime("2016-01-03")) == 1
+    weekofyear(datetime("2016-12-31")) == 53
+
+O resultado inteiro representa o número da semana, de acordo com o padrão ISO 8601. O primeiro dia da semana é domingo e a primeira semana do ano é a que contém a primeira quinta-feira desse ano. (Os últimos dias de um ano, portanto, podem conter alguns dos dias da semana 1 do ano seguinte, ou os primeiros dias podem conter alguns dias da semana 52 ou 53 do ano anterior).
 
 
 ## Cadeia de caracteres
@@ -1649,7 +1797,7 @@ Operador|Descrição|Diferencia maiúsculas de minúsculas|Exemplo verdadeiro
 `matches regex`|LHS contém uma correspondência para o RHS|Sim| `"Fabrikam" matches regex "b.*k"`
 
 
-Use `has` ou `in` se você estiver testando a presença de um termo lexical completo, ou seja, um símbolo ou palavra alfanumérica delimitada por caracteres não alfanuméricos ou pelo início ou término do campo. `has` executa mais rápido do que `contains` ou `startswith`. A primeira dessas consultas é executada com mais rapidez:
+Use `has` ou `in` se você estiver testando a presença de um termo lexical completo, ou seja, um símbolo ou palavra alfanumérica delimitada por caracteres não alfanuméricos ou pelo início ou término do campo. `has` tem execução mais rápida do que `contains` ou `startswith`. A primeira dessas consultas é executada com mais rapidez:
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -1737,7 +1885,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
     isempty("") == true
 
-True se o argumento for uma cadeia de caracteres vazia ou nula. Consulte também [isnull](#isnull).
+True se o argumento for uma cadeia de caracteres vazia ou nula. Veja também [isnull](#isnull).
 
 
 **Sintaxe**
@@ -1906,7 +2054,7 @@ Converte uma cadeia de caracteres em letras maiúsculas.
 
 ## Matrizes, objetos e dinâmico
 
-[literais](#dynamic-literals) | [conversão](#casting-dynamic-objects) | [operadores](#operators) | [cláusulas let](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 Este é o resultado de uma consulta em uma exceção do Application Insights. O valor em `details` é uma matriz.
@@ -1920,7 +2068,7 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* Contudo, use `arraylength` e outras funções da Análise (não “.length”).
+* Contudo, use `arraylength` e outras funções da Análise (não use “.length”).
 
 **Casting**: em alguns casos, é necessário converter um elemento que você extraiu de um objeto, pois seu tipo pode variar. Por exemplo, `summarize...to` precisa de um tipo específico:
 
@@ -2233,4 +2381,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

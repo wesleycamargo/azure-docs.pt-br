@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell;markvi"/>
 
 # Recursos do serviço de sincronização do Azure AD Connect
@@ -33,23 +33,23 @@ Muitas dessas configurações podem ser alteradas somente pelo Azure AD Connect.
 
 As configurações a seguir podem ser definidas por `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Comentário |
-| --- | --- |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Permitirá que um atributo seja colocado em quarentena se ele for uma duplicata de outro objeto, em vez de causar falha de todo o objeto durante a exportação. |
-| [EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Permite que os objetos se unam em userPrincipalName além do endereço SMTP primário. |
-| [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Permite que o mecanismo de sincronização atualize o atributo userPrincipalName para usuários gerenciados/licenciados (não federados). |
+DirSyncFeature | Comentário
+--- | ---
+ [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) | Permitirá que um atributo seja colocado em quarentena se ele for uma duplicata de outro objeto, em vez de causar falha de todo o objeto durante a exportação.
+[EnableSoftMatchOnUpn](#userprincipalname-soft-match) | Permite que os objetos se unam em userPrincipalName além do endereço SMTP primário.
+[SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) | Permite que o mecanismo de sincronização atualize o atributo userPrincipalName para usuários gerenciados/licenciados (não federados).
 
 Depois que você habilitar um recurso, ele não poderá ser desabilitado novamente.
 
 As configurações a seguir são definidas pelo Azure AD Connect e não podem ser modificadas por `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Comentário |
-| --- | --- |
-| DeviceWriteback | [Azure AD Connect: habilitando o write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md) |
-| DirectoryExtensions | [Sincronização do Azure AD Connect: extensões do Directory](active-directory-aadconnectsync-feature-directory-extensions.md) |
-| PasswordSync | [Implementação de sincronização de senha com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md) |
-| UnifiedGroupWriteback | [Visualização: write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) |
-| UserWriteback | Não há suporte no momento. |
+DirSyncFeature | Comentário
+--- | ---
+DeviceWriteback | [Azure AD Connect: habilitando o write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md)
+DirectoryExtensions | [Sincronização do Azure AD Connect: extensões do Directory](active-directory-aadconnectsync-feature-directory-extensions.md)
+PasswordSync | [Implementação de sincronização de senha com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)
+UnifiedGroupWriteback | [Visualização: write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback)
+UserWriteback | Não há suporte no momento.
 
 ## Resiliência do atributo duplicado
 Em vez de falhar ao provisionar objetos com UPNs/proxyAddresses duplicados, o atributo duplicado é "colocado em quarentena" e um valor temporário é atribuído, se necessário. Quando o conflito é resolvido, o UPN temporário é corrigido para o valor correto automaticamente. Esse comportamento pode ser habilitado para o UPN e o proxyAddress separadamente. Para obter mais detalhes, consulte [Sincronização de identidades e resiliência do atributo duplicado](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
@@ -100,4 +100,4 @@ Essas configurações serão habilitadas para todos os diretórios do Azure AD n
 
 - [Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

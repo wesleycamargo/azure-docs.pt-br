@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="05/18/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Proteger um banco de dados no SQL Data Warehouse
@@ -33,7 +33,7 @@ Conexões com o SQL Data Warehouse podem ser criptografadas, definindo o modo de
 
 A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. Atualmente, o SQL Data Warehouse dá suporte à Autenticação do SQL Server com um nome de usuário e senha, além de uma visualização do Azure Active Directory.
 
-Quando você criou o servidor lógico do banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo".
+Quando você criou o servidor lógico do banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo", por meio da Autenticação do SQL Server.
 
 No entanto, como uma melhor prática, os usuários de sua organização devem usar uma conta diferente para a autenticação. Dessa forma, você pode limitar as permissões concedidas ao aplicativo e reduzir os riscos de atividades mal-intencionadas, caso o código do aplicativo seja vulnerável a um ataque de injeção de SQL.
 
@@ -53,7 +53,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 ```
 
-Para obter mais informações sobre a autenticação de um Banco de Dados SQL, consulte [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure][] e [Conectando-se ao SQL Data Warehouse ao usar a Autenticação do Azure Active Directory][].
+Para obter mais informações sobre como fazer a autenticação em um Banco de Dados SQL, consulte [Gerenciando bancos de dados e logons no Banco de Dados SQL do Azure][]. Para obter mais detalhes sobre como usar a preview do Azure AD para SQL Data Warehouse, consulte [Conexão ao SQL Data Warehouse usando a autenticação do Azure Active Directory][].
 
 
 ## Autorização
@@ -101,7 +101,7 @@ Para obter detalhes e exemplos sobre como se conectar ao SQL Data Warehouse com 
 [Conectar-se ao SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
 [Introdução à Auditoria do Banco de Dados SQL]: ./sql-data-warehouse-overview-auditing.md
 [Introdução à TDE (Transparent Data Encryption)]: ./sql-data-warehouse-encryption-tde.md
-[Conectando-se ao SQL Data Warehouse ao usar a Autenticação do Azure Active Directory]: ./sql-data-warehouse-aad-authentication.md
+[Conexão ao SQL Data Warehouse usando a autenticação do Azure Active Directory]: ./sql-data-warehouse-aad-authentication.md
 
 <!--MSDN references-->
 [Firewall do Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -115,4 +115,4 @@ Para obter detalhes e exemplos sobre como se conectar ao SQL Data Warehouse com 
 <!--Other Web references-->
 [Controle de acesso baseado em função no portal do Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Criptografia de Disco do Azure para VMs IaaS Windows e Linux | Microsoft Azure"
    description="O documento fornece uma visão geral de Criptografia de Disco do Microsoft Azure para VMs IaaS Windows e Linux."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/15/2016"
+   ms.date="05/23/2016"
    ms.author="devtiw"/>
 
 
@@ -36,7 +36,7 @@ A solução Azure Disk Encryption dá suporte aos seguintes cenários do cliente
 - Habilitar a criptografia na nova VM IaaS criada usando chaves de criptografia e VHD previamente criptografado
 - Habilitar a criptografia na nova VM IaaS criada das imagens da Galeria do Azure 
 - Ativar a criptografia em VMs IaaS existentes já em execução no Azure 
-- Desabilitar a criptografia em VMs IaaS do Windows  
+- Desabilitar a criptografia em VMs IaaS do Windows 
 
 A solução dá suporte aos seguintes itens para VMs IaaS quando habilitada no Microsoft Azure:
 
@@ -78,7 +78,7 @@ Quando você habilita e a implanta a criptografia de disco do Azure para VMs Iaa
 - Criptografia do volume do sistema operacional para proteger o volume de inicialização em repouso no armazenamento cliente
 
 	- A criptografia do volume do sistema operacional VM IaaS do Linux já em execução no Azure não tem suporte no momento. A criptografia do volume do sistema operacional para VM IaaS do Linux tem suporte somente para o cenário VHD previamente criptografado
-	
+
 - Criptografia de volume de dados/s para proteger os volumes de dados em repouso no armazenamento cliente
 
 - Desabilitar a criptografia em VMs IaaS do Windows
@@ -169,21 +169,21 @@ O Azure Disk Encryption tem suporte nos seguintes SKUs de cliente Windows: clien
 
 	- Exemplo de URL de segredo válida:
 
-		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Exemplo de KEK de KRK válida:
 
-		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - A criptografia de disco do Azure não dá suporte a números de porta especificadas como parte do segredo do Cofre da Chave e das URLs de KEK. Veja a seguir exemplos de URL de Cofre da Chave com suporte:
 
  	- URL do Cofre da Chave inaceitável
 
-		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- URL do Cofre da Chave aceitável:
 
-		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Para habilitar o recurso de Criptografia de Disco do Azure, as VMs IaaS devem atender aos seguintes requisitos de configuração do ponto de extremidade de rede:
 
@@ -845,4 +845,4 @@ Você pode baixar este guia na [Galeria do TechNet](https://gallery.technet.micr
 
 [Explorar a Criptografia de Disco do Azure com o Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

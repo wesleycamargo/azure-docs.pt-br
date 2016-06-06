@@ -103,16 +103,16 @@ Para habilitar a entrada no aplicativo, você precisará criar uma política de 
 
 ## Criar uma política de inscrição ou credenciais
 
-Esta política controla as duas experiências de inscrição e credenciais do consumidor com uma única configuração. Os consumidores são conduzidos para o caminho certo (inscrição ou credenciais), dependendo do contexto. Ele também descreve o conteúdo de tokens que o aplicativo receberá mediante inscrições ou entradas bem-sucedidas.
+Esta política controla as duas experiências de inscrição e credenciais do consumidor com uma única configuração. Os consumidores são conduzidos para o caminho certo (inscrição ou credenciais), dependendo do contexto. Ele também descreve o conteúdo de tokens que o aplicativo receberá mediante inscrições ou entradas bem-sucedidas. Há um exemplo de código para a política de inscrição ou de entrada [disponível aqui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
-1. [Siga estas etapas para navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Clique em **Políticas de inscrição ou credenciais**.
+1. [Siga estas etapas para navegar até a folha de recursos B2C no portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+2. Clique em **Políticas de inscrição ou de entrada**.
 3. Clique em **+Adicionar**, na parte superior da folha.
 4. O **Nome** determina o nome da política de inscrição usado pelo seu aplicativo. Por exemplo, insira "SiUpIn".
 5. Clique em **Provedores de identidade** e selecione "Inscrição de email". Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
 6. Clique em **Atributos de inscrição**. Escolha aqui os atributos do consumidor que você deseja coletar durante a inscrição. Por exemplo, selecione "Cidade/região", "Nome de exibição" e "CEP". Clique em **OK**.
 7. Clique em **Declarações do aplicativo**. Escolha aqui as declarações que você deseja que sejam retornadas dos tokens enviados ao aplicativo após uma experiência de inscrição ou credenciais bem-sucedida. Por exemplo, selecione "Nome de exibição", "Provedor de identidade", "CEP", "Novo usuário" e "ID de objeto do usuário".
-8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SiUpIn**" (o fragmento **B2C\_1\_** torna-se automaticamente pré-pendente) na folha **Políticas de inscrição ou credenciais**.
+8. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SiUpIn**" (o fragmento **B2C\_1\_** é automaticamente adicionado) na folha **Políticas de inscrição ou de entrada**.
 9. Abra a política clicando em "**B2C\_1\_SiUpIn**".
 10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
 11. Clique em **Executar agora**. Uma nova guia do navegador se abre e você poderá percorrer a experiência do consumidor de inscrição ou credenciais, conforme configurado.
@@ -124,7 +124,7 @@ Esta política controla as duas experiências de inscrição e credenciais do co
 
 Para habilitar a edição de perfil no aplicativo, você precisará criar uma política de edição de perfil. Essa política descreve as experiências pelas quais os consumidores passarão durante a edição do perfil e o conteúdo de tokens que o aplicativo receberá na conclusão bem-sucedida.
 
-1. [Siga estas etapas para navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estas etapas para navegar até a folha de recursos do B2C no portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Clique em **Políticas de edição de perfil**.
 3. Clique em **+Adicionar**, na parte superior da folha.
 4. O **Nome** determina o nome da política de edição de perfil usado pelo seu aplicativo. Por exemplo, insira "SiPe".
@@ -143,10 +143,10 @@ Para habilitar a edição de perfil no aplicativo, você precisará criar uma po
 
 Para habilitar a redefinição de senha refinada, você precisará criar uma política de redefinição de senha. Observe que a opção de redefinição de senha para todo o locatário especificada [aqui](active-directory-b2c-reference-sspr.md) também é aplicável para as políticas de credenciais. Essa política descreve as experiências pelas quais os consumidores passarão durante a redefinição da senha e o conteúdo de tokens que o aplicativo receberá na conclusão bem-sucedida.
 
-1. [Siga estas etapas para navegar até a folha de recursos do B2C no Portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estas etapas para navegar até a folha de recursos B2C no portal do Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Clique em **Políticas de redefinição de senha**.
 3. Clique em **+Adicionar**, na parte superior da folha.
-4. O **Nome** determina o nome da política de redefinição de senha usada pelo seu aplicativo. Por exemplo, insira “SSPR”.
+4. O **Nome** determina o nome da política de redefinição de senha usada pelo aplicativo. Por exemplo, insira “SSPR”.
 5. Clique em **Provedores de identidade** e escolha "Redefinir senha usando endereço de email". Clique em **OK**.
 6. Clique em **Declarações do aplicativo**. Aqui você escolhe as declarações que quer retornar dos tokens de volta ao aplicativo após uma experiência de redefinição de senha bem-sucedida. Por exemplo, escolha "ID de Objeto do Usuário".
 7. Clique em **Criar**. Observe que a política recém-criada aparece como "**B2C\_1\_SSPR**" (o fragmento **B2C\_1\_** é adicionado automaticamente) na folha **Políticas de redefinição de senha**.
@@ -161,4 +161,4 @@ Para habilitar a redefinição de senha refinada, você precisará criar uma pol
 
 - [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

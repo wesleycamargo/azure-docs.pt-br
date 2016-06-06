@@ -671,7 +671,7 @@ Você pode ver as tarefas do Azure Batch associadas ao processamento das fatias 
 ![tarefas do Azure Batch][image-data-factory-azure-batch-tasks]
 
 
-### Depurar o pipeline
+## Depurar o pipeline
 A depuração consiste em algumas técnicas básicas:
 
 1.	Se a fatia de entrada não estiver definida como **Pronto**, confirme se a estrutura da pasta de entrada está correta e se **file.txt** existe nas pastas de entrada. 
@@ -689,6 +689,10 @@ A depuração consiste em algumas técnicas básicas:
 4.	Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior**, sem subpastas.
 5.	Verifique se **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), e **packageLinkedService** (devem apontar para o armazenamento de blobs do Azure que contém o arquivo zip) estão definidos com os valores corretos. 
 6.	Se você corrigir um erro e quiser reprocessar a fatia, clique com o botão direito do mouse na fatia na folha **OutputDataset** e clique em **Executar**. 
+7.	A atividade personalizada não usa o arquivo **app.config** a partir do pacote. Portanto, se o código ler as cadeias de conexão a partir do arquivo de configuração, ele não funcionará no tempo de execução. A prática recomendada ao usar o Lote do Azure é armazenar segredos em uma **Azure KeyVault**, usar uma entidade de serviço com base em certificado para proteger o **keyvault** e distribuir o certificado para o pool de Lote do Azure. A atividade personalizada do .NET pode então acessar segredos no KeyVault no tempo de execução. Essa é uma solução genérica e pode ser dimensionada para qualquer tipo de segredo, não apenas a cadeia de conexão.
+
+	Há uma solução alternativa mais fácil (mas não é uma prática recomendada): você pode criar um novo **serviço vinculado do Azure SQL** com configurações de cadeia de conexão, criar um conjunto de dados que usa o serviço vinculado e encadear o conjunto de dados como um conjunto de dados de entrada fictício para a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada e isso deve funcionar bem no tempo de execução.
+
 
 
 ## Atualizar a atividade personalizada
@@ -697,7 +701,7 @@ Se você atualizar o código para a atividade personalizada, compile-o e carregu
 ## Copiar/mover dados 
 A atividade de cópia copia os dados de um armazenamento de dados de **origem** para um armazenamento de dados **coletor**. Confira [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores) para ver uma lista de armazenamentos de dados com suporte como fontes e coletores para a Atividade de Cópia.
 
-Se precisar mover dados de/para um repositório de dados que não tenha suporte na **Atividade de Cópia**, você pode usar a **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover os dados. Confira [Exemplo de HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) no GitHub.
+Se precisar mover dados de/para um armazenamento de dados que não tem suporte com a **Atividade de Cópia**, você poderá usar a **atividade personalizada** no Data Factory com sua própria lógica para copiar/mover os dados. Confira [Exemplo de HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) no GitHub.
 
 ## Isolamento de Appdomain 
 Confira [Exemplo de AppDomain Cruzado](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample), que mostra como criar uma atividade personalizada do .NET para o Azure Data Factory que não esteja restrita a versões de assembly usadas pelo iniciador do Azure Data Factory (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
@@ -791,7 +795,7 @@ O serviço Data Factory do Azure dá suporte à criação de um cluster sob dema
 
 2. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
-Veja [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
+Confira [Serviços vinculados de computação](data-factory-compute-linked-services.md) para obter detalhes.
 
 No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o seu próprio):
 
@@ -886,4 +890,4 @@ Amostra | Qual atividade personalizada realiza
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

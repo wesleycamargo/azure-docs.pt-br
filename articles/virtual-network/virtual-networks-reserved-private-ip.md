@@ -92,11 +92,11 @@ Para adicionar um IP interno estático à VM criada usando o script acima, execu
 
 ## Próximas etapas
 
-[IP Reservado](virtual-networks-reserved-public-ip)
+[IP Reservado](virtual-networks-reserved-public-ip.md)
 
-[IP Público em Nível de Instância (ILPIP)](virtual-networks-instance-level-public-ip)
+[IP Público em Nível de Instância (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

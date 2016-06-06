@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/02/2016"
+    ms.date="05/18/2016"
     ms.author="elizapo" />
 
 # Como adicionar um usuário à sua coleção do RemoteApp do Azure
@@ -52,4 +52,4 @@ Verifique [obter mais informações](remoteapp-ad.md) sobre a configuração do 
 ## Informações de conta de usuário do Office 365 ProPlus
 Se você estiver usando a imagem do modelo do Office 365 ProPlus em sua coleção *ou* se você criou uma imagem personalizada que usa o Office 365, é possível adicionar apenas usuários do Active Directory do Azure que têm assinaturas do Office 365 para o domínio padrão da sua assinatura. Consulte [Usando o Office 365 com o Azure RemoteApp](remoteapp-o365.md) para obter mais informações.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

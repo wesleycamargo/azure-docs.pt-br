@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/23/2016"
 	ms.author="tdykstra"/>
 
 # Autenticação e autorização para aplicativos de API no Serviço de Aplicativo do Azure
@@ -114,4 +114,4 @@ Para saber mais sobre o Active Directory do Azure, confira os recursos a seguir.
 
 Este artigo explicou os recursos de autenticação e de autorização do Serviço de Aplicativo que você pode usar para aplicativos de API. O próximo tutorial da série Introdução mostra como implementar [autenticação de usuário em Aplicativos de API do Serviço de Aplicativo](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

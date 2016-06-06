@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="03/04/2016"
+   ms.date="05/24/2016"
    ms.author="golive"/>
 
 # Exemplo de uso: implantação contínua em Máquinas Virtuais usando a DSC de Automação e o Chocolatey
@@ -171,7 +171,7 @@ Sempre que uma versão passar na garantia de qualidade e for aprovada para impla
 
 ## Observações
 
-Este exemplo de uso começa com uma VM de uma imagem genérica do Windows 2012 R2 da galeria do Azure. Você poderá iniciá-lo por meio de qualquer imagem armazenada e, em seguida, ajustá-lo com a configuração de DSC. No entanto, é muito mais difícil ajustar a configuração que é incorporada a uma imagem do que atualizar de forma dinâmica a configuração usando a DSC.
+Este exemplo de uso começa com uma VM de uma imagem genérica do Windows 2012 R2 da galeria do Azure. Você poderá iniciá-lo por meio de qualquer imagem armazenada e ajustá-lo com a configuração da DSC. No entanto, é muito mais difícil alterar a configuração incorporada a uma imagem do que atualizar de forma dinâmica a configuração usando a DSC.
 
 Você não precisa usar um modelo ARM e a extensão de VM para usar essa técnica com suas VMs. E suas VMs não precisam estar no Azure para estar no gerenciamento de CD. Basta que o Chocolatey seja instalado e o LCM seja configurado na máquina virtual para que ele saiba onde está o servidor de recepção.
 
@@ -185,4 +185,4 @@ O código-fonte completo deste exemplo de uso está [neste projeto do Visual Stu
 - [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="05/19/2016"
 	ms.author="genemi"/>
 
 
@@ -54,6 +54,23 @@ A meta principal para o Banco de Dados SQL V12 era melhorar a compatibilidade co
 - [ALTERAR A CONFIGURAÇÃO DE ESCOPO DO BANCO DE DADOS (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
 Consulte [aqui](sql-database-transact-sql-information.md) para obter um pequeno conjunto de recursos ainda não tem suporte no Banco de dados SQL.
+
+
+### Nível de compatibilidade 130
+
+
+> [AZURE.IMPORTANT] A partir de **junho de 2016**, os bancos de dados criados *recentemente* no Banco de Dados SQL V12 terão seu início de nível de compatibilidade em 130, que coincide com o do Microsoft SQL Server 2016 GA.
+> 
+> Obviamente, você poderá usar `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` se preferir.
+> 
+> Os bancos de dados criados antes de junho de 2016 não terão o nível de compatibilidade alterado por essa mudança de padrão. Nem o nível de um banco de dados será alterado ao atualizá-lo da V11 para a V12.
+
+
+
+Para obter uma explicação sobre como você pode comparar as consultas mais importantes entre a versão mais recente em comparação com o nível de compatibilidade anterior, confira:
+
+- [Desempenho aprimorado de consultas com nível de compatibilidade 130 no Banco de Dados SQL do Azure](sql-database-compatibility-level-query-performance-130.md)
+
 
 
 ## Mais desempenho Premium, novos níveis de desempenho
@@ -166,4 +183,4 @@ Se você ainda não estiver usando a V12, pode atualizar o seu servidor lógico 
 
 [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/24/2016"
 	ms.author="nitinme"/>
 
 
 # Enviar trabalhos do Spark remotamente para um cluster HDInsight Spark no Linux usando o Livy (Preview)
 
-O cluster do Apache Spark no Azure HDInsight inclui Livy, uma interface REST para o envio de trabalhos remotamente para um cluster Spark em qualquer lugar. Para obter a documentação detalhada, confira [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+O cluster do Apache Spark no Azure HDInsight inclui Livy, uma interface REST para o envio de trabalhos remotamente para um cluster Spark. Para obter a documentação detalhada, confira [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 Você pode usar a Livy para executar shells interativos do Spark ou enviar trabalhos em lotes a serem executados no Spark. Este artigo aborda como usar a Livy para enviar trabalhos em lotes. A sintaxe abaixo usa Curl para fazer chamadas REST para o ponto de extremidade da Livy.
 
@@ -69,6 +69,14 @@ Antes de enviar um trabalho em lotes, você deve carregar o jar do aplicativo no
 **Exemplo**:
 
 	curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
+
+## Livy e alta disponibilidade
+
+O Livy fornece alta disponibilidade para trabalhos Spark em execução no cluster. Aqui estão alguns exemplos.
+
+* Se o serviço Livy falhar depois de você enviar um trabalho remotamente a um cluster Spark, o trabalho continuará em execução em segundo plano. Quando o Livy for backup, ele restaurará o status do trabalho e enviará o relatório de volta.
+
+* Os blocos de notas Jupyter para HDInsight são ativados pelo Livy no back-end. Se um bloco de anotações está executando um trabalho de Spark e o serviço Livy é reiniciado, o bloco de notas continuará a executar as células de código.
 
 ## Mostrar um exemplo
 
@@ -189,4 +197,4 @@ Execute as seguintes etapas:
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

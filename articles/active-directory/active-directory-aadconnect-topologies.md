@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity"
 	ms.topic="article"
-    ms.date="04/21/2016"
+    ms.date="05/19/2016"
     ms.author="andkjell"/>
 
 # Topologias para o Azure AD Connect
@@ -21,16 +21,16 @@ O objetivo deste tópico é descrever diferentes topologias locais e do AD do Az
 
 Legenda de imagens no documento:
 
-| Descrição | ícone |
-|-----|-----|
-| Floresta do Active Directory local | ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)|
-| Active Directory com importação filtrada | ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)|
-| Servidor do Azure AD Connect Sync | ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync1.png)|
-| “Modo de preparo” do servidor do Azure AD Connect Sync | ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync2.png)|
-| GALSync com FIM2010 ou MIM2016 | ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync3.png)|
-| Servidor do Azure AD Connect Sync detalhado |![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync4.png)|
-| Diretório do AD do Azure |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)|
-| Cenário sem suporte | ![Sem suporte](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
+Descrição | ícone
+-----|-----
+Floresta do Active Directory local| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
+Active Directory com importação filtrada| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
+Servidor do Azure AD Connect Sync| ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync1.png)
+“Modo de preparo” do servidor do Azure AD Connect Sync| ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync2.png)
+GALSync com FIM2010 ou MIM2016| ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync3.png)
+Servidor do Azure AD Connect Sync detalhado| ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync4.png)
+Diretório do AD do Azure |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
+Cenário sem suporte | ![Sem suporte](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
 
 
 ## Uma única floresta, um único diretório do AD do Azure
@@ -116,10 +116,10 @@ Nesse cenário, uma (ou mais) **floresta de recursos** confia em todas as **flor
 ## Office 365 e considerações de topologia
 Algumas cargas de trabalho do Office 365 têm certas restrições a topologias com suporte. Se você planeja usar qualquer um deles, leia o tópico de topologias com suporte para a carga de trabalho.
 
-| Carga de trabalho | |
-| --------- | --------- |
-| Exchange Online |	Se houver mais de uma organização do Exchange local (ou seja, o Exchange for implantado em mais de uma floresta), você deve usar o Exchange 2013 SP1 ou posterior. Os detalhes podem ser encontrados aqui: [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/pt-BR/library/jj873754.aspx) |
-| Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Detalhes para topologias com suporte podem ser encontradas aqui: [requisitos ambientais do Skype for Business Server 2015](https://technet.microsoft.com/pt-BR/library/dn933910.aspx) |
+Carga de trabalho |  
+--------- | ---------
+Exchange Online | Se houver mais de uma organização do Exchange local (ou seja, o Exchange for implantado em mais de uma floresta), você deve usar o Exchange 2013 SP1 ou posterior. Os detalhes podem ser encontrados aqui: [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx)
+Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Detalhes para topologias com suporte podem ser encontradas aqui: [requisitos ambientais do Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx)
 
 ## Servidor de preparo
 ![Servidor de preparo](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -135,9 +135,9 @@ Esse método também pode ser usado para substituir o servidor de sincronizaçã
 ## Vários diretórios do AD do Azure
 A Microsoft recomenda ter um único diretório no Azure AD para uma organização. Antes de você planeja usar vários diretórios do Azure AD, consulte esses tópicos que abrangem cenários comuns que permitirão a você usar um único diretório.
 
-| Tópico | |
-| --------- | --------- |
-| Delegação usando unidades administrativas | [Gerenciamento de unidades administrativas no AD do Azure ](active-directory-administrative-units-management.md)
+Tópico |  
+--------- | ---------
+Delegação usando unidades administrativas | [Gerenciamento de unidades administrativas no AD do Azure ](active-directory-administrative-units-management.md)
 
 ![Diretório múltiplo de várias florestas](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -187,4 +187,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

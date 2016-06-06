@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="05/24/2016" 
 	ms.author="sdanie"/>
 
 # Criar um aplicativo Web mais o Cache Redis usando um modelo
@@ -43,7 +43,7 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 ## Nomes de variáveis
 
-Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniqueString](../resource-group-template-functions/#uniquestring) para construir um valor com base na ID de grupo de recursos.
+Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniqueString](../resource-group-template-functions.md#uniquestring) para construir um valor com base na ID de grupo de recursos.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -132,4 +132,4 @@ Observe que o aplicativo Web está configurado com as propriedades de configura�
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

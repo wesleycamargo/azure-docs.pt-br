@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Adicionar a API do SFTP aos seus Aplicativos Lógicos | Microsoft Azure"
-	description="Visão geral da API do SFTP com os parâmetros da API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Adicionar o conector do SFTP aos seus Aplicativos Lógicos | Microsoft Azure"
+    description="Visão geral do conector do SFTP com os parâmetros da API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introdução à API do SFTP
-Conecte-se a um servidor SFTP para gerenciar seus arquivos. Você pode realizar tarefas diferentes no servidor do SFTP, como carregar arquivos, excluí-los e muito mais. A API do SFTP pode ser usada em:
+# Introdução ao conector de SFTP 
+Conecte-se a um servidor SFTP para gerenciar seus arquivos. Você pode realizar tarefas diferentes no servidor do SFTP, como carregar arquivos, excluí-los e muito mais. O conector de SFTP pode ser usado por meio de:
 
 - Aplicativos lógicos
 
@@ -34,17 +34,17 @@ Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicati
 
 
 ## Gatilhos e ações
-A API do SFTP tem os gatilhos e as ações disponíveis a seguir.
+O conector de SFTP tem os gatilhos e ações a seguir disponíveis.
 
 Gatilhos | Ações
 --- | ---
 <ul><li>Quando um arquivo é criado ou modificado </li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter o conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo</li><li>Obter metadados do arquivo usando o caminho</li><li>Atualizar arquivo</li><li>Quando um arquivo é criado ou modificado </li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 
 ## Criar uma conexão com o SFTP
-Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores:
+Ao adicionar esse conector aos seus aplicativos lógicos, insira os seguintes valores:
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
@@ -53,7 +53,11 @@ Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores
 |Senha | Sim | Insira a senha do nome de usuário.|
 |Impressão Digital da Chave de Host do Servidor SSH | Sim | Insira a impressão digital da chave pública de host para o servidor SSH. <br/><br/>Normalmente, o administrador do servidor pode dar a você essa chave. Você também pode usar as ferramentas ```WinSCP``` ou ```ssh-keygen-g3 -F``` para obter a impressão digital da chave. | 
 
-Depois de criar a conexão, insira as propriedades do SFTP, como o caminho da pasta ou o arquivo. A **referência da API REST** neste tópico descreve essas propriedades.
+Veja um passo a passo e as etapas para criar a conexão:
+
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o sftp](../../includes/connectors-create-api-sftp.md)]
+
+Depois de criar a conexão, insira as propriedades do SFTP, como o caminho da pasta ou o arquivo. A **Referência da API REST** neste tópico descreve essas propriedades.
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do SFTP em outros aplicativos lógicos.
 
@@ -201,7 +205,7 @@ Dispara um fluxo quando um arquivo é modificado no SFTP.```GET: /datasets/defau
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -250,4 +254,4 @@ Dispara um fluxo quando um arquivo é modificado no SFTP.```GET: /datasets/defau
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

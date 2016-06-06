@@ -47,17 +47,19 @@ A tabela a seguir mostra as alterações permitidas em um serviço durante uma a
 |---|---|---|---|
 |Versão do sistema operacional|Sim|Sim|Sim
 |Nível de confiança do .NET|Sim|Sim|Sim|
-|Tamanho da máquinas virtual|Sim*|Sim|Sim|
-|Configurações de armazenamento local|Apenas aumento|Sim|Sim|
+|Tamanho da máquina virtual<sup>1</sup>|Sim<sup>2</sup>|Sim|Sim|
+|Configurações de armazenamento local|Apenas aumento<sup>2</sup>|Sim|Sim|
 |Adicionar ou remover funções em um serviço|Sim|Sim|Sim|
 |Número de instâncias de uma função específica|Sim|Sim|Sim|
-|Número ou tipo de pontos de extremidade de um serviço|Sim*|Não|Sim|
+|Número ou tipo de pontos de extremidade de um serviço|Sim<sup>2</sup>|Não|Sim|
 |Nomes e valores dos parâmetros de configuração|Sim|Sim|Sim|
 |Valores (mas não nomes) dos parâmetros de configuração|Sim|Sim|Sim|
 |Adicionar novos certificados|Sim|Sim|Sim|
 |Alterar certificados existentes|Sim|Sim|Sim|
 |Implantar novo código|Sim|Sim|Sim|
-*Exige o Azure SDK 1.5 ou versões posteriores.
+<sup>1</sup>Alteração de tamanho limitado ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
+
+<sup>2</sup>Exige o Azure SDK 1.5 ou versões posteriores.
 
 > [AZURE.WARNING] A alteração do tamanho da máquina virtual destruirá os dados locais.
 
@@ -130,7 +132,7 @@ O Azure fornece flexibilidade no gerenciamento de serviços durante uma atualiza
 A Reversão de uma atualização em andamento tem os seguintes efeitos sobre a implantação:
 
 -   Quaisquer instâncias de função que ainda não foram atualizadas para a nova versão não serão atualizadas, porque essas instâncias já estão executando a versão de destino do serviço.
--   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (\*.cspkg) do serviço ou do arquivo de configuração (\*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
+-   Quaisquer instâncias de função que já foram atualizadas para a nova versão do arquivo de pacote (*.cspkg) do serviço ou do arquivo de configuração (*.cscfg) do serviço (ou ambos os arquivos) serão revertidas para a versão pré-atualização desses arquivos.
 
 Essa funcionalidade é fornecida pelos seguintes recursos:
 
@@ -180,4 +182,4 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 ## Próximas etapas
 [Como gerenciar os serviços de nuvem](cloud-services-how-to-manage.md)<br> [Como monitorar os serviços de nuvem](cloud-services-how-to-monitor.md)<br> [Como configurar os serviços de nuvem](cloud-services-how-to-configure.md)<br>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

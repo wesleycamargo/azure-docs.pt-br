@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 # Solucionar problemas de conectividade com o Azure AD Connect
@@ -33,14 +33,14 @@ O servidor proxy também deve ter as URLs necessárias abertas. A lista oficial 
 
 Desses intervalos, a tabela a seguir é o mínimo absoluto para oferecer a capacidade de se conectar ao AD do Azure. Essa lista não inclui quaisquer recursos opcionais, como write-back de senha ou Azure AD Connect Health. Ela está documentado aqui para ajudar na solução de problemas da configuração inicial.
 
-| URL | Port | Descrição |
-| ---- | ---- | ---- |
-| mscrl.microsoft.com | HTTP/80 | Usada para baixar as listas CRL. |
-| *.verisign.com | HTTP/80 | Usado para baixar listas CRL. | 
-| *.entrust.com | HTTP/80 | Usado para baixar listas CRL para MFA. | 
-| *.windows.net | HTTPS/443 | Usado para entrar no Azure AD. | 
-| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Usado para MFA. | 
-| *.microsoftonline.com | HTTPS/443 | Usado para configurar seu diretório do Azure AD e importar/exportar dados. |
+URL | Port | Descrição
+---- | ---- | ----
+mscrl.microsoft.com | HTTP/80 | Usada para baixar as listas CRL.
+*. verisign.com | HTTP/80 | Usada para baixar as listas CRL.
+*. entrust.com | HTTP/80 | Usada para baixar as listas CRL para o MFA.
+*.windows.net | HTTPS/443 | Usado para entrar no AD do Azure.
+Secure.aadcdn.microsoftonline p.com | HTTPS/443 | Usado para MFA.
+*.microsoftonline.com | HTTPS/443 | Usado para configurar o diretório do Azure AD e importar/exportar dados.
 
 ## Erros no assistente
 O assistente de instalação está usando dois contextos de segurança diferentes. Na página **Conectar-se ao AD do Azure** utiliza o usuário conectado no momento. Na página **Configurar** o assistente muda para a [conta que executa o serviço no mecanismo de sincronização](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). As configurações de proxy que realizamos são globais para o computador de forma que, se houver um problema, ele provavelmente já aparecerá na página **Conectar-se ao AD do Azure** no assistente.
@@ -54,7 +54,7 @@ Esse erro será exibido quando o assistente não conseguir acessar o proxy. ![no
 - Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
 
 ### Não é possível alcançar o ponto de extremidade da MFA
-Esse erro será exibido se o ponto de extremidade **https://secure.aadcdn.microsoftonline-p.com** não puder ser alcançado e o administrador global tiver a MFA habilitada. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
+Esse erro será exibido se o ponto de extremidade ****https://secure.aadcdn.microsoftonline-p.com** não puder ser alcançado e o administrador global tiver a MFA habilitada. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
 - Se vir isso, verifique se o ponto de extremidade secure.aadcdn.microsoftonline-p.com foi adicionado ao proxy.
 
@@ -74,10 +74,10 @@ Se você receber **Não é possível se conectar ao servidor remoto** é porque 
 
 Se o proxy não estiver configurado corretamente, obteremos um erro: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png) ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Erro | Texto do erro | Comentário |
-| ---- | ---- | ---- |
-| 403 | Proibido | O proxy não foi aberto para a URL solicitada. Examine a configuração do proxy e verifique se as [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) foram abertas. |
-| 407 | Autenticação de proxy necessária | O servidor proxy solicitou logon e nenhum foi fornecido. Se o servidor proxy exige autenticação, verifique se isso está configurado em machine.config. Verifique também se você está usando contas de domínio para o usuário que executa o assistente e para a conta de serviço. |
+Erro | Texto do erro | Comentário
+---- | ---- | ---- |
+403 | Proibido | O proxy não foi aberto para a URL solicitada. Examine a configuração do proxy e verifique se as [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) foram abertas.
+407 | Autenticação de proxy necessária | O servidor proxy solicitou logon e nenhum foi fornecido. Se o servidor proxy exige autenticação, verifique se isso está configurado em machine.config. Verifique também se você está usando contas de domínio para o usuário que executa o assistente e para a conta de serviço.
 
 ## O padrão de comunicação entre o Azure AD Connect e o AD do Azure
 Se você seguiu todas essas etapas acima e ainda não conseguir se conectar, então você já pode começar a examinar os logs de rede. Esta seção está documentando um padrão de conectividade normal e bem-sucedido. Ele também está listando distrações comuns que podem ser ignoradas se você estiver lendo os logs de rede.
@@ -175,4 +175,4 @@ Esse erro ocorre quando o Assistente de conexão não consegue acessar o proxy o
 ## Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

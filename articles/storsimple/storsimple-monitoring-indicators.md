@@ -4,7 +4,7 @@
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
-    manager="carolz"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="03/21/2016"
+    ms.date="05/24/2016"
     ms.author="alkohli" />
 
 # Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo   
@@ -163,12 +163,7 @@ Use a tabela a seguir para determinar se o módulo do controlador EBOD está ope
 
 |Status | Módulo de E/S OK (verde) | Falha no módulo de E/S (âmbar) | Atividade da porta do host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Módulo do controlador OK | ON | OFF | - |
-| Falha no módulo do controlador | OFF | ON | - |
-| Nenhuma conexão externa da porta do host | - | - | OFF |
-| Conexão externa da porta do host – sem atividade | - | - | ON |
-| Conexão externa da porta do host - atividade | - | - | Piscando |
-| Erro de metadados do módulo do controlador | Piscando | - | - |
+| Módulo do controlador OK | ON | OFF | - | | Falha no módulo do controlador | OFF | ON | - | | Nenhuma conexão externa da porta do host | - | - | OFF | | Conexão externa da porta do host – sem atividade | - | - | ON | | Conexão externa da porta do host - atividade | - | - | Piscando | | Erro de metadados do módulo do controlador | Piscando | - | - |
 
 ## LEDs indicadores do drive de disco para o compartimento primário e para o compartimento EBOD
 
@@ -262,4 +257,4 @@ Saiba mais sobre os [componentes e o status de hardware do StorSimple](storsimpl
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

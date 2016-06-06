@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Como configurar o clustering do Redis para um Cache Redis do Azure Premium
@@ -59,7 +59,6 @@ Depois que o cache for criado, conecte-se a ele e use-o apenas como um cache nã
 Para obter um exemplo de código sobre como trabalhar com clustering com o cliente StackExchange.Redis, confira a parte [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) da amostra [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
 <a name="move-exceptions"></a>
-<br\>
 
 >[AZURE.IMPORTANT] Ao se conectar a um Cache Redis do Azure com clustering habilitado usando StackExchange.Redis, você pode enfrentar um problema e receber exceções `MOVE`. Isso ocorre porque ele usa um intervalo curto para o cliente de cache StackExchange.Redis coletar informações sobre os nós no cluster de cache. Essas exceções podem ocorrer se você se conectar ao cache pela primeira vez e fizer imediatamente chamadas para o cache antes do cliente concluir a coleta dessas informações. A maneira mais simples de resolver o problema no aplicativo é conectar-se ao cache e, em seguida, esperar um segundo antes de fazer as chamadas para o cache. Você pode fazer isso adicionando um `Thread.Sleep(1000)`, conforme mostrado no código de exemplo a seguir. Observe que o `Thread.Sleep(1000)` ocorre apenas durante a conexão inicial com o cache. Para saber mais, confira [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248). Uma correção para esse problema está sendo desenvolvida e as atualizações serão postadas aqui. **Atualização**: este problema é resolvido na última compilação de StackExchange.Redis do [pré-lançamento 1.1.572-alpha](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha). Verifique a [página NuGet StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) para a compilação mais recente.
 
@@ -112,6 +111,9 @@ A lista a seguir contém respostas para perguntas frequentes sobre o clustering 
 ### Preciso fazer alguma alteração no meu aplicativo cliente para usar clustering?
 
 -	Quando o clustering estiver habilitado, somente o banco de dados 0 estará disponível. Se seu aplicativo cliente usa vários bancos de dados e tenta ler ou gravar em um banco de dados diferente de 0, a seguinte exceção é lançada. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+
+    Para obter mais informações, consulte [Especificação do Cluster Redis - Sub-rede implementada](http://redis.io/topics/cluster-spec#implemented-subset).
+
 -	Se você estiver usando [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), use a versão 1.0.481 ou posterior. É possível se conectar ao cache usando os mesmos [pontos de extremidade, portas e chaves](cache-configure.md#properties) usados ao se conectar a um cache que não tem o clustering habilitado. A única diferença é que todas as leituras e gravações devem ser feitas no banco de dados 0.
 	-	Outros clientes podem ter requisitos diferentes. Confira [Todos os clientes do Redis dão suporte ao clustering?](#do-all-redis-clients-support-clustering)
 -	Se seu aplicativo usa várias operações de chave em lote em um único comando, todas as chaves devem estar localizadas no mesmo fragmento. Para fazer isso, confira [Como as chaves são distribuídas em um cluster?](#how-are-keys-distributed-in-a-cluster).
@@ -197,4 +199,4 @@ Aprenda a usar mais recursos de cache premium.
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

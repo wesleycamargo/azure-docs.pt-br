@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Descrevendo um cluster do Service Fabric
@@ -157,6 +157,8 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 Restrições do posicionamento (juntamente com várias outras propriedades sobre as quais vamos falar) são especificadas para cada instância de serviço diferente. As atualizações sempre assumem o lugar (substituem) do que foi especificado anteriormente.
 
+Também vale a pena observar que agora as propriedades em um nó são definidas por meio da definição de cluster e, portanto, não podem ser atualizadas sem uma atualização para o cluster.
+
 ## Capacidade
 Um dos trabalhos mais importantes de qualquer orquestrador é ajudar a gerenciar o consumo de recursos no cluster. A última coisa que você deseja, se estiver tentando executar serviços com eficiência, é ter vários nós ativos (levando à contenção de recursos e a um desempenho ruim) enquanto outros estão inativos (desperdício de recursos). Porém, vamos pensar em termos ainda mais básicos do que o equilíbrio (sobre o qual falaremos em alguns instantes): que tal apenas garantir que não fiquemos sem recursos?
 
@@ -202,13 +204,14 @@ ClusterManifest.xml
 
 Também é possível que a carga de um serviço seja alterada dinamicamente. Nesse caso, é possível que o local em que uma réplica ou instância está posicionada no momento se torne inválido, pois o uso combinado de todas as réplicas e instâncias no nó excede a capacidade do nó. Mais tarde, falaremos mais sobre esse cenário em que a carga pode ser alterada dinamicamente, mas em termos de capacidade, ela é tratada da mesma forma: o gerenciamento de recursos do Service Fabric é acionado automaticamente e coloca o nó de volta abaixo da capacidade movendo uma ou mais réplicas ou instâncias do nó para nós diferentes. Ao fazer isso, o Gerenciador de Recursos tenta minimizar o custo de todas as movimentações (voltaremos à noção de Custo mais tarde).
 
-##Capacidade do cluster
+## Capacidade do cluster
 Então, como impedir que o cluster geral fique muito cheio? Bem, com a carga dinâmica, na verdade, não há muito que possamos fazer (pois os serviços podem ter seu pico de carga independente das ações executadas pelo Gerenciador de Recursos. O cluster com espaço de sobra hoje pode não ter espaço suficiente quando você ficar famoso amanhã), mas há alguns controles embutidos para evitar erros básicos. A primeira coisa a fazer é evitar a criação de novas cargas de trabalho que fariam com que o cluster ficasse cheio.
 
 Digamos que você crie um serviço simples sem estado e haja alguma carga associada a ele (falaremos mais sobre relatórios de carga padrão e dinâmica posteriormente). Digamos que esse serviço se preocupe com algum recurso (por exemplo, o espaço em disco) e que, por padrão, ele consumirá cinco unidades de Espaço em Disco para cada instância do serviço. Você deseja criar três instâncias do serviço. Ótimo! Isso significa que é preciso que 15 unidades do Espaço em Disco estejam presentes no cluster para podermos criar essas instâncias de serviço. O Service Fabric calcula continuamente a capacidade e o consumo totais de cada métrica, assim, poderemos facilmente fazer a determinação e rejeitar a chamada de criação de serviço se houver espaço suficiente.
 
 Observe que, como o requisito é apenas que haja 15 unidades disponíveis, esse espaço poderia ser alocado de muitas maneiras diferentes: poderia ser uma unidade restante da capacidade em 15 nós diferentes, por exemplo, ou três unidades restantes da capacidade em cinco nós diferentes, etc. Se não houver capacidade suficiente em três nós diferentes, o Service Fabric reorganizará os serviços já presentes no cluster para liberar espaço nos três nós necessários. Essa reorganização quase sempre é possível, a menos que o cluster, como um todo, esteja quase totalmente cheio.
 
+## Capacidade de buffer
 Outra coisa que fizemos para ajudar as pessoas a gerenciar a capacidade total do cluster foi adicionar a noção de buffer reservado à capacidade especificada em cada nó. Essa configuração é opcional, mas permite reservar uma parte da capacidade total do nó para que ele só seja usado para posicionar serviços durante atualizações e falhas, casos em que a capacidade do cluster é reduzida. Atualmente, o buffer é especificado globalmente por métrica para todos os nós por meio do ClusterManifest. O valor que você escolher para a capacidade reservada será uma função dos recursos para os quais seus serviços têm mais limitações, bem como o número de domínios de falha e atualização presentes no cluster. Geralmente, um número maior de domínios de falha e atualização significa que você pode escolher um número menor para a capacidade de buffer, pois espera que uma quantidade menor do cluster fique indisponível durante atualizações e falhas. Observe que a especificação do percentual do buffer só fará sentido se você também tiver especificado a capacidade do nó para uma métrica.
 
 ClusterManifest.xml
@@ -249,10 +252,10 @@ LoadMetricInformation     :
 ```
 
 ## Próximas etapas
-- Para obter informações sobre arquitetura e fluxo de informações no Gerenciador de Recursos do Cluster, confira [este artigo](service-fabric-cluster-resource-manager-architecture.md).
+- Para obter informações sobre arquitetura e fluxo de informações no Resource Manager de Cluster, confira [este artigo](service-fabric-cluster-resource-manager-architecture.md).
 - Definir as Métricas de Desfragmentação é uma forma de consolidar a carga em nós, em vez de distribuí-la. Para saber como configurar a desfragmentação, leia [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Comece do princípio e [veja uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
+- Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Para descobrir como o Resource Manager de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
@@ -262,4 +265,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

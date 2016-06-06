@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/17/2016"
+	ms.date="05/18/2016"
 	ms.author="juliako"/>
 
 #Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure
@@ -29,9 +29,9 @@ Ao distribuir eventos de transmissão ao vivo com os Serviços de Mídia do Azur
 - Um serviço de streaming ao vivo que permite que você faça o seguinte:
 	
 	- inclusão de conteúdo ao vivo usando diversos protocolos de transmissão ao vivo (por exemplo RTMP ou Smooth Streaming),
-	- codificação (opcional) de sua transmissão em uma transmissão de taxa de bits adaptável
+	- (opcionalmente) codificação de seu fluxo no fluxo de taxa de bits adaptável
 	- visualização de sua transmissão ao vivo,
-	- gravação e armazenamento do conteúdo ingerido para ser transmitido posteriormente (vídeo sob demanda)
+	- armazenamento do conteúdo incluído para ser transmitido posteriormente (vídeo sob demanda)
 	- fornecimento do conteúdo por meio de protocolos de transmissão comuns (por exemplo, MPEG DASH, Smooth, HLS, HDS) diretamente aos seus clientes ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior.
 
 
@@ -116,11 +116,13 @@ Um canal dá suporte a até três programas em execução simultânea, para que 
 
 ##Implicações de cobrança
 
-Um canal de codificação ativo começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API.
+Um canal começará a ser cobrado assim que seu estado mudar para "Em execução" por meio da API.
 
 A tabela a seguir mostra como os estados de Canal são mapeados para os estados de cobrança na API e no Portal Clássico do Azure. Observe que os estados são ligeiramente diferentes entre a API e o Portal UX. Assim que um canal estiver no estado “Em execução” por meio da API, ou no estado “Pronto” ou “Transmissão” no Portal Clássico do Azure, a cobrança estará ativa.
 
-Para parar a cobrança do Canal, você terá de Parar o Canal por meio da API ou no Portal Clássico do Azure. Você é responsável por parar seus canais quando terminar com o canal de codificação ativo. A falha ao interromper um canal de codificação resultará em cobrança contínua.
+Para parar a cobrança do Canal, você terá de Parar o Canal por meio da API ou no Portal Clássico do Azure. Você é responsável por parar seus canais quando terminar com o canal. A falha ao interromper o canal resultará em cobrança contínua.
+
+>[AZURE.NOTE]Ao trabalhar com canais Standard, o AMS desligará automaticamente qualquer Canal que ainda esteja no estado "Em execução" 12 horas depois que a transmissão de entrada for perdida e não houver nenhum Programa em execução. No entanto, você ainda será cobrado pelo tempo em que o canal estava no estado "Em execução".
 
 ###<a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança 
 
@@ -164,4 +166,4 @@ Parada|Parada|Não
 
 [Conceitos de Serviços de Mídia](media-services-concepts.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

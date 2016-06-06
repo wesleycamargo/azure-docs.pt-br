@@ -24,14 +24,14 @@ Este artigo mostra como implantar um Conjunto de Escala de Máquina Virtual do A
 
 [Conjuntos de Escala de Máquina Virtual do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) são um recurso de computação do Azure para implantar e gerenciar uma coleção de máquinas virtuais semelhantes com opções facilmente integradas para escala automática e balanceamento de carga. É possível provisionar e implantar os Conjuntos de Escala de VM usando os [Modelos do ARM (Gerenciador de Recursos do Azure)](https://github.com/Azure/azure-quickstart-templates). Os Modelos do ARM podem ser implantados usando a CLI do Azure, o PowerShell, o REST e também diretamente no Visual Studio. O Visual Studio fornece um conjunto de Modelos de exemplo que podem ser implantados como parte de um projeto de Implantação do Grupo de Recursos do Azure.
 
-Implantações de Grupo de Recursos do Azure são uma maneira de agrupar e publicar um conjunto de recursos relacionados do Azure em uma única operação de implantação. Saiba mais sobre eles aqui: [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/).
+Implantações de Grupo de Recursos do Azure são uma maneira de agrupar e publicar um conjunto de recursos relacionados do Azure em uma única operação de implantação. Saiba mais sobre eles aqui: [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## Pré-requisitos
 
 Para começar a implantar Conjuntos de Escala de VM no Visual Studio, você precisará do seguinte:
 
 - Visual Studio 2013 ou 2015
-- SDK do Azure 2.7 ou 2.8
+- SDK do Azure 2.7, 2.8 ou 2.9
 
 Observação: com essas instruções, pressupomos que você esteja usando o Visual Studio 2015 com o [SDK do Azure 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
@@ -85,7 +85,7 @@ Agora você pode editar o Modelo para personalizá-lo de acordo com as necessida
 
 ## Explorando seu Conjunto de Escala de VM
 
-Depois que a implantação for concluída, é possível exibir o novo Conjunto de Escala de VM no **Gerenciador de Nuvem** do Visual Studio (basta atualizar a lista). O Gerenciador de Nuvem permite que você gerencie recursos do Azure no Visual Studio ao mesmo tempo que desenvolve aplicativos. Você também pode exibir o Conjunto de Escala de VM no Portal do Azure e no Gerenciador de Recursos do Azure.
+Depois que a implantação for concluída, é possível exibir o novo Conjunto de Escala de VM no **Gerenciador de Nuvem** do Visual Studio (basta atualizar a lista). O Gerenciador de Nuvem permite que você gerencie recursos do Azure no Visual Studio ao mesmo tempo que desenvolve aplicativos. Você também pode exibir o Conjunto de Escala de VM no [Portal do Azure](https://portal.azure.com) e no [Gerenciador de Recursos do Azure](https://resources.azure.com/).
 
 ![Gerenciador de Nuvem][cloud_explorer]
 
@@ -107,4 +107,4 @@ Depois de implantar com êxito os Conjuntos de Escala de VM por meio do Visual S
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

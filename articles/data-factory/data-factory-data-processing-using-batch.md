@@ -754,11 +754,11 @@ Nesta etapa, você criará um pipeline com uma atividade, a atividade personaliz
 
 	-   **AssemblyName** é definido para o nome da DLL: **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente \<namespace\>.\<classname\> em seu código.
+	-   **EntryPoint** é definido como **MyDotNetActivityNS.MyDotNetActivity**. Ele é basicamente <namespace>.<classname> em seu código.
 
 	-   **PackageLinkedService** é definido como **StorageLinkedService**, que aponta para o armazenamento de blobs que contém o arquivo zip da atividade personalizada. Se você estiver usando diferentes contas de armazenamento do Azure para arquivos de entrada/saída e o arquivo zip da atividade personalizada, terá de criar outro serviço vinculado do armazenamento do Azure. Este artigo pressupõe que você está usando a mesma conta de armazenamento do Azure.
 
-	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: \<contêinerdozip\>/\<nomedozip.zip\>.
+	-   **PackageFile** é definido como **customactivitycontainer/MyDotNetActivity.zip**. Ele está no formato: <contêinerdozip>/<nomedozip.zip>.
 
 	-   A atividade personalizada usa **InputDataset** como entrada e **OutputDataset** como saída.
 
@@ -834,7 +834,7 @@ Nesta etapa, você testará o pipeline largando arquivos nas pastas de entrada. 
 
     **Observação:** se você não tinha excluído o arquivo do saída 2015-11-16-01.txt antes de tentar com cinco arquivos de entrada, verá uma linha da execução da fatia anterior e cinco linhas da execução da fatia atual. Por padrão, o conteúdo é anexado ao arquivo de saída, se ele já existir.
 
-### Depurar o pipeline
+## Depurar o pipeline
 
 A depuração consiste em algumas técnicas básicas:
 
@@ -877,6 +877,9 @@ A depuração consiste em algumas técnicas básicas:
     ![](./media/data-factory-data-processing-using-batch/image21.png)
 
     **Observação:** você verá um **contêiner** no seu Armazenamento de Blobs denominado: **adfjobs**. Esse contêiner não é automaticamente excluído, mas você poderá excluí-lo com segurança depois de concluir o teste da solução. Da mesma forma, a solução de Data Factory cria um **trabalho** do Lote do Azure chamado: **adf-<ID/nome do pool>: job-0000000001**. Você pode excluir esse trabalho depois de terminar de testar a solução, se desejar.
+7. A atividade personalizada não usa o arquivo **app.config** a partir do pacote. Portanto, se o código ler as cadeias de conexão a partir do arquivo de configuração, ele não funcionará no tempo de execução. A prática recomendada ao usar o Lote do Azure é armazenar segredos em um **Azure KeyVault**, usar uma entidade de serviço com base em certificado para proteger o keyvault e distribuir o certificado para o pool de Lote do Azure. A atividade personalizada do .NET pode então acessar segredos no KeyVault no tempo de execução. Essa é uma solução genérica e pode ser dimensionada para qualquer tipo de segredo, não apenas a cadeia de conexão.
+
+	Há uma solução alternativa mais fácil (mas não é uma prática recomendada): você pode criar um novo **serviço vinculado do Azure SQL** com configurações de cadeia de conexão, criar um conjunto de dados que usa o serviço vinculado e encadear o conjunto de dados como um conjunto de dados de entrada fictício para a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada e isso deve funcionar bem no tempo de execução.
 
 ### Estender o exemplo
 
@@ -937,4 +940,4 @@ Depois de processar dados, é possível consumi-lo com ferramentas online como o
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

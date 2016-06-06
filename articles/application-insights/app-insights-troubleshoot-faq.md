@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2016" 
+	ms.date="05/13/2016" 
 	ms.author="awills"/>
  
 # Perguntas - Application Insights para ASP.NET
@@ -39,7 +39,7 @@
 * Você deve fornecer os dados de cartão de crédito para se registrar com o Microsoft Azure, mas nenhum encargo será cobrado, a menos que você use outro serviço do Azure pago ou explicitamente atualize para uma faixa cobrada.
 * Se seu aplicativo enviar mais dados do que a cota mensal por camada gratuita, eles deixarão de ser registrados em log. Se isso acontecer, você pode optar por começar a pagar ou aguardar até que a cota seja reiniciada no final do mês.
 * Dados básicos de uso e da sessão não estão sujeitos a uma cota.
-* Há também uma avaliação gratuita de 30 dias, durante a qual você obtém os recursos Premium gratuitamente.
+* Há também uma avaliação gratuita de 30 dias, durante a qual você obtém os recursos pagos gratuitamente.
 * Cada recurso de aplicativo tem uma cota separada, e você define sua faixa de preço de modo independente dos outros.
 
 #### O que obtenho se pagar?
@@ -126,7 +126,6 @@ Consulte [Privacidade e Retenção de Dados][data].
 <tr><td>Métricas de servidor personalizadas</td><td><a href="../app-insights-api-custom-events-metrics/">Rastreando chamadas no código do servidor</a></td><td>Business intelligence</td></tr>
 </table>
 
-Se o serviço Web está em execução em uma VM do Azure, você também pode [obter diagnóstico][azurediagnostic] lá.
 
 ## Automação
 
@@ -139,7 +138,6 @@ Você pode [gravar scripts do PowerShell](app-insights-powershell.md) para criar
 
 <!--Link references-->
 
-[azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
@@ -147,4 +145,4 @@ Você pode [gravar scripts do PowerShell](app-insights-powershell.md) para criar
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -58,6 +58,8 @@ Observe que este artigo não aborda como usar as políticas que você acabou de 
 
 ## Baixar o código
 
+[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
+
 O código deste tutorial [é mantido no GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet). Para compilar o exemplo à medida que avança, [baixe o projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip). Também é possível clonar o esqueleto:
 
 ```
@@ -70,7 +72,7 @@ Depois de baixar o código de exemplo, abra o arquivo .sln do Visual Studio para
 
 ## Configurar o serviço de tarefa
 
-Quando o `TaskService` recebe uma solicitação do `TaskWebApp`, ele verifica se há um token de acesso válido para autenticar a solicitação. Para validar o token de acesso, você precisará fornecer informações sobre o seu aplicativo ao `TaskService`. No projeto `TaskService`, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`:
+Quando o `TaskService` recebe uma solicitação do `TaskWebApp`, ele verifica se há um token de acesso válido para autenticar a solicitação. Para validar o token de acesso, você precisará fornecer informações sobre o seu aplicativo ao `TaskService`. No projeto `TaskService`, abra o arquivo `web.config` na raiz do projeto e substitua os valores da seção `<appSettings>`:
 
 ```
 <appSettings>
@@ -92,7 +94,7 @@ Este artigo não abordará os detalhes de como proteger o `TaskService`. Para sa
 
 ## Configurar o aplicativo Web da tarefa
 
-Para fazer o `TaskWebApp` se comunicar com o Azure AD B2C, você precisará fornecer alguns parâmetros comuns. No projeto `TaskWebApp`, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`. Esses valores serão usados em todo o aplicativo web.
+Para fazer o `TaskWebApp` se comunicar com o Azure AD B2C, você precisará fornecer alguns parâmetros comuns. No projeto `TaskWebApp`, abra o arquivo `web.config` na raiz do projeto e substitua os valores da seção `<appSettings>`. Esses valores serão usados em todo o aplicativo web.
 
 ```
 <appSettings>
@@ -114,7 +116,7 @@ Para fazer o `TaskWebApp` se comunicar com o Azure AD B2C, você precisará forn
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Também há dois decoradores `[PolicyAuthorize]` que exigem o nome de sua política de entrada. O atributo `[PolicyAuthorize]` é usado para invocar uma determinada política quando o usuário tenta acessar uma página no aplicativo que exige autenticação.
+Também há dois decoradores `[PolicyAuthorize]` que exigem o nome da política de entrada. O atributo `[PolicyAuthorize]` é usado para invocar uma política específica quando o usuário tenta acessar uma página no aplicativo que exige autenticação.
 
 ```C#
 // Controllers\HomeController.cs
@@ -134,7 +136,7 @@ public class TasksController : Controller
 
 ## Obter tokens de acesso e chamar a API da tarefa
 
-Esta seção discutirá como concluir uma troca de token do OAuth 2.0 em um aplicativo Web usando bibliotecas e estruturas da Microsoft. Se não estiver familiarizado com os códigos de autorização e tokens de acesso, você poderá saber mais na [referência de protocolo OpenID Connect](active-directory-b2c-reference-protocols.md).
+Esta seção discutirá como concluir uma troca de token do OAuth 2.0 em um aplicativo Web usando bibliotecas e estruturas da Microsoft. Se não estiver familiarizado com os códigos de autorização e com os tokens de acesso, você poderá saber mais na [referência de protocolo OpenID Connect](active-directory-b2c-reference-protocols.md).
 
 ### Obter um código de autorização
 
@@ -222,7 +224,7 @@ Primeiro, instale a ADAL no projeto `TaskWebApp` usando o Console do Gerenciador
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskWebApp -IncludePrerelease
 ```
 
-Em seguida, você precisará passar o código de autorização para a ADAL para que ela possa obter tokens para você. O middleware OWIN OpenID Connect fornece uma notificação para que você use esse código de autorização. A notificação será enviada sempre que seu aplicativo receber um código de autorização do Azure AD. Em `App_Start\Startup.Auth.cs`, implemente o manipulador de notificações `OnAuthorizationCodeReceived` usando a ADAL:
+Em seguida, você precisará passar o código de autorização para a ADAL para que ela possa obter tokens para você. O middleware OWIN OpenID Connect fornece uma notificação para que você use esse código de autorização. A notificação será enviada sempre que seu aplicativo receber um código de autorização do Azure AD. No `App_Start\Startup.Auth.cs`, implemente o manipulador de notificações `OnAuthorizationCodeReceived` usando a ADAL:
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -388,4 +390,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

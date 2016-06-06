@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/22/2016" 
 	ms.author="bradsev;garye" />
 
 
@@ -133,14 +133,14 @@ Figura 8. Validação cruzada em um modelo de classificação binária.
 Figura 9. Resultados de validação cruzada de um classificador binário.
 
 ##Avaliar um modelo de classificação com multiclass##
-Nesse experimento, usaremos o conjunto de dados popular [Íris](http://archive.ics.uci.edu/ml/datasets/Iris "Íris"), que contém instâncias de 3 diferentes tipos (classes) da planta íris. Há 4 valores de recurso (comprimento/largura da sépala e comprimento/largura da pétala) para cada instância. Nas experiências anteriores, treinamos e testamos os modelos usando os mesmos conjuntos de dados. Aqui, usaremos o módulo de [Divisão][split] para criar 2 subconjuntos de dados, treinar no primeiro e pontuar e avaliar no segundo. O conjunto de dados Íris está disponível publicamente no [Repositório de Aprendizado de Máquina UCI](http://archive.ics.uci.edu/ml/index.html) e pode ser baixado usando um módulo [Leitor][reader].
+Nesse experimento, usaremos o conjunto de dados popular [Íris](http://archive.ics.uci.edu/ml/datasets/Iris "Íris"), que contém instâncias de 3 diferentes tipos (classes) da planta íris. Há 4 valores de recurso (comprimento/largura da sépala e comprimento/largura da pétala) para cada instância. Nas experiências anteriores, treinamos e testamos os modelos usando os mesmos conjuntos de dados. Aqui, usaremos o módulo de [Dividir Dados][split] para criar 2 subconjuntos de dados, treinar no primeiro e pontuar e avaliar no segundo. O conjunto de dados Íris está disponível publicamente no [Repositório de Aprendizado de Máquina UCI](http://archive.ics.uci.edu/ml/index.html) e pode ser baixado usando um módulo [Importar Dados][reader].
 
 ###Criando o experimento###
 Adicione os seguintes módulos ao seu espaço de trabalho no Estúdio de Aprendizado de Máquina do Microsoft Azure:
 
-- [Leitor][reader]
+- [Importar dados][reader]
 - [Floresta de decisão multiclass][multiclass-decision-forest]
-- [Divisão][split]
+- [Dados Divididos][split]
 - [Modelo de treinamento][train-model]
 - [Modelo de Pontuação][score-model]
 - [Avaliar modelo][evaluate-model]
@@ -149,9 +149,9 @@ Conecte as portas, conforme mostrado abaixo na Figura 10.
 
 Configure o índice da coluna Rótulo do módulo [Treinar Modelo][train-model] como 5. O conjunto de dados não tem nenhuma linha de cabeçalho, mas sabemos que os rótulos de classe estão na quinta coluna.
 
-Clique no módulo [Leitor][reader] e defina a propriedade *Fonte de dados* como *URL da Web via HTTP* e a *URL* como http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Clique no módulo [Importar Dados][reader] e defina a propriedade *Fonte de dados* como *URL da Web via HTTP* e a *URL* como http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
-Configure a fração de instâncias a serem usadas para treinamento no módulo [Divisão][split] (0,7, por exemplo).
+Defina a fração de instâncias a serem usadas para treinamento no módulo [Dividir Dados][split] (0,7, por exemplo).
  
 ![Avaliar um classificador Multiclass](media/machine-learning-evaluate-model-performance/10.png)
 
@@ -189,4 +189,4 @@ Figura 13. Resultados da validação cruzada de um modelo de classificação mul
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

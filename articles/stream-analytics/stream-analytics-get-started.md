@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="05/20/2016"
 	ms.author="jeffstok" />
 
 
@@ -59,8 +59,14 @@ Para criar um Hub de Evento:
 
 Nós fornecemos um aplicativo cliente que gerará metadados de chamadas de entrada de exemplo e os enviará por push ao Hub de eventos. Siga as etapas abaixo para configurar este aplicativo.
 
-1.	Baixe o [arquivo TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)
+1.	Baixe o [arquivo TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip). Em seguida, descompacte-o em um diretório.
+
+    **Observação**: o Windows pode bloquear o arquivo zip baixado. Clique com o botão direito do mouse no arquivo e selecione Propriedades. Se a mensagem "Este arquivo veio de outro computador e pode ser bloqueado para ajudar a proteger este computador" for exibida, marque a caixa "Desbloquear" e clique em Aplicar no arquivo zip.
+
 2.	Substitua os valores Microsoft.ServiceBus.ConnectionString e EventHubName em **telcodatagen.exe.config** pela cadeia de conexão e pelo nome do Hub de Eventos.
+
+    **Observação**: a cadeia de conexão copiada do Portal do Azure coloca o nome da conexão no final. Certifique-se de remover a "; EntityPath =<value>" da chave de adição = campo.
+
 3.	Inicie o aplicativo. A utilização é o seguinte:
 
    telcodatagen.exe [#NumCDRsPerHour] [Probabilidade de Fraude do Cartão SIM] [#DurationHours]
@@ -149,7 +155,7 @@ Se deseja arquivar todos os eventos, você pode usar uma consulta de passagem pa
 	> Certifique-se de que o nome da fonte de entrada corresponde ao nome da entrada que você especificou anteriormente.
 
 3.	Clique em **Teste** no editor de consultas.
-4.	Forneça um arquivo de teste, que poderá ser o criado nas etapas anteriores, ou use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+4.	Forneça um arquivo de teste, que poderá ser o criado nas etapas anteriores, ou use o [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Clique no botão verificar e veja o resultado exibido abaixo da definição de consulta.
 
 	![Resultados da definição de consulta](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -259,4 +265,4 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 - [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

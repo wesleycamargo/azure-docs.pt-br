@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="05/25/2016"
 	ms.author="larryfr"/>
 
 # Personalizar clusters HDInsight baseados em Linux usando a Ação de Script
@@ -26,6 +26,14 @@ O HDInsight fornece uma opção de configuração chamada **Ação de Script** q
 ## Noções básicas sobre Ações de Script
 
 Uma Ação de Script é simplesmente um script Bash para o qual você fornece uma URL e parâmetros e então é executada nos nós do cluster HDInsight. A seguir, as características e os recursos das ações de script.
+
+* Deve estar armazenado em um URI que pode ser acessado do cluster HDInsight. Estes são os possíveis locais de armazenamento:
+
+    * Uma conta de armazenamento de blobs que é a conta de armazenamento principal ou adicional para o cluster HDInsight. Como HDInsight recebe acesso a ambos os tipos de contas de armazenamento durante a criação do cluster, eles são uma maneira de usar uma ação de script não público.
+    
+    * Um URI publicamente legível, como um Blob do Azure, o GitHub, o OneDrive, o Dropbox, etc.
+    
+    Para obter exemplos de URI para os scripts armazenados no contêiner de blobs (publicamente legível), confira a seção [Scripts de exemplo de ação de script](#example-script-action-scripts).
 
 * Podem ser restritas à __execução em determinados tipos de nó__, por exemplo, nos nós de cabeçalho ou nos nós de trabalho.
 
@@ -426,13 +434,11 @@ Esta seção fornece exemplos sobre as diferentes maneiras como você pode aplic
 
 1. No [Portal do Azure](https://portal.azure.com), escolha o cluster HDInsight.
 
-2. Na folha de cluster do HDInsight, selecione __Configurações__.
+2. Na folha do cluster HDInsight, selecione o bloco __Ações de Script__.
 
-    ![Ícone Configurações](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
+    ![Bloco Ações de script](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-3. Na folha Configurações, selecione __Ações de Script__.
-
-    ![Link Ações de Script](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
+    > [AZURE.NOTE] Você também pode selecionar __Todas as configurações__ e __Ações de Script__ na folha Configurações.
 
 4. Na parte superior da folha Ações de Script, selecione __Enviar novas__.
 
@@ -684,4 +690,4 @@ Consulte as informações e exemplos a seguir sobre como criar e usar scripts pa
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

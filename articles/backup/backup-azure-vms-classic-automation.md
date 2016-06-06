@@ -20,8 +20,8 @@
 # Implantar e gerenciar o backup de VMs do Azure usando o PowerShell
 
 > [AZURE.SELECTOR]
-- [ARM VM PowerShell](backup-azure-vms-automation.md)
-- [Classic VM PowerShell](backup-azure-vms-classic-automation.md)
+- [ARM](backup-azure-vms-automation.md)
+- [Clássico](backup-azure-vms-classic-automation.md)
 
 Este artigo mostra como usar o Azure PowerShell para backup e recuperação de VMs IaaS do Azure.
 
@@ -342,4 +342,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Se você deseja adicionar recursos de gráficos à saída do relatório, saiba mais na postagem do blog do TechNet em [Gráficos com o PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->
