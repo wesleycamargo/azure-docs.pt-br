@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Consultar seu índice de Pesquisa do Azure
@@ -58,4 +58,4 @@ Você pode aprender mais sobre a paginação dos resultados da pesquisa no artig
 ## Realce de ocorrência
 Na Pesquisa do Azure, enfatizar a parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é mais fácil usando os parâmetros `highlight`, `highlightPreTag` e `highlightPostTag`. Você pode especificar quais campos _pesquisáveis_ devem ter o texto correspondido enfatizado, bem como especificar as marcas da cadeia de caracteres exatas para anexar ao início e ao término do texto correspondente que a Pesquisa do Azure retorna.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

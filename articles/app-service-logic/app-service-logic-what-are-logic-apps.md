@@ -21,8 +21,8 @@
 | Referência rápida |
 | --------------- |
 | [Linguagem de definição de aplicativos lógicos](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
-| [Documentação da API gerenciada de Aplicativos Lógicos](https://azure.microsoft.com/documentation/articles/apis-list) |
-| [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps) |
+| [Documentação do conector de aplicativos lógicos](../connectors/apis-list.md) |
+| [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurelogicapps) |
 
 O Serviço de Aplicativo do Azure é uma PaaS (plataforma como serviço) totalmente gerenciada para desenvolvedores que torna mais fácil compilar aplicativos Web, móveis e de integração. Os aplicativos lógicos são uma parte desse pacote e permitem que qualquer usuário técnico ou desenvolvedor automatize a execução do processo de negócios e o fluxo de trabalho por meio de um designer visual fácil de usar.
 
@@ -68,6 +68,7 @@ A seguir estão algumas das principais partes que compõem a experiência de apl
 ## Introdução  
 
  - Para começar com aplicativos lógicos, siga o tutorial [Criar um aplicativo lógico][create].  
+ - [Veja exemplos e cenários comuns](app-service-logic-examples-and-scenarios.md)
  - [Você pode automatizar processos de negócios com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/T694) 
  - [Aprenda a integrar seus sistemas com aplicativos lógicos](http://channel9.msdn.com/Events/Build/2016/P462)
 - Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][appservice].
@@ -80,4 +81,4 @@ A seguir estão algumas das principais partes que compõem a experiência de apl
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

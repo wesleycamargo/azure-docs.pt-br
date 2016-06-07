@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Gerenciamento de segurança no Azure
@@ -28,11 +28,11 @@ O potencial para ataques aumenta nesse tipo de ambiente porque é muito difícil
 
 ### Ameaças de gerenciamento remoto
 
-Os invasores frequentemente tentam obter acesso privilegiado comprometendo as credenciais da conta (por exemplo, por meio de força bruta para obter a senha, phishing e coleta de credenciais) ou enganando os usuários para que executem programas prejudiciais (por exemplo, de sites mal-intencionados com downloads não intencionais ou de anexos de email mal-intencionados). Em um ambiente de nuvem gerenciado remotamente, violações de contas podem levar a um risco maior devido ao acesso em qualquer local e a qualquer momento.
+Os invasores frequentemente tentam obter acesso privilegiado comprometendo as credenciais da conta (por exemplo, por meio de força bruta para obter a senha, phishing e coleta de credenciais) ou enganando os usuários para que executem código prejudicial (por exemplo, de sites prejudiciais com downloads não intencionais ou de anexos de email prejudiciais). Em um ambiente de nuvem gerenciado remotamente, violações de contas podem levar a um risco maior devido ao acesso em qualquer local e a qualquer momento.
 
 Mesmo com controles rígidos em contas de administrador primárias, contas de usuário de nível inferior podem ser usadas para explorar pontos fracos na estratégia de segurança. A falta de treinamento de segurança apropriado também pode levar a falhas devido à divulgação acidental ou à exposição de informações de contas.
 
-Quando uma estação de trabalho de usuário também é usada para tarefas administrativas, ela pode ser comprometida em vários pontos diferentes. Isso pode ocorrer, por exemplo, se o usuário navega na Web, usa ferramentas de terceiros e de software livre ou abre um arquivo de documento mal-intencionado que contém um cavalo de Troia.
+Quando uma estação de trabalho de usuário também é usada para tarefas administrativas, ela pode ser comprometida em vários pontos diferentes. Isso pode ocorrer, por exemplo, se o usuário navegar na Web, usar ferramentas de terceiros e de software livre ou abrir um arquivo de documento prejudicial que contenha um cavalo de Troia.
 
 Em geral, a maioria dos ataques direcionados que resultam em violações de dados pode ser rastreada como explorações de navegador, plug-ins (como Flash, PDF e Java) e spear phishing (email) em computadores desktop. Esses computadores podem ter permissões de nível administrativo ou de nível de serviço para acessar servidores ativos ou dispositivos de rede para operações quando usados para desenvolvimento ou gerenciamento de outros ativos.
 
@@ -185,7 +185,7 @@ Na figura a seguir, a imagem portátil é um sistema unido ao domínio que é pr
 
 ![][4]
 
-É importante observar que as unidades flash USB são mais facilmente perdidas do que um computador desktop médio. O uso do BitLocker para criptografar todo o volume, juntamente com uma senha forte, reduzirá a probabilidade de que um invasor use a imagem da unidade para fins mal-intencionados. Além disso, se a unidade flash USB for perdida, a revogação e a [emissão de um novo certificado de gerenciamento](https://technet.microsoft.com/library/hh831574.aspx), juntamente com uma redefinição de senha rápida, poderão reduzir a exposição. Os logs de auditoria administrativos residem no Azure, não no cliente, reduzindo ainda mais a perda de dados potencial.
+É importante observar que as unidades flash USB são mais facilmente perdidas do que um computador desktop médio. O uso do BitLocker para criptografar todo o volume, juntamente com uma senha forte, reduzirá a probabilidade de que um invasor use a imagem da unidade para fins prejudicais. Além disso, se a unidade flash USB for perdida, a revogação e a [emissão de um novo certificado de gerenciamento](https://technet.microsoft.com/library/hh831574.aspx), juntamente com uma redefinição de senha rápida, poderão reduzir a exposição. Os logs de auditoria administrativos residem no Azure, não no cliente, reduzindo ainda mais a perda de dados potencial.
 
 ## Práticas recomendadas
 
@@ -219,7 +219,7 @@ Além disso, jump boxes dedicadas na rede da Microsoft que exigem a autenticaç�
 
 Minimizar o número de tarefas que os administradores podem executar em uma estação de trabalho protegida ajudará a minimizar a superfície de ataque no ambiente de desenvolvimento e gerenciamento. Use as seguintes tecnologias para proteger a estação de trabalho protegida:
 
-- Proteção do IE. O navegador Internet Explorer (ou qualquer navegador da Web, de fato) é um dos principais pontos de entrada para código mal-intencionado devido a suas amplas interações com servidores externos. Examine suas políticas de cliente e imponha a execução no modo protegido, desabilitando complementos e downloads de arquivos e usando a filtragem do [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx). Verifique se os avisos de segurança são exibidos. Tire proveito das zonas da Internet e crie uma lista de sites confiáveis para os quais você configurou proteção razoável. Bloqueie todos os outros sites e código no navegador, como ActiveX e Java.
+- Proteção do IE. O navegador Internet Explorer (ou qualquer navegador da Web, de fato) é um dos principais pontos de entrada para código prejudicial devido a suas amplas interações com servidores externos. Examine suas políticas de cliente e imponha a execução no modo protegido, desabilitando complementos e downloads de arquivos e usando a filtragem do [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx). Verifique se os avisos de segurança são exibidos. Tire proveito das zonas da Internet e crie uma lista de sites confiáveis para os quais você configurou proteção razoável. Bloqueie todos os outros sites e código no navegador, como ActiveX e Java.
 - Usuário standard. A execução como usuário padrão apresenta várias vantagens. A maior delas é que o roubo de credenciais de administrador por meio de malware torna-se mais difícil. Além disso, uma conta de usuário padrão não tem privilégios elevados no sistema operacional raiz, e muitas opções de configuração e APIs são bloqueadas por padrão.
 - AppLocker. Você pode usar o [AppLocker](http://technet.microsoft.com/library/ee619725.aspx) para restringir os programas e scripts que os usuários podem executar. Você pode executar o AppLocker no modo de auditoria ou de imposição. Por padrão, o AppLocker tem uma regra de permissão que habilita os usuários que têm um token de administrador a executar todo o código no cliente. Essa regra existe para impedir que os administradores bloqueiem a si mesmos e aplica-se somente a tokens com privilégios elevados. Confira também Integridade do código como parte da [segurança principal](http://technet.microsoft.com/library/dd348705.aspx) do Windows Server.
 - Assinatura de código. A assinatura de código de todas as ferramentas e scripts usados pelos administradores fornece um mecanismo gerenciável para implantar políticas de bloqueio de aplicativos. Hashes não são dimensionados com alterações rápidas no código, e caminhos de arquivo não fornecem um alto nível de segurança. Você deve combinar as regras do AppLocker a uma [política de execução](http://technet.microsoft.com/library/ee176961.aspx) do PowerShell que permita que apenas scripts e código assinado específicos sejam [executados](http://technet.microsoft.com/library/hh849812.aspx).
@@ -247,4 +247,4 @@ Os seguintes recursos estão disponíveis para fornecer informações mais gerai
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

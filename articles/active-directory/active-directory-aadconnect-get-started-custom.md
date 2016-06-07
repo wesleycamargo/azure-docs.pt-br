@@ -4,7 +4,7 @@
 	services="active-directory"
     keywords="o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do AD do Azure"
 	documentationCenter=""
-	authors="billmath"
+	authors="andkjell"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -14,36 +14,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/19/2016"
+	ms.date="05/31/2016"
 	ms.author="billmath;andkjell"/>
 
 # Instalação personalizada do Azure AD Connect
-A documentação a seguir fornece informações sobre como usar a opção de instalação personalizada para o Azure AD Connect. Você poderá usar essa opção para obter mais opções de configuração adicionais ou se precisar de recursos opcionais que não são abrangidos pela instalação expressa.
+As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](active-directory-aadconnect-get-started-express.md) não satisfaz à sua implantação ou a topologia.
 
-## Documentação relacionada
-Se você não leu a documentação em [Integrando suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md), a tabela a seguir fornece links para tópicos relacionados. Os três primeiros tópicos em negrito são necessários antes de iniciar a instalação.
+Antes de iniciar a instalação do Azure AD Connect, [baixe o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) e conclua as etapas de pré-requisito em [Azure AD Connect: hardware e pré-requisitos](active-directory-aadconnect-prerequisites.md). Também verifique se você tem as contas necessárias disponíveis, conforme descrito em [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md).
 
-Tópico |  
---------- | ---------
-**Baixar o Azure AD Connect** | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
-**Hardware e pré-requisitos** | [Azure AD Connect: hardware e pré-requisitos](active-directory-aadconnect-prerequisites.md#hardware-requirements-for-azure-ad-connect)
-**Contas usadas para instalação** | [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
-Instalar usando as Configurações expressas | [Instalação expressa do Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
-Após a instalação | [Verifique a instalação e atribua licenças](active-directory-aadconnect-whats-next.md)
+Se as configurações personalizadas não corresponderem à sua topologia, por exemplo, para atualizar o DirSync, confira a [documentação relacionada](#related-documentation) para outros cenários.
 
-## Instalar componentes necessários
+## Instalação de configurações personalizadas do Azure AD Connect
+
+### Configurações Expressas
+Nessa página, clique em **Personalizar** para iniciar uma instalação de configurações personalizadas.
+
+### Instalar componentes necessários
 Quando você instala os serviços de sincronização, pode deixar a seção de configuração opcional desmarcada e o Azure AD Connect configura tudo automaticamente. Ele configura uma instância do LocalDB do SQL Server 2012 Express, cria os grupos apropriados e atribui permissões a eles. Se quiser alterar os padrões, você poderá usar a tabela a seguir para entender as opções de configuração opcionais disponíveis.
 
 ![Componentes necessários](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
 Configuração opcional | Descrição
 ------------- | -------------
-Usar um SQL Server existente | Permite que você especifique o nome do SQL Server e o nome da instância. Escolha essa opção se já tiver um servidor de banco de dados que você quer usar. Insira o nome da instância, seguido de uma vírgula e do número da porta em **Nome da Instância**, se o SQL Server não tiver a navegação habilitada.
+Usar um SQL Server existente | Permite que você especifique o nome do SQL Server e o nome da instância. Escolha essa opção se já tiver um servidor de banco de dados que você quer usar. Digite o nome da instância, seguido de uma vírgula e do número da porta em **Nome da Instância**, se o SQL Server não tiver a navegação habilitada.
 Usar uma conta de serviço existente | Por padrão, o Azure AD Connect cria uma conta de serviço local a ser usada pelos serviços de sincronização. A senha é gerada automaticamente e desconhecida para a pessoa que está instalando o Azure AD Connect. Se usar um SQL Server remoto ou um proxy que exija autenticação, você precisará de uma conta de serviço no domínio e da senha. Nesses casos, insira a conta de serviço a ser usada. Verifique se o usuário que está executando a instalação é um SA no SQL para que um logon para a conta de serviço possa ser criado. Veja [Contas e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation)
 Especificar grupos de sincronização personalizados | Por padrão, o Azure Connect AD cria quatro grupos locais para o servidor quando os serviços de sincronização estiverem instalados. Esses grupos são: grupo de administradores, grupo de operadores, grupo de navegação e grupo de redefinição de senha. Você pode especificar seus próprios grupos aqui. Os grupos devem ser locais no servidor e não podem ser localizados no domínio.
 
-## Entrada do usuário
+### Entrada do usuário
 Depois de instalar os componentes necessários, será solicitado que você selecione o método de logon único de seus usuários. A tabela a seguir fornece uma breve descrição das opções disponíveis. Para obter uma descrição completa dos métodos de entrada, consulte [Entrada do usuário](active-directory-aadconnect-user-signin.md).
 
 ![Entrada do usuário](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
@@ -54,10 +51,10 @@ Sincronização de senha | Os usuários podem entrar em serviços de nuvem da Mi
 Federação com o AD FS | Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles. Os usuários são redirecionados para a instância local do AD FS para entrar e a autenticação ocorre no local.
 Não configurar | Nenhum dos recursos é instalado e configurado. Escolha essa opção se você já tiver um servidor de federação de terceiros ou outra solução existente em vigor.
 
-## Conectar-se ao AD do Azure
+### Conectar-se ao AD do Azure
 Na tela Conectar ao AD do Azure, digite uma senha e uma conta de administrador global. Se você tiver selecionado **Federação com o AD FS** na página anterior, não entre com uma conta de um domínio que planeja habilitar para a federação. Uma recomendação é usar uma conta do domínio **onmicrosoft.com** padrão, que é fornecida com o diretório do Azure AD.
 
-Lembre-se de que essa conta só será usada para criar uma conta de serviço no Azure AD e não será usada após a conclusão do assistente. ![Entrada do usuário](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+Lembre-se de que essa conta é usada apenas para criar uma conta de serviço no Azure AD e não é usada após a conclusão do assistente. ![Entrada do usuário](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
 Se sua conta de administrador global tiver o MFA habilitado, você precisará fornecer a senha novamente no pop-up de entrada e concluir o desafio do MFA. O desafio poderia ser fornecer um código de verificação ou uma chamada telefônica. ![MFA de Entrada do Usuário](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
@@ -191,7 +188,7 @@ Você deverá inserir as credenciais para que o servidor de aplicativos Web poss
 ### Especifique a conta de serviço para o serviço AD FS
 O serviço AD FS requer uma conta de serviço de domínio para autenticar usuários e informações de usuário de pesquisa no Active Directory. Ele pode dar suporte a dois tipos de contas de serviço:
 
-- **Conta do Serviço Gerenciado de Grupo** ‒ introduzida no Serviço de Domínio do Active Directory com o Windows Server 2012. Esse tipo de conta fornece serviços como o AD FS, uma única conta sem a necessidade de atualizar a senha da conta regularmente. Use essa opção se você já tiver controladores de domínio do Windows Server 2012 no domínio ao qual os servidores do AD FS pertencem.
+- **Conta do Serviço Gerenciado de Grupo** ‒ introduzida nos Serviços de Domínio do Active Directory com o Windows Server 2012. Esse tipo de conta fornece serviços como o AD FS, uma única conta sem a necessidade de atualizar a senha da conta regularmente. Use essa opção se você já tiver controladores de domínio do Windows Server 2012 no domínio ao qual os servidores do AD FS pertencem.
 - **Conta de Usuário de Domínio** ‒ esse tipo de conta exige que você forneça uma senha e atualize-a regularmente quando ela for alterada ou expirar. Use essa opção somente quando você não tiver controladores de domínio do Windows Server 2012 no domínio ao qual os servidores do AD FS pertencem.
 
 Se você tiver selecionado a Conta de Serviço Gerenciado de Grupo e se esse recurso nunca tiver sido usado no Active Directory, suas credenciais de Administrador Corporativo serão solicitadas. Essas credenciais são usadas para iniciar o repositório de chaves e para habilitar o recurso no Active Directory.
@@ -246,6 +243,19 @@ Após a instalação, saia e entre novamente no Windows antes de usar o Gerencia
 
 Agora que você tem o Azure AD Connect instalado, é possível [verificar a instalação e atribuir licenças](active-directory-aadconnect-whats-next.md).
 
+Saiba mais sobre estes recursos, que foram habilitados com a instalação: [impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](active-directory-aadconnect-health-sync.md).
+
+Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](active-directory-aadconnectsync-feature-scheduler.md).
+
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+## Documentação relacionada
+
+Tópico |  
+--------- | ---------
+Visão geral do Azure AD Connect | [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+Instalar usando as Configurações expressas | [Instalação expressa do Azure AD Connect](active-directory-aadconnect-get-started-express.md)
+Atualizar do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Contas usadas para instalação | [Mais informações sobre permissões e contas do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+
+<!---HONumber=AcomDC_0601_2016-->

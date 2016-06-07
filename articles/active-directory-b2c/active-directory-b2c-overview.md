@@ -63,4 +63,8 @@ Estes links serão úteis na exploração em profundidade do serviço:
 - Leia as [Perguntas frequentes do Active Directory B2C do Azure](active-directory-b2c-faqs.md).
 - [Solicitações de suporte a arquivos para o Active Directory B2C do Azure](active-directory-b2c-support.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+## Obter atualizações de segurança para nossos produtos
+
+Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
+
+<!---HONumber=AcomDC_0601_2016-->

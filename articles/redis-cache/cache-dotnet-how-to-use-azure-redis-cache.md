@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/28/2016" 
+	ms.date="05/31/2016" 
 	ms.author="sdanie"/>
 
 # Como utilizar o cache Redis do Azure
@@ -298,4 +298,4 @@ Agora que você aprendeu os conceitos básicos, siga estes links para saber mais
 
 [Como cadeias de caracteres de aplicativo e cadeias de caracteres de conexão funcionam]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -99,16 +99,15 @@ Esses artigos fornecem referências básicas para REST e biblioteca de autentica
 
 ### Protocolos de autenticação
 
-- [Referência do protocolo SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx): o protocolo SAML 2.0 permite que os aplicativos forneçam uma experiência de logon único aos usuários.
+- [Protocolos de autenticação do Azure Active Directory](active-directory-protocols.md): saiba mais sobre os diferentes protocolos de autenticação e autorização com suporte do Azure Active Directory.
 
+- [Referência do protocolo SAML 2.0](active-directory-saml-protocol-reference.md): o protocolo SAML 2.0 permite que os aplicativos forneçam uma experiência de logon único aos usuários.
 
-- [Referência de protocolo do OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx): você pode usar o protocolo do OAuth 2.0 para autorizar o acesso a aplicativos Web e APIs Web em seu locatário do Active Directory do Azure.
+- [Referência de protocolo do OAuth 2.0](active-directory-protocols-oauth-code.md): você pode usar o protocolo do OAuth 2.0 para autorizar o acesso a aplicativos Web e APIs Web em seu locatário do Active Directory do Azure.
 
+- [Referência de protocolo do OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md): o protocolo do OpenID Connect 1.0 estende o OAuth 2.0 para uso como um protocolo de autenticação.
 
-- [Referência de protocolo do OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): o protocolo do OpenID Connect 1.0 estende o OAuth 2.0 para uso como um protocolo de autenticação.
-
-
-- [Referência do protocolo WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): o protocolo WS-Federation 1.2 é descrito na especificação Web Services Federation Versão 1.2.
+- [Protocolo WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html): o Azure Active Directory dá suporte ao WS-Federation 1.2, de acordo com a Especificação Web Services Federation Versão 1.2.
 
 - [Tipos de token e declaração com suporte](active-directory-token-and-claims.md): você pode usar este guia para entender e avaliar as declarações nos tokens SAML 2.0 e JWT (Tokens Web JSON).
 
@@ -136,8 +135,8 @@ O [Azure Friday](https://azure.microsoft.com/documentation/videos/azure-friday/)
 
 - [Blog da equipe da Graph do Azure Active Directory](http://blogs.msdn.com/b/aadgraphteam): informações do Active Directory do Azure específicas à Graph API.
 
-- [Identidade de Nuvem](http://www.cloudidentity.net): considerações sobre o gerenciamento de identidades como serviço de um PM do Azure Active Directory de entidade de segurança.
+- [Identidade de Nuvem](http://www.cloudidentity.net): considerações sobre o gerenciamento de identidades como serviço de um PM principal do Azure Active Directory de entidade de segurança.
 
 - [Active Directory do Azure no Twitter](https://twitter.com/azuread): comunicados do Active Directory do Azure em 140 caracteres ou menos.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/27/2016"
    ms.author="tomfitz"/>
 
 # Visão geral do Azure Resource Manager
@@ -127,13 +127,13 @@ O Gerenciador de Recursos do Azure oferece suporte a compartilhamento de recurso
 
 ## Próximas etapas
 
-- Para saber mais sobre a criação de modelos, veja [Criando modelos](resource-group-authoring-templates.md).
-- Para implantar o modelo criado, consulte [Implantando modelos](resource-group-template-deploy.md)
+- Para obter uma introdução simples do trabalho com modelos, consulte [Exportar um modelo Azure Resource Manager a partir dos recursos existentes](resource-manager-export-template.md).
+- Para obter uma explicação mais completa da criação de um modelo, consulte [Passo a Passo do Modelo do Resource Manager](resource-manager-template-walkthrough.md).
 - Para entender as funções que você pode usar em um modelo, confira [Funções de modelo](resource-group-template-functions.md)
-- Para obter diretrizes sobre como criar os modelos, confira [Práticas recomendadas para a criação de modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-design-templates.md)
+- Para obter informações sobre como usar o Visual Studio com o Resource Manager, consulte [Criar e implantar grupos de recursos do Azure com o Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 Veja uma demonstração em vídeo desta visão geral:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -21,13 +21,14 @@
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 Este passo a passo mostra como conectar um SQL Data Warehouse do Azure em apenas alguns minutos usando a extensão SSDT (SQL Server Data Tools) no Visual Studio. Uma vez conectado, você executará uma consulta simples.
 
 ## Pré-requisitos
 
 + Dados de exemplo do AdventureWorksDW no SQL Data Warehouse. Para criar isso, consulte [Criar um SQL Data Warehouse][].
-+ SQL Server Data Tools para Visual Studio Para obter instruções e opções de instalação, consulte [Instalar o Visual Studio e o SSDT][].
++ SQL Server Data Tools para Visual Studio Para obter instruções e opções de instalação, consulte [Instalar Visual Studio e SSDT][].
 
 ## Etapa 1: Encontrar o nome totalmente qualificado do servidor do SQL Azure
 
@@ -97,8 +98,8 @@ Para configurar seu ambiente para a autenticação do Windows, consulte [Conecta
 
 <!--Arcticles-->
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Instalar o Visual Studio e o SSDT]: sql-data-warehouse-install-visual-studio.md
-[Conectar Banco de Dados SQL ou SQL Data Warehouse Usando a Autenticação do Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
+[Instalar Visual Studio e SSDT]: sql-data-warehouse-install-visual-studio.md
+[Conectar Banco de Dados SQL ou SQL Data Warehouse Usando a Autenticação do Azure Active Directory]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
 [visualizar os dados com o PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 
 <!--Other-->
@@ -115,4 +116,4 @@ Para configurar seu ambiente para a autenticação do Windows, consulte [Conecta
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
