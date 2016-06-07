@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"
 />
 # Consultar seu índice de Pesquisa do Azure usando o Portal do Azure
@@ -47,4 +47,4 @@ Antes de começar este passo a passo, você já deve ter [criado um índice de P
 
 ![](./media/search-explorer/search-bar.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

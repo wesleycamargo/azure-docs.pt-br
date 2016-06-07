@@ -20,8 +20,8 @@
 
 | Referência rápida |
 | --------------- |
-| [Linguagem de definição de aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Documentação do conector de aplicativos lógicos](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
+| [Linguagem de definição de aplicativos lógicos](https://msdn.microsoft.com/library/azure/mt643789.aspx) |
+| [Documentação do conector de aplicativos lógicos](../connectors/apis-list.md) |
 | [Fórum de aplicativos lógicos](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=azurelogicapps) |
 
 Este tópico demonstra como, em apenas alguns minutos, você pode começar a usar os [Aplicativos Lógicos dos Serviços de Aplicativos](app-service-logic-what-are-logic-apps.md). Vamos percorrer um fluxo de trabalho que permite fornecer um conjunto de tweets em que você está interessado para uma caixa de correio.
@@ -67,4 +67,4 @@ Em menos de 5 minutos, você configurou um aplicativo lógico simples e o coloco
 [Azure portal]: https://portal.azure.com
 [Usar os recursos de aplicativos lógicos]: app-service-logic-create-a-logic-app.md
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

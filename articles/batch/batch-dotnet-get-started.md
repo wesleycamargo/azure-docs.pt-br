@@ -13,10 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/12/2016"
+	ms.date="05/27/2016"
 	ms.author="marsma"/>
 
 # Introdução à biblioteca do Lote do Azure para .NET
+
+> [AZURE.SELECTOR]
+- [.NET](batch-dotnet-get-started.md)
+- [Python](batch-python-tutorial.md)
 
 Conheça os fundamentos do [Lote do Azure][azure_batch] e da biblioteca [.NET do Lote][net_api] neste artigo, onde mostramos o passo a passo de um aplicativo de exemplo em C#. Veremos como o aplicativo de exemplo aproveita o serviço Lote para processar uma carga de trabalho paralela na nuvem e como ele interage com o [Armazenamento do Azure](../storage/storage-introduction.md) para a preparação e a recuperação de arquivos. Você aprenderá técnicas comuns de fluxo de trabalho de aplicativo do Lote. Também terá uma compreensão básica dos principais componentes do Lote, como trabalhos, tarefas, pools e nós de computação.
 
@@ -32,7 +36,7 @@ Este artigo pressupõe que você tenha um conhecimento prático do C# e do Visua
 - **Conta do Lote**: quando você tiver uma assinatura do Azure, [crie uma conta do Lote do Azure](batch-account-create-portal.md).
 - **Conta de armazenamento**: veja [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
 
-> [AZURE.IMPORTANT] No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Finalidade geral**, como descrito na etapa 5 [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
+> [AZURE.IMPORTANT] No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Finalidade geral**, conforme descrito na etapa 5 [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -46,7 +50,7 @@ O exemplo [DotNetTutorial][github_dotnettutorial] é um dos vários exemplos de 
 
 ### Gerenciador do Lote do Azure (opcional)
 
-O [Gerenciador do Lote do Azure][github_batchexplorer] é um utilitário gratuito incluído no repositório [azure-batch-samples][github_samples] no GitHub. Embora o Gerenciador do Lote não seja necessário para concluir este tutorial, seu uso é altamente recomendado na depuração e na administração de entidades na conta do Lote. Você pode ler sobre uma versão anterior do Gerenciador do Lote na postagem de blog [passo a passo do Gerenciador do Lote do Azure][batch_explorer_blog].
+O [Gerenciador do Lote do Azure][github_batchexplorer] é um utilitário gratuito incluído no repositório [azure-batch-samples][github_samples] no GitHub. Embora não seja necessário para concluir este tutorial, pode ser útil ao desenvolver e depurar suas soluções do Lote.
 
 ## Visão geral do projeto de exemplo DotNetTutorial
 
@@ -319,7 +323,7 @@ private static async Task CreatePoolAsync(
 }
 ```
 
-Ao criar um pool com [CreatePool][net_pool_create], você especificará um número de parâmetros como o número de nós de computação, o [tamanho dos nós](../cloud-services/cloud-services-sizes-specs.md) e o sistema operacional dos nós. Em *DotNetTutorial*, usamos [CloudServiceConfiguration][net_cloudserviceconfiguration] para especificar o Windows Server 2012 R2 do [Serviços de Nuvem](../cloud-services/cloud-services-guestos-update-matrix.md). No entanto, ao especificar uma [VirtualMachineConfiguration][net_virtualmachineconfiguration], você poderá criar grupos de nós criados de imagens do Marketplace, que incluem imagens do Windows e do Linux; veja [Introdução ao suporte para Linux no Lote do Azure][blog_linux] para saber mais.
+Ao criar um pool com [CreatePool][net_pool_create], você especificará um número de parâmetros como o número de nós de computação, o [tamanho dos nós](../cloud-services/cloud-services-sizes-specs.md) e o sistema operacional dos nós. Em *DotNetTutorial*, usamos [CloudServiceConfiguration][net_cloudserviceconfiguration] para especificar o Windows Server 2012 R2 do [Serviços de Nuvem](../cloud-services/cloud-services-guestos-update-matrix.md). No entanto, ao especificar uma [VirtualMachineConfiguration][net_virtualmachineconfiguration], você poderá criar grupos de nós criados de imagens do Marketplace, que incluem imagens do Windows e do Linux. Confira [Provisionar nós de computação em Linux nos pools do Lote do Azure](batch-linux-nodes.md) para saber mais.
 
 > [AZURE.IMPORTANT] Você é cobrado pelos recursos de computação no Lote. Para minimizar os custos, você poderá diminuir `targetDedicated` para 1 antes de executar o exemplo.
 
@@ -757,4 +761,4 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciais do Armazenamento no Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Fluxo de trabalho da solução do Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -261,6 +261,41 @@ Você também pode usar Monitorar e gerenciar aplicativos para monitorar os pipe
 
 > [AZURE.IMPORTANT] O arquivo de entrada é excluído quando a fatia é processada com êxito. Portanto, se você quiser executar novamente a fatia ou fazer o tutorial novamente, carregue o arquivo de entrada (input.log) na pasta inputdata do contêiner adfgetstarted.
 
+## Modelo do ARM para criar um gateway
+Aqui está um exemplo de modelo do ARM para criar um gateway lógico na parte traseira. Observe que você precisa instalar um gateway em seu computador local ou na VM IaaS do Azure e registrar o gateway no serviço Data Factory usando uma chave. Confira [Mover dados entre o local e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes.
+
+	{
+	    "contentVersion": "1.0.0.0",
+	    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "parameters": {
+	    },
+	    "variables": {
+	        "dataFactoryName":  "GatewayUsingArmDF",
+	        "apiVersion": "2015-10-01",
+	        "singleQuote": "'"
+	    },
+	    "resources": [
+	        {
+	            "name": "[variables('dataFactoryName')]",
+	            "apiVersion": "[variables('apiVersion')]",
+	            "type": "Microsoft.DataFactory/datafactories",
+	            "location": "eastus",
+	            "resources": [
+	                {
+	                    "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
+	                    "type": "gateways",
+	                    "apiVersion": "[variables('apiVersion')]",
+	                    "name": "GatewayUsingARM",
+	                    "properties": {
+	                    	"description": "my gateway"
+						}
+	                }            
+				]
+	        }
+	    ]
+	}
+
+O modelo cria uma data factory chamada GatewayUsingArmDF com um gateway chamado: GatewayUsingARM.
 
 ## Consulte também
 | Tópico | Descrição |
@@ -273,4 +308,4 @@ Você também pode usar Monitorar e gerenciar aplicativos para monitorar os pipe
 
   
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

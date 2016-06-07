@@ -94,7 +94,7 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
 	string Echo(string text);
 	```
 
-1. Logo após a `IEchoContract` definição da interface, declare um canal que herde de `IEchoChannel` e também a interface `IClientChannel`, como mostrado aqui:
+1. Logo após a definição da interface `IEchoContract`, declare um canal que herde de `IEchoContract` e também a interface `IClientChannel`, como mostrado aqui:
 
 	```
     public interface IEchoChannel : IEchoContract, IClientChannel { }
@@ -783,4 +783,4 @@ Para saber mais sobre o Barramento de Serviço, consulte os tópicos a seguir.
 [5]: ./media/service-bus-relay-tutorial/set-projects.png
 [6]: ./media/service-bus-relay-tutorial/set-depend.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

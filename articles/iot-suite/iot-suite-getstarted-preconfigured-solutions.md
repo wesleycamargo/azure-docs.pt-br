@@ -14,7 +14,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/02/2016"
+     ms.date="05/25/2016"
      ms.author="dobett"/>
 
 # Tutorial: introdução às soluções pré-configuradas
@@ -254,4 +254,4 @@ Agora que você criou uma solução de trabalho pré-configurada, é possível p
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

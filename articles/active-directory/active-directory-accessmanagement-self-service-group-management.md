@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/17/2016"
+	ms.date="05/26/2016"
 	ms.author="curtand"/>
 
 # Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento
@@ -23,9 +23,7 @@ O gerenciamento de grupo de autoatendimento permite aos usuários criar e gerenc
 
 Atualmente, o gerenciamento de grupo de autoatendimento é composto de dois cenários essenciais:gerenciamento de grupo delegado e gerenciamento de grupo de autoatendimento.
 
-
 - **Gerenciamento de grupo delegado** - Um exemplo é um administrador que está gerenciando o acesso a um aplicativo SaaS que sua empresa está usando. O gerenciamento desses direitos de acesso está se tornando inconveniente, portanto esse administrador solicita ao proprietário de negócios para criar um novo grupo. O administrador agora atribui acesso para o aplicativo para um novo grupo que o proprietário da empresa acabou de criar e coloca todas as pessoas que atualmente têm acesso ao aplicativo dentro desse grupo. O proprietário da empresa, em seguida, pode adicionar mais usuários e os usuários são automaticamente provisionados em momentos do aplicativo. O proprietário da empresa não precisa esperar que o administrador faça o trabalho, mas pode gerenciar ele mesmo o acesso para seus usuários. O administrador pode fazer a mesma coisa com um assistente administrativo para um grupo de negócios diferentes e o proprietário da empresa e o assistente administrativo agora pode gerenciar o acesso para seus usuários – sem ser capaz de tocar ou ver uns dos outros usuários. O administrador ainda pode ver todos os usuários que têm acesso ao aplicativo e direitos de acesso de bloco, se necessário.
-
 
 - **Gerenciamento de grupo de autoatendimento** - um exemplo deste cenário é composto de dois usuários que possuem sites do SharePoint Online que eles configuram de forma independente, mas que gostariam de facilitar o acesso entre as equipes. Para isso, eles poderão criar um grupo no AD do Azure e, no SharePoint Online, cada um selecionará esse mesmo grupo para fornecer acesso a seus sites. Quando alguém deseja acesso, solicita do painel de acesso, e depois da aprovação obtêm acesso a ambos os sites do SharePoint Online automaticamente. Posteriormente, um deles decide que todas as pessoas que acessam o site também devem obter acesso a um determinado aplicativo SaaS. Ele solicita ao administrador de seu aplicativo SaaS para adicionar direitos de acesso para este aplicativo a seu site. Daí em seguida diante, quaisquer solicitações que ele aprovar dará acesso para os dois sites SharePoint Online e também para este aplicativo de SaaS.
 
@@ -51,4 +49,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

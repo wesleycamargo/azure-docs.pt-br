@@ -475,22 +475,9 @@ Para obter mais informações sobre o Barramento de Serviço, consulte os seguin
 * [Página de serviço do Barramento de Serviço][sbwacom]  
 * [Como usar as filas do Barramento de Serviço][sbwacomqhowto]  
 
-Para obter mais informações sobre cenários de várias camadas ou para saber como implantar um aplicativo para um serviço de nuvem, consulte:
+Para saber mais sobre os cenários com várias camadas, consulte:
 
 * [Aplicativo de várias camadas .NET usando tabelas de armazenamento, filas e blobs][mutitierstorage]  
-
-Convém implementar o front-end de um aplicativo multicamadas em um site do Azure, em vez de em um serviço de nuvem do Azure.
-
-Para implementar o aplicativo criado neste tutorial como um projeto Web padrão, em vez de uma função web do serviço de nuvem, siga as etapas neste tutorial com as seguintes diferenças:
-
-1. Ao criar o projeto, escolha o modelo de projeto **Aplicativo Web do ASP.NET MVC** na categoria **Web** em vez do modelo **Serviço de Nuvem** na categoria **Nuvem**. Em seguida, siga as mesmas instruções para criar o aplicativo MVC até chegar a seção **Gerenciador de configuração de nuvem**.
-
-2. Ao criar a função de trabalho, crie em uma solução nova e separada, semelhante às instruções originais para a função Web. No entanto, você está criando a função de trabalho no projeto de serviço de nuvem. Em seguida, siga as mesmas instruções para criar a função de trabalho.
-
-3. Você pode testar o front-end e back-end separadamente ou executar simultaneamente em instâncias separadas do Visual Studio.
-
-Para saber como implantar o front-end em um site do Azure, consulte [Crie um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](../app-service-web/web-sites-dotnet-get-started.md). Para saber como implantar o back-end em um serviço de nuvem do Azure, consulte [Aplicativo multicamadas do .NET usando tabelas, filas e blobs de armazenamento][mutitierstorage].
-
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
@@ -544,4 +531,4 @@ Para saber como implantar o front-end em um site do Azure, consulte [Crie um apl
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

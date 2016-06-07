@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="06/01/2016"
     ms.author="magoedte"/>
 
 # Autenticar runbooks com uma conta Executar como do Azure
@@ -68,13 +68,10 @@ O procedimento abaixo atualiza a Conta de automação existente e cria a entidad
 
 Antes de prosseguir, verifique o seguinte:
 
-1. Você baixou e instalou o [Módulo do Azure Active Directory para Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297)
-2. Você criou uma conta de automação. Essa conta será referenciada como o valor para os parâmetros – AutomationAccountName e - ApplicationDisplayName no script abaixo.
-3. Você instalou o [Kit de Ferramentas de Criação da Automação do Azure](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.2)
+1. Você baixou e instalou o [Windows Management Framework WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855) se estiver executando o Windows 7. Se você estiver executando o Windows Server 2012 R2, o Windows Server 2012, o Windows 2008 R2, o Windows 8.1 e o Windows 7 SP1, o [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) estará disponível para instalação.
+2. Azure PowerShell 1.0. Para saber mais sobre esta versão e como instalá-la, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). 
+3. Você criou uma conta de automação. Essa conta será referenciada como o valor para os parâmetros – AutomationAccountName e - ApplicationDisplayName no script abaixo.
 
-```
-Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser
-```
 
 O script do PowerShell irá configurar o seguinte:
 
@@ -246,4 +243,4 @@ O script inclui duas linhas adicionais de código para oferecer suporte à refer
 - Para saber mais sobre Entidades de Serviço, veja [Objetos de aplicativo e objetos de entidade de serviço](../active-directory/active-directory-application-objects.md).
 - Para saber mais sobre o Controle de Acesso baseado em Função na Automação do Azure, veja [Controle de acesso baseado em função na Automação do Azure](../automation/automation-role-based-access-control.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

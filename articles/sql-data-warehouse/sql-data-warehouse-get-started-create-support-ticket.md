@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Criar um tíquete de suporte para o SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Como criar um tíquete de suporte para o SQL Data Warehouse | Microsoft Azure"
    description="Como criar um tíquete de suporte no Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,16 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/17/2016"
+   ms.date="05/29/2016"
    ms.author="sonyam;barbkess;sonyama"/>
 
-# Criar um tíquete de suporte para o SQL Data Warehouse
- Este artigo mostra como criar um tíquete de suporte para o SQL Data Warehouse.
+# Como criar um tíquete de suporte para o SQL Data Warehouse
+ 
+Caso você tenha problemas com o SQL Data Warehouse, crie um tíquete de suporte para que nossa equipe de engenharia possa ajudá-lo.
 
-
-## Como criar um tíquete de suporte
+## Criar um tíquete de suporte
 
 1. Abra o [Portal do Azure][].
+
 2. Na tela Inicial, clique no bloco **Ajuda + suporte**.
 
     ![Ajuda + suporte](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -45,10 +46,11 @@
 
 7. Selecione seu **Plano de suporte**.
 
-    - O suporte para questões de cobrança e gerenciamento de assinatura está disponível em todos os níveis de suporte.
-    - O suporte para questões de reparo é fornecido por meio do suporte Developer, Standard, Pro Direct ou Premier. As questões que exigem reparos são problemas vivenciados pelo cliente ao usar o Azure, em que se espera que o problema tenha sido causado pela Microsoft.
-    - Os serviços de consultores e mentores para o desenvolvedor estão disponíveis nos níveis de suporte Premier e Professional Direct.
-    - Leia mais sobre o suporte do Azure, incluindo o escopo, os tempos de resposta, os preços etc. em [Planos de suporte do Azure][].
+    - O suporte **relacionado ao gerenciamento de assinaturas e cobrança** está disponível em todos os níveis de suporte.
+    - O suporte de **conserto** é fornecido pelo suporte Developer, Standard, Pro Direct ou Premier. Os problemas de **conserto** são os enfrentados pelos clientes durante o uso do Azure onde há uma expectativa razoável de que a Microsoft causou o problema.
+    - O **aconselhamento de desenvolvedores** e **serviços de consultoria** estão disponíveis nos níveis de suporte Professional Direct e Premier.
+    
+    Consulte os [planos de suporte do Azure][] para saber mais sobre os vários planos de suporte, incluindo o escopo, tempos de resposta, preços etc. Para ver as perguntas frequentes sobre o suporte do Azure, consulte [Perguntas frequentes de suporte do Azure][].
 
     ![Plano de suporte](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 
@@ -69,19 +71,22 @@
 11. Clique em **Criar** para enviar a solicitação de suporte.
 
 
-## Próximas etapas
+## Monitorar um tíquete de suporte
+
 Depois que você enviar a solicitação de suporte, a equipe de suporte do Azure entrará em contato com você. Para verificar o status e os detalhes da solicitação, clique em **Gerenciar solicitações de suporte** no painel.
 
 ![Verificar o status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
-Além disso, você pode se conectar com a comunidade do SQL Data Warehouse usando a marca azure-sqldw no [Stack Overflow][] ou no [Fórum do MSDN do Azure SQL Data Warehouse][].
+## Outros recursos
+
+Além disso, você pode conectar a comunidade do SQL Data Warehouse no [Stack Overflow][] ou no [Fórum MSDN do SQL Data Warehouse][].
 
 <!-- External links -->
-
 [Portal do Azure]: https://portal.azure.com/
-[Planos de suporte do Azure]: http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[planos de suporte do Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Perguntas frequentes de suporte do Azure]: https://azure.microsoft.com/support/faq/
 [Portal online Microsoft Premier]: https://premier.microsoft.com/
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw/
-[Fórum do MSDN do Azure SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
+[Fórum MSDN do SQL Data Warehouse]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
