@@ -482,7 +482,7 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 	- Na seção de atividades, há somente uma atividade cujo **type** é definido como **Copy**.
 	- A **entrada** da atividade é definida como **EmpOnPremSQLTable** e a **saída** da atividade é definida como **OutputBlobTable**.
 	- Na seção **transformation**, **SqlSource** é especificado como o **source type** e **BlobSink **é especificado como o **sink type**.
-- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
+	- A consulta SQL **select * from emp** é especificada para a propriedade **sqlReaderQuery** de **SqlSource**.
 
 	Substitua o valor da propriedade **início** pelo dia atual e o valor de **término** pelo dia seguinte. Ambos os valores de data/hora de início e de término devem estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. A hora de **end** é opcional, mas nós o usaremos neste tutorial.
 	
