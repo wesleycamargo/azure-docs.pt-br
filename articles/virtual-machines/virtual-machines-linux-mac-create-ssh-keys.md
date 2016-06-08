@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/02/2016"
+	ms.date="05/16/2016"
 	ms.author="v-livech"/>
 
 # Criar chaves SSH no Linux e Mac para VMs do Linux no Azure
 
-Para criar uma chave SSH pública e privada protegida por senha, você precisa de um terminal aberto em sua estação de trabalho. Assim que você tiver as chaves SSH, poderá criar novas VMs com essa chave por padrão ou adicionar a chave pública às VMs existentes usando a CLI do Azure e os modelos do Azure.
+Para criar uma chave SSH pública e privada protegida por senha, você precisa de um terminal aberto em sua estação de trabalho. Assim que você tiver as chaves SSH, poderá criar novas VMs com essa chave por padrão ou adicionar a chave pública às VMs existentes usando a CLI do Azure e os modelos do Azure. Isso permitirá logons sem senha via SSH, usando o método de autenticação muito mais seguro de chaves em vez das senhas.
 
 ## Listagem rápida de comandos
 
@@ -64,7 +64,7 @@ $
 
 ## Introdução
 
-Usar chaves SSH públicas e privadas é a maneira mais fácil de fazer logon em seus servidores Linux, mas, além disso, a [criptografia da chave pública](https://en.wikipedia.org/wiki/Public-key_cryptography) também fornece uma maneira muito mais segura de fazer logon em sua VM BSD ou Linux no Azure do que as senhas, que podem ser violadas por força bruta com muito mais facilidade. Sua chave pública pode ser compartilhada com qualquer pessoa; mas apenas você (ou sua infraestrutura de segurança local) possui sua chave privada. A chave privada SSH criada terá uma [senha segura](https://www.xkcd.com/936/) para protegê-la e essa senha é apenas para acessar a chave e **não é** a senha da conta de usuário. Qualquer pessoa que tenha a chave privada sem uma senha poderá acessar qualquer servidor com a chave pública instalada. A chave privada não pode ser usada sem a senha.
+Usar chaves SSH públicas e privadas é a maneira mais fácil de fazer logon em seus servidores Linux, mas, além disso, a [criptografia da chave pública](https://en.wikipedia.org/wiki/Public-key_cryptography) também fornece uma maneira muito mais segura de fazer logon em sua VM BSD ou Linux no Azure do que as senhas, que podem ser violadas por força bruta com muito mais facilidade. Sua chave pública pode ser compartilhada com qualquer pessoa; mas apenas você (ou sua infraestrutura de segurança local) possui sua chave privada. A chave privada SSH criada terá uma [senha segura](https://www.xkcd.com/936/) para protegê-la e essa senha é apenas para acessar a chave e **não é** a senha da conta de usuário. Quando você adiciona uma senha para a chave SSH, ela criptografa a chave privada para que esta não possa ser usada sem a senha para desbloqueá-la. Se um invasor conseguisse roubar sua chave privada e ela não tivesse senha, ele seria capaz de usar essa chave privada para fazer logon nos servidores que possuem a chave pública correspondente instalada. Se a chave privada é protegida por senha, ela não pode ser usada por esse invasor, o que é uma camada adicional de segurança para sua infraestrutura no Azure.
 
 
 Este artigo cria arquivos de chave com o formato *ssh-rsa*, pois são recomendados para as implantações no Gerenciador de Recursos e necessários no [portal](https://portal.azure.com) para as implantações clássicas e do Gerenciador de Recursos.
@@ -76,7 +76,7 @@ O Azure requer chaves públicas e privadas de pelo menos 2048 bits em formato ss
 
 ## Usando ssh-keygen
 
-Esse comando cria um par de chaves SSH protegido por senha usando o RSA de 2048 bits e será comentado para identificá-lo facilmente.
+Esse comando cria um par de chaves SSH (criptografado) protegido por senha usando o RSA de 2048 bits e será comentado para identificá-lo facilmente.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -235,4 +235,4 @@ A próxima etapa é criar VMs do Linux do Azure usando a nova chave pública SSH
 - [Criar uma VM Linux segura usando o Portal do Azure](virtual-machines-linux-quick-create-portal.md)
 - [Criar uma VM Linux segura usando a CLI do Azure](virtual-machines-linux-quick-create-cli.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

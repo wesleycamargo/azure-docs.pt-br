@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Analisar o desempenho do nó de borda no CDN do Microsoft Azure
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## Visão geral
 A análise de desempenho de borda fornece informações detalhadas de uso de tráfego e largura de banda para o CDN. Essas informações, em seguida, podem ser usadas para gerar estatísticas de tendências, que permitem que você obtenha mais informações sobre como os seus ativos estão sendo armazenados em cache e entregues aos clientes. Por sua vez, isso permite que você forme uma estratégia sobre como otimizar a entrega de conteúdo e determinar quais problemas devem ser resolvidos para aproveitar melhor o CDN. Como resultado, não só será possível melhorar o desempenho de entrega de dados, mas você também poderá reduzir os custos com CDN.
 
-> [AZURE.NOTE] A análise de desempenho de borda é um recurso da camada Premium CDN. Para obter uma comparação dos recursos de CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
->
-> Todos os relatórios usam notação UTC/GMT, ao especificar um valor de data/hora.
+> [AZURE.NOTE] Todos os relatórios usam notação UTC/GMT, ao especificar um valor de data/hora.
 
 ## Coleta de logs e relatórios
 
@@ -192,4 +192,4 @@ Erros 5xx | Contém um gráfico de barras que permite que você visualize as 10 
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -52,7 +52,7 @@ A tabela a seguir descreve as características das camadas de serviço do pool.
 
 [AZURE.INCLUDE [Tabela de níveis de serviço de BD SQL para bancos de dados elásticos](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Cada banco de dados dentro de um pool também cumpre as características do banco de dados individual para essa camada. Por exemplo, o pool Basic tem um limite máximo de sessões por pool de 2400 a 28800, mas um banco de dados individual dentro desse pool tem um limite de banco de dados de 300 sessões (o limite para um banco de dados Basic individual conforme especificado na seção anterior).
+Cada banco de dados dentro de um pool também cumpre as características do banco de dados individual para essa camada. Por exemplo, o pool Basic tem um limite máximo de sessões por pool de 4800 a 28800, mas um banco de dados individual dentro desse pool tem um limite de banco de dados de 300 sessões (o limite para um banco de dados Basic individual conforme especificado na seção anterior).
 
 ## Noções básicas sobre DTUs
 
@@ -64,4 +64,4 @@ Cada banco de dados dentro de um pool também cumpre as características do banc
 - Saiba como [Monitorar, gerenciar e redimensionar pools elásticos](sql-database-elastic-pool-manage-portal.md) e [Monitorar o desempenho de bancos de dados individuais](sql-database-single-database-monitor.md).
 - Agora que você conhece as camadas do Banco de Dados SQL, teste-as usando uma versão de [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) e [aprenda a criar seu primeiro banco de dados SQL](sql-database-get-started.md)!
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

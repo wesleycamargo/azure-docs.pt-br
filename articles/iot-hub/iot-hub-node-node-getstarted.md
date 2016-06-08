@@ -248,7 +248,7 @@ Nesta seção, você criará um aplicativo do console do Node.js que simula um d
 2. No prompt de comando, na pasta **simulateddevice**, execute o seguinte comando para instalar o pacote **azure-iot-device-amqp**:
 
     ```
-    npm install azure-iot-device-amqp --save
+    npm install azure-iot-device azure-iot-device-amqp --save
     ```
 
 3. Usando um editor de texto, crie um novo arquivo **SimulatedDevice.js** na pasta **simulateddevice**.
@@ -367,4 +367,4 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

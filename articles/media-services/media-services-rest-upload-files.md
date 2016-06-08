@@ -424,11 +424,48 @@ Os IngestManifestAssets representam os Ativos em um IngestManifest usados com a 
 	Expect: 100-continue
 	{ "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "Asset" : { "Id" : "nb:cid:UUID:b757929a-5a57-430b-b33e-c05c6cbef02e"}}
 
-###(Opcionalmente) Criar ContentKeys usadas para criptografia
 
-Se o ativo for usar criptografia, crie o ContentKey a ser usado para a criptografia antes de criar os IngestManifestFiles para o ativo. Nesse caso, as propriedades a seguir são incluídas no corpo da solicitação.
+###Criar os IngestManifestFiles para cada Ativo
+
+Um IngestManifestFile representa um objeto de blob de vídeo ou de áudio real que será carregado como parte da ingestão em massa de um ativo. As propriedades de criptografia relacionadas não serão necessárias, a menos que o ativo esteja usando uma opção de criptografia. O exemplo usado nesta seção demonstra a criação de um IngestManifestFile que usa StorageEncryption para o Ativo criado anteriormente.
+
+
+**Resposta HTTP**
+
+	POST https://media.windows.net/API/IngestManifestFiles HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 367
+	Expect: 100-continue
+	
+	{ "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
+	
+###Carregar os arquivos no Armazenamento de Blob
+
+Você pode usar qualquer aplicativo cliente de alta velocidade capaz de carregar os arquivos de ativo no URI do contêiner de armazenamento de blob fornecido pela propriedade BlobStorageUriForUpload do IngestManifest. Um serviço de carregamento de alta velocidade notável é [Aspera sob demanda para o aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=272001).
+
+###Monitorar o progresso de ingestão em massa
+
+Você pode determinar o progresso de operações de ingestão em massa para um IngestManifest sondando a propriedade Statistics do IngestManifest. Essa propriedade é um tipo complexo, [IngestManifestStatistics](https://msdn.microsoft.com/library/azure/jj853027.aspx). Para sondar a propriedade Statistics, envie uma solicitação HTTP GET passando a ID do IngestManifest.
  
-Propriedade do corpo da solicitação | ID da descrição | A ID de ContentKey que geramos usando o seguinte formato, “nb:kid:UUID:<NEW GUID>”. ContentKeyType | Esse é o tipo de chave de conteúdo, como um inteiro para esta chave de conteúdo. Passamos o valor 1 para a criptografia de armazenamento. EncryptedContentKey | Criamos um novo valor de chave de conteúdo, que é um valor de 256 bits (32 bytes). A chave é criptografada usando o certificado X.509 de criptografia de armazenamento que recuperamos dos Serviços de Mídia do Microsoft Azure por meio da execução de uma solicitação HTTP GET para os métodos GetProtectionKeyId e GetProtectionKey. ProtectionKeyId | Essa é a ID da chave de proteção para o certificado X.509 de criptografia de armazenamento usado para criptografar a chave de conteúdo. ProtectionKeyType | Esse é o tipo de criptografia para a chave de proteção usada para criptografar a chave de conteúdo. Em nosso exemplo, este valor será StorageEncryption(1). Soma de verificação | A soma de verificação calculada por MD5 para a chave de conteúdo. Ela é calculada pela criptografia da ID de conteúdo com a chave de conteúdo. O exemplo de código demonstra como calcular a soma de verificação.
+
+##Criar ContentKeys usadas para criptografia
+
+Se o ativo for usar criptografia, será necessário criar o ContentKey a ser usado para a criptografia antes de criar os arquivos do ativo. Na criptografia de armazenamento, as propriedades a seguir devem ser incluídas no corpo da solicitação.
+ 
+Propriedade do corpo da solicitação | Descrição
+---|---
+ID | A ID de ContentKey que nós mesmos geramos usando o seguinte formato, “nb:kid:UUID:<NEW GUID>”.
+ContentKeyType | Esse é o tipo de chave de conteúdo, como um inteiro para esta chave de conteúdo. Passamos o valor 1 para a criptografia de armazenamento.
+EncryptedContentKey | Criamos um novo valor de chave de conteúdo, que é um valor de 256 bits (32 bytes). A chave é criptografada usando o certificado X.509 de criptografia de armazenamento que recuperamos dos Serviços de Mídia do Microsoft Azure por meio da execução de uma solicitação HTTP GET para os métodos GetProtectionKeyId e GetProtectionKey.
+ProtectionKeyId | Essa é a ID da chave de proteção para o certificado X.509 de criptografia de armazenamento usado para criptografar nossa chave de conteúdo.
+ProtectionKeyType | Esse é o tipo de criptografia para a chave de proteção usada para criptografar a chave de conteúdo. Em nosso exemplo, este valor será StorageEncryption(1).
+Soma de verificação |A soma de verificação calculada por MD5 para a chave de conteúdo. Ela é calculada pela criptografia da ID de conteúdo com a chave de conteúdo. O exemplo de código demonstra como calcular a soma de verificação.
 
 
 **Resposta HTTP**
@@ -465,35 +502,6 @@ O ContentKey é associado a um ou mais ativos enviando uma solicitação HTTP PO
 	
 	{ "uri": "https://media.windows.net/api/ContentKeys('nb%3Akid%3AUUID%3A32e6efaf-5fba-4538-b115-9d1cefe43510')"}
 
-###Criar os IngestManifestFiles para cada Ativo
-
-Um IngestManifestFile representa um objeto de blob de vídeo ou de áudio real que será carregado como parte da ingestão em massa de um ativo. As propriedades de criptografia relacionadas não serão necessárias, a menos que o ativo esteja usando uma opção de criptografia. O exemplo usado nesta seção demonstra a criação de um IngestManifestFile que usa StorageEncryption para o Ativo criado anteriormente.
-
-
-**Resposta HTTP**
-
-	POST https://media.windows.net/API/IngestManifestFiles HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.11
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
-	Host: media.windows.net
-	Content-Length: 367
-	Expect: 100-continue
-	
-	{ "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
-	
-###Carregar os arquivos no Armazenamento de Blob
-
-Você pode usar qualquer aplicativo cliente de alta velocidade capaz de carregar os arquivos de ativo no URI do contêiner de armazenamento de blob fornecido pela propriedade BlobStorageUriForUpload do IngestManifest. Um serviço de carregamento de alta velocidade notável é [Aspera sob demanda para o aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=272001).
-
-###Monitorar o progresso de ingestão em massa
-
-Você pode determinar o progresso de operações de ingestão em massa para um IngestManifest sondando a propriedade Statistics do IngestManifest. Essa propriedade é um tipo complexo, [IngestManifestStatistics](https://msdn.microsoft.com/library/azure/jj853027.aspx). Para sondar a propriedade Statistics, envie uma solicitação HTTP GET passando a ID do IngestManifest.
- 
-
 **Resposta HTTP**
 
 	GET https://media.windows.net/API/IngestManifests('nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048') HTTP/1.1
@@ -521,4 +529,4 @@ Você pode determinar o progresso de operações de ingestão em massa para um I
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

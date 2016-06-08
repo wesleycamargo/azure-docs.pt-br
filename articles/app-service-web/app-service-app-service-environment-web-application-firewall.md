@@ -78,7 +78,7 @@ Para encaminhar os pings do Gerenciador de Tráfego do seu WAF para o aplicativo
 
 ![Website Translations][WebsiteTranslations]
 
-## Protegendo o tráfego do Ambiente do Serviço de Aplicativo usando grupos de recursos de rede##
+## Protegendo o tráfego do Ambiente do Serviço de Aplicativo usando NSGs (grupos de segurança de rede)##
 Siga a [documentação sobre como controlar o tráfego de entrada](app-service-app-service-environment-control-inbound-traffic.md) para obter detalhes sobre como restringir o tráfego para o Ambiente do Serviço de Aplicativo do WAF apenas usando o endereço VIP do Serviço de Nuvem. Veja um exemplo de comando do PowerShell para executar essa tarefa para a porta TCP 80.
 
 
@@ -99,4 +99,4 @@ Substitua SourceAddressPrefix pelo VIP (Endereço IP Virtual) do Serviço de Nuv
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

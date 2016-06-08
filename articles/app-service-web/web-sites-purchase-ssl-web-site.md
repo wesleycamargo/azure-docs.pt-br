@@ -23,7 +23,7 @@
 - [Comprar certificado SSL para aplicativos Web](web-sites-purchase-ssl-web-site.md)
 - [Habilitar SSL para seu domínio personalizado](web-sites-configure-ssl-certificate.md)  
 
-Por padrão, o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** já habilita o HTTPS para seu aplicativo Web com um certificado curinga para o domínio *.azurewebsites.net. Se não planeja configurar um domínio personalizado, você pode aproveitar o certificado HTTPS padrão. No entanto, como acontece com todos os* [domínios curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), ele não é tão seguro quanto usar um domínio personalizado com seu próprio certificado. Agora, o Serviço de Aplicativo do Azure fornece uma maneira realmente simplificada de comprar e gerenciar um certificado SSL diretamente do Portal do Azure, sem precisar sair do portal. Este artigo explica como comprar e configurar um certificado SSL para o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** em três etapas simples.
+Por padrão, o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** já habilita o HTTPS para seu aplicativo Web com um certificado curinga para o domínio *.azurewebsites.net. Se não planeja configurar um domínio personalizado, você pode aproveitar o certificado HTTPS padrão. No entanto, como acontece com todos os *[domínios curinga](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates), ele não é tão seguro quanto usar um domínio personalizado com seu próprio certificado. Agora, o Serviço de Aplicativo do Azure fornece uma maneira realmente simplificada de comprar e gerenciar um certificado SSL diretamente do Portal do Azure, sem precisar sair do portal. Este artigo explica como comprar e configurar um certificado SSL para o **[Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714)** em três etapas simples.
 
 > [AZURE.NOTE]
 Os certificados SSL para nomes de domínio personalizados não podem ser usados com um aplicativo Web Gratuito e Compartilhado. É preciso que você configure seu aplicativo Web para o modo Basic, Standard ou Premium, o que pode alterar o quanto você é cobrado por sua assinatura. Consulte **[Detalhes de preços dos aplicativos Web](https://azure.microsoft.com/pricing/details/web-sites/)** para saber mais.
@@ -89,7 +89,7 @@ Nessa Etapa, você aprenderá a colocar em armazenamento um Certificado SSL que 
     ![inserir imagem de criação de novo KV](./media/app-service-web-purchase-ssl-web-site/NewKV.jpg)
  
     > [AZURE.NOTE]
-    O Cofre da Chave do Azure tem custos bem mínimos para armazenar esse certificado. O custo será de aproximadamente US$ 0,03 centavos. Confira **[Preço do Cofre da Chave do Azure](https://azure.microsoft.com/pricing/details/key-vault/)** para saber mais.
+    O Cofre da Chave do Azure tem custos bem mínimos para armazenar esse certificado. Veja **[Detalhes de Preço do Cofre de Chaves do Azure](https://azure.microsoft.com/pricing/details/key-vault/)** para obter mais informações.
 
 4. Depois de selecionar o Repositório do Cofre da Chave para armazenar esse certificado, vá em frente e armazene-o clicando no botão **"Armazenar"** na parte superior da folha **"Status do Cofre da Chave"**.
 
@@ -146,7 +146,7 @@ Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domí
             
             * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação ser concluída. Pode demorar alguns minutos até a verificação ser concluída.
                               
-            Por exemplo, para executar a validação de um certificado curinga com o nome de host ***.contosocertdemo.com** ou ***.subdomain.contosocertdemo.com** e o Token de Verificação do Domínio **cAGgQrKc**, você precisa criar um registro TXT em dzc.contosocertdemo.com com o valor **cAGgQrKc.**
+            Por exemplo, para executar a validação de um certificado curinga com o nome de host **.contosocertdemo.com** ou **.subdomain.contosocertdemo.com** e o Token de Verificação do Domínio **cAGgQrKc**, você precisa criar um registro TXT em dzc.contosocertdemo.com com o valor **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Etapa 3: Atribuir o certificado ao Aplicativo do Serviço de Aplicativo
@@ -208,4 +208,4 @@ Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi confi
 
 >[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

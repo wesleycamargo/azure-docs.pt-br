@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Lista de verificação de escalabilidade
 
-![](media/best-practices-scalability-checklist/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Design de serviço
 - **Particione a carga de trabalho**. Crie partes do processo para serem decompostas e distintas. Minimize o tamanho de cada parte seguindo as regras comuns para a separação de preocupações e o princípio da responsabilidade exclusiva. Isso permite que os componentes sejam distribuídos de maneira a maximizar o uso de cada unidade de computação (como um servidor de banco de dados ou uma função). Isso também facilita o dimensionamento do aplicativo ao adicionar instâncias de recursos específicos. Para saber mais, consulte [Diretrizes de particionamento de computação](https://msdn.microsoft.com/library/dn589773.aspx).
@@ -68,4 +68,4 @@
 - **Considere minimizar o número de contas de serviço**. Por exemplo, usar uma conta específica para acessar recursos ou serviços que impõem um limite de conexões ou têm desempenho melhor quando menos conexões são mantidas. Essa abordagem é comum para serviços como bancos de dados, mas ela pode afetar a capacidade de auditar operações com precisão devido à representação do usuário original.
 - **Execute testes de perfil e carga de desempenho** durante o desenvolvimento, como parte das rotinas de teste, e antes da liberação o final para assegurar o desempenho e o dimensionamento necessários para o aplicativo. Esse teste deve ocorrer no mesmo tipo de hardware da plataforma de produção e com os mesmos tipos e quantidades de dados e carga de usuário que serão encontrados em produção. Para saber mais, confira [Testando o desempenho de um serviço de nuvem](vs-azure-tools-performance-profiling-cloud-services.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

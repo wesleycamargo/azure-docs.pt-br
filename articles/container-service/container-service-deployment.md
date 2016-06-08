@@ -20,7 +20,7 @@
 
 # Implantar um cluster do Serviço de Contêiner do Azure
 
-O Serviço de Contêiner do Azure fornece implantação rápida de soluções populares de orquestração e clustering de contêiner de software livre. Usando o Serviço de Contêiner do Azure, você pode implantar clusters DC/OS e Docker Swarm com modelos do Azure Resource Manager ou por meio do portal do Azure. Você implanta esses clusters usando Conjuntos de Escala de Máquina Virtual do Azure e tiram proveito das ofertas de rede e armazenamento do Azure. Para acessar o Serviço de Contêiner do Azure, você precisa de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+O Serviço de Contêiner do Azure fornece implantação rápida de soluções populares de orquestração e clustering de contêiner de software livre. Usando o Serviço de Contêiner do Azure, você pode implantar clusters DC/OS e Docker Swarm com modelos do Azure Resource Manager ou por meio do portal do Azure. Você implanta esses clusters usando Conjuntos de Escala de Máquina Virtual do Azure e tiram proveito das ofertas de rede e armazenamento do Azure. Para acessar o Serviço de Contêiner do Azure, você precisa de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Este documento orienta você durante a implantação de um cluster do Serviço de Contêiner do Azure usando o [Portal do Azure](#creating-a-service-using-the-azure-portal), a [interface de linha de comando (CLI) do Azure](#creating-a-service-using-the-azure-cli) e o [módulo do Azure PowerShell](#creating-a-service-using-powershell).
 
@@ -40,7 +40,7 @@ Insira as seguintes informações:
 - Assinatura – selecione uma assinatura do Azure.
 - Grupo de recursos – selecione um grupo de recursos existente ou crie um novo.
 - Local – selecione uma região do Azure para a implantação do Serviço de Contêiner do Azure.
-- Chave pública SSH – adicione a chave pública que será usada para autenticação em relação a Máquinas Virtuais do Serviço de Contêiner do Azure. É muito importante que a chave não contenha quebras de linha e que inclua o prefixo 'ssh-rsa' e o sufixo 'nomedeusuário@domínio'. Ela deve semelhante ao seguinte: "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" Para obter orientação sobre a criação de chaves SSH, confira os artigos referentes ao [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e ao [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- Chave pública SSH – adicione a chave pública que será usada para autenticação em relação a Máquinas Virtuais do Serviço de Contêiner do Azure. É muito importante que a chave não contenha quebras de linha e que inclua o prefixo 'ssh-rsa' e o sufixo 'nomedeusuário@domínio'. Ela deve semelhante ao seguinte: "**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**" Para obter orientação sobre a criação de chaves SSH, confira os artigos referentes ao [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e ao [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Clique em **OK** quando estiver pronto para continuar.
 
@@ -82,12 +82,12 @@ Quando a implantação for concluída, o cluster do Serviço de Contêiner do Az
 
 ## Criar um serviço usando a CLI do Azure
 
-Para criar uma instância do Serviço de Contêiner do Azure usando a linha de comando, você precisará de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita]( http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Você também precisará ter instalado e configurado a CLI do Azure.
+Para criar uma instância do Serviço de Contêiner do Azure usando a linha de comando, você precisará de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Você também precisará ter instalado e configurado a CLI do Azure.
 
 Para implantar um cluster DC/OS ou Docker Swarm, selecione um dos modelos a seguir no GitHub. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
 
-* [Modelo DC/OS]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Modelo do Swarm]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modelo DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modelo do Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Em seguida, verifique se a CLI do Azure foi conectada a uma assinatura do Azure. Faça isso usando este comando:
 
@@ -142,12 +142,12 @@ Para ver um arquivo de parâmetros de exemplo chamado `azuredeploy.parameters.js
 
 ## Criar um serviço usando o PowerShell
 
-Você também pode implantar um cluster do Serviço de Contêiner do Azure com o PowerShell. Este documento se baseia na versão 1.0 do [módulo do Azure PowerShell]( https://azure.microsoft.com/blog/azps-1-0/).
+Você também pode implantar um cluster do Serviço de Contêiner do Azure com o PowerShell. Este documento se baseia na versão 1.0 do [módulo do Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
 Para implantar um cluster DC/OS ou Docker Swarm, selecione um dos modelos a seguir. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
 
-* [Modelo DC/OS]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* [Modelo do Swarm]( https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modelo DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modelo do Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Antes de criar um cluster em sua assinatura do Azure, verifique se sua sessão do PowerShell foi conectada ao Azure. Você pode fazer isso com o comando `Get-AzureRMSubscription`:
 
@@ -191,8 +191,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
  
 Agora que você tem um cluster em funcionamento, acesse estes documentos para obter detalhes sobre conexão e gerenciamento.
  
-[Conectar-se a um cluster do Serviço de Contêiner do Azure](./container-service-connect.md) 
-[Trabalhar com o Serviço de Contêiner do Azure e DC/OS](./container-service-mesos-marathon-rest.md) 
-[Trabalhar com o Serviço de Contêiner do Azure e Docker Swarm](./container-service-docker-swarm.md)
+[Conectar-se a um cluster do Serviço de Contêiner do Azure](container-service-connect.md) [Trabalhar com o Serviço de Contêiner do Azure e o DC/OS](container-service-mesos-marathon-rest.md) [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](container-service-docker-swarm.md)
 
-<!----HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

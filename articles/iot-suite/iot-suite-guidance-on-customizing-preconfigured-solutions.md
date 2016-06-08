@@ -17,7 +17,7 @@
      ms.date="03/02/2016"
      ms.author="stevehob"/>
 
-# Personalizar soluções pré-configuradas
+# Personalizar uma solução pré-configurada
 
 As soluções pré-configuradas fornecidas com o Pacote IoT do Azure demonstram os serviços no pacote trabalhando juntos para fornecer uma solução de ponta a ponta. Do ponto de partida, há uma variedade de lugares em que você pode estender e personalizar a solução para cenários específicos. As seções a seguir descrevem esses pontos comuns de personalização.
 
@@ -141,4 +141,4 @@ Para obter mais informações sobre dispositivos IoT, consulte o [Site de desenv
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

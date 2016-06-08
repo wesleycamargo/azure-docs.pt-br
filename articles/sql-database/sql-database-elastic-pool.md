@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/28/2016"
+	ms.date="05/23/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,11 +26,11 @@ Pools elásticos fornecem uma solução simples e econômica para gerenciar as m
 
 ## Como ele funciona
 
-Um padrão de aplicativo de SaaS comum é o modelo de banco de dados de locatário único: cada cliente recebe um banco de dados. Cada cliente (banco de dados) tem requisitos de recursos imprevisíveis para memória, E/S e CPU. Com esses picos e quedas de demanda, como você aloca recursos? Tradicionalmente, havia duas opções: (1) provisionar em excesso os recursos com base no uso de pico e pagar a mais ou (2) provisionar de forma insuficiente para economizar, em detrimento do desempenho e satisfação do cliente durante picos. Os pools de banco de dados elástico resolvem esse problema, garantindo que os bancos de dados obtenham os recursos de desempenho que necessitam, quando necessário, fornecendo um mecanismo de alocação de recurso simples dentro de um orçamento previsível.
+Um padrão de aplicativo de SaaS comum é o modelo de banco de dados de locatário único: cada cliente recebe um banco de dados. Cada cliente (banco de dados) tem requisitos de recursos imprevisíveis para memória, E/S e CPU. Com esses picos e quedas de demanda, como você aloca recursos? Tradicionalmente, havia duas opções: (1) provisionar em excesso os recursos com base no uso de pico e pagar a mais ou (2) provisionar de forma insuficiente para economizar, em detrimento do desempenho e satisfação do cliente durante picos. Os pools de banco de dados elástico resolvem esse problema, garantindo que os bancos de dados obtenham os recursos de desempenho que necessitam, quando necessário, fornecendo um mecanismo de alocação de recurso simples dentro de um orçamento previsível. Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
-No Banco de Dados SQL, a medida relativa da capacidade do banco de dados de lidar com as demandas de recursos é expressa em DTUs (Unidades de Transação de Banco de Dados) para bancos de dados individuais e em eDTUs (DTUs elástico) para pools de banco de dados elástico. Consulte a [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md#understand-dtus) para saber mais sobre DTUs e eDTUs.
+No Banco de Dados SQL, a medida relativa da capacidade do banco de dados de lidar com as demandas de recursos é expressa em DTUs (Unidades de Transação de Banco de Dados) para bancos de dados individuais e em eDTUs (DTUs elástico) para pools de banco de dados elástico. Confira a [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md#understand-dtus) para saber mais sobre DTUs e eDTUs.
 
 Um pool é fornecido com um número definido de eDTUs por um preço definido. Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dimensionar automaticamente no conjunto de parâmetros. Sob carga pesada, um banco de dados pode consumir mais eDTUs para atender à demanda. Bancos de dados sob cargas leves consumem menos e bancos de dados sem carga não consomem nenhum eDTU. O provisionamento de recursos para o pool inteiro em vez do bancos de dados único simplifica as tarefas de gerenciamento. Além disso, você tem um orçamento previsível para o pool.
 
@@ -79,9 +79,9 @@ Bancos de dados que são ótimos candidatos a pools de banco de dados elástico 
 
 ## Trabalhos de banco de dados elástico
 
-Com um pool, as tarefas de gerenciamento são simplificadas com a execução de scripts em **[trabalhos elásticos](sql-database-elastic-jobs-overview.md)**. Um Trabalho de Banco de Dados Elástico elimina a maioria do tédio associado a um grande número de bancos de dados. Para começar, consulte [Introdução a trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
+Com um pool, as tarefas de gerenciamento são simplificadas com a execução de scripts em **[trabalhos elásticos](sql-database-elastic-jobs-overview.md)**. Um Trabalho de Banco de Dados Elástico elimina a maioria do tédio associado a um grande número de bancos de dados. Para começar, confira [Introdução a trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
 
-Para obter mais informações sobre outras ferramentas, consulte o [Mapa de aprendizagem das ferramentas de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Para obter mais informações sobre outras ferramentas, confira o [Mapa de aprendizagem das ferramentas de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
 
 ## Recursos de continuidade de negócios para bancos de dados em um pool
 
@@ -90,11 +90,11 @@ Os bancos de dados elásticos normalmente dão suporte às mesmas [funcionalidad
 
 ### Recuperação pontual
 
-A restauração pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto específico no tempo. Consulte [Recuperar um Banco de Dados SQL do Azure de um erro do usuário](sql-database-user-error-recovery.md)
+A restauração pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto específico no tempo. Confira [Recuperar um Banco de Dados SQL do Azure de um erro do usuário](sql-database-user-error-recovery.md)
 
 ### Restauração geográfica
 
-A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde está hospedado. Consulte [Recuperar um Banco de Dados SQL do Azure de uma interrupção](sql-database-disaster-recovery.md)
+A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde está hospedado. Confira [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md) (Recuperar um Banco de Dados SQL do Azure de uma interrupção)
 
 ### Replicação geográfica ativa
 
@@ -104,4 +104,4 @@ Para aplicativos que têm requisitos de restauração mais agressivos do que a r
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="O Banco de Dados SQL do Azure compila aplicativos multilocatário"
+   pageTitle="O Banco de Dados SQL do Azure Compila Aplicativos de Multilocatário com Isolamento e Eficiência"
    description="Saiba como o Banco de Dados SQL compila aplicativos multilocatário"
    keywords=""
    services="sql-database"
@@ -17,11 +17,11 @@
    ms.date="05/04/2016"
    ms.author="carlrab"/>
 
-# Compila aplicativos multilocatário com o Banco de Dados SQL do Azure
+# Compilar Aplicativos de Multilocatário com o Banco de Dados SQL com Isolamento e Eficiência
 
 ## Aproveite os pools Elásticos e compile aplicativos multilocatário mais eficientes
 
-Se você é um desenvolvedor de aplicativos SaaS escrevendo um aplicativo multilocatário e atendendo muitos clientes, normalmente é preciso fazer compromissos quanto à segurança, ao gerenciamento e ao desempenho do cliente. Com os Pools de Bancos de Dados elásticos do Banco de Dados SQL do Azure, você não precisa mais fazer esses compromissos. Esses pools ajudam você a gerenciar e a monitorar aplicativos multilocatário e a receber os benefícios do isolamento de um cliente por banco de dados.
+Se você é um desenvolvedor de aplicativos SaaS escrevendo um aplicativo multilocatário e atendendo muitos clientes, normalmente é preciso fazer compromissos quanto à segurança, ao gerenciamento e ao desempenho do cliente. Com os Pools de Bancos de Dados elásticos do Banco de Dados SQL do Azure, você não precisa mais fazer esses compromissos. Esses pools ajudam você a gerenciar e a monitorar aplicativos multilocatário e a receber os benefícios do isolamento de um cliente por banco de dados. Consulte [Padrões de design para aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
@@ -47,12 +47,22 @@ Pools Básicos, Standard e Premium fornecem a você um amplo espectro de opçõe
 
 Além dos pools elásticos, há recursos de banco de dados SQL para ajudar a gerenciar atividades operacionais em vários bancos de dados:
 
-** Realize consultas e gere relatórios em bancos de dados. ** [A consulta de banco de dados elástico](sql-database-elastic-query-overview.md) permite que você execute consultas ou relatórios em bancos de dados em seu pool elástico e acesse dados remotos armazenados em vários bancos de dados de seu pool de uma só vez.
+**Realize consultas e gere relatórios de bancos de dados.** [A consulta de banco de dados elástico](sql-database-elastic-query-overview.md) permite que você execute consultas ou relatórios em bancos de dados em seu pool elástico e acesse dados remotos armazenados em vários bancos de dados de seu pool de uma só vez.
 
-** Execute transações de banco de dados. ** [Transações de banco de dados elástico](sql-database-elastic-transactions-overview.md) permitem a execução de transações que abrangem vários bancos de dados em bancos de dados SQL e executam operações (por exemplo, ao processar transações financeiras em bancos de dados ou ao atualizar o estoque em um banco de dados e os em pedidos).
+**Execute transações de banco de dados.** [Transações de banco de dados elástico](sql-database-elastic-transactions-overview.md) permitem a execução de transações que abrangem vários bancos de dados em bancos de dados SQL e executam operações (por exemplo, ao processar transações financeiras em bancos de dados ou ao atualizar o estoque em um banco de dados e os em pedidos).
 
-** Execute as mesmas operações em vários bancos de dados. ** [Trabalhos de banco de dados elástico](sql-database-elastic-jobs-overview.md) executam operações administrativas como recompilar índices ou atualizar esquemas em cada banco de dados em seu pool elástico.
+**Execute as mesmas operações em vários bancos de dados.** [Trabalhos de banco de dados elástico](sql-database-elastic-jobs-overview.md) executam operações administrativas como recompilar índices ou atualizar esquemas em cada banco de dados em seu pool elástico.
 
 Vá para a home page para ver o que mais o Banco de Dados SQL tem a oferecer. [Confira](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Próximas etapas
+
+Obtenha uma [assinatura do Azure gratuita](https://azure.microsoft.com/get-started/) e [crie seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
+
+## Saiba mais
+
+Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0525_2016-->

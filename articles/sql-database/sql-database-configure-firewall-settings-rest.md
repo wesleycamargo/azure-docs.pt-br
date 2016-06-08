@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2016"
-	ms.author="stevestein"/>
+	ms.date="05/09/2016"
+	ms.author="sstein"/>
 
 
 # Como configurar um firewall do Banco de Dados SQL do Azure usando a API REST
@@ -73,4 +73,4 @@ Para ver um tutorial sobre como criar um banco de dados, confira [Criar seu prim
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

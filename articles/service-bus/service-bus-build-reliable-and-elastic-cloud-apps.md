@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # Crie aplicativos da nuvem confiáveis e elásticos com o sistema de mensagens 
@@ -39,10 +39,11 @@ A demanda dinâmica é uma realidade para os aplicativos de hoje. De uma demanda
 
 - [Filas do Azure e Filas do Barramento de Serviço do Azure - semelhanças e diferenças](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Referência da API REST do Barramento de Serviço](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [Referência da API REST do RP do Barramento de Serviço](https://msdn.microsoft.com/library/azure/mt639375.aspx)
 
 ## Serviços relacionados
 
 - [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

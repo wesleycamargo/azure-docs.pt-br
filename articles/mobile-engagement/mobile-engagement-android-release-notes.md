@@ -13,11 +13,21 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo" />
 
 
 #Notas de versão
+
+##4\.2.2 (17/05/2016)
+
+- Aprimoramentos de estabilidade.
+
+##4\.2.1 (10/05/2016)
+
+- Segurança: desabilite o acesso de arquivo local de exibição na Web.
+- Segurança: remova a classe `EngagementPreferenceActivity` que estende a classe `PreferenceActivity` obsoleta e não segura.
+- Segurança: atividades de alcance agora estão documentadas para usar `exported="false"`; esse sinalizador também pode ser usado em versões anteriores do SDK.
 
 ##4\.2.0 (03/11/2016)
 
@@ -70,4 +80,4 @@
 -   Aprimoramentos de segurança.
 -   Acompanhamento do Google Play e SmartAd removido.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -1,10 +1,10 @@
 <properties
-pageTitle="Adicionar a API do OneDrive a Aplicativos Lógicos e ao PowerApps Enterprise | Microsoft Azure"
-description="Visão geral da API do OneDrive com os parâmetros da API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Adicionar o conector do OneDrive a Aplicativos Lógicos e ao PowerApps Enterprise | Microsoft Azure"
+description="Visão geral do conector do OneDrive com os parâmetros da API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Introdução à API do OneDrive
+# Introdução ao conector do OneDrive
 
-Conecte-se ao OneDrive para gerenciar seus arquivos, incluindo carregar, obter, excluir arquivos e muito mais. A API do OneDrive pode ser usada em:
+Conecte-se ao OneDrive para gerenciar seus arquivos, incluindo carregar, obter, excluir arquivos e muito mais. O conector do OneDrive pode ser usado por meio de:
 
 - Aplicativos lógicos 
 - PowerApps
@@ -37,29 +37,29 @@ Com o OneDrive, você pode:
 - Crie seu fluxo de negócios baseado nos dados obtidos do OneDrive. 
 - Usar gatilhos para quando um arquivo for criado ou atualizado.
 - Usar ações para criar um arquivo, excluir um arquivo e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um novo arquivo é criado no OneDrive, você pode enviar esse arquivo por email usando o Office 365.
-- Adicione a API do OneDrive ao PowerApps Enterprise. Assim, seus usuários poderão usar essa API em seus próprios aplicativos. 
+- Adicionar o conector do OneDrive ao PowerApps Enterprise Assim, seus usuários poderão usar esse conector em seus próprios aplicativos. 
 
-Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para saber mais sobre como adicionar um conector ao PowerApps Enterprise, acesse [Registrar um conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Para adicionar uma operação aos aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Gatilhos e ações
-A API do OneDrive inclui o gatilho e ações a seguir.
+O conector do OneDrive inclui o gatilho e as ações a seguir.
 
 | Gatilhos | Ações|
 | --- | --- |
 |<ul><li>Quando um arquivo é criado</li><li>Quando um arquivo é modificado</li></ul> | <ul><li>Criar arquivo</li><li>Listar arquivos em uma pasta</li><li>Quando um arquivo é criado</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo usando a ID</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados do arquivo usando a ID</li><li>Obter metadados do arquivo usando o caminho</li><li>Listar pasta raiz</li><li>Atualizar arquivo</li><li>Quando um arquivo é modificado</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o OneDrive
 
-Quando você adiciona essa API aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao OneDrive.
+Quando você adiciona esse conector aos seus aplicativos lógicos, precisa autorizar que os aplicativos lógicos se conectem ao OneDrive.
 
 1. Entre em sua conta do OneDrive.
 2. Permitir que seus aplicativos lógicos se conectem e usem o OneDrive. 
 
-Depois de criar a conexão, insira as propriedades do OneDrive, como o caminho da pasta ou o nome do arquivo. A **Referência da API REST** neste tópico descreve essas propriedades.
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o OneDrive](../../includes/connectors-create-api-onedrive.md)]
 
 >[AZURE.TIP] Você pode usar essa mesma conexão em outros aplicativos lógicos.
 
@@ -220,7 +220,7 @@ Dispara um fluxo quando um novo arquivo é criado em uma pasta do OneDrive.```GE
 
 
 ### Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive.
-Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive. ```GET: /datasets/default/triggers/onupdatedfile```
+Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive.```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -251,7 +251,7 @@ Extrai uma pasta para o OneDrive.```POST: /datasets/default/extractFolderV2```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 
@@ -312,4 +312,4 @@ Volte para a [Lista de APIs](apis-list.md).
 [6]: ./media/connectors-create-api-onedrive/onedrive-new-app.png
 [7]: ./media/connectors-create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

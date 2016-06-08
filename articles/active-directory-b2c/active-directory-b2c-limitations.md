@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Visualização do Active Directory B2C do Azure: limitações e restrições
 
-Há vários recursos e funcionalidades do Active Directory B2C do Azure (AD do Azure) que ainda não têm suporte durante a visualização. Muitas dessas limitações serão removidas antes que o AD B2C do Azure alcance disponibilidade geral, mas é preciso estar ciente delas se você estiver criando aplicativos voltados ao cliente usando o AD B2C do Azure durante a visualização.
+Há vários recursos e funcionalidades do Active Directory B2C do Azure (AD do Azure) que ainda não têm suporte durante a visualização. Muito dessas limitações e desses problemas conhecidos serão removidos antes que o Azure AD B2C alcance disponibilidade geral, mas é preciso estar ciente delas se você estiver criando aplicativos voltados ao cliente usando o Azure AD B2C durante a visualização.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -92,4 +92,11 @@ Você não poderá excluir um locatário do AD B2C do Azure no Portal Clássico 
 
 Atualmente, você não pode verificar um domínio com êxito no [Portal Clássico do Azure](https://manage.windowsazure.com/). Estamos trabalhando em uma correção.
 
-<!---HONumber=AcomDC_0427_2016-->
+## Problemas com e entrada com a política MFA nos navegadores Safari
+
+Solicitações para políticas de entrada (com MFA ativado) falham intermitentemente em navegadores Safari com erros HTTP 400 (solicitação incorreta). Isso é devido aos baixos limites de tamanho de cookie do Safari. Há duas soluções alternativas para esse problema:
+
+- Use a "política de inscrição ou entrada" em vez da "política de entrada".
+- Reduza o número de **declarações de aplicativo** solicitadas na sua política. 
+
+<!---HONumber=AcomDC_0518_2016-->

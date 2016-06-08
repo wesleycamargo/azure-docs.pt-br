@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/18/2016"
+   	ms.date="05/24/2016"
    	ms.author="jgao"/>
 
 # Instalar aplicativos personalizados do HDInsight
@@ -86,8 +86,25 @@ Você pode verificar o status do aplicativo no portal do Azure para validar a in
  
 ## Solucionar problemas de instalação
 
-Confira a seção [Solucionar problemas](hdinsight-apps-install-applications.md#troubleshoot) em Instalar aplicativos do HDInsight.
+Você pode verificar o status de instalação do aplicativo da notificação do portal (clique no ícone de sino na parte superior do portal).
 
+Se houver falha na instalação de um aplicativo, você poderá ver as mensagens de erro e depurar informações em três locais:
+
+- Aplicativos do HDInsight: informações de erro geral.
+
+    Abra o cluster no portal e clique em Aplicativos da folha Configurações:
+
+    ![erro de instalação do aplicativo aplicativos hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
+
+- Ação de script HDInsight: se a mensagem de erro dos aplicativos do HDInsight indicar uma falha na ação de script, mais detalhes sobre a falha do script serão apresentados no painel de ações de script.
+
+    Clique em Ação de Script na folha Configurações. O histórico de ação de script mostra as mensagens de erro
+
+    ![erro de ação de script aplicativos hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
+    
+- Interface do usuário Web do Ambari: se o script de instalação foi a causa da falha, use a interface do usuário Web do Ambari para verificar os logs completos sobre os scripts de instalação.
+
+    Para saber mais, confira [Solução de problemas](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ## Próximas etapas
 
@@ -96,4 +113,4 @@ Confira a seção [Solucionar problemas](hdinsight-apps-install-applications.md#
 - [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
 - [Personalizar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do ARM para criar clusters HDInsight.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

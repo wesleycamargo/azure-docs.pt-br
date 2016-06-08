@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
 # Sincronização do Azure AD Connect: Synchronization Service Manager
 
-| [Operações](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Designer de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Pesquisa de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
+[Operações](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Designer do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Pesquisa do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
@@ -31,13 +31,13 @@ A metade superior mostra todas as execuções em ordem cronológica. Por padrão
 
 A coluna **Status** traz as informações mais importantes e mostra o problema mais grave de uma execução. Aqui está um resumo rápido dos status mais comuns em ordem de prioridade para investigação (em que * indica várias cadeias de caracteres de erro possíveis).
 
-| Status | Comentário |
-| --- | --- |
-| stopped-* | Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inoperante e não pode ser contatado. |
-| stopped-error-limit | Há mais de 5.000 erros. A execução foi interrompida automaticamente devido ao grande número de erros. |
-| completed-*-errors | A execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. | 
-| completed-*-warnings | A execução foi concluída, mas alguns dados não estão no estado esperado. Se houver erros, geralmente, isso indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos. |
-| sucesso | Nenhum problema. |
+Status | Comentário
+--- | ---
+stopped-* | Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inoperante e não pode ser contatado.
+stopped-error-limit | Há mais de 5.000 erros. A execução foi interrompida automaticamente devido ao grande número de erros.
+completed-*-errors | A execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados.
+completed-*-warnings | A execução foi concluída, mas alguns dados não estão no estado esperado. Se houver erros, geralmente, isso indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos.
+sucesso | Nenhum problema.
 
 Ao selecionar uma linha, a parte inferior será atualizada para mostrar os detalhes dessa execução. À extrema esquerda da parte inferior, talvez você veja uma lista indicando **Etapa nº**. Isso só será exibido se você tiver vários domínios na floresta, em que cada domínio é representado por uma etapa. O nome de domínio pode ser encontrado sob o título **Partição**. Em **Estatísticas de Sincronização**, é possível encontrar mais informações sobre o número de alterações que foram processadas. É possível clicar nos links para obter uma lista dos objetos alterados. Se houver objetos com um erro, eles serão exibidos em **Erros de Sincronização**.
 
@@ -55,6 +55,6 @@ Se o erro em si não fornecer informações suficientes, será o momento de exam
 ## Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
+Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

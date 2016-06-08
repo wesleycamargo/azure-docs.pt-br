@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
-	manager="erikre"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,13 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/04/2016"
+	ms.date="05/31/2016"
 	ms.author="sdanie"/>
 
 # Como usar o Cache Redis do Azure com Java
 
 > [AZURE.SELECTOR]
-- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
 - [Node.js](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
@@ -28,36 +29,28 @@ O Cache Redis do Azure fornece acesso a um cache Redis dedicado, gerenciado pela
 
 Este tópico mostra uma introdução ao Cache Redis do Azure usando Java.
 
-
 ## Pré-requisitos
 
 [Jedis](https://github.com/xetorthio/jedis) - cliente Java para Redis
 
 Este tutorial usa Jedis, mas você pode usar qualquer cliente Java listado em [http://redis.io/clients](http://redis.io/clients).
 
-
 ## Criar um cache Redis no Azure
 
-No [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=398536), clique em **Novo**, **Dados + Armazenamento** e selecione **Cache Redis**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-  ![][1]
+## Recuperar as chaves de acesso e o nome do host
 
-Insira um nome de host DNS. Ele terá o formato `<name>.redis.cache.windows.net`. Clique em **Criar**.
-
-  ![][2]
-
-
-Depois de criar o cache, clique nele no Portal do Azure para exibir as configurações do cache. Clique no link em **Chaves** e copie a chave primária. Ela será necessária para autenticar as solicitações.
-
-  ![][4]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
 ## Habilitar o ponto de extremidade não SSL
 
+Alguns clientes Redis não dão suporte a SSL e, por padrão, a [porta não SSL está desabilitada para novas instâncias do Cache Redis do Azure](cache-configure.md#access-ports). No momento da redação deste artigo, o cliente [Jedis](https://github.com/xetorthio/jedis) não oferecia suporte a SSL.
 
-Clique no link em **Portas** e clique em **Não** para "Permitir acesso somente via SSL". Isso habilita a porta não SSL para o cache. O cliente Jedis atualmente não dá suporte a SSL.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-  ![][3]
+
 
 
 ## Adicionar algo ao cache e recuperá-lo
@@ -86,11 +79,4 @@ Clique no link em **Portas** e clique em **Não** para "Permitir acesso somente 
 - [Habilite o diagnóstico de cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que você possa [monitorar](https://msdn.microsoft.com/library/azure/dn763945.aspx) a integridade do cache.
 - Leia a [documentação oficial do Redis](http://redis.io/documentation).
 
-
-<!--Image references-->
-[1]: ./media/cache-java-get-started/cache01.png
-[2]: ./media/cache-java-get-started/cache02.png
-[3]: ./media/cache-java-get-started/cache03.png
-[4]: ./media/cache-java-get-started/cache04.png
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

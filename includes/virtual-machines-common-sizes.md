@@ -5,7 +5,7 @@ Os tamanhos padrão consistem em várias séries: A, D, DS, G, e GS. Entre as co
 
 *   As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por núcleo e uma unidade de estado sólido (SSD) para o disco temporário. Para obter detalhes, confira o anúncio no blog do Azure, [Novos tamanhos de máquina virtual da série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-*   A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3,2 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
+*   A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
 *   As VMs da série G oferecem a maior memória e são executadas em hosts com processadores da família Intel Xeon E5 V3.
 
@@ -49,7 +49,7 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 |[D1-14](#standard-tier-d-series) |160 |
 |[D1-15v2](#standard-tier-dv2-series) |210 - 250 *|
 |[DS1-14](#standard-tier-ds-series) |160 |
-|[DS1-14v2](#standard-tier-dsv2-series) |210-250* |
+|[DS1-15v2](#standard-tier-dsv2-series) |210-250* |
 |[G1-5](#standard-tier-g-series) |180 - 240 *|
 |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
@@ -150,6 +150,7 @@ Observação: para obter informações e considerações sobre o uso desses tama
 |Standard\_DS12\_v2 |4|28|4|Disco SSD local = 56 GB |8|144| 12\.800 192 MB por segundo | alto |
 |Standard\_DS13\_v2 |8|56|8|Disco SSD local = 112 GB |16|288| 25\.600 384 MB por segundo | alto |
 |Standard\_DS14\_v2 |16|112|8|Disco SSD local = 224 GB |32|576| 50\.000 768 MB por segundo | muito alta |
+|Standard\_DS15\_v2 |20|140 GB|10|Disco SSD local = 280 GB |40| 720|62\.500 960 MB por segundo | muito alta |
 
 
 **O máximo de operações de entrada/saída por segundo (IOPS) e de taxa de transferência (largura de banda) possível com uma VM da série DS é afetado pelo tamanho do disco. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
@@ -189,7 +190,7 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 
 ## Próximas etapas
 
-- Saiba mais sobre a [Assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
-- Saiba mais [Sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para conhecer cargas de trabalho como HPC (Computação de Alto Desempenho).
+- Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
+- Saiba mais [sobre as instâncias A8, A9, A10 e A11 com computação intensiva](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) para cargas de trabalho como HPC (Computação de Alto Desempenho).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -47,7 +47,7 @@ Este artigo é uma lista de perguntas frequentes (e das respectivas respostas) s
 
 **P3. Qual versão do servidor SCDPM tem suporte?** <br/> R3. Recomendamos que você instale o agente de Backup do Azure [mais recente](http://aka.ms/azurebackup_agent) no pacote cumulativo de atualizações mais recente do SCDPM (UR6 de julho de 2015)
 
-****P4. Ao configurar o agente do Backup do Azure, preciso inserir as **credenciais do cofre**. As credenciais do cofre expiram? R4. Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre de backup.
+**P4. Ao configurar o agente do Backup do Azure, preciso inserir as **credenciais do cofre**. As credenciais do cofre expiram? R4. Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça logon no Portal do Azure e baixe os arquivos de credenciais de cofre no seu cofre de backup.
 
 **P5. Há algum limite para o número de cofres de backup que podem ser criados em cada assinatura do Azure?** <br/> R5. Sim. Desde julho de 2015, você pode criar 25 cofres por assinatura. Se você precisar de mais cofres, crie uma nova assinatura.
 
@@ -167,7 +167,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 **P12. Há uma maneira de ajustar a quantidade de largura de banda usada pelo serviço de Backup?**<br/> R12. Sim, use a opção **Alterar Propriedades** no Agente de Backup para ajustar a largura de banda. Ajuste a quantidade de largura de banda e os horários quando você usa essa largura de banda. Veja [Limitação de rede](../backup-configure-vault.md#enable-network-throttling) para saber mais.
 
-**P13. Minha largura de banda de Internet é limitada para a quantidade de dados que preciso incluir no backup. Há uma maneira de mover dados para um determinado local com um pipe de rede grande e de enviar esses dados por push para o Azure?** <br/> R13. Você pode fazer backup de dados no Azure por meio do processo de backup online padrão ou pode usar o serviço Importção/Exportação do Azure para transferir dados para o armazenamento de blobs no Azure. Não há maneiras adicionais de enviar os dados de backup para o armazenamento do Azure. Para saber mais sobre como usar o serviço Importação/Exportação do Azure com o Backup do Azure, veja o artigo [Fluxo de trabalho do backup offline](backup-azure-backup-import-export).
+**P13. Minha largura de banda de Internet é limitada para a quantidade de dados que preciso incluir no backup. Há uma maneira de mover dados para um determinado local com um pipe de rede grande e de enviar esses dados por push para o Azure?** <br/> R13. Você pode fazer backup de dados no Azure por meio do processo de backup online padrão ou pode usar o serviço Importção/Exportação do Azure para transferir dados para o armazenamento de blobs no Azure. Não há maneiras adicionais de enviar os dados de backup para o armazenamento do Azure. Para saber mais sobre como usar o serviço Importação/Exportação do Azure com o Backup do Azure, confira o artigo [Fluxo de trabalho do backup offline](backup-azure-backup-import-export.md).
 
 
 ## Recuperação
@@ -205,7 +205,7 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
   ```PS C:\> Net start obengine```
 
   Assim que a criação do backup for concluída com êxito no novo local de cache, você poderá remover a pasta de cache original.
-  
+
 **P2. Onde posso colocar a pasta de cache para o agente do Backup do Azure para que ele funcione como esperado?**<br/> R2. Os locais a seguir para a pasta de cache não são recomendados:
 
 - Compartilhamento de rede ou Mídia Removível: a pasta de cache deve ser local para o servidor que precisa de backup usando o backup online. Não há suporte para os locais de rede ou para a mídia removível como unidades USB.
@@ -221,4 +221,4 @@ A tabela a seguir explica como cada tamanho de fonte de dados é determinado.
 
 É recomendável que nem a pasta de cache nem os metadados de VHD têm os atributos acima para o funcionamento esperado do agente do Backup do Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="O Banco de Dados SQL ajuda a defender e proteger"
+   pageTitle="Seguranças e Proteções do Banco de Dados SQL do Azure"
    description="Saiba como o Banco de Dados SQL ajuda a defender e proteger"
    keywords=""
    services="sql-database"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="05/13/2016"
    ms.author="carlrab"/>
    
-# O Banco de Dados SQL ajuda a defender e proteger
+# Seguranças e Proteções do Banco de Dados SQL do Azure
 
 ## Manter os dados de seu aplicativo seguros
 
@@ -25,7 +25,7 @@ O Banco de dados SQL do Azure dá suporte a milhões de bancos de dados essencia
 
 ![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 
-## Em caso de emergência
+## Estamos aqui para protegê-lo
 
 Sempre torcemos para não precisa acessar os backups antigos ou de recuperação de desastres. Porém, caso você esteja nesta situação, o Banco de Dados SQL está aqui para ajudar. Com a disponibilidade de 99,99%, backups automáticos, recuperação pontual, replicação geográfica interna e opções de failover, você pode ficar tranquilo sabendo que seu aplicativo está são e salvo.
 
@@ -45,4 +45,14 @@ O Banco de Dados SQL fornece várias camadas de proteção de dados. Seus dados 
 
 Vá para a home page para ver o que mais o Banco de Dados SQL tem a oferecer. [Confira](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0511_2016-->
+## Próximas etapas
+
+Obtenha uma [assinatura do Azure gratuita](https://azure.microsoft.com/get-started/) e [crie seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
+
+## Saiba mais
+
+Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
+ 
+Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-overview.md).
+
+<!---HONumber=AcomDC_0518_2016-->

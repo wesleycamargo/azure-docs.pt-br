@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/18/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Privileged Identity Management do Azure AD: como adicionar ou remover uma função de usuário
 
 Com o Azure AD (Active Directory), um administrador global (ou o administrador da empresa) pode atualizar os usuários que estão **permanentemente** atribuídos a funções no Azure AD. Isso é feito com os cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`. Ou eles podem usar o portal clássico do Azure conforme descrito em [atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).
 
-O aplicativo Azure AD Privileged Identity Management permite que os administradores de segurança façam atribuições de função permanentes também. No entanto, ele também permite que os administradores adicionem ou removam candidatos para atribuição **temporária** para essas funções. Um candidato pode ativar a função quando necessário e, em seguida, suas permissões expirarem assim que terminarem.
+O aplicativo Azure AD Privileged Identity Management permite que os administradores de função com privilégios façam atribuições de função permanentes também. No entanto, ele também permite que os administradores adicionem ou removam candidatos para atribuição **temporária** para essas funções. Um candidato pode ativar a função quando necessário e, em seguida, suas permissões expirarem assim que terminarem.
 
 ## Gerenciar funções com PIM no portal do Azure
 
@@ -64,4 +64,4 @@ Se não tiver certeza de quais os usuários ainda precisam de suas atribuições
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

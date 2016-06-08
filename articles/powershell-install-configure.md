@@ -32,7 +32,7 @@ Veja a seguir os dois métodos segundo os quais você pode instalar o Azure Powe
 
 Instalar o Azure PowerShell 1.0 e superior do WebPI é feito da mesma forma como era para o 0.9.x. Baixe o [Azure PowerShell](http://aka.ms/webpi-azps) e inicie a instalação. Se você tiver o Azure PowerShell 0.9.x instalado, a versão 0.9.x será desinstalada como parte da atualização. Se você tiver instalado módulos do Azure PowerShell da Galeria do PowerShell, o instalador removerá automaticamente os módulos antes da instalação para assegurar a consistência do Ambiente do Azure PowerShell.
 
-> [AZURE.NOTE] Se você já tiver instalado módulos do Azure da Galeria do PowerShell, o instalador vai removê-los automaticamente. Isso evita confusão sobre quais versões do módulo que você instalou e onde estão localizadas. Os módulos da Galeria do PowerShell normalmente são instalados em **%ProgramFiles%\\WindowsPowerShell\\Modules**. Por outro lado, o instalador do WebPI instalará os módulos do Azure em **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\PowerShell**. Se ocorrer um erro durante a instalação, você poderá remover manualmente as pastas do Azure * em sua pasta **%ProgramFiles%\\WindowsPowerShell\\Modules** e tentar a instalação novamente.
+> [AZURE.NOTE] Se você já tiver instalado módulos do Azure da Galeria do PowerShell, o instalador vai removê-los automaticamente. Isso evita confusão sobre quais versões do módulo que você instalou e onde estão localizadas. Os módulos da Galeria do PowerShell normalmente são instalados em **%ProgramFiles%\WindowsPowerShell\Modules**. Por outro lado, o instalador do WebPI instalará os módulos do Azure em **%ProgramFiles(x86)%\Microsoft SDKs\Azure\PowerShell**. Se ocorrer um erro durante a instalação, você poderá remover manualmente as pastas do Azure * em sua pasta **%ProgramFiles%\WindowsPowerShell\Modules** e tentar a instalação novamente.
 
 Quando a instalação for concluída, a configuração do ```$env:PSModulePath``` deverá incluir os diretórios que contêm os cmdlets do Azure PowerShell.
 
@@ -52,7 +52,11 @@ Se você receber uma mensagem semelhante à seguinte ao tentar carregar ou execu
         + FullyQualifiedErrorId : CommandNotFoundException
 ```
 
-Isso pode ser corrigido reiniciando o computador.
+Isso pode ser corrigido ao reiniciar a máquina ou importar os cmdlets de C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\ como a seguir (em que XXXX é a versão instalada do PowerShell:
+```
+import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\azure.psd1"
+import-module "C:\Program Files\WindowsPowerShell\Modules\Azure\XXXX\expressroute\expressroute.psd1"
+```
 
 ###Instalando o Azure PowerShell por meio da Galeria do PowerShell
 
@@ -175,4 +179,4 @@ Para obter informações de referência sobre os cmdlets, consulte [Referência 
 
 Para exemplos de scripts e instruções para ajudá-lo a aprender como usar scripts para gerenciar o Azure, consulte o [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=321940).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

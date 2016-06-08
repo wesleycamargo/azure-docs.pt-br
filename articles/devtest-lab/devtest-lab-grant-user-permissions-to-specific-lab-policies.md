@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Grant user permissions to specific DevTest Lab policies | Microsoft Azure"
-	description="Learn how to grant user permissions to specific DevTest Lab policies based on each user's needs"
+<properties
+	pageTitle="Conceder permissões de usuário para políticas específicas do laboratório | Microsoft Azure"
+	description="Saiba como conceder permissões de usuário para políticas específicas dos Laboratórios de Desenvolvimento/Teste com base nas necessidades de cada usuário"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Conceder permissões de usuário para políticas específicas do laboratório de Desenvolvimento/Teste
+# Conceder permissões de usuário para políticas específicas do laboratório
 
 ## Visão geral
 
-Este artigo ilustra como usar o PowerShell para conceder aos usuários permissões para uma determinada política de laboratório de Desenvolvimento/Teste do Azure. Dessa forma, as permissões podem ser aplicadas com base nas necessidades de cada usuário. Por exemplo, talvez você queira conceder a um usuário específico a capacidade de alterar as configurações de política de VM, mas não as políticas de custo.
+Este artigo ilustra como usar o PowerShell para conceder aos usuários permissões para uma determinada política de laboratório. Dessa forma, as permissões podem ser aplicadas com base nas necessidades de cada usuário. Por exemplo, talvez você queira conceder a um usuário específico a capacidade de alterar as configurações de política de VM, mas não as políticas de custo.
 
 ## Políticas como recursos
 
 Como discutido no artigo [Controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md), o RBAC permite o gerenciamento de acesso refinado de recursos do Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
 
-No laboratório de Desenvolvimento/Teste, uma política é um tipo de recurso que habilita a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada política do laboratório de Desenvolvimento/Teste é um recurso do tipo de recurso Política e pode ser atribuída como um escopo a uma função RBAC.
+Nos Laboratórios de Desenvolvimento/Teste, uma política é um tipo de recurso que habilita a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada política do laboratório é um recurso do tipo de recurso Política e pode ser atribuída como um escopo a uma função RBAC.
 
 Por exemplo, para conceder aos usuários permissão de leitura/gravação para a política **Tamanhos de VM permitidos**, você deve criar uma função personalizada que funciona com a ação **Microsoft.DevTestLab/labs/policySets/policies/*** e, em seguida, atribuir os usuários adequados para esta função personalizada no escopo do **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Para saber mais sobre as funções personalizadas no RBAC, consulte a seção [Funções personalizadas no RBAC do Azure](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) do artigo [Controle de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md) artigo.
 
-##Criar uma função personalizada do laboratório de Desenvolvimento/Teste usando o PowerShell
+##Criar uma função personalizada do laboratório usando o PowerShell
 Para começar, você precisará ler o seguinte artigo, que explica como instalar e configurar os cmdlets do Azure PowerShell: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
 
 Depois de configurar os cmdlets do Azure PowerShell, você pode executar as seguintes tarefas:
@@ -83,9 +83,9 @@ No exemplo anterior, a política **AllowedVmSizesInLab** é usada. Você pode us
 
 ## Próximas etapas
 
-Após você tiver concedido permissões de usuário para políticas específicas do laboratório de Desenvolvimento/Teste, estas são algumas das próximas etapas a serem consideradas:
+Após você tiver concedido permissões de usuário para políticas específicas do laboratório, estas são algumas das próximas etapas a serem consideradas:
 
-- [Acesso seguro a um Laboratório de Desenvolvimento/Teste](devtest-lab-add-devtest-user.md).
+- [Proteger o acesso a um laboratório](devtest-lab-add-devtest-user.md).
 
 - [Definir políticas de laboratório](devtest-lab-set-lab-policy.md).
 
@@ -93,6 +93,6 @@ Após você tiver concedido permissões de usuário para políticas específicas
 
 - [Criar artefatos personalizados para suas VMs](devtest-lab-artifact-author.md).
 
-- [Adicionar uma VM com artefatos a um Laboratório de Desenvolvimento/Teste do Azure](devtest-lab-add-vm-with-artifacts.md).
+- [Adicionar uma VM com artefatos a um laboratório](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

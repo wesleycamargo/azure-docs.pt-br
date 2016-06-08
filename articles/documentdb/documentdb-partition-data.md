@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2016" 
+	ms.date="05/16/2016" 
 	ms.author="arramac"/>
 
 # Particionamento e dimensionamento no Banco de Dados de Documentos do Azure
@@ -24,6 +24,8 @@ Depois de ler este artigo, você poderá responder as seguintes perguntas:
 - Como funciona o particionamento no Banco de Dados de Documentos do Azure?
 - Como configurar o particionamento no Banco de Dados de Documentos
 - O que são chaves de partição e como escolher a chave de partição correta para meu aplicativo?
+
+Para começar com o código, baixe o projeto do [Exemplo de driver de teste de desempenho do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark).
 
 ## Particionamento no Banco de Dados de Documentos
 
@@ -74,7 +76,7 @@ O Banco de Dados de Documentos foi projetado para um desempenho previsível. Ao 
 
 Quando o Banco de Dados de Documentos armazena documentos, ele os distribui uniformemente entre partições com base no valor da chave de partição. A produtividade também é distribuída uniformemente entre as partições disponíveis, isto é, a produtividade por partição = (produtividade total por coleção) / (número de partições).
 
-> [AZURE.TIP] Para obter a produtividade total da coleção, você deve escolher uma chave de partição que permita distribuir uniformemente as solicitações entre vários valores de chave de partição distintos.
+>[AZURE.NOTE] Para obter a produtividade total da coleção, você deve escolher uma chave de partição que permita distribuir uniformemente as solicitações entre vários valores de chave de partição distintos.
 
 ## Partição única e coleções particionadas
 O Banco de Dados de Documentos dá suporte à criação de coleções de partição única e particionadas.
@@ -263,8 +265,8 @@ Quando um aplicativo usando uma coleção de partição única precisa de uma ma
 
 Para migrar de uma coleção de partição única para uma coleção particionada
 
-1. Exporte dados da coleção de partição única para JSON. Confira [Exportar para arquivo JSON](documentdb-import-data.md#export-to-json-file) para obter detalhes adicionais.
-2. Importe os dados para uma coleção particionada criada com uma definição de chave de partição e produtividade de mais de 10.000 unidades de solicitação por segundo, conforme mostrado no exemplo a seguir. Confira [Importar para Banco de Dados de Documentos](documentdb-import-data.md#DocumentDBSeqTarget) para obter detalhes adicionais.
+1. Exporte dados da coleção de partição única para JSON. Consulte [Exportar para arquivo JSON](documentdb-import-data.md#export-to-json-file) para obter detalhes adicionais.
+2. Importe os dados para uma coleção particionada criada com uma definição de chave de partição e produtividade de mais de 10.000 unidades de solicitação por segundo, conforme mostrado no exemplo a seguir. Consulte [Importar para Banco de Dados de Documentos](documentdb-import-data.md#DocumentDBSeqTarget) para obter detalhes adicionais.
 
 ![Migrando Dados para uma Coleção particionada no Banco de Dados de Documentos][3]
 
@@ -309,9 +311,10 @@ Você também pode usar uma abordagem de combinação/em camadas que coloca os l
 ## Próximas etapas
 Neste artigo, descrevemos como o particionamento funciona no Banco de Dados de Documentos do Azure, como você pode criar coleções particionadas e como pode escolher uma chave de partição boa para seu aplicativo.
 
+-   Execute testes de desempenho e escalabilidade com o Banco de Dados de Documentos. Confira [teste de desempenho e escalabilidade com o Banco de Dados de Documentos](documentdb-performance-testing.md) para obter um exemplo.
 -   Introdução à codificação com [SDKs](documentdb-sdk-dotnet.md) ou [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
 -   Saiba mais sobre a [produtividade provisionada no Banco de Dados de Documentos](documentdb-performance-levels.md)
--   Se você desejar personalizar como o aplicativo executa o particionamento, poderá conectar sua própria implementação de particionamento do lado do cliente. Consulte [Suporte ao particionamento no lado do cliente](documentdb-sharding.md).
+-   Se você desejar personalizar como o aplicativo executa o particionamento, poderá conectar sua própria implementação de particionamento do lado do cliente. Confira [Suporte ao particionamento no lado do cliente](documentdb-sharding.md).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
@@ -319,4 +322,4 @@ Neste artigo, descrevemos como o particionamento funciona no Banco de Dados de D
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/15/2016"
+	ms.date="05/17/2016"
 	ms.author="heidist"/>
 
 #Pesquisa do Azure: exemplos de código, demonstrações, vídeos e tutoriais
@@ -37,7 +37,6 @@ Esses sites são aplicativos Web totalmente funcionais que usam a Pesquisa do Az
 
 [**A demonstração do portal Trabalhos da Cidade de Nova York (NYC) para Pesquisa Azure**](http://aka.ms/azjobsdemo) é um site da Web ASP.NET que demonstra os recursos da Pesquisa do Azure usando os dados da NYC Open Data Initiative. Esse aplicativo usa a [sintaxe de consulta simples](https://msdn.microsoft.com/library/azure/dn798920.aspx). Você pode modificar o código para experimentar a [sintaxe Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
 
-[**Avaliar Serviço de Aplicativo + Pesquisa do Azure no aplicativo de combinação do ASP.NET MVC**](search-tryappservice.md) é uma sessão gratuita de uma hora com a Pesquisa do Azure que inclui dados, um aplicativo Web funcional e código-fonte que você pode modificar online para testar vários recursos de pesquisa em um aplicativo do ASP.NET.
 
 [**Site de Demonstração da Pesquisa do Azure**](https://searchsamples.azurewebsites.net/#/) é uma coleção de aplicativos de demonstração da Pesquisa do Azure. Teste aplicativos de pesquisa de mídia, de pesquisa geográfica e de inventário de produto usando a Pesquisa do Azure.
 
@@ -45,18 +44,20 @@ Esses sites são aplicativos Web totalmente funcionais que usam a Pesquisa do Az
 
 Aqui estão alguns dos nossos tutoriais e vídeos mais populares para a Pesquisa do Azure.
 
-- O [Vídeo: Introdução ao Microsoft Virtual Academy e à Pesquisa do Azure](https://mva.microsoft.com/pt-BR/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps-10540?l=ADkxnd97_9304984382) é um excelente recurso para melhorar na Pesquisa do Azure.
-- O [Vídeo: AzureCon 2015: práticas recomendadas da Pesquisa do Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) oferece conselhos práticos sobre dimensionamento horizontal, otimização de desempenho e como atingir eficiência de codificação ao criar aplicativos para cenários na Web e móveis. 
-- O [exemplo de código para a biblioteca de cliente .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) é um aplicativo ASP.NET MVC 5 que usa a biblioteca de cliente .NET para operações de pesquisa.
-- [Tutorial: Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md)|Configurar e executar um aplicativo Web do Visual Studio de exemplo que se integre com a Pesquisa do Azure.
-- O [Tutorial: Introdução à Pesquisa do Azure no portal](search-get-started-portal.md) é uma orientação totalmente baseada no portal que obtém índice e dados sem escrever nenhum código. Esse tutorial é útil para aprender a executar tarefas comuns no portal.
+- O [Vídeo: Introdução à Pesquisa do Azure da Microsoft Virtual Academy](https://mva.microsoft.com/pt-BR/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps-10540?l=ADkxnd97_9304984382) é um excelente recurso para incrementar a Pesquisa do Azure.
+- O [Vídeo: AzureCon 2015: melhores práticas da Pesquisa do Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) oferece recomendações práticas sobre como escalar horizontalmente, otimização de desempenho e como atingir a eficiência de codificação ao criar aplicativos para cenários na Web e móveis. 
+- O [exemplo de código para a biblioteca de cliente do .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) é um aplicativo ASP.NET MVC 5 que usa a biblioteca de cliente do .NET para operações de pesquisa.
+- [Tutorial: Como usar a Pesquisa do Azure no .NET](search-howto-dotnet-sdk.md)|Configurar e executar um aplicativo Web do Visual Studio de exemplo que é integrado à Pesquisa do Azure.
+- O [Tutorial: Introdução à Pesquisa do Azure no portal](search-get-started-portal.md) é um passo a passo totalmente baseada no portal que fornece um índice e dados sem a necessidade de escrever nenhum código. Esse tutorial é útil para aprender a executar tarefas comuns no portal.
 
 
 ##Vídeos
 
 Link|Lançamento|Detalhes
 ----|------------|-----------
-[Channel9 Data Exposed: "Custom Analyzers, Search Analytics, & Portal Querying in Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|Janeiro de 2016|21 minutos. Os analisadores personalizados permitem a configuração de criadores de token e de filtros de token. A Análise de Pesquisa fornece informações sobre termos de pesquisa inseridos pelos usuários e eficácia do seu índice de pesquisa. O Gerenciador de Pesquisa é uma ferramenta interna de consulta que permite testar consultas dentro do portal. 
+[Channel9 Build 2016: "Applications That Learn & Adapt: Azure Machine Learning + Search"](https://channel9.msdn.com/Events/Build/2016/P458) ("Aplicativos que aprendem e adaptam: Aprendizado de Máquina do Azure + Pesquisa")|Maio de 2016|17 minutos. Liam Cavanagh explica os benefícios da adição de recursos 'recomendados para você' para o aplicativo de Pesquisa do Azure e como obter informações sobre as preferências do usuário do Aprendizado de Máquina. 
+[Channel9 Build 2016: "Intelligent Data Driven Applications that Learn and Adapt"](https://channel9.msdn.com/Events/Build/2016/B857) ("Aplicativos inteligentes orientados a dados que aprendem e adaptam")|Maio de 2016|1 hora. Saiba como o Aprendizado de Máquina e a Pesquisa do Azure podem ser usados juntos para criar aplicativos orientados a dados sofisticados.
+[Channel9 Data Exposed: "Custom Analyzers, Search Analytics, & Portal Querying in Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search)|Janeiro de 2016|15 minutos. Os analisadores personalizados permitem a configuração de criadores de token e de filtros de token. A Análise de Pesquisa fornece informações sobre termos de pesquisa inseridos pelos usuários e eficácia do seu índice de pesquisa. O Gerenciador de Pesquisa é uma ferramenta interna de consulta que permite testar consultas dentro do portal. 
 [Channel9 Data Exposed: "Azure Search Enhancements"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements)|Novembro de 2015|17 minutos. Inclusão de dados do StackExchange. Crie um índice no Portal do Azure. Saiba como as fontes de dados com suporte de rastreamento de indexadores extraem dados em um índice de Pesquisa do Azure. Analisadores de linguagem. Expressões de consulta Lucene.
 [O que é a Pesquisa do Azure?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|Outubro de 2015|Você tem uns minutinhos? Assista a este vídeo de um minuto e meio de introdução à Pesquisa do Azure.
 [AzureCon 2015: Best Practices for Azure Search](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Setembro de 2015|Conselhos práticos sobre dimensionamento horizontal, otimização de desempenho e como atingir eficiência de codificação ao criar aplicativos para cenários na Web e móveis, apresentados por Pablo Castro. 
@@ -89,4 +90,4 @@ Passo a passo|Descrição
 [Tutorial de perfis de pontuação](search-get-started-scoring-profiles.md)|Testar perfis de pontuação usando um aplicativo de console.
 [Tutorial da API REST de gerenciamento da Pesquisa do Azure](search-get-started-management-api.md)|Como usar a API REST de gerenciamento para provisionar o serviço e gerenciar chaves de api de administração ou de consulta.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

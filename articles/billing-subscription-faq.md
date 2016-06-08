@@ -123,7 +123,7 @@ Você deve enviar um tíquete de suporte para solicitar assistência. Para criar
 
 ### Como faço para atualizar ou alterar minhas informações de cartão de crédito?
 
-Para obter instruções sobre como usar um cartão de crédito diferente como método de pagamento ou como adicionar um novo cartão de crédito, confira [Como alterar o cartão de crédito usado para pagar uma assinatura do Azure](billing-how-to-change-credit-card.md).
+Se o seu cartão de crédito for renovado e o número permanecer o mesmo, você poderá simplesmente atualizar os detalhes do cartão de crédito existente, como a data de vencimento. Se o número de seu cartão mudar ou você gostaria de usar um cartão diferente, precisará adicionar o novo cartão. Você pode encontrar instruções para atualizar ou adicionar um cartão de crédito: [Como alterar o cartão de crédito usado para pagar uma assinatura do Azure](billing-how-to-change-credit-card.md).
 
 ### Como sabemos antecipadamente sobre o tempo de inatividade do serviço devido a uma manutenção planejada?
 
@@ -277,4 +277,4 @@ Sim.
 
 Atualmente, não há planos para oferecer o Azure ou o Banco de Dados SQL pelo SPLA.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

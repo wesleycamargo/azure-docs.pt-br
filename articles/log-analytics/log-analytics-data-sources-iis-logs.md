@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Logs do IIS no Log Analytics | Microsoft Azure"
    description="O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics. Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no repositório do OMS."
    services="log-analytics"
@@ -6,13 +6,13 @@
    authors="bwren"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="log-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="05/11/2016"
    ms.author="bwren" />
 
 # Logs do IIS no Log Analytics
@@ -26,6 +26,8 @@ O Log Analytics coleta entradas de arquivos de log criados pelo IIS, por isso vo
 O Log Analytics dá suporte apenas a arquivos de log do IIS armazenados em formato W3C. Ele não coleta logs no formato nativo IIS ou NCSA.
 
 Configure os logs do IIS no [menu Dados nas Configurações do Log Analytics](log-analytics-data-sources.md/configuring-data-sources). Não há nenhuma outra configuração necessária além da seleção de **Collect W3C format IIS log files** (Coletar arquivos de log do IIS no formato W3C).
+
+É recomendável, ao habilitar a coleta de log do IIS, definir a configuração de substituição de log do IIS em cada servidor.
 
 
 ## Coleta de dados
@@ -76,7 +78,7 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 ## Próximas etapas
 
 - Configure o Log Analytics para coletar outras [fontes de dados](log-analytics-data-sources.md) para análise.
-- Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções. 
+- Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.
 - Configure alertas no Log Analytics para notificá-lo proativamente sobre condições importantes encontradas em logs do IIS.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

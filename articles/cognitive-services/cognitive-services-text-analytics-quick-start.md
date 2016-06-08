@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2016"
+	ms.date="04/05/2016"
 	ms.author="onewth"/>
 
 # Introdução às APIs de Análise de Texto para detectar o sentimento, as frases-chave, os tópicos e o idioma
@@ -24,7 +24,7 @@ Este documento descreve como integrar seu serviço ou aplicativo para usar as [A
 
 Confira as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
 
-Este guia destina-se à versão 2 das APIs. Para obter detalhes sobre a versão 1 das APIs, [confira este documento](machine-learning-apps-text-analytics/).
+Este guia destina-se à versão 2 das APIs. Para obter detalhes sobre a versão 1 das APIs, [confira este documento](../machine-learning-apps-text-analytics/).
 
 No final deste tutorial, você será capaz de detectar de forma programática:
 
@@ -64,7 +64,7 @@ Nessa tarefa, você se inscreverá para obter o serviço de análise de texto.
 
 É fácil detectar o sentimento, as frases-chave e os idiomas no texto. Você obterá de forma programática os mesmos resultados que a [experiência de demonstração](//go.microsoft.com/fwlink/?LinkID=759712) retornar.
 
-**Dica!** Para a análise do sentimento, recomendamos que você divida o texto em sentenças. Isso geralmente leva a uma maior precisão em previsões de sentimento.
+>[AZURE.TIP] Para a análise do sentimento, recomendamos que você divida o texto em sentenças. Isso geralmente leva a uma maior precisão em previsões de sentimento.
 
 1. Você precisará definir os cabeçalhos da seguinte maneira. Observe que, atualmente, JSON é o único formato de entrada aceito para as APIs. Não há suporte para XML.
 
@@ -236,8 +236,52 @@ Siga estas etapas para detectar tópicos no texto.
 			}
 		}
 
+Observe que a resposta bem-sucedida para tópicos do ponto de extremidade `operations` terá o esquema a seguir:
+
+	{
+    		"topics" : [{
+        		"id" : "string",
+        		"score" : "number",
+        		"keyPhrase" : "string"
+    		}],
+    		"topicAssignments" : [{
+        		"documentId" : "string",
+        		"topicId" : "string",
+        		"distance" : "number"
+    		}],
+    		"errors" : [{
+        		"id" : "string",
+        		"message" : "string"
+    		}]
+    	}
+
+Explicações de cada parte da resposta são as seguintes:
+
+**tópicos**
+
+| Chave | Descrição |
+|:-----|:----|
+| ID | Um identificador exclusivo para cada tópico. |
+| para seu app's | Contagem de documentos atribuídos ao tópico. |
+| keyPhrase | Uma palavra ou frase que resume o tópico. |
+
+**topicAssignments**
+
+| Chave | Descrição |
+|:-----|:----|
+| documentId | Identificador do documento. É igual à ID incluída na entrada. |
+| topicId | A ID do tópico a que o documento foi atribuído. |
+| distância | Pontuação de afiliação de documento a tópico entre 0 e 1. Quanto menor a pontuação de distância, mais forte é a afiliação de tópico. |
+
+**erros**
+
+| Chave | Descrição |
+|:-----|:----|
+| ID | O identificador exclusivo do documento de entrada a que o erro se refere. |
+| message | Mensagem de erro. |
+
 ## Próximas etapas ##
 
 Parabéns! Você concluiu o uso da análise de texto em seus dados. Agora convém examinar o uso de uma ferramenta como o [Power BI](//powerbi.microsoft.com) para visualizar os dados e para automatizar as percepções para fornecer uma exibição em tempo real dos dados de texto.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

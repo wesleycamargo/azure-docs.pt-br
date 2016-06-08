@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do Conector LDAP genérico
@@ -36,12 +36,12 @@ Determinados elementos de operações e esquema, como aqueles necessários para 
 
 Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na versão atual do conector:
 
-| Recurso | Suporte |
-| --- | --- |
-| Fonte de dados conectada | O Conector recebe suporte com todos os servidores LDAP v3 (compatíveis com RFC 4510). Ele foi testado com as seguintes opções: <li>AD LDS (Microsoft Active Directory Lightweight Directory Services)</li><li>AD GC (Catálogo Global do Microsoft Active Directory)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (antiga Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Diretórios conhecidos sem suporte:** <li>AD DS (Serviços de Domínio do Microsoft Active Directory) [Em seu lugar, use o Conector do Active Directory interno]</li><li>OID (Oracle Internet Directory)</li> |
-| Cenários | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senhas</li> |
-| Operações |As seguintes operações têm suporte em todos os diretórios LDAP: <li>Importação total</li><li>Exportação</li>As seguintes operações têm suporte apenas em diretórios especificados:<li>Importação delta</li><li>Definir senha, Alterar senha</li> |
-| Esquema | <li>O esquema é detectado do esquema LDAP (RFC3673 e RFC4512/4.2)</li><li>Suporta classes estruturais, classes auxiliares e classe de objeto extensibleObject (RFC4512/4.3)</li>
+Recurso | Suporte
+--- | --- |
+Fonte de dados conectada | O Conector recebe suporte com todos os servidores LDAP v3 (compatíveis com RFC 4510). Ele foi testado com as seguintes opções: <li>AD LDS (Microsoft Active Directory Lightweight Directory Services)</li><li>AD GC (Catálogo Global do Microsoft Active Directory)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (antiga Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Diretórios conhecidos sem suporte:** <li>AD DS (Serviços de Domínio do Microsoft Active Directory) [Em seu lugar, use o Conector do Active Directory interno]</li><li>OID (Oracle Internet Directory)</li>
+Cenários | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senhas</li>
+Operações |As seguintes operações têm suporte em todos os diretórios LDAP: <li>Importação total</li><li>Exportação</li>As seguintes operações têm suporte apenas em diretórios especificados:<li>Importação delta</li><li>Definir senha, Alterar senha</li>
+Esquema | <li>O esquema é detectado do esquema LDAP (RFC3673 e RFC4512/4.2)</li><li>Suporta classes estruturais, classes auxiliares e classe de objeto extensibleObject (RFC4512/4.3)</li>
 
 ### Suporte de gerenciamento de importação delta e de senha
 
@@ -205,19 +205,19 @@ O DN de log de alterações é o contexto de nomenclatura usado pelo log de alte
 
 Veja a seguir uma lista de DNs de log de alteração padrão:
 
-| Diretório | Log de alterações delta |
-| --- | --- |
-| Microsoft AD LDS e AD GC | Detectado automaticamente. USNChanged. |
-| Apache Directory Server | Não disponível. |
-| Directory 389 | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
-| IBM Tivoli DS | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
-| Isode Directory | Log de alterações. Valor padrão a ser usado: **cn=changelog**
-| Novell/NetIQ eDirectory | Não disponível. TimeStamp. O Conector usará a data/hora da última atualização para obter os registros adicionados e atualizados. |
-| Open DJ/DS | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
-| Open LDAP | Log de acesso. Valor padrão a ser usado: **cn=accesslog** |
-| Oracle DSEE | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
-| RadiantOne VDS | Diretório virtual. Depende do diretório conectado ao VDS. |
-| Sun One Directory Server | Log de alterações. Valor padrão a ser usado: **cn=changelog** |
+Diretório | Log de alterações delta
+--- | ---
+Microsoft AD LDS e AD GC | Detectado automaticamente. USNChanged.
+Apache Directory Server | Não disponível.
+Directory 389 | Log de alterações. Valor padrão a ser usado: **cn=changelog**
+IBM Tivoli DS | Log de alterações. Valor padrão a ser usado: **cn=changelog**
+Isode Directory | Log de alterações. Valor padrão a ser usado: **cn=changelog**
+Novell/NetIQ eDirectory | Não disponível. TimeStamp. O Conector usará a data/hora da última atualização para obter os registros adicionados e atualizados.
+Open DJ/DS | Log de alterações. Valor padrão a ser usado: **cn=changelog**
+Open LDAP | Log de acesso. Valor padrão a ser usado: **cn=accesslog**
+Oracle DSEE | Log de alterações. Valor padrão a ser usado: **cn=changelog**
+RadiantOne VDS | Diretório virtual. Depende do diretório conectado ao VDS.
+Sun One Directory Server | Log de alterações. Valor padrão a ser usado: **cn=changelog**
 
 O atributo de senha é o nome do atributo que o Conector deve usar para definir a senha nas operações de alteração e definição de senha. Isso está definido por padrão como **userPassword**, mas pode ser alterado se for necessário para um determinado sistema LDAP.
 
@@ -249,19 +249,19 @@ Essa página sempre têm um valor pré-configurado e não pode ser alterada. Se 
 
 Veja a seguir uma lista de servidores LDAP e a âncora usada:
 
-| Diretório | Atributo de âncora |
-| --- | --- |
-| Microsoft AD LDS e AD GC | objectGUID |
-| Directory Server 389 | dn |
-| Apache Directory | dn |
-| IBM Tivoli DS | dn |
-| Isode Directory | dn |
-| Novell/NetIQ eDirectory | GUID |
-| Open DJ/DS | dn |
-| Open LDAP | dn |
-| Oracle ODSEE | dn |
-| RadiantOne VDS | dn |
-| Sun One Directory Server | dn |
+Diretório | Atributo de âncora
+--- | ---
+Microsoft AD LDS e AD GC | objectGUID
+Directory Server 389 | dn
+Apache Directory | dn
+IBM Tivoli DS | dn
+Isode Directory | dn
+Novell/NetIQ eDirectory | GUID
+Open DJ/DS | dn
+Open LDAP | dn
+Oracle ODSEE | dn
+RadiantOne VDS | dn
+Sun One Directory Server | dn
 
 ## Outras observações
 
@@ -279,4 +279,4 @@ Para diretórios com um log de alteração delta com base na data/hora, é altam
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

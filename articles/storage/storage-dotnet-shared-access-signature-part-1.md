@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/14/2016"
+	ms.date="05/23/2016"
 	ms.author="tamram"/>
 
 
@@ -69,8 +69,8 @@ A SAS de conta e os tokens SAS de serviço incluem alguns parâmetros comuns e t
 
 - **Versão da API** Um parâmetro opcional que especifica a versão do serviço de armazenamento a ser usada para executar a solicitação.
 - **Versão do serviço** Um parâmetro obrigatório que especifica a versão do serviço de armazenamento a ser usada para executar a solicitação.
-- **Hora de início.** É a hora em que a SAS torna-se válida. A hora de início para uma assinatura de acesso compartilhado é opcional; se estiver omitida, a SAS entrará em vigor imediatamente.
-- **Hora de expiração.** É a hora após a qual a SAS não é mais válida. As práticas recomendadas sugerem que você especifique uma hora de expiração para uma SAS ou associe-a a uma política de acesso armazenada (veja mais abaixo).
+- **Hora de início.** É a hora em que a SAS torna-se válida. A hora de início para uma assinatura de acesso compartilhado é opcional; se estiver omitida, a SAS entrará em vigor imediatamente. Deve ser expressa em UTC (Tempo Universal Coordenado), com um designador de UTC especial (“Z”), por exemplo: 1994-11-05T13:15:30Z.
+- **Hora de expiração.** É a hora após a qual a SAS não é mais válida. As melhores práticas sugerem que você especifique uma hora de expiração para uma SAS ou associe-a a uma política de acesso armazenada. Deve ser expressa em UTC (Tempo Universal Coordenado), com um designador de UTC especial (“Z”), por exemplo: 1994-11-05T13:15:30Z (veja mais abaixo).
 - **Permissões.** As permissões especificadas nas SAS indicam quais operações o cliente pode executar com o recurso de armazenamento usando a SAS. As permissões disponíveis são diferentes entre SAS de conta e de serviço.
 - **IP.** Um parâmetro opcional que especifica um endereço IP ou um intervalo de endereços IP fora do Azure (veja a seção [Estado de configuração da sessão de roteamento](../expressroute/expressroute-workflows.md#routing-session-configuration-state) da Rota Expressa) do qual as solicitações serão aceitas.
 - **Protocolo.** Um parâmetro opcional que especifica o protocolo permitido para uma solicitação. Os valores possíveis são HTTPS e HTTP (http, https), que é o valor padrão, ou somente HTTPS (https). Observe que somente HTTP não é um valor permitido.
@@ -318,4 +318,4 @@ As assinaturas de acesso compartilhado são úteis para fornecer permissões lim
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

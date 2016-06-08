@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/11/2016" 
+	 ms.date="05/24/2016" 
 	 ms.author="casoper"/>
 
 # Usando o Azure CDN  
@@ -25,7 +25,7 @@ Este tópico explica a habilitação do Azure CDN por meio da criação de um no
 
 Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém um ou mais pontos de extremidade CDN. Você pode usar vários perfis para organizar seus pontos de extremidade CDN por domínio de Internet, aplicativo Web ou algum outro critério.
 
-> [AZURE.NOTE] Por padrão, uma única assinatura do Azure é limitada a quatro perfis da CDN. Cada perfil da CDN é limitado a 10 pontos de extremidade da CDN.
+> [AZURE.NOTE] Por padrão, uma única assinatura do Azure é limitada a oito perfis da CDN. Cada perfil da CDN é limitado a 10 pontos de extremidade da CDN.
 >
 > Os preços da CDN são aplicados no nível de perfil CDN. Se você quiser usar uma combinação dos tipos de preço do Azure CDN, precisará de vários perfis CDN.
 
@@ -97,4 +97,4 @@ Um perfil CDN é um conjunto de pontos de extremidade CDN. Cada perfil contém u
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

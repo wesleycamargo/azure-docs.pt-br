@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/08/2016"
+   ms.date="05/20/2016"
    ms.author="toddabel"/>
 
 
@@ -59,11 +59,11 @@ Depois de exportar os arquivos, uma modificação será necessária. Edite o arq
 ### Implante a extensão de diagnóstico como parte da criação do cluster usando o Azure Resource Manager
 Para criar um cluster usando o Gerenciador de recursos, você precisa adicionar a configuração de Diagnóstico JSON para o modelo do Gerenciador de recursos completo do cluster antes de criar o cluster. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure: [cluster cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). Para ver a configuração do Diagnóstico no modelo do Gerenciador de Recursos, abra o arquivo **azuredeploy.json** e procure **IaaSDiagnostics**. Para criar um cluster com este modelo basta pressionar o botão **Implantar no Azure** disponível no link acima.
 
-Como alternativa você pode baixar o exemplo de Gerenciador de Recursos, fazer suas alterações e criar um cluster com o modelo modificado usando o comando `New-AzureResourceGroupDeployment` em uma janela do Azure PowerShell. Veja as informações abaixo para os parâmetros que você precisará para passar para o comando. Para obter informações detalhadas sobre como implantar um Grupo de Recursos usando o PowerShell, confira o artigo [Implantar recursos com modelos do Azure Resource Manager](../resource-group-template-deploy.md)
+Como alternativa você pode baixar o exemplo de Gerenciador de Recursos, fazer suas alterações e criar um cluster com o modelo modificado usando o comando `New-AzureRmResourceGroupDeployment` em uma janela do Azure PowerShell. Veja as informações abaixo para os parâmetros que você precisará para passar para o comando. Para obter informações detalhadas sobre como implantar um Grupo de Recursos usando o PowerShell, confira o artigo [Implantar recursos com modelos do Azure Resource Manager](../resource-group-template-deploy.md)
 
 ```powershell
 
-New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
 ### Implantar a extensão de diagnóstico em um cluster existente
@@ -173,10 +173,10 @@ Após modificar o arquivo **template.json** conforme descrito, republique o mode
 
 
 ## Atualizar o Diagnóstico para coletar e carregar os logs de novos canais EventSource
-Para atualizar o diagnóstico para coletar logs de novos canais EventSource que representam um novo aplicativo que você está prestes a implantar, basta executar as mesmas etapas da [seção acima](#deploywadarm), que descrevem a configuração do diagnóstico para um cluster existente. Você precisará atualizar a seção *EtwEventSourceProviderConfiguration* no arquivo **template.json** para adicionar entradas ao novo EventSources antes de aplicar a atualização de configuração por meio do comando *New-AzureResourceGroupDeployment* do PowerShell.
+Para atualizar o diagnóstico para coletar logs de novos canais EventSource que representam um novo aplicativo que você está prestes a implantar, basta executar as mesmas etapas da [seção acima](#deploywadarm), que descrevem a configuração do diagnóstico para um cluster existente. Você precisará atualizar a seção *EtwEventSourceProviderConfiguration* no arquivo **template.json** para adicionar entradas ao novo EventSources antes de aplicar a atualização de configuração por meio do comando *New-AzureRmResourceGroupDeployment* do PowerShell.
 
 
 ## Próximas etapas
 Verifique os eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) para entender mais detalhadamente os eventos que você deve examinar na solução de problemas.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -30,7 +30,7 @@ O Microsoft HPC Pack fornece recursos para executar uma variedade de aplicativos
 
 ## Pré-requisitos
 
-*   **Cluster HPC Pack com nós de computação do Linux do tamanho A8 ou A9** - implante um cluster HPC Pack com nós de computação do Linux do tamanho A8 ou A9 no Azure usando um [Modelo do Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou um [script do Azure PowerShell](virtual-machines-hpcpack-cluster-powershell-script). Confira [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para conhecer os pré-requisitos e as etapas de cada opção. Se você escolher a opção de implantação de script do Powershell, veja o exemplo de arquivo de configuração nos exemplos de arquivos ao final deste artigo para implantar um cluster HPC Pack baseado no Azure consistindo em um nó principal do Windows Server 2012 R2 do tamanho A8 e dois nós de computação do SUSE Linux Enterprise Server 12 do tamanho A8. Substitua os valores apropriados por sua assinatura e nomes de serviço. 
+*   **Cluster HPC Pack com nós de computação do Linux do tamanho A8 e A9**: implante um cluster HPC Pack com nós de computação do Linux do tamanho A8 e A9 no Azure usando um [modelo do Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou um [script do Azure PowerShell](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Confira [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md) para conhecer os pré-requisitos e as etapas de cada opção. Se você escolher a opção de implantação de script do PowerShell, veja o exemplo de arquivo de configuração nos exemplos de arquivos ao final deste artigo para implantar um cluster HPC Pack baseado no Azure consistindo em um nó principal do Windows Server 2012 R2 do tamanho A8 e dois nós de computação do SUSE Linux Enterprise Server 12 do tamanho A8. Substitua os valores apropriados por sua assinatura e nomes de serviço. 
 
     **Informações adicionais importantes**
 
@@ -654,4 +654,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

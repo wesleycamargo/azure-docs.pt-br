@@ -20,22 +20,22 @@
 
 # Página de dicas úteis do algoritmo para Aprendizado de Máquina para o Estúdio de Aprendizado de Máquina do Microsoft Azure
 
-A **Página de dicas úteis do algoritmo para Aprendizado de Máquina** ajuda a escolher o melhor algoritmo de Aprendizado de Máquina para suas soluções de análise preditiva na biblioteca de algoritmos do Aprendizado de Máquina do Microsoft Azure.
+A **Folha de Consulta do Algoritmo de Aprendizado de Máquina do Microsoft Azure** ajuda a escolher o algoritmo certo para o seu modelo de análise preditiva.
 
-O [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/) vem com um grande número de algoritmos de aprendizado de máquina para as suas soluções analíticas preditivas. Esses algoritmos entram nas categorias gerais de aprendizado de máquina de ***regressão***, ***classificação***, ***clustering***, e ***detecção de anomalias***, e cada um foi projetado para atender a um tipo diferente de problema de aprendizado de máquina.
+O [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/) tem uma ampla biblioteca de algoritmos das famílias ***regressão***, ***classificação***, ***clustering***, e ***detecção de anomalias***. Cada um foi projetado para atender a um tipo diferente de problema de aprendizado de máquina.
 
-> [AZURE.NOTE] Confira o artigo [Como escolher algoritmos para o Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md) para obter um guia detalhado para usar essa página de dicas úteis.
 
-## Baixe a página de dicas úteis de algoritmo de Aprendizado de Máquina
+## Baixe: Folha de Consulta do algoritmo de Aprendizado de Máquina
 
-Baixe a página de dicas úteis de algoritmo de Aprendizado de Máquina e obtenha ajuda para descobrir como escolher um algoritmo de Aprendizado de Máquina para a sua solução. Para mantê-lo próximo, você pode imprimir os roteiros em tamanho tabloide (11 x 17 polegadas).
-
-**Baixe a folha de consulta daqui: [Folha de consulta de algoritmos do Aprendizado de Máquina do Microsoft Azure](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+**Baixe a folha de consulta daqui: [Folha de consulta de algoritmos do Aprendizado de Máquina do Microsoft Azure (11 x 17 pol.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Página de dicas úteis de algoritmo de Aprendizado de Máquina: Saiba como escolher um algoritmo de Aprendizado de Máquina.][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
+Baixar e imprimir a folha de consulta do algoritmo do Aprendizado de Máquina em tamanho tabloide para mantê-lo à mão e obter ajuda para escolher um algoritmo.
+
+> [AZURE.NOTE] Confira o artigo [Como escolher algoritmos para o Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md) para obter um guia detalhado para usar essa página de dicas úteis.
 
 ## Obter ajuda com algoritmos
 
@@ -79,7 +79,7 @@ Baixe a página de dicas úteis de algoritmo de Aprendizado de Máquina e obtenh
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
---> 
+-->
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@ Baixe a página de dicas úteis de algoritmo de Aprendizado de Máquina e obtenh
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

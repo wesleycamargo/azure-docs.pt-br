@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="04/14/2016"
+   ms.date="05/19/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: atualização de uma versão anterior para a mais recente
@@ -23,18 +23,18 @@ Se você quiser atualizar a partir do DirSync, confira [Atualizar a partir da fe
 
 Há algumas estratégias diferentes para atualizar o Azure AD Connect.
 
-| Método | Descrição |
-| --- | --- |
-| [Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) | Para clientes com uma instalação expressa, esse é o método mais simples. |
-| [Atualização in-loco](#in-place-upgrade) | Se você tiver apenas um servidor, atualize a instalação in-loco no mesmo servidor. |
-| [Migração swing](#swing-migration) | Com dois servidores, é possível preparar um dos servidores com a nova versão e alterar o servidor ativo quando você estiver pronto.
+Método | Descrição
+--- | ---
+[Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) | Para clientes com uma instalação expressa, esse é o método mais simples.
+[Atualização in-loco](#in-place-upgrade) | Se você tiver apenas um servidor, atualize a instalação in-loco no mesmo servidor.
+[Migração swing](#swing-migration) | Com dois servidores, é possível preparar um dos servidores com a nova versão e alterar o servidor ativo quando você estiver pronto.
 
 Para obter as permissões necessárias, confira [permissões necessárias para a atualização](active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 ## Atualização in-loco
 Uma atualização in-loco funcionará para mudar do Azure AD Sync ou do Azure AD Connect. Ela não funcionará para o DirSync ou para uma solução com o FIM + Azure AD Connector.
 
-Esse será o método preferencial se você tiver um único servidor e menos de cerca de 100.000 objetos. Após a atualização, ocorrerão uma importação e uma sincronização completas. Isso garantirá que a nova configuração seja aplicada a todos os objetos existentes no sistema. Isso pode levar algumas horas, dependendo do número de objetos no escopo do mecanismo de sincronização. A sincronização delta normal agendada (por padrão a cada 30 minutos) será suspensa mas a sincronização de senha continuará. Você pode considerar fazer a atualização in-loco durante um final de semana.
+Esse será o método preferencial se você tiver um único servidor e menos de cerca de 100.000 objetos. Após a atualização, uma importação e uma sincronização completas ocorrerão se houver alterações nas regras de sincronização prontas para uso. Isso garantirá que a nova configuração seja aplicada a todos os objetos existentes no sistema. Isso pode levar algumas horas, dependendo do número de objetos no escopo do mecanismo de sincronização. A sincronização delta normal agendada (por padrão a cada 30 minutos) será suspensa mas a sincronização de senha continuará. Você pode considerar fazer a atualização in-loco durante um final de semana. Se não houver nenhuma alteração na configuração pronta para uso com a nova versão do Azure AD Connect, uma importação/sincronização delta normal será iniciada.
 
 ![Atualização in-loco](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
@@ -85,4 +85,4 @@ O que você deve garantir que seja configurado da mesma maneira em ambos os serv
 ## Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -33,9 +33,11 @@ Na seção **Agendador** na atividade JSON, você pode especificar um agendament
 
 Conforme mostrado acima, especificar uma agenda para a atividade cria uma série de janelas em cascata. Janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não se sobrepostos e contínuos. Essas janelas lógicas em cascata para a atividade são chamadas de **janelas de atividade**.
  
-Para a janela de atividade atualmente em execução, o intervalo de tempo associado à janela de atividade pode ser acessado com as variáveis de sistema **WindowStart** e **WindowEnd** na atividade JSON. Você pode usar essas variáveis para finalidades diferentes no JSON de sua atividade e scripts associados a essa atividade, inclusive selecionar dados conjuntos de dados de entrada e saída que representam dados de série temporal.
+Para a janela de atividade atualmente em execução, o intervalo de tempo associado à janela de atividade pode ser acessado com as variáveis de sistema [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) e [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) na atividade JSON. Você pode usar essas variáveis para finalidades diferentes no JSON de sua atividade e scripts associados a essa atividade, inclusive selecionar dados conjuntos de dados de entrada e saída que representam dados de série temporal.
 
-A propriedade **agendador** dá suporte às mesmas subpropriedades como a propriedade **disponibilidade** em um conjunto de dados. Para obter mais informações sobre propriedades diferentes disponíveis para o agendador, incluindo agendamento em uma diferença de tempo específica, definição do modo de alinhamento de processamento no início do intervalo para a janela de atividade, veja o artigo sobre [Disponibilidade do conjunto de dados](data-factory-create-datasets.md#Availability).
+A propriedade **scheduler** dá suporte às mesmas subpropriedades como a propriedade **availability** em um conjunto de dados. Para saber mais sobre propriedades diferentes disponíveis para o agendador, incluindo agendamento em uma diferença de tempo específica, definição do modo de alinhamento de processamento no início do intervalo para a janela de atividade, confira o artigo sobre [Disponibilidade do conjunto de dados](data-factory-create-datasets.md#Availability).
+
+A especificação de propriedades de agendador para uma atividade é opcional no momento. Se você especificá-las, elas devem corresponder à cadência que você especificar na definição do conjunto de dados de saída. Neste momento, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada.
 
 ## Conjuntos de dados de série temporal e fatias de dados
 
@@ -52,9 +54,11 @@ Cada unidade de dados consumidos e produzidos por uma execução de atividade é
 
 ![Agendador de disponibilidade](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
-As fatias de dados por hora para o conjunto de dados de entrada e saída são mostradas no diagrama acima. O diagrama mostra 3 fatias de entrada que estão prontas para o processamento e a execução de atividade de 10-11h em andamento, produzindo a fatia de saída de 10-11h.
+As fatias de dados por hora para o conjunto de dados de entrada e saída são mostradas no diagrama acima. O diagrama mostra três fatias de entrada que estão prontas para o processamento e a execução de atividade de 10h-11h em andamento, produzindo a fatia de saída de 10h-11h.
 
-O intervalo de tempo associado à fatia atual que está sendo gerada pode ser acessado no conjunto de dados JSON com as variáveis **SliceStart** e **SliceEnd**.
+O intervalo de tempo associado à fatia atual que está sendo gerada pode ser acessado no conjunto de dados JSON com as variáveis [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) e [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
+
+Atualmente, o data factory exige que a agenda especificada na atividade corresponda exatamente à agenda especificada na disponibilidade do conjunto de dados de saída. Isso significa que WindowStart, WindowEnd e SliceStart e SliceEnd sempre são mapeados para o mesmo período de tempo e uma única fatia de saída.
 
 Para obter mais informações sobre propriedades diferentes disponíveis para a seção disponibilidade, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md).
 
@@ -220,11 +224,11 @@ O artigo [Criando pipelines](data-factory-create-pipelines.md) introduziu o conc
  
 Você pode definir a data de início para o período ativo do pipeline no passado e o data factory calculará automaticamente (preenchimento de fundo) todas as fatias de dados no passado e começará a processá-las.
 
-Com fatias de dados com fundo preenchido, é possível configurá-las para que sejam executadas em paralelo. Você pode fazer isso definindo a propriedade de simultaneidade na seção **política** da atividade JSON, conforme mostrado no artigo [Criando pipelines](data-factory-create-pipelines.md).
+Com fatias de dados com fundo preenchido, é possível configurá-las para que sejam executadas em paralelo. Você pode fazer isso definindo a propriedade **concurrency** na seção **política** da atividade JSON, conforme mostrado no artigo [Criando pipelines](data-factory-create-pipelines.md).
 
 ## Executar novamente fatias de dados com falha e rastreamento automático de dependências de dados
 
-Você pode monitorar a execução de fatias em um formato visualmente sofisticado. Consulte o artigo [Monitorando e gerenciando pipelines](data-factory-monitor-manage-pipelines.md) para obter detalhes.
+Você pode monitorar a execução de fatias em um formato visualmente sofisticado. Confira **Monitorando e gerenciando pipelines usando** [folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) (ou) [Monitorar e gerenciar aplicativos](data-factory-monitor-manage-app.md) para obter detalhes.
 
 Considere o exemplo a seguir, que mostra duas atividades. A Atividade1 produz um conjunto de dados de série temporal com fatias como saída, que é consumida como entrada pela Atividade2 para produzir o conjunto de dados de série temporal final de saída.
 
@@ -235,9 +239,9 @@ Considere o exemplo a seguir, que mostra duas atividades. A Atividade1 produz um
 O diagrama acima mostra que, de 3 fatias recentes, houve uma falha ao produzir a fatia de 9-10h para **Dataset2**. O data factory controla automaticamente a dependência para conjunto de dados de série temporal e, como resultado, atrasa o início da execução da atividade para a fatia downstream de 9-10h.
 
 
-Ferramentas de gerenciamento e monitoramento do data factory permitem analisar os logs de diagnóstico para a fatia com falha localizar facilmente a causa raiz do problema e corrigi-lo. Depois de corrigir o problema, você pode iniciar facilmente a execução da atividade para produzir a fatia com falha. Para obter mais detalhes sobre como iniciar reexecuções e para compreender as transições de estado para fatias de dados, consulte o artigo [monitoramento e gerenciamento](data-factory-monitor-manage-pipelines.md).
+Ferramentas de gerenciamento e monitoramento do data factory permitem analisar os logs de diagnóstico para a fatia com falha localizar facilmente a causa raiz do problema e corrigi-lo. Depois de corrigir o problema, você pode iniciar facilmente a execução da atividade para produzir a fatia com falha. Para obter mais detalhes sobre como iniciar reexecuções e compreender as transições de estado para fatias de dados, confira **Monitorando e gerenciando pipelines usando** [folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) (ou) [Monitorar e gerenciar aplicativos](data-factory-monitor-manage-app.md) para obter detalhes.
 
-Depois que você iniciar a reexecução e a fatia de 9-10h para o conjuntodedados2 estiver pronta, o data factory inicia a execução da fatia dependente de 9-10h no conjunto de dados final, conforme mostrado no diagrama abaixo.
+Depois que você iniciar a reexecução e a fatia de 9h-10h para o dataset2 estiver pronta, o data factory inicia a execução da fatia dependente de 9h-10h no conjunto de dados final, conforme mostrado no diagrama abaixo.
 
 ![Executar novamente uma fatia com falha](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
@@ -698,4 +702,4 @@ Observe o seguinte:
 
   
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

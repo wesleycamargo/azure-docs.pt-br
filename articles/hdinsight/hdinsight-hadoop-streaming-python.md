@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="05/13/2016"
    ms.author="larryfr"/>
 
 #Desenvolver programas de transmissão do Python para HDInsight
@@ -32,6 +32,8 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 * Um Hadoop baseado em Linux no cluster HDInsight
 
 * Um editor de texto
+
+    > [AZURE.IMPORTANT] O editor de texto deve usar LF com fim de linha. Se usar CRLF, isso causará erros ao executar o trabalho MapReduce em clusters HDInsight baseados em Linux. Se você não tiver certeza, use a etapa opcional na seção [Executar MapReduce](#run-mapreduce) para converter qualquer CRLF em LF.
 
 * Para clientes Windows, PuTTY e PSCP. Esses utilitários estão disponíveis na <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Página de Download do PuTTY</a>.
 
@@ -154,6 +156,11 @@ Isso copiará os arquivos do sistema local para o nó principal.
 
 	> [AZURE.NOTE] Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada, por exemplo `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`.
 
+2. (Opcional) Se você usou um editor de texto que usa CRLF como fim de linha ao criar os arquivos mapper.py e reducer.py, ou não souber qual fim de linha seu editor usa, use os seguintes comandos para converter as ocorrências de CRLF em mapper.py e reducer.py para LF.
+
+        perl -pi -e 's/\r\n/\n/g' mappery.py
+        perl -pi -e 's/\r\n/\n/g' reducer.py
+
 2. Use o seguinte comando para iniciar o trabalho MapReduce.
 
 		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
@@ -205,4 +212,4 @@ Agora que você aprendeu a usar a transmissão de trabalhos MapReduce com o HDIn
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

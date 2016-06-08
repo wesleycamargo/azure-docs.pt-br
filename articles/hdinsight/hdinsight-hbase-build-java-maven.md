@@ -14,7 +14,7 @@ ms.workload="big-data"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="04/19/2016"
+ms.date="05/18/2016"
 ms.author="larryfr"/>
 
 #Utilizar o Maven para criar aplicativos Java que usam o HBase com o HDInsight (Hadoop)
@@ -361,7 +361,10 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
 
 ##Carregar o arquivo JAR e iniciar um trabalho
 
-> [AZURE.NOTE] Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As etapas a seguir usam o [PowerShell do Azure](../powershell-install-configure.md).
+Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As etapas a seguir usam o PowerShell do Azure.
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
 
 1. Após instalar e configurar o PowerShell do Azure, crie um novo arquivo chamado __hbase-runner.psm1__. Use o seguinte como conteúdo deste arquivo:
 
@@ -548,10 +551,9 @@ O [Maven](http://maven.apache.org/) é uma ferramenta de software para compreens
             $resourceGroup = $hdi.ResourceGroup
             $storageAccountName=$hdi.DefaultStorageAccount.split('.')[0]
             $container=$hdi.DefaultStorageContainer
-            $storageAccountKey=Get-AzureRmStorageAccountKey `
+            $storageAccountKey=(Get-AzureRmStorageAccountKey `
                 -Name $storageAccountName `
-                -ResourceGroupName $resourceGroup `
-                | %{ $_.Key1 }
+            -ResourceGroupName $resourceGroup)[0].Value
             # Get the resource group, in case we need that
             $return.resourceGroup = $resourceGroup
             # Get the storage context, as we can't depend
@@ -629,4 +631,4 @@ Substitua __hdinsightclustername__ pelo nome do seu cluster HDInsight.
 
 Utilize o parâmetro `-showErr` para exibir o erro padrão (STDERR) produzido durante a execução do trabalho.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

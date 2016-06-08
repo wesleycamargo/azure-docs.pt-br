@@ -53,7 +53,7 @@ O JMS usa a Java Naming and Directory Interface (JNDI) para criar uma separaçã
 	
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
-connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 	
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
@@ -77,13 +77,13 @@ Em que **[jndi\_name]** e **[ConnectionURL]** têm os seguintes significados:
 O formato de **ConnectionURL** é o seguinte:
 
 ```
-amqps://[username]:[password]@[namespace].servicebus.windows.net
+amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-Em que **[namespace]**, **[username]** e **[password]** têm os seguintes significados:
+Em que **[namespace]**, **[SASPolicyName]** e **[SASPolicyKey]** têm os seguintes significados:
 
 - **[namespace]**: o namespace do Barramento de Serviço.
-- **[username]**: o nome do emissor do Barramento de Serviço.
-- **[password]**: formulário codificado por URL da chave do emissor do Barramento de Serviço.
+- **[SASPolicyName]**: nome da política da Assinatura de Acesso Compartilhado da Fila.
+- **[SASPolicyKey]**: chave da política da Assinatura de Acesso Compartilhado da Fila.
 
 > [AZURE.NOTE] você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -339,4 +339,4 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

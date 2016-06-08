@@ -68,7 +68,7 @@ Ao usar os SDKs (ou integrações de produtos) que não reconhecem o Hub IoT, se
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE] Nos casos em que o SDK exige um valor de **Nome de host** ou **Namespace**, remova o esquema do **Ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
+> [AZURE.NOTE] Nos casos em que o SDK exige um valor de **Nome de host** ou **Namespace**, remova o esquema do **Ponto de extremidade compatível com o Hub de Eventos**. Por exemplo, se o ponto de extremidade compatível com o Hub de Eventos for **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **Nome do Host** será **iothub-ns-myiothub-1234.servicebus.windows.net** e o **Namespace** será **iothub-ns-myiothub-1234**.
 
 Dessa forma, você poderá usar qualquer política de segurança de acesso compartilhado com permissões **ServiceConnect** para se conectar ao Hub de Eventos especificado.
 
@@ -204,7 +204,7 @@ Consulte o artigo [Tokens de segurança do Hub IoT][lnk-sas-tokens] para obter m
 
 Cada protocolo com suporte, como AMQP, MQTT e HTTP, transporta os tokens de maneiras diferentes.
 
-O HTTP implementa a autenticação incluindo um token válido no cabeçalho da solicitação **Authorization**. Um parâmetro de consulta chamado **Autorização** também pode transportar o token.
+O HTTP implementa a autenticação incluindo um token válido no cabeçalho da solicitação **Authorization**.
 
 Quando usa [AMQP][lnk-amqp], o Hub IoT dá suporte ao [SASL PLAIN][lnk-sasl-plain] e à [Segurança baseada em declarações AMQP][lnk-cbs].
 
@@ -557,4 +557,4 @@ Você viu uma visão geral do desenvolvimento para Hub IoT. Siga estes links par
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

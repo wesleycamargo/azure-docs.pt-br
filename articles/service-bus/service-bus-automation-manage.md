@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="04/18/2016"
 	ms.author="csand"/>
 
 # Gerenciando o Barramento de Serviço do Azure usando a Automação do Azure
@@ -30,14 +30,13 @@ Reduza o custo operacional e libere a equipe de TI e DevOps para se concentrar n
 
 ## Como a Automação do Azure ajuda a gerenciar o Barramento de Serviço do Azure?
 
-Você pode gerenciar o Barramento de Serviço com a Automação do Azure usando a [API REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx). Na Automação do Azure, você pode executar scripts do PowerShell para executar muitas de suas tarefas de Barramento de Serviço usando as APIs REST. Você também pode combinar essas chamadas de API REST na Automação do Azure com os cmdlets do PowerShell para outros serviços do Azure, para automatizar tarefas complexas nos serviços do Azure e sistemas de terceiros.
+Você pode gerenciar o Barramento de Serviço com a Automação do Azure usando a [API REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx). Na Automação do Azure, é possível executar scripts do PowerShell para executar muitas das tarefas do Barramento de Serviço usando a API REST. Você também pode combinar essas chamadas de API REST na Automação do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas nos serviços do Azure e sistemas de terceiros.
 
 Veja alguns exemplos de uso do PowerShell para gerenciar o Barramento de Serviço do Azure:
-
-- [Cmdlets personalizados do PowerShell para gerenciar as filas do Barramento de Serviço do Azure](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
-- [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [Criar namespaces do Barramento de Serviço do Azure usando o PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
-- [Módulo com o DSCResource para a adição de nós de configuração para criar o barramento de serviço do Azure](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
+* [Cmdlets personalizados do PowerShell para gerenciar as filas do Barramento de Serviço do Azure](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues/)
+* [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Criar namespaces do Barramento de Serviço do Azure usando o PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
+* [Módulo com o DSCResource para a adição de nós de configuração para criar o barramento de serviço do Azure](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0)
 
 ## Próximas etapas
 
@@ -46,4 +45,4 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ele pode 
 * Confira o [Guia de introdução](https://azure.microsoft.com/documentation/learning-paths/automation/) da Automação do Azure.
 * Confira como [gerenciar o Barramento de Serviço com o PowerShell](service-bus-powershell-how-to-provision.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

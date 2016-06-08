@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/08/2016" 
+	ms.date="05/06/2016" 
 	ms.author="eugenesh"/>
 
 #Conectando o Banco de Dados do SQL do Azure à Pesquisa do Azure usando indexadores
@@ -70,7 +70,7 @@ Você pode conseguir a cadeia de conexão no [Portal clássico do Azure](https:/
 
 Em seguida, crie um índice de destino da Pesquisa do Azure, caso ainda não tenha criado um. É possível fazer isso por meio da [UI do portal](https://portal.azure.com) ou usando a [API de Criação de Índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Certifique-se de que o esquema de seu índice de destino seja compatível com o esquema da tabela de origem. Confira a tabela a seguir para conhecer o mapeamento entre os tipos de dados de SQL e da Pesquisa do Azure.
 
-****Mapeamento entre tipos de dados SQL e tipos de dados da Pesquisa do Azure
+## Mapeamento entre tipos de dados SQL e tipos de dados da Pesquisa do Azure
 
 |Tipo de dados SQL | Tipos de campos de índice de destino permitidos |Observações 
 |------|-----|----|
@@ -275,4 +275,4 @@ R: Sim. No entanto, somente um indexador pode ser executado por vez em um nó. S
 
 R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e os recursos do nó são compartilhados entre a indexação e o atendimento ao tráfego de consultas e outras solicitações da API. Se você executar cargas de trabalho com indexação e consultas intensas e receber uma taxa alta de erros 503 ou tempos de resposta maiores, considere o aumento de seu serviço de pesquisa.
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

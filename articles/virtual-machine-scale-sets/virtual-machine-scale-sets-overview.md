@@ -19,7 +19,7 @@
 
 # Conjuntos de Dimensionamento de Máquina Virtual - Visão Geral
 
-Os conjuntos de dimensionamento de máquina virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de dimensionamento de VM foram desenvolvidos para oferecer suporte ao verdadeiro dimensionamento automático — não é necessário o pré-provisionamento das VMs — e, desse modo, facilitar a criação de serviços em grande escala visando big compute, big data e cargas de trabalho contidas.
+Os conjuntos de dimensionamento de máquina virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de escala de VM foram desenvolvidos para dar suporte ao verdadeiro dimensionamento automático (não é necessário o pré-provisionamento das VMs) e, desse modo, facilitar a criação de serviços em grande escala visando big compute, big data e cargas de trabalho contidas.
 
 Para aplicativos que necessitam dimensionar os recursos de computação, as operações de dimensionamento são balanceadas implicitamente entre domínios de falha e atualização. Para ver uma introdução aos conjuntos de dimensionamento de VM, confira o recente [Comunicado no blog do Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
@@ -33,9 +33,7 @@ Examine esses vídeos para saber mais sobre conjuntos de dimensionamento de VM:
 
 Os conjuntos de dimensionamento de VM podem ser definidos e implantados usando modelos JSON e [APIs REST](https://msdn.microsoft.com/library/mt589023.aspx), assim como as VMs individuais do Gerenciador de Recursos do Azure. Portanto, quaisquer métodos de implantação do Gerenciador de Recursos do Azure padrão podem ser usados. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
 
-Um conjunto de modelos de exemplo para conjuntos de dimensionamento de VM pode ser encontrado no repositório GitHub de modelos do Guia de Início Rápido do Azure, aqui:
-
-[https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) -procurar os modelos com _vmss_ no título.
+Um conjunto de modelos de exemplo para conjuntos de escala de VM pode ser encontrado no repositório GitHub [aqui](https://github.com/Azure/azure-quickstart-templates) (busque por modelos com _vmss_ no título).
 
 Nas páginas de detalhes para esses modelos, você verá um botão que vincula ao recurso de implantação do portal. Para implantar o conjunto de dimensionamento de VM, clique no botão e preencha todos os parâmetros obrigatórios no portal. Se você não tiver certeza se um recurso oferece suporte a letras maiúsculas ou combinadas, é mais seguro usar sempre valores de parâmetro em letras minúsculas. Também é uma prática dissecar vídeo de um modelo de conjunto de dimensionamento de VM aqui:
 
@@ -45,7 +43,7 @@ Nas páginas de detalhes para esses modelos, você verá um botão que vincula a
 
 Para aumentar ou diminuir o número de máquinas virtuais em um conjunto de dimensionamento de VM, basta alterar a propriedade _capacity_ e reimplantar o modelo. Essa simplicidade facilita escrever sua própria camada de dimensionamento personalizada se você quiser definir eventos de escala personalizada que não têm suporte do dimensionamento automático do Azure.
 
-Se estiver reimplantando um modelo para alterar a capacidade, você pode definir um modelo muito menor que inclui apenas a SKU e a capacidade atualizada. Um exemplo disso é mostrado em: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
+Se estiver reimplantando um modelo para alterar a capacidade, você pode definir um modelo muito menor que inclui apenas a SKU e a capacidade atualizada. Um exemplo disso é mostrado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
 Para percorrer as etapas para criar um conjunto de dimensionamento que foi dimensionado automaticamente, confira [Dimensionar automaticamente as máquinas em um Conjunto de dimensionamento de máquina virtual](virtual-machine-scale-sets-windows-autoscale.md)
 
@@ -59,11 +57,15 @@ Atualmente recomenda-se a utilização do [Azure Resource Explorer](https://reso
 
 Esta seção lista alguns cenários típicos de conjunto de dimensionamento de VM. Além disso, alguns serviços do Azure de nível mais alto (como Lote, Service Fabric, Serviço de Contêiner do Azure) usarão esses cenários.
 
- - **RDP / SSH para instâncias de conjunto de dimensionamento de VM**: um conjunto de escala de VM é criado dentro de uma VNET e as VMs individuais dentro dele não são endereços IP públicos alocados. Isso é bom, pois geralmente você não quer as despesas e os custos gerais de gerenciamento de alocar endereços IP separados para todos os recursos sem estado na sua grade de computação, e você pode se conectar facilmente a essas VMs de outros recursos na sua rede virtual, incluindo aqueles que têm endereços IP públicos como balanceadores de carga ou máquinas virtuais autônomas.
+ - **RDP / SSH para instâncias de conjunto de escala de VM**: um conjunto de escala de VM é criado dentro de uma VNET e as VMs individuais dentro dele não são endereços IP públicos alocados. Isso é bom, pois geralmente você não quer as despesas e os custos gerais de gerenciamento de alocar endereços IP separados para todos os recursos sem estado na sua grade de computação, e você pode se conectar facilmente a essas VMs de outros recursos na sua rede virtual, incluindo aqueles que têm endereços IP públicos como balanceadores de carga ou máquinas virtuais autônomas.
 
- - **Conectar-se a VMs usando regras de NAT** -Você pode criar um endereço IP público, atribuí-lo a um balanceador de carga e definir regras NAT de entrada que mapeiam uma porta no endereço IP para uma porta em uma máquina virtual no conjunto de dimensionamento de VM. Por exemplo
-
-	IP público->Porta 50000 -> vmss\_0->IP público da porta 22->Porta 50001 -> vmss\_1->IP público da porta 22->Porta 50002-> vmss\_2->Porta 22
+ - **Conectar-se a VMs usando regras de NAT**: você pode criar um endereço IP público, atribuí-lo a um balanceador de carga e definir regras NAT de entrada que mapeiam uma porta no endereço IP para uma porta em uma máquina virtual no conjunto de escala de VM:
+ 
+	Fonte | Porta de origem | Destino | Porta de destino
+	--- | --- | --- | ---
+	IP público | Porta 50000 | vmss\_0 | Porta 22
+	IP público | Porta 50001 | vmss\_1 | Porta 22
+	IP público | Porta 50002 | vmss\_2 | Porta 22
 
 	Veja um exemplo de como criar um conjunto de dimensionamento de VM que usa regras NAT para habilitar a conexão SSH para cada VM em um conjunto de dimensionamento usando um único IP público: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
 
@@ -71,17 +73,17 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
  - **Conectar às VMs usando uma "jumpbox"** - Se você criar um conjunto de dimensionamento de VM e uma VM autônoma na mesma rede virtual, a VM autônoma e o conjunto de dimensionamento de VM podem se conectar um ao outro usando seus endereços IP internos, conforme definido pela sub-rede/rede virtual. Se você criar um endereço IP público e atribuí-lo à VM autônoma, pode realizar RDP ou SSH para a VM autônoma e conectar-se nessa máquina para suas instâncias de conjunto de dimensionamento de VM. Você pode perceber, nesse momento, que um simples conjunto de escalas de VM é inerentemente mais seguro do que uma simples VM autônoma com um endereço IP público em sua configuração padrão.
 
-	Para obter um exemplo dessa abordagem, este modelo cria um cluster Mesos simples que consiste em uma VM mestre autônoma que gerencia um cluster de VMs baseado no conjunto de dimensionamento: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+	[Para obter um exemplo dessa abordagem, este modelo cria um cluster Mesos simples que consiste em uma VM mestre autônoma que gerencia um cluster de VMs baseado no conjunto de escala.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
  - **Balanceamento de carga round-robin para instâncias de conjunto de dimensionamento de VM** - Se desejar entregar trabalho a um cluster de VMs de computação usando uma abordagem "round-robin", você poderá configurar um balanceador de carga do Azure com regras de balanceamento de carga apropriadas. Também é possível definir investigações para verificar se o aplicativo está em execução ao executar ping de portas com um protocolo especificado, intervalo e caminho de solicitação.
 
-	Veja um exemplo que cria um conjunto de escalas de VM de VMs que executam o servidor Web IIS e usa um balanceador de carga para equilibrar a carga que cada VM recebe. Ele também usa o protocolo HTTP para executar ping de uma URL específica em cada VM: [https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) — observe o tipo de recurso Microsoft.Network/loadBalancers, bem como networkProfile e extensionProfile no virtualMachineScaleSet.
+	[Veja um exemplo que cria um conjunto de escalas de VM de VMs que executam o servidor Web IIS e usa um balanceador de carga para equilibrar a carga que cada VM recebe. Ele também usa o protocolo HTTP para executar ping de uma URL específica em cada VM ](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (observe o tipo de recurso Microsoft.Network/loadBalancers, bem como networkProfile e extensionProfile no virtualMachineScaleSet)
 
  - **Implantar um conjunto de dimensionamento de VM como um cluster de computação em um gerenciador de cluster de PaaS** - Os conjuntos de dimensionamento de VM são muitas vezes descritos como uma função de trabalho de próxima geração. É uma descrição válida, mas há o risco de confundir recursos do conjunto de escalas com recursos da função de trabalho PaaS v1. De certo modo, os conjuntos de escalas de VM fornecem uma verdadeira "função de trabalho" ou recurso de trabalho, já que eles fornecem um recurso de computação generalizado que é independente de plataforma/tempo de execução, personalizável e se integra à IaaS do Gerenciador de Recursos do Azure.
 
 	Uma função de trabalho PaaS v1, embora limitada em termos de suporte à plataforma/tempo de execução (apenas imagens da plataforma Windows) também inclui serviços como troca de VIP, definições de atualização configuráveis, configurações específicas de implantação de aplicativo/tempo de execução, que _ainda_ não estão disponíveis nos conjuntos de dimensionamento de VM ou serão fornecidos por outros serviços PaaS de nível mais alto, como o Service Fabric. Com isso em mente, você pode observar os conjuntos de escalas de VM como uma infraestrutura que oferece suporte à PaaS. Isto é, as soluções PaaS, como o Service Fabric ou os gerenciadores de clusters, como o Mesos, podem ser criadas com base nos conjuntos de escalas de VM como uma camada de computação escalonável.
 
-	Veja um exemplo de um cluster Mesos que implanta um conjunto de escalas de VM na mesma rede virtual como uma VM autônoma. A VM autônoma é um mestre Mesos, e o conjunto de dimensionamento de VM representa um conjunto de nós subordinados: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). As versões futuras do [Serviço de Contêiner do Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) implantarão versões mais complexas/reforçadas desse cenário com base nos conjuntos de dimensionamento de VM.
+	[Para obter um exemplo dessa abordagem, este modelo cria um cluster Mesos simples que consiste em uma VM mestre autônoma que gerencia um cluster de VMs baseado no conjunto de escala.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) As versões futuras do [Serviço de Contêiner do Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) implantarão versões mais complexas/reforçadas desse cenário com base nos conjuntos de dimensionamento de VM.
 
 ## Orientação de dimensionamento e desempenho do conjunto de dimensionamento de VM
 
@@ -147,10 +149,10 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **P.** Ao usar várias extensões em um conjunto de dimensionamento de VM, posso impor uma sequência de execução?
 
-**A.** Não diretamente, mas para a extensão customScript, seu script pode aguardar por outra extensão para ser concluído (por exemplo, monitorando o log de extensão — confira [https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install\_lap.sh](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)).
+**A.** Não diretamente, mas para a extensão de customScript, o script poderia aguardar por outra extensão ser concluída ([por exemplo, monitorando o log de extensão](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)).
 
 **P.** Os conjuntos de dimensionamento de VM funcionam com os conjuntos de disponibilidade do Azure?
 
 **A.** Sim. Um conjunto de escala de VM é um conjunto de disponibilidade implícito com 5 FDs e 5 UDs. Não é preciso configurar nada em virtualMachineProfile. Em versões futuras, os conjuntos de dimensionamento de VM provavelmente incluirão vários locatários, mas, por enquanto, um conjunto de dimensionamento é um único conjunto de disponibilidade.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

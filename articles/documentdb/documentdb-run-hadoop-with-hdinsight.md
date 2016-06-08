@@ -44,7 +44,7 @@ Não tem tempo para fazer o tutorial e quer apenas a amostra completa de scripts
 	<tr><th>URI do script</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
 	<tr><th>Data da Modificação</th>
-		<td>04/26/2015</td></tr>
+		<td>26/04/2016</td></tr>
 	<tr><th>Versões do HDInsight para as quais há suporte</th>
 		<td>3.1, 3.2</td></tr>
 	<tr><th>Log de alterações</th>
@@ -76,8 +76,8 @@ Ao provisionar um cluster HDInsight, você especifica uma conta de Armazenamento
 
 1. Faça logon no [Portal Clássico do Azure][azure-classic-portal].
 
-2. Clique em **+ NOVO** no canto inferior esquerdo, aponte para **SERVIÇOS DE DADOS**, aponte para **ARMAZENAMENTO** e, em seguida, clique em **CRIAÇÃO RÁPIDA**.
-	![Portal do Azure, em que você pode usar a criação rápida para configurar uma nova conta de armazenamento.][image-storageaccount-quickcreate]
+2. Clique em **+ NOVO** no canto inferior esquerdo, aponte para **SERVIÇOS DE DADOS**, aponte para **ARMAZENAMENTO** e, em seguida, clique em **CRIAÇÃO RÁPIDA**. 
+	![Portal Clássico do Azure, em que você pode usar a Criação Rápida para configurar uma nova conta de armazenamento.][image-storageaccount-quickcreate]
 
 3. Insira a **URL**, selecione os valores de **LOCAL** e **REPLICAÇÃO** e clique em **CRIAR CONTA DE ARMAZENAMENTO**. Não há suporte para grupos de afinidade.
 	
@@ -221,7 +221,7 @@ Este tutorial usa a Ação de Script do Portal Clássico do Azure para personali
 
     <p>Primeiro, vamos criar uma tabela Hive por meio da coleção do Banco de Dados de Documentos. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Inclua o parâmetro opcional DocumentDB.query para limitar os documentos a somente _ts e _rid. </p>
 
-	> [AZURE.NOTE] **Ter nomeado DocumentDB.inputCollections não foi um erro.** Sim, podemos permitir a adição de várias coleções como uma entrada: </br>
+	> [AZURE.NOTE] **Ter nomeado DocumentDB.inputCollections não foi um erro.** Sim, podemos permitir a adição de várias coleções como uma entrada: </br> 
 	'*DocumentDB.inputCollections*' = '*\<Nome 1 de Coleção de Entrada de Banco de Dados de Documentos\>*,*\<Nome 2 de Coleção de Entrada de Banco de Dados de Documentos\>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.
 
 
@@ -468,7 +468,7 @@ Para saber mais, consulte os seguintes artigos:
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
-[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
 [hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
@@ -487,4 +487,4 @@ Para saber mais, consulte os seguintes artigos:
 [powershell-install-configure]: ../powershell-install-configure.md
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

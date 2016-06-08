@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Políticas de posicionamento para serviços do Service Fabric
-Há muitas regras adicionais diferentes que podem acabar sendo um motivo de preocupação caso seu cluster do Service Fabric esteja distribuído por uma distância geográfica, digamos, em vários datacenters ou regiões do Azure, ou caso seu ambiente abranja várias áreas de controle geopolítico (ou algum outro caso em que você tenha limites legais ou da política que sejam de seu interesse). A maioria delas pode ser configurada por meio das propriedades de nó e de restrições de posicionamento (que mencionamos anteriormente), mas algumas são mais complicadas. De qualquer modo, fornecemos esses atalhos – assim como as restrições de posicionamento, as políticas de posicionamento podem ser configuradas de acordo com o serviço.
+Há muitas regras adicionais diferentes que podem acabar sendo um motivo de preocupação caso seu cluster do Service Fabric esteja distribuído por uma distância geográfica, digamos, em vários datacenters ou regiões do Azure, ou caso seu ambiente abranja várias áreas de controle geopolítico (ou algum outro caso em que você tenha limites legais ou da política que sejam de seu interesse, ou então, as distâncias envolvidas têm um impacto de desempenho real/de latência). A maioria delas pode ser configurada por meio das propriedades de nó e de restrições de posicionamento, mas algumas são mais complicadas. De qualquer modo, fornecemos esses atalhos – assim como as restrições de posicionamento, as políticas de posicionamento podem ser configuradas de acordo com instância de serviço nomeada.
 
 ## Especificando domínios inválidos
 A política de posicionamento InvalidDomain permite especificar que um determinado domínio de falha é inválido para essa carga de trabalho. Essa política garante que um serviço específico nunca seja executado em uma determinada área, por exemplo, por motivos de política corporativa ou geopolíticos. Vários domínios inválidos podem ser especificados
@@ -98,4 +98,4 @@ Agora, seria possível usar essas configurações para serviços em um cluster q
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

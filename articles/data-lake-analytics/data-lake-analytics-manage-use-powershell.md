@@ -39,7 +39,7 @@ Confira a seção de pré-requisitos em [Usando o Azure PowerShell com o Gerenci
 	
 ## Gerenciar contas
 
-Antes de executar qualquer trabalho da Análise Data Lake, você deve ter uma conta da Análise Data Lake. Ao contrário do Azure HDInsight, você não paga por uma conta da Análise quando ela não estiver executando um trabalho. Você paga apenas pelo tempo em que um trabalho é executado. Para obter mais informações, confira [Visão geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
+Antes de executar qualquer trabalho da Análise Data Lake, você deve ter uma conta da Análise Data Lake. Ao contrário do Azure HDInsight, você não paga por uma conta da Análise quando ela não estiver executando um trabalho. Você paga apenas pelo tempo em que um trabalho é executado. Para saber mais, consulte [Visão geral sobre a Análise Azure Data Lake](data-lake-analytics-overview.md).
 
 ###Criar contas
 
@@ -132,7 +132,7 @@ O cmdlet retornará **True** ou **False**.
 	
 	Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
 
-A exclusão de uma conta da Análise não excluirá a conta dependente do Armazenamento do Data Lake. O exemplo a seguir exclui a conta da Análise Data Lake e a conta padrão do Repositório Data Lake
+A exclusão de uma conta da Análise de Data Lake não excluirá a conta dependente do Armazenamento do Data Lake. O exemplo a seguir exclui a conta da Análise Data Lake e a conta padrão do Repositório Data Lake
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -190,7 +190,7 @@ Quando você cria uma conta da Análise, é necessário designar uma conta do Ar
 <!-- ################################ -->
 ## Gerenciar trabalhos
 
-Você deve ter uma conta da Análise Data Lake antes de criar um trabalho. Para obter mais informações, veja [Gerenciar contas da Análise do Data Lake](#manage-data-lake-analytics-accounts).
+Você deve ter uma conta da Análise Data Lake antes de criar um trabalho. Para saber mais, consulte [Gerenciar contas da Análise Data Lake](#manage-data-lake-analytics-accounts).
 
 ### Listar trabalhos
 
@@ -313,9 +313,9 @@ O catálogo do U-SQL é usado para estruturar dados e código para que eles poss
 
 ## Usar os grupos do Gerenciador de Recursos do Azure
 
-Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para obter mais informações, veja [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
+Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md).
 
-Um serviço da Análise do Data Lake pode incluir os seguintes componentes:
+Um serviço de Análise Data Lake pode incluir os seguintes componentes:
 
 - Conta da Análise Azure Data Lake
 - Conta padrão do Armazenamento do Azure Data Lake obrigatória
@@ -326,7 +326,7 @@ Você pode criar todos esses componentes em um grupo ARM para torná-los mais f�
 
 ![Conta e armazenamento da Análise Azure Data Lake](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem ser colocadas no mesmo datacenter do Azure. No entanto, o grupo ARM pode estar localizado em um datacenter diferente.
+Uma conta da Análise Data Lake e as contas de armazenamento dependentes devem ser colocadas no mesmo data center do Azure. No entanto, o grupo ARM pode estar localizado em um data center diferente.
 
 ##Consulte também 
 
@@ -392,4 +392,4 @@ O modelo ARM a seguir pode ser usado para implantar uma conta da Análise Data L
 	  }
 	}
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

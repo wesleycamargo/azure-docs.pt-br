@@ -1,10 +1,10 @@
 <properties
-pageTitle="Usar a API do SharePoint Online em seus Aplicativos Lógicos ou PowerApps| Microsoft Azure"
-description="Introdução ao uso da API do SharePoint Online do Serviço de Aplicativo do Azure em seus Aplicativos lógicos e PowerApps."
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Usar o conector do SharePoint Online em seus Aplicativos Lógicos ou PowerApps| Microsoft Azure"
+description="Introdução ao uso do conector do SharePoint Online do Serviço de Aplicativo do Azure em seus Aplicativos lógicos e PowerApps."
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,12 +14,12 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introdução à API do SharePoint Online
+# Introdução ao conector do SharePoint Online 
 
-O provedor de conexão do SharePoint fornece uma API para trabalhar com as Listas do SharePoint.
+O conector do SharePoint fornece uma maneira de trabalhar com listas do SharePoint.
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -32,9 +32,9 @@ Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicati
 
 ## Vamos conversar sobre gatilhos e ações
 
-A API do SharePoint pode ser usada como uma ação. Ela tem gatilhos. Todas as APIs dão suporte a dados nos formatos JSON e XML.
+O Conector do SharePoint pode ser usado como uma ação: ele tem um ou mais gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
-A API do SharePoint possui as seguintes ações e/ou gatilhos disponíveis:
+O conector do SharePoint contém as seguintes ações e/ou gatilhos disponíveis:
 
 ### Ações do SharePoint
 Você pode executar as seguintes ações:
@@ -66,21 +66,19 @@ Você pode escutar estes eventos:
 
 
 ## Criar uma conexão com o SharePoint
-Para usar a API do SharePoint, crie primeiro uma **conexão** e, então, forneça os detalhes dessas propriedades:
+Para usar o conector do SharePoint, crie primeiro uma **conexão** e, então, forneça os detalhes dessas propriedades:
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
 |A criptografia do token|Sim|Fornecer credenciais do SharePoint|
 
-Para se conectar ao **SharePoint Online**, você precisa fornecer sua identidade (nome de usuário e senha, credenciais de cartão inteligente, etc.) para o SharePoint Online. Depois de se autenticar, você poderá continuar e usar a API do SharePoint Online em seu aplicativo lógico.
+Para se conectar ao **SharePoint Online**, você precisa fornecer sua identidade (nome de usuário e senha, credenciais de cartão inteligente, etc.) para o SharePoint Online. Depois de se autenticar, você poderá continuar e usar o conector do SharePoint Online em seu aplicativo lógico.
 
 No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e criar a conexão **conexão** para uso em seu aplicativo lógico:
 
-1. Digite SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome:
-![Configurar o SharePoint][1]  
+1. Digite SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com SharePoint no nome: ![Configurar o SharePoint][1]  
 2. Selecione **SharePoint Online - Quando um arquivo é criado**   
-3. Selecione **Entrar no SharePoint Online**:
-![Configurar o SharePoint][2]    
+3. Selecione **Entrar no SharePoint Online**: ![Configurar o SharePoint][2]    
 4. Forneça suas credenciais do SharePoint para entrar e se autenticar com o SharePoint ![Configurar o SharePoint][3]     
 5. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração do diálogo **Quando um arquivo é criado** do SharePoint.![Configurar o SharePoint][4]  
 6. Em seguida, é possível adicionar outros gatilhos e outras ações necessárias para concluir seu aplicativo lógico.   
@@ -703,4 +701,4 @@ Nenhuma das propriedades é obrigatória.
 [4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

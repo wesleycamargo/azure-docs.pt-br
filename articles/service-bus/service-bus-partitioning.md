@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Entidades de mensagens particionadas | Microsoft Azure"
-   description="Descreve como particionar entidades de mensagens usando diversos agentes de mensagens."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Entidades de mensagens particionadas | Microsoft Azure"
+    description="Descreve como particionar entidades de mensagens usando diversos agentes de mensagens."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Entidades de mensagens particionadas
 
@@ -23,9 +23,9 @@ Para obter mais detalhes sobre aspectos internos do Barramento de Serviço, cons
 
 ## Filas e tópicos particionados
 
-Cada fila ou tópico particionado consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente e manipulado por um agente de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. A seleção é feita aleatoriamente pelo Barramento de Serviço ou por uma chave de partição que o remetente pode especificar.
+Cada fila ou tópico particionado consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente e manipulado por um agente de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. A seleção é feita aleatoriamente pelo Barramento de Serviço ou por uma chave de partição que pode ser especificada pelo remetente.
 
-Quando um cliente deseja receber uma mensagem de uma fila particionada ou de uma assinatura de um tópico particionado, o Barramento de Serviço consulta todos os fragmentos de mensagens e, em seguida, retorna a primeira mensagem que é retornada de qualquer um dos repositórios de mensagens para o receptor. O Barramento de Serviço armazena em cache as outras mensagens e as retorna ao receber solicitações de recebimento adicionais. Um cliente receptor não está ciente do particionamento; o comportamento voltado para o cliente de uma fila ou um tópico particionado (por exemplo, ler, concluir, adiar, colocar mensagem na fila de mensagens mortas, executar pré-busca) é idêntico ao comportamento de uma entidade regular.
+Quando um cliente deseja receber uma mensagem de uma fila particionada ou de uma assinatura de um tópico particionado, o Barramento de Serviço consulta todos os fragmentos de mensagens e, em seguida, retorna a primeira mensagem obtida de qualquer um dos repositórios de mensagens para o destinatário. O Barramento de Serviço armazena em cache as outras mensagens e as retorna ao receber solicitações de recebimento adicionais. Um cliente receptor não está ciente do particionamento; o comportamento voltado para o cliente de uma fila ou um tópico particionado (por exemplo, ler, concluir, adiar, colocar mensagem na fila de mensagens mortas, executar pré-busca) é idêntico ao comportamento de uma entidade regular.
 
 Não há custo adicional ao enviar ou receber uma mensagem de uma fila ou um tópico particionado.
 
@@ -125,7 +125,7 @@ Em sua implementação atual, o Barramento de Serviço impõe as seguintes limit
 
 ## Próximas etapas
 
-Consulte a discussão sobre o suporte do [AMQP 1.0 para tópicos e filas particionados do Barramento de Serviço][] para saber mais sobre o particionamento de entidades de mensagens.
+Veja a discussão sobre o [suporte do AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço][] para saber mais sobre como particionar entidades de mensagens.
 
   [Arquitetura do Barramento de Serviço]: service-bus-architecture.md
   [portal clássico do Azure]: http://manage.windowsazure.com
@@ -142,6 +142,6 @@ Consulte a discussão sobre o suporte do [AMQP 1.0 para tópicos e filas partici
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [AMQP 1.0 para tópicos e filas particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+  [suporte do AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0518_2016-->

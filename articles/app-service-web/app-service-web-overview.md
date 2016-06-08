@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Visão geral de aplicativos Web"
-	description="Saiba mais sobre os Aplicativos Web do Serviço de Aplicativo"
+	pageTitle="Visão geral de aplicativos Web | Microsoft Azure"
+	description="Saiba como o Serviço de Aplicativo do Azure o ajuda a desenvolver e hospedar aplicativos Web"
 	services="app-service\web"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,57 +13,65 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/09/2016"
-	ms.author="jaime.espinosa"/>
+	ms.date="05/25/2016"
+	ms.author="tdykstra"/>
 
+# Visão geral de aplicativos Web
 
-#Visão geral de aplicativos Web
+*Aplicativos Web do Serviço de Aplicativo* é uma plataforma de computação totalmente gerenciada que é otimizada para hospedagem de sites e aplicativos Web. Essa oferta de [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) (plataforma como serviço) do Microsoft Azure permite que você se concentre na lógica de negócios enquanto o Azure cuida da infraestrutura para executar e dimensionar os aplicativos.
 
-O [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) é uma plataforma totalmente gerenciada para desenvolvedores profissionais que proporciona um avançado conjunto de recursos para cenários da Web, móveis e de integração. Crie e implante aplicativos Web críticos que são dimensionados de acordo com seus negócios usando o Serviço de Aplicativo do Azure.
+Para obter uma visão geral em vídeo de cinco minutos, confira [Aplicativos Web do Serviço de Aplicativo do Azure com Yochay Kiriaty](https://azure.microsoft.com/documentation/videos/azure-app-service-web-apps-with-yochay-kiriaty/).
 
-Aproveite a capacidade dos [aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) para usar as linguagens e estruturas que você conhece e com as quais conta, implantar seus aplicativos rapidamente para a nuvem do Azure e melhorar continuamente seu código sem precisar mais se preocupar com a infraestrutura.
+## O que é um aplicativo Web no Serviço de Aplicativo?
 
-![Web Marketplace](./media/app-service-web-overview/marketplace.png)
+No Serviço de Aplicativo, um *aplicativo Web* consiste nos recursos de computação que o Azure fornece para hospedar um site ou aplicativo Web.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+Os recursos de computação podem estar em VMs (máquinas virtuais) compartilhadas ou dedicadas, dependendo da camada de preços que você escolher. O código do aplicativo é executado em uma VM gerenciada que é isolada de outros clientes.
 
-## Mais do que apenas sites##
+O código pode estar em qualquer linguagem ou estrutura com suporte no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md), como ASP.NET, Node.js, Java, PHP ou Python. Você também pode executar scripts que usam o [PowerShell e outras linguagens de script](web-sites-create-web-jobs.md#acceptablefiles) em um aplicativo Web.
 
-As empresas modernas interagem com seus clientes de formas cada vez mais sofisticadas. Empresas de todos os tipos consideram sua presença corporativa na Web como parte crucial de seus negócios, um dos principais componentes em seu plano de negócios. Para acomodar essa importância, as empresas estão buscando uma plataforma que lhes fornecerá agilidade, segurança e escalabilidade. Além disso, elas precisam da capacidade de vincular aos seus sistemas de negócios existentes, ser capazes de implantar rapidamente um novo código e criar instâncias em todo o mundo. Com o Serviço de Aplicativo do Azure e os aplicativos Web, as organizações podem agradar a seus clientes de forma rápida e econômica.
+Para obter exemplos de cenários típicos de aplicativos para os quais você pode usar aplicativos Web, confira [Cenários de aplicativos Web](https://azure.microsoft.com/documentation/scenarios/web-app/).
 
-## Por que aplicativos Web? ##
+## Por que usar aplicativos Web?
 
-Os Aplicativos Web do Serviço de Aplicativo do Azure são uma plataforma totalmente gerenciada que o habilita a compilar, implantar e dimensionar aplicativos Web de nível empresarial em segundos. Concentre-se em seu código de aplicativo e deixe que o Azure cuide da infraestrutura para dimensioná-la e executá-la com segurança para você. Os aplicativos Web são:
+Veja alguns recursos importantes do Serviço de Aplicativo que se aplicam aos Aplicativos Web:
 
-- **Familiar e Rápido** - use suas habilidades existentes para escrever código em sua linguagem, estrutura e IDE favoritos. Com apenas alguns cliques, adicione controle de versão, atualização, logon único, agente de identidade, armazenamento isolado e monitoramento de desempenho a seus aplicativos Web existentes. Acesse uma Galeria avançada para usar como blocos de construção a fim de acelerar seu desenvolvimento. Experimente produtividade de desenvolvedor incomparável com recursos de ponta como integração contínua, depuração de site ativo e IDE do Visual Studio líder do setor.
-- **Nível Empresarial** - os aplicativos Web foram projetados para compilar e hospedar aplicativos críticos seguros. Compile aplicativos de negócios integrados do Active Directory que se conectam com segurança a recursos locais e hospede-os em uma plataforma de nuvem segura em conformidade com PCI, SOC2 e ISO. Ao mesmo tempo, desfrute de SLAs de nível empresarial.
-- **Escala Global** - os aplicativos Web foram otimizados para oferecer disponibilidade e dimensionamento automático em uma infraestrutura de data center global. Expanda ou reduza facilmente os aplicativos sob demanda. Com alta disponibilidade fornecida em regiões geográficas diferentes e entre elas. A replicação de dados e a hospedagem de serviços em vários locais são rápidas e fáceis, e basta um clique do mouse para expandir-se para novas regiões e áreas geográficas tão simples.  
+- **Plataforma totalmente gerenciada** - Aplicação automática de patch no SO e na estrutura, suporte interno para backup e recuperação de desastre. 
 
-## Conceitos de aplicativos Web ##
+- **Use suas qualificações atuais** - Codifique em sua linguagem, estrutura e ambiente de desenvolvimento favoritos. O Serviço de Aplicativo oferece suporte para .NET, Node.js, Java, PHP e Python.
 
-- **Galeria de Aplicativos Web** - selecione em uma lista crescente de modelos de aplicativos Web existentes. Aproveite o melhor da comunidade de aplicativos OSS com a instalação com um clique de pacotes, como Wordpress, Joomla e Drupal. Inicie seu processo de desenvolvimento de aplicativos da maneira certa aproveitando estruturas como .NET MVC, Django e CakePHP.
-- **Ajuste de escala automático** - os aplicativos Web permitem que você ajuste a escala vertical ou horizontalmente com rapidez para lidar com qualquer carga de cliente de entrada. Selecione manualmente o número e tamanho das máquinas virtuais ou configure o dimensionamento automático para ajustar seus servidores com base na carga ou cronograma.
-- **Integração contínua** - Configure fluxos de trabalho de implantação e integração contínua com o VSTS, GitHub, TeamCity, Hudson ou BitBucket, permitindo que você compile, teste e implante automaticamente seu aplicativo Web a cada teste de integração ou verificação de código bem-sucedido.
-- **Slots de implantação** - implemente a [Implantação de teste][Slots] para verificar seu código em um ambiente de pré-produção que é idêntico a seu aplicativo Web de produção no Serviço de Aplicativo do Azure. Quando estiver satisfeito, lance uma nova versão de seu aplicativo sem tempo de inatividade executando uma operação de permuta. 
-- **Testes em produção** - leve as Implantações de Teste para o próximo patamar e execute testes A/B para verificar o novo código com uma fração configurável do tráfego ativo. 
-- **Trabalhos Web** - execute qualquer programa ou script em máquinas virtuais de aplicativos Web. Execute trabalhos continuamente ou de acordo com uma agenda e dimensione para execução em várias máquinas virtuais. Use o [SDK WebJobs][Webjobs] do Azure para integrar ao Armazenamento do Azure ou ao Barramento de Serviço.
-- **Conexões híbridas** - - Acesse dados locais usando [conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Implantação rápida** - Provisione novos aplicativos e implante o código neles em questão de segundos.
 
-## Introdução ##
-Para começar com os Aplicativos Web, siga o tutorial [Introdução aos aplicativos Web no Serviço de Aplicativo do Azure][create].
+- **Integração contínua** - Configure a [integração contínua e a implantação](../app-service-web/app-service-continous-deployment.md) com o Visual Studio Team Services, o GitHub ou o BitBucket.
 
-Para obter mais informações a respeito da plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][appservice].
+- **Ambientes de preparo e teste** ‒ Implemente a [implantação de teste](../app-service-web/web-sites-staged-publishing.md) para verificar o código em um ambiente de pré-produção que é idêntico a seu ambiente de produção. Quando estiver pronto, lance uma nova versão do aplicativo sem tempo de inatividade executando uma operação de permuta.
 
->[AZURE.NOTE] Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+- **Testes em produção** ‒ Leve as implantações de teste para o próximo patamar e [execute testes A/B](../app-service-web/app-service-web-test-in-production-get-start.md) para verificar o novo código com uma fração configurável do tráfego ativo.
 
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+- **Autenticação e autorização** - Proteja um aplicativo contra o acesso não autenticado sem alterações em seu código. Os serviços de autenticação internos protegem seus aplicativos para que sejam acessados por usuários, por clientes que representam os usuários ou por serviços. Os provedores de identidade com suporte incluem Azure Active Directory, Facebook, Twitter, Google e Conta da Microsoft. Para saber mais, confira [Autenticação e autorização no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
 
-[appservice]: ../app-service/app-service-value-prop-what-is.md
-[create]: app-service-web-get-started.md
-[Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
-[Slots]: web-sites-staged-publishing.md
+- **Conecte-se a qualquer serviço** - Conecte seu aplicativo aos sistemas corporativos ou plataformas SaaS (software como serviço) em questão de minutos com os [conectores](../connectors/apis-list.md) internos. Escolha entre mais de 50 conectores para os sistemas corporativos, como SAP, Siebel e Oracle, serviços de SaaS corporativo populares, como o Salesforce e Office 365, e serviços de Internet populares, como o Facebook, Twitter e Dropbox.
 
- 
+- **Escala global** - Escale [vertical](../app-service/app-service-scale.md) ou [horizontalmente](../azure-portal/insights-how-to-scale.md) a fim de lidar com qualquer carga de cliente recebida. Selecione manualmente o número e tamanho das VMs ou configure o dimensionamento automático com base na carga ou no cronograma. A infraestrutura de datacenter global da Microsoft hospeda os aplicativos e facilita a replicação dos dados e a hospedagem de serviços em vários locais.
 
-<!---HONumber=AcomDC_0427_2016-->
+- **Nível empresarial** ‒ O Serviço de Aplicativo foi projetado para compilar e hospedar aplicativos críticos seguros. Compile aplicativos de negócios integrados do Active Directory que se conectam com segurança a recursos locais e hospede-os em uma plataforma de nuvem segura em conformidade com [ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/). Tudo isso com um [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) de nível corporativo.
+
+- **Azure Marketplace** ‒ Escolha em uma [lista cada vez maior de modelos de aplicativos](https://azure.microsoft.com/marketplace/). Aproveite o melhor da comunidade de aplicativos OSS com a instalação com um clique de pacotes, como WordPress, Joomla e Drupal.
+
+- **WebJobs** - [Execute qualquer programa ou script](../app-service-web/web-sites-create-web-jobs.md) em VMs do Serviço de Aplicativo. Execute trabalhos continuamente, de acordo com uma agenda ou disparados por eventos. O SDK do Azure [WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md) simplifica o código que você escreve para integrá-lo a outros serviços do Azure e de terceiros.
+
+- **Conexões híbridas** - Acesse dados locais usando [Conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e as [Redes Virtuais do Azure](../app-service-web/web-sites-integrate-with-vnet.md).
+
+- **Integração com o Visual Studio** - As ferramentas dedicadas no Visual Studio simplificam o trabalho de criação, implantação, consumo, depuração e gerenciamento de aplicativos Web, aplicativos móveis e aplicativos de API.
+
+Além disso, um aplicativo Web pode tirar proveito dos recursos oferecidos por [Aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md) (como suporte a CORS) e [Aplicativos Móveis](../app-service-mobile/app-service-mobile-value-prop.md) (como notificações por push). A única diferença entre esses três tipos de aplicativo (API, Web, móveis) consiste no nome e no ícone usados para eles no Portal do Azure. Para saber mais sobre os tipos de aplicativos no Serviço de Aplicativo, confira [Visão geral do Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
+
+Além dos Aplicativos Web no Serviço de Aplicativo, o Azure oferece outros serviços que podem ser usados para hospedar sites e aplicativos Web. Os Aplicativos Web são a melhor opção para a maioria dos cenários. Para a arquitetura de microsserviço, considere o [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), e se você precisar de mais controle sobre as VMs nas quais seu código é executado, considere as [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para saber mais sobre como escolher entre esses serviços do Azure, confira [Comparação entre o Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure](choose-web-site-cloud-service-vm.md).
+
+## Introdução
+
+Para começar com a implantação do código de exemplo para um novo aplicativo Web no Serviço de Aplicativo, siga o tutorial [Implantar seu primeiro aplicativo Web no Azure em cinco minutos](app-service-web-get-started.md). Você precisará de uma conta gratuita do Azure.
+
+Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+
+<!---HONumber=AcomDC_0601_2016-->

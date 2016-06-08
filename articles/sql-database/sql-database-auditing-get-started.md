@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="05/17/2016"
 	ms.author="carlrabeler; ronitr"/>
- 
+
 # Introdução à auditoria do banco de dados SQL
 A Auditoria do Banco de Dados SQL do Azure rastreia eventos do banco de dados e grava eventos auditados em um log de auditoria na sua conta de Armazenamento do Azure. A auditoria é disponibilizada normalmente para as camadas de serviço Basic, Standard e Premium.
 
@@ -57,7 +57,7 @@ Logs de auditoria são armazenados na sua conta de armazenamento do Azure. Você
 
 Uma política de auditoria pode ser definida para um banco de dados específico ou como uma política padrão do servidor. Uma política de auditoria padrão do servidor é aplicada a todos os bancos de dados em um servidor que não contém uma política de auditoria de banco de dados substituta específica definida.
 
-Antes de configurar a auditoria, verifique se você está usando um ["Cliente de nível inferior"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+Antes de configurar a auditoria, verifique se você está usando um ["Cliente de nível inferior"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Além disso, se você tem configurações de firewall estritas, observe que o [ponto de extremidade IP do seu banco de dados será alterado](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando Auditoria for habilitada.
 
 
 ##<a id="subheading-2"></a>Configurar a auditoria do banco de dados
@@ -140,7 +140,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 3. Volte para a folha de configuração de auditoria, altere a **Chave de Acesso de Armazenamento** de *Secundária* para *Primária* e clique em **SALVAR**.
 
 4. Volte para a interface do usuário de armazenamento e **regenere** a *Chave de Acesso Secundária* (como preparação para o próximo ciclo de atualização de chaves).
-  
+
 ##<a id="subheading-7"></a>Automação
 Há vários cmdlets do PowerShell que você pode usar para configurar a auditoria no Banco de Dados SQL do Azure:
 
@@ -175,7 +175,4 @@ Há vários cmdlets do PowerShell que você pode usar para configurar a auditori
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_classic_portal_storage.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_storage_key_rotation.png
 
-
- 
-
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

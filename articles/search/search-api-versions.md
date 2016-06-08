@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/08/2016"
+   ms.date="05/23/2016"
    ms.author="brjohnst"/>
 
 # Versões de API na Pesquisa do Azure
@@ -65,9 +65,8 @@ Não há nenhuma garantia de que os recursos de visualização serão migrados p
 
 No entanto, como os recursos de visualização estão sujeitos a alterações, não recomendamos escrever um código de produção que dependa de versões prévias. Caso esteja usando uma versão prévia mais antiga, é recomendável migrar para a versão GA (disponível).
 
-- Para o SDK do .NET: obtenha orientações para a migração de código em [Atualizar o SDK do .NET](search-dotnet-sdk-migration.md).
-- Para a API REST: obtenha orientações para a migração de código em [Fazer a transição da preview para a GA](search-transition-from-preview.md).
+Para o SDK do .NET: diretrizes para a migração de código podem ser encontradas em [Atualizar o SDK do .NET](search-dotnet-sdk-migration.md).
 
-Disponibilidade geral significa que a Pesquisa do Azure agora está vinculada aos termos do Contrato de Nível de Serviço (SLA). O SLA pode ser encontrado em [SLA da Pesquisa do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Disponibilidade geral significa que a Pesquisa do Azure agora está vinculada aos termos do Contrato de Nível de Serviço (SLA). O SLA pode ser encontrado em [Contratos de Nível de Serviço da Pesquisa do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

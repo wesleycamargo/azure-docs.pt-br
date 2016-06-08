@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/11/2016"
+	ms.date="05/24/2016"
 	ms.author="casoper"/>
 
 # Visão geral da CDN (Rede de Distribuição de Conteúdo) do Azure
 
-A CDN (Rede de Distribuição de Conteúdo) do Azure armazena em cache conteúdo Web estático em locais estrategicamente posicionados para fornecer taxa de transferência máxima para o fornecimento de conteúdo aos usuários. A CDN oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda armazenando em cache o conteúdo em nós físicos em todo o mundo. Para obter uma lista de locais de nó CDN atuais, confira [Locais POP da Azure CDN](cdn-pop-locations.md).
+> [AZURE.NOTE] Este documento descreve o que é a CDN (Rede de Distribuição de Conteúdo) do Azure, como ela funciona e os recursos de cada produto CDN do Azure. Se você quiser ignorar essas informações e ir diretamente para um tutorial sobre como criar um ponto de extremidade CDN, veja [Usando o Azure CDN](cdn-create-new-endpoint.md). Para obter uma lista de locais de nó CDN atuais, confira [Locais POP da CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-pop-locations.md).
+
+A CDN (Rede de Distribuição de Conteúdo) do Azure armazena em cache conteúdo Web estático em locais estrategicamente posicionados para fornecer taxa de transferência máxima para o fornecimento de conteúdo aos usuários. A CDN oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda armazenando em cache o conteúdo em nós físicos em todo o mundo.
 
 As vantagens do uso da CDN para armazenar ativos de site da Web em cache incluem:
 
@@ -74,6 +76,6 @@ Se você for um cliente CDN, poderá gerenciar seus pontos de extremidade de CDN
 
 Para ver a CDN em ação, confira o [vídeo da sessão Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Para obter informações sobre os preços, confira [Detalhes de preços](https://azure.microsoft.com/pricing/details/cdn/).
+Para saber mais sobre os preços, confira [Preços da CDN](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

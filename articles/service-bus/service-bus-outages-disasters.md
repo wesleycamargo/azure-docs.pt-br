@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Isolando aplicativos do Barramento de Serviço contra interrupções e desastres | Microsoft Azure"
-   description="Descreve técnicas que podem ser usadas para proteger aplicativos contra uma potencial interrupção do Barramento de Serviço."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Isolando aplicativos do Barramento de Serviço contra interrupções e desastres | Microsoft Azure"
+    description="Descreve técnicas que podem ser usadas para proteger aplicativos contra uma potencial interrupção do Barramento de Serviço."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -27,7 +27,7 @@ Um desastre é definido como a perda permanente de uma unidade de escala ou de u
 
 O Barramento de Serviço usa vários repositórios de mensagens para armazenar mensagens enviadas para filas ou tópicos. Uma fila ou um tópico não particionado é atribuído a um repositório de mensagens. Se esse repositório de mensagens não estiver disponível, todas as operações naquela fila ou tópico falharão.
 
-Todas as entidades de mensagens do Barramento de Serviço (filas, tópicos, retransmissões) residem em um namespace de serviço, que está associado a um datacenter. O Barramento de Serviço não habilita a replicação geográfica de dados, nem permite que um namespace de serviço se estenda por vários datacenters.
+Todas as entidades de mensagens do Barramento de Serviço (filas, tópicos, retransmissões) residem em um namespace de serviço, que está associado a um datacenter. O Barramento de Serviço não habilita a replicação geográfica automática de dados, nem permite que um namespace se estenda para vários data centers.
 
 ## Proteção contra interrupções do ACS
 
@@ -41,7 +41,7 @@ Uma fila ou um tópico não particionado é atribuído a um repositório de mens
 
 ## Proteção contra interrupções ou desastres de datacenter
 
-Para permitir um failover entre dois datacenters, você poderá criar um namespace de serviço do Barramento de Serviço em cada datacenter. Por exemplo, o namespace do Barramento de Serviço **contosoPrimary.servicebus.windows.net** pode estar localizado na região (Norte/Central) dos Estados Unidos e **contosoSecondary.servicebus.windows.net** pode estar localizado na região (Sul/Central) dos Estados Unidos. Se uma entidade de mensagens do Barramento de Serviço tiver de permanecer acessível em caso de falha do datacenter, você poderá criar essa entidade em ambos os namespaces.
+Para permitir um failover entre dois datacenters, você poderá criar um namespace de serviço do Barramento de Serviço em cada datacenter. Por exemplo, o namespace do Barramento de Serviço **contosoPrimary.servicebus.windows.net** pode estar localizado na região Norte/Central dos Estados Unidos e **contosoSecondary.servicebus.windows.net** pode estar localizado na região Sul/Central dos EUA. Se uma entidade de mensagens do Barramento de Serviço tiver de permanecer acessível em caso de falha do datacenter, você poderá criar essa entidade em ambos os namespaces.
 
 Para saber mais, confira a seção "Falha do Barramento de Serviço em um datacenter do Azure" em [Padrões de mensagens assíncronas e alta disponibilidade][].
 
@@ -61,7 +61,7 @@ Se o aplicativo não exigir comunicação permanente do remetente para receptor,
 
 ## Replicação ativa
 
-A replicação ativa usa entidades em ambos os namespaces de serviço para todas as operações. Qualquer cliente que enviar uma mensagem enviará duas cópias da mesma mensagem. A primeira cópia é enviada para a entidade principal (por exemplo, **contosoPrimary.servicebus.windows.net/sales**) e a segunda cópia da mensagem é enviada para a entidade secundária (por exemplo, **contosoSecondary.servicebus.windows.net/sales**).
+A replicação ativa usa entidades em ambos os namespaces para todas as operações. Qualquer cliente que enviar uma mensagem enviará duas cópias da mesma mensagem. A primeira cópia é enviada para a entidade principal (por exemplo, **contosoPrimary.servicebus.windows.net/sales**) e a segunda cópia da mensagem é enviada para a entidade secundária (por exemplo, **contosoSecondary.servicebus.windows.net/sales**).
 
 Um cliente recebe mensagens de ambas as filas. O receptor processa a primeira cópia de uma mensagem e a segunda cópia é suprimida. Para suprimir mensagens duplicadas, o remetente deverá marcar cada mensagem com um identificador exclusivo. Ambas as cópias da mensagem devem ser marcadas com o mesmo identificador. Você pode usar as propriedades [BrokeredMessage.MessageId][] ou [BrokeredMessage.Label][] ou uma propriedade personalizada para marcar a mensagem. O receptor deve manter uma lista de mensagens que já recebeu.
 
@@ -111,4 +111,4 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
   [Continuidade dos negócios no Banco de dados SQL do Azure]: ../sql-database/sql-database-business-continuity.md
   [Orientação técnica sobre a continuação de negócios do Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

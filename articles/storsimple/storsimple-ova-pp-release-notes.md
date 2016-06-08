@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="05/13/2016"
    ms.author="alkohli" />
 
 # Notas de versão do StorSimple Virtual Array
@@ -40,6 +40,6 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | **10.** | Azure PowerShell | Os dispositivos virtuais StorSimple não podem ser gerenciados por meio do Azure PowerShell nesta versão. | Todo o gerenciamento dos dispositivos virtuais deve ser feito por meio do portal clássico do Azure e da interface do usuário da Web local. |
 | **11.** | Alteração de senha | O console do dispositivo de matriz virtual só aceita a entrada no formato de teclado pt-BR. | |
 | **12.** | CHAP | Não é possível remover as credenciais CHAP depois de criadas. Além disso, se você modificar as credenciais CHAP, precisará colocar os volumes offline e colocá-los novamente online para que a alteração tenha efeito. | Isso será corrigido em uma versão futura. |
-| **13.** | Volumes afixados localmente | O 'Armazenamento usado' exibido para um volume fixo local pode ser diferente no serviço e no host iSCSI. | O host tem o modo de exibição do sistema de arquivos.<br></br>O dispositivo detecta os blocos atribuídos quando o volume estava no tamanho máximo.|
+| **13.** | Servidor iSCSI | O 'Armazenamento usado' exibido para um volume iSCSI pode ser diferente no serviço StorSimple Manager e no host iSCSI. | O host iSCSI tem o modo de exibição do sistema de arquivos.<br></br>O dispositivo detecta os blocos atribuídos quando o volume está no tamanho máximo.|
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

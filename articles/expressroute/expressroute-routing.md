@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="05/26/2016"
    ms.author="cherylmc"/>
 
 
@@ -103,7 +103,7 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 
 **Observação:** anunciar rotas padrão interromperá o Windows e outras ativações de licenças de VM. Siga as instruções [aqui](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) para solucionar esse problema.
 
-## Suporte a comunidades BGP (em breve)
+## Suporte a comunidades BGP
 
 
 Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com a Rota Expressa. A Microsoft anunciará rotas nos caminhos de emparelhamento público e da Microsoft com rotas marcadas com valores de comunidade apropriados. A lógica para fazer isso e os detalhes de valores de comunidade são descritos abaixo. No entanto, a Microsoft não adotará valores de comunidade marcados para rotas anunciadas à Microsoft.
@@ -116,7 +116,7 @@ Consulte a página [Locais de emparelhamento e parceiros da Rota Expressa](expre
 
 Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Em casos em que há vários circuitos da Rota Expressa, você recebe o mesmo conjunto de prefixos anunciados da Microsoft nos caminhos de emparelhamento público e da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços.
 
-A Microsoft marcará prefixos anunciados por meio do emparelhamento público e do emparelhamento da Microsoft com valores de comunidade BGP apropriados indicando a região em que os prefixos estão hospedados. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o roteamento ideal aos clientes.
+A Microsoft marcará prefixos anunciados por meio do emparelhamento público e do emparelhamento da Microsoft com valores de comunidade BGP apropriados indicando a região em que os prefixos estão hospedados. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o [roteamento ideal aos clientes](expressroute-optimize-routing.md).
 
 | **Região Geopolítica** | **Região do Microsoft Azure** | **Valor de comunidade BGP** |
 |---|---|---|
@@ -163,10 +163,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | **CRM Online** | 12076:5040 |
 | **Outros serviços do Office 365** | 12076:5100 |
 
-
-### Manipulando preferências de roteamento
-
-A Microsoft não adota valores de comunidade BGP que você define. É necessário configurar um par de sessões BGP por emparelhamento para garantir que os requisitos para o [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) sejam atendidos. No entanto, você pode configurar sua rede para preferir um link a outro usando técnicas padrão de manipulação de rota BGP. Você pode aplicar diferentes preferências locais de BGP a cada link para favorecer um caminho em vez de outro em sua rede para a Microsoft. Você pode preceder o caminho as nos anúncios de rota para influenciar o fluxo do tráfego da Microsoft em sua rede.
+>[AZURE.NOTE] A Microsoft não atende a valores de comunidade BGP definidos por você nas rotas anunciadas para a Microsoft.
 
 ## Próximas etapas
 
@@ -176,4 +173,4 @@ A Microsoft não adota valores de comunidade BGP que você define. É necessári
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
 	- [Vincular uma VNet clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

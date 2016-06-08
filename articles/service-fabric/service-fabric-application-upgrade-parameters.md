@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="05/18/2016"
    ms.author="subramar"/>
 
 
@@ -67,9 +67,9 @@ Este artigo descreve os vários parâmetros que se aplicam durante a atualizaç�
 
 ## Próximas etapas
 
-[Atualizar seu Aplicativo Usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você a fazer uma atualização de aplicativo usando o Visual Studio.
+[Atualizando seu aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) explica passo a passo como fazer uma atualização de aplicativo usando o Visual Studio.
 
-[Atualizando seu aplicativo usando o Powershell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
+[Atualizando seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) explica passo a passo como fazer uma atualização de aplicativo usando o PowerShell.
 
 Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serialização de Dados](service-fabric-application-upgrade-data-serialization.md).
 
@@ -78,4 +78,4 @@ Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultan
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando Problemas de Atualizações de Aplicativo](service-fabric-application-upgrade-troubleshooting.md).
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

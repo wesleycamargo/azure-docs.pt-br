@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/04/2016"
+	ms.date="05/25/2016"
 	ms.author="larryfr"/>
 
 # Personalizar clusters HDInsight baseados em Linux usando a Ação de Script
@@ -26,6 +26,14 @@ O HDInsight fornece uma opção de configuração chamada **Ação de Script** q
 ## Noções básicas sobre Ações de Script
 
 Uma Ação de Script é simplesmente um script Bash para o qual você fornece uma URL e parâmetros e então é executada nos nós do cluster HDInsight. A seguir, as características e os recursos das ações de script.
+
+* Deve estar armazenado em um URI que pode ser acessado do cluster HDInsight. Estes são os possíveis locais de armazenamento:
+
+    * Uma conta de armazenamento de blobs que é a conta de armazenamento principal ou adicional para o cluster HDInsight. Como HDInsight recebe acesso a ambos os tipos de contas de armazenamento durante a criação do cluster, eles são uma maneira de usar uma ação de script não público.
+    
+    * Um URI publicamente legível, como um Blob do Azure, o GitHub, o OneDrive, o Dropbox, etc.
+    
+    Para obter exemplos de URI para os scripts armazenados no contêiner de blobs (publicamente legível), confira a seção [Scripts de exemplo de ação de script](#example-script-action-scripts).
 
 * Podem ser restritas à __execução em determinados tipos de nó__, por exemplo, nos nós de cabeçalho ou nos nós de trabalho.
 
@@ -49,9 +57,11 @@ Uma Ação de Script é simplesmente um script Bash para o qual você fornece um
 
 * Podem ser usados por meio do __Portal do Azure__, do __Azure PowerShell__, do __Azure CLI__ ou do __SDK do .NET do HDInsight__
 
-> [AZURE.IMPORTANT] Não há nenhuma forma automática de desfazer as alterações feitas por uma ação de script. Se você precisar reverter os efeitos de um script, deverá entender quais alterações foram feitas e revertê-las manualmente (ou fornecer uma ação de script que os reverta).
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 Para ajudar a compreender quais scripts foram aplicados a um cluster e determinar a ID dos scripts para a promoção ou o rebaixamento, o cluster mantém um histórico de todos os scripts que foram executados.
+
+> [AZURE.IMPORTANT] Não há nenhuma forma automática de desfazer as alterações feitas por uma ação de script. Se você precisar reverter os efeitos de um script, deverá entender quais alterações foram feitas e revertê-las manualmente (ou fornecer uma ação de script que os reverta).
 
 ### Ação de Script no processo de criação do cluster
 
@@ -90,6 +100,8 @@ Ao aplicar um script a um cluster, o estado do cluster mudará de __Executando__
     EndTime           : 2/23/2016 7:41:05 PM
     Status            : Succeeded
 
+> [AZURE.NOTE] Se você alterou a senha de usuário (admin) do cluster depois que o cluster foi criado, isso poderá fazer com que ações de script executadas em relação a esse cluster falhem. Se você tiver ações de script persistente direcionadas para nós de trabalho, elas poderão falhar quando você adicionar nós ao cluster por meio de operações de redimensionamento.
+
 ## Scripts de exemplo de Ação de Script
 
 Scripts da Ação de Script podem ser usados no Portal do Azure, Azure PowerShell, da CLI do Azure ou do SDK do .NET do HDInsight. O HDInsight fornece scripts para instalar os seguintes componentes nos clusters do HDInsight:
@@ -100,7 +112,7 @@ Nome | Script
 **Instalar R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. Consulte [Instalar e usar o R em clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Veja [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Instalar o Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Consulte [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md).
-| **Pré-carregar bibliotecas Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Consulte [Adicionar bibliotecas Hive nos clusters HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
+| **Pré-carregar bibliotecas Hive** | https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. Consulte [Adicionar bibliotecas em clusters do HDInsight](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## Usar uma Ação de Script durante a criação do cluster
 
@@ -422,13 +434,11 @@ Esta seção fornece exemplos sobre as diferentes maneiras como você pode aplic
 
 1. No [Portal do Azure](https://portal.azure.com), escolha o cluster HDInsight.
 
-2. Na folha de cluster do HDInsight, selecione __Configurações__.
+2. Na folha do cluster HDInsight, selecione o bloco __Ações de Script__.
 
-    ![Ícone Configurações](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
+    ![Bloco Ações de script](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
 
-3. Na folha Configurações, selecione __Ações de Script__.
-
-    ![Link Ações de Script](./media/hdinsight-hadoop-customize-cluster-linux/settings.png)
+    > [AZURE.NOTE] Você também pode selecionar __Todas as configurações__ e __Ações de Script__ na folha Configurações.
 
 4. Na parte superior da folha Ações de Script, selecione __Enviar novas__.
 
@@ -515,9 +525,9 @@ Para obter um exemplo de como usar o SDK do .NET para aplicar scripts a um clust
 
 ### Usando o Portal do Azure
 
-1. No [portal do Azure](https://portal.azure.com), selecione o cluster HDInsight.
+1. No [Portal do Azure](https://portal.azure.com), escolha o cluster HDInsight.
 
-2. Na folha do cluster HDInsight, selecione __Configurações__.
+2. Na folha de cluster do HDInsight, selecione __Configurações__.
 
     ![Ícone Configurações](./media/hdinsight-hadoop-customize-cluster-linux/settingsicon.png)
 
@@ -611,10 +621,10 @@ Se a criação de cluster falhou devido a um erro na ação de script, os logs d
 
 	![Captura de tela de operações](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	Nele, os logs são organizados separadamente em nó de cabeçalho, nó de trabalho e nós do Zookeeper. Alguns exemplos são:
-	* **Nó de cabeçalho** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **Nó de Trabalho** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **Nó Zookeeper** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	Nele, os logs são organizados separadamente em nó de cabeçalho, nó de trabalho e nós do Zookeeper. Alguns exemplos incluem:
+	* **Nó de cabeçalho** – `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+	* **Nó de trabalho** – `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **Nó do Zookeeper** – `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Todos os stdout e stderr do host correspondentes são carregados para a conta de armazenamento. Há um **output-*.txt** e um **errors-*.txt** para cada ação de script. O arquivo *.txt de saída contém informações sobre o URI do script que foi executado no host. Por exemplo,
 
@@ -680,4 +690,4 @@ Consulte as informações e exemplos a seguir sobre como criar e usar scripts pa
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Adicionar autenticação ao seu aplicativo universal Windows Runtime 8.1 | Aplicativos Móveis do Azure"
-	description="Aprenda a usar os aplicativos móveis do Serviço de Aplicativos do Azure para autenticar usuários de seu aplicativo Windows usando uma variedade de provedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft."
+	pageTitle="Adicionar autenticação ao seu aplicativo da UWP (Plataforma Universal do Windows) | Aplicativos Móveis do Azure"
+	description="Aprenda a usar os aplicativos móveis do Serviço de Aplicativos do Azure para autenticar usuários de seu aplicativo da UWP (Plataforma Universal do Windows) usando uma variedade de provedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="05/14/2016"
 	ms.author="glenga"/>
 
 # Adicionar autenticação ao seu aplicativo do Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Este tópico mostra como adicionar autenticação baseada em nuvem ao seu aplicativo móvel. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido dos Aplicativos Móveis usando um provedor de identidade com suporte no Serviço de Aplicativo do Azure. Após ser autenticado e autorizado com sucesso pelo back-end do Aplicativo Móvel, o valor da ID de usuário é exibido.
+Este tópico mostra como adicionar autenticação baseada em nuvem ao seu aplicativo móvel. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido da UWP (Plataforma Universal do Windows) para aplicativos móveis usando um provedor de identidade com suporte no Serviço de Aplicativo do Azure. Após ser autenticado e autorizado com sucesso pelo back-end do Aplicativo Móvel, o valor da ID de usuário é exibido.
 
 Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Você deve primeiro concluir o tutorial [Introdução aos Aplicativos Móveis](app-service-mobile-windows-store-dotnet-get-started.md).
 
@@ -32,13 +32,82 @@ Este tutorial baseia-se no início rápido dos Aplicativos Móveis. Você deve p
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Agora, é possível verificar se o acesso anônimo para o back-end foi desabilitado. Com um os projetos de aplicativo do Windows configurado como projeto de inicialização, pressione a tecla F5 para executar o aplicativo; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado. Isso acontece porque o aplicativo tenta acessar o código do aplicativo móvel como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
+Agora, é possível verificar se o acesso anônimo para o back-end foi desabilitado. Com o projetos de aplicativo da UWP configurado como projeto de inicialização, implante e execute o aplicativo; verifique se uma exceção não tratada com um código de status de 401 (não autorizado) é gerada depois que o aplicativo for iniciado. Isso acontece porque o aplicativo tenta acessar o código do aplicativo móvel como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar usuários antes de solicitar recursos do seu Serviço de Aplicativo.
 
 ##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 
-[AZURE.INCLUDE [mobile-windows-universal-dotnet-authenticate-app](../../includes/mobile-windows-universal-dotnet-authenticate-app.md)]
+1. No arquivo de projeto de aplicativo da UWP MainPage.cs e adicione o seguinte trecho de código à classe MainPage:
+	
+		// Define a member variable for storing the signed-in user. 
+        private MobileServiceUser user;
+
+        // Define a method that performs the authentication process
+        // using a Facebook sign-in. 
+        private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
+        {
+            string message;
+            bool success = false;
+            try
+            {
+                // Change 'MobileService' to the name of your MobileServiceClient instance.
+                // Sign-in using Facebook authentication.
+                user = await App.MobileService
+                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                message =
+                    string.Format("You are now signed in - {0}", user.UserId);
+
+                success = true;
+            }
+            catch (InvalidOperationException)
+            {
+                message = "You must log in. Login Required";
+            }
+
+            var dialog = new MessageDialog(message);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
+            return success;
+        }
+
+    Esse código autentica o usuário com um logon do Facebook. Se você estiver usando um provedor de identidade além do Facebook, altere o valor **MobileServiceAuthenticationProvider** acima para o valor de seu provedor.
+
+3. Comente ou exclua a chamada para o método **ButtonRefresh\_Click** (ou o método **InitLocalStoreAsync**) na **substituição do método OnNavigatedTo** existente. Isso evita que os dados sejam carregados antes que o usuário seja autenticado. Em seguida, você adicionará um botão **Entrar** ao aplicativo que dispara a autenticação.
+
+4. Adicione o seguinte snippet de código para a classe MainPage:
+
+	    private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
+	    {
+	        // Login the user and then load data from the mobile app.
+	        if (await AuthenticateAsync())
+	        {
+	            // Switch the buttons and load items from the mobile app.
+	            ButtonLogin.Visibility = Visibility.Collapsed;
+	            ButtonSave.Visibility = Visibility.Visible;
+	            //await InitLocalStoreAsync(); //offline sync support.
+	            await RefreshTodoItems();
+	        }
+	    }
+		
+5. Abra o arquivo de projeto MainPage.xaml, localize o elemento que define o botão **Salvar** e substitua-o pelo código a seguir:
+
+        <Button Name="ButtonSave" Visibility="Collapsed" Margin="0,8,8,0" 
+				Click="ButtonSave_Click">
+            <StackPanel Orientation="Horizontal">
+                <SymbolIcon Symbol="Add"/>
+                <TextBlock Margin="5">Save</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Name="ButtonLogin" Visibility="Visible" Margin="0,8,8,0" 
+                Click="ButtonLogin_Click" TabIndex="0">
+            <StackPanel Orientation="Horizontal">
+                <SymbolIcon Symbol="Permissions"/>
+                <TextBlock Margin="5">Sign in</TextBlock> 
+            </StackPanel>
+        </Button>
+
+9. Pressione a tecla F5 para executar o aplicativo, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido. Depois que o seu logon for bem-sucedido, o aplicativo será executado sem erros, e você será capaz de consultar o seu back-end e fazer atualizações nos dados.
 
 
 ##<a name="tokens"></a>Armazenar o token de autenticação no cliente
@@ -61,4 +130,4 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

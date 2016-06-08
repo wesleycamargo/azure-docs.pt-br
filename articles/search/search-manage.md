@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="mblythe" 
+	manager="paulettm" 
 	editor=""
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/04/2016" 
+	ms.date="05/17/2016" 
 	ms.author="heidist"/>
 
 # Gerenciar seu serviço de Pesquisa no Microsoft Azure
@@ -58,7 +58,6 @@ Embora alguns serviços possam ter coadministradores, um serviço de Pesquisa do
 +	Gerenciamento e distribuição das chaves de API.
 +	Monitorar o uso de recursos
 +	Expandir ou reduzir (aplica-se apenas à pesquisa padrão)
-+	Iniciar ou parar o serviço
 +	Definir funções para controlar o acesso administrativo
 
 <a id="sub-3"></a>
@@ -119,7 +118,7 @@ Usando a API do serviço de pesquisa, você pode obter uma contagem dos document
 <a id="sub-6"></a>
 ## Expandir ou reduzir
 
-Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se tiver se inscrito para recursos dedicados usando os [tipos de preço Básico ou Standard](search-limits-quotas-capacity.md), é possível clicar no bloco **ESCALA** no painel de serviço para reajustar o número de partições e réplicas usadas pelo serviço.
+Todo serviço de pesquisa começa com um mínimo de uma réplica e uma partição. Se você tiver se inscrito em recursos dedicados usando os [tipos de preço Básico ou Standard](search-limits-quotas-capacity.md), será possível clicar no bloco **ESCALA** no painel de serviço para reajustar o número de partições e réplicas usadas pelo serviço.
 
 Quando você adiciona capacidade por meio de um recurso, o serviço as utiliza automaticamente. Não é necessária nenhuma outra medida de sua parte, mas haverá um breve atraso antes que ocorra o impacto do novo serviço. Pode levar 15 minutos ou mais para provisionar os recursos adicionais.
 
@@ -127,7 +126,7 @@ Quando você adiciona capacidade por meio de um recurso, o serviço as utiliza a
 
 ### Adicionar réplicas
 
-O aumento de QPS (consultas por segundo) ou o alcance da alta disponibilidade são feitos adicionando réplicas. Cada réplica tem uma cópia de um índice, de modo que adicionar mais uma réplica se traduz em mais um índice que pode ser usado para atender às solicitações de consulta. Atualmente, a regra de ouro é que você precisa de, pelo menos, três réplicas para ter uma alta disponibilidade (veja [Planejamento de capacidade](search-capacity-planning.md) para obter detalhes).
+O aumento de QPS (consultas por segundo) ou o alcance da alta disponibilidade são feitos adicionando réplicas. Cada réplica tem uma cópia de um índice, de modo que adicionar mais uma réplica se traduz em mais um índice que pode ser usado para atender às solicitações de consulta. Atualmente, a regra geral é que você precisará de, pelo menos, três réplicas para ter alta disponibilidade (veja [Planejamento de capacidade](search-capacity-planning.md) para obter detalhes).
 
 Um serviço de pesquisa com mais réplicas é capaz de balancear a carga das solicitações de consulta em um número maior de índices. Em um determinado nível de volume de consultas, a produtividade das consultas será maior quando houver mais cópias do índice disponíveis para atender à solicitação. Caso esteja ocorrendo latência nas consultas, você pode esperar um impacto positivo quando as réplicas adicionais entrarem em atividade.
 
@@ -159,15 +158,6 @@ Para se planejar para o futuro, talvez você queira conferir o armazenamento (us
 
 > [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
-<a id="sub-7"></a>
-## Iniciar ou parar o serviço
-
-Você pode iniciar, parar ou mesmo excluir o serviço usando comandos no painel de serviços.
-
- ![][11]
-
-
-Parar ou iniciar o serviço não desativa a cobrança. Você deve excluir o serviço para evitar todas as cobranças. Quaisquer dados associados ao seu serviço são excluídos quando ele for encerrado.
 
 <a id="sub-8"></a>
 ## Definir funções sobre o acesso administrativo
@@ -194,16 +184,14 @@ As funções fornecem controle de acesso depois da criação do serviço. Apenas
 [Manage the api-keys]: #sub-4
 [Monitor resource usage]: #sub-5
 [Scale up or down]: #sub-6
-[Start or Stop the Service]: #sub-7
 [Set roles to control administrative access]: #sub-8
 
 <!--Image references-->
 [8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
 [9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
-[11]: ./media/search-manage/Azure-Search-Manage-4-StartStop.png
 
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

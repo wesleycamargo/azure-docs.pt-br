@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/26/2016"
-    ms.author="ddove;sidneyh"/>
+    ms.date="05/24/2016"
+    ms.author="ddove"/>
 
 # Criando bancos de dados de nuvem escalonáveis
 
@@ -37,11 +37,12 @@ Para instalar a biblioteca, vá para [Microsoft.Azure.SqlDatabase.ElasticScale.C
 * [Biblioteca cliente do Banco de Dados Elástico com Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 * [Biblioteca de cliente de banco de dados elástico com Dapper](sql-database-elastic-scale-working-with-dapper.md)
 * [Ferramenta de mesclagem/divisão](sql-database-elastic-scale-overview-split-and-merge.md)
+* [Contadores de desempenho do gerenciador de mapa de fragmentos](sql-database-elastic-database-client-library.md) 
 * [Perguntas frequentes sobre ferramentas de banco de dados elástico](sql-database-elastic-scale-faq.md)
 
 ## Recursos do cliente
 
-Escalar horizontalmente aplicativos usando *fragmentação* apresenta desafios para o desenvolvedor e para o administrador. A biblioteca de cliente simplifica as tarefas de gerenciamento, fornecendo ferramentas que permitem que desenvolvedores e administradores gerenciam bancos de dados escalados. Em um exemplo típico, há muitos bancos de dados, conhecidos como "fragmentos", para gerenciar. Os clientes são localizados no mesmo banco de dados e há um banco de dados por cliente (um esquema de locatário único). A biblioteca de cliente inclui estes recursos:
+Escalar horizontalmente aplicativos usando a *fragmentação* apresenta desafios para o desenvolvedor e para o administrador. A biblioteca de cliente simplifica as tarefas de gerenciamento, fornecendo ferramentas que permitem que desenvolvedores e administradores gerenciam bancos de dados escalados. Em um exemplo típico, há muitos bancos de dados, conhecidos como "fragmentos", para gerenciar. Os clientes são localizados no mesmo banco de dados e há um banco de dados por cliente (um esquema de locatário único). A biblioteca de cliente inclui estes recursos:
 
 1.  **Gerenciamento de mapa de fragmentos**: um banco de dados especial chamado de "gerenciador de mapa de fragmentos" é criado. O gerenciamento de mapa de fragmentos é a capacidade de um aplicativo de gerenciar metadados sobre seus fragmentos. Os desenvolvedores podem usar essa funcionalidade para registrar bancos de dados como fragmentos, descrever os mapeamentos de chaves de fragmentação individuais ou intervalos de chaves para os bancos de dados e manter esses metadados como o número e a composição de bancos de dados que evolui para refletir as alterações de capacidade. Sem a biblioteca de cliente do banco de dados elástico, você precisaria gastar muito tempo escrevendo o código de gerenciamento ao implementar a fragmentação. Para obter mais detalhes, consulte [Gerenciamento de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md).
 
@@ -61,7 +62,7 @@ Para obter instruções sobre como usar a ferramenta de mesclagem/divisão, conf
 
 [A biblioteca de cliente do banco de dados elástico agora é tem código aberto!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
 
-Usar [Consultas elásticas](sql-database-elastic-query-overview.md).
+Use as [Consultas elásticas](sql-database-elastic-query-overview.md).
 
 A biblioteca agora está disponível como software livre no [GitHub](https://github.com/Azure/elastic-db-tools).
 
@@ -72,4 +73,4 @@ A biblioteca agora está disponível como software livre no [GitHub](https://git
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

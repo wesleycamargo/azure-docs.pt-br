@@ -3,8 +3,8 @@
 	description="Aprenda a usar o SQL Server Management Studio para gerenciar bancos de dados e servidores de banco de dados SQL." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+	authors="stevestein" 
+	manager="jhubbard" 
 	editor="tysonn"/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
-	ms.author="jeffreyg"/>
+	ms.date="05/09/2016" 
+	ms.author="sstein"/>
 
 
 # Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio 
@@ -25,9 +25,11 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-Você pode usar o SQL Server Management Studio (SSMS) para administrar servidores lógicos e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor lógico e o banco de dados criados no Banco de Dados SQL do Azure antes de começar. Confira [Crie seu primeiro Banco de Dados SQL do Azure ](sql-database-get-started.md) e o artigo sobre como [Conectar e consultar usando SSMS](sql-database-connect-query-ssms.md) para obter informações sobre como se conectar e, em seguida, execute uma consulta SELECT simples.
+Você pode usar o SQL Server Management Studio (SSMS) para administrar servidores lógicos e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor lógico e o banco de dados criados no Banco de Dados SQL do Azure antes de começar. Confira [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) e o artigo sobre como [Conectar e Consultar usando SSMS](sql-database-connect-query-ssms.md) para obter informações sobre como se conectar e, em seguida, executar uma consulta SELECT simples.
 
-É recomendável que você use a versão mais recente do SSMS sempre que trabalhar com o Banco de Dados SQL do Azure. Visite [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtê-lo.
+É recomendável que você use a versão mais recente do SSMS sempre que trabalhar com o Banco de Dados SQL do Azure.
+
+> [AZURE.IMPORTANT] Você deve usar a versão mais recente do SSMS (SQL Server Management Studio) para permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. Uma versão mais antiga do SSMS não funcionará corretamente com o Banco de Dados SQL. Visite [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtê-la.
 
 ## Criar e gerenciar Banco de Dados SQL do Azure
 
@@ -106,7 +108,7 @@ O banco de dados **mestre** controla os logons e quais logons têm permissão pa
 
 ## Monitorar o Banco de Dados SQL usando Modos de Exibição de Gerenciamento Dinâmico</h2>
 
-O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciamento dinâmico que você pode usar para monitorar um banco de dados individual. Abaixo estão alguns exemplos do tipo de dados de monitor que podem ser recuperados por meio desses modos de exibição. Para obter detalhes completos e mais exemplos de uso, confira [Monitoramento do Banco de Dados SQL usando Exibições de Gerenciamento Dinâmico](https://msdn.microsoft.com/library/azure/ff394114.aspx).
+O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciamento dinâmico que você pode usar para monitorar um banco de dados individual. Abaixo estão alguns exemplos do tipo de dados de monitor que podem ser recuperados por meio desses modos de exibição. Para obter detalhes completos e mais exemplos de uso, confira [Monitorando o Banco de Dados SQL usando Exibições de Gerenciamento Dinâmico](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
 -   Consultar uma exibição de gerenciamento dinâmico requer permissões **VIEW DATABASE STATE**. Para conceder a permissão **VIEW DATABASE STATE** a um usuário de banco de dados específico, conecte-se ao banco de dados que você deseja gerenciar com o logon principal de nível de servidor e execute a seguinte instrução no banco de dados:
 
@@ -149,4 +151,4 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
  
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

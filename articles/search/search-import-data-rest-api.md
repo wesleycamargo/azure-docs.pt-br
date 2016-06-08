@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Carregar dados para a Pesquisa do Azure usando a API REST
@@ -168,4 +168,4 @@ Para obter mais informações sobre as ações do documento e as respostas de ê
 ## Avançar
 Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

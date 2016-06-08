@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
-   ms.author="mani-ramaswamy"/>
+   ms.date="05/18/2016"
+   ms.author="subramar"/>
 
 # Especificar recursos em um manifesto do serviço
 
 ## Visão geral
 
-O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados/alterados sem alterar o código compilado. O Azure Service Fabric dá suporte à configuração dos recursos de ponto de extremidade para o serviço. O acesso aos recursos que são especificados no manifesto do serviço pode ser controlado por meio do SecurityGroup no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa apresentar um novo mecanismo de configuração.
+O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados/alterados sem alterar o código compilado. O Azure Service Fabric dá suporte à configuração dos recursos de ponto de extremidade para o serviço. O acesso aos recursos que são especificados no manifesto do serviço pode ser controlado por meio do SecurityGroup no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa apresentar um novo mecanismo de configuração. A definição de esquema do arquivo ServiceManifest.xml é instalada com o SDK e as ferramentas do Service Fabric em *C:\\Arquivos de Programas\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 ## Pontos de extremidade
 
-Quando um recurso de ponto de extremidade é definido no manifesto do serviço, o Service Fabric atribui portas do intervalo de portas reservadas de aplicativo se não for especificada uma porta explícita (por exemplo, examine o ponto de extremidade *ServiceEndpoint1* abaixo). Além disso, os serviços também podem solicitar uma porta específica em um recurso. As réplicas do serviço em execução em nós de cluster diferente podem receber números de porta diferentes, enquanto as réplicas do mesmo serviço em execução no mesmo nó compartilham a mesma porta. Essas portas podem ser usadas pelas réplicas do serviço para várias finalidades, tais como replicação, escuta de solicitações de clientes etc.
+Quando um recurso de ponto de extremidade é definido no manifesto do serviço, o Service Fabric atribuirá as portas do intervalo de portas reservadas do aplicativo se não for especificada uma porta explícita (por exemplo, observe o ponto de extremidade *ServiceEndpoint1* abaixo). Além disso, os serviços também podem solicitar uma porta específica em um recurso. As réplicas do serviço em execução em nós de cluster diferente podem receber números de porta diferentes, enquanto as réplicas do mesmo serviço em execução no mesmo nó compartilham a mesma porta. Essas portas podem ser usadas pelas réplicas do serviço para várias finalidades, tais como replicação, escuta de solicitações de clientes etc.
 
 ```xml
 <Resources>
@@ -36,7 +36,7 @@ Quando um recurso de ponto de extremidade é definido no manifesto do serviço, 
 </Resources>
 ```
 
-Confira [Configurando Reliable Services com monitoração de estado](service-fabric-reliable-services-configuration.md) para ler mais sobre como fazer referência a pontos de extremidade do arquivo de configurações do pacote de configuração (settings.xml).
+Consulte [Configurando o Reliable Services com estado](service-fabric-reliable-services-configuration.md) para ler mais sobre como fazer referência a pontos de extremidade por meio do arquivo de configurações do pacote de configuração (settings.xml).
 
 ## Exemplo: especificando um ponto de extremidade HTTP para o serviço
 
@@ -90,7 +90,7 @@ A ACL é automaticamente aplicada aos pontos de extremidade HTTP pelo Service Fa
 
 ## Exemplo: especificando um ponto de extremidade HTTPS para o serviço
 
-O protocolo HTTPS fornece autenticação de servidor e também é usado para criptografar a comunicação cliente-servidor. Para habilitar isso no seu serviço do Service Fabric, no momento de definir o serviço, especifique o protocolo na seção *Recursos -> Pontos de extremidade -> Ponto de extremidade* do manifesto do serviço, conforme mostrado anteriormente para o ponto de extremidade *ServiceEndpoint3*.
+O protocolo HTTPS fornece autenticação de servidor e também é usado para criptografar a comunicação cliente-servidor. Para habilitar esse recurso em seu serviço do Service Fabric, durante a definição do serviço, especifique o protocolo na seção *Recursos -> Pontos de Extremidade -> Ponto de Extremidade* do manifesto do serviço, conforme mostrado anteriormente para o ponto de extremidade *ServiceEndpoint3*.
 
 >[AZURE.NOTE] O protocolo de um serviço não pode ser alterado durante a atualização do aplicativo, já que isso seria uma alteração significativa.
 
@@ -137,4 +137,4 @@ Este está um exemplo de ApplicationManifest que precisa ser definido para HTTPS
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

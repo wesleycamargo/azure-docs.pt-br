@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Balanceamento do cluster do Service Fabric
@@ -39,12 +39,14 @@ ClusterManifest.xml:
         </Section>
 ```
 
-Hoje, só executaremos sequencialmente uma dessas ações de cada vez. Isso serve para que já tenhamos respondido a solicitações de criação de novas réplicas, por exemplo, antes de passar para o balanceamento do cluster. Como você pode ver pelos intervalos de tempo padrão especificados, podemos examinar e verificar se há coisas que precisamos fazer com muita frequência, o que significa que cada conjunto de alterações é geralmente menor (não varremos horas de alterações no cluster tentando corrigi-los ao mesmo tempo; podemos tratar das coisas conforme vão aparecendo). Isso torna o gerenciador de recursos do Service Fabric muito ágil para lidar com o que acontece no cluster.
+Hoje, só executaremos sequencialmente uma dessas ações de cada vez. Isso serve para que já tenhamos respondido a solicitações de criação de novas réplicas, por exemplo, antes de passar para o balanceamento do cluster. Como você pode ver pelos intervalos de tempo padrão especificados, podemos examinar e verificar se há coisas que precisamos fazer com muita frequência, o que significa que o conjunto de alterações que fazemos por fim é geralmente menor; não varremos horas de alterações no cluster tentando corrigi-los ao mesmo tempo; podemos tratar das coisas mais ou menos conforme vão aparecendo, mas em alguns lotes muitas coisas ocorrem ao mesmo tempo. Isso torna o gerenciador de recursos do Service Fabric muito ágil para lidar com o que acontece no cluster.
 
-Fundamentalmente, o Gerenciador de Recursos de Cluster também precisa saber quando considerar o cluster desequilibrado e quais réplicas devem ser movidas para resolver o problema. Para isso, temos duas outras partes principais da configuração: os Limites de Balanceamento e os Limites de Atividade.
+Fundamentalmente, o Gerenciador de Recursos de Cluster também precisa saber quando considerar o cluster desequilibrado e quais réplicas devem ser movidas para resolver o problema. Para isso, temos duas outras partes principais da configuração: os *Limites de Balanceamento* e os *Limites de Atividade*.
 
 ## Limites de balanceamento
-Um Limite de Balanceamento é o controle principal que dispara o rebalanceamento proativo. O Limite de Balanceamento define quão desequilibrado o cluster precisa estar em relação a uma métrica específica para o Gerenciador de Recursos considerá-lo desequilibrado e disparar o balanceamento na execução seguinte. Os Limites de Balanceamento são definidos baseados em cada métrica, como parte do manifesto do cluster:
+Um Limite de Balanceamento é o controle principal que dispara o rebalanceamento proativo. O Limite de Balanceamento define quão desequilibrado o cluster precisa estar em relação a uma métrica específica para o Resource Manager considerá-lo desequilibrado e disparar o balanceamento. Os Limites de Balanceamento são definidos baseados em cada métrica, como parte da definição do cluster:
+
+ClusterManifest.xml
 
 ``` xml
     <Section Name="MetricBalancingThresholds">
@@ -57,23 +59,27 @@ O Limite de Balanceamento para uma métrica é uma razão. Se a quantidade de ca
 
 ![Exemplo de Limite de Balanceamento][Image1]
 
-Neste exemplo simples, cada serviço está consumindo apenas uma unidade de alguma métrica. No exemplo superior, a carga máxima em um nó é 5 e o mínimo é 2. Digamos que o Limite de Balanceamento para esta métrica seja 3. Portanto, no exemplo superior, o cluster é considerado balanceado e nenhum balanceamento será disparado. No exemplo inferior, a carga máxima em um nó é 10, enquanto a mínima é 2, colocando-nos acima do Limite de Balanceamento projetado de 3. Como resultado, a carga certamente será distribuída para o Node3 quando o Gerenciador de Recursos puder ser executado. Observe que como não estamos usando uma abordagem agressiva, alguma coisa também poderia ir para o Node2, o que resultaria na minimização das diferenças gerais entre os nós.
+Neste exemplo simples, cada serviço está consumindo apenas uma unidade de alguma métrica. No exemplo superior, a carga máxima em um nó é 5 e o mínimo é 2. Digamos que o Limite de Balanceamento para esta métrica seja 3. Portanto, no exemplo superior, o cluster é considerado balanceado e nenhum balanceamento será disparado (visto que a proporção do cluster é 5/2 = 2,5 e é menor do que o limite especificado de balanceamento de 3).
+
+No exemplo inferior, a carga máxima em um nó é 10, enquanto a mínima é 2 (resultando em uma proporção de 5), colocando-nos acima do Limite de Balanceamento projetado de 3. Como resultado, o rebalanceamento global ocorrerá na próxima vez que o contador for disparado e a carga certamente será distribuída para o Node3. Observe que como não estamos usando uma abordagem agressiva, alguma coisa também poderia ir para o Node2, o que resultaria na minimização das diferenças gerais entre os nós, mas seria esperado que a maior parte da carga fluiria para o Node3.
 
 ![Ações de exemplo de Limite de Balanceamento][Image2]
 
-Observe que ficar abaixo do Limite de Balanceamento não é um objetivo explícito; os Limites de Balanceamento são apenas o gatilho.
+Observe que ficar abaixo do limite de equilíbrio não é um objetivo explícito, Balanceamento de limites são apenas o *gatilho* que informa o Resource Manager de Cluster do Service Fabric que ele deve ser o cluster para determinar quais melhorias ele pode realizar.
 
 ## Limites de atividade
 Às vezes, os nós estão relativamente desequilibrados, e a quantidade total de carga no cluster é baixa. Isso pode ser devido à hora do dia ou porque o cluster é novo e está apenas começando a ser inicializado. Em ambos os casos, não é ideal gastar tempo com balanceamento porque há realmente muito pouca vantagem: você vai gastar recursos de computação e rede para mover as coisas. Há outro controle dentro do Gerenciador de Recursos, conhecido como limite de atividade, que permite que você especifique um limite inferior absoluto para a atividade. Se nenhum nó tiver pelo menos essa quantidade de carga, o balanceamento não será disparado mesmo se o Limite de Balanceamento for atingido. Como exemplo, digamos que temos relatórios com os totais para consumo a seguir nos nós. Vamos supor também que o Limite de Balanceamento seja mantido em 3, mas agora também temos um limite de atividade de 1536. No primeiro caso, embora o cluster esteja desequilibrado pelo limite de balanceamento, nenhum nó atende ao limite mínimo de atividade e, portanto, tudo fica como está. No exemplo inferior, o Node1 está bem acima do Limite de Atividade e, portanto, o balanceamento será executado.
 
 ![Exemplo de limite de atividade][Image3]
 
-Assim como os Limites de Balanceamento, os limites de atividade são definidos por métrica por meio do manifesto do cluster:
+Assim como os Limites de Balanceamento, os Limites de Atividade são definidos por métrica por meio da definição do cluster:
+
+ClusterManifest.xml
 
 ``` xml
-      <Section Name="MetricActivityThresholds">
-        <Parameter Name="Memory" Value="1536"/>
-      </Section>
+    <Section Name="MetricActivityThresholds">
+      <Parameter Name="Memory" Value="1536"/>
+    </Section>
 ```
 
 ## Balanceamento dos serviços em conjunto
@@ -103,4 +109,4 @@ O Gerenciador de Recursos detecta automaticamente os serviços relacionados semp
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

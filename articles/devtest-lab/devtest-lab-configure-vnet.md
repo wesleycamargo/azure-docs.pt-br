@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configurar uma rede virtual para um Laboratório de Desenvolvimento/Teste | Microsoft Azure"
-	description="Saiba como configurar uma rede virtual e sub-rede existente e usá-las em uma VM"
+	pageTitle="Configurar uma rede virtual para um laboratório | Microsoft Azure"
+	description="Saiba como configurar uma rede virtual e sub-rede existente e usá-las em uma VM com Laboratórios de Desenvolvimento/Teste"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Configurar uma rede virtual para um Laboratório de Desenvolvimento/Teste
+# Configurar uma rede virtual para Laboratórios de Desenvolvimento/Teste
 
 ## Visão geral
 
-Conforme explicado no artigo, [Adicionar uma VM com artefatos a um Laboratório de Desenvolvimento/Teste do Azure](devtest-lab-add-vm-with-artifacts.md), quando você cria uma VM em um laboratório, é possível especificar uma rede virtual (e sub-rede) configurada para essa VM. Um cenário no qual isso e possível é quando você deseja ser capaz de acessar os recursos da rede corporativa a partir de suas VMs usando a rede virtual configurada com a Rota Expressa ou VPN site a site. As seções a seguir ilustram como adicionar sua rede virtual existente às configurações de Rede Virtual do laboratório, para que ela esteja disponível para escolha durante a criação de suas VMs.
+Conforme explicado no artigo, [Adicionar uma VM com artefatos a um laboratório do Azure](devtest-lab-add-vm-with-artifacts.md), quando você cria uma VM em um laboratório, é possível especificar uma rede virtual (e sub-rede) configurada para essa VM. Um cenário no qual isso e possível é quando você deseja ser capaz de acessar os recursos da rede corporativa a partir de suas VMs usando a rede virtual configurada com a Rota Expressa ou VPN site a site. As seções a seguir ilustram como adicionar sua rede virtual existente às configurações de Rede Virtual do laboratório, para que ela esteja disponível para escolha durante a criação de suas VMs.
 
-## Configurar uma rede virtual para um Laboratório de Desenvolvimento/Teste usando o Portal do Azure
-As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-rede) existente a um Laboratório de Desenvolvimento/Teste, para que ela possa ser usada durante a criação de uma VM no mesmo Laboratório.
+## Configurar uma rede virtual para um laboratório usando o Portal do Azure
+As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-rede) existente a um laboratório, para que ela possa ser usada durante a criação de uma VM no mesmo Laboratório.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
@@ -63,10 +63,10 @@ As etapas a seguir orientarão você pela adição de uma rede virtual (e sub-re
 
 1. Toque em **Salvar**.
 
-1. Agora que a rede virtual está configurada, ela poderá ser selecionada durante a criação de uma nova VM. Isso é explicado no artigo, [Adicionar uma VM com artefatos a um Laboratório de Desenvolvimento/Teste do Azure](devtest-lab-add-vm-with-artifacts.md).
+1. Agora que a rede virtual está configurada, ela poderá ser selecionada durante a criação de uma nova VM. Isso é explicado no artigo, [Adicionar uma VM com artefatos a um laboratório](devtest-lab-add-vm-with-artifacts.md).
 
 ## Próximas etapas
 
-Depois de adicionar as redes virtuais desejadas ao seu laboratório, a próxima etapa será [Adicionar uma VM ao Laboratório de Desenvolvimento/Teste](devtest-lab-add-vm-with-artifacts.md).
+Depois de adicionar as redes virtuais desejadas ao seu laboratório, a próxima etapa será [adicionar uma VM ao seu laboratório](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

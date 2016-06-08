@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="bradsev" />
 
 
 # Provisionar uma Máquina Virtual de Ciência de Dados da Microsoft
-
-## Introdução
 
 A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de máquina virtual (VM) do Azure pré-instalada e configurada com diversas ferramentas populares que são usadas para a análise de dados e o aprendizado de máquina. As ferramentas incluídas são:
 
@@ -99,7 +97,7 @@ Execute o comando a seguir em um prompt de comando na Máquina Virtual de Ciênc
 
 Escolha uma senha forte quando solicitado.
 
-Você verá o hash de senha no formato "sha1:xxxxxx" na saída. Copie esse hash de senha e substitua o hash existente em seu arquivo de configuração do bloco de anotações localizado em: **C:\\ProgramData\\jupyter\\jupyter\_notebook\_config.py** por um nome de parâmetro ***c.NotebookApp.password***.
+Você verá o hash de senha no formato "sha1:xxxxxx" na saída. Copie esse hash de senha e substitua o hash existente em seu arquivo de configuração do notebook localizado em: **C:\\ProgramData\\jupyter\\jupyter\_notebook\_config.py** por um nome de parâmetro ***c.NotebookApp.password***.
 
 Você só deve substituir o valor de hash existente que está entre aspas. As aspas e o prefixo ***sha1:*** para o valor do parâmetro precisam ser mantidos.
 
@@ -111,10 +109,10 @@ Por fim, você precisa parar e reiniciar o servidor do Ipython que está em exec
 Se você quiser usar o R para sua análise, a VM tem a edição Microsoft R Server Developer instalada. O Microsoft R Server é uma plataforma de análise empresarial amplamente implementável com base em R e com suporte, escalonável e segura. Com suporte a diversas estatísticas de Big Data, modelos de previsão e recursos de aprendizado de máquina, o R Server oferece suporte a uma gama completa de análises: exploração, análise, visualização e modelagem. Usando e estendendo o software livre R, o Microsoft R Server é totalmente compatível com scripts e funções R e pacotes CRAN, a fim de analisar os dados em escala empresarial. Ele também soluciona as limitações de memória do software livre R adicionando o processamento paralelo e em blocos no Microsoft R Server, permitindo que os usuários executem análises em uma quantidade de dados muito maior do que cabe na memória principal. Um IDE para R também acompanha a VM e pode ser acessado clicando no ícone "Revolution R Enterprise 8.0" no menu Iniciar ou na área de trabalho. Sinta-se à vontade para baixar e usar outros IDEs, bem como o [RStudio](http://www.rstudio.com).
 
 ### Python
-Para o desenvolvimento com Python, as distribuições 2.7 e 3.5 do Anaconda Python foram instaladas. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar Ferramentas Python para Visual Studio (PTVS) que são instaladas na edição do Visual Studio 2015 Community ou um dos IDEs agrupado com Anaconda como IDLE ou Spyder. Você pode iniciar um desses pesquisando na barra de pesquisa (tecla **Win** + **S**). **Observação**: para apontar para Ferramentas Python para o Visual Studio no Anaconda Python 2.7 e 3.5, você precisa criar ambientes personalizados para cada versão acessando Ferramentas -> Ferramentas Python -> Ambientes Python, clicando em "+Personalizado" no Visual Studio 2015 Community Edition e definindo os caminhos de ambiente. O Anaconda Python 2.7 é instalado em C:\\Anaconda e o Anaconda Python 3.5 é instalado em c:\\Anaconda\\envs\\py35. Confira a [documentação do PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para ver as etapas detalhadas.
+Para o desenvolvimento com Python, as distribuições 2.7 e 3.5 do Anaconda Python foram instaladas. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar Ferramentas Python para Visual Studio (PTVS) que são instaladas na edição do Visual Studio 2015 Community ou um dos IDEs agrupado com Anaconda como IDLE ou Spyder. Você pode iniciar um desses pesquisando na barra de pesquisa (tecla **Win** + **S**). **Observação**: para apontar para as Ferramentas Python para Visual Studio no Anaconda Python 2.7 e 3.5, você precisa criar ambientes personalizados para cada versão navegando até Ferramentas -> Ferramentas Python -> Ambientes Python, clicando em “+Personalizado” no Visual Studio 2015 Community Edition e definindo os caminhos de ambiente. O Anaconda Python 2.7 é instalado em C:\\Anaconda e o Anaconda Python 3.5 é instalado em c:\\Anaconda\\envs\\py35. Confira a [documentação do PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para ver as etapas detalhadas.
 
 ### Bloco de anotações do Jupyter
-A distribuição do Anaconda também acompanha um bloco de anotações do Jupyter, um ambiente de compartilhamento de código e de análise. Um servidor de bloco de anotações do Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do Notebook. Se estiver na VM por meio da área de trabalho remota, você também poderá visitar [https://localhost:9999/](https://localhost:9999/) para acessar o servidor do notebook do Jupyter (observação: clique em Continuar se receber avisos de certificado). Empacotamos exemplos de blocos de anotações, um em Python em outro em R. Você pode ver o link para os exemplos na home page do bloco de anotações após a autenticação no bloco de anotações do Jupyter usando a senha criada na etapa anterior.
+A distribuição do Anaconda também acompanha um bloco de anotações do Jupyter, um ambiente de compartilhamento de código e de análise. Um servidor de bloco de anotações do Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do Notebook. Se você estiver usando a VM por meio da área de trabalho remota, também poderá visitar [https://localhost:9999/](https://localhost:9999/) para acessar o servidor do notebook do Jupyter (observação: clique em Continuar se receber avisos de certificado). Empacotamos exemplos de blocos de anotações, um em Python em outro em R. Você pode ver o link para os exemplos na home page do bloco de anotações após a autenticação no bloco de anotações do Jupyter usando a senha criada na etapa anterior.
 
 ### Visual Studio 2015 Community edition
 Visual Studio Community edition instalada na VM. É uma versão gratuita do IDE popular da Microsoft que pode ser usada para fins de avaliação e para equipes muito pequenas. Você pode consultar os termos de licenciamento [aqui](https://www.visualstudio.com/support/legal/mt171547). Abra o Visual Studio clicando duas vezes no ícone da área de trabalho ou no menu **Iniciar**. Você também pode pesquisar programas com **Win** + **S** e inserindo “Visual Studio”. Lá, você pode criar projetos em linguagens como C# e Python. Você também encontrará plug-ins instalados que facilitam o trabalho com os serviços do Azure, como o Catálogo de Dados do Azure, o Azure HDInsight (Hadoop, Spark) e o Azure Data Lake.
@@ -127,7 +125,7 @@ Uma versão limitada do SQL Server também é fornecida com o Community Edition 
 ### As tabelas 
 Várias ferramentas do Azure são instaladas na VM:
 - Há um atalho da área de trabalho para acessar a documentação do SDK do Azure. 
-- **AzCopy**, usado para mover dados para dentro e fora de sua conta de Armazenamento do Microsoft Azure. 
+- **AzCopy**, usado para mover dados para dentro e fora de sua Conta de Armazenamento do Microsoft Azure. 
 - **Gerenciador de Armazenamento do Azure**, usado para percorrer os objetos armazenados em sua Conta de Armazenamento do Azure. 
 - **Microsoft Azure PowerShell** - uma ferramenta usada para administrar os recursos do Azure na linguagem de script do PowerShell também é instalada em sua VM. 
 
@@ -144,9 +142,9 @@ O [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads
 Veja algumas das próximas etapas para continuar sua aprendizagem e exploração.
 
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados clicando no menu Iniciar e conferindo as ferramentas listadas no menu
-* Navegue até **C:\\Arquivos de Programas\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** para obter exemplos de uso da biblioteca RevoScaleR no R, que oferece suporte à análise de dados em escala empresarial.  
+* Navegue até **C:\\Arquivos de Programas\\Microsoft\\MRO-for-RRE\\8.0\\R-3.2.2\\library\\RevoScaleR\\demoScripts** para obter amostras de como usar a biblioteca RevoScaleR no R, que dá suporte à análise de dados em escala empresarial.  
 * Leia o artigo: [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](http://aka.ms/dsvmtenthings)
-* Aprenda a compilar sistematicamente soluções completas de análise usando o [Processo de ciência de dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
-* Visite a [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu Iniciar e na área de trabalho na máquina virtual para facilitar o acesso 
+* Saiba como criar soluções completas de análise de ponta a ponta sistematicamente usando o [Processo de Ciência de Dados](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)
+* Visite a [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) para obter amostras de aprendizado de máquina e análise de dados que usam o Cortana Intelligence Suite. Também fornecemos um ícone no menu Iniciar e na área de trabalho na máquina virtual para facilitar o acesso 
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

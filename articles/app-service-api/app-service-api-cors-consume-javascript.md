@@ -18,31 +18,27 @@
 
 # Consumir um aplicativo de API do JavaScript usando CORS
 
-## Visão geral
-
-O Serviço de Aplicativo oferece suporte interno para Compartilhamento de Recursos Entre Origens (CORS), que permite que os clientes JavaScript façam chamadas entre domínios para aplicativos de API, aplicativos Web do Serviço de Aplicativo. ou aplicativos móveis. Esse recurso do Serviço de Aplicativo permite que você tire vantagem do CORS sem escrever nenhum código em sua API.
-
-[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) é um protocolo de Internet que permite que você faça chamadas de API do JavaScript para um domínio diferente daquele de onde o navegador carregou o JavaScript. Sem o CORS, você pode fazer uma chamada de uma página Web para um ponto de extremidade de API contoso.com, mas não para um ponto de extremidade fabrikam.com.
+O Serviço de Aplicativo oferece suporte interno para [CORS (Compartilhamento de Recursos Entre Origens)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), que habilita os clientes JavaScript a fazer chamadas entre domínios para APIs que estão hospedadas em aplicativos de API. O Serviço de Aplicativo permite configurar o acesso ao CORS para a API sem escrever código na API.
 
 Este artigo contém duas seções:
 
 * A seção [Como configurar o CORS](#corsconfig) explica de forma geral como configurar o CORS para qualquer aplicativo de API, aplicativo Web ou aplicativo móvel. Ela se aplica igualmente a todas as estruturas às quais o Serviço de Aplicativo dá suporte, incluindo .NET, Node.js e Java. 
 
-* Começando pela seção [Continuação dos tutoriais de Introdução ao .NET](#tutorialstart), o artigo é um tutorial que demonstra o suporte a CORS com base em que você fez no [primeiro tutorial de Introdução a aplicativos de API](app-service-api-dotnet-get-started.md).
+* Começando pela seção [Continuação dos tutoriais de Introdução ao .NET](#tutorialstart), o artigo é um tutorial que demonstra o suporte a CORS com base no que você fez no [primeiro tutorial de Introdução a aplicativos de API](app-service-api-dotnet-get-started.md).
 
-## <a id="corsconfig"></a> Como configurar o CORS no Serviço de Aplicativo do Azure
+## <a id="corsconfig"></a> Como configurar CORS no Serviço de Aplicativo do Azure
 
-Você pode configurar CORS no portal do Azure ou usando as ferramentas do [Azure Resource Manager](../resource-group-overview.md).
+Você pode configurar o CORS no portal do Azure ou usando as ferramentas do [Azure Resource Manager](../resource-group-overview.md).
 
 #### Configurar CORS no portal do Azure
 
-8. Em um navegador, vá para o [portal do Azure](https://portal.azure.com/).
+8. Em um navegador, acesse o [portal do Azure](https://portal.azure.com/).
 
-2. Clique em **Serviços de Aplicativos** e, em seguida, clique no nome do seu aplicativo de API.
+2. Clique em **Serviços de Aplicativos** e clique no nome do aplicativo de API.
 
 	![Selecione o aplicativo de API no portal](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
-10. Na folha **Configurações** que abre à direita da folha **Aplicativo de API**, encontre a seção **API** e clique em **CORS**.
+10. Na folha **Configurações** que é aberta à direita da folha **Aplicativo de API**, localize a seção **API** e clique em **CORS**.
 
 	![Selecione CORS na folha configurações](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 
@@ -60,9 +56,9 @@ Você pode configurar CORS no portal do Azure ou usando as ferramentas do [Azure
 
 #### Configurar CORS usando as ferramentas do Azure Resource Manager
 
-Você também pode configurar o CORS para um aplicativo de API usando os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md) nas ferramentas de linha de comando, como o [Azure PowerShell](../powershell-install-configure.md) e a [CLI do Azure](../xplat-cli-install.md).
+Você também pode configurar o CORS para um aplicativo de API usando os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md) em ferramentas de linha de comando, como o [Azure PowerShell](../powershell-install-configure.md) e a [CLI do Azure](../xplat-cli-install.md).
 
-Para ver um exemplo de um modelo do Azure Resource Manager que defina a propriedade do CORS, abra o [arquivo azuredeploy.json no repositório do aplicativo de exemplo deste tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Localize a seção do modelo que se parece com o exemplo a seguir:
+Para ver um exemplo de um modelo do Azure Resource Manager que define a propriedade do CORS, abra o [arquivo azuredeploy.json no repositório do aplicativo de exemplo deste tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Localize a seção do modelo que se parece com o exemplo a seguir:
 
 		"cors": {
 		    "allowedOrigins": [
@@ -72,9 +68,9 @@ Para ver um exemplo de um modelo do Azure Resource Manager que defina a propried
 
 ## <a id="tutorialstart"></a> Continuação do tutorial de introdução do .NET
 
-Se está seguindo a série de introdução do Node.js ou do Java para aplicativos de API, você concluiu a série de introdução. Vá para a seção [Próximas etapas](#next-steps) para obter sugestões e aprender mais sobre aplicativos de API.
+Se está seguindo a série de introdução do Node.js ou do Java para aplicativos de API, você concluiu a série de introdução. Vá para a seção [Próximas etapas](#next-steps) para obter sugestões e saber mais sobre aplicativos de API.
 
-O restante deste artigo é uma continuação da série de introdução do .NET e supõe que você tenha concluído com êxito [o primeiro tutorial](app-service-api-dotnet-get-started.md).
+O restante deste artigo é uma continuação da série de introdução do .NET e pressupõe que você tenha concluído com êxito [o primeiro tutorial](app-service-api-dotnet-get-started.md).
 
 ## Implantar o projeto ToDoListAngular para um novo aplicativo Web
 
@@ -104,7 +100,7 @@ No [aplicativo de exemplo ToDoList](https://github.com/Azure-Samples/app-service
 
 ### Criar um novo aplicativo Web para o projeto ToDoListAngular
 
-O procedimento para criar um novo aplicativo Web e implantá-lo em um projeto é semelhante ao que você viu no primeiro tutorial desta série. A única diferença é que o tipo de aplicativo é **aplicativo Web** em vez de **aplicativo de API**.
+O procedimento para criar um novo aplicativo Web do Serviço de Aplicativo e implantar um projeto nele é semelhante ao que você viu em [criar e implantar um aplicativo de API no primeiro tutorial nesta série](app-service-api-dotnet-get-started.md#createapiapp). A única diferença é que o tipo de aplicativo é **aplicativo Web** em vez de **aplicativo de API**. Para obter capturas de tela das caixas de diálogo, confira
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto ToDoListAngular e em **Publicar**.
 
@@ -190,8 +186,8 @@ O procedimento para criar um novo aplicativo Web e implantá-lo em um projeto é
 
 ## Configure o CORS para o aplicativo de API de camada intermediária
 
-Nesta seção, você configurará o aplicativo de API ToDoListAPI para permitir chamadas de JavaScript do aplicativo Web que você criou para o projeto ToDoListAngular.
- 
+Nesta seção, você define a configuração de CORS no Azure para o aplicativo de API ToDoListAPI de camada intermediária. Essa configuração permitirá que o aplicativo de API de camada intermediária receba chamadas JavaScript do aplicativo Web que você criou para o projeto ToDoListAngular.
+
 8. Em um navegador, acesse o [portal do Azure](https://portal.azure.com/).
 
 2. Clique em **Serviços de Aplicativos** e clique no aplicativo de API ToDoListAPI (camada intermediária).
@@ -273,14 +269,15 @@ Se você usar o Gerenciamento de API do Azure com um aplicativo de API, configur
  
 ## Solucionar problemas
 
-Se encontrar um problema ao percorrer este tutorial, verifique se você está usando a versão mais recente do SDK do Azure para .NET. A maneira mais fácil de fazer isso é [baixar o SDK do Azure para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003). Se você tiver a versão atual instalada, o Web Platform Installer avisará que nenhuma instalação é necessária.
+Caso você encontre um problema ao percorrer este tutorial, aqui estão algumas ideias para solução de problemas.
 
-Se você continuar recebendo erros de CORS depois de definir uma URL na folha CORS do portal, verifique se as alterações corretas foram feitas nos locais corretos. Por exemplo:
+* Verifique se você está usando a última versão do [SDK do Azure para .NET para Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
 
-* Verifique se você inseriu o protocolo corretamente (`https`, não `http`) e se está usando `https` para executar o aplicativo Web de front-end.
+* Verifique se você inseriu `https` na configuração de CORS e se está usando `https` para executar o aplicativo Web de front-end.
+
 * Verifique se você inseriu a configuração CORS no aplicativo de API de camada intermediária e não no aplicativo Web de front-end.
 
-Se você estiver configurando o CORS no código do aplicativo e no Serviço de Aplicativo do Azure, observe que a configuração do CORS do Serviço de Aplicativo substituirá tudo o que você estiver fazendo no código do aplicativo.
+* Se você estiver configurando o CORS no código do aplicativo e no Serviço de Aplicativo do Azure, observe que a configuração do CORS do Serviço de Aplicativo substituirá tudo o que você estiver fazendo no código do aplicativo.
 
 Para saber mais sobre os recursos do Visual Studio que simplificam a solução de problemas, confira [Solução de problemas em aplicativos do Serviço de Aplicativo do Azure no Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -288,4 +285,4 @@ Para saber mais sobre os recursos do Visual Studio que simplificam a solução d
 
 Neste artigo, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código JavaScript de cliente possa chamar uma API em um domínio diferente. Para saber mais sobre aplicativos de API, leia a [introdução à autenticação no Serviço de Aplicativo](../app-service/app-service-authentication-overview.md) e vá para o tutorial [autenticação de usuário para aplicativos de API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -3,11 +3,9 @@
 	description="Configure um pipeline do ADF que compõe duas atividades de migração de dados que movem os dados juntos diariamente entre bancos de dados locais e na nuvem."
 	services="machine-learning"
 	documentationCenter=""
-	authors="fashah"
-	manager="jacob.spoelstra"
-	editor=""
-	videoId=""
-	scriptId="" />
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -15,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="fashah;bradsev" />
 
 
@@ -27,6 +25,7 @@ O **menu** abaixo leva a tópicos que descrevem a inclusão de dados em outros a
 
 [AZURE.INCLUDE [seletor de dados de ingestão de limite](../../includes/cap-ingest-data-selector.md)]
 
+
 ## <a name="intro"></a>Introdução: O que é o ADF e quando ele deve ser usado para migrar dados?
 
 O Azure Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. O conceito fundamental no modelo do ADF é o pipeline. Um pipeline é um agrupamento lógico de Atividades, cada um deles define as ações a serem executadas nos dados contidos em Conjuntos de dados. Serviços vinculados definem as informações necessárias para o Data Factory conectar-se a recursos de dados.
@@ -34,6 +33,7 @@ O Azure Data Factory é um serviço de integração de dados baseado em nuvem qu
 Com o ADF, serviços de processamento de dados existentes podem ser compostos em pipelines de dados que são altamente disponíveis e gerenciados na nuvem. Esses pipelines de dados podem ser agendados para ingerir, preparar, transformar, analisar e publicar os dados e o ADF irá gerenciar e orquestrar todos os dados complexos e dependências de processamento. As soluções podem ser criadas e implantadas rapidamente na nuvem, conectando um número crescente de fontes de dados em nuvem e locais.
 
 Considere usar o ADF quando dados precisam ser migrados continuamente em um cenário híbrido que acessa os recursos locais e de nuvem e quando os dados são transacionados ou precisam ser modificados ou tiver lógica de negócios adicionada a eles durante a migração. O ADF permite o planejamento e monitoramento de trabalhos usando scripts simples de JSON que gerenciam a movimentação de dados em intervalos periódicos. O ADF também possui outros recursos, como suporte para operações complexas. Para obter mais informações sobre o ADF, consulte a documentação em [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
+
 
 ## <a name="scenario"></a>O cenário
 
@@ -55,6 +55,7 @@ Este tutorial presume que você tenha:
 
 > [AZURE.NOTE] Este procedimento usa o [Portal do Azure](https://ms.portal.azure.com/).
 
+
 ##<a name="upload-data"></a> Carregar os dados para o SQL Server local
 
 Usamos o [conjunto de dados de Táxi de NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) para demonstrar o processo de migração. O conjunto de dados de Táxi de NYC está disponível, como observado nessa postagem, nos [Dados de Táxi de NYC](http://www.andresmh.com/nyctaxitrips/) do armazenamento de blobs do Azure. Os dados têm dois arquivos, o arquivo trip\_data.csv que contém detalhes da viagem e o arquivo trip\_far.csv que contém detalhes das tarifas pagas para cada viagem. Um exemplo e uma descrição desses arquivos são fornecidos na [Descrição do Conjunto de Dados de Viagens de Táxi de NYC](machine-learning-data-science-process-sql-walkthrough.md#dataset).
@@ -62,9 +63,11 @@ Usamos o [conjunto de dados de Táxi de NYC](http://chriswhong.com/open-data/foi
 
 Você pode adaptar o procedimento fornecido aqui para um conjunto de seus próprios dados ou seguir as etapas conforme descrito usando o conjunto de dados de Táxi de NYC. Para carregar o conjunto de dados de Táxi de NYC em seu banco de dados do SQL Server local, execute o procedimento descrito em [Importação de dados em massa para o Banco de Dados do SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Essas instruções são para um SQL Server em uma máquina Virtual do Azure, mas o procedimento para carregar o SQL Server no local é o mesmo.
 
+
 ##<a name="create-adf"></a>Criar uma Data Factory do Azure
 
 As instruções para criar um novo Azure Data Factory e um grupo de recursos no [Portal do Azure](https://ms.portal.azure.com/) são fornecidas em [Criar um Azure Data Factory](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Nomeie a nova instância ADF como *adfdsp* e nomeie o grupo de recursos criado como *adfdsprg*.
+
 
 ## Instalar e configurar o Gateway de gerenciamento de dados
 
@@ -208,6 +211,7 @@ Copie a definição de JSON da tabela em um arquivo chamado *AzureSqlTable.json*
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
 
+
 ##<a name="adf-pipeline"></a>Definir e criar o pipeline
 
 Especifique as atividades que pertencem ao pipeline e crie o pipeline com os procedimentos a seguir baseados em script. Um arquivo JSON é usado para definir as propriedades de pipeline.
@@ -294,6 +298,7 @@ Confirme que você pode ver o pipeline no ADF no Portal Clássico do Azure da se
 
 ![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
+
 ##<a name="adf-pipeline-start"></a>Iniciar o Pipeline
 O pipeline agora pode ser executado usando o seguinte comando:
 
@@ -305,4 +310,4 @@ Depois que o pipeline é executado, você poderá ver os dados aparecerem no con
 
 Observe que não utilizamos a funcionalidade fornecida pelo ADF para dados de pipe incrementalmente. Para obter mais detalhes sobre como fazer isso e outros recursos fornecidos pelo ADF, consulte a [documentação do ADF](https://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

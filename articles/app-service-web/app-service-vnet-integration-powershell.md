@@ -22,7 +22,7 @@
 
 No serviço de aplicativo do Azure, você pode conectar seu aplicativo (Web, móvel ou de API) a uma VNet (rede virtual) do Azure em sua assinatura. Esse recurso é chamado de Integração VNet. O recurso de Integração VNet não deve ser confundido com o recurso de Ambiente de Serviço de Aplicativo, que permite a execução de uma instância do Serviço de Aplicativo do Azure em sua rede virtual.
 
-O recurso de Integração VNet tem uma IU (interface de usuário) no novo portal que você pode usar para a integração com redes virtuais que são implantadas usando o modelo de implantação clássico ou o modelo de implantação do Azure Resource Manager. Para saber mais sobre o recurso, confira [Integrar seu aplicativo a uma rede virtual do Azure](web-sites-integrate-with-vnet).
+O recurso de Integração VNet tem uma IU (interface de usuário) no novo portal que você pode usar para a integração com redes virtuais que são implantadas usando o modelo de implantação clássico ou o modelo de implantação do Azure Resource Manager. Para saber mais sobre o recurso, confira [Integrar seu aplicativo a uma rede virtual do Azure](web-sites-integrate-with-vnet.md).
 
 Este artigo não é sobre como usar a interface do usuário, mas sobre como habilitar a integração usando o PowerShell. Como os comandos de cada modelo de implantação são diferentes, este artigo tem uma seção para cada modelo de implantação.
 
@@ -725,4 +725,4 @@ Embora o script indique a exclusão, ele não exclui a rede virtual. Ele está s
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

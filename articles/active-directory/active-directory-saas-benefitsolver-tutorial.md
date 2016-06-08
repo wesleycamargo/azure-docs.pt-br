@@ -83,7 +83,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     ![Definir configurações de aplicativo](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Definir configurações de aplicativo")
 
     1.  Na caixa de texto **URL de Entrada**, digite **http://azure.benefitsolver.com**.
-2.  Na caixa de texto **URL de Resposta**, digite **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+    2.  Na caixa de texto **URL de Resposta**, digite **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
 
     3.  Clique em **Próximo**.
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="05/18/2016"
    ms.author="subramar"/>
 
 
@@ -25,27 +25,27 @@ O Azure Service Fabric simplifica o processo de atualização de aplicativos em 
 
 ## Etapa 1: Compilar e implantar o exemplo do Visual Objects
 
-Estas etapas podem ser executadas baixando o aplicativo do GitHub e adicionando os arquivos **webgl-utils.js** e **gl-matrix-min.js** ao projeto, como mencionado no arquivo Leiame do exemplo. Sem isso, o aplicativo não funcionará. Após adicioná-los ao projeto, compile e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjectsApplication**, e selecionando o comando **Publicar** no item de menu do Service Fabric da seguinte maneira.
+Você pode executar estas etapas ao baixar o aplicativo [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) do GitHub e então compilar e publicar o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjects**, e selecionando o comando **Publicar** no item de menu do Service Fabric da seguinte maneira.
 
 ![Menu de contexto para um aplicativo do Service Fabric][image1]
 
-Isso abrirá outra janela pop-up e você poderá definir o **Ponto de Extremidade de Conexão** como **Cluster Local**. A janela deve parecer com a seguinte antes de clicar em **Publicar**.
+Isso exibirá outro pop-up, e você poderá definir o **Perfil de destino** como **PublishProfiles\\Local.xml**. A janela deve parecer com a seguinte antes de clicar em **Publicar**.
 
 ![Publicar um aplicativo do Service Fabric][image2]
 
-Agora, clique em **Publicar** na caixa de diálogo. Você pode usar o [Gerenciador do Service Fabric para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo Visual Objects tem um serviço Web que pode ser acessado digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) na barra de endereços do navegador. Você deve ver 10 objetos visuais flutuantes na tela.
+Agora, clique em **Publicar** na caixa de diálogo. Você pode usar o [Gerenciador do Service Fabric para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo Visual Objects tem um serviço Web que pode ser acessado digitando [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) na barra de endereços do navegador. Você deve ver 10 objetos visuais flutuantes na tela.
 
 ## Etapa 2: atualizar o exemplo de Objetos Visuais
 
 Você pode notar que a com a versão implantada na Etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais possam girar.
 
-Selecione o projeto VisualObjects.ActorService dentro da solução VisualObjects e abra o arquivo **StatefulVisualObjectActor.cs**. Nesse arquivo, navegue até o método `MoveObject`, comente `this.State.Move()` e remova os comentários `this.State.Move(true)`. Essa alteração fará os objetos girarem após a atualização do serviço. Agora você pode compilar (não recompilar) a solução, que compilará os projetos modificados. Se você selecionar **Recompilar todos**, terá que atualizar as versões de todos os projetos.
+Selecione o projeto VisualObjects.ActorService na solução VisualObjects e abra o arquivo **VisualObjectActor.cs**. Nesse arquivo, navegue até o método `MoveObject`, comente `visualObject.Move(false)` e remova os comentários de `visualObject.Move(true)`. Essa alteração fará os objetos girarem após a atualização do serviço. **Agora você pode compilar (não recompilar) a solução**, que compilará os projetos modificados. Se você selecionar *Recompilar todos*, terá que atualizar as versões de todos os projetos.
 
-Também precisamos definir a versão do nosso aplicativo. Você pode usar a opção **Editar Arquivos de Manifesto** do Visual Studio depois de clicar com o botão direito na solução para fazer as alterações de versão. Isso abrirá a caixa de diálogo para edição de versões da seguinte maneira:
+Também precisamos definir a versão do nosso aplicativo. Você pode usar a opção **Editar Arquivos de Manifesto** do Visual Studio depois de clicar com o botão direito do mouse no projeto **VisualObjects** para fazer as alterações de versão. Isso abrirá a caixa de diálogo para edição de versões da seguinte maneira:
 
 ![Caixa de diálogo Controle de Versão][image3]
 
-Selecione a guia **Editar Versões do Manifesto** e atualize as versões dos projetos modificados e seus pacotes de código, juntamente com o aplicativo, para a versão 2.0.0. Depois que as alterações forem feitas, o manifesto deverá parecer com o seguinte (as partes em negrito mostram as alterações):
+Atualize as versões dos projetos modificados e seus pacotes de código, juntamente com o aplicativo, para a versão 2.0.0. Depois que as alterações forem feitas, o manifesto deverá parecer com o seguinte (as partes em negrito mostram as alterações):
 
 ![Atualizando versões][image4]
 
@@ -61,7 +61,7 @@ Familiarize-se com os [parâmetros de atualização de aplicativo](service-fabri
 Agora, estamos prontos para iniciar a atualização do aplicativo selecionando **Publicar**. Isso atualizará o aplicativo para a versão 2.0.0 no qual os objetos giram. Você perceberá que o Service Fabric atualiza um domínio de atualização por vez (alguns objetos serão atualizados primeiro e logo na sequência os outros) e o serviço estará acessível durante esse tempo, por meio de seu cliente (navegador).
 
 
-Agora, à medida que a atualização do aplicativo continua, você poderá monitorá-lo usando o Gerenciador do Service Fabric, na guia **Atualizações em Andamento** nos aplicativos.
+Agora, à medida que a atualização do aplicativo continua, você poderá monitorá-lo usando o Service Fabric Explorer, na guia **Atualizações em Andamento** nos aplicativos.
 
 Em alguns minutos, todos os domínios de atualização devem estar atualizados (concluídos), e a janela de saída do Visual Studio também deverá indicar que a atualização foi concluída. E você deverá notar que *todos* os objetos visuais na janela do navegador estarão girando!
 
@@ -87,4 +87,4 @@ Corrija problemas comuns em atualizações de aplicativo consultando as etapas e
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

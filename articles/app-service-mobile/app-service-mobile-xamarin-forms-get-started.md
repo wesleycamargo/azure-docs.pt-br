@@ -184,4 +184,4 @@ Você encontrará o código que acessa o back-end do aplicativo móvel no arquiv
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!----HONumber=AcomDC_0511_2016-->

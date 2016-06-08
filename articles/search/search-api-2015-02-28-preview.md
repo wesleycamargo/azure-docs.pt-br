@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="03/08/2016"
+   ms.date="05/18/2016"
    ms.author="brjohnst"/>
 
 # API REST do serviço Azure Search: Versão 2015-02-28-Preview
@@ -261,8 +261,6 @@ Os atributos a seguir podem ser definidos ao criar um índice. Para obter detalh
   - **Observação**: campos do tipo `Edm.String` que são `filterable`, `sortable` ou `facetable` podem ter no máximo 32 KB de comprimento. Isso ocorre porque esses campos são tratados como um único termo de pesquisa, e o comprimento máximo de um termo no Azure Search é 32 KB. Se precisar armazenar mais texto do que isso em um único campo de cadeia de caracteres, você precisará definir explicitamente `filterable`, `sortable` e `facetable` como `false` na definição do índice.
 
   - **Observação**: se um campo não tiver nenhum dos atributos acima definidos como `true` (`searchable`, `filterable`, `sortable` ou `facetable`) o campo será efetivamente excluído do índice invertido. Essa opção é útil para campos que não são usados em consultas, mas são necessários em resultados de pesquisa. A exclusão desses campos do índice melhora o desempenho.
-
-`suggestions` ‒ versões anteriores da API incluída uma `suggestions` propriedade. Essa propriedade booliana foi substituída e não está mais disponível na `2015-02-28` ou `2015-02-28-Preview`. Use a [API de sugestores](#Suggesters) em vez disso. Na versão `2014-07-31`, a propriedade `suggestions` foi usada para especificar se o campo pode ser usado para preenchimento automático para digitação antecipada, para campos do tipo `Edm.String` ou `Collection(Edm.String)`. A propriedade `suggestions` era `false` por padrão porque era preciso espaço adicional no índice, mas se você a habilitou, consulte [Transição da visualização para a versão geral na Pesquisa do Azure](search-transition-from-preview.md) para obter instruções sobre como fazer a transição para a nova API.
 
 `key` ‒ marca o campo como contendo identificadores exclusivos para documentos no índice. Exatamente um campo deve ser escolhido como o campo `key`, e ele deve ser do tipo `Edm.String`. Campos de chave podem ser usados para pesquisar documentos diretamente por meio da [API de pesquisa](#LookupAPI).
 
@@ -1047,46 +1045,123 @@ O corpo da solicitação contém um ou mais documentos a serem indexados. Os doc
       ]
     }
 
-> [AZURE.NOTE] As chaves de documento só podem conter letras, números, traços ("-"), sublinhados ("\_") e sinais de igual ("="). Para obter mais detalhes, consulte as [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx).
+> [AZURE.NOTE] As chaves de documento só podem conter letras, números, traços ("-"), sublinhados ("\_") e sinais de igual ("="). Para obter mais detalhes, veja [Regras de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx).
 
 **Ações do documento**
 
 - `upload`: uma ação de carregamento é semelhante a um "upsert", em que o documento será inserido se for novo e será atualizado/substituído se ele existir. Observe que todos os campos são substituídos no caso da atualização.
 - `merge`: a mesclagem atualiza um documento existente com os campos especificados. Se o documento não existir, a mesclagem falhará. Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. Isso inclui campos do tipo `Collection(Edm.String)`. Por exemplo, se o documento contiver um campo "marcas" com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para "marcas", o valor final do campo "marcas" final será `["economy", "pool"]`. Ele **não** será `["budget", "economy", "pool"]`.
 - `mergeOrUpload`: se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, se comportará como `upload` com um novo documento.
-- `delete`: a exclusão remove o documento especificado do índice. Observe que todos os campos que você especificar em uma operação `delete`, que não seja o campo de chave, serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` em vez disso e apenas defina o campo explicitamente como `null`.
+- `delete`: a exclusão remove o documento especificado do índice. Observe que todos os campos que você especificar em uma operação `delete`, exceto o campo de chave, serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` em vez disso e apenas defina o campo explicitamente como `null`.
 
 **Resposta**
 
-O código de status: 200 OK é retornado para uma resposta bem-sucedida, indicando que todos os itens forem indexados com êxito (conforme indicado pelo conjunto de campos 'status' definido como verdadeiro para todos os itens):
+O código de status 200 (OK) é retornado para uma resposta bem-sucedida, indicando que todos os itens foram indexados com êxito. Isso é indicado pela propriedade `status` sendo definida como verdadeira para todos os itens, bem como a propriedade `statusCode` sendo definida como 201 (para documentos carregados recentemente) ou 200 (para documentos mesclados ou excluídos):
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_new_document",
           "status": true,
-          "errorMessage": null
+          "errorMessage": null,
+          "statusCode": 201
+        },
+        {
+          "key": "unique_key_of_merged_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
+        },
+        {
+          "key": "unique_key_of_deleted_document",
+          "status": true,
+          "errorMessage": null,
+          "statusCode": 200
         }
       ]
     }  
 
-O código de status: 207 é retornado quando pelo menos um item não é indexado com êxito (conforme indicado pelo campo 'status' definido como falso para itens que não foram indexados):
+O código de status 207 (Multi-Status) será retornado quando pelo menos um item não tiver sido indexado com êxito. Os itens que não foram indexados têm o campo `status` definido como falso. As propriedades `errorMessage` e `statusCode` indicarão o motivo do erro de indexação:
 
     {
       "value": [
         {
-          "key": "unique_key_of_document",
+          "key": "unique_key_of_document_1",
           "status": false,
-          "errorMessage": "The search service is too busy to process this document. Please try again later."
+          "errorMessage": "The search service is too busy to process this document. Please try again later.",
+          "statusCode": 503
+        },
+        {
+          "key": "unique_key_of_document_2",
+          "status": false,
+          "errorMessage": "Document not found.",
+          "statusCode": 404
+        },
+        {
+          "key": "unique_key_of_document_3",
+          "status": false,
+          "errorMessage": "Index is temporarily unavailable because it was updated with the 'allowIndexDowntime' flag set to 'true'. Please try again later.",
+          "statusCode": 422
         }
       ]
     }  
 
-A propriedade `errorMessage` indicará o motivo do erro de indexação, se possível.
+A tabela a seguir explica os vários códigos de status de cada documento que podem ser retornados na resposta. Observe que alguns indicam problemas com a solicitação em si, enquanto outros indicam condições de erro temporárias. Você deve testar o último novamente após um atraso.
 
-**Observação**: se o seu código de cliente encontra com frequência uma resposta 207, um motivo possível para isso é que o sistema está sobrecarregado. Você pode confirmar isso verificando a propriedade `errorMessage`. Se esse for o caso, será recomendável a ***limitação de solicitações de indexação***. Caso contrário, se a indexação de tráfego não diminuir, o sistema poderá começar a rejeitar todas as solicitações com erros 503.
+<table style="font-size:12">
+    <tr>
+		<th>Código de status</th>
+		<th>Significado</th>
+		<th>Com nova tentativa</th>
+		<th>Observações</th>
+	</tr>
+    <tr>
+		<td>200</td>
+		<td>O documento foi modificado ou excluído com êxito.</td>
+		<td>n/d</td>
+		<td>As operações de exclusão são <a href="https://en.wikipedia.org/wiki/Idempotence">idempotentes</a>. Ou seja, mesmo se não existir uma chave de documento no índice, a tentativa de uma operação de exclusão com essa chave resultará em um código de status 200.</td>
+	</tr>
+    <tr>
+		<td>201</td>
+		<td>O documento foi criado com êxito.</td>
+		<td>n/d</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>400</td>
+		<td>Ocorreu um erro no documento que o impediu de ser indexado.</td>
+		<td>Não</td>
+		<td>A mensagem de erro na resposta indicará o que há de errado com o documento.</td>
+	</tr>
+    <tr>
+		<td>404</td>
+		<td>Não foi possível mesclar o documento porque a chave especificada não existe no índice.</td>
+		<td>Não</td>
+		<td>Esse erro não ocorre em carregamentos, uma vez que eles criam novos documentos, e não ocorre em exclusões porque elas são <a href="https://en.wikipedia.org/wiki/Idempotence">idempotentes</a>.</td>
+	</tr>
+    <tr>
+		<td>409</td>
+		<td>Foi detectado um conflito de versão durante a tentativa de indexar um documento.</td>
+		<td>Sim</td>
+		<td>Isso pode acontecer quando você está tentando indexar o mesmo documento mais de uma vez simultaneamente.</td>
+	</tr>
+    <tr>
+		<td>422</td>
+		<td>O índice está temporariamente indisponível porque ele foi atualizado com o sinalizador 'allowIndexDowntime' definido como 'verdadeiro'.</td>
+		<td>Sim</td>
+		<td></td>
+	</tr>
+    <tr>
+		<td>503</td>
+		<td>O serviço de pesquisa está temporariamente indisponível, possivelmente devido a uma carga pesada.</td>
+		<td>Sim</td>
+		<td>Neste caso, seu código deverá ser colocado em espera antes de uma nova tentativa, sob o risco de prolongar a indisponibilidade do serviço.</td>
+	</tr>
+</table> 
 
-O código de status: 429 indica que você excedeu sua cota no número de documentos por índice. Você deve criar um novo índice ou atualizar para limites de capacidade mais altos.
+**Observação**: se o seu código de cliente encontra com frequência uma resposta 207, um motivo possível para isso é que o sistema está sobrecarregado. Você pode confirmar isso verificando a propriedade `statusCode` para 503. Se esse for o caso, será recomendável a ***limitação de solicitações de indexação***. Caso contrário, se a indexação de tráfego não diminuir, o sistema poderá começar a rejeitar todas as solicitações com erros 503.
+
+O código de status 429 indica que você excedeu sua cota no número de documentos por índice. Você deve criar um novo índice ou atualizar para limites de capacidade mais altos.
 
 **Exemplo:**
 
@@ -1152,7 +1227,7 @@ Uma operação **Search** é emitida como uma solicitação GET ou POST e especi
 
 Quando você usa o HTTP GET para chamar a API de **Search**, é preciso estar ciente de que o comprimento da URL da solicitação não pode exceder 8 KB. Isso costuma ser suficiente para a maioria dos aplicativos. No entanto, alguns aplicativos geram consultas muito grandes ou expressões de filtro OData. Para esses aplicativos, usar HTTP POST é uma opção melhor, pois permite filtros e consultas maiores que o GET. Com o POST, o número de termos ou cláusulas em uma consulta é o fator limitante, não o tamanho da consulta processada, uma vez que o limite de tamanho da solicitação POST é quase 16 MB.
 
-> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, consultas de pesquisa e expressões de filtro não podem ser arbitrariamente complexos. Consulte [Sintaxe de consulta Lucene](https://msdn.microsoft.com/library/mt589323.aspx) e [Sintaxe de expressão OData](https://msdn.microsoft.com/library/dn798921.aspx) para obter mais informações sobre limitações de complexidade de consulta e filtro de pesquisa. **Solicitação**
+> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, consultas de pesquisa e expressões de filtro não podem ser arbitrariamente complexos. Confira a [Sintaxe de consulta Lucene](https://msdn.microsoft.com/library/mt589323.aspx) e a [Sintaxe de expressão OData](https://msdn.microsoft.com/library/dn798921.aspx) para obter mais informações sobre as limitações de complexidade de consulta e filtro de pesquisa. **Solicitação**
 
 HTTPS é necessário para as solicitações de serviço. A solicitação **Pesquisar** pode ser criada usando os métodos GET ou POST.
 
@@ -1175,7 +1250,7 @@ Além disso, a codificação de URL só é necessária ao se chamar a API REST d
 
 A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e especificam o comportamento da pesquisa. Você fornece esses parâmetros na cadeia de consulta da URL ao chamar **Pesquisar** via GET e como propriedades JSON no corpo da solicitação ao chamar **Pesquisar** via POST. A sintaxe para alguns parâmetros é ligeiramente diferente entre GET e POST. Essas diferenças são indicadas, como aplicável, abaixo:
 
-`search=[string]` (opcional) ‒ o texto a ser pesquisado. Todos os campos `searchable` são pesquisados por padrão, a menos que `searchFields` sejam especificados. Ao se pesquisar campos `searchable`, o próprio texto de pesquisa é indexado, assim, vários termos podem ser separados por espaços em branco (por exemplo: `search=hello world`). Para corresponder a qualquer termo, use `*` (isso pode ser útil para consultas de filtros boolianos). A omissão desse parâmetro tem o mesmo efeito que sua definição como `*`. Consulte [Sintaxe de consulta simples](https://msdn.microsoft.com/library/dn798920.aspx) para obter informações específicas sobre a sintaxe de pesquisa.
+`search=[string]` (opcional) ‒ o texto a ser pesquisado. Todos os campos `searchable` são pesquisados por padrão, a menos que `searchFields` sejam especificados. Ao pesquisar os campos `searchable`, é gerado um token para o próprio texto de pesquisa. Assim, vários termos podem ser separados por espaço em branco (por exemplo: `search=hello world`). Para corresponder a qualquer termo, use `*` (isso pode ser útil para consultas de filtros boolianos). A omissão desse parâmetro tem o mesmo efeito que sua definição como `*`. Consulte [Sintaxe de consulta simples](https://msdn.microsoft.com/library/dn798920.aspx) para obter informações específicas sobre a sintaxe de pesquisa.
 
   - **Observação**: os resultados às vezes podem ser surpreendentes ao se consultar sobre campos `searchable`. O criador de token inclui lógica para lidar com casos comuns para texto em inglês, como apóstrofos, vírgulas em números etc. Por exemplo, `search=123,456` corresponderá a um único termo, 123,456, em vez de cada um do termos 123 e 456, já que as vírgulas são usadas como separadores de milhar para números grandes em inglês. Por esse motivo, recomendamos o uso de espaços em branco em vez de pontuação para separar os termos do parâmetro `search`.
 
@@ -1223,10 +1298,10 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 - `interval` (intervalo inteiro maior que 0 para números ou `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` para valores de tempo de data)
   - Por exemplo: `facet=baseRate,interval:100` produz classificações com base em intervalos de taxa de base de tamanho 100. Por exemplo, se as taxas de base estiverem todas entre US$ 60 e US$ 600, haverá classificações para 0-100, 100-200, 200-300, 300-400, 400-500 e 500-600.
   - Por exemplo: `facet=lastRenovationDate,interval:year` produz uma classificação para cada ano em que os hotéis foram reformados.
-- `timeoffset` ([+-]hh:mm, [+-]hhmm ou [+-]hh) `timeoffset` é opcional. Só pode ser combinado com a opção `interval` e somente quando aplicado a um campo do tipo `Edm.DateTimeOffset`. O valor especifica o deslocamento de hora em relação ao UTC para compensar ao definir limites de tempo.
-  - Por exemplo: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa o limite de dia que inicia no 01:00:00 UTC (meia-noite no fuso horário de destino)
+- `timeoffset` ([+-]hh:mm, [+-]hhmm ou [+-]hh) `timeoffset` é opcional. Ele só pode ser combinado com a opção `interval` e somente quando aplicado a um campo do tipo `Edm.DateTimeOffset`. O valor especifica o deslocamento de hora em relação ao UTC para compensar ao definir limites de tempo.
+  - Por exemplo: `facet=lastRenovationDate,interval:day,timeoffset:-01:00` usa o dia limite que inicia à 01:00:00 UTC (meia-noite no fuso horário de destino)
 - **Observação**: `count` e `sort` podem ser combinados na mesma especificação de faceta, mas não podem ser combinados com `interval` ou `values`, e `interval` e `values` não podem ser combinados juntos.
-- **Observação**: facetas de intervalo de data hora serão calculadas com base na hora no UTC se `timeoffset` não for especificado. Por exemplo: para `facet=lastRenovationDate,interval:day`, o dia limite começa em 00:00:00 UTC. 
+- **Observação**: as facetas de intervalo de data e hora serão calculadas com base na hora UTC, caso `timeoffset` não seja especificado. Por exemplo: para `facet=lastRenovationDate,interval:day`, o limite de dia começa à 00:00:00 UTC. 
 
 > [AZURE.NOTE] Ao chamar **Search** usando POST, esse parâmetro é chamado de `facets` em vez de `facet`. Além disso, especifique-o como uma matriz JSON de cadeias de caracteres em que cada cadeia é uma expressão de faceta separada.
 
@@ -1246,15 +1321,19 @@ A **Pesquisa** aceita vários parâmetros que fornecem critérios de consulta e 
 
 `scoringProfile=[string]` (opcional) ‒ o nome de um perfil de pontuação para avaliar pontuações de correspondência de documentos correspondentes para classificar os resultados.
 
-`scoringParameter=[string]` (zero ou mais) ‒ indica o valor de cada parâmetro definido em uma função de pontuação (por exemplo, `referencePointParameter`) usando o formato: nome:valor. Por exemplo, se o perfil de pontuação definir uma função com um parâmetro chamado "mylocation", a opção de cadeia de caracteres de consulta será &scoringParameter=mylocation:-122.2,44.8
+`scoringParameter=[string]` (zero ou mais) ‒ Indica o valor de cada parâmetro definido em uma função de pontuação (por exemplo, `referencePointParameter`) usando o formato `name-value1,value2,...`.
 
-> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `scoringParameters`, em vez de `scoringParameter`. Além disso, especifique-o como uma matriz JSON de cadeias de caracteres em que cada cadeia é um par de nome:valor separado.
+- Por exemplo, se o perfil de pontuação definir uma função com um parâmetro chamado "mylocation", a opção de cadeia de caracteres de consulta será `&scoringParameter=mylocation--122.2,44.8`. O primeiro traço separa o nome da lista de valores, enquanto o segundo traço faz parte do primeiro valor (longitude, neste exemplo).
+- Para parâmetros de pontuação, como as marcações de aumento que podem conter vírgulas, você pode liberar todos esses valores na lista usando aspas simples. Se os próprios valores contiverem aspas simples, você poderá liberá-las ao duplicar.
+  - Por exemplo, se você tiver um parâmetro de aumento de marcação chamado “mytag” e quiser aumentá-lo nos valores de marcação "Hello, O'Brien" e "Smith", a opção de cadeia de caracteres de consulta será `&scoringParameter=mytag-'Hello, O''Brien',Smith`. Observe que as aspas são necessárias apenas para os valores que contêm vírgulas.
+
+> [AZURE.NOTE] Ao chamar **Pesquisa** usando POST, esse parâmetro será chamado de `scoringParameters`, em vez de `scoringParameter`. Além disso, especifique-o como uma matriz de cadeias de caracteres JSON, na qual cada cadeia é um par de nome `name-values`.
 
 `minimumCoverage` (opcional, o padrão até 100)-um número entre 0 e 100, indicando a porcentagem do índice deve ser coberto por uma consulta de pesquisa, para que a consulta seja relatada como sucesso. Por padrão, o índice inteiro deve estar disponível ou `Search` retornará o código de status HTTP 503. Se você definir `minimumCoverage` e `Search` for bem-sucedido, retornará HTTP 200 e incluirá um valor de `@search.coverage` na resposta indicando a porcentagem do índice que foi incluído na consulta.
 
 > [AZURE.NOTE] Definir esse parâmetro para um valor inferior a 100 pode ser útil para garantir a disponibilidade de pesquisa até mesmo para serviços com apenas uma réplica. No entanto, não existe a garantia de que todos os documentos correspondentes estejam presentes nos resultados da pesquisa. Se rechamada da pesquisa é mais importante para o seu aplicativo do que a disponibilidade, é melhor deixar `minimumCoverage` em seu valor padrão de 100.
 
-`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte [Controle de versão de serviço de pesquisa](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obter detalhes e versões alternativas.
+`api-version=[string]` (obrigatório). A versão de visualização é `api-version=2015-02-28-Preview`. Consulte Controle de versão de serviço de pesquisa para obter detalhes e versões alternativas.
 
 Observação: para essa operação, o `api-version` é especificado como um parâmetro de consulta na URL, independentemente de você chamar **Pesquisa** com GET ou POST.
 
@@ -1494,13 +1573,13 @@ Observe que você pode consultar apenas um índice por vez. Não crie vários í
 13) Pesquisar o índice, supondo que haja um perfil de pontuação chamado "geo" com duas funções de pontuação de distância, uma definindo um parâmetro chamado "currentLocation" e uma definindo um parâmetro chamado "lastLocation"
 
 
-    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
+    GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&scoringParameter=lastLocation--121.499,44.2113&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "something",
       "scoringProfile": "geo",
-      "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
+      "scoringParameters": [ "currentLocation--122.123,44.77233", "lastLocation--121.499,44.2113" ]
     }
 
 14) Localizar documentos no índice usando a [sintaxe de consulta simples](https://msdn.microsoft.com/library/dn798920.aspx). Esta consulta retorna hotéis em que os campos de pesquisa contêm os termos "conforto" e "local", mas não "motel":
@@ -1641,7 +1720,7 @@ Uma operação **Suggestions** é emitida como uma solicitação GET ou POST.
 
 Quando você usar HTTP GET para chamar a API de **Sugestões**, será preciso estar ciente de que o comprimento da URL da solicitação não pode exceder 8 KB. Isso costuma ser suficiente para a maioria dos aplicativos. No entanto, alguns aplicativos geram consultas muito grandes, especificamente expressões de filtro OData. Para esses aplicativos, usar HTTP POST é uma opção melhor, pois permite filtros maiores que o GET. Com o POST, o número de cláusulas em um filtro é o fator limitante, não o tamanho da cadeia de caracteres de filtro não processada, uma vez que o limite de tamanho da solicitação POST é quase 16 MB.
 
-> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, expressões de filtro não podem ser arbitrariamente complexos. Consulte [Sintaxe de expressão OData](https://msdn.microsoft.com/library/dn798921.aspx) para obter mais informações sobre limitações de complexidade de filtro.
+> [AZURE.NOTE] Embora o limite de tamanho da solicitação POST seja muito grande, expressões de filtro não podem ser arbitrariamente complexos. Confira [OData expression syntax](https://msdn.microsoft.com/library/dn798921.aspx) (Sintaxe de expressão OData) para obter mais informações sobre as limitações de complexidade de filtro.
 
 **Solicitação**
 
@@ -1774,4 +1853,4 @@ Recuperar cinco sugestões, em que a entrada de pesquisa parcial é 'lux'
       "suggesterName": "sg"
     }
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

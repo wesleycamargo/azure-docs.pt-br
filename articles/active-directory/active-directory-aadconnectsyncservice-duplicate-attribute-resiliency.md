@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/27/2016"
 	ms.author="markusvi"/>
 
 
@@ -31,11 +31,14 @@ O novo comportamento permite que esse recurso esteja na parte de nuvem do pipeli
 Se houver uma tentativa de provisionar um novo objeto com um valor ProxyAddress ou UPN que viola a restrição de exclusividade, o Azure Active Directory impedirá que esse objeto seja criado. Da mesma forma, se um objeto for atualizado com um UPN ou ProxyAddress não exclusivo, a atualização falhará. A tentativa de provisionamento ou a atualização é repetida pelo cliente de sincronização em cada ciclo de exportação e continuará a falhar até que o conflito seja resolvido. Um email de relatório de erro é gerado após cada tentativa e o erro é registrado pelo cliente de sincronização.
 
 ## Comportamento com Resiliência do Atributo Duplicado
-Em vez de falhar completamente em provisionar ou atualizar um objeto com um atributo duplicado, o Azure Active Directory "coloca em quarentena" o atributo duplicado que viola a restrição de exclusividade. Se esse atributo for necessário para o provisionamento, como um UserPrincipalName, o serviço atribuirá um valor de espaço reservado. O formato desses valores temporários é “***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”. Se o atributo não for necessário, como um **ProxyAddress**, o Azure Active Directory simplesmente colocará em quarentena o atributo em conflito e prosseguirá com a criação ou atualização do objeto.
+Em vez de falhar completamente em provisionar ou atualizar um objeto com um atributo duplicado, o Azure Active Directory "coloca em quarentena" o atributo duplicado que viola a restrição de exclusividade. Se esse atributo for necessário para o provisionamento, como um UserPrincipalName, o serviço atribuirá um valor de espaço reservado. O formato desses valores temporários é  
+“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
+Se o atributo não for necessário, como um **ProxyAddress**, o Azure Active Directory simplesmente colocará em quarentena o atributo em conflito e prosseguirá com a criação ou atualização do objeto.
 
 Ao colocar em quarentena o atributo, as informações sobre o conflito são enviadas no mesmo email de relatório de erro usado no antigo comportamento. No entanto, essas informações só aparecem no relatório de erro uma vez, quando ocorre a quarentena; elas não continuarão a ser registradas em log em emails futuros. Além disso, uma vez que a exportação deste objeto foi bem-sucedida, o cliente de sincronização não registra em log um erro nem tenta repetir a operação para criar/atualizar nos ciclos de sincronização subsequentes.
 
-Para dar suporte a esse comportamento, foi adicionado um novo atributo às classes de objeto User, Group e Contact: **DirSyncProvisioningErrors**
+Para dar suporte a esse comportamento, foi adicionado um novo atributo às classes de objeto User, Group e Contact:  
+**DirSyncProvisioningErrors**
 
 Este é um atributo com valores múltiplos usado para armazenar os atributos conflitantes que violariam a restrição de exclusividade, caso adicionados normalmente. Uma tarefa de temporizador em segundo plano foi habilitada no Azure Active Directory, que é executada a cada hora para procurar por conflitos de atributo duplicado que foram resolvidos e remove automaticamente os atributos em questão da quarentena.
 
@@ -79,7 +82,8 @@ Uma vez conectado, para ver uma lista geral dos erros de provisionamento do atri
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
-Isso produzirá um resultado semelhante ao seguinte: ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")
+Isso produzirá um resultado semelhante ao seguinte:  
+ ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")
 
 
 #### Por tipo de propriedade
@@ -125,18 +129,23 @@ O relatório no portal do O365 exibe apenas os objetos **User** que têm esses e
 
 1.	Faça logon no **portal.office.com** como um administrador de locatário
 
-2.	Clique em **Usuários -> Usuários Ativos** ![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/2.png "Usuários Ativos")
+2.	Clique em **Usuários -> Usuários Ativos**  
+![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/2.png "Usuários Ativos")
 
-3.	Será exibido um aviso na parte superior da página se houver erros de atributo duplicado em qualquer objeto no locatário: ![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/3.png "Usuários Ativos")
+3.	Será exibido um aviso na parte superior da página se houver erros de atributo duplicado em qualquer objeto no locatário:  
+![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/3.png "Usuários Ativos")
 
-4.	Para ver detalhes específicos do objeto, escolha "Usuários com erros" na lista suspensa "Selecionar uma exibição": ![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/4.png "Usuários Ativos")
+4.	Para ver detalhes específicos do objeto, escolha "Usuários com erros" na lista suspensa "Selecionar uma exibição":  
+![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/4.png "Usuários Ativos")
 
-5.	Clique em um objeto para ver mais detalhes sobre o conflito, que será exibido no canto inferior direito da tela: ![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/5.png "Usuários Ativos")
+5.	Clique em um objeto para ver mais detalhes sobre o conflito, que será exibido no canto inferior direito da tela:  
+![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/5.png "Usuários Ativos")
 
 ### Relatório de erros de sincronização de identidades
 Quando um objeto com um conflito de atributo duplicado é tratado com esse novo comportamento, uma notificação é incluída no email padrão do Relatório de Erros de Sincronização de Identidades enviado para o contato de Notificação Técnica do locatário. No entanto, há uma alteração importante nesse comportamento. No passado, as informações sobre um conflito de atributo duplicado eram incluídas em todos os relatórios de erro subsequentes até o conflito ser resolvido. Com esse novo comportamento, a notificação de erro para um determinado conflito só aparecerá uma vez - no momento em que o atributo conflitante está de quarentena.
 
-Este é exemplo da aparência da notificação por email de um conflito ProxyAddress: ![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Usuários Ativos")
+Este é exemplo da aparência da notificação por email de um conflito ProxyAddress:  
+    ![Usuários Ativos](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "Usuários Ativos")
 
 ## Resolução de conflitos
 A estratégia da solução de problemas e as táticas de resolução desses erros não devem diferir da maneira como os erros de atributo duplicado eram tratados no passado. A única diferença é que a tarefa de temporizador varrerá o locatário no lado do serviço para adicionar automaticamente o atributo em questão ao devido objeto, assim que o conflito for resolvido.
@@ -148,7 +157,8 @@ Nenhum desses problemas conhecidos causará degradação do serviço nem a perda
 
 **Comportamento básico:**
 
-1. O usuário com uma configuração de atributo específica continua recebendo os erros de exportação, em vez dos atributos serem colocados em quarentena. Por exemplo:
+1. O usuário com uma configuração de atributo específica continua recebendo os erros de exportação, em vez dos atributos serem colocados em quarentena.  
+Por exemplo:
 
     a. Um novo usuário é criado no AD com o UPN **Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
 
@@ -200,4 +210,4 @@ Nenhum desses problemas conhecidos causará degradação do serviço nem a perda
 
 - [Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

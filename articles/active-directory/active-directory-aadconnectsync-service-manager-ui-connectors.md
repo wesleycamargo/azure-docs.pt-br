@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
 # Sincronização do Azure AD Connect: Synchronization Service Manager
 
-| [Operações](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Designer de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Pesquisa de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
+[Operações](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Designer do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Pesquisa do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
@@ -28,19 +28,19 @@ A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanism
 
 ## Ações do Conector
 
-| Ação | Comentário |
-| --- | --- |
-| Criar | Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
-| Propriedades | Usado para filtragem de domínio e de UO. |
-| [Excluir](#delete) | Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
-| [Configurar perfis de execução](#configure-run-profiles) | Com exceção da filtragem do domínio, não há a ser configurado aqui. Você pode usar este recurso para ver os perfis de execução já configurados. |
-| Executar | Usado para iniciar uma execução única de um perfil. |
-| Parar | Interrompe um Conector que, atualmente, executa um perfil. |
-| Exportar Conector | Não use. |
-| Importar Conector | Não use. |
-| Atualizar Conector | Não use. |
-| Atualizar Esquema | Atualiza o esquema em cache. É preferível usar a opção no assistente de instalação, já que ela também atualizará as regras de sincronização.
-| [Pesquisar Espaço do Conector](#search-connector-space) | Usado para encontrar objetos e [Seguir um objeto e seus dados por meio do sistema](#follow-an-object-and-its-data-through-the-system). |
+Ação | Comentário
+--- | ---
+Criar | Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação.
+Propriedades | Usado para filtragem de domínio e de UO.
+[Excluir](#delete) | Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta.
+[Configurar perfis de execução](#configure-run-profiles) | Com exceção da filtragem do domínio, não há a ser configurado aqui. Você pode usar este recurso para ver os perfis de execução já configurados.
+Executar | Usado para iniciar uma execução única de um perfil.
+Parar | Interrompe um Conector que, atualmente, executa um perfil.
+Exportar Conector | Não use.
+Importar Conector | Não use.
+Atualizar Conector | Não use.
+Atualizar Esquema | Atualiza o esquema em cache. É preferível usar a opção no assistente de instalação, já que ela também atualizará as regras de sincronização.
+[Pesquisar Espaço do Conector](#search-connector-space) | Usado para encontrar objetos e [Seguir um objeto e seus dados por meio do sistema](#follow-an-object-and-its-data-through-the-system).
 
 ### Excluir
 A ação de exclusão é usada com duas finalidades diferentes. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
@@ -89,4 +89,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

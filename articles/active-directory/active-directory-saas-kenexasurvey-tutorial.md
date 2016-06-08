@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="04/20/2016"
 	ms.author="jeedes"/>
 
 
@@ -47,7 +47,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 
 ## Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o IBM Kenexa Survey Enterprise da galeria
 2. Configurar e testar o logon único do AD do Azure
@@ -58,27 +58,46 @@ Para configurar a integração do IBM Kenexa Survey Enterprise com o Azure AD, v
 
 **Para adicionar o IBM Kenexa Survey Enterprise por meio da galeria, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+
+	![Active Directory][1]
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
-4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
-6. Na caixa de pesquisa, digite **IBM Kenexa Survey Enterprise**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_01.png)<br>
-7. No painel de resultados, selecione **IBM Kenexa Survey Enterprise** e clique em **Concluir** para adicionar o aplicativo. <br><br>
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+
+	![Aplicativos][2]
+
+4. Clique em **Adicionar** na parte inferior da página.
+
+	![Aplicativos][3]
+
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+
+	![Aplicativos][4]
+
+6. Na caixa de pesquisa, digite **IBM Kenexa Survey Enterprise**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_01.png)
+
+7. No painel de resultados, selecione **IBM Kenexa Survey Enterprise** e clique em **Concluir** para adicionar o aplicativo.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_02.png)
+
 
 ##  Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o IBM Kenexa Survey Enterprise, com base em uma usuária de teste chamada "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do IBM Kenexa Survey Enterprise é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do IBM Kenexa Survey Enterprise.<br> Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD ao valor de **Nome de usuário** no IBM Kenexa Survey Enterprise.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do IBM Kenexa Survey Enterprise é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do IBM Kenexa Survey Enterprise.
+
+Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD ao valor de **Nome de usuário** no IBM Kenexa Survey Enterprise.
 
 Para configurar e testar o logon único do Azure AD com o IBM Kenexa Survey Enterprise, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
 4. **[Criação de um usuário de teste do IBM Kenexa Survey Enterprise](#creating-an-kenexasurvey-test-user)**: para ter um equivalente de Brenda Fernandes no IBM Kenexa Survey Enterprise que esteja vinculado à representação dela no Azure AD.
-5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
 
 ### Configuração do logon único do AD do Azure
@@ -88,11 +107,17 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
 **Para configurar o logon único do Azure AD com o IBM Kenexa Survey Enterprise, execute as seguintes etapas:**
 
-1. No portal clássico, na página de integração de aplicativos do **IBM Kenexa Survey Enterprise**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No portal clássico, na página de integração de aplicativos do **IBM Kenexa Survey Enterprise**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-2. Na página **Como você deseja que os usuários façam logon no IBM Kenexa Survey Enterprise**, selecione **Logon Único do Azure AD** e clique em **Avançar**. <br><br> ![Configurar o logon único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_03.png) <br>
+	![Configurar o logon único][6]
 
-3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_04.png) <br>
+2. Na página **Como você deseja que os usuários façam logon no IBM Kenexa Survey Enterprise**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+ 
+	![Configurar o logon único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_03.png)
+
+3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
+
+	![Configurar o logon único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_04.png)
 
 
     a. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon em seu aplicativo IBM Kenexa Survey Enterprise usando o seguinte padrão: **“https://surveys.kenexa.com/<código da empresa>”**.
@@ -105,7 +130,9 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     c. Clique em **Próximo**.
 
 
-4. Na página **Configurar o logon único no IBM Kenexa Survey Enterprise**, execute as seguintes etapas: <br><br>![Configurar o logon único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_05.png) <br>
+4. Na página **Configurar o logon único no IBM Kenexa Survey Enterprise**, execute as seguintes etapas:
+
+	![Configurar o logon único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_05.png)
 
     a. Clique em **Baixar certificado** e salve o arquivo em seu computador.
 
@@ -124,27 +151,41 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 	![Configurar o logon único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_51.png)
 
  
-6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**. <br><br>![Logon único do AD do Azure][10]<br>
+6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
 
-7. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![Logon único do AD do Azure][11]
+	![Logon único do AD do Azure][10]
+
+7. Na página **Confirmação de logon único**, clique em **Concluir**.
+  
+	![Logon único do AD do Azure][11]
 
 
 
 
 ### Criação de um usuário de teste do AD do Azure
-Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.<br> Na lista Usuários, escolha **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.
+
+![Criar um usuário do AD do Azure][20]
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_09.png) <br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_09.png)
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png) <br>
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_04.png) <br>
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png)
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_05.png) <br>
+4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+ 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_04.png)
+
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+ 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_05.png)
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
@@ -152,7 +193,9 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     c. Clique em **Próximo**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_06.png) <br>
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_06.png)
 
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -164,9 +207,13 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
     e. Clique em **Próximo**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_07.png) <br>
+7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
 
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_08.png) <br>
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_07.png)
+
+8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_08.png)
 
     a. Anote o valor da **Nova Senha**.
 
@@ -184,25 +231,37 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no IBM Kenexa
 
 ### Atribuição do usuário de teste do AD do Azure
 
-Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure concedendo-lhe acesso ao IBM Kenexa Survey Enterprise. <br><br>![Atribuir usuário][200] <br>
+Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure concedendo-lhe acesso ao IBM Kenexa Survey Enterprise.
+
+![Atribuir usuário][200]
 
 **Para atribuir Brenda Fernandes ao IBM Kenexa Survey Enterprise, execute as seguintes etapas:**
 
-1. No portal clássico, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Atribuir usuário][201] <br>
+1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
-2. Na lista de aplicativos, selecione **IBM Kenexa Survey Enterprise**. <br><br>![Configurar o logon único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_50.png) <br>
+	![Atribuir usuário][201]
 
-1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
+2. Na lista de aplicativos, selecione **IBM Kenexa Survey Enterprise**.
 
-1. Na lista Usuários, selecione **Brenda Fernandes**.
+	![Configurar o logon único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_50.png)
 
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
+1. No menu na parte superior, clique em **Usuários**.
+
+	![Atribuir usuário][203]
+
+1. Na lista de usuários, selecione **Brenda Fernandes**.
+
+2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
+	
+	![Atribuir usuário][205]
 
 
 
 ### Teste do logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.<br> Ao clicar no bloco do IBM Kenexa Survey Enterprise no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo IBM Kenexa Survey Enterprise.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Ao clicar no bloco do IBM Kenexa Survey Enterprise no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo IBM Kenexa Survey Enterprise.
 
 
 ## Recursos adicionais
@@ -230,4 +289,4 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 [204]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

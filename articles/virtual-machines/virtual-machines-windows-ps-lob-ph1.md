@@ -11,10 +11,10 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="04/01/2016" 
 	ms.author="josephd"/>
 
 # Carga de trabalho de aplicativo de linha de negócios fase 1: configurar o Azure
@@ -220,4 +220,4 @@ Esta é a configuração resultante da conclusão bem-sucedida desta fase.
 
 - Use a [Fase 2](virtual-machines-windows-ps-lob-ph2.md) para continuar com a configuração desta carga de trabalho.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

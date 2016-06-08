@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Adicionar a API do Twitter a aplicativos lógicos e ao PowerApps Enterprise | Microsoft Azure"
-	description="Visão geral da API do Twitter com os parâmetros da API REST"
+	pageTitle="Adicionar o conector do Twitter a aplicativos lógicos e ao PowerApps Enterprise | Microsoft Azure"
+	description="Visão geral do conector do Twitter com os parâmetros da API REST"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/16/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
 
-# Introdução à API do Twitter
-Entre no Twitter para postar um tweet, obter a linha do tempo do usuário e muito mais. A API do Twitter pode ser usada em:
+# Introdução ao conector do Twitter
+Entre no Twitter para postar um tweet, obter a linha do tempo do usuário e muito mais. O conector do Twitter pode ser usado em:
 
 - Aplicativos lógicos 
 - PowerApps
@@ -37,9 +37,9 @@ Com o Twitter, você pode:
 - Criar seu fluxo de negócios baseado nos dados que obtém do Twitter. 
 - Usar gatilhos para quando houver um novo tweet.
 - Usar ações para postar um tweet, pesquisar tweets e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando um novo tweet aparece, você pode postá-lo no Facebook.
-- Adicionar a API do Twitter ao PowerApps Enterprise Assim, seus usuários poderão usar essa API em seus próprios aplicativos. 
+- Adicionar o conector do Twitter ao PowerApps Enterprise Assim, seus usuários poderão usar esse conector em seus próprios aplicativos. 
 
-Para saber mais sobre como adicionar uma API ao PowerApps Enterprise, acesse [Registrar uma API no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
+Para saber mais sobre como adicionar o conector ao PowerApps Enterprise, acesse [Registrar conector no PowerApps](../power-apps/powerapps-register-from-available-apis.md).
 
 Para adicionar uma operação aos aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -51,17 +51,17 @@ Gatilho | Ações
 --- | ---
 <ul><li>Quando um novo tweet é exibido</li></ul>| <ul><li>Postar um novo tweet</li><li>Quando um novo tweet é exibido</li><li>Obter linha do tempo de início</li><li>Obter usuário</li><li>Obter linha do tempo do usuário</li><li>Pesquisar tweet</li><li>Obter seguidores</li><li>Obter meus seguidores</li><li>Obter seguidos</li><li>Obter meus seguidos</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 
 ## Criar a conexão com o Twitter
 
-Quando você adiciona essa API a seus aplicativos lógicos, deve autorizar a conexão destes à sua conta do Twitter.
+Quando você adiciona esse conector a seus aplicativos lógicos, deve autorizar a conexão destes à sua conta do Twitter.
 
 1. Entre em sua conta do Twitter.
 2. Selecione **Autorizar** e permita que seus Aplicativos Lógicos se conectem e usem sua conta do Twitter. 
 
-Depois de criar a conexão, insira as propriedades do Twitter, como o texto do tweet. A **Referência da API REST** neste tópico descreve essas propriedades.
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Twitter](../../includes/connectors-create-api-twitter.md)]
 
 >[AZURE.TIP] Você pode usar essa mesma conexão do Twitter em outros aplicativos lógicos.
 
@@ -70,7 +70,7 @@ Depois de criar a conexão, insira as propriedades do Twitter, como o texto do t
 Aplica-se à versão: 1.0.
 
 ### Postar um novo tweet 
-Tweet. ```POST: /posttweet```
+Tweet.```POST: /posttweet```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -188,7 +188,7 @@ Recupera uma coleção de tweets relevantes que correspondem a uma consulta espe
 
 
 ### Obter seguidores 
-Recupera os usuários que seguem o usuário especificado. ```GET: /followers```
+Recupera os usuários que seguem o usuário especificado.```GET: /followers```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -208,7 +208,7 @@ Recupera os usuários que seguem o usuário especificado. ```GET: /followers```
 
 
 ### Obter meus seguidores 
-Recupera os usuários que estão me seguindo. ```GET: /myfollowers```
+Recupera os usuários que estão me seguindo.```GET: /myfollowers```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -227,7 +227,7 @@ Recupera os usuários que estão me seguindo. ```GET: /myfollowers```
 
 
 ### Obtenha seguidos 
-Recupera os usuários que o usuário especificado está seguindo. ```GET: /friends```
+Recupera os usuários que o usuário especificado está seguindo.```GET: /friends```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -247,7 +247,7 @@ Recupera os usuários que o usuário especificado está seguindo. ```GET: /frien
 
 
 ### Obter meus seguidos 
-Recupera os usuários que estou seguindo. ```GET: /myfriends```
+Recupera os usuários que estou seguindo.```GET: /myfriends```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -262,7 +262,7 @@ Recupera os usuários que estou seguindo. ```GET: /myfriends```
 |403|Proibido|
 |404|Não encontrado|
 |500|Erro Interno do Servidor. Ocorreu um erro desconhecido|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -306,13 +306,13 @@ Recupera os usuários que estou seguindo. ```GET: /myfriends```
 
 ## Próximas etapas
 
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Voltar para a [Lista de APIs](apis-list.md).
+Volte para a [Lista de APIs](apis-list.md).
 
 <!--References-->
 
 [6]: ./media/connectors-create-api-twitter/twitter-apps-page.png
 [7]: ./media/connectors-create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

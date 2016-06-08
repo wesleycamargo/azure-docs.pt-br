@@ -94,20 +94,14 @@ Um trabalho pode operar em vários dispositivos. Quando você inicia um trabalho
 
 ## Implementação de dispositivo
 
-Agora que abordamos os conceitos do lado do serviço, vamos discutir como criar um dispositivo com funcionalidades de gerenciamento. A biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure no dispositivo fornece os artefatos necessários para implementar a comunicação entre o dispositivo físico e o Hub IoT.
+Agora que abordamos os conceitos do lado do serviço, vamos discutir como criar um dispositivo físico gerenciado. A biblioteca do cliente do DM do Hub IoT do Azure permite que você gerencie seus dispositivos IoT com o IoT Hub do Azure. "Gerenciar" inclui as ações de reinicialização, a redefinição de fábrica e a atualização de firmware. Hoje, oferecemos uma biblioteca C independente de plataforma, mas adicionaremos suporte a outras linguagens em breve.
 
-A biblioteca de cliente do DM do Hub IoT do Azure abstrai o padrão [LWM2M][lnk-lwm2m] e o protocolo de solicitação/resposta baseado em CoAP. Portanto, a biblioteca tem um modelo de dispositivo de *objetos* e *definições de recurso*:
+A biblioteca do cliente de DM terá duas responsabilidades principais no gerenciamento de dispositivos:
 
--   Os objetos descrevem um conjunto de entidades funcionais coerentes no sistema, tais como as atualizações de firmware e do dispositivo.
--   Os recursos descrevem atributos ou as ações incluídas nesses objetos, tais como informações em nível da bateria e a ação de reinicialização.
+- Sincronizar propriedades no dispositivo físico com seu dispositivo gêmeo correspondente no Hub IoT
+- Coreografar os trabalhos de dispositivo enviados pelo Hub IoT para o dispositivo
 
-Quando você usa a biblioteca de cliente do DM do Hub IoT do Azure, é necessário implementar os retornos de chamada de operações de leitura, gravação e execução para cada recurso no dispositivo físico. A biblioteca manipula a atualização assíncrona do Hub IoT quando as propriedades são alteradas.
-
-O diagrama abaixo mostra os diferentes componentes necessários no agente cliente Hub IoT.
-
-![][img-client]
-
-É possível saber mais sobre a implementação no dispositivo físico em [Introducing the Azure IoT Hub device management client library][lnk-library-c] \(Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
+Você pode saber mais sobre essas responsabilidades e a implementação no dispositivo físico em [Introducing the Azure IoT Hub device management client library][lnk-library-c] (Apresentando a biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure).
 
 ## Próximas etapas
 
@@ -135,4 +129,4 @@ Para saber mais sobre os recursos de gerenciamento de dispositivo Hub IoT do Azu
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

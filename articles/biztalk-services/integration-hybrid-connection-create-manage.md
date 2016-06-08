@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mandia"/>
 
 
@@ -22,7 +22,7 @@
 
 ## Visão geral das etapas
 1. Crie uma Conexão Híbrida inserindo o nome do host ou o endereço IP do recurso local em sua rede privada.
-2. Conecte seus Aplicativos Web do Azure ou Aplicativos Móveis do Azure à Conexão Híbrida.
+2. Conecte seus aplicativos Web do Azure ou aplicativos móveis do Azure à Conexão Híbrida.
 3. Instale o Gerenciador de Conexão Híbrida em seu recurso local e conecte-se à Conexão Híbrida específica. O portal do Azure oferece uma experiência de apenas um clique para instalar e conectar.
 4. Gerenciar Conexões Híbridas e suas chaves de conexão.
 
@@ -33,7 +33,7 @@ Este tópico lista estas etapas.
 
 É possível criar uma Conexão Híbrida no portal do Azure usando Aplicativos Web **ou** os Serviços BizTalk.
 
-**Para criar Conexões Híbridas usando Aplicativos Web**, consulte [Conectar os Aplicativos Web do Azure a um recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md).
+**Para criar Conexões Híbridas usando Aplicativos Web**, consulte [Conectar os Aplicativos Web do Azure a um recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md). Você também pode instalar o Gerenciador de Conexão Híbrida (HCM) de seu aplicativo Web, que é o método preferencial.
 
 **Para criar Conexões Híbridas em Serviços do BizTalk**:
 
@@ -68,7 +68,7 @@ Para conectar os Aplicativos Móveis do Azure a uma Conexão Híbrida existente,
 
 ## <a name="InstallHCM"></a>Instalar o Gerenciador de Conexões Híbridas local
 
-Após uma Conexão Híbrida ser criada, instale o Gerenciador de Conexões Híbridas no recurso local. É possível fazer o download por meio dos Aplicativos Web do Azure ou por meio de seu Serviço BizTalk. Etapas dos Serviços BizTalk:
+Após uma Conexão Híbrida ser criada, instale o Gerenciador de Conexões Híbridas no recurso local. É possível fazer o download por meio dos aplicativos Web do Azure ou por meio de seu Serviço BizTalk. Etapas dos Serviços BizTalk:
 
 1. Entre no [Portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Selecione **Serviços do BizTalk** no painel de navegação à esquerda e selecione o seu Serviço do BizTalk. 
@@ -152,4 +152,4 @@ Após tê-los copiado, você pode usar o Editor de políticas de grupo para muda
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

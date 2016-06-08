@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="03/08/2016" 
+	ms.date="05/23/2016" 
 	ms.author="seasa"/>
 
 # Gerencie o serviço de Pesquisa do Azure com o PowerShell
@@ -103,6 +103,9 @@ Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, 
 		-ResourceName $serviceName `
 		-ApiVersion 2015-08-19 `
 		-Action $queryKeyDescription).Key
+	
+	# View your query key
+	$queryKey
 
 	# Delete query key
 	Remove-AzureRmResource `
@@ -136,4 +139,4 @@ Agora que o serviço foi criado, é possível executar as próximas etapas: comp
 
 - [Analisar o tráfego da Pesquisa do Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

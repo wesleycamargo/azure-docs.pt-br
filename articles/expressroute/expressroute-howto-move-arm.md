@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="05/05/2016"
    ms.author="ganesr"/>
 
 
@@ -98,7 +98,7 @@ Execute o seguinte para obter os detalhes do circuito de Rota Expressa:
 
     get-azurededicatedcircuit
 
-Você deve ser capaz de ver a chave de serviço relacionada. Agora você pode gerenciar links para o circuito de Rota Expressa. Os artigos a seguir explicam como gerenciar links para o circuito de Rota Expressa:
+Você deve ser capaz de ver a chave de serviço relacionada. Agora você pode gerenciar links para o circuito de Rota Expressa usando os comandos de modelo clássico de implantação padrão para redes virtuais clássicas e comandos padrão do ARM para redes virtuais ARM. Os artigos a seguir explicam como gerenciar links para o circuito de Rota Expressa:
 
 - [Vincule sua rede virtual ao circuito de Rota Expressa no modelo de implantação do Gerenciador de Recursos](expressroute-howto-linkvnet-arm.md)
 - [Vincule sua rede virtual ao circuito de Rota Expressa no modelo de implantação clássico](expressroute-howto-linkvnet-classic.md)
@@ -126,4 +126,4 @@ Depois de criar seu circuito, faça o seguinte:
 - [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
 - [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

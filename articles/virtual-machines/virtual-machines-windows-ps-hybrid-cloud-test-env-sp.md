@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/01/2016" 
@@ -201,7 +201,7 @@ Em seguida, configure o SP1 para um novo farm do SharePoint e um site de equipe 
 3.	Na caixa de diálogo que notifica que alguns serviços talvez precisem ser reiniciados durante a configuração, clique em **Sim**.
 4.	Na página Conectar a um farm de servidores, clique em **Criar um novo farm de servidores** e clique em **Avançar**.
 5.	Na página Especificar Definições do Banco de Dados de Configuração, digite **sql1.corp.contoso.com** em **Servidor de Banco de Dados**, digite **CORP\\SPFarmAdmin** em **Nome de usuário**, digite a senha da conta SPFarmAdmin em **Senha** e clique em **Avançar**.
-6.	Na página Especificar Configurações de Segurança do Farm, digite **P@ssphrase** tanto em **Senha** quanto em **Confirmar senha** e clique em **Avançar**.
+6.	Na página Especificar Configurações de Segurança do Farm, digite ****P@ssphrase** tanto em **Senha** quanto em **Confirmar senha** e clique em **Avançar**.
 7.	Na página Configurar Aplicativo Web da Administração Central do SharePoint, clique em **Avançar**.
 8.	Na página Concluindo o Assistente de Configuração de Produtos do SharePoint, clique em **Avançar**. O Assistente de Configuração de Produtos do SharePoint pode levar alguns minutos para ser concluído.
 9.	Na página Configuração Bem-sucedida, clique em **Concluir**. Após a conclusão, o Internet Explorer é iniciado com uma guia chamada Assistente de Configuração Inicial do Farm.
@@ -222,6 +222,6 @@ Seu farm de intranet do SharePoint em um ambiente de nuvem híbrida agora está 
 
 ## Próxima etapa
 
-- Implante a [carga de trabalho de produção](virtual-machines-windows-sp-intranet-overview.md).
+- [Configure](https://technet.microsoft.com/library/ee836142.aspx) o farm do SharePoint.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

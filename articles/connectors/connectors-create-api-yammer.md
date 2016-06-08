@@ -1,10 +1,10 @@
 <properties
-pageTitle="Adicionar a API do Yammer aos seus Aplicativos Lógicos | Microsoft Azure"
-description="Visão geral da API do Yammer com os parâmetros da API REST"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Adicionar o Conector do Yammer aos seus Aplicativos Lógicos | Microsoft Azure"
+description="Visão geral do Conector do Yammer com os parâmetros da API REST"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introdução à API do Yammer
+# Introdução ao conector do Yammer
 
 Conecte-se ao Yammer para acessar conversas em sua rede corporativa.
 
@@ -38,29 +38,16 @@ Gatilho | Ações
 --- | ---
 <ul><li>Quando há uma nova mensagem em um grupo</li><li>Quando há uma nova mensagem no meu feed Seguindo</li></ul>| <ul><li>Obter todas as mensagens</li><li>Obtém mensagens em um grupo</li><li>Obtém as mensagens no meu feed Seguindo</li><li>Postar mensagem</li><li>Quando há uma nova mensagem em um grupo</li><li>Quando há uma nova mensagem no meu feed Seguindo</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o Yammer
-Para usar a API do Yammer, crie primeiro uma **conexão** e, em seguida, forneça os detalhes dessas propriedades:
+Para usar o conector do Yammer, crie primeiro uma **conexão** e forneça os detalhes dessas propriedades:
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
 |A criptografia do token|Sim|Fornecer suas credenciais do Yammer|
 
-Siga estas etapas para entrar no Yammer e concluir a configuração da **conexão** do Yammer em seu aplicativo lógico:
-
-1. Selecione **Recorrência**
-2. Selecione uma **Frequência** e insira um **Intervalo**
-3. Selecione **Adicionar uma ação** ![Configurar o Yammer][1]
-4. Insira Yammer na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Yammer no nome
-5. Selecione **Yammer – Obter todas as mensagens**
-6. Selecione **Entrar no Yammer**:
-![Configurar o Yammer][2]
-7. Forneça suas credenciais do Yammer para entrar e autorizar o aplicativo ![Configurar o Yammer][3]  
-8. Você será redirecionado à página de logon de sua organização. **Permita** que o Yammer interaja com seu aplicativo lógico:
-![Configurar o Yammer][4] 
-9. Depois de entrar, retorne ao aplicativo lógico para concluí-lo configurando a seção **Yammer – Obter todas as mensagens** e adicionando outros gatilhos e outras ações necessárias.![Configurar o Yammer][5]  
-10. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o Yammer](../../includes/connectors-create-api-yammer.md)]
 
 
 >[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
@@ -200,7 +187,7 @@ Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado. 
 
 
 ## Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
 [2]: ./media/connectors-create-api-yammer/connectionconfig2.png
@@ -208,4 +195,4 @@ Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado. 
 [4]: ./media/connectors-create-api-yammer/connectionconfig4.png
 [5]: ./media/connectors-create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

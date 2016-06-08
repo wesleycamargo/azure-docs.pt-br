@@ -20,7 +20,7 @@
 
 Este tópico explica como criar um balanceador de carga interno para um grupo de disponibilidade AlwaysOn do SQL Server em máquinas virtuais do Azure em execução no modelo do Gerenciador de Recursos. Um grupo de disponibilidade do AlwaysOn exige um balanceador de carga quando as instâncias do SQL Server estão em máquinas virtuais do Azure. O balanceador de carga armazena o endereço IP do ouvinte do grupo de disponibilidade. Se um grupo de disponibilidade abranger várias regiões, cada região precisará de um balanceador de carga.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo clássico.
 
 Para concluir essa tarefa, você precisa ter um grupo de disponibilidade AlwaysOn do SQL Server implantado em máquinas virtuais do Azure no modelo do Gerenciador de Recursos. As máquinas virtuais do SQL Server devem pertencer ao mesmo conjunto de disponibilidade. Você pode usar o [modelo da Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para criar automaticamente o grupo de disponibilidade AlwaysOn no Azure Resource Manager. Este modelo cria automaticamente o balanceador de carga interno para você.
 
@@ -267,4 +267,4 @@ Observe as diretrizes a seguir no ouvinte do grupo de disponibilidade no Azure u
 - Com um balanceador de carga interno, você só pode acessar ao ouvinte de dentro da mesma rede virtual.
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

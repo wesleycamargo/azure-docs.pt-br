@@ -16,7 +16,7 @@
    ms.author="telmos" />
 
 # Visão geral de IP público em nível de instância
-Um IP público em nível de instância (ILPIP) é um endereço IP público que você pode atribuir diretamente à sua VM ou instância da função, e não ao serviço de nuvem no qual a sua máquina virtual ou instância de função residem. Isso não substitui o VIP (IP Virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
+Um ILPIP (IP público em nível de instância) é um endereço IP público que você pode atribuir diretamente à sua VM ou instância da função, e não ao serviço de nuvem no qual a sua VM ou instância de função reside. Isso não substitui o VIP (IP virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
 
@@ -36,7 +36,9 @@ Quando você cria um serviço de nuvem no Azure, registros de DNS A corresponden
 >[AZURE.NOTE] Você pode atribuir apenas um ILPIP para cada VM ou instância de função. Você pode usar até 5 ILPIPs por assinatura. Neste momento, não há suporte de ILPIP para VMs de várias NICs.
 
 ## Por que eu deveria solicitar um ILPIP?
-Se você quiser se conectar à sua VM ou instância de função por um endereço IP atribuído diretamente a ela, em vez de usar o VIP&lt;número da porta&gt; do serviço de nuvem, solicite um ILPIP para sua VM ou instância de função. - **FTP passivo** - ao ter um ILPIP na sua máquina virtual, você poderá receber o tráfego em praticamente qualquer porta, e não precisará abrir um ponto de extremidade para receber o tráfego. Isso possibilita cenários como FTP passivo, onde as portas são escolhidas dinamicamente. - **IP de saída** - o tráfego de saída proveniente da VM sai com o ILPIP como a origem, o que identifica exclusivamente a VM para entidades externas.
+Se você quiser ser capaz de conectar a sua VM ou instância de função por um endereço IP atribuído diretamente a ela, em vez de usar o <número da porta> do VIP de serviço de nuvem, solicite um ILPIP para sua VM ou instância de função.
+- **FTP passivo** - por ter um ILPIP na sua VM, você pode receber tráfego em praticamente qualquer porta e não precisará abrir um ponto de extremidade para receber o tráfego. Isso possibilita cenários como o FTP passivo, em que as portas são escolhidas dinamicamente.
+- **IP de saída** - O tráfego de saída proveniente da VM sai com o ILPIP como a origem, o que identifica exclusivamente a VM para entidades externas.
 
 ## Como solicitar um ILPIP durante a criação da VM
 O script do PowerShell abaixo cria um novo serviço de nuvem chamado *FTPService*; em seguida, recupera uma imagem do Azure e cria uma VM denominada *FTPInstance* usando a imagem recuperada, define a VM para usar um ILPIP e adiciona a VM ao novo serviço:
@@ -87,14 +89,14 @@ Para remover o ILPIP adicionado à VM no script anterior, execute o seguinte com
 	| Update-AzureVM
 
 ## Como adicionar um ILPIP a uma VM existente
-Para adicionar um ILPIP à máquina virtual criada usando o script anterior, execute o comando a seguir:
+Para adicionar um ILPIP à VM criada usando o script anterior, execute o comando a seguir:
 
 	Get-AzureVM -ServiceName FTPService -Name FTPInstance `
 	| Set-AzurePublicIP -PublicIPName ftpip2 `
 	| Update-AzureVM
 
 ## Como associar um ILPIP a uma VM usando um arquivo de configuração de serviço
-Também é possível associar um ILPIP a uma máquina virtual usando um arquivo de configuração de serviço (CSCFG). O xml de exemplo a seguir mostra como configurar um serviço de nuvem para usar um IP reservado denominado *MyReservedIP* como um ILPIP para uma instância de função:
+Também é possível associar um ILPIP a uma máquina virtual usando um arquivo de configuração de serviço (CSCFG). O XML de exemplo a seguir mostra como configurar um serviço de nuvem para usar um ILPIP denominado *MyPublicIP* para uma instância de função:
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
@@ -113,7 +115,7 @@ Também é possível associar um ILPIP a uma máquina virtual usando um arquivo 
 	          <Subnet name="Subnet2"/>
 	        </Subnets>
 	        <PublicIPs>
-	          <PublicIP name="MyReservedIP" domainNameLabel="MyReservedIP" />
+	          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
 	        </PublicIPs>
 	      </InstanceAddress>
 	    </AddressAssignments>
@@ -122,9 +124,9 @@ Também é possível associar um ILPIP a uma máquina virtual usando um arquivo 
 
 ## Próximas etapas
 
-- Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássico.
+- Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.
 
 - Saiba mais sobre [IPs reservados](../virtual-networks-reserved-public-ip).
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="05/23/2016"
     ms.author="brjohnst"/>
 
 # Carregar dados para a Pesquisa do Azure usando o SDK do .NET
@@ -205,4 +205,4 @@ Por esse motivo, sugerimos que você use tipos anuláveis nas suas classes de mo
 ## Avançar
 Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

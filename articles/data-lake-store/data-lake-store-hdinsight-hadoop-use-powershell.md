@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/13/2016"
+   ms.date="04/27/2016"
    ms.author="nitinme"/>
 
 # Criar um cluster HDInsight com o Repositório Data Lake usando o Azure PowerShell
@@ -28,6 +28,8 @@ Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight (Hadoop, 
 * **Para clusters Hadoop e Storm (Windows e Linux)**, o Repositório Data Lake só pode ser usado como uma conta de armazenamento adicional. A conta de armazenamento padrão para esses clusters ainda será o WASB (Blobs de Armazenamento do Azure).
 
 * **Para clusters HBase (Windows e Linux)**, o Repositório Data Lake pode ser usado como um armazenamento padrão ou armazenamento adicional.
+
+> [AZURE.NOTE] A opção de criar clusters HDInsight com acesso ao Repositório Data Lake está disponível apenas para o HDInsight versão 3.2 (para Windows, bem como Linux).
 
 
 Neste artigo, provisionaremos um cluster Hadoop com o Repositório Data Lake como armazenamento adicional.
@@ -378,4 +380,4 @@ Você também pode usar o comando `hdfs dfs -put` para carregar alguns arquivos 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

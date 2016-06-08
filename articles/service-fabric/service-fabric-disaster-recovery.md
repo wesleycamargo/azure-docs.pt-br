@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="05/25/2016"
    ms.author="seanmck"/>
 
 # Recuperação de desastre no Azure Service Fabric
@@ -38,7 +38,7 @@ Você pode visualizar o layout do seu cluster em domínios de falha usando o map
 
 ### Distribuição geográfica
 
-No momento, existem 22 regiões do Azure no mundo, com mais cinco já anunciadas. Uma região individual pode conter um ou mais data centers físicos, dependendo da demanda e da disponibilidade dos locais adequados, entre outros fatores. No entanto, observe que mesmo em regiões com vários data centers físicos, não há nenhuma garantia de que as VMs do cluster serão distribuídas uniformemente entre os locais físicos. Na verdade, no momento, todas as VMs de um determinado cluster são provisionadas em um único local físico.
+No momento, existem [25 regiões do Azure no mundo][azure-regions], com várias outras já anunciadas. Uma região individual pode conter um ou mais data centers físicos, dependendo da demanda e da disponibilidade dos locais adequados, entre outros fatores. No entanto, observe que mesmo em regiões com vários data centers físicos, não há nenhuma garantia de que as VMs do cluster serão distribuídas uniformemente entre os locais físicos. Na verdade, no momento, todas as VMs de um determinado cluster são provisionadas em um único local físico.
 
 ## Lidando com falhas
 
@@ -56,7 +56,7 @@ Em geral, contanto que a maioria dos nós permaneça disponível, o cluster cont
 
 #### Perda de quorum
 
-Se a maioria das réplicas de partição de um serviço com estado ficar inoperante, essa partição entrará em um estado conhecido como "perda de quorum". Nessa hora, o Service Fabric irá parar, permitindo gravações nessa partição para garantir que o estado permaneça consistente e confiável. Na verdade, estamos optando por aceitar um período de indisponibilidade para garantir que os clientes não sejam informados de que seus dados foram salvos quando na verdade não foram. Observe que, se você tiver aceitado permitir leituras das réplicas secundárias para o serviço com estado, poderá continuar a executar as operações de leitura nesse estado. Uma partição permanecerá na perda de quorum até que um número suficiente de réplicas volte ou até que o administrador do cluster force a movimentação do sistema usando a [API Repair-ServiceFabricPartition](repair-partition-ps). A execução dessa ação quando a réplica primária estiver inoperante resultará em perda de dados.
+Se a maioria das réplicas de partição de um serviço com estado ficar inoperante, essa partição entrará em um estado conhecido como "perda de quorum". Nessa hora, o Service Fabric irá parar, permitindo gravações nessa partição para garantir que o estado permaneça consistente e confiável. Na verdade, estamos optando por aceitar um período de indisponibilidade para garantir que os clientes não sejam informados de que seus dados foram salvos quando na verdade não foram. Observe que, se você tiver aceitado permitir leituras das réplicas secundárias para o serviço com estado, poderá continuar a executar as operações de leitura nesse estado. Uma partição permanecerá na perda de quorum até que um número suficiente de réplicas volte ou até que o administrador do cluster force a movimentação do sistema usando a [API Repair-ServiceFabricPartition][repair-partition-ps]. A execução dessa ação quando a réplica primária estiver inoperante resultará em perda de dados.
 
 Os serviços do sistema também podem sofrer perda de quorum, e o impacto será específico para o serviço em questão. Por exemplo, a perda de quorum no serviço de nomenclatura afetará a resolução de nomes, ao passo que a perda de quorum no serviço gerenciador de failover bloqueará os failovers e a criação de novos serviços. Observe que, diferentemente dos seus próprios serviços, a tentativa de reparar os serviços do sistema *não* é recomendada. Em vez disso, é preferível simplesmente aguardar até que as réplicas desativadas voltem.
 
@@ -68,11 +68,11 @@ Considere os exemplos a seguir, supondo que você tenha configurado seus serviç
 
 ### Interrupções ou destruição do data center
 
-Raramente, os data centers físicos podem se tornar temporariamente indisponíveis devido à perda de energia ou de conectividade de rede. Nesses casos, os clusters e os aplicativos do Service Fabric estarão indisponíveis da mesma forma, mas os dados serão preservados. Para os clusters em execução no Azure, você pode exibir as atualizações sobre interrupções na [página de status do Azure](azure-status-dashboard).
+Raramente, os data centers físicos podem se tornar temporariamente indisponíveis devido à perda de energia ou de conectividade de rede. Nesses casos, os clusters e os aplicativos do Service Fabric estarão indisponíveis da mesma forma, mas os dados serão preservados. Para os clusters em execução no Azure, você pode exibir as atualizações sobre interrupções na [página de status do Azure][azure-status-dashboard].
 
 Na hipótese altamente improvável de um data center físico inteiro ser destruído, os clusters do Service Fabric hospedados nele serão perdidos, juntamente com seu estado.
 
-Para evitar essa possibilidade, é extremamente importante [fazer backup do seu estado de backup](service-fabric-reliable-services-backup-restore.md) periodicamente em um armazenamento com redundância geográfica e validar a sua capacidade de restaurá-lo. Com que frequência você fará um backup dependerá de seu RPO (objetivo de ponto de recuperação). Mesmo se você não tiver implementado totalmente o backup e a restauração, deverá implementar um manipulador para o evento `OnDataLoss`, para que possa registrar o log quando ele ocorrer da seguinte forma:
+Para evitar essa possibilidade, é extremamente importante [fazer backup do seu estado de backup](service-fabric-reliable-services-backup-restore.md) periodicamente em um repositório com redundância geográfica e validar a sua capacidade de restaurá-lo. Com que frequência você fará um backup dependerá de seu RPO (objetivo de ponto de recuperação). Mesmo se você não tiver implementado totalmente o backup e a restauração, deverá implementar um manipulador para o evento `OnDataLoss`, para que possa registrar o log quando ele ocorrer da seguinte forma:
 
 ```c#
 protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
@@ -82,7 +82,6 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 }
 ```
 
->[AZURE.NOTE] O backup e a restauração só estão disponíveis para a API Reliable Services. O backup e a restauração para Reliable Actors estarão disponíveis em uma versão futura.
 
 ### Falhas de software e outras fontes de perda de dados
 
@@ -92,20 +91,21 @@ Os defeitos de código de serviços, os erros humanos operacionais e as violaç�
 
 - Saiba como simular várias falhas usando a [estrutura de capacidade de teste](service-fabric-testability-overview.md)
 - Leia outros recursos de recuperação de desastres e alta disponibilidade. A Microsoft publicou várias orientações sobre estes tópicos. Embora alguns desses documentos mencionem técnicas específicas para uso em outros produtos, eles contêm várias práticas recomendadas gerais que também se aplicam ao contexto do Service Fabric:
- - [Lista de verificação de disponibilidade](azure-availability-checklist)
- - [Executando a análise de recuperação de desastre](disaster-recovery-drill)
- - [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](dr-ha-guide)
+ - [Lista de verificação de disponibilidade](../best-practices-availability-checklist.md)
+ - [Executando a análise de recuperação de desastre](../sql-database/sql-database-disaster-recovery-drills.md)
+ - [Recuperação de desastre e alta disponibilidade para aplicativos do Azure][dr-ha-guide]
 
 
 <!-- External links -->
 
-[repair-partition-ps]: https://msdn.microsoft.com/pt-BR/library/mt163522.aspx
-[azure-status-dashboard]: https://azure.microsoft.com/pt-BR/status/
-[azure-availability-checklist]: https://azure.microsoft.com/pt-BR/documentation/articles/best-practices-availability-checklist/
-[disaster-recovery-drill]: https://azure.microsoft.com/pt-BR/documentation/articles/sql-database-disaster-recovery-drills/
+[repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
+[azure-status-dashboard]: https://azure.microsoft.com/status/
+[azure-regions]: https://azure.microsoft.com/regions/
+[dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
+
 
 <!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

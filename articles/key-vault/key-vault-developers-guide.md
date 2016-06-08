@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2016"
+   ms.date="05/25/2016"
    ms.author="bruceper" />
 
 # Guia do desenvolvedor do Cofre da Chave do Azure
@@ -82,12 +82,14 @@ Os artigos e cenários a seguir fornecem diretrizes específicas da tarefas para
 - [Como gerar e transferir chaves protegidas pelo HSM para o Cofre de Chaves do Azure](key-vault-hsm-protected-keys.md) - isso vai ajudá-lo a planejar, gerar e transferir suas próprias chaves protegidas pelo HSM a serem usadas com o Cofre de Chaves do Azure.
 - [Como transmitir valores seguros (como senhas) durante a implantação](../resource-manager-keyvault-parameter.md) - Quando você precisa transmitir um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível armazenar esse valor como um segredo em um Cofre de Chaves do Azure e fazer referência ao valor em outros modelos do Resource Manager.
 - [Como usar o Cofre de Chaves para o gerenciamento extensível de chaves com o SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) - O Conector do SQL Server para o Cofre de Chaves do Azure permite que o SQL Server e o SQL em uma VM utilizem o serviço do Cofre de Chaves do Azure como um provedor EKM (gerenciamento extensível de chaves) para proteger suas chaves de criptografia para o vínculo de aplicativos; Transparent Data Encryption, Criptografia de Backup e Criptografia de Nível de Coluna.
+- [Como implantar certificados em VMs do Cofre de Chaves](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Um aplicativo em nuvem em execução em uma VM no Azure precisa de um certificado. Como você obtém esse certificado para essa VM atualmente?
+- [Como integrar o Cofre de Chaves com o Azure Disk Encryption para VMs de IaaS do Windows e do Linux](../azure-security-disk-encryption.md) - A solução de criptografia de disco é integrada ao Cofre de Chaves do Azure para ajudar a controlar e a gerenciar as chaves de criptografia de disco e os segredos em sua assinatura do cofre de chaves, enquanto garante que todos os dados nos discos de máquina virtual serão criptografados em repouso no armazenamento do Azure.
 
-Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os Cofres de Chaves com o Azure, confira [Exemplos de modelo ARM de Ryan Jones para o Cofre de Chaves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os Cofres de Chaves com o Azure, confira os [Exemplos de modelo ARM de Ryan Jones para o Cofre de Chaves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
 ## Bibliotecas de Suporte
 
-- A [Biblioteca Principal do Cofre de Chaves do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) fornece interfaces `IKey` e `IKeyResolver` para localizar chaves com base em identificadores e realizar operações com chaves.
+- A [Biblioteca Principal do Cofre de Chaves do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) fornece as interfaces `IKey` e `IKeyResolver` para localizar chaves com base em identificadores e realizar operações com chaves.
 
 - [Extensões do Cofre da Chave do Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fornece recursos estendidos para Cofre da Chave do Azure.
 
@@ -95,4 +97,4 @@ Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os 
 - [Blog do Cofre de Chaves](http://aka.ms/kvblog)
 - [Fórum do Cofre de Chaves](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

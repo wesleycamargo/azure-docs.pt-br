@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="05/10/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -23,11 +23,12 @@ Este tópico explica as finalidades da seleção de recursos e fornece exemplos 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Introdução
 
 Este tópico explica a finalidade da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Esses exemplos foram extraídos do Estúdio de Aprendizado de Máquina do Azure.
 
-A engenharia e a seleção de recursos é uma parte do processo de CAP descrito em [O que é o Processo de Análise da Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) A criação e a seleção de recursos fazem parte da etapa **Recursos de desenvolvimento** do CAP. * **engenharia de recurso**: Este processo tenta criar recursos adicionais relevantes a partir de recursos brutos existentes nos dados, e aumenta o poder de previsão do algoritmo de aprendizagem. * **seleção de recurso**: Este processo seleciona o principal subconjunto de recursos de dados originais, em uma tentativa de reduzir a dimensionalidade do problema de treinamento.
+A engenharia e a seleção de recursos é uma parte do processo de CAP descrito em [O que é o Processo de Análise da Cortana?](machine-learning-data-science-the-cortana-analytics-process.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do CAP.
+* **engenharia de recursos**: esse processo tenta criar outros recursos relevantes por meio dos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
+* **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
 
 Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e, em seguida, a etapa de **seleção do recurso** é feita para eliminar recursos redundantes, altamente correlacionados ou irrelevantes.
 
@@ -73,4 +74,4 @@ Observe que nem sempre é necessário realizar a engenharia ou a seleção de re
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

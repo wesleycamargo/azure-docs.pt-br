@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como usar o Armazenamento de Blob do Azure do Python | Microsoft Azure"
-	description="Armazene dados não estruturados na nuvem com o Armazenamento de Blobs do Azure (armazenamento de objeto)."
+	pageTitle="Como usar o armazenamento de Blobs do Azure (armazenamento de objeto) do Python | Microsoft Azure"
+	description="Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
 	services="storage"
 	documentationCenter="python"
 	authors="emgerner-msft"
@@ -21,6 +21,8 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 ## Visão geral
+
+O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos/blobs. O armazenamento de blobs pode ser qualquer tipo de texto ou dados binários, como um documento, um arquivo de mídia ou um instalador do aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto.
 
 Este artigo mostra como executar cenários comuns usando o armazenamento de Blob. Os exemplos são escritos em Python e usam o [SDK do Armazenamento do Microsoft Azure para Python]. Os cenários abrangidos incluem carregar, listar, baixar e excluir blobs.
 
@@ -59,7 +61,7 @@ Após essa alteração, qualquer pessoa na Internet pode ver blobs em um contêi
 
 Para criar um blob de blocos e carregar dados, use os métodos **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** ou **create\_blob\_from\_text**. Esses são métodos de alto nível que realizam a separação por partes necessária quando o tamanho do arquivo excede 64 MB.
 
-**create\_blob\_from\_path** carrega o conteúdo de um arquivo do caminho especificado, **create\_blob\_from\_stream** carrega o conteúdo de um arquivo/transmissão já aberta. **create\_blob\_from\_bytes** carrega uma matriz de bytes, e **create\_blob\_from\_text** carrega o valor de texto especificado usando a codificação especificada (usa UTF-8 como padrão).
+**create\_blob\_from\_path** carrega o conteúdo de um arquivo do caminho especificado e **create\_blob\_from\_stream** carrega o conteúdo de um arquivo/transmissão já aberta. **create\_blob\_from\_bytes** carrega uma matriz de bytes e **create\_blob\_from\_text** carrega o valor de texto especificado usando a codificação especificada (usa UTF-8 como padrão).
 
 O exemplo a seguir carrega o conteúdo do arquivo **sunset.png** no blob **myblob**.
 
@@ -125,4 +127,4 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Blob, siga es
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/20/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do conector Lotus Domino
@@ -32,12 +32,12 @@ O conector Lotus Domino permite integrar o serviço de sincronização ao servid
 
 Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na versão atual do conector:
 
-| Recurso | Suporte |
-| --- | --- |
-| Fonte de dados conectada | Servidor: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 9.x</li> |
-| Cenários | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senhas</li> |
-| Operações | <li>Importação completa e Delta</li><li>Exportação</li><li>Definição e alteração de senha em senha HTTP</li> |
-| Esquema | <li>Pessoa (Usuário móvel, Contato [pessoas sem certificado])</li><li>Grupo</li><li>Recurso (Recurso, Sala, Reunião online)</li><li>Banco de dados Entrada de Email</li><li>Descoberta dinâmica de atributos para objetos com suporte</li> |
+Recurso | Suporte
+--- | ---
+Fonte de dados conectada | Servidor: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 9.x</li>
+Cenários | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senhas</li>
+Operações | <li>Importação completa e Delta</li><li>Exportação</li><li>Definição e alteração de senha em senha HTTP</li>
+Esquema | <li>Pessoa (Usuário móvel, Contato [pessoas sem certificado])</li><li>Grupo</li><li>Recurso (Recurso, Sala, Reunião online)</li><li>Banco de dados Entrada de Email</li><li>Descoberta dinâmica de atributos para objetos com suporte</li>
 
 O conector Lotus Domino aproveita o cliente Lotus Notes para se comunicar com o servidor Lotus Domino. Consequentemente, um cliente Lotus Notes com suporte deve ser instalado no servidor de sincronização. A comunicação entre o cliente e o servidor é implementada por meio da interface de interoperabilidade do .NET do Lotus Notes (Interop.domino.dll). Essa interface facilita a comunicação entre o cliente Lotus Notes e a plataforma Microsoft.NET, além de oferecer suporte ao acesso a documentos e exibições do Lotus Domino. Na importação delta, também é possível que a interface nativa C++ seja usada (dependendo do método de importação delta selecionado).
 
@@ -59,10 +59,10 @@ Para executar qualquer uma das tarefas com suporte no conector Lotus Domino, voc
 
 A tabela a seguir lista as permissões que são necessárias para cada operação:
 
-| Operação | Direitos de acesso |
-| --- | --- |
-| Importar | <li>Ler documentos públicos</li><li> Administrador com acesso completo (como membro do grupo Administradores de acesso completo, você terá automaticamente o acesso efetivo na ACL).</li> |
-| Exportar e definir senha | Acesso efetivo: <li>Criar documentos</li><li>Excluir documentos</li><li>Ler documentos públicos</li><li>Escrever documentos públicos</li><li>Replicar ou copiar documentos</li>Além do acesso acima, as funções a seguir devem ser atribuídas para operações de exportação: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li> |
+Operação | Direitos de acesso
+--- | ---
+Importar | <li>Ler documentos públicos</li><li> Administrador com acesso completo (como membro do grupo Administradores de acesso completo, você terá automaticamente o acesso efetivo na ACL).</li>
+Exportar e definir senha | Acesso efetivo: <li>Criar documentos</li><li>Excluir documentos</li><li>Ler documentos públicos</li><li>Escrever documentos públicos</li><li>Replicar ou copiar documentos</li>Além do acesso acima, as funções a seguir devem ser atribuídas para operações de exportação: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li>
 
 ### Operações diretas e AdminP
 
@@ -70,21 +70,21 @@ As operações vão diretamente para o diretório Domino ou passam pelo processo
 
 **Catálogo de endereços principal**
 
-| Objeto | Criação | Atualização | Exclusão |
-| --- | --- | --- | --- |
-| Pessoa | AdminP | Direta | AdminP |
-| Agrupar | AdminP | Direta | AdminP |
-| MailInDB | Direta | Direta | Direta |
-| Recurso | AdminP | Direta | AdminP |
+Objeto | Criação | Atualização | Exclusão
+--- | --- | --- | ---
+Pessoa | AdminP | Direta | AdminP
+Agrupar | AdminP | Direta | AdminP
+MailInDB | Direta | Direta | Direta
+Recurso | AdminP | Direta | AdminP
 
 **Catálogo de endereços secundário**
 
-| Objeto | Criação | Atualização | Exclusão |
-| --- | --- | --- | --- |
-| Pessoa | N/D | Direta | Direta |
-| Agrupar | Direta | Direta | Direta |
-| MailInDB | Direta | Direta | Direta |
-| Recurso | N/D | N/D | N/D |
+Objeto | Criação | Atualização | Exclusão
+--- | --- | --- | ---
+Pessoa | N/D | Direta | Direta
+Agrupar | Direta | Direta | Direta
+MailInDB | Direta | Direta | Direta
+Recurso | N/D | N/D | N/D
 
 Quando um recurso é criado , um documento do Notes é criado. Da mesma forma, quando um recurso é excluído, o documento do Notes é excluído.
 
@@ -327,11 +327,11 @@ Todas essas operações são executadas no Lotus Domino e importadas no serviço
 
 Um Recurso é outro tipo de banco de dados do Lotus Domino. Os Recursos podem ser salas de conferência com vários tipos de equipamento, como projetores. Há subtipos de recurso que têm suporte do conector Lotus Domino, que são definidos com base no atributo Tipo de Recurso:
 
-| Tipo de recurso | Atributo Tipo de Recurso |
-| --- | --- |
-| Sala | 1 |
-| Recurso (Outros) | 2 |
-| Reunião Online | 3 |
+Tipo de recurso | Atributo Tipo de Recurso
+--- | ---
+Sala | 1
+Recurso (Outros) | 2
+Reunião Online | 3
 
 Para que o tipo de objeto Recurso funcione, os seguintes itens são obrigatórios:
 
@@ -409,21 +409,21 @@ Quando você provisiona objetos Person para seu diretório Lotus Domino, seus ob
 
 A tabela a seguir lista essas propriedades e fornece uma descrição delas.
 
-| Propriedade | Descrição |
-| --- | --- |
-| \_MMS\_AltFullName | O nome completo alternativo do usuário. |
-| \_MMS\_AltFullNameLanguage | O idioma a ser usado para especificar o nome completo alternativo do usuário. |
-| \_MMS\_CertDaysToExpire | O número de dias a partir da data atual para expiração do certificado. Se não for especificado, a data padrão será de dois anos a partir da data atual. |
-| \_MMS\_Certifier | A propriedade que contém o nome da hierarquia organizacional do certificador. Por exemplo: OU=OrganizationUnit,O=Org,C=Country. |
-| \_MMS\_IDPath | Se a propriedade estiver vazia, nenhum arquivo de identificação do usuário será criado localmente no Servidor de Sincronização. Se a propriedade contiver um nome de arquivo, um arquivo de ID de usuário será criado na pasta de metadados. A propriedade também pode conter um caminho completo no qual o arquivo de ID de usuário é criado nesse local. |
-| \_MMS\_IDRegType | Pessoas podem ser classificadas em contatos. Usuários dos EUA e Usuários internacionais. A tabela a seguir lista os valores possíveis:<li>0 - Contato</li><li>1 - Usuário dos EUA</li><li>2 - Usuário internacional</li> |
-| \_MMS\_IDStoreType | Propriedade necessária para os usuários dos EUA e internacionais. A propriedade contém um valor inteiro que especifica se a identificação do usuário é armazenada como um anexo no catálogo de endereços do Notes ou no arquivo de email da pessoa. Se o arquivo de ID do Usuário for um anexo no catálogo de endereços, como opção, ele pode ser criado como um arquivo com \_MMS\_IDPath.<li>Vazio - arquivo de ID do repositório no Cofre de ID, nenhum arquivo de identificação (usado para Contatos).</li><li> 1 - Anexo no catálogo de endereços do Notes. A propriedade \_MMS\_Password deve ser definida para arquivos de identificação do usuário que sejam anexos</li><li>2 - ID do repositório no arquivo de email da pessoa. A \_MMS\_UseAdminP deve ser definida como false para permitir que o arquivo de email seja criado durante o registro de Person. A propriedade \_MMS\_Password deve ser definida para os arquivos de identificação do usuário.</li>
-| \_MMS\_MailQuotaSizeLimit | O número de megabytes que são permitidos para o banco de dados do arquivo de email. |
-| \_MMS\_MailQuotaWarningThreshold | O número de megabytes que são permitidos para o banco de dados do arquivo de email antes de um aviso ser emitido. |
-| \_MMS\_MailTemplateName | O arquivo de modelo de email que é usado para criar o arquivo de email do usuário. Se um modelo for especificado, o arquivo de email será criado usando o modelo especificado. Se nenhum modelo for especificado, o arquivo de modelo padrão será usado para criar o arquivo. |
-| \_MMS\_OU | A propriedade opcional que é o nome da UO sob o certificador. Essa propriedade deve estar vazia para os contatos. |
-| \_MMS\_Password | A propriedade necessária para os usuários. A propriedade contém a senha para o arquivo de identificação do objeto. |
-| \_MMS\_UseAdminP | A propriedade deve ser definida como true se o arquivo de email deve ser criado pelo processo AdminP no servidor Domino (assíncrono para o processo de exportação). Se a propriedade for definida como false, o arquivo de email será criado com o usuário Domino (síncrono no processo de exportação). |
+Propriedade | Descrição
+--- | ---
+\_MMS\_AltFullName | O nome completo alternativo do usuário.
+\_MMS\_AltFullNameLanguage | O idioma a ser usado para especificar o nome completo alternativo do usuário.
+\_MMS\_CertDaysToExpire | O número de dias a partir da data atual para expiração do certificado. Se não for especificado, a data padrão será de dois anos a partir da data atual.
+\_MMS\_Certifier | A propriedade que contém o nome da hierarquia organizacional do certificador. Por exemplo: OU=OrganizationUnit,O=Org,C=Country.
+\_MMS\_IDPath | Se a propriedade estiver vazia, nenhum arquivo de identificação do usuário será criado localmente no Servidor de Sincronização. Se a propriedade contiver um nome de arquivo, um arquivo de ID de usuário será criado na pasta de metadados. A propriedade também pode conter um caminho completo no qual o arquivo de ID de usuário é criado nesse local.
+\_MMS\_IDRegType | Pessoas podem ser classificadas em contatos. Usuários dos EUA e Usuários internacionais. A tabela a seguir lista os valores possíveis:<li>0 - Contato</li><li>1 - Usuário dos EUA</li><li>2 - Usuário internacional</li>
+\_MMS\_IDStoreType | Propriedade necessária para os usuários dos EUA e internacionais. A propriedade contém um valor inteiro que especifica se a identificação do usuário é armazenada como um anexo no catálogo de endereços do Notes ou no arquivo de email da pessoa. Se o arquivo de ID do Usuário for um anexo no catálogo de endereços, como opção, ele pode ser criado como um arquivo com \_MMS\_IDPath.<li>Vazio - arquivo de ID do repositório no Cofre de ID, nenhum arquivo de identificação (usado para Contatos).</li><li> 1 - Anexo no catálogo de endereços do Notes. A propriedade \_MMS\_Password deve ser definida para arquivos de identificação do usuário que sejam anexos</li><li>2 - ID do repositório no arquivo de email da pessoa. A \_MMS\_UseAdminP deve ser definida como false para permitir que o arquivo de email seja criado durante o registro de Person. A propriedade \_MMS\_Password deve ser definida para os arquivos de identificação do usuário.</li>
+\_MMS\_MailQuotaSizeLimit | O número de megabytes que são permitidos para o banco de dados do arquivo de email.
+\_MMS\_MailQuotaWarningThreshold | O número de megabytes que são permitidos para o banco de dados do arquivo de email antes de um aviso ser emitido.
+\_MMS\_MailTemplateName | O arquivo de modelo de email que é usado para criar o arquivo de email do usuário. Se um modelo for especificado, o arquivo de email será criado usando o modelo especificado. Se nenhum modelo for especificado, o arquivo de modelo padrão será usado para criar o arquivo.
+\_MMS\_OU | A propriedade opcional que é o nome da UO sob o certificador. Essa propriedade deve estar vazia para os contatos.
+\_MMS\_Password | A propriedade necessária para os usuários. A propriedade contém a senha para o arquivo de identificação do objeto.
+\_MMS\_UseAdminP | A propriedade deve ser definida como true se o arquivo de email deve ser criado pelo processo AdminP no servidor Domino (assíncrono para o processo de exportação). Se a propriedade for definida como false, o arquivo de email será criado com o usuário Domino (síncrono no processo de exportação).
 
 Para um usuário com um arquivo de identificação associado, a propriedade \_MMS\_Password deve conter um valor. Para acesso de email por meio do cliente Lotus Notes, as propriedades MailServer e MailFile de um usuário devem conter um valor.
 
@@ -449,13 +449,13 @@ O conector Lotus Domino oferece suporte basicamente a quatro tipos de objeto (ti
 
 Esta seção lista os atributos que são obrigatórios para cada tipo de objeto com suporte para exportar objeto para um servidor Domino.
 
-| Tipo de objeto | Atributos obrigatórios |
-| --- | --- |
-| Agrupar | <li>ListName</li> |
-| Banco de dados de Entrada de Email | <li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
-| Pessoa | <li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS\_Password</li><li>\_MMS\_IDStoreType</li><li>\_MMS\_Certifier</li><li>\_MMS\_IDRegType</li><li>\_MMS\_UseAdminP</li> |
-| Contato (Indivíduo sem certificador) | <li>\_MMS\_IDRegType</li> |
-| Recurso | <li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+Tipo de objeto | Atributos obrigatórios
+--- | ---
+Agrupar | <li>ListName</li>
+Banco de dados de Entrada de Email | <li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li>
+Pessoa | <li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS\_Password</li><li>\_MMS\_IDStoreType</li><li>\_MMS\_Certifier</li><li>\_MMS\_IDRegType</li><li>\_MMS\_UseAdminP</li>
+Contato (Indivíduo sem certificador) | <li>\_MMS\_IDRegType</li>
+Recurso | <li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li>
 
 ## Problemas e perguntas comuns
 
@@ -539,4 +539,4 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parecerá 
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -60,7 +60,7 @@ Um *contexto de sincronização* é associado a um objeto de cliente móvel (com
 
 Um armazenamento local é associado ao contexto de sincronização usando um método initialize como `IMobileServicesSyncContext.InitializeAsync(localstore)` no [SDK do cliente do .NET].
 
-## Como a sincronização offline funciona
+## <a name="how-sync-works"></a>Como a sincronização offline funciona
 
 Ao usar tabelas de sincronização, o código do cliente controla quando as alterações locais serão sincronizadas com um back-end do aplicativo móvel do Azure. Nada será enviado ao back-end até que haja uma chamada para alterações locais de *push*. Da mesma forma, o armazenamento local é preenchido com dados novos somente quando há uma chamada para dados de *pull*.
 
@@ -76,9 +76,10 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 
   O nome da consulta pode ser qualquer sequência de caracteres que você escolher, mas deve ser exclusivo para cada consulta lógica em seu aplicativo. Caso contrário, operações de pull diferentes poderiam substituir o mesmo carimbo de data/hora de sincronização incremental e as consultas poderiam retornar resultados incorretos.
 
-  Se a consulta tiver um parâmetro, uma maneira de criar um nome de consulta exclusivo é incorporar o valor do parâmetro. Por exemplo, se você estiver filtrando userid, o nome da consulta pode ser da seguinte maneira:
+  Se a consulta tiver um parâmetro, uma maneira de criar um nome de consulta exclusivo é incorporar o valor do parâmetro. Por exemplo, se você estiver filtrando userid, o nome da consulta pode ser da seguinte maneira (em C#):
 
-		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
+		await todoTable.PullAsync("todoItems" + userid, 
+			syncTable.Where(u => u.UserId = userid));
 
   Se você deseja recusar a sincronização incremental, passe `null` como a ID da consulta. Nesse caso, todos os registros serão recuperados em cada chamada de `PullAsync`, que é potencialmente ineficiente.
 
@@ -103,4 +104,4 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 [Xamarin Android: Habilitar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Habilitar a sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -80,21 +80,28 @@ Para máquinas virtuais do Azure Resource Manager, use o seguinte exemplo do Pow
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
+$workspaceName = "your workspace name"
+$VMresourcegroup = "**"
+$VMresourcename = "**"
 
-$workspaceId="**"
-$workspaceKey="**"
+$workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq $workspaceName})
 
-$resourcegroup = "**"
-$resourcename = "**"
+if ($workspace.Name -ne $workspaceName) 
+{
+    Write-Error "Unable to find OMS Workspace $workspaceName. Do you need to run Select-AzureRMSubscription?"
+}
 
-$vm = Get-AzureRMVM -ResourceGroupName $resourcegroup -Name $resourcename
+$workspaceId = $workspace.CustomerId 
+$workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGroupName $workspace.ResourceGroupName -Name $workspace.Name).PrimarySharedKey
+
+$vm = Get-AzureRMVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
-Set-AzureRMVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
 
 
 ```
-Ao configurar usando o PowerShell, você precisa fornecer a ID do espaço de trabalho e a Chave Primária. É possível encontrar a ID do Espaço de Trabalho e a Chave Primária na página **Configurações** do portal do OMS.
+Ao configurar usando o PowerShell, você precisa fornecer a ID do espaço de trabalho e a Chave Primária. É possível encontrar a ID do Espaço de Trabalho e a Chave Primária na página **Configurações** do portal do OMS, ou então usando o PowerShell como mostrado no exemplo acima.
 
 ![ID do espaço de trabalho e chave primária](./media/log-analytics-azure-storage/oms-analyze-azure-sources.png)
 
@@ -130,12 +137,15 @@ Syslog|Eventos enviados para os daemons Syslog ou Rsyslog
 Atualmente, o OMS pode analisar:
 
 - Logs do IIS de funções da Web e máquinas virtuais
-- Logs de eventos do Windows de funções da Web, funções de trabalho e máquinas virtuais do Azure executando um sistema operacional Windows
+- Logs de Eventos do Windows e logs de ETW de funções da Web, funções de trabalho e máquinas virtuais do Azure que executam um sistema operacional Windows
 - Syslog de máquinas virtuais do Azure executando um sistema operacional Linux
+- Diagnóstico gravado no armazenamento de blobs em formato json para recursos do Grupo de Segurança de Rede, Application Gateway e KeyVault
 
 Os logs devem estar nos seguintes locais:
 
 - WADWindowsEventLogsTable (armazenamento em tabela) – contém informações de logs de eventos do Windows.
+- WADETWEventTable (Armazenamento de Tabelas): contém informações de logs ETW do Windows.
+- WADServiceFabricSystemEventTable, WADServiceFabricReliableActorEventTable, WADServiceFabricReliableServiceEventTable (Armazenamento de Tabelas) - contém informações sobre eventos Operacionais, de Ator e de Serviço do Service Fabric.
 - wad-iis-logfiles (armazenamento do blob) - contém informações de logs do IIS.
 - LinuxsyslogVer2v0 (armazenamento de tabela) – contém eventos de syslog do Linux.
 
@@ -143,7 +153,7 @@ Os logs devem estar nos seguintes locais:
 
 Para máquinas virtuais, você também tem a opção de instalar o [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) na sua máquina virtual para habilitar insights adicionais. Além de ser capaz de analisar os logs do IIS e Logs de Eventos, você também poderá executar análises adicionais, inclusive controle de alterações de configuração, avaliação de SQL e avaliação de atualização.
 
-Você pode nos ajudar a priorizar logs adicionais para os OMS para análise votando em nossa [página de comentários](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
+Você pode nos ajudar a priorizar logs adicionais para os OMS para análise votando em nossa [página de comentários](http://feedback.azure.com/forums/267889-azure-log-analytics/category/88086-log-management-and-log-collection-policy).
 
 ## Habilitar diagnóstico do Azure em uma função web para coleta de eventos e log do IIS
 
@@ -263,4 +273,4 @@ Em aproximadamente 1 hora, você começará a ver os dados da conta de armazenam
 
 - [Definir configurações de proxy e firewall no Log Analytics](log-analytics-proxy-firewall.md) se sua organização usar um servidor proxy ou firewall para que os agentes possam se comunicar com o serviço do Log Analytics.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

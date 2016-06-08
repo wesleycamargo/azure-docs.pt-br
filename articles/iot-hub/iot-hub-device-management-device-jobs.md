@@ -18,6 +18,9 @@
 
 # Tutorial: Como usar trabalhos de dispositivo para atualizar o firmware do dispositivo (preview)
 
+[AZURE.INCLUDE [iot-hub-device-management-job-selector](../../includes/iot-hub-device-management-jobs-selector.md)]
+
+## Introdução
 O gerenciamento de dispositivo IoT do Azure permite que você interaja com dispositivos físicos usando os trabalhos do dispositivo. Depois de identificar o dispositivo gêmeo (a representação de serviço de um dispositivo físico), é possível interagir com seu dispositivo físico correspondente usando trabalhos do dispositivo. Os trabalhos do dispositivo permitem a coordenação de processos complexos em vários dispositivos. Esse processo pode incluir várias etapas e operações de longa duração.
 
 No momento, existem seis tipos de trabalhos do dispositivo que são fornecidos pelo gerenciamento de dispositivo Hub IoT do Azure (adicionaremos outros trabalhos conforme as necessidades dos clientes):
@@ -26,8 +29,8 @@ No momento, existem seis tipos de trabalhos do dispositivo que são fornecidos p
 - **Reinicialização**: reinicia o dispositivo físico.
 - **Redefinição de fábrica**: reverte o firmware (ou a imagem do sistema operacional) do dispositivo físico para uma imagem de backup fornecida de fábrica armazenada no dispositivo.
 - **Atualização da configuração**: configura o agente cliente Hub IoT em execução no dispositivo físico.
-- **Ler propriedade de dispositivo**: obtém o valor mais recente de uma propriedade de dispositivo no dispositivo físico.
-- **Gravar propriedade de dispositivo:** altera uma propriedade de dispositivo no dispositivo físico.
+- **Ler propriedade do dispositivo**: obtém o valor de uma propriedade de dispositivo mais recente no dispositivo físico.
+- **Gravar propriedade do dispositivo**: altera uma propriedade do dispositivo no dispositivo físico.
 
 Para obter detalhes sobre como usar cada um desses trabalhos, confira a [documentação da API][lnk-apidocs].
 
@@ -138,7 +141,7 @@ Nas seções anteriores, mostramos os detalhes de implementação da atualizaç�
 
 A biblioteca de cliente do gerenciamento de dispositivo Hub IoT do Azure lida com a comunicação entre o dispositivo e o serviço e, portanto, tudo o que resta é a implementação da lógica específica do dispositivo. Isso consiste em duas partes:
 
-- Implementar o processo de atualização de firmware específico do dispositivo: isso envolve a escrita de uma lógica específica do dispositivo para baixar o pacote de firmware e aplicar a atualização nos retornos de chamada apropriados listados abaixo. Na amostra simulada, isso é implementada na [amostra][lnk-github-firmware]\:
+- Implementar o processo de atualização de firmware específico do dispositivo: isso envolve a escrita de uma lógica específica do dispositivo para baixar o pacote de firmware e aplicar a atualização nos retornos de chamada apropriados listados abaixo. Na amostra simulada, isso é implementado na [amostra][lnk-github-firmware]\:
 
   ```
   object_firmwareupdate *obj = get_firmwareupdate_object(0);
@@ -175,4 +178,4 @@ Para saber mais sobre os recursos de gerenciamento de dispositivo Hub IoT do Azu
 [lnk-github-firmware]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/c/iotdm_client/samples/iotdm_simple_sample/iotdm_simple_sample.c
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

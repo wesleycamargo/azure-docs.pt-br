@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/24/2016" 
 	ms.author="mimig"/>
 
 # Saiba mais sobre provisionamento de armazenamento e desempenho previsível no Banco de Dados de Documentos
-O Banco de Dados de Documentos é um serviço de banco de dados NoSQL orientado a documentos, escalonável e totalmente gerenciado para documentos JSON. Com o Banco de Dados de Documentos, você não precisa alugar máquinas virtuais, implantar software, monitorar banco de dados nem se preocupar com recuperação de desastres. O Banco de Dados de Documentos é operado e continuamente monitorado por engenheiros da Microsoft para a melhor fornecer disponibilidade, desempenho e proteção aos dados do cliente.
+O Banco de Dados de Documentos é um serviço de banco de dados NoSQL orientado a documentos, escalonável e totalmente gerenciado para documentos JSON. Com o Banco de Dados de Documentos, você não precisa alugar máquinas virtuais, implantar software ou monitorar banco de dados. O Banco de Dados de Documentos é operado e continuamente monitorado por engenheiros da Microsoft para a melhor fornecer disponibilidade, desempenho e proteção aos dados do cliente.
 
 Você pode começar a usar o Banco de Dados de Documentos [criando um banco de dados](documentdb-create-account.md) pelo [Portal do Azure](https://portal.azure.com/). O Banco de Dados de Documentos é oferecido em unidades de armazenamento com suporte de SSD (unidade de estado sólido) e taxa de transferência. Essas unidades são provisionadas criando coleções de banco de dados em uma conta de banco de dados. Cada coleção com produtividade reservada. Se os requisitos de taxa de transferência do seu aplicativo forem alterados, você os altera dinamicamente definindo o [nível de desempenho](documentdb-performance-levels.md) de cada coleção.
 
@@ -132,4 +132,4 @@ Para obter instruções sobre como monitorar os níveis de desempenho no Portal 
 Para obter mais informações sobre como escolher os níveis de desempenho para as coleções, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
  
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

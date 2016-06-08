@@ -45,7 +45,7 @@ Para obter informações sobre planos do serviço de aplicativo, consulte [O que
 	
 	A guia **Notificações** vai piscar **SUCESSO** em verde quando a operação for concluída.
 	
-5. Em configurações, clique em **Escalar horizontalmente**, selecione *contagem de instâncias que eu escolher manualmente* no menu suspenso, deslize a barra **Instância** da esquerda para a direita para aumentar o número de instâncias e clique em **Salvar** na barra de comandos. A opção de tamanho de instância não está disponível no modo **Compartilhado**. Para obter mais informações sobre esses tamanhos de instâncias, consulte [Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes].
+5. Em configurações, clique em **Escalar horizontalmente**, selecione *contagem de instâncias que eu escolher manualmente* no menu suspenso, deslize a barra **Instância** da esquerda para a direita para aumentar o número de instâncias e clique em **Salvar** na barra de comandos. A opção de tamanho de instância não está disponível no modo **Compartilhado**. Para obter mais informações sobre esses tamanhos de instâncias, consulte [Preços do Serviço de Aplicativo][vmsizes].
 	
 	![Tamanho da instância para o modo Básico][ChooseBasicInstances]
 	
@@ -180,7 +180,7 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- LINKS -->
-[vmsizes]: http://go.microsoft.com/fwlink/?LinkId=309169
+[vmsizes]: /pricing/details/app-service/
 [SQLaccountsbilling]: http://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]: http://go.microsoft.com/fwlink/?LinkID=235288
 [portal]: https://portal.azure.com/
@@ -202,4 +202,4 @@ Dependendo do modo usado pelo aplicativo Web, os seguintes recursos para desenvo
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

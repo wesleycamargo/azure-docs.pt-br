@@ -19,6 +19,21 @@
 # Azure Data Factory - Log de alterações da API .NET 
 Este artigo fornece informações sobre alterações no SDK do Azure Data Factory em uma versão específica. Você pode baixar o mais recente pacote Nuget para o Azure Data Factory [aqui](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
 
+## Versão 4.7.0
+Data do lançamento: 2016-05-20
+
+### Adições de recursos
+* Foi adicionado o novo tipo de StorageFormat [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) para copiar arquivos no formato ORC (colunas com linhas otimizadas).
+* Adicione as propriedades [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) e PolyBaseSettings para SqlDWSink.
+    * Habilita o uso do PolyBase para copiar dados para o SQL Data Warehouse.
+
+## Versão 4.6.1
+Data do lançamento: 2016-04-26
+
+### Correções de bug
+* Corrige a solicitação HTTP para listar janelas de atividade.
+    * Remove o nome do grupo de recursos e o nome do data factory da carga da solicitação.
+
 ## Versão 4.6.0
 Data de lançamento: 14/04/2016
 
@@ -51,7 +66,7 @@ Data de lançamento: 28/01/2016
 ### Adições de recursos
 
 - O seguinte tipo de serviço vinculado foi adicionado como fontes de dados e coletores para atividades de cópia:
-	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Consulte [Serviço Vinculado de SAS de Armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) para obter informações conceituais e exemplos. 
+	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Confira [Serviço Vinculado de SAS de Armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) para obter informações conceituais e exemplos. 
 
 ## Versão 4.3.0
 Data de lançamento: 25/11/2015
@@ -59,8 +74,8 @@ Data de lançamento: 25/11/2015
 ### Adições de recursos
 
 - Os seguintes tipos de serviço vinculados foram adicionados como fontes de dados para atividades de cópia:
-	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Consulte [Mover Dados do HDFS usando o Data Factory](data-factory-hdfs-connector.md) para obter informações conceituais e exemplos. 
-	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Consulte [Mover dados dos armazenamentos de dados do ODBC usando o Azure Data Factory](data-factory-odbc-connector.md) para obter informações conceituais e exemplos. 
+	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Confira [Mover Dados do HDFS usando o Data Factory](data-factory-hdfs-connector.md) para obter informações conceituais e exemplos. 
+	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Confira [Mover dados dos armazenamentos de dados do ODBC usando o Azure Data Factory](data-factory-odbc-connector.md) para obter informações conceituais e exemplos. 
 
 ## Versão 4.2.0
 Data de lançamento: 10/11/2015
@@ -149,4 +164,4 @@ Data do lançamento: 02-10-2015
 
 - Agora há suporte para executar o procedimento armazenado nas fontes do Banco de Dados SQL do Azure e Azure SQL Data Warehouse como parte da Atividade de Cópia. As classes [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) e [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) têm as seguintes propriedades para dar suporte: **SqlReaderStoredProcedureName** e **StoredProcedureParameters**. Confira os artigos [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md#sqlsource) e [SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) em Azure.com para saber mais sobre essas propriedades.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

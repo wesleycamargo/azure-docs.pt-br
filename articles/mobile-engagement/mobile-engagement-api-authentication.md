@@ -95,7 +95,7 @@ Você deve seguir o conjunto de instruções abaixo para executar a configuraç�
 1. Chame a API com os seguintes parâmetros e certifique-se de substituir TENANT\_ID, CLIENT\_ID e CLIENT\_SECRET:
 
 	- **URL de Solicitação** como **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-	- **Cabeçalho HTTP Content-Type**: *application/x-www-form-urlencoded*
+- **Cabeçalho HTTP Content-Type**: *application/x-www-form-urlencoded*
 	- **Corpo da solicitação HTTP** como *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	Segue um exemplo de solicitação:
@@ -146,7 +146,8 @@ Agora que você tem um token válido, você está pronto para fazer as chamadas 
 	![Parâmetros de URI da API do Mobile Engagement][2]
 
 >[AZURE.NOTE] <br/>
->1. Ignore o Endereço Raiz da API, pois ele servia apenas para as APIs anteriores.<br/> 2. Você precisa usar o nome de Recurso de Aplicativo que é diferente do nome do Aplicativo em si. 
+>1. Ignore o Endereço Raiz da API, pois ele servia apenas para as APIs anteriores.<br/>
+>2. Se você criou o aplicativo usando o portal Clássico do Azure, é necessário usar o nome do Recurso de Aplicativo, que é diferente do nome do Aplicativo em si. Se você criou o aplicativo no Portal do Azure, você deverá usar o Nome do Aplicativo em si (não há nenhuma diferenciação entre o Nome do Recurso do Aplicativo e o Nome do Aplicativo para os aplicativos criados no novo portal).  
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png
@@ -154,4 +155,4 @@ Agora que você tem um token válido, você está pronto para fazer as chamadas 
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

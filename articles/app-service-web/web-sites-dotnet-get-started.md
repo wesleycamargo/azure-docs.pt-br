@@ -241,4 +241,4 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 	Para saber mais sobre como trabalhar com os grupos de recursos no Portal do Azure, consulte [Como usar o Portal do Azure para implantar e gerenciar os recursos do Azure](../resource-group-portal.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!----HONumber=AcomDC_0504_2016-->

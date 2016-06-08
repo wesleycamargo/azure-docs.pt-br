@@ -34,11 +34,11 @@ Por padrão, o mecanismo de aplicativo lógico atingirá o tempo limite de uma s
 
 Ao executar uma tarefa ou etapa longa, a primeira coisa que você precisa fazer é se certificar de que o mecanismo saiba que você ainda não atingiu o tempo limite. Você também precisa comunicar ao mecanismo como ele saberá quando tiver terminado a tarefa e, finalmente, precisa retornar dados relevantes para o mecanismo para que ele possa continuar com o fluxo de trabalho. Você pode concluir isso por meio de uma API seguindo o fluxo abaixo. Essas etapas são do ponto de vista da API personalizada:
 
-1\. Quando uma solicitação for recebida, retorne imediatamente uma resposta (antes de o trabalho ser concluído). Esta resposta será uma resposta `202 ACCEPTED`, informando ao mecanismo que você recebeu os dados, aceitou a carga e agora está processando. A resposta 202 deve conter os seguintes cabeçalhos:
+1. Quando uma solicitação for recebida, retorne imediatamente uma resposta (antes de o trabalho ser concluído). Esta resposta será uma resposta `202 ACCEPTED`, informando ao mecanismo que você recebeu os dados, aceitou a carga e agora está processando. A resposta 202 deve conter os seguintes cabeçalhos: 
  * Cabeçalho `location` (obrigatório): esse é um caminho absoluto para a URL que os Aplicativos Lógicos podem usar para verificar o status do trabalho.
  * `retry-after` (opcional, será padronizado como 20 para ações). Este é o número de segundos que o mecanismo deve aguardar antes de sondar a URL do cabeçalho do local para verificar o status.
 
-2\. Quando o status de um trabalho for verificado, execute as seguintes verificações:
+2. 2\. Quando o status de um trabalho for verificado, execute as seguintes verificações: 
  * Se o trabalho estiver concluído: retorne uma resposta `200 OK`, com a carga de resposta.
  * Se o trabalho ainda estiver em processamento: retorne outra resposta `202 ACCEPTED`, com os mesmos cabeçalhos que a resposta inicial
 
@@ -89,4 +89,4 @@ Atualmente o Designer de Aplicativo Lógico não dá suporte à descoberta de um
 
 Você pode ver um exemplo de um gatilho webhook no GitHub [aqui](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

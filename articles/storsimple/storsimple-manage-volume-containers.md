@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/01/2016"
+   ms.date="05/24/2016"
    ms.author="v-sharos" />
 
 # Usar o serviço StorSimple Manager para gerenciar contêineres de volume do StorSimple
@@ -66,4 +66,4 @@ Um contêiner de volume possui volumes dentro dele. Ele poderá ser excluído so
 - Saiba mais sobre [como gerenciar volumes do StorSimple](storsimple-manage-volumes.md). 
 - Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

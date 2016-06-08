@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="02/05/2016"
+    ms.date="05/10/2016"
     ms.author="sstein"/>
 
 # Importar um arquivo BACPAC para criar um novo banco de dados SQL do Azure usando o PowerShell
@@ -41,10 +41,6 @@ Para importar um banco de dados SQL, você precisará de:
 - Um arquivo .bacpac (BACPAC) do banco de dados que deseja importar. O BACPAC deve estar em um contêiner de blob da [conta de armazenamento do Azure (clássico)](../storage/storage-create-storage-account.md).
 
 
-> [AZURE.IMPORTANT] Este artigo contém comandos para versões do Azure PowerShell, *exceto* as versões 1.0 e posteriores. É possível verificar sua versão do Azure PowerShell com o comando **Get-Module azure | format-table version**.
-
-
-
 ## Configurar suas credenciais e selecionar sua assinatura
 
 Em primeiro lugar, você deve estabelecer o acesso à sua conta do Azure e, depois, iniciar o PowerShell e executar o cmdlet a seguir. Na tela de logon, insira o mesmo email e senha que você usa para entrar no portal do Azure.
@@ -67,7 +63,7 @@ Depois de executar **Select-AzureSubscription** com êxito, você retornará ao 
 
 Existem algumas variáveis em que você precisará substituir os valores de exemplo pelos valores específicos do seu banco de dados e conta de armazenamento.
 
-O nome do servidor precisa ser de um servidor que exista atualmente na assinatura selecionada na etapa anterior e seja o servidor em que deseja que o banco de dados seja criado.
+O nome do servidor precisa ser de um servidor que exista atualmente na assinatura selecionada na etapa anterior e seja o servidor em que deseja que o banco de dados seja criado. Observe que não há suporte para importar um banco de dados diretamente para um pool elástico, mas você pode primeiro importar para um banco de dados individual e, em seguida, mover o banco de dados para um pool.
 
 O nome do banco de dados é o nome desejado para o novo banco de dados.
 
@@ -153,4 +149,4 @@ A execução desse comando solicitará uma senha. Insira o logon e a senha de ad
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

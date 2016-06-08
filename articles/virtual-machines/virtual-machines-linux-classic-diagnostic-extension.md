@@ -44,7 +44,7 @@ A extensão pode ser habilitada por meio do [portal do Azure](https://ms.portal.
 Para exibir e configurar os dados do sistema e de desempenho diretamente do Portal do Azure, siga estas [etapas](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL para o blog do Windows"/).
 
 
-Este artigo se concentra na habilitação e configuração de extensão por meio de comandos da CLI do Azure. Isso permite ler e exibir os dados diretamente da tabela de armazenamento.
+Este artigo se concentra na habilitação e configuração de extensão por meio de comandos da CLI do Azure. Isso permite ler e exibir os dados diretamente da tabela de armazenamento. Observe que os métodos de configuração descritos abaixo não funcionarão para o portal do Azure. Para exibir e configurar os dados de desempenho e sistema diretamente do Portal do Azure, essa extensão deve ser habilitada por meio do Portal do Azure, conforme mencionado no parágrafo anterior.
 
 
 ## Pré-requisitos
@@ -74,15 +74,13 @@ Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OST
 ###   Cenário 2: Personalizar a métrica do monitor de desempenho  
 Esta seção descreve como personalizar a tabela de dados de desempenho e diagnóstico.
 
-Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo que aparece no próximo exemplo. Especifique os dados específicos que deseja coletar.
+Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo conforme descrito no Cenário 1 acima. Crie também um arquivo denominado PublicConfig.json que aparece no próximo exemplo. Especifique os dados específicos que deseja coletar.
 
 Para todos os provedores e variáveis que recebem suporte, consulte este [documento](https://scx.codeplex.com/wikipage?title=xplatproviders). Você pode ter várias consultas e armazená-las em várias tabelas, acrescentando mais consultas ao script.
 
 Por padrão, os dados de Rsyslog sempre são coletados.
 
 	{
-     	"storageAccountName":"storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"perfCfg":[
            	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
            	}
@@ -90,17 +88,15 @@ Por padrão, os dados de Rsyslog sempre são coletados.
 	}
 
 
-Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Cenário 3: Carregar os próprios arquivos de log
 Esta seção descreve como coletar e carregar arquivos de log específicos em sua conta de armazenamento. Você precisa especificar o caminho até o arquivo de log e o nome da tabela para armazenar seu log. Você pode ter vários arquivos de log adicionando várias entradas de arquivo/tabela ao script.
 
-Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo a seguir.
+Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo conforme descrito no Cenário 1. Crie outro arquivo denominado PublicConfig.json com o conteúdo a seguir.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"key of the account",
       	"fileCfg":[
            	{"file":"/var/log/mysql.err",
              "table":"mysqlerr"
@@ -109,21 +105,21 @@ Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo a seguir.
 	}
 
 
-Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
-###   Cenário 4: Desabilitar a extensão do monitor Linux
-Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo a seguir.
+###   Cenário 4: Parar a coleta de todos os logs pela extensão
+Esta seção descreve como parar a coleta de todos os logs pela extensão. Observe que o processo do agente de monitoramento ainda estará em execução mesmo com essa reconfiguração. Portanto, se você quiser parar completamente o processo do agente de monitoramento, a extensão deverá ser desinstalada no momento. No futuro, poderemos adicionar uma propriedade de configuração que apenas desabilita a extensão (parando também todo o processo do agente de monitoramento) sem exigir a desinstalação de toda a extensão.
+
+Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo conforme descrito no Cenário 1. Crie outro arquivo denominado PublicConfig.json com o conteúdo a seguir.
 
 	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account",
-     	“perfCfg”:[],
-     	“enableSyslog”:”False”
+     	"perfCfg":[],
+     	"enableSyslog":"false"
 	}
 
 
-Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ## Examinar os dados
@@ -143,4 +139,4 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 ## Problemas conhecidos
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

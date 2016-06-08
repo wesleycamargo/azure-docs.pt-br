@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,19 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="03/24/2016"
+   ms.date="05/26/2016"
    ms.author="sstein"/>
 
-# Experimentar o Banco de Dados SQL: Usar o C&#x23; para criar um banco de dados SQL com a Biblioteca do Banco de Dados SQL para .NET
+# Experimentar o Banco de Dados SQL: Usar o C# para criar um Banco de Dados SQL com a Biblioteca do Banco de Dados SQL para .NET
 
-**Banco de dados individual**
 
 > [AZURE.SELECTOR]
 - [Portal do Azure](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Saiba como usar comandos do C# para criar um banco de dados SQL do Azure com a [Biblioteca do Banco de Dados SQL do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Você experimentará o Banco de Dados SQL criando um banco de dados individual com SQL e C#. Para criar pools de banco de dados elásticos, confira [Criar um pool de banco de dados elástico](sql-database-elastic-pool-create-portal.md). Trechos de código individuais foram divididos por motivos de clareza, e um exemplo de aplicativo de console reúne todos os comandos na seção no fim deste artigo.
+Saiba como usar comandos do C# para criar um banco de dados SQL do Azure com a [Biblioteca do Banco de Dados SQL do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Você experimentará o Banco de Dados SQL criando um banco de dados individual com SQL e C#. Para criar pools de banco de dados elásticos, consulte [Criar um pool de banco de dados elástico](sql-database-elastic-pool-create-portal.md). Trechos de código individuais foram divididos por motivos de clareza, e um exemplo de aplicativo de console reúne todos os comandos na seção no fim deste artigo.
 
 A Biblioteca do Banco de Dados SQL do Azure para .NET fornece uma API baseada no [Gerenciador de Recursos do Azure](../resource-group-overview.md) que encapsula a [API REST do Banco de Dados SQL baseada no Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Essa biblioteca cliente segue o padrão comum das bibliotecas cliente baseadas no Gerenciador de Recursos. O Gerenciador de Recursos exige grupos de recursos e autenticação no AAD ([Active Directory do Azure](https://msdn.microsoft.com/library/azure/mt168838.aspx)).
 
@@ -47,7 +46,7 @@ Para concluir as etapas neste artigo, você precisa do seguinte:
 Para configurar um banco de dados SQL com C#, obtenha as bibliotecas de gerenciamento necessárias instalando os pacotes a seguir com o [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -59,8 +58,8 @@ Para autenticar seu aplicativo cliente com base no usuário atual, primeiro voc�
 
 Para criar um novo aplicativo e registrá-lo no active directory correto, faça o seguinte:
 
-1. Vá para o [Portal Clássico do Azure](https://manage.windowsazure.com/)
-1. No lado esquerdo, selecione o serviço **Active Directory** e o diretório para autenticar seu aplicativo e clique no **Nome** dele.
+1. Vá para o [Portal Clássico do Azure](https://manage.windowsazure.com/).
+1. No lado esquerdo, selecione o serviço **Active Directory** e o diretório para autenticar seu aplicativo, e clique no **Nome** dele.
 
     ![Experimentar o Banco de Dados SQL: Configurar o Active Directory do Azure (AAD).][1]
 
@@ -80,7 +79,7 @@ Para criar um novo aplicativo e registrá-lo no active directory correto, faça 
 
     ![Adicione uma URL de redirecionamento ao seu aplicativo C# SQL.][8]
 
-7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (você vai precisar da ID do cliente posteriormente no código).
+7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (você precisará da ID do cliente posteriormente no código).
 
     ![Obtenha a ID de cliente do aplicativo C# SQL.][9]
 
@@ -268,8 +267,8 @@ O exemplo a seguir cria um grupo de recursos, um servidor, uma regra de firewall
 
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -457,4 +456,4 @@ Agora que você já experimentou o Banco de Dados SQL e configurou um banco de d
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="04/29/2016"
+ms.date="05/17/2016"
 ms.author="deonhe"/>
 
 # Introdução ao conector do OneDrive for Business
@@ -25,7 +25,7 @@ O conector do OneDrive for Business pode ser usado por meio de:
 
 - [Aplicativos lógicos](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
 - [PowerApps](http://powerapps.microsoft.com)  
-- [Fluxos](http://flows.microsoft.com)  
+- [Fluxo](http://flows.microsoft.com)  
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -69,6 +69,8 @@ Para criar Aplicativos Lógicos com o OneDrive for Business, primeiro, você dev
 | ---|---|---|
 |A criptografia do token|Sim|Fornecer as credenciais do OneDrive for Business|
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
+
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 
 >[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
 
@@ -364,4 +366,4 @@ Extrair pasta: extrai uma pasta no OneDrive for Business
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

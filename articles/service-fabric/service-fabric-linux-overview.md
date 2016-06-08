@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2016"
+   ms.date="05/18/2016"
    ms.author="SubramaR"/>
 
 # Service Fabric no Linux
 
 No momento, o Service Fabric está disponível como uma visualização limitada no Linux, permitindo que você compile, implante e gerencie aplicativos altamente disponíveis e escalonáveis naquele ambiente, como faria no Windows. Além disso, as estruturas de alto nível do Service Fabric (Reliable Services e Reliable Actors) agora podem ser compilados em Java.
+
+> [AZURE.VIDEO service-fabric-linux-preview]
 
 ## Sistemas operacionais e linguagens de programação com suporte
 
@@ -30,7 +32,7 @@ Você pode criar [serviços executáveis convidados](service-fabric-deploy-exist
 
 ## Participar da visualização
 
-Se você estiver interessado em ser considerado para o programa de visualização limitada, [preencha a pesquisa](http://aka.ms/sflinuxsurvey) para que possamos entender seu cenário e seus requisitos. A visualização será muito pequena no início e aumentará ao longo do tempo.
+Se você estiver interessado em ser considerado para o programa de preview limitada, [preencha a pesquisa](http://aka.ms/sflinuxsurvey) para que possamos entender seu cenário e seus requisitos. A visualização será muito pequena no início e aumentará ao longo do tempo.
 
 Observe que o Service Fabric no Linux será conceitualmente equivalente ao que está disponível no Windows (exceto pelas informações específicas do sistema operacional e pelo suporte à linguagem de programação). Então, a maior parte da nossa [documentação existente](http://aka.ms/servicefabricdocs) se aplica e ajudará você a se familiarizar com a tecnologia.
 
@@ -38,4 +40,4 @@ Observe que o Service Fabric no Linux será conceitualmente equivalente ao que e
 
 Conheça as estruturas de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

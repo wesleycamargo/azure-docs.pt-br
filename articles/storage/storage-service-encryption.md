@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="05/11/2016"
 	ms.author="robinsh"/>
 
 # Criptografia do Serviço de Armazenamento do Azure para dados em repouso (Visualização)
@@ -37,7 +37,7 @@ Depois de clicar na configuração da Criptografia, habilite ou desabilite a Cri
 
 ##Disponibilidade
 
-Observe que esse recurso está disponível na Ásia Oriental para o Armazenamento Standard e no Leste do Japão para o Armazenamento Premium. Atualizaremos este documento à medida que lançarmos esse recurso em outras regiões.
+Observe que esse recurso está disponível atualmente na Ásia Oriental e na Europa Ocidental para o Armazenamento Standard e no Leste do Japão para o Armazenamento Premium. Atualizaremos este documento à medida que lançarmos esse recurso em outras regiões.
 
 ##Cenários de criptografia
 
@@ -215,7 +215,7 @@ R: Quando você criou a conta de armazenamento? Durante a versão de visualizaç
 
 **P: A visualização do SSE é permitida somente em regiões específicas?**
 
-R: A visualização do SSE está disponível na Ásia Oriental para o Armazenamento Standard e no Leste do Japão para o Armazenamento Premium. À medida que lançarmos para regiões adicionais nos próximos meses, atualizaremos este documento.
+R: A preview do SSE está disponível na Ásia Oriental e na Europa Ocidental para o Armazenamento Standard e no Leste do Japão para o Armazenamento Premium. À medida que lançarmos para regiões adicionais nos próximos meses, atualizaremos este documento.
 
 **P: Como devo contatar alguém se eu tiver problemas ou quiser enviar comentários?**
 
@@ -225,4 +225,4 @@ R: Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@mic
 
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, visite o [Guia de segurança do armazenamento](storage-security-guide.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="04/06/2016"
+	ms.date="05/13/2016"
 	ms.author="chrande"/>
 
 # Referência do desenvolvedor de NodeJS do Azure Functions
@@ -138,10 +138,22 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 
 A versão do nó está atualmente bloqueada em `5.9.1`. Estamos investigando a adição de suporte para mais versões torná-la configurável.
 
-Você pode incluir pacotes no seu diretório de função (isto é, por meio de `npm install`) e importá-los para a função da maneira usual (isto é, por meio de `require('packagename')`)
+Você pode incluir pacotes em sua função, carregando um arquivo *package.json* na pasta da sua função no sistema de arquivos do aplicativo de função. Para obter instruções de como carregar um arquivo, consulte **Como atualizar os arquivos de aplicativo de função** do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
+
+Você também pode usar `npm install` na interface de linha de comando do aplicativo de função SCM (Kudu):
+
+1. Navegue para: `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Clique em **Console de Depuração > CMD**.
+
+3. Navegue até `D:\home\site\wwwroot<function_name>`.
+
+4. Execute `npm install`.
+
+Depois que os pacotes necessários são instalados, você os importa para a função das maneiras comuns (por exemplo, via `require('packagename')`)
 
 ```javascript
-// Import the underescore.js library
+// Import the underscore.js library
 var _ = require('underscore');
 var version = process.version; // version === 'v5.9.1'
 
@@ -149,6 +161,27 @@ module.exports = function(context) {
     // Using our imported underscore.js library
     var matched_names = _
         .where(context.bindings.myInput.names, {first: 'Carla'});
+```
+
+## Variáveis de ambiente
+
+Para obter uma variável de ambiente ou um valor de configuração do aplicativo, use `process.env`, conforme mostrado no exemplo de código a seguir:
+
+```javascript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+    
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
+    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    
+    context.done();
+};
+
+function GetEnvironmentVariable(name)
+{
+    return name + ": " + process.env[name];
+}
 ```
 
 ## Suporte a TypeScript/CoffeeScript
@@ -163,4 +196,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -3,7 +3,7 @@
 	description="Processo e Tecnologia de Análise Avançada em ação"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="mohabib;fashah;bradsev"/>
+	ms.date="05/10/2016"
+	ms.author="fashah;bradsev"/>
 
 
 # Processo de Análise do Cortana em ação: usando SQL Server
 
-Neste tutorial, você obtém uma explicação passo a passo sobre como criar e implantar um modelo usando um conjunto de dados disponível publicamente -- o conjunto de dados [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). O procedimento segue o fluxo de trabalho do CAP(Processo de Análise do Cortana).
+Neste tutorial, você obtém um passo a passo sobre como criar e implantar um modelo de aprendizado de máquina usando um conjunto de dados disponível publicamente – o conjunto de dados [Corridas de Táxi em Nova York](http://www.andresmh.com/nyctaxitrips/). O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, projetar recursos para facilitar o aprendizado e, em seguida, criar e implantar um modelo.
 
 
 ## <a name="dataset"></a>Descrição do conjunto de dados Corridas de Táxi em NYC
@@ -716,4 +716,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0518_2016-->

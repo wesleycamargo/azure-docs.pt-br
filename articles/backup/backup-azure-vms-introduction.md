@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="05/16/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Planejar sua infraestrutura de backup da VM no Azure
@@ -86,6 +86,16 @@ Embora a maioria do tempo seja gasto com a leitura e a cópia de dados, existem 
 - Hora do instantâneo, que é o tempo levado para disparar um instantâneo. Os instantâneos são disparados próximo ao horário de backup agendado.
 - Tempo de espera da fila. Quando o serviço de backup estiver processando backups de vários clientes, a cópia de dados de backup do instantâneo para o Azure não será iniciada imediatamente. Em períodos de pico de carga, os tempos de espera podem se estender a até 8 horas devido ao número de backups sendo processados. No entanto, o tempo total de backup da VM será de menos de 24 horas para políticas de backup diárias.
 
+## Práticas Recomendadas
+É recomendável seguir as Práticas Recomendadas ao configurar backups de máquinas virtuais
+
+- Não agende mais de 4 VMs clássicas do mesmo serviço de nuvem para backup ao mesmo tempo. Sugerimos escalonar agendamentos de backup por uma hora se você quiser configurar mais VMs do mesmo serviço de nuvem para backup. 
+- Não agende mais de 40 VMs do Gerenciador de Recursos para backup ao mesmo tempo.
+- Agende backups durante horários fora de pico para as VMs, para que o serviço de backup obtenha IOPS para transferir dados da conta de armazenamento do cliente para o cofre de backup. 
+- Certifique-se de que, em uma política, as VMs sejam distribuídas de diferentes contas de armazenamento. Sugerimos que, se o número total de discos armazenados em uma única conta de armazenamento de VMs for mais de 20, espalhe as VMs em diferentes agendamentos de backup para obter a IOPS necessária durante a fase de transferência do backup.
+- Não é recomendável restaurar a VM em execução no armazenamento Premium para a mesma conta de armazenamento, pois essa operação pode entrar em operação de backup e reduzirá o número de IOPS disponíveis para backup. 
+- É recomendável manter cada VM Premium em contas de armazenamento premium diferentes para obter um bom desempenho em tempo de backup. 
+
 ## Criptografia de dados
 
 O Backup do Azure não criptografa os dados como parte do processo de backup. No entanto, você pode criptografar os dados dentro da VM e fazer backup dos dados protegidos diretamente (leia mais sobre [backup de dados criptografados](backup-azure-vms-encryption.md)).
@@ -121,4 +131,4 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 - [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 - [Solucionar problemas de backup da VM](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

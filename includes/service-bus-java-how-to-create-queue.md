@@ -6,17 +6,17 @@ Filas do Barramento de Serviço dão suporte a um modelo de comunicação de **s
 
 Filas do Barramento de Serviço são uma tecnologia de uso geral que pode ser usada para uma grande variedade de cenários:
 
--   Comunicação entre as funções Web e de trabalho em um aplicativo multicamada do Azure.
--   Comunicação entre aplicativos locais e aplicativos hospedados pelo Azure em uma solução híbrida.
--   Comunicação entre os componentes de um aplicativo distribuído executado localmente em diferentes organizações ou departamentos de uma organização.
+- Comunicação entre as funções Web e de trabalho em um aplicativo multicamada do Azure.
+- Comunicação entre aplicativos locais e aplicativos hospedados pelo Azure em uma solução híbrida.
+- Comunicação entre os componentes de um aplicativo distribuído executado localmente em diferentes organizações ou departamentos de uma organização.
 
-O uso de filas permite que você escale horizontalmente seus aplicativos com mais facilidade e concede mais resiliência à sua arquitetura.
+O uso de filas permite que você escale horizontalmente seus aplicativos com mais facilidade e proporciona mais resiliência em sua arquitetura.
 
 ## Criar um namespace de serviço
 
-Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
+Para começar a usar as filas do Barramento de Serviço no Azure, primeiro é necessário criar um namespace. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
-Para criar um namespace de serviço:
+Para criar um namespace:
 
 1.  Faça logon no [portal clássico do Azure][].
 
@@ -51,5 +51,3 @@ A fim de executar operações de gerenciamento, como criar uma fila no novo name
   [portal clássico do Azure]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
-
-<!---HONumber=AcomDC_0128_2016-->

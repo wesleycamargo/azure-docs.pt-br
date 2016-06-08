@@ -20,15 +20,61 @@
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em Java e usam o [SDK do Azure para Java][]. Os cenários cobertos incluem a **criação de filas**, o **envio e recebimento de mensagens** e a **exclusão de filas**.
+Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em Java e usam o [SDK do Azure para Java][]. Os cenários cobertos incluem **criar filas**, **enviar e receber mensagens** e **excluir filas**.
 
-[AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
+## O que são as filas do Barramento de Serviço?
+
+Filas do Barramento de Serviço dão suporte a um modelo de comunicação de **sistema de mensagens agenciado**. Ao usar filas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de uma fila, que atua como um intermediário (agente). Um produtor de mensagem (remetente) transmite uma mensagem para a fila e, em seguida, continua o processamento. De forma assíncrona, um consumidor de mensagem (receptor) recebe a mensagem da fila e a processa. O produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mais mensagens. As filas oferecem entrega de mensagem do tipo **FIFO (primeiro a entrar, primeiro a sair)** para um ou mais consumidores concorrentes. Ou seja, as mensagens são normalmente recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
+
+![Conceitos de fila](./media/service-bus-java-how-to-use-queues/sb-queues-08.png)
+
+Filas do Barramento de Serviço são uma tecnologia de uso geral que pode ser usada para uma grande variedade de cenários:
+
+- Comunicação entre as funções Web e de trabalho em um aplicativo multicamada do Azure.
+- Comunicação entre aplicativos locais e aplicativos hospedados pelo Azure em uma solução híbrida.
+- Comunicação entre os componentes de um aplicativo distribuído executado localmente em diferentes organizações ou departamentos de uma organização.
+
+O uso de filas permite que você escale horizontalmente seus aplicativos com mais facilidade e proporciona mais resiliência em sua arquitetura.
+
+## Criar um namespace de serviço
+
+Para começar a usar as filas do Barramento de Serviço no Azure, primeiro é necessário criar um namespace. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
+
+Para criar um namespace:
+
+1.  Faça logon no [portal clássico do Azure][].
+
+2.  No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
+
+3.  No painel inferior do portal, clique em **Criar**. ![](./media/service-bus-java-how-to-use-queues/sb-queues-03.png)
+
+4.  No diálogo **Adicionar um novo namespace**, digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível. ![](./media/service-bus-java-how-to-use-queues/sb-queues-04.png)
+
+5.  Depois de verificar se o nome do namespace está disponível, escolha o país ou a região em que o namespace deve ser hospedado (certifique-se de usar o mesmo país/região em que você está implantando seus recursos de computação).
+
+	IMPORTANTE: selecione a **mesma região** que você pretende escolher para implantar seu aplicativo. Isso lhe dará o melhor desempenho.
+
+6. 	Deixe os outros campos na caixa de diálogo com seus valores padrão (**Mensagens** e **Camada padrão**), em seguida, clique na marca de seleção. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, enquanto o sistema provisiona recursos para sua conta.
+
+O namespace que você criou demora algum tempo para ser ativado, e então aparece no portal do Azure. Aguarde até que o status do namespace seja **Ativo** para continuar.
+
+## Obter as credenciais de gerenciamento padrão do namespace
+
+A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, obtenha as credenciais de gerenciamento para o namespace. Você pode obter essas credenciais no portal.
+
+1.  No painel de navegação esquerdo, clique no nó **Barramento de Serviço** para exibir a lista de namespaces disponíveis: ![](./media/service-bus-java-how-to-use-queues/sb-queues-13.png)
+
+2.  Na lista mostrada, clique no namespace que acabou de criar.
+
+3.  Clique em **Configurar** para exibir as políticas de acesso compartilhado para seu namespace. ![](./media/service-bus-java-how-to-use-queues/sb-queues-14.png)
+
+4.  Anote a chave primária ou copie-a na área de transferência.
 
 ## Configurar seu aplicativo para usar o Barramento de serviço
 
 Verifique se você instalou o [SDK do Azure para Java][] antes de compilar este exemplo. Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
 
-![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
 Adicione as seguintes instruções `import` à parte superior do arquivo Java:
 
@@ -106,7 +152,7 @@ O exemplo a seguir demonstra como enviar cinco mensagens de teste para o objeto 
          service.sendQueueMessage("TestQueue", message);
     }
 
-As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB.
+As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB.
 
 ## Receber mensagens de uma fila
 
@@ -188,5 +234,6 @@ Para saber mais, consulte o [Centro do desenvolvedor para Java](/develop/java/).
   [Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+  [portal clássico do Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

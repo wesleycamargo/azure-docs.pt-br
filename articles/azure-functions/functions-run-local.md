@@ -142,6 +142,8 @@ Se o seu objetivo é contribuir para o projeto WebJobs.SDK, todos os pré-requis
 		Host.Functions.TimerTrigger-CSharp
 		Job host started
 
+	Se você estiver iniciando o projeto WebHost, obterá uma página em branco do navegador porque não há qualquer conteúdo a ser servido na URL base do projeto. Confira a seção [Chaves de API](#apikeys) para obter informações sobre as URLs a serem usadas para funções de gatilho HTTP.
+
 ## Exibição da saída da função
 
 Vá para o painel do aplicativo de função ver as invocações de função e a saída do log para elas.
@@ -158,7 +160,7 @@ Clique em uma invocação para ver a página **Detalhes da Invocação**, que in
 
 ![Detalhe de invocação](./media/functions-run-local/invocationdetail.png)
 
-## <a id="apikeys"></a> Chaves de API para disparadores HTTP
+## <a id="apikeys"></a> Chaves de API para gatilhos HTTP
 
 Para executar uma função HTTP ou WebHook, você precisará de uma chave de API, a menos que inclua `"authLevel": "anonymous"` no arquivo *function.json*.
 
@@ -166,7 +168,7 @@ Por exemplo, se a chave de API for `12345`, você poderá disparar a função *H
 
 	http://localhost:28549/api/httptrigger?code=12345
 
-(Como alternativa, você pode colocar a chave de API no cabeçalho HTTP `x-functions-key`.)
+(Como alternativa, você pode colocar a chave de API no cabeçalho HTTP `x-functions-key`).
 
 As chaves de API são armazenadas em arquivos `.json` na pasta [App\_Data/secrets](https://github.com/Azure/azure-webjobs-sdk-script/tree/master/src/WebJobs.Script.WebHost/App_Data/secrets) no projeto WebJobs.Script.WebHost.
 
@@ -191,13 +193,17 @@ A propriedade `masterKey` armazena uma chave que é útil em alguns cenários de
  
 ### Chaves de API que se aplicam a funções individuais
 
-Os arquivos denominados *{function name}.json* contêm a chave de API de uma função específica. Por exemplo, o conteúdo JSON a seguir em *App\_Data/secrets/HttpTrigger.json* define a chave de API para a função `HttpTrigger`.
+Os arquivos denominados *{nome da função}.json* contêm a chave de API de uma função específica. Por exemplo, o conteúdo JSON a seguir em *App\_Data/secrets/HttpTrigger.json* define a chave de API para a função `HttpTrigger`.
 
 ```json
 {
   "key": "844f2mdhn844f2mb7hyexydhln844f2mb7"
 }
 ```
+
+## Usando referências do pacote do NuGet em funções  
+
+Devido à maneira como as referências de NuGet são processadas atualmente, "toque" no arquivo *project.json* enquanto o host estiver em execução. O host inspeciona as modificações de arquivos e inicia uma restauração ao detectar alterações. Além disso, o *NuGet.exe* (a versão 3.3.0 é recomendada) deve estar em seu caminho ou você deve ter uma variável de ambiente denominada AzureWebJobs\_NuGetPath definida, com o caminho para *NuGet.exe*.
 
 ## Solucionar problemas
 
@@ -216,4 +222,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

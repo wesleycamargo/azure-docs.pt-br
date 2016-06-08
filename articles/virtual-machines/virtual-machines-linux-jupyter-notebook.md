@@ -41,7 +41,7 @@ A primeira etapa é criar uma VM (máquina virtual) que seja executada no Azure.
 
 Siga as instruções fornecidas [aqui][portal-vm-linux] para criar uma máquina virtual da distribuição *Ubuntu*. Este tutorial usa o Ubuntu Server 14.04 LTS. Vamos supor que o nome de usuário seja *azureuser*.
 
-Após a implantação da máquina virtual, precisamos abrir uma regra de segurança no grupo de segurança de rede. No portal do Azure, acesse **Grupos de Segurança de Rede** e abra a guia do Grupo de Segurança correspondente à sua VM. Você precisa adicionar uma regra de Segurança de Entrada com as seguintes configurações: **TCP** para o protocolo, ***** para a porta de origem (pública) e **9999** para a porta de destino (privada).
+Após a implantação da máquina virtual, precisamos abrir uma regra de segurança no grupo de segurança de rede. No portal do Azure, acesse **Grupos de Segurança de Rede** e abra a guia do Grupo de Segurança correspondente à sua VM. Você precisa adicionar uma regra de Segurança de Entrada com as seguintes configurações: **TCP** para o protocolo, **\*** para a porta de origem (pública) e **9999** para a porta de destino (privada).
 
 ![Captura de tela](./media/virtual-machines-linux-jupyter-notebook/azure-add-endpoint.png)
 
@@ -92,7 +92,7 @@ Veja um exemplo de como você pode instalar o Anaconda no Ubuntu
 	rm -rf anaconda/
 
 	# Update Jupyter to the latest install and generate its config file
-	sudo /anaconda3/bin/conda install -f jupyter -y
+	sudo /anaconda3/bin/conda install jupyter -y
 	/anaconda3/bin/jupyter-notebook --generate-config
 
 
@@ -124,7 +124,7 @@ Você receberá de solicitação de uma senha e uma confirmação e, em seguida,
     Verify password:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
-Em seguida, editaremos o arquivo de configuração do perfil, que é o arquivo `jupyter_notebook_config.py` no diretório atual. Observe que este arquivo talvez não exista; neste caso, basta criá-lo. Esse arquivo tem diversos campos, todos comentados por padrão. Você pode abrir esse arquivo em qualquer editor de texto da sua preferência e deve garantir que ele tenha pelo menos o conteúdo a seguir. Lembre-se de substituir a senha pelo sha1 da etapa anterior.
+Em seguida, editaremos o arquivo de configuração do perfil, que é o arquivo `jupyter_notebook_config.py` no diretório atual. Observe que este arquivo talvez não exista; neste caso, basta criá-lo. Esse arquivo tem diversos campos, todos comentados por padrão. Você pode abrir esse arquivo em qualquer editor de texto da sua preferência e deve garantir que ele tenha pelo menos o conteúdo a seguir. **Lembre-se de substituir a senha c.NotebookApp.password na configuração pelo sha1 da etapa anterior**.
 
     c = get_config()
 
@@ -135,7 +135,7 @@ Em seguida, editaremos o arquivo de configuração do perfil, que é o arquivo `
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed :wqtraffic on that port
+    # our Azure setup, where we've allowed traffic on that port
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
@@ -199,4 +199,4 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 [repositório]: https://github.com/ipython/ipython
 [Ferramentas Python para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016" 
+	ms.date="05/11/2016"
 	ms.author="casoper"/>
 
 # Substituir o comportamento HTTP padrão usando o mecanismo de regras
 
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
+
 ## Visão geral
 
 O mecanismo de regras permite personalizar a forma como as solicitações HTTP são manipuladas, como o bloqueio de entrega de alguns tipos de conteúdo, definição de uma política de caching e modificação dos cabeçalhos HTTP. Este tutorial demonstrará a criação de uma regra que irá alterar o comportamento de caching dos ativos da CDN. Também há conteúdo de vídeo disponível na seção "[Veja também](#see-also)".
-
-> [AZURE.NOTE] O mecanismo de regras é um recurso da camada Premium da CDN. Para obter uma comparação dos recursos de CDN Standard e Premium, confira [Visão geral da CDN do Azure](cdn-overview.md).
 
 ## Tutorial
 
@@ -38,6 +38,8 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
 
 	![Novas opções de regra CDN](./media/cdn-rules-engine/cdn-new-rule.png)
 
+	>[AZURE.IMPORTANT] A ordem na qual são listadas várias regras afeta como elas são manipuladas. Uma regra subsequente poderá substituir as ações especificadas por uma regra anterior.
+	
 3. Insira um nome na caixa de texto **Nome/Descrição**.
 
 4. Identifique o tipo de solicitações às quais a regra será aplicada. Por padrão, a condição de correspondência **Sempre** é selecionada. Você usará **Sempre** para este tutorial; portanto, deixe essa opção marcada.
@@ -58,12 +60,10 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
 
 6.  Clique no botão **Adicionar** para salvar a nova regra. A nova regra agora está aguardando aprovação. Depois de aprovado, o status será alterado de **XML Pendente** para **XML Ativo**.
 
-## Considerações
-
-- A ordem na qual são listadas várias regras afeta como elas são manipuladas. Uma regra subsequente poderá substituir as ações especificadas por uma regra anterior.
+	>[AZURE.IMPORTANT] Alterações de regras podem levar até 90 minutos para propagar por meio da CDN.
 
 ## Consulte também
-* [Azure Fridays: novos recursos Premium poderosos do Azure CDN](../../videos/azure-cdns-powerful-new-premium-features/) (vídeo)
+* [Azure Fridays: novos recursos Premium poderosos do Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
 * [Condição de correspondência do mecanismo de regras e detalhes do recurso](cdn-rules-engine-details.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

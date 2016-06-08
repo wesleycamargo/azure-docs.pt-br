@@ -53,7 +53,7 @@ Veja abaixo a descrição das etapas para fazer isso
 
 ## Configurar a Automação do Azure para acessar suas máquinas virtuais
 
-A primeira coisa que você precisa fazer é criar uma conta de Automação do Azure que hospedará os Runbooks usados para dimensionar as instâncias do Conjunto de Escala de VM. O serviço de Automação introduziu recentemente o recurso "Executar como conta" que facilita a configuração da Entidade de Serviço para execução automática de Runbooks em nome do usuário. Leia mais sobre isso no artigo abaixo:
+A primeira coisa que você precisa fazer é criar uma conta de Automação do Azure que hospedará os runbooks usados para dimensionar uma Máquina Virtual. O serviço de Automação introduziu recentemente o recurso "Executar como conta" que facilita a configuração da Entidade de Serviço para execução automática de Runbooks em nome do usuário. Leia mais sobre isso no artigo abaixo:
 
 * [Autenticar runbooks com uma conta Executar como do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
@@ -90,4 +90,4 @@ Copie o webhook antes de fechar a caixa de diálogo do webhook, pois você preci
 
 ![Adicionar alerta à máquina virtual 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

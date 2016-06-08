@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/28/2016"
+   ms.date="05/12/2016"
    ms.author="chackdan"/>
 
 
@@ -53,6 +53,7 @@ Pré-requisitos para cada computador que você deseja adicionar ao cluster:
 - .NET Framework 4.5.1 ou superior, instalação completa
 - Windows PowerShell 3.0
 - O administrador do cluster que estiver implantando e configurando o cluster precisa ter privilégios de administrador em cada um dos computadores.
+- O serviço RemoteRegistry deve ser executado em todos os computadores.
 
 ### Etapa 3: Determinar o tamanho inicial do cluster
 Cada nó consiste em uma pilha completa do Service Fabric e é um membro individual do cluster do Service Fabric. Em uma implantação típica do Service Fabric, há um nó por instância de SO (física ou virtual). O tamanho do cluster é determinado por suas necessidades de negócios. No entanto, você precisa ter um tamanho mínimo de cluster de três nós (máquinas/VMs). Observe que, para fins de desenvolvimento, você pode ter mais de um nó em um determinado computador. Em um ambiente de produção, o Service Fabric dá suporte apenas a um nó por máquina virtual ou física.
@@ -114,4 +115,4 @@ Leia os artigos a seguir para começar com o desenvolvimento e a implantação d
 Leia mais sobre clusters do Azure e clusters autônomos:
 - [Visão geral do recurso de criação de cluster autônomo e uma comparação com clusters gerenciados pelo Azure](service-fabric-deploy-anywhere.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

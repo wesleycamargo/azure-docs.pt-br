@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Perguntas frequentes do Azure AD Connect
@@ -68,4 +68,4 @@ Você também pode configurar o Azure AD para permitir que o mecanismo de sincro
 
 - Use este link para obter suporte por meio do Portal do Azure.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

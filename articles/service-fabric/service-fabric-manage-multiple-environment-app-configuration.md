@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="04/26/2016"
    ms.author="seanmck"/>
 
 # Gerenciar parâmetros do aplicativo para vários ambientes
@@ -24,7 +24,7 @@ Como um exemplo simples, considere a `InstanceCount` para um serviço sem estado
 
 ## Especificando parâmetros específicos do ambiente
 
-A solução para esse problema de configuração é um conjunto de serviços padrão parametrizados e arquivos de parâmetros do aplicativo que preencham os valores de parâmetro para um determinado ambiente.
+A solução para esse problema de configuração é um conjunto de serviços padrão parametrizados e arquivos de parâmetros do aplicativo que preencham os valores de parâmetro para um determinado ambiente. Os parâmetros padrão dos serviços e do aplicativo são configurados nos manifestos do aplicativo e do serviço. A definição de esquema dos arquivos ServiceManifest.xml e ApplicationManifest.xml é instalada com o SDK e as ferramentas do Service Fabric em *C:\\Arquivos de Programas\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 ### Serviços padrão
 
@@ -33,10 +33,13 @@ Os aplicativos do Service Fabric são compostos de uma coleção de instâncias 
     <DefaultServices>
         <Service Name="Stateful1">
             <StatefulService
-                ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+                ServiceTypeName="Stateful1Type"
+                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
                 <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808"
+                    PartitionCount="[Stateful1_PartitionCount]"
+                    LowKey="-9223372036854775808"
                     HighKey="9223372036854775807"
                 />
         </StatefulService>
@@ -58,9 +61,9 @@ O atributo DefaultValue especifica o valor a ser usado na ausência de um parâm
 
 ### Definições de configuração de serviço por ambiente
 
-O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) permite que os serviços incluam pacotes de configuração com pares de chave e valor personalizados legíveis em tempo de execução. Os valores dessas configurações também podem ser diferenciados pelo ambiente por meio da especificação de uma `ConfigOverride` no manifesto do aplicativo.
+O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) permite que os serviços incluam pacotes de configuração com pares chave-valor personalizados legíveis em tempo de execução. Os valores dessas configurações também podem ser diferenciados pelo ambiente por meio da especificação de uma `ConfigOverride` no manifesto do aplicativo.
 
-Suponha que você tenha a seguinte configuração no arquivo Config\\Settings.xml para o serviço `Stateful1`:
+Suponha que você tem a seguinte configuração no arquivo Config\\Settings.xml para o serviço `Stateful1`:
 
 
     <Section Name="MyConfigSection">
@@ -116,17 +119,19 @@ Você pode escolher na lista de arquivos de parâmetro disponíveis ao publicar 
 
 ### Implantar do PowerShell
 
-O script `DeployCreate-FabricApplication.ps1` do PowerShell aceita um arquivo de parâmetros como um parâmetro.
+O script `Deploy-FabricApplication.ps1` do PowerShell incluído no modelo de projeto de aplicativo aceita um perfil de publicação como parâmetro, e o PublishProfile contém uma referência para o arquivo de parâmetros do aplicativo.
 
-    ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
+  ```PowerShell
+    ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
+  ```
 
 ## Próximas etapas
 
-Para saber mais sobre alguns dos principais conceitos discutidos neste tópico, veja a [Visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para obter informações sobre outros recursos de gerenciamento de aplicativos disponíveis no Visual Studio, confira [Gerenciar seus aplicativos do Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Para saber mais sobre alguns dos principais conceitos discutidos neste tópico, confira a [visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para obter informações sobre outras funcionalidades de gerenciamento de aplicativo disponíveis no Visual Studio, confira [Gerenciar seus aplicativos do Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0518_2016-->

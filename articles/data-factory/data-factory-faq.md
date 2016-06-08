@@ -35,8 +35,8 @@ Confira a [página de Detalhes de Preços do Data Factory][adf-pricing-details] 
 ### Como faço para começar a utilizar o Azure Data Factory?
 
 - Para obter uma visão geral do Azure Data Factory, confira [Introdução ao Azure Data Factory](data-factory-introduction.md).
-- Para obter um tutorial rápido, confira [Introdução ao Azure Data Factory](data-factory-get-started.md).
-- Para obter a documentação abrangente, confira a [Documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+- Para obter um tutorial sobre como **copiar/mover dados** usando a atividade de cópia, consulte [Copiar dados do Armazenamento de Blob do Azure para o Banco de Dados SQL](data-factory-get-started.md).
+- Para obter um tutorial sobre como **transformar dados** usando a atividade Hive do HDInsight. Consulte [Processar dados executando o script do Hive no cluster do Hadoop](data-factory-build-your-first-pipeline.md) 
   
 ### Qual é a disponibilidade regional do Data Factory?
 O Data Factory está disponível no **Oeste dos EUA** e no **Europa Setentrional**. Os serviços de computação e armazenamento utilizados por data factories podem estar em outras regiões. Consulte [Regiões com suporte](data-factory-introduction.md#supported-regions).
@@ -45,18 +45,17 @@ O Data Factory está disponível no **Oeste dos EUA** e no **Europa Setentrional
  
 Consulte a seção **Limites do Azure Data Factory** do artigo [Limites, cotas e restrições da assinatura e do serviço do Azure](../azure-subscription-service-limits.md#data-factory-limits).
 
-
 ### O que é a experiência de criação/desenvolvedor com o serviço Azure Data Factory?
 
 Você pode criar fábricas de dados usando um dos seguintes itens:
 
-- **Azure Portal** As folhas do Data Factory no Portal do Azure fornecem uma interface do usuário avançada para que você crie serviços vinculados a anúncios de fábricas de dados. O **Editor Data Factory**, que também faz parte do portal, permite que você crie facilmente serviços vinculados, tabelas, conjuntos de dados e pipelines especificando definições de JSON para esses artefatos. Confira [Introdução ao Data Factory](data-factory-get-started.md) para obter um exemplo de como usar o portal/editor para criar e implantar um Data Factory.   
+- **Azure Portal** As folhas do Data Factory no Portal do Azure fornecem uma interface do usuário avançada para que você crie serviços vinculados a anúncios de fábricas de dados. O **Editor Data Factory**, que também faz parte do portal, permite que você crie facilmente serviços vinculados, tabelas, conjuntos de dados e pipelines especificando definições de JSON para esses artefatos. Confira [Crie seu primeiro pipeline de dados usando o Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md) para obter um exemplo de como usar o portal/editor para criar e implantar um Data Factory.
 
-- **Azure PowerShell** Se você for um usuário do PowerShell e preferir usar o PowerShell em vez da interface do usuário do Portal, poderá usar os cmdlets do Azure Data Factory que são fornecidos como parte do Azure PowerShell para criar e implantar fábricas de dados. Confira [Criar e monitorar o Azure Data Factory usando o PowerShell do Azure](data-factory-monitor-manage-using-powershell.md) para obter um exemplo simples e [Tutorial: mover e processar os arquivos de log usando o Data Factory][adf-tutorial] para obter um exemplo avançado de uso de cmdlets do PowerShell para criar e implantar uma fábrica de dados. Confira o conteúdo de [Referência de cmdlets de Data Factory][adf-powershell-reference] na Biblioteca do MSDN para obter uma documentação abrangente de cmdlets de Data Factory.
-  
-- **Visual Studio** Você também pode usar o Visual Studio para criar, monitorar e gerenciar as fábricas de dados programaticamente. Consulte [Criar, monitorar e gerenciar data factories do Azure usando o SDK do .NET do Data Factory](data-factory-create-data-factories-programmatically.md) para obter detalhes.
-  
-- **Biblioteca de classes .NET** Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Data Factory. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET][create-factory-using-dotnet-sdk] para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Confira a [Referência da Biblioteca de Classes de Data Factory][msdn-class-library-reference] para obter uma documentação abrangente sobre o SDK do .NET de Data Factory.
+- **Visual Studio** Você pode usar o Visual Studio para criar uma fábrica de dados do Azure. Consulte [Criar seu primeiro pipeline de dados usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) para obter detalhes.
+
+- **Azure PowerShell** Consulte [Criar e monitorar Azure Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para ver um tutorial/passo a passo da criação de um fábrica de dados usando o PowerShell. Confira o conteúdo de [Referência de cmdlets de Data Factory][adf-powershell-reference] na Biblioteca do MSDN para obter uma documentação abrangente de cmdlets de Data Factory.
+   
+- **Biblioteca de classes .NET** Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Data Factory. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET](data-factory-create-data-factories-programmatically.md) para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Confira a [Referência da Biblioteca de Classes de Data Factory][msdn-class-library-reference] para obter uma documentação abrangente sobre o SDK do .NET de Data Factory.
 
 - **REST API** Você também pode usar a API REST exposta pelo serviço do Azure Data Factory para criar e implantar fábricas de dados. Confira a [Referência da API REST de Data Factory][msdn-rest-api-reference] para obter uma documentação abrangente da API REST de Data Factory.
  
@@ -102,10 +101,12 @@ Se você estiver usando um cluster sob demanda que é criado pelo serviço Data 
 	    "properties":
 	    {
 	        "type": "HDInsightOnDemandLinkedService",
-	        "clusterSize": 1,
-	        "timeToLive": "00:01:00",
-	        "linkedServiceName": "LinkedService-SampleData",
-	        "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
+			"typeProperties": {
+	        	"clusterSize": 1,
+		        "timeToLive": "00:01:00",
+		        "linkedServiceName": "LinkedService-SampleData",
+		        "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
+			}
 	    }
 	} 
 
@@ -113,10 +114,36 @@ No exemplo acima, otherLinkedServiceName1 e otherLinkedServiceName2 representam 
 
 ## Fatias - Perguntas frequentes
 
+### Por que minhas fatias de entrada não estão no estado Pronto? 
+Um erro comum é não configurar a propriedade **external** como **true** no conjunto de dados de entrada quando os dados de entrada são externos ao data factory (não produzidos pelo data factory).
+
+No exemplo a seguir, você só precisa definir **external** como true no **dataset1**.
+
+**DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
+
+Se tiver outro data factory com um pipeline que use o dataset4 (produzido pelo pipeline 2 no data factory 1), você precisará marcar o dataset4 como um conjunto de dados externo, pois o conjunto de dados é produzido por um data factory diferente (DataFactory1, não DataFactory2).
+
+**DataFactory2** Pipeline 1: dataset4->activity4->dataset5
+
+Se a propriedade external estiver definida corretamente, verifique se os dados de entrada existem no local especificado na definição de conjunto de dados de entrada.
+
+### Como executar uma fatia em outro horário que não à meia-noite quando a fatia é produzida diariamente?
+Use a propriedade **offset** para especificar a hora em que você deseja que a fatia seja produzida. Confira a seção [Disponibilidade do conjunto de dados](data-factory-create-datasets.md#Availability) para obter detalhes sobre essa propriedade. Aqui está um exemplo rápido:
+
+	"availability":
+	{
+	    "frequency": "Day",
+	    "interval": 1,
+	    "offset": "06:00:00"
+	}
+
+Divisões diárias que se iniciam às **6h**, em vez da meia-noite do padrão.Data do lançamento
+
 ### Como executo novamente uma fatia?
 Você pode executar novamente uma fatia de uma das seguintes maneiras:
 
-- Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal. 
+- Use o Aplicativo Monitorar e Gerenciar para executar uma janela de atividade ou fatia novamente. Confira [Executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#re-run-selected-activity-windows) para obter instruções.   
+- Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal.
 - Execute o cmdlet **Set-AzureRmDataFactorySliceStatus** com Status definido como **Aguardando** para a fatia.   
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
@@ -124,6 +151,10 @@ Você pode executar novamente uma fatia de uma das seguintes maneiras:
 Confira [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
 
 ### Quanto tempo levou para processar uma fatia?
+Use o Gerenciador de Janela de Atividade no Aplicativo Monitorar e Gerenciar para saber quanto tempo foi necessário para processar uma fatia de dados. Confira [Gerenciador de Janelas de Atividades](data-factory-monitor-manage-app.md#activity-window-explorer) para obter detalhes.
+
+Você também pode fazer o seguinte no portal do Azure:
+
 1. Clique no bloco **Conjuntos de dados** da folha **DATA FACTORY** da sua fábrica de dados.
 2. Clique no conjunto de dados específico na folha **Conjuntos de dados**.
 3. Selecione a fatia em que você está interessado na lista **Fatias recentes** na folha **TABELA**.
@@ -137,7 +168,6 @@ Se você precisar interromper a execução do pipeline, poderá usar o cmdlet [S
 Se você realmente desejar parar todas as execuções imediatamente, a única maneira seria excluir o pipeline e criá-lo novamente. Se você optar por excluir o pipeline, não é necessário excluir tabelas e serviços vinculados usados pelo pipeline.
 
 
-[adf-tutorial]: data-factory-tutorial.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
 [msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
 [msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
@@ -152,4 +182,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

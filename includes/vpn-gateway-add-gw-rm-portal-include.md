@@ -25,4 +25,5 @@
 
 11. Depois de criar o gateway você pode exibir, observando a Rede Virtual no portal, o endereço IP que foi atribuído a esse gateway. O gateway será exibido como um dispositivo conectado. Você pode clicar no dispositivo conectado (seu gateway de rede virtual) para exibir mais informações.
 
-<!---HONumber=AcomDC_0406_2016-->
+
+

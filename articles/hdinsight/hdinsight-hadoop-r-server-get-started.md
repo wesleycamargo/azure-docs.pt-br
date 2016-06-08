@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introdução ao Servidor R no HDInsight (preview) | Azure"
-   description="Saiba como criar um Apache Spark no cluster HDInsight (preview) que inclui o Servidor R e enviar um script R no cluster em seguida."
+   description="Saiba como criar um Apache Spark no cluster HDInsight (Hadoop) que inclui o Servidor R (visualização) e, então, enviar um script R no cluster."
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
@@ -14,12 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="03/25/2016"
-   ms.author="jeffstok"/>
+   ms.date="05/16/2016"
+   ms.author="jeffstok"
+/>
 
-#Introdução ao uso do Servidor R no HDInsight (preview)
+# Introdução ao uso do Servidor R no HDInsight (preview)
 
-A oferta da camada premium para o HDInsight inclui o Servidor R no HDInsight (preview). Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Neste documento, você aprenderá como criar um novo Servidor R no HDInsight e, então, executar um script R que demonstre o uso do Spark para cálculos R distribuídos.
+A oferta da camada premium do HDInsight inclui o Servidor R como parte do cluster HDInsight (visualização). Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Neste documento, você aprenderá como criar um novo Servidor R no HDInsight e, então, executar um script R que demonstre o uso do Spark para cálculos R distribuídos.
 
 ![Diagrama de fluxo de trabalho para este documento](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -174,75 +175,105 @@ Um contexto de computação permite que você controle se o cálculo será execu
         
 1. No console R, use o seguinte para carregar dados de exemplo no armazenamento padrão do HDInsight.
 
-        # Set the NameNode and port for the cluster
-        myNameNode <- "default"
-        myPort <- 0
         # Set the HDFS (WASB) location of example data
         bigDataDirRoot <- "/example/data"
-        # Source for the data to load
-        source <- system.file("SampleData/AirlineDemoSmall.csv", package="RevoScaleR")
-        # Directory in bigDataDirRoot to load the data into
-        inputDir <- file.path(bigDataDirRoot,"AirlineDemoSmall") 
+        # create a local folder for storaging data temporarily
+        source <- "/tmp/AirOnTimeCSV2012"
+        dir.create(source)
+        # Download data to the tmp folder
+        remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
+        download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
+        download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
+        download.file(file.path(remoteDir, "airOT201203.csv"), file.path(source, "airOT201203.csv"))
+        download.file(file.path(remoteDir, "airOT201204.csv"), file.path(source, "airOT201204.csv"))
+        download.file(file.path(remoteDir, "airOT201205.csv"), file.path(source, "airOT201205.csv"))
+        download.file(file.path(remoteDir, "airOT201206.csv"), file.path(source, "airOT201206.csv"))
+        download.file(file.path(remoteDir, "airOT201207.csv"), file.path(source, "airOT201207.csv"))
+        download.file(file.path(remoteDir, "airOT201208.csv"), file.path(source, "airOT201208.csv"))
+        download.file(file.path(remoteDir, "airOT201209.csv"), file.path(source, "airOT201209.csv"))
+        download.file(file.path(remoteDir, "airOT201210.csv"), file.path(source, "airOT201210.csv"))
+        download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
+        download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
+        # Set directory in bigDataDirRoot to load the data into
+        inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012") 
         # Make the directory
         rxHadoopMakeDir(inputDir)
         # Copy the data from source to input
-        rxHadoopCopyFromLocal(source, inputDir)
+        rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
-2. Em seguida, criaremos alguns fatores e definiremos uma fonte de dados para que possamos trabalhar com os dados.
+2. Em seguida, criaremos algumas informações de dados e definiremos duas fontes de dados para que possamos trabalhar com os dados.
 
         # Define the HDFS (WASB) file system
-        hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, 
-                                   port=myPort)
-        # Create Factors for the days of the week
-        colInfo <- list(DayOfWeek = list(type = "factor",
-             levels = c("Monday", 
-                        "Tuesday", 
-                        "Wednesday", 
-                        "Thursday", 
-                        "Friday", 
-                        "Saturday", 
-                        "Sunday")))
-        # Define the data source
-        airDS <- RxTextData(file = inputDir, 
-                            missingValueString = "M",
-                            colInfo  = colInfo, 
-                            fileSystem = hdfsFS)
+        hdfsFS <- RxHdfsFileSystem()
+        # Create info list for the airline data
+        airlineColInfo <- list(
+            DAY_OF_WEEK = list(type = "factor"),
+            ORIGIN = list(type = "factor"),
+            DEST = list(type = "factor"),
+            DEP_TIME = list(type = "integer"),
+            ARR_DEL15 = list(type = "logical"))
 
-3. Vamos executar uma regressão linear com os dados usando o contexto de computação local.
+        # get all the column names
+        varNames <- names(airlineColInfo)
+
+        # Define the text data source in hdfs
+        airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
+        # Define the text data source in local system
+        airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
+
+        # formula to use
+        formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
+
+3. Vamos executar uma regressão logística com os dados usando o contexto de computação local.
 
         # Set a local compute context
         rxSetComputeContext("local")
-        # Run a linear regression
+        # Run a logistic regression
         system.time(
-            modelLocal <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek,
-                                   data = airDS)
+            modelLocal <- rxLogit(formula, data = airOnTimeDataLocal)
         )
         # Display a summary 
-        summary(modelLocal) 
+        summary(modelLocal)
 
     Você deve ver a saída que termina com linhas semelhantes à seguinte.
-    
-        Residual standard error: 40.39 on 582620 degrees of freedom
-        Multiple R-squared: 0.01465
-        Adjusted R-squared: 0.01464
-        F-statistic:  1238 on 7 and 582620 DF,  p-value: < 2.2e-16
-        Condition number: 10.6542
 
-4. Em seguida, vamos executar a mesma regressão linear usando o contexto do Spark. O contexto do Spark distribuirá o processamento em todos os nós de trabalho no cluster HDInsight.
+        Data: airOnTimeDataLocal (RxTextData Data Source)
+        File name: /tmp/AirOnTimeCSV2012
+        Dependent variable(s): ARR_DEL15
+        Total independent variables: 634 (Including number dropped: 3)
+        Number of valid observations: 6005381
+        Number of missing observations: 91381
+        -2*LogLikelihood: 5143814.1504 (Residual deviance on 6004750 degrees of freedom)
+
+        Coefficients:
+                        Estimate Std. Error z value Pr(>|z|)
+        (Intercept)   -3.370e+00  1.051e+00  -3.208  0.00134 **
+        ORIGIN=JFK     4.549e-01  7.915e-01   0.575  0.56548
+        ORIGIN=LAX     5.265e-01  7.915e-01   0.665  0.50590
+        ......
+        DEST=SHD       5.975e-01  9.371e-01   0.638  0.52377
+        DEST=TTN       4.563e-01  9.520e-01   0.479  0.63172
+        DEST=LAR      -1.270e+00  7.575e-01  -1.676  0.09364 .
+        DEST=BPT         Dropped    Dropped Dropped  Dropped
+        ---
+        Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+        Condition number of final variance-covariance matrix: 11904202
+        Number of iterations: 7
+
+4. Em seguida, vamos executar a mesma regressão logística usando o contexto do Spark. O contexto do Spark distribuirá o processamento em todos os nós de trabalho no cluster HDInsight.
 
         # Define the Spark compute context 
-        mySparkCluster <- RxSpark(consoleOutput=TRUE) 
+        mySparkCluster <- RxSpark()
         # Set the compute context 
-        rxSetComputeContext(mySparkCluster) 
-        # Run a linear regression 
+        rxSetComputeContext(mySparkCluster)
+        # Run a logistic regression 
         system.time(  
-            modelSpark <- rxLinMod(ArrDelay~CRSDepTime+DayOfWeek, data = airDS) 
+            modelSpark <- rxLogit(formula, data = airOnTimeData)
         )
         # Display a summary
         summary(modelSpark)
 
-    A saída do processamento do Spark é gravada no console porque definimos o `consoleOutput=TRUE`.
-    
     > [AZURE.NOTE] Você também pode usar o MapReduce para distribuir a computação nos nós do cluster. Para obter mais informações sobre o contexto de computação, confira a seção [Compute context options for R Server on HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md) (Opções de contexto de computação para o Servidor R no HDInsight Premium).
 
 ##Distribua o código R em vários nós
@@ -322,4 +353,4 @@ Ambos os modelos criam um novo cluster HDInsight e uma conta de armazenamento as
 
 Para obter informações genéricas sobre como usar os modelos ARM, confira a seção [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -21,14 +21,15 @@
 As soluções do Log Analytics são uma coleção de **lógica**, **visualização** e **regras de aquisição de dados** que fornecem as métricas que giram em torno de uma área de problema específica. Este artigo lista as soluções com suporte do Log Analytics e explica como adicionar e removê-las usando a Galeria de Soluções.
 
 As soluções permitem análises mais profundas em relação ao seguinte:
+
 - ajudar a investigar e resolver problemas operacionais com mais rapidez
 - coletar e correlacionar vários tipos de dados de computador
 - ajudá-lo a ser proativo com atividades tais como planejamento de capacidade, relatórios de status de patch e auditoria de segurança.
 
 
->[AZURE.NOTE] O OMS inclui a funcionalidade base de Pesquisa de Log e, portanto, não é necessário instalar uma solução para habilitá-la. No entanto, é possível obter mais funcionalidade com a adição de soluções na página Galeria de Soluções.
+>[AZURE.NOTE] O Log Analytics inclui a funcionalidade Pesquisa de Log, por isso não é necessário instalar uma solução para habilitá-la. No entanto, você pode obter visualizações de dados, pesquisas sugeridas e insights adicionando soluções de Galeria de Soluções.
 
-Depois de adicionar uma solução, os dados são coletados dos servidores em sua infraestrutura e enviados para o serviço do OMS. O processamento pelo serviço do OMS pode levar de alguns minutos a várias horas. Depois que o serviço processar os dados, será possível exibi-los no OMS.
+Depois de adicionar uma solução, os dados são coletados dos servidores em sua infraestrutura e enviados para o serviço do OMS. O processamento do serviço do OMS normalmente leva de alguns minutos a uma hora. Depois que o serviço processar os dados, será possível exibi-los no OMS.
 
 Você pode facilmente remover uma solução quando ela não for mais necessário. Quando você remove uma solução, seus dados não são enviados ao OMS, o que pode reduzir a quantidade de dados usados pela sua cota diária, caso você tenha uma.
 
@@ -37,17 +38,18 @@ Você pode facilmente remover uma solução quando ela não for mais necessário
 
 Neste momento, os servidores conectados diretamente ao OMS com o uso do Microsoft Monitoring Agent podem usar a maioria das soluções disponíveis, incluindo:
 
-- Atualizações do Sistema
-- Antimalware
-- Controle de Alterações
-- Avaliação do SQL
 - Avaliação do Active Directory
 - Gerenciamento de alertas (excluindo alertas SCOM)
+- Antimalware
+- Controle de Alterações
+- Segurança
+- Avaliação do SQL
+- Atualizações do Sistema
 
 No entanto, as soluções a seguir *não* têm suporte do Microsoft Monitoring Agent e exigem o agente SCOM (System Center Operations Manager).
 
-- Gerenciamento de Capacidade
 - Gerenciamento de alertas (incluindo alertas SCOM)
+- Gerenciamento de Capacidade
 - Avaliação de Configuração
 
 Consulte [Conectando o Operations Manager ao Log Analytics](log-analytics-om-agents.md) para obter informações sobre como conectar o agente SCOM ao Log Analytics.
@@ -74,7 +76,7 @@ Consulte [Conectando o Operations Manager ao Log Analytics](log-analytics-om-age
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para as soluções e os recursos do OMS.
 
-|tipo de dados| plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
+|tipo de dados| plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 |---|---|---|---|---|---|---|---|
 |Avaliação do AD|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|	7 dias|
 |Status de replicação do AD|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 dias|
@@ -102,9 +104,76 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 |Logs de eventos do Windows|Windows|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)| para o armazenamento do Azure: 1 min; para o agente: na chegada|
 |Dados durante a transmissão|Windows (2012 R2/8.1 ou posterior)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Sim](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Não](./media/log-analytics-add-solutions/oms-bullet-red.png)| a cada minuto|
 
+## Recursos e Soluções do Log Analytics em preview
+
+Executando um serviço e seguindo as práticas recomendadas de DevOps, somos capazes de firmar parceria com os clientes para desenvolver recursos e soluções.
+
+Durante a preview particular, concedemos a um pequeno grupo de clientes o acesso a uma implementação antecipada do recurso ou da solução para obter comentários e realizar melhorias. Essa implementação antecipada tem recursos e funcionalidades operacionais mínimas.
+
+Nosso objetivo é testar as coisas rapidamente para descobrir o que funciona ou não. Iteramos por esse processo até que os comentários dos clientes de preview particular nos informem que estamos prontos para uma preview pública.
+
+Durante a preview pública, disponibilizamos o recurso ou solução para todos os usuários a fim de obter mais comentários e validar nossa escala e eficiência. Durante essa fase:
+
+- Os recursos de preview aparecerão na guia Configurações e podem ser habilitados por qualquer usuário
+- As soluções de preview podem ser adicionadas por meio da galeria ou usando um script publicado
+
+### O que devo saber sobre Recursos e Soluções em preview?
+
+Estamos empolgados com os novos recursos e soluções e adoraríamos trabalhar junto com você para desenvolvê-los.
+
+No entanto, os recursos e soluções de preview não são ideais para todos, portanto, antes de pedir para participar de uma preview particular ou habilitar uma preview pública, assegure que você concorda em trabalhar com algo que está em desenvolvimento.
+
+Ao habilitar um recurso de preview por meio do portal, você verá um aviso para lembrar que o recurso está em preview.
+
+#### Para previews *particulares* e *públicas*
+
+O seguinte se aplica a previews públicas e particulares:
+
+- As coisas podem não funcionar corretamente sempre. 
+  - Os problemas variam de pequenos incômodos até algo parar totalmente de funcionar
+- Há um potencial para a preview ter um impacto negativo em seus sistemas / ambiente
+  - Tentamos evitar que coisas negativas aconteçam com os sistemas que você está usando com o OMS, mas às vezes pode ocorrer algo inesperado
+- Perda / corrupção de dados pode ocorrer
+- Podemos pedir que você colete logs de diagnóstico ou outros dados para ajudar a solucionar problemas
+- O recurso ou a solução podem ser removidos (temporária ou permanentemente)
+  - Com base em nossas lições aprendidas durante a preview, podemos decidir que não lançaremos o recurso ou a solução
+- Previews podem não funcionar ou não ter sido testadas com todas as configurações, e podemos limitar:
+  - Os sistemas operacionais que podem ser usados (por exemplo, um recurso pode aplicar-se somente ao Linux enquanto estiver em preview)
+  - O tipo de agente (MMA, SCOM) que pode ser usado (por exemplo, um recurso pode não funcionar com SCOM enquanto estiver na preview)  
+- Soluções e recursos em preview não são cobertos pelo Contrato de Nível de Serviço
+- O uso de recursos de preview incorrerá encargos de uso
+- Recursos ou funcionalidades que você precisa para o recurso / solução ser útil podem estar ausentes ou incompletos
+- Recursos / soluções podem não estar disponíveis em todas as regiões
+- Recursos / soluções podem não estar traduzidos
+- Recursos / soluções podem ter um limite do número de clientes ou dispositivos que podem usá-los
+- Pode ser necessário usar scripts para realizar a configuração e para habilitar a solução/recurso
+- A IU (interface do usuário) estará incompleta e pode ser alterada diariamente
+- Previews públicas podem não ser apropriadas para seus sistemas de produção / críticos
+
+#### Para preview *particular*
+
+Além dos itens acima, o seguinte é específico para previews particulares:
+
+- Esperamos que você nos forneça comentários sobre sua experiência para que possamos melhorar o recurso/solução
+- Poderemos entrar em contato para solicitar comentários usando pesquisas, ligações telefônicas ou email
+- As coisas não funcionarão corretamente sempre
+- Podemos pode exigir um NDA (acordo de confidencialidade) para a participação ou podemos incluir conteúdo confidencial
+  - Antes de postar em blogs, tuitar ou comunicar-se de outra forma com terceiros, confirme com o Gerente do Programa responsável para a preview para entender possíveis restrições de divulgação
+- Não execute em sistemas de produção / críticos
+
+
+### Como obter acesso a recursos e soluções de preview particular?
+
+Nós o convidamos clientes para previews particulares por meio de várias maneiras diferentes dependendo da preview.
+
+- Responder a pesquisa de cliente mensal e conceder permissão para acompanhar você melhoram suas chances de ser convidado para uma preview particular.
+- A equipe de contas da Microsoft pode indicar você.
+- Você pode se inscrever com base nos detalhes publicados no twitter [msopsmgmt](https://twitter.com/msopsmgmt) 
+- Inscreva-se com base em eventos da comunidade que compartilham detalhes, encontre-nos em reuniões, conferências e nas comunidades online. 
+
 
 ## Próximas etapas
 
-- [Pesquisar logs](log-analytics-log-searches.md) para exibir informações detalhadas coletadas pelas soluções.
+- [Pesquise logs](log-analytics-log-searches.md) para exibir informações detalhadas coletadas pelas soluções.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0518_2016-->

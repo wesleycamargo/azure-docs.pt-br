@@ -59,7 +59,7 @@ Esse evento de manutenção planejada afetará a disponibilidade do aplicativo p
 
 ## Notificação por email
 
-Somente para configurações de máquina virtual de única instância ou várias instâncias, o Azure envia um comunicado prévio por email para alertar você sobre a próxima manutenção planejada (com 1 semana de antecedência). Este email será enviado para o administrador da conta e para as contas de email de coadministradores fornecidas na assinatura. Veja um exemplo desse tipo de email:
+Somente para configurações de máquina virtual de única instância ou várias instâncias, o Azure envia um comunicado prévio por email para alertar você sobre a próxima manutenção planejada (com 1 semana de antecedência). Este email será enviado para as contas de email do administrador e coadministrador da assinatura. Veja um exemplo desse tipo de email:
 
 <!--Image reference-->
 ![][image1]
@@ -81,6 +81,8 @@ China Oriental | Norte da China
 Leste do Japão | Oeste do Japão
 Sul do Brasil | Centro-Sul dos Estados Unidos
 Sudeste da Austrália | Leste da Austrália
+Centro da Índia | Sul da Índia
+Oeste da Índia | Sul da Índia
 Gov. dos EUA – Iowa | Gov. dos EUA – Virgínia
 
 <!--Anchors-->

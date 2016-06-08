@@ -38,7 +38,7 @@ A folha **Configurações do aplicativo** tem configurações agrupadas em vári
 **Versão do Framework**. Configurar essas opções se seu aplicativo usa qualquer um desses frameworks:
 
 - **.NET Framework**: configure a versão do .NET framework. 
-- **PHP**: defina a versão PHP ou **DESATIVADO** para desabilitar o PHP.
+- **PHP**: defina a versão PHP ou **DESATIVADO** para desabilitar o PHP. 
 - **Java**: selecione a versão do Java ou **DESATIVADO** para desabilitar o Java. Use a opção **Contêiner da Web** para escolher entre as versões do Tomcat e Jetty.
 - **Python**: selecione a versão do Python ou **DESATIVADO** para desabilitar o Python.
 
@@ -72,7 +72,7 @@ Esta seção contém pares de nome/valor que seu aplicativo Web carregará na in
 
 Cadeia de conexão para recursos vinculados.
 
-Para aplicativos do .NET, essas cadeias de conexão serão injetadas em suas definições do `connectionStrings` das configurações do .NET em tempo de execução, substituindo as entradas existentes cujas chaves são iguais ao nome do banco de dados vinculado.
+Para aplicativos .NET, essas cadeias de conexão serão injetadas em suas definições do `connectionStrings` das configurações do .NET no tempo de execução, substituindo as entradas existentes cujas chaves são iguais ao nome do banco de dados vinculado.
 
 Para aplicativos PHP, Python, Java e Nó essas configurações estarão disponíveis como variáveis de ambiente em tempo de execução, antecedidas com o tipo de conexão. Os prefixos das variáveis de ambiente são os seguintes:
 
@@ -177,4 +177,4 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0518_2016-->

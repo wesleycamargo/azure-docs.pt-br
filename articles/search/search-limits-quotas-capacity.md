@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/28/2016"
+	ms.date="05/19/2016"
 	ms.author="heidist"/>
 
 # Limites de serviço na Pesquisa do Azure
@@ -59,4 +59,4 @@ Embora essas estimativas aproximadas sejam fornecidas na página de preços e no
 
 No nível padrão, é possível estimar melhor o QPS, porque você tem controle sobre mais parâmetros. Veja a seção de práticas recomendadas em [Gerenciar sua solução de pesquisa](search-manage.md) para obter orientação sobre como calcular o QPS para suas cargas de trabalho.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0525_2016-->

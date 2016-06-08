@@ -11,7 +11,7 @@
 <tags 
 	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/04/2016" 
@@ -119,4 +119,4 @@ Depois de configurar o ouvinte, você precisa configurar todas as máquinas virt
 
 - Consulte estes [diretrizes](virtual-machines-linux-infrastructure-service-guidelines.md) se você estiver implantando sua própria carga de trabalho de TI no Azure.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0518_2016-->

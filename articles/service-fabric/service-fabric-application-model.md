@@ -3,7 +3,7 @@
    description="Como modelar e descrever aplicativos e serviços no Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor="mani-ramaswamy"/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/05/2016"   
+   ms.date="05/18/2016"   
    ms.author="seanmck"/>
 
 # Modelar um aplicativo no Malha do Serviço
@@ -29,9 +29,9 @@ Um aplicativo é uma coleção de serviços membros que executam determinadas fu
 
 Um tipo de aplicativo é uma categorização de um aplicativo e consiste em um pacote de tipos de serviço. Um tipo de serviço é uma categorização de um serviço. A categorização pode ter diferentes definições e configurações, mas a funcionalidade núcleo permanece a mesma. As instâncias de um serviço são as diferentes variações de configuração de serviço de um mesmo tipo de serviço.
 
-Classes (ou "tipos") de aplicativos e de serviços são descritos usando arquivos XML (manifestos de aplicativo e manifestos do serviço), que são os modelos em relação ao qual os aplicativos podem ser instanciados do repositório de imagens do cluster.
+Classes (ou "tipos") de aplicativos e de serviços são descritos usando arquivos XML (manifestos de aplicativo e manifestos do serviço), que são os modelos em relação ao qual os aplicativos podem ser instanciados do repositório de imagens do cluster. A definição de esquema dos arquivos ServiceManifest.xml e ApplicationManifest.xml é instalada com o SDK e as ferramentas do Service Fabric em *C:\\Arquivos de Programas\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
-O código para instâncias do aplicativo diferentes será executado como processos separados, mesmo quando hospedadas pelo mesmo nó da Malha do Serviço. Além disso, o ciclo de vida de cada instância do aplicativo pode ser gerenciado (ou seja, atualizado) independentemente. O diagrama a seguir mostra como os tipos de aplicativo são compostos de tipos de serviço, que, por sua vez, são compostos de código, configuração e pacotes. Para simplificar o diagrama, somente os pacotes código/configuração/dados para `ServiceType4` são mostrados, embora cada tipo de serviço inclua alguns ou todos os tipos de pacotes.
+O código para instâncias do aplicativo diferentes será executado como processos separados, mesmo quando hospedadas pelo mesmo nó da Malha do Serviço. Além disso, o ciclo de vida de cada instância do aplicativo pode ser gerenciado (ou seja, atualizado) independentemente. O diagrama a seguir mostra como os tipos de aplicativo são compostos de tipos de serviço, que, por sua vez, são compostos de código, configuração e pacotes. Para simplificar o diagrama, somente os pacotes de código/configuração/dados de `ServiceType4` são mostrados, embora cada tipo de serviço inclua alguns ou todos os tipos de pacote.
 
 ![Tipos de aplicativos do Service Fabric e tipos de serviço][cluster-imagestore-apptypes]
 
@@ -44,7 +44,7 @@ O diagrama a seguir mostra a relação entre aplicativos e instâncias de servi�
 ![Partições e réplicas dentro de um serviço][cluster-application-instances]
 
 
->[AZURE.TIP] Você pode exibir o layout de aplicativos em um cluster usando a ferramenta de Gerenciador do Service Fabric disponível em http://&lt;yourclusteraddress&gt;:19080/Explorer. Para obter mais detalhes, consulte [Visualizando o cluster com o Gerenciador do Service Fabric](service-fabric-visualizing-your-cluster.md).
+>[AZURE.TIP] Você pode exibir o layout de aplicativos em um cluster usando a ferramenta do Service Fabric Explorer disponível em http://&lt;yourclusteraddress&gt;:19080/Explorer. Para obter mais detalhes, veja [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Descrever um serviço
 
@@ -254,4 +254,4 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0525_2016-->

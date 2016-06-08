@@ -11,7 +11,7 @@ A tabela a seguir compara as tarefas comuns de VM, que você pode executar com c
 
 Tarefa | Modo do Service Management | modelo do Gerenciador de Recursos
 -------------- | ----------- | -------------------------
-Criar a VM mais básica | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenha o `image-urn` com o comando `azure vm image list`. Confira [este artigo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) para obter exemplos.)
+Criar a VM mais básica | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenha o `image-urn` para imagens do Marketplace populares executando `azure help vm quick-create`. Para URNs no formulário *publisherName:offer:skus:version*, consulte [este artigo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) para obter exemplos.)
 Criar uma VM do Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Criar uma VM do Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Listar VMs | `azure  vm list [options]` | `azure  vm list [options]`
@@ -40,6 +40,5 @@ Conferir todos os tamanhos de VM disponíveis | Não disponível | `azure vm siz
 
 ## Próximas etapas
 
-* Para ver exemplos adicionais de comandos CLI, consulte [Comandos da CLI do Azure no modo do Azure Service Management](../articles/virtual-machines-command-line-tools.md) e [comandos da CLI do Azure no modo do Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
+* Para ver exemplos adicionais de comandos da CLI, consulte [Comandos da CLI do Azure no modo do Gerenciamento de Serviços do Azure](../articles/virtual-machines-command-line-tools.md) e [Comandos da CLI do Azure no modo do Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0420_2016-->

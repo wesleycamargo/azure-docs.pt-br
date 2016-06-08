@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="05/16/2016" 
 	ms.author="johnmac"/>
 
 # Níveis de desempenho no Banco de Dados de Documentos
@@ -173,7 +173,9 @@ Para saber mais sobre a definição de preços e o gerenciamento de dados no Ban
 
 Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do Banco de Dados de Documentos do Azure.
 
+Para começar com os testes de desempenho e escalabilidade com o Banco de Dados de Documentos, confira [Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure](documentdb-performance-testing.md).
+
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

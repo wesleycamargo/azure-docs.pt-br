@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 # Lista de compatibilidade de federação do AD do Azure
@@ -215,8 +215,8 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 | Cliente |Suporte |Exceções|
 | --------- | --------- |--------- |
-| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |**Suporte a Contratos Kerberos |
-| Aplicativos cliente avançados, como Lync, Assinatura do Office, CRM | Com suporte | Sem suporte para autenticação integrada do Windows |
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online | Suportado |**Suporte a Contratos Kerberos | 
+| Aplicativos cliente avançados, como Lync, Assinatura do Office, CRM | Com suporte | Sem suporte para autenticação integrada do Windows | 
 | Clientes de email avançados, como o Outlook e o ActiveSync | Com suporte | Nenhum|
 
 **O NetIQ oferece suporte à autenticação Kerberos por meio da configuração de um Contrato Kerberos. Para obter assistência com essa configuração, entre em contato com a NetIQ ou leia o guia de instalação. Para saber mais sobre o NetIQ Access Manager, confira [NetIQ Access Manager.](https://www.netiq.com/documentation/netiqaccessmanager4/identityserverhelp/data/b12iqp0m.html)
@@ -320,4 +320,4 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 Para saber mais, confira [Logon único do AuthAnvil](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
 
-<!----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

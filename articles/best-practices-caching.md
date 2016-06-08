@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -20,7 +20,7 @@
 
 # Diretrizes de Caching
 
-![Logotipo de padrões e práticas](media/best-practices-caching/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 O caching é uma técnica comum que tem o objetivo de melhorar o desempenho e a escalabilidade de um sistema. Ele faz isso copiando temporariamente dados acessados com frequência para um armazenamento rápido localizado próximo ao aplicativo. Se esse armazenamento rápido de dados estiver mais próximo do aplicativo do que a fonte original, o caching poderá melhorar significativamente os tempos de resposta para aplicativos cliente ao fornecer dados com mais rapidez.
 
@@ -934,4 +934,4 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 - Para saber mais, confira a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório StackExchange.Redis.
 - O [Guia de particionamento de dados](http://msdn.microsoft.com/library/dn589795.aspx), no site da Microsoft.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0518_2016-->

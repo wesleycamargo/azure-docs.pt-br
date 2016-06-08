@@ -4,7 +4,7 @@
    services="cdn"
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Diretriz da Rede de Distribuição de Conteúdo (CDN)
 
-![Logotipo de Padrões e Práticas](./media/best-practices-cdn/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Visão geral
 A CDN (Rede de Distribuição de Conteúdo) do Microsoft Azure oferece aos desenvolvedores uma solução global de fornecimento de conteúdo de alta largura de banda hospedada no Azure ou em qualquer outro local. Com a CDN, você pode armazenar em cache objetos publicamente disponíveis carregados do Armazenamento de Blobs do Azure, de um aplicativo Web, da máquina virtual, de uma pasta de aplicativo ou de outro local HTTP/HTTPS. O cache da CDN pode ser mantido em locais estratégicos para fornecer a máxima largura de banda para fornecimento de conteúdo aos usuários. A CDN normalmente é usada para fornecimento de conteúdo estático, como imagens, folhas de estilo, documentos, arquivos, scripts do lado do cliente e páginas HTML.
@@ -65,8 +65,7 @@ A lista a seguir mostra exemplos do tempo médio para primeiro byte de vários l
 |Seul, Coreia do Sul| 190 | 190 | 0% |
 
 
-\* Tem um nó CDN do Azure na mesma cidade.  
-\*\* Tem um nó do CDN do Azure em uma cidade vizinha.  
+Tem um nó CDN do Azure na mesma cidade. ** Tem um nó do CDN do Azure em uma cidade vizinha.
 
 ## Desafios  
 
@@ -284,4 +283,4 @@ Observe que usar a regravação de URL exige fazer algumas alterações ao agrup
 + [Integrar um serviço de nuvem à CDN do Azure](./cdn/cdn-cloud-service-with-cdn.md/)
 + [Práticas recomendadas para a Rede de distribuição de conteúdo do Microsoft Azure](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

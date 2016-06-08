@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/23/2016"
+   ms.date="05/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrar seu código SQL para o SQL Data Warehouse
 
-Para garantir a compatibilidade de seu código com o SQL Data Warehouse, provavelmente será preciso fazer alterações ao seu código base. Alguns recursos do SQL Data Warehouse podem melhorar consideravelmente o desempenho, pois foram criados para funcionar diretamente de uma maneira distribuída. No entanto, para manter o desempenho e a escala, alguns recursos também não estão disponíveis.
+Durante a migração de seu código de outro banco de dados para o SQL Data Warehouse, provavelmente você precisará fazer alterações à sua base de código. Alguns recursos do SQL Data Warehouse podem melhorar consideravelmente o desempenho, pois foram criados para funcionar diretamente de uma maneira distribuída. No entanto, para manter o desempenho e a escala, alguns recursos também não estão disponíveis.
 
-## Alterações de código Transact-SQL
+## Limitações comuns do T-SQL
 
-A lista a seguir resume os principais recursos que não têm suporte no SQL Data Warehouse do Azure. Os links levam a soluções alternativas para o recurso sem suporte:
+A lista a seguir resume os recursos mais comuns que não têm suporte no SQL Data Warehouse do Azure. Os links levam a soluções alternativas para o recurso sem suporte:
 
 - [Junções ANSI em atualizações][]
 - [Junções ANSI em exclusões][]
@@ -52,36 +52,38 @@ A lista a seguir resume os principais recursos que não têm suporte no SQL Data
 
 Felizmente, a maioria dessas limitações pode ser solucionada. Foram fornecidas explicações nos artigos de desenvolvimento relevantes mencionados acima.
 
-### Expressões de tabela comuns
-A implementação atual das CTEs (expressões de tabela comuns) no SQL Data Warehouse tem as seguintes funcionalidades e limitações:
+## Recursos do CTE com suporte
 
-**Funcionalidade da CTE**
-+ Uma CTE pode ser especificada em uma instrução SELECT.
-+ Uma CTE pode ser especificada em uma instrução CREATE VIEW.
-+ Uma CTE pode ser especificada em uma instrução CTAS (CREATE TABLE AS SELECT).
-+ Uma CTE pode ser especificada em uma instrução CRTAS (CREATE REMOTE TABLE AS SELECT).
-+ Uma CTE pode ser especificada em uma instrução CETAS (CREATE EXTERNAL TABLE AS SELECT).
-+ Uma tabela remota pode ser referenciada de uma CTE.
-+ Uma tabela externa pode ser referenciada de uma CTE.
-+ Várias definições de consulta CTE podem ser definidas em uma CTE.
+Tabela CTEs (expressões comuns) têm suporte parcial no SQL Data Warehouse. Atualmente, há suporte aos seguintes recursos de CTE:
 
-**Limitações da CTE**
-+ Uma CTE deve ser seguida por uma única instrução SELECT. As instruções INSERT, UPDATE, DELETE e MERGE não têm suporte.
-+ Não há suporte para a expressão de tabela comum que inclui referências a ela mesma (expressão de tabela comum recursiva) (veja a seção abaixo).
-+ Não é permitido especificar mais de uma cláusula WITH em uma CTE. Por exemplo, se CTE\_query\_definition contiver uma subconsulta, essa subconsulta não poderá conter uma cláusula WITH aninhada que defina outra CTE.
-+ Uma cláusula ORDER BY não pode ser usada em CTE\_query\_definition, exceto quando existe uma cláusula TOP especificada.
-+ Quando uma CTE é usada em uma instrução que faz parte de um lote, a instrução anterior deve ser seguida por um ponto-e-vírgula.
-+ Quando usado em instruções preparadas por sp\_prepare, as CTEs se comportarão da mesma forma que outras instruções SELECT em PDW. No entanto, se as CTEs forem usadas como parte das CETAS preparadas por sp\_prepare, o comportamento poderá ser diferente do SQL Server e de outras instruções de PDW, devido ao modo como a associação é implementada por sp\_prepare. Se a instrução SELECT que faz referência à CTE estiver usando uma coluna incorreta que não existe na CTE, o sp\_prepare passará sem detectar o erro, mas o erro será gerado durante sp\_execute.
+- Uma CTE pode ser especificada em uma instrução SELECT.
+- Uma CTE pode ser especificada em uma instrução CREATE VIEW.
+- Uma CTE pode ser especificada em uma instrução CTAS (CREATE TABLE AS SELECT).
+- Uma CTE pode ser especificada em uma instrução CRTAS (CREATE REMOTE TABLE AS SELECT).
+- Uma CTE pode ser especificada em uma instrução CETAS (CREATE EXTERNAL TABLE AS SELECT).
+- Uma tabela remota pode ser referenciada de uma CTE.
+- Uma tabela externa pode ser referenciada de uma CTE.
+- Várias definições de consulta CTE podem ser definidas em uma CTE.
 
-### CTE (expressão de tabela comum) recursiva
+## Limitações da CTE
 
-Esse é um cenário complexo de migração e o melhor processo é ter a CTE dividida e tratada em etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][].
+As expressões de tabela comum têm algumas limitações no SQL Data Warehouse, incluindo:
+
+- Uma CTE deve ser seguida por uma única instrução SELECT. As instruções INSERT, UPDATE, DELETE e MERGE não têm suporte.
+- Não há suporte para a expressão de tabela comum que inclui referências a ela mesma (expressão de tabela comum recursiva) (veja a seção abaixo).
+- Não é permitido especificar mais de uma cláusula WITH em uma CTE. Por exemplo, se CTE\_query\_definition contiver uma subconsulta, essa subconsulta não poderá conter uma cláusula WITH aninhada que defina outra CTE.
+- Uma cláusula ORDER BY não pode ser usada em CTE\_query\_definition, exceto quando existe uma cláusula TOP especificada.
+- Quando uma CTE é usada em uma instrução que faz parte de um lote, a instrução anterior deve ser seguida por um ponto-e-vírgula.
+- Quando usado em instruções preparadas por sp\_prepare, as CTEs se comportarão da mesma forma que outras instruções SELECT em PDW. No entanto, se as CTEs forem usadas como parte das CETAS preparadas por sp\_prepare, o comportamento poderá ser diferente do SQL Server e de outras instruções de PDW, devido ao modo como a associação é implementada por sp\_prepare. Se a instrução SELECT que faz referência à CTE estiver usando uma coluna incorreta que não existe na CTE, o sp\_prepare passará sem detectar o erro, mas o erro será gerado durante sp\_execute.
+
+## CTEs recursivas
+
+As CTEs recursivas não têm suporte no SQL Data Warehouse. A migração de CTEs recursivas pode ser praticamente completa e o melhor processo é dividi-la o em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][].
 
 ### Funções do sistema
 
 Também há algumas funções do sistema que não têm suporte. Estas são algumas das principais e que normalmente são usadas em data warehouse:
 
-- NEWID()
 - NEWSEQUENTIALID()
 - @@NESTLEVEL()
 - @@IDENTITY()
@@ -131,4 +133,4 @@ Para obter orientação sobre como desenvolver seu código, confira a [visão ge
 
 <!--Other Web references-->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0518_2016-->

@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -19,7 +19,7 @@
 
 # Diretrizes de dimensionamento automático
 
-![logotipo de padrões e práticas](media/best-practices-auto-scaling/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Visão geral
 Dimensionamento automático é o processo de alocar dinamicamente os recursos exigidos por um aplicativo para atender às necessidades de desempenho e atender a SLAs (contratos de nível de serviço), minimizando simultaneamente os custos de tempo de execução. Conforme o volume de trabalho cresce, um aplicativo pode exigir recursos adicionais para poder realizar suas tarefas no tempo adequado. Conforme a demanda diminui, os recursos podem ser desalocados para minimizar os custos e, ao mesmo tempo, manter o desempenho adequado e atender aos SLAs. O Dimensionamento Automático aproveita a elasticidade de ambientes hospedados na nuvem ao mesmo tempo em que alivia a sobrecarga de gerenciamento. Ele faz isso reduzindo a necessidade de um operador ter que monitorar o desempenho de um sistema continuamente e tomar decisões sobre como adicionar ou remover recursos.
@@ -113,4 +113,4 @@ Os padrões e diretrizes a seguir também podem ser relevantes a esse cenário a
 - [Operações em Dimensionamento Automático](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 - [Microsoft.WindowsAzure.Management.Monitoring.Autoscale Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 
-<!-----------HONumber=AcomDC_0330_2016---->
+<!---HONumber=AcomDC_0518_2016-->

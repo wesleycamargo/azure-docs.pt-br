@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/21/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Instalar a Atualização 1.2 no dispositivo StorSimple
@@ -125,4 +125,4 @@ Execute as seguintes etapas para desativar a interface de rede com o gateway e, 
 
 Saiba mais sobre a [versão da Atualização 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/23/2016"
+	ms.date="05/12/2016"
 	ms.author="billmath"/>
 
 
@@ -73,7 +73,10 @@ A estratégia adotada define a experiência de entrada do usuário. A tabela a s
 | Exchange ActiveSync | Solicita credenciais | logon único para o Lync, solicitação de credenciais para o Exchange |
 | Aplicativos móveis | Solicita credenciais | Solicita credenciais |
 
-Se você determinou na tarefa 1 que possui um IdP de terceiros ou que vai usar um ldP para fornecer federação com o AD do Azure, conheça os seguintes recursos com suporte: – os provedores de identidade baseados no perfil SAML 2.0 SP-Lite podem suportar autenticação para o AD do Azure e para os aplicativos associados – Tem suporte para autenticação passiva, o que facilita a autenticação no OWA, no SPO etc. – Os clientes do Exchange Online podem obter suporte através do SAML 2.0 Enhanced Client Profile (ECP)
+Se tiver determinado a partir da tarefa 1 que você tem um IdP de terceiros ou usará um para fornecer a federação com o Azure AD, precisará estar ciente dos seguintes recursos com suporte:
+- Qualquer provedor de SAML 2.0 compatível para o perfil SP-Lite pode dar suporte a autenticação no Azure AD e aplicativos associados
+- Oferece suporte à autenticação passiva, o que facilita a autenticação para OWA, SPO, etc.
+- Clientes do Exchange Online podem ser suportados por meio do ECP (perfil de cliente aprimorado) do SAML 2.0
 
 Conheça também os recursos que não estão disponíveis:
 
@@ -197,4 +200,4 @@ Você deve garantir que a opção de design de autenticação multifator selecio
 ## Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

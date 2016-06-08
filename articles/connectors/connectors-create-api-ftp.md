@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Adicionar a API do FTP aos seus Aplicativos Lógicos | Microsoft Azure"
-	description="Visão geral da API do FTP com os parâmetros da API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Adicionar o conector de FTP aos seus Aplicativos Lógicos | Microsoft Azure"
+    description="Visão geral do conector de FTP com os parâmetros da API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,13 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Introdução à API do FTP
-Conecte-se a um servidor FTP para gerenciar seus arquivos, incluindo carregar, excluir arquivos e muito mais. A API do FTP pode ser usada em:
+# Introdução ao conector de FTP
+Conecte-se a um servidor FTP para gerenciar seus arquivos, incluindo carregar, excluir arquivos e muito mais. O conector de FTP pode ser usado por meio de:
 
-- Aplicativos lógicos
+- Aplicativos lógicos (discutidos neste tópico)
+- PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
 
@@ -40,16 +41,12 @@ Gatilhos | Ações
 --- | ---
 <ul><li>Obtém um arquivo atualizado</li></ul> | <ul><li>Criar arquivo</li><li>Copiar arquivo</li><li>Excluir arquivo</li><li>Extrair pasta</li><li>Obter conteúdo do arquivo</li><li>Obter conteúdo do arquivo usando o caminho</li><li>Obter metadados de arquivo</li><li>Obter metadados de arquivo usando o caminho</li><li>Obtém um arquivo atualizado</li><li>Atualizar arquivo</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Criar uma conexão com o FTP
-Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores:
 
-|Propriedade| Obrigatório|Descrição|
-| ---|---|---|
-|Endereço do servidor| Sim | Insira o FQDN (domínio totalmente qualificado) ou o endereço IP do servidor FTP.|
-|Nome de usuário| Sim | Insira o nome de usuário para se conectar ao Servidor FTP.|
-|Senha | Sim | Insira a senha do nome de usuário.|
+
+>[AZURE.INCLUDE [Etapas para criar uma conexão com um FTP](../../includes/connectors-create-api-ftp.md)]
 
 Depois de criar a conexão, insira as propriedades do FTP, como o arquivo de origem ou a pasta de destino. A **Referência da API REST** neste tópico descreve essas propriedades.
 
@@ -59,7 +56,7 @@ Depois de criar a conexão, insira as propriedades do FTP, como o arquivo de ori
 Aplica-se à versão: 1.0.
 
 ### Criar arquivo
-Carrega um arquivo no servidor FTP.```POST: /datasets/default/files```
+Carrega um arquivo no servidor FTP. ```POST: /datasets/default/files```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -74,7 +71,7 @@ Carrega um arquivo no servidor FTP.```POST: /datasets/default/files```
 |padrão|Falha na operação.|
 
 ### Copiar arquivo
-Copia um arquivo no servidor FTP.```POST: /datasets/default/copyFile```
+Copia um arquivo no servidor FTP. ```POST: /datasets/default/copyFile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -89,7 +86,7 @@ Copia um arquivo no servidor FTP.```POST: /datasets/default/copyFile```
 |padrão|Falha na operação.|
 
 ### Excluir arquivo 
-Exclui um arquivo do servidor FTP.```DELETE: /datasets/default/files/{id}```
+Exclui um arquivo do servidor FTP. ```DELETE: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -102,7 +99,7 @@ Exclui um arquivo do servidor FTP.```DELETE: /datasets/default/files/{id}```
 |padrão|Falha na Operação.|
 
 ### Extrair pasta
-Extrai um arquivo morto para uma pasta no servidor FTP (exemplo: .zip).```POST: /datasets/default/extractFolderV2```
+Extrai um arquivo morto para uma pasta no servidor FTP (exemplo: .zip). ```POST: /datasets/default/extractFolderV2```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -117,7 +114,7 @@ Extrai um arquivo morto para uma pasta no servidor FTP (exemplo: .zip).```POST: 
 |padrão|Falha na Operação.|
 
 ### Obter o conteúdo do arquivo
-Recupera o conteúdo do arquivo do Servidor FTP usando a ID.```GET: /datasets/default/files/{id}/content```
+Recupera o conteúdo do arquivo do Servidor FTP usando a ID. ```GET: /datasets/default/files/{id}/content```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -131,7 +128,7 @@ Recupera o conteúdo do arquivo do Servidor FTP usando a ID.```GET: /datasets/de
 
 
 ### Obter o conteúdo do arquivo usando o caminho
-Recupera o conteúdo do arquivo do servidor FTP usando o caminho.```GET: /datasets/default/GetFileContentByPath```
+Recupera o conteúdo do arquivo do servidor FTP usando o caminho. ```GET: /datasets/default/GetFileContentByPath```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -145,7 +142,7 @@ Recupera o conteúdo do arquivo do servidor FTP usando o caminho.```GET: /datase
 
 
 ### Obter Metadados de Arquivo 
-Recupera os metadados do arquivo do servidor FTP usando a ID do arquivo.```GET: /datasets/default/files/{id}```
+Recupera os metadados do arquivo do servidor FTP usando a ID do arquivo. ```GET: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -159,7 +156,7 @@ Recupera os metadados do arquivo do servidor FTP usando a ID do arquivo.```GET: 
 
 
 ### Obter Metadados de Arquivo usando o caminho
-Recupera os metadados do arquivo do servidor FTP usando o caminho.```GET: /datasets/default/GetFileByPath```
+Recupera os metadados do arquivo do servidor FTP usando o caminho. ```GET: /datasets/default/GetFileByPath```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -173,7 +170,7 @@ Recupera os metadados do arquivo do servidor FTP usando o caminho.```GET: /datas
 
 
 ### Obtém um arquivo atualizado
-Obtém um arquivo atualizado.```GET: /datasets/default/triggers/onupdatedfile```
+Obtém um arquivo atualizado. ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -187,7 +184,7 @@ Obtém um arquivo atualizado.```GET: /datasets/default/triggers/onupdatedfile```
 
 
 ### Atualizar arquivo 
-Atualiza um arquivo no servidor FTP.```PUT: /datasets/default/files/{id}```
+Atualiza um arquivo no servidor FTP. ```PUT: /datasets/default/files/{id}```
 
 | Nome| Tipo de Dados|Obrigatório|Localizado em|Valor Padrão|Descrição|
 | ---|---|---|---|---|---|
@@ -198,7 +195,7 @@ Atualiza um arquivo no servidor FTP.```PUT: /datasets/default/files/{id}```
 |Nome|Descrição|
 |---|---|
 |200|OK|
-|padrão|Falha na operação.|
+|padrão|Falha na Operação.|
 
 
 ## Definições de objeto
@@ -247,4 +244,4 @@ Atualiza um arquivo no servidor FTP.```PUT: /datasets/default/files/{id}```
 
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

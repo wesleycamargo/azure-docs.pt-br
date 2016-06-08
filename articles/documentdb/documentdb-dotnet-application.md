@@ -101,7 +101,7 @@ Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários
 
 	A caixa de diálogo **Gerenciar Pacotes NuGet** será exibida.
 
-2. Na caixa **Procurar** do NuGet, digite *** Banco de Dados de Documentos do Azure***.
+2. Na caixa **Procurar** do NuGet, digite ***Banco de Dados de Documentos do Azure***.
 	
 	Com base nos resultados, instale o pacote da **Biblioteca de Clientes do Banco de Dados de Documentos do Microsoft Azure**. Essa ação baixará e instalará o pacote do Banco de Dados de Documentos, bem como todas as dependências, como Newtonsoft.Json. Clique em **OK** na janela **Visualização** e **Aceito** na janela **Aceitação da Licença** para concluir a instalação.
 

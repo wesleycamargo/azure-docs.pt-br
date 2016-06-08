@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="05/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -160,4 +160,4 @@ Os tempos de vida de token a seguir são fornecidos para expandir seus conhecime
 | Tokens de atualização | Até 14 dias | Um único token de atualização é válido para um máximo de 14 dias. No entanto, um token de atualização pode se tornar inválido a qualquer momento por vários motivos. Seu aplicativo deve continuar a tentar usar um token de atualização até que a solicitação falhe ou até que o aplicativo substitua o token de atualização por um novo. Um token de atualização também poderá ser invalidado se 90 dias tiverem decorrido desde a última vez em que o usuário inseriu credenciais. |
 | Códigos de autorização | Cinco minutos | Intencionalmente, os códigos de autorização são de curta duração. Eles devem ser resgatados imediatamente para tokens de acesso, tokens de ID ou tokens de atualização ao serem recebidos. |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0518_2016-->

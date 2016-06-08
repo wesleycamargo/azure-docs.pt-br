@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gerenciar o gerenciamento de custo | Microsoft Azure"
-	description="Aprenda a configurar os recursos de gerenciamento de custo do Laboratório de Desenvolvimento/Teste."
+	pageTitle="Tendência de custo estimado mensal | Microsoft Azure"
+	description="Saiba mais sobre o gráfico Tendência de custo estimado mensal do DevTest Labs."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/25/2016"
 	ms.author="tarcher"/>
 
-# Configurar o gerenciamento de custo
+# Tendência de custo estimado mensal
 
 ## Visão geral
 
 O recurso de gerenciamento de custos dos Laboratórios de Desenvolvimento/Teste ajuda a rastrear o custo de laboratório. Este artigo ilustra como usar o gráfico **Tendência de custo estimado mensal** para exibir o custo estimado até a data do mês do calendário atual, bem como o custo projetado do final do mês para o mês do calendário atual.
 
-## Habilitando o gráfico Tendência de custo estimado mensal
+## Visualizando o gráfico Tendência de custo estimado mensal
 
-Para habilitar o gráfico Tendência de custo estimado mensal, siga estas etapas:
+Para visualizar o gráfico Tendência de custo estimado mensal, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
@@ -36,24 +36,25 @@ Para habilitar o gráfico Tendência de custo estimado mensal, siga estas etapas
 
 	![Configurações](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
-1. Na folha **Configurações** do laboratório, em **Políticas de Custo**, toque em **Limite de Custo**.
+1. Na folha **Configurações** do laboratório, em **Gerenciamento de custos**, toque em **Limites**.
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  
-1. Na folha **Limites de Custo**, toque em **Ativar** para habilitar esse recurso e em **Desativar** para desabilitá-lo.
+1. A captura de tela a seguir mostra um exemplo de um gráfico de custo.
 
-1. Toque em **Salvar**.
+    ![Gráfico de custo](./media/devtest-lab-configure-cost-management/graph.png)
 
-Depois de habilitar esse recurso, pode levar várias horas para que o gráfico exiba seus custos projetados e estimados. Isso ocorre porque um serviço é executado a cada hora para coletar essas informações, mas é executado algumas horas atrasado em relação aos dados dinâmicos sendo coletados. Por exemplo, digamos que você inicia uma VM à 01h. O custo associado a essa VM provavelmente não será incorporado ao gráfico de custo por algumas horas.
+O valor **Custo estimado** é o custo até a data estimado do mês do calendário atual enquanto o **Custo do Projeto** é o custo estimado para todo o mês de calendário atual, calculado usando o custo de laboratório dos últimos cinco dias.
  
-A captura de tela a seguir mostra um exemplo de um gráfico de custo.
+Observe que os valores de custo são arredondados para o próximo número inteiro. Por exemplo:
 
-![Gráfico de custo](./media/devtest-lab-configure-cost-management/graph.png)
-
-O valor **Custo Estimado** é o custo até a data estimado do mês do calendário atual enquanto o **Custo do Projeto** é o custo estimado para todo o mês de calendário atual.
+- 5\.01 arredonda até 6 
+- 5\.50 arredonda até 6
+- 5\.99 arredonda até 6
 
 Como é indicado acima do gráfico, os custos vistos no gráfico são custos *estimados* usando as tarifas da oferta [Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p/). Além disso, o seguinte *não* está incluído no cálculo de custo:
 
+- Assinaturas CSP e Dreamspark não têm suporte atualmente, já que o DevTest Labs usa as [APIs de cobrança do Azure](../billing-usage-rate-card-overview.md) para calcular o custo do laboratório e as APIs de cobranças do Azure não dão suporte a assinaturas de Dreamspark ou CSP.
 - Suas tarifas da oferta. No momento, não é possível usar as tarifas de oferta (mostradas em sua assinatura) que você negociou com a Microsoft ou parceiros Microsoft. Estamos usando as tarifas pré-pagas.
 - Seus impostos
 - Seus descontos
@@ -63,9 +64,9 @@ Como é indicado acima do gráfico, os custos vistos no gráfico são custos *es
 
 Eis aqui algumas coisas para experimentar a seguir:
 
-- [Definir políticas de laboratório](./devtest-lab-set-lab-policy.md): saiba como definir as várias políticas usadas para controlar como seu laboratório e suas VMs são usados. 
-- [Criar uma imagem personalizada](./devtest-lab-create-template.md): ao criar uma VM, você especifica uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um arquivo VHD.
-- [Configurar imagens do Marketplace](./devtest-lab-configure-marketplace-images.md): os Laboratórios de Desenvolvimento/Teste dão suporte à criação de novas VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (se houver alguma) do Azure Marketplace podem ser usadas durante a criação de novas VMs em um laboratório.
-- [Criar uma VM em um laboratório](./devtest-lab-add-vm-with-artifacts.md): ilustra como criar uma nova VM de uma imagem de base (personalizada ou do Marketplace) e como trabalhar com artefatos em sua VM.
+- [Definir políticas de laboratório](./devtest-lab-set-lab-policy.md) – saiba como definir as várias políticas usadas para controlar como seu laboratório e suas VMs são usados. 
+- [Criar imagem personalizada](./devtest-lab-create-template.md) - durante a criação de uma VM, você especifica uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um arquivo VHD.
+- [Configurar imagens do Marketplace](./devtest-lab-configure-marketplace-images.md) - os DevTest Labs dão suporte à criação de novas VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (se houver alguma) do Azure Marketplace podem ser usadas durante a criação de novas VMs em um laboratório.
+- [Criar uma VM em um laboratório](./devtest-lab-add-vm-with-artifacts.md) – ilustra como criar uma nova VM de uma imagem de base (personalizada ou do Marketplace) e como trabalhar com artefatos em sua VM.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

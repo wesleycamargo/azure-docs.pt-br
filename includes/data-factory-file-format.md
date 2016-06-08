@@ -220,3 +220,18 @@ Observe o seguinte:
 - Se houver um nome duplicado no mesmo nível, a atividade de cópia selecionará o último elemento.
 - Os nomes de propriedade diferenciam maiúsculas de minúsculas. Duas propriedades com o mesmo nome, mas com maiúsculas e minúsculas diferentes serão tratadas como duas propriedades separadas. 
 
+### Especificando OrcFormat
+Se o formato for definido como OrcFormat, não será necessário especificar nenhuma propriedade na seção Formato dentro da seção typeProperties. Exemplo:
+
+	"format":
+	{
+	    "type": "OrcFormat",
+	}
+
+Observe o seguinte:
+ 
+-	Se você estiver copiando dados entre repositórios de dados locais e na nuvem com o formato ORC e não copiar arquivos ORC no estado em que se encontram da origem para o coletor, será necessário instalar o JRE (Java Runtime Environment) no computador do gateway. 
+-	Não há suporte para tipos de dados complexos (STRUCT, MAP, LIST e UNION)
+-	O arquivo ORC tem três [opções de compactação](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB e SNAPPY. O Data Factory dá suporte à leitura de dados de arquivo ORC em qualquer um dos formatos compactados acima. Ele usa o codec de compactação nos metadados para ler os dados. No entanto, ao gravar um arquivo ORC, o Data Factory escolhe o ZLIB padrão para ORC. Não há nenhuma opção para substituir esse comportamento neste momento. 
+
+<!---HONumber=AcomDC_0525_2016-->

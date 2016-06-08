@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Definir as configurações de imagem do Azure Marketplace em um Laboratório de Desenvolvimento/Teste | Microsoft Azure"
-	description="Configurar quais imagens do Azure Marketplace podem ser usadas ao criar uma VM em um Laboratório de Desenvolvimento/Teste"
+	pageTitle="Definir as configurações de imagem do Azure Marketplace em um çaboratório | Microsoft Azure"
+	description="Configurar quais imagens do Azure Marketplace podem ser usadas ao criar uma VM em Laboratórios de Desenvolvimento/Teste"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="05/08/2016"
 	ms.author="tarcher"/>
 
-# Definir as configurações de imagem do Azure Marketplace em um Laboratório de Desenvolvimento/Teste
+# Definir as configurações de imagem do Azure Marketplace em Laboratórios de Desenvolvimento/Teste
 
 ## Visão geral
 
-Os Laboratórios de Desenvolvimento/Teste oferecem suporte à criação de novas VMs com base em imagens do Azure Marketplace, dependendo de como você configurou o uso das imagens do Azure Marketplace em seu laboratório. Este artigo mostrará como especificar quais imagens, se houver alguma, do Azure Marketplace podem ser usadas durante a criação de novas VMs em um Laboratório de Desenvolvimento/Teste.
+Os Laboratórios de Desenvolvimento/Teste oferecem suporte à criação de novas VMs com base em imagens do Azure Marketplace, dependendo de como você configurou o uso das imagens do Azure Marketplace em seu laboratório. Este artigo mostrará como especificar quais imagens, se houver alguma, do Azure Marketplace podem ser usadas durante a criação de novas VMs em um laboratório.
 
 ## Selecionar quais imagens do Azure Marketplace são permitidas durante a criação de uma VM
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Toque em **Procurar** e toque em **Laboratórios de Desenvolvimento/Teste** na lista.
 
@@ -52,6 +52,6 @@ Os Laboratórios de Desenvolvimento/Teste oferecem suporte à criação de novas
 
 ## Próximas etapas
 
-Depois de configurar como as imagens do Azure Marketplace são permitidas durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu Laboratório de Desenvolvimento/Teste](./devtest-lab-add-vm-with-artifacts.md).
+Depois de configurar como as imagens do Azure Marketplace são permitidas durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu laboratório](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0518_2016-->

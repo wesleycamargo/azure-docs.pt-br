@@ -1,0 +1,40 @@
+<properties
+   pageTitle="Central de Confiança da Microsoft | Microsoft Azure"
+   description="A Central de Confiança da Microsoft fornece as informações de que você precisa para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura."
+   services="security"
+   documentationCenter="na"
+   authors="TomShinder"
+   manager="StevenPo"
+   editor="TomSh"/>
+
+<tags
+   ms.service="security"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="05/23/2016"
+   ms.author="terrylan"/>
+
+# Central de Confiabilidade da Microsoft
+
+Embora o site de Informações de Segurança do Azure em Azure.com se esforce para fornecer as informações de que você precisa para planejar, projetar, implantar, configurar e gerenciar suas soluções de nuvem com segurança, a Central de Confiabilidade da Microsoft oferece as informações de que você precisa para ter certeza de que a plataforma do Azure na qual você executa seus serviços é segura.
+
+Sabemos que, quando entregar seus aplicativos e seus dados ao Azure, você terá dúvidas. Onde estão? Quem pode acessá-los? O que a Microsoft está fazendo para protegê-los? Como você pode verificar que a Microsoft está fazendo o que diz?
+
+E nós temos as respostas. Como são seus dados, você decide quem terá acesso e trabalha conosco para decidir onde eles ficarão. Para proteger seus dados, usamos tecnologia de segurança de última geração e criptografia de nível internacional. Nossa conformidade é auditada de forma independente e somos transparentes em vários níveis — de como lidamos com as exigências legais para os dados do cliente até a segurança do nosso código.
+
+Veja o que você encontrará na Central de Confiabilidade da Microsoft:
+
+- [Segurança](https://aka.ms/tcsecurity) – saiba como todos os serviços do Microsoft Cloud são protegidos.
+- [Privacidade](https://aka.ms/tcprivacy) – compreenda como a Microsoft garante a privacidade de seus dados na nuvem da Microsoft.
+- [Conformidade](https://aka.ms/tccompliance) – descubra como a Microsoft ajuda as organizações a atender aos requisitos regionais, nacionais e específicos do setor que controlam a coleta e o uso de dados de indivíduos.
+- [Transparência](https://aka.ms/tctransparency) – veja como a Microsoft acredita que você controla seus dados na nuvem e como a Microsoft ajuda você a saber tanto quanto possível sobre como esses dados são tratados.
+- [Produtos e Serviços](https://aka.ms/tcproductsservices) – consulte todos os produtos e serviços do Microsoft Cloud em um só lugar
+- [Portal de Confiança de Serviço](https://aka.ms/tcservicetrportal) – obtenha cópias de relatórios de auditoria independentes dos serviços em nuvem da Microsoft, avaliações de risco, práticas recomendadas de segurança e materiais relacionados da Microsoft.
+- [Novidades](https://aka.ms/tcwhatsnew) – descubra o que há de novo no Microsoft Cloud Trust
+- [Recursos](https://aka.ms/tcresources) – investigue white papers, vídeos e estudos de caso no Microsoft Trusted Cloud
+
+A [Central de Confiança da Microsoft](https://www.microsoft.com/trustcenter) tem o que você precisa para entender o que podemos fazer para proteger o Microsoft Cloud.
+
+<!---HONumber=AcomDC_0525_2016-->

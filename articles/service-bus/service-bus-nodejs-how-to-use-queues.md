@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="05/06/2016" 
 	ms.author="sethm"/>
 
 # Como usar filas do Barramento de Serviço
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como usar as filas do Barramento de Serviço. As amostras são escritas em JavaScript e usam o módulo Node.js do Azure. Os cenários abordados incluem a **criação de filas**, o **envio e o recebimento de mensagens** e a **exclusão de filas**. Para obter mais informações sobre filas, veja a seção [Próximas etapas][].
+Este artigo descreve como usar as filas do Barramento de Serviço no Node.js. As amostras são escritas em JavaScript e usam o módulo Node.js do Azure. Os cenários abordados incluem a **criação de filas**, o **envio e o recebimento de mensagens** e a **exclusão de filas**. Para obter mais informações sobre filas, veja a seção [Próximas etapas][].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Criar um aplicativo do Node.js
 
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, veja a seção [Criar e implantar um aplicativo Node.js em um site do Azure][] ou [Serviço de Nuvem do Node.js ][](usando o Windows PowerShell).
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, veja a seção [Criar e implantar um aplicativo Node.js em um site do Azure][] ou [Serviço de Nuvem do Node.js ][]\(usando o Windows PowerShell).
 
 ## Configurar seu aplicativo para usar o Barramento de serviço
 
@@ -145,7 +145,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, veja [Filas do Azure e Filas do Barramento de Serviço][].
+As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][].
 
 ## Receber mensagens de uma fila
 
@@ -185,7 +185,7 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 
 ## Próximas etapas
 
-Para saber mais, veja os seguintes recursos.
+Para saber mais sobre filas, veja os seguintes recursos.
 
 -   [Filas, tópicos e assinaturas][]
 -   Repositório do [SDK do Azure para Node][] no GitHub
@@ -199,7 +199,7 @@ Para saber mais, veja os seguintes recursos.
   [Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Serviço de Nuvem do Node.js com Armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicativo Web do Node.js com armazenamento]: ../storage/storage-nodejs-how-to-use-table-storage.md
-  [Filas do Azure e Filas do Barramento de Serviço]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+  [Cotas do Barramento de Serviço]: service-bus-quotas.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0525_2016-->

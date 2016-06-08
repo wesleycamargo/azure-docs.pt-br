@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Visualização Active Directory B2C do Azure: perguntas frequentes
@@ -98,6 +98,20 @@ Atualmente, AD B2C do Azure é otimizado para o inglês apenas. Planejamos impla
 
 Não atualmente. Esse recurso está em nosso roteiro. Observe também que verificar seu domínio na guia **Domínios** de seu locatário no portal clássico do Azure não fará isso.
 
+### Como excluir o meu locatário do Azure AD B2C?
+
+Siga estas etapas para excluir seu locatário do Azure AD B2C:
+
+- Entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. (Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.)
+- Navegue até a extensão do Active Directory à esquerda e clique no locatário B2C.
+- Clique na guia **Aplicativos**.
+- Selecione **Aplicativos que minha empresa possui** no menu suspenso **Mostrar** e clique na marca de seleção.
+- Você verá um aplicativo chamado **b2c-extensions-app** listado abaixo. Clique em **Excluir** na parte inferior da página e em **SIM** quando solicitado.
+- Navegue até a extensão do Active Directory novamente e selecione seu locatário do B2C.
+- Clique em **Excluir** na parte inferior da página. Siga as instruções na tela para concluir o processo.
+
+Se você já tiver criado **Usuários**, **Aplicativos** ou outros objetos no seu locatário do B2C, será preciso excluí-los antes de executar as etapas acima.
+
 ### Posso obter o AD B2C do Azure como parte do Enterprise Mobility Suite?
 
 Não, o AD B2C do Azure é um serviço pré-pago do Azure e não faz parte do Enterprise Mobility Suite.
@@ -114,4 +128,4 @@ Não podemos fornecer informações sobre a data de disponibilidade geral no mom
 
 Também convém analisar as [limitações e restrições de visualização](active-directory-b2c-limitations.md) atuais.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0518_2016-->

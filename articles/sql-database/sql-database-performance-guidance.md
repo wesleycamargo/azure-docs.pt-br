@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="04/20/2016"
+	ms.date="04/29/2016"
 	ms.author="carlrab" />
 
 # Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos
@@ -62,6 +62,8 @@ As configurações de nível de desempenho no serviço Standard e Premium permit
 
 Para saber mais sobre camadas de serviço, níveis de desempenho e DTUs, consulte [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
 
+
+
 ## Motivos para usar as camadas de serviço
 
 Embora cada carga de trabalho possa ser diferente, a finalidade das camadas de serviço é fornecer previsibilidade de alto desempenho em uma variedade de níveis de desempenho. Elas permitem que os clientes com uma grande escala de requisitos de recursos para seus bancos de dados trabalhem em um ambiente de computação mais dedicado.
@@ -84,6 +86,20 @@ Embora cada carga de trabalho possa ser diferente, a finalidade das camadas de s
 O nível exato, que você precisará depende dos requisitos de carga de pico para cada dimensão de recurso. Alguns aplicativos podem usar quantidades comuns de um recurso, mas ter requisitos significativos em outro.
 
 Para saber mais sobre as camadas de serviço, consulte [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+
+## Informações sobre preço e cobrança
+
+Pools de bancos de dados elásticos são cobrados de acordo com as seguintes características:
+
+- Um pool elástico é cobrado após sua criação, mesmo quando ele não contém bancos de dados.
+- Um pool elástico é cobrado por hora. Essa frequência de medição é a mesma dos níveis de desempenho de bancos de dados individuais.
+- Se um pool elástico for redimensionado para um novo valor de eDTUs, ele não será cobrado de acordo com esse novo valor até que a operação de redimensionamento seja concluída. Isso segue o mesmo padrão que a alteração do nível de desempenho de bancos de dados autônomos.
+
+
+- O preço de um pool elástico baseia-se no número de eDTUs do pool. O preço de um pool elástico é independente da utilização dos bancos de dados elásticos dentro dele.
+- O preço é calculado por (número de eDTUs do pool) x (preço unitário por eDTU).
+
+O preço unitário por eDTU de um pool elástico é maior que o preço unitário por DTU de um banco de dados autônomo na mesma camada de serviço. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Limites e recursos da camada de serviço
 Cada camada de serviço e nível de desempenho é associado a limites e características de desempenho diferentes. A tabela a seguir descreve essas características de um banco de dados individual.
@@ -110,7 +126,7 @@ As seções a seguir fornecem mais informações sobre cada área na tabela ante
 
 *Restauração geográfica* está disponível a todas as camadas de serviço, sem custo extra. No caso de uma interrupção, você poderá usar o backup com redundância geográfica mais recente para restaurar seu banco de dados em qualquer região do Azure.
 
-A Replicação geográfica padrão e ativa fornecem recursos de recuperação de desastre parecidos, mas com um Objetivo do ponto de recuperação (RPO) muito mais baixo. Por exemplo, com a Restauração geográfica, o RPO é inferior a uma hora (em outras palavras, o backup pode durar até uma hora). Porém, na Replicação geográfica, o RPO é inferior a cinco segundos.
+A [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) fornece recursos de recuperação de desastre semelhantes, mas com um RPO (Objetivo do Ponto de Recuperação) muito mais baixo. Por exemplo, com a Restauração geográfica, o RPO é inferior a uma hora (em outras palavras, o backup pode durar até uma hora). Porém, na Replicação Geográfica Ativa, o RPO é inferior a cinco segundos.
 
 Para saber mais, consulte a [Visão geral sobre a continuidade dos negócios](sql-database-business-continuity.md).
 
@@ -291,11 +307,11 @@ Embora as camadas de serviço sejam projetadas para melhorar a estabilidade e a 
 ## Técnicas de ajuste
 Esta seção explica algumas técnicas que você pode usar para ajustar o Banco de Dados SQL do Azure para obter o melhor desempenho do seu aplicativo e ser capaz de executar no menor nível de desempenho possível. Diversas técnicas correspondem às tradicionais práticas recomendadas de ajuste do SQL Server, mas algumas técnicas são específicas do Banco de Dados SQL do Azure. Em alguns casos, as técnicas tradicionais do SQL Server podem ser estendidas para funcionarem também no Banco de Dados SQL do Azure, examinando os recursos consumidos para um banco de dados localizar áreas para ajustar ainda mais.
 
-### Query Performance Insight e Consultor de Índices
-O Banco de Dados SQL fornece duas ferramentas no Portal Clássico do Azure para análise e correção de problemas de desempenho com seu banco de dados:
+### Análise de Desempenho de Consultas e Consultor do Banco de Dados SQL
+O Banco de Dados SQL fornece duas ferramentas no Portal do Azure para análise e correção de problemas de desempenho com seu banco de dados:
 
 - [Visão de Desempenho de Consulta](sql-database-query-performance.md)
-- [Supervisor de Índices](sql-database-index-advisor.md)
+- [Advisor do Banco de Dados SQL](sql-database-index-advisor.md)
 
 Consulte os links anteriores para saber mais sobre cada ferramenta e como usá-las. As duas seções a seguir, Índices ausentes e Ajuste de consultas, fornecem outras maneiras de encontrar e corrigir manualmente problemas de desempenho parecidos. Recomendamos que você experimente primeiro as ferramentas no portal a fim de diagnosticar e corrigir os problemas com mais eficiência. Use o abordagem de ajuste manual para casos especiais.
 
@@ -324,7 +340,7 @@ O exemplo a seguir cria um caso em que o plano de consulta selecionado contém u
 
 O Banco de Dados SQL do Azure contém funcionalidade para ajudar os administradores de banco de dados sobre como localizar e corrigir condições comuns de índice ausente. As exibições de gerenciamento dinâmico (DMVs) incorporadas ao Banco de Dados SQL do Azure examinam a compilação da consulta em que um índice reduziria significativamente o custo estimado para executar uma consulta. Durante a execução da consulta, ela controla com que frequência cada plano de consulta é executado, bem como o intervalo estimado entre o plano de consulta em execução e o imaginado onde esse índice existia. Isso permite que um administrador de banco de dados adivinhe rapidamente quais alterações de design de banco de dados físico podem melhorar a carga de trabalho geral para um determinado banco de dados e sua carga de trabalho real.
 
->[AZURE.NOTE] Antes de usar os DMVs para encontrar índices ausentes, leia primeiro a seção sobre [Informações de Desempenho de Consulta e Supervisor de Índice](#query-performance-insight-and-index-advisor).
+>[AZURE.NOTE] Antes de usar os DMVs para encontrar índices ausentes, primeiro leia a seção sobre [Análise de Desempenho de Consultas e Consultor do Banco de Dados SQL](#query-performance-insight-and-index-advisor).
 
 A consulta a seguir pode ser usada para avaliar potenciais índices ausentes.
 
@@ -491,4 +507,4 @@ Alguns aplicativos de banco de dados contêm cargas de trabalho de leitura pesad
 
 As camadas de serviço no Banco de Dados SQL do Azure capacita você a elevar o nível nos tipos de aplicativos criados na nuvem. Quando combinadas ao ajuste cuidadoso do aplicativo, você poderá obter o desempenho ideal e previsível para seu aplicativo. Este documento descreve as técnicas recomendadas para otimizar o consumo de recursos do banco de dados para o ajuste adequado a um dos níveis de desempenho. O ajuste é um exercício contínuo no modelo de nuvem e as camadas de serviço e seus níveis de desempenho permitem aos administradores maximizar o desempenho e minimizar os custos na plataforma Microsoft Azure.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0518_2016-->

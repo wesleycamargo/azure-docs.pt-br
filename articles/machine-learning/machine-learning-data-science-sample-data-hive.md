@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="05/10/2016"
 	ms.author="hangzh;bradsev" />
 
 # Dados de exemplo nas tabelas Hive do Azure HDInsight
-
-## Introdução
 
 Neste artigo, descreveremos como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive. Abordaremos três métodos de amostragem popularmente usados:
 
@@ -32,7 +30,7 @@ O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de 
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-A tarefa de amostragem é uma etapa no [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+A tarefa de amostragem é uma etapa do [CAP (Processo do Cortana Analytics)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Como enviar consultas de Hive
@@ -109,4 +107,4 @@ Veja um exemplo de consulta:
 Para obter informações sobre os métodos de amostragem mais avançados disponíveis no Hive, consulte [Amostragem LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

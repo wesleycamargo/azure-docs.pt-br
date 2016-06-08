@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # Como usar os tópicos AMQP 1.0 com o Service Bus .NET API
@@ -40,7 +40,7 @@ Na versão atual, existem alguns outros recursos da API que não são suportados
 
 ### Configurar via App. config
 
-É uma prática recomendada que os aplicativos usem o arquivo de configuração do App.config para armazenar as configurações. Para aplicativos do Barramento de Serviço, você pode usar o App.config para armazenar o Barramento de Serviço **ConnectionString**. Este aplicativo de exemplo também usa o App.config para armazenar o nome da entidade de mensagens do Barramento de Serviço que ele usa.
+É uma prática recomendada que os aplicativos usem o arquivo de configuração App.config para armazenar as configurações. Para aplicativos do Barramento de Serviço, você pode usar o App.config para armazenar o Barramento de Serviço **ConnectionString**. Este aplicativo de exemplo também usa o App.config para armazenar o nome da entidade de mensagens do Barramento de Serviço que ele usa.
 
 Uma amostra do arquivo App.config é mostrada aqui:
 
@@ -306,11 +306,11 @@ Os seguintes recursos da API do Service Bus do .NET não são atualmente suporta
 * Renovação de bloqueio da sessão
 * Algumas pequenas diferenças no comportamento
 
-Para obter mais informações, veja a [Visão geral do Barramento de Serviço AMQP](service-bus-amqp-dotnet.md). Este tópico inclui uma lista detalhada de APIs não suportadas.
+Para obter mais informações, veja a [Visão geral do Barramento de Serviço AMQP](service-bus-amqp-dotnet.md). Este artigo inclui uma lista detalhada de APIs sem suporte.
 
 ## Resumo
 
-Este tópico mostrou como acessar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) do .NET que usam o AMQP 1.0 e a API do .NET do Barramento de Serviço.
+Este artigo mostrou como acessar os recursos do sistema de mensagens agenciado do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) do .NET que usam o AMQP 1.0 e a API do .NET do Barramento de Serviço.
 
 Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluindo Java, C, Python e PHP. Os componentes criados com estas linguagens podem trocar mensagens de forma confiável e com total fidelidade usando o AMQP 1.0 no Service Bus. Para obter mais informações, veja a [Visão geral do Barramento de Serviço AMQP](service-bus-amqp-dotnet.md).
 
@@ -322,6 +322,6 @@ Agora que você leu uma visão geral do Barramento de Serviço e do AMQP com o .
 * [Como usar a API do JMS (Serviço de Mensagem Java) com Barramento de Serviço e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Como usar filas do Barramento de Serviço](service-bus-dotnet-how-to-use-queues.md)
  
-[portal clássico do Azure]: http://manage.windowsazure.com
+[portal clássico do Azure]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0518_2016-->

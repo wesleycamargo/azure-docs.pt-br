@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -119,7 +119,7 @@ Após fazer o pré-processamento nas opções de solicitação, o método precis
 function (returnObject, finalCallback, next)
 ```
 
-Nesse retorno de chamada, e após processar o returnObject (a resposta da solicitação ao servidor), o retorno de chamada precisará invocar avançar, se ele existir, para continuar processando outros filtros ou simplesmente invocar finalCallback para terminar a invocação de serviço.
+Nesse retorno de chamada, e depois de processar o **returnObject** (a resposta da solicitação ao servidor), o retorno de chamada precisará invocar Avançar, se existir, para continuar processando outros filtros ou apenas invocar **finalCallback** para terminar a invocação de serviço.
 
 Dois filtros que implementam a lógica de repetição estão incluídos no SDK do Azure para Node.js, **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte código cria um objeto **ServiceBusService** que usa **ExponentialRetryPolicyFilter**:
 
@@ -251,7 +251,7 @@ for (i = 0;i < 5;i++) {
 }
 ```
 
-Os tópicos de Service Bus oferecem suporte a um tamanho máximo de mensagem de 256 MB (o cabeçalho, que inclui as propriedades do aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 MB). Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB.
+Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em um tópico mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB.
 
 ## Receber mensagens de uma assinatura
 
@@ -317,7 +317,7 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 -   Visite o repositório [SDK do Azure para o nó][] no GitHub.
 
   [SDK do Azure para o nó]: https://github.com/Azure/azure-sdk-for-node
-  [portal clássico do Azure]: http://manage.windowsazure.com
+  [portal clássico do Azure]: https://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
@@ -327,4 +327,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
   [Aplicativo Web do Node.js com Armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0525_2016-->
