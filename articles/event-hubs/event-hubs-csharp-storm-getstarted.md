@@ -65,7 +65,7 @@ Agora que criou um aplicativo funcional que cria um Hub de Eventos e envia e rec
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+[portal clássico do Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Visão geral de Hubs de Eventos]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

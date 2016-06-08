@@ -13,13 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="05/23/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Exemplos
 
 ## Exemplos no GitHub
 O [repositório GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contém vários exemplos que ajudam você a utilizar rapidamente o serviço Azure Data Factory ou modificar os scripts e usá-los no próprio aplicativo. A pasta Samples\\JSON contém trechos de código JSON para cenários comuns.
+
+| Amostra | Descrição |
+| :----- | :---------- | 
+| [Passo a passo do ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) | Este exemplo fornece uma explicação de ponta a ponta para o processamento de arquivos de log usando o Azure Data Factory para transformar dados de arquivos de log em informações. <br/><br/>Neste passo a passo, o pipeline do Data Factory coleta logs de exemplo, processa e enriquece os dados dos logs com dados de referência, além de transformar os dados para avaliar a eficiência de uma campanha de marketing lançada recentemente. |
+| [Exemplos JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) | Este exemplo fornece exemplos JSON para cenários comuns. | 
+| [Exemplo de HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). | Este exemplo apresenta o download de dados de um ponto de extremidade HTTP no Armazenamento de Blobs do Azure usando a atividade personalizada do .NET. |
+| [Exemplo de atividade AppDomain Dot Net](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) | Este exemplo permite que você crie uma atividade personalizada do .NET que não esteja restrita a versões de assembly usadas pelo iniciador do ADF (por exemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.). |
+| [Executar script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). | Este exemplo inclui a atividade personalizada do Data Factory que pode ser usada para invocar RScript.exe. Esse exemplo funciona apenas no seu próprio cluster HDInsight (não sob demanda) que já tenha o R instalado nele. |
+| [Invocar trabalhos Spark no cluster Hadoop do HDInsight](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) | Esse exemplo mostra como usar a atividade MapReduce para invocar um programa Spark. O programa Spark apenas copia dados de um contêiner de Blob do Azure para outro. |
+| [Análise do Twitter usando a Atividade de Pontuação em Lotes do Aprendizado de Máquina do Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) | Esse exemplo mostra como usar AzureMLBatchScoringActivity para invocar um modelo de Aprendizado de Máquina do Azure que executa análise de opiniões no twitter, pontuação, previsão, etc. |
+| [Análise do Twitter usando a atividade personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) | Esse exemplo mostra como usar uma atividade .NET personalizada para invocar um modelo de Aprendizado de Máquina do Azure que executa análise de opiniões no twitter, pontuação, previsão, etc. |
+| [Pipelines com parâmetros para o Aprendizado de Máquina do Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) | O exemplo fornece um código C# de ponta a ponta a fim de implantar N pipelines para classificação e treinamento, cada um com um parâmetro de região diferente, em que a lista de regiões está vindo de um arquivo parameters.txt que acompanha esse exemplo. | 
+| [Atualização de dados de referência para trabalhos de Stream Analytics do Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) | Esse exemplo mostra como utilizar o Azure Data Factory e o Stream Analytics do Azure para executar as consultas com dados de referência e configurar a atualização de dados de referência em uma agenda. |
+| [Pipeline híbrido com Hadoop Hortonworks local](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) | O exemplo usa um cluster Hadoop local como um destino de computação para executar trabalhos de Data Factory, exatamente como você adicionaria outros destinos de computação, como um HDInsight baseado em cluster Hadoop na nuvem. |
+| [Ferramenta de conversão JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) | Essa ferramenta permite que você converta JSONs de versões anteriores a 2015-07-01-preview para a mais recente ou 2015-07-01-preview (padrão). |  
+| [Arquivo de entrada de exemplo U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) | Este é um arquivo de exemplo usado por uma atividade U-SQL. | 
+
+
 
 ## Exemplos no Portal do Azure
 Você pode usar o bloco **Pipelines de exemplo** na home page de sua data factory para implantar os pipelines de exemplo e suas entidades associadas (conjuntos de dados e serviços vinculados) em sua data factory.
@@ -77,7 +95,7 @@ Você deve ter os seguintes itens instalados no seu computador:
 	2. Insira um **nome** para o armazenamento de dados.
 	3. Escolha a **assinatura do Azure** em que você deseja que o data factory seja criado. 
 	4. Selecione o **grupo de recursos** para o data factory a ser criado.
-	5. Selecione o **Oeste dos EUA**, **Leste dos EUA** ou **Norte da Europa** como a **região**.
+	5. Selecione o **Oeste dos EUA**, **Leste dos EUA** ou **Europa Setentrional** como a **região**.
 	6. Clique em **Próximo**. 
 9. Na página **Configurar armazenamentos de dados**, especifique um **Banco de dados SQL do Azure** e **Conta de armazenamento do Azure** (ou) crie novos e clique em Avançar. 
 10. Na página **Configurar computação**, selecione os padrões e clique em **Avançar**. 
@@ -99,4 +117,4 @@ Você deve ter os seguintes itens instalados no seu computador:
 
 Confira [Criar sua primeira data factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) para obter detalhes sobre como usar o Visual Studio para criar entidades de Data Factory e publicá-las no Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

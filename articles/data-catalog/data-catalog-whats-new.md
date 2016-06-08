@@ -13,12 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/06/2016"
+   ms.date="05/20/2016"
    ms.author="maroche"/>
 
 # O que há de novo no Catálogo de Dados do Azure
 
 As atualizações para o **Catálogo de Dados do Azure** são lançadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário, já que algumas versões se concentram em recursos de serviço de back-end. Esta página destacará os novos recursos voltados para o usuário adicionados ao serviço do Catálogo de Dados do Azure.
+
+## Novidades da versão da semana de 20 de maio de 2016
+
+Na semana de 20 de maio de 2016, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
+
+- Aprimoramentos no Glossário de Negócios do Catálogo de Dados que permitem aos usuários atualizar vários termos do glossário em uma única operação. Os usuários podem selecionar vários termos para editar os seguintes campos:
+    - Termo Pai: o usuário pode escolher um novo termo pai e todos os termos escolhidos serão atualizados para serem filhos do termo pai escolhido. Se todos os termos escolhidos tiverem o mesmo pai, esse pai será exibido na caixa de texto. Caso contrário, o campo de termo pai ficará em branco.   
+    - Marcas e Participantes: os usuários podem adicionar e remover marcas e participantes para vários termos do glossário usando a mesma experiência que a marcação de vários ativos de dados.
+
+Para saber mais sobre o Glossário de Negócios, confira [Como configurar o Glossário de Negócios para Marcação Governada](data-catalog-how-to-business-glossary.md)
 
 ## Novidades da versão da semana de 6 de março de 2016
 
@@ -33,7 +43,7 @@ Na semana de 6 de março de 2016, os seguintes recursos foram adicionados ao Cat
 
 Na semana de 11 de março de 2016, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
 
-- Um ponto de extremidade de API REST consolidado para acessar de modo programático os recursos de pesquisa e os recursos de gerenciamento de ativos do catálogo do serviço Catálogo de Dados do Azure. O ponto de extremidade de API de pesquisa e o ponto de extremidade de API de catálogo existentes estão sendo substituídos e serão descontinuados em 21 de março de 2016. Não há mudanças na semântica da API; apenas o URI do ponto de extremidade está mudando. Para obter informações adicionais, consulte a [Referência da API REST do Catálogo de Dados do Azure](https://msdn.microsoft.com/library/azure/mt267595.aspx). Para obter exemplos de API, confira [Exemplos de desenvolvedor do Catálogo de Dados do Azure](data-catalog-samples.md).
+- Um ponto de extremidade de API REST consolidado para acessar de modo programático os recursos de pesquisa e os recursos de gerenciamento de ativos do catálogo do serviço Catálogo de Dados do Azure. O ponto de extremidade de API de pesquisa e o ponto de extremidade de API de catálogo existentes estão sendo substituídos e serão descontinuados em 21 de março de 2016. Não há mudanças na semântica da API; apenas o URI do ponto de extremidade está mudando. Para obter informações adicionais, confira a [Referência da API REST do Catálogo de Dados do Azure](https://msdn.microsoft.com/library/azure/mt267595.aspx). Para obter exemplos de API, confira [Exemplos de desenvolvedor do Catálogo de Dados do Azure](data-catalog-samples.md).
 
 ## Novidades da versão da semana de 19 de fevereiro de 2016
 
@@ -80,7 +90,7 @@ A partir da semana de 8 de janeiro de 2016, os seguintes recursos foram adiciona
 - A capacidade de fixar e desafixar ativos de dados no portal do Catálogo de Dados do Azure. Os usuários podem escolher fixar os ativos de dados para facilitar a redescoberta e reutilização.
 - Uma home page nova e reformulada no portal do Catálogo de Dados do Azure. A nova home page inclui informações sobre a atividade atual de usuários - incluindo ativos publicados recentemente, ativos fixos e pesquisas salvas - bem como informações sobre a atividade no Catálogo como um todo.
 - Suporte para configurações de usuários persistentes no portal do Catálogo de Dados do Azure. Configurações de experiência do usuário - incluindo o modo de exibição de grade ou lado a lado, o número de resultados por página e ativar ou desativar o realce de ocorrências - persistem entre sessões de usuário.
-- O Catálogo de Dados do Azure agora está disponível em duas novas regiões do Azure. Os clientes podem provisionar o Catálogo de Dados do Azure nas regiões da Europa Setentrional e Sudeste Asiático, além do Leste dos EUA, Oeste dos EUA, Europa Ocidental e Leste da Austrália. Para saber mais, consulte as [Regiões do Azure](https://azure.microsoft.com/regions/).
+- O Catálogo de Dados do Azure agora está disponível em duas novas regiões do Azure. Os clientes podem provisionar o Catálogo de Dados do Azure nas regiões da Europa Setentrional e Sudeste Asiático, além do Leste dos EUA, Oeste dos EUA, Europa Ocidental e Leste da Austrália. Para saber mais, confira as [Regiões do Azure](https://azure.microsoft.com/regions/).
 
 ## Novidades da versão da semana de 18 de dezembro de 2015
 
@@ -225,4 +235,4 @@ Na semana de 21 de agosto de 2015, os seguintes recursos foram adicionados ao Ca
 - Somente para Standard Edition: ao adicionar proprietários aos ativos de dados, o Catálogo de Dados do Azure agora dá suporte a contas de usuário e grupos de segurança como proprietários. Para adicionar um grupo de segurança como um proprietário de ativos de dados selecionados, você pode inserir o nome para exibição do grupo ou o endereço de email do UPN do grupo, se houver.
 - Suporte para fontes de dados do Armazenamento do Blobs do Azure. Agora, os usuários podem registrar e descobrir os blobs e diretórios de armazenamento do Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

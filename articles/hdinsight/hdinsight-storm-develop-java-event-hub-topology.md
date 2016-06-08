@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/01/2016"
+   ms.date="05/18/2016"
    ms.author="larryfr"/>
 
 # Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)
@@ -26,11 +26,13 @@ Neste tutorial, você aprenderá a usar o spout e bolt dos Hubs de Eventos para 
 
 * Um Apache Storm no cluster HDInsight. Use um dos seguintes artigos de introdução para criar um cluster:
 
-    - Um [cluster baseado em Linux](hdinsight-apache-storm-tutorial-get-started-linux.md): selecione esta opção se quiser utilizar o SSH para trabalhar com o cluster de clientes Linux, Unix, OS X ou Windows
+    - Um [Storm baseado em Linux em cluster HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md): selecione esta opção se quiser utilizar o SSH para trabalhar com o cluster de clientes Linux, Unix, OS X ou Windows
 
-    - Um [cluster baseado no Windows](hdinsight-apache-storm-tutorial-get-started.md): selecione esta opção se quiser utilizar o PowerShell para trabalhar com o cluster de um cliente Windows
+    - Um [Storm baseado em Windows em cluster HDInsight](hdinsight-apache-storm-tutorial-get-started.md): selecione esta opção se quiser utilizar o PowerShell para trabalhar com o cluster de um cliente Windows
 
-    > [AZURE.NOTE] A única diferença entre os dois tipos de cluster é se você usará o SSH para enviar a topologia para o cluster ou para um formulário da Web.
+    > [AZURE.NOTE] As etapas neste documento baseiam-se no uso de um Storm em cluster HDInsight 3.3 ou superior. Esses clusters fornecem Storm 0.10.0 e Hadoop 2.7, o que reduz o número de etapas necessárias para que esse exemplo funcione.
+    >
+    > Para obter uma versão desse exemplo que funcione com o Storm 0.9.3 no HDInsight 3.2, confira a ramificação [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) do repositório de exemplo.
 
 * Um [Hub de Eventos do Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
@@ -71,77 +73,64 @@ O arquivo **POM.xml** contém informações de configuração deste projeto Mave
 ####A dependência do Spout Storm dos Hubs de Eventos
 
     <dependency>
-      <groupId>com.microsoft.eventhubs</groupId>
-      <artifactId>eventhubs-storm-spout</artifactId>
-      <version>0.9.3</version>
+      <groupId>org.apache.storm</groupId>
+      <artifactId>storm-eventhubs</artifactId>
+      <version>0.10.0</version>
     </dependency>
 
-Isso adiciona uma dependência para o pacote eventhubs-storm-spout, que contém um spout para leitura dos Hubs de Eventos e um bolt para a gravação neles.
+Isso adiciona uma dependência ao pacote storm-eventhubs, que contém um spout para leitura dos Hubs de Eventos e um bolt para a gravação neles.
 
-> [AZURE.NOTE] Esse pacote não está disponível no Maven e será instalado manualmente no seu repositório local do Maven em uma etapa posterior.
+> [AZURE.NOTE] Esse pacote só está disponível para a versão do Storm 0.10.0 e superior. Ao usar o Storm 0.9.3, você deve instalar manualmente o pacote spout fornecido pela Microsoft. Para obter um exemplo de como trabalhar com o Storm 0.9.3, confira a ramificação [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) do repositório de exemplo.
 
 ####Os componentes HdfsBolt e WASB
 
 Normalmente, o HdfsBolt é usado para armazenar dados para o HDFS (Sistema de Arquivos Distribuído do Hadoop). No entanto, os clusters HDInsight usam o armazenamento do Azure (WASB) como o repositório de dados padrão, portanto precisamos carregar vários componentes que permitam ao HdfsBolt entender o sistema de arquivos WASB.
 
       <!--HdfsBolt stuff -->
-      <dependency>
+        <dependency>
         <groupId>org.apache.storm</groupId>
         <artifactId>storm-hdfs</artifactId>
         <exclusions>
-          <exclusion>
+            <exclusion>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
-          </exclusion>
-          <exclusion>
+            </exclusion>
+            <exclusion>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs</artifactId>
-          </exclusion>
+            </exclusion>
         </exclusions>
-        <version>0.9.3</version>
-      </dependency>
-      <!--
-     This is a temporary workaround to make HdfsBolt work with WASB through hadoop-azure project.
-     For now, we have to build hadoop-client, hadoop-hdfs and hadoop-azure from Hadoop trunk
-     (which defaults to 3.0.0-SNAPSHOT version). And push those jars and dependencies to local
-     mvn repo (take a look at push_lib_mvn.ps1).
+        <version>0.10.0</version>
+        </dependency>
+    <!--So HdfsBolt knows how to talk to WASB -->
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-client</artifactId>
+        <version>2.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-hdfs</artifactId>
+        <version>2.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-azure</artifactId>
+        <version>2.7.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-common</artifactId>
+        <version>2.7.1</version>
+        <exclusions>
+        <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+        </exclusions>
+    </dependency>
 
-     Once Hadoop 2.7 is released, we can just switch to that version.
-     Note that hadoop-azure is added to Hadoop on Hadoop 2.7.
-     -->
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-client</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-hdfs</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-azure</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-     </dependency>
-     <dependency>
-       <groupId>org.apache.hadoop</groupId>
-       <artifactId>hadoop-common</artifactId>
-       <version>3.0.0-SNAPSHOT</version>
-       <exclusions>
-         <exclusion>
-           <groupId>org.slf4j</groupId>
-           <artifactId>slf4j-log4j12</artifactId>
-         </exclusion>
-       </exclusions>
-     </dependency>
-     <dependency>
-       <groupId>com.microsoft.windowsazure.storage</groupId>
-       <artifactId>microsoft-windowsazure-storage-sdk</artifactId>
-       <version>0.6.0</version>
-     </dependency>
-
-> [AZURE.NOTE] Os pacotes para habilitação do WASB não estão disponíveis no repositório do Maven e serão instalados manualmente em uma etapa posterior.
+> [AZURE.NOTE] Ao trabalhar com uma versão anterior do HDInsight, como a versão 3.2, você precisará registrar esses componentes manualmente. Para obter um exemplo desse processo, junto com os bits personalizados necessários para clusters do HDInsight mais antigos, confira a ramificação [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) do repositório de exemplo.
 
 ####O maven-compiler-plugin
 
@@ -159,15 +148,17 @@ Isso informa ao Maven que o projeto deve ser compilado com compatibilidade para 
 
 ####O maven-shade-plugin
 
+      <!-- build an uber jar -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>2.3</version>
         <configuration>
-          <!-- Keep us from getting a can't overwrite file error -->
           <transformers>
-            <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-            </transformer>
+            <!-- Keep us from getting a can't overwrite file error -->
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
+            <!-- Keep us from getting errors when trying to use WASB from the storm-hdfs bolt -->
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
           </transformers>
           <!-- Keep us from getting a bad signature error -->
           <filters>
@@ -179,7 +170,7 @@ Isso informa ao Maven que o projeto deve ser compilado com compatibilidade para 
                     <exclude>META-INF/*.RSA</exclude>
                 </excludes>
             </filter>
-        </filters>
+          </filters>
         </configuration>
         <executions>
           <execution>
@@ -195,7 +186,9 @@ Usado para empacotar a solução para um jar uber com o código do projeto e as 
 
 * Renomear os arquivos de licença para as dependências: se isso não for feito, poderá resultar em um erro em tempo de execução em clusters HDInsight baseados no Windows.
 
-* Excluir segurança/assinaturas: se isso não for feito, poderá resultar em um erro em tempo de execução no cluster HDInsight
+* Excluir segurança/assinaturas: se isso não for feito, poderá resultar em um erro em tempo de execução no cluster HDInsight.
+
+* Verifique se as várias implementações da mesma interface estão mescladas em uma entrada. Se isso não for feito, você receberá erros informando que o bolt Storm-HDFS não sabe como se comunicar com o sistema de arquivos do WASB.
 
 ####O exec-maven-plugin
 
@@ -295,29 +288,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as seguintes etapas p
 
 1. Baixe o projeto do GitHub: [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub). Você pode baixar o pacote como um arquivo zip, ou usar o [git](https://git-scm.com/) para clonar o projeto localmente.
 
-2. Use os comandos a seguir para instalar os pacotes incluídos no projeto em seu repositório local do Maven. Isso habilita o spout e bolt do Hub de Eventos, bem como a capacidade de usar o HdfsBolt para gravar no Armazenamento do Azure (WASB).
-
-		mvn -q install:install-file -Dfile=lib/eventhubs/eventhubs-storm-spout-0.9.3-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9.3 -Dpackaging=jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-azure-3.0.0-SNAPSHOT.jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-client-3.0.0-SNAPSHOT.jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-hdfs-3.0.0-SNAPSHOT.jar
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.jar -DpomFile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.pom
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom
-
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
-
-	> [AZURE.NOTE] Se você estiver usando o Powershell, poderá ter de colocar os parâmetros `-D` entre aspas. Por exemplo: `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`.
-
-	Além disso, esses arquivos são originalmente de https://github.com/hdinsight/hdinsight-storm-examples e, portanto, será possível encontrar as versões mais recentes nesse local.
-
-3. Use o seguinte para criar e empacotar o projeto:
+2. Use o seguinte para criar e empacotar o projeto:
 
         mvn package
 
@@ -415,7 +386,7 @@ O jar criado por este projeto contém duas topologias; __com.microsoft.example.E
 
     Clique em enviar para iniciar a topologia do EventHubReader.
 
-6. Aguarde alguns minutos para permitir que as topologias gerem eventos e os armazenem no Armazenamento do Azure, selecione a guia __Console da Consulta__ na parte superior da página __Painel do Storm__.
+6. Aguarde alguns minutos para permitir que as topologias gerem eventos e os armazenem no Armazenamento do Azure, selecione a guia __Console do Hadoop Query__ na parte superior da página __Painel do Storm__.
 
 7. No __Console de Consulta__, selecione __Editor do Hive__ e substitua o `select * from hivesampletable` padrão pelo seguinte:
 
@@ -482,4 +453,4 @@ Para saber mais sobre como usar a interface do usuário Storm, consulte estes t�
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

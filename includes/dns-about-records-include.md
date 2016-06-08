@@ -23,8 +23,10 @@ O tempo de vida, ou TTL, especifica quanto tempo cada registro é armazenado em 
 
 O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Eles são retornados para qualquer consulta com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
 
-Para criar um conjunto de registros curinga, use o nome do conjunto de registros "*", ou um nome cujo primeiro rótulo seja "*", por exemplo, "*.foo".
+Para criar um conjunto de registros curinga, use o nome do conjunto de registros " * ", ou um nome cujo primeiro rótulo seja " * ", por exemplo, " *.foo ".
 
 #### Conjuntos de registros CNAME
 
 Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um CNAME com o nome relativo "www" e um registro A com o nome relativo "www" ao mesmo tempo. Uma vez que o apex de zona (nome = "@") sempre contém os conjuntos de registro NS e SOA criados quando a zona é criada, isso significa que você não pode criar um conjunto de registros CNAME no apex da zona. Essas restrições são provenientes dos padrões DNS. Elas não são limitações do DNS do Azure.
+
+

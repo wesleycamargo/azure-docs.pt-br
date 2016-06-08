@@ -1,19 +1,19 @@
 <properties
    pageTitle="Introdução à segurança do Microsoft Azure | Microsoft Azure"
    description="Este artigo fornece uma visão geral de recursos da Segurança do Microsoft Azure e considerações gerais para organizações que estejam migrando seus ativos para um provedor de nuvem."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="YuriDio"
    manager="swadhwa"
    editor="TomSh"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/04/2016"
+   ms.date="05/23/2016"
    ms.author="yuridio"/>
 
 #Introdução à segurança do Microsoft Azure
@@ -241,4 +241,4 @@ O Azure tem controles de segurança para implementar a atenuação de ameaças e
 
 [Blog do Active Directory](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0525_2016-->

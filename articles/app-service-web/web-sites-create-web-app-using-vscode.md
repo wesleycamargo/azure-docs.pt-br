@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/26/2016" 
-	ms.author="erikre"/>
+	ms.author="cephalin"/>
 
 # Criar um aplicativo Web ASP.NET 5 no Visual Studio Code
 
@@ -127,7 +127,7 @@ Agora que criou o aplicativo Web e recuperou todos os pacotes do NuGet para o ap
 
 2. Abra uma janela de navegador e navegue até a URL a seguir.
 
-	****http://localhost:5000**
+	**http://localhost:5000**
 
 	A página padrão do aplicativo Web será exibida da maneira a seguir.
 
@@ -241,7 +241,7 @@ Nesta seção, você criará um repositório do Git local e enviará esse reposi
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE] Se fizer alterações ao seu aplicativo, você poderá publicá-las de novo diretamente no Código do VS usando a funcionalidade interna do Git selecionando a opção **Confirmar Tudo** seguida da opção **Enviar por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo ** e dos botões **Atualizar**.
+> [AZURE.NOTE] Se fizer alterações ao seu aplicativo, você poderá publicá-las de novo diretamente no Código do VS usando a funcionalidade interna do Git selecionando a opção **Confirmar Tudo** seguida da opção **Enviar por Push**. Você encontrará a opção **Envio por Push** disponível no menu suspenso ao lado de **Confirmar Tudo** e dos botões **Atualizar**.
 
 Se precisa colaborar em um projeto, você deve considerar envios por push ao GitHub entre os envios por push ao Azure.
 
@@ -262,4 +262,4 @@ Isso pode ser feito de duas maneiras:
 ## Resumo
 Neste tutorial, você aprendeu a criar um aplicativo Web no código do VS e implantá-lo no Azure. Para saber mais sobre o Código do VS, confira o artigo [Por que o Visual Studio Code?](https://code.visualstudio.com/Docs/) Para obter informações sobre os aplicativos Web do Serviço de Aplicativo, consulte [Visão geral de aplicativos Web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

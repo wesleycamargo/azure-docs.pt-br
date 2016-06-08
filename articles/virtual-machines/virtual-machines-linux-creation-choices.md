@@ -21,8 +21,6 @@
 
 O Azure oferece maneiras diferentes de criar uma VM usando o modelo de implantação do Resource Manager para se adaptar a diferentes usuários e finalidades. Este artigo resume essas diferenças e as opções que você pode fazer para criar máquinas virtuais (VMs) do Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 ## Opções da ferramenta
 
 ### Shell de comando: CLI do Azure 
@@ -47,7 +45,7 @@ Nos dois métodos, você escolhe uma imagem com base no sistema operacional que 
 
 ### Imagens do Azure
 
-Em todos os artigos acima, você pode usar facilmente uma imagem existente do Azure para criar uma VM e personalizá-la para a rede, o balanceamento de carga e muito mais. O portal oferece o Azure Marketplace para imagens fornecidas pelo Azure. Você pode obter listas semelhantes usando a linha de comando. Por exemplo, na CLI do Azure, execute `azure vm image list` para obter uma lista de todas as imagens disponíveis, por local e editor. Confira [Navegar e selecionar imagens da máquina virtual do Azure com o Azure CLI](virtual-machines-linux-cli-ps-findimage.md) para obter exemplos sobre como navegar e usar as imagens disponíveis.
+Em todos os artigos acima, você pode usar facilmente uma imagem existente do Azure para criar uma VM e personalizá-la para a rede, o balanceamento de carga e muito mais. O portal oferece o Azure Marketplace para imagens fornecidas pelo Azure. Você pode obter listas semelhantes usando a linha de comando. Por exemplo, na CLI do Azure, execute `azure vm image list` para obter uma lista de todas as imagens disponíveis, por local e editor. Consulte [Navegar e selecionar imagens da máquina virtual do Azure com a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md) para obter exemplos sobre como navegar e usar as imagens disponíveis.
 
 ### Usar sua própria imagem
 
@@ -67,4 +65,4 @@ Se você precisar de personalizações específicas, poderá usar uma imagem com
 
 * Etapas rápidas para [redefinir uma senha ou chaves SSH e gerenciar os usuários](virtual-machines-linux-using-vmaccess-extension.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

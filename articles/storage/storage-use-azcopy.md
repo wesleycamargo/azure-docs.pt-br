@@ -374,7 +374,7 @@ Você pode executar o comando a seguir para importar entidades em uma tabela usa
 
 ### Copiar apenas os dados que não existem no destino
 
-Os parâmetros `/XO` e `/XN` permitem a exclusão de recursos de origem mais antigos ou mais recentes da cópia, respectivamente. Se você quiser copiar apenas os recursos de origem que não existem no destino, especifique os dois parâmetros no comando AzCopy:
+Os parâmetros `/XO` e `/XN` permitem a exclusão de recursos de origem mais antigos ou mais recentes da cópia, respectivamente. Sem suporte quando a origem ou o destino é uma tabela. Se você quiser copiar apenas os recursos de origem que não existem no destino, especifique os dois parâmetros no comando AzCopy:
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
@@ -864,4 +864,4 @@ Para saber mais sobre o Armazenamento do Azure e o AzCopy, consulte os recursos 
 - [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

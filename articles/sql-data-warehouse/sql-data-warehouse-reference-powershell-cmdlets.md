@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
+   ms.date="05/18/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Cmdlets do PowerShell e as APIs REST para SQL Data Warehouse
 
-Diversas tarefas de administração do SQL Data Warehouse podem ser gerenciadas usando APIs REST ou cmdlets do Azure PowerShell. Abaixo estão alguns exemplos de como usar comandos do PowerShell para automatizar tarefas comuns no SQL Data Warehouse. Como alternativa, para obter uma lista de APIs REST para automatizar essas tarefas, consulte [Operações para Bancos de Dados SQL do Azure][].
+Diversas tarefas de administração do SQL Data Warehouse podem ser gerenciadas usando APIs REST ou cmdlets do Azure PowerShell. Abaixo estão alguns exemplos de como usar comandos do PowerShell para automatizar tarefas comuns no SQL Data Warehouse. Para obter alguns exemplos bons de REST, consulte o artigo [Gerenciar escalabilidade com REST][].
 
 > [AZURE.NOTE]  Para usar o Azure Powershell com o SQL Data Warehouse, você precisará instalar a versão 1.0.3 ou superior do Azure PowerShell. Você pode verificar a versão executando **Get-Module -ListAvailable -Name Azure**. A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][]. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
 
@@ -87,26 +87,27 @@ Para obter mais exemplos do PowerShell, consulte:
 - [Restaurar do instantâneo][]
 - [Restauração geográfica do instantâneo][]
 
-Para obter uma lista de todas as tarefas que podem ser automatizadas com o PowerShell, consulte [Cmdlets do Banco de Dados SQL do Azure][].
+Para obter uma lista de todas as tarefas que podem ser automatizadas com o PowerShell, consulte [Cmdlets do Banco de Dados SQL do Azure][]. Para obter uma lista de tarefas que podem ser automatizadas com o REST, consulte [Operações para Banco de Dados SQL do Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Como instalar e configurar o Azure PowerShell]: powershell-install-configure.md
-[Criar um SQL Data Warehouse usando o PowerShell]: sql-data-warehouse-get-started-provision-powershell.md
-[Restaurar do instantâneo]: sql-data-warehouse-backup-and-restore-from-snapshot.md
-[Restauração geográfica do instantâneo]: sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[Como instalar e configurar o Azure PowerShell]: ./powershell-install-configure.md
+[Criar um SQL Data Warehouse usando o PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Restaurar do instantâneo]: ./sql-data-warehouse-backup-and-restore-from-snapshot.md
+[Restauração geográfica do instantâneo]: ./sql-data-warehouse-backup-and-restore-from-geo-restore-snapshot.md
+[Gerenciar escalabilidade com REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md
 
 <!--MSDN references-->
 [Cmdlets do Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/mt574084.aspx
-[Operações para Bancos de Dados SQL do Azure]: https://msdn.microsoft.com/library/azure/dn505719.aspx
+[Operações para Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
 [Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
 [Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-[Resume-AzureRmSqlDatabase]: http://msdn.microsoft.com/library/mt619347.aspx
+[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
 <!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
@@ -115,4 +116,4 @@ Para obter uma lista de todas as tarefas que podem ser automatizadas com o Power
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

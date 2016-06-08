@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/12/2016"
+	ms.date="05/20/2016"
 	ms.author="marsma" />
 
 # Implantação de aplicativo nos pacotes de aplicativos do Lote do Azure
@@ -29,6 +29,8 @@ Neste artigo, você aprenderá a carregar e gerenciar pacotes de aplicativos usa
 O recurso de pacotes de aplicativos abordado neste artigo é compatível *somente* com os pools do Lote criados depois de 10 de março de 2016. Os pacotes de aplicativos não serão implantados nos nós de computação em pools criados antes dessa data.
 
 Esse recurso foi introduzido na [API REST do Lote][api_rest], versão 2015-12-01.2.2, e na biblioteca [.NET do Lote][api_net] correspondente, versão 3.1.0. É recomendável sempre usar a versão da API mais recente ao trabalhar com o Lote.
+
+> [AZURE.IMPORTANT] Atualmente, os pacotes de aplicativos só têm suporte em pools criados com o **CloudServiceConfiguration**. Você pode usar pacotes de aplicativos em pools criados com imagens VirtualMachineConfiguration. Confira a seção [Configuração de Máquina Virtual](batch-linux-nodes.md#virtual-machine-configuration) de [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md) para obter mais informações sobre as duas configurações diferentes.
 
 ## Sobre aplicativos e pacotes de aplicativos
 
@@ -64,7 +66,7 @@ Nas próximas seções, abordaremos primeiramente a associação de uma conta de
 
 Para usar pacotes de aplicativos, em primeiro lugar, você deve vincular uma conta de armazenamento do Azure à sua conta do Lote. Se ainda não tiver configurado uma conta de armazenamento para sua conta do Lote, o portal do Azure exibirá um aviso na primeira vez que você clicar no bloco *Aplicativos* na folha Conta do Lote.
 
-> [AZURE.IMPORTANT] No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Finalidade geral**, conforme descrito na etapa 5 [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md). Quando você vincula uma conta do Armazenamento do Azure à sua conta do Lote, vincula *somente* uma conta de armazenamento de **Finalidade geral**.
+> [AZURE.IMPORTANT] No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Finalidade geral**, conforme descrito na etapa 5 [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md). Ao vincular uma conta do Armazenamento do Azure à sua conta do Lote, você vincula *somente* uma conta de armazenamento de **Finalidade geral**.
 
 ![Aviso de nenhuma conta de armazenamento configurada no portal do Azure][9]
 
@@ -222,7 +224,11 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## Atualizar pacotes de aplicativos de um pool
 
-Se um pool existente já tiver sido configurado com um pacote de aplicativos, você poderá especificar um novo pacote para o pool. Todos os novos nós que ingressam no pool instalarão o pacote recentemente especificado, assim como qualquer nó existente que seja reinicializado ou cuja imagem seja refeita. Os nós de computação que já estão no pool quando você atualiza as referências do pacote não instalam automaticamente o novo pacote de aplicativos.
+Se um pool existente já tiver sido configurado com um pacote de aplicativos, você poderá especificar um novo pacote para o pool. Se você especificar uma nova referência de pacote para um pool, o seguinte se aplicará:
+
+* Todos os novos nós que ingressam no pool instalarão o pacote recentemente especificado, assim como qualquer nó existente que seja reinicializado ou cuja imagem seja refeita.
+* Os nós de computação que já estão no pool quando você atualiza as referências do pacote não instalam automaticamente o novo pacote de aplicativos. Eles devem ser reinicializados ou ter sua imagem refeita para receber o novo pacote.
+* Quando um novo pacote é implantado, as variáveis de ambiente criadas, refletem as novas referências do pacote de aplicativos.
 
 Neste exemplo, o pool existente tem a versão 2.7 do aplicativo *mesclador* configurada como um de seus [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Para atualizar os nós do pool com a versão 2.76b, especifique um novo [ApplicationPackageReference][net_pkgref] com a nova versão e confirme a mudança.
 
@@ -295,4 +301,4 @@ Com os pacotes de aplicativos, você pode fornecer mais facilmente aos clientes 
 [11]: ./media/batch-application-packages/app_pkg_11.png "Folha Atualizar pacote no portal do Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Caixa de diálogo de confirmação Excluir pacote no portal do Azure"
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

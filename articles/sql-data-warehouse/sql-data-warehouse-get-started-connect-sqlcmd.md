@@ -19,8 +19,10 @@
 # Conectar e consultar com SQLCMD
 
 > [AZURE.SELECTOR]
-- [Visual Studio][]
-- [SQLCMD][]
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+
 
 Este passo a passo mostra como se conectar e consultar um banco de dados do SQL Data Warehouse do Azure em apenas alguns minutos usando o utilitário sqlcmd.exe. Neste passo a passo, você vai:
 
@@ -80,7 +82,7 @@ Agora que você pode se conectar e consultar, tente [conectar-se ao PowerBI][].
 Para configurar seu ambiente para a autenticação do Windows, consulte [Conectar Banco de Dados SQL ou SQL Data Warehouse Usando a Autenticação do Azure Active Directory][].
 
 <!--Articles-->
-[Conectar Banco de Dados SQL ou SQL Data Warehouse Usando a Autenticação do Azure Active Directory]: ../sql-database/sql-database-aad-authentication.md
+[Conectar Banco de Dados SQL ou SQL Data Warehouse Usando a Autenticação do Azure Active Directory]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
 [conectar-se ao PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
 [Visual Studio]: ./sql-data-warehouse-get-started-connect.md
 [SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
@@ -93,4 +95,4 @@ Para configurar seu ambiente para a autenticação do Windows, consulte [Conecta
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

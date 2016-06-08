@@ -63,4 +63,4 @@ Quando você clica em qualquer um desses, o aplicativo deve ser iniciado na máq
 
 ![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!----HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/10/2016"
+	ms.date="05/16/2016"
 	ms.author="himad"/>
 
 
@@ -42,4 +42,4 @@ Quando o ponto de extremidade é criado, você pode consumi-lo por meio de APIs 
  
  Observe que NÃO É POSSÍVEL excluir o ponto de extremidade padrão, do Studio ou aqui, se você tiver adicionado pontos de extremidade a ele. Ele gerará um erro.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

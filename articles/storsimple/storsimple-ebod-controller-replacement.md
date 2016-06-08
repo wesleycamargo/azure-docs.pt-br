@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="03/22/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Substituir um controlador EBOD em seu dispositivo StorSimple
@@ -107,4 +107,4 @@ O procedimento e a tabela a seguir explicam como instalar um módulo do controla
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

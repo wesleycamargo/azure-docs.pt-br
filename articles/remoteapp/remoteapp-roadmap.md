@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="04/05/2016"
+    ms.date="05/20/2016"
     ms.author="elizapo" />
 
 # O que vem pela frente no RemoteApp do Azure
@@ -21,11 +21,9 @@ Estamos sempre trabalhando para melhorar o RemoteApp do Azure com base em seus c
 
 |Recurso|Abril-junho de 2016|Julho/set de 2016|
 |-----------|-------|-------|
-|Aplicativo do RemoteApp do Azure disponível em ambos o [Portal clássico do Azure](http://manage.windowsazure.com) e o [Portal do Azure](https://portal.azure.com) |X | |
-|Aplicativo Universal do Windows 10 com Continuum para RemoteApp do Azure - Visualização|X| |
-|Capacidade de publicar aplicativos individuais para usuários específicos – **Visualização Privada** ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
-|Pacote MSI redistribuível do cliente do Windows ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
-|Cliente com base em HTML5 para o Azure RemoteApp| |X|
+|Aplicativo Remoto do Azure disponível no [Portal Clássico do Azure](http://manage.windowsazure.com) e no [Portal do Azure](https://portal.azure.com) - Visualização privada|X | |
+|Capacidade de publicar aplicativos individuais para usuários específicos – Visualização privada ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|X | |
+|Pacote MSI redistribuível do cliente do Windows ([comentários](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) - Visualização privada| X| |
 |Suporte do ARM (Gerenciador de Recursos do Azure)||X|
 |Suporte a recurso v2 do Azure| |X|
 |Programa do CSP (Provedor de Soluções na Nuvem)||X|
@@ -35,6 +33,8 @@ Estamos sempre trabalhando para melhorar o RemoteApp do Azure com base em seus c
 
 Outros aperfeiçoamentos adicionados no início deste ano:
 
+- Cliente com base em HTML5 para o Azure RemoteApp
+- Aplicativo Universal do Windows 10 com Continuum para RemoteApp do Azure - Visualização
 - Fazer a implantação em um VNET sem ingressar em um domínio (conexão de coleção de nuvem para VMs do Azure)
 - Reutilizar uma rede virtual existente para coleção híbrida de RemoteApp (também habilita a Rota Expressa)
 - Rota Expressa
@@ -47,4 +47,4 @@ Outros aperfeiçoamentos adicionados no início deste ano:
 - Disponibilidade em datacenters australianos
  
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0525_2016-->

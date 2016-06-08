@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="05/31/2016"
     ms.author="ashmaka"/>
 
 # Carregar dados para a Pesquisa do Azure
@@ -45,4 +45,4 @@ Na Pesquisa do Azure, esse recurso é implementado por meio de *indexadores*, di
 
 A funcionalidade do indexador é mostrada no [Portal do Azure](search-import-data-portal.md), bem como na [API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

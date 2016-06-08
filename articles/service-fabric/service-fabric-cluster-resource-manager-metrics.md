@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Gerenciando o consumo e a carga de recursos no Service Fabric com métricas
 As métricas são o termo genérico do Service Fabric para os recursos que são importantes para seus serviços. Em geral, uma métrica é tudo o que você deseja gerenciar em termos de recurso para lidar com o desempenho de seus serviços.
 
-Em todos os exemplos acima, temos mencionado as métricas implicitamente. Termos como memória, disco, uso da CPU são exemplos de métricas. Elas são métricas físicas, recursos que correspondem aos recursos físicos no nó que precisam ser gerenciados. As métricas também podem ser lógicas, coisas como "MyWorkQueueDepth", que são definidas pelo aplicativo e que correspondem a algum nível de consumo de recursos (mas que o aplicativo realmente não conhece ou sabe como medi-los).
+Em todos os exemplos acima, temos mencionado as métricas implicitamente. Termos como memória, disco, uso da CPU são exemplos de métricas. Elas são métricas físicas, recursos que correspondem aos recursos físicos no nó que precisam ser gerenciados. As métricas também podem ser lógicas, coisas como "MyWorkQueueDepth", que são definidas pelo aplicativo e que correspondem a algum nível de consumo de recursos (mas que o aplicativo realmente não conhece ou sabe como medi-los). Na verdade, a maioria das métricas usadas são métricas lógicas. Há vários motivos para isso, mas o mais comum é que hoje muitos de nossos clientes criam seus serviços em código gerenciado e de dentro de uma instância de determinado serviço sem estado ou o objeto da réplica de serviço com estado é realmente difícil de medir e relatar o consumo de recursos físicos reais. A complexidade de métricas de relatórios próprias também é o porquê de fornecermos algumas métricas padrão prontas.
 
 ## Métricas padrão
-Vamos supor que você queira apenas começar e não saiba quais recursos pretende consumir ou até mesmo quais seriam importantes. Portanto, você vai implementar e criar seus serviços sem especificar as métricas. Sem problemas! Vamos escolher algumas métricas para você. As métricas padrão que usaremos para você no momento se você não especificar os seus próprios são chamadas PrimaryCount, ReplicaCount e (um pouco vagamente, sabemos) Count. A tabela abaixo mostra o quanto de carga para cada uma dessas métricas controlamos por padrão:
+Vamos supor que você queira apenas começar e não saiba quais recursos pretende consumir ou até mesmo quais seriam importantes. Portanto, você vai implementar e criar seus serviços sem especificar as métricas. Sem problemas! Vamos escolher algumas métricas para você. As métricas padrão que usaremos para você no momento se você não especificar os seus próprios são chamadas PrimaryCount, ReplicaCount e (um pouco vagamente, sabemos) Count. A tabela abaixo mostra o quanto de carga para cada uma dessas métricas associadas com cada objeto de serviço:
 
 | Métrica | Carga de Instância Sem Estado |	Carga Secundária com Estado |	Carga Primária com Estado |
 |--------|--------------------------|-------------------------|-----------------------|
@@ -42,14 +42,16 @@ Neste exemplo, vemos que
 
 Muito bom!
 
-Isso funciona muito bem até você começar a pensar sobre isso: qual é realmente a probabilidade de todos os primários dos meus serviços diferentes apresentarem a mesma carga agora? Além disso, qual é a chance da carga de um determinado serviço ficar constante ao longo do tempo? Na verdade, para qualquer carga de trabalho séria, ela é bem pequena.
+Isso funciona muito bem até você começar a pensar: qual é a probabilidade de que o esquema de particionamento selecionado resulte em utilização perfeitamente uniforme em todas as partições ao longo do tempo? Além disso, qual é a chance da carga de um determinado serviço ficar constante ao longo do tempo, ou até agora mesmo? Parece que qualquer carga de trabalho séria é, na verdade, bastante baixa, portanto, se você estiver interessado em obter o máximo do seu cluster, provavelmente será útil começar analisando as métricas personalizadas.
 
-Pensando de maneira realista, você pode executar com as métricas padrão ou pelo menos com métricas estáticas personalizadas, mas isso normalmente significa que o uso do seu cluster é mais baixo do que você gostaria (já que relatar não é adaptativo). Na pior das hipóteses, isso pode resultar em nós com muito agendamento, o que levaria a problemas de desempenho. Podemos melhorar com métricas personalizadas e relatórios de carga dinâmica. Isso nos leva às nossas próximas seções: métricas personalizadas e cargas dinâmicas.
+Pensando de maneira realista, você pode executar com as métricas padrão ou pelo menos com métricas estáticas personalizadas, mas isso normalmente significa que o uso do seu cluster é mais baixo do que você gostaria (já que relatar não é adaptativo). Na pior das hipóteses, isso pode resultar em nós com muito agendamento, o que levaria a problemas de desempenho. Podemos melhorar com métricas personalizadas e relatórios de carga dinâmica.
+
+Isso nos leva às nossas próximas seções: métricas personalizadas e cargas dinâmicas.
 
 ## Métricas personalizadas
-Já discutimos que pode haver métricas físicas e lógica e que as pessoas podem definir suas próprias métricas. Como elas fazem isso? É fácil! Basta configurar a métrica e o carregamento inicial padrão ao criar o serviço e pronto! Os conjunto de métricas e os valores padrão podem ser configurados com base em cada instância de serviço quando você estiver criando o serviço.
+Já discutimos que pode haver métricas físicas e lógica e que é possível definir suas próprias métricas. Mas como? Bem, é muito fácil! Basta configurar a métrica e o carregamento inicial padrão ao criar o serviço e pronto! Os conjunto de métricas e os valores padrão podem ser configurados com base em cada instância de serviço nomeado quando você estiver criando o serviço.
 
-Observe que quando você começar a definir as métricas personalizadas, precisará adicioná-las explicitamente às métricas padrão se quiser usá-las para balancear seu serviço também. Isso ocorre porque queremos que você seja claro sobre a relação entre as métricas padrão e suas métricas personalizadas. Talvez nos preocupemos mais com o consumo de memória do que você com a distribuição de primários ou talvez você tenha várias métricas que deseja "misturar" com os padrões.
+Observe que quando você começar a definir as métricas personalizadas, precisará adicioná-las explicitamente às métricas padrão se quiser usá-las para balancear seu serviço também. Isso ocorre porque queremos que você seja claro sobre a relação entre as métricas padrão e suas métricas personalizadas. Talvez nos preocupemos com o consumo de memória ou WorkQueueDepth mais do que você com a distribuição de primários.
 
 Digamos que você queira configurar um serviço que poderia informar uma métrica chamada "Memory" (além das métricas padrão). Para a memória, vamos dizer que você tomou algumas medidas básicas e sabe que normalmente uma réplica primária desse serviço usará 20 MB de memória e secundários do mesmo serviço ocuparão 5 MB. Você sabe que Memory é a métrica mais importante em termos de gerenciamento de desempenho desse serviço específico, mas ainda deseja que as réplicas principais fiquem balanceadas para que a perda de alguns nós ou domínios de falha não levem um número excessivo de réplicas primárias junto com eles. Fora isso, você usará os padrões.
 
@@ -59,25 +61,25 @@ Código:
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
-ServiceLoadMetricDescription memoryMetric = new ServiceLoadMetricDescription();
+StatefulServiceLoadMetricDescription memoryMetric = new StatefulServiceLoadMetricDescription();
 memoryMetric.Name = "MemoryInMb";
 memoryMetric.PrimaryDefaultLoad = 20;
 memoryMetric.SecondaryDefaultLoad = 5;
 memoryMetric.Weight = ServiceLoadMetricWeight.High;
 
-ServiceLoadMetricDescription primaryCountMetric = new ServiceLoadMetricDescription();
+StatefulServiceLoadMetricDescription primaryCountMetric = new StatefulServiceLoadMetricDescription();
 primaryCountMetric.Name = "PrimaryCount";
 primaryCountMetric.PrimaryDefaultLoad = 1;
 primaryCountMetric.SecondaryDefaultLoad = 0;
 primaryCountMetric.Weight = ServiceLoadMetricWeight.Medium;
 
-ServiceLoadMetricDescription replicaCountMetric = new ServiceLoadMetricDescription();
+StatefulServiceLoadMetricDescription replicaCountMetric = new StatefulServiceLoadMetricDescription();
 replicaCountMetric.Name = "ReplicaCount";
 replicaCountMetric.PrimaryDefaultLoad = 1;
 replicaCountMetric.SecondaryDefaultLoad = 1;
 replicaCountMetric.Weight = ServiceLoadMetricWeight.Low;
 
-ServiceLoadMetricDescription totalCountMetric = new ServiceLoadMetricDescription();
+StatefulServiceLoadMetricDescription totalCountMetric = new StatefulServiceLoadMetricDescription();
 totalCountMetric.Name = "Count";
 totalCountMetric.PrimaryDefaultLoad = 1;
 totalCountMetric.SecondaryDefaultLoad = 1;
@@ -102,15 +104,15 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Agora que mostramos a você como definir suas próprias métricas, vamos falar sobre as diferentes propriedades que as métricas podem ter. Já as mostramos a você, mas está na hora de falar sobre o que elas realmente significam! Há quatro propriedades diferentes que uma métrica pode ter hoje:
 
 -	MetricName: esse é o nome da métrica. É um identificador exclusivo para a métrica do cluster da perspectiva do Gerenciador de Recursos.
--	PrimaryDefaultLoad: o valor padrão de carga que esse serviço irá exercer para a métrica como primário
--	SecondaryDefaultLoad: o valor padrão de carga que o serviço irá exercer para a métrica como uma réplica secundária
+-	PrimaryDefaultLoad: o valor padrão de carga que esse serviço vai exercer para a métrica como Primário
+-	SecondaryDefaultLoad: o valor padrão de carga que o serviço vai exercer para a métrica como uma réplica Secundária
 -	Weight: é quão importante a métrica é em relação a outras métricas configuradas para esse serviço.
 
 ## Carga
 A carga é a noção geral de quanto uma determinada métrica é consumida por uma instância de serviço ou por uma réplica em um determinado nó.
 
 ## Carga padrão
-A carga padrão é quanto de carga o Gerenciador de Recursos deve assumir que cada instância de serviço ou réplica do serviço consumirá até receber as atualizações das instâncias reais ou réplicas do serviço. Para os serviços mais simples, isso acaba sendo uma definição estática que nunca é atualizada dinamicamente e, portanto, será usada pelo tempo de vida do serviço. Isso funciona muito bem com um planejamento de capacidade simples porque é exatamente o que estamos acostumados a fazer, dedicar determinados recursos para determinadas cargas de trabalho, mas a vantagem é que pelo menos agora estamos operando com a mentalidade de microsserviços, em que os recursos não são realmente atribuídos estaticamente a cargas de trabalho específicas e em que não há pessoas no loop de tomada de decisão.
+A carga padrão é quanto de carga o Resource Manager de Cluster deve assumir que cada instância de serviço ou réplica do serviço consumirá até receber as atualizações das instâncias reais ou réplicas do serviço. Para os serviços mais simples, isso acaba sendo uma definição estática que nunca é atualizada dinamicamente e, portanto, será usada pelo tempo de vida do serviço. Isso funciona muito bem com um planejamento de capacidade simples porque é exatamente o que estamos acostumados a fazer, dedicar determinados recursos para determinadas cargas de trabalho, mas a vantagem é que pelo menos agora estamos operando com a mentalidade de microsserviços, em que os recursos não são realmente atribuídos estaticamente a cargas de trabalho específicas e em que não há pessoas no loop de tomada de decisão.
 
 Permitimos que serviços com estado para especifiquem cargas padrão para seus Primários e Secundários. Pensando de forma realista, para vários serviços, esses números são diferentes por conta das cargas de trabalho diferentes executadas por réplicas primárias e secundárias, e já que as primárias servem tanto para leitura quanto para gravação (como a maioria da carga computacional), a carga padrão para uma réplica primária é mais alta do que para réplicas secundárias.
 
@@ -185,10 +187,10 @@ No exemplo inferior, distribuímos as réplicas com base no balanceamento global
 Considerando os pesos de métrica, o balanceamento global é calculado com base na média dos pesos de métrica. Podemos balancear um serviço em relação a seus próprios pesos de métrica definidos.
 
 ## Próximas etapas
-- Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de Serviços](service-fabric-cluster-resource-manager-configure-services.md)
+- Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Resource Manager de Cluster em [Saiba mais sobre a configuração de Serviços](service-fabric-cluster-resource-manager-configure-services.md)
 - Definir as Métricas de Desfragmentação é uma forma de consolidar a carga em nós, em vez de distribuí-la. Para saber como configurar a desfragmentação, leia [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
-- Comece do princípio e [veja uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Para descobrir como o Resource Manager de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md).
+- Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 - O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, veja [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
@@ -196,4 +198,4 @@ Considerando os pesos de métrica, o balanceamento global é calculado com base 
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0525_2016-->

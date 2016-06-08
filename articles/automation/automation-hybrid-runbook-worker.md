@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/18/2016"
+   ms.date="05/20/2016"
    ms.author="bwren" />
 
 # Runbook Workers Híbridos da Automação do Azure
@@ -31,7 +31,7 @@ Você pode designar um ou mais computadores no seu data center para atuar como u
 
 Não há nenhum requisito de firewall de entrada para dar suporte a Runbook Workers Híbridos. O agente no computador local inicia todas as comunicações com a Automação do Azure na nuvem. Quando um runbook é iniciado, a Automação do Azure cria uma instrução que é recuperada pelo agente. O agente então puxa o runbook e todos os parâmetros antes de executá-lo. Ele também vai recuperar os [ativos](http://msdn.microsoft.com/library/dn939988.aspx) usados pelo runbook da Automação do Azure.
 
->[AZURE.NOTE] Atualmente, os Hybrid Runbook Workers não dão suporte às [configurações DSC](automation-dsc-overview.md).
+>[AZURE.NOTE] Atualmente, não há suporte para a compilação de [Configurações da DSC](automation-dsc-overview.md) na DSC de Automação em Hybrid Runbook Workers.
 
 ## Grupos de Runbook Worker Híbrido
 
@@ -57,6 +57,8 @@ Requisitos de firewall:
 
 - O computador local que executa o Hybrid Runbook Worker deve ter acesso de saída a *.cloudapp.net nas portas 443, 9354 e 30000-30199.
 
+>[AZURE.NOTE] Não é recomendável instalar o recurso Hybrid Runbook Worker em um controlador de domínio em seu ambiente.
+
 ## Instalando o Runbook Worker Híbrido
 O procedimento abaixo descreve como instalar e configurar o Hybrid Runbook Worker. Execute as duas primeiras etapas uma vez para seu ambiente de Automação e depois repita as etapas restantes para cada computador de trabalho.
 
@@ -81,7 +83,7 @@ Quando você adiciona um agente ao Operations Management Suite, a solução de A
 Abra uma sessão do PowerShell no modo de Administrador e execute os comandos a seguir para importar o módulo.
 
 	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation<version>\HybridRegistration"
-	Import-Module HybridRegistration.psd1
+	Import-Module .\HybridRegistration.psd1
 
 
 Em seguida, execute o cmdlet **Add-HybridRunbookWorker** usando a seguinte sintaxe:
@@ -151,8 +153,8 @@ Use o procedimento a seguir para especificar uma conta RunAs para um grupo do Hy
 
 1. Crie um [ativo de credencial](automation-credentials.md) com acesso a recursos locais.
 2. Abra a conta de Automação no Portal do Azure.
-2. Escolha o bloco **Grupos Hybrid Worker** e selecione o grupo.
-3. Escolha **Todas as configurações** e **Configurações do grupo Hybrid Worker**.
+2. Escolha o bloco **Grupos do Hybrid Worker** e selecione o grupo.
+3. Escolha **Todas as configurações** e **Configurações do grupo do Hybrid Worker**.
 4. Altere **Executar como** de **Padrão** para **Personalizado**.
 5. Escolha a credencial e clique em **Salvar**.
 
@@ -169,7 +171,7 @@ Você pode editar um runbook para Runbook Worker Híbrido na Automação do Azur
 
 Os logs são armazenados localmente em cada hybrid worker, em C:\\ProgramData\\Microsoft\\System Center\\Orchestrator\\7.2\\SMA\\Sandboxes.
 
-Se seus runbooks não forem concluídos com êxito e o resumo do trabalho mostrar um status de **suspenso**, leia o artigo de solução de problemas [Hybrid Runbook Worker: um trabalho de runbook termina com o status Suspenso](automation-troubleshooting-hrw-runbook-terminates-suspended.md).
+Se seus runbooks não forem concluídos com êxito e o resumo do trabalho mostrar um status **Suspenso**, leia o artigo de solução de problemas [Hybrid Runbook Worker: um trabalho de runbook termina com o status Suspenso](automation-troubleshooting-hrw-runbook-terminates-suspended.md).
 
 ## Relação com o Service Management Automation
 
@@ -188,9 +190,9 @@ Você pode usar os critérios a seguir para determinar se a Automação do Azure
 
 ## Próximas etapas
 
-- Para saber mais sobre os diferentes métodos que podem ser usados para iniciar um runbook, confira [Iniciar um Runbook na automação do Azure](automation-starting-a-runbook.md)
+- Para saber mais sobre os diferentes métodos que podem ser usados para iniciar um runbook, confira [Iniciar um Runbook na Automação do Azure](automation-starting-a-runbook.md)
 - Para entender os diferentes procedimentos para trabalhar com runbooks do PowerShell e de Fluxo de Trabalho do PowerShell na Automação do Azure usando o editor de texto, confira [Editar um Runbook na Automação do Azure](automation-edit-textual-runbook.md)
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

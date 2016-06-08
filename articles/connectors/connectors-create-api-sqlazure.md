@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Adicionar a API do SQL Azure os seus Aplicativos Lógicos | Microsoft Azure"
-	description="Visão geral da API do SQL Azure com os parâmetros da API REST"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Adicionar o conector do SQL Azure os seus Aplicativos Lógicos | Microsoft Azure"
+    description="Visão geral do Conector do SQL Azure com os parâmetros da API REST"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/16/2016"
+   ms.date="05/19/2016"
    ms.author="mandia"/>
 
 
-# Introdução à API do SQL Azure
+# Introdução ao conector do SQL Azure
 Conecte-se ao Banco de Dados SQL do Azure para gerenciar suas tabelas e linhas, como ao inserir linhas, obter tabelas e muito mais.
 
-A API do Banco de Dados SQL do Azure pode ser usada em:
+O Conector do Banco de Dados SQL do Azure pode ser usado em:
 
 - Aplicativos lógicos (discutidos neste tópico)
 - PowerApps (consulte a [lista de conexões de PowerApps](https://powerapps.microsoft.com/tutorials/connections-list/) para obter uma lista completa)
@@ -43,14 +43,12 @@ Gatilhos | Ações
 --- | ---
 Nenhum | <ul><li>Obter linha</li><li>Obter linhas</li><li>Inserir linha</li><li>Excluir linha</li><li>Obter tabelas</li><li>Atualizar linha</li></ul>
 
-Todas as APIs dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
 ## Criar a conexão com o SQL
-Ao adicionar essa API aos seus aplicativos lógicos, insira os seguintes valores:
 
-|Propriedade| Obrigatório|Descrição|
-| ---|---|---|
-|Cadeia de Conexão SQL|Sim|Digite sua cadeia de conexão do Banco de Dados SQL do Azure|
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o SQL](../../includes/connectors-create-api-sqlazure.md)]
+
 
 Depois de criar a conexão, insira as propriedades do SQL, como o nome da tabela. A **Referência da API REST** neste tópico descreve essas propriedades.
 
@@ -226,6 +224,6 @@ Atualiza uma linha existente em uma tabela SQL. ```PATCH: /datasets/default/tabl
 
 ## Próximas etapas
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

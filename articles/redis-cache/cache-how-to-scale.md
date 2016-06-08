@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Como dimensionar o Cache Redis do Azure
@@ -115,6 +115,7 @@ A lista a seguir contém as respostas a perguntas frequentes sobre o dimensionam
 -	[Depois do dimensionamento, é necessário alterar minhas chaves de acesso ou o nome do cache?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 -	[Como funciona o dimensionamento?](#how-does-scaling-work)
 -	[Perderei dados de meu cache durante o dimensionamento?](#will-i-lose-data-from-my-cache-during-scaling)
+-	[A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?](#is-my-custom-databases-setting-affected-during-scaling)
 -	[O cache estará disponível durante o dimensionamento?](#will-my-cache-be-available-during-scaling)
 -	[Operações que não têm suporte](#operations-that-are-not-supported)
 -	[Quanto tempo o dimensionamento leva?](#how-long-does-scaling-take)
@@ -123,7 +124,7 @@ A lista a seguir contém as respostas a perguntas frequentes sobre o dimensionam
 
 ### Posso escalonar para um cache Premium, por meio dele ou nele?
 
--	Você não pode dimensionar de um cache **Premium** para uma camada de preços **Básica** ou **Standard**.
+-	Você não pode dimensionar de um cache **Premium** para um tipo de preço **Básico** ou **Standard**.
 -	Você pode dimensionar de um tipo de preço de cache **Premium** para outro.
 -	Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Primeiro, você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
 -	Se você habilitou o clustering quando criou o cache **Premium**, será possível [alterar o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size). Neste momento, você não pode habilitar clustering em um cache existente que foi criado sem cluster.
@@ -146,6 +147,15 @@ Não, o nome do cache e as chaves permanecem inalterados durante uma operação 
 -	Quando um cache **Básico** é dimensionado para um cache **Padrão**, os dados no cache geralmente são preservados.
 -	Quando um cache **Standard** é dimensionado para uma camada ou tamanho maior, ou quando um cache **Premium** é dimensionado para um tamanho maior, todos os dados normalmente são preservados. Ao se dimensionar um cache **Standard** ou **Premium** para um tamanho menor, dados podem ser perdidos, dependendo da quantidade de dados estão no cache em relação ao novo tamanho quando ele for dimensionado. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache). 
 
+### A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?
+
+Alguns tipos de preço têm diferentes [limites de bancos de dados](cache-configure.md#databases), portanto, há algumas considerações a fazer ao reduzir verticalmente um valor personalizado para a configuração `databases` durante a criação do cache.
+
+-	Ao escalar para um tipo de preço com menos `databases` limite do que a camada atual:
+	-	Se você estiver usando o número padrão de `databases`, que é 16 para todos os tipos de preço, nenhum dado será perdido.
+	-	Se você estiver usando um número personalizado de `databases`, que se encaixa dentro dos limites do tipo para o qual você está dimensionando, essa configuração `databases` será mantida e nenhum dado será perdido.
+	-	Se você estiver usando um número personalizado de `databases`, que excede os limites do novo tipo, a configuração `databases` será reduzida para os limites do novo tipo e todos os dados nos bancos de dados removidos são perdidos.
+-	Ao escalonar para um tipo de preço com o mesmo limite ou limite superior `databases` do que o tipo atual, sua configuração `databases` é mantida e nenhum dado é perdido.
 
 Observe que, embora os caches Standard e Premium tenham um SLA de 99,9% de disponibilidade, não há SLA para perda de dados.
 
@@ -157,7 +167,7 @@ Observe que, embora os caches Standard e Premium tenham um SLA de 99,9% de dispo
 ### Operações que não têm suporte
 
 -	Você não pode dimensionar de uma camada de preços mais alta para uma camada de preços mais baixa.
-    -    Você não pode dimensionar para baixo de um cache **Premium** para um cache **Standard** ou **Básico**.
+    -    Você não pode dimensionar de um cache **Premium** para um cache **Standard** ou **Básico**.
     -    Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
 -	É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
 -	Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
@@ -189,4 +199,4 @@ Estamos lançando esse recurso para obter comentários. Com base nos comentário
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

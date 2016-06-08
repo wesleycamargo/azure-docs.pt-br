@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gerenciar Bancos de Dados SQL do Azure usando o Portal Clássico do Azure"
-	description="Saiba como usar o Portal Clássico do Azure para gerenciar um banco de dados relacional na nuvem usando o Portal Clássico."
+	pageTitle="Gerenciar Bancos de Dados SQL do Azure usando o Portal do Azure"
+	description="Saiba como usar o Portal do Azure para gerenciar um banco de dados relacional na nuvem usando o Portal do Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="05/10/2016"
+	ms.date="05/20/2016"
 	ms.author="sstein"/>
 
 
@@ -74,4 +74,4 @@ Os bancos de dados SQL do Azure também podem ser configurados para mascarar dad
 
 - [Banco de Dados SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

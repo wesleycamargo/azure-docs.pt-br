@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/08/2016"
+   ms.date="05/23/2016"
    ms.author="brjohnst"/>
 
 # Versões de API na Pesquisa do Azure
@@ -69,4 +69,4 @@ Para o SDK do .NET: diretrizes para a migração de código podem ser encontrada
 
 Disponibilidade geral significa que a Pesquisa do Azure agora está vinculada aos termos do Contrato de Nível de Serviço (SLA). O SLA pode ser encontrado em [Contratos de Nível de Serviço da Pesquisa do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

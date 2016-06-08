@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/02/2016"
+ ms.date="05/25/2016"
  ms.author="dobett"/>
 
 # Quais são as soluções pré-configuradas do Pacote do Azure IoT?
@@ -34,7 +34,7 @@ A tabela a seguir mostra como essas soluções são mapeadas para recursos espec
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Comando e controle | Regras e ações | Análise preditiva |
 |------------------------|-----|-----|-----|-----|-----|
-| [Monitoramento remoto][lnk-remote-monitoring] | Sim | Sim | Sim | Sim | - | 
+| [Monitoramento remoto][lnk-preconf-get-started] | Sim | Sim | Sim | Sim | - |
 | [Manutenção preditiva][lnk-predictive-maintenance] | Sim | Sim | Sim | Sim | Sim |
 
 - *Ingestão de dados*: entrada de dados em escala para a nuvem.
@@ -124,17 +124,16 @@ Explore estes recursos para saber mais sobre as soluções pré-configuradas de 
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: event-hubs-programming-guide.md#event-processor-host
-[lnk-web-job]: web-sites-create-web-jobs.md
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
 [lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
-[lnk-identity-registry]: iot-hub-devguide.md#device-identity-registry
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

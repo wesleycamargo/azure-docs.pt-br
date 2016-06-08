@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Referência técnica do conector SQL genérico
@@ -34,12 +34,12 @@ O conector SQL genérico permite que você integre o serviço de sincronização
 
 De uma perspectiva de alto nível, os seguintes recursos tem suporte pela versão atual do conector:
 
-| Recurso | Suporte |
-| --- | --- |
-| Fonte de dados conectada | O conector é compatível com todos os drivers ODBC de 64 bits. Ele foi testado com o seguinte: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li>
-| Cenários | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de senhas</li> |
-| Operações | <li>Importação completa e Importação Delta, Exportação</li><li>Para exportação: Adicionar, Excluir, Atualizar e Substituir</li><li>Definir senha, Alterar senha</li>
-| Esquema | <li>Detecção dinâmica de objetos e atributos</li>
+Recurso | Suporte
+--- | ---
+Fonte de dados conectada | O conector é compatível com todos os drivers ODBC de 64 bits. Ele foi testado com o seguinte: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li>
+Cenários | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de senhas</li>
+Operações | <li>Importação completa e Importação Delta, Exportação</li><li>Para exportação: Adicionar, Excluir, Atualizar e Substituir</li><li>Definir senha, Alterar senha</li>
+Esquema | <li>Detecção dinâmica de objetos e atributos</li>
 
 ### Pré-requisitos
 
@@ -297,4 +297,4 @@ Se os usuários escolherem a opção de consulta SQL, a exportação exigirá 3 
 
 -	Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

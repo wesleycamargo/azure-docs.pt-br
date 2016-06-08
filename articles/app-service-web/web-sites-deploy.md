@@ -126,7 +126,7 @@ No [Portal do Azure](https://portal.azure.com), você pode configurar a implanta
 * [Publicando em Aplicativos Web por meio de qualquer repositório git/hg](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html).  
 
 ## Implantar usando o IDE
-Se já estiver usando o [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) com um [SDK do Azure](https://azure.microsoft.com/downloads/) ou outros pacotes de IDE como [Xcode](https://developer.apple.com/xcode/) e [Eclipse](https://www.eclipse.org), você poderá implantar no Azure diretamente de seu IDE. Essa opção é ideal para um desenvolvedor individual.
+Se já estiver usando o [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) com um [SDK do Azure](https://azure.microsoft.com/downloads/) ou outros pacotes de IDE, como [Xcode](https://developer.apple.com/xcode/) , [Eclipse](https://www.eclipse.org) e [IntelliJ IDEA](https://www.jetbrains.com/idea/), você poderá implantar no Azure diretamente de seu IDE. Essa opção é ideal para um desenvolvedor individual.
 
 O Visual Studio oferece suporte a todos os três processos de implantação (FTP, Git e Implantação da Web), dependendo de sua preferência, enquanto outros IDEs podem implantar no Serviço de Aplicativo se tiverem integração com FTP ou Git (confira [Visão geral dos processos de implantação](#overview)).
 
@@ -154,6 +154,14 @@ Os contras da implantação usando um IDE são:
 * [Implantar um aplicativo ASP.NET MVC 5 Seguro com Associação, OAuth e Banco de Dados SQL em Aplicativos Web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Como criar e implantar um projeto da web ASP.NET MVC com um banco de dados SQL, usando o Visual Studio, a Implantação da Web e as Migrações do Entity Framework Code First.
 * [Implantação da Web do ASP.NET usando o Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Uma série de tutoriais de 12 partes que abrange uma gama mais completa de tarefas de implantação do que os outros nessa lista. Alguns recursos de implantação do Azure foram adicionados desde que o tutorial foi escrito, mas anotações adicionadas posteriormente explicam o que está faltando.
 * [Implantação direta de um site do ASP.NET no Azure no Visual Studio 2012 a partir de um repositório Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explica como implantar um projeto da web ASP.NET no Visual Studio, usando o plug-in do Git para confirmar o código para o Git e conectar o Azure ao repositório Git. A partir do Visual Studio 2013, o suporte ao Git é integrado e não requer a instalação de um plug-in.
+
+###<a name="aztk"></a>Como implantar usando os Kits de Ferramentas do Azure para Eclipse e IntelliJ IDEA
+
+A Microsoft possibilita a implantação de Aplicativos Web no Azure diretamente do Eclipse e do IntelliJ por meio do [Kit de Ferramentas do Azure para Eclipse](../azure-toolkit-for-eclipse.md) e do [Kit de Ferramentas do Azure para IntelliJ](../azure-toolkit-for-intellij.md). Os tutoriais a seguir ilustram as etapas envolvidas na implantação de um Aplicativo Web “Hello world” simples no Azure usando o IDE:
+
+*  [Crie uma aplicativo Web Hello World para o Azure no Eclipse](./app-service-web-eclipse-create-hello-world-web-app.md). Este tutorial mostra como usar o Kit de Ferramentas do Azure para Eclipse para criar um aplicativo Web Hello World para o Azure.
+*  [Crie um aplicativo Web Hello World para o Azure no IntelliJ](./app-service-web-intellij-create-hello-world-web-app.md). Este tutorial mostra como usar o Kit de Ferramentas do Azure para IntelliJ para criar e implantar um aplicativo Web Hello World no Azure.
+
 
 ## <a name="automate"></a>Automatizar a implantação usando ferramentas de linha de comando
 
@@ -226,4 +234,4 @@ Para saber mais sobre como usar o Controle de Acesso Baseado em Função do Azur
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

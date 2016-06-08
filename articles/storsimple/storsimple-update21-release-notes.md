@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/18/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # Notas de versão da Atualização 2.1 para o StorSimple 8000 Series  
@@ -21,7 +21,7 @@
 
 As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos abertos da Atualização 2.1 para o StorSimple 8000 Series. Elas também contêm uma lista das atualizações de software do StorSimple incluídas nesta versão.
 
-A Atualização 2.1 pode ser aplicada a qualquer dispositivo do StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 2. A versão do dispositivo associada à Atualização 2.1 é 6.3.9600.17704.
+A Atualização 2.1 pode ser aplicada a qualquer dispositivo do StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 2. A versão do dispositivo associada à Atualização 2.1 é 6.3.9600.17705.
 
 Examine as informações contidas nas notas de versão antes de implantar a atualização em sua solução do StorSimple.
 
@@ -111,4 +111,4 @@ Esta atualização não pode ser aplicada ao dispositivo virtual. Novos disposit
 
 Saiba como [instalar a Atualização 2.1](storsimple-install-update-21.md) no seu dispositivo StorSimple.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

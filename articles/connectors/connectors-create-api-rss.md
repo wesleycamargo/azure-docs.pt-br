@@ -52,11 +52,8 @@ Você pode escutar estes eventos:
 
 
 ## Criar uma conexão com o RSS
-Para criar Aplicativos Lógicos com o RSS, primeiro, você deve criar uma **conexão** e, em seguida, fornecer os detalhes das seguintes propriedades:
 
-|Propriedade| Obrigatório|Descrição|
-| ---|---|---|
-Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
+>[AZURE.INCLUDE [Etapas para criar uma conexão com o RSS feed](../../includes/connectors-create-api-rss.md)]
 
 >[AZURE.TIP] Você pode usar essa conexão em outros aplicativos lógicos.
 
@@ -135,4 +132,4 @@ Listar todos os itens de RSS feed: obtém todos os itens de RSS feed.
 ## Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

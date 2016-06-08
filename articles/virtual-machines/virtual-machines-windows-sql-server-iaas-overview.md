@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Visão geral do SQL Server em máquinas virtuais do Azure
@@ -47,27 +47,29 @@ Depois de se inscrever em uma assinatura, a maneira mais fácil de implantar uma
 É importante observar que há dois modelos para criar e gerenciar máquinas virtuais do Azure: clássico e Gerenciador de Recursos. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md). Cada tópico deve indicar claramente seu modelo de destino, a menos que ele se aplique ao clássico e ao Resource Manager, como este artigo.
 
 ## Escolha uma imagem de VM do SQL
-A tabela a seguir fornece uma matriz de imagens do SQL Server disponíveis na galeria de máquinas virtuais. Clique em qualquer um dos links na tabela para criar uma VM para essa versão, edição e sistema operacional.
+A tabela a seguir fornece uma matriz de imagens do SQL Server disponíveis na galeria de máquinas virtuais. Clique em qualquer um dos links na tabela com base na versão, edição e sistema operacional. Em seguida, clique no botão **Criar Máquina Virtual** na página do marketplace.
 
 |Versão do SQL Server|Sistema operacional|Edição do SQL Server|
 |---|---|---|
 |**SQL Server 2016 RC**|Windows Server 2012 R2|[Avaliação](https://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2016rc3evaluationwindowsserver2012r2/)|
-|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1webwindowsserver2012r2/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1expresswindowsserver2012r2/)|
-|**SQL Server 2014**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/)|
-|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012r2/)|
-|**SQL Server 2012 SP2**|Windows Server 2012|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/), [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2expresswindowsserver2012/)|
-|**SQL Server 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3enterprisewindowsserver2008r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3standardwindowsserver2008r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3webwindowsserver2008r2/)|
+|**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1standardwindowsserver2012r2/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1webwindowsserver2012r2/) e [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014sp1expresswindowsserver2012r2/)|
+|**SQL Server 2014**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/) e [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/)|
+|**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012r2/) e [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012r2/)|
+|**SQL Server 2012 SP2**|Windows Server 2012|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/), [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/) e [Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2012sp2expresswindowsserver2012/)|
+|**SQL Server 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3enterprisewindowsserver2008r2/), [Standard](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3standardwindowsserver2008r2/) e [Web](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3webwindowsserver2008r2/)|
 |**SQL Server 2008 R2 SP3**|Windows Server 2012|[Express](https://azure.microsoft.com//marketplace/partners/microsoft/sqlserver2008r2sp3expresswindowsserver2012/)|
 
 >[AZURE.NOTE] O CEIP (Programa de Aperfeiçoamento da Experiência do Usuário) está habilitado por padrão. Se necessário, você pode personalizar ou desabilitar o Programa de Aperfeiçoamento da Experiência do Usuário após o provisionamento da máquina virtual. Conecte-se à VM com a área de trabalho remota e execute o utilitário **Relatório de Erro e Uso do SQL Server**.
 
+Precisa de mais ajuda com a criação de uma nova VM do SQL? Consulte o passo a passo detalhado no [tutorial de provisionamento](virtual-machines-windows-portal-sql-server-provision.md).
+
 Além dessas imagens pré-configuradas, também é possível [criar uma máquina virtual do Azure](virtual-machines-windows-hero-tutorial.md) sem o SQL Server pré-instalado. Você pode instalar qualquer instância do SQL Server para a qual tenha uma licença. Migre a licença do Azure para executar o SQL Server em uma Máquina Virtual do Azure usando a [Mobilidade de Licenças por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Neste cenário, você paga apenas pelos [custos](https://azure.microsoft.com/pricing/details/virtual-machines/) de computação e de armazenamento do Azure associados à máquina virtual.
 
-Para determinar as melhores definições de configuração de máquina virtual para a sua imagem do SQL Server, examine as [Práticas recomendadas de desempenho para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md). Para cargas de trabalho de produção, o **DS3** é o tamanho mínimo recomendado de máquina virtual para o SQL Server Enterprise Edition, e o **DS2** é o tamanho mínimo recomendado de máquina virtual para a Standard Edition.
+Para determinar as melhores definições de configuração de máquina virtual para a sua imagem do SQL Server, examine as [Práticas recomendadas de desempenho para VMs do SQL Server](virtual-machines-windows-sql-performance.md). Para cargas de trabalho de produção, o **DS3** é o tamanho mínimo recomendado de máquina virtual para o SQL Server Enterprise edition. **DS2** é o tamanho mínimo recomendado de máquinas virtuais para cargas de trabalho de produção no Standard edition.
 
 ## Migrar seus dados
 
-Depois que sua máquina virtual do SQL Server estiver em execução, talvez você queira migrar bancos de dados existentes para a máquina. Para obter uma lista das opções de migração e diretrizes, veja [Migrar um banco de dados do SQL Server para o SQL Server em uma VM do Azure](virtual-machines-windows-migrate-sql.md).
+Depois que sua máquina virtual do SQL Server estiver em execução, talvez você queira migrar bancos de dados existentes para a máquina. Para obter uma lista das opções de migração e diretrizes, consulte [Migrar um banco de dados para SQL Server em uma VM do Azure](virtual-machines-windows-migrate-sql.md).
 
 ## Alta disponibilidade
 
@@ -88,6 +90,6 @@ Primeiro, [crie sua própria VM do SQL Server no Portal do Azure](virtual-machin
 
 Em seguida, examine as [práticas recomendadas de desempenho](virtual-machines-windows-sql-performance.md) e as [técnicas de migração](virtual-machines-windows-migrate-sql.md) conforme considerar mover suas cargas de trabalho do SQL Server para VMs do Azure.
 
-Se você tiver mais dúvidas sobre o SQL Server em máquinas virtuais do Azure, consulte [Perguntas frequentes sobre o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-faq.md). Ou adicione seus comentários à parte inferior de qualquer um dos tópicos sobre VM do SQL para interagir com a Microsoft e com a comunidade.
+Você tem mais dúvidas sobre o SQL Server em máquinas virtuais do Azure? Primeiramente, consulte as [Perguntas frequentes sobre o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-faq.md). Adicione também suas perguntas ou comentários à parte inferior de qualquer um dos tópicos sobre VM do SQL para interagir com a Microsoft e com a comunidade.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

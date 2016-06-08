@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Solucionar problemas de implantação do dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 Este artigo oferece orientações úteis de solução de problemas para sua implantação do Microsoft Azure StorSimple. Descreve problemas comuns, possíveis causas e etapas recomendadas para ajudar você a resolver problemas que podem ocorrer durante a execução do StorSimple. Essas informações se aplicam ao dispositivo físico local StorSimple e ao dispositivo virtual StorSimple.
 
-> [AZURE.NOTE]Problemas relacionados com a configuração de dispositivo que você pode enfrentar podem ocorrer na primeira implantação do dispositivo ou podem ocorrer mais tarde, quando o dispositivo estiver funcionando. Este artigo se concentra na solução de problemas da primeira implantação. Para solucionar problemas de um dispositivo operacional, vá para [Solucionar problemas de dispositivo operacional](storsimple-troubleshoot-operational-device.md).
+> [AZURE.NOTE] Problemas relacionados com a configuração de dispositivo que você pode enfrentar podem ocorrer na primeira implantação do dispositivo ou podem ocorrer mais tarde, quando o dispositivo estiver funcionando. Este artigo se concentra na solução de problemas da primeira implantação. Para solucionar problemas de um dispositivo operacional, vá para [Solucionar problemas de dispositivo operacional](storsimple-troubleshoot-operational-device.md).
 
 Este artigo também descreve as ferramentas para solucionar problemas de implantações do StorSimple e fornece um exemplo passo a passo de solução de problemas.
 
@@ -51,7 +51,7 @@ As etapas a seguir resumem o processo do assistente de instalação. Para obter 
   - A senha do administrador do dispositivo é usada para fazer logon no seu dispositivo. A senha do dispositivo padrão é **Senha1**.
   - A senha do Gerenciador de Instantâneos StorSimple é necessária quando você configura um dispositivo para usar o Gerenciador de Instantâneos StorSimple. Primeiro você precisa definir a senha no assistente de instalação e então pode defini-la e alterá-la do serviço Gerenciador do StorSimple. Essa senha autentica o dispositivo no Gerenciador de Instantâneos StorSimple.
  
-    > [AZURE.IMPORTANT]As senhas são coletadas antes do registro, mas aplicadas somente depois que você registra com êxito o dispositivo. Se houver uma falha ao aplicar uma senha, você deverá fornecer a senha novamente até que as senhas necessárias (que atendem aos requisitos de complexidade) sejam coletadas.
+    > [AZURE.IMPORTANT] As senhas são coletadas antes do registro, mas aplicadas somente depois que você registra com êxito o dispositivo. Se houver uma falha ao aplicar uma senha, você deverá fornecer a senha novamente até que as senhas necessárias (que atendem aos requisitos de complexidade) sejam coletadas.
 
 4. Registre o dispositivo: a etapa final é registrar o dispositivo no serviço Gerenciador do StorSimple em execução no Microsoft Azure. O registro exige que você [obtenha a chave de registro de serviço](storsimple-manage-service.md#get-the-service-registration-key) do Portal clássico do Azure e a forneça no assistente de instalação. Depois que o dispositivo for registrado com êxito, uma chave de criptografia de dados de serviço será fornecida para você. Mantenha essa chave de criptografia em um local seguro, pois ela será necessária para registrar todos os dispositivos subsequentes no serviço.
 
@@ -117,7 +117,7 @@ Você pode encontrar um ou mais dos seguintes erros ao configurar as senhas do a
 
 As senhas são coletadas antes do registro do dispositivo, mas são aplicadas somente após o registro com êxito. O fluxo de trabalho de recuperação de senha requer que o dispositivo esteja registrado.
 
-> [AZURE.IMPORTANT]Em geral, se uma tentativa de aplicar uma senha falhar, o software tentará coletar repetidamente a senha até obter êxito. Em casos raros, a senha não pode ser aplicada. Nessa situação, você pode registrar o dispositivo e continuar, mas as senhas não serão alteradas. Você não receberá nenhuma indicação de que a senha não foi alterada — a senha do administrador do dispositivo ou a senha do Gerenciador de Instantâneos StorSimple. Se essa situação ocorrer, recomendamos que você altere as duas senhas.
+> [AZURE.IMPORTANT] Em geral, se uma tentativa de aplicar uma senha falhar, o software tentará coletar repetidamente a senha até obter êxito. Em casos raros, a senha não pode ser aplicada. Nessa situação, você pode registrar o dispositivo e continuar, mas as senhas não serão alteradas. Você não receberá nenhuma indicação de que a senha não foi alterada — a senha do administrador do dispositivo ou a senha do Gerenciador de Instantâneos StorSimple. Se essa situação ocorrer, recomendamos que você altere as duas senhas.
 
 Você pode redefinir as senhas no portal clássico do Azure por meio do serviço StorSimple Manager. Para obter mais informações, consulte:
 
@@ -163,7 +163,7 @@ Um pacote de suporte contém todos os logs relevantes que podem ajudar a equipe 
   1. Execute o comando **eventvwr** no cliente Windows. Isso iniciará o Visualizador de Eventos.
   2. No painel **Ações**, clique em **Abrir Log Salvo** e aponte para os arquivos de log no formato de etvx/etw (o pacote de suporte). Agora você pode exibir o arquivo. Depois de abrir o arquivo, você poderá e clicar com o botão direito do mouse e salvar o arquivo como texto.
    
-    > [AZURE.IMPORTANT]Você também pode usar o cmdlet **Get-WinEvent** para abrir esses arquivos no Windows PowerShell. Para obter mais informações, consulte [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) na documentação de referência do cmdlet do Windows PowerShell.
+    > [AZURE.IMPORTANT] Você também pode usar o cmdlet **Get-WinEvent** para abrir esses arquivos no Windows PowerShell. Para obter mais informações, consulte [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) na documentação de referência do cmdlet do Windows PowerShell.
 
 5. Ao abrir os logs no Visualizador de Eventos, procure os seguintes logs que contêm problemas relacionados à configuração do dispositivo:
 
@@ -261,7 +261,7 @@ Você deve habilitar o ping para solucionar problemas de conectividade com esse 
 
 Consulte os seguintes exemplos de saída do cmdlet `Test-Connection`.
 
-> [AZURE.NOTE]No primeiro exemplo, o dispositivo está configurado com um DNS incorreto. No segundo exemplo, o DNS está correto.
+> [AZURE.NOTE] No primeiro exemplo, o dispositivo está configurado com um DNS incorreto. No segundo exemplo, o DNS está correto.
  
 **Saída de exemplo – DNS incorreto**
 
@@ -328,7 +328,7 @@ Os arquivos de log CiSCommandletLog0Curr.errlog e CiSAgentsvc0Curr.errlog terão
 
 Para saber mais sobre como usar o cmdlet, acesse [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) na documentação de referência do Windows PowerShell.
 
-> [AZURE.IMPORTANT]Você pode executar esse cmdlet para o controlador passivo e o ativo.
+> [AZURE.IMPORTANT] Você pode executar esse cmdlet para o controlador passivo e o ativo.
  
 Consulte os seguintes exemplos de saída do cmdlet `Test-HcsmConnection`.
 
@@ -537,11 +537,11 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 
 1. Verifique a configuração do dispositivo: no controlador ativo, execute `Invoke-HcsSetupWizard`.
 
-     >[AZURE.NOTE]O assistente de instalação deve ser executado no controlador ativo. Para verificar se você está conectado ao controlador ativo, examine a faixa apresentada no console serial. A faixa indica se você está conectado ao controlador 0 ou 1, e se o controlador está ativo ou passivo. Para obter mais informações, consulte [Identificar um controlador ativo em seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+     > [AZURE.NOTE] O assistente de instalação deve ser executado no controlador ativo. Para verificar se você está conectado ao controlador ativo, examine a faixa apresentada no console serial. A faixa indica se você está conectado ao controlador 0 ou 1, e se o controlador está ativo ou passivo. Para obter mais informações, consulte [Identificar um controlador ativo em seu dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
  
 2. Certifique-se de que o dispositivo esteja conectado corretamente: verifique a cabeamento de rede no backplane do dispositivo. O cabeamento é específico para o modelo do dispositivo. Para saber mais, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-     >[AZURE.NOTE]Se você estiver usando portas de rede 10 GbE, precisará usar os adaptadores de QSFP-SFP e os cabos SFP fornecidos. Para obter mais informações, consulte a [lista de cabos, comutadores e transceptores recomendados pelo fornecedor OEM para portas Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+     > [AZURE.NOTE] Se você estiver usando portas de rede 10 GbE, precisará usar os adaptadores de QSFP-SFP e os cabos SFP fornecidos. Para obter mais informações, consulte a [lista de cabos, comutadores e transceptores recomendados pelo fornecedor OEM para portas Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
  
 3. Verifique a integridade da interface de rede:
 
@@ -559,11 +559,11 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
   - Execute novamente o assistente de instalação (execute **Invoke-HcsSetupWizard**) e insira os valores novamente para garantir que não haja erros. 
   - Verifique a chave de registro usada. A mesma chave de registro pode ser usada para conectar vários dispositivos a um serviço Gerenciador do StorSimple. Use o procedimento em [Obter a chave de registro de serviço](storsimple-manage-service.md#get-the-service-registration-key) para garantir que você esteja usando a chave de registro correta.
 
-    > [AZURE.IMPORTANT]Se você tiver vários serviços em execução, precisará garantir que a chave de registro para o serviço adequado seja usada para registrar o dispositivo. Se você tiver registrado um dispositivo com o serviço Gerenciador do StorSimple errado, precisará [contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para as próximas etapas. Você precisa executar uma redefinição de fábrica do dispositivo (o que pode resultar na perda de dados) para então conectá-lo ao serviço pretendido.
+    > [AZURE.IMPORTANT] Se você tiver vários serviços em execução, precisará garantir que a chave de registro para o serviço adequado seja usada para registrar o dispositivo. Se você tiver registrado um dispositivo com o serviço Gerenciador do StorSimple errado, precisará [contatar o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para as próximas etapas. Você precisa executar uma redefinição de fábrica do dispositivo (o que pode resultar na perda de dados) para então conectá-lo ao serviço pretendido.
 
 6. Use o cmdlet Test-Connection para verificar se há conectividade com a rede externa. Para obter mais informações, vá até [Solucionar problemas com o cmdlet Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 
-7. Verifique se há interferência de firewall. Se você tiver verificado que as configurações de IP Virtual (VIP), sub-rede, gateway e DNS estão todos corretas e ainda assim ter problemas de conectividade, é possível que seu firewall esteja bloqueando a comunicação entre o dispositivo e a rede externa. Você precisa garantir que as portas 80 e 443 estejam disponíveis no seu dispositivo StorSimple para comunicação de saída. Para saber mais, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+7. Verifique se há interferência de firewall. Se você tiver verificado que as configurações de IP Virtual (VIP), sub-rede, gateway e DNS estão todos corretas e ainda assim ter problemas de conectividade, é possível que seu firewall esteja bloqueando a comunicação entre o dispositivo e a rede externa. Você precisa garantir que as portas 80 e 443 estejam disponíveis no seu dispositivo StorSimple para comunicação de saída. Para obter mais informações, consulte os [Requisitos de rede do dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 8. Examine os logs. Acesse [Pacotes de suporte e logs do dispositivo disponíveis para solução de problemas](#support-packages-and-device-logs-available-for-troubleshooting).
 
@@ -577,4 +577,4 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0525_2016-->

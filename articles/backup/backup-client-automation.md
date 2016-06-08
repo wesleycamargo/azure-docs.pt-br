@@ -13,17 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="05/23/2016"
 	ms.author="markgal;jimpark;nkolli"/>
 
 
 # Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
+
+> [AZURE.SELECTOR]
+- [ARM](backup-client-automation.md)
+- [Clássico](backup-client-automation-classic.md)
 
 Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no Windows Server ou no cliente Windows, e como gerenciar backups e recuperações.
 
 ## Instale o Azure PowerShell
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
+Este artigo se concentra nos cmdlets do PowerShell do Azure Resource Manager (ARM) que permitem que você use um cofre dos Serviços de Recuperação em um grupo de recursos.
 
 Em outubro de 2015, o Azure PowerShell 1.0 foi lançado. Essa versão veio logo após a 0.9.8 e trouxe algumas alterações importantes, especialmente no padrão de nomenclatura dos cmdlets. Os cmdlets da versão 1.0 seguem o padrão de nomenclatura {verbo}-AzureRm{substantivo}; por outro lado, os nomes da versão 0.9.8 não incluem **Rm** (por exemplo, New-AzureRmResourceGroup em vez de New-AzureResourceGroup). Ao usar o Azure PowerShell 0.9.8, você deve primeiro habilitar o modo do Gerenciador de Recursos executando o comando **Switch-AzureMode AzureResourceManager**. Este comando não é necessário na 1.0 ou posterior.
 
@@ -34,23 +40,56 @@ Se você quiser usar seus scripts escritos para o ambiente da versão 0.9.8 no a
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
+## Criar um cofre dos Serviços de Recuperação
 
-## Criar um cofre de backup
+As etapas a seguir orientarão você durante a criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de Backup.
 
-> [AZURE.WARNING] Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito executando o seguinte comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+1. Se você estiver usando um Backup do Azure pela primeira vez, deverá usar o cmdlet **Register-AzureRMResourceProvider** para registrar o provedor do Serviço de Recuperação do Azure com sua assinatura.
 
-Você pode criar um novo cofre de backup usando o cmdlet **New-AzureRMBackupVault**. O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    ```
+
+2. O cofre dos Serviços de Recuperação é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Você pode usar um grupo de recursos existente ou criar um novo. Ao criar um novo grupo de recursos, especifique o nome e o local para o grupo de recursos.
+
+    ```
+    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    ```
+
+3. Use o cmdlet **New-AzureRmRecoveryServicesVault** para criar o novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
+
+    ```
+    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
+    ```
+
+4. Especifique o tipo de redundância de armazenamento a ser usado, o [LRS (Armazenamento com Redundância Local)](../storage/storage-redundancy.md#locally-redundant-storage) ou o [GRS (Armazenamento com Redundância Geográfica)](../storage/storage-redundancy.md#geo-redundant-storage). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testVault está definida como GeoRedundant.
+
+    > [AZURE.TIP] Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
+
+    ```
+    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    ```
+
+## Exibir os cofres em uma assinatura
+Use **Get-AzureRmRecoveryServicesVault** para exibir a lista de todos os cofres da assinatura atual. Você pode usar esse comando para verificar se um novo cofre foi criado ou para ver quais cofres estão disponíveis na assinatura.
+
+Execute o comando Get-AzureRmRecoveryServicesVault e todos os cofres na assinatura serão listados.
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
+PS C:\> Get-AzureRmRecoveryServicesVault
+Name              : Contoso-vault
+ID                : /subscriptions/1234
+Type              : Microsoft.RecoveryServices/vaults
+Location          : WestUS
+ResourceGroupName : Contoso-docs-rg
+SubscriptionId    : 1234-567f-8910-abc
+Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
-
-Use o cmdlet **Get-AzureRMBackupVault** para listar os cofres de backup em uma assinatura.
 
 
 ## Instalando o agente de Backup do Azure
-Antes de instalar o agente de Backup do Azure, você precisa ter o instalador baixado, já no Windows Server. Você pode obter a versão mais recente do instalador no [Centro de Download da Microsoft](http://aka.ms/azurebackup_agent) ou da página Painel do cofre de backup. Salve o instalador em um local de fácil acesso, como *C:\\Downloads*.
+Antes de instalar o agente de Backup do Azure, você precisa ter o instalador baixado, já no Windows Server. Você pode obter a última versão do instalador no [Centro de Download da Microsoft](http://aka.ms/azurebackup_agent) ou na página Painel do cofre dos Serviços de Recuperação. Salve o instalador em um local de fácil acesso, como *C:\\Downloads*.
 
 Para instalar o agente, execute o comando a seguir em um console do Azure PowerShell com privilégios elevados:
 
@@ -76,44 +115,37 @@ As opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
 | ---- | ----- | ----- |
-| /q | Instalação silenciosa | - | 
-| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
-| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
-| /m | Inscreva no Microsoft Update | - | 
-| /nu | Não verificar se há atualizações após a conclusão da instalação | - | 
-| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - | 
-| /Ph | Endereço de Host do Proxy | - | 
-| /po | Número da porta do Host do Proxy | - | 
-| /pu | Nome de usuário do Host do Host | - | 
+| /q | Instalação silenciosa | - |
+| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
+| /m | Inscreva no Microsoft Update | - |
+| /nu | Não verificar se há atualizações após a conclusão da instalação | - |
+| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - |
+| /Ph | Endereço de Host do Proxy | - |
+| /po | Número da porta do Host do Proxy | - |
+| /pu | Nome de usuário do Host do Host | - |
 | /pw | Senha do Proxy | - |
 
 
-## Registrando-se no serviço de Backup do Azure
-Antes de poder se registrar no serviço de Backup do Azure, você precisa garantir que os [pré-requisitos](backup-configure-vault.md) sejam atendidos. Você deve:
+## Registro do Windows Server ou do computador cliente do Windows em um Cofre dos Serviços de Recuperação
 
-- Ter uma assinatura válida do Azure
-- Ter um cofre de backup
-
-Para baixar as credenciais do cofre, execute o cmdlet **Get-AzureRMBackupVaultCredentials** em um console do Azure PowerShell e armazene-as em um local conveniente, como *C:\\Downloads*.
+Depois de criar o cofre dos Serviços de Recuperação, baixe o agente mais recente e as credenciais do cofre e armazene-os em um local conveniente como C:\\Downloads.
 
 ```
-PS C:\> $credspath = "C:"
-PS C:\> $credsfilename = Get-AzureRMBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
-PS C:\> $credsfilename
-f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
+PS C:\> $credspath = "C:\downloads"
+PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
 
-O registro da máquina no cofre é feito usando o [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet:
+No computador cliente do Windows Server ou do Windows, execute o cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) para registrar o computador no cofre.
 
 ```
 PS C:\> $cred = $credspath + $credsfilename
-PS C:\> Start-OBRegistration -VaultCredentials $cred -Confirm:$false
-
-CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
+PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
+CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
-ServiceResourceName : test-vault
-Region              : West US
-
+ServiceResourceName: testvault
+Region              :West US
 Machine registration succeeded.
 ```
 
@@ -145,13 +177,13 @@ Server properties updated successfully
 > [AZURE.IMPORTANT] Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
 
 ## Fazer backup de arquivos e pastas
-Todos os seus backups de servidores e clientes Windows para o Azure Backup são controlados por uma política. A política consiste em três partes:
+Todos os backups de Windows Servers e de clientes para o Backup do Azure são controlados por uma política. A política consiste em três partes:
 
 1. Um **agendamento de backup** que especifica quando backups precisam ser efetuados e sincronizados com o serviço.
 2. Um **cronograma de retenção** que especifica quanto tempo deve-se manter os pontos de recuperação no Azure.
 3. Uma **especificação de inclusão/exclusão de arquivo** que determina de que conteúdo deve-se realizar o backup.
 
-Neste documento, já que estamos automatizando o backup, vamos pressupor que nada foi configurado. Começamos criando uma nova política de backup por meio do cmdlet [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) e usando-a.
+Neste documento, já que estamos automatizando o backup, vamos pressupor que nada foi configurado. Começamos pela criação de uma nova política de backup usando o cmdlet [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx).
 
 ```
 PS C:\> $newpolicy = New-OBPolicy
@@ -595,4 +627,4 @@ Para obter mais informações sobre o Backup do Azure para Windows Server/Client
 - [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
 - [Fazer backup de servidores Windows](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

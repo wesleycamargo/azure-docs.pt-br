@@ -3,7 +3,7 @@
 	description="Saiba como carregar uma imagem de máquina virtual Windows a ser usada com o modelo de implantação do Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/06/2016"
-	ms.author="dkshir"/>
+	ms.author="cynthn"/>
 
 # Carregar uma imagem de VM Windows no Azure para implantações do Resource Manager
 
@@ -261,4 +261,4 @@ Você deverá ver a VM recentemente criada no [Portal do Azure](https://portal.a
 
 Para gerenciar sua nova máquina virtual usando o Azure PowerShell, leia [Gerenciar máquinas virtuais usando o PowerShell e o Azure Resource Manager](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

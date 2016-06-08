@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # O Assistente de Segurança do Privileged Identity Management do Azure AD
@@ -26,10 +26,10 @@ Antes de sua organização começar a usar o PIM, todas as atribuições de fun�
 
 A segunda etapa do assistente lhe fornece a oportunidade de alterar as atribuições de função do administrador.
 
-> [AZURE.WARNING] É importante que você tenha pelo menos um administrador global e mais de um administrador de segurança com uma conta organizacional (não uma conta da Microsoft). Se houver apenas um administrador de segurança, a organização não poderá gerenciar o PIM se essa conta for excluída. Além disso, não altere as atribuições de função para temporárias se um usuário tiver uma conta da Microsoft. Se você planeja exigir o MFA para ativação para essa função, esse usuário será bloqueado fora da função.
+> [AZURE.WARNING] É importante que você tenha pelo menos um administrador global e mais de um administrador de função com privilégios com uma conta organizacional (não uma conta da Microsoft). Se houver apenas um administrador de função com privilégios, a organização não poderá gerenciar o PIM se essa conta for excluída. Além disso, não altere as atribuições de função para temporárias se um usuário tiver uma conta da Microsoft. Se você planeja exigir o MFA para ativação para essa função, esse usuário será bloqueado fora da função.
 
 
-Depois de ter feito alterações, o assistente não aparecerá mais. Na próxima vez que você ou outro administrador de segurança usar o PIM, você verá o painel PIM.
+Depois de ter feito alterações, o assistente não aparecerá mais. Na próxima vez que você ou outro administrador de função com privilégios usar o PIM, você verá o painel do PIM.
 
 - Se você desejar adicionar ou remover usuários das funções ou alterar as atribuições de permanentes para temporárias, leia mais em [como adicionar ou remover uma função de usuário](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
 - Se desejar fornecer aos usuários mais acesso para gerenciar o PIM, leia mais em [como conceder acesso para gerenciar no PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
@@ -39,4 +39,4 @@ Depois de ter feito alterações, o assistente não aparecerá mais. Na próxima
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

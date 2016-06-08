@@ -412,8 +412,10 @@ Você pode criptografar credenciais usando o cmdlet **New-AzureRmDataFactoryEncr
 	    "properties":
 	    {
 	        "type": "OnPremisesSqlLinkedService",
-	        "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
-	        "gatewayName": "<gateway name>"
+			"typeProperties": {
+	        	"connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
+	        	"gatewayName": "<gateway name>"
+			}
 	    }
 	}
 
@@ -426,10 +428,12 @@ Se o nome de usuário e senha forem especificados, o gateway os usará para repr
 	     "Properties":
 	     {
 	         "type": "OnPremisesSqlLinkedService",
-	         "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
-	         "username": "<domain\\username>",
-	         "password": "<password>",
-	         "gatewayName": "<gateway name>"
+			 "typeProperties": {
+	         	"ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
+	         	"username": "<domain\\username>",
+	         	"password": "<password>",
+	         	"gatewayName": "<gateway name>"
+			}
 	     }
 	}
 
@@ -642,4 +646,4 @@ O mapeamento é o mesmo que o mapeamento de tipo de dados do SQL Server para o A
 ## Desempenho e Ajuste  
 Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

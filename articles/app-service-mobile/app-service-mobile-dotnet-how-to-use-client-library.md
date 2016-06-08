@@ -78,6 +78,7 @@ A seção a seguir fornece detalhes sobre como pesquisar e recuperar registros e
 * [Excluindo dados](#deleting)
 * [Resolução de Conflitos e Simultaneidade Otimista](#optimisticconcurrency)
 * [Associação a uma Interface de Usuário do Windows](#binding)
+* [Alterando o Tamanho da Página](#pagesize)
 
 ###<a name="instantiating"></a>Como criar uma referência de tabela
 
@@ -284,7 +285,7 @@ Para inserir dados não tipados, você pode tirar proveito do [Json.NET] da segu
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
 
-Um campo `id` deve ser especificado quando você faz uma atualização. É assim que o back-end identifica a instância para atualização. O campo `id` pode ser obtida do resultado da chamada de `InsertAsync`. Quando você tenta atualizar um item sem fornecer o valor `id`, uma `ArgumentException` é gerada.
+Um campo `id` deve ser especificado quando você faz uma atualização. É assim que o back-end identifica a instância para atualização. O campo `id` pode ser obtido do resultado da chamada a `InsertAsync`. Quando você tenta atualizar um item sem fornecer o valor `id`, uma `ArgumentException` é gerada.
 
 ###<a name="deleting"></a>Como excluir dados em um back-end do Aplicativo Móvel
 
@@ -300,7 +301,7 @@ Para excluir dados não tipados, você pode tirar proveito do Json.NET da seguin
 
 Observe que, quando você faz uma solicitação de exclusão, uma ID deve ser especificada. Outras propriedades não são passadas para o serviço ou são ignoradas no serviço. O resultado de uma chamada de `DeleteAsync` geralmente é `null`. A ID a ser passada pode ser obtida do resultado da chamada de `InsertAsync`. Um `MobileServiceInvalidOperationException` é gerado quando você tenta excluir um item sem especificar o campo `id`.
 
-###<a name="optimisticconcurrency"></a>Como Usar a Simultaneidade Otimista para Resolução de Conflitos
+###<a name="optimisticconcurrency"></a>Como usar a simultaneidade otimista para resolução de conflitos
 
 Dois ou mais clientes podem gravar alterações no mesmo item ao mesmo tempo. Sem uma detecção de conflitos, a última gravação substituirá qualquer atualização anterior, mesmo que isso não seja o resultado desejado. O *Controle de simultaneidade otimista* pressupõe que cada transação possa ser confirmada e, portanto, não usa nenhum recurso de bloqueio. Antes de confirmar uma transação, o controle de simultaneidade otimista verifica se nenhuma outra transação modificou os dados. Se os dados foram modificados, a transação de confirmação será revertida.
 
@@ -419,6 +420,17 @@ Para usar a nova coleção nos aplicativos do Windows Phone 8 e do “Silverligh
 Quando usa a coleção criada chamando `ToCollectionAsync` ou `ToCollection`, você obtém uma coleção que pode ser vinculada a controles da interface do usuário. Essa coleção tem reconhecimento de paginação, ou seja, um controle pode pedir que a coleção "carregue mais itens", e a coleção fará isso para o controle. Nesse momento não há nenhum código de usuário envolvido, o controle iniciará o fluxo. No entanto, como a coleção está carregando dados da rede, é esperado que haja falhas nesse carregamento algumas vezes. Para lidar com essas falhas, é possível substituir o método `OnException` na `MobileServiceIncrementalLoadingCollection` para tratar das exceções resultantes de chamadas para `LoadMoreItemsAsync` executadas pelos controles.
 
 Finalmente, imagine que sua tabela tenha muitos campos, mas você só deseja exibir alguns deles em seu controle. Você pode usar as diretrizes contidas na seção “[Selecionar colunas específicas](#selecting)” acima a fim de selecionar colunas específicas para exibição na interface do usuário.
+
+###<a name="pagesize"></a>Alterar o tamanho da página
+
+Os Aplicativos Móveis do Azure retornam, no máximo, 50 itens por solicitação por padrão. Você pode alterar isso ao aumentar o tamanho máximo de página no servidor e aumentar o tamanho da página solicitada no lado cliente. Para aumentar o tamanho da página solicitada, use uma sobrecarga do `PullAsync`, que permite que você especifique `PullOptions`:
+
+    PullOptions pullOptions = new PullOptions
+		{
+			MaxPageSize = 100
+		};
+
+Supondo que você tenha tornado PageSize igual ou maior a 100 no servidor, isso retornará até 100 itens em cada solicitação.
 
 ##<a name="#customapi"></a>Trabalhar com uma API personalizada
 
@@ -599,15 +611,15 @@ Para aplicativos do Windows Phone, você pode criptografar e armazenar os dados 
 
 Você pode usar a ADAL (Biblioteca de autenticação do Active Directory) para conectar os usuários ao seu aplicativo usando o Active Directory do Azure. Normalmente, será melhor usá-la em vez dos métodos `loginAsync()`, pois ela fornece uma aparência mais nativa do UX e permite personalização adicional.
 
-1. Configure o back-end do aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de Aplicativo para o logon do Active Directory]. Complete a etapa opcional de registrar um aplicativo cliente nativo.
+1. Configure o seu back-end de aplicativo móvel para entrada no AAD seguindo o tutorial [Como configurar o Serviço de Aplicativo para o logon do Active Directory]. Complete a etapa opcional de registrar um aplicativo cliente nativo.
 
 2. No Visual Studio ou Xamarin Studio, abra o projeto e adicione uma referência ao pacote NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Ao pesquisar, inclua versões de pré-lançamento.
 
 3. Adicione o código abaixo ao seu aplicativo, de acordo com a plataforma que você está usando. Em cada um, faça as seguintes substituições:
 
-* Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário no qual o aplicativo foi provisionado. O formato deve ser https://login.windows.net/contoso.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Azure Active Directory no [Portal Clássico do Azure].
+* Substitua **INSERT-AUTHORITY-HERE** pelo nome do locatário no qual o aplicativo foi provisionado. O formato deve ser https://login.windows.net/contoso.onmicrosoft.com. Este valor pode ser copiado da guia Domínio no Azure Active Directory no [portal Clássico do Azure].
 
-* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do back-end do aplicativo móvel. É possível obter isso na guia **Avançadas** em **Configurações do Azure Active Directory** no portal.
+* Substitua **INSERT-RESOURCE-ID-HERE** pela ID do cliente do seu back-end de aplicativo móvel. Você pode obter isso na guia **Avançadas** em **Configurações do Azure Active Directory** no portal.
 
 * Substitua **INSERT-CLIENT-ID-HERE** pela ID do cliente copiada do aplicativo cliente nativo.
 
@@ -780,7 +792,7 @@ O método **RegisterAsync()** também aceita Blocos Secundários:
 
 Observe que todas as marcas serão removidas imediatamente por segurança. Para adicionar marcas a instalações ou modelos dentro de instalações, confira [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure].
 
-Para enviar notificações utilizando esses modelos registrados, consulte as [APIs dos Hubs de Notificação].
+Para enviar notificações utilizando esses modelos registrados, consulte as [APIs dos Hubs de Notificações].
 
 ##<a name="misc"></a>Tópicos diversos
 
@@ -888,7 +900,7 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/pt-BR/library/azure/dn250579(v=azure.10).aspx
 [portal do Azure]: https://portal.azure.com/
-[Portal Clássico do Azure]: https://manage.windowsazure.com/
+[portal Clássico do Azure]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/pt-BR/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
@@ -897,7 +909,7 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 [SDK do Windows Live]: https://msdn.microsoft.com/pt-BR/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[APIs dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[APIs dos Hubs de Notificações]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [Exemplo de arquivos dos Aplicativos Móveis]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 [Repositório GitHub Azure-Samples]: https://github.com/Azure-Samples
@@ -910,4 +922,4 @@ Para dar suporte ao seu cenário específico de aplicativo, convém personalizar
 [SymbolSource]: http://www.symbolsource.org/
 [instruções do SymbolSource]: http://www.symbolsource.org/Public/Wiki/Using
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="05/24/2016"
 	ms.author="csand"/>
 
 
@@ -42,6 +42,6 @@ Aqui estão alguns exemplos de uso do Gerenciamento de API com Automação:
 
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar o Gerenciamento de API do Azure, siga estes links para obter mais informações.
 
-* Confira o [Guia de Introdução](../automation/automation-first-runbook-graphical) da Automação do Azure.
+* Veja o [tutorial de introdução](../automation/automation-first-runbook-graphical.md) da Automação do Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

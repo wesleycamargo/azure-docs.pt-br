@@ -180,6 +180,14 @@ O exemplo a seguir inicializa um controlador de tabela que usa o Entity Framewor
 
 Para obter um exemplo de um controlador de tabela que usa o Entity Framework para acessar dados de um Banco de Dados SQL do Azure, veja a classe **TodoItemController** no download do projeto do servidor de início rápido do portal do Azure.
 
+### Como ajustar o tamanho de paginação da tabela
+
+Por padrão, os Aplicativos Móveis do Azure retornam 50 registros por solicitação. Isso garante que o cliente não associará o thread de interface do usuário nem o servidor por muito tempo, garantindo uma boa experiência do usuário. Você deve aumentar o “tamanho da consulta permitido” do lado servidor e o tamanho da página do lado cliente para fazer uma alteração no tamanho da paginação de tabela. Para aumentar o tamanho da paginação, ajuste seu controlador de tabela com esta linha:
+
+    [EnableQuery(PageSize = 500)]
+
+Certifique-se de que PageSize seja igual ou maior do que o tamanho que será solicitado pelo cliente. Consulte a documentação de instruções específicas do cliente para obter detalhes sobre a alteração do tamanho de página do cliente.
+
 ## Como definir um controlador da API personalizada
 
 O controlador da API personalizada fornece as funções mais básicas de back-end do Aplicativo Móvel, expondo um ponto de extremidade. Você pode registrar um controlador da API específico do dispositivo móvel usando o atributo [MobileAppController]. Esse atributo registra a rota e também configura o serializador JSON dos Aplicativos Móveis.
@@ -192,7 +200,7 @@ O controlador da API personalizada fornece as funções mais básicas de back-en
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. Aplique o **[MobileAppController]** à definição de classe do controlador de API, como no exemplo a seguir:
+4. Aplique o atributo **[MobileAppController]** à definição de classe do controlador de API, como no exemplo a seguir:
 
 		[MobileAppController]
 		public class CustomController : ApiController
@@ -324,10 +332,6 @@ O código a seguir chama o método de extensão **GetAppServiceIdentityAsync** p
     }
 
 Observe que você deve adicionar uma instrução de uso a `System.Security.Principal` para fazer o método de extensão **GetAppServiceIdentityAsync** funcionar.
-
-###<a name="authorize"></a>Como restringir o acesso a dados para usuários autorizados
-
-Frequentemente, desejamos restringir os dados que são retornados para um usuário autenticado específico. Esse tipo de particionamento de dados é feito incluindo uma coluna userId na tabela e armazenando o SID do usuário quando os dados são inseridos
 
 ## Adicionar notificações por push para um projeto do servidor
 
@@ -461,4 +465,4 @@ Agora, seu servidor em execução local está equipado para validar tokens que o
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

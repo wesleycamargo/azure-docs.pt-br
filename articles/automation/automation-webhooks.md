@@ -4,7 +4,7 @@
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
-   manager="stevenka"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2016"
+   ms.date="05/24/2016"
    ms.author="magoedte;bwren;sngun"/>
 
 # Webhooks da Automação do Azure
@@ -270,6 +270,6 @@ O seguinte exemplo de runbook é acionado quando a regra de alerta é ativada e 
 
 - Para obter detalhes sobre diferentes maneiras de iniciar um runbook, confira [Iniciando um runbook](automation-starting-a-runbook.md)
 - Para obter informações sobre como exibir o Status de um Trabalho de Runbook, consulte [Execução de Runbook na Automação do Azure](automation-runbook-execution.md)
-- [Usando a Automação do Azure para executar ações mediante Alertas do Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
+- Para saber como usar a Automação do Azure para agir em Alertas do Azure, veja [Corrigir Alertas de VM do Azure com runbooks da Automação](automation-azure-vm-alert-integration.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

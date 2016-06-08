@@ -37,7 +37,7 @@ O Glossário de Negócios do Catálogo de Dados permite que às organizações d
 
 ## Disponibilidade de glossário e privilégios
 
-O glossário de negócios está disponível na Edição Standard do Catálogo de Dados do Azure. A Edição Gratuita do Catálogo de Dados não inclui um glossário.*/
+/*O glossário de negócios está disponível na Edição Standard do Catálogo de Dados do Azure. A Edição Gratuita do Catálogo de Dados não inclui um glossário.*/
 
 O glossário de negócios pode ser acessado por meio da opção "Glossário" no menu de navegação do portal do Catálogo de Dados.
 

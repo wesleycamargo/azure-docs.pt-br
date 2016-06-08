@@ -21,7 +21,7 @@
 
 Dimensionamento automático de máquinas virtuais em um conjunto de escala é a criação ou exclusão de máquinas no conjunto conforme necessário por um aplicativo para atender às necessidades de desempenho e satisfazer SLAs (Contratos de Nível de Serviço). À medida que o volume de trabalho cresce, um aplicativo pode exigir recursos adicionais para poder realizar suas tarefas no tempo adequado.
 
-O dimensionamento automático é um processo automatizado que ajuda a facilitar o gerenciamento da sobrecarga. Reduzindo a sobrecarga, não é necessário realizar o monitoramento contínuo do desempenho do sistema nem tomar decisões sobre adicionar ou remover recursos. O dimensionamento é um processo elástico; mais recursos podem ser provisionados à medida que a carga no sistema aumenta, porém conforme a demanda diminui os recursos podem ser desalocados para minimizar os custos, mantendo ainda o desempenho adequado e atendendo os SLAs.
+O dimensionamento automático é um processo automatizado que ajuda a facilitar o gerenciamento de sobrecarga por monitoramento contínuo do desempenho do sistema, bem como tomar decisões sobre como adicionar ou remover recursos que não são necessários. O dimensionamento é um processo elástico; mais recursos podem ser provisionados à medida que a carga no sistema aumenta, porém conforme a demanda diminui os recursos podem ser desalocados para minimizar os custos, mantendo ainda o desempenho adequado e atendendo os SLAs.
 
 Configure o dimensionamento automático em um conjunto de escala usando um modelo do Azure Resource Manager, o Azure PowerShell ou a CLI do Azure.
 
@@ -209,4 +209,4 @@ Após um período de resfriamento de cinco minutos, se o número médio de threa
 1. Começar a criar seu primeiro conjunto de escala usando as informações em [Criar um Conjunto de Escala de Máquina Virtual do Windows](virtual-machine-scale-sets-windows-create.md).
 2. Confira [Dimensionamento automático de Conjuntos de Escala de Máquina Virtual do Windows](virtual-machine-scale-sets-windows-autoscale.md) ou [Dimensionamento automático de Conjuntos de Escala de Máquina Virtual do Linux](virtual-machine-scale-sets-linux-autoscale.md) para ver um exemplo de como criar um conjunto de escala com o dimensionamento automático configurado.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Como gerenciar as configurações de ativação de função no Privileged Identity Management do Azure AD
 
-Um administrador pode personalizar o Azure AD PIM (Privileged Identity Management) em sua organização, incluindo alterar a experiência de um usuário que está ativando uma atribuição de função temporária.
+Um administrador de função com privilégios pode personalizar o Azure AD PIM (Privileged Identity Management) em sua organização, incluindo alterar a experiência de um usuário que está ativando uma atribuição de função temporária.
 
 ## Gerenciar as configurações de ativação de função
 
@@ -32,7 +32,8 @@ Um administrador pode personalizar o Azure AD PIM (Privileged Identity Managemen
 8. Clique em **Salvar**.
 
 Você não pode desabilitar o MFA para funções com altos privilégios do Azure AD e do Office365, incluindo:
-- Administrador global  
+- Administrador global
+- Administrador de função com privilégios   
 - Administrador da conta de usuário  
 - Gravador de diretório  
 - Suporte de camada 1 do parceiro  
@@ -53,4 +54,4 @@ Para obter mais informações sobre como usar MFA com PIM, consulte [Como Exigir
 ## Próximas etapas
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

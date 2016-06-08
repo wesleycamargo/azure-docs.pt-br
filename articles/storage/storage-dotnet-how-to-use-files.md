@@ -258,11 +258,36 @@ Para montar o compartilhamento de arquivos de um cliente local, siga estas etapa
 
 ## Desenvolver com o armazenamento de arquivo
 
-Para trabalhar com o armazenamento de arquivos programaticamente, você pode usar as bibliotecas de cliente de armazenamento para .NET e Java ou APIs REST de armazenamento do Azure. O exemplo nesta seção demonstra como trabalhar com um compartilhamento de arquivos usando a [Biblioteca de Cliente do Armazenamento do Azure para .NET](https://msdn.microsoft.com/library/mt347887.aspx) de um aplicativo de console simples em execução na área de trabalho.
+Para escrever um código que chama o Armazenamento de arquivos, você poderá usar as bibliotecas do cliente de armazenamento do .NET e Java ou a API REST do Armazenamento do Azure. O exemplo nesta seção demonstra como trabalhar com um compartilhamento de arquivos usando a [Biblioteca de Cliente do Armazenamento do Azure para .NET](https://msdn.microsoft.com/library/mt347887.aspx) de um aplicativo de console simples em execução na área de trabalho.
 
-[AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
+### Criar o aplicativo do console e obter o assembly
 
-[AZURE.INCLUDE [storage-dotnet-save-connection-string-include](../../includes/storage-dotnet-save-connection-string-include.md)]
+Para criar um novo aplicativo de console no Visual Studio e instalar o pacote NuGet com a Biblioteca de Cliente do Armazenamento do Azure:
+
+1. No Visual Studio, escolha **Arquivo > Novo Projeto** e **Windows > Aplicativo de Console** na lista de modelos do Visual C#.
+2. Forneça um nome para o aplicativo de console e clique em **OK**.
+3. Após o projeto ser criado, clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Gerenciar Pacotes NuGet**. Pesquise online "WindowsAzure.Storage" e clique em **Instalar** para instalar o pacote da Biblioteca de Clientes do Armazenamento do Azure para .NET e as dependências.
+
+Os exemplos de código neste artigo também usam a [Biblioteca do Gerenciador de Configurações do Microsoft Azure](https://msdn.microsoft.com/library/azure/mt634646.aspx) para recuperar a cadeia de conexão de armazenamento em um arquivo app.config no aplicativo do console. Com o Gerenciador de Configurações do Azure, você pode recuperar a cadeia de conexão em tempo de execução, independentemente do aplicativo estar sendo executado no Microsoft Azure ou a partir de um desktop, celular ou aplicativo Web.
+
+Para instalar o pacote do Gerenciador de Configurações do Azure, clique com o botão direito no projeto no Gerenciador de Soluções e escolha **Gerenciar Pacotes NuGet**. Pesquise online "ConfigurationManager" e clique em **Instalar** para instalar o pacote.
+
+O uso do Gerenciador de Configurações do Azure é opcional. Você também pode usar uma API como a [classe ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) do .NET Framework.
+
+### Salvar suas credenciais da conta de armazenamento no arquivo app.config
+
+Em seguida, salve suas credenciais no arquivo app.config do projeto. Edite o arquivo app.config para que ele se pareça com o exemplo a seguir, substituindo `myaccount` pelo nome da conta de armazenamento e `mykey` pela chave da conta de armazenamento.
+
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	    <startup>
+	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	    </startup>
+	    <appSettings>
+	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+	    </appSettings>
+	</configuration>
+
 
 > [AZURE.NOTE] A versão mais recente do emulador de armazenamento do Azure não dá suporte ao armazenamento de arquivos. Sua cadeia de conexão deve ter como destino uma conta de armazenamento do Azure na nuvem para funcionar com o Armazenamento de arquivo.
 
@@ -397,13 +422,13 @@ O exemplo a seguir cria uma política de acesso compartilhado em um compartilham
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para saber mais sobre como criar e usar as assinaturas de acesso compartilhado, confira [Assinaturas de Acesso Compartilhado: compreender o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) e [Criar e usar uma SAS com o Armazenamento de Blobs](storage-dotnet-shared-access-signature-part-2.md).
+Para saber mais sobre como criar e usar as assinaturas de acesso compartilhado, consulte [Assinaturas de Acesso Compartilhado: Compreender o modelo SAS](storage-dotnet-shared-access-signature-part-1.md) e [Criar e usar uma SAS com o armazenamento de Blobs](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Copiar arquivos
 
 A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, você pode copiar um arquivo em outro arquivo, um arquivo em um blob ou um blob em um arquivo. Nas próximas seções, demonstramos como executar essas operações de cópia de modo programático.
 
-Você também pode usar o AzCopy para copiar um arquivo para outro, ou para copiar um blob em um arquivo ou vice-versa. Consulte [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md).
+Você também pode usar o AzCopy para copiar um arquivo para outro, ou para copiar um blob em um arquivo ou vice-versa. Consulte [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md).
 
 > [AZURE.NOTE] Se você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma assinatura de acesso compartilhado (SAS) para autenticar o objeto de origem, mesmo se você estiver copiando dentro da mesma conta de armazenamento.
 
@@ -613,7 +638,7 @@ Observe que, enquanto o armazenamento de Blobs, Tabelas e Filas usam o tipo `Ser
 
 14. **Como usar o Armazenamento de Arquivos do Azure com o IBM MQ**
 
-	A IBM lançou um documento para orientar os clientes do IBM MQ durante a configuração do Armazenamento de Arquivos do Azure com seu serviço. Para obter mais informações, confira [Como configurar o gerenciador de fila de várias instâncias do IBM MQ com o Serviço de Arquivos do Microsoft Azure](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
+	A IBM lançou um documento para orientar os clientes do IBM MQ durante a configuração do Armazenamento de Arquivos do Azure com seu serviço. Para obter mais informações, confira [Como configurar o gerenciador de filas com várias instâncias do IBM MQ com o Serviço de Arquivos do Microsoft Azure](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
 ## Próximas etapas
 
@@ -642,4 +667,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 - [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

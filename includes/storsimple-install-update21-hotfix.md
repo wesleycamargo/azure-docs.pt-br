@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 05/18/16-->
+<!--author=alkohli last changed: 05/19/16-->
 
 #### Para baixar os hotfixes
 
@@ -95,15 +95,15 @@ Siga as etapas abaixo para instalar e verificar os hotfixes do modo normal. Caso
 
     Você deverá ver as seguintes versões:
 
-    - HcsSoftwareVersion: 6.3.9600.17704
-    - CisAgentVersion: 1.0.9299.0
-    - MdsAgentVersion: 330.0.4698.13
+    - `HcsSoftwareVersion: 6.3.9600.17705`
+    - `CisAgentVersion: 1.0.9299.0`
+    - `MdsAgentVersion: 30.0.4698.16` 
 
 	Se os números de versão não mudarem após a aplicação da atualização, isso indica que houve falha na aplicação do hotfix. Caso isso aconteça, entre em contato com o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter mais ajuda.
 
 9. Repita as etapas de 3 a 5 para instalar os hotfixes restantes do modo normal.
 
-	> [AZURE.IMPORTANT] Você deve reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` antes de aplicar as últimas atualizações.
+	> [AZURE.IMPORTANT] Você deve reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` antes de aplicar as atualizações restantes.
 	
 	
 	- A atualização do iSCSI KB3146621
@@ -184,7 +184,7 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
         -----------------------MAINTENANCE MODE------------------------
     	Microsoft Azure StorSimple Appliance Model 8100
     	Name: Update2-8100-SHG0997879L76YD
-    	Software Version: 6.3.9600.17704
+    	Software Version: 6.3.9600.17705
     	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
     	You are connected to Controller1
     	---------------------------------------------------------------
@@ -238,3 +238,5 @@ Para instalar as atualizações de firmware de disco, siga as instruções abaix
     `Exit-HcsMaintenanceMode`
 
 1. Os controladores são reiniciados quando você sai do modo de manutenção. Depois que as atualizações do firmware de disco forem aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, retorne ao portal clássico do Azure. Observe que, por 24 horas, o portal poderá não mostrar que as atualizações do modo de manutenção foram instaladas.
+
+<!---HONumber=AcomDC_0525_2016-->

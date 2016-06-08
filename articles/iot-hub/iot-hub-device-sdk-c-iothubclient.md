@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/23/2016"
+     ms.date="05/17/2016"
      ms.author="obloch"/>
 
 # SDK do dispositivo IoT do Microsoft Azure para o C — mais sobre o IoTHubClient
@@ -278,4 +278,4 @@ A opção de envio em lote é importante. Por padrão, a biblioteca insere event
 
 Este artigo descreve em detalhes o comportamento da biblioteca **IoTHubClient** encontrada no **SDK do dispositivo IoT do Azure para C**. Com essas informações, você deverá ter um bom entendimento dos recursos da biblioteca **IoTHubClient**. O [próximo artigo](iot-hub-device-sdk-c-serializer.md) fornece detalhes semelhantes sobre a biblioteca do **serializador**.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,21 +1,23 @@
-|Primary            |Secondary          |
+|Primário |Secundário |
 |:-----------------:|:-----------------:|
-|North Central US   |South Central US   |
-|South Central US   |North Central US   |
-|East US            |West US            |
-|West US            |East US            |
-|US East 2          |Central US         |
-|Central US         |US East 2          |
-|North Europe       |West Europe        |
-|West Europe        |North Europe       |
-|South East Asia    |East Asia          |
-|East Asia          |South East Asia    |
-|East China         |North China        |
-|North China        |East China         |
-|Japan East         |Japan West         |
-|Japan West         |Japan East         |
-|Brazil South       |South Central US   |
-|Australia East     |Australia Southeast|
-|Australia Southeast|Australia East     |
-|Canada East        |Canada Central     |
-|Canada Central     |Canada East        |
+|Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
+|Centro-Sul dos Estados Unidos |Centro-Norte dos EUA |
+|Leste dos EUA |Oeste dos EUA |
+|Oeste dos EUA |Leste dos EUA |
+|Leste dos EUA 2 |Centro dos EUA |
+|Centro dos EUA |Leste dos EUA 2 |
+|Norte da Europa |Europa Ocidental |
+|Europa Ocidental |Norte da Europa |
+|Sudeste da Ásia |Ásia Oriental |
+|Ásia Oriental |Sudeste da Ásia |
+|China Oriental |Norte da China |
+|Norte da China |China Oriental |
+|Leste do Japão |Oeste do Japão |
+|Oeste do Japão |Leste do Japão |
+|Sul do Brasil |Centro-Sul dos Estados Unidos |
+|Leste da Austrália |Sudeste da Austrália|
+|Sudeste da Austrália|Leste da Austrália |
+|Leste do Canadá |Canadá Central |
+|Canadá Central |Leste do Canadá |
+
+<!---HONumber=AcomDC_0525_2016-->

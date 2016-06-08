@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Erros comuns de implantação do Azure | Microsoft Azure"
+   pageTitle="Solução de erros comuns de implantação do Azure | Microsoft Azure"
    description="Descreve como resolver erros comuns durante a implantação com o Azure Resource Manager"
    services="azure-resource-manager"
    documentationCenter=""
-   tags=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
    editor="tysonn"/>
@@ -14,14 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="05/18/2016"
    ms.author="tomfitz"/>
 
 # Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager
 
-Este tópico descreve como você pode resolver alguns dos erros comuns que pode encontrar ao implantar recursos no Azure. Para saber mais sobre como solucionar problemas de implantação, consulte [Solucionando problemas de implantações de grupo de recursos](resource-manager-troubleshoot-deployments-portal.md).
-
-É possível evitar alguns erros validando o modelo e os parâmetros antes da implantação. Para obter exemplos de validação de modelo, consulte [Implantar recursos com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+Este tópico descreve como você pode resolver alguns dos erros comuns que pode encontrar ao implantar recursos no Azure. Ele pressupõe que você já viu uma mensagem que descreve o erro. Se você precisar obter mais detalhes sobre porque a implantação falhou, consulte [Exibir operações de implantação](resource-manager-troubleshoot-deployments-portal.md).
 
 ## Modelo ou recurso inválido
 
@@ -225,6 +223,10 @@ Para registrar um provedor, consulte [Registrar uma assinatura com um provedor d
 
 Se você encontrar um erro com uma extensão de script personalizado ao implantar uma máquina virtual, consulte [Solucionando problemas de falhas da extensão da VM do Windows no Azure](./virtual-machines/virtual-machines-windows-extensions-troubleshoot.md) ou [Solucionando problemas de falhas de extensões de VM do Linux](./virtual-machines/virtual-machines-linux-extensions-troubleshoot.md).
 
+## Falhas de provisionamento e alocação de máquina virtual
+
+Se você estiver tentando implantar uma máquina virtual e encontrou um erro de provisionamento de imagem do sistema operacional ou um erro de alocação, consulte [Solucionar problemas ao criar uma nova VM](./virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md) e [Solucionar problemas de falhas de alocação](./virtual-machines/virtual-machines-windows-allocation-failure.md).
+
 ## Entenda quando uma implantação está pronta 
 
 O Azure Resource Manager informa o êxito de uma implantação quando todos os provedores são retornados da implantação com êxito. No entanto, isso não significa necessariamente que seu grupo de recursos está "ativo e pronto para seus usuários". Por exemplo, uma implantação pode precisar baixar atualizações, aguardar recursos que não são de modelo ou instalar scripts complexos, ou realizar alguma outra atividade executável sobre a qual o Azure não sabe, sobre porque ela não é uma atividade que um provedor está acompanhando. Nesses casos, pode levar algum tempo antes que os recursos estejam prontos para uso no mundo real. Como resultado, você deve esperar que o status da implantação seja bem-sucedida algum tempo antes que sua implantação possa ser usada.
@@ -234,6 +236,8 @@ Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao cr
 ## Próximas etapas
 
 - Para saber mais sobre ações de auditoria, consulte [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
-- Para saber mais sobre ações para determinar os erros durante a implantação, consulte [Solução de problemas de implantação de grupo de recursos](resource-manager-troubleshoot-deployments-portal.md).
+- Para saber mais sobre ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](resource-manager-troubleshoot-deployments-portal.md).
+- Para solucionar erros de Protocolo de Área de Trabalho Remota para a sua máquina virtual baseada no Windows, consulte [Solucionar problemas em conexões de Área de Trabalho Remota](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
+- Para solucionar erros de Secure Shell para a sua máquina virtual baseada no Linux, consulte [Solucionar problemas em conexões Secure Shell](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

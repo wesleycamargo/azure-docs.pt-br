@@ -86,7 +86,7 @@ Alguns aplicativos usam a abordagem mais simples de criar um banco de dados sepa
 
 ![Único locatário versus multilocatários][4]
 
-Outros cenários de vários locatários pack juntos em bancos de dados, em vez de isolá-los em bancos de dados separados. Esse é um típico **padrão de fragmentação multilocatário**, e pode ser conduzido pelo fato de que um aplicativo gerencia grandes números de locatários muito pequenos. Na fragmentação multilocatária, as linhas nas tabelas de banco de dados foram projetadas para executar uma chave que identifica a ID do locatário ou a chave de fragmentação. Novamente, a camada de aplicativo é responsável por rotear a solicitação de um locatário no banco de dados apropriado, e isso pode ter suporte na biblioteca de cliente do banco de dados elástico. Além disso, a segurança no nível de linha pode ser usada para filtrar quais linhas cada locatário pode acessar. Para obter mais detalhes, consulte [Aplicativos multilocatário com ferramentas de banco de dados elástico e segurança no nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistribuir dados entre bancos de dados pode ser necessário com o padrão de fragmentação de multilocatário, e isso é facilitado pela ferramenta de divisão/mesclagem de banco de dados elástico.
+Outros cenários de vários locatários pack juntos em bancos de dados, em vez de isolá-los em bancos de dados separados. Esse é um típico **padrão de fragmentação multilocatário**, e pode ser conduzido pelo fato de que um aplicativo gerencia grandes números de locatários muito pequenos. Na fragmentação multilocatária, as linhas nas tabelas de banco de dados foram projetadas para executar uma chave que identifica a ID do locatário ou a chave de fragmentação. Novamente, a camada de aplicativo é responsável por rotear a solicitação de um locatário no banco de dados apropriado, e isso pode ter suporte na biblioteca de cliente do banco de dados elástico. Além disso, a segurança no nível de linha pode ser usada para filtrar quais linhas cada locatário pode acessar. Para obter mais detalhes, consulte [Aplicativos multilocatário com ferramentas de banco de dados elástico e segurança no nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md). Redistribuir dados entre bancos de dados pode ser necessário com o padrão de fragmentação de multilocatário, e isso é facilitado pela ferramenta de divisão/mesclagem de banco de dados elástico. Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
 
 ### Mover dados de bancos de dados de vários locatários para de um locatário
 
@@ -96,7 +96,7 @@ Ao criar um aplicativo SaaS, é comum para oferecer aos clientes em potencial um
 
 Para ver um aplicativo de exemplo que demonstra a biblioteca de cliente, confira [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 
-Para converter os bancos de dados existentes para usar as ferramentas, consulte [Converter bancos de dados existentes para usar ferramentas de banco de dados elástico](sql-database-elastic-convert-to-use-elastic-tools.md).
+Para converter os bancos de dados existentes para usar as ferramentas, consulte [Migrar bancos de dados existentes para escala horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 Para ver os detalhes do pool do Banco de Dados Elástico, confira [Considerações de preço e desempenho para um pool do banco de dados elástico](sql-database-elastic-pool-guidance.md) ou crie um novo pool com o [tutorial](sql-database-elastic-pool-create-portal.md).
 
@@ -109,4 +109,4 @@ Para ver os detalhes do pool do Banco de Dados Elástico, confira [Consideraçõ
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

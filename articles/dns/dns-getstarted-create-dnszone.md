@@ -67,7 +67,7 @@ Abra o console do PowerShell e conecte-se à sua conta. Para obter mais informa�
 
 Use o exemplo a seguir para ajudar com a conexão:
 
-	Login-AzureRmAccountt
+	Login-AzureRmAccount
 
 Verificar as assinaturas da conta.
 
@@ -174,4 +174,4 @@ Se você ainda não delegou seu domínio para usar a nova zona no DNS do Azure, 
 
 Após criar uma zona DNS, crie [conjuntos de registros e registros](dns-getstarted-create-recordset.md) para iniciar a resolução de nomes do seu domínio da Internet.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

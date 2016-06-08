@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # Como ativar ou desativar funções no Azure AD Privileged Identity Management
@@ -22,7 +22,7 @@ O Azure AD (Active Directory) Privileged Identity Management simplifica como as 
 
 Este artigo destina-se a administradores que precisam ativar sua função no Azure AD PIM (Privileged Identity Management). Ele vai orientá-lo pelas etapas para ativar uma função quando você precisar das permissões e desativar a função quando terminar.
 
-Se você tiver sido atribuído a uma função administrativa, poderá ativar essa função quando você precisar executar uma tarefa que exige aquela função. Por exemplo, se você precisa gerenciar o Office 365 apenas algumas vezes, os administradores de segurança da sua organização não desejam tornar um administrador permanente. Em vez disso, eles fazem de você um candidato às funções de Administrador Global ou Administrador do Exchange Online no Azure AD. Isso significa que você pode solicitar uma atribuição de função temporária quando precisar desses privilégios e você terá controle administrativo para o Office 365 por um período de tempo predeterminado.
+Se você tiver sido atribuído a uma função administrativa, poderá ativar essa função quando você precisar executar uma tarefa que exige aquela função. Por exemplo, se você precisa gerenciar o Office 365 apenas algumas vezes, os administradores de função com privilégios da sua organização não desejam tornar um administrador permanente. Em vez disso, eles fazem de você um candidato às funções de Administrador Global ou Administrador do Exchange Online no Azure AD. Isso significa que você pode solicitar uma atribuição de função temporária quando precisar desses privilégios e você terá controle administrativo para o Office 365 por um período de tempo predeterminado.
 
 
 ## Adicionar o aplicativo Privileged Identity Management
@@ -46,7 +46,7 @@ Quando você precisa assumir uma função, pode solicitar a ativação usando o 
 3. Selecione a função que você deseja ativar.
 4. Selecione **Ativar**. A folha **Solicitar ativação de função** será exibida.
 5. Para algumas funções, como Administrador Global, o MFA (Multi-Factor Authentication) é necessário para ativar a função. Se você não executou o MFA ao fazer logon, poderá precisar executar antes de ser possível ativar a função.
-6. Insira o motivo para a solicitação de ativação no campo de texto. O administrador de segurança também pode exigir que você forneça um número de tíquete de problema.
+6. Insira o motivo para a solicitação de ativação no campo de texto. O administrador de função com privilégios também pode exigir que você forneça um número de tíquete de problema.
 7. Selecione **OK**. A função agora será ativada e a alteração de função se tornará visível no Microsoft Online Services.
 
 ## Desativar uma função
@@ -63,4 +63,4 @@ Caso você esteja interessado em aprender mais sobre o Azure AD Privileged Ident
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0525_2016-->

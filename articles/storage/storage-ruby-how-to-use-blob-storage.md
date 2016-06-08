@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Como usar o Armazenamento de Blob do Ruby | Microsoft Azure"
-	description="Armazene dados não estruturados na nuvem com o Armazenamento de Blobs do Azure (armazenamento de objeto)."
+	pageTitle="Como usar o Armazenamento de Blobs (armazenamento de objeto) do Ruby | Microsoft Azure"
+	description="Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
 	services="storage"
 	documentationCenter="ruby"
 	authors="rmcmurray"
@@ -23,6 +23,8 @@
 
 ## Visão geral
 
+O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos/blobs. O armazenamento de blobs pode ser qualquer tipo de texto ou dados binários, como um documento, um arquivo de mídia ou um instalador do aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto.
+
 Este guia mostra como executar cenários comuns usando o Armazenamento de Blobs. Os exemplos de código são gravados com a API do Ruby. Os cenários cobertos incluem **carregamento listagem, download** e **exclusão** de blobs.
 
 [AZURE.INCLUDE [armazenamento-blob-conceitos-include](../../includes/storage-blob-concepts-include.md)]
@@ -31,7 +33,7 @@ Este guia mostra como executar cenários comuns usando o Armazenamento de Blobs.
 
 ## Criar um aplicativo Ruby
 
-Crie um aplicativo Ruby. Para obter instruções, veja [Aplicativo Web Ruby on Rails em uma VM do Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)
+Crie um aplicativo Ruby. Para obter instruções, confira [Aplicativo Web Ruby on Rails Web em uma VM do Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)
 
 ## Configurar seu aplicativo para acessar o Armazenamento
 
@@ -61,7 +63,7 @@ Para obter esses valores de uma Conta de Armazenamento Clássica ou ARM no Porta
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até a conta de armazenamento que você deseja usar.
-3. Na folha Configurações no lado direito, clique em **Chaves de Acesso**.
+3. Na folha Configurações à direita, clique em **Chaves de Acesso**.
 4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas. 
 5. Clique no ícone de cópia para copiar a chave para a área de transferência. 
 
@@ -155,4 +157,4 @@ Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 - [SDK do Azure para repositório Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) no GitHub
 - [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0525_2016-->

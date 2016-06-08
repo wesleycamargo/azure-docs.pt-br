@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Segurança do Azure no Channel 9 | Microsoft Azure"
+   pageTitle="Vídeos de segurança do Azure no Channel 9 | Microsoft Azure"
    description="O artigo fornece uma lista estruturada de apresentações de segurança do Azure no Channel 9. O Channel 9 é uma comunidade que conecta as pessoas que usam nossos produtos com as pessoas responsáveis pelo desenvolvimento desses produtos."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/19/2016"
    ms.author="terrylan"/>
 
-# Segurança do Azure no Channel 9
+# Vídeos de segurança do Azure no Channel 9
 
 O [Channel 9](https://channel9.msdn.com/) é uma comunidade. Ela apresenta as pessoas responsáveis pelo desenvolvimento de nossos produtos, conectando-as com seus usuários.
 
@@ -45,6 +45,7 @@ Participe desta sessão para ver a plataforma de segurança da Microsoft em aç�
 Jack Richins ensina [Scott](https://channel9.msdn.com/Niners/Glucose) como criptografar de maneira fácil seus bancos de dados SQL Server em instâncias de Máquina Virtual do Azure. É mais fácil do que você imagine!
 
 Áreas abordadas neste vídeo:
+
 - Noções básicas sobre criptografia e o SQL Server
 - Noções básicas sobre a API de Proteção de Dados, chaves mestras e certificados
 - Usando comandos SQL para criar a chave mestra e os certificados e criptografar o banco de dados
@@ -67,4 +68,4 @@ Narayan Annamalai, Gerente de Programas Sênior ensina Scott a usar os Grupos de
 
 Amit Bapat apresenta Scott ao Cofre de Chaves do Azure. Com o Cofre de Chaves do Azure, é possível criptografar chaves e pequenos segredos, como senhas, usando chaves armazenadas em HSMs (módulos de segurança de hardware). É o gerenciamento de segredos baseado em nuvem e em hardware para o Microsoft Azure!
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

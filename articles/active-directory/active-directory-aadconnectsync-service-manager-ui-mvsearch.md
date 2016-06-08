@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="05/19/2016"
 	ms.author="andkjell"/>
 
 
 # Sincronização do Azure AD Connect: Synchronization Service Manager
 
-| [Operações](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Designer de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Pesquisa de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
+[Operações](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Designer do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Pesquisa do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
@@ -33,4 +33,4 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0525_2016-->

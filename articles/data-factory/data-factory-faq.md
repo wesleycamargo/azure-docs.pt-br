@@ -114,10 +114,36 @@ No exemplo acima, otherLinkedServiceName1 e otherLinkedServiceName2 representam 
 
 ## Fatias - Perguntas frequentes
 
+### Por que minhas fatias de entrada não estão no estado Pronto? 
+Um erro comum é não configurar a propriedade **external** como **true** no conjunto de dados de entrada quando os dados de entrada são externos ao data factory (não produzidos pelo data factory).
+
+No exemplo a seguir, você só precisa definir **external** como true no **dataset1**.
+
+**DataFactory1** Pipeline 1: dataset1 -> activity1 -> dataset2 -> activity2 -> dataset3 Pipeline 2: dataset3-> activity3 -> dataset4
+
+Se tiver outro data factory com um pipeline que use o dataset4 (produzido pelo pipeline 2 no data factory 1), você precisará marcar o dataset4 como um conjunto de dados externo, pois o conjunto de dados é produzido por um data factory diferente (DataFactory1, não DataFactory2).
+
+**DataFactory2** Pipeline 1: dataset4->activity4->dataset5
+
+Se a propriedade external estiver definida corretamente, verifique se os dados de entrada existem no local especificado na definição de conjunto de dados de entrada.
+
+### Como executar uma fatia em outro horário que não à meia-noite quando a fatia é produzida diariamente?
+Use a propriedade **offset** para especificar a hora em que você deseja que a fatia seja produzida. Confira a seção [Disponibilidade do conjunto de dados](data-factory-create-datasets.md#Availability) para obter detalhes sobre essa propriedade. Aqui está um exemplo rápido:
+
+	"availability":
+	{
+	    "frequency": "Day",
+	    "interval": 1,
+	    "offset": "06:00:00"
+	}
+
+Divisões diárias que se iniciam às **6h**, em vez da meia-noite do padrão.Data do lançamento
+
 ### Como executo novamente uma fatia?
 Você pode executar novamente uma fatia de uma das seguintes maneiras:
 
-- Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal. 
+- Use o Aplicativo Monitorar e Gerenciar para executar uma janela de atividade ou fatia novamente. Confira [Executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#re-run-selected-activity-windows) para obter instruções.   
+- Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal.
 - Execute o cmdlet **Set-AzureRmDataFactorySliceStatus** com Status definido como **Aguardando** para a fatia.   
 	
 		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
@@ -125,6 +151,10 @@ Você pode executar novamente uma fatia de uma das seguintes maneiras:
 Confira [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
 
 ### Quanto tempo levou para processar uma fatia?
+Use o Gerenciador de Janela de Atividade no Aplicativo Monitorar e Gerenciar para saber quanto tempo foi necessário para processar uma fatia de dados. Confira [Gerenciador de Janelas de Atividades](data-factory-monitor-manage-app.md#activity-window-explorer) para obter detalhes.
+
+Você também pode fazer o seguinte no portal do Azure:
+
 1. Clique no bloco **Conjuntos de dados** da folha **DATA FACTORY** da sua fábrica de dados.
 2. Clique no conjunto de dados específico na folha **Conjuntos de dados**.
 3. Selecione a fatia em que você está interessado na lista **Fatias recentes** na folha **TABELA**.
@@ -152,4 +182,4 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

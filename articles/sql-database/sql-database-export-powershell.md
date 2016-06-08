@@ -24,7 +24,7 @@
 - [PowerShell](sql-database-export-powershell.md)
 
 
-Este artigo fornece instruções para arquivar seu Banco de Dados SQL do Azure para um arquivo BACPAC armazenado no armazenamento de blobs do Azure usando o PowerShell.
+Este artigo fornece instruções para arquivar seu banco de dados SQL do Azure para um arquivo BACPAC armazenado no armazenamento de blobs do Azure usando o PowerShell.
 
 Quando você precisa criar um arquivo morto de um Banco de Dados SQL do Azure, pode exportar o esquema de banco de dados e os dados para um arquivo BACPAC. Um arquivo BACPAC é simplesmente um arquivo ZIP com uma extensão de BACPAC. Um arquivo BACPAC posteriormente pode ser armazenado no armazenamento de blobs do Azure ou no armazenamento local em um local e posteriormente importado novamente no Banco de Dados SQL do Azure ou em uma instalação local do SQL Server.
 
@@ -151,4 +151,4 @@ A execução desse comando solicitará uma senha. Insira a senha do administrado
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/23/2016" 
 	ms.author="sdanie"/>
 
 # Gerenciar o Cache Redis do Azure com o PowerShell do Azure
@@ -112,7 +112,7 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 | Tamanho | O tamanho do cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2.5 GB, 6 GB, 13 GB, 26 GB, 53 GB | 1 GB |
 | ShardCount | O número de fragmentos para criar durante a criação de um cache premium com o cluster ativado. Os valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU | Especifica o SKU do cache. Os valores válidos são: Básico, Standard e Premium | Standard |
-| RedisConfiguration | Especifica as configurações do Redis para maxmemory-delta, maxmemory-policy e notify-keyspace-events. Observe que os eventos maxmemory-delta e notify-keyspace-events estão disponíveis para os caches Standard e Premium apenas. | |
+| RedisConfiguration | Especifica as definições de configuração do Redis. Para obter detalhes sobre cada configuração, consulte a seguinte tabela de [propriedades RedisConfiguration](#redisconfiguration-properties). | |
 | EnableNonSslPort | Indica se a porta não SSL está habilitada. | Falso |
 | MaxMemoryPolicy | Esse parâmetro foi desaprovado - use RedisConfiguration em vez disso. | |
 | StaticIP | Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. Se ele não for fornecido, um será escolhido para você na sub-rede. | |
@@ -120,6 +120,23 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 | VirtualNetwork | Ao hospedar o cache em uma VNET, especifica a ID do recurso da VNET na qual implantar o cache. | |
 | KeyType | Especifica qual chave de acesso regenerar durante a renovação das chaves de acesso. Os valores válidos são: Primary, Secondary | | | |
 
+
+### Propriedades RedisConfiguration
+
+| Propriedade | Descrição | Tipos de preço |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------|---------------------|
+| rdb-backup-enabled | Se [persistência de dados Redis](cache-how-to-premium-persistence.md) está habilitada | Somente Premium |
+| rdb-storage-connection-string | A cadeia de conexão da conta de armazenamento para [persistência de dados Redis](cache-how-to-premium-persistence.md) | Somente Premium |
+| rdb-backup-frequency | A frequência de backup da [persistência de dados Redis](cache-how-to-premium-persistence.md) | Somente Premium |
+| maxmemory-reserved | Configura a [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos fora do cache | Standard e Premium |
+| maxmemory-policy | Configura o [política de remoção](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para o cache | Todos os tipos de preço |
+| notify-keyspace-events | Configura [notificações keyspace](cache-configure.md#keyspace-notifications-advanced-settings) | Standard e Premium |
+| hash-max-ziplist-entries | Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos | Standard e Premium |
+| hash-max-ziplist-value | Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos | Standard e Premium |
+| set-max-intset-entries | Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos | Standard e Premium |
+| zset-max-ziplist-entries | Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos | Standard e Premium |
+| zset-max-ziplist-value | Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos | Standard e Premium |
+| databases | Configura o número de bancos de dados. Essa propriedade pode ser configurada apenas na criação do cache. | Standard e Premium |
 
 ## Para criar uma Cache Redis
 
@@ -131,7 +148,7 @@ As novas instâncias Cache Redis do Azure são criadas usando o cmdlet [New-Azur
 
 Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-AzureRmRedisCache`, execute o seguinte comando.
 
-	PS C:\> Get-Help New-AzureRmRedisCache -detailed
+	PS SQLSERVER:> Get-Help New-AzureRmRedisCache -detailed
 	
 	NAME
 	    New-AzureRmRedisCache
@@ -139,14 +156,17 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-Az
 	SYNOPSIS
 	    Creates a new redis cache.
 	
+	
 	SYNTAX
 	    New-AzureRmRedisCache -Name <String> -ResourceGroupName <String> -Location <String> [-RedisVersion <String>]
 	    [-Size <String>] [-Sku <String>] [-MaxMemoryPolicy <String>] [-RedisConfiguration <Hashtable>] [-EnableNonSslPort
 	    <Boolean>] [-ShardCount <Integer>] [-VirtualNetwork <String>] [-Subnet <String>] [-StaticIP <String>]
 	    [<CommonParameters>]
 	
+	
 	DESCRIPTION
 	    The New-AzureRmRedisCache cmdlet creates a new redis cache.
+	
 	
 	PARAMETERS
 	    -Name <String>
@@ -174,21 +194,19 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-Az
 	
 	    -RedisConfiguration <Hashtable>
 	        All Redis Configuration Settings. Few possible keys: rdb-backup-enabled, rdb-storage-connection-string,
-	        rdb-backup-frequency, maxmemory-delta, maxmemory-policy, notify-keyspace-events, maxmemory-samples,
-	        slowlog-log-slower-than, slowlog-max-len, list-max-ziplist-entries, list-max-ziplist-value,
-	        hash-max-ziplist-entries, hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries,
-	        zset-max-ziplist-value etc.
+	        rdb-backup-frequency, maxmemory-reserved, maxmemory-policy, notify-keyspace-events, hash-max-ziplist-entries,
+	        hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries, zset-max-ziplist-value, databases.
 	
 	    -EnableNonSslPort <Boolean>
 	        EnableNonSslPort is used by Azure Redis Cache. If no value is provided, the default value is false and the
 	        non-SSL port will be disabled. Possible values are true and false.
-
+	
 	    -ShardCount <Integer>
 	        The number of shards to create on a Premium Cluster Cache.
 	
 	    -VirtualNetwork <String>
-	        The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format:
-	        /subscriptions/{subid}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicNetwork/VirtualNetworks/{vnetName}
+	        The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{
+	        subid}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicNetwork/VirtualNetworks/{vnetName}
 	
 	    -Subnet <String>
 	        Required when deploying a redis cache inside an existing Azure Virtual Network.
@@ -212,9 +230,18 @@ Para criar um cache premium, especifique um tamanho de P1 (6 GB - 60 GB), P2 (13
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-Para especificar valores para o parâmetro `RedisConfiuration`, coloque os valores dentro de `{}` como pares de chave/valor como `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. O exemplo a seguir cria um cache padrão de 1 GB com as `allkeys-random` notificações maxmemory-policy e keyspace configuradas com `KEA`. Para obter mais informações, consulte [Notificações de Keyspace (configurações avançadas)](cache-configure.md#keyspace-notifications-advanced-settings) e [Maxmemory-policy e maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
+Para especificar valores para o parâmetro `RedisConfiguration`, coloque os valores dentro de `{}` como pares de chave/valor como `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. O exemplo a seguir cria um cache padrão de 1 GB com as `allkeys-random` notificações maxmemory-policy e keyspace configuradas com `KEA`. Para obter mais informações, consulte [Notificações de Keyspace (configurações avançadas)](cache-configure.md#keyspace-notifications-advanced-settings) e [Maxmemory-policy e maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
+
+<a name="databases"></a>
+## Para configurar a definição dos bancos de dados durante a criação do cache
+
+A configuração `databases` pode ser definida somente durante a criação do cache. O exemplo a seguir cria um cache premium P3 (26 GB) com 48 bancos de dados usando o cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+
+	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
+
+Para obter informações sobre a propriedade `databases`, consulte [Configuração do servidor Cache Redis do Azure Padrão](cache-configure.md#default-redis-server-configuration). Para obter mais informações sobre como criar um cache usando o cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx), consulte a seção anterior [Para criar um Cache Redis](#to-create-a-redis-cache).
 
 ## Para atualizar um cache Redis
 
@@ -257,11 +284,9 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Set-Az
 	        MaxMemoryPolicy. e.g. -RedisConfiguration @{"maxmemory-policy" = "allkeys-lru"}
 	
 	    -RedisConfiguration <Hashtable>
-	        All Redis Configuration Settings. Few possible keys: rdb-backup-enabled, rdb-storage-connection-string,
-	        rdb-backup-frequency, maxmemory-delta, maxmemory-policy, notify-keyspace-events, maxmemory-samples,
-	        slowlog-log-slower-than, slowlog-max-len, list-max-ziplist-entries, list-max-ziplist-value,
-	        hash-max-ziplist-entries, hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries,
-	        zset-max-ziplist-value etc.
+			All Redis Configuration Settings. Few possible keys: rdb-backup-enabled, rdb-storage-connection-string,
+			rdb-backup-frequency, maxmemory-reserved, maxmemory-policy, notify-keyspace-events, hash-max-ziplist-entries,
+			hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries, zset-max-ziplist-value.
 	
 	    -EnableNonSslPort <Boolean>
 	        EnableNonSslPort is used by Azure Redis Cache. The default value is null and no change will be made to the
@@ -289,10 +314,12 @@ O comando a seguir atualiza a maxmemory-policy do Cache Redis chamada myCache.
 
 >[AZURE.NOTE]Dimensionar um cache usando o PowerShell está sujeito aos mesmos limites e diretrizes de dimensionar um cache no Portal do Azure. Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
 >
->-	Não é possível dimensionar para ou a partir de um cache **Premium**.
->-	Não é possível dimensionar de um cache **Standard** para um cache **Básico**.
->-	Você pode dimensionar de um cache **Básico** para um cache **Padrão**, mas não pode alterar o tamanho ao mesmo tempo. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
->-	Você não pode escalonar de um tamanho maior para o tamanho **C0 (250 MB)**.
+>-	Você não pode dimensionar de uma camada de preços mais alta para uma camada de preços mais baixa.
+>    -    Você não pode dimensionar de um cache **Premium** para um cache **Standard** ou **Básico**.
+>    -    Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
+>-	É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
+>-	Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
+>-	Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)**.
 >
 >Para saber mais, confira [Como dimensionar o Cache Redis do Azure](cache-how-to-scale.md).
 
@@ -609,4 +636,4 @@ Para saber mais sobre como usar o Windows PowerShell com o Azure, consulte os se
 - [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): obtenha informações sobre os novos recursos do Windows PowerShell.
 - [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obtenha dicas reais e truques da comunidade.do Windows PowerShell.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

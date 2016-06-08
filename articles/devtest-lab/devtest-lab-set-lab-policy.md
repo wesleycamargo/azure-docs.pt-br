@@ -44,13 +44,13 @@ Para exibir (e alterar) as políticas de um laboratório, siga estas etapas:
 
 	- [Tamanhos de VM permitidos](#set-allowed-vm-sizes): selecione a lista de tamanhos de VM permitidos no laboratório. O usuário só pode criar VMs a partir dessa lista.
 
-	- [Número máximo de VMs por usuário](#set-maximum-vms-per-user) - especifique o número máximo de VMs que podem ser criadas para um laboratório, bem como o número máximo de VMs que podem ser criadas por um usuário.
+	- [Máximo de VMs por usuário](#set-maximum-vms-per-user) -especifique o número máximo de máquinas virtuais que podem ser criadas por um usuário.
 
-	- [Total de VMs permitidas](#set-total-vms-allowed) - especifique o número máximo de VMs que podem ser criadas para um laboratório, bem como o número máximo de VMs que podem ser criadas por um usuário.
+	- [Total de VMs permitido](#set-total-vms-allowed) -especifique o número máximo de máquinas virtuais que podem ser criadas para um laboratório.
 
-	- [Desligamento automático](#set-auto-shutdown): especifique a hora em que as VMs do laboratório atual devem ser desligadas.
+	- [Desligamento automático](#set-auto-shutdown) -especifique a hora em que as VMs de um laboratório atual serão desligadas automaticamente.
 
-	- [Inicialização automática](#set-auto-start) - especifique a hora em que as VMs do laboratório atual devem ser desligadas.
+	- [Inicialização automática](#set-auto-start) -especifique a hora em que as VMs de um laboratório atual serão iniciadas automaticamente.
 
 ## Definir os tamanhos de VM permitidos
 
@@ -135,4 +135,4 @@ Depois de definir e aplicar as várias configurações da política de VM em seu
 - [Configurar imagens do Marketplace](./devtest-lab-configure-marketplace-images.md) - Os Laboratórios de Desenvolvimento/Teste dão suporte à criação de novas VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (se houver alguma) do Azure Marketplace podem ser usadas durante a criação de novas VMs em um laboratório.
 - [Criar uma VM em um laboratório](./devtest-lab-add-vm-with-artifacts.md): ilustra como criar uma nova VM de uma imagem de base (personalizada ou do Marketplace) e como trabalhar com artefatos em sua VM.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

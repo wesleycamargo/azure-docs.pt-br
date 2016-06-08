@@ -910,4 +910,4 @@ Você pode aproveitar outros serviços de análise e dados do Azure listados nes
 ## Resumo
 Essas são apenas algumas das coisas que você pode fazer na Máquina Virtual de Ciência de Dados da Microsoft. Há muito mais coisas que você fazer para torná-la um ambiente eficaz de análise.
 
-<!-----HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0525_2016-->

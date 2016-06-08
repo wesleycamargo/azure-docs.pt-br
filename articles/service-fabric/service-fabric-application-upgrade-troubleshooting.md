@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/13/2016"
+   ms.date="05/18/2016"
    ms.author="subramar"/>
 
 # Solucionar problemas de atualizações de aplicativo
@@ -233,4 +233,4 @@ Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultan
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando Problemas de Atualizações de Aplicativo](service-fabric-application-upgrade-troubleshooting.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -14,32 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="05/24/2016"
 	ms.author="jgao"/>
 
-#Use Sqoop com Hadoop no HDInsight (Windows)
+#Use Sqoop com Hadoop no HDInsight
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
 Saiba como usar o Sqoop no HDInsight para importar e exportar entre um cluster HDInsight e um banco de dados Azure SQL ou banco de dados SQL Server.
-
-> [AZURE.NOTE] As etapas neste artigo podem ser usadas com qualquer cluster HDInsight baseado em Linux ou Windows. No entanto, essas etapas só funcionarão em um cliente Windows.
->
-> Se você estiver usando um cliente Linux, OS X ou Unix e um servidor HDInsight baseado em Linux, consulte [Usar o Sqoop com Hadoop no HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md)
 
 Embora o Hadoop seja uma opção natural para o processamento de dados semiestruturados e não estruturados, como logs e arquivos, também pode ser necessário processar dados estruturados armazenados em bancos de dados relacionais.
 
 O [Sqoop][sqoop-user-guide-1.4.4] é uma ferramenta desenvolvida para transferir dados entre clusters Hadoop e bancos de dados relacionais. Você pode usá-lo para importar dados de um RDBMS (sistema de gerenciamento de banco de dados relacional), como SQL ou MySQL ou Oracle para o HDFS (Sistema de Arquivos Distribuído) do Hadoop, transformar os dados no Hadoop com MapReduce ou Hive e, em seguida, exportar os dados de volta para um RDBMS. Neste tutorial, você está usando um Banco de Dados SQL como seu banco de dados relacional.
 
 Para as versões do Sqoop com suporte em clusters HDInsight, confira [Novidades nas versões de clusters fornecidas pelo HDInsight][hdinsight-versions].
-
-###Pré-requisitos
-
-Antes de começar este tutorial, você deve ter o seguinte:
-
-- **Uma estação de trabalho com o PowerShell do Azure**.
-
-    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ##Compreender o cenário
 
@@ -80,9 +68,9 @@ Esta seção mostra como criar um cluster e os esquemas de banco de dados SQL pa
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    O modelo ARM está localizado em um contêiner de blob público, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
+    O modelo do ARM está localizado em um contêiner de blobs público, **https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*.
     
-    O modelo de ARM chama um pacote bacpac para implantar os esquemas de tabela no banco de dados SQL. O pacote bacpac também está localizado em um contêiner de blob público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se você quiser usar um contêiner particular para os arquivos bacpac, use os seguintes valores no modelo:
+    O modelo de ARM chama um pacote bacpac para implantar os esquemas de tabela no banco de dados SQL. O pacote bacpac também está localizado em um contêiner de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Se você quiser usar um contêiner particular para os arquivos bacpac, use os seguintes valores no modelo:
     
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",
@@ -129,7 +117,7 @@ Se você optar por usar o banco de dados SQL do Azure existente ou o Microsoft S
 
         * Ao usar o SQL Server em uma Máquina Virtual do Azure, qualquer configuração de rede virtual pode ser usada, desde que a máquina virtual que hospeda o SQL Server seja membro da mesma rede virtual que o HDInsight.
 
-    * Para criar um cluster do HDInsight em uma Rede Virtual, confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md)
+    * Para criar um cluster do HDInsight em uma rede virtual, confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md)
 
     > [AZURE.NOTE] O SQL Server também deve permitir autenticação. Você deve usar um logon do SQL Server para as etapas neste artigo.
 
@@ -211,7 +199,7 @@ O exemplo do PowerShell executa as seguintes etapas:
 	> [AZURE.NOTE] Além das informações de cadeia de conexão, as etapas nesta seção devem funcionar para o Banco de Dados SQL do Azure ou SQL Server. Essas etapas foram testadas com relação à seguinte configuração:
 	>
 	> * **Configuração ponto a site da rede virtual do Azure**: uma rede virtual conectando o cluster HDInsight a um SQL Server em um datacenter privado. Consulte [Configurar um VPN ponto a site no Portal de Gerenciamento](../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
-	> * **Azure HDInsight 3.1**: confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md) para saber mais sobre a criação de um cluster em uma Rede Virtual.
+	> * **Azure HDInsight 3.1**: confira [Criar clusters Hadoop no HDInsight usando opções de personalização](hdinsight-provision-clusters.md) para saber mais sobre a criação de um cluster em uma rede virtual.
 	> * **SQL Server 2014**: configurado para permitir Autenticação SQL e executando o pacote de configuração do cliente VPN para conectar-se com segurança à rede virtual
 
 7. Exporte uma tabela do Hive para o banco de dados SQL do Azure.
@@ -405,9 +393,9 @@ O exemplo do PowerShell executa as seguintes etapas:
 		-Type Standard_LRS
 	
 	# Create the default Blob container
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
 									-ResourceGroupName $resourceGroupName `
-									-Name $defaultStorageAccountName |  %{ $_.Key1 }
+									-Name $defaultStorageAccountName)[0].Value
 	$defaultStorageAccountContext = New-AzureStorageContext `
 										-StorageAccountName $defaultStorageAccountName `
 										-StorageAccountKey $defaultStorageAccountKey 
@@ -635,4 +623,4 @@ O exemplo do PowerShell executa as seguintes etapas:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

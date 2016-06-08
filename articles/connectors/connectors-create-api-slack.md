@@ -1,10 +1,10 @@
 <properties
-pageTitle="Adicionar a API do Slack aos seus aplicativos lógicos | Microsoft Azure"
-description="Começar a usar a API de Vídeo do Slack (conector) nos seus aplicativos lógicos do Serviço de Aplicativo do Microsoft Azure"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Adicionar o conector do Slack aos seus aplicativos lógicos | Microsoft Azure"
+description="Começar a usar o Conector do Slack nos seus aplicativos lógicos do Serviço de Aplicativo do Microsoft Azure"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="03/16/2016"
+ms.date="05/18/2016"
 ms.author="deonhe"/>
 
-# Introdução à API do Slack
+# Introdução ao conector do Slack
 
 O Slack é uma ferramenta de comunicação da equipe que reúne todas as comunicações de equipe em um só lugar, que pode ser pesquisado instantaneamente e está disponível onde você estiver.
 
@@ -42,7 +42,7 @@ Você pode executar as seguintes ações:
 |--- | ---|
 |PostMessage|Poste uma mensagem em um canal específico.|
 ## Criar uma conexão com o Slack
-Para usar a API do Slack, crie primeiro uma **conexão** e forneça os detalhes dessas propriedades:
+Para usar o conector do Slack, crie primeiro uma **conexão** e forneça os detalhes dessas propriedades:
 
 |Propriedade| Obrigatório|Descrição|
 | ---|---|---|
@@ -55,11 +55,9 @@ Siga estas etapas para entrar na Margem de atraso e concluir a configuração da
 3. Selecione **Adicionar uma ação** ![Configurar a Margem de atraso][1]  
 4. Insira Margem de atraso na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Margem de atraso no nome
 5. Selecione **Margem de atraso – Postar mensagem**
-6. Selecione **Entrar na Margem de atraso**:
-![Configurar a Margem de atraso][2]
+6. Selecione **Entrar na Margem de atraso**: ![Configurar a Margem de atraso][2]
 7. Forneça suas credenciais da Margem de atraso para entrar e autorizar o aplicativo ![Configurar a Margem de atraso][3]  
-8. Você será redirecionado à página de logon de sua organização. **Autorize** a Margem de atraso a interagir com seu aplicativo lógico:
-![Configurar a Margem de atraso][5] 
+8. Você será redirecionado à página de logon de sua organização. **Autorize** a Margem de atraso a interagir com seu aplicativo lógico: ![Configurar a Margem de atraso][5] 
 9. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração da seção **Margem de atraso - Obter todas as mensagens**. Adicione outros gatilhos e outras ações necessárias.![Configurar a Margem de atraso][6]
 10. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
 
@@ -483,4 +481,4 @@ Nenhuma das propriedades é obrigatória.
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0525_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2016" 
+	ms.date="05/18/2016" 
 	ms.author="spelluru"/>
 
 # Mover dados entre fontes locais e nuvem com o Gateway de Gerenciamento de Dados
@@ -82,7 +82,7 @@ Se mover o cursor sobre o ícone de bandeja do sistema/mensagem de notificação
 ## Para habilitar/desabilitar o recurso de atualização automática
 Você pode habilitar/desabilitar o recurso de atualização automática fazendo o seguinte:
 
-1. Inicie o Windows PowerShell no computador do gateway. 
+1. Iniciar o Windows **PowerShell** no computador do gateway como um administrador (**Executar como administrador**). 
 2. Alterne para a pasta C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript.
 3. Execute o seguinte comando para DESATIVAR (desabilitar) o recurso de atualização automática.   
 
@@ -104,12 +104,12 @@ No nível do firewall corporativo, você precisa configurar os seguintes domíni
 
 | Nomes de domínio | Portas | Descrição |
 | ------ | --------- | ------------ |
-| *.servicebus.windows.net | 443, 80 | Ouvintes de Retransmissão do Barramento de Serviço sobre TCP (requer 443 para aquisição de token de Controle de Acesso) |
-| *.servicebus.windows.net | 9350-9354 | Retransmissão do Barramento de Serviço opcional sobre TCP |
+| **.servicebus.windows.net | 443, 80 | Ouvintes de Retransmissão do Barramento de Serviço sobre TCP (requer 443 para aquisição de token de Controle de Acesso) |
+| *.servicebus.windows.net | 9350-9354, 5671 | Retransmissão do Barramento de Serviço opcional sobre TCP |
 | *.core.windows.net | 443 | HTTPS |
 | *.clouddatahub.net | 443 | HTTPS |
 | graph.windows.net | 443 | HTTPS |
-| login.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS | 
 
 No nível do firewall do windows, essas portas de saída normalmente são habilitadas. Se não forem, você poderá configurar as portas e os domínios adequadamente no computador do gateway.
 
@@ -120,7 +120,7 @@ Caso seja usado um firewall de terceiros, você poderá abrir manualmente a port
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Se optar por não abrir a porta 8050 no computador do gateway, para configurar um serviço vinculado local, você precisará usar mecanismos diferentes do aplicativo **Configurando Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte a seção [Configuração de Credenciais e Segurança](#set-credentials-and-securityy) sobre como as credenciais de repositório de dados pode ser configuradas.
+Se optar por não abrir a porta 8050 no computador do gateway, para configurar um serviço vinculado local, você precisará usar mecanismos diferentes do aplicativo **Configurando Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Confira a seção [Configuração de Credenciais e Segurança](#set-credentials-and-securityy) sobre como as credenciais de repositório de dados pode ser configuradas.
 
 **Para copiar dados de um armazenamento de dados de origem para um armazenamento de dados coletor:**
 
@@ -146,7 +146,7 @@ Por padrão, o Gateway de Gerenciamento de Dados utilizará as configurações d
 			      </defaultProxy>
 			</system.net>
 
-	Propriedades adicionais são permitidas dentro da marca de proxy para especificar as configurações necessárias como scriptLocation. Consulte o [Elemento proxy (configurações de rede)](https://msdn.microsoft.com/library/sa91de1e.aspx) na sintaxe.
+	Propriedades adicionais são permitidas dentro da marca de proxy para especificar as configurações necessárias como scriptLocation. Confira o [Elemento proxy (configurações de rede)](https://msdn.microsoft.com/library/sa91de1e.aspx) na sintaxe.
 
 			<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
 
@@ -217,9 +217,9 @@ Nesta etapa, você usa o Portal do Azure para criar uma instância do Azure Data
 	> [AZURE.NOTE] 
 	Use o Internet Explorer ou um navegador da Web compatível com Microsoft ClickOnce.
 	> 
-	> Se você estiver usando o Chrome, vá para a [loja Web do Chrome](https://chrome.google.com/webstore/), pesquise com a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
+	> Se você estiver usando o Chrome, vá para a [Chrome web store](https://chrome.google.com/webstore/), pesquise a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
 	>  
-	> Você precisa fazer o mesmo para o Firefox (instalar suplemento). Clique no botão **Menu Abrir** na barra de ferramentas (**três linhas horizontais** no canto superior direito), clique em **Complementos**, pesquise a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
+	> Você precisa fazer o mesmo para o Firefox (instalar suplemento). Clique no botão **Abrir menu** na barra de ferramentas (**três linhas horizontais** no canto superior direito), clique em **Complementos**, pesquise a palavra-chave "ClickOnce", escolha uma das extensões do ClickOnce e instale-a.
 
 	![Folha Gateway - Configurar](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
@@ -276,6 +276,8 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
             		"userName": "<Specify user name if you are using Windows Authentication. Example: <domain>\<user>",
             		"password": "<Specify password for the user account>"
         		}
+                
+            > [AZURE.NOTE] Se você está usando a autenticação do Windows (IntegratedSecurity=true), é opcional especificar o nome de usuário e a senha. Se você não especificar essas propriedades, o Gateway de Gerenciamento de Dados usará as credenciais do usuário conectado no computador do gateway para acessar o banco de dados. Se desejar que o gateway use credenciais diferentes para acessar o banco de dados, especifique o nome de usuário e a senha explicitamente.
 
 	4. Se você estiver usando a autenticação SQL:
 		1. Especifique o **nome do servidor**, o **nome do banco de dados**, a **ID de usuário** e a **Senha** do banco de dados na **connectionString**.       
@@ -287,7 +289,7 @@ Nesta etapa, você criará dois serviços vinculados: **AzureStorageLinkedServic
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
 	
-		As credenciais serão **criptografadas** usando um certificado que o serviço do Data Factory tem. Se você quiser usar o certificado associado ao Gateway de Gerenciamento de Dados em vez disso, consulte [Configurar credenciais com segurança](#set-credentials-and-security).
+		As credenciais serão **criptografadas** usando um certificado que o serviço do Data Factory tem. Se você quiser usar o certificado associado ao Gateway de Gerenciamento de Dados em vez disso, confira [Configurar credenciais com segurança](#set-credentials-and-security).
     
 2.	Clique em **Implantar** na barra de comandos para implantar o serviço vinculado do SQL Server.
 
@@ -691,4 +693,4 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 5.	O gateway descriptografa as credenciais com o mesmo certificado e se conecta ao armazenamento de dados local com o tipo de autenticação adequado.
 6.	O gateway copia dados do armazenamento local para um armazenamento em nuvem ou de um armazenamento em nuvem para um armazenamento de dados local dependendo de como a atividade de cópia é configurada no pipeline de dados. Observação: para esta etapa, o gateway se comunica diretamente com o serviço de armazenamento baseado em nuvem (por exemplo, Blob do Azure, SQL do Azure etc.) por um canal seguro (HTTPS).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0525_2016-->

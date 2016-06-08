@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/17/2016"
 	ms.author="cynthn"/>
 
 # Anexe um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássico
@@ -23,17 +23,16 @@
 
 Se você precisa de um disco de dados adicional, é possível anexar um disco vazio ou um disco existente com dados a uma VM. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. No caso de um novo disco, depois que você anexar o disco, você também precisará inicializá-lo para que esteja pronto para ser usado por uma VM do Windows.
 
-É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual do Azure, ela contém um disco para o sistema operacional mapeado para a unidade C e um disco temporário mapeado para a unidade D. **Não use a unidade D para armazenar dados.** Como o nome sugere, o disco temporário fornece apenas armazenamento temporário. Não oferece redundância nem backup porque não reside no armazenamento do Azure.
+Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](virtual-machines-windows-about-disks-vhds.md).
 
 ## Passo a passo em vídeo
 
-Veja um passo a passo deste tutorial.
+Veja um [passo a passo em vídeo](https://azure.microsoft.com/documentation/videos/attaching-a-data-disk-to-a-windows-vm/) deste tutorial.
 
-[AZURE.VIDEO attaching-a-data-disk-to-a-windows-vm]
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>Como: inicializar um novo disco de dados no Windows Server
+## Inicializar o disco
 
 1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como fazer logon em uma máquina virtual que executa o Windows Server][logon].
 
@@ -61,4 +60,4 @@ Veja um passo a passo deste tutorial.
 
 [logon]: virtual-machines-windows-classic-connect-logon.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->

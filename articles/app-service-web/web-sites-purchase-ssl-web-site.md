@@ -146,7 +146,7 @@ Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domí
             
             * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação ser concluída. Pode demorar alguns minutos até a verificação ser concluída.
                               
-            Por exemplo, para executar a validação de um certificado curinga com o nome de host ***.contosocertdemo.com** ou ***.subdomain.contosocertdemo.com** e o Token de Verificação do Domínio **cAGgQrKc**, você precisa criar um registro TXT em dzc.contosocertdemo.com com o valor **cAGgQrKc.**
+            Por exemplo, para executar a validação de um certificado curinga com o nome de host **.contosocertdemo.com** ou **.subdomain.contosocertdemo.com** e o Token de Verificação do Domínio **cAGgQrKc**, você precisa criar um registro TXT em dzc.contosocertdemo.com com o valor **cAGgQrKc.**
 
 
 ##<a name="bkmk_AssignCertificate"></a>Etapa 3: Atribuir o certificado ao Aplicativo do Serviço de Aplicativo

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -248,4 +248,4 @@ Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Int
 ### O Dynamics AX pode ser acessado por uma conexão de Rota Expressa?
 Não há suporte para isso.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

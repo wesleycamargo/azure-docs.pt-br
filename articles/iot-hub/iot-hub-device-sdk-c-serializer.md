@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="02/23/2016"
+     ms.date="05/17/2016"
      ms.author="obloch"/>
 
 # SDK do dispositivo IoT do Microsoft Azure para C – mais informações sobre o serializador
@@ -666,4 +666,4 @@ Este artigo descreve em detalhes os aspectos exclusivos da biblioteca do **seria
 
 Isso também conclui a série de três partes sobre como desenvolver aplicativos com o **SDK do dispositivo IoT do Azure para C**. Essas informações devem ser suficientes para começar, mas também proporcionam um entendimento muito detalhado do funcionamento das APIs. Para saber mais, há alguns exemplos no SDK não abordados aqui. Caso contrário, a [documentação do SDK](https://github.com/Azure/azure-iot-sdks) é um excelente recurso para obter mais informações.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0525_2016-->

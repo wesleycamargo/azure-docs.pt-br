@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2015"
+	ms.date="05/19/2016"
 	ms.author="anuragm;jimpark;delhan"/>
 
 
@@ -132,4 +132,4 @@ Há cinco tipos de recuperação para os pontos de recuperação online:
 
 - [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

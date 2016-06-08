@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="05/24/2016"
 	ms.author="jroth"/>
 
 # Assinatura do Azure e limite de serviços, cotas e restrições
@@ -226,7 +226,10 @@ Para saber mais sobre outros limites, como tamanho do documento, chaves, solicit
 
 ### Limites do Stream Analytics
 
-[AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
+| Identificador de limite | Limite | Comentários |
+|----------------- | ------------|--------- |
+| Número máximo de Unidades de Streaming por assinatura, por região | 50 | É possível fazer uma solicitação para aumentar as unidades de streaming de sua assinatura para além de 50. Para isso, basta contatar o [Suporte da Microsoft](https://support.microsoft.com/pt-BR). |
+| Taxa de transferência máxima de uma Unidade de Streaming | 1MB/s* | A taxa de transferência máxima por SU depende do cenário. A taxa de transferência real pode ser menor e depende do particionamento e da complexidade da consulta. Detalhes adicionais podem ser encontrados no artigo [Escalar trabalhos do Stream Analytics do Azure para aumentar a taxa de transferência](../articles/stream-analytics/stream-analytics-scale-jobs.md). |
 
 ### Limites do Active Directory
 
@@ -288,4 +291,4 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

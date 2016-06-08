@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Introdução à segurança do Azure | Microsoft Azure"
+   pageTitle="Visão geral de segurança do Azure | Microsoft Azure"
    description="O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure."
    services="security"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="05/22/2016"
    ms.author="terrylan"/>
 
-# Introdução - visão geral
+# Visão Geral de segurança do Azure
 
 O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure. Se você estiver interessado em conformidade do Azure e como o Azure protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
 
@@ -30,6 +30,7 @@ Quando você examinar o lado esquerdo da página, verá uma coleção de categor
 Cada categoria terá um artigo de Visão geral. A meta do artigo de Visão geral é fornecer um resumo do que o Azure tem a oferecer em termos de segurança para essa categoria. Os artigos de Visão geral ajudarão você a compreender os produtos, os serviços e os recursos disponíveis no Azure que você pode usar para aprimorar a segurança de suas implantações. Esses artigos de Visão geral contêm vários links para conteúdo técnico para que você possa saber mais sobre os tópicos e sobre como implementá-los.
 
 Atualmente, o site de Informações de Segurança do Azure aborda as seguintes categorias:
+
 - Recursos
 - Segurança de rede
 - Segurança de armazenamento
@@ -45,4 +46,4 @@ Atualmente, o site de Informações de Segurança do Azure aborda as seguintes c
 
 Queremos sua opinião! Se houver outras categorias que você deseja que sejam adicionadas, fale conosco! Se houver artigos que você deseja adicionar a uma categoria existente, fale conosco sobre isso também! Você pode usar a seção Comentários abaixo ou escrever para [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) e nos incorporaremos suas recomendações a nossos planos.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

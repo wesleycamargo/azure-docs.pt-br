@@ -151,7 +151,7 @@ catch(ServiceException $e){
 
 As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe **BrokeredMessage**. Objetos **BrokeredMessage** possuem um conjunto de métodos padrão (como **getLabel**, **getTimeToLive**, **setLabel** e **setTimeToLive**) e propriedades que são usadas para manter propriedades personalizadas específicas do aplicativo e um corpo de dados arbitrários do aplicativo.
 
-As filas do Barramento de Serviço dão suporte a um tamanho máximo de mensagem de 256 KB (o cabeçalho, que inclui as propriedades padrão e personalizadas do aplicativo podem ter um tamanho máximo de 64 KB). Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. Este limite superior do tamanho da fila é 5 GB.
+As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. Este limite superior do tamanho da fila é 5 GB.
 
 ## Como receber mensagens de uma fila
 
@@ -220,4 +220,4 @@ Para saber mais, consulte também o [Centro de Desenvolvedores em PHP](/develop/
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0525_2016-->

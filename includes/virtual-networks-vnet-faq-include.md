@@ -183,7 +183,7 @@ Sim. Você pode implantar qualquer distribuição Linux com suporte do Azure.
 
 ### Posso reservar um endereço IP interno para uma VM que criarei posteriormente?
 
-Não. Não é possível reservar um endereço IP interno. Se um endereço IP interno estiver disponível, ele será atribuído a uma VM ou instância de função pelo servidor DHCP. Essa VM pode ou não ser aquela à qual você deseja que o endereço IP interno seja atribuído. No entanto,você pode alterar o endereço IP interno de uma VM já criada para qualquer endereço IP interno disponível.
+Não. Não é possível reservar um endereço IP interno. Se um endereço IP interno estiver disponível, ele será atribuído a uma VM ou à instância de função pelo servidor DHCP. Essa VM pode ou não ser aquela à qual você deseja que o endereço IP interno seja atribuído. No entanto,você pode alterar o endereço IP interno de uma VM já criada para qualquer endereço IP interno disponível.
 
 ### Os endereços IP internos mudam para VMs em uma rede virtual?
 
@@ -270,4 +270,4 @@ Sim. Você pode usar APIs REST para gerenciar redes virtuais e conectividade ent
 
 Sim. Você pode usar ferramentas de linha de comando e o PowerShell para uma variedade de plataformas. Mais informações podem ser encontradas [aqui](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0525_2016-->
