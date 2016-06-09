@@ -51,11 +51,11 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
 1. No Gerenciador de Projetos do Eclipse, clique com o botão direito do mouse em **MyHelloWorld**.
 
-1. No menu de contexto, selecione **Azure** e clique em **Publicar como Aplicativo Web do Azure...**
+1. No menu de contexto, selecione **Azure** e clique em **Publish as Azure Web App... (Publicar como Aplicativo Web do Azure...)**
 
    ![][03]
    
-   Como alternativa, enquanto o projeto do aplicativo Web é selecionado no Explorador de Projeto, é possível clicar no botão suspenso **Publicar** na barra de ferramentas e selecionar **Publicar como Aplicativo Web do Azure** lá:
+   Como alternativa, enquanto o projeto do aplicativo Web é selecionado no Explorador de Projeto, é possível clicar no botão suspenso **Publicar** na barra de ferramentas e selecionar **Publish as Azure Web App... (Publicar como Aplicativo Web do Azure)** lá:
    
    ![][publishDropdownButton]
    
@@ -68,7 +68,7 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
    ![][05]
    
-1. Quando a caixa de diálogo **Implantar no Contêiner do Aplicativo Web do Azure** for mostrada, ela exibirá todos os contêineres do Aplicativo Web criados anteriormente por você; se você não tiver criado nenhum contêiner, a lista estará vazia.
+1. Quando a caixa de diálogo **Deploy to Azure Web App Container (Implantar no Contêiner do Aplicativo Web do Azure)** for mostrada, ela exibirá todos os contêineres do Aplicativo Web criados anteriormente por você; se você não tiver criado nenhum contêiner, a lista estará vazia.
 
    ![][06]
    
@@ -76,11 +76,11 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
   1. Clique em **Novo...**
 
-  1. A caixa de diálogo **Novo Contêiner do Aplicativo Web** será exibida:
+  1. A caixa de diálogo **New Web App Container (Novo Contêiner do Aplicativo Web)** será exibida:
 
         ![][07]
 
-  1. Insira um **Rótulo DNS** para seu Contêiner do Aplicativo Web; isso formará o rótulo DNS folha da URL do host de seu aplicativo Web no Azure. Observação: o nome deve estar disponível e de acordo com os requisitos de nomenclatura de aplicativo Web do Azure.
+  1. Insira um **DNS Label (Rótulo DNS)** para seu Contêiner do Aplicativo Web; isso formará o rótulo DNS folha da URL do host de seu aplicativo Web no Azure. Observação: o nome deve estar disponível e de acordo com os requisitos de nomenclatura de aplicativo Web do Azure.
 
   1. No menu suspenso **Contêiner da Web**, selecione o software apropriado ao seu aplicativo.
 
@@ -120,13 +120,13 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
       * Na caixa de texto **Nome**, especifique um nome para o novo Plano do Serviço de Aplicativo.
 
-      * No menu suspenso **Local**, selecione o local do data center do Azure apropriado ao plano.
+      * No menu suspenso **Localização**, selecione o local do data center do Azure apropriado ao plano.
 
       * No menu suspenso **Tipo de Preço**, selecione o preço apropriado ao plano. Para fins de teste, é possível escolher **Gratuito**.
 
       * No menu suspenso **Tamanho da Instância**, selecione o tamanho de instância apropriado ao plano. Para fins de teste, é possível escolher **Pequeno**.
 
-  1. Depois de concluir todas as etapas acima, a caixa de diálogo Novo Contêiner de Aplicativos Web deve ser semelhante à ilustração a seguir:
+  1. Depois de concluir todas as etapas acima, a caixa de diálogo New Web App Container (Novo Contêiner de Aplicativos Web) deve ser semelhante à ilustração a seguir:
 
         ![][10]
 
@@ -140,9 +140,9 @@ Há várias maneiras pelas quais você pode implantar um aplicativo Web Java no 
 
     Clique em **OK** para implantar o aplicativo Java no contêiner do Aplicativo Web selecionado.
 
-    Observação: por padrão, o aplicativo será implantado como um subdiretório do servidor de aplicativos. Se desejar implantá-lo como o aplicativo raiz, marque a caixa de seleção **Implantar na raiz** antes de clicar em **OK**.
+    Observação: por padrão, o aplicativo será implantado como um subdiretório do servidor de aplicativos. Se desejar implantá-lo como o aplicativo raiz, marque a caixa de seleção **Deploy to root (Implantar na raiz)** antes de clicar em **OK**.
 
-1. Em seguida, você deverá ver o modo de exibição do **Log de Atividades do Azure**, que indicará o status da implantação do Aplicativo Web.
+1. Em seguida, você deverá ver o modo de exibição do **Azure Activity Log (Log de Atividades do Azure)**, que indicará o status da implantação do Aplicativo Web.
 
     ![][12]
 
@@ -159,17 +159,17 @@ Em ambos os casos, o processo é idêntico e demora apenas alguns segundos:
 
 1. No explorador de projetos do Eclipse, clique com o botão direito do mouse no aplicativo Java que você deseja atualizar ou adicionar a um contêiner de aplicativos Web existente.
 
-2. Quando o menu de contexto for exibido, selecione **Azure** e, em seguida, **Publicar como Aplicativo Web do Azure...**
+2. Quando o menu de contexto for exibido, selecione **Azure** e, em seguida, **Publish as Azure Web App... (Publicar como Aplicativo Web do Azure...)**
 
 3. Como você já fez logon anteriormente, verá uma lista com seus contêineres de aplicativo Web existentes. Selecione aquele no qual deseja publicar ou publicar novamente o aplicativo Java e clique em **OK**.
 
-Após alguns segundos, o modo de exibição do **Log de Atividades do Azure** mostrará a implantação atualizada como **Publicada** e será possível verificar o aplicativo atualizado em um navegador da Web.
+Após alguns segundos, o modo de exibição do **Azure Activity Log (Log de Atividades do Azure)** mostrará a implantação atualizada como **Publicado** e será possível verificar o aplicativo atualizado em um navegador da Web.
 
 ## Interromper um aplicativo Web existente
 
 Para interromper um contêiner do Aplicativo Web do Azure existente, (incluindo todos os aplicativos Java implantados nele), é possível usar o modo de exibição do **Azure Explorer**.
 
-Se o modo de exibição do **Azure Explorer** ainda não estiver aberto, você poderá abri-lo clicando no menu **Janela** no Eclipse, clicando em **Mostrar Modo de Exibição**, em **Outros...**, em **Azure** e em **Azure Explorer**. Se você não tiver feito logon anteriormente, receberá uma solicitação para fazê-lo.
+Se o modo de exibição do **Azure Explorer** ainda não estiver aberto, você poderá abri-lo clicando no menu **Window (Janela)** no Eclipse, clicando em **Show View (Mostrar Modo de Exibição)**, em **Other... (Outros...)**, em **Azure** e em **Azure Explorer**. Se você não tiver feito logon anteriormente, receberá uma solicitação para fazê-lo.
 
 Quando o modo de exibição do **Azure Explorer** for exibido, use estas etapas para interromper o Aplicativo Web:
 
