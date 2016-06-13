@@ -4,15 +4,15 @@
 	keywords="banco de dados elásticos, bancos de dados sql"
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh"
+	authors="srinia"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/23/2016"
-	ms.author="sidneyh"
+	ms.date="05/27/2016"
+	ms.author="srinia"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
@@ -22,7 +22,7 @@
 
 Pools elásticos fornecem uma solução simples e econômica para gerenciar as metas de desempenho para vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis.
 
-> [AZURE.NOTE] Pools elásticos estão disponíveis para o público geral (GA) em todas as regiões do Azure, exceto no Centro-Norte dos EUA, Sul do Brasil, Índia Ocidental, Sul da Índia e Norte da China, onde ele está atualmente em preview. GA de pools elásticos nessas regiões serão fornecidos assim que possível.
+> [AZURE.NOTE] Pools elásticos estão disponíveis para o público geral (GA) em todas as regiões do Azure, exceto no Centro-Norte dos EUA, Sul do Brasil, Índia Ocidental e Norte da China, onde ele está atualmente em preview. GA de pools elásticos nessas regiões serão fornecidos assim que possível.
 
 ## Como ele funciona
 
@@ -104,4 +104,4 @@ Para aplicativos que têm requisitos de restauração mais agressivos do que a r
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

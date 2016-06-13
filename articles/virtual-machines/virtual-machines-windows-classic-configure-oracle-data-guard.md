@@ -2,7 +2,8 @@
 	pageTitle="Configurando o Oracle Data Guard em VMs | Microsoft Azure"
 	description="Acompanhe um tutorial para configurar e implementar o Oracle Data Guard em máquinas virtuais do Azure para alta disponibilidade e recuperação de desastres."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 <tags
@@ -11,13 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Configurando o Oracle Data Guard para Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
-Modelo do Gerenciador de Recursos.
 
 
 Este tutorial demonstra como configurar e implementar o Oracle Data Guard em ambiente de máquinas virtuais do Azure para alta disponibilidade e recuperação de desastres. O tutorial concentra-se na replicação unidirecional para bancos de dados não Oracle RAC.
@@ -31,7 +29,7 @@ Além disso, o tutorial presume que você já tenha implementado os seguintes pr
 - Você já revisou a seção de Considerações de alta disponibilidade e recuperação de desastres no tópico [Imagens de máquina virtual Oracle – diversas considerações](virtual-machines-windows-classic-oracle-considerations.md). Observe que o Azure dá suporte a instâncias de banco de dados Oracle autônomas, mas não a Oracle RAC (Oracle Real Application Clusters) ao mesmo tempo.
 
 
-- Você criou duas VMs (máquinas virtuais) no Azure usando a mesma imagem Oracle Enterprise Edition fornecida pela plataforma no Windows Server. Para obter informações, veja [Criando uma máquina virtual do Oracle Database 12c no Azure](virtual-machines-windows-create-oracle-weblogic-server-12c.md) e [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Verifique se as Máquinas Virtuais estão no [mesmo serviço de nuvem](virtual-machines-windows-load-balance.md) e na mesma [Rede Virtual](azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente. Além disso, é recomendável colocar as VMs no mesmo [conjunto de disponibilidade](virtual-machines-windows-manage-availability.md) para permitir que o Azure coloque-as em domínios de falha e domínios de atualização separados. Observe que o Oracle Data Guard só está disponível com o Oracle Database Enterprise Edition. Cada computador deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco. Para obter as informações mais atualizadas sobre os tamanhos de VM fornecidos pela plataforma, veja [Tamanhos de máquina virtual para o Azure](virtual-machines-windows-sizes.md). Se você precisar de volume de disco adicional para suas VMs, pode anexar discos adicionais. Para obter informações, veja [Como anexar um disco de dados a uma máquina virtual](virtual-machines-windows-classic-attach-disk.md).
+- Você criou duas VMs (Máquinas Virtuais) no Azure usando a mesma imagem da Oracle Enterprise Edition fornecida pela plataforma. Verifique se as Máquinas Virtuais estão no [mesmo serviço de nuvem](virtual-machines-windows-load-balance.md) e na mesma [Rede Virtual](azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente. Além disso, é recomendável colocar as VMs no mesmo [conjunto de disponibilidade](virtual-machines-windows-manage-availability.md) para permitir que o Azure coloque-as em domínios de falha e domínios de atualização separados. Observe que o Oracle Data Guard só está disponível com o Oracle Database Enterprise Edition. Cada computador deve ter pelo menos 2 GB de memória e 5 GB de espaço em disco. Para obter as informações mais atualizadas sobre os tamanhos de VM fornecidos pela plataforma, veja [Tamanhos de máquina virtual para o Azure](virtual-machines-windows-sizes.md). Se você precisar de volume de disco adicional para suas VMs, pode anexar discos adicionais. Para obter informações, veja [Como anexar um disco de dados a uma máquina virtual](virtual-machines-windows-classic-attach-disk.md).
 
 
 
@@ -268,7 +266,7 @@ Em seguida, você precisa editar o arquivo para adicionar os parâmetros em espe
 
 O bloco de instrução anterior inclui dois itens de configuração importantes:
 -	**LOG\_ARCHIVE\_CONFIG...:** as IDs de banco de dados exclusivas são definidas com essa instrução.
--	**LOG\_ARCHIVE\_DEST\_1...:** o local da pasta de arquivo morto local é definido com essa instrução. Recomendamos criar um novo diretório para as necessidades de arquivamento de seu banco de dados e especificar o local do arquivo morto local usando esta instrução explicitamente, em vez de usar a pasta padrão do Oracle %ORACLE\_HOME%\\database\\archive.
+-	**LOG\_ARCHIVE\_DEST\_1...:** a localização da pasta de arquivo morto local é definida com essa instrução. Recomendamos criar um novo diretório para as necessidades de arquivamento de seu banco de dados e especificar o local do arquivo morto local usando esta instrução explicitamente, em vez de usar a pasta padrão do Oracle %ORACLE\_HOME%\\database\\archive.
 -	**LOG\_ARCHIVE\_DEST\_2 .... LGWR ASYNC...:** você define um processo de LGWR (gravador de log) assíncrono (LGWR) para coletar dados de restauração de transação e transmiti-los para destinos em espera. Aqui, o DB\_UNIQUE\_NAME especifica um nome exclusivo para o banco de dados no servidor em espera de destino.
 
 Quando o novo arquivo de parâmetro estiver pronto, você precisa criar o spfile por meio dele.
@@ -632,4 +630,4 @@ Recomendamos habilitar o banco de dados de flashback nos bancos de dados primár
 ##Recursos adicionais
 [Imagens de Máquina Virtual Oracle para Azure](virtual-machines-windows-classic-oracle-images.md)
 
-<!-----HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

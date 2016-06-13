@@ -19,8 +19,6 @@
 
 # Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Este tópico orienta a criação de um ambiente de nuvem híbrida para testar um farm de intranet do SharePoint hospedado no Microsoft Azure. Veja abaixo a configuração resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
@@ -43,7 +41,7 @@ Há três fases principais para configurar esse ambiente de teste de nuvem híbr
 2.	Configurar o computador do servidor SQL (SQL1).
 3.	Configurar o servidor do SharePoint (SP1).
 
-Essa carga de trabalho requer uma assinatura do Azure. Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito mensal do Azure para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Essa carga de trabalho requer uma assinatura do Azure. Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: Configurar o ambiente de nuvem híbrida
 
@@ -125,9 +123,9 @@ Em seguida, integre a SQL1 ao domínio CORP do Active Directory com estes comand
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
-Use a conta CORP\\User1 quando for solicitado a fornecer credenciais de conta de domínio para o comando **Add-Computer**.
+Use a conta CORP\\User1 quando for solicitado a fornecer as credenciais de conta de domínio para o comando **Add-Computer**.
 
-Após a reinicialização, use o portal do Azure para conectar-se ao SQL1 usando a *conta de administrador local*.
+Após a reinicialização, use o Portal do Azure para se conectar ao SQL1 usando a *conta de administrador local*.
 
 Em seguida, configure o SQL Server 2014 para usar a unidade F: para novos bancos de dados e permissões de conta de usuário.
 
@@ -190,7 +188,7 @@ Em seguida, integre a SP1 ao domínio CORP do Active Directory com estes comando
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
-Use a conta CORP\\User1 quando for solicitado a fornecer credenciais de conta de domínio para o comando **Add-Computer**.
+Use a conta CORP\\User1 quando for solicitado a fornecer as credenciais de conta de domínio para o comando **Add-Computer**.
 
 Após a reinicialização, use o portal do Azure para conectar-se ao SP1 com a conta e senha de CORP\\User1.
 
@@ -209,10 +207,10 @@ Em seguida, configure o SP1 para um novo farm do SharePoint e um site de equipe 
 11.	Para **Como você deseja configurar o farm do SharePoint?**, clique em **Iniciar o Assistente**.
 12.	Na página Configurar o farm do SharePoint, em **Conta de serviço**, clique em **Usar conta gerenciada existente**.
 13.	Em **Serviços**, desmarque todas as caixas de seleção exceto a caixa ao lado de **Serviço de Controle de Sessão** e clique em **Avançar**. A página Processando ou Trabalhando nisso pode ser exibida por alguns instantes até ser concluída.
-14.	Na página Criar Coleção de Sites, em **Título e descrição**, digite **Contoso Corporation** em **Título**, especifique a URL **http://sp1**/ e clique em **OK**. A página Processando ou Trabalhando nisso pode ser exibida por alguns instantes até ser concluída. Esta etapa cria um site de equipe na URL http://sp1.
+14.	Na página Criar Coleção de Sites, em **Título e descrição**, digite **Contoso Corporation** em **Título**, especifique a URL ****http://sp1**/ e clique em **OK**. A página Processando ou Trabalhando nisso pode ser exibida por alguns instantes até ser concluída. Esta etapa cria um site de equipe na URL http://sp1.
 15.	Na página Isso conclui o Assistente de Configuração de Farm, clique em **Concluir**. A guia do Internet Explorer mostra o site de Administração Central do SharePoint 2013.
 16.	Faça logon no computador CLIENT1 com as credenciais da conta CORP\\User1 e inicie o Internet Explorer.
-17.	Na barra de endereços, digite **http://sp1/** e pressione ENTER. Você deve ver o site de equipe do SharePoint da Contoso Corporation. O site pode levar algum tempo para renderizar.
+17.	Na barra de endereços, digite ****http://sp1/** e pressione ENTER. Você deve ver o site de equipe do SharePoint da Contoso Corporation. O site pode levar algum tempo para renderizar.
 
 Esta é a configuração atual.
 
@@ -224,4 +222,4 @@ Seu farm de intranet do SharePoint em um ambiente de nuvem híbrida agora está 
 
 - [Configure](https://technet.microsoft.com/library/ee836142.aspx) o farm do SharePoint.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

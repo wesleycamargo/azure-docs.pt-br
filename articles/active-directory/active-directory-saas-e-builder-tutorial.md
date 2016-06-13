@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="04/06/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao e-Builder
@@ -21,7 +21,7 @@ O objetivo deste tutorial é mostrar a integração do Azure ao e-Builder. O cen
 -   Uma assinatura válida do Azure
 -   Um locatário do e-Builder
   
-Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao E-Builder poderão fazer logon único no aplicativo em seu site de empresa do E-Builder (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Depois de concluir este tutorial, os usuários do Azure AD atribuídos ao e-Builder poderão fazer logon único no aplicativo em seu site de empresa do e-Builder (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
   
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
@@ -64,15 +64,15 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
     ![e-Builder](./media/active-directory-saas-e-builder-tutorial/IC777380.png "e-Builder")
 ##Configurando o logon único
   
-O objetivo desta seção é descrever como permitir que os usuários autentiquem no e-Builder com a própria conta no Azure AD usando federação baseada no protocolo SAML.
+O objetivo desta seção é descrever como permitir que os usuários se autentiquem no e-Builder com a própria conta no Azure AD usando federação baseada no protocolo SAML.
 
 ###Para configurar o logon único, execute as seguintes etapas:
 
-1.  No portal do Azure AD, na página de integração de aplicativos do **E-Builder**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+1.  No portal do Azure AD, na página de integração do aplicativo **e-Builder**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
     ![Configurar logon único](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Configurar logon único")
 
-2.  Na página **Como você deseja que os usuários façam logon no E-Builder**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+2.  Na página **Como você deseja que os usuários façam logon no e-Builder**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
 
     ![Configurar logon único](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Configurar logon único")
 
@@ -80,7 +80,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Configurar a URL do aplicativo](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Configurar a URL do aplicativo")
 
-4.  Na página **Configurar logon único no E-Builder**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de dados localmente como **c:\\E-BuilderMetaData.xml**.
+4.  Na página **Configurar logon único no e-Builder**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de dados localmente como **c:\\e-BuilderMetaData.xml**.
 
     ![Configurar logon único](./media/active-directory-saas-e-builder-tutorial/IC777384.png "Configurar logon único")
 
@@ -110,4 +110,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

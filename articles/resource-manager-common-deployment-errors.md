@@ -19,7 +19,7 @@
 
 # Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager
 
-Este tópico descreve como você pode resolver alguns dos erros comuns que pode encontrar ao implantar recursos no Azure. Ele pressupõe que você já viu uma mensagem que descreve o erro. Se você precisar obter mais detalhes sobre porque a implantação falhou, consulte [Exibir operações de implantação](resource-manager-troubleshoot-deployments-portal.md).
+Este tópico descreve como você pode resolver alguns dos erros comuns que pode encontrar ao implantar recursos no Azure. Esperamos que você já tenha visto uma mensagem de erro útil. Se você não tiver visto uma mensagem de erro válida ou se precisar de mais detalhes sobre o motivo da falha da implantação, confira primeiro [Exibir operações de implantação](resource-manager-troubleshoot-deployments-portal.md) e, em seguida, volte a este artigo para obter ajuda sobre como resolver o erro.
 
 ## Modelo ou recurso inválido
 
@@ -33,7 +33,7 @@ Dependendo da localização do caractere ausente em seu modelo, você receberá 
 
 ## O nome do recurso já existe
 
-Para alguns recursos, especialmente contas de armazenamento, servidores de banco de dados e sites da Web, você deve fornecer um nome para o recurso que seja exclusivo em todo o Azure. Você pode criar um nome exclusivo concatenando a convenção de nomenclatura com o resultado da função [uniqueString](./resource-group-template-functions/#uniquestring).
+Para alguns recursos, especialmente contas de armazenamento, servidores de banco de dados e sites da Web, você deve fornecer um nome para o recurso que seja exclusivo em todo o Azure. Você pode criar um nome exclusivo concatenando a convenção de nomenclatura com o resultado da função [uniqueString](resource-group-template-functions.md#uniquestring).
  
     "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
     "type": "Microsoft.Storage/storageAccounts", 
@@ -240,4 +240,4 @@ Você pode impedir o Azure de relatar êxito da implantação, no entanto, ao cr
 - Para solucionar erros de Protocolo de Área de Trabalho Remota para a sua máquina virtual baseada no Windows, consulte [Solucionar problemas em conexões de Área de Trabalho Remota](./virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md).
 - Para solucionar erros de Secure Shell para a sua máquina virtual baseada no Linux, consulte [Solucionar problemas em conexões Secure Shell](./virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

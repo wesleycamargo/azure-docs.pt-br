@@ -14,16 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="05/27/2016" 
 	ms.author="nitinme"/>
 
 
 # Instalar o bloco de notas Jupyter em seu computador e se conectar ao cluster do Apache Spark no Azure HDInsight (Visualização)
 
-Neste artigo, você aprenderá como instalar blocos de notas Jupyter, com o PySpark personalizado (para o Python) e kernels Spark (para Scala) com a mágica de Spark, e conectar o bloco de notas a um cluster HDInsight.
-
-Mesmo que os blocos de notas Jupyter já estejam disponíveis no cluster Spark no Azure HDInsight, a instalação do Jupyter no seu computador fornece a opção de criar os blocos de notas localmente, de testar o aplicativo em um cluster em execução e de carregar os blocos de notas no cluster. Para carregar os blocos de notas no cluster, você pode carregá-los usando o bloco de notas Jupyter que está em execução ou o cluster, ou salvá-los na pasta /HdiNotebooks na conta de armazenamento associada ao cluster. Para saber mais sobre como os blocos de notas são armazenados no cluster, confira [Onde os blocos de notas Jupyter são armazenados](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
-
+Neste artigo, você aprenderá como instalar blocos de notas Jupyter, com o PySpark personalizado (para o Python) e kernels Spark (para Scala) com a mágica de Spark, e conectar o bloco de notas a um cluster HDInsight. Pode haver inúmeros motivos para instalar o Jupyter no computador local e alguns desafios também. Para obter uma lista de motivos e desafios, confira a seção [Por que devo instalar o Jupyter no meu computador](#why-should-i-install-jupyter-on-my-computer) no final deste artigo.
 
 Há três etapas principais envolvidas na instalação do Jupyter e da mágica do Spark em seu computador.
 
@@ -31,9 +28,9 @@ Há três etapas principais envolvidas na instalação do Jupyter e da mágica d
 * Instalar os kernels PySpark e Spark com a mágica do Spark
 * Configure a mágica do Spark para acessar o cluster Spark no HDInsight
 
-Para saber mais sobre os kernels personalizados e a mágica Spark disponível para blocos de notas Jupyter com o cluster HDInsight, confira [Kernels disponíveis para blocos de notas Jupyter com cluster Linux Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Para saber mais sobre os kernels personalizados e a sobre a mágica Spark disponível para blocos de notas Jupyter com o cluster HDInsight, confira [Kernels disponíveis para blocos de notas Jupyter com clusters do Apache Spark Linux no HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
-**Pré-requisitos:**
+##Pré-requisitos
 
 Os pré-requisitos listados aqui não são para a instalação do Jupyter. Eles são para conectar o bloco de notas Jupyter a um cluster HDInsight depois que o bloco de notas está instalado.
 
@@ -50,13 +47,13 @@ Você deve instalar o Python antes de instalar blocos de notas Jupyter. Python e
 
 		conda install jupyter
 
-	Para saber mais sobre a instalação do Jupyter, confira [Instalando o Jupyter usando Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
+	Para saber mais sobre a instalação do Jupyter, confira [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html) (Instalando o Jupyter usando Anaconda).
 
 ## Instalar os kernels e a mágica do Spark
 
 Nesta seção, você instala a mágica do Spark, os kernels PySpark e Spark e configura os kernels para se conectarem a um cluster Apache Spark em execução no Azure HDInsight.
 
-1. Baixe a demonstração pública mais recente da mágica do Spark no [Github](https://github.com/jupyter-incubator/sparkmagic/archive/publicpreview0.5.zip).
+1. Baixe a versão de visualização pública mais recente da mágica do Spark no [Github](https://github.com/jupyter-incubator/sparkmagic/archive/publicpreview0.5.zip).
 
 2. Descompacte o arquivo baixado em um local no disco. Nestas instruções, nós nos referimos a esse caminho como `$SPARKMAGIC_PATH`.
 
@@ -88,9 +85,9 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 		import os
 		print os.path.expanduser('~')
 
-2. Navegue até o diretório base e crie uma pasta chamada **.sparkmagic** se ela não existir.
+2. Navegue até o diretório base e crie uma pasta chamada **.sparkmagic**, caso ela ainda não exista.
 
-3. Dentro da pasta, crie um arquivo chamado **config** e adicione o trecho JSON a seguir a ele.
+3. Dentro da pasta, crie um arquivo chamado **config.json** e adicione o trecho de código JSON a seguir dentro dele.
 
 		{
 		  "kernel_python_credentials" : {
@@ -132,6 +129,18 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 
 	>[AZURE.TIP] Se você quiser atualizar a configuração do bloco de notas para se conectar a um cluster diferente, atualize o config.json com o novo conjunto de valores, conforme mostrado na Etapa 3 acima.
 
+## Por que devo instalar o Jupyter no meu computador?
+
+Pode haver vários motivos pelos quais você possa querer instalar o Jupyter no computador e conectá-lo a um cluster Spark no HDInsight.
+
+* Mesmo que os blocos de notas Jupyter já estejam disponíveis no cluster Spark no Azure HDInsight, a instalação do Jupyter no seu computador fornece a opção de criar os blocos de notas localmente, de testar o aplicativo em um cluster em execução e de carregar os blocos de notas no cluster. Para carregar os blocos de notas no cluster, você pode carregá-los usando o bloco de notas Jupyter que está em execução ou o cluster, ou salvá-los na pasta /HdiNotebooks na conta de armazenamento associada ao cluster. Para saber mais sobre como os blocos de notas são armazenados no cluster, confira [Onde os blocos de notas Jupyter são armazenados](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
+* Com os blocos de notas disponíveis localmente, você pode se conectar a clusters Spark diferentes com base nos requisitos do aplicativo.
+* É possível usar o GitHub para implementar um sistema de controle de origem e ter o controle de versão para os blocos de notas. Você também pode ter um ambiente colaborativo, onde vários usuários podem trabalhar com o mesmo bloco de notas.
+* Você pode trabalhar com blocos de notas localmente sem sequer ter um cluster em operação. É preciso apenas um cluster no qual testar seus blocos de notas, e não para gerenciar manualmente os blocos de notas ou um ambiente de desenvolvimento.
+* Pode ser mais fácil configurar seu próprio ambiente de desenvolvimento local que configurar a instalação do Jupyter no cluster. É possível aproveitar todo o software que você tem instalado localmente sem configurar um ou mais clusters remotos.
+
+>[AZURE.WARNING] Com o Jupyter instalado no computador local, vários usuários podem executar o mesmo bloco de notas no mesmo cluster Spark ao mesmo tempo. Nessa situação, várias sessões Livy são criadas. Se você tiver um problema e desejar depurá-lo, será uma tarefa complexa rastrear qual sessão Livy pertence a qual usuário.
+
 
 
 
@@ -168,4 +177,4 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -25,7 +25,7 @@ A integração do Skydesk Email ao Azure AD oferece os seguintes benefícios:
 
 - No Azure AD, você pode controlar quem tem acesso ao Skydesk Email
 - Você pode habilitar os usuários a entrar automaticamente no Skydesk Email (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um único local: o Portal clássico do Azure Active
+- Você pode gerenciar suas contas em um local central, o portal clássico do Active Directory do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -325,4 +325,4 @@ Ao clicar no bloco do Skydesk Email no Painel de Acesso, você deverá ser conec
 [204]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-skydeskemail-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -20,8 +20,6 @@
 
 Este tópico explica como criar um balanceador de carga interno para um grupo de disponibilidade AlwaysOn do SQL Server em máquinas virtuais do Azure em execução no modelo do Gerenciador de Recursos. Um grupo de disponibilidade do AlwaysOn exige um balanceador de carga quando as instâncias do SQL Server estão em máquinas virtuais do Azure. O balanceador de carga armazena o endereço IP do ouvinte do grupo de disponibilidade. Se um grupo de disponibilidade abranger várias regiões, cada região precisará de um balanceador de carga.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo clássico.
-
 Para concluir essa tarefa, você precisa ter um grupo de disponibilidade AlwaysOn do SQL Server implantado em máquinas virtuais do Azure no modelo do Gerenciador de Recursos. As máquinas virtuais do SQL Server devem pertencer ao mesmo conjunto de disponibilidade. Você pode usar o [modelo da Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para criar automaticamente o grupo de disponibilidade AlwaysOn no Azure Resource Manager. Este modelo cria automaticamente o balanceador de carga interno para você.
 
 Se preferir, você poderá [configurar manualmente um grupo de disponibilidade AlwaysOn](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
@@ -56,9 +54,9 @@ Nesta parte da tarefa, você seguirá as seguintes etapas no Portal do Azure:
 
 A primeira etapa é criar o balanceador de carga. No Portal do Azure, abra o grupo de recursos que contém as máquinas virtuais do SQL Server. No grupo de recursos, clique em **Adicionar**.
 
-- Pesquise pelo **balanceador de carga**. Nos resultados da pesquisa, selecione **Balanceador de carga**, que é publicado pela **Microsoft**.
+- Pesquise pelo **balanceador de carga**. Nos resultados da pesquisa, selecione **Balanceador de Carga**, que é publicado pela **Microsoft**.
 
-- Na folha **Balanceador de carga**, clique em **Criar**.
+- Na folha **Balanceador de Carga**, clique em **Criar**.
 
 - Em **Criar balanceador de carga**, configure o balanceador de carga da seguinte maneira:
 
@@ -78,7 +76,7 @@ O Azure cria o balanceador de carga configurado acima. O balanceador de carga pe
 
 Agora, configure o endereço IP do balanceador de carga.
 
-- Na folha **Configurações** do balanceador de carga, clique em **Endereço IP**. A folha **Endereço IP** mostra que se trata de um balanceador de carga particular na mesma rede virtual que seus servidores SQL. 
+- Na folha **Configurações** do balanceador de carga, clique em **Endereço IP**. A folha **Endereço IP** mostra que se trata de um balanceador de carga particular na mesma rede virtual que seus Servidores SQL. 
 
 - Defina as configurações a seguir:
 
@@ -100,7 +98,7 @@ A próxima etapa é criar um pool de endereços de back-end. O Azure chama o poo
 
 - No grupo de recursos, clique no balanceador de carga que você criou. 
 
-- Em **Configurações**, clique em **pools de back-end**.
+- Em **Configurações**, clique em **Pools de back-end**.
 
 - Em **Pools de endereços de back-end**, clique em **Adicionar** para criar um pool de endereços de back-end.
 
@@ -110,7 +108,7 @@ A próxima etapa é criar um pool de endereços de back-end. O Azure chama o poo
 
 - Em **Escolher máquinas virtuais**, clique em **Escolher um conjunto de disponibilidade** e especifique o conjunto de disponibilidade ao qual as máquinas virtuais do SQL Server pertencem.
 
-- Depois de escolher o conjunto de disponibilidade, clique em **Escolher máquinas virtuais**. Clique em duas máquinas virtuais que hospedam as instâncias do SQL Server no grupo de disponibilidade. Clique em **Selecionar**.
+- Depois de escolher o conjunto de disponibilidade, clique em **Escolher as máquinas virtuais**. Clique em duas máquinas virtuais que hospedam as instâncias do SQL Server no grupo de disponibilidade. Clique em **Selecionar**.
 
 - Clique em **OK** para fechar as folhas para **Escolher as máquinas virtuais** e, então, em **Adicionar pool de back-end**.
 
@@ -267,4 +265,4 @@ Observe as diretrizes a seguir no ouvinte do grupo de disponibilidade no Azure u
 - Com um balanceador de carga interno, você só pode acessar ao ouvinte de dentro da mesma rede virtual.
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

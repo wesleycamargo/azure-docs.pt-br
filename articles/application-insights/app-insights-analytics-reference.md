@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="05/26/2016" 
 	ms.author="awills"/>
 
 # Referência da Análise
@@ -345,95 +345,129 @@ Divide um registro de exceção em linhas para cada item no campo de detalhes.
 
 ### operador parse
 
-    T | parse "I am 63 next birthday" with "I am" Year:int "next birthday"
+    T | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long *
 
-    T | parse kind=regex "My 62nd birthday" 
-        with "My" Year:regex("[0..9]+") regex("..") "birthday"
+
+    T | parse kind="relaxed"
+          "I got no socks for my birthday when I was 63 years old" 
+    with * "got" counter:long " " present "for" * "was" year:long * 
+
+    T |  parse kind=regex "I got socks for my 63rd birthday" 
+    with "(I|She) got" present "for .*?" year:long * 
 
 Extrai valores de uma cadeia de caracteres. Pode usar a correspondência de expressões regulares ou simples.
 
-Os elementos na cláusula `with` são comparados à cadeia de caracteres de origem sucessivamente. Cada elemento remove uma parte do texto de origem. Caso se trate de uma cadeia de caracteres simples, o cursor correspondente se moverá até a correspondência. Caso se trate de uma coluna com um nome de tipo, o cursor se moverá o suficiente para analisar o tipo especificado. (As correspondências de cadeias de caracteres se movem até ser encontrada uma correspondência para o próximo elemento.) Se for uma regex, será feita a correspondência com a expressão regular (e a coluna resultante sempre terá o tipo de cadeia de caracteres).
-
 **Sintaxe**
 
-    T | parse StringExpression with [SimpleMatch | Column:Type] ...
-
-    T | parse kind=regex StringExpression 
-        with [SimpleMatch | Column : regex("Regex")] ...
+    T | parse [kind=regex|relaxed] SourceText 
+        with [Match | Column [: Type [*]] ]  ...
 
 **Argumentos**
 
-* *T:* a tabela de entrada.
-* *kind:* simples ou regex. O padrão é simples.
-* *StringExpression:* uma expressão que é avaliada ou pode ser convertida em uma cadeia de caracteres.
-* *SimpleMatch:* uma cadeia de caracteres que corresponde à próxima parte do texto.
-* *Column:* especifica a nova coluna à qual atribuir uma correspondência.
-* *Type:* especifica como analisar a próxima parte da cadeia de caracteres de origem.
-* *Regex:* uma expressão regular para corresponder à próxima parte da cadeia de caracteres. 
+* `T`: a tabela de entrada.
+* `kind`: 
+ * `simple` (padrão): as cadeias de caracteres `Match` são cadeias de caracteres simples.
+ * `relaxed`: se o texto não analisa como o tipo de uma coluna, a coluna é definida como null e a análise continua 
+ * `regex`: as cadeias de caracteres `Match` são expressões regulares.
+* `Text`: uma coluna ou outra expressão que é avaliada ou pode ser convertida em uma cadeia de caracteres.
+* *Match:* corresponda à próxima parte da cadeia de caracteres e a descarta.
+* *Column:* atribua a próxima parte da cadeia de caracteres a esta coluna. A coluna será criada se ainda não existir.
+* *Type:* analise a próxima parte da cadeia de caracteres como o tipo especificado, como int, date, double. 
+
 
 **Retorna**
 
 A tabela de entrada, estendida de acordo com a lista de Colunas.
 
+Os elementos na cláusula `with` são comparados ao texto de origem sucessivamente. Cada elemento remove uma parte do texto de origem:
+
+* Uma cadeia de caracteres literal ou uma expressão regular move o cursor correspondente pelo comprimento da correspondência.
+* Em uma análise de regex, uma expressão regular pode usar o operador de minimização '?' para passar assim que possível para a correspondência seguinte.
+* Um nome de coluna com um tipo analisa o texto como o tipo especificado. A menos que kind=relaxed, uma análise malsucedida invalida a correspondência do padrão inteiro.
+* Um nome de coluna sem um tipo ou com o tipo 'string' copia o número mínimo de caracteres para obter a correspondência seguinte.
+* ' * ' Ignora o número mínimo de caracteres para obter a correspondência seguinte. Você pode usar ' *' no início e no final do padrão, ou depois de um tipo diferente de ‘string’ ou entre as correspondências de cadeia de caracteres.
+
+Todos os elementos em um padrão de análise devem corresponder corretamente. Caso contrário, nenhum resultado será produzido. A exceção a essa regra é que, quando kind=relaxed, se uma análise de uma variável com tipo falhar, o restante da análise continuará.
 
 **Exemplos**
 
-O operador `parse` fornece uma maneira simplificada de `extend` uma tabela usando vários aplicativos `extract` na mesma expressão `string`. Isso é particularmente útil quando a tabela tem uma coluna `string` que contém diversos valores que você deseja dividir em colunas individuais, como uma coluna que foi produzida por uma instrução de rastreamento de desenvolvedor ("`printf`"/"`Console.WriteLine`").
-
-No exemplo a seguir, suponha que a coluna `EventNarrative` da tabela `StormEvents` contenha cadeias de caracteres no formato `{0} at {1} crested at {2} feet around {3} on {4} {5}`. A operação a seguir estenderá a tabela com duas colunas: `SwathSize` e `FellLocation`.
-
-
-|EventNarrative|
-|---|
-|Green River em Brownsville com altura máxima de 5,7 m por volta das 0930EST em 12 de dezembro (The Green River at Brownsville crested at 18.8 feet around 0930EST on December 12). O estágio de inundação em Brownsville é de 5 m (Flood stage at Brownsville is 18 feet.). Pequenas inundações ocorrem nesse nível (Flood stage at Brownsville is 18 feet.). O rio transborda pelas barragens e algumas das margens inferiores, além de terras planas cultivadas (The river overflows lock walls and some of the lower banks, along with some agricultural bottom land).|
-|Rolling Fork River em Boston com altura máxima de 11,9 m por volta das 1700EST em 12 de dezembro (The Rolling Fork River at Boston crested at 39.3 feet around 1700EST on December 12). O estágio de inundação em Boston é de 10,6 m (Flood stage at Boston is 35 feet). Pequenas inundações ocorrem nesse nível e afetam terras planas cultivadas (Minor flooding occurs at this level, with some agricultural bottom land covered).|
-|Green River em Woodbury com altura máxima de 11,1 m por volta das 0600EST em 16 de dezembro (The Green River at Woodbury crested at 36.7 feet around 0600EST on December 16). O estágio de inundação em Woodbury é de 10 m (Flood stage at Woodbury is 33 feet). Pequenas inundações ocorrem nesse nível, com terras planas em torno da cidade de Woodbury cobertas pelas águas (Minor flooding occurs at this level, with some lowlands around the town of Woodbury covered with water).|
-|The Ohio River em Tell City com altura máxima de 11, 8 m por volta das 0700EST em 18 de dezembro (The Ohio River at Tell City crested at 39.0 feet around 7 AM EST on December 18). O estágio de inundação em Tell City é de 11,5 m (Flood stage at Tell City is 38 feet). Nesse nível, o rio começa a transbordar nas margens acima da escala (At this level, the river begins to overflow its banks above the gage). Inundações em Indiana Highway 66 entre Rome e Derby (Indiana Highway 66 floods between Rome and Derby).|
+*Simple:*
 
 ```AIQL
 
-StormEvents 
-|  parse EventNarrative 
-   with RiverName:string 
-        "at" 
-        Location:string 
-        "crested at" 
-        Height:double  
-        "feet around" 
-        Time:string 
-        "on" 
-        Month:string 
-        " " 
-        Day:long 
-        "." 
-        notImportant:string
-| project RiverName , Location , Height , Time , Month , Day
-
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse "I got 2 socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
-|Nome do Rio|Local padrão|Altura|Hora|Mês|Dia|
-|---|---|---|---|---|---|
-|Green River | Woodbury |11,1| 0600EST | Dezembro|16|
-|Rolling Fork River | Boston |11,9| 1700EST | Dezembro|12|
-|Green River | Brownsville |5,7| 0930EST | Dezembro|12|
-|Ohio River | Tell City |11,8| 0700EST | Dezembro|18|
+x | contador | presente | Ano
+---|---|---|---
+1 | 2 | socks | 63
 
-Também é possível fazer a correspondência usando expressões regulares. Isso produz o mesmo resultado, mas todas as colunas de resultados têm o tipo de cadeia de caracteres:
+*Relaxed:*
+
+Quando a entrada contém uma correspondência correta para cada coluna com tipo, uma análise relaxed produz os mesmos resultados de uma análise simples. Mas se uma das colunas com tipo não for analisada corretamente, uma análise relaxed continuará a processar o restante do padrão, enquanto uma análise simples interromperá e falhará ao gerar quaisquer resultados.
+
 
 ```AIQL
 
-StormEvents
-| parse kind=regex EventNarrative 
-  with RiverName:regex("(\\s?[a-zA-Z]+\\s?)+") 
-  "at" Location:regex(".*") 
-  "crested at " Height:regex("\\d+\\.\\d+") 
-  " feet around" Time:regex(".*") 
-  "on " Month:regex("(December|November|October)") 
-   " " Day:regex("\\d+") 
-   "." notImportant:regex(".*")
-| project RiverName , Location , Height , Time , Month , Day
+// Test without reading a table:
+ range x from 1 to 1 step 1 
+ | parse kind="relaxed"
+        "I got several socks for my birthday when I was 63 years old" 
+    with 
+     *   // skip until next match
+     "got" 
+     counter: long // read a number
+     " " // separate fields
+     present // copy string up to next match
+     "for" 
+     *  // skip until next match
+     "was" 
+     year:long // parse number
+     *  // skip rest of string
 ```
 
+
+x | presente | Ano
+---|---|---
+1 | socks | 63
+
+
+*Regex:*
+
+```AIQL
+
+// Run a test without reading a table:
+range x from 1 to 1 step 1 
+// Test string:
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+// Parse it:
+| parse kind=regex s 
+  with ".*?[a-zA-Z]*=" resource 
+       ", total.*?sliceNumber=" slice:long *
+       "lockTime=" lock
+       ",.*?releaseTime=" release 
+       ",.*?previousLockTime=" previous:date 
+       ".*\)"
+| project-away x, s
+```
+
+recurso | fatia | lock | release | previous
+---|---|---|---|---
+Agendador | 16 | 02/17/2016 08:41:00 | 02/17/2016 08:41 | 2016-02-17T08:40:00Z
 
 ### operador project
 
@@ -449,7 +483,7 @@ Selecione as colunas a serem incluídas, renomeadas ou removidas e insira novas 
 **Argumentos**
 
 * *T:* a tabela de entrada.
-* *ColumnName:* o nome de uma coluna que deve aparecer na saída. Se não houver uma *Expression*, uma coluna com esse nome deverá aparecer na entrada. [Names](#names) diferencia maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou ‘\_’. Use `['...']` ou `["..."]` para substituir as aspas em palavras-chave ou em nomes por outros caracteres.
+* *ColumnName:* o nome de uma coluna que deve aparecer na saída. Se não houver uma *Expression*, uma coluna com esse nome deverá aparecer na entrada. [Nomes](#names) diferenciam maiúsculas de minúsculas e podem conter caracteres alfabéticos, numéricos ou ‘\_’. Use `['...']` ou `["..."]` para substituir as aspas em palavras-chave ou em nomes por outros caracteres.
 * *Expression:* expressão escalar opcional que faz referência às colunas de entrada. 
 
     É válido retornar uma nova coluna calculada com o mesmo nome que uma coluna existente na entrada.
@@ -537,7 +571,7 @@ range timestamp from ago(4h) to now() step 1m
 | render timechart  
 ```
 
-Mostra como o operador `range` pode ser usado para criar uma pequena tabela de dimensões ad hoc que é então usada para introduzir zeros onde os dados de origem não têm valores.
+Mostra como o operador `range` pode ser usado para criar uma pequena tabela de dimensões ad hoc que será então usada para introduzir zeros onde os dados de origem não têm valores.
 
 ### operador reduce
 
@@ -604,7 +638,7 @@ Classifica as linhas da tabela de entrada em ordem de acordo com uma ou mais col
 
 * *T:* a tabela de entrada a ser classificada.
 * *Column:* coluna de *T* de acordo com a qual a classificação deve ser feita. O tipo dos valores deve ser numérico, de data, hora ou cadeia de caracteres.
-* `asc` Classificar em ordem crescente, do mais baixo para o mais alto. O padrão é `desc`, em ordem decrescente do mais alto para o mais baixo.
+* `asc` Classificar em ordem crescente, do mais baixo para o mais alto. O padrão é `desc`, em ordem decrescente, do mais alto para o mais baixo.
 
 **Exemplo**
 
@@ -640,7 +674,7 @@ Uma tabela que mostra quantos itens têm preços em cada intervalo [0,10,0], [10
 
 **Argumentos**
 
-* *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão. [Names](#names) diferencia maiúsculas de minúsculas e pode conter caracteres alfabéticos, numéricos ou ‘\_’. Use `['...']` ou `["..."]` para citar palavras-chave ou nomes com outros caracteres.
+* *Column:* nome opcional para uma coluna de resultados. Assume o padrão de um nome derivado da expressão. [Nomes](#names) diferenciam maiúsculas de minúsculas e podem conter caracteres alfabéticos, numéricos ou ‘\_’. Use `['...']` ou `["..."]` para substituir as aspas em palavras-chave ou em nomes por outros caracteres.
 * *Aggregation:* uma chamada para uma função de agregação, como `count()` ou `avg()`, com nomes de coluna como argumentos. Consulte [agregações](#aggregations).
 * *GroupExpression:* uma expressão sobre as colunas que fornece um conjunto de valores distintos. Normalmente, é um nome de coluna que já fornece um conjunto restrito de valores ou `bin()` com uma coluna numérica ou de hora como argumento. 
 
@@ -654,7 +688,7 @@ Se você não fornecer uma *GroupExpression*, toda a tabela será resumida em um
 
 As linhas de entrada são organizadas em grupos com os mesmos valores das expressões `by`. Em seguida, as funções de agregação especificadas são calculadas sobre cada grupo, produzindo uma linha para cada grupo. O resultado contém as colunas `by` e pelo menos uma coluna para cada agregação calculada. (Algumas funções de agregação retornam várias colunas.)
 
-O resultado tem a mesma quantidade de linhas das diferentes combinações de valores `by`. Se quiser resumir intervalos de valores numéricos, use `bin()` para reduzir os intervalos a valores distintos.
+O resultado tem a mesma quantidade de linhas que diferentes combinações de valores `by`. Se quiser resumir intervalos de valores numéricos, use `bin()` para reduzir os intervalos a valores distintos.
 
 **Observação**
 
@@ -671,7 +705,7 @@ Alias de [limit](#limit-operator)
 
     T | top 5 by Name desc
 
-Retorna os primeiros registros *N* classificados pelas colunas especificadas.
+Retorna os primeiros *N* registros classificados pelas colunas especificadas.
 
 
 **Sintaxe**
@@ -817,7 +851,7 @@ Observe que colocamos a comparação entre duas colunas por último, pois ela n�
 
 ## Agregações
 
-As agregações são funções usadas para combinar valores em grupos criados em [resumir operação](#summarize-operator). Por exemplo, nesta consulta, dcount() é uma função de agregação:
+As agregações são funções usadas para combinar valores em grupos criados na em [operação de resumo](#summarize-operator). Por exemplo, nesta consulta, dcount() é uma função de agregação:
 
     requests | summarize dcount(name) by success
 
@@ -989,7 +1023,7 @@ Retorna uma contagem de linhas para a qual *Predicate* é avaliado como `true`.
 
     dcount( Expression [ ,  Accuracy ])
 
-Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para listar os valores distintos, use [`makeset`](#makeset)).
+Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para listar os valores distintos, use [`makeset`](#makeset).)
 
 *Accuracy*, se for especificada, controlará o equilíbrio entre velocidade e precisão.
 
@@ -1010,7 +1044,7 @@ Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para
 
     dcountif( Expression, Predicate [ ,  Accuracy ])
 
-Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset)).
+Retorna uma estimativa do número de valores distintos de *Expr* de linhas no grupo para o qual *Predicate* é verdadeiro. (Para listar os valores distintos, use [`makeset`](#makeset).)
 
 *Accuracy*, se for especificada, controlará o equilíbrio entre velocidade e precisão.
 
@@ -1049,7 +1083,7 @@ Retorna uma matriz `dynamic` (JSON) do conjunto de valores distintos que *Expr* 
 
 ![](./media/app-insights-analytics-reference/makeset.png)
 
-Consulte também o [`mvexpand` operador](#mvexpand-operator) para a função oposta.
+Consulte também o [operador `mvexpand`](#mvexpand-operator) para a função oposta.
 
 
 ### max, min
@@ -1391,7 +1425,7 @@ Alias `floor`.
 **Argumentos**
 
 * *value:* um número, uma data ou um período de tempo. 
-* *roundTo:* o "tamanho do bin". Um número, uma data ou um período de tempo que divida *value*. 
+* *roundTo:* o "tamanho a compartimentalização". Um número, uma data ou um período de tempo que divida *value*. 
 
 **Retorna**
 
@@ -1529,7 +1563,7 @@ Expressão |Resultado
 `datetime("2015-01-01") + 1d`| `datetime("2015-01-02")`
 `datetime("2015-01-01") - 1d`| `datetime("2014-12-31")`
 `2h * 24` | `2d`
-`2d`/`2h` | `24`
+`2d` / `2h` | `24`
 `datetime("2015-04-15T22:33") % 1d` | `timespan("22:33")`
 `bin(datetime("2015-04-15T22:33"), 1d)` | `datetime("2015-04-15T00:00")`
 ||
@@ -1687,7 +1721,7 @@ A hora UTC atual, opcionalmente separada por um determinado período. Essa funç
 
 **Argumentos**
 
-* *offset:* um `timespan`, acrescentado à hora UTC atual. Padrão: 0.
+* *offset:* um `timespan`, adicionado à hora UTC atual. Padrão: 0.
 
 **Retorna**
 
@@ -1855,7 +1889,7 @@ Obtém uma correspondência para uma [expressão regular](#regular-expressions) 
 
 * *regex:* uma [expressão regular](#regular-expressions).
 * *captureGroup:* uma constante `int` positiva que indica o grupo de captura para extração. 0 significa toda a correspondência, um para o valor correspondido pelo primeiro '('parêntese')' na expressão regular, dois ou mais para os parênteses subsequentes.
-* *text:* um `string` para pesquisa.
+* *text:* um `string` para pesquisar.
 * *typeLiteral:* um literal de tipo opcional (por exemplo, `typeof(long)`). Se for fornecido, a subcadeia de caracteres extraída será convertida para esse tipo. 
 
 **Retorna**
@@ -1866,7 +1900,7 @@ Se não houver correspondência, ou se a conversão do tipo falhar: `null`.
 
 **Exemplos**
 
-A cadeia de caracteres de exemplo `Trace` é pesquisada em busca de uma definição para `Duration`. A correspondência é convertida em `real`, multiplicada por uma constante de tempo (`1s`) para que `Duration` seja do tipo `timespan`. Neste exemplo, é igual a 123,45 segundos:
+A cadeia de caracteres de exemplo `Trace` é pesquisada em busca de uma definição para `Duration`. A correspondência é convertida em `real` e multiplicada por uma constante de tempo (`1s`) para que `Duration` seja do tipo `timespan`. Neste exemplo, é igual a 123,45 segundos:
 
 ```AIQL
 ...
@@ -2159,8 +2193,8 @@ T
 
 |||
 |---|---|
-| *value* `in` *array*| True se houver um elemento de *array* que = = *value*<br/>`where City in ('London', 'Paris', 'Rome')`
-| *value* `!in` *array*| True se não houver um elemento de *array* que = = *value*
+| *value* `in` *array*| True se houver um elemento de *array* que == *value*<br/>`where City in ('London', 'Paris', 'Rome')`
+| *value* `!in` *array*| True se não houver um elemento de *array* que == *value*
 |[`arraylength(`array`)`](#arraylength)| Null se não for uma matriz
 |[`extractjson(`path,object`)`](#extractjson)|Usa o caminho para navegar no objeto.
 |[`parsejson(`source`)`](#parsejson)| Transforma uma cadeia de caracteres JSON em um objeto dinâmico.
@@ -2289,7 +2323,7 @@ No exemplo a seguir, quando `context_custom_metrics` é um `string` que se parec
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-daí, o fragmento a seguir recupera o valor do slot `duration` no objeto e, a por meio disso, recupera dois slots, `duration.value` e `duration.min` (`118.0` e `110.0`, respectivamente).
+então, o fragmento a seguir recupera o valor do slot `duration` no objeto e, a por meio disso, recupera dois slots, `duration.value` e `duration.min` (`118.0` e `110.0`, respectivamente).
 
 ```AIQL
 T
@@ -2381,4 +2415,4 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

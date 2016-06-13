@@ -3,8 +3,8 @@
 	description="Saiba como usar chamadas à API RESTful para fazer backup e restaurar um aplicativo no Serviço de Aplicativo do Azure"
 	services="app-service"
 	documentationCenter=""
-	authors="nking92"
-	manager="edlauare"
+	authors="NKing92"
+	manager="wpickett"
     editor="" />
 
 <tags
@@ -13,36 +13,40 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/17/2016"
 	ms.author="nicking"/>
-
 # Usar REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo
+
+> [AZURE.SELECTOR]
+- [PowerShell](../app-service/app-service-powershell-backup.md)
+- [API REST](websites-csm-backup.md)
+
 O backup dos [aplicativos do Serviço de Aplicativo](https://azure.microsoft.com/services/app-service/web/) pode ser feito como blobs no armazenamento do Azure. O backup também pode conter bancos de dados do aplicativo. Se o aplicativo for excluído por acidente, ou se precisar ser revertido para uma versão anterior, ele poderá ser restaurado a partir de qualquer backup anterior. Os backups podem ser realizados a qualquer momento e sob demanda ou podem ser agendados em intervalos adequados.
 
 Este artigo explicará como fazer backup e restaurar um aplicativo com solicitações de API RESTful. Se você quiser criar e gerenciar backups do aplicativo graficamente no Portal do Azure, confira [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md)
 
 <a name="gettingstarted"></a>
 ## Introdução
-Para enviar solicitações REST, você precisará saber o **nome**, o **grupo de recursos** e a **ID da assinatura** do aplicativo. Essas informações podem ser encontradas clicando em seu aplicativo, na folha **Serviço de Aplicativo** do [Portal do Azure](https://portal.azure.com). Para os exemplos neste artigo, configuraremos o site `backuprestoreapiexamples.azurewebsites.net`. Ele está armazenado no grupo de recursos Default-Web-WestUS e está em execução em uma assinatura com a ID 00001111-2222-3333-4444-555566667777.
+Para enviar solicitações REST, você precisará saber o **nome**, o **grupo de recursos** e a **ID da assinatura** do aplicativo. Essas informações podem ser encontradas clicando em seu aplicativo, na folha **Serviço de Aplicativo** do [Portal do Azure](https://portal.azure.com). Para os exemplos deste artigo, vamos configurar o site **backuprestoreapiexamples.azurewebsites.net**. Ele está armazenado no grupo de recursos Default-Web-WestUS e está em execução em uma assinatura com a ID 00001111-2222-3333-4444-555566667777.
 
 ![Informações do site de exemplo][SampleWebsiteInformation]
 
 <a name="backup-restore-rest-api"></a>
 ## Fazer backup e restaurar uma API REST
-Agora, mostraremos vários exemplos de como usar a API REST para fazer backup e restaurar um aplicativo. Cada exemplo incluirá uma URL e um corpo de solicitação HTTP. O exemplo de URL conterá espaços reservados entre chaves, por exemplo, {subscriptionId}. Substitua-os por informações correspondentes ao seu aplicativo. Para referência, veja uma explicação de cada espaço reservado que aparece nas URLs de exemplo.
+Agora, mostraremos vários exemplos de como usar a API REST para fazer backup e restaurar um aplicativo. Cada exemplo incluirá uma URL e um corpo de solicitação HTTP. O exemplo de URL conterá espaços reservados entre chaves, por exemplo, {subscription-id}. Substitua-os por informações correspondentes ao seu aplicativo. Para referência, veja uma explicação de cada espaço reservado que aparece nas URLs de exemplo.
 
-* subscriptionId: a ID da assinatura do Azure que contém o aplicativo
-* resourceGroupName: o nome do grupo de recursos que contém o aplicativo
-* sitename: nome do aplicativo
-* backupId: ID do backup do aplicativo
+* subscription-id: a ID da assinatura do Azure que contém o aplicativo
+* resource-group-name: o nome do grupo de recursos que contém o aplicativo
+* name: nome do aplicativo
+* backup-id: ID do backup do aplicativo
 
 Para obter a documentação completa da API, incluindo vários parâmetros opcionais que podem ser incluídos na solicitação HTTP, consulte o [Gerenciador de Recursos do Azure](https://resources.azure.com/).
 
 <a name="backup-on-demand"></a>
 ## Fazer backup de um aplicativo sob demanda
-Para fazer backup de um aplicativo imediatamente, envie uma solicitação **POST** para `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{sitename}/backup/`.
+Para fazer backup de um aplicativo imediatamente, envie uma solicitação **POST** para ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**.
 
-Esta é a aparência da URL quando usamos nosso site de exemplo. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/`
+Esta é a aparência da URL quando usamos nosso site de exemplo. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
 Você deve fornecer um objeto JSON no corpo da solicitação para especificar qual conta de armazenamento deve ser usada para armazenar o backup. O objeto JSON deve ter uma propriedade chamada **storageAccountUrl**, que mantém uma [URL SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) concedendo acesso de gravação ao contêiner de Armazenamento do Azure que armazenará o blob do backup. Se você quiser fazer backup de seus bancos de dados, também deverá fornecer uma lista contendo os nomes, tipos e cadeias de conexão dos bancos de dados a ser copiado em backup.
 
@@ -99,9 +103,9 @@ Um backup do aplicativo começará imediatamente após o recebimento da solicita
 Além de fazer backup de um aplicativo sob demanda, você também pode agendar a execução automática de um backup.
 
 ### Configurar um novo agendamento de backup automático
-Para agendar um backup, envie uma solicitação **PUT** a `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/backup`.
+Para agendar um backup, envie uma solicitação **PUT** a ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup**.
 
-Com nosso site de exemplo, a URL parecerá com a seguinte. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup`
+Em nosso site de exemplo, a URL parecerá com a seguinte. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup**
 
 O corpo da solicitação deve conter um objeto JSON que especifica a configuração do backup. Veja um exemplo com todos os parâmetros necessários.
 
@@ -128,17 +132,17 @@ Esse exemplo configura o backup automático do aplicativo a cada 7 dias. Os par�
 Os backups antigos serão removidos automaticamente da conta de armazenamento. Você pode controlar por quanto tempo os backups são mantidos definindo o parâmetro **retentionPeriodInDays**. Se você quiser sempre ter pelo menos um backup salvo, independentemente da idade dele, defina **keepAtLeastOneBackup** como true.
 
 ### Configurar o agendamento de backup automático
-Para obter a configuração de backup de um aplicativo, envie uma solicitação **POST** para a URL ` https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/backup/list`.
+Para obter a configuração de backup de um aplicativo, envie uma solicitação **POST** para a URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/config/backup/list**.
 
-A URL de nosso site de exemplo é `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list`.
+A URL de nosso site de exemplo é ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**.
 
 <a name="get-backup-status"></a>
 ## Obter o status de um backup
-Dependendo do tamanho do aplicativo, o backup pode demorar para ser concluído. Os backups também podem falhar, o tempo limite pode ser ultrapassado ou ocorrer parcialmente. Para ver o status de todos os backups de um aplicativo, envie uma solicitação **GET** para a URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups`.
+Dependendo do tamanho do aplicativo, o backup pode demorar para ser concluído. Os backups também podem falhar, o tempo limite pode ser ultrapassado ou ocorrer parcialmente. Para ver o status de todos os backups de um aplicativo, envie uma solicitação **GET** para a URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**.
 
-Para ver o status de um backup específico, envie uma solicitação GET para a URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{backupId}`.
+Para ver o status de um backup específico, envie uma solicitação GET para a URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
-Com nosso site de exemplo, a URL parecerá com a seguinte. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1`
+Em nosso site de exemplo, a URL parecerá com a seguinte. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
 O corpo da resposta conterá um objeto JSON parecido com este exemplo.
 
@@ -176,9 +180,9 @@ O status de um backup é um tipo enumerado. Veja abaixo cada estado possível.
 
 <a name="restore-app"></a>
 ## Restaurar um aplicativo usando um backup
-Se o seu aplicativo tiver sido excluído ou se quiser reverter o aplicativo para uma versão anterior, você poderá restaurar o aplicativo de um backup. Para invocar uma restauração, envie uma solicitação **POST** para a URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{id}/restore`.
+Se o seu aplicativo tiver sido excluído ou se quiser reverter o aplicativo para uma versão anterior, você poderá restaurar o aplicativo de um backup. Para invocar uma restauração, envie uma solicitação **POST** para a URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**.
 
-Com nosso site de exemplo, a URL parecerá com a seguinte. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore`
+Em nosso site de exemplo, a URL parecerá com a seguinte. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore**
 
 No corpo da solicitação, envie um objeto JSON que contém as propriedades da operação de restauração. Veja um exemplo que contém todas as propriedades necessárias:
 
@@ -204,15 +208,15 @@ Talvez você queira criar um novo aplicativo ao restaurar um backup, em vez de s
 
 <a name="delete-app-backup"></a>
 ## Excluir um backup de aplicativo
-Se você quiser excluir um backup, envie uma solicitação **DELETE** para a URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{backupId}`.
+Se você quiser excluir um backup, envie uma solicitação **DELETE** para a URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
-Com nosso site de exemplo, a URL parecerá com a seguinte. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1`
+Em nosso site de exemplo, a URL parecerá com a seguinte. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
 <a name="manage-sas-url"></a>
 ## Gerenciar a URL de SAS de um backup
-O Serviço de Aplicativo do Azure tentará excluir o backup do Armazenamento do Azure usando a URL SAS que foi fornecida quando o backup foi criado. Se essa URL de SAS não for mais válida, o backup não será excluído por meio da API REST. No entanto, você pode atualizar a URL de SAS associada a um backup enviando uma solicitação **POST** para a URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{id}/list`.
+O Serviço de Aplicativo do Azure tentará excluir o backup do Armazenamento do Azure usando a URL SAS que foi fornecida quando o backup foi criado. Se essa URL de SAS não for mais válida, o backup não será excluído por meio da API REST. No entanto, você pode atualizar a URL de SAS associada a um backup enviando uma solicitação **POST** para a URL ****https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**.
 
-Com nosso site de exemplo, a URL parecerá com a seguinte. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list`
+Em nosso site de exemplo, a URL parecerá com a seguinte. ****https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/list**
 
 No corpo da solicitação, envie um objeto JSON que contém a nova URL de SAS. Aqui está um exemplo.
 
@@ -230,4 +234,4 @@ No corpo da solicitação, envie um objeto JSON que contém a nova URL de SAS. A
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

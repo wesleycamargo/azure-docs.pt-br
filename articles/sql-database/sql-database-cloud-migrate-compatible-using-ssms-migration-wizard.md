@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,10 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Migrar o banco de dados do SQL Server para o Banco de Dados SQL usando o Assistente para implantação de Banco de Dados no Banco de Dados do Microsoft Azure
+
+
+> [AZURE.SELECTOR]
+- [Assistente de Migração do SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [Exportar para um arquivo BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Importar de um arquivo BACPAC](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Replicação Transacional](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure no SQL Server Management Studio realiza a migração de um [banco de dados SQL Server compatível](sql-database-cloud-migrate.md) diretamente em sua instância de servidor do Banco de Dados SQL do Azure.
 
@@ -50,8 +57,15 @@ O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure 
 7.	Usando o Pesquisador de Objetos, conecte-se ao banco de dados migrado em seu servidor de Banco de Dados SQL do Azure.
 8.	Usando o Portal do Azure, exiba seu banco de dados e suas propriedades.
 
-## Próxima etapa: corrigir problemas de compatibilidade, se houver algum
+## Próximas etapas
 
-[Corrigir problemas de compatibilidade do banco de dados](sql-database-cloud-migrate-fix-compatibility-issues.md), se houver algum.
+- [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Saiba mais
+
+- [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
+- [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
+- [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -18,6 +18,8 @@
 
 # Tipos de declaração e token com suporte
 
+[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
+
 Este tópico foi criado para ajudá-lo a compreender e avaliar as declarações em tokens SAML 2.0 e JSON Web Tokens (JWT) que o Active Directory do Azure (AD do Azure) emite.
 
 O tópico começa com uma descrição de cada declaração de token e mostra um exemplo da declaração em um token SAML e um token JWT, conforme apropriado. Declarações que estão no status de visualização são listadas separadamente. Ele termina com tokens de exemplo para que você possa ver as declarações no contexto.
@@ -412,4 +414,4 @@ Este é um exemplo de um típico JWT (JSON Web token) usado em um fluxo de Web d
 
 [Protocolos de autenticação do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

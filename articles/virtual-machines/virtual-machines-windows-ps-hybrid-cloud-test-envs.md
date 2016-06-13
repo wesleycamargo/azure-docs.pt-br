@@ -19,8 +19,6 @@
 
 # Ambientes de teste de nuvem híbrida do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Para desenvolvimento/teste ou uma prova de conceito, os ambientes de teste de nuvem híbrida usam sua conexão de Internet local e um de seus endereços IP públicos e o orientam durante a configuração de uma VNet (Rede Virtual) do Azure entre locais funcional. Ao concluir, você pode desenvolver e testar aplicativos, fazer experiências com cargas de trabalho de TI simplificadas e medir o desempenho de uma conexão VPN (rede privada virtual) de site a site em relação a seu local na Internet.
 
 ## Configuração de base de nuvem híbrida
@@ -50,6 +48,6 @@ Para organizações e indivíduos para os quais uma conexão direta com a Intern
 
 ## Próxima etapa
 
-- Saiba mais sobre as [diretrizes de implementação](virtual-machines-linux-infrastructure-service-guidelines.md) para projetar uma implantação personalizada de teste/desenvolvimento ou produção nos serviços de infraestrutura do Azure.
+- Saiba mais sobre as [diretrizes de implementação](virtual-machines-linux-infrastructure-service-guidelines.md) para projetar uma implantação personalizada de desenvolvimento/teste ou de produção nos serviços de infraestrutura do Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

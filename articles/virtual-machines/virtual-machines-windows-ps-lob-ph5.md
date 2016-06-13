@@ -19,8 +19,6 @@
 
 # Carga de trabalho de aplicativo de linha de negócios fase 5: criar o grupo de disponibilidade e adicionar os bancos de dados do aplicativo
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Nessa fase final da implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você criará um novo Grupo de Disponibilidade AlwaysOn do SQL Server e adicionará os bancos de dados do aplicativo.
 
 Consulte [Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-windows-lob-overview.md) para todas as fases.
@@ -119,4 +117,4 @@ Depois de configurar o ouvinte, você precisa configurar todas as máquinas virt
 
 - Consulte estes [diretrizes](virtual-machines-linux-infrastructure-service-guidelines.md) se você estiver implantando sua própria carga de trabalho de TI no Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

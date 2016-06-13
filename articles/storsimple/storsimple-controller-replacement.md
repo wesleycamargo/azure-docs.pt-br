@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.date="05/31/2016"
    ms.author="alkohli" />
 
 # Substituir um módulo de controlador em seu dispositivo StorSimple
@@ -77,7 +77,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 1. No portal clássico do Azure, acesse o serviço StorSimple Manager, clique na guia **Dispositivos** e, em seguida, clique no nome do dispositivo que você deseja monitorar.
 
-2. Clique na guia **Manutenção** e, em seguida, navegue até **Status de Hardware**. O status do Controlador 0 ou Controlador 1 deve estar vermelho, o que indica uma falha.
+2. Vá para **Manutenção > Status do Hardware**. O status do Controlador 0 ou Controlador 1 deve estar vermelho, o que indica uma falha.
 
     >[AZURE.NOTE] O controlador com falha na substituição de controlador único é sempre um controlador em espera.
 
@@ -96,7 +96,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 4. No controlador com falha, remova todos os cabos de rede conectados das portas de dados. Se você estiver usando um modelo 8600, também remova os cabos SAS que conectam o controlador ao controlador do EBOD.
 
-5. Siga as etapas em [Remover um controlador](#remove-a-controller) para remover o controlador com falha.
+5. Siga as etapas em [remover um controlador](#remove-a-controller) para remover o controlador com falha.
 
 6. Instale a peça de reposição de fábrica no mesmo slot do qual o controlador com falha foi removido. Isso aciona a lógica de substituição do controlador único Para saber mais, consulte [Lógica de substituição do controlador único](#single-controller-replacement-logic).
 
@@ -150,7 +150,7 @@ Esse fluxo de trabalho é necessário quando ambos os controladores em seu dispo
 
 2. Remova todos os cabos de rede conectados às portas de dados. Se você estiver usando um modelo 8600, também remova os cabos SAS que conectam o compartimento primário ao compartimento EBOD.
 
-3. Remova ambos os controladores do dispositivo StorSimple. Para saber mais, consulte [Remover um controlador](#remove-a-controller).
+3. Remova ambos os controladores do dispositivo StorSimple. Para obter mais informações, consulte [Remover um controlador](#remove-a-controller).
 
 4. Primeiro insira a peça de reposição de fábrica do Controlador 0 e, em seguida, insira o Controlador 1. Para saber mais, consulte [Inserir um controlador](#insert-a-controller). Isso aciona a lógica de substituição do controlador duplo Para saber mais, consulte [Lógica de substituição do controlador duplo](#dual-controller-replacement-logic).
 
@@ -214,7 +214,7 @@ Use o procedimento a seguir para instalar um módulo do controlador fornecido pe
 
     >[AZURE.NOTE] Pode levar até 5 minutos até que o controlador e o LED estejam ativados.
 
-5. Para verificar se a substituição foi bem-sucedida, no Portal clássico do Azure, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e certifique-se de que o controlador 0 e o controlador 1 estejam íntegros (status verde).
+5. Para verificar se a substituição foi bem-sucedida, no Portal clássico do Azure, vá para **Dispositivos** > **Manutenção** > **Status de Hardware** e certifique-se de que o controlador 0 e o controlador 1 estejam íntegros (status verde).
 
 ## Identificar o controlador ativo em seu dispositivo
 
@@ -266,4 +266,4 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 Saiba mais sobre a [substituição de componentes de hardware StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

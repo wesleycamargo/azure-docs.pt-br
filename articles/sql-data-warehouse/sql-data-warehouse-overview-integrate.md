@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/31/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Aproveitar outros serviços com o SQL Data Warehouse
@@ -38,6 +38,7 @@ Consulte [Integrar com o Power BI](./sql-data-warehouse-integrate-power-bi.md) o
 O Azure Data Factory oferece aos usuários uma plataforma gerenciada ao criar pipelines complexos de Extração-Carregamento. A integração do SQL Data Warehouse com o Azure Data Factory inclui o seguinte:
 
 + **Procedimentos Armazenados**: orquestre a execução de procedimentos armazenados no SQL Data Warehouse.
++ **Cópia**: use ADF para mover dados para o SQL Data Warehouse. Essa operação pode usar o mecanismo de movimentação de dados padrão do ADF ou PolyBase nos bastidores. 
 
 Confira [Integrar com o Azure Data Factory](./sql-data-warehouse-integrate-azure-data-factory.md) ou a [Documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) para obter mais informações.
 
@@ -71,4 +72,4 @@ Veja [Integrar com o Stream Analytics do Azure](./sql-data-warehouse-integrate-a
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

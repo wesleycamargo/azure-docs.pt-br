@@ -7,5 +7,7 @@
 * [Protegendo o Tráfego de Entrada](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
 * [Conectando-se a Recursos de Back-end](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [Ambientes da Rota Expressa e Serviço de Aplicativo](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
+* [Definições de Configuração Personalizadas para Ambientes de Serviço de Aplicativo](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
+* [Hospedagem de Aplicativo de Alta Densidade com Ambientes de Serviço de Aplicativo](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

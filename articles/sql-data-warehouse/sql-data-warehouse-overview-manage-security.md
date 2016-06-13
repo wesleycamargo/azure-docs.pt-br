@@ -101,7 +101,7 @@ Para obter detalhes e exemplos sobre como se conectar ao SQL Data Warehouse com 
 [Conectar-se ao SQL Data Warehouse]: ./sql-data-warehouse-develop-connections.md
 [Introdução à Auditoria do Banco de Dados SQL]: ./sql-data-warehouse-overview-auditing.md
 [Introdução à TDE (Transparent Data Encryption)]: ./sql-data-warehouse-encryption-tde.md
-[Conexão ao SQL Data Warehouse usando a autenticação do Azure Active Directory]: ./sql-data-warehouse-aad-authentication.md
+[Conexão ao SQL Data Warehouse usando a autenticação do Azure Active Directory]: ./sql-data-warehouse-get-started-connect-aad-authentication.md
 
 <!--MSDN references-->
 [Firewall do Banco de Dados SQL do Azure]: https://msdn.microsoft.com/library/ee621782.aspx
@@ -115,4 +115,4 @@ Para obter detalhes e exemplos sobre como se conectar ao SQL Data Warehouse com 
 <!--Other Web references-->
 [Controle de acesso baseado em função no portal do Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

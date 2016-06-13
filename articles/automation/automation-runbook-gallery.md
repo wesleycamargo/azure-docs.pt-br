@@ -70,6 +70,8 @@ A Microsoft incentiva você a adicionar à Galeria de Runbook os runbooks que, e
 
 - O carregamento deve ser um único arquivo .ps1 ou .graphrunbook. Se o runbook exigir módulos, runbooks filhos ou ativos, você deverá listá-los na descrição do envio e na seção de comentários do runbook. Se você tiver uma solução que exija vários runbooks, carregue cada um separadamente e liste os nomes dos runbooks relacionados em cada uma das descrições. Use as mesmas marcas de forma que elas sejam mostradas na mesma categoria. Um usuário terá de ler a descrição para saber quais outros runbooks serão necessários para que a solução funcione.
 
+- Adicione a marca "GraphicalPS" se estiver publicando um **Runbook gráfico** (e não um Fluxo de Trabalho Gráfico).
+
 - Insira um trecho de código do PowerShell ou do Fluxo de Trabalho do PowerShell na descrição usando o ícone **Inserir seção de código**.
 
 - O Resumo do carregamento será exibido nos resultados da Galeria de Runbook e, portanto, você deverá fornecer informações detalhadas que ajudarão um usuário a identificar a funcionalidade do runbook.
@@ -119,7 +121,7 @@ Os módulos do PowerShell contêm cmdlets que você pode usar em seus runbooks, 
     ![Botão Importar módulo](media/automation-runbook-gallery/module-import-button.png)
 
 8. Ao clicar no botão Importar, você verá o nome do módulo que está prestes a importar. Se todas as dependências estiverem instaladas, o botão **OK** estará ativo. Se não houver dependências, será necessário importá-las antes de importar esse módulo.
-9. Clique em **OK** para importar o módulo e a folha do módulo será iniciada. Quando a Automação do Azure importa um módulo para sua conta, ele extrai os metadados sobre o módulo e os cmdlets.
+9. Clique em **OK** para importar o módulo, e a folha do módulo será iniciada. Quando a Automação do Azure importa um módulo para sua conta, ele extrai os metadados sobre o módulo e os cmdlets.
 
     ![Folha Importar módulo](media/automation-runbook-gallery/module-import-blade.png)
 
@@ -136,4 +138,4 @@ Você pode enviar solicitações para a [Voz do Usuário](https://feedback.azure
 - [Criando ou importando um runbook na Automação do Azure](automation-creating-importing-runbook.md)
 - [Aprendendo o fluxo de trabalho do PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

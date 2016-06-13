@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/25/2016"
 	ms.author="jeedes"/>
 
 
 # Tutorial: Integração do Active Directory do Azure com o QuickHelp
 
-O objetivo deste tutorial é mostrar a você como integrar o QuickHelp ao Active Directory do Azure (AD do Azure).<br>A integração do QuickHelp com o AD do Azure oferece os seguintes benefícios:
+O objetivo deste tutorial é mostrar como integrar o QuickHelp ao Azure AD (Azure Active Directory). A integração do QuickHelp ao Azure AD oferece os seguintes benefícios:
 
 - Você pode controlar no AD do Azure quem tem acesso ao QuickHelp 
 - Você pode habilitar seus usuários a fazerem logon automaticamente no QuickHelp (logon único) com suas contas do AD do Azure
-- Você pode gerenciar suas contas em um local central – o Portal do Active Directory do Azure
+- Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -45,7 +45,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
  
 ## Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. <br> O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar QuickHelp a partir da galeria 
 2. Configurar e testar o logon único do AD do Azure
@@ -56,15 +56,31 @@ Para configurar a integração do QuickHelp ao AD do Azure, você precisa adicio
 
 **Para adicionar o QuickHelp a partir da galeria, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Active Directory**. <br><br>![Active Directory][1]<br>
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+
+	![Active Directory][1]
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir a exibição dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu superior.<br><br> ![Aplicativos][2]<br>
-4. Clique em **Adicionar** na parte inferior da página.<br><br> ![Aplicativos][3]<br>
-5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.<br><br> ![Aplicativos][4]<br>
-6. Na caixa de pesquisa, digite **QuickHelp**.<br><br> ![Aplicativos][5]<br>
-7. No painel de resultados, selecione **QuickHelp** e clique em **Concluir** para adicionar o aplicativo. <br><br>![Aplicativos][500]<br>
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
+
+	![Aplicativos][2]
+
+4. Clique em **Adicionar** na parte inferior da página.
+
+	![Aplicativos][3]
+
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
+
+	![Aplicativos][4]
+
+6. Na caixa de pesquisa, digite **QuickHelp**.
+
+	![Aplicativos][5]
+
+7. No painel de resultados, selecione **QuickHelp** e clique em **Concluir** para adicionar o aplicativo.
+
+	![Aplicativos][500]
 
 
 ##  Configurar e testar o logon único do AD do Azure
@@ -81,15 +97,22 @@ Para configurar e testar o logon único do AD do Azure com o QuickHelp, você pr
 
 ### Configuração do logon único do AD do Azure
 
-O objetivo desta seção é habilitar o logon único do AD do Azure no portal do AD do Azure e configurar o logon único no aplicativo do QuickHelp.<br>
+O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único no aplicativo QuickHelp.
+
 
 **Para configurar o logon único do AD do Azure com o QuickHelp, execute as seguintes etapas:**
 
-1. No portal do AD do Azure, na página de integração do aplicativo **QuickHelp**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**. <br><br> ![Configurar o logon único][6] <br>
+1. No portal clássico do Azure, na página de integração do aplicativo **QuickHelp**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
 
-2. Na página **Como você deseja que os usuários façam logon no QuickHelp**, selecione **Logon Único do AD do Azure** e clique em **Avançar**.<br><br> ![Logon único do AD do Azure][7] <br>
+	![Configurar o logon único][6]
 
-3. Na página da caixa de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:<br><br>![Definir configurações de aplicativo][8] <br>
+2. Na página **Como você deseja que os usuários façam logon no QuickHelp**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+
+	![Logon único do AD do Azure][7]
+
+3. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
+
+	![Definir configurações de aplicativo][8]
  
      a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no site do QuickHelp (por exemplo: *https://quickhelp.com/bsiazure/*).
 
@@ -98,26 +121,34 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
      b. Clique em **Próximo**.
 
  
-4. Na página **Configurar logon único no QuickHelp**, execute as seguintes etapas: clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador. <br><br>![O que é o Azure AD Connect][9] <br>
+4. Na página **Configurar logon único no QuickHelp**, execute as seguintes etapas: clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador.
+
+	![O que é o Azure AD Connect][9]
 
 
 
 1. Faça logon no site do QuickHelp da sua empresa como administrador.
 
-2. No menu na parte superior, clique em **Administrador**. <br><br>![Configurar o logon único][21]<br>
+2. No menu na parte superior, clique em **Administrador**.
+
+	![Configurar o logon único][21]
 
 
-1. No menu **Administrador do QuickHelp**, clique em **Configurações**. <br><br>![Configurar o logon único][22]<br>
+1. No menu **Administrador do QuickHelp**, clique em **Configurações**.
+
+	![Configurar o logon único][22]
 
 1. Clique em **Configurações da Autenticação**.
 
-1. Na página **Configurações de Autenticação**, execute as seguintes etapas <br><br>![Configurar o logon único][23]<br>
+1. Na página **Configurações de Autenticação**, execute as etapas a seguir
+
+	![Configurar o logon único][23]
 
     a. Como **Tipo de SSO**, selecione **WSFederation**.
 
     b. Para carregar o arquivo de metadados do Azure baixado, clique em **Procurar**, navegue até o arquivo e clique em **Carregar Metadados**.
 
-    c. Na caixa de texto **Email**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. Na caixa de texto **Email**, digite ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
     d. Na caixa de texto **Nome**, **digite http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
@@ -131,27 +162,41 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 
 
 
-6. No portal do AD do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. <br><br>![O que é o Azure AD Connect][10]<br>
+6. No portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**.
 
-7. Na página **Confirmação de logon único**, clique em **Concluir**. <br><br>![O que é o Azure AD Connect][11]
+	![O que é o Azure AD Connect][10]
+
+7. Na página **Confirmação de logon único**, clique em **Concluir**.
+
+	![O que é o Azure AD Connect][11]
 
 
 
 
 ### Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Fernandes.<br> Na lista Usuários, selecione **Brenda Fernandes**.<br><br>![Criar um usuário do AD do Azure][20]<br>
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes. Na lista de usuários, selecione **Brenda Fernandes**.
+
+![Criar um usuário do AD do Azure][20]
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação esquerdo, clique em **Active Directory**.<br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_02.png)<br> 
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_02.png)
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png) <br>
- 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_04.png) <br>
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
 
-5. Na página de caixa de diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas: <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_05.png)<br>
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png)
+ 
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_04.png)
+
+5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+ 
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_05.png)
 
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
 
@@ -159,7 +204,9 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     c. Clique em **Próximo**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png) <br>
+6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png)
  
     a. Na caixa de texto **Nome**, digite **Brenda**.
 
@@ -167,11 +214,15 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
 
-    d. Na lista **Função**, selecione **Usuário**. e. Clique em **Próximo**.
+    d. Na lista **Função**, selecione **Usuário**. e. Clique em **Avançar**.
 
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**. <br><br> ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png) <br>
+7. Na página do diálogo **Obter senha temporária**, clique em **Criar**.
+
+![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png)
  
-8. Na página da caixa de diálogo **Obter senha temporária**, execute as seguintes etapas: <br><br>![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png) <br>
+8. Na página de diálogo **Obter senha temporária**, execute as seguintes etapas:
+
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png)
   
     a. Anote o valor da **Nova Senha**.
 
@@ -190,25 +241,35 @@ Não há itens de ação para você nesta seção.
 
 ### Atribuição do usuário de teste do AD do Azure
 
-O objetivo desta seção é habilitar Brenda Fernandes para usar o logon único do Azure concedendo-lhe acesso ao QuickHelp.<br><br>![Atribuir usuário][200] <br>
+O objetivo desta seção é habilitar Brenda Fernandes para usar o logon único do Azure concedendo-lhe acesso ao QuickHelp.
+
+![Atribuir usuário][200]
 
 **Para atribuir Brenda Fernandes ao QuickHelp, execute as seguintes etapas:**
 
-1. No portal do Azure, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu principal. <br><br>![Atribuir usuário][201] <br>
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
 
-2. Na lista de aplicativos, selecione **QuickHelp**. <br><br>![Atribuir usuário][202] <br>
+	![Atribuir usuário][201]
 
-1. No menu na parte superior, clique em **Usuários**. <br><br>![Atribuir usuário][203] <br>
+2. Na lista de aplicativos, selecione **QuickHelp**.
 
-1. Na lista Usuários, selecione **Brenda Fernandes**.
+	![Atribuir usuário][202]
 
-2. Na barra de ferramentas na parte inferior, clique em **Atribuir**. <br><br>![Atribuir usuário][205]
+1. No menu na parte superior, clique em **Usuários**.
+
+	![Atribuir usuário][203]
+
+1. Na lista de usuários, selecione **Brenda Fernandes**.
+
+2. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
+
+	![Atribuir usuário][205]
 
 
 
 ### Teste do logon único
 
-O objetivo desta seção é testar sua configuração de logon único do AD do Azure usando o Painel de Acesso.<br> Quando você clica no bloco QuickHelp no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo QuickHelp.
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso. Quando você clica no bloco QuickHelp no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo QuickHelp.
 
 
 ## Recursos adicionais
@@ -255,4 +316,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

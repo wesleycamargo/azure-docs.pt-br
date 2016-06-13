@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="05/31/2016" 
 	ms.author="tomfitz"/>
 
 # Mover recursos para um novo grupo de recursos ou uma nova assinatura
@@ -26,6 +26,8 @@ Este tópico mostra como mover os recursos de um grupo de recursos para outro. V
 Ao mover recursos, ambos o grupo de origem e o grupo de destino estão bloqueados pela duração da operação. As operações de gravação e exclusão são bloqueadas nos grupos até que a migração seja concluída.
 
 Você não pode alterar o local do recurso. Mover um recurso só o move para um novo grupo de recursos. O novo grupo de recursos pode ter um local diferente, mas que não altere o local do recurso.
+
+> [AZURE.NOTE] Este artigo descreve como mover recursos dentro de uma oferta de conta existente do Azure. Se você realmente deseja alterar sua oferta de conta do Azure (por exemplo, atualizando do modo de pagamento por utilização para pré-pago), mas quer continuar trabalhando com seus recursos existentes, confira [Alterar para uma oferta diferente do Azure](billing-how-to-switch-azure-offer.md).
 
 ## Lista de verificação antes de mover recursos
 
@@ -267,9 +269,9 @@ Com o corpo da solicitação:
 
 
 ## Próximas etapas
-- Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, veja [Usando o Azure PowerShell com o Resource Manager](powershell-azure-resource-manager.md).
-- Para saber mais sobre os comandos da CLI do Azure para gerenciar sua assinatura, veja [Usando a CLI do Azure com o Resource Manager](xplat-cli-azure-resource-manager.md).
-- Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Usando o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
-- Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Usando marcações para organizar seus recursos](resource-group-using-tags.md).
+- Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, veja [Como usar o Azure PowerShell com o Resource Manager](powershell-azure-resource-manager.md).
+- Para saber mais sobre os comandos da CLI do Azure para gerenciar sua assinatura, veja [Como usar a CLI do Azure com o Resource Manager](xplat-cli-azure-resource-manager.md).
+- Para saber mais sobre os recursos do portal para gerenciar sua assinatura, veja [Como usar o Portal do Azure para gerenciar recursos](./azure-portal/resource-group-portal.md).
+- Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [Como usar marcações para organizar seus recursos](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

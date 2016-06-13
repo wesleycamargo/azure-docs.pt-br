@@ -29,8 +29,6 @@ O Azure fornece um serviço que você pode usar para [começar a usar rapidament
 
 Se o serviço de bloco de anotações não funcionar para seu cenário, continue a ler este artigo e veja como implantar o Bloco de Anotações Jupyter no Microsoft Azure usando VMs (máquinas virtuais) do Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 [AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Criar e configurar uma VM no Azure
@@ -41,7 +39,7 @@ A primeira etapa é criar uma VM (máquina virtual) que seja executada no Azure.
 
 Siga as instruções fornecidas [aqui][portal-vm-linux] para criar uma máquina virtual da distribuição *Ubuntu*. Este tutorial usa o Ubuntu Server 14.04 LTS. Vamos supor que o nome de usuário seja *azureuser*.
 
-Após a implantação da máquina virtual, precisamos abrir uma regra de segurança no grupo de segurança de rede. No portal do Azure, acesse **Grupos de Segurança de Rede** e abra a guia do Grupo de Segurança correspondente à sua VM. Você precisa adicionar uma regra de Segurança de Entrada com as seguintes configurações: **TCP** para o protocolo, **\*** para a porta de origem (pública) e **9999** para a porta de destino (privada).
+Após a implantação da máquina virtual, precisamos abrir uma regra de segurança no grupo de segurança de rede. No portal do Azure, acesse **Grupos de Segurança de Rede** e abra a guia do Grupo de Segurança correspondente à sua VM. Você precisa adicionar uma regra de Segurança de Entrada com as seguintes configurações: **TCP** para o protocolo, ***** para a porta de origem (pública) e **9999** para a porta de destino (privada).
 
 ![Captura de tela](./media/virtual-machines-linux-jupyter-notebook/azure-add-endpoint.png)
 
@@ -195,8 +193,8 @@ Os recursos principais do Jupyter também estão disponíveis no Visual Studio p
 
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
-[portal-vm-linux]: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
+[portal-vm-linux]: https://azure.microsoft.com/pt-BR/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repositório]: https://github.com/ipython/ipython
 [Ferramentas Python para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

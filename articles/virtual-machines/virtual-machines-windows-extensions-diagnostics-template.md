@@ -19,8 +19,6 @@
 
 # Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Gerenciador de Recursos do Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 A extensão de diagnóstico do Microsoft Azure fornece recursos de monitoramento e diagnóstico em uma Máquina Virtual do Microsoft Azure baseada no Windows. Para habilitar esses recursos na máquina virtual, inclua a extensão como parte do modelo do Gerenciador de Recursos do Azure. Para saber mais sobre como incluir extensões como parte de um modelo de máquina virtual, confira [Criando modelos do Gerenciador de Recursos do Azure com extensões de VM](virtual-machines-windows-extensions-authoring-templates.md). Este artigo descreve como adicionar a extensão de diagnóstico do Microsoft Azure para a um modelo de máquina virtual do Windows.
   
 
@@ -168,4 +166,4 @@ Cada tabela WADMetrics inclui as seguintes colunas:
 - Implante o modelo do Gerenciador de Recursos usando o [Azure PowerShell](virtual-machines-windows-ps-manage.md) ou a [Linha de Comando do Azure](virtual-machines-linux-cli-deploy-templates.md)
 - Saiba mais sobre a [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

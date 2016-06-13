@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Configurar a Sincronização de Diretórios (DirSync) do Office 365 em uma nuvem híbrida para teste
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
  
 Este tópico orienta a criação de um ambiente de nuvem híbrida para testar a Sincronização de Diretórios (DirSync) do Office 365 com sincronização de senha hospedada no Microsoft Azure. Veja abaixo a configuração resultante.
 
@@ -44,7 +42,7 @@ Há três fases principais para configurar esse ambiente de teste de nuvem híbr
 2.	Configurar a avaliação do Office 365 FastTrack.
 3.	Configurar o servidor DirSync (DS1).
 
-Se você ainda não tiver uma assinatura do Azure, poderá se inscrever em uma conta gratuita no [Experimente o Azure](https://azure.microsoft.com/pricing/free-trial/). Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito mensal do Azure para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para ter uma conta gratuita em [Experimente o Azure](https://azure.microsoft.com/pricing/free-trial/). Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito mensal do Azure para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: Configurar o ambiente de nuvem híbrida
 
@@ -60,12 +58,12 @@ Esta é a configuração atual.
 
 Para iniciar sua avaliação do Office 365 FastTrack, é necessário um nome de empresa fictício e uma conta da Microsoft. Recomendamos que você use, como nome da empresa, uma variante do nome da empresa Contoso, que é uma empresa fictícia usada no conteúdo de exemplo da Microsoft, embora isso não seja necessário.
 
-Em seguida, inscreva-se para uma nova conta da Microsoft. Acesse **http://outlook.com** e crie uma conta com um endereço de email como user123@outlook.com. Você se inscreverá para uma avaliação do Office 365 FastTrack usando essa conta.
+Em seguida, inscreva-se para uma nova conta da Microsoft. Acesse ****http://outlook.com** e crie uma conta com um endereço de email como user123@outlook.com. Você se inscreverá para uma avaliação do Office 365 FastTrack usando essa conta.
 
 Em seguida, inscreva-se para obter uma nova versão de avaliação do Office 365 Enterprise E3.
 
 1.	Faça logon em CLIENT1 com as credenciais da conta CORP\\User1.
-2.	Abra o Internet Explorer e acesse **https://go.microsoft.com/fwlink/p/?LinkID=403802**.
+2.	Abra o Internet Explorer e acesse ****https://go.microsoft.com/fwlink/p/?LinkID=403802**.
 3.	Passe pelo processo de inscrição para obter a versão de avaliação do Office 365 Enterprise E3.
 
 Quando for solicitado o **endereço de email comercial**, especifique a nova conta da Microsoft.
@@ -116,7 +114,7 @@ Em seguida, integre a DS1 ao domínio CORP do Active Directory com estes comando
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
-Use a conta CORP\\User1 quando for solicitado a fornecer credenciais de conta de domínio para o comando **Add-Computer**.
+Use a conta CORP\\User1 quando for solicitado a fornecer as credenciais de conta de domínio para o comando **Add-Computer**.
 
 Após a reinicialização, use o portal do Azure para conectar-se ao DS1 com a conta e senha de CORP\\User1.
 
@@ -132,17 +130,17 @@ Em seguida, habilite a Sincronização de Diretórios para sua versão de avalia
 4.	Quando a pergunta **Deseja ativar a sincronização do Active Directory?** for exibida, clique em **Ativar**. Depois disso, a mensagem **A sincronização do Active Directory está ativada** é exibida na etapa 3.
 5.	Deixe a página **Configurar e gerenciar a sincronização do Active Directory** aberta no CLIENT1.
 
-Em seguida, do prompt do Windows PowerShell em DC1, execute estes comandos **um de cada vez** para criar uma nova unidade organizacional chamada contoso\_users e adicionar duas novas contas de usuário, para Marci Kaufman e Lynda Meyer.
+Em seguida, do prompt do Windows PowerShell em DC1, execute estes comandos **um de cada vez** para criar uma nova unidade organizacional chamada contoso\_users e adicionar duas novas contas de usuário para Marci Kaufman e Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName lyndam -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Lynda Meyer" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 
-Quando você executo cada comando **New-ADUser** do Windows PowerShell, você é solicitado a fornecer a senha do novo usuário. Registre essas senhas e armazene-as em um local seguro. Você precisará delas mais tarde.
+Quando você executa cada comando **New-ADUser** do Windows PowerShell, você será solicitado a fornecer a senha do novo usuário. Registre essas senhas e armazene-as em um local seguro. Você precisará delas mais tarde.
 
 Em seguida, instale e configure a ferramenta Azure AD Connect no DS1.
 
-1.	Abra o Internet Explorer e digite **https://www.microsoft.com/download/details.aspx?id=47594** na barra de **Endereços** e pressione Enter.
+1.	Abra o Internet Explorer e digite ****https://www.microsoft.com/download/details.aspx?id=47594** na barra de **Endereços** e pressione Enter.
 2.	Execute o programa de instalação do Microsoft Azure AD Connect.
 3.	Na área de trabalho, clique duas vezes em **Azure AD Connect**.
 4.	Na **Página Inicial**, selecione **Concordo com os termos de licença e aviso de privacidade** e clique em **Continuar**.
@@ -167,7 +165,7 @@ Em seguida, demonstre a sincronização de senha do Office 365 com a conta Laura
 3.	Na guia **Atribuir Licença**, escolha um local em **Definir local do usuário** (como Brasil).
 4.	Selecione **Microsoft Office 365 Plano E3** e clique em **Salvar**.
 5.	Feche o Internet Explorer.
-6.	Abra o Internet Explorer e acesse **http://portal.microsoftonline.com**.
+6.	Abra o Internet Explorer e acesse ****http://portal.microsoftonline.com**.
 7.	Faça logon com as credenciais do Office 365 de Laura Cunha. O nome de usuário dela será laurac@<*Seu nome fictício*>.onmicrosoft.com. A senha é a senha da conta de usuário Laura Cunha do Active Directory.
 8.	Após o logon bem-sucedido, você verá a página do portal principal do Office 365 com **Vamos fazer a diferença hoje**.
 
@@ -181,4 +179,4 @@ Este ambiente agora está pronto para você executar testes de aplicativos do Of
 
 - Implante essa carga de trabalho [em produção](http://technet.microsoft.com/library/dn635310.aspx).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

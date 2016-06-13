@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Exportar um banco de dados do SQL Server para um arquivo BACPAC usando SqlPackage
@@ -37,11 +37,19 @@ Este artigo mostra como exportar o banco de dados do SQL Server para um arquivo 
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
-## Próxima Etapa: importar para o Banco de Dados SQL a partir de um arquivo BACPAC
+## Próximas etapas
 
-- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Portal do Azure](sql-database-import.md)
-- [PowerShell](sql-database-import-powershell.md)
+- [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Importar um BACPAC para o Banco de Dados SQL do Azure usando o SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Importar um BACPAC para o SqlPackage do Banco de Dados SQL do Azure](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+- [Importar um BACPAC para o Portal do Azure, Banco de Dados SQL do Azure](sql-database-import.md)
+- [Importar um BACPAC para o PowerShell do Banco de Dados SQL do Azure](sql-database-import-powershell.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Saiba mais
+
+- [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
+- [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
+- [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="05/27/2016"
    ms.author="jeffstok"
 />
 
@@ -110,13 +110,13 @@ A oferta da camada premium do HDInsight inclui o Servidor R como parte do cluste
 
 Conecte-se ao nó de borda do Servidor R do cluster HDInsight usando o SSH:
 
-    ssh USERNAME@rserver.CLUSTERNAME.ssh.azurehdinsight.net
+    ssh USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
     
-> [AZURE.NOTE] Você também pode encontrar o endereço do `RServer.CLUSTERNAME.ssh.azurehdinsight.net` no Portal do Azure ao selecionar seu cluster e, em seguida, __Todas as Configurações__, __Aplicativos__ e __RServer__. Isso exibirá as informações do ponto de extremidade do SSH para o nó de borda.
+> [AZURE.NOTE] Você também pode encontrar o endereço do `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` no portal do Azure ao selecionar seu cluster e então __Todas as Configurações__, __Aplicativos__ e __RServer__. Isso exibirá as informações do ponto de extremidade do SSH para o nó de borda.
 >
 > ![Imagem do ponto de extremidade do SSH para o nó de borda](./media/hdinsight-getting-started-with-r/sshendpoint.png)
     
-Caso você tenha usado uma senha para proteger sua conta de usuário SSH, ela será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` para especificar a chave privada correspondente. Por exemplo: `ssh -i ~/.ssh/id_rsa USERNAME@RServer.CLUSTERNAME.ssh.azurehdinsight.net`.
+Caso você tenha usado uma senha para proteger sua conta de usuário SSH, ela será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` para especificar a chave privada correspondente. Por exemplo: `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net`.
     
 Para obter mais informações sobre como usar SSH com o HDInsight baseado em Linux, confira os seguintes artigos:
 
@@ -353,4 +353,4 @@ Ambos os modelos criam um novo cluster HDInsight e uma conta de armazenamento as
 
 Para obter informações genéricas sobre como usar os modelos ARM, confira a seção [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

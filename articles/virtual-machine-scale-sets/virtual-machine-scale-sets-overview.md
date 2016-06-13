@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="05/26/2016"
 	ms.author="guybo"/>
 
 # Conjuntos de Dimensionamento de Máquina Virtual - Visão Geral
@@ -91,7 +91,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 - Planeje no máximo 20 VMs por conta de armazenamento (a menos que você defina a propriedade _provisionamento excessivo_ como "false", quando então que você pode ir até 40).
 - Diversifique o máximo possível as primeiras letras dos nomes da conta de armazenamento. Os modelos de VMSS de exemplo nos [Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/) fornecem exemplos de como fazer isso.
 - Se estiver usando VMs personalizadas, planeje-se para ter não mais que 40 VMs por conjunto de escalas de VM, em uma única conta de armazenamento. Você precisará da imagem previamente copiada na conta de armazenamento para poder começar a implantação do conjunto de escalas de VM. Consulte as Perguntas frequentes para obter mais informações.
-- Planeje-se para ter não mais que 2048 VMs por rede virtual. Esse limite será aumentado no futuro.
+- Planeje-se para ter não mais que 4.096 VMs por rede virtual.
 - O número de VMs que você pode criar é limitado pela cota de núcleos na região em que você está implantando. Talvez seja necessário contatar o Atendimento ao Cliente para aumentar o limite da cota de computação mesmo que hoje você tenha um limite alto de núcleos para uso com serviços de nuvem ou IaaS v1. Para consultar sua cota, você pode executar o seguinte comando da CLI do Azure: `azure vm list-usage` e o seguinte comando do PowerShell: `Get-AzureRmVMUsage` (se estiver usando uma versão do PowerShell abaixo de 1.0, use `Get-AzureVMUsage`).
 
 ## Conjunto de dimensionamento de VM - Perguntas frequentes
@@ -155,4 +155,4 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **A.** Sim. Um conjunto de escala de VM é um conjunto de disponibilidade implícito com 5 FDs e 5 UDs. Não é preciso configurar nada em virtualMachineProfile. Em versões futuras, os conjuntos de dimensionamento de VM provavelmente incluirão vários locatários, mas, por enquanto, um conjunto de dimensionamento é um único conjunto de disponibilidade.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

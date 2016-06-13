@@ -19,8 +19,6 @@
 
 # Carga de trabalho de aplicativo de linha de negócios fase 3: configurar a infraestrutura do SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Nesta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você configurará os dois computadores que executam o SQL Server e o computador do nó principal do cluster e, em seguida, vai combiná-los em um cluster do Windows Server.
 
 Conclua esta fase antes de passar para a [Fase 4](virtual-machines-windows-ps-lob-ph4.md). Consulte [Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-windows-lob-overview.md) para todas as fases.
@@ -259,4 +257,4 @@ Este diagrama mostra a configuração resultante da conclusão bem-sucedida dest
 
 - Use a [Fase 4](virtual-machines-windows-ps-lob-ph4.md) para continuar com a configuração desta carga de trabalho.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

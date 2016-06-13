@@ -19,9 +19,6 @@
 
 # Carga de trabalho de aplicativo de linha de negócios fase 2: configurar os controladores de domínio
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
- 
-
 Nesta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você configurará dois controladores de domínio de réplica na Rede Virtual do Azure para que as solicitações Web do cliente para recursos Web possam ser autenticadas localmente na rede virtual do Azure, em vez de enviar esse tráfego de autenticação por meio da conexão para sua rede local.
 
 Conclua esta fase antes de passar para a [Fase 3](virtual-machines-windows-ps-lob-ph3.md). Consulte [Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-windows-lob-overview.md) para todas as fases.
@@ -197,4 +194,4 @@ Este diagrama mostra a configuração resultante da conclusão bem-sucedida dest
 
 - Use a [Fase 3](virtual-machines-windows-ps-lob-ph3.md) para continuar com a configuração desta carga de trabalho.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -38,15 +38,15 @@ Tarefas neste tópico:
 ## Antes de começar
 
 ### Verifique a capacidade de DTU do Banco de Dados SQL. 
-Como o SQL Data Warehouse restaura para um novo banco de dados no SQL Server lógico, é importante verificar se o SQL Server para o qual você está restaurando tem capacidade de DTU suficiente para o novo banco de dados. Consulte esta postagem no blog para obter mais informações sobre [como exibir e aumentar a cota de DTU][].
+Como o SQL Data Warehouse restaura para um novo banco de dados no servidor SQL lógico, é importante verificar se o servidor SQL para o qual você está restaurando possui capacidade de DTU suficiente para o novo banco de dados. Consulte esta postagem no blog para obter mais informações sobre [como exibir e aumentar a cota de DTU][].
 
 ### Instalar o PowerShell
 
-Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell. Você pode verificar a versão executando **Get-Module -ListAvailable -Name Azure**. A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][]. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
+Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell. Você pode verificar a versão executando **Get-Module -Name Azure -ListAvailable**. A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][]. Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][].
 
 ## Restaurar um banco de dados dinâmico
 
-Para restaurar um banco de dados por meio de um instantâneo, use o cmdlet [Restore-AzureRmSqlDatabase][] do PowerShell.
+Para restaurar um banco de dados por meio de um instantâneo, use o cmdlet [Restore-AzureRmSqlDatabase][].
 
 1. Abra o Windows PowerShell.
 2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
@@ -56,7 +56,7 @@ Para restaurar um banco de dados por meio de um instantâneo, use o cmdlet [Rest
 6. Restaure o banco de dados para o ponto de restauração desejado.
 7. Verifique se o banco de dados restaurado está online.
 
-```Powershell
+```PowerShell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -69,7 +69,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
+((Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
 Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
@@ -88,7 +88,7 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Para o servidor foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do Powershell acima.
+>[AZURE.NOTE] Para o servidor foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do PowerShell acima.
 
 Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo o guia [Finalizar um banco de dados recuperado][].
 
@@ -103,7 +103,7 @@ Para restaurar um banco de dados excluído, use o cmdlet [Restore-AzureRmSqlData
 5. Restaure o banco de dados excluído.
 6. Verifique se o banco de dados restaurado está online.
 
-```Powershell
+```PowerShell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -126,7 +126,7 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Para o servidor foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do Powershell acima.
+>[AZURE.NOTE] Para o servidor foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do PowerShell acima.
 
 Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo o guia [Finalizar um banco de dados recuperado][].
 
@@ -141,7 +141,7 @@ Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][].
 5. Crie a solicitação de recuperação para o banco de dados.
 6. Verifique o status do banco de dados com restauração geográfica.
 
-```Powershell
+```PowerShell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -193,4 +193,4 @@ Para saber mais sobre os recursos de continuidade de negócios das edições do 
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

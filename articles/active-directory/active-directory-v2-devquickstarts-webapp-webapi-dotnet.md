@@ -110,7 +110,7 @@ Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjun
 - Primeiramente, instale a versão de visualização do ADAL:
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- E adicione outra instrução `using` para o arquivo `App_Start\Startup.Auth.cs` para ADAL.
+- E adicione outra instrução `using` ao arquivo `App_Start\Startup.Auth.cs` do ADAL.
 - Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`. Esse manipulador usará o ADAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token do ADAL para depois:
 
 ```C#
@@ -193,8 +193,12 @@ Para referência, o exemplo concluído (sem seus valores de configuração) [é 
 
 ## Próximas etapas
 
-Para obter recursos adicionais, confira:
-- [O guia do desenvolvedor da v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [Marca "adal" de StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Para obter recursos adicionais, consulte:
+- [Guia do desenvolvedor do v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Marca "adal" do StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0224_2016-->
+## Obter atualizações de segurança para nossos produtos
+
+Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
+
+<!---HONumber=AcomDC_0601_2016-->

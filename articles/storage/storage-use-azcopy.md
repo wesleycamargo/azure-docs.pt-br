@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/26/2016"
 	ms.author="micurd"/>
 
 # Transferir dados com o Utilitário de Linha de Comando AzCopy
@@ -374,13 +374,15 @@ Você pode executar o comando a seguir para importar entidades em uma tabela usa
 
 ### Copiar apenas os dados que não existem no destino
 
-Os parâmetros `/XO` e `/XN` permitem a exclusão de recursos de origem mais antigos ou mais recentes da cópia, respectivamente. Sem suporte quando a origem ou o destino é uma tabela. Se você quiser copiar apenas os recursos de origem que não existem no destino, especifique os dois parâmetros no comando AzCopy:
+Os parâmetros `/XO` e `/XN` permitem a exclusão de recursos de origem mais antigos ou mais recentes da cópia, respectivamente. Se você quiser copiar apenas os recursos de origem que não existem no destino, especifique os dois parâmetros no comando AzCopy:
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
 	/Source:C:\myfolder /Dest:http://myaccount.file.core.windows.net/myfileshare /DestKey:<destkey> /S /XO /XN
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
+
+Observação: isso não tem suporte quando a origem ou o destino é uma tabela.
 
 ### Usar um arquivo de resposta para especificar parâmetros de linha de comando
 
@@ -521,7 +523,7 @@ Se a origem especificada for um compartilhamento de arquivos do Azure, você dev
 
 O AzCopy diferencia maiúsculas de minúsculas quando /Source é um contêiner de blob ou diretório virtual de blob, e não diferencia maiúsculas de minúsculas em todos os outros casos.
 
-O padrão de arquivo usado quando nenhum padrão de arquivo é especificado é *.* para um local do sistema de arquivos, ou um prefixo vazio para um local de armazenamento do Azure. Não é possível especificar diversos padrões para os arquivos.
+O padrão de arquivo usado quando nenhum padrão de arquivo é especificado é *.* para uma localização do sistema de arquivos, ou um prefixo vazio para uma localização de armazenamento do Azure. Não é possível especificar diversos padrões para os arquivos.
 
 **Aplicável a:** Blobs, Arquivos
 
@@ -587,7 +589,7 @@ Os instantâneos de blob transferidos são renomeados neste formato: nome-do-blo
 
 Por padrão, os instantâneos não são copiados.
 
-**Aplicável a:** blobs
+**Aplicável a:** Blobs
 
 ### /V: [arquivo de log detalhado]
 
@@ -595,7 +597,7 @@ Produz mensagens de status detalhadas em um arquivo de log.
 
 Por padrão, o arquivo de log detalhado é chamado de AzCopyVerbose.log no `%LocalAppData%\Microsoft\Azure\AzCopy`. Se você especificar um local de arquivo existente para essa opção, o log detalhado será acrescentado a esse arquivo.
 
-**Aplicável a:** blobs, arquivos, tabelas
+**Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### /Z:[journal-file-folder]
 
@@ -613,7 +615,7 @@ O arquivo de diário é excluído mediante a conclusão bem-sucedida da operaç�
 
 A retomada de uma operação de um arquivo de diário criado por uma versão anterior do AzCopy não é compatível.
 
-**Aplicável a:** blobs, arquivos, tabelas
+**Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### /@: “arquivo de parâmetro”
 
@@ -625,7 +627,7 @@ Os arquivos de resposta podem incluir linhas de comentários iniciadas pelo sím
 
 É possível especificar vários arquivos de resposta. No entanto, o AzCopy não permite arquivos de resposta aninhados.
 
-**Aplicável a:** blobs, arquivos, tabelas
+**Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### /Y
 
@@ -643,7 +645,7 @@ O comportamento dessa opção também é determinado pelo local dos dados de ori
 
 O AzCopy exige a permissão de LISTAGEM e de LEITURA deste local de origem ao usar essa opção.
 
-**Aplicável a:** blobs, arquivos
+**Aplicável a:** Blobs, Arquivos
 
 ### /MT
 
@@ -686,7 +688,7 @@ Entre os atributos disponíveis estão:
 - O = Arquivos offline
 - I = Arquivos não indexados
 
-**Aplicável a:** blobs, arquivos
+**Aplicável a:** Blobs, Arquivos
 
 ### /XA:[RASHCNETOI]
 
@@ -705,7 +707,7 @@ Entre os atributos disponíveis estão:
 - O = Arquivos offline
 - I = Arquivos não indexados
 
-**Aplicável a:** blobs, arquivos
+**Aplicável a:** Blobs, Arquivos
 
 ### /Delimiter: "delimitador"
 
@@ -715,7 +717,7 @@ Por padrão, o AzCopy usa / como o caractere delimitador. No entanto, o AzCopy d
 
 Essa opção só é aplicável para o download de blobs.
 
-**Aplicável a:** blobs
+**Aplicável a:** Blobs
 
 ### /NC: "número-de-operações-simultâneas"
 
@@ -725,19 +727,19 @@ Por padrão, o AzCopy inicia uma determinada quantidade de operações simultân
 
 O limite máximo de operações simultâneas é 512.
 
-**Aplicável a:** blobs, arquivos, tabelas
+**Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### /SourceType:"Blob" | "Table"
 
 Especifica se o recurso `source` é um blob disponível no ambiente de desenvolvimento local, em execução no emulador de armazenamento.
 
-**Aplicável a:** blobs, tabelas
+**Aplicável a:** Blobs, Tabelas
 
 ### /DestType:"Blob" | "Table"
 
 Especifica se o recurso `destination` é um blob disponível no ambiente de desenvolvimento local, em execução no emulador de armazenamento.
 
-**Aplicável a:** blobs, tabelas
+**Aplicável a:** Blobs, Tabelas
 
 ### /PKRS: "chave1#chave2#chave3#..."
 
@@ -753,7 +755,7 @@ Cada operação exporta um dos três intervalos de chaves de partição, como mo
 
   [bb, last-partition-key]
 
-**Aplicável a:** tabelas
+**Aplicável a:** Tabelas
 
 ### /Splitsize: "tamanho do arquivo"
 
@@ -763,7 +765,7 @@ Se essa opção não for especificada, o AzCopy exporta os dados da tabela para 
 
 Se os dados da tabela forem exportados para um blob e o tamanho do arquivo exportado alcançar o limite de 200 GB, o AzCopy divide o arquivo exportado, mesmo que essa opção não seja especificada.
 
-**Aplicável a:** tabelas
+**Aplicável a:** Tabelas
 
 ### /EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 
@@ -775,7 +777,7 @@ Especifica o comportamento da importação dos dados da tabela.
 
 - InsertOrReplace — Substitui uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
 
-**Aplicável a:** tabelas
+**Aplicável a:** Tabelas
 
 ### /Manifesto: "arquivo de manifesto"
 
@@ -785,7 +787,7 @@ Essa opção é opcional durante a operação de exportação. O AzCopy gerará 
 
 Essa opção é exigida durante a operação de importação para localização dos arquivos de dados.
 
-**Aplicável a:** tabelas
+**Aplicável a:** Tabelas
 
 ### /SyncCopy
 
@@ -795,7 +797,7 @@ O AzCopy por padrão usa cópia assíncrona no servidor. Especifique essa opçã
 
 Você pode usar essa opção ao copiar arquivos no armazenamento de Blob no armazenamento de arquivo ou do armazenamento de Blob para armazenamento de arquivos ou vice-versa.
 
-**Aplicável a:** blobs, arquivos
+**Aplicável a:** Blobs, Arquivos
 
 ### /SetContentType:"content-type"
 
@@ -805,7 +807,7 @@ O AzCopy define o tipo de conteúdo para um blob ou arquivo application/octet-st
 
 Se você especificar essa opção sem um valor, AzCopy definirá cada blob ou tipo de conteúdo do arquivo de acordo com a sua extensão de arquivo.
 
-**Aplicável a:** blobs, arquivos
+**Aplicável a:** Blobs, Arquivos
 
 ### /PayloadFormat:"JSON" | "CSV"
 
@@ -813,7 +815,7 @@ Especifica o formato do arquivo de dados exportados da tabela.
 
 Se essa opção não for especificada, por padrão, o AzCopy exportará o arquivo de dados da tabela no formato JSON.
 
-**Aplicável a:** tabelas
+**Aplicável a:** Tabelas
 
 ## Problemas Conhecidos e Práticas Recomendadas
 
@@ -864,4 +866,4 @@ Para saber mais sobre o Armazenamento do Azure e o AzCopy, consulte os recursos 
 - [AzCopy: Using cross-account Copy Blob (AzCopy: usando blob de cópia em várias contas)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Uploading/downloading files for Azure Blobs (AzCopy: Upload/download de arquivos para Blobs do Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

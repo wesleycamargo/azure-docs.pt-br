@@ -58,16 +58,16 @@ Se você não estiver começando com um modelo do ARM, isso também está OK. H�
 
 ## Etapa 1: configurar o servidor de recepção e a conta de automação
 
-Em uma linha de comando do PowerShell (Add-AzureAccount) autenticada: (pode demorar alguns minutos enquanto o servidor de recepção é configurado)
+Em uma linha de comando do PowerShell (Add-AzureRmAccount) autenticada: (pode demorar alguns minutos enquanto o servidor pull é configurado)
 
     New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
+    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
 Você pode colocar sua conta de automação em qualquer uma das seguintes regiões (também conhecidas como localizações): Leste do Japão, Leste dos EUA 2, Europa Ocidental, Sudeste da Ásia, Centro-Sul dos EUA.
 
 ## Etapa 2: ajustes da extensão de VM para o modelo ARM
 
-Detalhes do registro de VM (usando a extensão de VM de DSC do PowerShell) são fornecidos neste [Modelo de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver). Esta etapa registra sua nova VM no servidor de recepção na lista de Nós DSC. Parte do registro especifica a configuração de nó a ser aplicada ao nó. Essa configuração de nó não precisa existir ainda no servidor de recepção, portanto não há problemas se isso é feito pela primeira vez apenas na Etapa 4. Mas aqui na Etapa 2, é necessário decidir o nome do nó e o nome da configuração. Neste exemplo de uso, o nó é “isvbox” e a configuração é “ISVBoxConfig”. Portanto, o nome da configuração de nó (a ser especificado em DeploymentTemplate.json) é “ISVBoxConfig.isvbox”.
+Detalhes do registro de VM (usando a extensão de VM de DSC do PowerShell) são fornecidos neste [Modelo de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver). Esta etapa registra sua nova VM no servidor de recepção na lista de Nós DSC. Parte do registro especifica a configuração de nó a ser aplicada ao nó. Essa configuração de nó não precisa existir ainda no servidor pull, portanto, não há problemas se isso for feito pela primeira vez apenas na Etapa 4. Mas aqui na Etapa 2, é necessário decidir o nome do nó e o nome da configuração. Neste exemplo de uso, o nó é “isvbox” e a configuração é “ISVBoxConfig”. Portanto, o nome da configuração de nó (a ser especificado em DeploymentTemplate.json) é “ISVBoxConfig.isvbox”.
 
 ## Etapa 3: adicionar recursos de DSC necessários para o servidor de recepção
 
@@ -78,16 +78,16 @@ A Galeria do PowerShell é instrumentada para instalar recursos de DSC em sua co
 Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integração do PowerShell para um computador com Windows é um pouco diferente da estrutura de pastas esperada pela Automação do Azure. Isso exige que você faça alguns ajustes. Porém, não é difícil, e isso só precisa ser feito uma vez por recurso (a menos que você deseje atualizá-lo no futuro). Para saber mais sobre como criar Módulos de Integração do PowerShell, confira este artigo: [Criando Módulos de Integração para a Automação do Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Instale o módulo necessário na estação de trabalho, da seguinte maneira:
-    -   Instale o [Windows Management Framework, v5](http://aka.ms/wmf5latest) (não é necessário para o Win10)
-    -   `Install-Module  –ModuleName MODULENAME` < — captura o módulo da galeria do PowerShell 
+    -   Instale o [Windows Management Framework, v5](http://aka.ms/wmf5latest) (não é necessário para o Windows 10)
+    -   `Install-Module –Name MODULE-NAME` < — captura o módulo da Galeria do PowerShell 
 -   Copie a pasta de módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` em uma pasta temporária 
 -   Exclua os exemplos e a documentação da pasta principal 
--   Compacte a pasta principal, nomeando o arquivo zip exatamente como a pasta 
--   Coloque o arquivo zip em um local http acessível, como o armazenamento de blob em uma Conta do Armazenamento do Azure.
+-   Compacte a pasta principal, nomeando o arquivo ZIP exatamente como a pasta 
+-   Coloque o arquivo ZIP em um local http acessível, como o armazenamento de blobs em uma Conta do Armazenamento do Azure.
 -   Execute este PowerShell:
 
-        New-AzureAutomationModule ``
-            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
+        New-AzureRmAutomationModule `
+            -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
@@ -171,7 +171,7 @@ Sempre que uma versão passar na garantia de qualidade e for aprovada para impla
 
 ## Observações
 
-Este exemplo de uso começa com uma VM de uma imagem genérica do Windows 2012 R2 da galeria do Azure. Você poderá iniciá-lo por meio de qualquer imagem armazenada e ajustá-lo com a configuração da DSC. No entanto, é muito mais difícil alterar a configuração incorporada a uma imagem do que atualizar de forma dinâmica a configuração usando a DSC.
+Este exemplo de uso começa com uma VM de uma imagem genérica do Windows Server 2012 R2 da galeria do Azure. Você poderá iniciar de qualquer imagem armazenada e ajustá-la com a configuração da DSC. No entanto, é muito mais difícil alterar a configuração incorporada a uma imagem do que atualizar de forma dinâmica a configuração usando a DSC.
 
 Você não precisa usar um modelo ARM e a extensão de VM para usar essa técnica com suas VMs. E suas VMs não precisam estar no Azure para estar no gerenciamento de CD. Basta que o Chocolatey seja instalado e o LCM seja configurado na máquina virtual para que ele saiba onde está o servidor de recepção.
 
@@ -185,4 +185,4 @@ O código-fonte completo deste exemplo de uso está [neste projeto do Visual Stu
 - [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -23,10 +23,10 @@ Para clientes que usam o Windows Server com o Software Assurance, você pode col
 > [AZURE.NOTE] Você não pode usar imagens do Azure Marketplace para implantar VMs do Windows Server utilizando o Benefício do uso híbrido do Azure. Você deve implantar suas VMs usando o PowerShell ou os modelos do Resource Manager para registrar corretamente suas VMs como qualificadas para o desconto de taxa de computação base.
 
 ## Pré-requisitos
-Há alguns pré-requisitos para usar o Benefício do uso híbrido do Azure para VMs do Windows Server no Azure:
+Há alguns pré-requisitos para utilizar a Vantagem do uso híbrido do Azure para VMs do Windows Server no Azure:
 
-- Instalar o módulo do Azure PowerShell instalado
-- Um VHD do Windows Server carregado no Armazenamento do Azure
+- Ter o módulo do Azure PowerShell instalado
+- Carregar o VHD do Windows Server no Armazenamento do Azure
 
 ### Instale o Azure PowerShell
 Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure. Mesmo se você pretender implantar suas VMs usando modelos do Resource Manager, você ainda precisará ter o Azure PowerShell instalado para carregar o VHD do Windows Server (consulte a próxima etapa abaixo).
@@ -164,4 +164,4 @@ Leia mais sobre o [Licenciamento do Benefício do uso híbrido do Azure](https:/
 
 Saiba mais sobre o [uso de modelos do Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

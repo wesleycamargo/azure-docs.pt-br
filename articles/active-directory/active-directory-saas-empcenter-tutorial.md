@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="02/29/2016" 
+    ms.date="05/25/2016" 
     ms.author="jeedes" />
 
 #Tutorial: integração do Active Directory do Azure ao EmpCenter
@@ -80,8 +80,8 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
     ![Definir configurações de aplicativo](./media/active-directory-saas-empcenter-tutorial/IC802921.png "Definir configurações de aplicativo")
 
-    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo EmpCenter (por exemplo: *https://partner-authenticati.empcenter.com/workforce/SSO.do*).
-    2.  Clique em **Próximo**.
+    1.  Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo EmpCenter (por exemplo: **https://partner-authenticati.empcenter.com/workforce/SSO.do*)).
+2.  Clique em **Próximo**.
 
 4.  Na página **Configurar logon único no EmpCenter**, para baixar os metadados, clique em **Baixar metadados** e salve o arquivo de metadados no computador.
 
@@ -96,8 +96,7 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     ![Configurar o logon único](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configurar o logon único")
 ##Configurando o provisionamento de usuários
   
-Para permitir que os usuários do Azure AD façam logon no EmpCenter, eles deverão ser provisionados no EmpCenter.  
-No caso do EmpCenter, as contas de usuário precisam ser criadas pela equipe de suporte do EmpCenter.
+Para permitir que os usuários do Azure AD façam logon no EmpCenter, eles deverão ser provisionados no EmpCenter. No caso do EmpCenter, as contas de usuário precisam ser criadas pela equipe de suporte do EmpCenter.
 
 >[AZURE.NOTE] Você pode usar qualquer outra ferramenta de criação da conta de usuário do EmpCenter ou as APIs fornecidas pelo EmpCenter para provisionar as contas de usuário do Active Directory do Azure.
 
@@ -119,4 +118,4 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
   
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

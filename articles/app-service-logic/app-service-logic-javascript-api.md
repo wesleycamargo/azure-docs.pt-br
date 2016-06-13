@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Usando o aplicativo de API de JavaScript em um aplicativo lógico | Microsoft Azure"
+   pageTitle="Usando o aplicativo de API do JavaScript em um Aplicativo Lógico | Microsoft Azure"
    description="Conector ou aplicativo de API de JavaScript"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/22/2016"
+   ms.date="05/31/2016"
    ms.author="stepsic"/>
 
-#Aplicativo de API de JavaScript
+# Aplicativo de API de JavaScript
 
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview dos Aplicativos Lógicos.
 
-O aplicativo de API de JavaScript oferece uma maneira fácil de executar expressões de JavaScript simples *enquanto seu aplicativo lógico é executado*.
+O Aplicativo de API do JavaScript fornece uma maneira fácil de executar as expressões JavaScript simples *enquanto seu Aplicativo lógico é executado*.
 
-##Quando você deve usar esse aplicativo de API?
+## Quando você deve usar esse aplicativo de API?
 O cenário principal para esse aplicativo de API é quando você deseja que o ciclo de vida do código que você escreveu seja igual ao aplicativo lógico e você *não* quer que o código seja chamado em outros cenários.
 
 Por outro lado, se você quiser um trecho de código reutilizável que tem um ciclo de vida independente do aplicativo lógico, você deve usar o aplicativo de API WebJobs para criar expressões de código simples e chamá-las por meio de seu aplicativo lógico.
@@ -31,11 +31,11 @@ Por fim, se quiser incluir algum pacote adicional, você também precisará usar
 
 Use o [aplicativo de API de C#](app-service-logic-cs-api.md) se você preferir escrever as expressões em C#.
 
-##Criando um aplicativo de API de JavaScript
+## Criando um aplicativo de API de JavaScript
 Para usar o aplicativo de API de JavaScript, você precisa primeiro criar uma instância do aplicativo de API de JavaScript. Isso pode ser feito de forma embutida durante a criação de um aplicativo lógico ou selecionando o aplicativo de API de JavaScript no Azure Marketplace.
 
-##Usando o aplicativo de API de JavaScript na superfície do designer de aplicativos lógicos
-###Gatilho
+## Usando o Aplicativo de API do JavaScript na superfície do designer dos Aplicativos lógicos
+### Gatilho
 Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algum conteúdo, o aplicativo lógico será executado; caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
 
 As entradas para o gatilho são:
@@ -48,7 +48,7 @@ Você pode ter um gatilho simples que somente executa seu aplicativo lógico ent
 var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 ```
 
-###Ação
+### Ação
 
 Da mesma forma, você pode fornecer uma ação a ser executada.
 
@@ -90,13 +90,13 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 A ação retorna o JSON retornado da sua função. Portanto, no aplicativo de API do Yammer, você pode fazer referência a `@body('javascriptapi')` para a propriedade **Anexos**.
 
 ## Faça mais com seu Conector
-Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
 
  
 
 <!--References -->
 
 <!--Links -->
-[Creating a Logic App]: app-service-logic-create-a-logic-app.md
+[Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

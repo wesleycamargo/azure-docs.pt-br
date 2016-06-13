@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -42,7 +42,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 
 
 
-<br><br>![Configurando o logon único][0]<br>
+![Configurando o logon único][0]
 
 
  
@@ -53,20 +53,32 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 ### Para habilitar a integração de aplicativos para o DocuSign, execute as seguintes etapas:
 
-1. No portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**. <br><br>![Configurando o logon único][1]<br>
+1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
+
+	![Configurando o logon único][1]
 
 2. Na lista Diretório, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
-3. Para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior. <br><br>![Configurando o logon único][2]<br>
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
 
-4. Clique em **Adicionar** na parte inferior da página. <br><br>![Aplicativos][3]<br>
+	![Configurando o logon único][2]
 
-5. Na caixa de diálogo O que você deseja fazer, clique em **Adicionar um aplicativo da galeria**. <br><br>![Configurando o logon único][4]<br>
+4. Clique em **Adicionar** na parte inferior da página.
+
+	![Aplicativos][3]
+
+5. Na caixa de diálogo O que você deseja fazer, clique em **Adicionar um aplicativo da galeria**.
+
+	![Configurando o logon único][4]
 
 
-6. Na caixa de pesquisa, digite **Docusign**. <br><br>![Configurando o logon único][5]<br>
+6. Na caixa de pesquisa, digite **Docusign**.
 
-7. No painel de resultados, selecione **Docusign** e clique em **Concluir** para adicionar o aplicativo. <br><br>![Configurando o logon único][6]<br>
+	![Configurando o logon único][5]
+
+7. No painel de resultados, selecione **Docusign** e clique em **Concluir** para adicionar o aplicativo.
+
+	![Configurando o logon único][6]
 
 
 
@@ -78,32 +90,48 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 
 ### Para configurar o logon único, execute as seguintes etapas:
 
-1. No portal clássico do Azure, na página de **integração de aplicativos do DocuSign**, clique em **Configurar logon único** para abrir o diálogo Configurar Logon Único. <br><br>![Configurando o logon único][7]<br>
+1. No portal clássico do Azure, na página de **integração do aplicativo Docusign**, clique em **Configurar logon único** para abrir o diálogo Configurar Logon Único.
 
-2. Na página **Como você deseja que os usuários façam logon no DocuSign**, selecione **Logon Único do AD do Microsoft Azure** e clique em Próximo. <br><br>![Configurando o logon único][8]<br>
+	![Configurando o logon único][7]
 
-3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon do DocuSign**, digite a URL do locatário do DocuSign e clique em **Próximo**: A URL tem o seguinte esquema: *https://<yourcompanyname>.docusign.net/Member/MemberLogin.aspx?ssoname=<yourSSOInstanceName>* <br><br>![Configurando o logon único][9]<br>
+2. Na página **Como você deseja que os usuários façam logon no Docusign**, selecione **Logon Único do Microsoft Azure AD** e clique em Avançar.
+
+	![Configurando o logon único][8]
+
+3. Na página **Definir Configurações do Aplicativo**, execute as seguintes etapas:
+
+	![Configurando o logon único][9]
+
+	a. Na caixa de texto **URL de Entrada**, digite a URL do seu locatário do Docusign usando o seguinte padrão: `https://<company name>.docusign.net/Member/MemberLogin.aspx?ssoname=<SSO instance name>`
+
+	b. Clique em **Próximo**.
 
 
     > [AZURE.TIP] Se você não souber qual é a URL do aplicativo para o seu locatário, tente entrar em contato com a Docusign via SSOSetup@Docusign.com para obter a URL de SSO iniciada no SP para o seu locatário.
  
 
-4. Na página **Configurar logon único no DocuSign**, clique em **Baixar certificado** e salve o arquivo de certificado em seu computador. <br><br>![Configurando o logon único][10]<br>
+4. Na página **Configurar logon único no Docusign**, clique em **Baixar certificado** e salve o arquivo de certificado localmente em seu computador.
+
+	![Configurando o logon único][10]
 
 
 5. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do **DocuSign** como administrador.
 
 
-6. No menu na parte superior, expanda o menu do usuário, clique em **Preferências**; no painel de navegação à esquerda, expanda **Gerenciamento de Contas** e clique em **Recursos**. <br><br>![Configurando o logon único][11]<br>
+6. No menu na parte superior, expanda o menu do usuário, clique em **Preferências**; no painel de navegação à esquerda, expanda **Gerenciamento de Contas** e clique em **Recursos**.
+
+	![Configurando o logon único][11]
 
 7. Clique em **Configuração SAML** e clique no link **Configuração SAML**.
 
 
 
-8. Na seção **Configuração do SAML2.0**, execute as seguintes etapas: <br><br>![Configurando o logon único][13]<br>
+8. Na seção **Configuração do SAML2.0**, execute as seguintes etapas:
+
+	![Configurando o logon único][13]
 
 
-    a. No portal clássico do Azure, na página da caixa de diálogo **Configurar logon único no DocuSign**, copie o valor de URL** do Emissor e cole-o na caixa de texto **URL de Ponto de Extremidade do Provedor de Identidade**.
+    a. No portal clássico do Azure, na página da caixa de diálogo **Configurar logon único no Docusign**, copie o valor de URL do Emissor** e cole-o na caixa de texto **URL de Ponto de Extremidade do Provedor de Identidade**.
 
     > [AZURE.IMPORTANT] Se essa opção de configuração não estiver disponível, contate seu gerente de conta Docusign ou entre em contato com a equipe de suporte de SSO por email ([SSOSetup@docusign.com](mailto:SSOSetup@docusign.com)).
  
@@ -116,9 +144,13 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     d. Clique em **Salvar**.
 
 
-9. No portal clássico do Azure, selecione a **confirmação de configuração de logon único** e clique em **Avançar**. <br><br>![Aplicativos][14]<br>
+9. No portal clássico do Azure, selecione a **confirmação de configuração de logon único** e clique em **Avançar**.
 
-10. Na página **Confirmação de logon único**, clique em **Concluir**.<br><br>![Aplicativos][15]<br>
+	![Aplicativos][14]
+
+10. Na página **Confirmação de logon único**, clique em **Concluir**.
+
+	![Aplicativos][15]
 
 
  
@@ -129,16 +161,22 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 ### Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
-1. No **portal clássico do Azure**, na página de **integração de aplicativos do DocuSign**, clique em **Configurar provisionamento de contas** para abrir o diálogo Configurar Provisionamento de Usuários. <br><br>![Configurando o provisionamento de contas][30]<br>
+1. No **portal clássico do Azure**, na página de **integração de aplicativos do DocuSign**, clique em **Configurar provisionamento de contas** para abrir o diálogo Configurar Provisionamento de Usuários.
+
+	![Configurando o provisionamento de contas][30]
  
 
-2. Na página **Configurações e credenciais de administrador**, para habilitar o provisionamento automático de usuários, forneça as credenciais de uma conta DocuSign com direitos suficientes e clique em **Próximo**. <br><br>![Configurando o provisionamento de contas][31]<br>
+2. Na página **Configurações e credenciais de administrador**, para habilitar o provisionamento automático de usuários, forneça as credenciais de uma conta do DocuSign com direitos suficientes e clique em **Avançar**.
 
-3. Na caixa de diálogo **Testar conexão**, clique em **Iniciar teste** e, depois de um teste bem-sucedido, clique em **Próximo**. <br><br>![Configurando o provisionamento de contas][32]<br>
+	![Configurando o provisionamento de contas][31]
+
+3. Na caixa de diálogo **Testar conexão**, clique em **Iniciar teste** e, depois de um teste bem-sucedido, clique em **Avançar**.
+
+	![Configurando o provisionamento de contas][32]
 
 3. Na página **Confirmação**, clique em **Concluir**.
 
-<br><br>![Configurando o provisionamento de contas][33]<br>
+![Configurando o provisionamento de contas][33]
  
 
 ## Atribuindo usuários
@@ -149,22 +187,28 @@ Para testar sua configuração, é necessário atribuir acesso ao aplicativo aos
 
 1. No **portal clássico do Azure**, crie uma conta de teste.
 
-2. Na página de **Integração de aplicativos do DocuSign**, clique em **Atribuir usuários**. <br><br>![Atribuindo usuários][40]<br>
+2. Na página **Integração de aplicativos do Docusign**, clique em **Atribuir usuários**.
+
+	![Atribuindo usuários][40]
  
 
-3. Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
 
-<br><br>![Atribuindo usuários][41]<br>
+	![Atribuindo usuários][41]
 
 
 Agora, você deve aguardar 10 minutos e verificar se a conta foi sincronizada com o DocuSign.
 
-Como uma primeira etapa de verificação, é possível verificar o status de provisionamento clicando em Painel no D na página de integração de aplicativos do DocuSign do portal clássico do Azure. <br><br>![Atribuindo usuários][42]<br>
+Como uma primeira etapa de verificação, é possível verificar o status de provisionamento clicando em Painel no D na página de integração do aplicativo Docusign do portal clássico do Azure.
 
-Um ciclo de provisionamento de usuário concluído com êxito é indicado por um status relacionado: <br><br>![Atribuindo usuários][43]<br>
+![Atribuindo usuários][42]
+
+Um ciclo de provisionamento de usuário concluído com êxito é indicado por um status relacionado:
+
+![Atribuindo usuários][43]
 
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso.
+Se quiser testar suas configurações de logon único, abra o Painel de Acesso.
 
 Para obter mais detalhes sobre o Painel de Acesso, confira: Introdução ao Painel de Acesso.
 
@@ -208,4 +252,4 @@ Para obter mais detalhes sobre o Painel de Acesso, confira: Introdução ao Pain
 [42]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_17.png
 [43]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_18.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Usar aplicativos lógicos no Serviço de Aplicativo do Azure | Microsoft Azure"
- description="Saiba como usar modelos de aplicativos lógicos pré-criados para ajudá-lo a começar"
+ pageTitle="Usar modelos de Aplicativo lógico no Serviço de Aplicativo do Azure | Microsoft Azure"
+ description="Saiba como usar modelos de Aplicativo lógico pré-criados a fim de obter ajuda para começar"
  authors="kevinlam1"
  manager="dwrede"
  editor=""
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="klam"/>
 
-# Usar modelos de aplicativos lógicos
+# Usar modelos de aplicativo lógico
 
 >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
 
-Os modelos de aplicativos lógicos são um conjunto de aplicativos lógicos pré-criados auxiliares para ajudá-lo a começar a criar seus próprios aplicativos de integração.
+Os modelos de Aplicativo lógico são um conjunto de aplicativos lógicos pré-criados auxiliares para ajudá-lo a começar a criar seus próprios aplicativos de integração.
 
-Esses modelos mostram como usar alguns dos muitos conectores disponíveis no mercado, além de ser uma boa maneira de descobrir vários padrões que podem ser criados usando aplicativos lógicos. Você pode usá-los como estão ou modificá-los para ajustá-los a seu cenário.
+Esses modelos mostram como usar alguns dos muitos conectores disponíveis no mercado, além de ser uma boa maneira de descobrir vários padrões que podem ser criados usando Aplicativos lógicos. Você pode usá-los como estão ou modificá-los para ajustá-los a seu cenário.
 
-Para começar a usar um modelo de aplicativo lógico, vá para Marketplace, pesquise "Modelo de aplicativo lógico" e, em seguida, escolha um dos modelos de aplicativos lógicos na lista auxiliar. Ou, quando um novo aplicativo lógico é criado, selecione "Gatilhos e ações" e escolha o conjunto de modelos de aplicativos lógicos no designer.
+Para começar a usar um modelo de Aplicativo lógico, vá para Marketplace, pesquise "Modelo de Aplicativo Lógico" e, em seguida, escolha um dos modelos de Aplicativo lógico na lista auxiliar. Ou, quando um novo Aplicativo lógico for criado, selecione "Gatilhos e ações" e escolha o conjunto de modelos de Aplicativo lógico no designer.
 
 ## Modelos de exemplo disponíveis
 
@@ -43,7 +43,7 @@ Processos automatizados para lidar com procedimentos comuns do Azure que você n
 ### Modelos de nuvem do consumidor
 Modelos simples que se integram a serviços de mídia social, como Twitter, Yammer e email. Podem ser ótimos aplicativos para ganho de produtividade pessoal que escutam atualizações constantemente e entram em ação quando novos itens chegam.
 
-Após selecionar um dos modelos, conclua a implantação como você faria se criasse seu próprio aplicativo lógico. As etapas detalhadas estão em [Criar um aplicativo lógico](app-service-logic-create-a-logic-app.md).
+Após selecionar um dos modelos, conclua a implantação como você faria se criasse seu próprio Aplicativo lógico. As etapas detalhadas estão em [Criar um Aplicativo lógico](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

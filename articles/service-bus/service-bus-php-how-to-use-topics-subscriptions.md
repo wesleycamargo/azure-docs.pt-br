@@ -75,7 +75,7 @@ Para criar qualquer cliente de serviço do Azure é necessário usar a classe **
 Para os exemplos descritos aqui, a cadeia de conexão é passada diretamente.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 	
@@ -91,7 +91,7 @@ Você pode realizar operações de gerenciamento para os tópicos do Barramento 
 O exemplo a seguir mostra como criar uma instância de um **ServiceBusRestProxy** e chamar **ServiceBusRestProxy->createTopic** para criar um tópico denominado `mytopic` em um namespace`MySBNamespace`:
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -126,7 +126,7 @@ As assinaturas do tópico também são criadas com o método **ServiceBusRestPro
 **MatchAll** será o filtro padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada 'mysubscription' e usa o filtro padrão **MatchAll**.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -191,7 +191,7 @@ Agora, quando uma mensagem é enviada ao tópico `mytopic`, ela sempre será ent
 Para enviar uma mensagem a um tópico de Service Bus, seu aplicativo chamará o método **ServiceBusRestProxy->sendTopicMessage**. O código abaixo demonstra como enviar uma mensagem ao tópico `mytopic` que criamos acima no namespace de serviço `MySBNamespace`.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -247,7 +247,7 @@ No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de d
 O exemplo a seguir mostra como receber e processar uma mensagem usando o modo **PeekLock** (não o modo padrão).
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -300,7 +300,7 @@ Para excluir um tópico ou uma assinatura, use os métodos **ServiceBusRestProxy
 O exemplo a seguir mostra como excluir um tópico denominado `mytopic` e suas assinaturas registradas.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\ServiceBus\ServiceBusService;
 use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -338,4 +338,4 @@ Agora que você aprendeu as noções básicas sobre as filas do Barramento de Se
 [require-once]: http://php.net/require_once
 [Cotas do Barramento de Serviço]: service-bus-quotas.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

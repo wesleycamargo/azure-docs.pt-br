@@ -26,7 +26,7 @@ Você pode pesquisar o [Repositório do Maven](http://search.maven.org/) para ob
 
 Neste artigo, você aprenderá a usar o pacote [spark csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o bloco de notas Jupyter.
 
-**Pré-requisitos:**
+##Pré-requisitos
 
 Você deve ter o seguinte:
 
@@ -57,17 +57,17 @@ Você deve ter o seguinte:
 		{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }
 
 
-	>[AZURE.IMPORTANT] Se você esquecer de configurar o kernel na primeira célula, poderá usar `%%configure` com o parâmetro `-f`, mas que irá reiniciar a sessão e todo o progresso será perdido.
+	>[AZURE.IMPORTANT] Se esquecer de configurar o kernel na primeira célula, você poderá usar `%%configure` com o parâmetro `-f`, mas isso reiniciará a sessão e todo o progresso será perdido.
 
-5. No trecho acima, `packages` espera uma lista de coordenadas maven no Repositório Central do Maven. Nesse trecho, `com.databricks:spark-csv_2.10:1.4.0` é a coordenada do maven para o pacote **spark csv**. Veja como você constrói as coordenadas de um pacote.
+5. No trecho de código acima, `packages` espera uma lista de coordenadas do maven no Repositório Central do Maven. Nesse trecho de código, `com.databricks:spark-csv_2.10:1.4.0` é a coordenada do maven para o pacote **spark-csv**. Veja como você constrói as coordenadas de um pacote.
 
-	a. Localize o pacote no Repositório Maven. Para este tutorial, usamos [spark csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+	a. Localize o pacote no Repositório Maven. Para este tutorial, usamos [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
 	
-	b. No repositório, reúna os valores para **GroupId**, **ArtifactId** e **Version**.
+	b. No repositório, colete os valores para **GroupId**, **ArtifactId** e **Version**.
 
 	![Usar pacotes externos com o bloco de notas Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Usar pacotes externos com o bloco de notas Jupyter")
 
-	c. Concatene os três valores, separados por dois-pontos (**:**).
+	c. Concatene os três valores, separados por dois pontos (**:**).
 
 		com.databricks:spark-csv_2.10:1.4.0
 
@@ -118,4 +118,4 @@ Você deve ter o seguinte:
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

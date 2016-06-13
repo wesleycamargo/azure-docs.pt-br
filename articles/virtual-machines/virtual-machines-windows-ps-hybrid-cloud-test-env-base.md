@@ -18,8 +18,6 @@
 	ms.author="josephd"/>
 
 # Configurar um ambiente de nuvem híbrida para teste
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
  
 Este tópico orienta a criação de um ambiente de nuvem híbrida com o Microsoft Azure para testes. Veja abaixo a configuração resultante.
 
@@ -45,11 +43,11 @@ Há cinco fases principais para configurar esse ambiente de teste de nuvem híbr
 4.	Criar a conexão VPN site a site.
 5.	Configurar o DC2. 
 
-Se você ainda não tiver uma assinatura do Azure, poderá se inscrever em uma conta gratuita no [Experimente o Azure](https://azure.microsoft.com/pricing/free-trial/). Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito mensal do Azure para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Se ainda não tiver uma assinatura do Azure, você poderá se inscrever para ter uma conta gratuita em [Experimente o Azure](https://azure.microsoft.com/pricing/free-trial/). Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Máquinas virtuais e gateways de redes virtuais no Azure geram custos monetários contínuos quando estão em execução. Um gateway de VPN do Azure é implementado como um conjunto de duas máquinas virtuais do Azure. Para obter detalhes, confira [Preços - Rede Virtual](https://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar os custos de execução de um gateway de VPN, crie o ambiente de teste e execute seus testes e demonstrações necessários o mais rápido possível.
 
-Essa configuração requer uma sub-rede de teste de até quatro computadores conectada diretamente à Internet usando um endereço IP público. Se você não tiver esses recursos, poderá também configurar um [ambiente de nuvem híbrida simulado para testes](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md). O ambiente de nuvem híbrida simulado para teste requer apenas uma assinatura do Azure.
+Essa configuração requer uma sub-rede de teste de até quatro computadores conectada diretamente à Internet usando um endereço IP público. Se não tiver esses recursos, você também poderá configurar um [ambiente de nuvem híbrida simulado para testes](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md). O ambiente de nuvem híbrida simulado para teste requer apenas uma assinatura do Azure.
 
 ## Fase 1: configurar os computadores na sub-rede Corpnet
 
@@ -189,7 +187,7 @@ Em seguida, use o comando a seguir para determinar o endereço IP público do ga
 
 Anote o endereço IP no campo **IPAddress** da tela. Você precisará dele para a Fase 4.
 
-Depois, obtenha uma chave pré-compartilhada aleatória, criptograficamente forte de 32 caracteres do seu administrador de rede ou segurança. Como alternativa, use as informações em [Criar uma cadeia de caracteres aleatória para uma chave pré-compartilhada IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) para obter uma chave pré-compartilhada.
+Depois, obtenha uma chave pré-compartilhada aleatória, criptograficamente forte de 32 caracteres do seu administrador de rede ou segurança. Você também pode usar as informações em [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Criar uma cadeia de caracteres aleatória para uma chave pré-compartilhada IPsec) para obter uma chave pré-compartilhada.
 
 Use estes comandos para criar a conexão VPN site a site no Azure.
 
@@ -287,7 +285,7 @@ Em seguida, configure uma regra do Firewall do Windows para permitir o tráfego 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
-O comando ping deve resultar em quatro respostas bem-sucedidas do endereço IP 10.0.0.1. Se você estiver usando a *configuração de nuvem híbrida simulada*, você deverá ver quatro respostas bem-sucedidas do endereço IP 10.0.0.4. Este é um teste de tráfego pela conexão VPN site a site ou Rede Virtual a Rede Virtual.
+O comando ping deve resultar em quatro respostas bem-sucedidas do endereço IP 10.0.0.1. Se estiver usando a *configuração de nuvem híbrida simulada*, você deverá ver quatro respostas bem-sucedidas do endereço IP 10.0.0.4. Este é um teste de tráfego pela conexão VPN site a site ou Rede Virtual a Rede Virtual.
 
 Em seguida, adicione um disco de dados extra como um novo volume com a letra da unidade F:.
 
@@ -311,7 +309,7 @@ Observe que você será solicitado a fornecer a senha de CORP\\User1 e uma senha
 
 Agora que a rede virtual TestVNET tem seu próprio servidor DNS (DC2), você deve configurar a rede virtual TestVNET para usar esse servidor DNS.
 
-1.	No painel esquerdo do portal do Azure, clique no ícone das redes virtuais e depois em **TestVNET**.
+1.	No painel esquerdo do Portal do Azure, clique no ícone das redes virtuais e depois em **TestVNET**.
 2.	Na guia **Configurações**, clique em **Servidores DNS**.
 3.	Em **Servidor DNS primário**, digite **192.168.0.4** para substituir 10.0.0.4.
 4.	Clique em Salvar.
@@ -331,4 +329,4 @@ Seu ambiente de nuvem híbrida agora está pronto para testes.
 
 - Configure um [farm de intranet do SharePoint](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), um [aplicativo LOB baseado na Web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) ou um [servidor DirSync (Sincronização de Diretório) do Office 365](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) neste ambiente.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

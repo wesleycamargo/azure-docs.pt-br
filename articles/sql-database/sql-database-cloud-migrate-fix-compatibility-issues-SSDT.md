@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/22/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
-# Usando o SQL Server Data Tools para Visual Studio para migrar um Banco de Dados SQL Server para o Banco de Dados SQL do Azure
+# Migrar um Banco de Dados SQL Server para o Banco de Dados SQL do Azure usando as SQL Server Data Tools para Visual Studio 
+
+> [AZURE.SELECTOR]
+- [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [Supervisor de Atualização](http://www.microsoft.com/download/details.aspx?id=48119)
+- [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
+
+Neste artigo, você aprenderá a detectar e corrigir problemas de compatibilidade do Banco de Dados SQL Server usando as SQL Server Data Tools para Visual Studio antes da migração para o Banco de Dados SQL do Azure.
+
+## Como usar o SQL Server Data Tools para Visual Studio
 
 Usar o SQL Server Data Tools para Visual Studio (“SSDT”) para importar o esquema de banco de dados em um projeto de banco de dados do Visual Studio para análise. Para analisar, especifique a plataforma de destino para o projeto como Banco de Dados SQL V12 e crie o projeto. Se a criação for bem-sucedida, o banco de dados é compatível. Se a compilação falhar, você poderá resolver os erros no SSDT (ou em uma das outras ferramentas discutidas neste tópico). Depois que o projeto for criado com êxito, você poderá publicá-lo como uma cópia do banco de dados de origem e usar o recurso de comparação de dados no SSDT para copiar os dados do banco de dados de origem no banco de dados compatível com o SQL V12 do Azure. Em seguida, você pode migrar esse banco de dados atualizado. Para usar essa opção, baixe a [versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx).
 
@@ -73,6 +84,17 @@ Usar o SQL Server Data Tools para Visual Studio (“SSDT”) para importar o esq
     
 	![texto alt](./media/sql-database-migrate-visualstudio-ssdt/14MigrateSSDT.png)
     
-6.	Escolha um método de implantação. Veja [Migrar um banco de dados SQL Server compatível para o Banco de Dados SQL.](sql-database-cloud-migrate.md)
+6.	Escolha um método de implantação. Veja [Migrar um Banco de Dados SQL Server compatível para o Banco de Dados SQL.](sql-database-cloud-migrate.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+## Próximas etapas
+
+- [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## Saiba mais
+
+- [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
+- [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
+- [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

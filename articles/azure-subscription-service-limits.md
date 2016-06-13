@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="05/25/2016"
 	ms.author="jroth"/>
 
 # Assinatura do Azure e limite de serviços, cotas e restrições
@@ -74,6 +74,7 @@ Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Gru
 - [Assinatura](#subscription-limits)
 - [Gerenciador de Tráfego](#traffic-manager-limits)
 - [Máquinas virtuais](#virtual-machines-limits)
+- [Conjuntos de Escala de Máquina Virtual](#virtual-machine-scale-sets-limits)
 
 
 ### Limites de assinatura
@@ -91,7 +92,6 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-
 ### Limites de Máquinas virtuais
 #### Limites de Máquina virtual
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
@@ -103,6 +103,9 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+### Limites de conjuntos de escala de máquina virtual
+
+[AZURE.INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Limites de rede
 
@@ -184,13 +187,19 @@ A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
 
 Os tipos de preço determinam a capacidade e os limites de seu serviço de pesquisa. Eles incluem:
 
-- **Gratuito** serviço multilocatário, compartilhado com outros assinantes do Azure, destinado à avaliação e a pequenos projetos de desenvolvimento.
-- **Básico (Preview)** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Atualmente, esse tipo está em Preview e é oferecido por uma taxa reduzida.
-- **Standard (S1 e S2)** destina-se a cargas de trabalho de produção. Uma versão com capacidade maior (**S2**) está disponível mediante solicitação (envie um email para azuresearch_contact@microsoft.com).
+- *Gratuito* serviço multilocatário, compartilhado com outros assinantes do Azure, destinado à avaliação e a pequenos projetos de desenvolvimento.
+- *Básico (Preview)* fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Atualmente, esse tipo está em Preview e é oferecido por uma taxa reduzida.
+- *Standard (S1 e S2)* destina-se a cargas de trabalho de produção. Uma versão com capacidade maior (*S2*) está disponível mediante solicitação (entre em contato com o Suporte ou azuresearch_contact@microsoft.com para obter ajuda).
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
+**Limites de tipo**
 
-Para saber mais sobre outros limites, como tamanho do documento, chaves, solicitações e respostas, veja [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-tier.md)]
+
+**Limites de armazenamento**
+
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-storage.md)]
+
+Para saber mais sobre outros limites, como tamanho do documento, consultas por segundo, chaves, solicitações e respostas, confira [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
 
 ### Limites de Serviços de Mídia
 
@@ -291,4 +300,4 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

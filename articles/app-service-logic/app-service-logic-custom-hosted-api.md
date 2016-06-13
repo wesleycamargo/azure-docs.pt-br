@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Chamar uma API personalizada em Aplicativos Lógicos"
+	pageTitle="Chamar uma API personalizada nos Aplicativos lógicos"
 	description="Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 
 # Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos
 
 Embora os Aplicativos Lógicos tenham um conjunto avançado de mais de 40 conectores para uma gama de serviços, convém chamar a sua própria API personalizada que pode executar seu próprio código. Uma das maneiras mais fáceis e mais escalonáveis de hospedar sua própria API Web personalizada é usar o Serviço de Aplicativo. Este artigo aborda como chamar a API Web hospedada em um aplicativo de API do Serviço de Aplicativo, aplicativo Web ou aplicativo móvel.
 
-Para obter informações sobre a criação de APIs como um gatilho ou ação nos Aplicativos Lógicos, confira [este artigo](app-service-logic-create-api-app.md).
+Para obter informações sobre como compilar as APIs como um gatilho ou ação nos Aplicativos lógicos, confira [este artigo](app-service-logic-create-api-app.md).
 
 ## Implante seu aplicativo Web.
 
-Primeiro, você precisa implantar sua API como um aplicativo Web no Serviço de Aplicativo. Estas instruções abordam a implantação básica: [Criar um aplicativo Web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Embora você possa chamar qualquer API de um Aplicativo Lógico, para ter a melhor experiência possível, é recomendável adicionar metadados do Swagger para integrar facilmente as ações de Aplicativos Lógicos. Você pode encontrar mais detalhes sobre a [adição ao swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
+Primeiro, você precisa implantar sua API como um aplicativo Web no Serviço de Aplicativo. Estas instruções abordam a implantação básica: [Criar um aplicativo Web ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Embora você possa chamar qualquer API a partir de um Aplicativo lógico, para ter a melhor experiência, é recomendável adicionar os metadados Swagger para integrar facilmente com as ações dos Aplicativos lógicos. Você pode encontrar mais detalhes sobre a [adição do swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
 ### Configurações da API
 
-Para o designer de Aplicativos Lógicos analisar o Swagger, é importante habilitar o CORS e definir as propriedades de APIDefinition do seu aplicativo Web. Isso é muito fácil de definir no Portal do Azure. Basta abrir a folha de configurações do seu Aplicativo Web e, na seção da API, configurar a “Definição da API” como a URL do seu arquivo swagger.json (normalmente é https://{name}.azurewebsites.net/swagger/docs/v1)), depois adicionar uma política CORS como “*” para permitir solicitações do Designer de Aplicativos Lógicos.
+Para o designer dos Aplicativos lógicos analisar o Swagger, é importante habilitar o CORS e definir as propriedades APIDefinition do seu aplicativo Web. Isso é muito fácil de definir no Portal do Azure. Basta abrir a folha de configurações do seu Aplicativo Web, na seção da API, configurar a ‘Definição da API’ para a URL do seu arquivo swagger.json (normalmente é https://{name}.azurewebsites.net/swagger/docs/v1)) e adicionar uma política CORS como “*” para permitir solicitações a partir do Designer dos Aplicativos lógicos.
 
 ## Chamando a API
 
-Quando estiver no portal de Aplicativos Lógicos, se você tiver configurado as propriedades do CORS e de Definição da API, você deverá ser capaz de adicionar facilmente ações de API Personalizada ao seu fluxo. No designer, você pode optar que seus sites de assinatura listem os sites com uma URL de swagger definida. Você também pode usar a ação HTTP + Swagger para apontar para um swagger e listar as ações e entradas disponíveis. Por fim, você sempre pode criar uma solicitação usando a ação de HTTP para chamar qualquer API, mesmo aquelas que não têm ou expõem um documento do swagger.
+No portal dos Aplicativos lógicos, se você configurou as propriedades do CORS e da Definição da API, deverá ser capaz de adicionar facilmente as ações da API Personalizada em seu fluxo. No designer, você pode optar que seus sites de assinatura listem os sites com uma URL de swagger definida. Você também pode usar a ação HTTP + Swagger para apontar para um swagger e listar as ações e entradas disponíveis. Por fim, você sempre pode criar uma solicitação usando a ação de HTTP para chamar qualquer API, mesmo aquelas que não têm ou expõem um documento do swagger.
 
 Se desejar proteger sua API, existem algumas maneiras diferentes de fazer isso:
 
@@ -41,7 +41,7 @@ Se desejar proteger sua API, existem algumas maneiras diferentes de fazer isso:
 
 ## Protegendo chamadas à API sem alteração de código
 
-Nesta seção, você vai criar dois aplicativos do Active Directory do Azure, um para o seu Aplicativo Lógico e outro para seu aplicativo Web. Você vai autenticar chamadas para seu aplicativo Web usando a entidade de serviço (id e segredo do cliente) associada ao aplicativo AAD para seu Aplicativo Lógico. Finalmente, você irá incluir os IDs de aplicativo em sua definição do Aplicativo Lógico.
+Nesta seção, você criará dois aplicativos do Azure Active Directory - um para o seu Aplicativo lógico e outro para seu Aplicativo Web. Você irá autenticar as chamadas para seu Aplicativo Web usando a entidade de serviço (id e segredo do cliente) associada ao aplicativo AAD de seu Aplicativo lógico. Finalmente, você irá incluir os IDs de aplicativo em sua definição do Aplicativo Lógico.
 
 ### Parte 1: configurando uma identidade de aplicativo para seu Aplicativo Lógico
 
@@ -116,7 +116,7 @@ Para executar automaticamente uma implantação que implanta ao mesmo tempo um a
 
 [![Implantar no Azure](./media/app-service-logic-custom-hosted-api/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-Para o modelo completo, consulte [Aplicativo Lógico chama uma API personalizada hospedada no Serviço de Aplicativo e protegida por AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
+Para ver o modelo completo, consulte [Chamadas do Aplicativo lógico em uma API Personalizada hospedada no Serviço de Aplicativo e protegida pelo AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
 
 ### Parte 3: popular a seção de autorização no Aplicativo Lógico
@@ -169,4 +169,4 @@ Além disso, se você deseja implementá-lo inteiramente em seu próprio código
 
 Você ainda precisa seguir as etapas acima para criar uma identidade de aplicativo para seu Aplicativo Lógico e usá-la para chamar a API.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

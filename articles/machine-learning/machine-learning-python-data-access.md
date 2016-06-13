@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="05/27/2016" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -108,7 +108,7 @@ Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO
 
 	![Bloco de notas][ipython-dataset]
 
-### <a name="accessingIntermediateDatasets"></a>Acesse os conjuntos intermediários de testes de Aprendizado de Máquina
+## <a name="accessingIntermediateDatasets"></a>Acesse os conjuntos intermediários de testes de Aprendizado de Máquina
 
 Depois de um teste ser executado no Estúdio de Aprendizado de Máquina, é possível acessar os conjuntos de dados intermediários de nós de saída dos módulos. Os conjuntos de dados intermediários são dados que foram criados e usados para etapas intermediárias quando uma ferramenta de modelo tiver sido executada.
 
@@ -367,4 +367,4 @@ Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez d
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

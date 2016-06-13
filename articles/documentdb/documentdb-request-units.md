@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
 #Unidades de Solicitação no Banco de Dados de Documentos
+Agora disponível: [calculadora de unidade de solicitação](https://www.documentdb.com/capacityplanner) do Banco de Dados de Documentos. Saiba mais em [Estimativa das necessidades de produção](documentdb-request-units.md#estimating-throughput-needs).
 
+![Calculadora de produtividade][5]
+
+##Introdução
 Este artigo fornece uma visão geral das unidades de solicitação no [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
 Após ler este artigo, você poderá responder as perguntas a seguir:
@@ -29,14 +33,14 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 
 
 ##Unidades de solicitação e solicitações de encargos
-O Banco de Dados de Documentos fornece desempenho rápido e previsível *reservando* recursos para atender às necessidades de taxa de transferência do aplicativo. Como os padrões de carga e acesso do aplicativo mudam com o tempo, o Banco de Dados de Documentos permite que você aumente ou diminua facilmente a quantidade da taxa de transferência reservada disponível para o aplicativo.
+O Banco de Dados de Documentos fornece desempenho rápido e previsível *reservando* recursos para atender às necessidades de produtividade do aplicativo. Como os padrões de carga e acesso do aplicativo mudam com o tempo, o Banco de Dados de Documentos permite que você aumente ou diminua facilmente a quantidade da taxa de transferência reservada disponível para o aplicativo.
 
-Com o Banco de Dados de Documentos, a taxa de transferência reservada é especificada em termos de unidades de solicitação processadas por segundo. Você pode considerar as unidades de solicitação como a moeda da taxa de transferência, em que você *reserva* uma quantidade de unidades de solicitação garantidas disponíveis para o aplicativo por segundo. Cada operação no Banco de Dados de Documentos (gravar um documento, fazer uma consulta, atualizar um documento) consome CPU, memória e IOPS. Ou seja, cada operação resulta em uma *solicitação de encargo*, que é expressa em *unidades de solicitação*. Ao entender os fatores que afetam os encargos de unidade de solicitação e os requisitos de taxa de transferência do aplicativo, você pode executar o aplicativo da maneira mais econômica possível.
+Com o Banco de Dados de Documentos, a taxa de transferência reservada é especificada em termos de unidades de solicitação processadas por segundo. Você pode considerar as unidades de solicitação como a moeda de produtividade, com as quais você *reserva* uma quantidade de unidades de solicitação garantidas disponíveis para o aplicativo por segundo. Cada operação no Banco de Dados de Documentos (gravar um documento, fazer uma consulta, atualizar um documento) consome CPU, memória e IOPS. Ou seja, cada operação resulta em um *encargo de solicitação*, que é expressa em *unidades de solicitação*. Ao entender os fatores que afetam os encargos de unidade de solicitação e os requisitos de taxa de transferência do aplicativo, você pode executar o aplicativo da maneira mais econômica possível.
 
 ##Especificação da capacidade da unidade de solicitação
 Ao criar uma coleção do Banco de Dados de Documentos, você pode especificar o número de RUs (unidades de solicitação) por segundo que deseja reservar para a coleção. Quando a coleção é criada, a alocação total de RUs especificada é reservada para uso da coleção. Cada coleção tem a garantia de ter características de taxa de transferência dedicadas e isoladas.
 
-É importante observar que o Banco de Dados de Documentos opera em um modelo de reserva. Ou seja, você será cobrado pela quantidade de taxa de transferência *reservada* para a coleção, independentemente da quantidade dessa taxa de transferência que for *usada* ativamente. No entanto, lembre-se de que, à medida que a carga, os dados e os padrões de uso do aplicativo forem alterados, você poderá com facilidade escalar verticalmente e horizontalmente a quantidade de RUs reservadas por meio de SDKs do Banco de Dados de Documentos ou usando o [Portal do Azure](https://portal.azure.com). Para obter mais informações sobre como escalar verticalmente e horizontalmente a taxa de transferência, confira [Níveis de desempenho do Banco de Dados de Documentos](documentdb-performance-levels.md).
+É importante observar que o Banco de Dados de Documentos opera em um modelo de reserva. Ou seja, você será cobrado pela quantidade de produtividade *reservada* para a coleção, independentemente da quantidade dessa produtividade que é *usada* ativamente. No entanto, lembre-se de que, à medida que a carga, os dados e os padrões de uso do aplicativo forem alterados, você poderá escalar vertical e horizontalmente com facilidade a quantidade de RUs reservadas por meio de SDKs do Banco de Dados de Documentos ou usando o [Portal do Azure](https://portal.azure.com). Para obter mais informações sobre como escalar vertical e horizontalmente a produtividade, confira [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
 
 ##Considerações sobre unidades de solicitação
 Ao estimar o número de unidades de solicitação a serem reservadas para a coleção do Banco de Dados de Documentos, é importante considerar as seguintes variáveis:
@@ -54,6 +58,30 @@ Uma unidade de solicitação é uma medida normalizada de custo de processamento
 
 > [AZURE.NOTE] A linha de base de uma unidade de solicitação para um documento de 1 KB corresponde a um GET simples por self link ou id do documento.
 
+###Usar a calculadora de unidade de solicitação
+Para ajudar os clientes a ajustar as estimativas de produtividade, há uma [calculadora de unidade de solicitação](https://www.documentdb.com/capacityplanner) baseada na Web que ajuda a fazer uma estimativa dos requisitos de unidade de solicitação para operações comuns, incluindo:
+
+- Criações de documento (gravações)
+- Leituras de documento
+- Exclusões de documento
+
+Usar a ferramenta é simples:
+
+1. Carregue um ou mais documentos JSON representativos.
+
+	![Carregar documentos na calculadora de unidade de solicitação][2]
+
+2. Insira o número necessário de operações criar, ler e excluir documentos (por segundo).
+
+	![Inserir requisitos de produtividade na calculadora de unidade de solicitação][3]
+
+3. Clique em Calcular e examinar os resultados.
+
+	![Resultados da calculadora de unidade de solicitação][4]
+
+>[AZURE.NOTE]Se você tiver tipos de documento que serão muito diferentes em termos de tamanho e número de propriedades indexadas, carregue uma amostra da cada *tipo* do documento típico na ferramenta e calcule os resultados.
+
+###Usar o cabeçalho de resposta do encargo de solicitação do Banco de Dados de Documentos
 Todas as respostas do serviço Banco de Dados de Documentos incluem um cabeçalho personalizado (x-ms-request-charge) que contém as unidades de solicitação consumidas para a solicitação. Esse cabeçalho também está acessível por meio dos SDKs do Banco de Dados de Documentos. No SDK .NET, RequestCharge é uma propriedade do objeto ResourceResponse. Para consultas, o Gerenciador de Consultas do Banco de Dados de Documentos no portal do Azure fornece informações sobre solicitações de encargo para consultas executadas.
 
 ![Análise de encargos de RU no Gerenciador de Consultas][1]
@@ -178,9 +206,13 @@ Para saber mais sobre a taxa de transferência reservada com o Banco de Dados de
 
 Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](https://azure.microsoft.com/documentation/services/documentdb/) do Banco de Dados de Documentos do Azure.
 
-Para começar com os testes de desempenho e escalabilidade com o Banco de Dados de Documentos, confira [Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure](documentdb-performance-testing.md).
+Para começar com os testes de desempenho e escala com o Banco de Dados de Documentos, confira [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md) (Teste de desempenho e escala com o Banco de Dados de Documentos do Azure).
 
 
 [1]: ./media/documentdb-request-units/queryexplorer.png
+[2]: ./media/documentdb-request-units/RUEstimatorUpload.png
+[3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
+[4]: ./media/documentdb-request-units/RUEstimatorResults.png
+[5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

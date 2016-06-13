@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="05/31/2016"
    ms.author="terrylan"/>
 
 # Perguntas frequentes sobre a Central de Segurança do Azure
@@ -108,12 +108,25 @@ Quando um usuário abre a Central de segurança do Azure, somente as recomendaç
 
 Para editar uma política de segurança, você deve ser um proprietário ou colaborador da assinatura.
 
+## Máquinas Virtuais
+
 ### Quais tipos de máquinas virtuais terão suporte?
 As máquinas virtuais criadas usando os [modelos de implantação clássico e do Gerenciador de Recursos](../azure-classic-rm.md) têm suporte, incluindo as máquinas virtuais que fazem parte dos clusters do Azure Service Fabric.
 
 As recomendações da Lista de Controle de Acesso no momento se aplicam às máquinas virtuais (clássicas). No momento, os Grupos de Segurança de Rede só se aplicam às máquinas virtuais (Gerenciador de Recursos).
 
-### Há suporte para as máquinas virtuais do Linux?
-A linha de base Central de Segurança do Azure oferece monitoramento para as máquinas virtuais do Linux (somente o Ubuntu versões 12.04, 14.04, 14.10 e 15.04). No futuro, o monitoramento de integridade de segurança adicional e a coleta/análise de dados estarão disponíveis, bem como o suporte adicional para distribuições do Linux.
+Máquinas virtuais Windows com suporte:
 
-<!---HONumber=AcomDC_0504_2016-->
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
+
+Máquinas virtuais Linux com suporte:
+
+- Ubuntu versões 12.04, 14.04, 15.10, 16.04
+- Debian versões 7.0, 8.0
+- CentOS versões 6.0, 7.0
+- Red Hat Enterprise Linux (RHEL) versões 6, 7
+- SUSE Linux Enterprise Server (SLES) versões 11, 12
+
+<!---HONumber=AcomDC_0601_2016-->
