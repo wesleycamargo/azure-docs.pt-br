@@ -477,7 +477,7 @@ XML | Cadeia de caracteres
 
 ## Dicas de solução de problemas
 
-****Problema: ** você vê a seguinte **mensagem de erro**: A atividade de cópia encontrou parâmetros inválidos: 'UnknownParameterName', Mensagem detalhada: não é possível localizar o Provedor de Dados do .Net Framework solicitado. Ele pode não estar instalado".
+**Problema:** você vê a seguinte **mensagem de erro**: A atividade de cópia encontrou parâmetros inválidos: 'UnknownParameterName', Mensagem detalhada: não é possível localizar o Provedor de Dados do .Net Framework solicitado. Ele pode não estar instalado".
 
 **Possíveis causas**
 

@@ -58,12 +58,12 @@ Esta é a configuração atual.
 
 Para iniciar sua avaliação do Office 365 FastTrack, é necessário um nome de empresa fictício e uma conta da Microsoft. Recomendamos que você use, como nome da empresa, uma variante do nome da empresa Contoso, que é uma empresa fictícia usada no conteúdo de exemplo da Microsoft, embora isso não seja necessário.
 
-Em seguida, inscreva-se para uma nova conta da Microsoft. Acesse ****http://outlook.com** e crie uma conta com um endereço de email como user123@outlook.com. Você se inscreverá para uma avaliação do Office 365 FastTrack usando essa conta.
+Em seguida, inscreva-se para uma nova conta da Microsoft. Acesse **http://outlook.com** e crie uma conta com um endereço de email como user123@outlook.com. Você se inscreverá para uma avaliação do Office 365 FastTrack usando essa conta.
 
 Em seguida, inscreva-se para obter uma nova versão de avaliação do Office 365 Enterprise E3.
 
 1.	Faça logon em CLIENT1 com as credenciais da conta CORP\\User1.
-2.	Abra o Internet Explorer e acesse ****https://go.microsoft.com/fwlink/p/?LinkID=403802**.
+2.	Abra o Internet Explorer e acesse **https://go.microsoft.com/fwlink/p/?LinkID=403802**.
 3.	Passe pelo processo de inscrição para obter a versão de avaliação do Office 365 Enterprise E3.
 
 Quando for solicitado o **endereço de email comercial**, especifique a nova conta da Microsoft.
@@ -140,7 +140,7 @@ Quando você executa cada comando **New-ADUser** do Windows PowerShell, você se
 
 Em seguida, instale e configure a ferramenta Azure AD Connect no DS1.
 
-1.	Abra o Internet Explorer e digite ****https://www.microsoft.com/download/details.aspx?id=47594** na barra de **Endereços** e pressione Enter.
+1.	Abra o Internet Explorer e digite **https://www.microsoft.com/download/details.aspx?id=47594** na barra de **Endereços** e pressione Enter.
 2.	Execute o programa de instalação do Microsoft Azure AD Connect.
 3.	Na área de trabalho, clique duas vezes em **Azure AD Connect**.
 4.	Na **Página Inicial**, selecione **Concordo com os termos de licença e aviso de privacidade** e clique em **Continuar**.
@@ -165,7 +165,7 @@ Em seguida, demonstre a sincronização de senha do Office 365 com a conta Laura
 3.	Na guia **Atribuir Licença**, escolha um local em **Definir local do usuário** (como Brasil).
 4.	Selecione **Microsoft Office 365 Plano E3** e clique em **Salvar**.
 5.	Feche o Internet Explorer.
-6.	Abra o Internet Explorer e acesse ****http://portal.microsoftonline.com**.
+6.	Abra o Internet Explorer e acesse **http://portal.microsoftonline.com**.
 7.	Faça logon com as credenciais do Office 365 de Laura Cunha. O nome de usuário dela será laurac@<*Seu nome fictício*>.onmicrosoft.com. A senha é a senha da conta de usuário Laura Cunha do Active Directory.
 8.	Após o logon bem-sucedido, você verá a página do portal principal do Office 365 com **Vamos fazer a diferença hoje**.
 

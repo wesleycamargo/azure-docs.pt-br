@@ -199,7 +199,7 @@ Em seguida, configure o SP1 para um novo farm do SharePoint e um site de equipe 
 3.	Na caixa de diálogo que notifica que alguns serviços talvez precisem ser reiniciados durante a configuração, clique em **Sim**.
 4.	Na página Conectar a um farm de servidores, clique em **Criar um novo farm de servidores** e clique em **Avançar**.
 5.	Na página Especificar Definições do Banco de Dados de Configuração, digite **sql1.corp.contoso.com** em **Servidor de Banco de Dados**, digite **CORP\\SPFarmAdmin** em **Nome de usuário**, digite a senha da conta SPFarmAdmin em **Senha** e clique em **Avançar**.
-6.	Na página Especificar Configurações de Segurança do Farm, digite ****P@ssphrase** tanto em **Senha** quanto em **Confirmar senha** e clique em **Avançar**.
+6.	Na página Especificar Configurações de Segurança do Farm, digite **P@ssphrase** tanto em **Senha** quanto em **Confirmar senha** e clique em **Avançar**.
 7.	Na página Configurar Aplicativo Web da Administração Central do SharePoint, clique em **Avançar**.
 8.	Na página Concluindo o Assistente de Configuração de Produtos do SharePoint, clique em **Avançar**. O Assistente de Configuração de Produtos do SharePoint pode levar alguns minutos para ser concluído.
 9.	Na página Configuração Bem-sucedida, clique em **Concluir**. Após a conclusão, o Internet Explorer é iniciado com uma guia chamada Assistente de Configuração Inicial do Farm.
@@ -207,10 +207,10 @@ Em seguida, configure o SP1 para um novo farm do SharePoint e um site de equipe 
 11.	Para **Como você deseja configurar o farm do SharePoint?**, clique em **Iniciar o Assistente**.
 12.	Na página Configurar o farm do SharePoint, em **Conta de serviço**, clique em **Usar conta gerenciada existente**.
 13.	Em **Serviços**, desmarque todas as caixas de seleção exceto a caixa ao lado de **Serviço de Controle de Sessão** e clique em **Avançar**. A página Processando ou Trabalhando nisso pode ser exibida por alguns instantes até ser concluída.
-14.	Na página Criar Coleção de Sites, em **Título e descrição**, digite **Contoso Corporation** em **Título**, especifique a URL ****http://sp1**/ e clique em **OK**. A página Processando ou Trabalhando nisso pode ser exibida por alguns instantes até ser concluída. Esta etapa cria um site de equipe na URL http://sp1.
+14.	Na página Criar Coleção de Sites, em **Título e descrição**, digite **Contoso Corporation** em **Título**, especifique a URL **http://sp1**/ e clique em **OK**. A página Processando ou Trabalhando nisso pode ser exibida por alguns instantes até ser concluída. Esta etapa cria um site de equipe na URL http://sp1.
 15.	Na página Isso conclui o Assistente de Configuração de Farm, clique em **Concluir**. A guia do Internet Explorer mostra o site de Administração Central do SharePoint 2013.
 16.	Faça logon no computador CLIENT1 com as credenciais da conta CORP\\User1 e inicie o Internet Explorer.
-17.	Na barra de endereços, digite ****http://sp1/** e pressione ENTER. Você deve ver o site de equipe do SharePoint da Contoso Corporation. O site pode levar algum tempo para renderizar.
+17.	Na barra de endereços, digite **http://sp1/** e pressione ENTER. Você deve ver o site de equipe do SharePoint da Contoso Corporation. O site pode levar algum tempo para renderizar.
 
 Esta é a configuração atual.
 

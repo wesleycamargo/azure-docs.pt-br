@@ -357,7 +357,9 @@ Cada pessoa para quem um certificado cliente tiver sido emitido deve seguir esta
 * Na caixa de diálogo certificado é aberta, selecione a guia Detalhes
 * Certifique-se de que mostrar está exibindo todos
 * Selecione o campo denominado impressão digital na lista
-* Copie o valor da impressão digital ** Exclua caracteres Unicode não visíveis na frente do primeiro dígito ** Exclua todos os espaços
+* Copie o valor da impressão digital 
+** Exclua caracteres Unicode não visíveis na frente do primeiro dígito 
+** Exclua todos os espaços
 
 ## Configurar clientes Permitidos no arquivo de configuração de serviço
 
