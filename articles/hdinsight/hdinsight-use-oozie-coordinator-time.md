@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="05/26/2016"
 	ms.author="jgao"/>
 
 
 # Usar o coordenador do Oozie com base no tempo com o Hadoop no HDInsight para definir fluxos de trabalho e coordenar trabalhos
 
-Saiba como definir fluxos de trabalho e coordenadores e como disparar os trabalhos do coordenador baseado em tempo. É útil examinar o [Usar o Oozie com o HDInsight][hdinsight-use-oozie] antes deste artigo. Para conhecer a Azure Data Factory, confira [Usar o Pig e o Hive com o Data Factory](../data-factory/data-factory-data-transformation-activities.md).
+Saiba como definir fluxos de trabalho e coordenadores e como disparar os trabalhos do coordenador baseado em tempo. É útil examinar o [Usar o Oozie com o HDInsight][hdinsight-use-oozie] antes deste artigo. Além do Oozie, você também pode agendar trabalhos usando o Azure Data Factory. Para conhecer a Azure Data Factory, confira [Usar o Pig e o Hive com o Data Factory](../data-factory/data-factory-data-transformation-activities.md).
 
 > [AZURE.NOTE] Este artigo requer um cluster HDInsight baseado no Windows. Para obter informações sobre como usar o Oozie, incluindo trabalhos com base no tempo, em um cluster baseado no Linux, consulte [Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no HDInsight baseado em Linux](hdinsight-use-oozie-linux-mac.md)
 
-##<a id="whatisoozie"></a>O que é o Oozie
+##O que é o Oozie
 
 O Apache Oozie é um sistema de fluxo de trabalho/coordenação que gerencia trabalhos do Hadoop. Ele é integrado com a pilha do Hadoop e oferece suporte a trabalhos do Hadoop para o Apache MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Também pode ser usado para agendar trabalhos específicos para um sistema, como programas Java ou scripts de shell.
 
@@ -57,7 +57,7 @@ O fluxo de trabalho contém duas ações:
 > [AZURE.NOTE] Para obter as versões do Oozie com suporte em clusters HDInsight, consulte [Novidades nas versões de clusters fornecidas pelo HDInsight][hdinsight-versions].
 
 
-##<a id="prerequisites"></a>Pré-requisitos
+##Pré-requisitos
 
 Antes de começar este tutorial, você deve ter o seguinte:
 
@@ -65,9 +65,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-    Para executar scripts do Windows PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Para saber mais, confira [Executar scripts do Windows PowerShell][powershell-script].
-
-- **Um cluster HDInsight**. Para saber mais sobre como criar um cluster HDInsight, confira [Provisionar clusters HDInsight][hdinsight-provision] ou [Introdução ao HDInsight][hdinsight-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
+- **Um cluster HDInsight**. Para saber mais sobre como criar um cluster HDInsight, confira [Criar cluster HDInsight][hdinsight-provision] ou [Introdução ao HDInsight][hdinsight-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
 
 	<table border = "1">
 	<tr><th>Propriedade do cluster</th><th>Nome de variável do Windows PowerShell</th><th>Valor</th><th>Descrição</th></tr>
@@ -94,7 +92,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 > [AZURE.NOTE] Preencha os valores nas tabelas. Isso poderá ser útil para percorrer este tutorial.
 
 
-##<a id="defineworkflow"></a>Definir o fluxo de trabalho do Oozie e o script HiveQL relacionado
+##Definir o fluxo de trabalho do Oozie e o script HiveQL relacionado
 
 As definições de fluxos de trabalho do Oozie são escritas em hPDL (uma Linguagem de Definição de Processo XML). O nome do arquivo do fluxo de trabalho padrão é *workflow.xml*. Você salvará o arquivo do fluxo de trabalho localmente e o implantará no cluster HDInsight usando o PowerShell do Azure posteriormente neste tutorial.
 
@@ -241,7 +239,7 @@ A ação do Hive no fluxo de trabalho chama um arquivo de script HiveQL. Esse ar
 
 2. Salve o arquivo como **C:\\Tutorials\\UseOozie\\coordinator.xml** usando a codificação ANSI (ASCII). (Use o Bloco de Notas se o seu editor de texto não fornecer essa opção.)
 
-##<a id="deploy"></a>Implantar o projeto Oozie e preparar-se para o tutorial
+##Implantar o projeto Oozie e preparar-se para o tutorial
 
 Você executará um script do PowerShell do Azure para realizar o seguinte:
 
@@ -378,7 +376,7 @@ Para saber mais, confira [HDInsight: Introdução às tabelas internas e externa
 
 	![Saída de preparação do tutorial][img-preparation-output]
 
-##<a id="run"></a>Executar o projeto Oozie
+##Executar o projeto Oozie
 
 Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabalhos do Oozie. Você pode usar o cmdlet **Invoke-RestMethod** para invocar os serviços Web do Oozie. A API de Serviços Web do Oozie é uma API REST HTTP JSON. Para saber mais sobre a API de Serviços Web do Oozie, confira a [documentação do Apache Oozie 4.0][apache-oozie-400] (para a versão 3.0 do cluster HDInsight) ou a [documentação do Oozie Apache 3.3.2][apache-oozie-332] (para a versão 2.1 do cluster HDInsight).
 
@@ -648,7 +646,7 @@ Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabal
 
 **Para verificar o log de erros do trabalho**
 
-Para solucionar problemas de um fluxo de trabalho, o arquivo de log Oozie pode ser encontrado em C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log do headnode do cluster. Para obter informações sobre o RDP, veja [Administrando clusters HDInsight usando o portal do Azure][hdinsight-admin-portal].
+Para solucionar problemas de um fluxo de trabalho, o arquivo de log Oozie pode ser encontrado em C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log do headnode do cluster. Para saber mais sobre o RDP, veja [Administering HDInsight clusters using the Azure portal][hdinsight-admin-portal] (Administração de clusters HDInsight usando o portal do Azure).
 
 **Para executar o tutorial novamente**
 
@@ -686,7 +684,7 @@ Este é um exemplo de script do Windows PowerShell que você pode usar:
 	$conn.close()
 
 
-##<a id="nextsteps"></a>Próximas etapas
+##Próximas etapas
 Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um coordenador do Oozie e como executar um trabalho de coordenador do Oozie usando o PowerShell do Azure. Para saber mais, consulte os seguintes artigos:
 
 - [Introdução ao HDInsight][hdinsight-get-started]
@@ -743,4 +741,4 @@ Neste tutorial, você aprendeu como definir um fluxo de trabalho do Oozie, um co
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

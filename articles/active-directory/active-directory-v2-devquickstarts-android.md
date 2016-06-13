@@ -23,4 +23,8 @@ O tutorial de início rápido para Android ainda não está totalmente pronto...
 > [AZURE.NOTE]
 	Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+## Obter atualizações de segurança para nossos produtos
+
+Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
+
+<!---HONumber=AcomDC_0601_2016-->

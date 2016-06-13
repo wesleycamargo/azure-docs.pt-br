@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="05/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -76,12 +76,12 @@ Para configurar a integração do HPE SaaS ao AD do Azure, você precisará adic
 	![Aplicativos][4]
 
 6. Na caixa de pesquisa, digite **HPE SaaS**.
-	
+
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_01.png)
 
 7. No painel de resultados, selecione **HPE SaaS** e clique em **Concluir** para adicionar o aplicativo.
 
-![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_02.png)
 
 ##  Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o HPE SaaS, com base em um usuário de teste chamado "Brenda Fernandes".
@@ -117,11 +117,9 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal cl
 	![Configurar o logon único](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_04.png)
 
 
-    a. Na caixa de texto **URL de entrada**, digite a URL usada pelos usuários para fazer logon no seu aplicativo HPE SaaS usando o seguinte padrão: `https://<tenant name>.saas.hpe.com`
+    a. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon no seu aplicativo HPE SaaS: **“https://login.saas.hpe.com/msg”**. Os clientes também podem alterar isso para a URL específica do aplicativo.
 
-    b. Na caixa de texto **URL de resposta**, digite a URL no seguinte padrão: `https://<tenant name>.saas.hpe.com/sp/ACS.saml2`
-
-    c. Clique em **Próximo**.
+    b. Clique em **Próximo**.
 
 
 4. Na página **Configurar logon único no HPE SaaS**, execute as seguintes etapas:
@@ -147,8 +145,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal cl
 
 
 ### Criação de um usuário de teste do AD do Azure
-
-O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes. Na lista de usuários, selecione **Brenda Fernandes**.
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
 
@@ -156,7 +153,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
 
-	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png)
+![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_09.png)
 
 2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 
@@ -164,9 +161,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_03.png)
 
-4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_04.png)
+4. Para abrir o diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
 
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_04.png)
+
+5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_05.png)
 
@@ -176,7 +175,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
     c. Clique em **Próximo**.
 
-6.  Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+6.  Na página do diálogo **Perfil do Usuário**, realize as seguintes etapas:
 
 	![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hpesaas-tutorial/create_aaduser_06.png)
 
@@ -221,7 +220,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 **Para atribuir Brenda Fernandes ao HPE SaaS, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
+1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
 
 	![Atribuir usuário][201]
 
@@ -270,4 +269,4 @@ O objetivo desta seção é testar sua configuração de logon único do Azure A
 [204]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

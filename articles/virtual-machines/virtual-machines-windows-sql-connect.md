@@ -30,8 +30,6 @@ Mas há alguns aspectos da conectividade com o SQL Server que são específicos 
 
 Este artigo tem como foco apresentar as etapas usadas para se conectar a uma VM do SQL Server usando o modelo do Gerenciador de Recursos. Para ver uma apresentação completa sobre provisionamento e conectividade, consulte [Provisionando uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 ## Cenários de conexão
 
 A maneira como um cliente se conecta ao SQL Server em execução em uma máquina virtual varia dependendo do local do cliente e da configuração da máquina/rede. Esses cenários incluem:
@@ -43,7 +41,7 @@ A maneira como um cliente se conecta ao SQL Server em execução em uma máquina
 
 Se você quiser se conectar ao seu mecanismo de banco de dados do SQL Server da Internet, várias etapas deverão ser executadas, por exemplo, configurar o firewall, habilitar a autenticação do SQL e configurar o grupo de segurança de rede. É necessário ter uma regra do Grupo de Segurança de Rede para permitir o tráfego TCP na porta 1433.
 
-Se você usar o portal para provisionar uma imagem de máquina virtual do SQL Server com o gerenciador de recursos, essas etapas serão executadas ao selecionar **Pública** como a opção de conectividade de SQL:
+Se você usar o portal para provisionar uma imagem de máquina virtual do SQL Server com o Gerenciador de Recursos, essas etapas serão executadas ao selecionar **Pública** como a opção de conectividade do SQL:
 
 ![](./media/virtual-machines-windows-sql-connect/sql-vm-portal-connectivity.png)
 
@@ -65,7 +63,7 @@ A [Rede Virtual](../virtual-network/virtual-networks-overview.md) permite cenár
 
 Redes virtuais também permitem que você adicione suas VMs do Azure a um domínio. Essa é a única maneira de usar a autenticação do Windows para o SQL Server. Outros cenários de conexão requerem autenticação SQL com nomes de usuário e senhas.
 
-Se você usar o portal para provisionar uma imagem de máquina virtual do SQL Server com o gerenciador de recursos, as regras de firewall apropriadas para a comunicação na rede virtual serão configuradas ao selecionar **Privada** como a opção de conectividade de SQL. Se isso não foi feito durante o provisionamento, é possível configurar manualmente o SQL Server e suas máquinas virtuais seguindo as [etapas nesse artigo para configurar a conectividade manualmente](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Se você estiver planejando configurar um ambiente de domínio e Autenticação do Windows, não é necessário seguir as etapas nesse artigo para configurar a Autenticação e os logons do SQL. Você também não precisa configurar as regras do Grupo de Segurança de Rede para acesso pela Internet.
+Se você usar o portal para provisionar uma imagem de máquina virtual do SQL Server com o Gerenciador de Recursos, as regras de firewall apropriadas para a comunicação na rede virtual serão configuradas ao selecionar **Privada** como a opção de conectividade do SQL. Se isso não foi feito durante o provisionamento, é possível configurar manualmente o SQL Server e suas máquinas virtuais seguindo as [etapas nesse artigo para configurar a conectividade manualmente](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Se você estiver planejando configurar um ambiente de domínio e Autenticação do Windows, não é necessário seguir as etapas nesse artigo para configurar a Autenticação e os logons do SQL. Você também não precisa configurar as regras do Grupo de Segurança de Rede para acesso pela Internet.
 
 Supondo que tenha configurado o DNS na sua rede virtual, você pode se conectar à instância do SQL Server especificando o nome do computador da VM do SQL Server na cadeia de conexão. O exemplo a seguir também pressupõe que a autenticação do Windows foi configurada e que o usuário recebeu acesso à instância do SQL Server.
 
@@ -100,4 +98,4 @@ Para ver instruções de provisionamento com estas etapas de conectividade, cons
 
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -63,10 +63,10 @@ Para a versão 2.0 ou posterior, os dados padrão que serão coletados incluem:
 
 Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo a seguir.
 
-	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account"
-	}
+    {
+        "storageAccountName" : "the storage account to receive data",
+        "storageAccountKey" : "the key of the account"
+    }
 
 Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
@@ -80,12 +80,15 @@ Para todos os provedores e variáveis que recebem suporte, consulte este [docume
 
 Por padrão, os dados de Rsyslog sempre são coletados.
 
-	{
-      	"perfCfg":[
-           	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
-           	}
-          ]
-	}
+    {
+      	"perfCfg":
+      	[
+      	    {
+      	        "query" : "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+      	        "table" : "LinuxMemory"
+      	    }
+      	]
+    }
 
 
 Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -96,27 +99,29 @@ Esta seção descreve como coletar e carregar arquivos de log específicos em su
 
 Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo conforme descrito no Cenário 1. Crie outro arquivo denominado PublicConfig.json com o conteúdo a seguir.
 
-	{
-      	"fileCfg":[
-           	{"file":"/var/log/mysql.err",
-             "table":"mysqlerr"
-           	}
-          ]
-	}
+    {
+        "fileCfg" : 
+        [
+            {
+                "file" : "/var/log/mysql.err",
+                "table" : "mysqlerr"
+             }
+        ]
+    }
 
 
 Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 
 ###   Cenário 4: Parar a coleta de todos os logs pela extensão
-Esta seção descreve como parar a coleta de todos os logs pela extensão. Observe que o processo do agente de monitoramento ainda estará em execução mesmo com essa reconfiguração. Portanto, se você quiser parar completamente o processo do agente de monitoramento, a extensão deverá ser desinstalada no momento. No futuro, poderemos adicionar uma propriedade de configuração que apenas desabilita a extensão (parando também todo o processo do agente de monitoramento) sem exigir a desinstalação de toda a extensão.
+Esta seção descreve como parar a coleta de todos os logs pela extensão. Observe que o processo do agente de monitoramento ainda estará em execução mesmo com essa reconfiguração. Se quiser parar completamente o processo do agente de monitoramento, você poderá fazer isso desabilitando a extensão. O comando para desabilitar a extensão é **azure vm extension set --disable <vm_name> LinuxDiagnostic Microsoft.OSTCExtensions '2.*'**.
 
 Etapa 1. Crie um arquivo denominado PrivateConfig.json com o conteúdo conforme descrito no Cenário 1. Crie outro arquivo denominado PublicConfig.json com o conteúdo a seguir.
 
-	{
-     	"perfCfg":[],
-     	"enableSyslog":"false"
-	}
+    {
+        "perfCfg" : [],
+        "enableSyslog" : "false"
+    }
 
 
 Etapa 2. Execute **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -139,4 +144,4 @@ Se tiver habilitado fileCfg ou perfCfg especificado nos Cenários 2 e 3, você p
 ## Problemas conhecidos
 - Para a versão 2.0, as informações do Rsyslog e o arquivo de log especificado pelo cliente só podem ser acessados por meio de scripts.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -2,7 +2,8 @@
 	pageTitle="Criar uma VM do Oracle Database com o portal clássico do Azure | Microsoft Azure"
 	description="Saiba como criar uma máquina virtual com um Oracle Database usando o modelo de implantação clássico e o portal do Azure."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 
@@ -12,47 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="Windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 #Criar uma máquina virtual do Oracle Database no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
+[AZURE.INCLUDE [virtual-machines-common-oracle-support](../../includes/virtual-machines-common-oracle-support.md)]
 
-
-O exemplo a seguir mostra como você pode criar uma máquina virtual (VM) com base em uma imagem do Banco de Dados Oracle fornecida pela Microsoft em execução no Windows Server 2012 no Azure. Há duas etapas. Primeiro, crie a VM e depois crie o Banco de Dados Oracle dentro da VM. O exemplo mostrado é a versão do Oracle Database 12c, mas as etapas são praticamente idênticas para a versão 11g.
-
-##Para criar uma VM do Banco de Dados Oracle no Azure
-
-1.	Faça logon no [Portal do Azure](https://ms.portal.azure.com/).
-
-2.	Clique em **Marketplace**, em **Computação** e digite **Oracle** na caixa de pesquisa.
-
-3.	Selecione uma das imagens do Oracle Database disponíveis **versão 11g, versão 12c, Standard Edition, Enterprise Edition ou um dos pacotes de opções populares ou de opções avançadas.** Examine as informações sobre a imagem selecionada (como o tamanho mínimo recomendado) e clique em **Próximo**.
-
-4.	Especifique um **Nome de Host** para a VM.
-
-5.	Especifique um **Nome de Usuário** para a VM. Observe que esse usuário é para fazer logon remotamente na VM; não é o nome de usuário do banco de dados Oracle.
-
-6.	Especifique e confirme uma senha para a máquina virtual ou forneça uma chave pública SSH.
-
-7.	Escolha um **Tipo de Preço**. É importante lembrar que o Tipo de Preço Recomendado é exibido por padrão. Para ver todas as opções de configuração, clique em **Exibir tudo** no canto superior direito.
-
-8.	Defina a configuração opcional conforme o necessário, levando em conta estas considerações:
-
-	a. Deixe **Conta de Armazenamento** como está para criar uma nova conta de armazenamento com o nome da VM.
-
-	b. Deixe **Conjunto de Disponibilidade** como "Não Configurado".
-
-	c. Não adicione nenhum **ponto de extremidade** neste momento.
-
-9.	Escolha ou crie um grupo de recursos.
-
-10. Escolha uma **Assinatura**.
-
-11. Escolha um **Local**.
-
-12. Clique em **Criar** e o processo de criação de uma VM será iniciado. Depois que a VM tiver o status de **Em execução**, continue para o próximo procedimento.
+O exemplo a seguir mostra como você pode criar um Oracle Database em uma VM do Windows Server que você pré-criou e em que instalou o Oracle Database versão 12c. Há duas etapas. Primeiro, conecte a VM e depois crie o Oracle Database dentro da VM. O exemplo mostrado é a versão do Oracle Database 12c, mas as etapas são praticamente idênticas para a versão 11g.
 
 
 ##Para criar o banco de dados usando a VM do Banco de Dados Oracle no Azure
@@ -200,4 +168,4 @@ Agora que você configurou sua máquina virtual e criou o banco de dados, consul
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

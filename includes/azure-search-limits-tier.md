@@ -1,12 +1,10 @@
-Resource|Free|Basic (Preview)|S1|S2
+Recurso|Grátis|Basic (Preview)|S1|S2
 ---|---|---|---|----
-Maximum services at each tier per subscription <sup>1</sup>|1 |12 |12  |1
-Maximum scale per tier <sup>2</sup>|N/A|3 SU (up to 3 replicas and 1 partition)|36 SU|36 SU  
+Máximo de serviços em cada tipo por assinatura <sup>1</sup>|1 |12 |12 |1
+Máximo de escala por tipo <sup>2</sup>|N/D|3 SU (até 3 réplicas e 1 partição)|36 SU|36 SU  
 
-<sup>1</sup> Each service is provisioned at a given pricing tier, with limits on the number of services you can provision at each tier within a single Azure subscription. During the Preview period, tiers are available at an introductory rate of 50% off the full price.
+<sup>1</sup> Cada serviço é provisionado em um determinado tipo de preço, com limites no número de serviços que você pode provisionar em cada tipo em uma única assinatura do Azure. Durante o período de Visualização, os tipos ficam disponíveis por uma taxa introdutória de 50% do preço total.
 
-<sup>2</sup> Scale out limits are defined in terms of Search Units (SU) per tier. Search units are the billable unit for either a **replica** or a **partition**. You need both for storage, indexing, and query operations. Visit [Scale resource levels for query and index workloads](../articles/search/search-capacity-planning.md) for valid combinations of replicas and partitions that stay under the maximum limit of 3 or 36 units, for **Basic** and **Standard** respectively. Because **Free** is based on shared resources used by multiple subscribers, scale out is not provided at this level.
+<sup>2</sup> Os limites de expansão são definidos em termos de SU (Unidades de Pesquisa) por tipo. As unidades de pesquisa são a unidade faturável para uma **réplica** ou uma **partição**. Você precisa de ambas para as operações para armazenamento, indexação e consulta. Visite [Escalar níveis de recurso para cargas de trabalho de consulta e de índice](../articles/search/search-capacity-planning.md) para obter as combinações válidas de réplicas e de partições permanecem no limite máximo de 3 ou de 36 unidades, para **Básico** e **Standard**, respectivamente. Como o **Gratuito** tem base nos recursos compartilhados usados por vários assinantes, a expansão não é fornecida nesse nível.
 
-
-
-
+<!---HONumber=AcomDC_0601_2016-->

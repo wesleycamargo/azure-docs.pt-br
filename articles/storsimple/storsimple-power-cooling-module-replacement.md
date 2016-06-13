@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/21/2016"
+   ms.date="05/25/2016"
    ms.author="alkohli" />
 
 # Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
@@ -155,4 +155,4 @@ Siga estas instruções para instalar um PCM em seu dispositivo StorSimple. Cert
 
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0601_2016-->

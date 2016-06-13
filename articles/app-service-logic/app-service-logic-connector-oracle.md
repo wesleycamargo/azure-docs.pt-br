@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Usando o Conector do Banco de Dados Oracle em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
-   description="Como criar e configurar o Conector do Banco de Dados Oracle ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+   pageTitle="Usando o Conector do Banco de Dados Oracle em Aplicativos lógicos | Serviço de Aplicativo do Microsoft Azure"
+   description="Como criar e configurar o Conector do Banco de Dados Oracle ou o aplicativo de API e usá-lo em um Aplicativo lógico no Serviço de Aplicativo do Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
@@ -13,38 +13,38 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="sameerch"/>
 
 
-# Introdução ao Conector do Banco de Dados Oracle e à adição dele a seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+# Introdução ao conector do banco de dados Oracle e adição dele ao seu Aplicativo lógico
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview dos Aplicativos Lógicos.
 
-Conecte-se a um servidor local de Banco de Dados Oracle para criar e alterar suas informações ou dados. Conectores podem ser usados em Aplicativos de Lógicos para obter, processar ou enviar dados como parte de um “fluxo de trabalho”. Quando usa o Conector do Oracle em seu fluxo de trabalho, você pode chegar a diversos resultados. Por exemplo, você pode:
+Conecte-se a um servidor local de Banco de Dados Oracle para criar e alterar suas informações ou dados. Os conectores podem ser usados nos Aplicativos lógicos para recuperar, processar ou enviar dados como parte de um “fluxo de trabalho”. Quando usa o conector Oracle em seu fluxo de trabalho, pode chegar a diversos cenários. Por exemplo, você pode:
 
 - Expor uma seção dos dados residentes no seu banco de dados Oracle usando um aplicativo Web ou móvel.
 - Inserir dados na tabela do banco de dados Oracle para armazenamento. Por exemplo, você pode inserir registros de funcionários, atualizar ordens de venda e assim por diante.
 - Obter dados do Oracle para uso em um processo comercial. Por exemplo, você pode obter registros do cliente e colocá-los no SalesForce.
 
 
-## Gatilhos e Ações
+## Gatilhos e ações
 *Gatilhos* são eventos que ocorrem. Por exemplo, quando um pedido é atualizado ou quando um novo cliente é adicionado. Uma *Ação* é o resultado do gatilho. Por exemplo, quando uma ordem é atualizada, enviar um alerta para o vendedor. Ou, quando um novo cliente for adicionado, enviar um email de boas-vindas para ele.
 
-O conector do Banco de Dados Oracle pode ser usado como um gatilho ou uma ação em um aplicativo lógico e dá suporte a dados nos formatos JSON e XML. Para cada tabela incluída nas configurações do pacote (falaremos mais sobre isso posteriormente neste tópico), há um conjunto de ações de JSON e um conjunto de ações de XML. Se você estiver usando um gatilho/ação de XML, será possível usar o [Aplicativo de API de Transformação](app-service-logic-transform-xml-documents.md) para converter dados em outro formato de dados XML.
+O conector do Banco de Dados Oracle pode ser usado como um gatilho ou uma ação em um Aplicativo lógico e dá suporte a dados nos formatos JSON e XML. Para cada tabela incluída nas configurações do pacote (falaremos mais sobre isso posteriormente neste tópico), há um conjunto de ações de JSON e um conjunto de ações de XML. Se você estiver usando um gatilho/ação de XML, será possível usar o [Aplicativo de API de Transformação](app-service-logic-transform-xml-documents.md) para converter dados em outro formato de dados XML.
 
-O Conector de Banco de Dados Oracle tem os seguintes Gatilhos e Ações disponíveis:
+O conector do banco de dados Oracle tem os seguintes Gatilhos e Ações disponíveis:
 
 Gatilhos | Ações
 --- | ---
 Sondar dados | <ul><li>Inserir na Tabela</li><li>Atualizar Tabela</li><li>Selecionar da Tabela</li><li>Excluir da Tabela</li><li>Chamar Procedimento Armazenado</li>
 
 
-## Criar um Conector do Banco de Dados Oracle
+## Criar um conector do banco de dados Oracle
 
-Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
+Um conector pode ser criado em um Aplicativo lógico ou diretamente no Azure Marketplace. Para criar um conector no Marketplace:
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
-2. Selecione **Aplicativos de API** e pesquise “Conector de Banco de Dados Oracle”.
+2. Selecione **Aplicativos de API** e pesquise “Conector do banco de dados Oracle”.
 3. Digite o Nome, o Plano do Serviço de Aplicativo e outras propriedades.
 4. Insira as seguintes configurações de pacote:
 
@@ -66,20 +66,20 @@ Instrução de Sondagem de Postagem | Não | Insira a instrução a ser executad
 5. Após a conclusão, as configurações de pacote são semelhantes às seguintes: <br/> ![][1]
 
 
-## Usar o Conector como um Gatilho
-Vamos examinar um aplicativo lógico simples que sonda os dados de uma tabela Oracle, adiciona os dados a outra tabela e os atualiza.
+## Usar o conector como um Gatilho
+Vejamos um Aplicativo lógico simples que sonda os dados em uma tabela Oracle, adiciona os dados a outra tabela e atualiza-os.
 
 ### Adicionar o Gatilho
-1. Ao criar ou editar um aplicativo lógico, selecione o Conector do Oracle criado como o gatilho. Isso lista os gatilhos disponíveis: **Sondar Dados (JSON)** e **Sondar Dados (XML)**: <br/> ![][5]
+1. Ao criar ou editar um Aplicativo lógico, selecione o conector Oracle criado como o gatilho. Isso lista os gatilhos disponíveis: **Sondar Dados (JSON)** e **Sondar Dados (XML)**: <br/> ![][5]
 
 2. Selecione o gatilho **Sondar Dados (JSON)**, insira a frequência e clique em ✓: <br/> ![][6]
 
-3. O gatilho agora aparece conforme configurado no aplicativo lógico. A saída(s) do gatilho será mostrada e pode ser usada como entradas em quaisquer ações posteriores: <br/> ![][7]
+3. Agora, o gatilho aparece conforme configurado no Aplicativo lógico. A saída(s) do gatilho será mostrada e pode ser usada como entradas em quaisquer ações posteriores: <br/> ![][7]
 
-## Usar o Conector como uma Ação
-Uso de nosso aplicativo lógico simples, que sonda os dados de uma tabela Oracle, adiciona os dados a outra tabela e os atualiza.
+## Usar o conector como uma Ação
+Usar nosso Aplicativo lógico simples, que sonda os dados em uma tabela Oracle, adiciona os dados a outra tabela e atualiza-os.
 
-Para usar o Conector do Oracle como uma ação, insira o nome de tabelas e/ou procedimentos armazenados que você inseriu quando criou o Conector do Oracle:
+Para usar o conector Oracle como uma ação, insira o nome das Tabelas e/ou Procedimentos Armazenados que você inseriu quando criou o conector Oracle:
 
 1. Selecione o mesmo conector do Oracle da galeria como uma ação. Selecione uma das ações Inserir, como *Inserir em TempEmployeeDetails (JSON)*: <br/> ![][8]
 
@@ -89,7 +89,7 @@ Para usar o Conector do Oracle como uma ação, insira o nome de tabelas e/ou pr
 
 4. Insira os valores de entrada para a ação de atualização e clique em ✓: <br/> ![][12]
 
-Você pode testar o aplicativo lógico adicionando um novo registro na tabela que está sendo sondada.
+Você pode testar o Aplicativo lógico adicionando um novo registro na tabela que está sendo sondada.
 
 ## Configuração Híbrida
 
@@ -99,14 +99,14 @@ O Serviço de Aplicativo usa o Gerenciador de Configuração Híbrida para se co
 
 Consulte [Usando o Gerenciador de Conexão Híbrida](app-service-logic-hybrid-connection-manager.md).
 
-## Faça mais com seu Conector
-Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+## Fazer mais com seu conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativo lógico](https://tryappservice.azure.com/?appservice=logic), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Confira [Gerenciar e Monitorar seus Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
@@ -120,4 +120,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -21,9 +21,6 @@
 
 O Azure oferece diferentes maneiras de criar uma máquina virtual, pois máquinas virtuais são adequadas para diferentes usuários e finalidades. Isso significa que você precisa tomar algumas decisões sobre a máquina virtual e como criá-la. Este artigo fornece um resumo dessas opções e links para instruções.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
-
 ## Portal do Azure
 
 Usar o portal do Azure é uma maneira fácil de testar uma máquina virtual, especialmente, se estiver se familiarizando com o Azure.
@@ -47,4 +44,4 @@ As máquinas virtuais exigem uma combinação de recursos (como conjuntos de dis
 
 [Implantar recursos do Azure usando bibliotecas de computação, rede e armazenamento do .NET](virtual-machines-windows-csharp.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

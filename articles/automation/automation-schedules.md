@@ -17,7 +17,7 @@
 
 # Agendas na Automação do Azure
 
-As Agendas de automação são usadas para agendar runbooks para serem executados automaticamente. Isso pode ser uma única data e hora para que o runbook seja executado uma vez. Caso contrário, pode ser um agendamento recorrente diário ou por hora para iniciar o runbook várias vezes. As agendas normalmente não são acessadas dos runbooks.
+As Agendas de automação são usadas para agendar runbooks para serem executados automaticamente. Isso pode ser uma única data e hora para que o runbook seja executado uma vez. Ou pode ser um agendamento por hora, diário, semanal ou mensal recorrente para iniciar o runbook várias vezes. As agendas normalmente não são acessadas dos runbooks.
 
 >[AZURE.NOTE]  Atualmente, os agendamentos não dão suporte às configurações DSC de Automação do Azure.
 
@@ -67,4 +67,4 @@ O cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn69027
 ## Veja também
 - [Agendar um runbook na Automação do Azure](automation-scheduling-a-runbook.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

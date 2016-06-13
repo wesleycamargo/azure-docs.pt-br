@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introdução à auditoria do banco de dados do SQL Data Warehouse | Microsoft Azure"
-   description="Introdução à auditoria do banco de dados do SQL Data Warehouse"
+   pageTitle="Auditoria no SQL Data Warehouse do Azure | Microsoft Azure"
+   description="Introdução à auditoria no SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="05/31/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
-# Introdução à auditoria do banco de dados do SQL Data Warehouse
-A Auditoria do SQL Data Warehouse do Azure monitora eventos do banco de dados e grava eventos auditados em um log de auditoria na sua conta de Armazenamento do Azure.
+# Auditoria no Azure SQL Data Warehouse
+A auditoria do SQL Data Warehouse do Azure monitora eventos do banco de dados e grava eventos auditados em um log de auditoria na sua conta de Armazenamento do Azure.
 
 A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
 
@@ -132,13 +132,13 @@ Quando você estiver no modo do Gerenciador de Recursos do Azure, execute `Get-C
 
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing.png
-[2]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-inherit.png
-[3]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-enable.png
-[4]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-storage-account.png
-[5]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing-dashboard.png
+[1]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing.png
+[2]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-inherit.png
+[3]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-enable.png
+[4]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-storage-account.png
+[5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

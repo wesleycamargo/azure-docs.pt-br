@@ -3,7 +3,7 @@
 	description="Recomendações do aprendizado de máquina do Azure - guia de início rápido"
 	services="cognitive-services"
 	documentationCenter=""
-	authors="luisca"
+	authors="luiscabrer"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/14/2016"
+	ms.date="05/26/2016"
 	ms.author="luisca"/>
 
 # Guia de início rápido da API de Recomendações dos Serviços Cognitivos
@@ -129,6 +129,8 @@ Nesta tarefa, você usará o aplicativo de exemplo para criar seu primeiro model
 
 1. Quando o modelo é criado, tome nota da **ID do modelo**, pois você precisará dela para solicitar recomendações em seu ambiente de produção.
 
+>  Saiba mais sobre tipos de build e como avaliar a qualidade dos builds [aqui](cognitive-services-recommendations-buildtypes.md).
+
 <a name="Ex1Task4"></a>
 ### Colocando seu modelo em produção! ###
 
@@ -160,10 +162,10 @@ Veja algumas ideias de locais onde você pode usar as Recomendações:
 Um modelo de recomendações pode usar a ID de usuário como entrada. Ele usará o histórico de transações do usuário para fornecer recomendações personalizadas para o usuário especificado.
 </p>
 
-Confira a [Documentação sobre a obtenção de recomendações de item](http://go.microsoft.com/fwlink/?LinkID=760719).
+Confira a [documentação sobre a obtenção de recomendações de item](http://go.microsoft.com/fwlink/?LinkID=760719).
 
 <a name="Ex1Task6"></a>
 ### O que vem a seguir?
 Parabéns por ter chegado até aqui! Para saber mais, você pode visitar a [Referência da API de Recomendações](http://go.microsoft.com/fwlink/?LinkId=759348) completa. Se tiver dúvidas, não hesite em entrar em contato conosco em mlapi@microsoft.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

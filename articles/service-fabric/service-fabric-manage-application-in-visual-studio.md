@@ -3,7 +3,7 @@
    description="Use o Visual Studio para criar, desenvolver, empacotar, implantar e depurar seus aplicativos e serviços do Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="02/02/2016"
-   ms.author="jesseb"/>
+   ms.author="seanmck"/>
 
 # Usar o Visual Studio para simplificar a escrita e o gerenciamento de seus aplicativos do Service Fabric
 
@@ -97,4 +97,4 @@ Você pode remover o provisionamento de um tipo de aplicativo do seu cluster loc
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0601_2016-->

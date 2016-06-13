@@ -3,8 +3,8 @@
 	description="Saiba como usar o serviço Tabela do PHP para criar e excluir tabelas e inserir, excluir e consultar a tabela."
 	services="storage"
 	documentationCenter="php"
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="allclark"
+	manager="douge"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="robmcm"/>
+	ms.date="06/01/2016"
+	ms.author="allclark;yaqiyang"/>
 
 
 # Como usar o armazenamento de tabela do PHP
@@ -48,9 +48,9 @@ Para usar as APIs do serviço de Tabela do Azure, você precisa:
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
 
-> [AZURE.NOTE] Esse exemplo (e outros exemplos deste artigo) pressupõe que você tenha instalado as Bibliotecas de Cliente do PHP para o Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, você precisa fazer referência ao arquivo de carregador automático <code>WindowsAzure.php</code>.
+> [AZURE.NOTE] Esse exemplo (e outros exemplos deste artigo) pressupõe que você tenha instalado as Bibliotecas de Cliente do PHP para o Azure por meio do Compositor. Se você tiver instalado as bibliotecas manualmente, precisará fazer referência ao arquivo de carregador automático <code>WindowsAzure.php</code>.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
@@ -78,7 +78,7 @@ Para criar qualquer cliente de serviço do Azure, é necessário usar a classe *
 
 Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 
@@ -92,7 +92,7 @@ O objeto **TableRestProxy** permite que você crie uma tabela com o método **cr
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -115,12 +115,12 @@ Para obter informações sobre restrições em nomes de tabelas, consulte [Noç�
 
 Para adicionar uma entidade a uma tabela, crie um novo objeto **Entidade** e passá-lo para **TableRestProxy->insertEntity**. Observe que ao criar uma entidade, você deve especificar um `PartitionKey` e `RowKey`. Estes são os identificadores exclusivos para uma entidade e são os valores que podem ser consultados muito mais rápido que as outras propriedades da entidade. O sistema usa `PartitionKey` para distribuir automaticamente as entidades das tabelas por vários nós de armazenamento. As entidades com a mesma `PartitionKey` são armazenadas no mesmo nó. (As operações em várias entidades armazenadas no mesmo nó são executadas melhor do que em entidades armazenadas em nós diferentes.) `RowKey` é a ID exclusiva de uma entidade dentro de uma partição.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Table\Models\Entity;
-	use WindowsAzure\Table\Models\EdmType;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Table\Models\Entity;
+	use MicrosoftAzure\Storage\Table\Models\EdmType;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -149,12 +149,12 @@ Para obter informações sobre tipos e propriedades de tabelas, consulte [Noçõ
 
 A classe **TableRestProxy** oferece dois métodos alternativos para inserir entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para usar esses métodos, crie uma nova **Entidade** e passe-a como um parâmetro para qualquer método. Cada método vai inserir a entidade se ela não existir. Se a entidade já existir, **insertOrMergeEntity** atualiza os valores de propriedade se as propriedades já existirem e adiciona novas propriedades se elas não existirem, enquanto **insertOrReplaceEntity** substitui completamente uma entidade existente. O exemplo a seguir mostra como usar o **insertOrMergeEntity**. Se a entidade com `PartitionKey` "tasksSeattle" e `RowKey` "1" ainda não existir, ela será inserida. No entanto, se ela tiver sido inserida anteriormente (conforme mostrado no exemplo acima), a propriedade `DueDate` será atualizada e a propriedade `Status` será adicionada. As propriedades `Description` e `Location` também são atualizadas, mas com valores que efetivamente as deixam inalteradas. Se essas duas últimas propriedades não foram adicionadas conforme mostrado no exemplo, mas existiam na entidade de destino, seus valores existentes permaneceriam inalterados.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Table\Models\Entity;
-	use WindowsAzure\Table\Models\EdmType;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Table\Models\Entity;
+	use MicrosoftAzure\Storage\Table\Models\EdmType;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -192,10 +192,10 @@ A classe **TableRestProxy** oferece dois métodos alternativos para inserir enti
 
 O método **TableRestProxy->getEntity** permite que você recupere uma única entidade consultando seu `PartitionKey` e `RowKey`. No exemplo abaixo, a chave da partição `tasksSeattle` e a chave de linha `1` são passadas para o método **getEntity**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -220,10 +220,10 @@ O método **TableRestProxy->getEntity** permite que você recupere uma única en
 
 As consultas de entidades são construídas usando filtros (para obter mais informações, consulte [Consultar tabelas e entidades][filters]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome\_da\_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -252,10 +252,10 @@ As consultas de entidades são construídas usando filtros (para obter mais info
 
 O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades que você recupera é determinado pelo filtro usado (para obter mais informações, consulte [Consultando Tabelas e Entidades][filters]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades com um determinado `Location` e um `DueDate` menor do que uma data especificada.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -284,11 +284,11 @@ O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer
 
 Uma consulta pode recuperar um subconjunto de propriedades da entidade. Essa técnica, chamada *projeção*, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. Para especificar uma propriedade a ser recuperada, passe o nome da propriedade para o método **Consulta->addSelectField**. Você pode chamar esse método várias vezes para adicionar mais propriedades. Depois da execução de **TableRestProxy->queryEntities**, as entidades retornadas somente terão as propriedades selecionadas. (Se você desejar retornar um subconjunto de entidades de tabela, use um filtro conforme as consultas acima.)
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Table\Models\QueryEntitiesOptions;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -322,12 +322,12 @@ Uma consulta pode recuperar um subconjunto de propriedades da entidade. Essa té
 
 Uma entidade existente pode ser atualizada usando os métodos **Entidade->setProperty** e **Entidade->addProperty** na entidade e, em seguida, chamando **TableRestProxy->updateEntity**. O exemplo a seguir recupera uma entidade, modifica uma propriedade, remove outra propriedade e adiciona uma nova propriedade. Observe que você pode remover uma propriedade definindo seu valor como **null**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Table\Models\Entity;
-	use WindowsAzure\Table\Models\EdmType;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Table\Models\Entity;
+	use MicrosoftAzure\Storage\Table\Models\EdmType;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -358,10 +358,10 @@ Uma entidade existente pode ser atualizada usando os métodos **Entidade->setPro
 
 Para excluir uma entidade, passe o nome da tabela e a `PartitionKey` e `RowKey` da entidade para o método **TableRestProxy->deleteEntity**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -394,13 +394,13 @@ O método **TableRestProxy->lote** permite que você execute várias operações
 
 O exemplo a seguir mostra como executar as operações **insertEntity** e **deleteEntity** em uma única solicitação:
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\Table\Models\Entity;
-	use WindowsAzure\Table\Models\EdmType;
-	use WindowsAzure\Table\Models\BatchOperations;
+	use MicrosoftAzure\Storage\Common\ServiceException;
+	use MicrosoftAzure\Storage\Table\Models\Entity;
+	use MicrosoftAzure\Storage\Table\Models\EdmType;
+	use MicrosoftAzure\Storage\Table\Models\BatchOperations;
 
  	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -441,10 +441,10 @@ Para obter mais informações sobre operações de tabela em lotes, consulte [Ex
 
 Finalmente, para excluir uma tabela, passe o nome da tabela para o método **TableRestProxy->deleteTable**.
 
-	require_once 'vendor\autoload.php';
+	require_once 'vendor/autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;
+	use MicrosoftAzure\Storage\Common\ServiceException;
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
@@ -478,4 +478,4 @@ Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

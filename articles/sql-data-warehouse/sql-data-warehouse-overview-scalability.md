@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/28/2016"
+   ms.date="05/26/2016"
    ms.author="barbkess;sonyama"/>
 
 # Escalabilidade de desempenho para o SQL Data Warehouse
@@ -56,7 +56,7 @@ Para obter uma lista das DWUs, consulte os objetivos de nível de serviço no ar
 
 ### Como dimensiono o desempenho?
 
-Para aumentar ou diminuir seu poder de computação, basta alterar a configuração de DWUs (unidades de data warehouse) do banco de dados. Nos bastidores, o SQL Data Warehouse altera as alocações de memória e CPU usando recursos de implantação rápida e simples de Banco de Dados SQL.
+Para aumentar ou diminuir seu poder de computação, basta alterar a configuração de DWUs (unidades de data warehouse) do banco de dados. Nos bastidores, o SQL Data Warehouse interrompe sua instância, altera as alocações de CPU e de memória e reinicia sua instância.
 
 DWUs são alocadas em blocos de 100, mas nem todos os blocos estão disponíveis. Conforme o número de DWUs aumenta, o desempenho aumenta linearmente. Em níveis mais altos de DWU, você precisa adicionar mais de 100 DWUs para notar uma melhoria significativa no desempenho. Para ajudar a selecionar saltos significativos em DWUs, oferecemos os níveis DWU que fornecerão os melhores resultados.
  
@@ -142,13 +142,11 @@ Consulte os artigos a seguir que ajudam a entender alguns dos principais conceit
 [Retomar computação com o PowerShell]: ./sql-data-warehouse-manage-scale-out-tasks-powershell.md#task-3-resume-compute
 [Retomar computação com APIs REST]: ./sql-data-warehouse-manage-scale-out-tasks-rest-api.md#task-3-resume-compute
 
-[modelo de simultaneidade]: sql-data-warehouse-develop-concurrency.md
-[criando tabelas]: sql-data-warehouse-develop-table-design.md
-[escolher uma chave de distribuição de hash para sua tabela]: sql-data-warehouse-develop-hash-distribution-key.md
-[estatísticas para melhorar o desempenho]: sql-data-warehouse-develop-statistics.md
-[development overview]: sql-data-warehouse-overview-develop.md
-
-
+[modelo de simultaneidade]: ./sql-data-warehouse-develop-concurrency.md
+[criando tabelas]: ./sql-data-warehouse-develop-table-design.md
+[escolher uma chave de distribuição de hash para sua tabela]: ./sql-data-warehouse-develop-hash-distribution-key.md
+[estatísticas para melhorar o desempenho]: ./sql-data-warehouse-develop-statistics.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
@@ -157,4 +155,4 @@ Consulte os artigos a seguir que ajudam a entender alguns dos principais conceit
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

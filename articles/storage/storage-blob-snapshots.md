@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="05/27/2016"
 	ms.author="tamram"/>
 
 # Criar um instantâneo de blob
@@ -66,7 +66,9 @@ Usando instantâneos com armazenamento Premium, siga estas regras:
 Este exemplo de código C# cria um novo instantâneo e grava o URI absoluto para o local principal.
 
     //Create the blob service client object.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
     //Get a reference to a container.
@@ -80,6 +82,8 @@ Este exemplo de código C# cria um novo instantâneo e grava o URI absoluto para
     //Create a snapshot of the blob and write out its primary URI.
     CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
     Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+
+
 
 ## Entender como instantâneos acumulam cobranças
 
@@ -125,4 +129,4 @@ No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum do
 
 ![Recursos de Armazenamento do Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

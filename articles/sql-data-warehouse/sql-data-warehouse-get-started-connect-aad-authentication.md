@@ -3,8 +3,8 @@
    description="Saiba como se conectar ao SQL Data Warehouse usando a autenticação do Azure Active Directory."
    services="sql-data-warehouse"
    documentationCenter=""
-   authors="BYHAM"
-   manager="jhubbard"
+   authors="byham"
+   manager="barbkess"
    editor=""
    tags=""/>
 
@@ -14,10 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/11/2016"
-   ms.author="rick.byham@microsoft.com"/>
+   ms.date="05/31/2016"
+   ms.author="rickbyh;barbkess;sonyama"/>
 
 # Conexão ao SQL Data Warehouse usando a autenticação do Azure Active Directory
+
+> [AZURE.SELECTOR]
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
 
 
 A autenticação do Azure Active Directory é um mecanismo de conexão com o SQL Data Warehouse do Microsoft Azure usando identidades no Azure Active Directory (Azure AD). Com a autenticação do Active Directory do Azure, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em um único local central. O gerenciamento central de ID fornece um único local para gerenciar usuários do SQL Data Warehouse e simplifica o gerenciamento de permissões.
@@ -51,6 +56,6 @@ As principais diferenças entre usar autenticação do Azure Active Directory co
   
 ## Próximas etapas 
 - Conclua as etapas detalhadas. As etapas detalhadas para configurar e usar a autenticação do Azure Active Directory são quase idênticas para o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure. Siga as etapas detalhadas no tópico [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
-- Crie funções de banco de dados personalizadas e adicione usuários às funções. Em seguida, conceda permissões granulares para as funções. Para obter mais informações, consulte a [Introdução às Permissões do Mecanismo de Banco de Dados](https://msdn.microsoft.com/library/mt667986.aspx).
+- Crie funções de banco de dados personalizadas e adicione usuários às funções. Em seguida, conceda permissões granulares para as funções. Para obter mais informações, consulte a [Introdução às permissões do mecanismo de banco de dados](https://msdn.microsoft.com/library/mt667986.aspx).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

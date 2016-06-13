@@ -19,8 +19,6 @@
 
 # Configurar um aplicativo LOB baseado na Web em uma nuvem híbrida para teste
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Este tópico orienta a criação de um ambiente de nuvem híbrida para testar um aplicativo de linha de negócios (LOB) baseado na Web, hospedado no Microsoft Azure. Veja abaixo a configuração resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-lob/virtual-machines-windows-ps-hybrid-cloud-test-env-lob-ph3.png)
@@ -128,9 +126,9 @@ Em seguida, integre a SQL1 ao domínio CORP do Active Directory com estes comand
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
-Use a conta CORP\\User1 quando for solicitado a fornecer credenciais de conta de domínio para o comando **Add-Computer**.
+Use a conta CORP\\User1 quando for solicitado a fornecer as credenciais de conta de domínio para o comando **Add-Computer**.
 
-Após a reinicialização, use o portal do Azure para conectar-se ao SQL1 *usando a conta de administrador local*.
+Após a reinicialização, use o Portal do Azure para se conectar ao SQL1 usando a *conta de administrador local*.
 
 Em seguida, configure o SQL Server 2014 para usar a unidade F: para novos bancos de dados e permissões de conta de usuário.
 
@@ -190,7 +188,7 @@ Em seguida, integre a LOB1 ao domínio CORP do Active Directory com estes comand
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
-Use a conta CORP\\User1 quando for solicitado a fornecer credenciais de conta de domínio para o **comando Add-Computer**.
+Use a conta CORP\\User1 quando for solicitado a fornecer as credenciais de conta de domínio para o comando **Add-Computer**.
 
 Após a reinicialização, use o portal do Azure para conectar-se ao LOB1 com a conta e senha CORP\\User1.
 
@@ -220,4 +218,4 @@ Este ambiente agora está pronto para que você implante seu aplicativo baseado 
 
 - Implante o [ambiente de produção](virtual-machines-windows-lob-overview.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

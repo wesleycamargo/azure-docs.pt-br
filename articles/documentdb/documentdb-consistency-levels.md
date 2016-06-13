@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2016"
+	ms.date="05/27/2016"
 	ms.author="mimig"/>
 
 # Usando níveis de consistência para maximizar a disponibilidade e o desempenho no Banco de Dados de Documentos
@@ -66,9 +66,9 @@ A consistência Eventual oferece a consistência de leitura mais fraca, mas ofer
 
 	![Captura de tela realçando o ícone Configurações e a entrada Consistência Padrão](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-5. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
+5. Na folha **Consistência Padrão**, selecione o novo nível de consistência e clique em **OK**.
 
-	![Captura de tela realçando o nível Consistência e o botão Salvar](./media/documentdb-consistency-levels/database-consistency-level-2.png)
+	![Captura de tela realçando o nível Consistência e o botão OK](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## Níveis de consistência para consultas
 
@@ -91,4 +91,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Eventual Consistent - Revisited. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="05/31/2016"
 	ms.author="cabailey"/>
 #Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -60,8 +60,8 @@ Consulte a tabela a seguir para obter uma lista de pré-requisitos para o Traga 
 
 |Requisito|Mais informações|
 |---|---|
-|Uma assinatura do Azure|Para criar um Cofre da Chave do Azure, você precisa de uma assinatura do Azure: [Conecte-se para fazer a avaliação gratuita](../../../../pricing/free-trial)|
-|Um Cofre da Chave do Azure que dá suporte a HSMs|Para obter mais informações sobre os recursos e as camadas de serviço para o Cofre da Chave do Azure, consulte o site [Preços do Cofre da Chave do Azure](../../../../pricing/details/key-vault/).|
+|Uma assinatura do Azure|Para criar um Cofre da Chave do Azure, você precisa de uma assinatura do Azure: [Conecte-se para fazer a avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)|
+|Um Cofre da Chave do Azure que dá suporte a HSMs|Para obter mais informações sobre os recursos e as camadas de serviço para o Cofre da Chave do Azure, consulte o site [Preços do Cofre da Chave do Azure](https://azure.microsoft.com/pricing/details/key-vault/).|
 |HSM da Thales, smartcards e software de suporte|Você deve ter acesso a um módulo de segurança de Hardware da Thales e conhecimento operacional básico dos HSMs da Thales. Consulte [Módulo de segurança de Hardware da Thales](https://www.thales-esecurity.com/msrms/buy) para obter a lista de modelos compatíveis ou para comprar um HSM, se você não tiver um.|
 |O hardware e o software a seguir:<ol><li>Uma estação de trabalho x64 offline com um sistema operacional Windows mínimo do Windows 7 e o software Thales nShield que seja, pelo menos, da versão 11.50.<br/><br/>Se esta estação de trabalho executar o Windows 7, você deverá [instalar o Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está conectada à Internet e tem um sistema operacional Windows mínimo do Windows 7.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha pelo menos 16 MB de espaço livre.</li></ol>|Por motivos de segurança, é recomendável que a primeira estação de trabalho não seja conectada a uma rede. No entanto, isso não é programaticamente aplicado.<br/><br/>Observe que nas instruções a seguir, essa estação de trabalho é chamada de estação de trabalho desconectada.</p></blockquote><br/>Além disso, se a chave de locatário destina-se a uma rede de produção, recomendamos que você use uma segunda estação de trabalho separada para baixar o conjunto de ferramentas e carregar a chave de locatário. Porém, para fins de teste, você pode usar a mesma estação de trabalho que o primeiro.<br/><br/>Observe que nas instruções a seguir, essa segunda estação de trabalho é chamada de estação de trabalho conectada à Internet.</p></blockquote><br/>|
 
@@ -107,7 +107,7 @@ Vá para Centro de Download da Microsoft e [baixe o conjunto de ferramentas BYOK
 
 KeyVault-BYOK-Tools-UnitedStates.zip
 
-D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36
+305F44A78FEB750D1D478F6A0C345B097CD5551003302FA465C73D9497AB4A03
 
 ---
 
@@ -115,7 +115,7 @@ D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36
 
 KeyVault-BYOK-Tools-Europe.zip
 
-81DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3
+C73BB0628B91471CA7F9ADFCE247561C6016A5103EF1A315D49C3EA23AFC0B9C
 
 ---
 
@@ -123,7 +123,7 @@ KeyVault-BYOK-Tools-Europe.zip
 
 KeyVault-BYOK-Tools-AsiaPacific.zip
 
-0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E
+BE9A84B6C76661929F9FDAD627005D892B3B8F9F19F351220BB4F9C356694192
 
 ---
 
@@ -131,7 +131,7 @@ KeyVault-BYOK-Tools-AsiaPacific.zip
 
 KeyVault-BYOK-Tools-LatinAmerica.zip
 	
-B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48
+9E8EE11972DECE8F05CD898AF64C070C375B387CED716FDCB788544AE27D3D23
 
 ---
 
@@ -139,7 +139,7 @@ B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48
 
 KeyVault-BYOK-Tools-Japan.zip
 
-DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113
+E6B88C111D972A02ABA3325F8969C4E36FD7565C467E9D7107635E3DDA11A8B2
 
 ---
 
@@ -147,7 +147,7 @@ DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113
 
 KeyVault-BYOK-Tools-Australia.zip
 
-8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967
+7660D7A675506737857B14F527232BE51DC269746590A4E5AB7D50EDD220675D
 
 ---
 
@@ -155,7 +155,30 @@ KeyVault-BYOK-Tools-Australia.zip
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
-4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8
+53801A3043B0F8B4A50E8DC01A935C2BFE61F94EE027445B65C52C1ACC2B5E80
+
+---
+
+**Canadá:**
+
+KeyVault-BYOK-Tools-Canada.zip
+
+A42D9407B490E97693F8A5FA6B60DC1B06B1D1516EDAE7C9A71AA13E12CF1345
+
+---
+
+**Alemanha:**
+
+KeyVault-BYOK-Tools-Germany.zip
+
+4795DA855E027B2CA8A2FF1E7AE6F03F772836C7255AFC68E576410BDD28B48E
+
+---
+**Índia:**
+
+KeyVault-BYOK-Tools-India.zip
+
+26853511EB767A33CF6CD880E78588E9BBE04E619B17FBC77A6B00A5111E800C
 
 ---
 
@@ -194,7 +217,7 @@ Copie o pacote do conjunto de ferramentas BYOK da unidade USB ou outro armazenam
 
 1. Extraia os arquivos do pacote baixado em qualquer pasta.
 2. Nessa pasta, execute o vcredist\_x64.exe.
-3. Siga as instruções para instalar os componentes de tempo de execução do Visual C++ para o Visual Studio 2012.
+3. Siga as instruções para instalar os componentes de tempo de execução do Visual C++ para o Visual Studio 2013.
 
 ##Etapa 3: Gerar a sua chave
 
@@ -243,10 +266,18 @@ Para validar o pacote baixado:
 	- Para a Austrália:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
-	- Para o [Azure Government](../../../../features/gov/), que usa a instância do governo dos EUA do Azure:
+	- Para o [Azure Government](https://azure.microsoft.com/features/gov/), que usa a instância do governo dos EUA do Azure:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
+	- Para o Canadá:
 
+			python verifykeypackage.py -k BYOK-KEK-pkg-CANADA-1 -w BYOK-SecurityWorld-pkg-CANADA-1
+	- Para a Alemanha:
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
+	- Para a Índia:
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
 	>[AZURE.TIP]O software Thales inclui python em %NFAST\_HOME%\\python\\bin
 
 2.	Confirme que você vê o seguinte, que indica a validação bem-sucedida: **Resultado: SUCCESS**
@@ -305,9 +336,19 @@ Para reduzir as permissões em sua chave, em um prompt de comando, execute um do
 - Para a Austrália:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
-- Para o [Azure Government](../../../../features/gov/), que usa a instância do governo dos EUA do Azure:
+- Para o [Azure Government](https://azure.microsoft.com/features/gov/), que usa a instância do governo dos EUA do Azure:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
+- Para o Canadá:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-CANADA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-CANADA-1
+- Para a Alemanha:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
+- Para a Índia:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+
 
 Quando você executar esse comando, substitua *contosokey* pelo mesmo valor especificado na **Etapa 3.3: Criar uma nova chave** na etapa [Gerar a sua chave](#step-3-generate-your-key).
 
@@ -349,9 +390,19 @@ Execute um dos comandos a seguir, dependendo da sua região geográfica ou da in
 - Para a Austrália:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
-- Para o [Azure Government](../../../../features/gov/), que usa a instância do governo dos EUA do Azure:
+- Para o [Azure Government](https://azure.microsoft.com/features/gov/), que usa a instância do governo dos EUA do Azure:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Para o Canadá:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-CANADA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-CANADA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Para a Alemanha:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Para a Índia:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+
 
 Quando você executar esse comando, use estas instruções:
 
@@ -380,4 +431,4 @@ Se o upload for bem-sucedido, você verá exibidas as propriedades da chave que 
 
 Agora você pode usar essa chave de HSM protegido no Cofre da Chave. Para saber mais, consulte a seção **Se você deseja usar um módulo de segurança de hardware (HSM)** no tutorial [Introdução ao cofre da chave do Azure](key-vault-get-started.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -22,8 +22,6 @@
 
 Este tópico descreve como localizar editores, ofertas, SKUs e versões de cada local no qual você pode implantar. Para dar um exemplo, algumas das imagens mais usadas da VM do Windows são:
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 ## Tabela das imagens do Windows mais usadas
 
 
@@ -47,4 +45,4 @@ Este tópico descreve como localizar editores, ofertas, SKUs e versões de cada 
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

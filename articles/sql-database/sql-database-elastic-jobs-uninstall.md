@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2016" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 #Desinstalar componentes de trabalhos de banco de dados elástico
 Componentes de **trabalhos do banco de dados elástico** podem ser desinstalados usando o Portal ou o PowerShell.
@@ -64,4 +64,4 @@ Para uma visão geral de trabalhos de banco de dados elástico, consulte [Visão
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

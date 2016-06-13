@@ -47,9 +47,7 @@ O gatilho de temporizador lida com a expansão de várias instâncias automatica
 
 ## Formato de expressão de agendamento
 
-A expressão de agendamento pode ser uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui seis campos: {segundo} {minuto} {hora} {dia} {mês} {dia da semana}. Muitos documentos de expressão cron encontrados online omitem o campo {segundo} e, portanto, se você copiar de um deles, terá de ajustar o campo extra.
-
-A expressão de agendamento também pode estar no formato *hh:mm:ss* para especificar o atraso entre cada disparo da função.
+A expressão de agendamento é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui seis campos: {segundo} {minuto} {hora} {dia} {mês} {dia da semana}. Muitos documentos de expressão cron encontrados online omitem o campo {segundo} e, portanto, se você copiar de um deles, terá de ajustar o campo extra.
 
 Veja alguns exemplos de expressão de agendamento.
 
@@ -67,13 +65,6 @@ Para disparar imediatamente e então a cada duas horas depois disso:
 "runOnStartup": true,
 ```
 
-Para disparar a cada 15 segundos:
-
-```json
-"schedule": "00:00:15",
-"runOnStartup": false,
-```
-
 ## Exemplo de código C# de gatilho de temporizador
 
 Este exemplo de código G# grava um único log sempre que a função é disparada.
@@ -89,4 +80,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

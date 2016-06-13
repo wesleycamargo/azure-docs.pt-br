@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="jarrettr"
+	manager="msmbaldwin"
 	editor="na"
 	tags="billing"
 	/>
@@ -15,18 +15,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="05/26/2016"
 	ms.author="genli"/>
 
 # Não consigo fazer logon para gerenciar minha assinatura do Azure
+
+> [AZURE.NOTE]Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) e clique em Obter Suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 Este artigo ajudará a solucionar algumas causas comuns de problemas de logon.
 
 ## Qual portal você está tentando acessar?
 
-Um Administrador da Conta pode acessar apenas o [Centro de Contas](https://account.windowsazure.com/), enquanto os SA (Administradores de Serviço) e CA (Coadministradores) têm acesso apenas ao [portal do Azure](https://portal.azure.com) ou ao [portal clássico do Azure](https://manage.windowsazure.com/).
+Um Administrador da Conta pode acessar apenas o [Centro de Contas](https://account.windowsazure.com/), enquanto os SA (Administradores de Serviço) e CA (Coadministradores) têm acesso apenas ao [Portal do Azure](https://portal.azure.com) ou ao [Portal Clássico do Azure](https://manage.windowsazure.com/).
 
-Para obter mais informações sobre as funções de administrador do Azure, veja [Como adicionar ou alterar funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md).
+Para saber mais sobre as funções de administrador do Azure, confira [Como adicionar ou alterar funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md).
 
 ## Sua assinatura está associada a uma conta da Microsoft ou Institucional?
 
@@ -48,8 +50,8 @@ Agora que é possível fazer logon no Azure com uma conta institucional, aqui es
 |Conta da Microsoft |Sim|Não|Não|
 |Conta organizacional|Sim|Sim|Não|
 
-## Tente excluir cache/cookies usando o modo de Navegação InPrivate do IE e também usando um navegador diferente
+## Há um problema com o Navegador da Internet?
 
-Se você precisar de mais ajuda a qualquer momento neste artigo, poderá contatar os especialistas do Azure nos [fóruns do Azure MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você também pode registrar um incidente de suporte do Azure. Acesse o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em Obter Suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes do Suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Tente excluir cache/cookies usando o modo de Navegação InPrivate do IE e também usando um navegador diferente.
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

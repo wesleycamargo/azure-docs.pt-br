@@ -17,34 +17,34 @@
    ms.workload="na"
    ms.date="03/09/2016"
    ms.author="edlaure"/>
-  
+
 # Como dimensionar os Azure Functions
-     
+
 ## Introdução
 
-Uma das vantagens dos Azure Functions é que os recursos são consumidos somente conforme exigido pelo seu código em execução. Isso significa que você não paga por VMs ociosas nem precisa reservar capacidade para quando precisar. Em vez disso, a plataforma aloca a capacidade de computação quando seu código está em execução, escalando verticalmente conforme necessário para lidar com a carga e reduzindo novamente quando código não estiver mais em execução.
+Uma vantagem do Azure Functions é que os recursos de computação são consumidos apenas quando necessário. Isso significa que você não paga por VMs ociosas nem precisa reservar capacidade quando precisar dela. Em vez disso, a plataforma aloca a capacidade de computação quando seu código está em execução, escala verticalmente conforme necessário para lidar com a carga e reduz verticalmente quando código não está mais em execução.
 
-O mecanismo para essa nova funcionalidade é o Plano de Serviço Dinâmico. Este novo plano de serviço fornece um contêiner dinâmico para o código que escala verticalmente sob demanda, enquanto você é cobrado apenas pela quantidade de memória que seu código usar e o tempo que leva para ele ser executado, medido em Gigabytes por segundo.
+O mecanismo para essa nova funcionalidade é o plano de Serviço Dinâmico.
 
-Este artigo fornece uma visão geral de como p Plano de Serviço Dinâmico funciona e como a plataforma pode ser dimensionada sob demanda para executar seu código.
+Este artigo fornece uma visão geral de como o plano de Serviço Dinâmico funciona e como a plataforma pode ser escalada sob demanda para executar seu código.
 
-Se você ainda não estiver familiarizado com os Azure Functions, confira a [Visão geral dos Azure Functions](functions-overview.md) para entender melhor seus recursos.
+Se você ainda não estiver familiarizado com o Azure Functions, confira o artigo [Visão geral do Azure Functions](functions-overview.md) para entender melhor seus recursos.
 
-## Configurar seu aplicativo de função
+## Configurar o Azure Functions
 
-Há duas configurações principais relacionadas ao dimensionamento:
+Há duas configurações principais relacionadas à escala:
 
-* [Plano de Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) ou Plano de Serviço Dinâmico 
-* Tamanho da memória para o ambiente de execução 
+* [Plano do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) ou plano de Serviço Dinâmico
+* Tamanho da memória para o ambiente de execução
 
-O custo de uma função muda dependendo do tipo de plano de serviço que você selecionar. Com Planos de serviço dinâmico, o custo é uma função do tempo de execução, tamanho da memória e o número de execuções. Mudanças contam apenas quando você está realmente executando o código.
+O custo de uma função muda dependendo do plano de serviço que você seleciona. Com um plano de Serviço Dinâmico, o custo é uma função do tempo de execução, do tamanho da memória e do número de execuções. Cobranças se acumulam apenas quando seu código está realmente em execução.
 
-Os planos de serviço regulares permitem hospedar suas funções em VMs existentes que também podem ser usadas para executar outro código. Depois de pagar por essas VMs cada mês, não há custos adicionais para a execução de funções nelas.
+Um Plano do Serviço de Aplicativo hospeda suas funções em VMs existentes, que também podem ser usadas para executar outro código. Depois de pagar por essas VMs cada mês, não há custos adicionais para a execução de funções nelas.
 
-## Escolhendo um plano de serviço
+## Escolher um plano de serviço
 
-Ao criar aplicativos de funções, você pode optar por executá-los em um Plano de Serviço Dinâmico (novo!) ou em um [Plano de Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) regular. No Plano de Serviço de Aplicativo, suas funções serão executadas em uma VM dedicada, da mesma forma que aplicativos Web funcionam hoje em dia (para SKUs Basic, Standard ou Premium). Essa VM dedicada é alocada para seus aplicativos e/ou funções e está disponível independentemente de qualquer código sendo executado ativamente. Essa será uma boa opção se você tiver VMs existentes que já estão executando outro código, mas que não são totalmente utilizadas, ou se você pretender executar funções de forma contínua ou quase contínua. Usar uma VM desvincula o custo do tempo de execução e do tamanho da memória, permitindo que você limite o custo de um grande número de funções de longo tempo de execução ao custo de uma ou mais VMs nas quais eles são executados.
+Ao criar funções, você pode optar por executá-las em um plano de Serviço Dinâmico ou em um [Plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). No Plano do Serviço de Aplicativo, as funções serão executadas em uma VM dedicada, da mesma forma que aplicativos Web funcionam hoje em dia para SKUs Basic, Standard ou Premium. Essa VM dedicada é alocada para os aplicativos e funções, além de estar sempre disponível, não importando se o código está sendo ativamente executado ou não. Essa será uma boa opção se você tiver VMs subutilizadas que já estão executando outro código, ou se pretende executar funções continuamente ou quase continuamente. Uma VM separa o custo do tempo de execução e do tamanho da memória. Consequentemente, você pode limitar o custo de muitas funções de execução longa para o custo de uma ou mais VMs nas quais elas são executadas.
 
-[AZURE.INCLUDE [Plano de serviço Dinâmico](../../includes/functions-dynamic-service-plan.md)]
+[AZURE.INCLUDE [Plano de Serviço Dinâmico](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

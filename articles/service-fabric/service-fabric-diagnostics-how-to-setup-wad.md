@@ -28,6 +28,8 @@ Essas ferramentas serão usadas para executar algumas das operações neste docu
 * [Gerenciador de Recursos do Azure](../resource-group-overview.md)
 * [PowerShell do Azure](../powershell-install-configure.md)
 * [Cliente do Azure Resource Manager](https://github.com/projectkudu/ARMClient)
+* [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Gerenciador de Recursos do Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
 
 ## Fontes de log diferentes que você talvez queira coletar
 1. **Logs do Service Fabric:** emitidos pela plataforma para canais ETW e EventSource padrões. Os logs podem ser de vários tipos:
@@ -41,7 +43,7 @@ Essas ferramentas serão usadas para executar algumas das operações neste docu
 A primeira etapa para coletar logs será implantar a extensão Diagnóstico em cada uma das VMs no cluster do Service Fabric. A extensão de Diagnóstico coleta logs em cada VM e carrega-os para a conta de armazenamento especificada. As etapas variam um pouco dependendo de se você usa o Portal do Azure ou o Gerenciador de Recursos do Azure e se a implantação está sendo feita como parte da criação do cluster ou para um cluster que já existe. Vejamos as etapas para cada cenário.
 
 ### Implante a extensão de diagnóstico como parte da criação do cluster por meio do portal
-Para implantar o a extensão de diagnóstico nas VMs do cluster como parte da criação do cluster, é usado o painel Configurações de Diagnóstico mostrado na imagem abaixo. Para habilitar a coleta de eventos de Ator ou Serviço Confiável, certifique-se de que o diagnóstico está definido como **Habilitado**, que é a configuração padrão. Depois que o cluster tiver sido criado, essas configurações não poderão ser alteradas usando o portal.
+Para implantar o a extensão de diagnóstico nas VMs do cluster como parte da criação do cluster, é usado o painel Configurações de Diagnóstico mostrado na imagem abaixo. Para habilitar a coleta de eventos de Ator ou Serviço Confiável, certifique-se de que o diagnóstico esteja definido como **Habilitado**, que é a configuração padrão. Depois que o cluster tiver sido criado, essas configurações não poderão ser alteradas usando o portal.
 
 ![Configuração de Diagnóstico do Azure no portal para a criação do cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
@@ -54,10 +56,16 @@ Os Logs de Suporte são **necessários** para a equipe de suporte do Azure poder
 5. Selecione Exportar Modelo para exibir o painel Modelo
 6. Selecione Salvar em arquivo para exportar um arquivo. zip contendo os arquivos de modelo, parâmetro e do PowerShell.
 
-Depois de exportar os arquivos, uma modificação será necessária. Edite o arquivo **parameters.json** e remova o elemento **adminPassword**. Isso fará com que a senha seja solicitada quando o script de implantação for executado.
+Depois de exportar os arquivos, uma modificação será necessária. Edite o arquivo **parameters.json** e remova o elemento **adminPassword**. Isso fará com que a senha seja solicitada quando o script de implantação for executado. Usar o modelo baixado para atualizar uma configuração
+
+1. Extraia o conteúdo para uma pasta no computador local
+2. Modificar o conteúdo para refletir a nova configuração
+3. Inicie o PowerShell e altere para a pasta para a qual você extraiu o conteúdo
+4. Execute **deploy.ps1** e preencha subscriptionId, nome do grupo de recursos (use o mesmo nome para atualizar a configuração) e um nome exclusivo da implantação
+
 
 ### Implante a extensão de diagnóstico como parte da criação do cluster usando o Azure Resource Manager
-Para criar um cluster usando o Gerenciador de recursos, você precisa adicionar a configuração de Diagnóstico JSON para o modelo do Gerenciador de recursos completo do cluster antes de criar o cluster. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure: [cluster cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). Para ver a configuração do Diagnóstico no modelo do Gerenciador de Recursos, abra o arquivo **azuredeploy.json** e procure **IaaSDiagnostics**. Para criar um cluster com este modelo basta pressionar o botão **Implantar no Azure** disponível no link acima.
+Para criar um cluster usando o Gerenciador de recursos, você precisa adicionar a configuração de Diagnóstico JSON para o modelo do Gerenciador de recursos completo do cluster antes de criar o cluster. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure: [cluster cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad). Para ver a configuração do Diagnóstico no modelo do Resource Manager, abra o arquivo **azuredeploy.json** e procure **IaaSDiagnostics**. Para criar um cluster com este modelo basta pressionar o botão **Implantar no Azure** disponível no link acima.
 
 Como alternativa você pode baixar o exemplo de Gerenciador de Recursos, fazer suas alterações e criar um cluster com o modelo modificado usando o comando `New-AzureRmResourceGroupDeployment` em uma janela do Azure PowerShell. Veja as informações abaixo para os parâmetros que você precisará para passar para o comando. Para obter informações detalhadas sobre como implantar um Grupo de Recursos usando o PowerShell, confira o artigo [Implantar recursos com modelos do Azure Resource Manager](../resource-group-template-deploy.md)
 
@@ -67,7 +75,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 ```
 
 ### Implantar a extensão de diagnóstico em um cluster existente
-Se você tiver um cluster existente que não tenha diagnóstico implantado, pode adicioná-lo seguindo estas etapas. Modifique o modelo ARM usado para criar o cluster existente ou baixe o modelo do portal, conforme descrito acima. Modifique o arquivo **template.json** executando as seguintes tarefas:
+Se você tiver um cluster existente que não tenha implantado diagnóstico ou se você quiser modificar uma configuração existente, adicione ou atualize-o seguindo estas etapas. Modifique o modelo ARM usado para criar o cluster existente ou baixe o modelo do portal, conforme descrito acima. Modifique o arquivo **template.json** executando as seguintes tarefas:
 
 Adicione um novo recurso de armazenamento ao modelo, adicionando à seção de recursos.
 
@@ -111,7 +119,7 @@ Adicione um novo recurso de armazenamento ao modelo, adicionando à seção de r
       }
     },
 ```
-Em seguida, atualize a seção *VirtualMachineProfile* do arquivo **template.json**, adicionando o conteúdo a seguir dentro da matriz "extensions": Adicione uma vírgula no início ou no fim, dependendo de onde será inserido.
+Em seguida, atualize a seção *VirtualMachineProfile* do arquivo **template.json**, adicionando o conteúdo a seguir dentro da matriz "extensions". Adicione uma vírgula no início ou no fim, dependendo de onde será inserido.
 
 ##### Adicionar à matriz de extensões de VirtualMachineProfile
 ```json
@@ -169,7 +177,7 @@ Em seguida, atualize a seção *VirtualMachineProfile* do arquivo **template.jso
 }
 ```
 
-Após modificar o arquivo **template.json** conforme descrito, republique o modelo ARM. Se o modelo foi exportado, executar o arquivo **deploy. ps1** republicará o modelo. Após implantar, verifique se o status de *ProvisioningState* é *Succeeded*.
+Após modificar o arquivo **template.json** conforme descrito, republique o modelo ARM. Se o modelo tiver sido exportado, executar o arquivo **deploy.ps1** republicará o modelo. Após implantar, verifique se o status de *ProvisioningState* seja *Succeeded*.
 
 
 ## Atualizar o Diagnóstico para coletar e carregar os logs de novos canais EventSource
@@ -179,4 +187,8 @@ Para atualizar o diagnóstico para coletar logs de novos canais EventSource que 
 ## Próximas etapas
 Verifique os eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md) para entender mais detalhadamente os eventos que você deve examinar na solução de problemas.
 
-<!---HONumber=AcomDC_0525_2016-->
+
+## Artigos relacionados
+* [Aprenda a coletar contadores de desempenho ou logs usando extensões de diagnóstico](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+
+<!---HONumber=AcomDC_0601_2016-->

@@ -26,7 +26,7 @@ Este artigo oferece diretrizes detalhadas sobre como desenvolver aplicativos Spa
 * Para acessar os recursos de cluster do Azure HDInsight Spark
 * Para desenvolver e executar um aplicativo Scala Spark localmente
 
-Você também pode seguir um vide [aqui](https://mix.office.com/watch/1nqkqjt5xonza) para começar.
+Você também pode acompanhar um video [aqui](https://mix.office.com/watch/1nqkqjt5xonza) para começar.
 
 >[AZURE.IMPORTANT] Essa ferramenta pode ser usada para criar e enviar aplicativos apenas para um cluster HDInsight Spark no Linux.
 
@@ -281,4 +281,4 @@ Se você tiver sugestões ou comentários, ou se encontrar problemas ao usar ess
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

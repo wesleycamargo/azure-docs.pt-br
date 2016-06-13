@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/09/2016"
+   ms.date="05/27/2016"
    ms.author="nitinme"/>
 
 # Cenários de dados envolvendo o repositório Azure Data Lake
@@ -132,6 +132,6 @@ Você pode usar uma combinação de serviços para criar representações visuai
 ![Visualizar dados no Repositório Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizar dados no Repositório Data Lake")
 
 * É possível começar usando o [Azure Data Factory para mover dados do Repositório Data Lake para um SQL Data Warehouse do Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
-* Depois disso, você pode [integrar o Power BI ao SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) a fim de criar a representação visual dos dados.
+* Depois disso, você pode [integrar o Power BI ao SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para criar a representação visual dos dados.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2016"
+   ms.date="05/24/2016"
    ms.author="terrylan"/>
 
 # Visão geral de segurança de máquinas virtuais do Azure
@@ -91,7 +91,7 @@ A solução é integrada ao Cofre de Chaves do Azure para ajudá-lo a controlar 
 
 Saiba mais:
 
-- [Criptografia de Disco do Azure para VMs IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0/file/150942/1/Azure%25)
+- [Criptografia de Disco do Azure para VMs IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 - [Azure Disk Encryption for Linux and Windows Virtual Machines](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/) (Azure Disk Encryption para máquinas virtuais Windows e Linux)
 - [Criptografar uma máquina virtual](../security-center/security-center-disk-encryption.md)
 
@@ -157,4 +157,4 @@ Saiba mais:
 - [Microsoft Trust Center: Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx) (Central de Confiabilidade da Microsoft: conformidade)
 - [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf) (A nuvem confiável: segurança, privacidade e conformidade do Microsoft Azure)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

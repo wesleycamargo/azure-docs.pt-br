@@ -267,7 +267,9 @@ Se a biblioteca do cliente de armazenamento aciona uma **StorageException** no c
 
 O exemplo de código abaixo demonstra como definir um valor personalizado de **ClientRequestId** ao anexar um objeto de **OperationContext** na solicitação para o serviço de armazenamento. Isso também mostra como recuperar p valor de **ServerRequestId** de uma mensagem de resposta.
 
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    //Parse the connection string for the storage account.
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
     // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
@@ -924,4 +926,4 @@ Na hora da gravação o Application Insights está em visualização. Você pode
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

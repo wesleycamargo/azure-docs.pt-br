@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="05/27/2016"
    	ms.author="jgao"/>
 
 #Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
@@ -167,7 +167,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
 
 ## Usar a inicialização
 
-Para obter mais informações, consulte [Personalizar clusters do HDInsight usando a Inicialização](hdinsight-hadoop-customize-cluster-bootstrap).
+Para saber mais, confira [Personalizar clusters HDInsight usando a Inicialização](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 Modifique o exemplo em [Criar clusters](#create-clusters) para definir uma configuração de Hive:
 
@@ -348,7 +348,7 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 ###Clusters do HBase
 
 * [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Desenvolvimento de aplicativos Java para HBase no HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Clusters Storm
 
@@ -371,4 +371,4 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 - [Executar trabalhos do Sqoop no HDInsight usando o SDK do .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 - [Executar trabalhos do Oozie no HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

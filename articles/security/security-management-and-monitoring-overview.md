@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Visão geral de monitoramento e gerenciamento de segurança do Azure
@@ -28,7 +28,7 @@ A tabela a seguir resume a proporção de responsabilidade assumida pela Microso
 
 ![Responsabilidade compartilhada][1]
 
-Para uma análise aprofundada do gerenciamento de segurança, veja [Gerenciamento de segurança no Azure](../azure-security-management.md).
+Para uma análise aprofundada do gerenciamento de segurança, veja [Gerenciamento de segurança no Azure](azure-security-management.md).
 
 Aqui estão os principais recursos que serão abordados neste artigo:
 
@@ -134,4 +134,4 @@ Saiba mais:
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

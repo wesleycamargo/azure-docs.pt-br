@@ -415,7 +415,8 @@ Pode gerenciar o acesso do usuário aos recursos do Azure
 
 | **Ações** ||
 | ------- | ------ |
-| */read | Ler recursos de todos os tipos, exceto segredos. | | Microsoft.Authorization/* | Ler autorização |
+| */read | Ler recursos de todos os tipos, exceto segredos. | 
+| Microsoft.Authorization/* | Gerenciar autorização |
 | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 
 ### Colaborador de Máquina Virtual Clássica
@@ -517,4 +518,4 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 - [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
 - [Solução de problemas de Controle de Acesso Baseado em Função](role-based-access-control-troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

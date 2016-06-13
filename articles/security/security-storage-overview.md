@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/26/2016"
    ms.author="terrylan"/>
 
 # Visão geral da segurança do Armazenamento do Azure
@@ -28,7 +28,7 @@ O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativ
 
 Este artigo fornecerá uma visão geral de cada um desses recursos de segurança centrais que podem ser usados com o Armazenamento do Azure. São fornecidos links para artigos que apresentarão detalhes de cada recurso para que você possa saber mais sobre eles.
 
-Para obter uma visão mais detalhada sobre a segurança no Armazenamento do Azure, consulte o [Guia de segurança do Armazenamento do Azure](https://azure.microsoft.com/documentation/articles../storage/storage-security-guide.md).
+Para obter uma visão mais detalhada sobre a segurança no Armazenamento do Azure, consulte o [Guia de segurança do Armazenamento do Azure](../storage/storage-security-guide.md).
 
 Aqui estão os principais recursos que serão abordados neste artigo:
 
@@ -160,4 +160,4 @@ Saiba mais:
 - [Monitorar uma conta de armazenamento no Portal do Azure](../storage/storage-monitor-storage-account.md)
 - [Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem](../storage/storage-e2e-troubleshooting.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

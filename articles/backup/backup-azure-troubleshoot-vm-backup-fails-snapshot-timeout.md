@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="04/27/2016"
-    ms.author="jimpark; markgal"/>
+    ms.author="jimpark; markgal;genli"/>
 
 # Falha no backup de VM do Azure: não foi possível se comunicar com o agente de VM para o status do instantâneo - a subtarefa da VM atingiu o tempo limite
 
@@ -132,4 +132,4 @@ As condições a seguir podem causar a falha da tarefa do instantâneo:
 | A VM está em execução com alto uso de CPU ou memória. | Se a VM estiver em execução com alta utilização de CPU (mais de 90%) ou alto uso de memória, a tarefa do instantâneo será enfieirada e postergada e, eventualmente, atingirá o tempo limite. Nessa situação, tente o backup sob demanda. |
 |A VM não pode obter o endereço do host/malha do DHCP.|O DHCP deve estar habilitado no convidado para que o Backup da VM IaaS funcione. Se a VM não puder obter o endereço do host/malha da resposta DHCP 245, ela não poderá baixar ou executar qualquer extensão. Se você precisar de um endereço IP privado estático, deverá configurá-lo usando a plataforma. A opção DHCP na VM deve ser ativada. Exiba mais informações sobre [Como definir um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

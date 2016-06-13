@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="05/31/2016"
 	ms.author="ashmaka"/>
 
 # Criar um serviço de Pesquisa do Azure usando o portal do Azure
@@ -74,4 +74,4 @@ Após a conclusão do provisionamento do serviço, você pode dimensioná-lo par
 ## Avançar
 Após o provisionamento de um serviço de Pesquisa do Azure, você estará pronto para [definir um índice de Pesquisa do Azure](search-what-is-an-index.md) para que possa carregar e pesquisar os dados.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0601_2016-->

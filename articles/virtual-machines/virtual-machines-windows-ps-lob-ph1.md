@@ -19,8 +19,6 @@
 
 # Carga de trabalho de aplicativo de linha de negócios fase 1: configurar o Azure
  
-[AZURE.INCLUDE [learn-about-deployment-models-rm-include](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
- 
 Nesta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade somente para intranet nos Serviços de Infraestrutura do Azure, você criará as infraestruturas de redes e armazenamento do Azure. Conclua esta fase antes de passar para a [Fase 2](virtual-machines-windows-ps-lob-ph2.md). Consulte [Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-windows-lob-overview.md) para todas as fases.
 
 O Azure deve ser provisionado com os seguintes componentes básicos de rede:
@@ -220,4 +218,4 @@ Esta é a configuração resultante da conclusão bem-sucedida desta fase.
 
 - Use a [Fase 2](virtual-machines-windows-ps-lob-ph2.md) para continuar com a configuração desta carga de trabalho.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
