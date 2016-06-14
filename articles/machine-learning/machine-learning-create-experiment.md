@@ -80,23 +80,23 @@ Um conjunto de dados geralmente requer algum pré-processamento antes de poder s
 
 Primeiro, removeremos a coluna **normalized-losses** e removeremos qualquer linha que tenha dados ausentes.
 
-1. Digite **colunas do projeto** na caixa de pesquisa na parte superior da paleta do módulo para encontrar o módulo [Colunas do Projeto][project-columns] e arraste-o para a tela do experimento a fim de conectá-lo à porta de saída do conjunto de dados **Dados de preço de automóvel (brutos)**. Esse módulo permite selecionar quais colunas de dados desejamos incluir ou excluir no modelo.
+1. Digite **selecionar colunas** na caixa de pesquisa na parte superior da paleta do módulo para encontrar o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e arraste-o para a tela do experimento a fim de conectá-lo à porta de saída do conjunto de dados **Dados de preço de automóvel (brutos)**. Esse módulo permite selecionar quais colunas de dados desejamos incluir ou excluir no modelo.
 
-2. Selecione o módulo [Colunas do Projeto][project-columns] e clique em **Iniciar seletor de coluna** no painel **Propriedades**.
+2. Selecione o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e clique em **Iniciar seletor de coluna** no painel **Propriedades**.
 
-	- Certifique-se de **Todas as colunas** esteja selecionado na lista suspensa de filtros, **Começa com**. Isso instrui [Colunas do Projeto][project-columns] a passar por todas as colunas (exceto por aquelas que estamos prestes a excluir).
+	- Certifique-se de **Todas as colunas** esteja selecionado na lista suspensa de filtros, **Começa com**. Isso instrui [Selecionar Colunas no Conjunto de Dados][select-columns] a passar por todas as colunas (exceto por aquelas que estamos prestes a excluir).
 	- Na próxima linha, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses** e a opção será adicionada à caixa de texto.
 	- Clique no botão de marca de seleção (OK) para fechar o seletor de coluna.
 
     ![Selecionar colunas][screen3]
 
-	O painel de propriedades de **Colunas do Projeto** indica que ele passará por todas as colunas do conjunto de dados exceto por **normalized-losses**.
+	O painel de propriedades de **Selecionar Colunas no Conjunto de Dados** indica que ele passará por todas as colunas do conjunto de dados exceto por **normalized-losses**.
 
-    ![Propriedades de Colunas do Projeto][screen4]
+    ![Propriedades de Selecionar Colunas no Conjunto de Dados][screen4]
 
-    > [AZURE.TIP] É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Nesse caso, clique duas vezes no módulo [Colunas do Projeto][project-columns] e digite o comentário “Excluir perdas normalizadas”.
+    > [AZURE.TIP] É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Nesse caso, clique duas vezes no módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e digite o comentário “Excluir perdas normalizadas”.
 
-3. Arraste o módulo [Limpar valores ausentes][clean-missing-data] até a tela do experimento e conecte-o ao módulo [Colunas do Projeto][project-columns]. No painel de **Propriedades**, selecione **Remover linha inteira** em **Modo de limpeza** para limpar os dados removendo linhas que têm valores ausentes. Clique duas vezes no módulo e digite o comentário “Remover linhas de valor ausente".
+3. Arraste o módulo [Limpar valores ausentes][clean-missing-data] até a tela do experimento e conecte-o ao módulo [Selecionar Colunas no Conjunto de Dados][select-columns]. No painel de **Propriedades**, selecione **Remover linha inteira** em **Modo de limpeza** para limpar os dados removendo linhas que têm valores ausentes. Clique duas vezes no módulo e digite o comentário “Remover linhas de valor ausente".
 
 	![Propriedades de Limpar Dados Ausentes][screen4a]
 
@@ -114,17 +114,17 @@ Agora que os dados estão limpos, estamos prontos para especificar quais recurso
 
 No aprendizado de máquina, *recursos* são propriedades individuais mensuráveis de algo em que você está interessado. Em nosso conjunto de dados, cada linha representa um automóvel e cada coluna é um recurso desse automóvel. Localizar um bom conjunto de recursos para criar um modelo de previsão requer experimentação e conhecimento sobre o problema que você deseja resolver. Alguns recursos são melhores para prever o destino do que outros. Além disso, alguns recursos têm uma forte correlação com outros recursos, (por exemplo, city-mpg versus highway-mpg) portanto, eles não adicionarão muitas novas informações ao modelo e poderão ser removidos.
 
-Vamos criar um modelo que usa um subconjunto dos recursos em nosso conjunto de dados. É possível voltar e selecionar diferentes recursos, executar o experimento novamente e ver se você obtém melhores resultados. Como uma primeira suposição, selecionaremos os recursos (colunas) a seguir com o módulo [Colunas do Projeto][project-columns]. Observe que para treinar o modelo, precisamos incluir o valor *preço* que vamos prever.
+Vamos criar um modelo que usa um subconjunto dos recursos em nosso conjunto de dados. É possível voltar e selecionar diferentes recursos, executar o experimento novamente e ver se você obtém melhores resultados. Como uma primeira suposição, selecionaremos os recursos (colunas) a seguir com o módulo [Selecionar Colunas no Conjunto de Dados][select-columns]. Observe que para treinar o modelo, precisamos incluir o valor *preço* que vamos prever.
 
 	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. Arraste outro módulo [Colunas do Projeto][project-columns] até a tela do experimento e conecte-o à porta de saída à esquerda do módulo [Limpar dados ausentes][clean-missing-data]. Clique duas vezes no módulo e digite “Selecionar recursos de previsão".
+1. Arraste outro módulo [Selecionar Colunas no Conjunto de Dados][select-columns] até a tela do experimento e conecte-o à porta de saída à esquerda do módulo [Limpar Dados Ausentes][clean-missing-data]. Clique duas vezes no módulo e digite “Selecionar recursos de previsão".
 
 2. Clique em **Iniciar seletor de coluna** no painel de **Propriedades**.
 
 3. No seletor de coluna, selecione **Nenhuma coluna** para **Começar com**, em seguida, selecione **Incluir** e **nomes de coluna** na linha do filtro. Insira nossa lista de nomes da coluna. Isso instrui o módulo a percorrer apenas colunas que especificamos.
 
-	> [AZURE.TIP] Como executamos o experimento, as definições de coluna para os dados passaram do conjunto de dados original por meio do módulo [Limpar dados ausentes][clean-missing-data]. Ao conectar [Colunas do Projeto][project-columns] a [Limpar dados ausentes][clean-missing-data], o módulo [Colunas do Projeto][project-columns] torna-se ciente das definições de coluna em nossos dados. Ao clicar na caixa **nomes de colunas**, é exibida uma lista das colunas e você pode selecionar as colunas que deseja adicionar à lista.
+	> [AZURE.TIP] Como executamos o experimento, as definições de coluna para os dados passaram do conjunto de dados original por meio do módulo [Limpar dados ausentes][clean-missing-data]. Ao conectar [Selecionar Colunas no Conjunto de Dados][select-columns] a [Limpar Dados Ausentes][clean-missing-data], o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] torna-se ciente das definições de coluna em nossos dados. Ao clicar na caixa **nomes de colunas**, é exibida uma lista das colunas e você pode selecionar as colunas que deseja adicionar à lista.
 
 4. Clique no botão de marca de seleção (OK).
 
@@ -140,11 +140,11 @@ Agora que os dados estão prontos, construir um modelo preditivo consiste em tre
 
 Desejamos prever o preço de um automóvel, que pode ser qualquer valor, portanto, usaremos um modelo de regressão. Para este exemplo, treinaremos um modelo simples de *regressão linear* e na próxima etapa o testaremos.
 
-1. Podemos usar nossos dados para teste e treinamento dividindo-os em conjuntos separados de treinamento e de teste. Selecione e arraste o módulo [Dividir Dados][split] até a tela do experimento e conecte-o à porta de saída do último módulo [Colunas do Projeto][project-columns]. Configure **Fração de linhas no primeiro conjunto de dados de saída** para 0,75. Desta forma, usaremos 75% dos dados para treinar o modelo e manteremos 25% para teste.
+1. Podemos usar nossos dados para teste e treinamento dividindo-os em conjuntos separados de treinamento e de teste. Selecione e arraste o módulo [Dividir Dados][split] até a tela do experimento e conecte-o à porta de saída do último módulo [Selecionar Colunas no Conjunto de Dados][select-columns]. Configure **Fração de linhas no primeiro conjunto de dados de saída** para 0,75. Desta forma, usaremos 75% dos dados para treinar o modelo e manteremos 25% para teste.
 
 	> [AZURE.TIP] Alterando o parâmetro **Semente aleatória**, é possível produzir amostras aleatórias diferentes para treinamento e teste. Esse parâmetro controla a alimentação do gerador de número pseudoaleatório.
 
-2. Execute o experimento. Isso permite que os módulos [Colunas do Projeto][project-columns] e [Dividir Dados][split] passem pelas definições de coluna para os módulos que incluiremos em seguida.
+2. Execute o experimento. Isso permite que os módulos [Selecionar Colunas no Conjunto de Dados][select-columns] e [Dividir Dados][split] passem pelas definições de coluna para os módulos que incluiremos em seguida.
 
 3. Para selecionar o algoritmo de aprendizado, expanda a categoria **Aprendizado de Máquina** na paleta do módulo à esquerda da tela e expanda **Inicializar Modelo**. Isso exibe várias categorias de módulos que podem ser usados para inicializar os algoritmos de Aprendizado de Máquina.
 
@@ -229,9 +229,9 @@ Para obter um passo a passo maior e detalhado das técnicas de modelagem de prev
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

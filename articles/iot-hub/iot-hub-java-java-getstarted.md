@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/06/2016"
      ms.author="dobett"/>
 
 # Introdução ao Hub IoT do Azure para Java
@@ -163,10 +163,10 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
 3. Usando um editor de texto, abra o arquivo pom.xml na pasta read-d2c-messages e adicione a dependência a seguir ao nó **dependencies**. Isso permite usar o pacote eventhubs-client em seu aplicativo para ler a partir do ponto de extremidade compatível com Hubs de Eventos:
 
     ```
-    <dependency>
-      <groupId>com.microsoft.eventhubs.client</groupId>
-      <artifactId>eventhubs-client</artifactId>
-      <version>1.0</version>
+    <dependency> 
+        <groupId>com.microsoft.azure</groupId> 
+        <artifactId>azure-eventhubs</artifactId> 
+        <version>0.7.1</version> 
     </dependency>
     ```
 
@@ -178,104 +178,119 @@ Nesta seção, você cria um aplicativo do console do Java que lê mensagens do 
 
     ```
     import java.io.IOException;
-    import com.microsoft.eventhubs.client.Constants;
-    import com.microsoft.eventhubs.client.EventHubClient;
-    import com.microsoft.eventhubs.client.EventHubEnqueueTimeFilter;
-    import com.microsoft.eventhubs.client.EventHubException;
-    import com.microsoft.eventhubs.client.EventHubMessage;
-    import com.microsoft.eventhubs.client.EventHubReceiver;
-    import com.microsoft.eventhubs.client.ConnectionStringBuilder;
+    import com.microsoft.azure.eventhubs.*;
+    import com.microsoft.azure.servicebus.*;
+    
+    import java.io.IOException;
+    import java.nio.charset.Charset;
+    import java.time.*;
+    import java.util.Collection;
+    import java.util.concurrent.ExecutionException;
+    import java.util.function.*;
+    import java.util.logging.*;
     ```
 
-7. Adicione as seguintes variáveis no nível da classe à classe **App**:
+7. Adicione as seguintes variáveis no nível da classe à classe **App**. Substitua **{chavedoseuhubiot}**, **{namespacecompatívelcomseuhubdeeventos}** e **{nomecompatívelcomseuhubdeeventos}** pelos valores anotados anteriormente. O valor do espaço reservado **{namespacecompatívelcom seuhubeventos}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **namespacexyz** (em outras palavras, remova o prefixo ****sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal):
 
     ```
-    private static EventHubClient client;
+    private static String namespaceName = "{youreventhubcompatiblenamespace}";
+    private static String eventHubName = "{youreventhubcompatiblename}";
+    private static String sasKeyName = "iothubowner";
+    private static String sasKey = "{youriothubkey}";
     private static long now = System.currentTimeMillis();
     ```
 
-8. Adicione a classe aninhada a seguir à classe **App**. O aplicativo cria dois threads para executar **MessageReceiver** para ler as mensagens das duas partições no Hub de Eventos:
+8. Adicione o método **receiveMessages** a seguir à classe **App**. Esse método cria uma instância **EventHubClient** para conectar-se ao ponto de extremidade compatível com o Hub de Eventos e cria assincronamente uma instância **PartitionReceiver** para ler uma partição do Hub de Eventos. Ele faz um loop contínuo e imprime os detalhes da mensagem até o aplicativo ser encerrado.
 
     ```
-    private static class MessageReceiver implements Runnable
+    private static EventHubClient receiveMessages(final String partitionId)
     {
-        public volatile boolean stopThread = false;
-        private String partitionId;
-    }
-    ```
-
-9. Adicione o seguinte construtor à classe **MessageReceiver**:
-
-    ```
-    public MessageReceiver(String partitionId) {
-        this.partitionId = partitionId;
-    }
-    ```
-
-10. Adicione o método **run** a seguir à classe **MessageReceiver**. Esse método cria uma instância de **EventHubReceiver** para ler em uma partição do Hub de Eventos. Ele fará um loop continuamente e exibirá detalhes da mensagem no console até que **stopThread** seja verdadeiro.
-
-    ```
-    public void run() {
+      EventHubClient client = null;
       try {
-        EventHubReceiver receiver = client.getConsumerGroup(null).createReceiver(partitionId, new EventHubEnqueueTimeFilter(now), Constants.DefaultAmqpCredits);
-        System.out.println("** Created receiver on partition " + partitionId);
-        while (!stopThread) {
-          EventHubMessage message = EventHubMessage.parseAmqpMessage(receiver.receive(5000));
-          if(message != null) {
-            System.out.println("Received: (" + message.getOffset() + " | "
-                + message.getSequence() + " | " + message.getEnqueuedTimestamp()
-                + ") => " + message.getDataAsString());
+        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+        client = EventHubClient.createFromConnectionString(connStr.toString()).get();
+      }
+      catch(Exception e) {
+        System.out.println("Failed to create client: " + e.getMessage());
+        System.exit(1);
+      }
+      try {
+        client.createReceiver( 
+          EventHubClient.DEFAULT_CONSUMER_GROUP_NAME,  
+          partitionId,  
+          Instant.now()).thenAccept(new Consumer<PartitionReceiver>()
+        {
+          public void accept(PartitionReceiver receiver)
+          {
+            System.out.println("** Created receiver on partition " + partitionId);
+            try {
+              while (true) {
+                Iterable<EventData> receivedEvents = receiver.receive().get();
+                int batchSize = 0;
+                if (receivedEvents != null)
+                {
+                  for(EventData receivedEvent: receivedEvents)
+                  {
+                    System.out.println(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s", 
+                      receivedEvent.getSystemProperties().getOffset(), 
+                      receivedEvent.getSystemProperties().getSequenceNumber(), 
+                      receivedEvent.getSystemProperties().getEnqueuedTime()));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
+                      Charset.defaultCharset())));
+                    batchSize++;
+                  }
+                }
+                System.out.println(String.format("Partition: %s, ReceivedBatch Size: %s", partitionId,batchSize));
+              }
+            }
+            catch (Exception e)
+            {
+              System.out.println("Failed to receive messages: " + e.getMessage());
+            }
           }
-        }
-        receiver.close();
+        });
       }
-      catch(EventHubException e) {
-        System.out.println("Exception: " + e.getMessage());
+      catch (Exception e)
+      {
+        System.out.println("Failed to create receiver: " + e.getMessage());
       }
+      return client;
     }
     ```
 
     > [AZURE.NOTE] Esse método usa um filtro ao criar o receptor para que o receptor leia apenas as mensagens enviadas para o Hub IoT após o início da execução do receptor. Isso será útil em um ambiente de teste para que você possa ver o conjunto de mensagens atual, mas em um ambiente de produção, seu código deverá garantir o processamento de todas as mensagens - consulte o tutorial [Como processar as mensagens do dispositivo para a nuvem do Hub IoT][lnk-process-d2c-tutorial] para saber mais.
 
-11. Modifique a assinatura do método **main** para incluir as exceções mostradas abaixo:
+9. Modifique a assinatura do método **main** para incluir a exceção mostrada abaixo:
 
     ```
     public static void main( String[] args ) throws IOException
     ```
 
-12. Adicione o código a seguir ao método **main** na classe **App**. Esse código cria uma instância de **EventHubClient** para conectar o ponto de extremidade compatível com o Hub de Eventos no Hub IoT. Em seguida, ele cria dois threads para ler as duas partições. Substitua **{suachavehubiot}**, **{namespacecompatívelcom seuhubeventos}** e **{nomecompatívelcomseuhub eventos}** pelos valores anotados anteriormente. O valor do espaço reservado **{namespacecompatívelcom seuhubeventos}** é proveniente do **ponto de extremidade compatível com o Hub de Eventos**: ele tem o formato **xxxxnamespace** (em outras palavras, remova o prefixo ****sb://** e o sufixo **.servicebus.windows.net** do valor do ponto de extremidade compatível com o Hub de Eventos do portal).
+10. Adicione o código a seguir ao método **main** na classe **App**. Esse código cria as duas instâncias **EventHubClient** e **PartitionReceiver** e permite que você feche o aplicativo quando terminar o processamento de mensagens:
 
     ```
-    String policyName = "iothubowner";
-    String policyKey = "{youriothubkey}";
-    String namespace = "{youreventhubcompatiblenamespace}";
-    String name = "{youreventhubcompatiblename}";
-    try {
-      ConnectionStringBuilder csb = new ConnectionStringBuilder(policyName, policyKey, namespace);
-      client = EventHubClient.create(csb.getConnectionString(), name);
-    }
-    catch(EventHubException e) {
-        System.out.println("Exception: " + e.getMessage());
-    }
-    
-    MessageReceiver mr0 = new MessageReceiver("0");
-    MessageReceiver mr1 = new MessageReceiver("1");
-    Thread t0 = new Thread(mr0);
-    Thread t1 = new Thread(mr1);
-    t0.start(); t1.start();
-
+    EventHubClient client0 = receiveMessages("0");
+    EventHubClient client1 = receiveMessages("1");
     System.out.println("Press ENTER to exit.");
     System.in.read();
-    mr0.stopThread = true;
-    mr1.stopThread = true;
-    client.close();
+    try
+    {
+      client0.closeSync();
+      client1.closeSync();
+      System.exit(0);
+    }
+    catch (ServiceBusException sbe)
+    {
+      System.exit(1);
+    }
     ```
 
-    > [AZURE.NOTE] Esse código pressupõe que você tenha criado seu hub IoT na camada F1 (gratuita). Um hub IoT gratuito tem duas partições chamadas "0" e "1". Se você criou o hub IoT usando uma das outras camadas de preço, deverá ajustar o código para criar uma **MessageReceiver** para cada partição.
+    > [AZURE.NOTE] Esse código pressupõe que você tenha criado seu hub IoT na camada F1 (gratuita). Um hub IoT gratuito tem duas partições chamadas "0" e "1".
 
-13. Salve e feche o arquivo App.java.
+11. Salve e feche o arquivo App.java.
 
-14. Para compilar o aplicativo **read-d2c-messages** usando o Maven, execute o comando a seguir no prompt de comando na pasta read-d2c-messages:
+12. Para compilar o aplicativo **read-d2c-messages** usando o Maven, execute o comando a seguir no prompt de comando na pasta read-d2c-messages:
 
     ```
     mvn clean package -DskipTests
@@ -442,10 +457,18 @@ Nesta seção, você criará um aplicativo do console do Java que simula um disp
 
 Agora você está pronto para executar os aplicativos.
 
-1. Em um prompt de comando na pasta read-d2c, execute o seguinte comando para iniciar o monitoramento de seu hub IoT:
+1. Em um prompt de comando na pasta read-d2c, execute o seguinte comando para iniciar o monitoramento da primeira partição do seu hub IoT:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="0"
+    ```
+
+    ![][7]
+
+1. Em um prompt de comando na pasta read-d2c, execute o seguinte comando para iniciar o monitoramento da segunda partição do seu hub IoT:
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"  -Dexec.args="1"
     ```
 
     ![][7]
@@ -492,4 +515,4 @@ Neste tutorial, você configurou um novo hub IoT no portal e depois criou uma id
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

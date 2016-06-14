@@ -85,7 +85,7 @@ Os seguintes módulos são limitados a conjuntos de dados com menos de 10 GB:
 - Módulo SMOTE
 - Módulos de script: R, Python, SQL
 - Módulos em que o tamanho dos dados de saída pode ser maior que o tamanho dos dados de entrada, como Join ou Feature Hashing.
-- Validação Cruzada, Parâmetros de Varredura, Regressão Ordinal e Classes múltiplas, um versos todos, quando o número de iterações é muito grande.
+- Validação cruzada, Hiperparâmetros de Modelo de Ajuste, Regressão Ordinal e Classes Múltiplas, um versos todos, quando o número de iterações é muito grande.
 
 Para conjuntos com mais de alguns GB, você deve fazer upload de dados para o armazenamento do Azure ou Banco de Dados SQL do Azure ou usar o HDInsight, em vez de fazer upload diretamente do arquivo local.
 
@@ -95,7 +95,7 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Leitor][reader]. Para uma quantidade maior de dados, transfira-os para o Armazenamento do Azure primeiro e use o módulo [Leitor][reader] para colocá-los em seu teste.
+Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Importar Dados][import-data]. Para uma quantidade maior de dados, transfira-os para o Armazenamento do Azure primeiro e use o módulo [Importar Dados][import-data] para colocá-los em seu teste.
 <!--
 <SEE CLOUD DS PROCESS>
 -->
@@ -227,7 +227,7 @@ Depois que um modelo de previsão for implantado, você poderá monitorá-lo no 
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
-Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode escrevê-lo no Armazenamento de Blobs do Azure. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo [Exportar Dados][writer].
+Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode escrevê-lo no Armazenamento de Blobs do Azure. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo [Exportar Dados][export-data].
 
 **Posso criar serviços Web apenas de modelos criados no Estúdio de Aprendizado de Máquina?**
 
@@ -326,10 +326,10 @@ O Aprendizado de Máquina do Azure também possui um fórum de comunidade no MSD
 [join]: https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/
 [machine-learning-modules]: https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/27/2016"
+	ms.date="06/08/2016"
 	ms.author="marsma"/>
 
 # Introdução ao cliente Python do Lote do Azure
@@ -24,7 +24,7 @@
 
 Conheça os fundamentos do [Lote do Azure][azure_batch] e o cliente [Python do Lote][py_azure_sdk] quando discutirmos um pequeno aplicativo do Lote escrito em Python. Veremos como dois scripts de exemplo aproveitam o serviço Lote para processar uma carga de trabalho paralela em máquinas virtuais Linux na nuvem e como eles interagem com o [Armazenamento do Azure](./../storage/storage-introduction.md) para a preparação e a recuperação de arquivos. Você verá um fluxo de trabalho comum do aplicativo Lote e obterá uma compreensão básica dos principais componentes do Lote, como trabalhos, tarefas, pools e nós de computação.
 
-> [AZURE.NOTE] No momento, o suporte para Linux no Lote está em preview. Alguns aspectos do recurso discutidos aqui podem ser alterados antes da disponibilidade geral. Os [pacotes de aplicativos](batch-application-packages.md) e as [tarefas de várias instâncias](batch-mpi.md) **no momento não têm suporte** em nós de computação do Linux.
+> [AZURE.NOTE] No momento, o suporte para Linux no Lote está em preview. Alguns aspectos do recurso discutidos aqui podem ser alterados antes da disponibilidade geral. Os [pacotes de aplicativos](batch-application-packages.md) **no momento não têm suporte** nos nós de computação do Linux.
 
 ![Fluxo de trabalho da solução do Lote (básico)][11]<br/>
 
@@ -250,9 +250,8 @@ Depois de carregar o script de tarefa e os arquivos de dados na conta do Armazen
                                               _BATCH_ACCOUNT_KEY)
 
  batch_client = batch.BatchServiceClient(
-     batch.BatchServiceClientConfiguration(
-         credentials,
-         base_url=_BATCH_ACCOUNT_URL))
+     credentials,
+     base_url=_BATCH_ACCOUNT_URL)
 ```
 
 Em seguida, um pool de nós de computação é criado na conta do Lote com uma chamada a `create_pool`.
@@ -561,7 +560,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 Quando você executar o script *python\_tutorial\_client.py*, a saída do console será semelhante à seguinte. Você verá uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` enquanto os nós de computação do pool estiverem sendo criados, iniciados, e os comandos na tarefa de inicialização do pool estiverem sendo executados. Use o [portal do Azure][azure_portal] ou o [Gerenciador do Lote][github_batchexplorer] para monitorar o pool, os nós de computação, o trabalho e as tarefas durante e após a execução. Use o [portal do Azure][azure_portal] ou o [Gerenciador do Armazenamento do Microsoft Azure][storage_explorer] para exibir os recursos do Armazenamento (contêineres e blobs) criados pelo aplicativo.
 
-O tempo de execução típico será de **aproximadamente 5 a 7 minutos** quando você executar o aplicativo em sua configuração padrão.
+O tempo de execução típico é de **aproximadamente 5-7 minutos** ao executar o aplicativo em sua configuração padrão.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -599,7 +598,7 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 
 - Examine o artigo [Visão geral dos recursos do Lote do Azure](batch-api-basics.md), que é recomendável se ainda não estiver familiarizado com o serviço.
 - Comece pelos outros artigos de desenvolvimento do Lote em **Desenvolvimento detalhado** no [Roteiro de aprendizagem do Lote][batch_learning_path].
-- Confira uma implementação diferente do processamento da carga de trabalho “N palavras principais” com o Lote no exemplo [TopNWords][github_topnwords]
+- Confira uma implementação diferente do processamento da carga de trabalho “N palavras principais” com o Lote no exemplo [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -665,4 +664,4 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciais do Armazenamento no Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Fluxo de trabalho da solução do Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

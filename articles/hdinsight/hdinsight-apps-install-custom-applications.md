@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="05/24/2016"
+   	ms.date="06/07/2016"
    	ms.author="jgao"/>
 
 # Instalar aplicativos personalizados do HDInsight
@@ -32,7 +32,7 @@ Outros artigos relacionados:
 Se você quiser instalar aplicativos do HDInsight em um cluster HDInsight existente, precisará ter um cluster HDInsight. Para criar um, confira [Criar clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). Você também pode instalar aplicativos do HDInsight quando cria um cluster HDInsight.
 
 
-## Instalar o aplicativo do HDInsight
+## Instalar aplicativos do HDInsight
 
 Os aplicativos do HDInsight podem ser instalados em um cluster HDInsight existente ou durante a criação de um cluster. Para definir modelos do ARM, confira [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
 
@@ -48,7 +48,7 @@ Arquivos necessários para implantar esse aplicativo (Hue):
 
 1. Clique na imagem a seguir para entrar no Azure e abra o modelo ARM no Portal do Azure. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/pt-BR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     Esse botão abre um modelo de ARM no portal do Azure. O modelo do ARM está localizado em [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue). Para aprender a escrever esse modelo do ARM, confira [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
     
@@ -65,11 +65,13 @@ Arquivos necessários para implantar esse aplicativo (Hue):
 
 1. Clique na imagem a seguir para entrar no Azure e abra o modelo ARM no Portal do Azure. 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/pt-BR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     Esse botão abre um modelo de ARM no portal do Azure. O modelo do ARM está localizado em [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json). Para aprender a escrever esse modelo do ARM, confira [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx).
 
 2. Siga as instruções para criar o cluster e instalar o Hue. Para saber mais sobre a criação de clusters HDInsight, confira [Criar clusters Hadoop baseados em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
+Além do portal do Azure, você também pode usar o [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) e a [CLI do Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-azure-cli) chamar modelos do ARM.
 
 ## validar a instalação
 
@@ -87,6 +89,7 @@ Você pode verificar o status do aplicativo no portal do Azure para validar a in
 ## Solucionar problemas de instalação
 
 Você pode verificar o status de instalação do aplicativo da notificação do portal (clique no ícone de sino na parte superior do portal).
+
 
 Se houver falha na instalação de um aplicativo, você poderá ver as mensagens de erro e depurar informações em três locais:
 
@@ -106,11 +109,37 @@ Se houver falha na instalação de um aplicativo, você poderá ver as mensagens
 
     Para saber mais, confira [Solução de problemas](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
+## Remover aplicativos do HDInsight
+
+Há várias maneiras de excluir aplicativos do HDInsight.
+
+### Usar o portal
+
+**Para remover um aplicativo usando o portal**
+
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Clique em **Clusters HDInsight** no menu esquerdo. Se você não consegue ver a opção, clique em **Procurar** e clique em **Clusters HDInsight**.
+3. Clique no cluster em que você instalou o aplicativo.
+4. Na folha **Configurações**, clique em **Aplicativos** na categoria **Geral**. Você deverá ver uma lista de aplicativos instalados. Neste tutorial, **hue** está listado na folha **Aplicativos Instalados**.
+5. Clique no aplicativo que deseja remover e clique em **Excluir**.
+6. Clique em **Sim** para confirmar.
+
+No portal, você também pode excluir o cluster ou excluir o grupo de recursos que contém o aplicativo.
+
+### Usar PowerShell do Azure
+
+Usando o Azure PowerShell, você pode excluir o cluster ou excluir o grupo de recursos. Veja [Excluir clusters usando o Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
+
+### Usar a CLI do Azure
+
+Usando a CLI do Azure, você pode excluir o cluster ou excluir o grupo de recursos. Veja [Excluir clusters usando a CLI do Azure](hdinsight-administer-use-command-line.md#delete-clusters).
+
+
 ## Próximas etapas
 
 - [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): saiba como desenvolver modelos do ARM para implantar aplicativos do HDInsight.
 - [Publicar aplicativos do HDInsight](hdinsight-apps-publish-applications.md): saiba como publicar seus aplicativos personalizados do HDInsight no Azure Marketplace.
-- [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
-- [Personalizar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do ARM para criar clusters HDInsight.
+- [Personalizar clusters HDInsight baseados em Linux usando a Ação de Scrip](hdinsight-hadoop-customize-cluster-linux.md): saiba como usar a Ação de Script para instalar aplicativos adicionais.
+- [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md): saiba como chamar modelos do ARM para criar clusters HDInsight.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

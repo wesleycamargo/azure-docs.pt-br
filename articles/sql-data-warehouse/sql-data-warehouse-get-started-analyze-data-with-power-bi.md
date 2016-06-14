@@ -104,10 +104,10 @@ Agora que proporcionamos a você uma introdução à verificação de dados de e
 [migrar]: ./sql-data-warehouse-overview-migrate.md
 [desenvolver]: ./sql-data-warehouse-overview-develop.md
 [carregar]: ./sql-data-warehouse-overview-load.md
-[carregar dados de exemplo manualmente]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[carregar dados de exemplo manualmente]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [Portal do Azure]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

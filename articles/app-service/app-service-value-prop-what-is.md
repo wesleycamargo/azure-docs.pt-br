@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="O que é o Serviço de Aplicativo do Azure | Microsoft Azure" 
+	pageTitle="Serviço de Aplicativo do Azure para aplicativos Web e aplicativos móveis | Microsoft Azure" 
 	description="Saiba como o Serviço de Aplicativo do Azure ajuda você a desenvolver, implantar e gerenciar aplicativos móveis e da Web." 
 	keywords="serviço de aplicativo, serviço de aplicativo do azure, custo do serviço de aplicativo, escala, escalonável, implantação de aplicativo, implantação de aplicativo do azure, paas, plataforma como serviço"
 	services="app-service" 
@@ -19,69 +19,65 @@
 
 # O que é o Serviço de Aplicativo do Azure?
 
-*Serviço de Aplicativo* é uma oferta de [PaaS (plataforma como serviço)](https://en.wikipedia.org/wiki/Platform_as_a_service) do Microsoft Azure que permite a criação de aplicativos Web e móveis para qualquer plataforma ou dispositivo. Você pode integrar com facilidade seus aplicativos às soluções SaaS (como o Office 365, Dynamics CRM, Salesforce, Twilio), conectar com facilidade aos aplicativos locais (como SAP, Oracle, Siebel) e automatizar facilmente os processos empresariais atendendo às necessidades rígidas de segurança, confiabilidade e escalabilidade.
+O *Serviço de Aplicativo* é uma oferta de [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) (plataforma como serviço) do Microsoft Azure. Crie aplicativos Web e móveis para qualquer plataforma ou dispositivo. Integre seus aplicativos a soluções SaaS, conecte-se com aplicativos locais e automatize os processos de negócios. O Azure executa os aplicativos em VMs (máquinas virtuais) totalmente gerenciadas, com sua escolha de recursos compartilhados de VM ou VMs dedicadas.
 
-O Serviço de Aplicativo inclui os recursos móveis e da Web que antes eram fornecidos separadamente, como os Sites do Azure e os Serviços Móveis do Azure. Ele também inclui novos recursos para automatizar processos empresariais e hospedagem de APIs de nuvem.
+O Serviço de Aplicativo inclui os recursos móveis e da Web que antes eram fornecidos separadamente, como os Sites do Azure e os Serviços Móveis do Azure. Ele também inclui novos recursos para automatizar processos empresariais e hospedagem de APIs de nuvem. Como um único serviço integrado, o Serviço de Aplicativo permite incluir vários componentes (sites, back-ends de aplicativo móvel, APIs RESTful e processos de negócios) em uma única solução.
 
-## Tipos de aplicativo no Serviço de Aplicativo
+O vídeo de quatro minutos a seguir fornece uma breve explicação de como o Serviço de Aplicativo se relaciona às ofertas anteriores do Azure e o que há de novo nele.
 
-O Serviço de Aplicativo oferece os seguintes tipos de aplicativo para executar seus processos de fluxo de trabalho ou código de aplicativo.
-
-- [**Aplicativos Web**](../app-service-web/app-service-web-overview.md) - Para hospedagem de sites e aplicativos Web.
-
-- [**Aplicativos Móveis**](../app-service-mobile/app-service-mobile-value-prop.md) Para hospedagem de back-ends de aplicativo móvel.
-   
-- [**Aplicativos de API**](../app-service-api/app-service-api-apps-why-best-platform.md) - Para hospedagem de APIs de nuvem.
- 
-- [**Aplicativos Lógicos**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - Para automatização do acesso e do uso dos dados nas nuvens, sem a necessidade de escrever código.
-
-O Serviço de Aplicativo, por ser um serviço único integrado, facilita a composição de vários tipos de aplicativo em uma única solução.
-
-## Planos do Serviço de Aplicativo e Ambientes
-
-Os [Planos do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md) representam os recursos de computação sobre os quais seu aplicativo é executado. Nos tipos de preços mais baixos, seus aplicativos são executados em VMs (máquinas virtuais) compartilhadas. Em tipos mais altos, seus aplicativos são executados em VMs dedicadas. Há vários tamanhos de VM para sua escolha, e você pode alterar seu tipo de preço sem qualquer interrupção na atividade. Se você precisar de mais escalabilidade e isolamento de rede, poderá executar seus aplicativos em um [Ambiente do Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-intro.md).
+\+[AZURE.VIDEO app-service-history-lesson] 
 
 ## Por que usar o Serviço de Aplicativo?
 
 Veja alguns recursos importantes do Serviço de Aplicativo:
 
-- **Plataforma totalmente gerenciada** - Aplicação automática de patch no SO e na estrutura, suporte interno para backup e recuperação de desastre. 
+- **Várias linguagens e estruturas** -o Serviço de Aplicativo tem suporte de primeira classe para ASP.NET, Node.js, Java, PHP e Python. Você também pode executar [o Windows PowerShell e outros scripts ou executáveis](../app-service-web/web-sites-create-web-jobs.md) nas VMs do Serviço de Aplicativo.
 
-- **Use suas qualificações atuais** - Codifique em sua linguagem, estrutura e ambiente de desenvolvimento favoritos. O Serviço de Aplicativo oferece suporte para .NET, Node.js, Java, PHP e Python.
+- **Otimização de DevOps** - configure a [implantação e integração contínua](../app-service-web/app-service-continous-deployment.md) com o Visual Studio Team Services, o GitHub ou BitBucket. Promova atualizações por meio de [ambientes de preparo e teste](../app-service-web/web-sites-staged-publishing.md). Execute [testes A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Gerencie aplicativos no Serviço de Aplicativo usando o [Azure PowerShell](../powershell-install-configure.md) ou a [CLI (interface de linha de comando de plataforma cruzada)](../xplat-cli-install.md).
+ 
+- **Escala global com alta disponibilidade** - escale [verticalmente](../app-service/app-service-scale.md) ou [horizontalmente](../azure-portal/insights-how-to-scale.md) de forma manual ou automática. Hospede os aplicativos em qualquer lugar na infraestrutura de datacenter global da Microsoft, e o [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) do Serviço de Aplicativo promete alta disponibilidade.
 
-- **Implantação rápida** - Provisione novos aplicativos e implante o código neles em questão de segundos.
+- **Conexões com plataformas SaaS e dados locais** - escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas corporativos (como SAP, Siebel e Oracle), serviços de SaaS (como Salesforce e Office 365) e serviços de Internet (como Facebook e Twitter). Acesse dados locais usando [Conexões Híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e [Redes Virtuais do Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
-- **Integração contínua** - Configure a [integração contínua e a implantação](../app-service-web/app-service-continous-deployment.md) com o Visual Studio Team Services, o GitHub ou o BitBucket.
+- **Segurança e conformidade** - o Serviço de Aplicativo está em [conformidade com ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/).
 
-- **Ambientes de preparo e teste** ‒ Implemente a [implantação de teste](../app-service-web/web-sites-staged-publishing.md) para verificar o código em um ambiente de pré-produção que é idêntico a seu ambiente de produção. Quando estiver pronto, lance uma nova versão do aplicativo sem tempo de inatividade executando uma operação de permuta.
+- **Modelos de aplicativos** - escolha dentre uma lista abrangente de modelos de aplicativos no [Azure Marketplace](https://azure.microsoft.com/marketplace/) que permitem usar um assistente para instalar vários tipos populares de software livre, como WordPress, Joomla e Drupal.
 
-- **Testes em produção** ‒ Leve as implantações de teste para o próximo patamar e [execute testes A/B](../app-service-web/app-service-web-test-in-production-get-start.md) para verificar o novo código com uma fração configurável do tráfego ativo.
+- **Integração do visual Studio** -ferramentas dedicadas no Visual Studio simplificam o trabalho de criar, implantar, depurar e gerenciar.
 
-- **Autenticação e autorização** - Proteja um aplicativo contra o acesso não autenticado sem alterações em seu código. Os serviços de autenticação internos protegem seus aplicativos para que sejam acessados por usuários, por clientes que representam os usuários ou por serviços. Os provedores de identidade com suporte incluem Azure Active Directory, Facebook, Twitter, Google e Conta da Microsoft. Para saber mais, confira [Autenticação e autorização no Serviço de Aplicativo do Azure](app-service-authentication-overview.md).
+## Tipos de aplicativo no Serviço de Aplicativo
 
-- **Conecte-se a qualquer serviço** - Conecte seu aplicativo aos sistemas corporativos ou plataformas SaaS (software como serviço) em questão de minutos com os [conectores](../connectors/apis-list.md) internos. Escolha entre mais de 50 conectores para os sistemas corporativos, como SAP, Siebel e Oracle, serviços de SaaS corporativo populares, como o Salesforce e Office 365, e serviços de Internet populares, como o Facebook, Twitter e Dropbox.
+O Serviço de Aplicativo oferece vários *tipos de aplicativo*, cada um dos quais se destina a hospedar um tipo específico de carga de trabalho:
 
-- **Escala global** - Escale [vertical](../app-service/app-service-scale.md) ou [horizontalmente](../azure-portal/insights-how-to-scale.md) a fim de lidar com qualquer carga de cliente recebida. Selecione manualmente o número e tamanho das VMs ou configure o dimensionamento automático com base na carga ou no cronograma. A infraestrutura de datacenter global da Microsoft hospeda os aplicativos e facilita a replicação dos dados e a hospedagem de serviços em vários locais.
+- [**Aplicativos Web**](../app-service-web/app-service-web-overview.md) - para hospedagem de sites e aplicativos Web.
 
-- **Nível empresarial** ‒ O Serviço de Aplicativo foi projetado para compilar e hospedar aplicativos críticos seguros. Compile aplicativos de negócios integrados do Active Directory que se conectam com segurança a recursos locais e hospede-os em uma plataforma de nuvem segura em conformidade com [ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/). Tudo isso com um [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) de nível corporativo.
+- [**Aplicativos Móveis**](../app-service-mobile/app-service-mobile-value-prop.md) - para hospedagem de back-ends de aplicativos móveis.
+   
+- [**Aplicativos de API**](../app-service-api/app-service-api-apps-why-best-platform.md) - para hospedagem de APIs de nuvem.
+ 
+- [**Aplicativos Lógicos**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - para automatização do acesso e do uso de dados entre nuvens, sem a necessidade de escrever código.
 
-- **Azure Marketplace** ‒ Escolha em uma [lista cada vez maior de modelos de aplicativos](https://azure.microsoft.com/marketplace/). Aproveite o melhor da comunidade de aplicativos OSS com a instalação com um clique de pacotes, como WordPress, Joomla e Drupal.
+A palavra *aplicativo* aqui refere-se aos recursos de hospedagem dedicados à execução de uma carga de trabalho. Usando "aplicativo Web" como exemplo, você provavelmente já está acostumado a pensar em um aplicativo Web como os recursos de computação e o código do aplicativo que, juntos, fornecem funcionalidade a um navegador. Porém, no Serviço de Aplicativo, um *aplicativo Web* consiste nos recursos de computação que o Azure fornece para hospedar o código do aplicativo. Se o aplicativo é composto de um front-end da Web e um back-end de API RESTful, você pode implantar ambos em um aplicativo Web ou pode implantar o código de front-end em um aplicativo Web e o código de back-end em um aplicativo de API. O aplicativo pode ser composto de vários aplicativos do Serviço de Aplicativo de tipos diferentes.
 
-- **WebJobs** - [Execute qualquer programa ou script](../app-service-web/web-sites-create-web-jobs.md) em VMs do Serviço de Aplicativo. Execute trabalhos continuamente, de acordo com uma agenda ou disparados por eventos. O SDK do Azure [WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md) simplifica o código que você escreve para integrá-lo a outros serviços do Azure e de terceiros.
+## Planos de serviço de aplicativo
 
-- **Conexões híbridas** - Acesse dados locais usando [Conexões híbridas](../biztalk-services/integration-hybrid-connection-overview.md) e as [Redes Virtuais do Azure](../app-service-web/web-sites-integrate-with-vnet.md).
+Os [Planos do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md) especificam o tipo de recursos de computação em que os aplicativos são executados. Se espera cargas de tráfego leve, você pode usar VMs (máquinas virtuais) compartilhadas. Para cargas maiores, você pode escolher dentre vários tamanhos de VMs dedicadas. Vários aplicativos do Serviço de Aplicativo podem compartilhar o mesmo plano e eles são escalados verticalmente e horizontalmente junto com o plano.
 
-- **Integração com o Visual Studio** - As ferramentas dedicadas no Visual Studio simplificam o trabalho de criação, implantação, consumo, depuração e gerenciamento de aplicativos Web, aplicativos móveis e aplicativos de API.
+Se precisa de mais escalabilidade e isolamento de rede, você pode executar os aplicativos em um [Ambiente do Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-intro.md).
+
+## Preços
+
+Para saber mais sobre os custos do Serviço de Aplicativo, confira [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## Introdução ao Serviço de Aplicativo
 
-[Crie um aplicativo Web, aplicativo móvel ou aplicativo lógico temporário](http://go.microsoft.com/fwlink/?LinkId=523751) imediatamente e de graça, sem a necessidade de cartão de crédito, sem compromissos ou dificuldades.
+[Crie um aplicativo Web, um aplicativo móvel ou um aplicativo lógico temporário](http://go.microsoft.com/fwlink/?LinkId=523751) imediatamente e de graça, sem a necessidade de cartão de crédito, sem compromissos ou dificuldades.
 
 Ou abra uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) e experimente um de nossos tutoriais de introdução:
 
-* [Aplicativos Web](https://azure.microsoft.com/documentation/services/app-service/web/)
-* [Aplicativos Móveis](https://azure.microsoft.com/documentation/services/app-service/mobile/)
-* [Aplicativos de API](https://azure.microsoft.com/documentation/services/app-service/api/)
-* [Aplicativos Lógicos](https://azure.microsoft.com/documentation/services/app-service/logic/)
+* [Tutorial: criar um aplicativo Web](../app-service-web/app-service-web-get-started.md)
+* [Tutorial: criar um aplicativo móvel](../app-service-mobile/app-service-mobile-android-get-started.md)
+* [Tutorial: criar um aplicativo de API](../app-service-api/app-service-api-dotnet-get-started.md)
+* [Tutorial: criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

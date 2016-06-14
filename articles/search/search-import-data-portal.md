@@ -14,14 +14,14 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="03/10/2016"
+	ms.date="06/08/2016"
 	ms.author="heidist"/>
 
 # Importar dados para a Pesquisa do Azure usando o portal
 
-O Portal do Azure inclui um comando **Importar Dados** no painel da Pesquisa do Azure que orienta você na ingestão de dados na Pesquisa do Azure. O comando depende do recurso de indexadores internos que rastreia a fonte de dados existente, criando e carregando documentos com base no conjunto de linhas encontrado na fonte de dados.
+O Portal do Azure inclui um comando **Import Data** no painel da Pesquisa do Azure para carregar os dados em um índice. O comando conta com os recursos do indexador internos que rastreiam a fonte de dados existente, criando e carregando os documentos com base em um conjunto de linhas extraído da fonte de dados.
 
-Usando o assistente, a importação de dados é uma construção com 3 partes:
+A importação de dados no assistente é uma construção com três partes:
 
 - uma conexão de fonte de dados
 - um índice de destino para o qual os dados são carregados (com frequência, o assistente poderá gerar isso para você)
@@ -68,6 +68,12 @@ A operação de importação de dados que você acabou de preencher criou um ind
 
 ##Editar um indexador existente
 
-No painel do serviço, clique duas vezes no bloco Indexador para deslizar uma lista de todos os indexadores criados para sua assinatura. Clique duas vezes em um dos indexadores para executá-lo, editá-lo ou excluí-lo.
+No painel do serviço, clique duas vezes no bloco Indexador para deslizar uma lista de todos os indexadores criados para sua assinatura. Clique duas vezes em um dos indexadores para executá-lo, editá-lo ou excluí-lo. Você pode substituir o índice por outro existente, alterar a fonte de dados e definir opções para os limites de erro durante a indexação.
 
-<!---HONumber=AcomDC_0316_2016-->
+##Editar um indexador existente
+
+Na Pesquisa do Azure, as atualizações estruturais em um índice exigirão uma recompilação desse índice, que consiste em excluir o índice, recriá-lo e recarregar os dados. As atualizações estruturais incluem alterar um tipo de dados e renomear ou excluir um campo.
+
+As edições que não exigem a recriação incluem adicionar um novo campo, alterar os perfis de pontuação, mudar as sugestões ou alterar os analistas de linguagem. Consulte [Atualizar Índice](https://msdn.microsoft.com/library/azure/dn800964.aspx) para obter mais informações.
+
+<!---HONumber=AcomDC_0608_2016-->

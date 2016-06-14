@@ -132,9 +132,9 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 <!--Article references-->
 [Estúdio de Aprendizado de Máquina do Azure]: https://studio.azureml.net/
 [Introdução ao Aprendizado de Máquina no Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[carregar dados de exemplo manualmente]: sql-data-warehouse-get-started-manually-load-samples.md
+[carregar dados de exemplo manualmente]: sql-data-warehouse-get-started-load-sample-databases.md
 [Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
 [Aprendizado de Máquina do Azure]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0608_2016-->

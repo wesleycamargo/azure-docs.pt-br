@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/26/2016"
+   ms.date="06/01/2016"
    ms.author="cherylmc"/>
 
 
@@ -103,7 +103,7 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 
 **Observação:** anunciar rotas padrão interromperá o Windows e outras ativações de licenças de VM. Siga as instruções [aqui](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) para solucionar esse problema.
 
-## Suporte a comunidades BGP
+## Suporte a comunidades BGP (visualização)
 
 
 Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com a Rota Expressa. A Microsoft anunciará rotas nos caminhos de emparelhamento público e da Microsoft com rotas marcadas com valores de comunidade apropriados. A lógica para fazer isso e os detalhes de valores de comunidade são descritos abaixo. No entanto, a Microsoft não adotará valores de comunidade marcados para rotas anunciadas à Microsoft.
@@ -173,4 +173,4 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 	- [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-routing-arm.md)
 	- [Vincular uma VNet clássica a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md) ou [Conectar uma VNet do Gerenciador de Recursos a um circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0608_2016-->

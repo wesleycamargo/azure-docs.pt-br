@@ -7,13 +7,9 @@
 	manager="mbaldwin"
 	editor=""/>
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="objectivec"
-	ms.topic="hero-article"
-	ms.date="02/17/2016"
+<tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
+
+	ms.date="05/31/2016"
 	ms.author="brandwe"/>
 
 # Visualização do Azure AD B2C: chamar uma API Web de um aplicativo do iOS
@@ -630,4 +626,4 @@ Agora você pode ir para tópicos mais avançados sobre o B2C. Você pode experi
 
 [Personalizar a experiência do usuário para um aplicativo B2C]()
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0608_2016-->
