@@ -129,11 +129,11 @@ Os aplicativos de função baseiam-se no Serviço de Aplicativo; portanto, todas
 
 3. Navegue até `D:\home\site\wwwroot` para atualizar *host.json* ou `D:\home\site\wwwroot<function_name>` para atualizar os arquivos de uma função.
 
-4. Arraste e solte um arquivo que você deseja carregar para a pasta apropriada na grade de arquivos.
+4. Arraste e solte um arquivo que você deseja carregar para a pasta apropriada na grade de arquivos. Há duas áreas na grade de arquivo onde é possível soltar um arquivo. No caso de arquivos *.zip*, uma caixa é exibida com o rótulo "Arraste até aqui para carregar e descompactar". No caso de outros tipos de arquivo, solte na grade de arquivo, mas fora da caixa "descompactar".
 
 #### Para usar o FTP
 
-1. Siga as instruções [aqui](../app-service-web/web-sites-deploy.md#ftp) para configurar o FTP.
+1. Siga [estas](../app-service-web/web-sites-deploy.md#ftp) instruções para configurar o FTP.
 
 2. Quando estiver conectado ao site do aplicativo de funções, copie um arquivo *host.json* atualizado para `/site/wwwroot` ou copie arquivos de função para `/site/wwwroot/<function_name>`.
 
@@ -172,6 +172,6 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
-* [Azure Functions: a jornada](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) no blog da equipe do Serviço de Aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
+* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Azure Functions: a jornada) no blog da equipe do Serviço de Aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

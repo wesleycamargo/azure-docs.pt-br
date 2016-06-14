@@ -24,10 +24,11 @@ A clonagem de aplicativo atualmente só tem suporte para planos de serviço de a
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
+Para saber mais sobre como usar os cmdlets do Azure PowerShell baseados no Azure Resource Manager para gerenciar Aplicativos Web, confira [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md) (Comandos do PowerShell baseados no Azure Resource Manager para Aplicativos Web do Azure)
 
 ## Clonagem de um aplicativo existente ##
 
-Cenário: um aplicativo Web existente na região Centro-Sul dos EUA, o usuário gostaria de clonar o conteúdo como um novo aplicativo Web na região Centro-Norte dos EUA. Isso pode ser feito usando a versão ARM do cmdlet do PowerShell para criar um novo aplicativo Web com a opção -SourceWebApp.
+Cenário: um aplicativo Web existente na região Centro-Sul dos EUA, o usuário gostaria de clonar o conteúdo como um novo aplicativo Web na região Centro-Norte dos EUA. Isso pode ser feito usando a versão do cmdlet do PowerShell do Azure Resource Manager para criar um novo aplicativo Web com a opção -SourceWebApp.
 
 Se soubermos o nome do grupo de recursos que contém o aplicativo Web de origem, poderemos usar o seguinte comando do PowerShell para obter as informações do aplicativo Web de origem (nesse caso, o nome é source-webapp):
 
@@ -77,17 +78,17 @@ O exemplo a seguir demonstra como criar um clone do aplicativo Web de origem com
 
 ## Configuração do Gerenciador de Tráfego durante a clonagem de um aplicativo ##
 
-A criação de aplicativos Web de várias regiões e a configuração do Gerenciador de Tráfego do Azure para rotear tráfego para todos esses aplicativos Web é um cenário importante para garantir que os aplicativos clientes estejam altamente disponíveis; durante a clonagem de um aplicativo Web existente, você tem a opção de conectar os dois aplicativos Web a um novo perfil do gerenciador de tráfego ou a um existente - observe que apenas a versão ARM do Gerenciador de Tráfego tem suporte.
+A criação de aplicativos Web de várias regiões e a configuração do Gerenciador de Tráfego do Azure para rotear tráfego a todos esses aplicativos Web é um cenário importante para garantir que os aplicativos dos clientes estejam altamente disponíveis; durante a clonagem de um aplicativo Web existente, você tem a opção de conectar os dois aplicativos Web a um novo perfil do gerenciador de tráfego ou a um existente. Observe que apenas a versão Azure Resource Manager do Gerenciador de Tráfego é permitida.
 
 ### Criando um novo perfil do Gerenciador de Tráfego durante a clonagem de um aplicativo ###
 
-Cenário: o usuário deseja clonar um aplicativo Web em outra região enquanto configura um perfil de Gerenciador de Tráfego ARM que inclui ambos os aplicativos Web. O exemplo a seguir demonstra como criar um clone do aplicativo Web de origem como um novo aplicativo Web ao configurar um novo perfil do Gerenciador de Tráfego:
+Cenário: o usuário deseja clonar um aplicativo Web em outra região enquanto configura um perfil do gerenciador de tráfego do Azure Resource Manager que inclui ambos os aplicativos Web. O exemplo a seguir demonstra como criar um clone do aplicativo Web de origem como um novo aplicativo Web ao configurar um novo perfil do Gerenciador de Tráfego:
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 
 ### Adicionando novos aplicativos Web clonados a um perfil existente do Gerenciador de Tráfego ###
 
-Cenário: o usuário já tem um perfil do Gerenciador de Tráfego ARM ao qual ele gostaria de adicionar ambos os aplicativos Web como pontos de extremidade. Para fazer isso, primeiro precisamos montar a ID de perfil do Gerenciador de Tráfego existente; precisamos da ID de assinatura, do nome do grupo de recursos e do nome de perfil de Gerenciador de Tráfego existente.
+Cenário: o usuário já tem um perfil do gerenciador de tráfego do Azure Resource Manager ao qual ele gostaria de adicionar ambos os aplicativos Web como pontos de extremidade. Para fazer isso, primeiro precisamos montar a ID de perfil do Gerenciador de Tráfego existente; precisamos da ID de assinatura, do nome do grupo de recursos e do nome de perfil de Gerenciador de Tráfego existente.
 
     $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 
@@ -106,13 +107,15 @@ Esse recurso está atualmente em visualização. Estamos trabalhando para adicio
 - As configurações de Autenticação Fácil não são clonadas
 - A extensão Kudu não é clonada
 - As regras de TiP não são clonadas
+- O conteúdo do banco de dados não é clonado
 
 
 ### Referências ###
+- [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md) (Comandos do PowerShell baseados no Azure Resource Manager para Aplicativos Web do Azure)
 - [Clonagem de Aplicativo Web usando o Portal do Azure](app-service-web-app-cloning-portal.md)
 - [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md)
 - [Suporte do Gerenciador de Recursos do Azure para a Visualização do Gerenciador de Tráfego do Azure](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
 - [Introdução ao ambiente de Serviço de Aplicativo](app-service-app-service-environment-intro.md)
 - [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

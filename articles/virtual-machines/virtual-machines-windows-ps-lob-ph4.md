@@ -19,8 +19,6 @@
 
 # Carga de trabalho de aplicativo de linha de negócios fase 4: configurar os servidores Web
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Nesta fase de implantação de um aplicativo de linha de negócios de alta disponibilidade nos Serviços de Infraestrutura do Azure, você criará os servidores Web e carregará seu aplicativo de linha de negócios neles.
 
 Conclua esta fase antes de passar para a [Fase 5](virtual-machines-windows-ps-lob-ph5.md). Consulte [Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure](virtual-machines-windows-lob-overview.md) para todas as fases.
@@ -151,4 +149,4 @@ Este diagrama é a configuração resultante da conclusão bem-sucedida desta fa
 
 - Use a [Fase 5](virtual-machines-windows-ps-lob-ph5.md) para concluir a configuração desta carga de trabalho.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

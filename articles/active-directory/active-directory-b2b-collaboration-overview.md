@@ -18,7 +18,7 @@
 
 # Colaboração do Active Directory B2B do Azure
 
-A colaboração B2B do Azure AD (Azure Active Directory) permite habilitar o acesso a aplicativos corporativos de identidades gerenciados pelo parceiro. Você pode criar relações entre empresas convidando e autorizando usuários de empresas parceiras para acessar os recursos. A complexidade é reduzida, pois cada empresa é federada uma única vez com o Active Directory do Azure e cada usuário é representado por uma única conta do AD do Azure. A segurança é aumentada porque o acesso é revogado quando usuários parceiros são desligados de suas organizações e acesso involuntário por meio da associação a diretórios internos é impedido. Para parceiros de negócios que ainda não têm o AD do Azure, a colaboração B2B tem uma experiência de inscrição simplificada para fornecer contas do AD do Azure aos parceiros de negócios.
+A colaboração B2B do Azure AD (Azure Active Directory) permite habilitar o acesso a aplicativos corporativos de identidades gerenciados pelo parceiro. Você pode criar relações entre empresas convidando e autorizando usuários de empresas parceiras para acessar os recursos. A complexidade é reduzida, pois cada empresa é federada uma única vez com o Active Directory do Azure e cada usuário é representado por uma única conta do AD do Azure. A segurança é aumentada se os parceiros comerciais gerenciam suas contas no Azure AD porque o acesso é revogado quando usuários parceiros são desligados de suas organizações, e o acesso involuntário por meio de associação a diretórios internos é impedido. Para parceiros de negócios que ainda não têm o AD do Azure, a colaboração B2B tem uma experiência de inscrição simplificada para fornecer contas do AD do Azure aos parceiros de negócios.
 
 -   Seus parceiros de negócios usam suas próprias credenciais de entrada, que libera você de gerenciar um diretório de parceiro externo e da necessidade de remover o acesso quando os usuários saem da organização do parceiro.
 
@@ -58,4 +58,4 @@ Navegue por nossos outros artigos sobre colaboração B2B no Azure AD.
 - [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 - [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

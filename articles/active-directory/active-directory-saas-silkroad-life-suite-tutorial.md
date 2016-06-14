@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="04/06/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ Para configurar a integração do AD do Azure com o SilkRoad Life Suite, você p
 - Uma assinatura habilitada para logon único do SilkRoad Life Suite
 
 
-> [AZURE.NOTE]Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> [AZURE.NOTE] Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -88,7 +88,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal do
 5. Faça logon no site da empresa SilkRoad como administrador. 
 
 
-    > [AZURE.NOTE]Para obter acesso ao aplicativo de Autenticação do SilkRoad Life Suite para configurar a federação com o AD do Microsoft Azure, entre em contato com o Suporte da SilkRoad ou com seu representante de Serviços da SilkRoad.
+    > [AZURE.NOTE] Para obter acesso ao aplicativo de Autenticação do SilkRoad Life Suite para configurar a federação com o AD do Microsoft Azure, entre em contato com o Suporte da SilkRoad ou com seu representante de Serviços da SilkRoad.
 
 
 6. Vá para **Provedor de Serviços** e clique em **Detalhes de Federação**. <br><br>![Logon único do AD do Azure][10] <br>
@@ -271,4 +271,4 @@ O objetivo desta seção é testar sua configuração de logon único do AD do A
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0601_2016-->

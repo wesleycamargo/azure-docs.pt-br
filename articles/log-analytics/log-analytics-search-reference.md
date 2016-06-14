@@ -607,7 +607,7 @@ Marcar os Valores do Contador de Desempenho de menos de 50% como BAIXO e outros 
 **Funções com suporte**
 
 
-| Função | Descrição | Exemplos de Sintaxe|  
+| Função | Descrição | Exemplos de Sintaxe|
 |---------|---------|---------|
 | abs | Retorna o valor absoluto do valor ou da função especificada.|  `abs(x)` <br> `abs(-5)` |
 | e | Retorna um valor true se e somente se todos os seus operandos avaliarem como true. | `and(not(exists(**popularity**)),exists(**price**))` |

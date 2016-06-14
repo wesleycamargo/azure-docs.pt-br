@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="06/01/2016"
 	ms.author="cjiang"/>
 
 # Meu cartão de crédito não é aprovado ao tentar me inscrever no Azure
@@ -31,7 +31,7 @@ Além disso, certifique-se de que o método de pagamento está ativo e que o seu
 - O CVV que você digitar deve corresponder exatamente ao código que aparece na parte posterior ou frontal do cartão de crédito/débito.
 
 ## Você está tentando ativar uma avaliação gratuita do Azure?
-A oferta de avaliação gratuita do Azure é limitada a uma ativação de avaliação gratuita por usuário. Se você já ativou uma avaliação gratuita anteriormente, ou tinha uma assinatura do Azure no passado e está tentando ativar uma avaliação gratuita agora, o sistema não permitirá que continue. Em vez disso, use um dos outros planos do Azure disponíveis listados na página [Detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
+A oferta de avaliação gratuita do Azure é limitada a uma ativação de avaliação gratuita por usuário. Se você já ativou uma avaliação gratuita anteriormente com este cartão de crédito, ou tinha uma assinatura do Azure no passado vinculada a esse cartão de crédito, o sistema não permitirá a ativação da avaliação gratuita. Em vez disso, use um dos outros planos do Azure disponíveis listados na página [Detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## Você deseja outra opção de pagamento além de um cartão de crédito ou débito?
 Você também pode pagar pela sua assinatura do Azure por meio de métodos de pagamento por fatura, como cheques, vales postais e transferências bancárias.
@@ -40,4 +40,4 @@ Para usar a opção de pagamento por fatura, você deverá representar uma empre
 
 Para iniciar o processo de configuração de uma fatura, confira [Cobrança do Azure – como faturar](https://azure.microsoft.com/pricing/invoicing/) para obter detalhes.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

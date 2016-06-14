@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/14/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
 # Importação de um arquivo BACPAC para o Banco de Dados SQL usando o SqlPackage
@@ -49,4 +49,15 @@ Use as etapas abaixo para usar o utilitário de linha de comando [SqlPackage.exe
 
 	![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
-<!---HONumber=AcomDC_0316_2016-->
+## Próximas etapas
+
+- [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+
+## Saiba mais
+
+- [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
+- [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
+- [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

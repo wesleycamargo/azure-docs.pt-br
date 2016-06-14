@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/12/2016"
+ms.date="05/28/2016"
 ms.author="eugenesh" />
 
 # Indexação do Armazenamento de Tabelas do Azure com a Pesquisa do Azure
@@ -21,7 +21,7 @@ Este artigo mostra como usar a Pesquisa do Azure para indexar dados armazenados 
 
 > [AZURE.IMPORTANT] Atualmente, essa funcionalidade está no modo de visualização. Ela está disponível somente na API REST que usa a versão **2015-02-28-Preview**. Lembre-se de que as APIs de visualização servem para teste e avaliação, e não devem ser usadas em ambientes de produção.
 
-## Configuração de indexação de tabela
+## Configuração da indexação de tabela do Azure
 
 Para instalar e configurar um indexador de tabelas do Azure, você pode usar a API REST da Pesquisa do Azure para criar e gerenciar **indexadores** e **fontes de dados**, conforme descrito em [Operações do indexador](https://msdn.microsoft.com/library/azure/dn946891.aspx). No futuro, o suporte para a indexação de tabelas será adicionado ao SDK .NET da Pesquisa do Azure e ao Portal do Azure.
 
@@ -31,7 +31,8 @@ Um indexador lê dados de uma fonte de dados e carrega-os em um índice de pesqu
 
 Para configurar a indexação de tabela:
 
-1. Criar uma fonte de dados do tipo `azuretable` que faz referência a uma tabela (e, opcionalmente, uma consulta) em uma conta de armazenamento do Azure
+1. Criar uma fonte de dados
+	- Definir o `type` parâmetro para `azuretable`
 	- Passe a cadeia de conexão de sua conta de armazenamento como o parâmetro `credentials.connectionString`
 	- Especifique o nome da tabela usando o parâmetro `container.name`
 	- Opcionalmente, especifique uma consulta usando o parâmetro `container.query`. Sempre que possível, use um filtro em PartitionKey para obter o melhor desempenho. Qualquer outra consulta resultará em uma verificação completa da tavbela que pode resultar em baixo desempenho em tabelas grandes.
@@ -51,7 +52,7 @@ Para configurar a indexação de tabela:
 	    "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
 	}   
 
-Para obter mais informações sobre como a API Criar Fonte de Dados, veja [Criar Fonte de Dados](search-api-indexers-2015-02-28-preview.md#create-data-source).
+Para obter mais informações sobre Criar API de Fonte de Dados, consulte [Criar Fonte de Dados](search-api-indexers-2015-02-28-preview.md#create-data-source).
 
 ### Criar índice 
 
@@ -67,7 +68,7 @@ Para obter mais informações sobre como a API Criar Fonte de Dados, veja [Criar
   		]
 	}
 
-Para obter mais informações sobre a API Criar Índice, veja [Criar Índice](https://msdn.microsoft.com/library/dn798941.aspx)
+Para obter mais informações sobre Criar API de Índice, consulte [Criar Índice](https://msdn.microsoft.com/library/dn798941.aspx)
 
 ### Criar indexador 
 
@@ -84,7 +85,7 @@ Por fim, crie o indexador que faz referência à fonte de dados e ao índice de 
 	  "schedule" : { "interval" : "PT2H" }
 	}
 
-Para obter mais detalhes sobre a API Criar Indexador, veja [Criar Indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Para obter mais detalhes sobre Criar API de Índice, consulte [Criar Indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
 E isso é tudo. Boa indexação!
 
@@ -96,7 +97,7 @@ Geralmente, os nomes de campos no índice existente serão diferentes dos nomes 
 
 Na Pesquisa do Azure, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. O campo de chave é necessário para cada documento adicionado ao índice (é, na verdade, o único campo obrigatório).
 
-Como as linhas de tabela têm uma chave composta, a Pesquisa do Azure gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de linha e de chave de partição. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
+Uma vez que as linhas de tabela têm uma chave composta, a Pesquisa do Azure gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de linha e de chave de partição. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
 
 > [AZURE.NOTE] O valor `Key` pode conter caracteres inválidos em chaves de documento, como traços. É possível lidar com caracteres inválidos usando a [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`. Se você fizer isso, lembre-se também de usar a codificação de Base 64 protegida por URL ao transmitir as chaves de documento nas chamadas à API como Pesquisa.
 
@@ -123,4 +124,4 @@ Para indicar que determinados documentos devem ser removidos do índice, você p
 
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

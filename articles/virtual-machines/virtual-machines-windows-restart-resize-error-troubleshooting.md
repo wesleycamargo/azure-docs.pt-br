@@ -25,8 +25,6 @@
 
 Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma VM do Azure existente, o erro comum encontrado é uma falha de alocação. Esse erro ocorre quando o cluster ou a região não tem recursos disponíveis ou quando não dá suporte ao tamanho de VM solicitado.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Coletar logs de auditoria
@@ -74,6 +72,6 @@ Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster origi
     * Clique em **Grupos de recursos** > _seu grupo de recursos_ > **Recursos** > _seu conjunto de disponibilidade_ > **Máquinas Virtuais** > _sua máquina virtual_ > **Parar**.
 
   2. Depois de parar todas as VMs, redimensione a VM desejada para um tamanho maior.
-  3. Selecione a VM redimensionada e clique em **Iniciar**, em seguida, inicie cada uma das VMs paradas.
+  3. Selecione a VM redimensionada, clique em **Iniciar** e inicie cada uma das VMs paradas.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

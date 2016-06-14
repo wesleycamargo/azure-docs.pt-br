@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="05/27/2016"
    ms.author="terrylan"/>
 
 # Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure
@@ -69,4 +69,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

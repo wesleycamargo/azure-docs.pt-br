@@ -269,7 +269,7 @@ Ambos os exemplos retornam "*Hello world!*"
 ----------
 ### DNComponent
 
-**Description:** The DNComponent function returns the value of a specified DN component going from left.
+**Descrição:** A função DNComponent retornará o valor de um componente DN especificado, saindo da esquerda.
 
 **Sintaxe:** `str DNComponent(ref dn, num ComponentNumber)`
 

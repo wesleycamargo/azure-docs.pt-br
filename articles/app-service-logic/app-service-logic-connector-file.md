@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Usando o Conector de Arquivo em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
-	description="Como criar e configurar o Conector de Arquivo ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+	pageTitle="Usando o Conector de arquivo em Aplicativos lógicos | Serviço de Aplicativo do Microsoft Azure"
+	description="Como criar e configurar o conector de arquivo ou o aplicativo de API e usá-lo em um Aplicativo lógico no Serviço de Aplicativo do Azure"
 	authors="rajeshramabathiran"
 	manager="erikre"
 	editor=""
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2016"
+	ms.date="05/31/2016"
 	ms.author="rajram"/>
 
-# Introdução ao Conector de Arquivo e à adição dele ao seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+# Introdução ao conector de arquivo e adição dele ao seu Aplicativo lógico
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview dos Aplicativos Lógicos.
 
-Conecte-se a um sistema de arquivos para carregar, baixar e realizar outras operações com seus arquivos em um computador host. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados. Você pode adicionar o conector de Arquivo a seu fluxo de trabalho de negócios e processar dados como parte desse fluxo de trabalho dentro de um Aplicativo Lógico.
+Conecte-se a um sistema de arquivos para carregar, baixar e realizar outras operações com seus arquivos em um computador host. Aplicativos lógicos podem ser disparados com base em diversas fontes de dados e oferecem conectores para obter e processar dados. Você pode adicionar o conector de arquivo a seu fluxo de trabalho de negócios e processar os dados como parte desse fluxo dentro de um Aplicativo lógico.
 
-O Conector de Arquivo usa o Gerenciador de Conexões Híbridas para conectividade híbrida com o sistema de arquivos do host.
+O conector de arquivo usa o Gerenciador de Conexões Híbridas para a conectividade híbrida com o sistema de arquivos do host.
 
-## Criando um conector de Arquivo para seu aplicativo lógico ##
-Para usar o conector de Arquivo, primeiro você precisa criar uma instância do aplicativo de API do Conector de Arquivo. Isso pode ser feito da seguinte maneira:
+## Criando um conector de arquivo para seu Aplicativo lógico ##
+Para usar o conector de arquivo, primeiro você precisa criar uma instância do aplicativo de API do conector de arquivo. Isso pode ser feito da seguinte maneira:
 
 1.	Abra o Azure Marketplace usando a opção + NEW no lado esquerdo do Portal do Azure.
-2.	Navegue até “Marketplace > Aplicativos de API” e pesquise por “Conector de Arquivo”.
-3.	Configure o conector de Arquivo da seguinte maneira:![][1]
+2.	Navegue até “Marketplace > Aplicativos de API” e pesquise “conector de arquivo”.
+3.	Configure o conector de arquivo da seguinte maneira:![][1]
 
-	- **Nome** - dê um nome para o seu Conector de Arquivo
+	- **Nome** - dê um nome para seu conector de arquivo
 	- **Configurações do pacote**
 		- **Pasta Raiz** - especifique o caminho da pasta raiz em seu computador host. Por exemplo, D:\\FileConnectorTest
 		- **Cadeia de Conexão do Barramento de Serviço** - forneça uma Cadeia de Conexão do Barramento de Serviço. Verifique se o namespace do barramento de serviço é do tipo Padrão e NÃO Básico, para permitir o uso de Retransmissões do Barramento de Serviço. A Retransmissão do Barramento de Serviço é usada para conectar-se ao Gerenciador de Conexões Híbridas.
@@ -40,41 +40,41 @@ Para usar o conector de Arquivo, primeiro você precisa criar uma instância do 
 	- **Assinatura** - escolha uma assinatura na qual você deseja que esse conector seja criado
 	- **Local** - escolha a região geográfica onde você quer que o conector seja implantado
 
-4. Clique em Criar. Será criado um novo Conector de Arquivo
+4. Clique em Criar. Será criado um novo conector de arquivo
 
 ## Configurar o Gerenciador de Conexão Híbrida ##
-Depois que a instância de Aplicativo de API for criada, navegue até seu painel. Isso pode ser feito clicando em Procurar > Aplicativos de Api > Selecione seu Aplicativo de API do Conector de Arquivo. Aqui, o Gerenciador de Conexões Híbridas precisa ser configurado. Para obter mais informações sobre configuração e resolução de problemas do Gerenciador de Conexão Híbrida, consulte [Uso do Gerenciador de Conexão Híbrida].
+Depois que a instância de Aplicativo de API for criada, navegue até seu painel. Isso pode ser feito clicando em Procurar > Aplicativos de API > selecionar seu Aplicativo de API do conector de arquivo. Aqui, o Gerenciador de Conexões Híbridas precisa ser configurado. Para obter mais informações sobre configuração e resolução de problemas do Gerenciador de Conexão Híbrida, consulte [Uso do Gerenciador de Conexão Híbrida].
 
-## Usando o Conector de Arquivo em seu aplicativo lógico ##
-Depois que o aplicativo de API for criado, você poderá usar o Conector de Arquivo como uma ação para seu aplicativo lógico. Para fazer isso, você precisa:
+## Usando o conector de arquivo em seu Aplicativo lógico ##
+Depois do aplicativo de API criado, você poderá usar o conector de arquivo como uma ação para seu Aplicativo lógico. Para fazer isso, você precisa:
 
-1.	Crie um novo aplicativo lógico e escolha o mesmo grupo de recursos que tem o Conector de Arquivo. Siga as instruções para [Criar um novo aplicativo lógico].
+1.	Crie um novo Aplicativo lógico e escolha o mesmo grupo de recursos que tem o conector de arquivo. Siga as instruções para [Criar um novo Aplicativo lógico].
 
-2.	Abra "Gatilhos e Ações" no aplicativo lógico criado para abrir o Designer de Aplicativos Lógicos e configure seu fluxo.
+2.	Abra "Gatilhos e Ações" no Aplicativo lógico criado para abrir o Designer de Aplicativos lógicos e configure seu fluxo.
 
-3.	O Conector de Arquivo será exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito.
+3.	O conector de arquivo será exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito.
 
-4.	Você pode soltar o aplicativo de API do Conector de Arquivo no editor clicando em "Conector de Arquivo". O Conector de Arquivo expõe um gatilho e quatro ações: ![][5]
+4.	Você pode soltar o aplicativo de API do conector de arquivo no editor clicando em "conector de arquivo". O conector de arquivo exibirá um gatilho e quatro ações: ![][5]
 
-6.	Cada um deles expõe determinadas propriedades. A imagem a seguir lista as propriedades do gatilho e a Ação Obter Arquivo: ![][6]
+6.	Cada um deles expõe determinadas propriedades. A imagem a seguir lista as propriedades do gatilho e a Ação Obter arquivo: ![][6]
 
 7. Depois que eles forem configurados, o Gatilho e a Ação poderão ser usados no seu fluxo. Da mesma forma, outras ações também podem ser configuradas.
 
 > [AZURE.NOTE] O gatilho do arquivo excluirá o arquivo após este ser lido com êxito na pasta.
 
-## Conector de arquivo de APIs REST ##
-Para usar o conector fora de um aplicativo lógico, as APIs REST expostas pelo conector podem ser utilizadas. Você exibir essas definições da API usando Procurar -> Aplicativo de Api -> Conector de Arquivo. Agora clique na lente Definição de API na seção Resumo para exibir todas as APIs expostas por esse conector: ![][7]
+## APIs REST do conector de arquivo ##
+Para usar o conector fora de um Aplicativo lógico, as APIs REST expostas pelo conector podem ser utilizadas. Você exibir essas Definições da API usando Procurar -> Aplicativo de Api -> conector de arquivo. Agora clique na lente Definição de API na seção Resumo para exibir todas as APIs expostas por esse conector: ![][7]
 
-Detalhes das APIs podem ser encontrados em [Definição da API do Conector de Arquivo].
+Os detalhes das APIs podem ser encontrados em [Definição da API do conector de arquivo].
 
-## Faça mais com seu Conector
-Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+## Fazer mais com seu conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Confira [Gerenciar e Monitorar seus Aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -83,8 +83,8 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [7]: ./media/app-service-logic-connector-file/img7.PNG
 
 <!-- Links -->
-[Criar um novo aplicativo lógico]: app-service-logic-create-a-logic-app.md
-[Definição da API do Conector de Arquivo]: https://msdn.microsoft.com/library/dn936296.aspx
+[Criar um novo Aplicativo lógico]: app-service-logic-create-a-logic-app.md
+[Definição da API do conector de arquivo]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso do Gerenciador de Conexão Híbrida]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -19,8 +19,6 @@
 
 # Configurar um ambiente de nuvem híbrida simulado para testes
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Este artigo orienta a criação de um ambiente de nuvem híbrida simulado com o Microsoft Azure para testes, usando duas redes virtuais separadas do Azure. Use essa configuração como uma alternativa ao [Configurar um ambiente de nuvem híbrida para testes](virtual-machines-windows-ps-hybrid-cloud-test-env-base.md) quando você não tiver uma conexão direta com a Internet e um endereço IP público disponível. Veja abaixo a configuração resultante.
 
 ![](./media/virtual-machines-setup-simulated-hybrid-cloud-environment-testing/virtual-machines-setup-simulated-hybrid-cloud-environment-testing-ph4.png)
@@ -131,7 +129,7 @@ Esta é a configuração atual.
  
 ##Fase 3: Criar a conexão de VNet para VNet
 
-Primeiro, obtenha uma chave pré-compartilhada aleatória, criptograficamente forte de 32 caracteres do seu administrador de rede ou segurança. Como alternativa, use as informações em [Criar uma cadeia de caracteres aleatória para uma chave pré-compartilhada IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) para obter uma chave pré-compartilhada.
+Primeiro, obtenha uma chave pré-compartilhada aleatória, criptograficamente forte de 32 caracteres do seu administrador de rede ou segurança. Você também pode usar as informações em [Create a random string for an IPsec preshared key](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) (Criar uma cadeia de caracteres aleatória para uma chave pré-compartilhada IPsec) para obter uma chave pré-compartilhada.
 
 Em seguida, use estes comandos para criar a conexão VPN site a site, que pode levar algum tempo para ser concluída.
 
@@ -215,4 +213,4 @@ Seu ambiente de nuvem híbrida simulado agora está pronto para testes.
 
 - [Adicione uma nova máquina virtual](virtual-machines-windows-create-powershell.md) à sub-rede TestVNET, como uma que executa o Microsoft SQL Server.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

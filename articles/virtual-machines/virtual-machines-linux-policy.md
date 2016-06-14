@@ -19,8 +19,6 @@
 
 # Aplicar políticas a Máquinas Virtuais do Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico
-
 Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização. Neste artigo, descreveremos como você pode usar as políticas do Azure Resource Manager para definir o comportamento desejado para as Máquinas Virtuais da sua organização.
 
 Veja abaixo a descrição das etapas para fazer isso
@@ -108,4 +106,4 @@ Depois de criar a política, você precisará aplicá-la a um escopo definido. O
 
 * [Criando uma política](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

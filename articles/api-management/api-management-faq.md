@@ -36,6 +36,7 @@ Conheça as respostas a perguntas comuns, padrões e práticas recomendadas do G
 -	[Posso configurar um servidor de autorização OAUth 2.0 com segurança ADFS?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[Que método de roteamento o Gerenciamento de API usa quando implantado em vários locais geográficos?](#what-routing-method-does-api-management-use-when-deployed-to-multiple-geographic-locations)
 -	[Posso criar uma instância do serviço de Gerenciamento de API usando um modelo do ARM?](#can-i-create-an-api-management-service-instance-using-an-arm-template)
+-	[Posso usar um certificado SSL autoassinado para um back-end?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 
 
 
@@ -137,4 +138,12 @@ O Gerenciamento de API usa o [Método de roteamento de tráfego de desempenho](.
 
 Sim, confira os modelos de início rápido do [Serviço de Gerenciamento de API do Azure](http://aka.ms/apimtemplate).
 
-<!---HONumber=AcomDC_0525_2016-->
+### Posso usar um certificado SSL autoassinado para um back-end?
+
+Sim. Siga as etapas abaixo:
+
+1. Criar uma entidade de [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) usando a API de Gerenciamento
+2. Definir a propriedade skipCertificateChainValidation como true
+3. Quando você não quiser mais permitir certificados autoassinados, poderá excluir a entidade de back-end ou definir a propriedade skipCertificateChainValidation como false
+
+<!---HONumber=AcomDC_0601_2016-->

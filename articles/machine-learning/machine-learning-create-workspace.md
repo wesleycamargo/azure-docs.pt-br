@@ -85,7 +85,7 @@ Abaixo está uma tabela esclarece a diferença entre um administrador de assinat
 | Acessar o [Estúdio de Aprendizado de Máquina] | Não * | Sim |
 
 
-> [AZURE.NOTE] * Um administrador de assinatura do Azure automaticamente se torna o proprietário de um espaço de trabalho ao criar um, no entanto, o acesso é concedido apenas porque ele é proprietário do espaço de trabalho.
+> [AZURE.NOTE] *Um administrador de assinatura do Azure é adicionado automaticamente ao espaço de trabalho que ele cria como proprietário do espaço de trabalho. No entanto, simplesmente ser um administrador de assinatura do Azure não concede acesso a qualquer espaço de trabalho nessa assinatura.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
@@ -105,4 +105,4 @@ Abaixo está uma tabela esclarece a diferença entre um administrador de assinat
 [Estúdio de Aprendizado de Máquina]: https://studio.azureml.net/
 [portal clássico do Microsoft Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

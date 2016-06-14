@@ -1,1 +1,3 @@
-> This article is part of the [Azure Active Directory Protocols Reference](../articles/active-directory/active-directory-protocols.md).
+> Este artigo faz parte da [Referência de protocolos do Azure Active Directory](../articles/active-directory/active-directory-protocols.md).
+
+<!---HONumber=AcomDC_0601_2016-->

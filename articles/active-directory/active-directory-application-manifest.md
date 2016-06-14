@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/16/2016"
+   ms.date="05/26/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure
@@ -33,12 +33,13 @@ Através do [portal clássico do Azure][AZURE-CLASSIC-PORTAL], você pode gerenc
 
 Como resultado, para entender o formato e as propriedades do manifesto do aplicativo, você precisará consultar a documentação de Graph API [Entidade de aplicativo][APPLICATION-ENTITY]. Exemplos de atualizações que podem ser executadas através do carregamento do manifesto do aplicativo incluem:
 
-- Declarar escopos de permissão (oauth2Permissions) expostos pela sua API Web. Consulte o tópico "Expondo APIs Web para outros aplicativos" em [Integrando aplicativos ao Active Directory do Azure][INTEGRATING-APPLICATIONS-AAD] para obter informações sobre como implementar a representação de usuário usando o escopo de permissão delegada oauth2Permissions. Conforme mencionado anteriormente, todas as propriedades da entidade de aplicativo estão documentadas no artigo de referência do Graph API [Referência de Entidade e Tipo Complexo][APPLICATION-ENTITY], incluindo a propriedade oauth2Permissions, que é uma coleção do tipo [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION]
-- Declarar funções de aplicativo (appRoles) expostas pelo seu aplicativo. A propriedade appRole da entidade de aplicativo é uma coleção do tipo [AppRole][APPLICATION-ENTITY-APP-ROLE]. Consulte o artigo [Controle de acesso com base em função nos aplicativos em nuvem usando o Azure AD][RBAC-CLOUD-APPS-AZUREAD] para obter um exemplo de implementação.
-- Declarar aplicativos cliente conhecidos (knownClientApplications), que permitem vincular de modo lógico o consentimento dos aplicativos cliente especificados à API de recurso/Web.
-- Solicitar ao AD do Azure que emita uma declaração de associações de grupo para o usuário conectado (groupMembershipClaims). Observação: isso pode ser configurado para emitir adicionalmente declarações sobre as associações de funções de diretório do usuário. Consulte o artigo [Autorização em aplicativos na nuvem usando grupos do AD][AAD-GROUPS-FOR-AUTHORIZATION] para obter um exemplo de implementação.
-- Permitir que o aplicativo ofereça suporte aos fluxos de concessão implícitos do OAuth 2.0 (oauth2AllowImplicitFlow). Esse tipo de fluxo de concessão é usado com páginas da Web JavaScript ou SPA (Aplicativos de Única Página) inseridos.
-- Habilitar o uso dos certificados X509 como chave secreta (keyCredentials). Consulte os artigos [Compilar aplicativos de serviço e daemon no Office 365][O365-SERVICE-DAEMON-APPS] e [Guia do desenvolvedor para autenticação com a API do Gerenciador de Recursos do Azure ][DEV-GUIDE-TO-AUTH-WITH-ARM] para ver exemplos de implementação.
+- **Declarar escopos de permissão (oauth2Permissions)** expostos pela sua API Web. Consulte o tópico "Expondo APIs Web para outros aplicativos" em [Integrando aplicativos ao Active Directory do Azure][INTEGRATING-APPLICATIONS-AAD] para obter informações sobre como implementar a representação de usuário usando o escopo de permissão delegada oauth2Permissions. Conforme mencionado anteriormente, todas as propriedades da entidade de aplicativo estão documentadas no artigo de referência do Graph API [Referência de Entidade e Tipo Complexo][APPLICATION-ENTITY], incluindo a propriedade oauth2Permissions, que é uma coleção do tipo [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION]
+- **Declarar funções de aplicativo (appRoles) expostas pelo seu aplicativo**. A propriedade appRole da entidade de aplicativo é uma coleção do tipo [AppRole][APPLICATION-ENTITY-APP-ROLE]. Consulte o artigo [Controle de acesso com base em função nos aplicativos em nuvem usando o Azure AD][RBAC-CLOUD-APPS-AZUREAD] para obter um exemplo de implementação.
+- **Declarar aplicativos cliente conhecidos (knownClientApplications)**, que permitem vincular de modo lógico o consentimento dos aplicativos cliente especificados à API de recurso/Web.
+- **Solicitar ao AD do Azure que emita uma declaração de associações de grupo** para o usuário conectado (groupMembershipClaims). Observação: isso pode ser configurado para emitir adicionalmente declarações sobre as associações de funções de diretório do usuário. Consulte o artigo [Autorização em aplicativos na nuvem usando grupos do AD][AAD-GROUPS-FOR-AUTHORIZATION] para obter um exemplo de implementação.
+- **Permitir que o aplicativo ofereça suporte aos fluxos de concessão implícitos do OAuth 2.0** (oauth2AllowImplicitFlow). Esse tipo de fluxo de concessão é usado com páginas da Web JavaScript ou SPA (Aplicativos de Única Página) inseridos.
+- **Habilitar o uso dos certificados X509 como chave secreta** (keyCredentials). Consulte os artigos [Compilar aplicativos de serviço e daemon no Office 365][O365-SERVICE-DAEMON-APPS] e [Guia do desenvolvedor para autenticação com a API do Gerenciador de Recursos do Azure ][DEV-GUIDE-TO-AUTH-WITH-ARM] para ver exemplos de implementação.
+- **Adicionar um novo URI de ID de aplicativo** para seu aplicativo (identifierURIs). URIs de ID do aplicativo são usados para identificar com exclusividade um aplicativo em seu locatário do Azure AD (ou em vários locatários do Azure AD, para cenários de multilocatário quando qualificados por meio de um domínio personalizado verificado). São usados ao serem solicitadas permissões para um aplicativo de recurso ou ser adquirido um token de acesso para um aplicativo de recurso. Quando você atualiza esse elemento, a mesma atualização é feita na coleção de servicePrincipalNames da entidade de serviço correspondente, que reside no locatário inicial do aplicativo.
 
 O manifesto do aplicativo também fornece uma boa maneira de controlar o estado de seu registro de aplicativo. Porque ele está disponível no formato JSON, a representação de arquivo pode ser inserida no seu controle de origem, junto com o código-fonte do aplicativo.
 
@@ -145,4 +146,4 @@ Use a seção de comentários do DISQUS abaixo para fornecer seus comentários e
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -26,13 +26,16 @@ Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 3. Pesquise online por "ConfigurationManager" e clique em **Instalar** para instalar o Gerenciador de Configuração do Azure.
 
 >[AZURE.NOTE] O pacote de Biblioteca de Cliente do Armazenamento também está incluído no [SDK do Azure para .NET](https://azure.microsoft.com/downloads/). No entanto, também recomendamos a instalação da Biblioteca de Cliente de Armazenamento do NuGet para garantir que você tenha sempre a versão mais recente da biblioteca do cliente.
+>
+>As dependências do ODataLib na Biblioteca de Cliente de Armazenamento para .NET são resolvidas por meio de pacotes do ODataLib (versão 5.0.2 e posterior) disponíveis por meio do NuGet e não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes específicos do ODataLib usados pela Biblioteca de Cliente de Armazenamento são [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) e [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Embora essas bibliotecas sejam usadas pelas classes de armazenamento de tabela do Azure, elas são dependências necessárias para a programação com a Biblioteca de Cliente de Armazenamento.
+
 
 ### Determinar o ambiente de destino
 
 Você tem duas opções de ambiente para executar os exemplos neste guia:
 
 - Você pode executar o código em uma conta de Armazenamento do Azure na nuvem. 
-- Você pode executar o código em um emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de Armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar seu código enquanto o aplicativo está em desenvolvimento. O emulador usa uma conta e chave bem conhecidas. Para mais detalhes, confira [Usar o emulador de Armazenamento do Azure para desenvolvimento e teste](../articles/storage/storage-use-emulator.md)
+- Você pode executar o código em um emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de Armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar seu código enquanto o aplicativo está em desenvolvimento. O emulador usa uma conta e chave bem conhecidas. Para obter mais detalhes, confira [Usar o emulador de Armazenamento do Azure para desenvolvimento e teste](../articles/storage/storage-use-emulator.md)
 
 Se você estiver selecionando uma conta de armazenamento na nuvem, copie a chave de acesso primário para sua conta de armazenamento a partir do Portal do Azure. Para saber mais, confira [Exibir e copiar chaves de acesso de armazenamento](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
@@ -65,4 +68,4 @@ Para direcionar o emulador de armazenamento, você pode usar um atalho que mapei
 
 	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="02/25/2016"
+	ms.date="05/31/2016"
 	ms.author="dastrock"/>
 
 # Visualização do Active Directory B2C do Azure: tipos de aplicativos
@@ -130,4 +130,4 @@ Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstr
 
 Esse cenário de API Web encadeado pode ter suporte usando a concessão credencial de portador JWT do OAuth 2.0, também conhecida como fluxo Em nome de. No entanto, o fluxo Em nome de não está implementado atualmente na visualização do AD B2C do Azure.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

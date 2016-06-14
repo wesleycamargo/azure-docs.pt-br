@@ -63,11 +63,11 @@ O Stretch Database destina-se a bancos de dados transacionais com grandes quanti
 
 Se você usar o recurso de tabela temporal do SQL Server 2016, use o Stretch Database para migrar toda ou parte da tabela de histórico associada para o armazenamento econômico no Azure. Para obter mais informações, confira [Gerenciar a retenção de dados históricos em Tabelas temporais com versão do sistema](https://msdn.microsoft.com/library/mt637341.aspx).
 
-Use o Supervisor do Stretch Database, um recurso do Supervisor de Atualização do SQL Server 2016, para identificar os bancos de dados e tabelas candidatos ao Stretch Database. Para obter mais informações, confira [Identificar bancos de dados e tabelas para o Stretch Database](sql-server-stretch-database-identify-databases.md). Para saber mais sobre os possíveis problemas de bloqueio, confira [Limitações de área de superfície e problemas de bloqueio do Stretch Database.](sql-server-stretch-database-limitations.md)
+Use o Supervisor do Stretch Database, um recurso do Supervisor de Atualização do SQL Server 2016, para identificar os bancos de dados e tabelas candidatos ao Stretch Database. Para obter mais informações, confira [Identificar bancos de dados e tabelas para o Stretch Database](sql-server-stretch-database-identify-databases.md). Para saber mais sobre os possíveis problemas de bloqueio, confira [Limitações do Stretch Database](sql-server-stretch-database-limitations.md).
 
 ## <a name="FAQ"></a>Perguntas frequentes sobre o Stretch Database
 **O Stretch Database funciona com &lt;Nome de recurso do SQL Server&gt;?**
--   Para obter uma lista dos recursos do SQL Server que desqualificam uma tabela para o Stretch, confira [Limitações de área de superfície e problemas de bloqueio do Stretch Database](sql-server-stretch-database-limitations.md).
+-   Para obter uma lista dos recursos do SQL Server que desqualificam uma tabela para o Stretch, confira [Limitações do Stretch Database](sql-server-stretch-database-limitations.md).
 
 -   Como opção, baixe o Supervisor de Atualização do SQL Server 2016 e execute o Supervisor do Stretch Database para identificar os bancos de dados e tabelas candidatos ao Stretch Database. Para obter mais informações, confira [Identificar bancos de dados e tabelas para o Stretch Database](sql-server-stretch-database-identify-databases.md).
 
@@ -123,4 +123,4 @@ O Stretch Database não altera o modelo de permissões de um banco de dados exis
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0608_2016-->

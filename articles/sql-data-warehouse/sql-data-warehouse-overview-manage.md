@@ -139,4 +139,4 @@ Usar bons princípios de design de banco de dados tornará mais fácil gerenciar
 <!--Other web references-->
 [Portal do Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

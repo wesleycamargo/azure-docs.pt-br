@@ -87,18 +87,18 @@ O método de hotfix envolve as três etapas a seguir:
 | 3\. | KB3103616 | Pacote WMI | Regular | ~ 12 Min. |
 
 
- &#42; *Observe que a atualização de software consiste em dois arquivos binários: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` e `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. A atualização de software do dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` deve ser instalada antes do agente de Cis e Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`.*
+ &#42; *Observe que a atualização de software consiste em dois arquivos binários: `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` e `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. A atualização de software do dispositivo `all-hcsmdssoftwareupdate_d5db7c7a86fc0fffd7fd7e8a1b58584ca4850936.exe` deve ser instalada antes do agente de Cis e Mds `all-cismdsagentupdatebundle_a3b6e721045c9229f62ffe3374fb5715bf3699e3.exe`. Também será preciso reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` após aplicar a atualização do agente Cis e MDS (e antes de aplicar as atualizações restantes).*
 
 #### Baixe as atualizações para um dispositivo que executa um software anterior à Atualização 2
 
-**Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0 e 1.1**, você deverá baixar e instalar a atualização do LSI driver e do firmware. Se você estiver executando a Atualização 1.2 ou 2, essa atualização já estará instalada.
+**Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0 e 1.1**, você deverá baixar e instalar a atualização do LSI driver e do firmware além de atualizações de software, iSCSI e de WMI. Se você estiver executando a Atualização 1.2 ou 2, essa atualização já estará instalada.
  
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
 |--------|-----------|-------------------------|------------- |-------------|
 | 4\. | KB3121900 | Driver LSI e firmware | Regular | ~ 20 Min. |
 
 
-<br></br> **Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0, 1.1 e 1.2**, baixe e instale o Spaceport e a correção do Storport. Se você estiver executando a Atualização 2, eles já estarão instalados.
+<br></br> **Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0, 1.1 e 1.2**, você deverá baixar e instalar o Spaceport e a correção do Storport. Se você estiver executando a Atualização 2, eles já estarão instalados.
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
 |--------|-----------|-------------------------|------------- |-------------|
@@ -132,4 +132,4 @@ Execute as seguintes etapas para baixar e instalar os hotfixes.
 
 Saiba mais sobre a [versão da Atualização 2.1](storsimple-update21-release-notes.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

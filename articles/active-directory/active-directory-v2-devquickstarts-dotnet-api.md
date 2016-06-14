@@ -159,6 +159,12 @@ Agora você pode passar para tópicos adicionais. Você pode desejar experimenta
 
 [Chamar uma API Web em um aplicativo Web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 
-Para obter recursos adicionais, confira: - [O guia do desenvolvedor da v2.0 >>](active-directory-appmodel-v2-overview.md) - [Marca "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obter recursos adicionais, consulte:
+- [Guia do desenvolvedor do v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Marca “azure-active-directory” do StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0224_2016-->
+## Obter atualizações de segurança para nossos produtos
+
+Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
+
+<!---HONumber=AcomDC_0601_2016-->

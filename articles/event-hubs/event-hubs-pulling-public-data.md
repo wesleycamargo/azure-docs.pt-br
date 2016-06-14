@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/26/2016"
+    ms.date="05/31/2016"
     ms.author="spyros;sethm" />
 
 # Extraindo dados públicos nos Hubs de Eventos do Azure
@@ -47,4 +47,4 @@ Para implantar a solução, clone ou baixe o aplicativo [GenericWebToEH](https:/
 
 Veja mais exemplos de Hubs de Eventos na [galeria de exemplos do Azure](https://azure.microsoft.com/documentation/samples/?service=event-hubs) e no [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

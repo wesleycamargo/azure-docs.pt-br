@@ -160,7 +160,10 @@ Para usar os pacotes do NuGet em uma função C#, carregue um arquivo *project.j
 }
 ```
 
-Quando você carregar um arquivo *project.json*, o tempo de execução obtém os pacotes e adiciona automaticamente referências aos assemblies do pacote. Você não precisa adicionar diretivas `#r "AssemblyName"`. Basta adicionar as instruções `using` obrigatórias ao arquivo *run.csx* para usar tipos definidos nos pacotes NuGet.
+Somente o .NET Framework 4.6 é permitido. Desse modo, tenha certeza de que o arquivo *project.json* especifica `net46`, como mostrado aqui.
+
+Quando você carrega um arquivo *project.json*, o tempo de execução obtém os pacotes e adiciona automaticamente referências aos assemblies do pacote. Você não precisa adicionar diretivas `#r "AssemblyName"`. Basta adicionar as instruções `using` obrigatórias ao arquivo *run.csx* para usar os tipos definidos nos pacotes NuGet.
+
 
 ### Como carregar um arquivo project.json
 
@@ -168,9 +171,9 @@ Quando você carregar um arquivo *project.json*, o tempo de execução obtém os
 
 	Isso também permite acessar os logs de streaming nos quais a saída da instalação do pacote será exibida.
 
-2. Para carregar um arquivo project.json, use um dos métodos descritos na seção **Como atualizar os arquivos de aplicativo de função** do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
+2. Para carregar um arquivo project.json, use um dos métodos descritos na seção **Como atualizar os arquivos de aplicativo de funções** do tópico [Referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
 
-3. Após o arquivo *project.json* ser carregado, você verá a saída como o exemplo a seguir no log de streaming da sua função:
+3. Depois que o arquivo *project.json* é carregado, você verá a saída como o exemplo a seguir no log de streaming da sua função:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -241,7 +244,7 @@ Você pode usar um caminho relativo com a diretiva `#load`:
 
 * `#load "..\shared\mylogger.csx"` carrega um arquivo localizado em uma pasta no mesmo nível que a pasta de função, ou seja, diretamente em *wwwroot*.
  
-A diretiva `#load` só funciona com arquivos *.csx* (script C#), não com arquivos *.cs*.
+A diretiva `#load` só funciona com arquivos *.csx* (script C#), e não com arquivos *.cs*.
 
 ## Próximas etapas
 
@@ -251,4 +254,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

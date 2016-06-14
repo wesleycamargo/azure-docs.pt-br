@@ -61,7 +61,7 @@ Cargas de trabalho em execução em servidores físicos com Windows/Linux | Serv
 A Recuperação de Site pode ajudar com BCDR com reconhecimento de aplicativos, de modo que as cargas de trabalho e aplicativos continuem executando de forma consistente durante interrupções. A Recuperação de Site fornece:
 
 - **Instantâneos consistentes com o aplicativo**—Replicação usando instantâneos consistentes com o aplicativo, para aplicativos simples ou de N camadas **Replicação quase síncrona**—frequência de replicação de até 30 segundos para o Hyper-,V e replicação contínua para VMware. **Integração com o SQL Server AlwaysOn**—você pode gerenciar o failover de grupos de disponibilidade nos planos de recuperação da Recuperação de Site. 
-- **Planos de recuperação flexíveis**—você pode criar e personalizar planos de recuperação com scripts externos, ações manuais e runbooks da Automação do Azure que permitem a recuperação de uma pilha inteira aplicativos com um único clique.
+- **Planos de recuperação flexíveis**—você pode criar e personalizar os planos de recuperação com scripts externos, ações manuais e runbooks da Automação do Azure que permitem a recuperação de uma pilha inteira aplicativos com um único clique.
 - **Biblioteca de automação**—uma biblioteca rica da Automação do Azure fornece scripts pronto para produção e específicos ao aplicativo que podem ser baixados e integrados à Recuperação de Site. -** Gerenciamento de rede simples **—O gerenciamento de rede avançado na Recuperação de Site e no Azure simplifica os requisitos de rede do aplicativo, incluindo a reserva de endereços IP, a configuração de balanceadores de carga e a integração do Gerenciador de Tráfego do Azure para alternância de rede eficiente.
 
 
@@ -71,4 +71,4 @@ A Recuperação de Site pode ajudar com BCDR com reconhecimento de aplicativos, 
 - Saiba mais sobre a arquitetura da Recuperação de Site em [Como funciona a Recuperação de Site?](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0608_2016-->

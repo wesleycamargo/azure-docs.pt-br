@@ -19,8 +19,6 @@
 
 # Criando modelos do Azure Resource Manager com extensões de VM do Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 No Azure PowerShell, execute o seguinte cmdlet do Azure PowerShell:
@@ -42,7 +40,7 @@ Essas três propriedades são mapeadas para “publisher”, “type” e “typ
 
 A próxima etapa da criação de um modelo de extensão é identificar o formato para fornecer os parâmetros de configuração. Cada extensão dá suporte a seu próprio conjunto de parâmetros.
 
-Para ver configurações de exemplo para extensões do Windows, veja [exemplos de extensões do Windows](virtual-machines-windows-extensions-configuration-samples.md).
+Para obter configurações de exemplo para extensões do Windows, veja [Amostras de extensões do Windows](virtual-machines-windows-extensions-configuration-samples.md).
 
 
 Consulte o seguinte para obter um modelo completo com extensões de VM.
@@ -52,4 +50,4 @@ Consulte o seguinte para obter um modelo completo com extensões de VM.
 
 Depois de criar o modelo, você poderá implantá-lo usando o Azure PowerShell.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

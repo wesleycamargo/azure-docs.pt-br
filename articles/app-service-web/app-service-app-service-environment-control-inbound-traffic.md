@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="05/26/2016" 
 	ms.author="stefsch"/>
 
 # Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
@@ -41,7 +41,7 @@ A seguir está uma lista de portas usadas por um ambiente de serviço de aplicat
 - 80: Porta padrão para tráfego HTTP de entrada para aplicativos executados em planos de serviço de aplicativo em um ambiente de serviço de aplicativo
 - 443: Porta padrão para tráfego SSL de entrada para aplicativos executados em planos de serviço de aplicativo em um ambiente de serviço de aplicativo
 - 21: canal de controle para FTP. Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado.
-- 10001-10020: canais de dados para FTP. Assim como ocorre com o canal de controle, essas portas poderão ser bloqueadas com segurança se o FTP não estiver sendo usado (**Observação:** os canais de dados de FTP podem ser alterados durante a visualização.)
+- 10001-10020: canais de dados para FTP. Assim como acontece com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não estiver sendo usado   
 - 4016: usado para depuração remota com o Visual Studio 2012. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 - 4018: usado para depuração remota com o Visual Studio 2013. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
 - 4020: usado para depuração remota com o Visual Studio 2015. Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.
@@ -149,4 +149,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 <!-- IMAGES -->
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0601_2016-->

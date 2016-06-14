@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
-	ms.author="ddove; sidneyh"/>
+	ms.date="05/27/2016"
+	ms.author="ddove"/>
 
 # Criar e gerenciar bancos de dados do SQL Azure expandidos (preview)
 
@@ -115,4 +115,4 @@ Se um trabalho falhar, será possível encontrar um log de sua execução. Cliqu
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0601_2016-->

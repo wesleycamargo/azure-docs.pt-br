@@ -241,4 +241,8 @@ Para continuar aprendendo sobre o ponto de extremidade v2.0, retorne ao nosso [g
 - [AD do Azure no Excedente de Pilha >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentação do Azure AD no [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0323_2016-->
+## Obter atualizações de segurança para nossos produtos
+
+Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
+
+<!---HONumber=AcomDC_0601_2016-->
