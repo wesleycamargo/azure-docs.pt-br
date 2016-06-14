@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="05/26/2016"
    ms.author="alkohli"/>
 
 # Implantar o StorSimple Virtual Array –Preparar como servidor de arquivos
@@ -94,7 +94,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
 
 	> [AZURE.NOTE]
 	> 
-	> Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory e que nenhum GPO (objeto de política de grupo) seja aplicado a ela.
+	> Certifique-se de que a matriz virtual esteja em sua própria OU (unidade organizacional) do Active Directory e que nenhum GPO (objeto de política de grupo) seja aplicado a ela ou herdado. A política de grupo pode instalar aplicativos como, software antivírus, no StorSimple Virtual Array. Não há suporte para a instalação de software adicional e isso pode levar a dados corrompidos.
 
 1.  Opcionalmente, configure seu servidor proxy da Web. Embora a configuração do proxy da Web seja opcional, saiba que se você usar um proxy da Web, só poderá configurá-lo aqui.
 
@@ -192,7 +192,7 @@ Execute as etapas a seguir no [portal clássico do Azure](https://manage.windows
 
     3.  Selecione um tipo de uso para o compartilhamento. O tipo de uso pode ser **Em camadas** ou **Fixado localmente**, sendo que Em camadas é o padrão. Para cargas de trabalho que exigem garantias locais, menos latências e um melhor desempenho, selecione um compartilhamento **Fixado localmente**. Para todos os outros dados, selecione um compartilhamento **Em camadas**.
 
-	Um compartilhamento fixado localmente é provisionado estaticamente e garante que os dados primários no compartilhamento permaneçam como locais para o dispositivo e não sejam divulgados na nuvem. Um compartilhamento em camadas, por outro lado, é provisionado dinamicamente e pode ser criado bem rapidamente. Quando você cria um volume em camadas, aproximadamente 10% do espaço é provisionado na camada local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionar um volume de 1 TB, 100 GB residiriam no espaço local e 900 GB seriam usados na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, você não poderá provisionar um compartilhamento em camadas.
+	Um compartilhamento fixado localmente é provisionado estaticamente e garante que os dados primários no compartilhamento permaneçam como locais para o dispositivo e não sejam divulgados na nuvem. Um compartilhamento em camadas, por outro lado, é provisionado dinamicamente. Quando você cria um volume em camadas, aproximadamente 10% do espaço é provisionado na camada local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionar um volume de 1 TB, 100 GB residiriam no espaço local e 900 GB seriam usados na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, você não poderá provisionar um compartilhamento em camadas.
 
 1.  Especifique a capacidade provisionada para o seu compartilhamento. Observe que a capacidade especificada deve ser menor do que a capacidade disponível. Se estiver usando um compartilhamento em camadas, o tamanho do compartilhamento deve ser entre 500 GB e 20 TB. Para um compartilhamento fixado localmente, especifique um tamanho de compartilhamento entre 50 GB e 2 TB. Use a capacidade disponível como um guia para provisionar um compartilhamento. Se a capacidade local disponível for 0 GB, você não terá permissão para provisionar compartilhamentos em camadas ou fixados localmente.
 
@@ -232,4 +232,4 @@ Assista ao vídeo para ver como você pode configurar e registrar uma StorSimple
 
 Aprenda como [usar a interface do usuário da Web local para administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

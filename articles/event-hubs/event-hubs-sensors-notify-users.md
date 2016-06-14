@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/08/2016"
+   ms.date="05/31/2016"
    ms.author="spyros;sethm" />
 
 # Notificar os usuários de dados recebidos de sensores ou outros sistemas
@@ -82,4 +82,4 @@ Para implantar a solução para notificar usuários com base nos dados recebidos
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

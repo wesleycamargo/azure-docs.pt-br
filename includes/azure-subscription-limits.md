@@ -8,7 +8,6 @@ Núcleos por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md)
 Servidores de banco de dados SQL por assinatura|6|150
 Servidores DNS por assinatura|9|100
 IPs reservados por assinatura|20|100
-Circuitos dedicados da Rota Expressa por assinatura|10|25
 Certificados de serviço hospedado por assinatura|400|400
 [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura|256|256
 Contas do [Lote](https://azure.microsoft.com/services/batch/) por região, por assinatura|1|50
@@ -18,4 +17,4 @@ Regras de alerta por assinatura|250|250
 
 <sup>2</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 100 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="03/01/2016"
+   ms.date="05/31/2016"
    ms.author="piotrci"/>
 
 # Publicar aplicativos para usuários individuais em uma coleção do Azure RemoteApp (Visualização)
@@ -102,4 +102,4 @@ Agradecemos seus comentários e sugestões sobre este recurso de visualização.
 ## Ainda não teve a oportunidade de experimentar o recurso de visualização?
 Se você ainda não participou da visualização, use esta [pesquisa](http://www.instant.ly/s/AY83p) para solicitar acesso.
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="03/31/2016"
-   ms.author="jesseb; mikhegn; vturecek"/>
+   ms.author="vturecek;mikhegn"/>
 
 # Depurar seu aplicativo do Service Fabric usando o Visual Studio
 
@@ -70,7 +70,7 @@ Se seus aplicativos do Service Fabric estiverem em execução em um cluster do S
 1. Navegue até seu cluster no **Gerenciador de Nuvem**, clique com o botão direito do mouse e escolha **Habilitar Depuração**
 
     ![Habilitar depuração remota][enableremotedebugging]
-    
+
     Isso vai iniciar o processo de habilitar a extensão de depuração remota no seus nós de cluster, bem como as configurações de rede necessárias.
 
 2. Clique com botão direito do mouse no nó do cluster em **Gerenciador de Nuvem** e escolha **Anexar Depurador**
@@ -80,20 +80,20 @@ Se seus aplicativos do Service Fabric estiverem em execução em um cluster do S
 3. Na caixa de diálogo **Anexar ao processo**, escolha o processo que você quer depurar e clique em **Anexar**.
 
     ![Escolher processo][chooseprocess]
-    
+
     O nome do processo ao qual você quer anexar é igual ao nome do assembly do seu projeto de serviço.
 
     O depurador vai anexar a todos os nós que estão executando o processo.
     - No caso em que você estiver depurando um serviço sem estado, todas as instâncias do serviço em todos os nós farão parte da sessão de depuração.
     - Se estiver depurando um serviço com estado, somente a réplica primária de qualquer partição estará ativa e, portanto, a que será capturada pelo depurador. Se a réplica primária for movida durante a sessão de depuração, o processamento de tal réplica ainda fará parte da sessão de depuração.
     - Para capturar apenas as partições ou instâncias relevantes de um determinado serviço, você pode usar pontos de interrupção condicionais para interromper apenas uma partição ou instância específica.
-        
+
     ![Ponto de interrupção condicional][conditionalbreakpoint]
-    
+
     > [AZURE.NOTE] Atualmente, não permitimos a depuração de um cluster do Service Fabric com várias instâncias de mesmo nome do executável de serviço.
-    
+
 4. Depois de concluir a depuração do aplicativo, você poderá desabilitar a extensão de depuração remota clicando com o botão direito do mouse no cluster em **Gerenciador de Nuvem** e escolhendo **Desabilitar Depuração**
-    
+
     ![Desabilitar depuração remota][disableremotedebugging]
 
 ## Transmitindo rastreamentos de um nó de cluster remoto
@@ -108,17 +108,17 @@ Você também pode transmitir rastreamentos diretamente de um nó de cluster rem
 1. Navegue até seu cluster no **Gerenciador de Nuvem**, clique com o botão direito do mouse e escolha **Habilitar Transmissão de Rastreamentos**
 
     ![Habilitar transmissão remota de rastreamentos][enablestreamingtraces]
-    
+
     Isso vai iniciar o processo de habilitar a extensão de transmissão de rastreamentos, bem como as configurações de rede necessárias.
 
 2. Expanda o elemento **Nós** no **Gerenciador de Nuvem**, clique com o botão direito do mouse no nó do qual você quer transmitir rastreamentos e escolha **Exibir Transmissão de Rastreamentos**
 
     ![Exibir transmissão remota de rastreamentos][viewremotestreamingtraces]
-    
+
     Repita a etapa 2 para o número de nós dos quais você quer ver os rastreamentos. Cada fluxo de nó será mostrado em uma janela dedicada.
-    
+
     Agora você poderá ver os rastreamentos emitidos pelo Service Fabric e seus serviços. Se quiser filtrar os eventos para mostrar somente um aplicativo específico, basta digitar o nome do aplicativo no filtro.
-    
+
     ![Exibindo transmissão de rastreamentos][viewingstreamingtraces]
 
 4. Depois que finalizar a transmissão de rastreamentos do seu cluster, você poderá desabilitar a transmissão remota de rastreamentos, clicando com o botão direito do mouse no cluster em **Gerenciador de Nuvem** e escolhendo **Desabilitar Transmissão de Rastreamentos**
@@ -146,4 +146,4 @@ Você também pode transmitir rastreamentos diretamente de um nó de cluster rem
 [viewremotestreamingtraces]: ./media/service-fabric-debugging-your-application/viewremotestreamingtraces.png
 [disablestreamingtraces]: ./media/service-fabric-debugging-your-application/disablestreamingtraces.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0601_2016-->

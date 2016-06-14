@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="06/06/2016"
    ms.author="yurid"/>
 
 #Monitoramento de integridade de segurança na Central de segurança do Azure
@@ -34,7 +34,7 @@ Para obter mais informações sobre como aplicar recomendações, leia [Implemen
 
 No bloco **Integridade da segurança de recursos**, você pode monitorar o estado de segurança de seus recursos. No exemplo a seguir, você pode ver vários problemas com gravidade média e alta que exigem atenção. As políticas de segurança que são habilitadas terão impacto sobre os tipos de controles que são monitorados.
 
-![Integridade dos recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
+![Integridade dos recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new3.png)
 
 Se a Central de segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma VM com ausência de atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md), ela será listada aqui.
 
@@ -100,48 +100,58 @@ Essa folha tem os detalhes de segurança da VM. Na parte inferior dessa folha, v
 ###Monitorar redes virtuais
 Quando você clicar em **Rede** no bloco **Integridade de segurança de recursos**, a folha **Rede** será aberta com mais detalhes, conforme mostrado abaixo:
 
-![Rede](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
+![Rede](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 ####Recomendações de rede
 
 Como as informações de integridade de recursos de máquinas virtuais, essa folha fornece uma lista resumida dos problemas na parte superior da folha e uma lista de redes monitoradas na parte inferior.
 
-![Blog da rede](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
-
 A seção de divisão de status de rede lista os problemas de segurança potenciais e oferece recomendações. Os possíveis problemas podem incluir:
 
+- Firewall da Próxima Geração (NGFW) não instalado
 - Grupos de Segurança da Rede (NSGs) em sub-redes não habilitadas
 - NSGs nas VMs não habilitadas
 - Restringir o acesso externo por meio do ponto de extremidade externo público
-- Sub-redes Íntegras
+- Pontos de extremidade voltados para a Internet íntegra
 
 Quando você clica em uma dessas recomendações, uma nova folha é aberta com mais detalhes relacionados à recomendação, conforme mostrado no exemplo abaixo.
 
 ![Restringir ponto de extremidade](./media/security-center-monitoring/security-center-monitoring-fig11-new2.png)
 
-Neste exemplo a folha **Configurar Grupos de Segurança da Rede Ausentes para Sub-redes** tem uma lista de sub-redes e máquinas virtuais que não têm a proteção NSG. Se você clicar na sub-rede à qual deseja aplicar o NSG, outra folha será aberta.
+Neste exemplo, a folha **Configurar Grupos de Segurança da Rede Ausentes para Sub-redes** tem uma lista de sub-redes e máquinas virtuais sem a proteção NSG. Se você clicar na sub-rede à qual deseja aplicar o NSG, outra folha será aberta.
 
 Na folha **Escolher grupo de segurança da rede**, você selecionará o Grupo de Segurança da Rede mais apropriado para a sub-rede ou poderá criar um novo Grupo de Segurança da Rede.
 
-####Seção Rede
+####Seção dos pontos de extremidade voltados para a Internet
 
-Na seção **Rede**, há uma exibição hierárquica dos recursos, como mostrado abaixo:
+Na seção **Pontos de extremidade voltados para a Internet**, você será capaz de ver as VMs configuradas no momento com um ponto de extremidade voltado para a Internet e seu status atual.
 
-![Árvore de rede](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
+![Pontos de extremidade voltados para a Internet](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
+
+Esta tabela tem o nome do ponto de extremidade que representa a VM, endereço IP voltado para a Internet, status atual da gravidade do NSG e NGFW. Esta tabela é classificada por gravidade, conforme descrito abaixo:
+- Vermelho (no topo): alta prioridade e deve ser endereçado imediatamente 
+- Laranja: prioridade média e deve ser endereçado assim que possível
+- Verde (último): estado da integridade
+
+####Seção de Topologia da rede
+
+Na seção **Topologia da rede**, há uma exibição hierárquica dos recursos, como mostrado abaixo:
+
+![Topologia da rede](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 Esta tabela é classificada (VMs e Sub-redes) por gravidade, conforme descrito abaixo:
 - Vermelho (no topo): alta prioridade e deve ser endereçado imediatamente 
 - Laranja: prioridade média e deve ser endereçado assim que possível
 - Verde (último): estado da integridade
 
-Nessa hierarquia, o primeiro nível tem as [Redes Virtuais](../virtual-network/virtual-networks-overview.md), [Gateways da Rede Virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md) e [Rede Virtual (clássica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). O segundo nível tem as sub-redes e o terceiro nível tem as VMs que pertencem a essas sub-redes. A coluna da direita tem o status atual do Grupo de Segurança da Rede (NSG) para esses recursos. O exemplo a seguir é o resultado da seleção da VM VM-CL-W1:
+Nessa exibição da topologia, o primeiro nível tem as [Redes Virtuais](../virtual-network/virtual-networks-overview.md), [Gateways da Rede Virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md) e [Rede Virtual (clássica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). O segundo nível tem as sub-redes e o terceiro nível tem as VMs que pertencem a essas sub-redes. A coluna da direita tem o status atual do Grupo de Segurança da Rede (NSG) para esses recursos. O exemplo a seguir é o resultado da seleção da VM VM-CL-W1:
 
 ![Árvore de rede](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 
 A parte inferior dessa folha tem as recomendações para essa VM, semelhante ao que está descrito acima. Você pode clicar em uma recomendação para obter mais informações ou aplicar a configuração/controle de segurança necessário.
 
 ###Monitorar recursos do SQL
-Quando você clicar em **SQL** no bloco **Integridade de segurança dos recursos**, a folha SQL será aberta com recomendações para os problemas, como auditoria e criptografia de dados transparente não habilitadas. Ela também contém recomendações para o estado de integridade geral do banco de dados.
+Quando você clicar em **SQL** no bloco **Integridade de segurança dos recursos**, a folha SQL será aberta com recomendações para os problemas, como auditoria e criptografia de dados transparente não habilitada. Ela também contém recomendações para o estado de integridade geral do banco de dados.
 
 ![Integridade de recursos do SQL](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
@@ -164,7 +174,7 @@ Quando você clicar no banco de dados para endereçar essa recomendação, a fol
 Para habilitar a auditoria, basta selecionar **ATIVAR** na opção **Auditoria** e clicar em **Salvar**.
 
 ###Monitorar aplicativos
-Se sua carga de trabalho do Azure tiver aplicativos localizados nas [VMs do gerenciador de recursos](../resource-manager-deployment-model.md) com portas Web expostas (portas TCP 80 e 443), a Central de Segurança poderá monitorá-las para identificar os problemas de segurança potenciais e as etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a folha **Aplicativos** será aberta com uma série de recomendações na seção de etapas de prevenção. Ela também mostra a divisão de aplicativos por host/IP virtual, conforme mostrado abaixo.
+Se sua carga de trabalho do Azure tiver aplicativos localizados nas [VMs do gerenciador de recursos](../resource-manager-deployment-model.md) com portas Web expostas (portas TCP 80 e 443), a Central de Segurança poderá monitorá-los para identificar os problemas de segurança potenciais e as etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a folha **Aplicativos** será aberta com uma série de recomendações na seção das etapas de prevenção. Ela também mostra a divisão de aplicativos por host/IP virtual, conforme mostrado abaixo.
 
 ![Integridade da segurança de aplicativos](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
@@ -181,8 +191,8 @@ Neste documento, você aprendeu como usar os recursos de monitoramento na Centra
 
 - [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança na Central de Segurança do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Monitorando soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
+- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções do parceiro.
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

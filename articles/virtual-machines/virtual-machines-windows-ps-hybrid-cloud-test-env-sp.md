@@ -19,8 +19,6 @@
 
 # Configurar um farm de intranet do SharePoint em uma nuvem híbrida para teste
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Este tópico orienta a criação de um ambiente de nuvem híbrida para testar um farm de intranet do SharePoint hospedado no Microsoft Azure. Veja abaixo a configuração resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
@@ -43,7 +41,7 @@ Há três fases principais para configurar esse ambiente de teste de nuvem híbr
 2.	Configurar o computador do servidor SQL (SQL1).
 3.	Configurar o servidor do SharePoint (SP1).
 
-Essa carga de trabalho requer uma assinatura do Azure. Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito mensal do Azure para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Essa carga de trabalho requer uma assinatura do Azure. Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Fase 1: Configurar o ambiente de nuvem híbrida
 
@@ -125,9 +123,9 @@ Em seguida, integre a SQL1 ao domínio CORP do Active Directory com estes comand
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
-Use a conta CORP\\User1 quando for solicitado a fornecer credenciais de conta de domínio para o comando **Add-Computer**.
+Use a conta CORP\\User1 quando for solicitado a fornecer as credenciais de conta de domínio para o comando **Add-Computer**.
 
-Após a reinicialização, use o portal do Azure para conectar-se ao SQL1 usando a *conta de administrador local*.
+Após a reinicialização, use o Portal do Azure para se conectar ao SQL1 usando a *conta de administrador local*.
 
 Em seguida, configure o SQL Server 2014 para usar a unidade F: para novos bancos de dados e permissões de conta de usuário.
 
@@ -190,7 +188,7 @@ Em seguida, integre a SP1 ao domínio CORP do Active Directory com estes comando
 	Add-Computer -DomainName corp.contoso.com
 	Restart-Computer
 
-Use a conta CORP\\User1 quando for solicitado a fornecer credenciais de conta de domínio para o comando **Add-Computer**.
+Use a conta CORP\\User1 quando for solicitado a fornecer as credenciais de conta de domínio para o comando **Add-Computer**.
 
 Após a reinicialização, use o portal do Azure para conectar-se ao SP1 com a conta e senha de CORP\\User1.
 
@@ -201,7 +199,7 @@ Em seguida, configure o SP1 para um novo farm do SharePoint e um site de equipe 
 3.	Na caixa de diálogo que notifica que alguns serviços talvez precisem ser reiniciados durante a configuração, clique em **Sim**.
 4.	Na página Conectar a um farm de servidores, clique em **Criar um novo farm de servidores** e clique em **Avançar**.
 5.	Na página Especificar Definições do Banco de Dados de Configuração, digite **sql1.corp.contoso.com** em **Servidor de Banco de Dados**, digite **CORP\\SPFarmAdmin** em **Nome de usuário**, digite a senha da conta SPFarmAdmin em **Senha** e clique em **Avançar**.
-6.	Na página Especificar Configurações de Segurança do Farm, digite ****P@ssphrase** tanto em **Senha** quanto em **Confirmar senha** e clique em **Avançar**.
+6.	Na página Especificar Configurações de Segurança do Farm, digite **P@ssphrase** tanto em **Senha** quanto em **Confirmar senha** e clique em **Avançar**.
 7.	Na página Configurar Aplicativo Web da Administração Central do SharePoint, clique em **Avançar**.
 8.	Na página Concluindo o Assistente de Configuração de Produtos do SharePoint, clique em **Avançar**. O Assistente de Configuração de Produtos do SharePoint pode levar alguns minutos para ser concluído.
 9.	Na página Configuração Bem-sucedida, clique em **Concluir**. Após a conclusão, o Internet Explorer é iniciado com uma guia chamada Assistente de Configuração Inicial do Farm.
@@ -224,4 +222,4 @@ Seu farm de intranet do SharePoint em um ambiente de nuvem híbrida agora está 
 
 - [Configure](https://technet.microsoft.com/library/ee836142.aspx) o farm do SharePoint.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

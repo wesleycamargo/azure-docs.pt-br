@@ -226,7 +226,7 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 [Fábrica de dados]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Introdução ao Azure Data Factory (Editor do Data Factory)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Introdução ao Azure Data Factory]: ../data-factory/data-factory-introduction.md
-[Load sample data into SQL Data Warehouse]: sql-data-warehouse-get-started-manually-load-samples.md
+[Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [Tutorial de cenário do mundo real]: ../data-factory/data-factory-tutorial.md
@@ -240,4 +240,4 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 [Portal do Azure]: https://portal.azure.com
 [Baixe os dados de exemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

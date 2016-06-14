@@ -59,6 +59,7 @@ Atualmente, esse recurso está em preview. Estamos trabalhando para adicionar no
 - As configurações de Autenticação Fácil não são clonadas
 - A extensão Kudu não é clonada
 - As regras de TiP não são clonadas
+- O conteúdo do banco de dados não é clonado
 
 
 ### Referências ###
@@ -72,4 +73,4 @@ Atualmente, esse recurso está em preview. Estamos trabalhando para adicionar no
 [1]: ./media/app-service-web-app-cloning-portal/CloningBlade.png
 [2]: ./media/app-service-web-app-cloning-portal/CloneSettings.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0601_2016-->

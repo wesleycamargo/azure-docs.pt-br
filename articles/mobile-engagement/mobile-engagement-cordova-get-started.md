@@ -237,4 +237,4 @@ Agora, vamos criar uma campanha de notificação por push simples que enviará u
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!----HONumber=AcomDC_0406_2016-->
+<!-----HONumber=AcomDC_0406_2016-->

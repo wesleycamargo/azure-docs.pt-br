@@ -52,7 +52,7 @@ O SO convidado 201511-02 de novembro foi lançado em 4 de janeiro de 2016 para i
 ## Versões da Família 4
 **Windows Server 2012 R2**
 
-Dá suporte a .NET 4.0, 4.5, 4.5.1, 4.5.2 (Observação 2)
+É compatível com .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 >[AZURE.NOTE] As datas com * estão sujeitas a alterações
 
@@ -203,4 +203,4 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

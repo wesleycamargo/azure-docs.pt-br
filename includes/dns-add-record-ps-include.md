@@ -12,7 +12,7 @@
 
 ### Criar um conjunto de registros MX com um registro único
 
-Neste exemplo, usamos o nome do conjunto de registros "@" para criar o registro MX no vértice da zona (por exemplo, "contoso.com"). Isso é comum para os registros MX.
+Neste exemplo, usamos o nome do conjunto de registros "@" para criar um registro MX no vértice da zona (nesse caso, "contoso.com"). Isso é comum para os registros MX.
 
 	$rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
@@ -26,7 +26,7 @@ Neste exemplo, usamos o nome do conjunto de registros "@" para criar o registro 
 
 ### Criar um conjunto de registros SRV com um registro único
 
-Se você estiver criando um registro SRV na raiz da zona, basta especificar *\_service* e *\_protocol* no nome do registro. Não é necessário incluir também '.@' no nome do registro.
+Se você estiver criando um registro SRV na raiz de uma zona, basta especificar *\_service e *\_protocol no nome do registro. Não é necessário incluir “@” no nome do registro.
 
 	$rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
@@ -37,3 +37,5 @@ Se você estiver criando um registro SRV na raiz da zona, basta especificar *\_s
 	$rs = New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
+
+<!---HONumber=AcomDC_0601_2016-->

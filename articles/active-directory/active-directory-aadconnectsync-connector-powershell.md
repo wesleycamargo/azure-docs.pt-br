@@ -16,7 +16,7 @@
    ms.date="05/24/2016"
    ms.author="andkjell"/>
 
-# Referência técnica do conector do Windows PowerShell
+# Referência técnica do Windows PowerShell Connector
 
 Este artigo descreve o conector do Windows PowerShell. O artigo se aplica aos seguintes produtos:
 
@@ -370,4 +370,4 @@ Substitua o nome do conector Windows PowerShell para o espaço reservado <Connec
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

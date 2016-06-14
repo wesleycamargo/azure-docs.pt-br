@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/05/2016"
+	ms.date="06/07/2016"
 	ms.author="cynthn"/>
 
 # Criar sua primeira máquina virtual do Windows no Portal do Azure
@@ -49,7 +49,7 @@ Depois de selecionar a imagem, você poderá usar as configurações padrão do 
 
 2. Insira um **Nome de usuário**, e uma **Senha** forte que será usada para criar uma conta local na VM. A conta local é usada para fazer logon e gerenciar a VM.
 
-	A senha deve ter pelo menos entre 8 e 123 caracteres e ter pelo menos 3 dos seguintes: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial.
+	A senha deve ter entre 12 e 123 caracteres e ter pelo menos um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial.
 
 
 3. Selecione [Grupo de recursos ](../resource-group-overview.md#resource-groups) existente ou digite o nome de um novo. Digite um **Local** de datacenter do Azure, por exemplo **Oeste dos EUA**.
@@ -116,4 +116,4 @@ Basta clicar no botão **Iniciar** para reiniciar a VM quando você estiver pron
 
 * Você também pode [criar uma VM do Windows usando o Powershell](virtual-machines-windows-ps-create.md) ou [criar uma máquina virtual do Linux](virtual-machines-linux-quick-create-cli.md) usando a CLI do Azure.
 
-<!----HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

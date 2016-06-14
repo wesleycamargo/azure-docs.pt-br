@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -46,29 +46,9 @@ Para concluir este artigo, você precisa do seguinte:
 
 
 
-## Configurar suas credenciais e selecionar sua assinatura
+## Copiar seu banco de dados SQL
 
-Em primeiro lugar, você deve estabelecer o acesso à sua conta do Azure e, depois, iniciar o PowerShell e executar o cmdlet a seguir. Na tela de logon, insira o mesmo email e senha que você usa para entrar no portal clássico do Azure.
-
-	Add-AzureAccount
-
-Depois de se conectar com êxito, você verá algumas informações na tela, incluindo a ID usada para entrar e as assinaturas do Azure as quais você tem acesso.
-
-
-### Selecionar sua assinatura do Azure
-
-Para selecionar a assinatura, é necessário ter a ID ou o nome da assinatura (**-SubscriptionName**). É possível copiar a ID da assinatura nas informações exibidas na etapa anterior ou, se tiver várias assinaturas e precisar de mais detalhes, você pode executar o cmdlet **Get-AzureSubscription** e copiar as informações da assinatura desejada do resultset. Quando tiver sua assinatura, execute o seguinte cmdlet:
-
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-Depois de executar **Select-AzureSubscription** com êxito, você retornará ao prompt do PowerShell. Se tiver mais de uma assinatura, você poderá executar **Get-AzureSubscription** e verificar se a assinatura que deseja usar mostra **IsCurrent: True**.
-
-
-## Configurar as variáveis para o ambiente específico
-
-Existem algumas variáveis em que você precisará substituir os valores de exemplo pelos valores específicos do seu banco de dados e dos servidores.
-
-Substitua os valores de espaço reservado pelos valores para o seu ambiente:
+Existem algumas variáveis em que você precisará substituir os valores de exemplo pelos valores específicos do seu banco de dados e dos servidores. Substitua os valores de espaço reservado pelos valores para o seu ambiente:
 
     # The name of the server on which the source database resides.
     $ServerName = "sourceServerName"
@@ -86,14 +66,14 @@ Substitua os valores de espaço reservado pelos valores para o seu ambiente:
 
 
 
-## Copiar um banco de dados SQL para o mesmo servidor
+### Copiar um banco de dados SQL para o mesmo servidor
 
 Esse comando envia a solicitação de cópia do banco de dados para o serviço. Dependendo do tamanho do banco de dados, a operação de cópia poderá demorar a ser concluída.
 
     # Copy a database to the same server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerDatabase $PartnerDatabaseName
 
-## Copiar um banco de dados SQL para um servidor diferente
+### Copiar um banco de dados SQL para um servidor diferente
 
 Esse comando envia a solicitação de cópia do banco de dados para o serviço. Dependendo do tamanho do banco de dados, a operação de cópia poderá demorar a ser concluída.
 
@@ -109,7 +89,7 @@ Depois de executar **Start-AzureSqlDatabaseCopy**, você poderá verificar o sta
     Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
 
 
-## Copiar um script do PowerShell do banco de dados SQL
+## Exemplo de script do PowerShell
 
     # The name of the server where the source database resides
     $ServerName = "sourceServerName"
@@ -146,4 +126,4 @@ Depois de executar **Start-AzureSqlDatabaseCopy**, você poderá verificar o sta
 - [Executar análise de recuperação de desastres](sql-database-disaster-recovery-drills.md)
 - [Documentação do Banco de Dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="06/03/2016"
    ms.author="yurid"/>
 
 # Configuração de políticas de segurança na Central de segurança do Azure
@@ -69,8 +69,8 @@ Use a tabela a seguir como uma referência para entender o que cada opção far�
 
 | Política | Quando o estado for Ativado |
 |----- |-----|
-| Atualizações do Sistema | Recupera uma lista de atualizações disponíveis do Windows Update ou WSUS, dependendo de qual serviço está configurado para a máquina virtual, a cada 12 horas, e recomenda que as atualizações críticas e de segurança ausentes sejam instaladas nas máquinas virtuais do Windows. |
-| Regras de linha de base | Analisa todas as máquinas virtuais com suporte para identificar configurações de sistema operacional que possam tornar a máquina virtual mais vulnerável a ataques e recomenda alterações de configuração para lidar com essas vulnerabilidades. Consulte a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obter mais informações sobre as configurações específicas que estão sendo monitoradas. |
+| Atualizações do Sistema | Diariamente, recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou WSUS, dependendo de qual serviço está configurado para a máquina virtual e recomenda que as atualizações ausentes sejam aplicadas. |
+| Regras de linha de base | Diariamente, analisa as configurações do SO que podem tornar a máquina virtual mais vulnerável a ataques e recomenda as alterações de configuração para endereçar essas vulnerabilidades. Consulte a [lista de linhas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obter mais informações sobre as configurações específicas que estão sendo monitoradas. |
 | Proteção do Ponto de Extremidade | Recomenda que seja fornecida uma proteção do ponto de extremidade para todas as máquinas virtuais do Windows para ajudar a identificar e remover vírus, spyware e outros softwares mal-intencionados. 
 | Grupos de segurança de rede | Recomenda que os [Grupos de Segurança da Rede (NSGs)](../virtual-network/virtual-networks-nsg.md) sejam configurados para controlar os tráfegos de entrada e saída para as sub-redes e as interfaces de rede. Os NSGs configurados para uma sub-rede serão herdados por todas as interfaces de rede de máquina virtual, a menos que especificado o contrário. Além de verificar se um NSG foi configurado, essa opção avalia as regras de segurança de entrada para identificar se há regras que permitem o tráfego de entrada. |
 | Firewall do Aplicativo Web | Recomenda que um Firewall do Aplicativo Web seja fornecido nas máquinas virtuais quando: o [IP Público no Nível da Instância](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) é usado e as Regras de Segurança de Entrada do NSG Associadas são configuradas para permitir o acesso à porta 80/443. O IP de balanceamento de carga (VIP) é usado e o balanceamento de carga associado e as regras NAT de entrada estão configuradas para permitir acesso à porta 80/443 (para obter mais informações, consulte [Suporte do Gerenciador de Recursos do Azure para Balanceador de Carga](../load-balancer/load-balancer-arm.md)) |
@@ -86,7 +86,7 @@ Se preferir configurar as políticas de segurança por grupo de recursos, as eta
 
 ![Seleção de grupo de recursos](./media/security-center-policies/security-center-policies-fig4.png)
 
-Após selecionar o grupo de recursos, a folha **Política de segurança** será aberta. Por padrão, a opção **Herança** está habilitada, o que significa que todas as políticas de segurança para esse grupo de recursos são herdadas do nível da assinatura. Você pode alterar essa configuração caso deseje uma política de segurança personalizada por grupo de recursos. Nesse caso, você precisa selecionar **Exclusiva** e fazer alterações na opção **Política de prevenção**.
+Após selecionar o grupo de recursos, a folha **Política de segurança** será aberta. Por padrão, a opção **Herança** está habilitada, significando que todas as políticas de segurança desse grupo de recursos são herdadas do nível da assinatura. Você pode alterar essa configuração caso deseje uma política de segurança personalizada por grupo de recursos. Nesse caso, você precisa selecionar **Exclusiva** e fazer alterações na opção **Política de prevenção**.
 
 ![Política de segurança por grupo de recursos](./media/security-center-policies/security-center-policies-fig5-new.png)
 
@@ -97,11 +97,11 @@ Após selecionar o grupo de recursos, a folha **Política de segurança** será 
 
 Neste documento, você aprendeu como configurar políticas de segurança na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
-- [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) -saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
+- [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) - saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
 - [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure
 - [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
-- [Monitorando soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
+- [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções do parceiro.
 - [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização
 - [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

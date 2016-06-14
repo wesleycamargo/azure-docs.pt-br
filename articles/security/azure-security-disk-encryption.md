@@ -169,21 +169,21 @@ O Azure Disk Encryption tem suporte nos seguintes SKUs de cliente Windows: clien
 
 	- Exemplo de URL de segredo válida:
 
-		**https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- Exemplo de KEK de KRK válida:
 
-		**https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - A criptografia de disco do Azure não dá suporte a números de porta especificadas como parte do segredo do Cofre da Chave e das URLs de KEK. Veja a seguir exemplos de URL de Cofre da Chave com suporte:
 
  	- URL do Cofre da Chave inaceitável
 
-		**https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 	- URL do Cofre da Chave aceitável:
 
-		**https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+		*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 - Para habilitar o recurso de Criptografia de Disco do Azure, as VMs IaaS devem atender aos seguintes requisitos de configuração do ponto de extremidade de rede:
 
@@ -262,23 +262,23 @@ A ID do Cliente e o segredo do Azure AD também podem ser provisionados pelo Por
 
 1\. Clique na guia do Active Directory conforme mostrado na figura abaixo:
 
-![Criptografia de Disco do Azure](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Criptografia de Disco do Azure](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2\. Clique em Adicionar Aplicativo e digite o nome do aplicativo, conforme mostrado abaixo:
 
-![Criptografia de Disco do Azure](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Criptografia de Disco do Azure](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3\. Clique no botão de seta e configure as propriedades do aplicativo conforme mostrado abaixo:
 
-![Criptografia de Disco do Azure](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Criptografia de Disco do Azure](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4\. Clique na marca de seleção no canto inferior esquerdo para concluir. A página de configuração do aplicativo é exibida. Observe que a ID do cliente do AD do Azure está localizada na parte inferior da página, conforme mostrado na figura a seguir.
 
-![Criptografia de Disco do Azure](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Criptografia de Disco do Azure](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5\. Salve o segredo do cliente do Azure AD clicando no botão Salvar. Clique no botão Salvar e observe o segredo da caixa de texto de chaves. Ele é o segredo do cliente do Azure AD. Você deve proteger adequadamente o segredo do cliente no Azure AD.
 
-![Criptografia de Disco do Azure](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Criptografia de Disco do Azure](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **Observação:** não há suporte para o fluxo acima no Portal.
@@ -845,4 +845,4 @@ Você pode baixar este guia na [Galeria do TechNet](https://gallery.technet.micr
 
 [Explorar a Criptografia de Disco do Azure com o Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

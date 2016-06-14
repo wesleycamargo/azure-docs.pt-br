@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Monitorar seus Aplicativos Lógicos no Serviço de Aplicativo do Azure | Microsoft Azure" 
-	description="Como ver o que os Aplicativos Lógicos fizeram" 
+	pageTitle="Monitorar seus Aplicativos lógicos no Serviço de Aplicativo do Azure | Microsoft Azure" 
+	description="Como ver o que os Aplicativos lógicos fizeram" 
 	authors="stepsic-microsoft-com" 
 	manager="erikre" 
 	editor="" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 
-# Monitorar seus aplicativos lógicos
+# Monitorar seus Aplicativos lógicos
 
-Depois de [criar um Aplicativo Lógico](app-service-logic-create-a-logic-app.md), é possível ver o histórico completo da execução no portal do Azure. Para exibir o histórico, selecione **Procurar** e **Aplicativos Lógicos**. É exibida uma lista com todos os Aplicativos Lógicos em sua assinatura. É possível selecionar qualquer aplicativo lógico e **Habilitar** ou **Desabilitar**. Aplicativos Lógicos **Habilitados** significam que os gatilhos executam-no em resposta a eventos de gatilho. Um Aplicativo Lógico **Desabilitado** não é executado em resposta a eventos.
+Depois de [criar um Aplicativo lógico](app-service-logic-create-a-logic-app.md), é possível ver o histórico completo de sua execução no portal do Azure. Para exibir o histórico, selecione **Procurar** e **Aplicativos lógicos**. É exibida uma lista com todos os Aplicativos Lógicos em sua assinatura. É possível selecionar qualquer Aplicativo lógico e **Habilitar** ou **Desabilitar**. Aplicativos lógicos **Habilitados** significam que os gatilhos executam seu Aplicativo lógico em resposta aos eventos de gatilho. Um Aplicativo lógico **Desabilitado** não é executado em resposta aos eventos.
 
 ![Visão geral](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
-Quando a folha para seu aplicativo lógico aparecer, há duas seções úteis:
+Quando a folha de seu Aplicativo lógico aparecer, haverá duas seções úteis:
 
-- O **Resumo** mostra o status mais recente e é um ponto de entrada para editar seu Aplicativo Lógico.
-- **Todas as execuções** mostra uma lista das execuções desse Aplicativo Lógico.
+- **Resumo** mostra o status mais recente e é um ponto de entrada para editar seu Aplicativo lógico.
+- **Todas as execuções** mostra uma lista das execuções desse Aplicativo lógico.
 
 ## Exibir as execuções do aplicativo
 
@@ -43,7 +43,7 @@ Outra informação importante é a **ID de Acompanhamento**. Esse identificador 
 
 ## Exibir o histórico de gatilho 
 
-Gatilhos de sondagem verificam uma API em um intervalo de sondagem, mas não necessariamente iniciam uma execução, dependendo da resposta (por exemplo, um `200` significa executar e um `202` significa não executar). O histórico de gatilho permite ver todas as chamadas que aconteceram, mas que não executam o Aplicativo Lógico (as respostas `202`).
+Gatilhos de sondagem verificam uma API em um intervalo de sondagem, mas não necessariamente iniciam uma execução, dependendo da resposta (por exemplo, um `200` significa executar e um `202` significa não executar). O histórico de gatilhos permite ver todas as chamadas que aconteceram, mas que não executam o Aplicativo lógico (as respostas `202`).
 
 ![Histórico de gatilho](./media/app-service-logic-monitor-your-logic-apps/triggerhistory.png)
 
@@ -51,9 +51,12 @@ Para cada gatilho, você pode ver se ele foi **disparado** ou não, ou se houve 
 
 Observe que, para gatilhos de *Push*, você *não* vê as horas de início das execuções. Em vez disso, você vê as chamadas de *registro de retorno de chamada*, que são o registro do Aplicativo Lógico para receber o retorno de chamada. Se o gatilho de push não estiver funcionando, pode ser que haja um problema com o registro (que você poderá ver nas saídas), mas, caso contrário, talvez seja necessário investigar especificamente essa API.
 
+## Habilitando o Diagnóstico do Azure
+
+Você pode habilitar as informações de Diagnóstico para recuperar e armazenar os dados da execução para os fluxos de trabalho. Na folha Aplicativo Lógico, role para baixo até três gráficos de **Monitoramento** e escolha **Clicar aqui para habilitar o diagnóstico**. Você pode configurar em uma conta de armazenamento na região do Aplicativo Lógico e assinar **Logs** ou **Métrica** no Aplicativo. **Logs** enviará um evento sempre que uma execução, ação ou evento iniciar ou terminar. **Métrica** fornece dados agregados sobre quantas execuções foram realizadas dentro de uma janela de tempo.
+
 ## Habilitar o controle de versão
 
 Há uma funcionalidade adicional que, atualmente, não está disponível na interface do usuário (em breve), mas que está na [API REST](https://msdn.microsoft.com/library/azure/mt643788.aspx). Quando você atualiza a definição de um aplicativo lógico, a versão anterior da definição é armazenada. Isso ocorre porque, se você já tiver uma execução em andamento, ela fará referência à versão do Aplicativo Lógico que existia quando a execução teve início. Definições de execuções não podem mudar enquanto estiverem em andamento. O histórico de versão de API REST permite o acesso a essas informações.
- 
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0601_2016-->

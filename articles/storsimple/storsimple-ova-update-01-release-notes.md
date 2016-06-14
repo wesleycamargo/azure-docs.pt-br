@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/24/2016"
+   ms.date="05/27/2016"
    ms.author="alkohli" />
 
 # Notas de versão da Atualização 0.1 da StorSimple Virtual Array
@@ -29,17 +29,17 @@ As notas de versão são continuamente atualizadas e, à medida que são descobe
 
 A Atualização 0.1 contém as seguintes correções de bug e aprimoramentos.
 
-- **Resiliência em torno de interrupções de nuvem**: esta versão tem várias correções de bug em torno da recuperação de desastres, backup, restauração e camadas no caso de uma interrupção da conectividade da nuvem. 
+- **Resiliência aprimorada contra interrupções de nuvem**: esta versão tem várias correções de bug voltadas para recuperação de desastres, backup, restauração e camadas no caso de uma interrupção da conectividade da nuvem. 
 
 - **Melhor desempenho de restauração**: esta versão tem correções de bug que reduziram significativamente o tempo de conclusão dos trabalhos de restauração.
 
 - **Otimização de reclamação de espaço automatizada**: Quando os dados são excluídos em volumes escassamente provisionados, os blocos de armazenamento não utilizados deverão ser recuperados. Esta versão aprimorou o processo de recuperação de espaço da nuvem, o que resultou na disponibilização mais rápida do espaço não utilizado, em comparação com versões anteriores.
 
-- **Novos VHD, VHDX e VMDK**: os novos VHD e VHDX VMDK agora estão disponíveis por meio do portal clássico do Azure. Você pode baixar essas imagens para provisionar novos dispositivos da Atualização 0.1.
+- **Novas imagens de disco virtual**: os novos VHD e VHDX e VMDK agora estão disponíveis por meio do Portal Clássico do Azure. Você pode baixar essas imagens para provisionar novos dispositivos da Atualização 0.1.
 
 - **Melhoria da precisão de status de trabalhos no portal**: na versão anterior do software, os relatórios de status de trabalhos no portal não eram granulares. Esse problema foi corrigido nesta versão.
 
-- **Correções de bug relacionados à junção e renomeação de domínios** do dispositivo.
+- **Experiência de ingresso no domínio**: correções de bugs relacionadas à junção de domínios e renomeação do dispositivo.
 
 
 ## Problemas resolvidos na Atualização 0.1
@@ -83,4 +83,4 @@ A tabela a seguir fornece um resumo dos problemas conhecidos para a StorSimple V
 
 [Instale a Atualização 0.1](storsimple-ova-install-update-01.md) em sua StorSimple Virtual Array.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

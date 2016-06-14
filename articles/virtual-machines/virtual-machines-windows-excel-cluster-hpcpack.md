@@ -1,6 +1,6 @@
 <properties
  pageTitle="Cluster de HPC Pack para Excel e SOA | Microsoft Azure"
- description="Introdução a um cluster HPC Pack no Azure para execução de cargas de trabalho SOA e Excel em larga escala"
+ description="Introdução à execução de cargas de trabalho SOA e Excel em larga escala em um cluster HPC Pack no Azure"
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="02/19/2016"
+ ms.date="05/25/2016"
  ms.author="danlep"/>
 
 # Introdução com um cluster de HPC Pack no Azure para executar cargas de trabalho do Excel e SOA
@@ -382,4 +382,4 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 [endpoint]: ./media/virtual-machines-windows-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-windows-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

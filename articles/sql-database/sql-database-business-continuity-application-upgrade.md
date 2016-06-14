@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Continuidade dos negócios do Banco de Dados SQL durante a atualização de aplicativo" 
-   description="Esta seção fornece orientação para a continuidade dos negócios de modo a evitar o tempo de inatividade durante uma atualização de aplicativo." 
+   description="Esta seção fornece diretrizes para evitar tempo de inatividade durante uma atualização de aplicativo." 
    services="sql-database"
    documentationCenter="" 
    authors="elfisher" 
-   manager="jeffreyg" 
+   manager="jhubbard" 
    editor="monicar"/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="02/09/2016"
+   ms.date="05/27/2016"
    ms.author="elfish"/>
 
-#Atualizar aplicativo sem tempo de inatividade
+#Atualizar um aplicativo sem tempo de inatividade
 
 No contexto do Microsoft Azure, o termo 'aplicativo' refere-se aos componentes como front-ends, serviços implantados em um serviço de nuvem e a camada de dados usada para persistir os metadados ou dados de aplicativo. Os aplicativos de nuvem geralmente são projetados para fornecer serviço ininterrupto, 24 horas por dia, sete dias por semana. Distribuir uma nova versão do aplicativo, quando alterações na camada de dados são aplicadas no site ativo pode, potencialmente, causar alguma interrupção, como redução de recursos disponibilizados ou, até mesmo, tempo de inatividade completo.
 
@@ -27,8 +27,9 @@ Ao desenvolver o processo de atualização do aplicativo, a meta principal deve 
 3.	Recurso de reversão em caso de erros durante a atualização.
 4.	Custo total envolvido. Inclui o custo de componentes de aplicativo adicionais necessários para criar uma cópia temporária (como bancos de dados premium adicionais para replicação geográfica ativa) e custos incrementais para implantações temporárias usadas pelo processo de atualização. 
 
-Se o aplicativo puder operar temporariamente no modo somente leitura, o fluxo de trabalho de atualização poderá ser projetado para eliminar efetivamente o tempo de inatividade no geral. Para entender como implementar o fluxo de trabalho de atualização para a sua topologia de aplicativo específica, consulte [Práticas recomendadas para interrupção mínima no Banco de Dados SQL do Azure durante atualizações sem interrupção do aplicativo](https://msdn.microsoft.com/library/azure/dn790385.aspx)
+Se o aplicativo puder operar temporariamente no modo somente leitura, o fluxo de trabalho de atualização poderá ser projetado para eliminar efetivamente o tempo de inatividade no geral. Para entender como implementar o fluxo de trabalho atualização para a sua topologia de aplicativo específica, consulte [Gerenciando atualizações sem interrupção de aplicativos de nuvem usando a Replicação Geográfica Ativa do Banco de Dados SQL](sql-database-manage-application-rolling-upgrade.md).
+ 
  
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0601_2016-->

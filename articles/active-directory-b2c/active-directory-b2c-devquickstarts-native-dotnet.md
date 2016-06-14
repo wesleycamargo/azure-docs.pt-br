@@ -18,9 +18,6 @@
 
 # Visualização do Azure AD B2C: compilar um aplicativo da área de trabalho do Windows
 
-
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-native-switcher](../../includes/active-directory-b2c-devquickstarts-native-switcher.md)]-->
-
 Ao usar o Azure Active Directory B2C (Azure AD), você poderá adicionar recursos poderosos de gerenciamento de identidades de autoatendimento para seu aplicativo da área de trabalho em poucas etapas. Este artigo mostra como criar um aplicativo “lista de tarefas pendentes” do WPF (Windows Presentation Foundation) do .NET que inclui a inscrição, a entrada e o gerenciamento de perfil de usuário. O aplicativo inclui suporte para a inscrição e a entrada usando um nome de usuário ou um email. Ele também incluirá o suporte para a inscrição e a entrada usando contas sociais como o Facebook e o Google.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
@@ -41,12 +38,12 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornec
 
 ## Criar suas políticas
 
-No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: perfil de inscrição, entrada e edição. Você precisa criar uma política para cada tipo, como descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar as três políticas, não se esqueça de:
+No B2C do Azure AD, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: perfil de inscrição, entrada e edição. Você precisa criar uma política para cada tipo, como descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar as três políticas, não se esqueça de:
 
-- Escolha a **Inscrição de ID de usuário** ou a **Inscrição por email** na folha de provedores de identidade.
-- Escolha **Nome de exibição** e outros atributos de inscrição em sua política de inscrição.
-- Escolha as declarações **Nome de exibição** e **ID de objeto** como declarações de aplicativo para todas as políticas. Você pode escolher outras declarações também.
-- Copie o **Nome** de cada política depois de criá-la. Ele deve ter o prefixo `b2c_1_`. Você precisará esses nomes de política mais tarde.
+- Escolher a **Inscrição de ID de usuário** ou a **Inscrição de email** na folha de provedores de identidade.
+- Escolher **Nome de exibição** e outros atributos de inscrição na política de inscrição.
+- Escolher as declarações **Nome de exibição** e **ID de objeto** como declarações de aplicativo em cada política. Você pode escolher outras declarações também.
+- Copie o **Nome** de cada política após criá-la. Ele deve ter o prefixo `b2c_1_`. Você precisará esses nomes de política mais tarde.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -54,7 +51,7 @@ Depois de criar suas três políticas, você estará pronto para compilar o apli
 
 ## Baixar o código
 
-O código deste tutorial [é mantido no GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Para compilar a amostra à medida que avança, [baixe um projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). Também é possível clonar o esqueleto:
+O código deste tutorial [é mantido no GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Para compilar o exemplo à medida que avançar, [baixe um projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). Também é possível clonar o esqueleto:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
@@ -62,11 +59,11 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 O aplicativo concluído também está [disponível como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) ou na ramificação `complete` do mesmo repositório.
 
-Depois de baixar o código de exemplo, abra o arquivo .sln do Visual Studio para começar. Há dois projetos na solução: um projeto do `TaskClient` e um projeto do `TaskService`. O `TaskClient` é o aplicativo de área de trabalho do WPF com que o usuário interage. O `TaskService` é a API Web do back-end do aplicativo que armazena a lista de tarefas pendentes de cada usuário. Nesse caso, `TaskClient` e `TaskService` são representados por uma única ID do Aplicativo, pois compõem um aplicativo lógico.
+Depois de baixar o código de exemplo, abra o arquivo .sln do Visual Studio para começar. Há dois projetos na solução: um projeto do `TaskClient` e um projeto do `TaskService`. O `TaskClient` é o aplicativo de área de trabalho do WPF com o qual o usuário interage. O `TaskService` é a API Web do back-end do aplicativo que armazena a lista de tarefas pendentes de cada usuário. Nesse caso, `TaskClient` e `TaskService` são representados por uma única ID do Aplicativo, pois compõem um aplicativo lógico.
 
 ## Configurar o serviço de tarefa
 
-Quando o `TaskService` recebe uma solicitação do `TaskClient`, ele verifica se há um token de acesso válido para autenticar a solicitação. Para validar o token de acesso, você precisará fornecer informações sobre o seu aplicativo ao `TaskService`. No projeto `TaskService`, abra o arquivo `web.config` na raiz do projeto e substitua os valores na seção `<appSettings>`:
+Quando o `TaskService` recebe uma solicitação do `TaskClient`, ele verifica se há um token de acesso válido para autenticar a solicitação. Para validar o token de acesso, você precisará fornecer informações sobre o aplicativo ao `TaskService`. No projeto `TaskService`, abra o arquivo `web.config` na raiz do projeto e substitua os valores da seção `<appSettings>`.
 
 ```
 <appSettings>
@@ -83,7 +80,7 @@ Quando o `TaskService` recebe uma solicitação do `TaskClient`, ele verifica se
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Para saber como a API Web autentica solicitações com segurança usando o Azure AD B2C, confira nosso [artigo de introdução à API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Para saber como a API Web autentica solicitações com segurança usando o B2C do Azure AD, confira nosso [artigo de introdução à API Web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## Executar políticas
 Quando o `TaskService` estiver pronto para autenticar solicitações, você poderá implementar o `TaskClient`. Seu aplicativo se comunica com o Azure AD B2C ao enviar solicitações de autenticação HTTP. Elas especificam a política que desejam executar como parte da solicitação. Para os aplicativos de área de trabalho do .NET, você pode usar a Biblioteca de Autenticação do Active Directory (ADAL) para enviar mensagens de autenticação OAuth 2.0, executar políticas e obter tokens para chamar APIs Web.
@@ -285,7 +282,7 @@ Quando a chamada para `AcquireTokenAsync(...)` é bem-sucedida e um token é enc
 	...
 ```
 
-Você poderá usar esse padrão sempre que quiser verificar o cache de token para tokens sem avisar o usuário para entrar. Por exemplo, quando o aplicativo for iniciado, talvez você queira verificar `FileCache` para todos os tokens existentes. Dessa forma, a sessão de entrada do usuário será mantida sempre que o aplicativo for executado. Você pode ver o mesmo código no evento `OnInitialized` de `MainWindow`. `OnInitialized` lida com esse caso de primeira execução.
+Você poderá usar esse padrão sempre que quiser verificar o cache de token para tokens sem avisar o usuário para entrar. Por exemplo, quando o aplicativo é iniciado, convém verificar `FileCache` para ver se há tokens existentes. Dessa forma, a sessão de entrada do usuário será mantida sempre que o aplicativo for executado. Você pode ver o mesmo código no evento `OnInitialized` de `MainWindow`. `OnInitialized` lida com esse caso de primeira execução.
 
 ## Saída do usuário
 Você pode usar a ADAL para encerrar a sessão do usuário com o aplicativo, quando o usuário seleciona **Sair**. Com a ADAL, isso é feito por meio da limpeza de todos os tokens no cache de tokens:
@@ -324,13 +321,15 @@ Para adicionar IDPs sociais ao seu aplicativo, comece seguindo as instruções d
 - [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
 - [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
 
-Após a adição dos provedores de identidade ao seu diretório B2C, você precisará editar cada uma das suas três políticas para incluir os novos IDPs, como descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de salvar as políticas, execute o aplicativo novamente. Você deve ver os novos IDPs adicionados como opções de entrada e de inscrição em cada experiência de identidade.
+Após a adição dos provedores de identidade ao diretório B2C, você precisará editar cada uma das três políticas para incluir os novos IDPs, como descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de salvar as políticas, execute o aplicativo novamente. Você deve ver os novos IDPs adicionados como opções de entrada e de inscrição em cada experiência de identidade.
 
 Você pode fazer experiências com suas políticas e observar os efeitos no aplicativo de exemplo. Adicione ou remova IDPs, manipule declarações de aplicativo ou altere os atributos de inscrição. Experimente até conseguir entender como as políticas, as solicitações de autenticação e a ADAL funcionam juntos.
 
 Para referência, o exemplo completo [é fornecido como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Você também pode cloná-lo do GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
+```
 
 <!--
 
@@ -344,4 +343,4 @@ You can now move on to more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -19,8 +19,6 @@
 
 # Criando modelos do Azure Resource Manager com extensões de VM do Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 Na CLI do Azure, execute o seguinte comando:
@@ -41,7 +39,7 @@ Essas três propriedades são mapeadas para “publisher”, “type” e “typ
 
 A próxima etapa da criação de um modelo de extensão é identificar o formato para fornecer os parâmetros de configuração. Cada extensão dá suporte a seu próprio conjunto de parâmetros.
 
-Para ver configurações de exemplo das extensões do Linux, clique na documentação para ver [Exemplos de Extensões Eletrônicas do Linux](virtual-machines-linux-extensions-configuration-samples.md).
+Para ver configurações de exemplo das extensões do Linux, clique na documentação de [Exemplos de extensões eletrônicas do Linux](virtual-machines-linux-extensions-configuration-samples.md).
 
 Consulte o seguinte para obter um modelo completo com Extensões de VM.
 
@@ -49,4 +47,4 @@ Consulte o seguinte para obter um modelo completo com Extensões de VM.
 
 Depois de criar o modelo, é possível implantá-lo usando a CLI do Azure.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

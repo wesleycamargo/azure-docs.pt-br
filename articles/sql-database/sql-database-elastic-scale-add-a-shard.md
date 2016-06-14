@@ -3,7 +3,7 @@
 	description="Como usar APIs de Escala Elástica para adicionar novos fragmentos para um fragmento de conjunto." 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jeffreyg" 
+	manager="jhubbard" 
 	authors="ddove" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016" 
-	ms.author="ddove;sidneyh"/>
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
 # Adicionando um fragmento usando ferramentas do Banco de Dados Elástico
 
@@ -79,4 +79,4 @@ Um banco de dados chamado "sample\_shard\_2" e todos os objetos de esquema neces
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="02/25/2016"
+    ms.date="05/31/2016"
     ms.author="mbaldwin" />
 
 
@@ -35,4 +35,4 @@ Sua opinião é importante. No final de cada sessão, você verá uma caixa de d
 
 >[AZURE.NOTE] Como esse é um ambiente controlado para uso de demonstração, não habilitamos acesso externo à Internet por meio dos aplicativos de demonstração publicados. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0608_2016-->

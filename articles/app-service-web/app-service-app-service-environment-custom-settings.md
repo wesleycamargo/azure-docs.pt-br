@@ -75,7 +75,17 @@ O TLS 1.0 pode ser desabilitado por meio da seguinte entrada de **clusterSetting
             }
         ],
 
+## Mudar a ordem do pacote de criptografia TLS ##
+Outra pergunta feita pelos clientes é se eles podem modificar a lista de criptografia negociada pelo seu servidor e isso pode ser feito modificando **clusterSettings** conforme mostrado abaixo. A lista de pacotes de criptografia disponíveis pode ser recuperada [neste artigo do MSDN] (https://msdn.microsoft.com/library/windows/desktop/aa374757(v=vs.85).aspx).
 
+        "clusterSettings": [
+            {
+                "name": "FrontEndSSLCipherSuiteOrder",
+                "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+            }
+        ],
+
+> Observação: se valores incorretos forem definidos para o pacote de criptografia e o SChannel não puder entendê-los, toda a comunicação TLS com o servidor poderá parar de funcionar. Nesse caso, você precisaria implantar novamente o Ambiente de Serviço de Aplicativo, causando tempo de inatividade e uma possível perda de dados. Use esta funcionalidade com cuidado.
 
 ## Introdução
 O site de modelo do Azure Quickstart Resource Manager inclui um modelo com a definição básica para a [criação de um Ambiente de Serviço de Aplicativo](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
@@ -85,4 +95,4 @@ O site de modelo do Azure Quickstart Resource Manager inclui um modelo com a def
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

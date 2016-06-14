@@ -2,7 +2,8 @@
 	pageTitle="Configurando o Oracle GoldenGate em VMs | Microsoft Azure"
 	description="Acompanhe um tutorial para configurar e implementar o Oracle GoldenGate em VMs do Windows Server do Azure para alta disponibilidade e recuperação de desastres."
 	services="virtual-machines-windows"
-	authors="bbenz"
+	authors="rickstercdn"
+	manager="timlt"
 	documentationCenter=""
 	tags="azure-service-management"/>
 <tags
@@ -11,13 +12,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz" />
+	ms.date="05/17/2016"
+	ms.author="rclaus" />
 
 
 #Configurando o Oracle GoldenGate para o Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo do Gerenciador de Recursos.
 
 
 Este tutorial demonstra como configurar Oracle GoldenGate para o ambiente de máquinas virtuais do Azure para alta disponibilidade e recuperação de desastres. O tutorial tem como foco a [replicação bidirecional](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) de bancos de dados não RAC da Oracle e requer que os dois sites estejam ativos.
@@ -34,7 +33,7 @@ Além disso, o tutorial presume que você já tenha implementado os seguintes pr
 
 - Você baixou o software Oracle GoldenGate no site de [Downloads da Oracle](http://www.oracle.com/us/downloads/index.html). Você selecionou o pacote de produto Oracle Fusion Middleware – Data Integration. Em seguida, você selecionou Oracle GoldenGate no Oracle v11.2.1 Media Pack para Microsoft Windows x64 (64 bits) para um banco de dados Oracle 11g. Em seguida, baixe V11.2.1.0.3 de GoldenGate Oracle para Oracle 11g 64 bits no Windows 2008 (64 bits).
 
-- Você criou duas VMs (máquinas virtuais) no Azure usando a do imagem Oracle Enterprise Edition fornecida pela plataforma no Windows Server. Para obter informações, veja [Criando uma máquina virtual do Oracle Database 12c no Azure](#z3dc8d3c097cf414e9048f7a89c026f80) e [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Verifique se as Máquinas Virtuais estão no [mesmo serviço de nuvem](virtual-machines-linux-load-balance.md) e na mesma [Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente.
+- Você criou duas VMs (Máquinas Virtuais) no Azure usando a Oracle Enterprise Edition no Windows Server. Verifique se as Máquinas Virtuais estão no [mesmo serviço de nuvem](virtual-machines-linux-load-balance.md) e na mesma [Rede Virtual](https://azure.microsoft.com/documentation/services/virtual-network/) para garantir que possam se acessar mutuamente por um endereço IP privado persistente.
 
 - Você definiu os nomes da Máquina Virtual como "MachineGG1" para o Site A e "MachineGG2" para o Site B no portal clássico do Azure.
 
@@ -602,4 +601,4 @@ Crie a área de trabalho remota para Site A e verifique se a replicação ocorre
 ##Recursos adicionais
 [Imagens de Máquina Virtual Oracle para Azure](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

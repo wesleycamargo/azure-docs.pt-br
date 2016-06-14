@@ -16,46 +16,46 @@
    ms.date="05/14/2016"
    ms.author="jehollan"/>
    
-  # Loops, escopos e debatching de Aplicativos Lógicos
+# Loops, Escopos e Debatch dos Aplicativos Lógicos
   
-  >[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2016-04-01-preview e posterior dos Aplicativos Lógicos. Os conceitos são semelhantes a esquemas mais antigos, mas os escopos só estão disponíveis para este esquema e posteriores.
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2016-04-01-preview e posterior dos Aplicativos Lógicos. Os conceitos são semelhantes a esquemas mais antigos, mas os escopos só estão disponíveis para este esquema e posteriores.
   
-  ## Loop e matrizes ForEach
+## Loop ForEach e Matrizes
   
-  Os Aplicativos Lógicos permitem que você faça um loop em um conjunto de dados e execute uma ação para cada item. Isso é possível por meio da ação `foreach`. No designer, você pode especificar a adição de um loop for each. Depois de selecionar a matriz em que você deseja iterar, você poderá começar a adicionar ações. No momento, você está limitado a apenas uma ação por loop foreach, mas essa restrição será eliminada nas próximas semanas. Uma vez no loop, você poderá começar a especificar o que deve ocorrer em cada valor da matriz.
-  
-  Se você estiver usando o modo de exibição de código, poderá especificar um loop for each como o abaixo. Este é um exemplo de um loop for each que envia um email para cada endereço de email com 'microsoft.com':
-  
-  ```
-  {
-      "forEach_email": {
-          "type": "foreach",
-          "foreach": "@triggerBody()['emails']",
-          "expression": "@contains(item(), 'microsoft.com')",
-          "actions": {
-              "send_email": {
-                  "type": "ApiConnection",
-                  "inputs": {
-                    "body": {
-                        "to": "@item()",
-                        "from": "me@contoso.com",
-                        "message": "Hello, thank you for ordering"
+Os Aplicativos Lógicos permitem que você faça um loop em um conjunto de dados e execute uma ação para cada item. Isso é possível por meio da ação `foreach`. No designer, você pode especificar a adição de um loop for each. Depois de selecionar a matriz em que você deseja iterar, você poderá começar a adicionar ações. No momento, você está limitado a apenas uma ação por loop foreach, mas essa restrição será eliminada nas próximas semanas. Uma vez no loop, você poderá começar a especificar o que deve ocorrer em cada valor da matriz.
+
+Se você estiver usando o modo de exibição de código, poderá especificar um loop for each como o abaixo. Este é um exemplo de um loop for each que envia um email para cada endereço de email com 'microsoft.com':
+
+```
+{
+    "forEach_email": {
+        "type": "foreach",
+        "foreach": "@triggerBody()['emails']",
+        "expression": "@contains(item(), 'microsoft.com')",
+        "actions": {
+            "send_email": {
+                "type": "ApiConnection",
+                "inputs": {
+                "body": {
+                    "to": "@item()",
+                    "from": "me@contoso.com",
+                    "message": "Hello, thank you for ordering"
+                }
+                "host": {
+                    "connection": {
+                        "id": "@parameters('$connections')['office365']['connection']['id']"
                     }
-                    "host": {
-                        "connection": {
-                            "id": "@parameters('$connections')['office365']['connection']['id']"
-                        }
-                    }
-                  }
-              }
-          }
-      }
-  }
-  ```
+                }
+                }
+            }
+        }
+    }
+}
+```
   
   Uma ação `foreach` pode iterar em matrizes até 5.000 linhas. Cada iteração pode ser executada eem paralelo, portanto, pode ser necessário adicionar mensagens a uma fila, se houver necessidade de controle de fluxo.
   
-  ## Loop Until
+## Loop Until
   
   Você pode executar uma ação ou uma série de ações até que uma condição seja atendida. O cenário mais comum para isso é chamar um ponto de extremidade até você chegar à resposta que está procurando. No designer, você pode especificar a adição de um loop until. Depois de adicionar ações dentro do loop, você poderá definir a condição de saída, bem como os limites do loop. Há um atraso de um minuto entre os ciclos de loop.
   
@@ -132,4 +132,4 @@ SplitOn pode ser especificado no modo de exibição de código como o exemplo a 
 }
 ```
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Práticas recomendadas de segurança de rede do Azure | Microsoft Azure"
    description="Este artigo fornece um conjunto de práticas recomendadas de segurança de rede usando recursos internos do Azure."
-   services="virtual-machines, cloud-services, storage"
+   services="security"
    documentationCenter="na"
    authors="TomShinder"
    manager="swadhwa"
    editor="TomShinder"/>
 
 <tags
-   ms.service="azure-security"
+   ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/19/2016"
+   ms.date="05/25/2016"
    ms.author="TomSh"/>
 
 # Práticas recomendadas de rede do Azure
@@ -21,7 +21,7 @@
 O Microsoft Azure permite que você conecte dispositivos e máquinas virtuais a outros dispositivos de rede, colocando-os em redes virtuais do Azure. Uma Rede Virtual do Azure é uma construção de rede virtual que permite que você conecte placas de interface de rede virtual a uma rede virtual para permitir a comunicação baseada em TCP/IP entre os dispositivos habilitados para rede. As Máquinas Virtuais do Azure conectadas a uma Rede Virtual do Azure são capazes de se conectar a dispositivos na mesma Rede Virtual do Azure, em Redes Virtuais do Azure diferentes, na Internet ou até mesmo em suas próprias redes locais.
 
 Neste artigo, veremos uma coleção de práticas recomendadas de segurança de rede do Azure. Essas práticas recomendadas derivam da nossa experiência de rede do Azure e da experiência de clientes como você.
- 
+
 Para cada prática recomendada, vamos explicar:
 
 - O que é a prática recomendada
@@ -34,16 +34,16 @@ Este artigo Práticas recomendadas de segurança de rede do Azure baseia-se em u
 
 As práticas recomendadas de segurança de rede do Azure discutidas neste artigo incluem:
 
-- Segmentar logicamente as sub-redes 
-- Controlar o comportamento de roteamento 
-- Habilitar o túnel forçado 
-- Usar dispositivos de rede virtual 
+- Segmentar logicamente as sub-redes
+- Controlar o comportamento de roteamento
+- Habilitar o túnel forçado
+- Usar dispositivos de rede virtual
 - Implantar DMZs para zoneamento de segurança
 - Evitar a exposição à Internet por meio de links WAN dedicados
-- Otimizar o desempenho e o tempo de atividade 
+- Otimizar o desempenho e o tempo de atividade
 - Usar o balanceamento de carga global
 - Desabilitar o acesso RDP para máquinas virtuais do Azure
-- Habilitar a Central de Segurança do Azure 
+- Habilitar a Central de Segurança do Azure
 - Estender seu datacenter para o Azure
 
 
@@ -77,7 +77,7 @@ Embora as rotas padrão do sistema sejam úteis para muitos cenários de implant
 
 Você pode aprender mais sobre as Rotas Definidas pelo Usuário e sobre como configurá-las ao ler o artigo [O que são as Rotas Definidas pelo Usuário e o Encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 
-## Habilitar o túnel forçado 
+## Habilitar o túnel forçado
 
 Para entender melhor o túnel forçado, convém compreender o que é "um túnel dividido". O exemplo mais comum de túnel dividido é visto com conexões VPN. Imagine que você estabeleça uma conexão VPN do seu quarto de hotel para sua rede corporativa. Essa conexão permite que você se conecte a recursos em sua rede corporativa e acesse todas as comunicações de recursos em sua rede corporativa por meio do túnel VPN.
 
@@ -94,7 +94,7 @@ Para saber mais sobre túneis forçados e sobre como habilitá-los, leia o artig
 Embora os Grupos de Segurança de Rede e o Roteamento Definido pelo Usuário possam fornecer uma determinada medida de segurança de rede nas camadas de rede e de transporte do [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), haverá situações em que você vai desejar ou precisar habilitar a segurança em níveis mais altos da pilha. Em tais situações, é recomendável que você implante dispositivos de segurança de rede virtual fornecidos por parceiros do Azure.
 
 Os dispositivos de segurança de rede do Azure podem oferecer níveis consideravelmente aprimorados de segurança em relação ao que é fornecido pelos controles de nível de rede. Alguns dos recursos de segurança de rede fornecidos por dispositivos de segurança de rede virtual incluem:
- 
+
 - Firewall
 - Detecção de intrusão/prevenção contra intrusões
 - Gerenciamento de vulnerabilidades
@@ -110,7 +110,7 @@ Para saber mais sobre quais dispositivos de segurança de rede virtual do Azure 
 
 ##Implantar DMZs para zoneamento de segurança
 Uma DMZ, ou “rede de perímetro”, é um segmento de rede lógico ou físico projetado para fornecer uma camada adicional de segurança entre seus ativos e a Internet. A intenção da DMZ é colocar dispositivos de controle de acesso à rede especializados na borda da rede DMZ de modo que apenas o tráfego desejado possa passar do dispositivo de segurança de rede e para sua Rede Virtual do Azure.
- 
+
 As DMZs são úteis porque você pode concentrar o gerenciamento de controle de acesso à rede, o monitoramento, a geração de logs e os relatórios nos dispositivos na borda da sua Rede Virtual do Azure. Aqui, você normalmente habilitaria a prevenção de DDoS, os sistemas de Detecção de Intrusão/Prevenção contra Intrusão (IDS/IPS), as regras e políticas de firewall, a filtragem da Web, a rede antimalware e muito mais. Os dispositivos de segurança de rede ficam entre a Internet e sua Rede Virtual do Azure e tem uma interface em ambas as redes.
 
 Embora esse seja o design básico de uma DMZ, existem muitos designs de DMZ diferentes, como back-to-back, tri-homed, multi-homed e outros.
@@ -135,7 +135,7 @@ Se você precisar de um nível excepcional de segurança ou de desempenho para a
 
 Para saber mais sobre o funcionamento da Rota Expressa do Azure e sobre como implantar, leia o artigo [Visão geral técnica da Rota Expressa](../expressroute/expressroute-introduction.md).
 
-## Otimizar o desempenho e o tempo de atividade 
+## Otimizar o desempenho e o tempo de atividade
 Confidencialidade, integridade e disponibilidade (CIA) formam a tríade do modelo de segurança mais influente de hoje. A confidencialidade está relacionada a criptografia e a privacidade, a integridade está relacionada a garantir que os dados não sejam alterados por pessoas não autorizadas e a disponibilidade está relacionada a garantir que indivíduos autorizados sejam capazes de acessar as informações que estão autorizados a acessar. A falha em qualquer uma dessas áreas representa uma possível violação de segurança.
 
 A disponibilidade pode ser pensada como relacionada a tempo de atividade e ao desempenho. Se um serviço estiver inativo, as informações não poderão ser acessadas. Se o desempenho for tão ruim que inutilize os dados, poderemos considerar os dados como inacessíveis. Portanto, de uma perspectiva de segurança, precisamos fazer tudo o que podemos para nos certificarmos de que nossos serviços tenham o desempenho e o tempo de atividade ideais. Um método popular e eficaz usado para melhorar a disponibilidade e o desempenho é usar o balanceamento de carga. O balanceamento de carga é um método de distribuição de tráfego de rede entre servidores que fazem parte de um serviço. Por exemplo, se você tiver servidores Web de front-end como parte de seu serviço, poderá usar o balanceamento de carga para distribuir o tráfego entre vários servidores Web de front-end.
@@ -150,7 +150,7 @@ Essa distribuição de tráfego aumenta a disponibilidade porque se um dos servi
 
 ## Balanceamento de carga baseado em HTTP
 O balanceamento de carga baseado em HTTP baseia as decisões sobre para qual servidor serão enviadas conexões usando características do protocolo HTTP. O Azure tem um balanceador de carga de HTTP que passa pelo nome do Application Gateway.
- 
+
 É recomendável que você use o Application Gateway do Azure quando:
 
 - Os aplicativos que exijam solicitações da mesma sessão de usuário/cliente para acessar a mesma máquina virtual de back-end. Exemplos disso são os aplicativos de carrinho de compras e servidores de email na Web.
@@ -161,9 +161,9 @@ Para saber mais sobre como funciona o Application Gateway do Azure e como usá-l
 
 ## Balanceamento de carga externo
 O balanceamento de carga externo ocorre quando as conexões de entrada da Internet têm a carga balanceada entre os servidores localizados em uma Rede Virtual do Azure. O balanceador de carga externo do Azure pode fornecer essa capacidade e é recomendável usá-lo quando você não exigir as sessões temporárias ou o descarregamento de SSL.
- 
+
 Em contraste ao balanceamento de carga baseado em HTTP, o balanceador de carga externo usa as informações nas camadas de transporte e de rede do modelo de rede OSI para tomar decisões sobre para qual servidor a conexão terá balanceamento de carga.
- 
+
 É recomendável que você use o balanceamento de carga externo sempre que houver [aplicativos sem monitoração de estado](http://whatis.techtarget.com/definition/stateless-app) que aceitem solicitações de entrada da Internet.
 
 Para saber mais sobre como funciona o Balanceador Externo de Carga do Azure e sobre como você pode implantá-lo, leia o artigo [Introdução à criação de um balanceador de carga voltado para Internet no Resource Manager usando o PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
@@ -179,11 +179,11 @@ Para saber mais sobre o funcionamento do Balanceamento de Carga Interno do Azure
 A computação de nuvem pública possibilita a implantação de aplicativos globalmente distribuídos com componentes localizados em datacenters no mundo todo. Isso é possível no Microsoft Azure devido à presença do datacenter global do Azure. Em contraste com a tecnologias de balanceamento de carga mencionadas anteriormente, o balanceamento de carga global possibilita disponibilizar serviços mesmo quando datacenters inteiros se tornem indisponíveis.
 
 Você pode obter esse tipo de balanceamento de carga global no Azure ao aproveitar as vantagens do [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/). O Gerenciador de Tráfego faz é possível carregar conexões de saldo de serviços com base no local do usuário.
- 
+
 Por exemplo, se o usuário estiver fazendo uma solicitação ao serviço da União Europeia, a conexão será direcionada para os serviços localizados em um datacenter da União Europeia. Esta parte do balanceamento de carga global do Gerenciador de Tráfego ajuda a melhorar o desempenho porque a conexão com o datacenter mais próximo é mais rápida do que conectar-se a data centers que estejam distantes.
 
 Pelo lado da disponibilidade, o balanceamento de carga global garante que o serviço esteja disponível mesmo se um datacenter inteiro ficar indisponível.
- 
+
 Por exemplo, se um datacenter do Azure ficar indisponível por motivos ambientais ou devido a interrupções (tais como falhas de rede regional), as conexões ao serviço seriam redirecionadas para o datacenter online mais próximo. Esse balanceamento de carga global é realizado tirando proveito das políticas de DNS que você pode criar no Gerenciador de Tráfego.
 
 É recomendável que você use o Gerenciador de Tráfego para desenvolver qualquer solução de nuvem que tenha um escopo amplamente distribuído entre várias regiões e que exija o nível mais alto de tempo de atividade possível.
@@ -209,7 +209,7 @@ Uma [VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md) conecta
 
 Você também pode usar um link WAN dedicado para fornecer funcionalidade semelhante à VPN site a site. As principais diferenças são 1. o link WAN dedicado não atravessa a Internet e 2. os links WAN dedicados são geralmente mais estáveis e têm melhor desempenho. O Azure oferece uma solução de link WAN dedicado na forma da [Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/).
 
-## Habilitar a Central de Segurança do Azure 
+## Habilitar a Central de Segurança do Azure
 A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças e oferece maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 A Central de Segurança do Azure ajuda a otimizar e a monitorar a segurança da rede:
@@ -226,9 +226,9 @@ Para saber mais sobre a Central de Segurança do Azure e sobre como habilitá-la
 Muitas organizações de TI estão procurando se expandir para a nuvem em vez de ampliarem seus datacenters locais. Essa expansão representa uma extensão da infraestrutura de TI existente para a nuvem pública. Ao aproveitar a vantagem das opções de conectividade entre locais, é possível tratar suas Redes Virtuais do Azure como qualquer outra sub-rede na sua infraestrutura de rede local.
 
 No entanto, há muitos problemas de planejamento e de design que precisam ser abordados primeiro. Isso é especialmente importante na área de segurança de rede. Uma das melhores maneiras de entender como abordar esse design é ver um exemplo.
- 
+
 A Microsoft criou o [Diagrama de arquitetura de referência de extensão do datacenter](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) e material de apoio para ajudar você a entender a aparência de uma extensão do datacenter. Isso fornece um exemplo de implementação de referência que você pode usar para planejar e projetar uma extensão segura do datacenter corporativo para a nuvem. É recomendável que você leia este documento para ter uma ideia dos principais componentes de uma solução segura.
 
 Para saber mais sobre como estender com segurança seu data center para o Azure, veja o vídeo [Extensão do seu datacenter para o Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

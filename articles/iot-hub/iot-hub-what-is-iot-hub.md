@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="06/06/2016"
  ms.author="dobett"/>
 
 # O que é o Hub IoT do Azure?
@@ -70,7 +70,7 @@ Esses benefícios são genéricos para vários padrões de comunicação. No mom
 
 -   **Mensagens confiáveis da nuvem para o dispositivo (ou *comandos*).** O back-end da solução pode usar o Hub IoT para enviar mensagens com uma garantia de entrega de pelo menos uma vez para dispositivos individuais. Cada mensagem tem uma configuração de vida útil individual, e o back-end pode solicitar recibos de entrega e de expiração. Isso garante visibilidade completa do ciclo de vida de uma mensagem da nuvem para o dispositivo. Desse modo, você pode implementar lógica de negócios que inclua operações executadas nos dispositivos.
 
-Também é possível implementar outros padrões comuns, como carregamento e download de arquivos, aproveitando os recursos específicos de IoT do Hub IoT. Esses recursos incluem gerenciamento consistente de identidades de dispositivo, monitoramento de conectividade e escala.
+-   **Carregue arquivos e dados do sensor em cache para a nuvem.** Os dispositivos podem carregar arquivos para o Armazenamento do Azure usando URIs SAS gerenciados para você pelo Hub IoT. O Hub IoT poderá gerar notificações quando os arquivos chegarem na nuvem para permitir que o back-end os processe.
 
 ## Gateways
 
@@ -121,4 +121,4 @@ Para saber mais sobre o Hub IoT do Azure, consulte estes links:
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0608_2016-->

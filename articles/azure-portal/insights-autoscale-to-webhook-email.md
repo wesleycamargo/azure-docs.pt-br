@@ -41,8 +41,8 @@ Para ARM mais recente baseados em máquinas virtuais (conjuntos de escala de Má
 ## Autenticação em webhooks
 Há duas formas de URI de autenticação:
 
-	1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-	2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+1. Autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+2. Autenticação básica, em que você usa uma ID de usuário e senha. Por exemplo, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
 ## Escala automática do esquema de carga útil do webhook de notificação
 Quando a notificação de escala automática é gerada, os metadados a seguir são incluídos na carga útil do webhook:
@@ -93,4 +93,4 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 |newCapacity|	Sim |A nova contagem de instância para a qual a Escala Automática escalou o recurso|
 |Propriedades|	Não|	Opcional. Conjunto de <Key  Value> pares (por exemplo, Dicionário <String  String>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta)|
 
-<!-----------HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0601_2016-->

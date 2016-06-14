@@ -13,21 +13,21 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
+   ms.date="06/05/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 
 # Expectativas de visualização do SQL Data Warehouse
 
-Este artigo descreve os recursos de visualização do SQL Data Warehouse e nossas metas para o serviço para disponibilidade geral (GA, general availability). Continuamente, atualizaremos essas informações à medida que aprimoramos os recursos da visualização pública.
+Este artigo descreve os recursos de visualização do SQL Data Warehouse e nossas metas de GA (disponibilidade geral) para o serviço. Continuamente, atualizaremos essas informações à medida que aprimoramos os recursos da visualização pública.
 
 Nossas metas para o SQL Data Warehouse:
 
-- Desempenho previsível e escalabilidade linear até petabytes de dados.
+- Desempenho previsível e escalabilidade linear até petabytes de dados
 - Alta confiabilidade para todas as operações de data warehouse
 - Curto tempo de carregamento de dados para insights de dados em dados relacionais e não relacionais
 
-Nós trabalharemos continuamente visando essas metas antes de promover o SQL Data Warehouse para disponibilidade geral.
+Trabalharemos continuamente para atingir essas metas durante a visualização do SQL Data Warehouse.
 
 ## Desempenho previsível e dimensionável
 
@@ -40,29 +40,22 @@ Qualquer data warehouse tem duas métricas de desempenho fundamentais:
 
 Nós estamos medindo alguns importantes aprimoramentos de desempenho e em breve compartilharemos as taxas esperadas. Durante a visualização, faremos aprimoramentos contínuos (por exemplo, aumentar a compactação e o armazenamento em cache) para aumentar essas taxas e garantir que eles sejam dimensionados de maneira previsível.
 
+## Proteção de dados
 
-## Alta confiabilidade
+O SQL Data Warehouse armazena todos os dados no Armazenamento do Azure usando o armazenamento com redundância local. Várias cópias síncronas dos dados são mantidas no datacenter local para garantir a proteção transparente de dados em caso de falhas localizadas.
 
-### Proteção de dados
-
-O SQL Data Warehouse armazena todos os dados no Armazenamento do Azure usando blobs com redundância geográfica. Três cópias síncronas dos dados são mantidas na região local do Azure para garantir a proteção transparente de dados em caso de falhas localizadas (por exemplo, falhas da unidade de armazenamento). Além disso, mais três cópias assíncronas são mantidas em uma região remota do Azure para garantir a proteção de dados em caso de falhas regionais (recuperação de desastres). As regiões locais e remotas são combinadas para manter as latências aceitáveis de sincronização (por exemplo, leste e oeste dos EUA).
-
-
-### Backups
+## Backups
 
 O SQL Data Warehouse do Azure faz backup de todos os dados pelo menos a cada 8 horas usando Instantâneos de Armazenamento do Azure. Esses instantâneos são mantidos por 7 dias. Isso permite restaurar os dados para pelo menos 21 pontos no tempo nos últimos 7 dias até o momento em que o último instantâneo foi definido. Você pode restaurar dados de um instantâneo usando o PowerShell ou APIs REST.
 
-Os instantâneos são copiados de modo assíncrono para uma região remota do Azure para adicionar a capacidade de recuperação em caso de falhas regionais (recuperação de desastres).
+## Confiabilidade da consulta
+
+O SQL Data Warehouse foi criado sobre uma arquitetura MPP (processamento paralelo massivo). O SQL Data Warehouse detecta e migra automaticamente as falhas de nó de controle e de computação. No entanto, uma operação (por exemplo, carregamento de dados ou consulta) pode falhar como resultado de uma falha de nó ou de uma migração. Durante a visualização, estamos fazendo aprimoramentos contínuos para concluir com êxito as operações independentemente de falhas de nó.
 
 
-### Conclusão da consulta
+## Atualizações e tempo de inatividade
 
-O SQL Data Warehouse armazena dados em um ou mais nós de computação, e cada um desses nós armazena alguns dados do usuário e controla a execução da consulta nesses dados. Como parte da arquitetura do processamento altamente paralelo (MPP, massively parallel processing), as consultas são executadas em paralelo em todos os nós de computação. O SQL Data Warehouse detecta e reduz as falhas de nó de computação automaticamente. No entanto, durante a visualização, uma operação (por exemplo, a consulta ou o carregamento de dados) pode falhar devido a falhas de nós individuais. Durante a visualização, estamos fazendo aprimoramentos contínuos para concluir com êxito as operações independentemente de falhas de nó.
-
-
-### Atualizações e tempo de inatividade
-
-Durante a visualização, o SQL Data Warehouse será atualizado periodicamente para adicionar novos recursos e instalar correções críticas. Essas atualizações podem causar interrupção e, neste momento, as atualizações não são executadas em uma programação previsível. Se você achar que esse processo causa muita interrupção, incentivamos você a [criar um tíquete de suporte][] para que possamos ajudar a contornar esse processo.
+O SQL Data Warehouse será atualizado periodicamente para adicionar novos recursos e instalar correções críticas. Essas atualizações podem causar interrupção e, neste momento, as atualizações não são executadas em uma programação previsível. Se você achar que esse processo causa muita interrupção, incentivamos você a [criar um tíquete de suporte][] para que possamos ajudar a contornar esse processo.
 
 
 ## Próximas etapas
@@ -79,4 +72,4 @@ Durante a visualização, o SQL Data Warehouse será atualizado periodicamente p
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

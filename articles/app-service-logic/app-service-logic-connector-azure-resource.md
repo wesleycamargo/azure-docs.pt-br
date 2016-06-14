@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Usando o Conector de Recursos do Azure em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure"
-   description="Como criar e configurar o Conector de Recursos do Azure ou o aplicativo de API e usá-lo em um aplicativo lógico no Serviço de Aplicativo do Azure"
+   pageTitle="Usando o Conector de Recursos do Azure nos Aplicativos lógicos | Serviço de Aplicativo do Microsoft Azure"
+   description="Como criar e configurar o Conector de Recursos do Azure ou o aplicativo de API e usá-lo em um Aplicativo lógico no Serviço de Aplicativo do Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/10/2016"
+   ms.date="05/31/2016"
    ms.author="stepsic"/>
 
-# Introdução ao Conector de Recursos do Azure e à adição dele a seu Aplicativo Lógico
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+# Introdução ao Conector de Recursos do Azure e adição dele ao seu Aplicativo lógico
+>[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview dos Aplicativos Lógicos.
 
 Use o Conector de Recursos do Azure para gerenciar facilmente os Recursos do Azure em seu Aplicativo lógico.
 
 ## Criar o conector de recursos do Azure
-Para usar o aplicativo de API do Conector de recursos do Azure, você precisa primeiro criar uma instância dele. Isso pode ser feito de forma embutida durante a criação de um aplicativo lógico ou selecionando o aplicativo de API do Conector do Gerenciador de recursos do Azure no Azure Marketplace.
+Para usar o aplicativo de API do Conector de Recursos do Azure, primeiro você precisa criar uma instância dele. Isso pode ser feito de forma embutida durante a criação de um aplicativo lógico ou selecionando o aplicativo de API do Conector do Gerenciador de recursos do Azure no Azure Marketplace.
 
 Para configurá-lo, você precisa definir a uma entidade de serviço com permissões para fazer tudo o que você deseja fazer no Azure. Todas as chamadas serão feitas em nome dessa entidade de serviço que você configurou. Isso permite que você defina o escopo do conector para usar somente exatamente o que você deseja que ele faça e nada mais.
 
 David Ebbo escreveu [uma postagem de blog excelente](http://blog.davidebbo.com/2014/12/azure-service-principal.html) sobre como fazer essa configuração. Siga todas as instruções e obtenha sua **ID do locatário**, **ID do cliente** e **Senha**. Esses três campos, mais a **ID da assinatura**, são o que é necessário para configurar o conector.
 
-## Usando o Conector de Recursos do Azure no designer de Aplicativos Lógicos
+## Usando o Conector de Recursos do Azure no designer de Aplicativos lógicos
 ### Gatilho
 Há dois gatilhos que têm suporte no Conector:
 
@@ -86,16 +86,16 @@ Nome | Descrição
 ---- | -----------
 Obter métricas | Obter uma métrica para uma ID de recurso.
 
-## Faça mais com seu Conector
-Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos Lógicos?](app-service-logic-what-are-logic-apps.md).
+## Fazer mais com seu conector
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE] Se você deseja começar com os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar os Aplicativos Lógicos](https://tryappservice.azure.com/?appservice=logic), em que você pode criar imediatamente um aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+>[AZURE.NOTE] Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativos lógicos](https://tryappservice.azure.com/?appservice=logic), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 
-Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Exiba a referência da API REST do Swagger em [Conectores e Referência dos aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 <!--References -->
 
 <!--Links -->
-[Creating a Logic App]: app-service-logic-create-a-logic-app.md
+[Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0601_2016-->

@@ -3,7 +3,7 @@
    description="Este artigo o ajudará a entender os diferentes métodos de roteamento de tráfego usados pelo Gerenciador de Tráfego"
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="jtuliani"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -12,122 +12,118 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.date="05/25/2016"
+   ms.author="jtuliani" />
 
-# Métodos de roteamento do Gerenciador de Tráfego
+# Métodos de roteamento de tráfego do Gerenciador de Tráfego
 
-Há três métodos de roteamento de tráfego disponíveis no Gerenciador de Tráfego. Cada perfil do Gerenciador de Tráfego pode usar apenas um método de roteamento por vez, embora você possa selecionar um método de roteamento diferente para seu perfil a qualquer momento.
+Esta página descreve os métodos de roteamento de tráfego com suporte do Gerenciador de Tráfego do Azure. Eles são usados para direcionar os usuários finais para o ponto de extremidade de serviço correto.
 
-É importante observar que todos os métodos de roteamento incluem monitoramento de ponto de extremidade. Depois de configurar seu perfil do Gerenciador de Tráfego para especificar o método de roteamento de tráfego que atenda melhor às suas necessidades, defina as configurações de monitoramento. Quando o monitoramento estiver configurado corretamente, o Gerenciador de Tráfego monitorará o estado de seus pontos de extremidade, consistindo em serviços de nuvem e sites, e não enviará tráfego a pontos de extremidade que ele achar que não estão disponíveis. Para obter mais informações sobre o monitoramento do Gerenciador de Tráfego, consulte [Sobre o monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
+> [AZURE.NOTE] A API do ARM (Azure Resource Manager) para o Gerenciador de Tráfego usa uma terminologia diferente da API do ASM (Azure Service Management). Essa alteração foi introduzida após comentários de clientes para aumentar a clareza e reduzir equívocos comuns. Nesta página, usaremos a terminologia do ARM. As diferenças são:
 
-Os três métodos de roteamento de tráfego do Gerenciador de Tráfego são:
+>- No ARM, usamos "método de roteamento de tráfego" para descrever o uso de algoritmo para determinar a qual ponto de extremidade um determinado usuário final deve ser direcionado em um momento específico. No ASM, chamamos isso de "método de balanceamento de carga".
 
-- **Failover**: selecione Failover quando houver pontos de extremidade nos mesmos datacenters do Azure ou em data centers diferentes (conhecidos como regiões no portal do Azure) e você quiser usar um ponto de extremidade primário para todo o tráfego, mas fornecer backups caso os pontos de extremidade primários ou de backup estejam indisponíveis. Para obter mais informações, consulte [Método de roteamento de tráfego de failover](#failover-traffic-routing-method).
+>- No ARM, usamos "ponderado" para fazer referência ao método de roteamento de tráfego que distribui o tráfego entre todos os pontos de extremidade disponíveis, com base no peso definido para cada ponto de extremidade. No ASM, chamamos isso de "round robin".
+>- ARM, usamos "prioridade" para fazer referência ao método de roteamento de tráfego que direciona todo o tráfego para o primeiro ponto de extremidade disponível em uma lista ordenada. No ASM, chamamos isso de "failover".
 
-- **Round Robin**: selecione Round Robin quando desejar distribuir a carga entre um conjunto de pontos de extremidade no mesmo datacenter ou em datacenters diferentes. Para obter mais informações, consulte [Método de roteamento de tráfego de Round Robin](#round-robin-traffic-routing-method).
+> Em todos os casos, a única diferença está no nome. Não diferenças na funcionalidade.
 
-- **Desempenho**: selecione Desempenho quando houver pontos de extremidade em locais geográficos diferentes e você quiser solicitar aos clientes que usem o ponto de extremidade “mais próximo” em termos de menor latência. Para obter mais informações, consulte [Método de roteamento de tráfego de desempenho](#performance-traffic-routing-method).
 
-Observe que os sites do Azure já fornecem método de roteamento de tráfego de round robin e failover para sites em um datacenter, independentemente do modo do site. O Gerenciador de Tráfego permite que você especifique o roteamento de tráfego de round robin e failover para sites em datacenters diferentes.
+O Gerenciador de Tráfego do Azure dá suporte a vários algoritmos para determinar como os usuários finais são encaminhados para os diferentes pontos de extremidade de serviço. Eles são chamados de métodos de roteamento de tráfego. O método de roteamento de tráfego é aplicado a cada consulta DNS recebida para determinar qual ponto de extremidade deve ser retornado na resposta DNS.
 
->[AZURE.NOTE] O TTL (vida útil) informa aos clientes DNS e resolvedores nos servidores DNS por quanto tempo é preciso armazenar em cache os nomes resolvidos. Os clientes continuarão a usar determinado ponto de extremidade ao resolver seu nome de domínio até que a entrada do cache DNS local para o nome expire.
+Três métodos de roteamento de tráfego estão disponíveis no Gerenciador de Tráfego:
 
-## Método de roteamento de tráfego de failover
+- **Prioridade:** selecione "Prioridade" quando quiser usar um ponto de extremidade de serviço primário para todo o tráfego e fornecer backups caso o ponto de extremidade primário ou os pontos de extremidade de backup não estejam disponíveis. Para obter mais informações, consulte [Método de roteamento de tráfego por prioridade](#wriority-traffic-routing-method).
 
-Geralmente, uma organização deseja fornecer confiabilidade para seus serviços. Ela faz isso fornecendo serviços de backup no caso de seu serviço principal falhar. Um padrão comum para failover de serviço é fornecer um conjunto de pontos de extremidade idênticos hospedados idênticos e enviar tráfego para um serviço primário, com uma lista de um ou mais backups. Se o serviço primário não estiver disponível, os clientes solicitantes serão referenciados para o próximo serviço, em ordem. Se o primeiro e o segundo serviço na lista não estiverem disponíveis, o tráfego passará para o terceiro e assim por diante.
+- **Ponderado:** selecione "Ponderado" quando quiser distribuir o tráfego entre um conjunto de pontos de extremidade, seja uniformemente ou de acordo com pesos que você definir. Para obter mais informações, consulte [Método de roteamento de tráfego ponderado](#weighted-traffic-routing-method).
 
-Ao se configurar o método de roteamento de tráfego de failover, a ordem dos pontos de extremidade selecionados é importante. Usando o portal clássico do Azure, você pode configurar a ordem de failover na página Configuração para o perfil.
+- **Desempenho**: selecione "Desempenho" quando você tiver houver pontos de extremidade em regiões diferentes e quiser que os usuários finais usem o ponto de extremidade “mais próximo” em termos de menor latência de rede. Para obter mais informações, consulte [Método de roteamento de tráfego por desempenho](#performance-traffic-routing-method).
 
-A Figura 1 mostra um exemplo do método de roteamento de tráfego de failover para um conjunto de pontos de extremidade.
+> [AZURE.NOTE] Todos os perfis do Gerenciador de Tráfego incluem monitoramento contínuo de integridade do ponto de extremidade e failover automático do ponto de extremidade. Há suporte para todos os métodos de roteamento de tráfego. Para obter mais informações, consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md).
 
-![Método de roteamento de Failover do Gerenciador de Tráfego](./media/traffic-manager-routing-methods/IC750592.jpg)
+Um único perfil do Gerenciador de Tráfego pode usar apenas um único método de roteamento de tráfego. Você pode selecionar um método de roteamento de tráfego diferente para o seu perfil a qualquer momento. As alterações são aplicadas em até um minuto e não há tempo de inatividade. Métodos de roteamento de tráfego podem ser combinados usando perfis aninhados do Gerenciador de Tráfego. Isso permite que configurações sofisticadas e flexíveis de roteamento de tráfego sejam criadas para atender às necessidades de aplicativos maiores e mais complexos. Para obter mais informações, consulte [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md).
 
-**Figura 1**
+## Método de roteamento de tráfego por prioridade
 
-As etapas numeradas a seguir correspondem aos números na Figura 1.
+Frequentemente, as organizações desejam fornecer confiabilidade para seus serviços e fazem isso fornecendo um ou mais serviços de backup para o caso de seu serviço principal falhar. O método de roteamento de tráfego por "Prioridade" permite que os clientes do Azure implementem facilmente esse padrão de failover.
 
-1. O Gerenciador de Tráfego recebe uma solicitação de entrada de um cliente por meio do DNS e localiza o perfil.
-2. O perfil contém uma lista ordenada de pontos de extremidade. O Gerenciador de Tráfego verifica qual ponto de extremidade é o primeiro na lista. Se o ponto de extremidade estiver online (com base no monitoramento de ponto de extremidade contínuo), ele especificará o nome DNS do ponto de extremidade na resposta DNS para o cliente. Se o ponto de extremidade estiver offline, o Gerenciador de Tráfego determinará o próximo ponto de extremidade online na lista. Neste exemplo, CS-A está offline (não disponível), mas CS-B está online (disponível).
-3. O Gerenciador de Tráfego retorna o nome de domínio de CS-B para o servidor DNS do cliente, que resolve o nome de domínio para um endereço IP e o envia ao cliente.
-4. O cliente inicia o tráfego para CS-B.
+![Método de roteamento de tráfego por "Prioridade" do Gerenciador de Tráfego do Azure][1]
 
-## Método de roteamento de tráfego de round robin
+O perfil do Gerenciador de Tráfego é configurado com uma lista priorizada de pontos de extremidade de serviço. Por padrão, todo o tráfego de usuários finais é enviado ao ponto de extremidade primário (com a prioridade mais alta). Se o ponto de extremidade primário não estiver disponível (com base no status de habilitado/desabilitado do ponto de extremidade configurado e no monitoramento contínuo do ponto de extremidade), os usuários serão encaminhados ao segundo ponto de extremidade. Se os pontos de extremidade primário e secundário não estiverem disponíveis, o tráfego passará para o terceiro e assim por diante.
 
-Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de extremidade idênticos e enviar tráfego para cada um deles em um estilo round robin. O método Round Robin divide o tráfego entre vários pontos de extremidade. Ele seleciona um ponto de extremidade íntegro aleatoriamente e não enviará tráfego a serviços que são detectados como estando desativados. Para obter mais informações, consulte [Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md).
+A configuração das prioridades dos pontos de extremidade é feita de forma diferente nas APIs do ARM (e no novo portal do Azure) com relação às APIs do ASM (e no portal clássico):
 
-A Figura 2 mostra um exemplo do método de roteamento de tráfego de round robin para um conjunto de pontos de extremidade.
+- Nas APIs do ARM, a prioridade do ponto de extremidade é configurada explicitamente, usando a propriedade "priority" definida para cada ponto de extremidade. Essa propriedade deve ter um valor entre 1 e 1000, em que os valores mais baixos representam uma prioridade mais alta. Dois pontos de extremidade não podem compartilhar o mesmo valor de prioridade. A propriedade é opcional e, quando for omitida, uma prioridade padrão com base na ordem do ponto de extremidade será usada.
 
-![Método de roteamento de Round Robin do Gerenciador de Tráfego](./media/traffic-manager-routing-methods/IC750593.jpg)
+- Nas APIs do ASM, a prioridade dos pontos de extremidade é configurada implicitamente, com base na ordem em que os pontos de extremidade são listados na definição do perfil. Você também pode configurar a ordem de failover no portal "clássico" do Azure, na página de Configuração do perfil.
 
-**Figura 2**
+## Método de roteamento de tráfego ponderado
 
-As etapas numeradas a seguir correspondem aos números na Figura 2.
+Uma abordagem comum para fornecer alta disponibilidade e maximizar a utilização do serviço é fornecer um conjunto de pontos de extremidade e distribuir tráfego entre todos eles, de forma uniforme ou com um peso predefinido. Esse recurso tem suporte com o método de roteamento de tráfego "Ponderado".
 
-1. O Gerenciador de Tráfego recebe uma solicitação de entrada de um cliente e localiza o perfil.
-2. O perfil contém uma lista de pontos de extremidade. O Gerenciador de Tráfego seleciona um ponto de extremidade nessa lista aleatoriamente, excluindo qualquer ponto de extremidade offline (não disponível) determinado pelo monitoramento de ponto de extremidade do Gerenciador de Tráfego. Neste exemplo, esse é o ponto de extremidade CS-B.
-3. O Gerenciador de Tráfego retorna o nome de domínio de CS-B ao servidor DNS do cliente. O servidor DNS do cliente resolve esse nome de domínio para um endereço IP e o envia ao cliente.
-4. O cliente inicia o tráfego para CS-B.
+![Método de roteamento de tráfego "Ponderado" do Gerenciador de Tráfego do Azure][2]
 
-O roteamento de tráfego de round robin também dá suporte à distribuição ponderada de tráfego de rede. A Figura 3 mostra um exemplo do método de roteamento de tráfego de round robin ponderado para um conjunto de pontos de extremidade.
+No método de roteamento de tráfego Ponderado, é atribuído um peso a cada ponto de extremidade como parte da configuração do perfil do Gerenciador de Tráfego. Cada peso é um inteiro de 1 a 1000. Esse parâmetro é opcional e, se for omitido, um peso padrão de "1" será usado.
+  
+O tráfego de usuários finais é distribuído entre todos os pontos de extremidade de serviço disponíveis (com base no status de habilitado/desabilitado do ponto de extremidade configurado e no monitoramento contínuo do ponto de extremidade). Para cada consulta DNS recebida, um ponto de extremidade disponível é escolhido aleatoriamente, com a probabilidade baseada no peso atribuído a esse ponto de extremidade e aos outros pontos de extremidade disponíveis.
 
-![Método de roteamento Ponderado de Round Robin](./media/traffic-manager-routing-methods/IC750594.png)
-
-**Figura 3**
-
-O roteamento de tráfego de round robin ponderado permite distribuir a carga para vários pontos de extremidade com base no valor de peso atribuído de cada ponto de extremidade. Quanto maior o peso, com mais frequência um ponto de extremidade será retornado. Os cenários em que esse método pode ser útil incluem:
+Usar o mesmo peso para todos os pontos de extremidade resulta em uma distribuição uniforme do tráfego, ideal para levar a uma utilização consistente de um conjunto de pontos de extremidade idênticos. Usar pesos maiores (ou menores) em determinados pontos de extremidade faz com que esses pontos de extremidade sejam retornados com maior (ou menor) frequência nas respostas DNS e, portanto, recebam mais tráfego. Isso possibilita diversos cenários úteis:
 
 - Atualização gradual de aplicativo: aloque um percentual do tráfego para roteá-lo para um novo ponto de extremidade e aumentar gradualmente o tráfego até que ele chegue a 100%.
+
 - Perfil de migração para o Azure: crie um perfil com pontos de extremidade do Azure e externos e especifique o peso do tráfego que é roteado para cada ponto de extremidade.
+
 - Estouro de nuvem para capacidade adicional: expanda rapidamente uma implantação local na nuvem colocando-a atrás de um perfil do Gerenciador de Tráfego. Quando precisar de capacidade extra na nuvem, você poderá adicionar ou habilitar mais pontos de extremidade e especificar qual parte do tráfego vai para cada ponto de extremidade.
 
-No momento, não é possível usar o portal clássico do Azure para configurar o roteamento de tráfego ponderado. O Azure fornece acesso programático a esse método usando a API REST do Gerenciamento de Serviço e os cmdlets do PowerShell do Azure associados.
+O roteamento de tráfego ponderado pode ser configurado por meio do novo portal do Azure, mas os pesos não podem ser configurados por meio do portal "clássico". Ele também pode ser configurado por meio do ARM e do ASM usando o Azure PowerShell, a CLI do Azure e as APIs REST do Azure.
 
-Para obter informações sobre como usar as APIs REST, consulte [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
+Observação: as respostas DNS são armazenadas em cache tanto pelos clientes quanto pelos servidores DNS recursivos que esses clientes usam para fazer suas consultas DNS. É importante entender o impacto potencial desse caching nas distribuições de tráfego ponderadas. Se o número de clientes e de servidores DNS recursivos for grande, como é o caso dos aplicativos da Internet típicos, a distribuição de tráfego funcionará conforme o esperado. No entanto, se o número de clientes ou servidores DNS recursivos for pequeno, o cache poderá afetar significativamente a distribuição de tráfego. Casos de uso comuns em que isso pode ocorrer incluem:
 
-Para obter informações sobre como usar os cmdlets do PowerShell do Azure, consulte [Cmdlets do Gerenciador de Tráfego do Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769). Para um exemplo de configuração, consulte [Pontos de extremidade externos do Gerenciador de Tráfego do Azure e Round Robin ponderado via PowerShell](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) no blog do Azure.
+- Ambientes de desenvolvimento e teste
+- Comunicações de aplicativo para aplicativo
+- Aplicativos voltados para uma base restrita de usuários que compartilha uma infraestrutura de DNS recursivo comum, como funcionários de uma organização.
 
-Para testar o perfil de um único cliente e observar o comportamento de round robin igual ou ponderado, verifique se o nome DNS é resolvido para os endereços IP diferentes dos pontos de extremidade de acordo com os valores iguais ou ponderados no perfil. Durante o teste, você deve desabilitar o cache de cliente DNS no lado do cliente ou limpar o cache DNS entre cada tentativa para garantir que uma nova consulta de nome DNS seja enviada.
+Esses efeitos do caching de DNS são comuns a todos os sistemas de roteamento de tráfego baseados em DNS, e não específicos ao Gerenciador de Tráfego do Azure. Em alguns casos, limpar explicitamente o cache do DNS pode fornecer uma solução alternativa. Em outros casos, um método alternativo de roteamento de tráfego pode ser mais apropriado.
 
-## Método de roteamento de tráfego de desempenho
+## Método de roteamento de tráfego por desempenho
 
-Para rotear o tráfego de pontos de extremidade localizados em datacenters diferentes em todo o mundo, você pode direcionar o tráfego de entrada para o ponto de extremidade mais próximo em termos de menor latência entre o cliente solicitante e o ponto de extremidade. Normalmente, o ponto de extremidade "mais próximo" corresponde diretamente à distância geográfica mais curta. O método de roteamento de tráfego de desempenho permite que você faça a distribuição com base no local e na latência, mas não consegue levar em consideração as alterações em tempo real feitas na carga ou na configuração da rede.
+É possível melhorar a capacidade de resposta de muitos aplicativos implantando pontos de extremidade em dois ou mais locais do mundo e encaminhando os usuários finais para a localização "mais próxima" a eles. Essa é a finalidade do método de roteamento de tráfego por "Desempenho".
 
-O método de roteamento de tráfego de desempenho localiza o cliente solicitante e direciona-o ao ponto de extremidade mais próximo. A "proximidade" é determinada por uma Tabela de Latência da Internet que mostra o tempo de ida e volta entre vários endereços IP e cada data center do Azure. Essa tabela é atualizada periodicamente e não se destina a ser um reflexo em tempo real do desempenho na Internet. Ela não leva em consideração a carga em determinado serviço, embora o Gerenciador de Tráfego monitore seus pontos de extremidade com base no método escolhido e não os inclua em respostas a consultas DNS caso estejam indisponíveis. Em outras palavras, o roteamento de tráfego de desempenho também incorpora o método de roteamento de tráfego de failover.
+![Método de roteamento de tráfego por "Desempenho" do Gerenciador de Tráfego do Azure][3]
 
-A Figura 4 mostra um exemplo do método de roteamento de tráfego de desempenho para um conjunto de pontos de extremidade.
+Para maximizar a capacidade de resposta, o ponto de extremidade "mais próximo" não é necessariamente o mais próximo em termos de distância geográfica. Em vez disso, o método de roteamento de tráfego por "Desempenho" determina qual ponto de extremidade é o mais próximo do usuário final em termos de latência de rede. Isso é determinado por uma Tabela de Latência da Internet que mostra o tempo de ida e volta entre intervalos de endereços IP e cada data center do Azure.
 
-![Método de roteamento de Desempenho do Gerenciador de Tráfego](./media/traffic-manager-routing-methods/IC753237.jpg)
+O Gerenciador de Tráfego examina cada solicitação DNS recebida e procura o endereço IP de origem da solicitação na Tabela de Latência da Internet. Isso determina a latência de endereço IP para cada data center do Azure. O Gerenciador de Tráfego, então, escolhe qual dos pontos de extremidade disponíveis (com base no status de habilitado/desabilitado do ponto de extremidade configurado e no monitoramento contínuo do ponto de extremidade) tem a menor latência e retorna esse ponto de extremidade na resposta DNS. O usuário final, portanto, é direcionado para o ponto de extremidade que lhe proporcione a menor latência e, portanto, o melhor desempenho.
 
-**Figura 4**
+Conforme explicado em [How Traffic Manager Works (Como funciona o Gerenciador de Tráfego)](traffic-manager-how-traffic-manager-works.md), o Gerenciador de Tráfego não recebe consultas DNS diretamente dos usuários finais, ele as recebe do serviço de DNS recursivo que eles estão configurados para usar. Sendo assim, o endereço IP usado para determinar o ponto de extremidade "mais próximo" não é o endereço IP do usuário final, e sim o endereço IP do seu serviço de DNS recursivo. Na prática, esse endereço IP é um bom proxy para o usuário final para essa finalidade.
 
-As etapas numeradas a seguir correspondem aos números na Figura 4.
+Para compensar alterações na Internet global e o acréscimo de novas regiões do Azure, o Gerenciador de Tráfego atualiza regularmente a Tabela de Latência da Internet que consome. No entanto, ela não pode levar em consideração variações em tempo real no desempenho ou na carga na Internet.
 
-1. O Gerenciador de Tráfego cria a Tabela de Latência da Internet periodicamente. A infraestrutura do Gerenciador de Tráfego executa testes para determinar os tempos de viagem de ida e volta entre diferentes pontos no mundo e os data centers do Azure que hospedam pontos de extremidade.
-2. O Gerenciador de Tráfego recebe uma solicitação de entrada de um cliente por meio de seu servidor DNS local e localiza o perfil.
-3. O Gerenciador de Tráfego localiza a linha na Tabela de Latência da Internet para o endereço IP da solicitação DNS de entrada. Como o servidor DNS local do usuário está executando uma consulta DNS iterativa para localizar o servidor DNS autoritativo para o nome do perfil do Gerenciador de Tráfego, a consulta DNS é enviada do endereço IP do servidor DNS local do cliente.
-4. O Gerenciador de Tráfego localiza o data center com o menor tempo para os data centers que hospedam os pontos de extremidade definidos no perfil. Neste exemplo, é o CS-B.
-5. O Gerenciador de Tráfego retorna o nome de domínio de CS-B para o servidor DNS local do cliente, que resolve o nome de domínio para um endereço IP e o envia ao cliente.
-6. O cliente inicia o tráfego para CS-B.
+O roteamento de tráfego por desempenho não leva em consideração a carga em determinado ponto de extremidade de serviço, embora o Gerenciador de Tráfego monitore seus pontos de extremidade e não os inclua em respostas a consultas DNS caso estejam indisponíveis.
 
-**Pontos a serem observados:**
+Pontos a serem observados:
 
-- Se o seu perfil contiver vários pontos de extremidade no mesmo datacenter, o tráfego direcionado para esse datacenter será distribuído uniformemente pelos pontos de extremidade disponíveis e íntegros, de acordo com o monitoramento do ponto de extremidade.
-- Se todos os pontos de extremidade de um datacenter estiverem indisponíveis (de acordo com o monitoramento de ponto de extremidade), o tráfego desses pontos de extremidade será distribuído entre todos os outros pontos de extremidade disponíveis especificados no perfil, não para os mais próximos. Isso é para ajudar a evitar uma potencial falha em cascata que pode ocorrer se o ponto de extremidade mais próximo ficar sobrecarregado.
-- Quando a Tabela de Latência da Internet é atualizada, você pode notar uma diferença nos padrões de tráfego e de carga em seus pontos de extremidade. Essas alterações devem ser mínimas.
-- Ao usar o método de roteamento de tráfego de desempenho com pontos de extremidade externos, você precisará especificar o local desses pontos de extremidade. Escolha a região do Azure mais próxima de sua implantação. Para obter mais informações, consulte [Gerenciar pontos de extremidade no Gerenciador de Tráfego](traffic-manager-endpoints.md).
+- Se seu perfil contiver vários pontos de extremidade na mesma região do Azure, o tráfego direcionado a essa região será distribuído uniformemente entre pontos de extremidade disponíveis (com base no status de habilitado/desabilitado do ponto de extremidade configurado e no monitoramento contínuo do ponto de extremidade). Se você preferir uma distribuição de tráfego diferente dentro de uma região, isso poderá ser feito usando [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md).
 
-## Figuras do Gerenciador de Tráfego
+- Se todos os pontos de extremidade habilitados em uma determinada região do Azure estiverem degradados (de base no monitoramento contínuo do ponto de extremidade), o tráfego desses pontos de extremidade será distribuído entre todos os outros pontos de extremidade disponíveis especificados no perfil, não para os mais próximos. Isso é para ajudar a evitar uma potencial falha em cascata que pode ocorrer se o ponto de extremidade mais próximo ficar sobrecarregado. Se você preferir definir a sequência de failover do ponto de extremidade, isso poderá ser feito usando [perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md).
 
-Se você quiser obter as figuras deste tópico como slides do PowerPoint para sua própria apresentação sobre o Gerenciador de Tráfego ou para modificá-las para suas próprias finalidades, consulte [Figuras do Gerenciador de Tráfego na documentação do MSDN](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
+- Ao usar o método de roteamento de tráfego de por Desempenho com pontos de extremidade externos ou aninhados, você precisará especificar a localização desses pontos de extremidade. Escolha a região do Azure mais próxima da sua implantação; as opções disponíveis são as regiões do Azure, pois esses são os locais com suporte na Tabela de Latência de Internet.
+
+- O algoritmo que escolhe o ponto de extremidade a ser retornado para um determinado usuário final é determinístico, não há aleatoriedade envolvida. Consultas DNS repetidas do mesmo cliente serão direcionadas ao mesmo ponto de extremidade. No entanto, não se deve depender do método de roteamento de tráfego por Desempenho para sempre encaminhar um determinado usuário para uma determinada implantação (que poderá ser necessário, por exemplo, se dados desse usuário estiverem armazenados em somente uma localização). Isso ocorre porque, quando viajam, os usuários finais normalmente usam servidores DNS recursivos diferentes e podem ser encaminhados para um ponto de extremidade diferente. Eles também podem ser afetados por atualizações da Tabela de Latência da Internet.
+
+- Quando a Tabela de Latência da Internet é atualizada, você pode observar que alguns clientes foram direcionados para pontos de extremidade diferentes. O número de usuários afetados deve ser mínimo e reflete um roteamento mais preciso com base em dados de latência atuais. Essas atualizações são essenciais para manter a precisão do roteamento de tráfego por Desempenho à medida que a Internet evolui continuamente.
+
 
 ## Próximas etapas
 
-[Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
+Aprenda a desenvolver aplicativos de alta disponibilidade usando o [monitoramento de ponto de extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 
-[Criar um perfil](traffic-manager-manage-profiles.md)
+Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-profiles.md)
 
-[Adicionar um ponto de extremidade](traffic-manager-endpoints.md)
- 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--Image references-->
+[1]: ./media/traffic-manager-routing-methods/priority.png
+[2]: ./media/traffic-manager-routing-methods/weighted.png
+[3]: ./media/traffic-manager-routing-methods/performance.png
+
+<!---HONumber=AcomDC_0601_2016-->

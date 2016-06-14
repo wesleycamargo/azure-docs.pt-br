@@ -19,8 +19,6 @@
 
 # Implantar um aplicativo de linha de negócios de alta disponibilidade no Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Este artigo contém links para as instruções passo a passo para implantar um aplicativo de linha de negócios de alta disponibilidade, apenas para intranet e baseado na Web com Grupos de Disponibilidade AlwaysOn do SQL Server nos serviços de infraestrutura do Azure. O aplicativo está hospedado nesses computadores:
 
 - Dois servidores Web
@@ -75,7 +73,7 @@ Implante essa configuração nas seguintes fases:
 - [Fase 2: configurar os controladores de domínio](virtual-machines-windows-ps-lob-ph2.md). Crie e configure os controladores de domínio dos Serviços de Domínio do Active Directory (AD DS).
 - [Fase 3: configurar a infraestrutura do SQL Server](virtual-machines-windows-ps-lob-ph3.md). Crie e configure as máquinas virtuais que executam o SQL Server, crie o cluster e habilite os Grupos de Disponibilidade AlwaysOn do SQL Server.
 - [Fase 4: configurar os servidores Web](virtual-machines-windows-ps-lob-ph4.md). Crie e configure as duas máquinas virtuais do servidor Web.
-- [Fase 5: adicionar os bancos de dados de aplicativo a um Grupo de Disponibilidade AlwaysOn do SQL Server](virtual-machines-windows-ps-lob-ph5.md). Prepare os bancos de dados do aplicativo de linha de negócios e adicione-os a um Grupo de Disponibilidade AlwaysOn do SQL Server.
+- [Fase 5: Adicionar os bancos de dados de aplicativo a um Grupo de Disponibilidade do SQL Server Always On](virtual-machines-windows-ps-lob-ph5.md). Prepare os bancos de dados do aplicativo de linha de negócios e adicione-os a um Grupo de Disponibilidade AlwaysOn do SQL Server.
 
 Essa implantação foi projetada para acompanhar o [Plano gráfico da arquitetura de aplicativos de linha de negócios](http://msdn.microsoft.com/dn630664) e incorporar as recomendações mais recentes.
 
@@ -93,4 +91,4 @@ Para obter informações adicionais sobre a criação de cargas de trabalho de T
 
 - Inicie a configuração desta carga de trabalho com [Fase 1](virtual-machines-windows-ps-lob-ph1.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->

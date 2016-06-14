@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Proteger VMs ARM com o Backup do Azure | Microsoft Azure"
-	description="Proteja as VMs ARM com o serviço de Backup do Azure. Use os backups de VMs ARM e VMs de armazenamento Premium para proteger seus dados. Crie e registre um cofre de Serviços de Recuperação. Registre as VMs, crie uma política e proteger as VMs no Azure."
+	pageTitle="Proteger as VMs implantadas com o Resource Manager com o Backup do Azure | Microsoft Azure"
+	description="Proteger as VMs implantadas com o Resource Manager com o serviço Backup do Azure. Use os backups de VMs implantadas com o Resource Manager e de VMs de Armazenamento Premium para proteger seus dados. Crie e registre um cofre de Serviços de Recuperação. Registre as VMs, crie uma política e proteger as VMs no Azure."
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keyword="backups; vm backup"/>
 
@@ -14,26 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/31/2016"
+	ms.date="06/03/2016"
 	ms.author="markgal; jimpark"/>
 
 
-# Introdução: fazer backup das VMs ARM em um cofre de Serviços de Recuperação
+# Introdução: fazer backup das VMs implantadas com o Resource Manager em um cofre dos Serviços de Recuperação
 
 > [AZURE.SELECTOR]
-- [Fazer backup das VMs ARM](backup-azure-vms-first-look-arm.md)
+- [Fazer backup das máquinas virtuais implantadas com o Resource Manager](backup-azure-vms-first-look-arm.md)
 - [Fazer backup das VMs do modo Clássico](backup-azure-vms-first-look.md)
 
 Este tutorial apresenta as etapas para criar um cofre de Serviços de Recuperação e fazer backup de uma VM (máquina virtual) do Azure. Os cofres dos Serviços de Recuperação protegem:
 
-- VMs do ARM (Azure Resource Manager)
+- VMs implantadas com o Azure Resource Manager
 - VMs clássicas
 - VMs de armazenamento Padrão
 - VMs de armazenamento Premium
 
 Para obter informações adicionais sobre como proteger VMs de armazenamento Premium, confira [Backup e restauração de VMs de armazenamento Premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
->[AZURE.NOTE] Este tutorial presume que você já tenha uma VM em sua assinatura do Azure e tenha tomado medidas para permitir que o serviço de backup acesse a VM. O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo deve ser usado com as VMs baseadas em ARM e no Gerenciador de Recursos.
+>[AZURE.NOTE] Este tutorial presume que você já tenha uma VM em sua assinatura do Azure e tenha tomado medidas para permitir que o serviço de backup acesse a VM. O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Resource Manager e Clássico](../resource-manager-deployment-model.md). Este artigo deve ser usado com o Resource Manager e com as VMs implantadas com o Resource Manager.
 
 De forma geral, veja as etapas que você concluirá.
 
@@ -189,35 +189,7 @@ Para executar o **Backup Agora**:
 
     Quando o trabalho de backup for concluído, o status será *Concluído*.
 
-## Definindo uma política de backup
-
-Uma política de backup define uma matriz de quando os instantâneos de dados são obtidos e por quanto tempo esses instantâneos são mantidos. Ao definir uma política para fazer backup de uma VM, você pode disparar um trabalho de backup *uma vez por dia*. Quando você cria uma nova política, ela é aplicada ao cofre. A interface da política de backup fica assim:
-
-![Política do backup](./media/backup-azure-vms-first-look-arm/backup-policy-daily-raw.png)
-
-Para criar uma política:
-
-1. Forneça um nome no campo **Nome da Política**.
-
-2. Podem ser feitos instantâneos dos dados em intervalos Diários ou Semanais. Use o menu suspenso **Frequência do Backup** para escolher se os instantâneos de dados são feitos Diariamente ou Semanalmente.
-
-    - Se você escolher um intervalo Diário, use o controle destacado para selecionar a hora do dia para o instantâneo. Para alterar a hora, cancele a seleção da hora e selecione a nova hora.
-
-    ![Política de backup diário](./media/backup-azure-vms-first-look-arm/backup-policy-daily.png) <br/>
-
-    - Se você escolher um intervalo Semanal, use os controles destacados para selecionar o(s) dia(s) da semana e a hora do dia para fazer o instantâneo. No menu do dia, selecione um ou vários dias. No menu de hora, selecione uma hora. Para alterar a hora, cancele a seleção da hora escolhida e selecione a nova hora.
-
-    ![Política de backup semanal](./media/backup-azure-vms-first-look-arm/backup-policy-weekly.png)
-
-3. Por padrão, todas as opções de **Intervalo de Retenção** são selecionadas. Desmarque qualquer limite do intervalo de retenção que você não deseja usar.
-
-    >[AZURE.NOTE] Ao proteger uma VM, um trabalho de backup é executado uma vez por dia. O tempo durante o qual o backup é executado é o mesmo para cada intervalo de retenção.
-
-    Nos controles correspondentes, especifique os intervalos a serem usados. Os intervalos de retenção Mensal e Anual permitem que você especifique os instantâneos com base em um incremento diário ou semanal.
-
-4. Depois de definir todas as opções para a política, na parte inferior da folha, clique em **OK**.
-
-    A nova política é definida para ser aplicada no cofre assim que as configurações do cofre de Serviços de Recuperação são concluídas. Retorne à etapa 6 da seção e escolha [Selecionar política de configuração do cenário e definir os itens a proteger](backup-azure-vms-first-look-arm.md#step-2---select-scenario-set-policy-and-define-items-to-protect)
+[AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## Instalar o Agente de VM na máquina virtual
 
@@ -230,7 +202,7 @@ A tabela a seguir oferece informações adicionais sobre o Agente de VM para VMs
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalação do agente de VM | <li>Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação. <li>[Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. | <li> Instale o [agente Linux](https://github.com/Azure/WALinuxAgent) mais recente do GitHub. Você precisará de privilégios de Administrador para concluir a instalação. <li> [Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |
-| Atualizar o Agente de VM | Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução durante a atualização do agente de VM. | Siga as instruções em [como atualizar o Agente de VM do Linux](../virtual-machines-linux-update-agent.md). <br>Verifique se nenhuma operação de backup está em execução durante a atualização do Agente de VM. |
+| Atualizar o Agente de VM | Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. | Siga as instruções em [Atualizando o agente de VM do Linux](../virtual-machines-linux-update-agent.md). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
 | Validação da instalação do Agente de VM | <li>Navegue até a pasta *C:\\WindowsAzure\\Packages* na VM do Azure. <li>Você deve encontrar o arquivo WaAppAgent.exe presente.<li> Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou mais recente. | N/D |
 
 
@@ -247,4 +219,4 @@ Se você tiver problemas para realizar algumas das tarefas neste artigo, consult
 ## Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0608_2016-->

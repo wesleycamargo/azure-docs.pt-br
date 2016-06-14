@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/31/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migrar seus dados
-O principal objetivo ao migrar dados é popular o banco de dados do SQLDW. Esse processo pode ser realizado de várias maneiras. Cópia do ADF, SSIS e bcp podem ser usados para atingir esse objetivo. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
+Os dados podem ser movidos de diferentes origens no SQL Data Warehouse com uma variedade de ferramentas. Cópia do ADF, SSIS e bcp podem ser usados para atingir esse objetivo. No entanto, à medida que o volume de dados aumenta, uma boa prática é dividir em etapas o processo de migração de dados. Isso possibilita a otimização de cada etapa quanto ao desempenho e à resiliência para garantir uma migração de dados tranquila.
 
 Em primeiro lugar, este artigo descreve os cenários de migração simples por Cópia do ADF, SSIS e bcp. Em seguida, o artigo se aprofunda um pouco em como a migração pode ser otimizada.
 
@@ -30,7 +30,7 @@ O PolyBase também fornece uma opção de desempenho bastante alto para carregam
 
 > [AZURE.NOTE] O PolyBase exige que os arquivos de dados estejam em UTF-8. Essa é a codificação padrão da Cópia do ADF; sendo assim, nada precisa ser alterado. Este é apenas um lembrete para não mudar o comportamento padrão da Cópia do ADF.
 
-Acesse o seguinte artigo para ver alguns ótimos [exemplos de Cópia do ADF].
+Acesse o seguinte artigo para ver alguns ótimos [exemplos de Cópia do ADF][].
 
 ## Serviços de integração ##
 O SSIS (SQL Server Integration Services) é uma ferramenta de ETL (Extração, Transformação e Carregamento) avançada e flexível que oferece suporte a fluxos de trabalho complexos, transformação de dados e várias opções de carregamento de dados. Use o SSIS para simplificar a transferência de dados para o Azure ou como parte de uma migração mais ampla.
@@ -194,4 +194,4 @@ Para saber mais sobre a migração, consulte [Migrar sua solução para o SQL Da
 [Adaptador de destino ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [documentação do SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0601_2016-->

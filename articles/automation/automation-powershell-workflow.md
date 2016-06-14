@@ -3,8 +3,8 @@
    description="Este artigo é concebido como uma lição rápida para autores familiarizados com o PowerShell para entender as diferenças entre o PowerShell e o fluxo de trabalho do PowerShell."
    services="automation"
    documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
+   authors="mgoedtel"
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/03/2016"
+   ms.date="05/26/2016"
    ms.author="bwren" />
 
 # Aprendendo sobre o fluxo de trabalho do Windows PowerShell
@@ -211,7 +211,7 @@ O exemplo a seguir é semelhante ao exemplo anterior copiando os arquivos em par
 
 ## Pontos de verificação
 
-Um *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual de variáveis e as saídas geradas para aquele ponto. Se um fluxo de trabalho terminar em erro ou for [suspenso](suspending-a-workflow), na próxima vez que ele for executado, ele iniciará no seu último ponto de verificação, em vez do início do fluxo de trabalho. Você pode definir um ponto de verificação em um fluxo de trabalho com a atividade **Checkpoint-Workflow**.
+Um *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual de variáveis e as saídas geradas para aquele ponto. Se um fluxo de trabalho terminar em erro ou se for suspenso, na próxima vez que ele for executado, iniciará no seu último ponto de verificação e não no início do fluxo de trabalho. Você pode definir um ponto de verificação em um fluxo de trabalho com a atividade **Checkpoint-Workflow**.
 
 No código de exemplo a seguir, uma exceção ocorre após Activity2, fazendo com que o fluxo de trabalho seja encerrado. Quando o fluxo de trabalho é executado novamente, ele começa pela execução de Activity2, já que isso foi logo após o último ponto de verificação definido.
 
@@ -240,13 +240,11 @@ O exemplo a seguir copia vários arquivos para um local de rede e define um pont
 	}
 
 
-
 Para saber mais sobre pontos de verificação, confira [Adicionando pontos de verificação a um Fluxo de Trabalho de script](http://technet.microsoft.com/library/jj574114.aspx).
 
 
+## Próximas etapas
 
-## Artigos relacionados
+- Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md) 
 
-- [Introduzindo o Fluxo de Trabalho do Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0601_2016-->

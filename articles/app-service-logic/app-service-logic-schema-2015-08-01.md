@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="05/31/2016"
 	ms.author="stepsic"/>
 	
 # Novo versão de esquema 2015-08-01-preview
@@ -27,17 +27,19 @@ A nova versão de esquema e API para aplicativos lógicos tem uma série de apri
 
 ## 1\. Mudança para conexões de API
 
-A maior mudança é que você não precisa mais implantar aplicativos de API em sua Assinatura do Azure para usar as APIs. Há duas maneiras de usar as APIs: * APIs gerenciadas * Sua API Web personalizada
+A maior mudança é que você não precisa mais implantar aplicativos de API em sua Assinatura do Azure para usar as APIs. Existem duas maneiras de usar as APIs:
+* APIs gerenciadas
+* Sua API Web personalizada
 
 Cada uma delas é tratada de forma ligeiramente diferente, pois seu gerenciamento e modelos de hospedagem são diferentes. Uma vantagem desse modelo é que você não fica restrito aos recursos que são implantados em seu Grupo de Recursos.
 
 ### APIs gerenciadas
 
-Há uma série de APIs gerenciadas pela Microsoft em seu nome, como o Office 365, Salesforce, Twitter, FTP, etc... Algumas dessas APIs gerenciadas podem ser usadas como estão, como o Bing Translate, enquanto outras exigem configuração. Essa configuração é chamada de *conexão*.
+Há uma série de APIs gerenciadas pela Microsoft em seu nome, como o Office 365, Salesforce, Twitter, FTP, etc... Algumas dessas APIs gerenciadas podem ser usadas como estão, como o Bing Translate, enquanto outras exigem configuração. Essa configuração é denominada *conexão*.
 
 Por exemplo, quando você usa o Office 365, precisa criar uma conexão que contém o token de entrada do Office 365. Esse token será armazenado e atualizado com segurança para que seu aplicativo lógico sempre chame a API do Office 365. Como alternativa, se você quiser se conectar ao seu servidor SQL ou FTP, será necessário criar uma conexão que tenha cadeia de conexão.
 
-Dentro da definição, essas ações são chamadas de `APIConnection`. Veja um exemplo de uma conexão que chama o Office 365 para enviar um email:
+Dentro da definição, essas ações são denominadas `APIConnection`. Veja um exemplo de uma conexão que chama o Office 365 para enviar um email:
 
 ```
 {
@@ -66,11 +68,11 @@ Dentro da definição, essas ações são chamadas de `APIConnection`. Veja um e
 }
 ```
 
-A parte das entradas que é exclusiva às conexões de API é o objeto `host`. Ela contém duas partes: `api` e `connection`.
+A parte das entradas exclusiva das conexões da API é o objeto `host`. Ela contém duas partes: `api` e `connection`.
 
-O `api` tem a URL do tempo de execução onde a API gerenciada está hospedada. Você pode ver todas as APIs gerenciadas disponíveis chamando `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+`api` tem a URL de execução de onde a API gerenciada está hospedada. Você pode ver todas as APIs gerenciadas disponíveis chamando `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-Quando você usa uma API, ela pode ou não ter quaisquer **parâmetros de conexão** definidos. Caso contrário, nenhuma **conexão** será necessária. Se isso acontecer, você terá que criar uma conexão. Quando você cria essa conexão, ela terá o nome que você escolher e, então, poderá fazer referência a ela no objeto `connection` dentro do objeto `host`. Para criar uma conexão em um grupo de recursos, chame:
+Quando você usa uma API, ela pode ou não ter nenhum **parâmetro de conexão** definido. Caso contrário, nenhuma **conexão** será necessária. Se isso acontecer, você terá que criar uma conexão. Quando você criar essa conexão, ela terá o nome escolhido, então, você poderá fazer referência a ela no objeto `connection` dentro do objeto `host`. Para criar uma conexão em um grupo de recursos, chame:
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
@@ -93,7 +95,7 @@ Com o seguinte corpo:
 }
 ```
 
-### Implantar a API gerenciada em um modelo do Azure Resource Manager
+### Implantar APIs gerenciadas em um modelo do Azure Resource Manager
 
 Você pode criar um aplicativo completo em um modelo do ARM, desde que ele não exija a entrada interativa. Se for necessário entrar, você poderá configurar tudo com o modelo do ARM, mas ainda precisará visitar o portal a fim de autorizar as conexões.
 
@@ -188,11 +190,12 @@ Você pode criar um aplicativo completo em um modelo do ARM, desde que ele não 
 
 Você pode ver neste exemplo que as conexões são apenas recursos normais que residem em seu grupo de recursos. Elas fazem referência às managedAPIs disponíveis em sua assinatura.
 
-### Sua API Web personalizada
+### Suas APIs Web personalizadas
 
-Se você usar sua própria API (especificamente não aquelas gerenciadas pela Microsoft), deverá usar a ação **HTTP** interna para chamá-la. Para obter uma experiência ideal, você deve expor um ponto de extremidade swagger para sua API. Isso permitirá que o designer do aplicativo lógico processe as entradas e saídas de sua API. Sem um swagger, o designer só poderá mostrar as entradas e saídas como objetos JSON opacos.
+Se você usar suas próprias APIs (especificamente não aquelas gerenciadas pela Microsoft), deverá usar a ação **HTTP** interna para chamá-las. Para obter uma experiência ideal, você deve expor um ponto de extremidade swagger para sua API. Isso permitirá que o designer do aplicativo lógico processe as entradas e saídas de sua API. Sem um swagger, o designer só poderá mostrar as entradas e saídas como objetos JSON opacos.
 
-Veja um exemplo que mostra a nova propriedade `metadata.apiDefinitionUrl`: ```
+Veja um exemplo que mostra a nova propriedade `metadata.apiDefinitionUrl`:
+```
 {
    "actions": {
         "mycustomAPI": {
@@ -213,9 +216,10 @@ Se você hospedar sua API Web no **Serviço de Aplicativo**, ela aparecerá auto
 
 ### Usando seus aplicativos de API já implantados com 2015-08-01-preview
 
-Se você tiver implantado um aplicativo de API, chame-o por meio da ação **HTTP**.
+Se você implantou anteriormente um aplicativo da API, chame-o por meio da ação **HTTP**.
 
-Por exemplo, se você usar o Dropbox para listar os arquivos, poderá ter algo assim em sua definição de versão do esquema **2014-12-01-preview**: ```
+Por exemplo, se você usar o Dropbox para listar os arquivos, poderá ter algo assim em sua definição da versão do esquema **2014-12-01-preview**:
+```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
     "contentVersion": "1.0.0.0",
@@ -296,7 +300,7 @@ Essa abordagem deve funcionar para todas as ações de aplicativo de API. No ent
 
 ## 2\. Repeat renomeado para Foreach
 
-Recebemos muitos comentários de clientes na versão anterior do esquema informando que **Repeat** era confuso e não capturava corretamente de que era realmente um loop for each. Como resultado, renomeamos para **Foreach**. Por exemplo:
+Recebemos muitos comentários de clientes na versão anterior do esquema informando que **Repeat** era confuso e não capturava corretamente que ele era, de fato, um loop for each. Como resultado, foi renomeado como **Foreach**. Por exemplo:
 
 ```
 {
@@ -330,10 +334,10 @@ Seria escrito agora como:
 }
 ```
 
-Anteriormente, a função `@repeatItem()` era usada para fazer referência ao item atual que estava sendo iterado. Isso foi simplificado para apenas `@item()`.
+Anteriormente, a função `@repeatItem()` era usada para fazer referência ao item atual sendo iterado. Isso foi simplificado para apenas `@item()`.
 
 ### Como fazer referência às saídas do Foreach
-Para simplificar ainda mais, as saídas das ações **Foreach** não serão ajustadas em um objeto chamado **repeatItems**. Isso significa que, enquanto as saídas de repeat eram:
+Para simplificar ainda mais, as saídas das ações **Foreach** não serão colocadas em um objeto denominado **repeatItems**. Isso significa que, enquanto as saídas de repeat eram:
 
 ```
 {
@@ -412,13 +416,13 @@ Agora você pode fazer:
 Com essas alterações, as funções `@repeatItem()`, `@repeatBody()` e `@repeatOutputs()` foram removidas.
 
 ## 3\. Ouvinte HTTP nativo: 
-Os recursos de Ouvinte HTTP agora são internos, portanto, você não precisa implantar mais um aplicativo de API de Ouvinte HTTP. Leia [os detalhes completos de como tornar seu ponto de extremidade do aplicativo lógico chamável](app-service-logic-http-endpoint.md).
+Os recursos de Ouvinte HTTP agora são internos, portanto, você não precisa implantar mais um aplicativo de API de Ouvinte HTTP. Leia [os detalhes completos de como fazer com que seu ponto de extremidade do aplicativo lógico seja chamado aqui](app-service-logic-http-endpoint.md).
 
-Com essas alterações, a função `@accessKeys()` foi removida e substituída pela função `@listCallbackURL()` a fim de obter o ponto de extremidade (quando for necessário). Além disso, agora você deve definir pelo menos um gatilho em seu aplicativo lógico. Se você quiser `/run` o fluxo de trabalho, você precisará ter um dos gatilhos `manual`, `apiConnectionWebhook` ou `httpWebhook`.
+Com essas alterações, a função `@accessKeys()` foi removida e substituída pela função `@listCallbackURL()` para obter o ponto de extremidade (quando necessário). Além disso, agora você deve definir pelo menos um gatilho em seu aplicativo lógico. Se você quiser `/run` o fluxo de trabalho, precisará ter um dos gatilhos `manual`, `apiConnectionWebhook` ou `httpWebhook`.
 
-## 4\. Como chamar fluxos de trabalho secundários
+## 4\. Chamando os fluxos de trabalho secundários
 
-Anteriormente, chamar fluxos de trabalho secundários exigia o acesso a esse fluxo de trabalho, obtenção do token de acesso e colagem na definição do aplicativo lógico do qual você deseja chamar esse secundário. Com a nova versão do esquema, o mecanismo de aplicativos Lógicos gerará automaticamente um SAS em tempo de execução para fluxo de trabalho secundário, o que significa que você não precisa colar informações secretas na definição. Veja um exemplo:
+Anteriormente, chamar os fluxos de trabalho secundários exigia ir para esse fluxo de trabalho, obter o token de acesso e colar isso na definição do aplicativo lógico no qual você deseja chamar o secundário. Com a nova versão do esquema, o mecanismo de aplicativos Lógicos gerará automaticamente um SAS em tempo de execução para fluxo de trabalho secundário, o que significa que você não precisa colar informações secretas na definição. Veja um exemplo:
 
 ```
 "mynestedwf" : {
@@ -444,19 +448,19 @@ Anteriormente, chamar fluxos de trabalho secundários exigia o acesso a esse flu
 }
 ```
 
-Um segundo aprimoramento é que daremos aos fluxos de trabalho secundário acesso completo à solicitação de entrada. Isso significa que você pode passar parâmetros na seção *consultas* e no objeto *cabeçalhos*, e que você pode definir completamente todo o corpo.
+Um segundo aprimoramento é que daremos aos fluxos de trabalho secundário acesso completo à solicitação de entrada. Isso significa que você pode passar parâmetros na seção *consultas* e no objeto *cabeçalhos*, e que pode definir completamente todo o corpo.
 
-Por fim, há alterações necessárias no fluxo de trabalho secundário. Enquanto antes você podia simplesmente chamar um fluxo de trabalho secundário diretamente, agora, você precisará definir um ponto de extremidade de gatilho no fluxo de trabalho para o pai chamar. Em geral, isso significa que você adicionará um gatilho do tipo **manual** e o usará na definição pai. Observe que a propriedade `host`, especificamente, tem um `triggerName`, pois você sempre deve especificar qual gatilho está invocando.
+Por fim, há alterações necessárias no fluxo de trabalho secundário. Enquanto antes você podia simplesmente chamar um fluxo de trabalho secundário diretamente, agora, você precisará definir um ponto de extremidade de gatilho no fluxo de trabalho para o pai chamar. Em geral, isso significa que você adicionará um gatilho do tipo **manual** e irá usá-lo na definição do pai. Observe que a propriedade `host`, especificamente, tem um `triggerName`, pois você sempre deve especificar qual gatilho está chamando.
 
 ## Outras alterações
 
 ### Nova propriedade de consultas
-Todos os tipos de ação agora oferecem suporte a uma nova entrada chamada **consultas**. Pode ser um objeto estruturado em vez de precisar montar a cadeia de caracteres manualmente.
+Agora, todos os tipos de ação oferecem suporte a uma nova entrada denominada **consultas**. Pode ser um objeto estruturado em vez de precisar montar a cadeia de caracteres manualmente.
 
 ### Função parse() renomeada
-Como incluiremos em breve mais tipos de conteúdo, a função `parse()` foi renomeada para `json()`.
+Como incluiremos em breve mais tipos de conteúdo, a função `parse()` foi renomeada como `json()`.
 
 ## Em breve: APIs de Integração Corporativa
 Neste momento, ainda não temos versões gerenciadas das APIs de Integração Corporativa disponíveis (como AS2). Eles estarão disponíveis em breve, conforme abordado no [mapa](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). Enquanto isso, você pode usar suas APIs BizTalk implantadas existentes por meio da ação HTTP, conforme abordado acima em "Como usar seus aplicativos de API já implantados".
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0601_2016-->

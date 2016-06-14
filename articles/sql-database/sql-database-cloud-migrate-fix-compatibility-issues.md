@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="03/23/2016"
+   ms.date="05/31/2016"
    ms.author="carlrab"/>
 
-# Corrigir problemas de compatibilidade do banco de dados SQL Server usando o SQL Azure Migration Wizard antes da migração para o Banco de Dados SQL
-
-Se você determinar que o banco de dados do SQL Server de origem não é compatível, terá várias opções para corrigir os problemas de compatibilidade do banco de dados identificados.
+# Use o SQL Azure Migration Wizard para corrigir problemas de compatibilidade de banco de dados SQL Server antes da migração para o Banco de dados SQL do Azure
 
 > [AZURE.SELECTOR]
 - Usar [Assistente de Migração do SQL Azure](sql-database-cloud-migrate-fix-compatibility-issues.md)
 - Usar [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - Usar [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
+
+Neste artigo, você aprenderá a detectar e corrigir problemas de compatibilidade do banco de dados SQL Server usando o SQL Azure Migration Wizard antes da migração para o Banco de Dados SQL do Azure.
 
 ## Assistente de Migração do SQL Azure
 
@@ -33,8 +33,16 @@ Use a ferramenta CodePlex do [Assistente de Migração do SQL Azure](http://sqla
 
   > [AZURE.NOTE] Observe que nem todos os esquemas incompatíveis que podem ser detectados pelo assistente podem ser corrigidos por suas transformações internas. O script incompatível que não puder ser incluído será apontado como erro, com comentários injetados no script gerado. Se vários erros forem detectados, use o Visual Studio ou o SQL Server Management Studio para depurar e corrigir cada erro que não puder ser corrigido pelo Assistente de Migração do SQL Server.
 
-## Próxima etapa: selecionar o método de migração e executar a migração
+## Próximas etapas
 
-[Selecionar método de migração](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
+- [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Migrar um banco de dados SQL Server compatível para o Banco de Dados SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-<!-----------HONumber=AcomDC_0330_2016-->
+## Saiba mais
+
+- [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
+- [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
+- [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
+
+<!---HONumber=AcomDC_0601_2016-->

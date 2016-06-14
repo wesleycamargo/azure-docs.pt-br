@@ -39,8 +39,8 @@ Para definir as propriedades em um objeto, especifique o valor da propriedade, e
 O exemplo de código a seguir cria um contêiner e escreve alguns dos valores da propriedade em uma janela do console:
 
     //Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 	
 	//Create the service client object for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -62,7 +62,7 @@ O exemplo de código a seguir cria um contêiner e escreve alguns dos valores da
 
 Você pode especificar os metadados como um ou mais pares de nome-valor em um recurso de contêiner ou blob. Para definir os metadados, adicione pares de nome-valor à coleção **Metadados** no recurso, em seguida, chame o método **SetMetadata** para salvar os valores no serviço.
 
-> [AZURE.NOTE]\: O nome dos metadados deve obedecer às convenções de nomenclatura para os identificadores de C#.
+> [AZURE.NOTE] O nome dos metadados deve estar em conformidade com as convenções de nomenclatura para os identificadores de C#.
  
 O exemplo de código a seguir define os metadados em um contêiner. Um valor é definido usando o método **Add** da coleção. O outro valor é definido usando a sintaxe implícita de chave/valor. Ambos são válidos.
 
@@ -97,4 +97,4 @@ Para recuperar os metadados, chame o método **FetchAttributes** no blob ou no c
 - [Biblioteca do Cliente de Armazenamento do Azure para a referência do .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Biblioteca do Cliente de Armazenamento do Azure para o pacote do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0601_2016-->

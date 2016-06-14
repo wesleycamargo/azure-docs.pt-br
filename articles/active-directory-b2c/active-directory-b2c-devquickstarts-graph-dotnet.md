@@ -18,9 +18,6 @@
 
 # Visualização do B2C do Azure AD: usar a API do Graph
 
-
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-graph-switcher](../../includes/active-directory-b2c-devquickstarts-graph-switcher.md)]-->
-
 Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grandes. Isso significa que muitas tarefas comuns de gerenciamento de locatário devem ser executadas programaticamente. O principal exemplo é o gerenciamento de usuário. Talvez seja necessário migrar o repositório de usuário existente para um locatário B2C. Talvez seja melhor hospedar o registro de usuário em sua própria página e criar contas de usuário no Azure AD nos bastidores. Esses tipos de tarefas exigem a capacidade de criar, ler, atualizar e excluir contas de usuário. Você pode realizar essas tarefas usando a API do Graph do Azure AD.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
@@ -28,7 +25,7 @@ Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grand
 Para locatários B2C, existem basicamente dois modos de se comunicar com a API do Graph.
 
 - Para tarefas de execução única, interativas, você deverá agir como uma conta de administrador no locatário B2C quando executar as tarefas. Esse modo requer que um administrador entre com credenciais antes de poder executar todas as chamadas à API do Graph.
-- Para tarefas automatizadas, contínuas, você deve usar algum tipo de conta de serviço fornecida com os privilégios necessários para executar tarefas de gerenciamento. No Azure AD, você pode fazer isso registrando um aplicativo e autenticando no Azure AD. Isso é feito usando uma **ID do aplicativo** que usa a [concessão de credenciais do cliente OAuth 2.0](../active-directory/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Nesse caso, o aplicativo atua em nome próprio, e não como usuário, para chamar a API do Graph.
+- Para tarefas automatizadas, contínuas, você deve usar algum tipo de conta de serviço fornecida com os privilégios necessários para executar tarefas de gerenciamento. No Azure AD, você pode fazer isso registrando um aplicativo e autenticando no Azure AD. Isso é feito usando uma **ID de aplicativo** que usa a [concessão de credenciais do cliente OAuth 2.0](../active-directory/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Nesse caso, o aplicativo atua em nome próprio, e não como usuário, para chamar a API do Graph.
 
 Neste artigo, discutiremos como executar o caso de uso automatizado. Para demonstrar isso, vamos criar um .NET 4.5 `B2CGraphClient` que executa as operações CRUD (criar, ler, atualizar e excluir) do usuário. O cliente terá uma CLI (interface de linha de comando) do Windows que permite que você chame vários métodos. No entanto, o código é gravado para se comportar de forma não interativa e automatizada.
 
@@ -43,7 +40,7 @@ Agora que tem um locatário B2C, você precisa criar seu aplicativo de serviço 
 > [AZURE.NOTE]
 Para usar a API do Graph com seu locatário B2C, você precisará registrar um aplicativo dedicado usando o PowerShell. Siga as instruções neste artigo para fazer isso. Você não pode usar seus aplicativos B2C já existentes que registrou no Portal do Azure novamente. Essa é uma limitação da visualização do AD B2C do Azure que deve ser removida em um futuro próximo. Estamos planejando atualizar esse artigo quando isso acontecer.
 
-Depois de instalar o módulo do PowerShell, abra o PowerShell e conecte-se ao locatário B2C. Depois de executar o `Get-Credential`, você será solicitado a fornecer um nome de usuário e uma senha. Insira o nome de usuário e a senha da sua conta de administrador do locatário B2C.
+Depois de instalar o módulo do PowerShell, abra o PowerShell e conecte-se ao locatário B2C. Depois de executar o `Get-Credential`, você será solicitado a fornecer um nome de usuário e uma senha. Insira o nome de usuário e a senha de sua conta de administrador do locatário B2C.
 
 ```
 > $msolcred = Get-Credential
@@ -80,9 +77,9 @@ EndDate               : 9/2/2016 1:33:09 AM
 Usage                 : Verify
 ```
 
-Se a criação do aplicativo for bem-sucedida, ela deverá indicar as propriedades do aplicativo, como as mostradas acima. Você precisará tanto da `ObjectId` quanto da `AppPrincipalId`; portanto, copie esses valores também.
+Se a criação do aplicativo for bem-sucedida, ela deverá indicar as propriedades do aplicativo, como as mostradas acima. Você precisará da `ObjectId` e da `AppPrincipalId`; portanto, copie esses valores também.
 
-Agora que criou um aplicativo no locatário B2C, você precisa atribuir a ele as permissões necessárias para realizar operações de CRUD do usuário. Atribua as três funções de aplicativo: leitores de diretório (para ler usuários), gravadores de diretório (para criar e atualizar usuários) e um administrador da conta de usuário (para excluir os usuários). Essas funções têm identificadores conhecidos, você pode substituir o parâmetro `-RoleMemberObjectId` com a `ObjectId` acima e executar os comandos a seguir. Para ver a lista de todas as funções de diretório, tente executar `Get-MsolRole`.
+Agora que criou um aplicativo no locatário B2C, você precisa atribuir a ele as permissões necessárias para realizar operações de CRUD do usuário. Atribua as três funções de aplicativo: leitores de diretório (para ler usuários), gravadores de diretório (para criar e atualizar usuários) e um administrador da conta de usuário (para excluir os usuários). Essas funções têm identificadores conhecidos, assim, você pode substituir o parâmetro `-RoleMemberObjectId` pela `ObjectId` acima e executar os comandos a seguir. Para ver a lista de todas as funções de diretório, tente executar `Get-MsolRole`.
 
 ```
 > Add-MsolRoleMember -RoleObjectId 88d8e3e3-8f55-4a1e-953a-9b9898b8876b -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
@@ -112,7 +109,7 @@ Abra a solução do Visual Studio `B2CGraphClient\B2CGraphClient.sln` no Visual 
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Agora, clique com o botão direito do mouse na solução `B2CGraphClient` e compile novamente o exemplo. Se você tiver êxito, deverá ter agora um arquivo executável `B2C.exe` localizado em `B2CGraphClient\bin\Debug`.
+Agora, clique com o botão direito do mouse na solução `B2CGraphClient` e compile novamente o exemplo. Se tiver êxito, agora deverá você ter um arquivo executável `B2C.exe` localizado em `B2CGraphClient\bin\Debug`.
 
 ## Criar operações CRUD do usuário usando a API do Graph
 
@@ -123,11 +120,11 @@ Para usar o B2CGraphClient, abra um prompt de comando `cmd` do Windows e altere 
 > B2C Help
 ```
 
-Isso exibirá uma breve descrição de cada comando. Cada vez que você chamar um desses comandos, o `B2CGraphClient` faz uma solicitação para a API do Azure AD Graph.
+Isso exibirá uma breve descrição de cada comando. Sempre que você invoca um desses comandos, o `B2CGraphClient` faz uma solicitação para a API do Azure AD Graph.
 
 ### Obter um token de acesso
 
-Qualquer solicitação para a API do Graph requer um token de acesso para autenticação. O `B2CGraphClient` usa a ADAL (Biblioteca de autenticação do Active Directory) aberta para ajudar a obter tokens de acesso. A ADAL facilita a aquisição de tokens, fornecendo uma API simples e cuidando de alguns detalhes importantes, como armazenar em cache os tokens de acesso. No entanto, você não precisa usar a ADAL para obter tokens. Você também pode obter tokens ao criar solicitações HTTP.
+Qualquer solicitação para a API do Graph requer um token de acesso para autenticação. O `B2CGraphClient` usa a ADAL (Biblioteca de Autenticação do Active Directory) de software livre para ajudar a obter tokens de acesso. A ADAL facilita a aquisição de tokens, fornecendo uma API simples e cuidando de alguns detalhes importantes, como armazenar em cache os tokens de acesso. No entanto, você não precisa usar a ADAL para obter tokens. Você também pode obter tokens ao criar solicitações HTTP.
 
 > [AZURE.NOTE]
 	Esse exemplo de código usa a ADAL v2, a versão da ADAL com disponibilidade geral. Ele Não usa a ADAL v4, que é uma versão de visualização para trabalhar com o B2C do Azure AD. Para a visualização do B2C do AD do Azure, você deve usar a ADAL v2 para se comunicar com a Graph API. Ao longo do tempo, esperamos fornecer acesso à API do Graph com a ADAL v4, para que você não precise usar duas versões diferentes da ADAL em sua solução AD B2C do Azure completa.
@@ -164,11 +161,11 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ```
 
-Você pode obter um token de acesso para a API do Graph chamando o método ADAL `AuthenticationContext.AcquireToken(...)`. A ADAL, em seguida, retorna um `access_token` que representa a identidade do aplicativo.
+Você pode obter um token de acesso para a API do Graph chamando o método ADAL `AuthenticationContext.AcquireToken(...)`. Em seguida, a ADAL retorna um `access_token` que representa a identidade do aplicativo.
 
 ### Ler usuários
 
-Quando você quiser obter uma lista de usuários ou obter um usuário específico da API do Graph, poderá enviar uma solicitação HTTP `GET` para o ponto de extremidade `/users`. Uma solicitação para todos os usuários em um locatário tem esta aparência:
+Quando quiser obter uma lista de usuários ou obter um usuário específico da API do Graph, você poderá enviar uma solicitação HTTP `GET` para o ponto de extremidade `/users`. Uma solicitação para todos os usuários em um locatário tem esta aparência:
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -183,7 +180,7 @@ Para ver essa solicitação, execute:
 
 Há dois aspectos importantes a serem observados:
 
-- O token de acesso adquirido pela ADAL foi adicionado ao `Authorization` cabeçalho usando o esquema `Bearer`.
+- O token de acesso adquirido pela ADAL foi adicionado ao cabeçalho `Authorization` usando o esquema `Bearer`.
 - Para locatários B2C, você deve usar o parâmetro de consulta `api-version=1.6`.
 
 Ambos esses detalhes são tratados no `B2CGraphClient.SendGraphGetRequest(...)` método:
@@ -211,7 +208,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ### Criar contas de usuário consumidor
 
-Ao criar contas de usuário em seu locatário B2C, é possível enviar uma solicitação HTTP `POST` para o ponto de extremidade `/users`:
+Ao criar contas de usuário no locatário B2C, você pode enviar uma solicitação HTTP `POST` para o ponto de extremidade `/users`:
 
 ```
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -251,14 +248,14 @@ Para ver a solicitação, execute um dos seguintes comandos:
 
 O comando `Create-User` usa um arquivo .json como parâmetro de entrada. Ele contém uma representação JSON de um objeto de usuário. Existem dois arquivos .json de exemplo no código de exemplo: `usertemplate-email.json` e `usertemplate-username.json`. Você pode modificar esses arquivos para atender às suas necessidades. Além dos campos necessários acima, há vários campos opcionais incluídos nesses arquivos que você pode usar. Detalhes sobre os campos opcionais podem ser encontrados na [Referência de entidade da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity).
 
-É possível ver como a solicitação POST é construída em `B2CGraphClient.SendGraphPostRequest(...)`.
+Você pode ver como a solicitação POST é construída em `B2CGraphClient.SendGraphPostRequest(...)`.
 
 - Ela anexa um token de acesso ao cabeçalho `Authorization` da solicitação.
 - Ela define `api-version=1.6`.
 - Ela inclui o objeto de usuário JSON no corpo da solicitação.
 
 > [AZURE.NOTE]
-Se as contas que deseja migrar de um repositório do usuário existente tiverem uma força da senha menor que a [força da senha forte imposta pelo Azure AD B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), será possível desabilitar o requisito de senha forte usando o valor `DisableStrongPassword` na propriedade `passwordPolicies`. Por exemplo, é possível modificar a solicitação de criação de usuário fornecida acima da seguinte maneira: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+Se as contas que deseja migrar de um repositório do usuário existente tiverem um nível de segurança de senha menor do que o [nível de segurança de senha forte imposto pelo Azure AD B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), você poderá desabilitar o requisito de senha forte usando o valor `DisableStrongPassword` na propriedade `passwordPolicies`. Por exemplo, você pode modificar a solicitação de criação de usuário fornecida acima da seguinte maneira: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 
 ### Atualizar contas de usuário consumidor
 
@@ -275,7 +272,7 @@ Content-Length: 37
 }
 ```
 
-Tente atualizar um usuário atualizando os arquivos JSON com novos dados. Em seguida, é possível usar o `B2CGraphClient` para executar um destes comandos:
+Tente atualizar um usuário atualizando os arquivos JSON com novos dados. Você pode então usar o `B2CGraphClient` para executar um destes comandos:
 
 ```
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
@@ -319,15 +316,15 @@ Para ver um exemplo, insira esse comando e exiba a solicitação Delete exclusã
 
 Inspecione o `B2CGraphClient.SendGraphDeleteRequest(...)` método para obter detalhes sobre como enviar esta solicitação.
 
-Você pode executar outras ações com a API do Graph do Azure AD além do gerenciamento de usuários. A [Referência da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) fornece detalhes de cada ação, junto com solicitações de amostra.
+Você pode executar outras ações com a API do Graph do Azure AD além do gerenciamento de usuários. A [Referência da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) fornece detalhes de cada ação, bem como solicitações de exemplo.
 
 ## Usar atributos personalizados
 
 Quase todos os aplicativos consumidores precisam armazenar algum tipo de informação de perfil de usuário personalizada. Uma maneira de fazer isso é definir um atributo personalizado em seu locatário B2C. Em seguida, você pode tratar esse atributo da mesma maneira que trata qualquer outra propriedade em um objeto de usuário. Você pode atualizar, excluir ou consultar o atributo, enviá-lo como uma declaração de entrada em tokens e assim por diante.
 
-Para definir um atributo personalizado em seu locatário B2C, veja a [Referência de atributo personalizado da visualização do B2C](active-directory-b2c-reference-custom-attr.md).
+Para definir um atributo personalizado no locatário B2C, veja a [Referência de atributo personalizado da visualização do B2C](active-directory-b2c-reference-custom-attr.md).
 
-É possível exibir os atributos personalizados definidos no locatário B2C usando `B2CGraphClient`:
+Você pode exibir os atributos personalizados definidos no locatário B2C usando `B2CGraphClient`:
 
 ```
 > B2C Get-B2C-Application
@@ -352,13 +349,13 @@ A saída dessas funções revela os detalhes de cada atributo personalizado, com
 }
 ```
 
-É possível usar o nome completo, como `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, como uma propriedade nos objetos de usuário. Atualize seu arquivo .json com a nova propriedade e um valor para a propriedade e execute:
+Você pode usar o nome completo, como `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, como uma propriedade nos objetos de usuário. Atualize seu arquivo .json com a nova propriedade e um valor para a propriedade e execute:
 
 ```
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-Ao usar `B2CGraphClient`, você terá um aplicativo de serviço que pode gerenciar os usuários de locatário B2C de forma programática. O `B2CGraphClient` usa sua própria identidade de aplicativo para se autenticar na API do Graph do Azure AD. Ele também adquire tokens usando um segredo do cliente. Ao incorporar essa funcionalidade a seu aplicativo, lembre-se de alguns pontos importantes para aplicativos B2C:
+Usando `B2CGraphClient`, você terá um aplicativo de serviço que pode gerenciar os usuários de locatário B2C de forma programática. O `B2CGraphClient` usa sua própria identidade de aplicativo para se autenticar na API do Graph do Azure AD. Ele também adquire tokens usando um segredo do cliente. Ao incorporar essa funcionalidade a seu aplicativo, lembre-se de alguns pontos importantes para aplicativos B2C:
 
 - Você precisa conceder ao aplicativo as permissões apropriadas no locatário.
 - Por enquanto, você precisa usar a versão 2 da ADAL para obter tokens de acesso. (Você também pode enviar mensagens de protocolo diretamente, sem usar uma biblioteca.)
@@ -367,4 +364,4 @@ Ao usar `B2CGraphClient`, você terá um aplicativo de serviço que pode gerenci
 
 Se você tiver perguntas ou solicitações de ações que deseja executar usando a API do Graph em seu locatário B2C, deixe um comentário sobre este artigo ou apresente um problema no repositório de código de exemplo do GitHub.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0601_2016-->

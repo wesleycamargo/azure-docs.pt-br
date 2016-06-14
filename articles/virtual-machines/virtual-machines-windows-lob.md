@@ -19,8 +19,6 @@
 
 # Carga de trabalho dos Serviços de Infraestrutura do Azure: aplicativo de linha de negócios de alta disponibilidade
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implantação clássico.
-
 Configure seu primeiro ou próximo aplicativo de linha de negócios baseado na Web e somente para intranet no Microsoft Azure e aproveite a facilidade de configuração e a capacidade de expandir rapidamente o aplicativo para incluir novas capacidades.
  
 Com os recursos de Máquinas Virtuais e Rede Virtual dos serviços de infraestrutura do Azure, você pode rapidamente implantar e executar um aplicativo de linha de negócios que seja acessível pelos usuários de sua organização. Por exemplo, você pode configurar o seguinte.
@@ -39,7 +37,7 @@ Uma rede virtual entre locais é conectada a uma rede local com uma conexão VPN
 
 ![](./media/virtual-machines-windows-lob/CreateLOBAppHybridCloud_3.png)
  
-Você pode criar este ambiente de teste/desenvolvimento gratuitamente com sua [assinatura do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou com uma assinatura do Azure.
+É possível criar este ambiente de teste/desenvolvimento gratuitamente com sua [assinatura do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ou com uma assinatura do Azure.
 
 Sua próxima etapa é criar um aplicativo de linha de negócios de alta disponibilidade no Azure.
 
@@ -85,4 +83,4 @@ Uma vez configurado, você pode expandir facilmente esse aplicativo de linha de 
 
 - Obtenha uma [visão geral](virtual-machines-windows-lob-overview.md) da carga de trabalho de produção antes começar a configuração.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0601_2016-->
